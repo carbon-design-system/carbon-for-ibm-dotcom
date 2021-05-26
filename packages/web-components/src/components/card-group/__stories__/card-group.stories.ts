@@ -17,7 +17,7 @@ import '../../cta/card-cta-footer';
 import '../../cta/video-cta-container';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
-import { select, number } from '@storybook/addon-knobs';
+import { select, number, boolean } from '@storybook/addon-knobs';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 // eslint-disable-next-line sort-imports
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
@@ -99,7 +99,7 @@ const cardGroupItemWithCTAs = html`
 export const Default = ({ parameters }) => {
   const { cards, optionalBorder } = parameters?.props?.CardGroup ?? {};
   return html`
-    <dds-card-group grid-mode="${ifNonNull(optionalBorder)}"> ${longHeadingCardGroupItem} ${cards}</dds-card-group>
+    <dds-card-group grid-mode=${optionalBorder ? 'border' : null}> ${longHeadingCardGroupItem} ${cards}</dds-card-group>
   `;
 };
 
@@ -170,11 +170,6 @@ export const withCardInCard = ({ parameters }) => {
       ${cards}
     </dds-card-group>
   `;
-};
-
-const defaultGridModes = {
-  [`None`]: null,
-  [`Border (1px)`]: GRID_MODE.BORDER,
 };
 
 const gridModes = {
@@ -278,8 +273,10 @@ export default {
       CardGroup: ({ groupId }) => ({
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
-        }).map(() => cardsDiffLengthPhrase()),
-        optionalBorder: select('Optional border:', defaultGridModes, null, groupId),
+        })
+          .slice(0, -1)
+          .map(() => cardsDiffLengthPhrase()),
+        optionalBorder: boolean('Outlined cards:', false, groupId),
       }),
     },
     decorators: [

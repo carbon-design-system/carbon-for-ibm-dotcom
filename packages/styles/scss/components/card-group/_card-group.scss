@@ -168,7 +168,9 @@
     }
 
     ::slotted(#{$dds-prefix}-card-group-item) {
-      border-right: 1px solid $ui-03;
+      padding: 0;
+      border: 1px solid $ui-03;
+      border-bottom: 0;
     }
 
     ::slotted(#{$dds-prefix}-card-group-item:last-of-type) {
@@ -177,54 +179,47 @@
 
     @include carbon--breakpoint('md') {
       ::slotted(#{$dds-prefix}-card-group-item) {
-        border: 0;
+        border-bottom: 0;
+        border-right: 0;
       }
 
-      ::slotted(#{$dds-prefix}-card-group-item:nth-child(2n)) {
+      ::slotted(#{$dds-prefix}-card-group-item:nth-child(2n)),
+      ::slotted(#{$dds-prefix}-card-group-item:last-of-type) {
         border-right: 1px solid $ui-03;
+      }
+
+      ::slotted(#{$dds-prefix}-card-group-item:last-of-type:not(:nth-child(2n))) {
+        width: calc(100% + 1px);
       }
 
       ::slotted(#{$dds-prefix}-card-group-item:nth-last-of-type(-n + 2)) {
         border-bottom: 1px solid $ui-03;
         height: calc(100% + 1px);
-      }
-
-      ::slotted(#{$dds-prefix}-card-group-item:last-of-type:not(:nth-child(-n
-              + 2))) {
-        border-right: 1px solid $ui-03;
       }
     }
 
     @include carbon--breakpoint('lg') {
       ::slotted(#{$dds-prefix}-card-group-item:nth-child(2n)),
       ::slotted(#{$dds-prefix}-card-group-item:nth-last-of-type(-n + 2)) {
-        border: 0;
+        border-bottom: 0;
+        border-right: 0;
+        height: auto;
       }
 
-      ::slotted(#{$dds-prefix}-card-group-item:last-of-type:not(:nth-child(-n
-              + 2))) {
-        width: auto;
-      }
-
-      ::slotted(#{$dds-prefix}-card-group-item:last-of-type),
-      ::slotted(#{$dds-prefix}-card-group-item:nth-child(3n)) {
+      ::slotted(#{$dds-prefix}-card-group-item:nth-child(3n)),
+      ::slotted(#{$dds-prefix}-card-group-item:last-of-type) {
         border-right: 1px solid $ui-03;
-      }
-
-      ::slotted(#{$dds-prefix}-card-group-item:nth-child(3n)) {
-        padding-right: 0;
       }
 
       ::slotted(#{$dds-prefix}-card-group-item:nth-last-of-type(-n + 3)) {
         border-bottom: 1px solid $ui-03;
         height: calc(100% + 1px);
       }
-    }
-  }
 
-  :host(#{$dds-prefix}-card-group-item)[color-scheme='inverse'] {
-    border-right: none;
-    border-bottom: none;
+      ::slotted(#{$dds-prefix}-card-group-item:last-of-type:not(:nth-child(3n))) {
+        width: calc(100% + 1px);
+      }
+    }
   }
 
   .#{$prefix}--card-group__cards__col .#{$prefix}--card-group__card {
