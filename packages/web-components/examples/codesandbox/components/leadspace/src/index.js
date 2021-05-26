@@ -7,5 +7,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 
- import '@carbon/ibmdotcom-web-components/es/components/leadspace/index.js';
- import './index.scss';
+import '@carbon/ibmdotcom-web-components/es/components/leadspace/index.js';
+import './index.scss';

@@ -8,4 +8,4 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/pictogram-item/index.js';
-import './index.scss'
+import './index.scss';
