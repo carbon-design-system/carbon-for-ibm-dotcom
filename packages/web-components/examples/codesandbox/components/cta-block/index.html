@@ -8,72 +8,68 @@ LICENSE file in the root directory of this source tree.
 -->
 
 <html>
+  <head>
+    <title>@carbon/ibmdotcom-web-components example</title>
+    <meta charset="UTF-8" />
+    <style type="text/css">
+      /* Avoids FOUC - Will be overriden by `index.scss` */
+      body {
+        visibility: hidden;
+      }
+    </style>
+    <script type="module" src="src/index.js"></script>
+  </head>
 
-<head>
-  <title>@carbon/ibmdotcom-web-components example</title>
-  <meta charset="UTF-8" />
-  <script type="module" src="src/index.js"></script>
-  <style type="text/css">
-    /* Avoids FOUC - Will be overriden by `index.scss` */
-    body {
-      visibility: hidden;
-    }
+  <body>
+    <div class="bx--grid">
+      <div class="bx--row">
+        <div class="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4">
+          <dds-cta-block no-border>
+            <dds-content-block-heading>Take the next step</dds-content-block-heading>
+            <dds-content-block-copy
+              >Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your
+              needs.</dds-content-block-copy
+            >
 
-  </style>
-</head>
+            <dds-button-group slot="action" style="--dds-button-group--item-count:2">
+              <dds-button-group-item kind="tertiary" href="https://example.com">
+                Secondary Button
+              </dds-button-group-item>
+              <dds-button-group-item kind="primary" ref="https://example.com">
+                Primary button
+              </dds-button-group-item>
+            </dds-button-group>
 
-<body>
-  <div class="bx--grid">
-    <div class="bx--row">"Lorem ipsum *dolor* sit amet"
-      <div class="bx--col-sm-4 bx-col-lg-12 bx--offset-lg-4">
-        <dds-cta-block no-border>
-          <dds-content-block-heading>DDS Content Block Heading
-          </dds-content-block-heading>
-          <dds-content-block-copy>DDS Content Block Copy
-          </dds-content-block-copy>
+            <dds-cta-block-item-row>
+              <dds-cta-block-item>
+                <dds-content-item-heading>Get connected</dds-content-item-heading>
+                <dds-content-item-copy
+                  >IBM DevOps partners have a wide range of expertise. Find one to build that right solution for you.
+                </dds-content-item-copy>
+                <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com"
+                  >Find a partner
+                </dds-text-cta>
+              </dds-cta-block-item>
 
-          <dds-button-group slot="action">
-            <dds-button-group-item href="https://example.com">
-              Secondary Button
-            </dds-button-group-item>
-            <dds-button-group-item ref="https://example.com">
-              Primary button
-            </dds-button-group-item>
-          </dds-button-group>
+              <dds-cta-block-item>
+                <dds-content-item-heading>Learn how</dds-content-item-heading>
+                <dds-content-item-copy>Dig into more self-directed larning about DevOps methodologies.</dds-content-item-copy>
+                <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com"
+                  >Browse tutorials
+                </dds-text-cta>
+              </dds-cta-block-item>
 
-          <dds-cta-block-item-row>
-            <dds-cta-block-item>
-              <dds-content-item-heading>Get connected</dds-content-item-heading>
-              <dds-content-item-copy>IBM DevOps partners have a wide range of
-                expertise. Find one to build that right solution for you.
-              </dds-content-item-copy>
-              <dds-text-cta slot="footer" cta-type="local"
-                icon-placement="right" href="example.com">Find a partner
-              </dds-text-cta>
-            </dds-cta-block-item>
-
-            <dds-cta-block-item>
-              <dds-content-item-heading>Learn how</dds-content-item-heading>
-              <dds-content-item-copy>Dig into more self-directed larning about
-                DevOps methodologies.</dds-content-item-copy>
-              <dds-text-cta slot="footer" cta-type="local"
-                icon-placement="right" href="example.com">Browse tutorials
-              </dds-text-cta>
-            </dds-cta-block-item>
-
-            <dds-cta-block-item>
-              <dds-content-item-heading>Learn how</dds-content-item-heading>
-              <dds-content-item-copy>Dig into more self-directed larning about
-                DevOps methodologies.</dds-content-item-copy>
-              <dds-text-cta slot="footer" cta-type="local"
-                icon-placement="right" href="example.com">Browse tutorials
-              </dds-text-cta>
-            </dds-cta-block-item>
-          </dds-cta-block-item-row>
-        </dds-cta-block>
+              <dds-cta-block-item>
+                <dds-content-item-heading>Learn how</dds-content-item-heading>
+                <dds-content-item-copy>Dig into more self-directed larning about DevOps methodologies.</dds-content-item-copy>
+                <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com"
+                  >Browse tutorials
+                </dds-text-cta>
+              </dds-cta-block-item>
+            </dds-cta-block-item-row>
+          </dds-cta-block>
+        </div>
       </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>

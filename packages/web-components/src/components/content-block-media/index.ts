@@ -7,10 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import '../content-block/index';
 import './content-block-media';
 import './content-block-media-content';
 import '../content-item/index';
-import '../content-block/content-block-heading';
-import '../content-block/content-block-copy';
 import '../content-group/content-group-heading';
 import '../card-link/index';

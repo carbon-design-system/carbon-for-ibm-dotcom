@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import '../content-block/index';
 import './content-group-simple';
 import '../content-group/content-group-copy';
 import '../content-group/content-group-heading';
@@ -14,5 +15,6 @@ import '../content-item/content-item';
 import '../content-item/content-item-heading';
 import '../content-item/content-item-copy';
 import '../cta/card-cta';
+import '../cta/card-cta-footer';
 import '../cta/video-cta-container';
 import '../image-with-caption/image-with-caption';

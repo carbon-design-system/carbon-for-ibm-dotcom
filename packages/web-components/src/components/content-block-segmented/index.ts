@@ -7,13 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import '../content-block/index';
 import './content-block-segmented';
 import './content-block-segmented-item';
-import '../content-block/content-block-heading';
-import '../content-block/content-block-complementary';
-import '../content-block/content-block-copy';
 import '../content-group/content-group-heading';
 import '../content-item/content-item-copy';
 import '../cta/card-cta';
 import '../cta/text-cta';
+import '../cta/card-cta-footer';
+import '../image/image';
 import '../image-with-caption/image-with-caption';

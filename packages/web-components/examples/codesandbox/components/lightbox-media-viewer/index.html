@@ -15,17 +15,16 @@ LICENSE file in the root directory of this source tree.
       body {
         font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
       }
-
-      #app {
-        width: 300px;
-      }
     </style>
     <script src="src/index.js"></script>
   </head>
   <body>
-    <h1>Hello World! 👋</h1>
     <div id="app">
-      <dds-lightbox-video-player-container id="my-video" video-id="1_9h94wo6b"> </dds-lightbox-video-player-container>
+      <dds-button-expressive id="open-modal-btn">Open modal</dds-button-expressive>
     </div>
+    <dds-expressive-modal id="lightbox" size="full-width">
+      <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
+      <dds-lightbox-video-player id="video-player"> </dds-lightbox-video-player>
+    </dds-expressive-modal>
   </body>
 </html>
