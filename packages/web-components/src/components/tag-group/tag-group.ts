@@ -44,7 +44,7 @@ class DDSTagGroup extends LitElement {
 
     // Handle color setting differently depending on Carbon WC or Carbon React
     carbonTags.forEach(elem => {
-      if (!(elem as HTMLElement).hasAttribute('type')) {
+      if (!(elem as HTMLElement).hasAttribute('type') || (elem as HTMLElement).getAttribute('type') === 'gray') {
         (elem as HTMLElement).setAttribute('type', 'green');
       }
     });
