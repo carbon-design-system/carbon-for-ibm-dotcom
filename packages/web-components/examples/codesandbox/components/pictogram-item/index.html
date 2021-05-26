@@ -6,84 +6,61 @@ LICENSE file in the root directory of this source tree.
 -->
 
 <html>
-<head>
-  <title>@carbon/ibmdotcom-web-components example</title>
-  <meta charset="UTF-8" />
-  <style type="text/css">
-    /* Minimum setting to use IBM Plex font */
-    @font-face {
-      font-weight: 400;
-      font-family: 'IBM Plex Sans';
-      font-style: normal;
-      src:
-        local('IBM Plex Sans'), local('IBMPlexSans'), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYXgKVElMYYaJe8bpLHnCwDKhdHeEw.woff) format('woff');
-      font-display: auto;
-    }
-
-    @font-face {
-      font-weight: 600;
-      font-family: 'IBM Plex Sans';
-      font-style: normal;
-      src: local('IBM Plex Sans SemiBold'), local('IBMPlexSans-SemiBold'), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjQ76AIFscg.woff) format('woff');
-      font-display: auto;
-    }
-
-    body {
-      /* From: https://github.com/carbon-design-system/carbon/blob/v10.22.0/packages/type/scss/_reset.scss#L31-L32 */
-      font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-      /* Carbon grid's minimum padding */
-      padding: 1rem;
-    }
-
-    /* Carbon grid's responsive padding */
-    @media (min-width: 42rem) {
-      body {
-        padding-right: 2rem;
-        padding-left: 2rem;
-      }
-    }
-
-    @media (min-width: 99rem) {
-      body {
-        padding-right: 2.5rem;
-        padding-left: 2.5rem;
-      }
-    }
-  </style>
-  <script type="module" src="src/index.js"></script>
-</head>
-<body>
-  <h1>Hello World! 👋</h1>
-  <dds-pictogram-item>
-    <svg slot="pictogram" focusable="false" preserveAspectRatio="xMidYMid meet"
-      xmlns="http://www.w3.org/2000/svg"
-      stroke="currentColor"
-      data-autoid="dds--pictogram-item__pictogram"
-      aria-label="Pictogram description" width="48" height="48"
-      viewBox="0 0 48 48" role="img" class="bx--pictogram-item__pictogram">
-      <path fill="none" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".72"
-        d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30">
-      </path>
-    </svg>
-    <dds-content-item-heading>Lorem ipsum dolor sit</dds-content-item-heading>
-    <dds-content-item-copy>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</dds-content-item-copy>
-    <dds-link-with-icon slot="footer">
-      Lorem ipsum dolor
-      <svg
-        slot="icon"
-        focusable="false"
-        preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-      >
-        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-      </svg>
-    </dds-link-with-icon>
-  </dds-pictogram-item>
-</body>
+  <head>
+    <title>@carbon/ibmdotcom-web-components example</title>
+    <meta charset="UTF-8" />
+    <script type="module" src="src/index.js"></script>
+  </head>
+  <body>
+    <div class="bx--grid">
+      <div class="bx--row">
+        <div class="bx--col-sm-8 bx--col-lg-12 bx--offset-lg-3">
+          <dds-pictogram-item>
+            <svg
+              slot="pictogram"
+              focusable="false"
+              preserveAspectRatio="xMidYMid meet"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="currentColor"
+              data-autoid="dds--pictogram-item__pictogram"
+              aria-label="Pictogram description"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+              role="img"
+              class="bx--pictogram-item__pictogram"
+            >
+              <path
+                fill="none"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width=".72"
+                d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
+              ></path>
+            </svg>
+            <dds-content-item-heading>Lorem ipsum dolor sit</dds-content-item-heading>
+            <dds-content-item-copy
+              >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+              aliqua. Ut enim ad minim veniam</dds-content-item-copy
+            >
+            <dds-link-with-icon slot="footer">
+              Lorem ipsum dolor
+              <svg
+                slot="icon"
+                focusable="false"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+              >
+                <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+              </svg>
+            </dds-link-with-icon>
+          </dds-pictogram-item>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
