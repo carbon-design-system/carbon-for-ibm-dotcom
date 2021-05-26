@@ -386,7 +386,6 @@
     }
 
     .#{$prefix}--side-nav__submenu-title {
-      @include use-carbon-productive-tokens();
       @include carbon--type-style(body-short-02);
 
       color: $text-02;
