@@ -7,6 +7,7 @@
 
 @import '../../globals/vars';
 @import '../../globals/imports';
+@import '../../globals/utils/hang';
 @import '../layout/layout';
 
 $hover-transition-timing: 95ms;
@@ -80,8 +81,9 @@ $hover-transition-timing: 95ms;
 
     .#{$prefix}--hr {
       margin-top: $layout-02;
-      margin-left: $spacing-05;
       margin-bottom: 0;
+
+      @include hang;
     }
 
     @include themed-items;
@@ -146,6 +148,10 @@ $hover-transition-timing: 95ms;
     right: 0;
     pointer-events: none;
     cursor: pointer;
+  }
+
+  .#{$prefix}--tableofcontents__mobile__select__option {
+    @include carbon--theme($carbon--theme--white, true);
   }
 
   .#{$prefix}--tableofcontents__desktop {

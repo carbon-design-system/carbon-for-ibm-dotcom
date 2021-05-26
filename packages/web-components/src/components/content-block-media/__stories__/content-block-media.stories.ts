@@ -7,16 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '../content-block-media';
-import '../../content-block/content-block-heading';
-import '../../content-block/content-block-copy';
-import '../../content-group/content-group-heading';
-import '../../content-item/content-item-heading';
-import '../../content-item/content-item-copy';
-import '../../content-item/content-item';
-import '../content-block-media-content';
+import '../index';
 import '../../card/card-heading';
-import '../../card-link/card-link';
 import '../../feature-card/feature-card';
 import '../../feature-card/feature-card-footer';
 import '../../link-list/link-list';

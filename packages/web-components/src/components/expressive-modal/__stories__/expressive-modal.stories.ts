@@ -16,11 +16,7 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../button/button';
 import { EXPRESSIVE_MODAL_SIZE } from '../expressive-modal';
-import '../expressive-modal-header';
-import '../expressive-modal-heading';
-import '../expressive-modal-close-button';
-import '../expressive-modal-body';
-import '../expressive-modal-footer';
+import '../index';
 import styles from './expressive-modal.stories.scss';
 import readme from './README.stories.mdx';
 
