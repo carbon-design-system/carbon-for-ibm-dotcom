@@ -123,7 +123,7 @@ module.exports = function setupKarma(config) {
                 options: {
                   plugins: () => [
                     require('autoprefixer')({
-                      browsers: ['last 1 version', 'ie >= 11'],
+                      overrideBrowsersList: ['last 1 version', 'ie >= 11'],
                     }),
                   ],
                 },
