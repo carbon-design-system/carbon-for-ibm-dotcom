@@ -361,6 +361,103 @@ MediumWithImage.story = {
           buttons,
           size: 'medium',
           image: images,
+          gradient: true,
+        };
+      },
+    },
+  },
+};
+
+export const Super = ({ parameters }) => (
+  <TallWithNoImage parameters={parameters} />
+);
+
+Super.story = {
+  name: 'Super',
+  parameters: {
+    knobs: {
+      LeadSpace: ({ groupId }) => {
+        const buttonCount = number('Number of buttons', 2, {}, groupId);
+        const buttons = [];
+
+        for (let i = 0; i < buttonCount; i++) {
+          buttons.push({
+            copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`, groupId),
+            renderIcon:
+              iconMap[
+                select(
+                  `Button Icon ${i + 1} (renderIcon)`,
+                  iconOptions,
+                  iconOptions.ArrowRight,
+                  groupId
+                )
+              ],
+            href: text(
+              `Button link (href)`,
+              'https://www.example.com',
+              groupId
+            ),
+          });
+        }
+
+        return {
+          title: text('title (title)', 'Lead space title', groupId),
+          copy: text(
+            'copy (copy)',
+            'Use this area for a short line of copy to support the title',
+            groupId
+          ),
+          buttons,
+          size: 'super',
+        };
+      },
+    },
+  },
+};
+
+export const SuperWithImage = ({ parameters }) => (
+  <TallWithNoImage parameters={parameters} />
+);
+
+SuperWithImage.story = {
+  name: 'Super with image',
+  parameters: {
+    knobs: {
+      LeadSpace: ({ groupId }) => {
+        const buttonCount = number('Number of buttons', 2, {}, groupId);
+        const buttons = [];
+
+        for (let i = 0; i < buttonCount; i++) {
+          buttons.push({
+            copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`, groupId),
+            renderIcon:
+              iconMap[
+                select(
+                  `Button Icon ${i + 1} (renderIcon)`,
+                  iconOptions,
+                  iconOptions.ArrowRight,
+                  groupId
+                )
+              ],
+            href: text(
+              `Button link (href)`,
+              'https://www.example.com',
+              groupId
+            ),
+          });
+        }
+
+        return {
+          title: text('title (title)', 'Lead space title', groupId),
+          copy: text(
+            'copy (copy)',
+            'Use this area for a short line of copy to support the title',
+            groupId
+          ),
+          buttons,
+          size: 'super',
+          gradient: true,
+          image: images,
         };
       },
     },
