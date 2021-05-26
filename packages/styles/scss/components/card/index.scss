@@ -133,7 +133,7 @@
       }
 
       ::slotted(#{$dds-prefix}-tag-group) {
-        margin-bottom: 1rem;
+        margin-bottom: $spacing-05;
       }
     }
     &[color-scheme='light'] {
@@ -141,6 +141,18 @@
       &:hover {
         .#{$prefix}--card__wrapper {
           background-color: $ui-02;
+        }
+      }
+
+      &[href] {
+        :hover {
+          .#{$prefix}--card__wrapper {
+            background-color: $hover-ui;
+          }
+        }
+        &:active,
+        a:active {
+          outline: none;
         }
       }
     }
