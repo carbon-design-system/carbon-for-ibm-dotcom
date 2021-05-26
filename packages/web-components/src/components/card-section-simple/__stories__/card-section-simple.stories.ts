@@ -12,12 +12,7 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../../content-section/content-section';
-import '../../content-section/content-section-heading';
-import '../../card/card-heading';
-import '../../card-group/card-group';
-import '../../card-group/card-group-item';
-import '../card-section-simple';
+import '../index';
 
 const defaultCardGroupItem = html`
   <dds-card-group-item href="https://example.com">

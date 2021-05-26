@@ -13,8 +13,7 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20.js';
 import Pdf20 from 'carbon-web-components/es/icons/PDF/20.js';
 import readme from './README.stories.mdx';
-import '../button-group';
-import '../button-group-item';
+import '../index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const iconMap = {

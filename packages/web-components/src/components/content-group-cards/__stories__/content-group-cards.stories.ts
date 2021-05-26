@@ -11,11 +11,7 @@ import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../content-group-cards';
-import '../content-group-cards-item';
-import '../../card/card-heading';
-import '../../content-group/content-group-copy';
-import '../../content-group/content-group-heading';
+import '../index';
 
 const card1 = html`
   <dds-content-group-cards-item href="https://www.example.com">
