@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/dotcom-shell-container';
+import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/dotcom-shell-container.js';
 import './index.scss';
 
 window.digitalData = {
