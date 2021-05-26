@@ -168,12 +168,19 @@ export const withLinkList = ({ parameters }) => {
 };
 
 withLinkList.story = {
+  name: 'With link list',
   parameters: {
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout--with-complementary',
     knobs: {
       ContentBlockSegmented: () => ({
         blockHeading: textNullable('Heading (required)', 'Lorem ipsum dolor sit amet.'),
         heading: textNullable('Link list heading (heading)', 'Tutorials'),
+        copy:
+          'Lorem ipsum dolor sit amet, consectetur ' +
+          'adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
+          'Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. ' +
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.' +
+          ' Mauris iaculis eget dolor nec hendrerit.',
         ctaStyle: select('CTA style (cta-style)', ctaStyles, null),
         ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
         totalLinks: select('Number of links', [2, 3, 4], 2),

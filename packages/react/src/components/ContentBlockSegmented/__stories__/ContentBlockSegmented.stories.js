@@ -204,7 +204,7 @@ export const WithLinkList = ({ parameters }) => {
 };
 
 WithLinkList.story = {
-  name: 'With aside elements',
+  name: 'With link list',
   parameters: {
     knobs: {
       ContentBlockSegmented: ({ groupId }) => {
