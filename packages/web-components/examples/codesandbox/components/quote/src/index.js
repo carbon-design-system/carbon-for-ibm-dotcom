@@ -8,3 +8,4 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/quote/index.js';
+import './index.scss';

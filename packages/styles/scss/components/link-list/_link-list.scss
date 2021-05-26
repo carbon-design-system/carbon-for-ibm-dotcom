@@ -42,6 +42,7 @@
       }
 
       .#{$prefix}--card__copy p,
+      .#{$prefix}--card__heading,
       .#{$prefix}--card__copy ::slotted(p) {
         color: $link-01;
         @include carbon--type-style('body-short-02');
