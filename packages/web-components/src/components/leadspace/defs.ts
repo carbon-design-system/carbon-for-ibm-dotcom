@@ -55,4 +55,9 @@ export enum LEADSPACE_SIZE {
    * Medium - medium size of the leadspace
    */
   MEDIUM = 'medium',
+
+  /**
+   * Super - super size of the leadspace
+   */
+  SUPER = 'super',
 }

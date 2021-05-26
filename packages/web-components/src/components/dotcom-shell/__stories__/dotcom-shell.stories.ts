@@ -866,6 +866,12 @@ export const WithHorizontalTOC = ({ parameters }) => {
 
 WithHorizontalTOC.story = {
   name: 'With ToC horizontal',
+  parameters: {
+    ...readme.parameters,
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export default {

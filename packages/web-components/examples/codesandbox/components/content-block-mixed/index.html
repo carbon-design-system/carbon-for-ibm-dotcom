@@ -22,77 +22,116 @@ LICENSE file in the root directory of this source tree.
   <body>
     <div class="bx--grid">
       <div class="bx--row">
-        <div class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
+        <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
           <dds-content-block-mixed>
             <dds-content-block-heading>Lorem ipsum dolor sit amet</dds-content-block-heading>
             <dds-content-block-copy>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-              Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
+              hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
             </dds-content-block-copy>
 
-            <dds-content-block-cards>
-              <dds-content-block-heading>Lorem ipsum dolor sit amet</dds-content-block-heading>
-              <dds-card-group slot="content">
-                <dds-card-group-item href="https://example.com">
-                  <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-                    Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-                  </p>
-                  <dds-card-cta-footer slot="footer">
-                    <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
-                      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-                    </svg>
-                  </dds-card-cta-footer>
-                </dds-card-group-item>
-
-                <dds-card-group-item href="https://example.com">
-                  <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-                    Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-                  </p>
-                  <dds-card-cta-footer slot="footer">
-                    <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
-                      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-                    </svg>
-                  </dds-card-cta-footer>
-                </dds-card-group-item>
-
-                <dds-card-group-item href="https://example.com">
-                  <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-                    Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-                  </p>
-                  <dds-card-cta-footer slot="footer">
-                    <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
-                      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-                    </svg>
-                  </dds-card-cta-footer>
-                </dds-card-group-item>
-              </dds-card-group>
-              <dds-card-cta slot="footer" cta-type="local" href="https://www.ibm.com">
-                <p>Lorem ipsum dolor sit ametttt</p>
-                <svg slot="footer" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
-                  <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-                </svg>
-              </dds-card-cta>
-            </dds-content-block-cards>
+            <dds-content-group-cards>
+              <dds-content-group-heading>Lorem ipsum dolor sit amet</dds-content-group-heading>
+              <dds-content-group-cards-item href="www.ibm.com">
+                <dds-card-heading>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                </dds-card-heading>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua.
+                </p>
+                <dds-card-footer icon-placement="left">
+                  <svg
+                    slot="icon"
+                    focusable="false"
+                    preserveAspectRatio="xMidYMid meet"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                  </svg>
+                </dds-card-footer>
+              </dds-content-group-cards-item>
+              <dds-content-group-cards-item href="www.ibm.com">
+                <dds-card-heading>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                </dds-card-heading>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua.
+                </p>
+                <dds-card-footer icon-placement="left">
+                  <svg
+                    slot="icon"
+                    focusable="false"
+                    preserveAspectRatio="xMidYMid meet"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                  </svg>
+                </dds-card-footer>
+              </dds-content-group-cards-item>
+            </dds-content-group-cards>
 
             <dds-content-group-pictograms>
               <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
-              <dds-content-block-copy size="sm">Lorem ipsum *dolor* sit amet</dds-content-block-copy>
+              <dds-content-block-copy size="sm"
+                >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
+                hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
+                sollicitudin, sodales nulla quis, consequat libero.</dds-content-block-copy
+              >
               <dds-pictogram-item>
-                <svg slot="pictogram"...>
-                  ...
+                <svg
+                  slot="pictogram"
+                  focusable="false"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke="currentColor"
+                  data-autoid="dds--pictogram-item__pictogram"
+                  aria-label="Pictogram description"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  role="img"
+                  class="bx--pictogram-item__pictogram"
+                >
+                  <path
+                    fill="none"
+                    stroke-linejoin="round"
+                    stroke-miterlimit="10"
+                    stroke-width=".72"
+                    d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,
+                  0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
+                  ></path>
                 </svg>
-                <dds-content-item-heading>Lorem ipsum dolor sit amet</dds-content-item-heading>
-                <dds-content-item-copy>Lorem ipsum dolor sit amet</dds-content-item-copy>
+                <dds-content-item-heading>Aliquam condimentum interdum</dds-content-item-heading>
+                <dds-content-item-copy
+                  >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis
+                  magna.</dds-content-item-copy
+                >
                 <dds-link-with-icon href="https://www.ibm.com/" slot="footer">
                   Link text
-                  <svg slot="icon" ...>
-                    ...
+                  <svg
+                    slot="icon"
+                    focusable="false"
+                    preserveAspectRatio="xMidYMid meet"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
                   </svg>
                 </dds-link-with-icon>
               </dds-pictogram-item>
@@ -100,26 +139,34 @@ LICENSE file in the root directory of this source tree.
 
             <dds-content-group-simple>
               <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
-              <dds-content-block-copy size="sm">Lorem ipsum *dolor* sit amet</dds-content-block-copy>
+              <dds-content-group-copy size="sm">
+                Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
+                hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
+                sollicitudin, sodales nulla quis, consequat libero.
+              </dds-content-group-copy>
               <dds-image-with-caption
                 slot="media"
                 alt="Image alt text"
                 default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
                 heading="Curabitur malesuada varius mi eu posuere"
               >
-                <dds-image-item media="(min-width: 672px)" srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
+                <dds-image-item
+                  media="(min-width: 672px)"
+                  srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
+                >
                 </dds-image-item>
-                <dds-image-item media="(min-width: 400px)" srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616">
+                <dds-image-item
+                  media="(min-width: 400px)"
+                  srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616"
+                >
                 </dds-image-item>
-                <dds-image-item media="(min-width: 320px)" srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616">
+                <dds-image-item
+                  media="(min-width: 320px)"
+                  srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616"
+                >
                 </dds-image-item>
               </dds-image-with-caption>
-              <dds-content-item copy="Lorem ipsum *dolor* sit amet">
-                <dds-content-item-heading>Lorem ipsum dolor sit amet.</dds-content-item-heading>
-              </dds-content-item>
-              <dds-content-item copy="Lorem ipsum *dolor* sit amet">
-                <dds-content-item-heading>Lorem ipsum dolor sit amet.</dds-content-item-heading>
-              </dds-content-item>
               <dds-card-cta slot="footer" href="https://www.ibm.com/" type="local">
                 Lorem ipsum dolor sit amet
                 <dds-card-cta-footer>
