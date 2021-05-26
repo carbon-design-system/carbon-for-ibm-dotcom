@@ -24,6 +24,12 @@ import styles from './masthead.scss';
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+declare global {
+  interface ElementEventMap {
+    loadEnd: Event;
+  }
+}
+
 /**
  * The search UI in the masthead.
  *

@@ -23,6 +23,12 @@ import styles from './masthead.scss';
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+declare global {
+  interface ElementEventMap {
+    loadEnd: Event;
+  }
+}
+
 /**
  * @param a An array.
  * @param predicate The callback function.

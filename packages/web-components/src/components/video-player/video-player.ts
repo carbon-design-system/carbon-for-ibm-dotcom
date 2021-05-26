@@ -28,6 +28,12 @@ export { VIDEO_PLAYER_PLAYING_MODE };
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+declare global {
+  interface ElementEventMap {
+    loadEnd: Event;
+  }
+}
+
 /**
  * Video player.
  *

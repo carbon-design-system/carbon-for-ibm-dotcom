@@ -24,6 +24,12 @@ import styles from './lightbox-video-player-composite.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+declare global {
+  interface ElementEventMap {
+    loadEnd: Event;
+  }
+}
+
 /**
  * Component that renders lightbox media viewer for video from its metadata, etc.
  *

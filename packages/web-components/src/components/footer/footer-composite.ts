@@ -43,6 +43,12 @@ import 'carbon-web-components/es/components/select/select-item';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+declare global {
+  interface ElementEventMap {
+    loadEnd: Event;
+  }
+}
+
 /**
  * Component that rendres footer from inks data.
  *

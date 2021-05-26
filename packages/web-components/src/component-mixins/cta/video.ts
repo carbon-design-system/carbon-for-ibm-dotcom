@@ -18,6 +18,12 @@ import { CTA_TYPE } from '../../components/cta/defs';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+declare global {
+  interface ElementEventMap {
+    loadEnd: Event;
+  }
+}
+
 /**
  * Icons to use, keyed by CTA type.
  */

@@ -24,6 +24,12 @@ import './video-player';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+declare global {
+  interface ElementEventMap {
+    loadEnd: Event;
+  }
+}
+
 /**
  * Component that renders video player from its metadata, etc.
  *

@@ -20,6 +20,12 @@ import styles from './masthead.scss';
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+declare global {
+  interface ElementEventMap {
+    loadEnd: Event;
+  }
+}
+
 /**
  * The IBM logo UI in masthead.
  *

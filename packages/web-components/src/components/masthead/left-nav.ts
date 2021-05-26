@@ -25,6 +25,12 @@ import DDSLeftNavMenu from './left-nav-menu';
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+declare global {
+  interface ElementEventMap {
+    loadEnd: Event;
+  }
+}
+
 // eslint-disable-next-line no-bitwise
 const PRECEDING = Node.DOCUMENT_POSITION_PRECEDING | Node.DOCUMENT_POSITION_CONTAINS;
 // eslint-disable-next-line no-bitwise

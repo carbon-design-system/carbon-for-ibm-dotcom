@@ -21,6 +21,12 @@ import styles from './masthead.scss';
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+declare global {
+  interface ElementEventMap {
+    loadEnd: Event;
+  }
+}
+
 /**
  * Toggle button for masthead left nav.
  *

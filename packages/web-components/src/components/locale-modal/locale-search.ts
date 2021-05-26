@@ -20,6 +20,12 @@ import styles from './locale-modal.scss';
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+declare global {
+  interface ElementEventMap {
+    loadEnd: Event;
+  }
+}
+
 /**
  * @param target The strings to find the given `searchText` within.
  * @param searchText The search string.
