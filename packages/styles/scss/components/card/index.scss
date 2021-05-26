@@ -66,6 +66,7 @@
       margin-bottom: $carbon--spacing-07;
     }
 
+    &:active,
     &:focus-within {
       outline: 2px solid $focus;
       outline-offset: -2px;
@@ -151,10 +152,6 @@
           .#{$prefix}--card__wrapper {
             background-color: $hover-ui;
           }
-        }
-        &:active,
-        a:active {
-          outline: none;
         }
       }
     }
