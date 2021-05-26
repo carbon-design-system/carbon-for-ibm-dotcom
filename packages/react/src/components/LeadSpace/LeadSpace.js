@@ -64,7 +64,16 @@ function imageClassname(type, image) {
  * @param {string} props.type type of lead space
  * @returns {*} Lead space component
  */
-const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
+const LeadSpace = ({
+  buttons,
+  copy,
+  gradient,
+  image,
+  theme,
+  title,
+  type,
+  size = 'tall',
+}) => {
   const background = image && {
     backgroundImage: `url(${image.defaultSrc})`,
   };
@@ -85,8 +94,14 @@ const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
     <div
       data-autoid={`${stablePrefix}--leadspace`}
       className={`${prefix}--leadspace`}>
-      <section style={background} className={classNames(type, image, theme)}>
-        <div className={`${prefix}--leadspace__container`}>
+      <section className={classNames(type, image, theme)}>
+        <div
+          style={background}
+          className={classnames({
+            [`${prefix}--leadspace__container`]: size === 'tall',
+            [`${prefix}--leadspace__container--medium`]: size === 'medium',
+            [`${prefix}--leadspace__container--super`]: size === 'super',
+          })}>
           <div
             className={classnames(`${prefix}--leadspace__overlay`, {
               [`${prefix}--leadspace--gradient`]: gradient,
@@ -183,6 +198,14 @@ LeadSpace.propTypes = {
    * | `centered`        | String    | Centered type of the LeadSpace                      |
    */
   type: PropTypes.oneOf(['default', 'left', 'centered']),
+  /**
+   * | Name         | Data Type | Description                           |
+   * |--------------|-----------|---------------------------------------|
+   * | `tall`/empty | String/-- | Default - tall size of the leadspace  |
+   * | `medium`     | String    | Medium - medium size of the leadspace |
+   * | `super`      | String    | Super - super size of the leadspace   |
+   */
+  size: PropTypes.oneOf(['tall', 'medium', 'super']),
 };
 
 export default LeadSpace;
