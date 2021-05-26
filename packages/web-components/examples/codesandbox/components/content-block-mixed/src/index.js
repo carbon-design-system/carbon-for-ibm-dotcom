@@ -10,8 +10,8 @@
 import '@carbon/ibmdotcom-web-components/es/components/content-block-mixed/index.js';
 
 // add optional content blocks/groups
-import '@carbon/ibmdotcom-web-components/content-group-cards/index.js';
-import '@carbon/ibmdotcom-web-components/content-group-pictograms/index.js';
-import '@carbon/ibmdotcom-web-components/content-group-simple/index.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-group-cards/index.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-group-pictograms/index.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-group-simple/index.js';
 
 import './index.scss';

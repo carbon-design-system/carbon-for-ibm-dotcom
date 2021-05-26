@@ -9,4 +9,5 @@
 
 import './card-group';
 import './card-group-item';
-import '../card/card-footer';
+import '../card/index';
+import '../card-section-images/card-section-images';
