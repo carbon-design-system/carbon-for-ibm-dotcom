@@ -123,7 +123,7 @@ $search-transition-timing: 95ms;
 
 /// @access private
 @mixin masthead-top-nav-link {
-  @include carbon--type-style(body-short-02);
+  @include carbon--type-style(body-short-02, true);
   $menu-item-padding: calc(#{$spacing-01} + #{$spacing-05});
 
   border: none;

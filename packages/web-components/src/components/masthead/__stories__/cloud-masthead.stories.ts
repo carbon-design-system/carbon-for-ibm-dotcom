@@ -67,7 +67,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
                 .navLinks="${navLinks}"
                 ?has-profile="${hasProfile}"
                 ?has-search="${hasSearch}"
-                data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead/jsononly"
+                data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"
               ></dds-cloud-masthead-container>
             `}
       `;
