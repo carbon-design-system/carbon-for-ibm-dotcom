@@ -155,8 +155,16 @@ class DDSCard extends StableSelectorMixin(BXLink) {
   }
 
   /**
+   * An optional 1px border surrounding the component.
+   */
+  @property({ type: Boolean, reflect: true })
+  border = false;
+
+  /**
    * The color scheme.
    * A typical use case of using another color scheme of card is having a "CTA" purpose of card at the last in card group.
+   *
+   * Color scheme options are: "inverse" and "light"
    */
   @property({ attribute: 'color-scheme', reflect: true })
   colorScheme = BASIC_COLOR_SCHEME.REGULAR;
@@ -176,7 +184,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
   createRenderRoot() {
     return this.attachShadow({
       mode: 'open',
-      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
+      delegatesFocus: false,
     });
   }
 

@@ -10,4 +10,7 @@
 import './content-block-headlines';
 import './content-block-headlines-heading';
 import './content-block-headlines-item';
+import '../content-block/content-block-copy';
+import '../content-block/content-block-heading';
 import '../content-item/content-item-copy';
+import '../cta/link-list-item-cta';

@@ -1,5 +1,0 @@
-{
-  "plugins": [
-    "snowpack-plugin-sass"
-  ]
-}

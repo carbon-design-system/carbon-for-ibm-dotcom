@@ -12,3 +12,5 @@ import './content-group-cards-item';
 import '../card/card-heading';
 import '../content-group/content-group-copy';
 import '../content-group/content-group-heading';
+import '../cta/card-cta';
+import '../cta/card-cta-footer';

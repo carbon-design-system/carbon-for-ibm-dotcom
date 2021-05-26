@@ -10,11 +10,10 @@
 import './cta-section';
 import '../button-group/index';
 import '../cta/button-cta';
+import '../cta/text-cta';
 import '../cta-block/cta-block';
 import '../cta-block/cta-block-item-row';
 import '../cta-block/cta-block-item';
-import '../content-item/content-item';
-import '../content-item/content-item-copy';
-import '../content-item/content-item-heading';
+import '../content-item/index';
 import '../content-block/content-block-heading';
 import '../content-block/content-block-copy';
