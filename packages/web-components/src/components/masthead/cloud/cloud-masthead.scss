@@ -8,6 +8,8 @@
 @import '../masthead.scss';
 @import '../../cta/cta.scss';
 
+// Cloud Masthead.
+
 :host(#{$dds-prefix}-cloud-masthead-global-bar) {
   @extend :host(#{$dds-prefix}-masthead-global-bar);
 
