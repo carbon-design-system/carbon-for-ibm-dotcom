@@ -7,9 +7,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal-eyebrow.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal-copy.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-group-horizontal/content-group-horizontal.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-group-horizontal/index.js';
 import './index.scss';

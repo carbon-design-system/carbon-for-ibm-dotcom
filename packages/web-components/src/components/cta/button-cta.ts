@@ -32,6 +32,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSButtonCTA extends VideoCTAMixin(CTAMixin(DDSButtonGroupItem)) {
   /**
    * The button that may work as a link.
+   *
    * @private
    */
   @query('[part="button"]')

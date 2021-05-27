@@ -10,6 +10,7 @@
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/components/link-list/index';
 @import '../../globals/scss/box-sizing';
+@import '../../../../styles/scss/globals/utils/hang';
 
 :host(#{$dds-prefix}-link-list-heading),
 :host(#{$dds-prefix}-link-list-item),
@@ -99,7 +100,7 @@
       margin-left: -$carbon--layout-01;
       --#{$dds-prefix}--link-list-item--anchor-padding: #{$carbon--spacing-05};
 
-      @include carbon--breakpoint('max') {
+      @include carbon--breakpoint('md') {
         margin-right: -$carbon--layout-01;
       }
     }
@@ -131,7 +132,8 @@
       ::slotted(#{$dds-prefix}-link-list-item) {
         display: block;
         margin-left: -$carbon--layout-01;
-        margin-right: 0;
+
+        @include hang;
       }
     }
   }
