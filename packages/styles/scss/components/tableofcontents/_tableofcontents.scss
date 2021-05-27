@@ -148,6 +148,10 @@ $hover-transition-timing: 95ms;
     cursor: pointer;
   }
 
+  .#{$prefix}--tableofcontents__mobile__select__option {
+    @include carbon--theme($carbon--theme--white, true);
+  }
+
   .#{$prefix}--tableofcontents__desktop {
     padding-top: $carbon--spacing-07;
     margin-top: $carbon--spacing-07;
