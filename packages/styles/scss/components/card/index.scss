@@ -36,6 +36,7 @@
       flex: 1;
       min-height: carbon--mini-units(20);
       justify-content: space-between;
+      transition: $duration--moderate-01 motion(standard, productive);
 
       @include ratio-base(2, 1, false);
     }
