@@ -238,7 +238,7 @@
     "through2": "^3.0.0",
     "ts-loader": "^6.0.0",
     "tsickle": "^0.37.0",
-    "typescript": "~3.8.0",
+    "typescript": "~3.9.0",
     "web-component-analyzer": "^1.0.0",
     "webpack": "^4.28.0"
   },
@@ -247,7 +247,7 @@
     "carbon-web-components": "1.13.3",
     "lit-element": "^2.3.0",
     "lit-html": "^1.2.0",
-    "typescript": "~3.8.0"
+    "typescript": "~3.9.0"
   },
   "prettier": {
     "jsxBracketSameLine": true,
