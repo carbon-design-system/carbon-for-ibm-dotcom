@@ -214,14 +214,16 @@ class DDSTableOfContents extends HostListenerMixin(LitElement) {
         if (event.shiftKey) {
           // 32 = total button width - grid offset
           if (
+            target.parentElement?.previousElementSibling &&
             target.parentElement?.previousElementSibling!.getBoundingClientRect().left <
-            this._navBar!.getBoundingClientRect().left + 32
+              this._navBar!.getBoundingClientRect().left + 32
           ) {
             this._paginateLeft();
           }
         } else if (
+          target.parentElement?.nextElementSibling &&
           target.parentElement?.nextElementSibling!.getBoundingClientRect().right >
-          this._navBar!.getBoundingClientRect().right - 32
+            this._navBar!.getBoundingClientRect().right - 32
         ) {
           this._paginateRight();
         }
