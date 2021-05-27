@@ -150,6 +150,16 @@ module: {
 
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/webpack-rtl)
 
+#### Process.env Error
+
+There are references to the `process.env` global variable in the our web-components package and dependencies. If a build toolchain (e.g. WebPack’s EnvironmentPlugin) to replace `process.env.*` is not used in your application, you can place the following code in the `polyfills.ts` file of your application.
+
+```javascript
+(window as any).process = {
+  env: { DEBUG: undefined },
+};
+```
+
 ### Dotcom Shell CDN Bundle
 
 For quick start, you can use our pre-built CDN bundle that contains the dotcom shell (masthead and footer). With it, you can use our components as easy as using HTML tags, just by loading the bundle:
