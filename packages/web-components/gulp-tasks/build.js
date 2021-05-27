@@ -65,7 +65,7 @@ const cssStream = ({ banner, dir }) =>
       postcss([
         fixHostPseudo(),
         autoprefixer({
-          browsers: [
+          overrideBrowsersList: [
             'last 1 version',
             'Firefox ESR',
             'not opera > 0',
