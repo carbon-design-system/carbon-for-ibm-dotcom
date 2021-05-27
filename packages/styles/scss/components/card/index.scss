@@ -11,6 +11,7 @@
 @import '../../globals/utils/ratio-base';
 @import 'carbon-components/scss/components/tile/tile';
 @import '../lightbox-media-viewer/lightbox-media-viewer';
+@import 'carbon-components/scss/components/tag/tag';
 
 @mixin card {
   .#{$prefix}--card,
@@ -30,6 +31,7 @@
     background-color: $ui-01;
     text-decoration: none;
     padding: 0;
+    transition: $duration--moderate-01 motion(standard, productive);
 
     .#{$prefix}--card__wrapper {
       display: flex;
@@ -108,6 +110,39 @@
     .#{$prefix}--card.#{$prefix}--tile {
       padding: 0;
     }
+
+    // styles the React wrapper version of Tag Group within Card
+    /* stylelint-disable-next-line selector-type-no-unknown */
+    dds-tag-group {
+      margin-bottom: $spacing-05;
+    }
+  }
+
+  .#{$prefix}--card--light {
+    background-color: $ui-02;
+  }
+
+  .#{$prefix}--card.#{$prefix}--card--static {
+    outline: none;
+
+    .#{$prefix}--card__footer {
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:active,
+      &:focus {
+        align-self: flex-start;
+        outline: auto;
+      }
+      &::after {
+        position: relative;
+      }
+    }
+  }
+
+  .#{$prefix}--card--border {
+    border: 1px solid $ui-03;
   }
 
   // static card

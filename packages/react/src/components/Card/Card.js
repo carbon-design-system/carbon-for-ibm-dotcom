@@ -8,12 +8,14 @@ import React, { useCallback, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import CTALogic from '../CTA/CTALogic';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
 import { Image } from '../Image';
 import Link from '../../internal/vendor/carbon-components-react/components/Link/Link';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml';
 import on from 'carbon-components/es/globals/js/misc/on';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
+import { Tag } from 'carbon-components-react';
 import { Tile } from '../../internal/vendor/carbon-components-react/components/Tile/Tile';
 
 const { stablePrefix } = ddsSettings;
@@ -23,10 +25,14 @@ const { prefix } = settings;
  * Card Link Component.
  */
 export const Card = ({
+  cardStatic,
+  light,
   inverse,
+  border,
   image,
   eyebrow,
   heading,
+  tags,
   customClassName,
   copy,
   cta,
@@ -66,8 +72,11 @@ export const Card = ({
       className={classNames(
         `${prefix}--card`,
         {
+          [`${prefix}--card--static`]: cardStatic,
+          [`${prefix}--card--light`]: light,
           [`${prefix}--card--inverse`]: inverse,
           [`${prefix}--card__CTA--disabled`]: props.disabled,
+          [`${prefix}--card--border`]: border,
         },
         customClassName
       )}
@@ -77,6 +86,7 @@ export const Card = ({
         <div className={`${prefix}--card__content`}>
           {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
           {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
+          {optionalTagGroup(tags)}
           {optionalContent(copy)}
           {renderFooter(cta, copy, heading, pictogram)}
         </div>
@@ -84,6 +94,27 @@ export const Card = ({
     </Tile>
   );
 };
+
+/**
+ * Card Link optional content
+ *
+ * @param {object} tags object containing copy and color
+ * @returns {object} JSX object
+ */
+function optionalTagGroup(tags) {
+  return !tags ? null : (
+    <DDSTagGroup>
+      {tags &&
+        tags.map(tag => {
+          return (
+            <Tag type={tag.color} {...tag}>
+              {tag.copy}
+            </Tag>
+          );
+        })}
+    </DDSTagGroup>
+  );
+}
 
 /**
  * Card Link optional content
@@ -202,9 +233,43 @@ export const cardPropTypes = {
   }),
 
   /**
-   * `true` to sets the high contrast for Card.
+   * Array of tag objects to render.
+   * Use the following for each items:
+   *
+   * | Name         | Data Type | Description                                                                                                                               |
+   * | ------------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+   * | `copy`       | String    | Button copy                                                                                                                               |
+   * | `color`      | String    | Provide a different color than the default (green) for [Carbon's tag component](https://www.carbondesignsystem.com/components/tag/usage/) |
+   *
+   * Visit the [Tag documentation](https://react.carbondesignsystem.com/?path=/story/components-tag--default)
+   * from Carbon for a full list of available props.
+   */
+  tags: PropTypes.arrayOf(
+    PropTypes.shape({
+      copy: PropTypes.string,
+      color: PropTypes.string,
+    })
+  ),
+
+  /**
+   * `true` to set a 1px solid border around Card.
+   */
+  border: PropTypes.bool,
+
+  /**
+   * `true` to set the Card static variation.
+   */
+  cardStatic: PropTypes.bool,
+
+  /**
+   * `true` to set the high contrast for Card.
    */
   inverse: PropTypes.bool,
+
+  /**
+   * `true` to set the light theme for Card.
+   */
+  light: PropTypes.bool,
 
   /**
    * Classname to be assigned to the Card component.
