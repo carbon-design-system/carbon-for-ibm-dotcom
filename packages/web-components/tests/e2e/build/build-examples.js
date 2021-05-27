@@ -130,6 +130,7 @@ function _setupPackages() {
         `cd ${_packages[pack]} && yarn pack --filename ${_localPackagesFolder}/carbon-ibmdotcom-${pack}.tar.gz`,
         `tar xzf ${_localPackagesFolder}/carbon-ibmdotcom-${pack}.tar.gz --directory ${_localPackagesFolder}`,
         `mv ${_localPackagesFolder}/package ${_localPackagesFolder}/ibmdotcom-${pack}`,
+        // eslint-disable-next-line max-len
         `node ${_testScriptFolder}/replace-dependencies.js -f "${_localPackagesFolder}" ${_localPackagesFolder}/ibmdotcom-${pack}/package.json`
       );
 
@@ -152,8 +153,16 @@ function _setupPackages() {
  * @private
  */
 function _buildExamples() {
+
+  log(chalk.yellow('Installing all examples...'));
+  execSync('yarn install', {
+    cwd: _exampleBuild,
+  });
+
   log(chalk.yellow('Building all examples...'));
-  execSync(`cd ${_exampleBuild} && yarn && yarn build`);
+  execSync('yarn build', {
+    cwd: _exampleBuild,
+  });
 
   log(chalk.yellow('Copying dist folders...'));
   _examples.forEach(example => {
@@ -208,8 +217,9 @@ function build() {
   _copyExamples();
 
   _examples.forEach(example => {
-    log(chalk.green(`Replacing dependencies for ${example}`));
+    log(chalk.green(`Replacing dependencies for ${example} and installing`));
     execSync(
+      // eslint-disable-next-line max-len
       `node ${_testScriptFolder}/replace-dependencies.js -f "${_localPackagesFolder}" ${_exampleBuild}/components/${example}/package.json`
     );
   });
