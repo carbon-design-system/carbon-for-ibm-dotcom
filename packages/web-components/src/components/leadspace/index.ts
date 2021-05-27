@@ -17,4 +17,3 @@ import '../button-group/button-group';
 import '../button-group/button-group-item';
 import '../tag-group/tag-group';
 import '../tag-link/tag-link';
-import 'carbon-web-components/es/components/overflow-menu/overflow-menu';
