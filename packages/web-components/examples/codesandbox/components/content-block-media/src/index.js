@@ -8,5 +8,5 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/content-block-media/index.js';
-import '@carbon/ibmdotcom-web-components/es/components/image-with-caption/index.js';
+import '@carbon/ibmdotcom-web-components/es/components/image-with-caption/image-with-caption.js';
 import './index.scss';
