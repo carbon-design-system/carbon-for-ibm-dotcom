@@ -59,10 +59,14 @@
 
     @include carbon--breakpoint-down(800px) {
       display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
     @include carbon--breakpoint('lg') {
       margin-left: $carbon--spacing-05;
+      position: relative;
     }
   }
 }
