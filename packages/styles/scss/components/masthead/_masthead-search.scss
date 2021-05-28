@@ -14,13 +14,16 @@
   color: $text-01;
   padding-left: $carbon--spacing-05;
   padding-right: $carbon--spacing-05;
-  margin-left: $carbon--spacing-05;
   border: solid 2px transparent;
   transition: $button-transition;
   position: relative;
   white-space: nowrap;
   z-index: 1;
   background-color: $ui-background;
+
+  @include carbon--breakpoint(lg) {
+    margin-left: $carbon--spacing-05;
+  }
 
   &:hover {
     background-color: $hover-ui;
