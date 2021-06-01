@@ -7,9 +7,10 @@
 
 @import '../../globals/vars';
 @import '../../globals/imports';
-@import '../../globals/utils/aspect-ratio';
 @import '../buttongroup/_buttongroup';
 @import '../image/image';
+@import '../tag-group/tag-group';
+@import 'carbon-web-components/scss/components/breadcrumb/breadcrumb';
 
 $btn-min-width: 26;
 
@@ -62,13 +63,9 @@ $btn-min-width: 26;
 
   ::slotted(#{$dds-prefix}-leadspace-heading),
   .#{$prefix}--leadspace__title,
+  .#{$prefix}--leadspace__desc--medium,
+  .#{$prefix}--leadspace__desc--super,
   .#{$prefix}--leadspace__desc {
-    color: $text-01;
-  }
-
-  .#{$prefix}--leadspace__desc--medium {
-    padding-top: $layout-04;
-    padding-bottom: $layout-01;
     color: $text-01;
   }
 
@@ -94,13 +91,15 @@ $btn-min-width: 26;
 }
 
 @mixin leadspace {
-  ::slotted([slot='buttons']),
+  ::slotted([slot='action']),
   .#{$prefix}--buttongroup {
     padding-top: $carbon--layout-01;
   }
 
   :host(#{$dds-prefix}-leadspace),
   .#{$prefix}--leadspace {
+    .#{$prefix}--leadspace--content__container--super,
+    .#{$prefix}--leadspace--content__container--medium,
     .#{$prefix}--leadspace--content__container {
       display: flex;
       flex-direction: column;
@@ -108,11 +107,8 @@ $btn-min-width: 26;
       height: 100%;
     }
 
-    .#{$prefix}--leadspace--content__container--medium {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
+    .#{$prefix}--leadspace__section {
+      height: rem(560px);
     }
 
     ::slotted(#{$dds-prefix}-image),
@@ -130,14 +126,11 @@ $btn-min-width: 26;
       height: 100%;
     }
 
-    .#{$prefix}--leadspace__container {
+    .#{$prefix}--leadspace__container,
+    .#{$prefix}--leadspace__container--medium,
+    .#{$prefix}--leadspace__container--super {
       position: relative;
       height: 100%;
-    }
-    .#{$prefix}--leadspace__container--medium {
-      background-color: $ui-01;
-      position: relative;
-      height: carbon--mini-units(60);
     }
 
     .#{$prefix}--leadspace__overlay {
@@ -162,14 +155,9 @@ $btn-min-width: 26;
       }
     }
 
+    .#{$prefix}--leadspace__desc--super,
+    .#{$prefix}--leadspace__desc--medium,
     .#{$prefix}--leadspace__desc {
-      z-index: 1;
-      @include carbon--make-col-ready;
-      @include carbon--type-style(expressive-heading-03, true);
-      @include carbon--make-col(4, 4);
-    }
-
-    .#{$prefix}--leadspace__desc--medium {
       z-index: 1;
       @include carbon--make-col-ready;
       @include carbon--type-style(expressive-heading-03, true);
@@ -178,6 +166,8 @@ $btn-min-width: 26;
 
     .#{$prefix}--leadspace__row {
       @include carbon--make-row;
+
+      flex-direction: column;
     }
 
     .#{$prefix}--btn {
@@ -185,12 +175,9 @@ $btn-min-width: 26;
     }
 
     @include carbon--breakpoint(md) {
+      .#{$prefix}--leadspace__container--super,
+      .#{$prefix}--leadspace__container--medium,
       .#{$prefix}--leadspace__container {
-        position: relative;
-      }
-
-      .#{$prefix}--leadspace__container--medium {
-        background-color: $ui-01;
         position: relative;
       }
 
@@ -223,10 +210,10 @@ $btn-min-width: 26;
         margin-right: auto;
         margin-left: auto;
         position: relative;
-        padding-top: aspect-ratio(1056px, 480px);
-        height: 0;
       }
 
+      .#{$prefix}--leadspace__container--super,
+      .#{$prefix}--leadspace__container--medium,
       .#{$prefix}--leadspace__container {
         overflow: hidden;
         position: absolute;
@@ -235,26 +222,14 @@ $btn-min-width: 26;
         width: 100%;
       }
 
-      .#{$prefix}--leadspace__container--medium {
-        background-color: $ui-01;
-        overflow: hidden;
-        position: absolute;
-        top: 0;
-        height: carbon--mini-units(60);
-        width: 100%;
-      }
-
       ::slotted(#{$dds-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         @include carbon--make-col(8, 16);
       }
 
+      .#{$prefix}--leadspace__desc--super,
+      .#{$prefix}--leadspace__desc--medium,
       .#{$prefix}--leadspace__desc {
-        @include carbon--make-col-ready;
-        @include carbon--make-col(4, 16);
-      }
-
-      .#{$prefix}--leadspace__desc--medium {
         @include carbon--make-col-ready;
         @include carbon--make-col(6, 16);
       }
@@ -264,18 +239,6 @@ $btn-min-width: 26;
         .#{$prefix}--leadspace__title {
           @include carbon--make-col(7, 16);
         }
-      }
-    }
-
-    @include carbon--breakpoint(xlg) {
-      .#{$prefix}--leadspace__section {
-        padding-top: aspect-ratio(1312px, 560px);
-      }
-    }
-
-    @include carbon--breakpoint(max) {
-      .#{$prefix}--leadspace__section {
-        padding-top: aspect-ratio(1584px, 640px);
       }
     }
 
@@ -294,31 +257,23 @@ $btn-min-width: 26;
       }
 
       &.#{$prefix}--leadspace__section {
-        height: 100%;
+        height: rem(560px);
         padding-top: 0;
       }
 
+      .#{$prefix}--leadspace__container--super,
+      .#{$prefix}--leadspace__container--medium,
       .#{$prefix}--leadspace__container {
         overflow: auto;
         position: relative;
       }
 
-      .#{$prefix}--leadspace__container--medium {
-        overflow: auto;
-        position: relative;
-      }
-
+      .#{$prefix}--leadspace--content__container--super,
+      .#{$prefix}--leadspace--content__container--medium,
       .#{$prefix}--leadspace--content__container {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        @include carbon--make-col-ready;
-        @include carbon--make-col(4, 4);
-      }
-
-      .#{$prefix}--leadspace--content__container--medium {
-        display: flex;
-        flex-direction: column;
         @include carbon--make-col-ready;
         @include carbon--make-col(4, 4);
       }
@@ -334,13 +289,12 @@ $btn-min-width: 26;
         }
       }
 
+      .#{$prefix}--leadspace__desc--super,
+      .#{$prefix}--leadspace__desc--medium,
       .#{$prefix}--leadspace__desc {
         width: 95%;
-        @include carbon--type-style(expressive-heading-03, true);
-      }
+        padding-top: $spacing-09;
 
-      .#{$prefix}--leadspace__desc--medium {
-        width: 95%;
         @include carbon--type-style(expressive-heading-03, true);
       }
 
@@ -354,14 +308,15 @@ $btn-min-width: 26;
       ::slotted(#{$dds-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         flex: none;
-        padding-top: $carbon--layout-03;
-      }
-
-      .#{$prefix}--leadspace__overlay {
-        padding: 0;
       }
 
       @include themed-items;
+
+      @include carbon--breakpoint(sm) {
+        .#{$prefix}--leadspace__overlay {
+          padding: $spacing-05 0 0 0;
+        }
+      }
 
       @include carbon--breakpoint(md) {
         .#{$prefix}--buttongroup {
@@ -369,38 +324,28 @@ $btn-min-width: 26;
         }
 
         .#{$prefix}--leadspace__overlay {
-          padding: 0 0 carbon--mini-units(20) 0;
+          padding: $spacing-07 0 0 0;
         }
 
+        .#{$prefix}--leadspace--content__container--super,
+        .#{$prefix}--leadspace--content__container--medium,
         .#{$prefix}--leadspace--content__container {
           margin: 0 auto;
-          padding-left: 1.5rem;
-          @include carbon--make-col(4, 8);
-        }
-
-        .#{$prefix}--leadspace--content__container--medium {
-          margin: 0 auto;
-          padding-left: 1.5rem;
+          padding-left: $spacing-06;
           @include carbon--make-col(4, 8);
         }
 
         ::slotted(#{$dds-prefix}-leadspace-heading),
         .#{$prefix}--leadspace__title,
+        .#{$prefix}--leadspace__desc--super,
+        .#{$prefix}--leadspace__desc--medium,
         .#{$prefix}--leadspace__desc {
           max-width: carbon--mini-units(80);
         }
 
-        ::slotted(#{$dds-prefix}-leadspace-heading),
-        .#{$prefix}--leadspace__title,
-        .#{$prefix}--leadspace__desc--medium {
-          max-width: carbon--mini-units(80);
-        }
-
+        .#{$prefix}--leadspace__desc--super,
+        .#{$prefix}--leadspace__desc--medium,
         .#{$prefix}--leadspace__desc {
-          padding-top: $carbon--layout-04;
-        }
-
-        .#{$prefix}--leadspace__desc--medium {
           padding-top: $carbon--layout-04;
         }
 
@@ -415,9 +360,8 @@ $btn-min-width: 26;
       }
 
       @include carbon--breakpoint(lg) {
-        ::slotted(#{$dds-prefix}-leadspace-heading),
-        .#{$prefix}--leadspace__title {
-          padding-top: $carbon--layout-05;
+        .#{$prefix}--leadspace__overlay {
+          padding: $spacing-10 0 0 0;
         }
       }
     }
@@ -488,19 +432,73 @@ $btn-min-width: 26;
     }
   }
 
+  :host(#{$dds-prefix}-leadspace) ::slotted([slot='navigation']) {
+    z-index: 1;
+    padding-left: $spacing-05;
+    padding-right: $spacing-05;
+    max-width: rem(640px);
+  }
+
+  :host(#{$dds-prefix}-leadspace) ::slotted(#{$dds-prefix}-tag-group) {
+    padding-bottom: $spacing-03;
+  }
+
+  :host(#{$dds-prefix}-breadcrumb) {
+    @extend :host(#{$prefix}-breadcrumb);
+
+    padding-bottom: $spacing-05;
+  }
+
+  :host(#{$dds-prefix}-breadcrumb-item) {
+    @extend :host(#{$prefix}-breadcrumb-item);
+
+    display: inline;
+  }
+
+  :host(#{$dds-prefix}-breadcrumb-item:last-of-type)::after {
+    @extend :host(#{$prefix}-breadcrumb-item:last-of-type)::after;
+  }
+
+  :host(#{$dds-prefix}-breadcrumb-link) {
+    @extend :host(#{$prefix}-breadcrumb-link);
+  }
+
+  :host(#{$dds-prefix}-breadcrumb-link[aria-current='page']) .#{$prefix}--link {
+    color: $text-01;
+    cursor: auto;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
   :host(#{$dds-prefix}-leadspace-heading),
   .#{$prefix}--leadspace__title {
     padding-top: 0;
     margin-bottom: $spacing-09;
-    padding-left: 1rem;
+    padding-left: $spacing-05;
     width: 95%;
     z-index: 1;
-    @include carbon--type-style(display-01, true);
+    @include carbon--type-style(expressive-heading-06, true);
   }
 
-  :host(#{$dds-prefix}-leadspace-heading)[size='medium'] {
-    margin-bottom: $spacing-06;
-    @include carbon--type-style(display-01, true);
+  :host(#{$dds-prefix}-leadspace)[size='medium'] {
+    ::slotted(#{$dds-prefix}-leadspace-heading) {
+      margin-bottom: $spacing-06;
+      @include carbon--type-style(expressive-heading-05, true);
+    }
+    .#{$prefix}--leadspace__section {
+      height: rem(480px);
+    }
+  }
+
+  :host(#{$dds-prefix}-leadspace)[size='super'] {
+    ::slotted(#{$dds-prefix}-leadspace-heading) {
+      @include carbon--type-style(display-01, true);
+    }
+    .#{$prefix}--leadspace__section {
+      height: rem(640px);
+    }
   }
 }
 

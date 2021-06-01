@@ -8,18 +8,9 @@
  */
 
 import { html } from 'lit-element';
-import { number } from '@storybook/addon-knobs';
-
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import '../../card/card';
-import '../../card/card-footer';
-import '../../card/card-heading';
-import '../../content-section/content-section-copy';
-import '../../content-section/content-section-heading';
-import '../../link-with-icon/link-with-icon';
-import '../../carousel/carousel';
-import '../card-section-carousel';
+import '../index';
 import styles from './card-section-carousel.stories.scss';
 import readme from './README.stories.mdx';
 
@@ -41,8 +32,7 @@ const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault
   </dds-card>
 `;
 
-export const Default = ({ parameters }) => {
-  const { pageSize } = parameters?.props?.Carousel ?? {};
+export const Default = () => {
   return html`
     <dds-card-section-carousel>
       <dds-content-section-heading>Lorem ipsum dolor sit amet</dds-content-section-heading>
@@ -52,7 +42,7 @@ export const Default = ({ parameters }) => {
       <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
         Link text ${ArrowRight20({ slot: 'icon' })}
       </dds-link-with-icon>
-      <dds-carousel page-size="${ifNonNull(pageSize)}">
+      <dds-carousel>
         ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({ copy: copyOdd })}${Card()}
       </dds-carousel>
     </dds-card-section-carousel>
@@ -74,10 +64,5 @@ export default {
   parameters: {
     ...readme.parameters,
     hasGrid: true,
-    knobs: {
-      Carousel: ({ groupId }) => ({
-        pageSize: number('Page size (page-size)', null!, groupId),
-      }),
-    },
   },
 };

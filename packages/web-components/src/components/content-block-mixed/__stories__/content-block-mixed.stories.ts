@@ -8,16 +8,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '../../content-block/content-block-copy';
-import '../../content-group/content-group-heading';
-import '../../content-group/content-group-copy';
-import '../../content-group-cards/content-group-cards';
-import '../../content-group-cards/content-group-cards-item';
-import '../../content-item/content-item-copy';
-import '../../link-list/link-list';
-import '../../link-list/link-list-heading';
-import '../../card/card-heading';
-import '../content-block-mixed';
+import '../index';
+import '../../content-block-cards/index';
+import '../../content-group-cards/index';
+import '../../content-group-pictograms/index';
+import '../../content-group-simple/index';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
@@ -30,14 +25,6 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import styles from './content-block-mixed.stories.scss';
 import { CTA_TYPE } from '../../cta/defs';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/defs';
-
-const copy = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-Phasellus at elit sollicitudin, sodales nulla quis, consequat
-libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-`;
 
 const pictogramsItems = [
   {
@@ -106,7 +93,13 @@ export default {
     knobs: {
       ContentBlockMixed: ({ groupId }) => ({
         heading: textNullable('Heading (heading)', 'Lorem ipsum dolor sit amet', groupId),
-        copy: textNullable('Copy text (copy)', copy, groupId),
+        copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          Phasellus at elit sollicitudin, sodales nulla quis, consequat
+          libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+          `,
         cardsGroupHeading: textNullable(
           'Cards group heading (heading)',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -308,7 +301,13 @@ WithAsideElements.story = {
     knobs: {
       ContentBlockMixed: ({ groupId }) => ({
         heading: textNullable('Heading (heading)', 'Lorem ipsum dolor sit amet', groupId),
-        copy: textNullable('Copy text (copy)', copy, groupId),
+        copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          Phasellus at elit sollicitudin, sodales nulla quis, consequat
+          libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+          `,
         cardsGroupHeading: textNullable(
           'Cards group heading (heading)',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',

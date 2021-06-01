@@ -120,13 +120,20 @@
   // Add Grid Mode Narrow (16px gutter) style.
   :host(#{$dds-prefix}-card-group)[grid-mode='narrow'],
   .#{$prefix}--card-group--narrow {
+    @include carbon--breakpoint('lg') {
+      grid-template-columns: repeat(
+        3,
+        calc((100% / 3) - #{carbon--mini-units(2)})
+      );
+    }
+
     @include carbon--breakpoint('sm') {
       column-gap: $carbon--spacing-05;
     }
 
     ::slotted(#{$dds-prefix}-card-group-item),
     .#{$prefix}--card-group__cards__col {
-      background: inherit;
+      background-color: inherit;
       padding: $carbon--spacing-03 0 0 0;
 
       @include carbon--breakpoint('md') {

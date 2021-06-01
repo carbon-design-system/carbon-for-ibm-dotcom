@@ -9,13 +9,12 @@
 
 import { html } from 'lit-element';
 import readme from './README.stories.mdx';
-import '../tabs-extended';
-import '../tab';
+import '../index';
 
 export const Default = () => {
   return html`
     <dds-tabs-extended>
-      <dds-tab label="First tab">
+      <dds-tab label="First tab with long text that wraps multiple lines">
         <p>Content for first tab goes here.</p>
       </dds-tab>
       <dds-tab label="Second tab">

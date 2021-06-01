@@ -7,25 +7,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select } from '@storybook/addon-knobs';
+import { number, select } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import Launch20 from 'carbon-web-components/es/icons/launch/20';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../../button-group/button-group-item';
-import '../../link-list/link-list';
-import '../../link-list/link-list-heading';
-import '../../link-list/link-list-item';
-import '../cta-block';
-import '../cta-block-item-row';
-import '../cta-block-item';
-import '../../content-item/content-item-copy';
-import '../../content-item/content-item-heading';
-import '../../content-block/content-block-heading';
-import '../../content-block/content-block-copy';
+import '../index';
+import '../../link-list/index';
 
+import content from '../../cta-section/__stories__/content';
 import style from './cta-block-stories.scss';
 
 const iconMap = {
@@ -37,6 +29,58 @@ const iconOptions = {
   Default: null,
   'Arrow Right': 'ArrowRight20',
   'External Launch': 'Launch20',
+};
+
+const contentItemTypeMap = {
+  text: ({ heading, copy, links }) => html`
+    <dds-cta-block-item>
+      <dds-content-item-heading>${heading}</dds-content-item-heading>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      ${links.map(
+        elem =>
+          html`
+            <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="${elem.href}">${elem.copy}</dds-text-cta>
+          `
+      )}
+    </dds-cta-block-item>
+  `,
+  button: ({ heading, copy }) => html`
+    <dds-cta-block-item>
+      <dds-content-item-heading>${heading}</dds-content-item-heading>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      <dds-button-group slot="footer">
+        <dds-button-cta cta-type="local">Button 1</dds-button-cta>
+        <dds-button-cta cta-type="local">Button 2</dds-button-cta>
+      </dds-button-group>
+    </dds-cta-block-item>
+  `,
+};
+
+const contentItemTypeOptions = {
+  Text: 'text',
+  Button: 'button',
+};
+
+const renderItems = (item, count) => {
+  if (count.length < 4) {
+    return html`
+      <dds-cta-block-item-row no-border>
+        ${count.map((_, index) => item({ ...content[index] }))}
+      </dds-cta-block-item-row>
+    `;
+  }
+
+  const itemArray = count;
+  const spliced = itemArray.splice(3);
+
+  return html`
+    <dds-cta-block-item-row>
+      ${itemArray.map((_, index) => item({ ...content[index] }))}
+    </dds-cta-block-item-row>
+    <dds-cta-block-item-row no-border>
+      ${spliced.map((_, index) => item({ ...content[index] }))}
+    </dds-cta-block-item-row>
+  `;
 };
 
 export const Default = ({ parameters }) => {
@@ -62,6 +106,7 @@ export const Default = ({ parameters }) => {
 
 export const WithContentItems = ({ parameters }) => {
   const { heading, copy, renderIcon } = parameters?.props?.CTABlock ?? {};
+  const { contentItemType, contentItemCount } = parameters?.props?.WithContentItems ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
   return html`
@@ -77,31 +122,24 @@ export const WithContentItems = ({ parameters }) => {
           Primary button ${renderIcon}
         </dds-button-group-item>
       </dds-button-group>
-
-      <dds-cta-block-item-row>
-        <dds-cta-block-item>
-          <dds-content-item-heading>Get connected</dds-content-item-heading>
-          <dds-content-item-copy
-            >IBM DevOps partners have a wide range of expertise. Find one to build that right solution for
-            you.</dds-content-item-copy
-          >
-          <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Find a partner</dds-text-cta>
-        </dds-cta-block-item>
-
-        <dds-cta-block-item>
-          <dds-content-item-heading>Learn how</dds-content-item-heading>
-          <dds-content-item-copy>Dig into more self-directed larning about DevOps methodologies.</dds-content-item-copy>
-          <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
-        </dds-cta-block-item>
-
-        <dds-cta-block-item>
-          <dds-content-item-heading>Learn how</dds-content-item-heading>
-          <dds-content-item-copy>Dig into more self-directed larning about DevOps methodologies.</dds-content-item-copy>
-          <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
-        </dds-cta-block-item>
-      </dds-cta-block-item-row>
+      ${renderItems(contentItemType, contentItemCount)}
     </dds-cta-block>
   `;
+};
+
+WithContentItems.story = {
+  title: 'With content items',
+  parameters: {
+    knobs: {
+      WithContentItems: ({ groupId }) => ({
+        contentItemType:
+          contentItemTypeMap[select(`Content item type`, contentItemTypeOptions, contentItemTypeOptions.Text, groupId) ?? 0],
+        contentItemCount: Array.from({
+          length: number('Number of content items', 3, { min: 2, max: 6 }, groupId),
+        }),
+      }),
+    },
+  },
 };
 
 export const WithLinkList = ({ parameters }) => {
@@ -165,11 +203,7 @@ export default {
     knobs: {
       CTABlock: ({ groupId }) => ({
         heading: textNullable('Heading (required)', 'Take the next step', groupId),
-        copy: textNullable(
-          'Copy text (copy)',
-          'Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.',
-          groupId
-        ),
+        copy: 'Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.',
         renderIcon: iconMap[select(`Icon`, iconOptions, iconOptions.Default, groupId) ?? 0],
       }),
     },

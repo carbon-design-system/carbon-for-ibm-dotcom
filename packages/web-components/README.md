@@ -150,6 +150,16 @@ module: {
 
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/webpack-rtl)
 
+#### Process.env Error
+
+There are references to the `process.env` global variable in the our web-components package and dependencies. If a build toolchain (e.g. WebPack’s EnvironmentPlugin) to replace `process.env.*` is not used in your application, you can place the following code in the `polyfills.ts` file of your application.
+
+```javascript
+(window as any).process = {
+  env: { DEBUG: undefined },
+};
+```
+
 ### Dotcom Shell CDN Bundle
 
 For quick start, you can use our pre-built CDN bundle that contains the dotcom shell (masthead and footer). With it, you can use our components as easy as using HTML tags, just by loading the bundle:
@@ -159,7 +169,7 @@ For quick start, you can use our pre-built CDN bundle that contains the dotcom s
 <html>
   <head>
     <script type="module">
-      import 'https://www.ibm.com/common/carbon-for-ibm-dotcom/latest/ibmdotcom-web-components-dotcom-shell.min.js';
+      import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/ibmdotcom-web-components-dotcom-shell.min.js';
 
       // The minimum prerequisite to use our service for translation data, etc.
       window.digitalData = {
@@ -208,7 +218,7 @@ The CDN packages are available by NPM tags `latest` (full releases), `next` (lat
 
 ```html
 <script type="module">
-  import 'https://www.ibm.com/common/carbon-for-ibm-dotcom/[VERSION]/ibmdotcom-web-components-dotcom-shell.min.js';
+  import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/[VERSION]/ibmdotcom-web-components-dotcom-shell.min.js';
 </script>
 ```
 
@@ -217,17 +227,17 @@ A tag release would be called as:
 ```html
 <script type="module">
   // latest
-  import 'https://www.ibm.com/common/carbon-for-ibm-dotcom/latest/ibmdotcom-web-components-dotcom-shell.min.js';
+  import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/ibmdotcom-web-components-dotcom-shell.min.js';
 </script>
 
 <script type="module">
   // next
-  import 'https://www.ibm.com/common/carbon-for-ibm-dotcom/next/ibmdotcom-web-components-dotcom-shell.min.js';
+  import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/ibmdotcom-web-components-dotcom-shell.min.js';
 </script>
 
 <script type="module">
   // beta
-  import 'https://www.ibm.com/common/carbon-for-ibm-dotcom/beta/ibmdotcom-web-components-dotcom-shell.min.js';
+  import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/ibmdotcom-web-components-dotcom-shell.min.js';
 </script>
 ```
 
@@ -236,7 +246,7 @@ A specific release would be called as:
 ```html
 <script type="module">
   // v0.6.0
-  import 'https://www.ibm.com/common/carbon-for-ibm-dotcom/v0.6.0/ibmdotcom-web-components-dotcom-shell.min.js';
+  import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v0.6.0/ibmdotcom-web-components-dotcom-shell.min.js';
 </script>
 ```
 

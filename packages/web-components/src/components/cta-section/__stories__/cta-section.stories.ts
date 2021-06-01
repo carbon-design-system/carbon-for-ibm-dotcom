@@ -13,20 +13,8 @@ import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../../button-group/button-group-item';
-import '../../link-list/link-list';
-import '../../link-list/link-list-heading';
-import '../../link-list/link-list-item';
+import '../../link-list/index';
 import '../cta-section';
-import '../../cta-block/cta-block';
-import '../../cta-block/cta-block-item-row';
-import '../../cta-block/cta-block-item';
-import '../../content-item/content-item';
-import '../../content-item/content-item-copy';
-import '../../content-item/content-item-heading';
-import '../../content-block/content-block-heading';
-import '../../content-block/content-block-copy';
-import '../../cta/link-list-item-cta';
 import '../../video-player/video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
 
@@ -45,6 +33,16 @@ const contentItemTypeMap = {
             <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="${elem.href}">${elem.copy}</dds-text-cta>
           `
       )}
+    </dds-cta-block-item>
+  `,
+  button: ({ heading, copy }) => html`
+    <dds-cta-block-item>
+      <dds-content-item-heading>${heading}</dds-content-item-heading>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      <dds-button-group slot="footer">
+        <dds-button-cta>Button 1</dds-button-cta>
+        <dds-button-cta>Button 2</dds-button-cta>
+      </dds-button-group>
     </dds-cta-block-item>
   `,
   statistics: ({ heading, copy, links }) => html`
@@ -113,6 +111,7 @@ const contentItemTypeMap = {
 
 const contentItemTypeOptions = {
   Text: 'text',
+  Button: 'button',
   Statistics: 'statistics',
   Pictogram: 'pictogram',
   Media: 'media',
@@ -242,11 +241,7 @@ export default {
     knobs: {
       CTASection: ({ groupId }) => ({
         heading: textNullable('Heading (required)', 'Optional title heading-05 color text-01', groupId),
-        copy: textNullable(
-          'Copy text (copy)',
-          'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
-          groupId
-        ),
+        copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
         border: boolean('CTA Block border', false, groupId),
       }),
     },

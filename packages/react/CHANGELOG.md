@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.19.0...@carbon/ibmdotcom-react@1.19.1-rc.0) (2021-05-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.19.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.19.0-rc.1...@carbon/ibmdotcom-react@1.19.0) (2021-05-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.19.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.19.0-rc.0...@carbon/ibmdotcom-react@1.19.0-rc.1) (2021-05-12)
+
+
+### Bug Fixes
+
+* **masthead:** switching protocol for ibm logo to https ([#6033](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6033)) ([26f6aa7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/26f6aa7))
+
+
+
+
+
+# [1.19.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.12.0-beta.58.45...@carbon/ibmdotcom-react@1.19.0-rc.0) (2021-05-07)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+## [1.18.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.18.1-rc.1...@carbon/ibmdotcom-react@1.18.1) (2021-04-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+## [1.18.1-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.18.1-rc.0...@carbon/ibmdotcom-react@1.18.1-rc.1) (2021-04-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
 ## [1.18.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.18.0...@carbon/ibmdotcom-react@1.18.1-rc.0) (2021-04-22)
 
 

@@ -182,10 +182,10 @@ class LocaleAPI {
   static async getLocale() {
     const cookie = ipcinfoCookie.get();
     const lang = await this.getLang();
-    // grab locale from the html lang attribute
+
     if (lang) {
-      await this.getList(lang);
-      return lang;
+      const list = await this.getList(lang);
+      return list.locale;
     }
     // grab the locale from the cookie
     else if (cookie && cookie.cc && cookie.lc) {
@@ -277,7 +277,7 @@ class LocaleAPI {
 
   /**
    * Get the country list of all supported countries and their languages
-   * if not set in session storage
+   * if it is not already stored in session storage
    *
    * @param {object} params params object
    * @param {string} params.cc country code
@@ -321,6 +321,7 @@ class LocaleAPI {
         _requestsList[key] = axios.get(url, _axiosConfig).then(response => {
           const { data } = response;
           data['timestamp'] = Date.now();
+          data.locale = { lc, cc };
           sessionStorage.setItem(
             `${_sessionListKey}-${cc}-${lc}`,
             JSON.stringify(data)

@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit-element';
-import '../back-to-top';
+import '../index';
 import '../../dotcom-shell/dotcom-shell-container';
 import readme from './README.stories.mdx';
 import StoryContent from '../../dotcom-shell/__stories__/data/content';
@@ -20,7 +20,7 @@ export const Default = () => {
       ${styles}
     </style>
     <dds-dotcom-shell-container>
-      ${StoryContent()}
+      ${StoryContent({ type: 'default' })}
       <dds-back-to-top></dds-back-to-top>
     </dds-dotcom-shell-container>
   `;

@@ -8,10 +8,7 @@
  */
 
 import { html } from 'lit-element';
-import '../../content-item/content-item-heading';
-import '../../content-item/content-item-copy';
-import '../pictogram-item';
-import '../../link-with-icon/link-with-icon';
+import '../index';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import styles from './pictogram-item.stories.scss';
 
@@ -61,13 +58,10 @@ export default {
     knobs: {
       PictogramItem: ({ groupId }) => ({
         heading: textNullable('Heading (heading):', 'Lorem ipsum dolor sit', groupId),
-        copy: textNullable(
-          'Copy (copy):',
+        copy:
           'Lorem ipsum dolor sit amet, ' +
-            'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
-            'Ut enim ad minim veniam\n',
-          groupId
-        ),
+          'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
+          'Ut enim ad minim veniam\n',
         href: textNullable('Link with Icon href:', 'https://example.com', groupId),
         linkCopy: textNullable('Link with Icon copy:', 'Lorem ipsum dolor', groupId),
       }),

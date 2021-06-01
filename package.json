@@ -5,10 +5,12 @@
   "repository": "git@github.com:carbon-design-system/carbon-for-ibm-dotcom.git",
   "license": "Apache-2.0",
   "engines": {
-    "node": "12.x"
+    "node": "12 || 14"
   },
   "workspaces": {
-    "packages": ["packages/*"]
+    "packages": [
+      "packages/*"
+    ]
   },
   "scripts": {
     "build": "lerna run build --stream --prefix --npm-client yarn",

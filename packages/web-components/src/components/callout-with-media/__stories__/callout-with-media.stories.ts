@@ -8,9 +8,7 @@
  */
 
 // eslint-disable-next-line import/no-duplicates
-import '../../content-block/content-block-heading';
-import '../callout-with-media';
-import '../callout-with-media-copy';
+import '../index';
 import '../callout-with-media-image';
 import '../callout-with-media-video';
 import { html } from 'lit-element';
@@ -57,14 +55,10 @@ export default {
       CalloutWithMedia: ({ groupId }) => ({
         mediaType: select('mediaType (optional)', ['image', 'video', 'none'], 'image', groupId),
         heading: textNullable('Heading', 'Curabitur malesuada varius mi eu posuere', groupId),
-        copy: textNullable(
-          'Copy',
-          `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+        copy: `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
   Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
   nulla quis, *consequat* libero. Here are
   some common categories:`,
-          groupId
-        ),
       }),
     },
     decorators: [

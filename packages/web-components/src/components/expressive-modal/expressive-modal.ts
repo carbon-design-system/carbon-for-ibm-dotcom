@@ -341,13 +341,7 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
     });
     return html`
       <a id="start-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
-      <div
-        role="dialog"
-        class="${containerClasses}"
-        tabindex="-1"
-        @click="${handleClickContainer}"
-        @slotchange="${handleSlotChange}"
-      >
+      <div class="${containerClasses}" tabindex="-1" @click="${handleClickContainer}" @slotchange="${handleSlotChange}">
         <div class="bx--modal-content">
           ${this._renderHeader()}${this._renderBody()}${this._renderFooter()}
         </div>

@@ -44,7 +44,7 @@ function getRollupConfig({ mode = 'development', dir = 'ltr' } = {}) {
   const postCSSPlugins = [
     fixHostPseudo(),
     autoprefixer({
-      browsers: [
+      overrideBrowsersList: [
         'last 1 version',
         'Firefox ESR',
         'not opera > 0',

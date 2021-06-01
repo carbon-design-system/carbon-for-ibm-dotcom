@@ -10,10 +10,7 @@
 import { html } from 'lit-element';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../../content-item/content-item-copy';
-import '../content-block-headlines';
-import '../content-block-headlines-item';
-import '../content-block-headlines-heading';
+import '../index';
 import { DDS_CONTENT_BLOCK_HEADLINES } from '../../../globals/internal/feature-flags';
 
 const contentItemRow1 = html`
@@ -66,13 +63,10 @@ export default !DDS_CONTENT_BLOCK_HEADLINES
         knobs: {
           ContentBlockHeadlines: () => ({
             heading: textNullable('Heading (required)', 'Aliquam condimentum'),
-            copy: textNullable(
-              'copy',
-              `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+            copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
               Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
               nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.`
-            ),
+              elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.`,
           }),
         },
         decorators: [

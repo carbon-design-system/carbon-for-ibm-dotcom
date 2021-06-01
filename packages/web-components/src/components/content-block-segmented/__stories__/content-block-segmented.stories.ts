@@ -7,18 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '../../image-with-caption/image-with-caption';
-import '../../content-block/content-block-heading';
-import '../../content-block/content-block-copy';
-import '../../content-group/content-group-heading';
-import '../../content-item/content-item-copy';
-import '../../cta/text-cta';
+import '../index';
 import '../../video-player/video-player-container';
-import '../../content-block/content-block-complementary';
-import '../../link-list/link-list';
-import '../../link-list/link-list-heading';
-import '../content-block-segmented-item';
-import '../content-block-segmented';
+import '../../link-list/index';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
@@ -241,14 +232,12 @@ export default {
     knobs: {
       ContentBlockSegmented: () => ({
         heading: textNullable('Heading (required)', 'Lorem ipsum dolor sit amet.'),
-        copy: textNullable(
-          'copy',
+        copy:
           'Lorem ipsum dolor sit amet, consectetur ' +
-            'adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
-            'Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. ' +
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.' +
-            ' Mauris iaculis eget dolor nec hendrerit.'
-        ),
+          'adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
+          'Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. ' +
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.' +
+          ' Mauris iaculis eget dolor nec hendrerit.',
         ctaStyle: select('CTA style (cta-style)', ctaStyles, null),
         ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
       }),

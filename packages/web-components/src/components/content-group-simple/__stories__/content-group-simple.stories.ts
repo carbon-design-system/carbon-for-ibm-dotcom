@@ -7,22 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '../../image/image';
-import '../../cta/video-cta-container';
-import '../../cta/card-cta';
-import '../../cta/card-cta-footer';
-import '../../content-group/content-group-copy';
-import '../../content-group/content-group-heading';
-import '../../content-item/content-item';
-import '../../content-item/content-item-heading';
-import '../../content-item/content-item-copy';
-import '../content-group-simple';
-
+import '../index';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports
 import { CTA_TYPE } from '../../cta/defs';
+import { MEDIA_TYPE } from '../defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--004.jpg';
 import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--004.jpg';
@@ -53,6 +44,12 @@ const ctaTypes = {
   [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
   [`Download (${CTA_TYPE.DOWNLOAD})`]: CTA_TYPE.DOWNLOAD,
   [`Video (${CTA_TYPE.VIDEO})`]: CTA_TYPE.VIDEO,
+};
+
+const mediaTypes = {
+  [`None`]: MEDIA_TYPE.NONE,
+  [`Image (${MEDIA_TYPE.IMAGE})`]: MEDIA_TYPE.IMAGE,
+  [`Video (${MEDIA_TYPE.VIDEO})`]: MEDIA_TYPE.VIDEO,
 };
 
 const heading = 'Lorem ipsum dolor sit amet.';
@@ -106,114 +103,22 @@ const image = ({ heading: imageHeading } = { heading: undefined }) => html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { copy: groupCopy, heading: groupHeading } = parameters?.props?.ContentGroupSimple ?? {};
+  const { copy: groupCopy, heading: groupHeading, mediaType } = parameters?.props?.ContentGroupSimple ?? {};
   const { copy: ctaCopy, ctaType, href } = parameters?.props?.CardCTA ?? {};
   return html`
     <dds-content-group-simple>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
       <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
-      ${items.map(
-        ({ heading: itemHeading, copy: itemCopy }) => html`
-          <dds-content-item>
-            <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
-            <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
-          </dds-content-item>
-        `
-      )}
-      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
-        ${ctaCopy}
-        <dds-card-cta-footer></dds-card-cta-footer>
-      </dds-card-cta>
-    </dds-content-group-simple>
-  `;
-};
-
-export const WithImage = ({ parameters }) => {
-  const { copy: groupCopy, heading: groupHeading } = parameters?.props?.ContentGroupSimple ?? {};
-  const { copy: ctaCopy, ctaType, href } = parameters?.props?.CardCTA ?? {};
-  return html`
-    <dds-content-group-simple>
-      <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
-      ${image({ heading: groupHeading })}
-      ${items.map(
-        ({ heading: itemHeading, copy: itemCopy }) => html`
-          <dds-content-item>
-            <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
-            <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
-          </dds-content-item>
-        `
-      )}
-      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
-        ${ctaCopy}
-        <dds-card-cta-footer></dds-card-cta-footer>
-      </dds-card-cta>
-    </dds-content-group-simple>
-  `;
-};
-
-export const WithImageInChilds = ({ parameters }) => {
-  const { copy: groupCopy, heading: groupHeading } = parameters?.props?.ContentGroupSimple ?? {};
-  const { copy: ctaCopy, ctaType, href } = parameters?.props?.CardCTA ?? {};
-  return html`
-    <dds-content-group-simple>
-      <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
-      ${image({ heading: groupHeading })}
-      ${items.map(
-        ({ heading: itemHeading, copy: itemCopy }) => html`
-          <dds-content-item>
-            <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
-            ${image({ heading: groupHeading })}
-            <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
-          </dds-content-item>
-        `
-      )}
-      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
-        ${ctaCopy}
-        <dds-card-cta-footer></dds-card-cta-footer>
-      </dds-card-cta>
-    </dds-content-group-simple>
-  `;
-};
-
-export const WithVideo = ({ parameters }) => {
-  const { copy: groupCopy, heading: groupHeading } = parameters?.props?.ContentGroupSimple ?? {};
-  const { copy: ctaCopy, ctaType, href } = parameters?.props?.CardCTA ?? {};
-  return html`
-    <dds-content-group-simple>
-      <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
-      <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
-      ${items.map(
-        ({ heading: itemHeading, copy: itemCopy }) => html`
-          <dds-content-item>
-            <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
-            <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
-          </dds-content-item>
-        `
-      )}
-      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
-        ${ctaCopy}
-        <dds-card-cta-footer></dds-card-cta-footer>
-      </dds-card-cta>
-    </dds-content-group-simple>
-  `;
-};
-
-export const WithVideoInChilds = ({ parameters }) => {
-  const { copy: groupCopy, heading: groupHeading } = parameters?.props?.ContentGroupSimple ?? {};
-  const { copy: ctaCopy, ctaType, href } = parameters?.props?.CardCTA ?? {};
-  return html`
-    <dds-content-group-simple>
-      <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
-      <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
-      ${items.map(
-        ({ heading: itemHeading, copy: itemCopy }) => html`
-          <dds-content-item>
-            <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
+      ${mediaType === 'Image' ? image({ heading: groupHeading }) : ``}
+      ${mediaType === 'Video'
+        ? html`
             <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
+          `
+        : ``}
+      ${items.map(
+        ({ heading: itemHeading, copy: itemCopy }) => html`
+          <dds-content-item>
+            <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
             <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
           </dds-content-item>
         `
@@ -241,12 +146,9 @@ export default {
     hasVerticalSpacingInComponent: true,
     knobs: {
       ContentGroupSimple: ({ groupId }) => ({
-        copy: textNullable(
-          'Copy text (copy)',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.',
-          groupId
-        ),
+        copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.',
         heading: textNullable('Heading (heading)', 'Curabitur malesuada varius mi eu posuere', groupId),
+        mediaType: select('With media', mediaTypes, MEDIA_TYPE.IMAGE, groupId),
       }),
       CardCTA: ({ groupId }) => {
         const ctaType = select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId);

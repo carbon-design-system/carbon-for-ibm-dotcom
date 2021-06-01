@@ -15,26 +15,10 @@ LICENSE file in the root directory of this source tree.
       body {
         font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
       }
-
-      #app {
-        width: 300px;
-      }
     </style>
     <script src="src/index.js"></script>
   </head>
   <body>
-    <dds-leaving-ibm-modal open=true size="sm">
-      <bx-modal-header>
-        <bx-modal-close-button></bx-modal-close-button>
-        <dds-leaving-ibm-modal-heading>Leaving the IBM Web site</dds-leaving-ibm-modal-heading>
-      </bx-modal-header>
-      <dds-leaving-ibm-modal-body href="http://www.example.com/">
-        <p>You are now leaving IBM.com and going to an external 3rd party site. Unless otherwise stated, the 3rd party's site Terms and Privacy Policy will apply, and may differ from IBM's.</p>
-        <span slot="supplemental">The link you requested or were directed to is</span>
-      </dds-leaving-ibm-modal-body>
-      <bx-modal-footer>
-        <bx-btn href="http://www.example.com/" kind="primary">Continue</bx-btn>
-      </bx-modal-footer>
-    </dds-leaving-ibm-modal>
+    <dds-leaving-ibm-container open="true" href="https://www.example.com/"></dds-leaving-ibm-container>
   </body>
 </html>

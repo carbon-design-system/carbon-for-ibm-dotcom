@@ -496,6 +496,12 @@ class DDSMastheadComposite extends LitElement {
   activateSearch = false;
 
   /**
+   * `true` sets search to active when page loads.
+   */
+  @property({ attribute: 'search-open-on-load' })
+  searchOpenOnload = this.activateSearch;
+
+  /**
    * The profile items for authenticated state.
    */
   @property({ attribute: false })
@@ -692,7 +698,7 @@ class DDSMastheadComposite extends LitElement {
         </dds-masthead-menu-button>
 
         ${this._renderLogo()}
-        ${!platform
+        ${!platform || l1Data
           ? undefined
           : html`
               <dds-top-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-top-nav-name>
@@ -712,6 +718,7 @@ class DDSMastheadComposite extends LitElement {
                 input-timeout="${inputTimeout}"
                 language="${ifNonNull(language)}"
                 ?open="${openSearchDropdown}"
+                ?searchOpenOnload="${activateSearch}"
                 placeholder="${ifNonNull(searchPlaceholder)}"
                 .currentSearchResults="${ifNonNull(currentSearchResults)}"
                 ._loadSearchResults="${ifNonNull(loadSearchResults)}"

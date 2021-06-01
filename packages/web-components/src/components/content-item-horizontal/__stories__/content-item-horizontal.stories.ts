@@ -12,18 +12,9 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../../image/image';
-import '../content-item-horizontal';
-import '../content-item-horizontal-media';
-import '../content-item-horizontal-media-copy';
+import '../index';
 import '../content-item-horizontal-media-video';
-import '../content-item-horizontal-copy';
-import '../content-item-horizontal-eyebrow';
-import '../../content-item/content-item-heading';
-import '../../link-list/link-list';
-import '../../cta/link-list-item-cta';
-import '../../video-player/video-player-container';
-
+import '../../image/image';
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
 import { CTA_TYPE } from '../../cta/defs';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../defs';
@@ -124,12 +115,10 @@ WithMedia.story = {
         type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
         alt: textNullable('Image alt text', 'Lorem ipsum'),
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
-        copy: textNullable(
-          'Copy (copy):',
+        copy:
           'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. ' +
-            'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
-            'Phasellus at elit sollicitudin.'
-        ),
+          'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
+          'Phasellus at elit sollicitudin.',
         ctaType1: select('CTA 1 type (cta-type)', types, CTA_TYPE.LOCAL),
         ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
         href1: textNullable('CTA 1 href (cta-href):', 'https://www.ibm.com'),
@@ -158,12 +147,10 @@ export default {
       ContentItemHorizontal: () => ({
         eyebrow: textNullable('Eyebrow (eyebrow):', 'Lorem ipsum'),
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
-        copy: textNullable(
-          'Copy (copy):',
+        copy:
           'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. ' +
-            'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
-            'Phasellus at elit sollicitudin.'
-        ),
+          'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
+          'Phasellus at elit sollicitudin.',
         ctaType1: select('CTA 1 type (cta-type)', types, CTA_TYPE.LOCAL),
         ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
         href1: textNullable('CTA 1 href (cta-href):', 'https://www.ibm.com'),

@@ -42,6 +42,7 @@
       }
 
       .#{$prefix}--card__copy p,
+      .#{$prefix}--card__heading,
       .#{$prefix}--card__copy ::slotted(p) {
         color: $link-01;
         @include carbon--type-style('body-short-02');
@@ -69,6 +70,16 @@
 
     &:focus {
       outline: none;
+    }
+  }
+
+  :host(#{$dds-prefix}-link-list-item-card-cta) {
+    ::slotted(#{$dds-prefix}-card-cta-footer) {
+      @include carbon--breakpoint-down('md') {
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+      }
     }
   }
 

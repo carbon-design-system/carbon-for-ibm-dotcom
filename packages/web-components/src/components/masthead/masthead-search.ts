@@ -16,7 +16,6 @@ import Close20 from 'carbon-web-components/es/icons/close/20.js';
 import Search20 from 'carbon-web-components/es/icons/search/20.js';
 import BXDropdown, { DROPDOWN_KEYBOARD_ACTION } from 'carbon-web-components/es/components/dropdown/dropdown.js';
 import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 import DDSMastheadSearchItem from './masthead-search-item';
 import styles from './masthead.scss';
@@ -66,6 +65,7 @@ class DDSMastheadSearch extends BXDropdown {
    */
   private async _handleClickSearchButton() {
     const { active } = this;
+
     if (active) {
       if (this._searchInputNode.value) {
         this._handleUserInitiatedRedirect();
@@ -89,6 +89,7 @@ class DDSMastheadSearch extends BXDropdown {
     const { _searchInputNode: searchInputNode } = this;
     const { eventInput, eventToggle } = this.constructor as typeof DDSMastheadSearch;
     if (!active && searchInputNode.value) {
+      searchInputNode.value = '';
       this.dispatchEvent(
         new CustomEvent(eventInput, {
           bubbles: true,
@@ -99,7 +100,6 @@ class DDSMastheadSearch extends BXDropdown {
           },
         })
       );
-      searchInputNode.value = '';
     }
     this.active = active;
     await this.updateComplete;
@@ -164,16 +164,9 @@ class DDSMastheadSearch extends BXDropdown {
     }
   }
 
-  @HostListener('focusin')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  // @ts-ignore
-  private _handleFocusIn() {
-    this._handleUserInitiatedToggleActiveState(true);
-  }
-
   protected _handleFocusOut(event: FocusEvent) {
     super._handleFocusOut(event);
-    if (!(event.currentTarget as HTMLElement).contains(event.relatedTarget as HTMLElement)) {
+    if (!(event.currentTarget as HTMLElement).contains(event.relatedTarget as HTMLElement) && !this.searchOpenOnload) {
       this._handleUserInitiatedToggleActiveState(false, false);
     }
   }
@@ -231,6 +224,7 @@ class DDSMastheadSearch extends BXDropdown {
 
   /**
    * Navigate through dropdown items.
+   *
    * @param direction `-1` to navigate backward, `1` to navigate forward.
    */
   protected _navigate(direction: number) {
@@ -403,10 +397,32 @@ class DDSMastheadSearch extends BXDropdown {
   slot = 'search';
 
   /**
+   * `true` to activate the search box on page load.
+   */
+  @property({ type: Boolean, attribute: 'search-open-on-load' })
+  searchOpenOnload = false;
+
+  /**
    * The input value.
    */
   get searchQueryString() {
     return this._searchInputNode?.value ?? '';
+  }
+
+  /**
+   * Returns query param `q` for search input if exists. Only available when searchOpenOnload is `true`
+   */
+  private _setSearchParam() {
+    const { _searchInputNode: searchInputNode } = this;
+    const URLParams = new URLSearchParams(this.ownerDocument!.defaultView!.location.search);
+    const searchParam: any = this.searchOpenOnload ? URLParams.get('q') : '';
+    if (searchParam) {
+      searchInputNode.value = searchParam;
+    }
+  }
+
+  firstUpdated() {
+    this._setSearchParam();
   }
 
   render() {

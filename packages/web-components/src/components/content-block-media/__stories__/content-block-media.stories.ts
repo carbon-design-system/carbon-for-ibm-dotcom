@@ -7,16 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '../content-block-media';
-import '../../content-block/content-block-heading';
-import '../../content-block/content-block-copy';
-import '../../content-group/content-group-heading';
-import '../../content-item/content-item-heading';
-import '../../content-item/content-item-copy';
-import '../../content-item/content-item';
-import '../content-block-media-content';
+import '../index';
 import '../../card/card-heading';
-import '../../card-link/card-link';
 import '../../feature-card/feature-card';
 import '../../feature-card/feature-card-footer';
 import '../../link-list/link-list';
@@ -34,9 +26,9 @@ import readme from './README.stories.mdx';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/defs';
 
 const complementaryStyleSchemes = {
-  'Regular style scheme': null,
+  'Without border': null,
   // eslint-disable-next-line max-len
-  [`With border (${CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER})`]: CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
+  'With border': CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
 };
 
 const heading = 'Lorem ipsum dolor sit amet.';
@@ -81,10 +73,17 @@ const items = [
   },
 ];
 
+const linkListItems = [
+  'Containerization A Complete Guide',
+  'Why should you use microservices and containers',
+  'Learn more about Kubernetes',
+  'Explore AI use cases in all industries',
+];
+
 export const Default = ({ parameters }) => {
-  const { blockHeading, featureCard } = parameters?.props?.ContentBlockMedia ?? {};
+  const { blockHeading, simpleGroupHeading, featureCard, complementaryStyleScheme } = parameters?.props?.ContentBlockMedia ?? {};
   return html`
-    <dds-content-block-media>
+    <dds-content-block-media complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>
         ${blockHeading}
       </dds-content-block-heading>
@@ -95,7 +94,7 @@ export const Default = ({ parameters }) => {
       </dds-content-block-copy>
       <dds-content-block-media-content>
         <dds-content-group-heading>
-          Lorem ipsum dolor sit amet
+          ${simpleGroupHeading}
         </dds-content-group-heading>
         <dds-image-with-caption slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum">
           <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
@@ -119,7 +118,7 @@ export const Default = ({ parameters }) => {
       </dds-content-block-media-content>
       <dds-content-block-media-content>
         <dds-content-group-heading>
-          Lorem ipsum dolor sit amet
+          ${simpleGroupHeading}
         </dds-content-group-heading>
         <dds-image-with-caption slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum">
           <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
@@ -142,7 +141,7 @@ export const Default = ({ parameters }) => {
         </dds-card-link>
       </dds-content-block-media-content>
       <dds-content-block-media-content>
-        ${featureCard === 'cta'
+        ${featureCard === 'CTA'
           ? html`
               <dds-content-group-heading>
                 Lorem ipsum dolor sit amet
@@ -161,12 +160,13 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const withAsideElements = ({ parameters }) => {
-  const { linkListHeading, complementaryStyleScheme } = parameters?.props?.ContentBlockMedia ?? {};
+export const withLinkList = ({ parameters }) => {
+  const { blockHeading, simpleGroupHeading, featureCard, linkListHeading, complementaryStyleScheme, totalLinks } =
+    parameters?.props?.ContentBlockMedia ?? {};
   return html`
     <dds-content-block-media complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>
-        Curabitur malesuada varius mi eu posuere
+        ${blockHeading}
       </dds-content-block-heading>
       <dds-content-block-copy size="lg"
         >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
@@ -175,7 +175,7 @@ export const withAsideElements = ({ parameters }) => {
       </dds-content-block-copy>
       <dds-content-block-media-content>
         <dds-content-group-heading>
-          Lorem ipsum dolor sit amet
+          ${simpleGroupHeading}
         </dds-content-group-heading>
         <dds-image-with-caption slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum">
           <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
@@ -222,42 +222,50 @@ export const withAsideElements = ({ parameters }) => {
         </dds-card-link>
       </dds-content-block-media-content>
       <dds-content-block-media-content>
-        <dds-content-group-heading>
-          Lorem ipsum dolor sit amet
-        </dds-content-group-heading>
-        <dds-feature-card href="https://example.com">
-          <dds-image slot="image" alt="Feature card image" default-src="${imgLg1x1}"></dds-image>
-          <dds-card-heading>Consectetur adipisicing elit</dds-card-heading>
-          <dds-feature-card-footer>
-            ${ArrowRight20({ slot: 'icon' })}
-          </dds-feature-card-footer>
-        </dds-feature-card>
+        ${featureCard === 'CTA'
+          ? html`
+              <dds-content-group-heading>
+                Lorem ipsum dolor sit amet
+              </dds-content-group-heading>
+              <dds-feature-card href="https://example.com">
+                <dds-image slot="image" alt="Feature card image" default-src="${imgLg1x1}"></dds-image>
+                <dds-card-heading>Consectetur adipisicing elit</dds-card-heading>
+                <dds-feature-card-footer>
+                  ${ArrowRight20({ slot: 'icon' })}
+                </dds-feature-card-footer>
+              </dds-feature-card>
+            `
+          : ``}
       </dds-content-block-media-content>
       <dds-link-list type="default" slot="complementary">
         <dds-link-list-heading>${linkListHeading}</dds-link-list-heading>
-        <dds-link-list-item-card-cta href="https://example.com" cta-type="local">
-          <p>Containerization A Complete Guide</p>
-          <dds-card-cta-footer></dds-card-cta-footer>
-        </dds-link-list-item-card-cta>
-        <dds-link-list-item-card-cta href="https://example.com" cta-type="external">
-          <p>Why should you use microservices and containers</p>
-          <dds-card-cta-footer></dds-card-cta-footer>
-        </dds-link-list-item-card-cta>
+        ${linkListItems.slice(0, totalLinks).map(
+          linkListCopy => html`
+            <dds-link-list-item-card-cta href="https://example.com" cta-type="local">
+              <p>${linkListCopy}</p>
+              <dds-card-cta-footer></dds-card-cta-footer>
+            </dds-link-list-item-card-cta>
+          `
+        )}
       </dds-link-list>
     </dds-content-block-media>
   `;
 };
 
-withAsideElements.story = {
+withLinkList.story = {
   parameters: {
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout--with-complementary',
     knobs: {
       ContentBlockMedia: () => ({
+        blockHeading: textNullable('Heading (required)', 'Curabitur malesuada varius mi eu posuere'),
+        simpleGroupHeading: textNullable('Simple Group Heading (required)', 'Lorem ipsum dolor sit amet'),
+        featureCard: select('FeatureCard (optional)', ['CTA', 'none'], 'CTA'),
         linkListHeading: textNullable('Link list heading (heading)', 'Tutorials'),
+        totalLinks: select('Number of links', [2, 3, 4], 2),
         complementaryStyleScheme: select(
-          'Complementary style scheme (complementary-style-scheme)',
+          'Container bottom border',
           complementaryStyleSchemes,
-          null
+          complementaryStyleSchemes['With border']
         ),
       }),
     },
@@ -282,7 +290,12 @@ export default {
       ContentBlockMedia: () => ({
         blockHeading: textNullable('Heading (required)', 'Curabitur malesuada varius mi eu posuere'),
         simpleGroupHeading: textNullable('Simple Group Heading (required)', 'Lorem ipsum dolor sit amet'),
-        featureCard: select('FeatureCard (optional)', ['cta', 'none'], 'cta'),
+        featureCard: select('FeatureCard (optional)', ['CTA', 'none'], 'CTA'),
+        complementaryStyleScheme: select(
+          'Container bottom border',
+          complementaryStyleSchemes,
+          complementaryStyleSchemes['With border']
+        ),
       }),
     },
   },

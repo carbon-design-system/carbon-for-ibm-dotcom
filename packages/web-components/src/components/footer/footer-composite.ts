@@ -266,7 +266,6 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
             `
           )}
         </dds-footer-nav>
-        ${disableLocaleButton ? console.log('true') : console.log('false')}
         ${size !== FOOTER_SIZE.MICRO && !langList && !disableLocaleButton
           ? html`
               <dds-locale-button buttonLabel="${ifNonNull(buttonLabel)}" size="${size}" @click="${handleClickLocaleButton}"
@@ -300,8 +299,8 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
           : ``}
         <dds-legal-nav size="${ifNonNull(size)}">
           ${legalLinks?.map(
-            ({ title, url }) => html`
-              <dds-legal-nav-item href="${ifNonNull(url)}">${title}</dds-legal-nav-item>
+            ({ title, url, titleEnglish }) => html`
+              <dds-legal-nav-item autoid="${ifNonNull(titleEnglish)}" href="${ifNonNull(url)}">${title}</dds-legal-nav-item>
             `
           )}
           <dds-legal-nav-cookie-preferences-placeholder></dds-legal-nav-cookie-preferences-placeholder>

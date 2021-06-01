@@ -6,56 +6,46 @@
  */
 
 import { boolean, text } from '@storybook/addon-knobs';
-import imgMd4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--004.jpg';
+import logoAdobe from '../../../../../storybook-images/assets/logos/logo-adobe.png';
+import logoCisco from '../../../../../storybook-images/assets/logos/logo-cisco.png';
+import logoDell from '../../../../../storybook-images/assets/logos/logo-dell.png';
 import LogoGrid from '../LogoGrid';
+import logoMicrosoft from '../../../../../storybook-images/assets/logos/logo-microsoft.png';
+import logoRabobank from '../../../../../storybook-images/assets/logos/logo-rabobank.png';
+import logoUsBank from '../../../../../storybook-images/assets/logos/logo-usbank.png';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
 const logos = [
   {
-    label: 'Company A',
-    imgSrc: imgMd4x3,
-    altText: 'Image alt text',
+    label: 'Microsoft',
+    imgSrc: logoMicrosoft,
+    altText: 'Microsoft',
   },
   {
-    label: 'Company B',
-    imgSrc: imgMd4x3,
-    altText: 'Image alt text',
+    label: 'Dell',
+    imgSrc: logoDell,
+    altText: 'Dell',
   },
   {
-    label: 'Company C',
-    imgSrc: imgMd4x3,
-    altText: 'Image alt text',
+    label: 'Rabobank',
+    imgSrc: logoRabobank,
+    altText: 'Rabobank',
   },
   {
-    label: 'Company D',
-    imgSrc: imgMd4x3,
-    altText: 'Image alt text',
+    label: 'Adobe',
+    imgSrc: logoAdobe,
+    altText: 'Adobe',
   },
   {
-    label: 'Company E',
-    imgSrc: imgMd4x3,
-    altText: 'Image alt text',
+    label: 'US Bank',
+    imgSrc: logoUsBank,
+    altText: 'US Bank',
   },
   {
-    label: 'Company F',
-    imgSrc: imgMd4x3,
-    altText: 'Image alt text',
-  },
-  {
-    label: 'Company G',
-    imgSrc: imgMd4x3,
-    altText: 'Image alt text',
-  },
-  {
-    label: 'Company H',
-    imgSrc: imgMd4x3,
-    altText: 'Image alt text',
-  },
-  {
-    label: 'Company I',
-    imgSrc: imgMd4x3,
-    altText: 'Image alt text',
+    label: 'Cisco',
+    imgSrc: logoCisco,
+    altText: 'Cisco',
   },
 ];
 
@@ -68,12 +58,6 @@ export default {
       LogoGrid: ({ groupId }) => ({
         heading: text('Heading (heading)', 'Our customers', groupId),
         logosGroup: logos,
-        ctaCopy: text(
-          'CTA Copy (ctaCopy)',
-          'Lorem ipsum dolor sit amet',
-          groupId
-        ),
-        ctaHref: text('CTA Href (ctaHref)', 'http://local.url.com/', groupId),
         hideBorder: boolean(
           'Hide border (hideBorder): Hide the bottom border',
           false,
@@ -92,8 +76,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { heading, logosGroup, ctaCopy, ctaHref, hideBorder } =
-    parameters?.props?.LogoGrid ?? {};
+  const { heading, logosGroup, hideBorder } = parameters?.props?.LogoGrid ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">
@@ -101,8 +84,6 @@ export const Default = ({ parameters }) => {
           <LogoGrid
             heading={heading}
             logosGroup={logosGroup}
-            ctaCopy={ctaCopy}
-            ctaHref={ctaHref}
             hideBorder={hideBorder}
           />
         </div>
