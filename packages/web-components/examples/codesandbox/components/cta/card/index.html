@@ -11,25 +11,39 @@ LICENSE file in the root directory of this source tree.
   <head>
     <title>@carbon/ibmdotcom-web-components example</title>
     <meta charset="UTF-8" />
-    <script type="module">
-      import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta.js';
-    </script>
     <style type="text/css">
       body {
         font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
         display: flex;
         flex-direction: column;
-        align-items: center;
       }
 
-      body > * {
-        width: 37.5%;
+      #app {
+        width: 450px;
       }
     </style>
+    <script type="module" src="src/index.js"></script>
   </head>
   <body>
-    <dds-card-cta href="https://www.ibm.com/" type="local">
-      Copy text
-    </dds-card-cta>
+    <div id="app">
+      <dds-card-cta slot="footer" href="https://www.ibm.com/" cta-type="local">
+        Lorem ipsum dolor sit amet
+        <dds-card-cta-footer>
+          <svg
+            slot="icon"
+            focusable="false"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            aria-hidden="true"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+          >
+            <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          </svg>
+        </dds-card-cta-footer>
+      </dds-card-cta>
+    </div>
   </body>
 </html>

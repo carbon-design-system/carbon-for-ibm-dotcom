@@ -11,22 +11,25 @@ LICENSE file in the root directory of this source tree.
   <head>
     <title>@carbon/ibmdotcom-web-components example</title>
     <meta charset="UTF-8" />
-    <script type="module" src="src/index.js"></script>
     <style type="text/css">
       /* Avoids FOUC - Will be overriden by `index.scss` */
       body {
         visibility: hidden;
       }
     </style>
+    <script type="module" src="src/index.js"></script>
   </head>
   <body>
     <div class="bx--grid">
       <div class="bx--row">
-        <div class="bx--col-sm-4 bx-col-lg-12 bx--offset-lg-4 bx--no-gutter">
+        <div class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 bx--no-gutter">
           <dds-content-block-headlines>
-            <dds-content-block-heading>Curabitur malesuada varius mi eu posuere</dds-content-block-heading>
-            <dds-content-item-copy>Lorem ipsum *dolor* sit amet</dds-content-item-copy>
-            <dds-content-block-headlines-item slot="content">
+            <dds-content-block-heading>Aliquam condimentum</dds-content-block-heading>
+            <dds-content-block-copy
+              >Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
+              hendrerit.</dds-content-block-copy
+            >
+            <dds-content-block-headlines-item>
               <dds-content-block-headlines-heading>25%</dds-content-block-headlines-heading>
               <dds-content-item-copy slot="copy"
                 >Modernize mission-critical applications and infrastructure in a hybrid multicloud environment up to 25 percent
@@ -38,7 +41,7 @@ LICENSE file in the root directory of this source tree.
                 </dds-link-list-item-cta>
               </dds-link-list>
             </dds-content-block-headlines-item>
-            <dds-content-block-headlines-item slot="content">
+            <dds-content-block-headlines-item>
               <dds-content-block-headlines-heading>25%</dds-content-block-headlines-heading>
               <dds-content-item-copy slot="copy"
                 >Modernize mission-critical applications and infrastructure in a hybrid multicloud environment up to 25 percent
@@ -50,16 +53,18 @@ LICENSE file in the root directory of this source tree.
                 </dds-link-list-item-cta>
               </dds-link-list>
             </dds-content-block-headlines-item>
-            <dds-content-block-headlines-item slot="content">
+            <dds-content-block-headlines-item>
               <dds-content-block-headlines-heading>1.34M</dds-content-block-headlines-heading>
-              <dds-content-item-copy slot="copy">Save 1.34M per year by optimizing your time and IT expenses.</dds-content-item-copy>
+              <dds-content-item-copy slot="copy"
+                >Save 1.34M per year by optimizing your time and IT expenses.</dds-content-item-copy
+              >
               <dds-link-list slot="footer" type="vertical">
                 <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
                   Link text
                 </dds-link-list-item-cta>
               </dds-link-list>
             </dds-content-block-headlines-item>
-            <dds-content-block-headlines-item slot="content">
+            <dds-content-block-headlines-item>
               <dds-content-block-headlines-heading>25%</dds-content-block-headlines-heading>
               <dds-content-item-copy slot="copy"
                 >Modernize mission-critical applications and infrastructure in a hybrid multicloud environment up to 25 percent

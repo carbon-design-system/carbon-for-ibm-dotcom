@@ -8,4 +8,4 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/quote/index.js';
-import 'carbon-web-components/es/icons/arrow--right/20.js';
+import './index.scss';

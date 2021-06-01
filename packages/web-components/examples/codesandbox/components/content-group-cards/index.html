@@ -6,35 +6,123 @@ LICENSE file in the root directory of this source tree.
 -->
 
 <html>
-<head>
-  <title>@carbon/ibmdotcom-web-components example</title>
-  <meta charset="UTF-8" />
-  <script type="module" src="src/index.js"></script>
-  <style type="text/css">
-    /* Avoids FOUC - Will be overriden by `index.scss` */
-    body {
-      visibility: hidden;
-    }
-  </style>
-</head>
-<body>
-<div class="bx--grid">
-  <div class="bx--row">
-    <div class="bx--col-lg-10 bx--col-sm-4 bx--offset-lg-2">
-      <dds-content-group-cards>
-        <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
-        <dds-content-group-cards-item href="https://www.example.com">
-          <dds-card-heading>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</dds-card-heading>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <dds-card-footer icon-placement="left">
-            <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
-              <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-            </svg>
-          </dds-card-footer>
-        </dds-content-group-cards-item>
-      </dds-content-group-cards>
+  <head>
+    <title>@carbon/ibmdotcom-web-components example</title>
+    <meta charset="UTF-8" />
+    <script type="module" src="src/index.js"></script>
+    <style type="text/css">
+      /* Avoids FOUC - Will be overriden by `index.scss` */
+      body {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bx--grid">
+      <div class="bx--row">
+        <div class="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4">
+          <dds-content-group-cards>
+            <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
+            <dds-content-group-copy>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</dds-content-group-copy>
+            <dds-content-group-cards-item href="https://www.example.com">
+              <dds-card-heading
+                >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</dds-card-heading
+              >
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.
+              </p>
+              <dds-card-footer icon-placement="left">
+                <svg
+                  slot="icon"
+                  focusable="false"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                </svg>
+              </dds-card-footer>
+            </dds-content-group-cards-item>
+            <dds-content-group-cards-item href="https://www.example.com">
+              <dds-card-heading
+                >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</dds-card-heading
+              >
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.
+              </p>
+              <dds-card-footer icon-placement="left">
+                <svg
+                  slot="icon"
+                  focusable="false"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                </svg>
+              </dds-card-footer>
+            </dds-content-group-cards-item>
+            <dds-content-group-cards-item href="https://www.example.com">
+              <dds-card-heading
+                >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</dds-card-heading
+              >
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.
+              </p>
+              <dds-card-footer icon-placement="left">
+                <svg
+                  slot="icon"
+                  focusable="false"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                </svg>
+              </dds-card-footer>
+            </dds-content-group-cards-item>
+            <dds-content-group-cards-item href="https://www.example.com">
+              <dds-card-heading
+                >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</dds-card-heading
+              >
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.
+              </p>
+              <dds-card-footer icon-placement="left">
+                <svg
+                  slot="icon"
+                  focusable="false"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                </svg>
+              </dds-card-footer>
+            </dds-content-group-cards-item>
+          </dds-content-group-cards>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-</body>
+  </body>
 </html>

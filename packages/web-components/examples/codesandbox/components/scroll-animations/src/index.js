@@ -7,5 +7,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import './styles.scss';
 import '@carbon/ibmdotcom-web-components/es/components/scroll-animations/scroll-animations.js';
+import './index.scss';

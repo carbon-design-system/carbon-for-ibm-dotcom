@@ -7,11 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '../button-group/button-group-item';
+import '../content-block/index';
+import '../content-item/index';
+import '../button-group/index';
 import './cta-block';
 import './cta-block-item-row';
 import './cta-block-item';
-import '../content-item/content-item-copy';
-import '../content-item/content-item-heading';
-import '../content-block/content-block-heading';
-import '../content-block/content-block-copy';
+import '../cta/text-cta';

@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import '../content-block/index';
 import './content-block-simple';
 import '../image/image';
-import '../content-block/content-block-heading';
-import '../content-block/content-block-complementary';
-import '../content-block/content-block-copy';
+import '../cta/card-cta';
+import '../cta/card-cta-footer';
