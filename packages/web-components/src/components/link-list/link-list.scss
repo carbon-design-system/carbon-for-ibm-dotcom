@@ -132,9 +132,7 @@
 
       ::slotted(#{$dds-prefix}-link-list-item) {
         display: block;
-        margin-left: -$carbon--layout-01;
-
-        @include hang;
+        margin-left: 0;
       }
     }
   }
