@@ -7,5 +7,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/leaving-ibm/leaving-ibm-container';
+import '@carbon/ibmdotcom-web-components/es/components/leaving-ibm/leaving-ibm-container.js';
 import './index.scss';
