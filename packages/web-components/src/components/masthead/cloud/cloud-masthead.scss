@@ -10,6 +10,11 @@
 
 // Cloud Masthead.
 
+:host(#{$dds-prefix}-cloud-masthead-container) {
+  position: relative;
+  z-index: 99;
+}
+
 :host(#{$dds-prefix}-cloud-masthead-global-bar) {
   @extend :host(#{$dds-prefix}-masthead-global-bar);
 
