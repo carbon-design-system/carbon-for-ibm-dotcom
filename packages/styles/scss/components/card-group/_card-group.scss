@@ -116,6 +116,24 @@
     }
   }
 
+  :host(#{$dds-prefix}-card-group-item),
+  .#{$prefix}--card-group__cards__col {
+    padding: 0;
+    background: $ui-03;
+
+    border-right: 1px solid $ui-03;
+    border-top: 1px solid $ui-03;
+
+    &:last-of-type {
+      border-right: 0;
+      width: calc(100% - 1px);
+    }
+
+    .#{$prefix}--card--inverse {
+      height: 100%;
+    }
+  }
+
   // Add Grid Mode Narrow (16px gutter) style.
   :host(#{$dds-prefix}-card-group)[grid-mode='narrow'],
   .#{$prefix}--card-group--narrow {
@@ -132,30 +150,13 @@
 
     ::slotted(#{$dds-prefix}-card-group-item),
     .#{$prefix}--card-group__cards__col {
+      border: 0;
       background-color: inherit;
       padding: $carbon--spacing-03 0 0 0;
 
       @include carbon--breakpoint('md') {
         padding: $carbon--spacing-05 0 0 0;
       }
-    }
-  }
-
-  :host(#{$dds-prefix}-card-group-item),
-  .#{$prefix}--card-group__cards__col {
-    padding: 0;
-    background: $ui-03;
-
-    border-right: 1px solid $ui-03;
-    border-top: 1px solid $ui-03;
-
-    &:last-of-type {
-      border-right: 0;
-      width: calc(100% - 1px);
-    }
-
-    .#{$prefix}--card--inverse {
-      height: 100%;
     }
   }
 
