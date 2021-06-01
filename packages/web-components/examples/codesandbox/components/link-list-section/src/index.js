@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/link-list-section/link-list-section';
-import '@carbon/ibmdotcom-web-components/es/components/content-section/content-section-heading';
-import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list';
-import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list-heading';
-import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list-item';
+import '@carbon/ibmdotcom-web-components/es/components/link-list-section/link-list-section.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-section/content-section-heading.js';
+import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list.js';
+import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list-heading.js';
+import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list-item.js';
 import './index.scss';
