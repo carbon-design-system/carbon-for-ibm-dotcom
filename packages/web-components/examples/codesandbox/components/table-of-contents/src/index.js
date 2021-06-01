@@ -7,5 +7,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/table-of-contents/table-of-contents';
+import '@carbon/ibmdotcom-web-components/es/components/table-of-contents/table-of-contents.js';
 import './index.scss';
