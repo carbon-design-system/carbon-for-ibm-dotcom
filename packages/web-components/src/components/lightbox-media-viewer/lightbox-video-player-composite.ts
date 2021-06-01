@@ -79,7 +79,7 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
     if (
       contentState === VIDEO_PLAYER_CONTENT_STATE.VIDEO &&
       videoId === requestedVideoId &&
-      playingMode !== VIDEO_PLAYER_PLAYING_MODE.INLINE
+      playingMode === VIDEO_PLAYER_PLAYING_MODE.LIGHTBOX
     ) {
       this.open = true;
     }
