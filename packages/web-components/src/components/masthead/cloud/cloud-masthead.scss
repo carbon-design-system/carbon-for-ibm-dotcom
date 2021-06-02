@@ -113,9 +113,21 @@
   flex-direction: column;
   justify-content: space-between;
   border-right: carbon--rem(1px) solid $ui-03;
+
+  @include carbon--breakpoint('md') {
+    min-height: carbon--rem(580px);
+  }
+
+  @include carbon--breakpoint('xlg') {
+    min-height: carbon--rem(475px);
+  }
 }
 
 :host(#{$dds-prefix}-cloud-megamenu-right-navigation) {
+  @include carbon--make-col(12, 16);
+
+  display: flex;
+  flex-direction: column;
   padding-top: $spacing-06;
   margin-bottom: $spacing-07;
 }
@@ -162,25 +174,23 @@
 }
 
 :host(#{$dds-prefix}-cloud-megamenu-category-link-group) {
-  display: block;
-  column-count: 2;
-  column-gap: 0;
-  column-fill: auto;
-
-  @include carbon--breakpoint('xlg') {
-    column-count: 3;
-  }
+  display: flex;
+  flex-flow: wrap;
+  justify-content: start;
 }
 
 :host(#{$dds-prefix}-cloud-megamenu-category-link) {
-  display: block;
-  page-break-inside: avoid;
-  break-inside: avoid;
-  float: left;
+  width: 100%;
+  max-width: 50%;
+
+  @include carbon--breakpoint('xlg') {
+    max-width: 33.33%;
+  }
 
   a {
     display: block;
     padding: $spacing-04 $spacing-05;
+    height: 100%;
 
     p {
       @include carbon--type-style('expressive-heading-01');
