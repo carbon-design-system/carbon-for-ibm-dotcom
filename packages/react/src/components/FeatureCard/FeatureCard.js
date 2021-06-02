@@ -1,11 +1,12 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { Card } from '../Card';
+import classNames from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -22,16 +23,32 @@ const { prefix } = settings;
  * @param {Function} props.onClick onClick function
  * @returns {*} FeatureCard JSX component
  */
-const FeatureCard = ({ card, onClick }) => {
+const FeatureCard = ({ card, size, ...otherProps }) => {
+  const { eyebrow, heading, image, cta, copy } = card;
+
   return (
-    card.cta && (
+    cta &&
+    image && (
       <div
-        className={`${prefix}--feature-card`}
-        data-autoid={`${stablePrefix}--feature-card`}>
+        className={classNames({
+          [`${prefix}--feature-card`]: size == 'medium',
+          [`${prefix}--feature-card-large`]:
+            size == 'large' && eyebrow && heading,
+          [`${prefix}--feature-card-large_no-copy-text`]:
+            size === 'large' && !copy,
+        })}
+        data-autoid={
+          size === 'large'
+            ? `${stablePrefix}--feature-card-large`
+            : `${stablePrefix}--feature-card`
+        }>
         <Card
-          customClassName={`${prefix}--feature-card__card`}
-          onClick={onClick}
+          customClassName={classNames({
+            [`${prefix}--feature-card__card`]: size === 'medium',
+            [`${prefix}--feature-card-large__card`]: size === 'large',
+          })}
           {...card}
+          {...otherProps}
         />
       </div>
     )
@@ -39,6 +56,21 @@ const FeatureCard = ({ card, onClick }) => {
 };
 
 FeatureCard.propTypes = {
+  /**
+   * "Eyebrow" text above copy and CTA.
+   */
+  eyebrow: PropTypes.string,
+
+  /**
+   * Title of the Card item.
+   */
+  heading: PropTypes.string.isRequired,
+
+  /**
+   * Body text for the card.
+   */
+  copy: PropTypes.string,
+
   /**
    * Object containing Feature Card details.
    * In summary, has the following structure.
@@ -64,7 +96,7 @@ FeatureCard.propTypes = {
     cta: PropTypes.shape({
       copy: PropTypes.string,
       href: PropTypes.string,
-      type: PropTypes.oneOf(['jump', 'local', 'external', 'download']),
+      type: PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
     }),
     image: PropTypes.shape({
       classname: PropTypes.string,
@@ -87,6 +119,20 @@ FeatureCard.propTypes = {
    * The handler for `onclick` event.
    */
   onClick: PropTypes.func,
+
+  /**
+   * Size of Feature Card. Choose from:
+   *
+   * | Name    | Description                                                  |
+   * | ------- | -------------------------------------------------------------|
+   * | `medium`| Default Feature Card variant                                 |
+   * | `large` | Large Feature Card variant that contains eyebrow and heading |
+   */
+  size: PropTypes.oneOf(['medium', 'large']),
+};
+
+FeatureCard.defaultProps = {
+  size: 'medium',
 };
 
 export default FeatureCard;

@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement } from 'lit-element';
+import { customElement, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSCard from '../card/card';
@@ -24,6 +24,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-feature-card`)
 class DDSFeatureCard extends DDSCard {
+  /**
+   * The size property to render either Medium (default) or Large Feature Card variants.
+   */
+  @property()
+  size;
+
   updated(changedProperties) {
     super.updated(changedProperties);
     const { _linkNode: linkNode } = this;
@@ -31,10 +37,6 @@ class DDSFeatureCard extends DDSCard {
       linkNode.classList.remove(`${prefix}--link`);
       linkNode.classList.add(`${prefix}--feature-card__card`);
     }
-  }
-
-  static get stableSelector() {
-    return `${ddsPrefix}--feature-card`;
   }
 
   static styles = styles;

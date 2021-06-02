@@ -88,7 +88,29 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/feature-cta.js';
 
 ```html
 <dds-feature-cta href="https://www.ibm.com/" type="local">
-  Copy text
+  <dds-card-heading>This is a heading</dds-card-heading>
+  <dds-image
+    slot="image"
+    alt="Image alt text"
+    default-src="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616"
+  >
+  </dds-image>
+</dds-feature-cta>
+```
+
+The Feature Card for CTA can also use the 'large' variation, but be sure to at least include an eyebrow and heading.
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/cta/feature-cta.js';
+import '@carbon/ibmdotcom-web-components/es/components/card/card-eyebrow.js';
+import '@carbon/ibmdotcom-web-components/es/components/card/card-heading.js';
+import '@carbon/ibmdotcom-web-components/es/components/image/image.js';
+```
+
+```html
+<dds-feature-cta size='large' href="https://www.ibm.com/" type="local">
+  <dds-card-eyebrow>This is an eyebrow</dds-card-eyebrow>
+  <dds-card-heading>This is a heading</dds-card-heading>
   <dds-image
     slot="image"
     alt="Image alt text"
