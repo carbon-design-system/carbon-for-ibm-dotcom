@@ -8,7 +8,7 @@
 import { ButtonGroup } from '../../components/ButtonGroup';
 import classnames from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import deprecate from '../../../../utilities/src/utilities/deprecate/deprecate';
+import deprecate from '@carbon/ibmdotcom-utilities/es/utilities/deprecate/deprecate.js';
 import { Image } from '../Image';
 import PropTypes from 'prop-types';
 import React from 'react';
