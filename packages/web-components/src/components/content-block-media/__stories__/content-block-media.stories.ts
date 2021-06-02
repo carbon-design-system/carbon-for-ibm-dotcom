@@ -145,9 +145,7 @@ export const Default = ({ parameters }) => {
           ? html`
               <dds-feature-card href="https://example.com">
                 <dds-image slot="image" alt="Feature card image" default-src="${imgLg1x1}"></dds-image>
-                <dds-card-eyebrow>Test eyebrow</dds-card-eyebrow>
                 <dds-card-heading>Consectetur adipisicing elit</dds-card-heading>
-                <dds-card-copy>Test copy</dds-card-copy>
                 <dds-feature-card-footer>
                   ${ArrowRight20({ slot: 'icon' })}
                 </dds-feature-card-footer>
