@@ -153,15 +153,22 @@ function _setupPackages() {
  * @private
  */
 function _buildExamples() {
-
   log(chalk.yellow('Installing all examples...'));
+  // need to install twice for some reason, need to look into this
   execSync('yarn install', {
     cwd: _exampleBuild,
+    stdio: 'inherit',
+  });
+
+  execSync('yarn cache clean && yarn install', {
+    cwd: _exampleBuild,
+    stdio: 'inherit',
   });
 
   log(chalk.yellow('Building all examples...'));
   execSync('yarn build', {
     cwd: _exampleBuild,
+    stdio: 'inherit',
   });
 
   log(chalk.yellow('Copying dist folders...'));

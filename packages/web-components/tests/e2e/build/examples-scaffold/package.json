@@ -13,7 +13,7 @@
     ]
   },
   "scripts": {
-    "build": "lerna run build --stream --prefix",
+    "build": "lerna run build --stream --prefix --npm-client yarn",
     "clean": "rimraf node_modules && lerna run clean"
   },
   "devDependencies": {
