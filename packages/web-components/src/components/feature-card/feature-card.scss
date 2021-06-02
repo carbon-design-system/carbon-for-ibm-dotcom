@@ -15,18 +15,72 @@
 :host(#{$dds-prefix}-feature-cta) {
   display: block;
   outline: none;
+  @include carbon--breakpoint-down('md') {
+    .#{$prefix}--card__wrapper {
+      display: block;
+      min-height: 0;
+      height: auto;
+      position: relative;
+
+      .#{$prefix}--card__content {
+        height: 100%;
+        padding: $carbon--spacing-05;
+      }
+    }
+
+    .#{$prefix}--card--link {
+      display: block;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-feature-card[size='large']) {
+  ::slotted(#{$dds-prefix}-feature-card-footer) {
+    display: flex;
+    justify-content: flex-start;
+
+    @include carbon--breakpoint('xlg') {
+      justify-content: flex-end;
+    }
+  }
 }
 
 :host(#{$dds-prefix}-feature-card-footer),
-:host(#{$dds-prefix}-feature-cta-footer),
-:host(#{$dds-prefix}-feature-card-block-large-footer) {
+:host(#{$dds-prefix}-feature-cta-footer) {
   @extend :host(#{$dds-prefix}-card-footer);
 
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 
-  .#{$dds-prefix}-ce--card__footer {
+  @include carbon--breakpoint('md') {
     justify-content: flex-end;
-    align-items: flex-end;
+  }
+}
+
+:host(#{$dds-prefix}-feature-card-footer) {
+  .dds-ce--card__footer ::slotted(svg[slot='icon']) {
+    @include carbon--breakpoint('sm') {
+      width: carbon--rem(20px);
+      height: carbon--rem(20px);
+    }
+
+    @include carbon--breakpoint('md') {
+      width: $carbon--spacing-06;
+      height: $carbon--spacing-06;
+    }
+
+    @include carbon--breakpoint('max') {
+      width: $carbon--spacing-07;
+      height: $carbon--spacing-07;
+    }
+  }
+
+  &[size='large'] {
+    .dds-ce--card__footer ::slotted(svg[slot='icon']) {
+      @include carbon--breakpoint('max') {
+        width: $carbon--spacing-10;
+        height: $carbon--spacing-10;
+      }
+    }
   }
 }

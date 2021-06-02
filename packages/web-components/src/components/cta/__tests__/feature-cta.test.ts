@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,9 +11,11 @@ import { html, render } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
 import { CTA_TYPE } from '../defs';
 import '../feature-cta';
+import '../../card/card-heading';
 
 const template = (props?) => {
-  const { ctaType, videoDuration, videoName, videoThumbnailUrl, formatVideoCaption, formatVideoDuration, children } = props ?? {};
+  const { heading, ctaType, videoDuration, videoName, videoThumbnailUrl, formatVideoCaption, formatVideoDuration, children } =
+    props ?? {};
   return html`
     <dds-feature-cta
       cta-type="${ifDefined(ctaType)}"
@@ -23,6 +25,7 @@ const template = (props?) => {
       .formatVideoCaption="${ifDefined(formatVideoCaption)}"
       .formatVideoDuration="${ifDefined(formatVideoDuration)}"
     >
+      <dds-card-heading>${heading}</dds-card-heading>
       ${children}
     </dds-feature-cta>
   `;
@@ -54,11 +57,12 @@ describe('dds-feature-cta', function() {
   });
 
   describe('Overriding the default contents', function() {
-    it('should not use the video name if copy content is given', async function() {
+    it('should not use the video name if heading is given', async function() {
       render(
         template({
           ctaType: CTA_TYPE.VIDEO,
           videoName: 'video-name-foo',
+          heading: 'heading',
           children: 'video-name-bar',
         }),
         document.body
@@ -69,9 +73,9 @@ describe('dds-feature-cta', function() {
       expect(
         document.body
           .querySelector('dds-feature-cta')!
-          .shadowRoot!.querySelector('.bx--card__copy')!
+          .querySelector('dds-card-heading')!
           .textContent!.trim()
-      ).toBe('');
+      ).toBe('video-name-foo');
     });
 
     it('should not use the thumbnail image if image is given', async function() {
