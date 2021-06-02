@@ -10,7 +10,7 @@
 import { customElement, html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import deprecate from '../../../../utilities/src/utilities/deprecate/deprecate';
+import deprecate from '@carbon/ibmdotcom-utilities/es/utilities/deprecate/deprecate.js';
 import DDSFeatureCard from '../feature-card/feature-card';
 import styles from './feature-card-block-medium.scss';
 
