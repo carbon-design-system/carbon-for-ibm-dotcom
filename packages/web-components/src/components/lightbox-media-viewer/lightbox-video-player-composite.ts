@@ -18,7 +18,7 @@ import Handle from '../../globals/internal/handle';
 import DDSVideoPlayerComposite from '../video-player/video-player-composite';
 import '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-close-button';
-import { VIDEO_PLAYER_CONTENT_STATE } from '../video-player/video-player';
+import { VIDEO_PLAYER_CONTENT_STATE, VIDEO_PLAYER_PLAYING_MODE } from '../video-player/video-player';
 import './lightbox-video-player';
 import styles from './lightbox-video-player-composite.scss';
 
@@ -73,10 +73,14 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
 
   @HostListener('document:eventContentStateChange')
   protected _handleContentStateChangeDocument = (event: CustomEvent) => {
-    const { contentState, videoId: requestedVideoId } = event.detail;
-    if (!this.videoId) this.videoId = requestedVideoId;
+    const { contentState, playingMode, videoId: requestedVideoId } = event.detail;
+    this.videoId = requestedVideoId;
     const { videoId } = this;
-    if (contentState === VIDEO_PLAYER_CONTENT_STATE.VIDEO && videoId === requestedVideoId) {
+    if (
+      contentState === VIDEO_PLAYER_CONTENT_STATE.VIDEO &&
+      videoId === requestedVideoId &&
+      playingMode === VIDEO_PLAYER_PLAYING_MODE.LIGHTBOX
+    ) {
       this.open = true;
     }
   };

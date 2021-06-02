@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-styles",
   "description": "Carbon for IBM.com Styles",
-  "version": "1.19.0",
+  "version": "1.19.1",
   "license": "Apache-2.0",
   "main": "dist/ibm-dotcom-styles.min.css",
   "module": "src/scss",
@@ -34,15 +34,15 @@
     "visual-snapshot": "yarn build-storybook && percy-storybook --widths=320,1280"
   },
   "dependencies": {
-    "@carbon/grid": "10.27.0",
-    "@carbon/icons-react": "10.32.0",
+    "@carbon/grid": "10.28.0",
+    "@carbon/icons-react": "10.33.0",
     "@carbon/import-once": "10.6.0",
-    "@carbon/layout": "10.24.0",
-    "@carbon/motion": "10.18.0",
+    "@carbon/layout": "10.25.0",
+    "@carbon/motion": "10.19.0",
     "@carbon/telemetry": "0.0.0-alpha.6",
-    "@carbon/themes": "10.34.0",
-    "@carbon/type": "10.28.0",
-    "carbon-components": "10.35.0"
+    "@carbon/themes": "10.35.0",
+    "@carbon/type": "10.29.0",
+    "carbon-components": "10.36.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
@@ -61,7 +61,7 @@
     "babel-loader": "^8.0.6",
     "browserslist-config-carbon": "^10.4.0",
     "cache-loader": "^4.1.0",
-    "carbon-components-react": "7.35.0",
+    "carbon-components-react": "7.36.0",
     "css-loader": "^5.2.0",
     "del": "^3.0.0",
     "gulp": "^4.0.2",

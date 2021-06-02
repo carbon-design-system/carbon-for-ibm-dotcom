@@ -25,7 +25,33 @@ import '@carbon/ibmdotcom-web-components/es/components/feature-card/index.js';
 ```html
 <dds-feature-card href="https://example.com">
   <img />
-  <h3>Copy text</h3>
+  <dds-card-heading>Explore AI use cases in all industries</dds-card-heading>
+  <dds-feature-card-footer>
+    <svg
+      slot="icon"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+    >
+      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+    </svg>
+  </dds-feature-card-footer>
+</dds-feature-card>
+```
+
+Here's an example using the Feature Card Large variant (previously known as `FeatureCardBlockLarge`)
+
+```html
+<dds-feature-card size='large' href="https://example.com">
+  <img />
+  <dds-card-eyebrow>This is an eyebrow</dds-card-eyebrow>
+  <dds-card-heading>Explore AI use cases in all industries</dds-card-heading>
+  <dds-card-copy>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</dds-card-copy>
   <dds-feature-card-footer>
     <svg
       slot="icon"
