@@ -51,7 +51,6 @@
     <div class="bx--card__copy">
       <slot>
       </slot>
-      video-name-foo-180000
     </div>
     <slot name="footer">
     </slot>

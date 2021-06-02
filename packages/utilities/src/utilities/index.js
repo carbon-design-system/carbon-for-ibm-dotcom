@@ -8,6 +8,7 @@
 export * from './altlangs';
 export * from './calculateTotalWidth';
 export * from './decodeString';
+export * from './deprecate';
 export * from './escaperegexp';
 export * from './featureflag';
 export * from './formatVideoCaption';

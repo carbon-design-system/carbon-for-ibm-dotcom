@@ -112,6 +112,30 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
+The Feature Card for CTA can also use the 'large' variation, but be sure to at least include an eyebrow and heading.
+
+```javascript
+function App() {
+  return (
+    <CTA
+      style="feature"
+      size="large"
+      type="local"
+      eyebrow="This is an eyebrow"
+      heading="Lorem Ipsum"
+      image={{
+        defaultSrc:
+          'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616',
+        alt: 'Image alt text',
+      }}
+      cta={{
+        href: 'https://www.example.com',
+      }}
+    />
+  );
+}
+```
+
 ##### Button(s)
 
 ```javascript
