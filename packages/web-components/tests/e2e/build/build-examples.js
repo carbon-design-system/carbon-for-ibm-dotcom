@@ -175,7 +175,7 @@ function _buildExamples() {
 
     // Copying dist output
     log(chalk.green(`Copying ${example} to dist...`));
-    execSync(`mv "${_exampleBuild}/${example}/dist" "${_distFolder}/${example}"`);
+    execSync(`mv "${_exampleBuild}/components/${example}/dist" "${_distFolder}/${example}"`);
   });
 }
 
