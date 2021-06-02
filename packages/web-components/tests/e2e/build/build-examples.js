@@ -127,11 +127,11 @@ function _setupPackages() {
 
       const commands = [];
       commands.push(
-        `cd ${_packages[pack]} && yarn pack --filename ${_localPackagesFolder}/carbon-ibmdotcom-${pack}.tar.gz`,
-        `tar xzf ${_localPackagesFolder}/carbon-ibmdotcom-${pack}.tar.gz --directory ${_localPackagesFolder}`,
-        `mv ${_localPackagesFolder}/package ${_localPackagesFolder}/ibmdotcom-${pack}`,
+        `cd "${_packages[pack]}" && yarn pack --filename "${_localPackagesFolder}/carbon-ibmdotcom-${pack}.tar.gz"`,
+        `tar xzf "${_localPackagesFolder}/carbon-ibmdotcom-${pack}.tar.gz" --directory "${_localPackagesFolder}"`,
+        `mv "${_localPackagesFolder}/package" "${_localPackagesFolder}/ibmdotcom-${pack}"`,
         // eslint-disable-next-line max-len
-        `node ${_testScriptFolder}/replace-dependencies.js -f "${_localPackagesFolder}" ${_localPackagesFolder}/ibmdotcom-${pack}/package.json`
+        `node ${_testScriptFolder}/replace-dependencies.js -f "${_localPackagesFolder}" "${_localPackagesFolder}/ibmdotcom-${pack}/package.json"`
       );
 
       commands.forEach(command => {
@@ -173,7 +173,7 @@ function _buildExamples() {
 
   log(chalk.yellow('Copying dist folders...'));
   _examples.forEach(example => {
-    execSync(`mv ${_exampleBuild}/${example}/dist ${_distFolder}/${example}`);
+    execSync(`mv "${_exampleBuild}/${example}/dist" "${_distFolder}/${example}"`);
   });
 }
 
@@ -227,7 +227,7 @@ function build() {
     log(chalk.green(`Replacing dependencies for ${example} and installing`));
     execSync(
       // eslint-disable-next-line max-len
-      `node ${_testScriptFolder}/replace-dependencies.js -f "${_localPackagesFolder}" ${_exampleBuild}/components/${example}/package.json`
+      `node ${_testScriptFolder}/replace-dependencies.js -f "${_localPackagesFolder}" "${_exampleBuild}/components/${example}/package.json"`
     );
   });
 
