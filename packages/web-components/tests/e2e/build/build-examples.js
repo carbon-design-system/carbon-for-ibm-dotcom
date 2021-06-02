@@ -166,13 +166,15 @@ function _buildExamples() {
   });
 
   log(chalk.yellow('Building all examples...'));
-  execSync('yarn build', {
-    cwd: _exampleBuild,
-    stdio: 'inherit',
-  });
-
-  log(chalk.yellow('Copying dist folders...'));
   _examples.forEach(example => {
+    log(chalk.green(`Building ${example}...`));
+    execSync('yarn build', {
+      cwd: `${_exampleBuild}/components/${example}`,
+      stdio: 'inherit',
+    });
+
+    // Copying dist output
+    log(chalk.green(`Copying ${example} to dist...`));
     execSync(`mv "${_exampleBuild}/${example}/dist" "${_distFolder}/${example}"`);
   });
 }
