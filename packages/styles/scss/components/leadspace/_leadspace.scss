@@ -438,31 +438,8 @@ $btn-min-width: 26;
     max-width: rem(640px);
   }
 
-  :host(#{$dds-prefix}-leadspace)
-    ::slotted([slot='navigation']:not(#{$dds-prefix}-tag-group)) {
-    padding-bottom: $spacing-05;
-  }
-
   :host(#{$dds-prefix}-leadspace) ::slotted(#{$dds-prefix}-tag-group) {
     padding-bottom: $spacing-03;
-  }
-
-  :host(#{$dds-prefix}-breadcrumb) {
-    @extend :host(#{$prefix}-breadcrumb);
-  }
-
-  :host(#{$dds-prefix}-breadcrumb-item) {
-    @extend :host(#{$prefix}-breadcrumb-item);
-
-    display: inline;
-  }
-
-  :host(#{$dds-prefix}-breadcrumb-item:last-of-type)::after {
-    @extend :host(#{$prefix}-breadcrumb-item:last-of-type)::after;
-  }
-
-  :host(#{$dds-prefix}-breadcrumb-link) {
-    @extend :host(#{$prefix}-breadcrumb-link);
   }
 
   :host(#{$dds-prefix}-breadcrumb-link[aria-current='page']) .#{$prefix}--link {

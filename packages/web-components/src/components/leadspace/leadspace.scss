@@ -32,3 +32,23 @@
     }
   }
 }
+
+:host(#{$dds-prefix}-breadcrumb) {
+  @extend :host(#{$prefix}-breadcrumb);
+
+  padding-bottom: $spacing-05;
+}
+
+:host(#{$dds-prefix}-breadcrumb-item) {
+  @extend :host(#{$prefix}-breadcrumb-item);
+
+  display: inline;
+}
+
+:host(#{$dds-prefix}-breadcrumb-item:last-of-type)::after {
+  @extend :host(#{$prefix}-breadcrumb-item:last-of-type)::after;
+}
+
+:host(#{$dds-prefix}-breadcrumb-link) {
+  @extend :host(#{$prefix}-breadcrumb-link);
+}
