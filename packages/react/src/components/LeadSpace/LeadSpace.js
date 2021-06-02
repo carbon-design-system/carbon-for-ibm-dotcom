@@ -5,12 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect } from 'react';
 import { ButtonGroup } from '../../components/ButtonGroup';
 import classnames from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import deprecate from '../../../../utilities/src/utilities/deprecate/deprecate';
 import { Image } from '../Image';
 import PropTypes from 'prop-types';
+import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -77,18 +78,6 @@ const LeadSpace = ({
   const background = image && {
     backgroundImage: `url(${image.defaultSrc})`,
   };
-
-  useEffect(() => {
-    if (type === 'small') {
-      const deprecationError = new Error(`
-        The Leadspace Small and Leadspace Small With Image variations are now deprecated.
-        Please refer to the Carbon for IBM.com documentation for further details.
-        https://www.ibm.com/standards/web/carbon-for-ibm-dotcom/components/leadspace
-      `);
-      deprecationError.name = 'DeprecationError';
-      console.error(deprecationError);
-    }
-  }, [type]);
 
   return (
     <div
@@ -208,4 +197,11 @@ LeadSpace.propTypes = {
   size: PropTypes.oneOf(['tall', 'medium', 'super']),
 };
 
-export default LeadSpace;
+export default deprecate(
+  LeadSpace,
+  `
+  The Leadspace Small and Leadspace Small With Image variations are now deprecated.
+  Please refer to the Carbon for IBM.com documentation for further details.
+  https://www.ibm.com/standards/web/carbon-for-ibm-dotcom/components/leadspace
+`
+);
