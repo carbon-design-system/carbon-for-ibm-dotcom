@@ -227,7 +227,7 @@ function build() {
     log(chalk.green(`Replacing dependencies for ${example} and installing`));
     execSync(
       // eslint-disable-next-line max-len
-      `node ${_testScriptFolder}/replace-dependencies.js -f "${_localPackagesFolder}" "${_exampleBuild}/components/${example}/package.json"`
+      `node "${_testScriptFolder}/replace-dependencies.js" -f "${_localPackagesFolder}" "${_exampleBuild}/components/${example}/package.json"`
     );
   });
 
