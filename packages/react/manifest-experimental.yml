@@ -4,6 +4,7 @@ applications:
     path: ./storybook-static
     memory: 64M
     buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+    force_https: true
     routes:
       - route: ibmdotcom-react-experimental.mybluemix.net
 

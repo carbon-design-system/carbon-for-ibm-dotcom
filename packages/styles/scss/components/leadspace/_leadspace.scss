@@ -10,7 +10,6 @@
 @import '../buttongroup/_buttongroup';
 @import '../image/image';
 @import '../tag-group/tag-group';
-@import 'carbon-web-components/scss/components/breadcrumb/breadcrumb';
 
 $btn-min-width: 26;
 
@@ -441,26 +440,6 @@ $btn-min-width: 26;
 
   :host(#{$dds-prefix}-leadspace) ::slotted(#{$dds-prefix}-tag-group) {
     padding-bottom: $spacing-03;
-  }
-
-  :host(#{$dds-prefix}-breadcrumb) {
-    @extend :host(#{$prefix}-breadcrumb);
-
-    padding-bottom: $spacing-05;
-  }
-
-  :host(#{$dds-prefix}-breadcrumb-item) {
-    @extend :host(#{$prefix}-breadcrumb-item);
-
-    display: inline;
-  }
-
-  :host(#{$dds-prefix}-breadcrumb-item:last-of-type)::after {
-    @extend :host(#{$prefix}-breadcrumb-item:last-of-type)::after;
-  }
-
-  :host(#{$dds-prefix}-breadcrumb-link) {
-    @extend :host(#{$prefix}-breadcrumb-link);
   }
 
   :host(#{$dds-prefix}-breadcrumb-link[aria-current='page']) .#{$prefix}--link {
