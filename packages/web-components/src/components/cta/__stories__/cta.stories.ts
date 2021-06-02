@@ -183,7 +183,7 @@ export const Feature = ({ parameters }) => {
   const { copy: footerCopy, download: footerDownload, href: footerHref } = parameters?.props?.FeatureCTAFooter ?? {};
   return html`
     <dds-feature-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${ifNonNull(href)}">
-      ${copy}
+      <dds-card-heading>${copy}</dds-card-heading>
       <dds-image slot="image" alt="Image alt text" default-src="${imgLg1x1}"> </dds-image>
       <dds-feature-cta-footer
         cta-type="${ifNonNull(ctaType)}"
@@ -198,8 +198,9 @@ export const Feature = ({ parameters }) => {
 
 Feature.story = {
   parameters: {
+    hasFeatureCard: true,
     hasGrid: true,
-    hasCardGrid: true,
+    useRawContainer: true,
     knobs: {
       FeatureCTA: ({ groupId }) => Card.story.parameters.knobs.CardCTA({ groupId }),
       FeatureCTAFooter: ({ groupId }) => Card.story.parameters.knobs.CardCTAFooter({ groupId }),
@@ -211,16 +212,28 @@ export default {
   title: 'Components/CTA',
   decorators: [
     (story, { parameters }) => {
-      const { hasGrid, hasCardGrid } = parameters;
+      const { hasGrid, hasCardGrid, hasFeatureCard } = parameters;
       const classes = classMap({
         'dds-ce-demo-devenv--simple-grid': hasGrid && hasCardGrid,
         'dds-ce-demo-devenv--simple-grid--card': hasGrid,
       });
-      return html`
-        <dds-video-cta-container class="${classes}">
-          ${story()}
-        </dds-video-cta-container>
-      `;
+      return !hasFeatureCard
+        ? html`
+            <dds-video-cta-container class="${classes}">
+              ${story()}
+            </dds-video-cta-container>
+          `
+        : html`
+            <div class="bx--grid">
+              <div class="bx--row">
+                <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+                  <dds-video-cta-container class="${classes}">
+                    ${story()}
+                  </dds-video-cta-container>
+                </div>
+              </div>
+            </div>
+          `;
     },
   ],
   parameters: {
