@@ -15,18 +15,18 @@ import '../content-block-card-static';
 const template = (props?) => {
   const { complementaryStyleScheme, children } = props ?? {};
   return html`
-    <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
+    <dds-content-block-card-static complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       ${children}
-    </dds-content-block-simple>
+    </dds-content-block-card-static>
   `;
 };
 
-describe('dds-content-block-simple', function() {
+describe('dds-content-block-card-static', function() {
   describe('Misc attributes', function() {
     it('should render with minimum attributes', async function() {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-content-block-simple')).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-content-block-card-static')).toMatchSnapshot({ mode: 'shadow' });
     });
 
     it('should render with various attributes', async function() {
@@ -39,10 +39,10 @@ describe('dds-content-block-simple', function() {
         }),
         document.body
       );
-      await Promise.resolve(); // The update cycle of `<dds-content-block-simple>`
+      await Promise.resolve(); // The update cycle of `<dds-content-block-card-static>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
-      expect(document.body.querySelector('dds-content-block-simple')).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-content-block-card-static')).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 

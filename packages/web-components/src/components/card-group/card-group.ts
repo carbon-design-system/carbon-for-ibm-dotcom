@@ -23,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
-//
+// tag constants used for same height calculations
 const headingBottomMargin = 64;
 const tagBottomMargin = 16;
 

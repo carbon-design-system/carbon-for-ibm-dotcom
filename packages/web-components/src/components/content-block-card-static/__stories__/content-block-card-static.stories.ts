@@ -7,14 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '../content-block-card-static';
-import '../../content-block/content-block-heading';
-import '../../card/card-eyebrow';
-import '../../card/card-heading';
-import '../../card-group/card-group';
-import '../../card-group/card-group-item';
-import '../../cta/card-cta-footer';
-import '../../cta/video-cta-container';
+ import '../index';
 import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
@@ -62,7 +55,7 @@ export const Default = !DDS_CONTENT_BLOCK_CARD_STATIC
       return html`
         <dds-content-block-card-static>
           <dds-content-block-heading>${heading}</dds-content-block-heading>
-          <dds-card-group grid-mode="border">
+          <dds-card-group>
             ${longHeadingCardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem}
           </dds-card-group>
           <dds-content-item>
