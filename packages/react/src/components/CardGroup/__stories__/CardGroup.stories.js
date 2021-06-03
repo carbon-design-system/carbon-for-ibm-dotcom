@@ -97,7 +97,6 @@ const groupCTA = {
 };
 
 export const Default = ({ parameters }) => {
-  console.log(parameters.props.CardGroup);
   const { cards: data, cta, border } = parameters?.props?.CardGroup ?? {};
   return (
     <div className="bx--grid bx--content-group-story">
