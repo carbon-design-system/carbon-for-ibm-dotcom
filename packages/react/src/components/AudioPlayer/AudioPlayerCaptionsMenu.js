@@ -88,9 +88,9 @@ AudioPlayerCaptionsMenu.propTypes = {
    * Each key of the object is the caption language label
    *  and contain an array of entries.
    * Each entry of this array is an object containing:
-   *  start -> Number - The first second of the video where
+   *  start -> Number - The first second of the audio where
    *          the caption should be displayed
-   *  end -> Number - The last second of the video where
+   *  end -> Number - The last second of the audio where
    *          the caption should be displayed
    *  content -> String - The html content of the caption
    */

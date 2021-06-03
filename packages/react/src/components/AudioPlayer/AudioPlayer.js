@@ -45,7 +45,7 @@ const AudioPlayer = ({
 
   const [displayVolumeControl, setDisplayVolumeControl] = useState(false);
 
-  const audioPlayerId = uniqueid(`audio-player__video-${audioId}-`);
+  const audioPlayerId = uniqueid(`audio-player__audio-${audioId}-`);
   const uniqueAudioPlayerId = `${prefix}--${audioPlayerId}`;
 
   const [kalturaDigitalPlayer, setKalturaDigitalPlayer] = useState(false); // The KDP Object
@@ -99,14 +99,14 @@ const AudioPlayer = ({
           playerPlayEnd: () => {
             setAudioState('stopped');
             /**
-             * As the video current time is floored on playhead update
-             *  when the video stop because it endend, there is a huge
+             * As the audio current time is floored on playhead update
+             *  when the audio stop because it endend, there is a huge
              *  chance that the scrubber will show something like:
              *  2:29 <---- scrubber ----> 2:30
              *  but the audio will be ended and playbutton will show
              *  the reload icon
              * In order to fix it, we're manually setting the current
-             *  audio time to the video duration
+             *  audio time to the audio duration
              */
             setAudioTime(audioData.duration);
           },
@@ -216,7 +216,7 @@ const AudioPlayer = ({
 
 AudioPlayer.propTypes = {
   /**
-   * Video ID from Kaltura video platform.
+   * Media ID from Kaltura media platform.
    */
   audioId: PropTypes.string.isRequired,
   /**
@@ -224,7 +224,7 @@ AudioPlayer.propTypes = {
    */
   customClassName: PropTypes.string,
   /**
-   * `true` to autoplay the video on load
+   * `true` to autoplay the audio on load
    */
   autoPlay: PropTypes.bool,
   /**

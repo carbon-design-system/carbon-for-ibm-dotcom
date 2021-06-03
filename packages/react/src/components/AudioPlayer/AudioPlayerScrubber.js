@@ -32,7 +32,7 @@ const AudioPlayerScrubber = ({
 }) => {
   const audioDurationAsString = KalturaPlayerAPI.getMediaDuration(
     audioDuration
-  ); // Video Total Time
+  ); // Audio Total Time
 
   const handleFormat = (minMax, minOrMaxLabel) => {
     return minOrMaxLabel;
