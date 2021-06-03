@@ -14,23 +14,23 @@
     position: relative;
     display: flex;
     align-items: center;
-    height: 48px;
-    padding: 0 8px 0 0;
+    height: $spacing-09;
+    padding: 0 $spacing-03 0 0;
     background-color: $ui-01;
 
     &__captions {
       position: absolute;
-      bottom: 48px;
+      bottom: $spacing-09;
       left: 0;
       display: flex;
       align-items: center;
       width: 100%;
-      padding: 16px;
+      padding: $spacing-05;
       background-color: $ui-01;
       border-bottom: 1px solid $ui-03;
 
       &-text {
-        min-height: calc(1rem + 2px);
+        min-height: calc(1rem + $spacing-01);
         color: $text-01;
         @include carbon--type-style('caption-01');
       }
@@ -47,8 +47,8 @@
         }
 
         &.#{$prefix}--tooltip__trigger:focus {
-          outline: 2px solid var(--cds-focus, $carbon--blue-60);
-          outline-offset: -2px;
+          outline: $spacing-01 solid var(--cds-focus, $carbon--blue-60);
+          outline-offset: -#{$spacing-01};
         }
       }
     }
@@ -118,13 +118,13 @@
 
       &-menu {
         position: absolute;
-        bottom: calc(48px + 8px);
+        bottom: calc($spacing-09 + $spacing-03);
         right: 0;
         display: flex;
         align-items: center;
         max-width: 248px;
-        height: 48px;
-        padding: 0 8px 8px;
+        height: $spacing-09;
+        padding: 0 $spacing-03 $spacing-03;
         background-color: $field-02;
         z-index: 2;
       }
@@ -132,7 +132,7 @@
 
     &__shadow {
       /* Box Shadow from OverFlowMenu */
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 $spacing-01 6px rgba(0, 0, 0, 0.2);
     }
 
     &__overflow-menu-container {

@@ -6,6 +6,8 @@
  */
 import Button from '../../internal/vendor/carbon-components-react/components/Button/Button';
 
+import cx from 'classnames';
+
 import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
 
 import PropTypes from 'prop-types';
@@ -47,17 +49,14 @@ const AudioPlayerVolumeControl = ({
     return VolumeUp32;
   };
 
-  const isTooltipVisible = () => {
-    if (displayVolumeControl) {
-      return `${prefix}--force-tooltip-hidden ${prefix}--menu--open`;
-    }
-    return '';
-  };
+  const buttonClasses = cx({
+    [`${prefix}--force-tooltip-hidden ${prefix}--menu--open`]: displayVolumeControl,
+  });
 
   return (
     <div className={`${prefix}--audio-player__volume-control`}>
       <Button
-        className={isTooltipVisible()}
+        className={buttonClasses}
         renderIcon={renderVolumeButtonIcon()}
         iconDescription="Volume"
         hasIconOnly

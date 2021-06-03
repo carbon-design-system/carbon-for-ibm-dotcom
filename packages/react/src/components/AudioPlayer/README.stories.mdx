@@ -4,7 +4,7 @@ import AudioPlayer from './AudioPlayer';
 
 # Audio Player
 
-> Audio players play embedded audios using the Kaltura video platform. It can be
+> Audio players play embedded audios using the Kaltura Media platform. It can be
 > used in inline patterns. It is always the full width of its
 > containing element and maintains a fixed height of 48 pixels.
 
@@ -42,11 +42,29 @@ import 'yourapplication.scss';
 function App() {
   return (
     <AudioPlayer
-      videoId="your-video-id"
+      audioId="your-audio-id"
     />
   );
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+##### OPTIONAL 💡
+
+In addition, direct ES module imports can be used to speed up build compilation
+and have less reliance on tree-shaking determinations from build scripts:
+
+```js
+import AudioPlayer from '@carbon/ibmdotcom-react/es/components/AudioPlayer/AudioPlayer';
+```
+
+## Feature Flag
+
+This pattern is currently behind a feature flag, in order to use it you'll need
+to add the following into your `.env` file.
+
+```
+  DDS_AUDIO_PLAYER=true
 ```
 
 Add the following line in your `.env` file at the root of your project.
@@ -61,7 +79,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Environment Variables
 
-The partner ID and uiconf ID necessary to render videos from the Kaltura can be
+The partner ID and uiconf ID necessary to render media from the desired Kaltura Instance can be
 set from the `.env` file.
 
 example:
@@ -74,8 +92,8 @@ KALTURA_UICONF_ID=12905712
 ## Manual usage of Kaltura API
 
 With `@carbon/ibmdotcom-services`, you can keep track of the readiness of
-[Kaltura API](http://player.kaltura.com/docs/api) and use it when it is ready.
-Here is an example of stopping the video player when it is hidden in DOM:
+[Kaltura Player API](http://player.kaltura.com/docs/api) and use it when it is ready.
+Here is an example of stopping the audio player when it is hidden in DOM:
 
 ```javascript
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
@@ -85,15 +103,15 @@ const resizeObserver = new ResizeObserver(entries => {
   entries.forEach(entry => {
     const { width, height } = entry.contentRect;
     if (width === 0 && height === 0) {
-      // Uses Kaltura API to stop the video
+      // Uses Kaltura API to stop the audio
       entry.target.sendNotification('doPause');
     }
   });
 });
 
-VideoPlayerAPI.checkScript().then(() => {
+KalturaPlayerAPI.checkScript().then(() => {
   window.kWidget.addReadyCallback(playerId => {
-    // Observes the resize of the video player
+    // Observes the resize of the audio player
     resizeObserver.observe(document.getElementById(playerId));
   });
 });
@@ -101,15 +119,6 @@ VideoPlayerAPI.checkScript().then(() => {
 
 > 💡 We don't test `<AudioPlayer>` against arbitray usage of Kaltura API. Use
 > this technique at your own risk.
-
-##### OPTIONAL 💡
-
-In addition, direct ES module imports can be used to speed up build compilation
-and have less reliance on tree-shaking determinations from build scripts:
-
-```js
-import AudioPlayer from '@carbon/ibmdotcom-react/es/components/AudioPlayer/AudioPlayer';
-```
 
 ## Props
 

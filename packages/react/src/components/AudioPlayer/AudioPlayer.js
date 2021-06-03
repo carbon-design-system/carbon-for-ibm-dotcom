@@ -243,7 +243,6 @@ AudioPlayer.propTypes = {
   /**
    * The CSS class name to apply.
    */
-  // customClassName: PropTypes.string,
 };
 
 AudioPlayer.defaultProps = {

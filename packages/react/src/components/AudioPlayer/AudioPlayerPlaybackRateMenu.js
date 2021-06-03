@@ -46,7 +46,6 @@ const AudioPlayerPlaybackRateMenu = ({
             direction="top"
             flipped={true}
             iconDescription="Playback Rate Speed"
-            // selectorPrimaryFocus=""
             selectorPrimaryFocus={`.${prefix}--audio-player__button-for-playback-rate-${audioPlaybackRate
               .toString()
               .split('.')
