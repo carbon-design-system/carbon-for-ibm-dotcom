@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.4.1-rc.1...@carbon/ibmdotcom-web-components@1.4.1) (2021-06-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+## [1.4.1-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.4.1-rc.0...@carbon/ibmdotcom-web-components@1.4.1-rc.1) (2021-05-27)
+
+
+### Bug Fixes
+
+* **typescript:** upgrade typescript to 3.9 in web-components and services-store packages ([#6219](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6219)) ([323f770](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/323f770)), closes [#5852](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5852)
+
+
+
+
+
+## [1.4.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.4.0...@carbon/ibmdotcom-web-components@1.4.1-rc.0) (2021-05-22)
+
+
+### Bug Fixes
+
+* **custom-events:** onloadend type defined ([#6158](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6158)) ([970c4f9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/970c4f9)), closes [#5852](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5852)
+
+
+
+
+
 # [1.4.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.4.0-rc.2...@carbon/ibmdotcom-web-components@1.4.0) (2021-05-18)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components

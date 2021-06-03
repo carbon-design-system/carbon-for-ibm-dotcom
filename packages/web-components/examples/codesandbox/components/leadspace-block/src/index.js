@@ -9,7 +9,7 @@
 
 import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/index.js';
 // with link list
-import '@carbon/ibmdotcom-web-components/es/components/link-list/index';
+import '@carbon/ibmdotcom-web-components/es/components/link-list/index.js';
 // with media (video)
-import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player-container';
+import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player-container.js';
 import './index.scss';
