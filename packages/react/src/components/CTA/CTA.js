@@ -17,7 +17,7 @@ import { useVideoData } from '../../internal/hooks/useVideoData';
 /**
  * CTA component.
  */
-const CTA = ({ style, type, customClassName, ...otherProps }) => {
+const CTA = ({ style, type, size, customClassName, ...otherProps }) => {
   const [renderLightBox, openLightBox] = useState(false);
 
   const videoId =
@@ -37,6 +37,7 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
 
   const ctaProps = {
     style,
+    size,
     type,
     renderLightBox,
     openLightBox,
@@ -52,6 +53,16 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
 };
 
 CTA.propTypes = {
+  /**
+   * Size of Feature Card. Choose from:
+   *
+   * | Name    | Description                                                  |
+   * | ------- | -------------------------------------------------------------|
+   * | `medium`| Default Feature Card variant                                 |
+   * | `large` | Large Feature Card variant that contains eyebrow and heading |
+   */
+  size: PropTypes.oneOf(['medium', 'large']),
+
   /**
    * CTA style. Choose from:
    *

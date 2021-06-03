@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import CTALogic from './CTALogic';
-import { FeatureCardBlockMedium } from '../FeatureCardBlockMedium';
+import { FeatureCard } from '../FeatureCard';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -13,6 +13,7 @@ import React from 'react';
  * FeatureCard subcomponent for CTA.
  */
 const FeatureCTA = ({
+  size,
   type,
   openLightBox,
   renderLightBox,
@@ -28,8 +29,7 @@ const FeatureCTA = ({
         otherProps.card.cta.media
       )}
       {!renderLightBox && (
-        <FeatureCardBlockMedium
-          heading={otherProps.heading}
+        <FeatureCard
           card={_renderFeatureCard({
             card: {
               ...otherProps.card,
@@ -39,18 +39,19 @@ const FeatureCTA = ({
               }),
             },
           })}
+          size={size}
           onClick={e => CTALogic.setLightBox(e, openLightBox)}
         />
       )}
     </div>
   ) : (
-    <FeatureCardBlockMedium
-      heading={otherProps.heading}
+    <FeatureCard
       card={_renderFeatureCard({
         card: {
           ...otherProps.card,
         },
       })}
+      size={size}
     />
   );
 };
@@ -77,6 +78,16 @@ const _renderFeatureCard = ({ card }) => {
 };
 
 FeatureCTA.propTypes = {
+  /**
+   * Size of Feature Card. Choose from:
+   *
+   * | Name    | Description                                                  |
+   * | ------- | -------------------------------------------------------------|
+   * | `medium`| Default Feature Card variant                                 |
+   * | `large` | Large Feature Card variant that contains eyebrow and heading |
+   */
+  size: PropTypes.oneOf(['medium', 'large']),
+
   /**
    * CTA type. Choose from:
    *
