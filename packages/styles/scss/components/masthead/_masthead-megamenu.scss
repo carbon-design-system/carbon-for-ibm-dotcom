@@ -247,6 +247,7 @@
   .#{$prefix}--masthead__megamenu__view-all-cta {
     margin-top: auto;
     display: flex;
+    z-index: 1;
 
     a,
     .#{$prefix}--link-with-icon {

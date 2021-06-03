@@ -7,5 +7,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/button/button';
-import '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-modal-container';
+import '@carbon/ibmdotcom-web-components/es/components/button/button.js';
+import '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-modal-container.js';

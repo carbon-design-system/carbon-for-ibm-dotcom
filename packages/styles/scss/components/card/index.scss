@@ -36,6 +36,7 @@
       flex: 1;
       min-height: carbon--mini-units(20);
       justify-content: space-between;
+      transition: $duration--moderate-01 motion(standard, productive);
 
       @include ratio-base(2, 1, false);
     }
@@ -107,6 +108,7 @@
 
     .#{$prefix}--card.#{$prefix}--tile {
       padding: 0;
+      transition: $duration--moderate-01 motion(standard, productive);
     }
   }
 
@@ -133,7 +135,7 @@
       }
 
       ::slotted(#{$dds-prefix}-tag-group) {
-        margin-bottom: 1rem;
+        margin-bottom: $spacing-05;
       }
     }
     &[color-scheme='light'] {
@@ -141,6 +143,19 @@
       &:hover {
         .#{$prefix}--card__wrapper {
           background-color: $ui-02;
+          transition: $duration--moderate-01 motion(standard, productive);
+        }
+      }
+
+      &[href] {
+        :hover {
+          .#{$prefix}--card__wrapper {
+            background-color: $hover-ui;
+          }
+        }
+        &:active,
+        a:active {
+          outline: none;
         }
       }
     }
