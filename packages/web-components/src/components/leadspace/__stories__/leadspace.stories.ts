@@ -21,7 +21,7 @@ import '../index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
-import leadspaceImg from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
+import leadspaceImg from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import { LEADSPACE_SIZE } from '../defs';
 
 const gradientStyleSchemes = {
