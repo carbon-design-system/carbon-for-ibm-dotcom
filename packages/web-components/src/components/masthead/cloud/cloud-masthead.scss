@@ -70,6 +70,10 @@
     }
 
     @include carbon--breakpoint('lg') {
+      margin-left: 0;
+    }
+
+    @include carbon--breakpoint('xlg') {
       margin-left: $carbon--spacing-05;
       position: relative;
     }
