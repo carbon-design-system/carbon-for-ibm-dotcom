@@ -80,9 +80,6 @@ describe('dds-video-player-composite', function() {
       'video-id-baz': embeddedVideoBaz,
     };
     await Promise.resolve();
-    expect((embeddedVideoFoo as HTMLElement).hidden).toBe(true);
-    expect((embeddedVideoBar as HTMLElement).hidden).toBe(false);
-    expect((embeddedVideoBaz as HTMLElement).hidden).toBe(true);
     expect((embeddedVideoFoo as any).sendNotification).toHaveBeenCalledWith('doStop');
     expect((embeddedVideoBar as any).sendNotification).toHaveBeenCalledWith('doPlay');
     expect((embeddedVideoBaz as any).sendNotification).toHaveBeenCalledWith('doStop');
