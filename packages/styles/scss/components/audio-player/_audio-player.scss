@@ -18,24 +18,6 @@
     padding: 0 $spacing-03 0 0;
     background-color: $ui-01;
 
-    &__captions {
-      position: absolute;
-      bottom: $spacing-09;
-      left: 0;
-      display: flex;
-      align-items: center;
-      width: 100%;
-      padding: $spacing-05;
-      background-color: $ui-01;
-      border-bottom: 1px solid $ui-03;
-
-      &-text {
-        min-height: calc(#{$spacing-05} + #{$spacing-01});
-        color: $text-01;
-        @include carbon--type-style('caption-01');
-      }
-    }
-
     /* For Accessibility on the buttons, when focusing the button */
     .#{$prefix}--btn {
       &.#{$prefix}--btn--icon-only {
@@ -68,97 +50,114 @@
         }
       }
     }
+  }
 
-    &__thumbnail {
-      width: $spacing-09;
-      height: $spacing-09;
-      border: 1px solid $ui-03;
+  .#{$prefix}--audio-player__captions {
+    position: absolute;
+    bottom: $spacing-09;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: $spacing-05;
+    background-color: $ui-01;
+    border-bottom: 1px solid $ui-03;
+  }
 
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
+  .#{$prefix}--audio-player__captions-text {
+    min-height: calc(#{$spacing-05} + #{$spacing-01});
+    color: $text-01;
+    @include carbon--type-style('caption-01');
+  }
 
-      box-sizing: border-box;
-    }
+  .#{$prefix}--audio-player__thumbnail {
+    width: $spacing-09;
+    height: $spacing-09;
+    border: 1px solid $ui-03;
 
-    /* To hide the original player */
-    &__embedded-player {
-      display: none;
-      width: 0;
-      height: 0;
-      z-index: -1;
-    }
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
-    &__play-button {
-      &.#{$prefix}--btn {
-        &.#{$prefix}--btn--icon-only {
-          padding: $spacing-03;
-          margin-left: $spacing-03;
-        }
+    box-sizing: border-box;
+  }
+
+  /* To hide the original player */
+  .#{$prefix}--audio-player__embedded-player {
+    display: none;
+    width: 0;
+    height: 0;
+    z-index: -1;
+  }
+
+  .#{$prefix}--audio-player__play-button {
+    &.#{$prefix}--btn {
+      &.#{$prefix}--btn--icon-only {
+        padding: $spacing-03;
+        margin-left: $spacing-03;
       }
-      svg {
-        &.#{$prefix}--btn__icon {
-          width: var(--cds-icon-size-04, 2rem);
-          height: var(--cds-icon-size-04, 2rem);
-        }
+    }
+    svg {
+      &.#{$prefix}--btn__icon {
+        width: var(--cds-icon-size-04, 2rem);
+        height: var(--cds-icon-size-04, 2rem);
       }
     }
+  }
 
-    &__audio-time {
-      min-width: 17.5rem;
-      height: $spacing-08;
+  .#{$prefix}--audio-player__audio-time {
+    min-width: 17.5rem;
+    height: $spacing-08;
 
-      .#{$prefix}--slider__range-label:first-of-type {
-        margin-left: $spacing-05;
-      }
+    .#{$prefix}--slider__range-label:first-of-type {
+      margin-left: $spacing-05;
     }
+  }
 
-    &__volume-control {
-      position: relative;
+  .#{$prefix}--audio-player__volume-control {
+    position: relative;
 
-      .#{$prefix}--force-tooltip-hidden {
-        &.#{$prefix}--tooltip__trigger {
-          &.#{$prefix}--tooltip--visible {
-            overflow: hidden;
+    .#{$prefix}--force-tooltip-hidden {
+      &.#{$prefix}--tooltip__trigger {
+        &.#{$prefix}--tooltip--visible {
+          overflow: hidden;
 
-            .#{$prefix}--assistive-text {
-              display: none;
-            }
+          .#{$prefix}--assistive-text {
+            display: none;
           }
         }
       }
-
-      .#{$prefix}--menu--open {
-        background-color: $hover-ui;
-      }
-
-      &-menu {
-        position: absolute;
-        bottom: calc(#{$spacing-09} + #{$spacing-03});
-        right: 0;
-        display: flex;
-        align-items: center;
-        max-width: 248px;
-        height: $spacing-09;
-        padding: 0 $spacing-03 $spacing-03;
-        background-color: $field-02;
-        z-index: 2;
-      }
     }
 
-    &__shadow {
-      /* Box Shadow from OverFlowMenu */
-      box-shadow: 0 $spacing-01 6px rgba(0, 0, 0, 0.2);
+    .#{$prefix}--menu--open {
+      background-color: $hover-ui;
     }
+  }
+  .#{$prefix}--audio-player__volume-control-menu {
+    position: absolute;
+    bottom: calc(#{$spacing-09} + #{$spacing-03});
+    right: 0;
+    display: flex;
+    align-items: center;
+    max-width: 248px;
+    height: $spacing-09;
+    padding: 0 $spacing-03 $spacing-03;
+    background-color: $field-02;
+    z-index: 2;
+  }
 
-    &__overflow-menu-container {
-      width: $spacing-08;
-      height: $spacing-09;
+  .#{$prefix}--audio-player__shadow {
+    /* Box Shadow from OverFlowMenu */
+    box-shadow: 0 $spacing-01 6px rgba(0, 0, 0, 0.2);
+  }
 
-      button {
-        width: 100%;
-        height: 100%;
-      }
+  .#{$prefix}--audio-player__overflow-menu-container {
+    width: $spacing-08;
+    height: $spacing-09;
+
+    button {
+      width: 100%;
+      height: 100%;
     }
   }
 }
