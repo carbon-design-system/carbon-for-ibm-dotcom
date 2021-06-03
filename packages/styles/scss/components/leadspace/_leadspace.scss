@@ -412,10 +412,13 @@ $btn-min-width: 26;
       }
 
       &:nth-of-type(2) {
-        stop-opacity: 0.4;
+        stop-opacity: 1;
       }
 
       &:nth-of-type(3) {
+        stop-opacity: 0.75;
+      }
+      &:nth-of-type(4) {
         stop-opacity: 0;
       }
     }
