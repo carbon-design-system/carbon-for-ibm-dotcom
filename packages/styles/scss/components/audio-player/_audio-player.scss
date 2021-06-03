@@ -46,6 +46,22 @@
           min-width: var(--cds-icon-size-01, 1.25rem);
         }
 
+        &.#{$prefix}--btn--ghost {
+          &.#{$prefix}--btn--icon-only {
+            &.#{$prefix}--btn--disabled {
+              svg {
+                path {
+                  &:not([data-icon-path]) {
+                    &:not([fill='none']) {
+                      fill: $ui-03;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
         &.#{$prefix}--tooltip__trigger:focus {
           outline: $spacing-01 solid var(--cds-focus, $carbon--blue-60);
           outline-offset: -#{$spacing-01};
