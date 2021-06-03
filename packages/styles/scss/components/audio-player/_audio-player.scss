@@ -20,6 +20,8 @@
 
     /* For Accessibility on the buttons, when focusing the button */
     .#{$prefix}--btn {
+      border-width: 0;
+
       &.#{$prefix}--btn--icon-only {
         &:not(.#{prefix}--audio-player__play-button) {
           padding-left: $spacing-03;
@@ -46,7 +48,7 @@
 
         &.#{$prefix}--tooltip__trigger:focus {
           outline: $spacing-01 solid var(--cds-focus, $carbon--blue-60);
-          outline-offset: -#{$spacing-01};
+          outline-offset: calc(-1 * #{$spacing-01});
         }
       }
     }
@@ -152,7 +154,7 @@
   }
 
   .#{$prefix}--audio-player__overflow-menu-container {
-    width: $spacing-08;
+    width: calc(#{$spacing-07} + #{$spacing-02});
     height: $spacing-09;
 
     button {
