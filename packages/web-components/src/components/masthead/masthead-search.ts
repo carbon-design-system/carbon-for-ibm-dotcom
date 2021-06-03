@@ -102,11 +102,6 @@ class DDSMastheadSearch extends BXDropdown {
       );
     }
     this.active = active;
-    await this.updateComplete;
-    if (moveFocus) {
-      // Does not reuse destructed `searchInputNode` given it's `null` before expanded
-      (active ? this._searchInputNode : this._searchButtonNode).focus();
-    }
     this.dispatchEvent(
       new CustomEvent(eventToggle, {
         bubbles: true,
@@ -117,6 +112,11 @@ class DDSMastheadSearch extends BXDropdown {
         },
       })
     );
+    await this.updateComplete;
+    if (moveFocus) {
+      // Does not reuse destructed `searchInputNode` given it's `null` before expanded
+      (active ? this._searchInputNode : this._searchButtonNode).focus();
+    }
   }
 
   /**

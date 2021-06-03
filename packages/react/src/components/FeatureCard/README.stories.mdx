@@ -4,7 +4,7 @@ import FeatureCard from './FeatureCard';
 
 # Feature Card
 
-> Feature cards consist of an image, heading, copy, and CTA.
+> Feature cards consist of an image, heading, copy, and CTA. Additionally, the Feature Card Large variation also includes an eyebrow.
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/react/examples/codesandbox/components/FeatureCard)
@@ -42,14 +42,38 @@ const card = {
   cta: {
     href: 'https://www.example.com',
   },
+  heading: "Explore AI use cases in all industries",
   image: {
     defaultSrc:
       'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616',
     alt: 'Image alt text',
   },
 };
+
 function App() {
   return <FeatureCard card={card} />;
+}
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+Here's an example using the Feature Card Large variant (previously known as `FeatureCardBlockLarge`)
+
+```javascript
+const largeCard = {
+  cta: {
+    href: 'https://www.example.com',
+  },
+  eyebrow: "This is an eyebrow",
+  heading: "Explore AI use cases in all industries",
+  image: {
+    defaultSrc:
+      'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616',
+    alt: 'Image alt text',
+  },
+};
+
+function App() {
+  return <Feature card={card} size={'large'}/>;
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
