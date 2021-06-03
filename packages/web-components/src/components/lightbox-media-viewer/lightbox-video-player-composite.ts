@@ -74,14 +74,16 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
   @HostListener('document:eventContentStateChange')
   protected _handleContentStateChangeDocument = (event: CustomEvent) => {
     const { contentState, playingMode, videoId: requestedVideoId } = event.detail;
-    this.videoId = requestedVideoId;
-    const { videoId } = this;
-    if (
-      contentState === VIDEO_PLAYER_CONTENT_STATE.VIDEO &&
-      videoId === requestedVideoId &&
-      playingMode === VIDEO_PLAYER_PLAYING_MODE.LIGHTBOX
-    ) {
-      this.open = true;
+    if (this.videoCtaLightBox === false) {
+      this.videoId = requestedVideoId;
+      const { videoId } = this;
+      if (
+        contentState === VIDEO_PLAYER_CONTENT_STATE.VIDEO &&
+        videoId === requestedVideoId &&
+        playingMode === VIDEO_PLAYER_PLAYING_MODE.LIGHTBOX
+      ) {
+        this.open = true;
+      }
     }
   };
 
@@ -98,6 +100,12 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
    */
   @property({ type: Boolean, reflect: true })
   open = false;
+
+  /**
+   * `true` if the modal is rendered for video cta component.
+   */
+  @property({ type: Boolean, attribute: 'video-cta-lightbox' })
+  videoCtaLightBox = false;
 
   connectedCallback() {
     super.connectedCallback();
