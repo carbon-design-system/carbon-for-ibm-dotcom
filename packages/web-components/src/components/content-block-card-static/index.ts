@@ -9,8 +9,7 @@
 
 import './content-block-card-static';
 import '../button-group/index';
-import '../card/index';
-import '../card-group';
+import '../card-group/index';
 import '../content-item/index';
 import '../content-block/content-block-heading';
 import '../cta/card-cta-footer';
