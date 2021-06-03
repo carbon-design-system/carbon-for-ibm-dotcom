@@ -8,6 +8,7 @@
 import { ButtonGroup } from '../../components/ButtonGroup';
 import classnames from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import deprecate from '@carbon/ibmdotcom-utilities/es/utilities/deprecate/deprecate.js';
 import { Image } from '../Image';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -64,16 +65,32 @@ function imageClassname(type, image) {
  * @param {string} props.type type of lead space
  * @returns {*} Lead space component
  */
-const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
+const LeadSpace = ({
+  buttons,
+  copy,
+  gradient,
+  image,
+  theme,
+  title,
+  type,
+  size = 'tall',
+}) => {
   const background = image && {
     backgroundImage: `url(${image.defaultSrc})`,
   };
+
   return (
     <div
       data-autoid={`${stablePrefix}--leadspace`}
       className={`${prefix}--leadspace`}>
-      <section style={background} className={classNames(type, image, theme)}>
-        <div className={`${prefix}--leadspace__container`}>
+      <section className={classNames(type, image, theme)}>
+        <div
+          style={background}
+          className={classnames({
+            [`${prefix}--leadspace__container`]: size === 'tall',
+            [`${prefix}--leadspace__container--medium`]: size === 'medium',
+            [`${prefix}--leadspace__container--super`]: size === 'super',
+          })}>
           <div
             className={classnames(`${prefix}--leadspace__overlay`, {
               [`${prefix}--leadspace--gradient`]: gradient,
@@ -163,13 +180,28 @@ LeadSpace.propTypes = {
   /**
    * Sets the type of Leadspace layout. Choose from:
    *
-   * | Name              | Data Type | Description                                       |
-   * | ----------------- | --------- | ------------------------------------------------- |
-   * | `small`/`default` | String    | Left-aligned - small style of the leadspace title |
-   * | `left`            | String    | Left-aligned - large style of the leadspace title |
-   * | `centered`        | String    | Centered type of the LeadSpace                    |
+   * | Name              | Data Type | Description                                         |
+   * | ----------------- | --------- | --------------------------------------------------- |
+   * | `default`         | String    | Left-aligned - default style of the leadspace title |
+   * | `left`            | String    | Left-aligned - large style of the leadspace title   |
+   * | `centered`        | String    | Centered type of the LeadSpace                      |
    */
-  type: PropTypes.oneOf(['small', 'left', 'centered']),
+  type: PropTypes.oneOf(['default', 'left', 'centered']),
+  /**
+   * | Name         | Data Type | Description                           |
+   * |--------------|-----------|---------------------------------------|
+   * | `tall`/empty | String/-- | Default - tall size of the leadspace  |
+   * | `medium`     | String    | Medium - medium size of the leadspace |
+   * | `super`      | String    | Super - super size of the leadspace   |
+   */
+  size: PropTypes.oneOf(['tall', 'medium', 'super']),
 };
 
-export default LeadSpace;
+export default deprecate(
+  LeadSpace,
+  `
+  The Leadspace Small and Leadspace Small With Image variations are now deprecated.
+  Please refer to the Carbon for IBM.com documentation for further details.
+  https://www.ibm.com/standards/web/carbon-for-ibm-dotcom/components/leadspace
+`
+);
