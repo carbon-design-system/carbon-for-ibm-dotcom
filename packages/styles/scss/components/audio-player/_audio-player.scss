@@ -30,7 +30,7 @@
       border-bottom: 1px solid $ui-03;
 
       &-text {
-        min-height: calc(1rem + $spacing-01);
+        min-height: calc(#{$spacing-05} + #{$spacing-01});
         color: $text-01;
         @include carbon--type-style('caption-01');
       }
@@ -40,8 +40,8 @@
     .#{$prefix}--btn {
       &.#{$prefix}--btn--icon-only {
         &:not(.#{prefix}--audio-player__play-button) {
-          padding-left: 0.5rem;
-          padding-right: 0.5rem;
+          padding-left: $spacing-03;
+          padding-right: $spacing-03;
 
           min-width: var(--cds-icon-size-01, 1.25rem);
         }
@@ -70,8 +70,8 @@
     }
 
     &__thumbnail {
-      width: 3rem;
-      height: 3rem;
+      width: $spacing-09;
+      height: $spacing-09;
       border: 1px solid $ui-03;
 
       background-position: center;
@@ -92,8 +92,8 @@
     &__play-button {
       &.#{$prefix}--btn {
         &.#{$prefix}--btn--icon-only {
-          padding: 0.5rem;
-          margin-left: 0.5rem;
+          padding: $spacing-03;
+          margin-left: $spacing-03;
         }
       }
       svg {
@@ -105,11 +105,11 @@
     }
 
     &__audio-time {
-      min-width: 280px;
-      height: 2.5rem;
+      min-width: 17.5rem;
+      height: $spacing-08;
 
       .#{$prefix}--slider__range-label:first-of-type {
-        margin-left: 1rem;
+        margin-left: $spacing-05;
       }
     }
 
@@ -134,7 +134,7 @@
 
       &-menu {
         position: absolute;
-        bottom: calc($spacing-09 + $spacing-03);
+        bottom: calc(#{$spacing-09} + #{$spacing-03});
         right: 0;
         display: flex;
         align-items: center;
@@ -152,8 +152,8 @@
     }
 
     &__overflow-menu-container {
-      width: 2.25rem;
-      height: 3rem;
+      width: $spacing-08;
+      height: $spacing-09;
 
       button {
         width: 100%;
