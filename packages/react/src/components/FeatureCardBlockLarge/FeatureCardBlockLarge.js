@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -8,6 +8,7 @@
 import { Card } from '../Card';
 import classNames from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import deprecate from '@carbon/ibmdotcom-utilities/es/utilities/deprecate/deprecate';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -16,7 +17,8 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Featured Card Component.
+ * Featured Card Block Large Component.
+ * Note: Deprecated, use FeatureCard with size='large' attribute.
  */
 const FeatureCardBlockLarge = props => {
   return (
@@ -94,4 +96,8 @@ FeatureCardBlockLarge.propTypes = {
   }).isRequired,
 };
 
-export default FeatureCardBlockLarge;
+export default deprecate(
+  FeatureCardBlockLarge,
+  `The FeatureCardBlockLarge component has been deprecated in favor of the FeatureCard component. ` +
+    `See FeatureCard's size attribute documentation for more information.`
+);

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,6 +10,7 @@
 import { customElement, html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import deprecate from '@carbon/ibmdotcom-utilities/es/utilities/deprecate/deprecate.js';
 import DDSFeatureCard from '../feature-card/feature-card';
 import '../image/image';
 import styles from './feature-card-block-large.scss';
@@ -49,4 +50,8 @@ class DDSFeatureCardBlockLarge extends StableSelectorMixin(DDSFeatureCard) {
   static styles = styles;
 }
 
-export default DDSFeatureCardBlockLarge;
+export default deprecate(
+  DDSFeatureCardBlockLarge,
+  `The FeatureCardBlockLarge component has been deprecated in favor of the FeatureCard component. ` +
+    `See FeatureCard's size attribute documentation for more information.`
+);

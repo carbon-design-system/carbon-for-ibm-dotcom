@@ -7,6 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list/index.js';
-import '@carbon/ibmdotcom-web-components/es/components/card/card-footer';
+import '@carbon/ibmdotcom-web-components/es/components/link-list/index.js';
+import '@carbon/ibmdotcom-web-components/es/components/card/card-footer.js';
 import './index.scss';

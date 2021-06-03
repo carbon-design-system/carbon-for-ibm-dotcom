@@ -35,13 +35,13 @@ const _urlDefault = _webcomponentsTests
 const _url = (process && process.env.SELENIUM_HOST) || _urlDefault;
 
 /**
- * Sets the correct path (Default with no image)
+ * Sets the correct path (Default)
  *
  * @type {string}
  * @private
  */
 const _pathDefaultNoImage =
-  '/iframe.html?id=components-lead-space--default-with-no-image';
+  '/iframe.html?id=components-lead-space--tall-with-no-image';
 
 /**
  * Sets the correct path (Default with image)
@@ -50,7 +50,7 @@ const _pathDefaultNoImage =
  * @private
  */
 const _pathDefaultImage =
-  '/iframe.html?id=components-lead-space--default-with-image';
+  '/iframe.html?id=components-lead-space--tall-with-image';
 
 /**
  * Sets the correct path (Centered with no image)
@@ -69,6 +69,40 @@ const _pathCenteredNoImage = '/iframe.html?id=components-lead-space--centered';
 const _pathCenteredImage =
   '/iframe.html?id=components-lead-space--centered-with-image';
 
+/**
+ * Sets the correct path (Medium)
+ *
+ * @type {string}
+ * @private
+ */
+const _pathMedium = '/iframe.html?id=components-lead-space--medium';
+
+/**
+ * Sets the correct path (Medium with image)
+ *
+ * @type {string}
+ * @private
+ */
+const _pathMediumWithImage =
+  '/iframe.html?id=components-lead-space--medium-with-image';
+
+/**
+ * Sets the correct path (Super)
+ *
+ * @type {string}
+ * @private
+ */
+const _pathSuper = '/iframe.html?id=components-lead-space--super';
+
+/**
+ * Sets the correct path (Super with image)
+ *
+ * @type {string}
+ * @private
+ */
+const _pathSuperWithImage =
+  '/iframe.html?id=components-lead-space--super-with-image';
+
 describe('Leadspace', () => {
   let browser, page;
 
@@ -80,7 +114,7 @@ describe('Leadspace', () => {
     await browser.close();
   });
 
-  describe('default with no image', () => {
+  describe('tall', () => {
     it('should load g100 theme', async () => {
       page = await browser.newPage();
       await page.goto(`${_url}${_pathDefaultNoImage}&theme=g100`, {
@@ -141,7 +175,7 @@ describe('Leadspace', () => {
     });
   });
 
-  describe('default with image', () => {
+  describe('tall with image', () => {
     it('should load g100 theme', async () => {
       page = await browser.newPage();
       await page.goto(`${_url}${_pathDefaultImage}&theme=g100`, {
@@ -319,6 +353,226 @@ describe('Leadspace', () => {
       await percySnapshot(
         page,
         'Components|Leadspace: Centered with image - g10 theme',
+        {
+          widths: [320, 1280],
+        }
+      );
+    });
+  });
+
+  describe('medium', () => {
+    it('should load g100 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathMedium}&theme=g100`, {
+        waitUntil: 'networkidle0',
+        timeout: 100000,
+      });
+
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g100")'
+      );
+
+      await percySnapshot(page, 'Components|Leadspace: Medium - g100 theme', {
+        widths: [320, 1280],
+      });
+    });
+
+    it('should load g90 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathMedium}&theme=g90`, {
+        waitUntil: 'networkidle0',
+        timeout: 100000,
+      });
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g90")'
+      );
+
+      await percySnapshot(page, 'Components|Leadspace: Medium - g90 theme', {
+        widths: [320, 1280],
+      });
+    });
+
+    it('should load g10 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathMedium}&theme=g10`, {
+        waitUntil: 'networkidle0',
+        timeout: 100000,
+      });
+
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g10")'
+      );
+
+      await percySnapshot(page, 'Components|Leadspace: Medium - g10 theme', {
+        widths: [320, 1280],
+      });
+    });
+  });
+
+  describe('medium with image', () => {
+    it('should load g100 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathMediumWithImage}&theme=g100`, {
+        waitUntil: 'networkidle0',
+        timeout: 100000,
+      });
+
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g100")'
+      );
+
+      await percySnapshot(
+        page,
+        'Components|Leadspace: Medium with image - g100 theme',
+        {
+          widths: [320, 1280],
+        }
+      );
+    });
+
+    it('should load g90 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathMediumWithImage}&theme=g90`, {
+        waitUntil: 'networkidle0',
+        timeout: 100000,
+      });
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g90")'
+      );
+
+      await percySnapshot(
+        page,
+        'Components|Leadspace: Medium with image - g90 theme',
+        {
+          widths: [320, 1280],
+        }
+      );
+    });
+
+    it('should load g10 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathMediumWithImage}&theme=g10`, {
+        waitUntil: 'networkidle0',
+        timeout: 100000,
+      });
+
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g10")'
+      );
+
+      await percySnapshot(
+        page,
+        'Components|Leadspace: Medium with image - g10 theme',
+        {
+          widths: [320, 1280],
+        }
+      );
+    });
+  });
+
+  describe('super', () => {
+    it('should load g100 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathSuper}&theme=g100`, {
+        waitUntil: 'networkidle0',
+        timeout: 100000,
+      });
+
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g100")'
+      );
+
+      await percySnapshot(page, 'Components|Leadspace: Super - g100 theme', {
+        widths: [320, 1280],
+      });
+    });
+
+    it('should load g90 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathSuper}&theme=g90`, {
+        waitUntil: 'networkidle0',
+        timeout: 100000,
+      });
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g90")'
+      );
+
+      await percySnapshot(page, 'Components|Leadspace: Super - g90 theme', {
+        widths: [320, 1280],
+      });
+    });
+
+    it('should load g10 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathSuper}&theme=g10`, {
+        waitUntil: 'networkidle0',
+        timeout: 100000,
+      });
+
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g10")'
+      );
+
+      await percySnapshot(page, 'Components|Leadspace: Super - g10 theme', {
+        widths: [320, 1280],
+      });
+    });
+  });
+
+  describe('super with image', () => {
+    it('should load g100 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathSuperWithImage}&theme=g100`, {
+        waitUntil: 'networkidle0',
+        timeout: 100000,
+      });
+
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g100")'
+      );
+
+      await percySnapshot(
+        page,
+        'Components|Leadspace: Super with image - g100 theme',
+        {
+          widths: [320, 1280],
+        }
+      );
+    });
+
+    it('should load g90 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathSuperWithImage}&theme=g90`, {
+        waitUntil: 'networkidle0',
+        timeout: 100000,
+      });
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g90")'
+      );
+
+      await percySnapshot(
+        page,
+        'Components|Leadspace: Super with image - g90 theme',
+        {
+          widths: [320, 1280],
+        }
+      );
+    });
+
+    it('should load g10 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathSuperWithImage}&theme=g10`, {
+        waitUntil: 'networkidle0',
+        timeout: 100000,
+      });
+
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g10")'
+      );
+
+      await percySnapshot(
+        page,
+        'Components|Leadspace: Super with image - g10 theme',
         {
           widths: [320, 1280],
         }

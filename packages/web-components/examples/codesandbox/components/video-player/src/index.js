@@ -7,5 +7,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player-container';
+import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player-container.js';
 import './index.scss';
