@@ -107,7 +107,17 @@ $btn-min-width: 26;
     }
 
     .#{$prefix}--leadspace__section {
-      height: rem(560px);
+      .#{$prefix}--leadspace__container--medium {
+        height: carbon--mini-units(60);
+      }
+
+      .#{$prefix}--leadspace__container {
+        height: carbon--mini-units(70);
+      }
+
+      .#{$prefix}--leadspace__container--super {
+        height: carbon--mini-units(80);
+      }
     }
 
     ::slotted(#{$dds-prefix}-image),
@@ -402,10 +412,13 @@ $btn-min-width: 26;
       }
 
       &:nth-of-type(2) {
-        stop-opacity: 0.4;
+        stop-opacity: 1;
       }
 
       &:nth-of-type(3) {
+        stop-opacity: 0.75;
+      }
+      &:nth-of-type(4) {
         stop-opacity: 0;
       }
     }
