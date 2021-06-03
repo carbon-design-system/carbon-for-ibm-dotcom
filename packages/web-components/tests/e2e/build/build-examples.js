@@ -144,6 +144,9 @@ function _setupPackages() {
         }
       });
     });
+
+    // TODO: remove
+    execSync(`cat "${_localPackagesFolder}/ibmdotcom-web-components/package.json"`);
   }
 }
 
@@ -232,6 +235,12 @@ function build() {
       `node "${_testScriptFolder}/replace-dependencies.js" -f "${_localPackagesFolder}" "${_exampleBuild}/components/${example}/package.json"`
     );
   });
+
+  // TODO: remove
+  execSync(
+    // eslint-disable-next-line max-len
+    `cat "${_exampleBuild}/components/back-to-top/package.json"`
+  );
 
   _buildExamples();
 }
