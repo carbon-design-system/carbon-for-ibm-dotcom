@@ -119,10 +119,10 @@
   :host(#{$dds-prefix}-card-group-item),
   .#{$prefix}--card-group__cards__col {
     padding: 0;
-    background: $ui-03;
+    background: $ui-04;
 
-    border-right: 1px solid $ui-03;
-    border-top: 1px solid $ui-03;
+    border-right: 1px solid $ui-04;
+    border-top: 1px solid $ui-04;
 
     &:last-of-type {
       border-right: 0;
@@ -170,13 +170,13 @@
     ::slotted(#{$dds-prefix}-card-group-item),
     .#{$prefix}--card-group__cards__col {
       padding: 0;
-      border: 1px solid $ui-03;
+      border: 1px solid $ui-04;
       border-bottom: 0;
     }
 
     ::slotted(#{$dds-prefix}-card-group-item:last-of-type),
     .#{$prefix}--card-group__cards__col:last-of-type {
-      border-bottom: 1px solid $ui-03;
+      border-bottom: 1px solid $ui-04;
       padding-right: 0;
     }
 
@@ -191,7 +191,7 @@
       ::slotted(#{$dds-prefix}-card-group-item:last-of-type),
       .#{$prefix}--card-group__cards__col:nth-child(2n),
       .#{$prefix}--card-group__cards__col:last-of-type {
-        border-right: 1px solid $ui-03;
+        border-right: 1px solid $ui-04;
       }
 
       ::slotted(#{$dds-prefix}-card-group-item:last-of-type:not(:nth-child(2n))),
@@ -201,7 +201,7 @@
 
       ::slotted(#{$dds-prefix}-card-group-item:nth-last-of-type(-n + 2)),
       .#{$prefix}--card-group__cards__col:nth-last-of-type(-n + 2) {
-        border-bottom: 1px solid $ui-03;
+        border-bottom: 1px solid $ui-04;
         height: calc(100% + 1px);
       }
     }
@@ -220,13 +220,13 @@
       ::slotted(#{$dds-prefix}-card-group-item:last-of-type),
       .#{$prefix}--card-group__cards__col:nth-child(3n),
       .#{$prefix}--card-group__cards__col:last-of-type {
-        border-right: 1px solid $ui-03;
+        border-right: 1px solid $ui-04;
         width: calc(100% + 1px);
       }
 
       ::slotted(#{$dds-prefix}-card-group-item:nth-last-of-type(-n + 3)),
       .#{$prefix}--card-group__cards__col:nth-last-of-type(-n + 3) {
-        border-bottom: 1px solid $ui-03;
+        border-bottom: 1px solid $ui-04;
         height: calc(100% + 1px);
       }
 
