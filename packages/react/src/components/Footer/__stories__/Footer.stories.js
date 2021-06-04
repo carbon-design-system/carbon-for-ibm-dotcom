@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -50,6 +50,59 @@ export const Default = ({ parameters }) => {
 };
 
 Default.story = {
+  parameters: {
+    knobs: {
+      Footer: ({ groupId }) => {
+        return {
+          languageInitialItem: { id: 'en', text: 'English' },
+          disableLocaleButton: boolean(
+            'hide the locale button (disableLocaleButton)',
+            false,
+            groupId
+          ),
+        };
+      },
+    },
+  },
+};
+
+export const DefaultWithAdjunctLinks = ({ parameters }) => {
+  const {
+    type,
+    isCustom,
+    navigation,
+    disableLocaleButton,
+    languageOnly,
+    items,
+    languageInitialItem,
+    languageCallback,
+  } = parameters?.props?.Footer ?? {};
+
+  return (
+    <Footer
+      navigation={isCustom ? navigation : null}
+      type={type}
+      disableLocaleButton={disableLocaleButton}
+      langCode={inPercy() ? { lc: 'en', cc: 'us' } : null}
+      languageOnly={languageOnly}
+      languageItems={languageOnly ? items : null}
+      languageInitialItem={languageInitialItem}
+      languageCallback={languageCallback}
+      adjunctLinks={[
+        {
+          title: 'Read the updated Terms of Use.',
+          url: 'https://www.example.com',
+        },
+        {
+          title: 'Read Learning Technologies Privacy',
+          url: 'https://www.example.com',
+        },
+      ]}
+    />
+  );
+};
+
+DefaultWithAdjunctLinks.story = {
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {

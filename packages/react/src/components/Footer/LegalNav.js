@@ -18,7 +18,7 @@ const { prefix } = settings;
 /**
  * Footer legal nav component.
  */
-const LegalNav = ({ links, type, button }) => {
+const LegalNav = ({ links, type, button, adjunctLinks }) => {
   if (!links?.length) {
     return null;
   }
@@ -64,6 +64,31 @@ const LegalNav = ({ links, type, button }) => {
           </ul>
           {button}
         </div>
+        <ul className={`${prefix}--adjunct-links__holder`}>
+          {adjunctLinks.map(({ title, titleEnglish, url }, index) => {
+            if (!title || !url) {
+              return null;
+            }
+
+            const dataTitle = titleEnglish
+              ? titleEnglish
+                  .replace(/[^-a-zA-Z0-9_ ]/g, '')
+                  .replace(/ +/g, '-')
+                  .toLowerCase()
+              : null;
+
+            return (
+              <li className={`${prefix}--legal-nav__list-item`} key={index}>
+                <Link
+                  data-autoid={`${stablePrefix}--footer-legal-nav__link-${dataTitle}`}
+                  className={`${prefix}--footer__link`}
+                  href={url}>
+                  {title}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </nav>
     </aside>
   );
@@ -74,6 +99,16 @@ LegalNav.propTypes = {
    * A list of links to be rendered.
    */
   links: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      url: PropTypes.string,
+    })
+  ),
+
+  /**
+   * List of adjunct links to be rendered
+   */
+  adjunctLinks: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
       url: PropTypes.string,
