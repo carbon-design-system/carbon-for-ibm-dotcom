@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
- import '../index';
+import '../index';
 import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';

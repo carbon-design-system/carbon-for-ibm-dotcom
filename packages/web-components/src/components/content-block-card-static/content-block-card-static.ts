@@ -22,13 +22,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-content-block-card-static
  */
 class DDSContentBlockCardStatic extends StableSelectorMixin(DDSContentBlock) {
-
   updated() {
     this.querySelector('dds-card-group')?.setAttribute('grid-mode', 'border');
     const cardGroupItems = this.querySelectorAll((this.constructor as typeof DDSContentBlockCardStatic).selectorCardItem);
     cardGroupItems.forEach(e => {
       (e as HTMLElement).setAttribute('color-scheme', 'light');
-    })
+    });
   }
 
   static get selectorCardItem() {
