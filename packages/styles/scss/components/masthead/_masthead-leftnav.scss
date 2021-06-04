@@ -223,9 +223,26 @@
         .#{$prefix}--side-nav__link-text {
           @include carbon--type-style(body-short-02);
 
-          color: $text-01;
+          color: $text-02;
           width: 100%;
           text-overflow: ellipsis;
+        }
+      }
+
+      &:hover,
+      &:focus {
+        > {
+          .#{$prefix}--side-nav__link-text {
+            color: $text-01;
+          }
+        }
+      }
+    }
+
+    &.#{$prefix}--side-nav__link--current {
+      > {
+        .#{$prefix}--side-nav__link-text {
+          color: $text-01;
         }
       }
     }
@@ -371,7 +388,7 @@
     .#{$prefix}--side-nav__submenu-title {
       @include carbon--type-style(body-short-02);
 
-      color: $text-01;
+      color: $text-02;
       align-self: center;
     }
 
@@ -385,6 +402,13 @@
         height: $container-04;
 
         @include carbon--type-style(expressive-heading-02);
+      }
+    }
+
+    &:hover,
+    &:focus {
+      .#{$prefix}--side-nav__submenu-title {
+        color: $text-01;
       }
     }
   }
