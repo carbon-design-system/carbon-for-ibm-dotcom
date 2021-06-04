@@ -8,15 +8,23 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/content-block';
-import '../content-block-card-static';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import '../index';
 
 const template = (props?) => {
-  const { complementaryStyleScheme, children } = props ?? {};
+  const { heading, cards, contentItemHeading, contentItemCopy } = props ?? {};
   return html`
-    <dds-content-block-card-static complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
-      ${children}
+    <dds-content-block-card-static>
+      <dds-card-group-item>${heading}</dds-card-group-item>
+      <dds-card-group>${cards}</dds-card-group>
+      <dds-content-item>
+        <dds-content-item-heading>${contentItemHeading}</dds-content-item-heading>
+        <dds-content-item-copy>${contentItemCopy}</dds-content-item-copy>
+      </dds-content-item>
+      <dds-button-group>
+        <dds-button-group-item>Button 1</dds-button-group-item>
+        <dds-button-group-item>Buuton 2</dds-button-group-item>
+      </dds-button-group>
     </dds-content-block-card-static>
   `;
 };
@@ -26,23 +34,32 @@ describe('dds-content-block-card-static', function() {
     it('should render with minimum attributes', async function() {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-content-block-card-static')).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-content-block-card-static')).toMatchSnapshot();
     });
 
     it('should render with various attributes', async function() {
       render(
         template({
-          complementaryStyleScheme: CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
-          children: html`
-            <div slot="complementary">complementary-foo</div>
+          heading: 'heading-foo',
+          cards: html`
+            <dds-card-group-item href="https://example.com">
+              <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
+                hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+              </p>
+              <dds-card-footer slot="footer">
+                ${ArrowRight20({ slot: 'icon' })}
+              </dds-card-footer>
+            </dds-card-group-item>
           `,
+          contentItemHeading: 'Lorem ipsum',
+          contentItemCopy: 'ipsum dolor sit amet',
         }),
         document.body
       );
-      await Promise.resolve(); // The update cycle of `<dds-content-block-card-static>`
-      await Promise.resolve(); // The update cycle that fires `slotchange` event
-      await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
-      expect(document.body.querySelector('dds-content-block-card-static')).toMatchSnapshot({ mode: 'shadow' });
+      await Promise.resolve();
+      expect(document.body.querySelector('dds-content-block-card-static')).toMatchSnapshot();
     });
   });
 
