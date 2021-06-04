@@ -11,28 +11,3 @@
 :host(#{$dds-prefix}-leadspace) {
   display: block;
 }
-
-:host(#{$dds-prefix}-leadspace-image) {
-  margin-top: $spacing-07;
-  @include ratio-base(4, 3, false);
-
-  @include carbon--breakpoint(md) {
-    @include ratio-base(16, 9, false);
-  }
-
-  @include carbon--breakpoint(lg) {
-    margin-top: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-
-    .bx--image__img {
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-  }
-}

@@ -20,35 +20,24 @@ const { prefix } = settings;
  * renders main class name
  *
  * @param {string} type switches between centered or default
- * @param {object} image image object
  * @param {string} theme theme of the pattern
  * @returns {string} classnames
  */
-const classNames = (type, image, theme) => {
+const classNames = (type, theme) => {
   return classnames(`${prefix}--leadspace__section`, {
     [`${prefix}--leadspace--${theme}`]: theme,
     [`${prefix}--leadspace--centered`]: type === 'centered',
-    [`${prefix}--leadspace--centered__image`]: image && type === 'centered',
     [`${prefix}--leadspace--productive`]: type === 'small',
   });
 };
 
 /**
  *
- * @param {string} type type
  * @param {object} image image
  * @returns {object} returns either image component or the centered image div
  */
-function imageClassname(type, image) {
-  if (type === 'centered') {
-    return (
-      <div
-        data-autoid={`${stablePrefix}--leadspace--centered--mobile__image`}
-        className={`${prefix}--leadspace--centered--mobile__image`}>
-        <img src={image.defaultSrc} alt={image.alt} />
-      </div>
-    );
-  } else return <Image {...image} />;
+function imageClassname(image) {
+  return <Image {...image} />;
 }
 
 /**
@@ -65,14 +54,11 @@ function imageClassname(type, image) {
  * @returns {*} Lead space component
  */
 const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
-  const background = image && {
-    backgroundImage: `url(${image.defaultSrc})`,
-  };
   return (
     <div
       data-autoid={`${stablePrefix}--leadspace`}
       className={`${prefix}--leadspace`}>
-      <section style={background} className={classNames(type, image, theme)}>
+      <section className={classNames(type, image, theme)}>
         <div className={`${prefix}--leadspace__container`}>
           <div
             className={classnames(`${prefix}--leadspace__overlay`, {
@@ -98,7 +84,7 @@ const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
               </div>
             </div>
           </div>
-          {image && imageClassname(type, image)}
+          {image && imageClassname(image)}
         </div>
       </section>
     </div>

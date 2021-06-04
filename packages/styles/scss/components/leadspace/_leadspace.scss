@@ -116,15 +116,6 @@ $btn-min-width: 26;
       }
     }
 
-    ::slotted(#{$dds-prefix}-image),
-    .#{$prefix}--image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-
     .#{$prefix}--leadspace__image {
       object-fit: cover;
       width: 100%;
@@ -484,6 +475,32 @@ $btn-min-width: 26;
     }
     .#{$prefix}--leadspace__section {
       height: rem(640px);
+    }
+  }
+
+  :host(#{$dds-prefix}-leadspace-image),
+  .#{$prefix}--image {
+    margin-top: $spacing-07;
+    @include ratio-base(4, 3, false);
+
+    @include carbon--breakpoint(md) {
+      @include ratio-base(16, 9, false);
+    }
+
+    @include carbon--breakpoint(lg) {
+      margin-top: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+
+      .bx--image__img {
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
     }
   }
 }
