@@ -65,18 +65,12 @@ const LeadSpace = ({
   type,
   size = 'tall',
 }) => {
-  const background = image && {
-    backgroundImage: `url(${image.defaultSrc})`,
-  };
-
-
   return (
     <div
       data-autoid={`${stablePrefix}--leadspace`}
       className={`${prefix}--leadspace`}>
       <section className={classNames(type, image, theme)}>
         <div
-          style={background}
           className={classnames({
             [`${prefix}--leadspace__container`]: size === 'tall',
             [`${prefix}--leadspace__container--medium`]: size === 'medium',
