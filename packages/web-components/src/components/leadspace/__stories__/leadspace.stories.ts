@@ -95,10 +95,10 @@ export const TallWithImage = ({ parameters }) => {
           `;
         })}
       </dds-button-group>
-      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
+      <dds-leadspace-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
         <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
         <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
-      </dds-image>
+      </dds-leadspace-image>
     </dds-leadspace>
   `;
 };
@@ -147,10 +147,10 @@ export const CenteredWithImage = ({ parameters }) => {
           `;
         })}
       </dds-button-group>
-      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
+      <dds-leadspace-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
         <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
         <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
-      </dds-image>
+      </dds-leadspace-image>
     </dds-leadspace>
   `;
 };
@@ -198,10 +198,10 @@ export const MediumWithImage = ({ parameters }) => {
           `;
         })}
       </dds-button-group>
-      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
+      <dds-leadspace-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
         <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
         <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
-      </dds-image>
+      </dds-leadspace-image>
     </dds-leadspace>
   `;
 };
@@ -249,10 +249,10 @@ export const SuperWithImage = ({ parameters }) => {
           `;
         })}
       </dds-button-group>
-      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
+      <dds-leadspace-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
         <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
         <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
-      </dds-image>
+      </dds-leadspace-image>
     </dds-leadspace>
   `;
 };

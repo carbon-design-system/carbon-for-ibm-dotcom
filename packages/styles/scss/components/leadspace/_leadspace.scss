@@ -104,11 +104,16 @@ $btn-min-width: 26;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 100%;
+
+      @include carbon--breakpoint(lg) {
+        height: 100%;
+      }
     }
 
     .#{$prefix}--leadspace__section {
-      height: rem(560px);
+      @include carbon--breakpoint(lg) {
+        height: rem(560px);
+      }
     }
 
     ::slotted(#{$dds-prefix}-image),
@@ -130,7 +135,9 @@ $btn-min-width: 26;
     .#{$prefix}--leadspace__container--medium,
     .#{$prefix}--leadspace__container--super {
       position: relative;
-      height: 100%;
+      @include carbon--breakpoint(lg) {
+        height: 100%;
+      }
     }
 
     .#{$prefix}--leadspace__overlay {
@@ -264,7 +271,6 @@ $btn-min-width: 26;
       .#{$prefix}--leadspace__container--super,
       .#{$prefix}--leadspace__container--medium,
       .#{$prefix}--leadspace__container {
-        overflow: auto;
         position: relative;
       }
 
@@ -276,17 +282,6 @@ $btn-min-width: 26;
         justify-content: space-between;
         @include carbon--make-col-ready;
         @include carbon--make-col(4, 4);
-      }
-
-      .#{$prefix}--leadspace--centered--mobile__image {
-        height: carbon--mini-units(20);
-        width: 100%;
-
-        img {
-          object-fit: cover;
-          height: 100%;
-          width: 100%;
-        }
       }
 
       .#{$prefix}--leadspace__desc--super,
@@ -347,15 +342,6 @@ $btn-min-width: 26;
         .#{$prefix}--leadspace__desc--medium,
         .#{$prefix}--leadspace__desc {
           padding-top: $carbon--layout-04;
-        }
-
-        .#{$prefix}--leadspace--centered--mobile__image {
-          display: none;
-        }
-
-        &.#{$prefix}--leadspace--centered__image
-          .#{$prefix}--leadspace__overlay {
-          padding-bottom: carbon--mini-units(32);
         }
       }
 
