@@ -211,8 +211,15 @@ $btn-min-width: 26;
 
       ::slotted(#{$dds-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
-        @include carbon--make-col(7, 8);
         @include content-width;
+
+        @include carbon--breakpoint(md) {
+          @include carbon--make-col(4, 6);
+        }
+
+        @include carbon--breakpoint(lg) {
+          @include carbon--make-col(7, 8);
+        }
 
         flex-shrink: 1;
       }
