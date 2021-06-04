@@ -14,11 +14,7 @@ import root from 'window-or-global';
  * @type {number}
  * @private
  */
-const _partnerId =
-  (process &&
-    (process.env.REACT_APP_KALTURA_PARTNER_ID ||
-      process.env.KALTURA_PARTNER_ID)) ||
-  1773841;
+const _partnerId = process.env.KALTURA_PARTNER_ID || 1773841;
 
 /**
  * Sets the Kaltura UIConf ID, set by environment variable "KALTURA_UICONF_ID"
@@ -26,11 +22,7 @@ const _partnerId =
  * @type {number}
  * @private
  */
-const _uiConfId =
-  (process &&
-    (process.env.REACT_APP_KALTURA_UICONF_ID ||
-      process.env.KALTURA_UICONF_ID)) ||
-  27941801;
+const _uiConfId = process.env.KALTURA_UICONF_ID || 27941801;
 
 /**
  * @type {string} _embedUrl The API URL to call
@@ -114,28 +106,28 @@ function _loadScript() {
 
 /**
  *
- * Object to cache video data
+ * Object to cache media data
  *
  * @private
  */
-let videoData = {};
+let mediaData = {};
 
 /**
- * VideoPlayerAPI class with methods of checking script state and
- * embed video meta data and api data
+ * KalturaPlayerAPI class with methods of checking script state and
+ * embed media meta data and api data
  *
  * In order to set the Partner ID/UIConf ID, set the following environment
  * variables:
  *
- * - KALTURA_PARTNER_ID (or REACT_APP_KALTURA_PARTNER_ID)
- * - KALTURA_UICONF_ID (or REACT_APP_KALTURA_UICONF_ID)
+ * - KALTURA_PARTNER_ID
+ * - KALTURA_UICONF_ID
  */
-class VideoPlayerAPI {
+class KalturaPlayerAPI {
   /**
    *
    * Gets the full _scriptReady state
    *
-   * @returns {Promise<*>} Promise kaltura video player file
+   * @returns {Promise<*>} Promise kaltura media player file
    */
   static checkScript() {
     return new Promise((resolve, reject) => {
@@ -147,26 +139,26 @@ class VideoPlayerAPI {
    * Creates thumbnail image url with customizable params
    *
    * @param {object} params param object
-   * @param {string} params.videoId video id
+   * @param {string} params.mediaId media id
    * @param {string} params.height specify height in pixels
    * @param {string} params.width specify width in pixels
    *
    * @returns {string} url of thumbnail image
    *
    * @example
-   * import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
+   * import { KalturaPlayerAPI } from '@carbon/ibmdotcom-services';
    *
    * function thumbnail() {
    *   const thumbnailData = {
-   *      videoId: '1_9h94wo6b',
+   *      mediaId: '1_9h94wo6b',
    *      height: '240',
    *      width: '320'
    *   }
-   *   const thumbnailUrl = VideoPlayerAPI.getThumbnailUrl(thumbnailData);
+   *   const thumbnailUrl = KalturaPlayerAPI.getThumbnailUrl(thumbnailData);
    * }
    */
-  static getThumbnailUrl({ videoId, height, width }) {
-    let url = _thumbnailUrl + videoId;
+  static getThumbnailUrl({ mediaId, height, width }) {
+    let url = _thumbnailUrl + mediaId;
     if (height) url = url + `/height/${height}`;
     if (width) url = url + `/width/${width}`;
     return url;
@@ -175,84 +167,68 @@ class VideoPlayerAPI {
   /**
    * Gets the embed meta data
    *
-   * @param {string} videoId  The videoId we're embedding the placeholder for.
+   * @param {string} mediaId  The mediaId we're embedding the placeholder for.
    * @param {string} targetId The targetId the ID where we're putting the placeholder.
-   * @param {boolean} autoPlay Determine whether to autoplay on load of video.
+   * @param {boolean} flashvars Determine any extra param or plugin for the player.
    * @returns {object}  object
    *
    * @example
-   * import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
+   * import { KalturaPlayerAPI } from '@carbon/ibmdotcom-services';
    *
    * function embedMyVideo() {
    *   const elem = document.getElementById('foo');
    *   const videoid = '12345';
-   *   VideoPlayerAPI.embedVideo(videoid, elem);
+   *   KalturaPlayerAPI.embedMedia(videoid, elem);
    * }
    */
-  static async embedVideo(videoId, targetId, autoPlay) {
+  static async embedMedia(mediaId, targetId, flashvars = {}) {
     const fireEvent = this.fireEvent;
     return await this.checkScript().then(() => {
       const promiseKWidget = new Promise(resolve => {
-        let isCustomCreated;
-
-        if (
-          !document.getElementById(targetId) &&
-          document.querySelector('dds-tabs-extended-media')
-        ) {
-          const newVideoDiv = document.createElement('div');
-          newVideoDiv.classList.add(`bx--video-player__video`);
-          newVideoDiv.setAttribute('id', targetId);
-          document.body.append(newVideoDiv);
-          isCustomCreated = true;
-        }
+        const defaultFlashVars = {
+          autoPlay: true,
+          closedCaptions: {
+            plugin: true,
+          },
+          titleLabel: {
+            plugin: true,
+            align: 'left',
+            text: '{mediaProxy.entry.name}',
+          },
+          ibm: {
+            template: 'idl',
+          },
+        };
 
         root.kWidget.embed({
           targetId: targetId,
           wid: '_' + _partnerId,
           uiconf_id: _uiConfId,
-          entry_id: videoId,
+          entry_id: mediaId,
           flashvars: {
-            autoPlay: autoPlay,
-            closedCaptions: {
-              plugin: true,
-            },
-            titleLabel: {
-              plugin: true,
-              align: 'left',
-              text: '{mediaProxy.entry.name}',
-            },
-            ibm: {
-              template: 'idl',
-            },
+            ...defaultFlashVars,
+            ...flashvars,
+          },
+          params: {
+            wmode: 'transparent',
           },
           // Ready callback is issued for this player:
           readyCallback: function(playerId) {
             var kdp = document.getElementById(playerId);
 
             kdp.addJsListener('playerPaused', function() {
-              fireEvent({ playerState: 1, kdp, videoId });
+              fireEvent({ playerState: 1, kdp, mediaId });
             });
             kdp.addJsListener('playerPlayed', function() {
-              fireEvent({ playerState: 2, kdp, videoId });
+              fireEvent({ playerState: 2, kdp, mediaId });
             });
             kdp.addJsListener('playerPlayEnd', function() {
-              fireEvent({ playerState: 3, kdp, videoId });
+              fireEvent({ playerState: 3, kdp, mediaId });
             });
 
             resolve(kdp);
           },
         });
-
-        if (isCustomCreated) {
-          const previousVideoDiv = document
-            .querySelector('dds-tabs-extended-media')
-            .shadowRoot.querySelector(
-              `.bx--accordion__item--active dds-video-player`
-            ).lastChild;
-          previousVideoDiv.parentElement.appendChild(
-            document.getElementById(targetId)
-          );
-        }
       });
       return {
         kWidget() {
@@ -263,17 +239,17 @@ class VideoPlayerAPI {
   }
 
   /**
-   * Fires a metrics event when the video was played.
+   * Fires a metrics event when the media was played.
    * Pass events to common metrics event.
    *
    * @param {object} param params
    * @param {number} param.playerState state detecting different user actions
-   * @param {object} param.kdp video object
-   * @param {string} param.videoId id of the video
+   * @param {object} param.kdp media object
+   * @param {string} param.mediaId id of the media
    *
    */
-  static fireEvent({ playerState, kdp, videoId }) {
-    // If video was played and timestamp is 0, it should be "launched" state.
+  static fireEvent({ playerState, kdp, mediaId }) {
+    // If media was played and timestamp is 0, it should be "launched" state.
     var currentTime = Math.round(kdp.evaluate('{video.player.currentTime}'));
 
     if (playerState === 2 && currentTime === 0) {
@@ -286,7 +262,7 @@ class VideoPlayerAPI {
       currentTime: currentTime,
       duration: kdp.evaluate('{mediaProxy.entry.duration}'),
       playerState: playerState,
-      videoId: videoId,
+      mediaId: mediaId,
     };
 
     AnalyticsAPI.videoPlayerStats(eventData);
@@ -295,31 +271,31 @@ class VideoPlayerAPI {
   /**
    * Gets the api data
    *
-   * @param {string} videoId  The videoId we're embedding the placeholder for.
+   * @param {string} mediaId  The mediaId we're embedding the placeholder for.
    * @returns {object}  object
    *
    * @example
-   * import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
+   * import { KalturaPlayerAPI } from '@carbon/ibmdotcom-services';
    *
    * async function getMyVideoInfo(id) {
-   *   const data = await VideoPlayerAPI.api(id);
+   *   const data = await KalturaPlayerAPI.api(id);
    *   console.log(data);
    * }
    */
-  static async api(videoId) {
+  static async api(mediaId) {
     return await this.checkScript().then(() => {
-      if (videoData && videoData[videoId]) {
-        return videoData[videoId];
+      if (mediaData && mediaData[mediaId]) {
+        return mediaData[mediaId];
       } else {
         return new Promise(resolve => {
           return new root.kWidget.api({ wid: '_' + _partnerId }).doRequest(
             {
               service: 'media',
               action: 'get',
-              entryId: videoId,
+              entryId: mediaId,
             },
             function(jsonObj) {
-              videoData[jsonObj.id] = jsonObj;
+              mediaData[jsonObj.id] = jsonObj;
               resolve(jsonObj);
             }
           );
@@ -329,20 +305,23 @@ class VideoPlayerAPI {
   }
 
   /**
-   * Convert video duration from milliseconds to HH:MM:SS
+   * Convert media duration from seconds to HH:MM:SS
    *
-   * @param {string} duration video duration in milliseconds
+   * @param {string} duration media duration in seconds
    * @returns {string} converted duration
    */
-  static getVideoDuration(duration) {
-    let seconds = Math.floor((duration / 1000) % 60);
-    const minutes = Math.floor((duration / (1000 * 60)) % 60);
-    let hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
-    hours = hours > 0 ? hours + ':' : '';
-    seconds = seconds < 10 ? '0' + seconds : seconds;
+  static getMediaDuration(duration = 0) {
+    const parsedTime = root?.kWidget?.seconds2Measurements(duration) || {};
+    let hours = parsedTime?.hours || 0;
+    let minutes = parsedTime?.minutes || 0;
+    let seconds = parsedTime?.seconds || 0;
 
-    return duration && '(' + hours + minutes + ':' + seconds + ')';
+    minutes = (hours > 0 ? '0' + minutes : minutes).toString().slice(-2);
+    hours = hours > 0 ? hours + ':' : '';
+    seconds = ('0' + seconds).slice(-2);
+
+    return hours + minutes + ':' + seconds;
   }
 }
 
-export default VideoPlayerAPI;
+export default KalturaPlayerAPI;
