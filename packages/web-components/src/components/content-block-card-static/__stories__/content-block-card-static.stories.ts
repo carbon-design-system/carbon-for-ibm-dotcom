@@ -9,21 +9,13 @@
 
 import '../index';
 import { html } from 'lit-element';
-import { select } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import Chat20 from 'carbon-web-components/es/icons/chat/20.js';
 // eslint-disable-next-line sort-imports
-import { CTA_TYPE } from '../../cta/defs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 import { DDS_CONTENT_BLOCK_CARD_STATIC } from '../../../globals/internal/feature-flags';
-
-const ctaTypes = {
-  [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
-  [`Jump (${CTA_TYPE.JUMP})`]: CTA_TYPE.JUMP,
-  [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
-};
 
 const longHeadingCardGroupItem = html`
   <dds-card-group-item>
@@ -51,11 +43,11 @@ const cardGroupItem = html`
 export const Default = !DDS_CONTENT_BLOCK_CARD_STATIC
   ? undefined
   : ({ parameters }) => {
-      const { heading, itemHeading, itemCopy } = parameters?.props?.ContentBlockCards ?? {};
+      const { heading, itemHeading, itemCopy, href } = parameters?.props?.ContentBlockCards ?? {};
       return html`
         <dds-content-block-card-static>
           <dds-content-block-heading>${heading}</dds-content-block-heading>
-          <dds-card-group>
+          <dds-card-group grid-mode="border">
             ${longHeadingCardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem}
           </dds-card-group>
           <dds-content-item>
@@ -63,10 +55,10 @@ export const Default = !DDS_CONTENT_BLOCK_CARD_STATIC
             <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
           </dds-content-item>
           <dds-button-group slot="footer">
-            <dds-button-group-item href="https://example.com">
+            <dds-button-group-item href="${href}">
               Contact us ${Chat20({ slot: 'icon' })}
             </dds-button-group-item>
-            <dds-button-group-item href="https://example.com">
+            <dds-button-group-item href="${href}">
               Free trial ${ArrowRight20({ slot: 'icon' })}
             </dds-button-group-item>
           </dds-button-group>
@@ -80,7 +72,7 @@ export default !DDS_CONTENT_BLOCK_CARD_STATIC
       title: 'Components/Content block card static',
       decorators: [
         story => html`
-          <div class="bx--grid bx--row">
+          <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--card-group">
             ${story()}
           </div>
         `,
@@ -92,7 +84,6 @@ export default !DDS_CONTENT_BLOCK_CARD_STATIC
           ContentBlockCards: () => ({
             heading: textNullable('Heading (heading):', 'Ways to buy'),
             ctaCopy: textNullable('Copy text (copy)', 'Lorem ipsum dolor sit ametttt'),
-            ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
             href: textNullable('Href (href):', 'https://example.com'),
             itemHeading: textNullable('Item heading:', 'Lorem ipsum dolor si amett'),
             itemCopy: textNullable(

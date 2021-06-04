@@ -39,6 +39,7 @@
   }
 
   ::slotted([slot='footer']) {
+    width: auto;
     margin-top: -$carbon--spacing-05;
   }
 }
