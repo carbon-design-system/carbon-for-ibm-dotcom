@@ -6,7 +6,7 @@
 
 ```
 <div style="display: contents;">
-  <dds-lightbox-video-player-composite>
+  <dds-lightbox-video-player-composite video-cta-lightbox="true">
   </dds-lightbox-video-player-composite>
 </div>
 
