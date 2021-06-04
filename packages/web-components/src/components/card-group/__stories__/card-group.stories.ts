@@ -14,7 +14,7 @@ import '../../cta/card-cta-footer';
 import '../../cta/video-cta-container';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
-import { select, number } from '@storybook/addon-knobs';
+import { select, number, boolean } from '@storybook/addon-knobs';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 // eslint-disable-next-line sort-imports
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
@@ -35,10 +35,10 @@ const phraseArray = [
   'Disputando lorem covallis',
 ];
 
-const cardsDiffLengthPhrase = () => {
+const cardsDiffLengthPhrase = (index, border) => {
   const defaultCardGroupItem = html`
-    <dds-card-group-item href="https://example.com">
-      <dds-card-heading>${phraseArray[count]}</dds-card-heading>
+    <dds-card-group-item href="https://example.com" color-scheme=${border ? 'light' : null}>
+      <dds-card-heading>${index < 5 ? phraseArray[index] : 'Lorem ipsum dolor sit amet'}</dds-card-heading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.'
       </p>
@@ -52,18 +52,20 @@ const cardsDiffLengthPhrase = () => {
   return defaultCardGroupItem;
 };
 
-const longHeadingCardGroupItem = html`
-  <dds-card-group-item href="https://example.com">
-    <dds-card-heading>Nunc convallis lobortis Nunc convallis lobortis Nunc convallis lobortis</dds-card-heading>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-      Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-    </p>
-    <dds-card-footer slot="footer">
-      ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-footer>
-  </dds-card-group-item>
-`;
+const longHeadingCardGroupItem = border => {
+  return html`
+    <dds-card-group-item href="https://example.com" color-scheme=${border ? 'light' : null}>
+      <dds-card-heading>Nunc convallis lobortis Nunc convallis lobortis Nunc convallis lobortis</dds-card-heading>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+        Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+      </p>
+      <dds-card-footer slot="footer">
+        ${ArrowRight20({ slot: 'icon' })}
+      </dds-card-footer>
+    </dds-card-group-item>
+  `;
+};
 
 const cardGroupItemWithImages = html`
   <dds-card-group-item href="https://example.com">
@@ -94,16 +96,23 @@ const cardGroupItemWithCTAs = html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { cards } = parameters?.props?.CardGroup ?? {};
+  const { cards, optionalBorder } = parameters?.props?.CardGroup ?? {};
+  const allCards: object[] = [];
+  allCards.push(longHeadingCardGroupItem(optionalBorder));
+  for (let i = 1; i < cards; i++) {
+    allCards.push(cardsDiffLengthPhrase(i, optionalBorder));
+  }
   return html`
-    <dds-card-group>${longHeadingCardGroupItem} ${cards}</dds-card-group>
+    <dds-card-group grid-mode=${optionalBorder ? 'border' : null}>
+      ${allCards}
+    </dds-card-group>
   `;
 };
 
 export const withCTA = ({ parameters }) => {
   const { cards } = parameters?.props?.CardGroup ?? {};
   return html`
-    <dds-card-group>
+    <dds-card-group border>
       ${cards}
       <dds-card-group-item href="https://example.com" color-scheme="inverse">
         <dds-card-heading>Top level card link</dds-card-heading>
@@ -113,6 +122,19 @@ export const withCTA = ({ parameters }) => {
       </dds-card-group-item>
     </dds-card-group>
   `;
+};
+
+withCTA.story = {
+  parameters: {
+    ...readme.parameters,
+    knobs: {
+      CardGroup: ({ groupId }) => ({
+        cards: Array.from({
+          length: number('Number of cards', 5, {}, groupId),
+        }).map(() => cardGroupItemWithCTAs),
+      }),
+    },
+  },
 };
 
 export const withImages = ({ parameters }) => {
@@ -255,9 +277,8 @@ export default {
     hasCardGroupStandalone: true,
     knobs: {
       CardGroup: ({ groupId }) => ({
-        cards: Array.from({
-          length: number('Number of cards', 5, {}, groupId),
-        }).map(() => cardsDiffLengthPhrase()),
+        cards: number('Number of cards', 5, {}, groupId),
+        optionalBorder: boolean('Outlined cards:', false, groupId),
       }),
     },
     decorators: [
