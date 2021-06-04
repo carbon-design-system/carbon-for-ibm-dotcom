@@ -143,6 +143,13 @@ $btn-min-width: 26;
       }
     }
 
+    ::slotted(#{$dds-prefix}-button-group),
+    .#{$prefix}--buttongroup {
+      @include carbon--breakpoint(md) {
+        display: flex;
+      }
+    }
+
     .#{$prefix}--leadspace__overlay {
       @include carbon--make-container;
 
@@ -193,7 +200,6 @@ $btn-min-width: 26;
 
       .#{$prefix}--leadspace__overlay {
         padding-top: $spacing-07;
-        padding-bottom: $spacing-07;
         position: relative;
         top: 0;
         height: 100%;
@@ -206,6 +212,7 @@ $btn-min-width: 26;
       ::slotted(#{$dds-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         @include carbon--make-col(7, 8);
+        @include content-width;
 
         flex-shrink: 1;
       }
@@ -235,6 +242,7 @@ $btn-min-width: 26;
       ::slotted(#{$dds-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         @include carbon--make-col(8, 16);
+        @include content-width;
       }
 
       .#{$prefix}--leadspace__desc--super,
@@ -259,6 +267,18 @@ $btn-min-width: 26;
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center top;
+
+      .bx--image {
+        margin-top: $spacing-04;
+
+        @include carbon--breakpoint(md) {
+          margin-top: $spacing-07;
+        }
+
+        @include carbon--breakpoint(lg) {
+          margin-top: 0;
+        }
+      }
 
       ::slotted(#{$dds-prefix}-button-group),
       .#{$prefix}--buttongroup {
@@ -330,7 +350,9 @@ $btn-min-width: 26;
         .#{$prefix}--leadspace--content__container {
           margin: 0 auto;
           padding-left: $spacing-06;
-          @include carbon--make-col(4, 8);
+          @include carbon--breakpoint(lg) {
+            @include carbon--make-col(4, 8);
+          }
         }
 
         ::slotted(#{$dds-prefix}-leadspace-heading),
@@ -338,7 +360,7 @@ $btn-min-width: 26;
         .#{$prefix}--leadspace__desc--super,
         .#{$prefix}--leadspace__desc--medium,
         .#{$prefix}--leadspace__desc {
-          max-width: carbon--mini-units(80);
+          @include content-width;
         }
 
         .#{$prefix}--leadspace__desc--super,
@@ -475,7 +497,7 @@ $btn-min-width: 26;
 
   :host(#{$dds-prefix}-leadspace-image),
   .#{$prefix}--image {
-    margin-top: $spacing-07;
+    margin-top: $spacing-04;
     @include ratio-base(4, 3, false);
 
     @include carbon--breakpoint(md) {

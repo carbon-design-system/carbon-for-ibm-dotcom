@@ -8,7 +8,6 @@
 <section
   class="bx--leadspace__section"
   part="section"
-  style=""
 >
   <div class="bx--leadspace__container">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
@@ -47,7 +46,6 @@
 <section
   class="bx--leadspace__section"
   part="section"
-  style=""
 >
   <div class="bx--leadspace__container">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
@@ -88,7 +86,6 @@
 <section
   class="bx--leadspace__section"
   part="section"
-  style=""
 >
   <div class="bx--leadspace__container">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
@@ -127,7 +124,6 @@
 <section
   class="bx--leadspace__section"
   part="section"
-  style=""
 >
   <div class="bx--leadspace__container">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
@@ -168,7 +164,6 @@
 <section
   class="bx--leadspace--centered bx--leadspace__section"
   part="section"
-  style=""
 >
   <div class="bx--leadspace__container">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
@@ -207,7 +202,6 @@
 <section
   class="bx--leadspace--centered bx--leadspace__section"
   part="section"
-  style=""
 >
   <div class="bx--leadspace__container">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
@@ -248,7 +242,6 @@
 <section
   class="bx--leadspace--centered bx--leadspace__section"
   part="section"
-  style=""
 >
   <div class="bx--leadspace__container">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
@@ -287,7 +280,6 @@
 <section
   class="bx--leadspace--centered bx--leadspace--centered__image bx--leadspace__section"
   part="section"
-  style="background-image: url(http://fpoimg.com/1056x480?bg_color=ee5396&text_color=161616)"
 >
   <div class="bx--leadspace__container">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
@@ -313,16 +305,8 @@
         </div>
       </div>
     </div>
-    <div
-      class="bx--leadspace--centered--mobile__image"
-      data-autoid="dds--leadspace--centered--mobile__image"
-    >
-      <img
-        alt="alt text"
-        loading="lazy"
-        src="http://fpoimg.com/1056x480?bg_color=ee5396&text_color=161616"
-      >
-    </div>
+    <slot name="image">
+    </slot>
   </div>
 </section>
 
@@ -336,7 +320,6 @@
 <section
   class="bx--leadspace__section"
   part="section"
-  style=""
 >
   <div class="bx--leadspace__container--medium">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
@@ -375,7 +358,6 @@
 <section
   class="bx--leadspace__section"
   part="section"
-  style=""
 >
   <div class="bx--leadspace__container--medium">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
@@ -416,7 +398,6 @@
 <section
   class="bx--leadspace__section"
   part="section"
-  style=""
 >
   <div class="bx--leadspace__container--medium">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
@@ -455,7 +436,6 @@
 <section
   class="bx--leadspace__section"
   part="section"
-  style=""
 >
   <div class="bx--leadspace__container--medium">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
