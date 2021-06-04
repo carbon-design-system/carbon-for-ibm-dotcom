@@ -9,7 +9,6 @@
 @import '../../globals/imports';
 @import '../../globals/utils/content-width';
 @import '../../globals/utils/hang';
-@import '../../components/feature-card-block-medium/feature-card-block-medium';
 
 @mixin content-block {
   :host(#{$dds-prefix}-content-block),
@@ -189,6 +188,10 @@
     margin-top: $carbon--layout-04;
     @include carbon--breakpoint('md') {
       margin-top: $carbon--layout-05;
+    }
+
+    .#{$prefix}--feature-card {
+      @include carbon--make-row;
     }
   }
 

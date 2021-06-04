@@ -14,13 +14,16 @@
   color: $text-01;
   padding-left: $carbon--spacing-05;
   padding-right: $carbon--spacing-05;
-  margin-left: $carbon--spacing-05;
   border: solid 2px transparent;
   transition: $button-transition;
   position: relative;
   white-space: nowrap;
   z-index: 1;
   background-color: $ui-background;
+
+  @include carbon--breakpoint(lg) {
+    margin-left: $carbon--spacing-05;
+  }
 
   &:hover {
     background-color: $hover-ui;
@@ -77,20 +80,6 @@
       }
     }
 
-    .#{$prefix}--header__nav {
-      &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        height: 1.5rem;
-        width: 0.0625rem;
-        background-color: #dcdcdc;
-      }
-    }
-
     a.#{$prefix}--header__name {
       @include masthead-top-nav-name;
     }
@@ -123,7 +112,7 @@
 
     .#{$prefix}--header__search--search,
     .#{$prefix}--header__search--close {
-      color: $icon-01;
+      color: $icon-02;
 
       background-color: $ui-background;
       padding: 0;
@@ -131,7 +120,7 @@
       &:hover {
         background-color: $hover-ui;
         svg[focusable='false'][aria-hidden='true'] {
-          fill: $icon-02;
+          fill: $icon-01;
         }
       }
       // prevent tooltip from showing on hover

@@ -13,6 +13,13 @@
 @import '../../globals/utils/aspect-ratio';
 @import '../../globals/utils/hang';
 
+$fcb-large-custom-bp-copy: 992px;
+$fcb-large-custom-bp-nocopy: 752px;
+$fcb-breakpoint-up--lg: map-get(
+    map-get($carbon--grid-breakpoints, 'lg'),
+    'width'
+  ) - carbon--rem(1px);
+
 @mixin card {
   @include carbon--breakpoint-down('md') {
     position: absolute;
@@ -57,15 +64,10 @@
 }
 
 @mixin feature-card {
+  :host(#{$dds-prefix}-feature-card),
   .#{$prefix}--feature-card {
     @include carbon--breakpoint-down('md') {
       @include carbon--make-row;
-    }
-
-    @include carbon--breakpoint('md') {
-      .#{$prefix}--card {
-        @include hang;
-      }
     }
   }
 
@@ -77,7 +79,7 @@
   }
 
   .#{$prefix}--feature-card,
-  :host(#{$dds-prefix}-feature-card),
+  :host(#{$dds-prefix}-feature-card:not([size='large'])),
   :host(#{$dds-prefix}-feature-cta) {
     position: relative;
 
@@ -156,6 +158,10 @@
         width: 50%;
         height: auto;
       }
+
+      .#{$prefix}--card__content {
+        height: 100%;
+      }
     }
 
     // image
@@ -175,13 +181,221 @@
 
     .#{$prefix}--feature-card__card .#{$prefix}--card__footer {
       flex-direction: row-reverse;
+      @include carbon--breakpoint-down('md') {
+        flex-direction: row;
+      }
+
+      svg {
+        @include carbon--breakpoint('sm') {
+          width: carbon--rem(20px);
+          height: carbon--rem(20px);
+        }
+
+        @include carbon--breakpoint('md') {
+          width: $carbon--spacing-06;
+          height: $carbon--spacing-06;
+        }
+
+        @include carbon--breakpoint('max') {
+          width: $carbon--spacing-07;
+          height: $carbon--spacing-07;
+        }
+      }
     }
     ::slotted(svg[slot='footer']) {
       margin-top: auto;
       margin-left: auto;
     }
   }
+
+  :host(#{$dds-prefix}-feature-card[size='large']),
+  :host(#{$dds-prefix}-feature-cta[size='large']),
+  .#{$prefix}--feature-card-large {
+    margin-bottom: $carbon--layout-03;
+    color: $text-01;
+    background: $ui-background;
+    position: relative;
+    @include hang;
+
+    @include carbon--breakpoint('md') {
+      margin-bottom: $carbon--layout-05;
+    }
+
+    @include carbon--breakpoint('lg') {
+      margin-bottom: $carbon--layout-06;
+    }
+
+    @include carbon--breakpoint('xlg') {
+      padding-top: aspect-ratio(2, 1);
+    }
+
+    :hover {
+      ::slotted([slot='image']),
+      .#{$prefix}--image {
+        filter: brightness(80%);
+      }
+
+      .#{$prefix}--card__wrapper {
+        background: $hover-ui;
+      }
+    }
+
+    .#{$prefix}--card {
+      background: none;
+      height: 100%;
+
+      &:focus-within {
+        outline-width: 3px;
+        outline-offset: 1px;
+      }
+
+      @include carbon--breakpoint('xlg') {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        flex-direction: row;
+      }
+
+      ::slotted([slot='image']),
+      &__wrapper,
+      .#{$prefix}--image {
+        @include carbon--breakpoint('xlg') {
+          width: 50%;
+          height: 100%;
+        }
+      }
+
+      .#{$prefix}--image {
+        overflow-y: hidden;
+      }
+    }
+
+    .#{$prefix}--card__wrapper {
+      @include carbon--theme($carbon--theme--g90, true);
+
+      &::before {
+        padding-top: 0;
+        @include carbon--breakpoint('md') {
+          padding-top: 50%;
+        }
+      }
+
+      background-color: $ui-01;
+      min-height: 50%;
+      height: auto;
+      padding: $spacing-07 $spacing-05;
+
+      @include carbon--breakpoint('md') {
+        padding: $layout-03;
+      }
+
+      @include carbon--breakpoint('max') {
+        padding: $layout-05;
+      }
+
+      .#{$prefix}--card__eyebrow,
+      .#{$prefix}--card__heading,
+      .#{$prefix}--card__copy,
+      ::slotted(#{$dds-prefix}-card-eyebrow),
+      ::slotted(#{$dds-prefix}-card-heading) {
+        width: 100%;
+        max-width: carbon--rem(480px);
+        @include carbon--breakpoint('md') {
+          width: 90%;
+        }
+      }
+
+      .#{$prefix}--card__content {
+        padding: 0;
+      }
+
+      .#{$prefix}--card__eyebrow,
+      ::slotted(#{$dds-prefix}-card-eyebrow) {
+        margin: 0 0 $spacing-05 0;
+        @include carbon--type-style('body-long-02');
+      }
+
+      .#{$prefix}--card__heading,
+      ::slotted(#{$dds-prefix}-card-heading) {
+        @include carbon--type-style('expressive-heading-04', true);
+
+        margin-bottom: $spacing-07;
+      }
+
+      .#{$prefix}--card__copy {
+        @include carbon--type-style('body-long-02');
+        @include carbon--breakpoint-down('md') {
+          margin-bottom: $spacing-07;
+        }
+      }
+    }
+
+    .#{$prefix}--card__footer {
+      flex-direction: row;
+
+      @include carbon--breakpoint('xlg') {
+        flex-direction: row-reverse;
+      }
+    }
+
+    // special breakpoint for no copy present
+    &.#{$prefix}--feature-card-large_no-copy-text {
+      @include carbon--breakpoint($fcb-large-custom-bp-nocopy) {
+        padding-top: aspect-ratio(2, 1);
+      }
+
+      .#{$prefix}--card {
+        @include carbon--breakpoint($fcb-large-custom-bp-nocopy) {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          flex-direction: row;
+
+          &__wrapper,
+          .#{$prefix}--image {
+            width: 50%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  :host(#{$dds-prefix}-feature-card-footer)
+    .#{$dds-prefix}-ce--card__footer
+    ::slotted(svg[slot='icon']),
+  .#{$prefix}--feature-card-large
+    .#{$prefix}--feature-card-large__card.#{$prefix}--tile
+    .#{$prefix}--card__cta,
+  .#{$prefix}--feature-card-large
+    .#{$prefix}--feature-card-large__card.#{$prefix}--tile
+    .#{$prefix}--card__cta:visited {
+    margin-top: auto;
+    float: none;
+
+    @include carbon--breakpoint('sm') {
+      width: carbon--rem(20px);
+      height: carbon--rem(20px);
+    }
+
+    @include carbon--breakpoint('md') {
+      width: $carbon--spacing-06;
+      height: $carbon--spacing-06;
+    }
+
+    @include carbon--breakpoint('max') {
+      width: $carbon--spacing-07;
+      height: $carbon--spacing-07;
+    }
+
+    @include carbon--type-style('productive-heading-05');
+  }
 }
+
 @include exports('feature-card') {
   @include feature-card;
 }

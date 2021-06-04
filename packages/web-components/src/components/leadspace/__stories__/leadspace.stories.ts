@@ -21,7 +21,7 @@ import '../index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
-import leadspaceImg from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
+import leadspaceImg from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import { LEADSPACE_SIZE } from '../defs';
 
 const gradientStyleSchemes = {
@@ -39,24 +39,24 @@ const navigationWithTagGroup = html`
 `;
 
 const navigationWithBreadcrumbs = html`
-  <bx-breadcrumb slot="navigation">
-    <bx-breadcrumb-item>
-      <bx-breadcrumb-link href="/#">Breadcrumb 1</bx-breadcrumb-link>
-    </bx-breadcrumb-item>
-    <bx-breadcrumb-item>
-      <bx-breadcrumb-link href="/#">Breadcrumb 2</bx-breadcrumb-link>
-    </bx-breadcrumb-item>
-    <bx-breadcrumb-item>
-      <bx-breadcrumb-link href="/#" aria-current="page">Breadcrumb 3</bx-breadcrumb-link>
-    </bx-breadcrumb-item>
-  </bx-breadcrumb>
+  <dds-breadcrumb slot="navigation">
+    <dds-breadcrumb-item>
+      <dds-breadcrumb-link href="/#">Breadcrumb 1</dds-breadcrumb-link>
+    </dds-breadcrumb-item>
+    <dds-breadcrumb-item>
+      <dds-breadcrumb-link href="/#">Breadcrumb 2</dds-breadcrumb-link>
+    </dds-breadcrumb-item>
+    <dds-breadcrumb-item>
+      <dds-breadcrumb-link href="/#" aria-current="page">Breadcrumb 3</dds-breadcrumb-link>
+    </dds-breadcrumb-item>
+  </dds-breadcrumb>
 `;
 
 export const TallWithNoImage = ({ parameters }) => {
   const { alt, defaultSrc, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace size="${LEADSPACE_SIZE.NONE}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
-      ${navElements === navigationOptions[0] ? console.log('hello') : ``}
+      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
