@@ -87,7 +87,7 @@ const resizeObserver = new ResizeObserver(entries => {
     const { width, height } = entry.contentRect;
     if (width === 0 && height === 0) {
       // Uses Kaltura API to stop the video
-      entry.target.sendNotification('doStop');
+      entry.target.sendNotification('doPause');
     }
   });
 });

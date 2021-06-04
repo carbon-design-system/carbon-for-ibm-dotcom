@@ -229,6 +229,7 @@ class DDSCardGroup extends LitElement {
     const slotClasses = classMap({
       [`${prefix}--card-group--narrow`]: this.gridMode === GRID_MODE.NARROW,
       [`${prefix}--card-group--collapsed`]: this.gridMode === GRID_MODE.COLLAPSED,
+      [`${prefix}--card-group--border`]: this.gridMode === GRID_MODE.BORDER,
     });
 
     return html`
