@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,6 +15,14 @@
  * @type {boolean}
  */
 export const DDS_FLAGS_ALL = process.env.DDS_FLAGS_ALL === 'true' || false;
+
+/**
+ * Feature flag to turn on the Audio Player
+ *
+ * @type {boolean}
+ */
+export const DDS_AUDIO_PLAYER =
+  process.env.DDS_AUDIO_PLAYER === 'true' || DDS_FLAGS_ALL || false;
 
 /**
  * Feature flag to turn on the Card with Pictogram
