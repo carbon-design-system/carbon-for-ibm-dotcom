@@ -8,8 +8,9 @@
  */
 
 import { customElement, html } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import deprecate from '@carbon/ibmdotcom-utilities/es/utilities/deprecate/deprecate.js';
 import DDSFeatureCard from '../feature-card/feature-card';
 import styles from './feature-card-block-medium.scss';
 
@@ -54,4 +55,8 @@ class DDSFeatureCardBlockMedium extends DDSFeatureCard {
 
   static styles = styles;
 }
-export default DDSFeatureCardBlockMedium;
+export default deprecate(
+  DDSFeatureCardBlockMedium,
+  `The FeatureCardBlockMedium component has been deprecated in favor of the FeatureCard component. ` +
+    `See FeatureCard's size attribute documentation for more information.`
+);

@@ -14,7 +14,6 @@ import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/V
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
-import { forEach } from '../../globals/internal/collection-helpers';
 import { VideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/videoPlayerAPI.d';
 /* eslint-disable import/no-duplicates */
 import { VIDEO_PLAYER_CONTENT_STATE, VIDEO_PLAYER_PLAYING_MODE } from './video-player';
@@ -51,13 +50,9 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    * @param videoId The video ID to activate.
    */
   protected _activateEmbeddedVideo(videoId: string) {
-    const { selectorEmbeddedVideoContainer } = this.constructor as typeof DDSVideoPlayerComposite;
     const { embeddedVideos = {} } = this;
     Object.keys(embeddedVideos).forEach(key => {
       embeddedVideos[key].sendNotification(key === videoId ? 'doPlay' : 'doStop');
-    });
-    forEach(this.querySelectorAll(selectorEmbeddedVideoContainer), element => {
-      element.toggleAttribute('hidden', (element as HTMLElement).dataset.videoId !== videoId);
     });
   }
 
@@ -202,13 +197,6 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    */
   static get selectorVideoPlayer() {
     return `${ddsPrefix}-video-player`;
-  }
-
-  /**
-   * A selector selecting the container DOM elements for embedding video.
-   */
-  static get selectorEmbeddedVideoContainer() {
-    return '[data-video-id]';
   }
 
   /**

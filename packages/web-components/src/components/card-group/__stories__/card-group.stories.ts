@@ -35,9 +35,9 @@ const phraseArray = [
   'Disputando lorem covallis',
 ];
 
-const cardsDiffLengthPhrase = index => {
+const cardsDiffLengthPhrase = (index, border) => {
   const defaultCardGroupItem = html`
-    <dds-card-group-item href="https://example.com">
+    <dds-card-group-item href="https://example.com" color-scheme=${border ? 'light' : null}>
       <dds-card-heading>${index < 5 ? phraseArray[index] : 'Lorem ipsum dolor sit amet'}</dds-card-heading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.'
@@ -52,18 +52,20 @@ const cardsDiffLengthPhrase = index => {
   return defaultCardGroupItem;
 };
 
-const longHeadingCardGroupItem = html`
-  <dds-card-group-item href="https://example.com">
-    <dds-card-heading>Nunc convallis lobortis Nunc convallis lobortis Nunc convallis lobortis</dds-card-heading>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-      Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-    </p>
-    <dds-card-footer slot="footer">
-      ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-footer>
-  </dds-card-group-item>
-`;
+const longHeadingCardGroupItem = border => {
+  return html`
+    <dds-card-group-item href="https://example.com" color-scheme=${border ? 'light' : null}>
+      <dds-card-heading>Nunc convallis lobortis Nunc convallis lobortis Nunc convallis lobortis</dds-card-heading>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+        Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+      </p>
+      <dds-card-footer slot="footer">
+        ${ArrowRight20({ slot: 'icon' })}
+      </dds-card-footer>
+    </dds-card-group-item>
+  `;
+};
 
 const cardGroupItemWithImages = html`
   <dds-card-group-item href="https://example.com">
@@ -95,8 +97,15 @@ const cardGroupItemWithCTAs = html`
 
 export const Default = ({ parameters }) => {
   const { cards, optionalBorder } = parameters?.props?.CardGroup ?? {};
+  const allCards: object[] = [];
+  allCards.push(longHeadingCardGroupItem(optionalBorder));
+  for (let i = 1; i < cards; i++) {
+    allCards.push(cardsDiffLengthPhrase(i, optionalBorder));
+  }
   return html`
-    <dds-card-group grid-mode=${optionalBorder ? 'border' : null}> ${longHeadingCardGroupItem} ${cards}</dds-card-group>
+    <dds-card-group grid-mode=${optionalBorder ? 'border' : null}>
+      ${allCards}
+    </dds-card-group>
   `;
 };
 
@@ -268,11 +277,7 @@ export default {
     hasCardGroupStandalone: true,
     knobs: {
       CardGroup: ({ groupId }) => ({
-        cards: Array.from({
-          length: number('Number of cards', 5, {}, groupId),
-        })
-          .slice(0, -1)
-          .map((_item, index) => cardsDiffLengthPhrase(index)),
+        cards: number('Number of cards', 5, {}, groupId),
         optionalBorder: boolean('Outlined cards:', false, groupId),
       }),
     },
