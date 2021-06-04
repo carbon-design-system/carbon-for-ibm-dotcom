@@ -148,6 +148,9 @@ $btn-min-width: 26;
       @include carbon--breakpoint(md) {
         display: flex;
       }
+      @include carbon--breakpoint(md) {
+        padding-bottom: $spacing-07;
+      }
     }
 
     .#{$prefix}--leadspace__overlay {
@@ -503,7 +506,7 @@ $btn-min-width: 26;
   }
 
   :host(#{$dds-prefix}-leadspace-image),
-  .#{$prefix}--image {
+  .#{$prefix}--leadspace .#{$prefix}--image {
     margin-top: $spacing-04;
     @include ratio-base(4, 3, false);
 
