@@ -181,7 +181,6 @@
     }
 
     .#{$prefix}--masthead__side-nav--submemu-title {
-      @include use-carbon-productive-tokens();
       @include carbon--type-style(productive-heading-02);
 
       display: flex;
@@ -197,7 +196,6 @@
       height: 3rem;
 
       span {
-        @include use-carbon-productive-tokens();
         @include carbon--type-style(productive-heading-02);
 
         display: flex;
@@ -272,7 +270,6 @@
       }
 
       > .#{$prefix}--side-nav__link-text {
-        @include use-carbon-productive-tokens();
         @include carbon--type-style(body-short-02);
 
         color: $link-01;
@@ -355,7 +352,6 @@
         }
 
         .#{$prefix}--masthead__side-nav--submemu-title {
-          @include use-carbon-productive-tokens();
           @include carbon--type-style(productive-heading-02);
 
           display: flex;
@@ -368,7 +364,6 @@
 
         .#{$prefix}--masthead__side-nav--submemu-section-title {
           span {
-            @include use-carbon-productive-tokens();
             @include carbon--type-style(productive-heading-02);
 
             display: flex;
