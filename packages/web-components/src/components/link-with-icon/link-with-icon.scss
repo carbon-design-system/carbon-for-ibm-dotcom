@@ -6,7 +6,6 @@
 //
 
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
 @import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/link-with-icon';
 @import '../../globals/scss/box-sizing';
 
@@ -14,8 +13,6 @@
 :host(#{$dds-prefix}-link-list-item),
 :host(#{$dds-prefix}-text-cta),
 :host(#{$dds-prefix}-link-list-item-cta) {
-  // Enables expressive version of type/size/component tokens in this component
-  @include use-carbon-expressive-tokens();
   // Re-define the ruleset so this wins over `.bx--link:visited`, etc.
   .#{$prefix}--link--disabled {
     color: $disabled-02;

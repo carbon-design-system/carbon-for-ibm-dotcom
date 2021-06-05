@@ -12,16 +12,10 @@
 @import 'carbon-web-components/scss/components/tooltip/tooltip';
 @import 'carbon-components/scss/components/accordion/accordion';
 @import 'carbon-components/scss/components/accordion/keyframes';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/tabs';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/accordion';
 
 @mixin tabs-extended {
   :host(#{$dds-prefix}-tabs-extended),
   :host(#{$dds-prefix}-tabs-extended-media) {
-    @include tabs-expressive;
-    @include accordion-expressive;
-
     .#{$prefix}--tabs {
       display: none;
 
