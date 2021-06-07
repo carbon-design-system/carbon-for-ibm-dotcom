@@ -10,10 +10,16 @@
 'use strict';
 
 const del = require('del');
-
+const gulp = require('gulp');
 const config = require('./config');
 
-module.exports = function clean() {
+/**
+ * Clean task
+ *
+ * @returns {Promise<unknown[]>} Promise after all folders are cleaned
+ * @private
+ */
+function _clean() {
   return Promise.all([
     del(config.bundleDestDir),
     del(config.cjsDestDir),
@@ -23,4 +29,7 @@ module.exports = function clean() {
     del('custom-elements.json'),
     del('storybook-static'),
   ]);
-};
+}
+
+// Clean task
+gulp.task('clean', _clean);
