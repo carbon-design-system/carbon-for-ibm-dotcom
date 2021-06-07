@@ -32,42 +32,7 @@ const litSCSS = require('./rollup-plugin-lit-scss');
 const fixHostPseudo = require('./postcss-fix-host-pseudo');
 const license = require('./rollup-plugin-license');
 
-const config = require('../gulp-tasks/config');
-
 const readFile = promisify(fs.readFile);
-
-/**
- * Stores the suffix to append depending on build mode
- *
- * @type {{development: string, production: string}}
- */
-const modeSuffixes = {
-  development: '',
-  production: '.min',
-};
-
-/**
- * Stores the suffix to append for render direction setting
- *
- * @type {{ltr: string, rtl: string}}
- */
-const dirSuffixes = {
-  ltr: '',
-  rtl: '.rtl',
-};
-
-/**
- * Converts a string with dashes to camel case
- *
- * @param {string} input Input string with dashes
- * @returns {string} Camel case string
- * @private
- */
-function _camelCase(input) {
-  return input.toLowerCase().replace(/-(.)/g, function(match, group1) {
-    return group1.toUpperCase();
-  });
-}
 
 /**
  * Sets the rollup configuration based on various settings
@@ -114,13 +79,6 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folder } = {}) {
 
   const rollupConfig = {
     input: `src/components/${folder}/index.ts`,
-    output: {
-      format: 'es',
-      name: `IBMDotcomWebComponents${_camelCase(folder)}`,
-      file: `${config.bundleDestDir}/ibmdotcom-web-components-${folder}${dirSuffixes[dir]}${modeSuffixes[mode]}.js`,
-      // FIXME: Figure out how to handle `process.env` without build toolstack
-      banner: 'let process = { env: {} };',
-    },
     plugins: [
       /* {
         resolveId(id, importer) {

@@ -13,6 +13,28 @@ const gulp = require('gulp');
 const { rollup } = require('rollup');
 const getRollupConfig = require('../../tools/get-rollup-config');
 
+const config = require('../config');
+
+/**
+ * Stores the suffix to append depending on build mode
+ *
+ * @type {{development: string, production: string}}
+ */
+const modeSuffixes = {
+  development: '',
+  production: '.min',
+};
+
+/**
+ * Stores the suffix to append for render direction setting
+ *
+ * @type {{ltr: string, rtl: string}}
+ */
+const dirSuffixes = {
+  ltr: '',
+  rtl: '.rtl',
+};
+
 /**
  * Builds a Rollup bundle.
  *
@@ -22,8 +44,14 @@ const getRollupConfig = require('../../tools/get-rollup-config');
  * @private
  */
 async function _buildBundle({ mode = 'development', dir = 'ltr' } = {}) {
-  const conf = getRollupConfig({ mode, dir, folder: 'dotcom-shell' });
-  await rollup(conf);
+  const bundle = await rollup(getRollupConfig({ mode, dir, folder: 'dotcom-shell' }));
+  await bundle.write({
+    format: 'es',
+    name: 'IBMDotcomWebComponentsDotcomShell',
+    file: `${config.bundleDestDir}/ibmdotcom-web-components-dotcom-shell${dirSuffixes[dir]}${modeSuffixes[mode]}.js`,
+    // FIXME: Figure out how to handle `process.env` without build toolstack
+    banner: 'let process = { env: {} };',
+  });
 }
 
 /**

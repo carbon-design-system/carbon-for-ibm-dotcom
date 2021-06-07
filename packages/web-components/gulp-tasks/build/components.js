@@ -18,6 +18,39 @@ const getRollupConfig = require('../../tools/get-rollup-config');
 const config = require('../config');
 
 /**
+ * Stores the suffix to append depending on build mode
+ *
+ * @type {{development: string, production: string}}
+ */
+const modeSuffixes = {
+  development: '',
+  production: '.min',
+};
+
+/**
+ * Stores the suffix to append for render direction setting
+ *
+ * @type {{ltr: string, rtl: string}}
+ */
+const dirSuffixes = {
+  ltr: '',
+  rtl: '.rtl',
+};
+
+/**
+ * Converts a string with dashes to camel case
+ *
+ * @param {string} input Input string with dashes
+ * @returns {string} Camel case string
+ * @private
+ */
+function _camelCase(input) {
+  return input.toLowerCase().replace(/-(.)/g, function(match, group1) {
+    return group1.toUpperCase();
+  });
+}
+
+/**
  * Gets all of the folders and returns out
  *
  * @param {string} dir Directory to check
@@ -44,16 +77,23 @@ async function _buildComponents({ mode = 'development', dir = 'ltr' } = {}) {
     return item !== 'layout';
   });
 
-  const configs = [];
+  const configs = {};
 
   folders.forEach(folder => {
-    configs.push(getRollupConfig({ mode, dir, folder }));
+    configs[folder] = getRollupConfig({ mode, dir, folder });
   });
 
   await Promise.all(
-    configs.map(async conf => {
-      await rollup(conf);
-    }),
+    Object.keys(configs).map(async folder => {
+      const bundle = await rollup(configs[folder]);
+      await bundle.write({
+        format: 'es',
+        name: `IBMDotcomWebComponents${_camelCase(folder)}`,
+        file: `${config.bundleDestDir}/ibmdotcom-web-components-${folder}${dirSuffixes[dir]}${modeSuffixes[mode]}.js`,
+        // FIXME: Figure out how to handle `process.env` without build toolstack
+        banner: 'let process = { env: {} };',
+      });
+    })
   );
 }
 
