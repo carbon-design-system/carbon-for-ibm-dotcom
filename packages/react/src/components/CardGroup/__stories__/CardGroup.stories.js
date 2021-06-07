@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { number, boolean } from '@storybook/addon-knobs';
 import CardGroup from '../CardGroup';
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--001.jpg';
-import { number } from '@storybook/addon-knobs';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
@@ -97,13 +97,12 @@ const groupCTA = {
 };
 
 export const Default = ({ parameters }) => {
-  const { cards: data, cta } = parameters?.props?.CardGroup ?? {};
-
+  const { cards: data, cta, border } = parameters?.props?.CardGroup ?? {};
   return (
     <div className="bx--grid bx--content-group-story">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
-          <CardGroup cards={data} cta={cta} />
+          <CardGroup cards={data} cta={cta} border={border} />
         </div>
       </div>
     </div>
@@ -117,6 +116,7 @@ Default.story = {
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
         }).map(_ => defaultCard),
+        border: boolean('Outlined cards:', false, groupId),
       }),
     },
     percy: {

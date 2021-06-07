@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -155,6 +155,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
     return html`
       <dds-lightbox-video-player-composite
         ?open="${Boolean(activeVideoId)}"
+        video-cta-lightbox="true"
         video-id="${ifNonNull(activeVideoId)}"
         .embeddedVideos="${ifNonNull(embeddedVideos)}"
         .videoData="${ifNonNull(videoData)}"

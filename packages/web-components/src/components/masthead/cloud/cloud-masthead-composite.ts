@@ -107,7 +107,9 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           ${sortedMenuItems.map(item => {
             return html`
               <div id="panel-${item.itemKey}" role="tabpanel" aria-labelledby="tab-${item.itemKey}" hidden>
-                <dds-cloud-megamenu-category-heading title="${item.megapanelContent?.headingTitle}"
+                <dds-cloud-megamenu-category-heading
+                  href="${item.megapanelContent?.headingUrl}"
+                  title="${item.megapanelContent?.headingTitle}"
                   >${item.megapanelContent?.description}</dds-cloud-megamenu-category-heading
                 >
                 <dds-cloud-megamenu-category-link-group>
@@ -177,7 +179,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
             `}
         ${ctaButtons?.map(item => {
           return html`
-            <dds-cloud-left-nav-item href="${item.url}" title="${item.title}" class="left-nav-cta"></dds-cloud-left-nav-item>
+            <dds-cloud-left-nav-item href="${item.url}" title="${item.title}"></dds-cloud-left-nav-item>
           `;
         })}
       </dds-left-nav>
