@@ -47,6 +47,7 @@
   ],
   "scripts": {
     "build": "gulp build && yarn wca",
+    "build:components": "gulp build:components",
     "build-storybook": "build-storybook",
     "build-storybook:react": "gulp build:modules:react && node --max-old-space-size=8192 ../../node_modules/@storybook/react/dist/server/build.js -c .storybook/react -o storybook-static-react",
     "ci-check": "yarn wca && yarn format:diff && yarn lint:src && yarn typecheck && yarn build && yarn test:unit",

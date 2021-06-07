@@ -32,15 +32,54 @@ const litSCSS = require('./rollup-plugin-lit-scss');
 const fixHostPseudo = require('./postcss-fix-host-pseudo');
 const license = require('./rollup-plugin-license');
 
+const config = require('../gulp-tasks/config');
+
 const readFile = promisify(fs.readFile);
 
 /**
+ * Stores the suffix to append depending on build mode
+ *
+ * @type {{development: string, production: string}}
+ */
+const modeSuffixes = {
+  development: '',
+  production: '.min',
+};
+
+/**
+ * Stores the suffix to append for render direction setting
+ *
+ * @type {{ltr: string, rtl: string}}
+ */
+const dirSuffixes = {
+  ltr: '',
+  rtl: '.rtl',
+};
+
+/**
+ * Converts a string with dashes to camel case
+ *
+ * @param {string} input Input string with dashes
+ * @returns {string} Camel case string
+ * @private
+ */
+function _camelCase(input) {
+  return input.toLowerCase().replace(/-(.)/g, function(match, group1) {
+    return group1.toUpperCase();
+  });
+}
+
+/**
+ * Sets the rollup configuration based on various settings
+ *
  * @param {object} [options] The build options.
  * @param {string} [options.mode=development] The build mode.
  * @param {string} [options.dir=development] The UI direction.
+ * @param {string} [options.folder] Package name to bundle
  * @returns {object} The Rollup config.
  */
-function getRollupConfig({ mode = 'development', dir = 'ltr' } = {}) {
+function getRollupConfig({ mode = 'development', dir = 'ltr', folder } = {}) {
+  const importIcon = folder === 'dotcom-shell' || folder === 'masthead' || folder === 'footer';
   const postCSSPlugins = [
     fixHostPseudo(),
     autoprefixer({
@@ -73,10 +112,17 @@ function getRollupConfig({ mode = 'development', dir = 'ltr' } = {}) {
     },
   };
 
-  return {
-    input: 'src/globals/ibmdotcom-web-components-dotcom-shell.ts',
+  const rollupConfig = {
+    input: `src/components/${folder}/index.ts`,
+    output: {
+      format: 'es',
+      name: `IBMDotcomWebComponents${_camelCase(folder)}`,
+      file: `${config.bundleDestDir}/ibmdotcom-web-components-${folder}${dirSuffixes[dir]}${modeSuffixes[mode]}.js`,
+      // FIXME: Figure out how to handle `process.env` without build toolstack
+      banner: 'let process = { env: {} };',
+    },
     plugins: [
-      {
+      /* {
         resolveId(id, importer) {
           // Builds all components' styles as one Sass file so we can optimize styles across components,
           // especially of `import-once` guard
@@ -86,7 +132,7 @@ function getRollupConfig({ mode = 'development', dir = 'ltr' } = {}) {
                 skipSelf: true,
               });
         },
-      },
+      }, */
       resolve({
         browser: true,
         mainFields: ['jsnext', 'module', 'main'],
@@ -138,7 +184,6 @@ function getRollupConfig({ mode = 'development', dir = 'ltr' } = {}) {
         include: [/carbon-web-components\/es\/components\//i],
         plugins: [path.resolve(__dirname, 'babel-plugin-undef-custom-elements')],
       }),
-      ibmdotcomIcon(),
       litSCSS({
         includePaths: [path.resolve(__dirname, '../node_modules'), path.resolve(__dirname, '../../../node_modules')],
         async preprocessor(contents, id) {
@@ -170,7 +215,7 @@ function getRollupConfig({ mode = 'development', dir = 'ltr' } = {}) {
             }),
             {
               async generateBundle(options, bundle) {
-                const { code } = bundle[`ibmdotcom-web-components-dotcom-shell${dir !== 'rtl' ? '' : '.rtl'}.min.js`];
+                const { code } = bundle[`ibmdotcom-web-components-${folder}${dir !== 'rtl' ? '' : '.rtl'}.min.js`];
                 const gzipSize = await gzip(code);
                 const { bundleSizeThreshold } = packageJson;
                 console.log('Total size (gzipped):', gzipSize); // eslint-disable-line no-console
@@ -182,6 +227,12 @@ function getRollupConfig({ mode = 'development', dir = 'ltr' } = {}) {
           ]),
     ],
   };
+
+  if (importIcon) {
+    rollupConfig.plugins.push(ibmdotcomIcon());
+  }
+
+  return rollupConfig;
 }
 
 module.exports = getRollupConfig;

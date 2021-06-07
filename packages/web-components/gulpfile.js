@@ -15,9 +15,11 @@ const build = require('./gulp-tasks/build');
 const test = require('./gulp-tasks/test');
 const vendor = require('./gulp-tasks/vendor');
 
+// Vendor builds
 gulp.task('vendor:services-store', vendor.servicesStore);
 gulp.task('vendor', gulp.task('vendor:services-store'));
 
+// Bundles builds
 gulp.task('build:bundles:scripts:ltr:dev', build.bundles.scripts.ltr.dev);
 gulp.task('build:bundles:scripts:ltr:prod', build.bundles.scripts.ltr.prod);
 gulp.task(
@@ -31,6 +33,29 @@ gulp.task(
   gulp.parallel(gulp.task('build:bundles:scripts:rtl:dev'), gulp.task('build:bundles:scripts:rtl:prod'))
 );
 gulp.task('build:bundles', gulp.parallel(gulp.task('build:bundles:scripts:ltr'), gulp.task('build:bundles:scripts:rtl')));
+
+// Components builds
+gulp.task('build:components:scripts:ltr:dev', build.components.scripts.ltr.dev);
+gulp.task('build:components:scripts:ltr:prod', build.components.scripts.ltr.prod);
+gulp.task(
+  'build:components:scripts:ltr',
+  gulp.parallel(gulp.task('build:components:scripts:ltr:dev'), gulp.task('build:components:scripts:ltr:prod'))
+);
+gulp.task('build:components:scripts:rtl:dev', build.components.scripts.rtl.dev);
+gulp.task('build:components:scripts:rtl:prod', build.components.scripts.rtl.prod);
+gulp.task(
+  'build:components:scripts:rtl',
+  gulp.parallel(gulp.task('build:components:scripts:rtl:dev'), gulp.task('build:components:scripts:rtl:prod'))
+);
+gulp.task(
+  'build:components',
+  gulp.series(
+    gulp.task('vendor'),
+    gulp.parallel(gulp.task('build:components:scripts:ltr'), gulp.task('build:components:scripts:rtl'))
+  )
+);
+
+// Modules builds
 gulp.task('build:modules:css', build.modules.css);
 gulp.task('build:modules:icons', build.modules.icons);
 gulp.task('build:modules:react', build.modules.react);
@@ -54,6 +79,8 @@ gulp.task(
     gulp.task('build:modules:types')
   )
 );
+
+// Sass builds
 gulp.task('build:sass', build.sass);
 gulp.task(
   'build',

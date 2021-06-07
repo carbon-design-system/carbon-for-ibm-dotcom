@@ -9,7 +9,7 @@
 
 'use strict';
 
-const { readFile } = require('fs');
+const fs = require('fs');
 const path = require('path');
 const { promisify } = require('util');
 const asyncDone = require('async-done');
@@ -43,7 +43,7 @@ const getRollupConfig = require('../tools/get-rollup-config');
 
 const config = require('./config');
 
-const readFileAsync = promisify(readFile);
+const readFileAsync = promisify(fs.readFile);
 const promisifyStream = promisify(asyncDone);
 
 const cssStream = ({ banner, dir }) =>
@@ -95,32 +95,44 @@ const cssStream = ({ banner, dir }) =>
     .pipe(header(banner))
     .pipe(gulp.dest(path.resolve(config.jsDestDir)));
 
-const modeSuffixes = {
-  development: '',
-  production: '.min',
-};
-
-const dirSuffixes = {
-  ltr: '',
-  rtl: '.rtl',
-};
+/**
+ * Gets all of the folders and returns out
+ *
+ * @param {string} dir Directory to check
+ * @returns {string[]} List of folders
+ * @private
+ */
+function _getFolders(dir) {
+  return fs.readdirSync(dir).filter(function(file) {
+    return fs.statSync(path.join(dir, file)).isDirectory();
+  });
+}
 
 /**
  * Builds a Rollup bundle.
  *
  * @param {object} [options] The build options.
  * @param {string} [options.mode=development] The build mode.
- * @param {string} [options.dir=development] The UI direction.
+ * @param {string} [options.dir=ltr] The UI direction.
+ * @param {string} [options.components=false] Flag to build all components.
  */
-async function buildBundle({ mode = 'development', dir = 'ltr' } = {}) {
-  const bundle = await rollup(getRollupConfig({ mode, dir }));
-  await bundle.write({
-    format: 'es',
-    name: 'IBMDotcomWebComponentsDotcomShell',
-    file: `${config.bundleDestDir}/ibmdotcom-web-components-dotcom-shell${dirSuffixes[dir]}${modeSuffixes[mode]}.js`,
-    // FIXME: Figure out how to handle `process.env` without build toolstack
-    banner: 'let process = { env: {} };',
+async function buildBundle({ mode = 'development', dir = 'ltr', components = false } = {}) {
+  let folders = components ? _getFolders(`${config.srcDir}/components`) : ['dotcom-shell'];
+  folders = folders.filter(item => {
+    return item !== 'layout';
   });
+
+  const configs = [];
+
+  folders.forEach(folder => {
+    configs.push(getRollupConfig({ mode, dir, folder }));
+  });
+
+  await Promise.all(
+    configs.map(async conf => {
+      await rollup(conf);
+    })
+  );
 }
 
 /**
@@ -313,6 +325,27 @@ module.exports = {
         },
         prod() {
           return buildBundle({ mode: 'production', dir: 'rtl' });
+        },
+      },
+    },
+  },
+
+  components: {
+    scripts: {
+      ltr: {
+        dev() {
+          return buildBundle({ components: true });
+        },
+        prod() {
+          return buildBundle({ components: true, mode: 'production' });
+        },
+      },
+      rtl: {
+        dev() {
+          return buildBundle({ components: true, dir: 'rtl' });
+        },
+        prod() {
+          return buildBundle({ components: true, mode: 'production', dir: 'rtl' });
         },
       },
     },
