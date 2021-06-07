@@ -28,7 +28,6 @@ const { ...rest } = program
   .option('--verbose', 'Enables verbose output')
   .parse(process.argv);
 
-// const cloptions = { browsers: Array.from(browsers), specs: Array.from(specs), ...rest };
 const cloptions = { browsers: [], specs: [], ...rest };
 
 module.exports = {
