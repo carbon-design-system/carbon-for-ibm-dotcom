@@ -2,6 +2,7 @@
 /src/internal/vendor
 /tests/coverage
 /tests/snapshots
+/tests/e2e/build/examples-scaffold
 es
 lib
 node_modules
