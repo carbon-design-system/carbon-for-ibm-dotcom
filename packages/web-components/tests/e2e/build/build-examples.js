@@ -23,7 +23,7 @@ program.parse();
 /**
  * Command line options
  *
- * @type {commander.OptionValues}
+ * @type {program.OptionValues}
  */
 const _opts = program.opts();
 
