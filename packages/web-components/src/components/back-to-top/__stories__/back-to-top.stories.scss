@@ -21,12 +21,16 @@
 }
 
 .bx--content {
-  padding: 2rem;
-  background: var(--cds-ui-02, #ffffff);
-  transform: translate3d(0, 0, 0);
-  will-change: margin-left;
+  // padding: 2rem;
+  // background: var(--cds-ui-02, #ffffff);
+  // transform: translate3d(0, 0, 0);
+  // will-change: margin-left;
 }
 
 .dds-ce-demo-devenv--container--has-grid {
-  padding-top: 0;
+  // padding-top: 0;
+}
+
+dds-cta-section {
+  @include carbon--theme($carbon--theme--g10, true);
 }
