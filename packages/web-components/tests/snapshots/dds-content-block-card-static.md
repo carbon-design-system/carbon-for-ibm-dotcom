@@ -84,7 +84,6 @@
         color-scheme=""
         data-autoid="dds--link-with-icon"
         icon-placement="right"
-        size=""
         slot="footer"
       >
       </dds-card-footer>
