@@ -98,7 +98,7 @@ async function _buildComponents({ mode = 'development', dir = 'ltr' } = {}) {
         .catch(err => {
           console.error(err);
         });
-    }),
+    })
   );
 }
 
