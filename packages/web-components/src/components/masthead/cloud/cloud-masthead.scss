@@ -179,7 +179,7 @@
 :host(#{$dds-prefix}-cloud-megamenu-category-link-group) {
   display: flex;
   flex-flow: wrap;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 :host(#{$dds-prefix}-cloud-megamenu-category-link) {
