@@ -274,7 +274,7 @@
   .#{$prefix}--list-box__menu {
     position: absolute;
     top: auto;
-    bottom: $carbon--spacing-08;
+    bottom: rem(47px);
     max-height: 13.5rem;
   }
 
