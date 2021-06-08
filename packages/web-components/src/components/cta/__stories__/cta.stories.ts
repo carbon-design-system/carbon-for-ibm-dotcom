@@ -182,6 +182,9 @@ export const Feature = ({ parameters }) => {
   const { copy, ctaType, download, href } = parameters?.props?.FeatureCTA ?? {};
   const { copy: footerCopy, download: footerDownload, href: footerHref } = parameters?.props?.FeatureCTAFooter ?? {};
   return html`
+    <style>
+      ${styles}
+    </style>
     <dds-feature-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${ifNonNull(href)}">
       <dds-card-heading>${copy}</dds-card-heading>
       <dds-image slot="image" alt="Image alt text" default-src="${imgLg1x1}"> </dds-image>
@@ -226,7 +229,7 @@ export default {
         : html`
             <div class="bx--grid">
               <div class="bx--row">
-                <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+                <div class="bx--col-sm-4 bx--col-lg-8 cta-feature-container">
                   <dds-video-cta-container class="${classes}">
                     ${story()}
                   </dds-video-cta-container>

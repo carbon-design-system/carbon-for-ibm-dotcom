@@ -10,6 +10,7 @@ import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x7
 import React from 'react';
 import readme from '../README.stories.mdx';
 import { select } from '@storybook/addon-knobs';
+import './CTA.stories.scss';
 
 const types = ['local', 'download', 'jump', 'external', 'video', 'default'];
 const copy = ['Lorem ipsum dolor sit amet', 'Consectetur adipisicing elit'];
@@ -102,6 +103,10 @@ const wrapper = (CTA, style, type) => {
           <div className="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4">
             {CTA}
           </div>
+        </div>
+      ) : style === 'feature' 
+      ? (<div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-lg-8 cta-feature-container">{CTA}</div>
         </div>
       ) : (
         <div className="bx--row">
@@ -272,7 +277,7 @@ Card.story = {
 
 export const Feature = ({ parameters }) => {
   const { type, ...props } = parameters?.props?.CTA ?? {};
-  return wrapper(<CTA type={type} style="feature" {...props} />, type);
+  return wrapper(<CTA type={type} style="feature" {...props} />, 'feature', type);
 };
 
 Feature.story = {

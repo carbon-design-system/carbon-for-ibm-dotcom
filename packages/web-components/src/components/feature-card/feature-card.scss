@@ -69,7 +69,7 @@
       height: $carbon--spacing-06;
     }
 
-    @include carbon--breakpoint('max') {
+    @include carbon--breakpoint('lg') {
       width: $carbon--spacing-07;
       height: $carbon--spacing-07;
     }
