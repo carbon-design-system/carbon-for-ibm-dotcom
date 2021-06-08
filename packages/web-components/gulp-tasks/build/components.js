@@ -77,29 +77,23 @@ async function _buildComponents({ mode = 'development', dir = 'ltr' } = {}) {
     return item !== 'layout';
   });
 
-  const configs = {};
-
-  folders.forEach(folder => {
-    configs[folder] = getRollupConfig({ mode, dir, folder });
-  });
-
-  await Promise.all(
-    Object.keys(configs).map(async folder => {
-      await rollup(configs[folder])
-        .then(bundle => {
-          bundle.write({
-            format: 'es',
-            name: `IBMDotcomWebComponents${_camelCase(folder)}`,
-            file: `${config.bundleDestDir}/ibmdotcom-web-components-${folder}${dirSuffixes[dir]}${modeSuffixes[mode]}.js`,
-            // FIXME: Figure out how to handle `process.env` without build toolstack
-            banner: 'let process = { env: {} };',
-          });
-        })
-        .catch(err => {
-          console.error(err);
+  folders.reduce(async (previousPromise, folder) => {
+    await previousPromise;
+    return rollup(getRollupConfig({ mode, dir, folder }))
+      .then(bundle => {
+        bundle.write({
+          format: 'es',
+          name: `IBMDotcomWebComponents${_camelCase(folder)}`,
+          file: `${config.bundleDestDir}/ibmdotcom-web-components-${folder}${dirSuffixes[dir]}${modeSuffixes[mode]}.js`,
+          // FIXME: Figure out how to handle `process.env` without build toolstack
+          banner: 'let process = { env: {} };',
         });
-    })
-  );
+      })
+      .catch(err => {
+        // eslint-disable-next-line no-console
+        console.error(err);
+      });
+  }, Promise.resolve());
 }
 
 /**

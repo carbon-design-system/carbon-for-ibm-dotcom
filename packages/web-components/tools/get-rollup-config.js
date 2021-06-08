@@ -169,7 +169,7 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folder } = {}) {
                   });
                 console.log(`Component build: ${chalk.gray.yellow(folder)}`); // eslint-disable-line no-console
                 console.log(`Sizes of app/dependencies:\n${table}`); // eslint-disable-line no-console
-                console.log('Total size:', details.total); // eslint-disable-line no-console
+                console.log(`Total size: ${details.total}\n\n`); // eslint-disable-line no-console
               },
             }),
             {
@@ -177,9 +177,11 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folder } = {}) {
                 const { code } = bundle[`ibmdotcom-web-components-${folder}${dir !== 'rtl' ? '' : '.rtl'}.min.js`];
                 const gzipSize = await gzip(code);
                 const { bundleSizeThreshold } = packageJson;
-                console.log('Total size (gzipped):', gzipSize); // eslint-disable-line no-console
+                console.log(`${chalk.gray.yellow(folder)}: Total size (gzipped): ${gzipSize}`); // eslint-disable-line no-console
                 if (gzipSize > bundleSizeThreshold) {
-                  throw new RangeError(`Exceeded size threshold of ${bundleSizeThreshold} bytes (gzipped)!`);
+                  throw new RangeError(
+                    `${chalk.gray.yellow(folder)}: Exceeded size threshold of ${bundleSizeThreshold} bytes (gzipped)!`
+                  );
                 }
               },
             },
