@@ -175,6 +175,7 @@ withLinkList.story = {
       ContentBlockSegmented: () => ({
         blockHeading: textNullable('Heading (required)', 'Lorem ipsum dolor sit amet.'),
         heading: textNullable('Link list heading (heading)', 'Tutorials'),
+        totalLinks: select('Number of links', [2, 3, 4], 2),
         copy:
           'Lorem ipsum dolor sit amet, consectetur ' +
           'adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
@@ -183,7 +184,6 @@ withLinkList.story = {
           ' Mauris iaculis eget dolor nec hendrerit.',
         ctaStyle: select('CTA style (cta-style)', ctaStyles, null),
         ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
-        totalLinks: select('Number of links', [2, 3, 4], 2),
         complementaryStyleScheme: select(
           'Container bottom border',
           complementaryStyleSchemes,

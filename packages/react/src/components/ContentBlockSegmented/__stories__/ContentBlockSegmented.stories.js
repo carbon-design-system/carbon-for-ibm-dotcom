@@ -112,6 +112,16 @@ const getBaseKnobs = ({ groupId }) => {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
       groupId
     ),
+  };
+};
+
+/**
+ * @param {object} options The options.
+ * @param {string} options.groupId The knob group ID.
+ * @returns {object} The knobs data.
+ */
+ const getCTAKnobs = ({ groupId }) => {
+  return {
     cta: {
       cta: {
         href: 'https://www.example.com',
@@ -120,12 +130,6 @@ const getBaseKnobs = ({ groupId }) => {
       type: select('CTA type (type):', ctaTypes, ctaTypes.local, groupId),
       copy: 'Lorem ipsum dolor',
     },
-    border: select(
-      'Container bottom border',
-      borderOptions,
-      borderOptions['With border'],
-      groupId
-    ),
   };
 };
 
@@ -164,10 +168,18 @@ Default.story = {
     knobs: {
       ContentBlockSegmented: ({ groupId }) => {
         const knobs = getBaseKnobs({ groupId });
+        const ctaKnobs = getCTAKnobs({groupId});
 
         return {
           ...knobs,
+          ...ctaKnobs,
           items: defaultItems,
+          border: select(
+            'Container bottom border',
+            borderOptions,
+            borderOptions['With border'],
+            groupId
+          ),
         };
       },
     },
@@ -208,6 +220,9 @@ WithLinkList.story = {
   parameters: {
     knobs: {
       ContentBlockSegmented: ({ groupId }) => {
+        const knobs = getBaseKnobs({ groupId });
+        const items = defaultItems;
+        
         const linkListProps = {
           heading: text('Link list heading (heading):', 'Tutorials', groupId),
           items: [
@@ -248,22 +263,21 @@ WithLinkList.story = {
           linkListProps.totalLinks
         );
 
+        const ctaKnobs = getCTAKnobs({ groupId });
+
         const aside = {
           items: <LinkList style="card" {...linkListProps} />,
+        };
+
+        const result = {
+          ...knobs,
+          ...ctaKnobs,
           border: select(
             'Container bottom border',
             borderOptions,
             borderOptions['With border'],
             groupId
           ),
-        };
-
-        const knobs = getBaseKnobs({ groupId });
-
-        const items = defaultItems;
-
-        const result = {
-          ...knobs,
           heading: 'Lorem ipsum dolor sit amet.',
           // The URL in the JSON from the knob gets `&amp`
           items: items.map(item => {

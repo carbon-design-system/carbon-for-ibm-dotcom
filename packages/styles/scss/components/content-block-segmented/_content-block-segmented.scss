@@ -26,6 +26,12 @@
       }
     }
 
+    .#{$prefix}--content-group__cta-row {
+      @include carbon--breakpoint-down('md') {
+        margin-left: 0;
+      }
+    }
+
     .#{$prefix}--content-block__cta-row {
       margin-bottom: $spacing-07;
       @include carbon--breakpoint('lg') {
