@@ -167,6 +167,7 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folder } = {}) {
                   .forEach(item => {
                     table.push(item);
                   });
+                console.log(`Component build:\n${folder}`); // eslint-disable-line no-console
                 console.log(`Sizes of app/dependencies:\n${table}`); // eslint-disable-line no-console
                 console.log('Total size:', details.total); // eslint-disable-line no-console
               },
