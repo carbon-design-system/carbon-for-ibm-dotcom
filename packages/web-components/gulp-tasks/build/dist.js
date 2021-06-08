@@ -44,11 +44,13 @@ const dirSuffixes = {
  * @private
  */
 async function _buildBundle({ mode = 'development', dir = 'ltr' } = {}) {
-  const bundle = await rollup(getRollupConfig({ mode, dir, folder: 'dotcom-shell' }));
+  const conf = getRollupConfig({ mode, dir });
+  const bundle = await rollup(conf);
   await bundle.write({
     format: 'es',
-    name: 'IBMDotcomWebComponentsDotcomShell',
-    file: `${config.bundleDestDir}/ibmdotcom-web-components-dotcom-shell${dirSuffixes[dir]}${modeSuffixes[mode]}.js`,
+    // name: 'IBMDotcomWebComponentsDotcomShell',
+    dir: config.bundleDestDir,
+    // file: `${config.bundleDestDir}/ibmdotcom-web-components-dotcom-shell${dirSuffixes[dir]}${modeSuffixes[mode]}.js`,
     // FIXME: Figure out how to handle `process.env` without build toolstack
     banner: 'let process = { env: {} };',
   });

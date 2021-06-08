@@ -25,6 +25,7 @@ const commonjs = require('rollup-plugin-commonjs');
 const replace = require('rollup-plugin-replace');
 const { terser } = require('rollup-plugin-terser');
 const sizes = require('rollup-plugin-sizes');
+const multiInput = require('rollup-plugin-multi-input').default;
 
 const packageJson = require('../package.json');
 const ibmdotcomIcon = require('./rollup-plugin-ibmdotcom-icon');
@@ -35,15 +36,35 @@ const license = require('./rollup-plugin-license');
 const readFile = promisify(fs.readFile);
 
 /**
+ * Stores the suffix to append depending on build mode
+ *
+ * @type {{development: string, production: string}}
+ */
+const modeSuffixes = {
+  development: '',
+  production: '.min',
+};
+
+/**
+ * Stores the suffix to append for render direction setting
+ *
+ * @type {{ltr: string, rtl: string}}
+ */
+const dirSuffixes = {
+  ltr: '',
+  rtl: '.rtl',
+};
+
+/**
  * Sets the rollup configuration based on various settings
  *
  * @param {object} [options] The build options.
  * @param {string} [options.mode=development] The build mode.
  * @param {string} [options.dir=development] The UI direction.
- * @param {string} [options.folder] Package name to bundle
+ * @param {Array} [options.folders] Package names as inputs
  * @returns {object} The Rollup config.
  */
-function getRollupConfig({ mode = 'development', dir = 'ltr', folder } = {}) {
+function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom-shell'] } = {}) {
   const postCSSPlugins = [
     fixHostPseudo(),
     autoprefixer({
@@ -76,20 +97,16 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folder } = {}) {
     },
   };
 
+  const inputs = {};
+
+  folders.forEach(folder => {
+    inputs[`${folder}${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/${folder}/index.ts`;
+  });
+
   const rollupConfig = {
-    input: `src/components/${folder}/index.ts`,
+    input: inputs,
     plugins: [
-      /* {
-        resolveId(id, importer) {
-          // Builds all components' styles as one Sass file so we can optimize styles across components,
-          // especially of `import-once` guard
-          return !/\.(css\.js|scss)$/i.test(id)
-            ? null
-            : this.resolve(path.resolve(__dirname, '../src/globals/scss/ibmdotcom-web-components-dotcom-shell.scss'), importer, {
-                skipSelf: true,
-              });
-        },
-      }, */
+      multiInput(),
       resolve({
         browser: true,
         mainFields: ['jsnext', 'module', 'main'],
@@ -156,8 +173,9 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folder } = {}) {
         : [
             terser(),
             license(licenseOptions),
-            sizes({
+            /*sizes({
               report(details) {
+                console.log('details', details);
                 const table = new Table({
                   head: [chalk.gray.yellow('Dependency/app'), chalk.gray.yellow('Size')],
                   colAligns: ['left', 'right'],
@@ -167,14 +185,14 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folder } = {}) {
                   .forEach(item => {
                     table.push(item);
                   });
-                console.log(`Component build: ${chalk.gray.yellow(folder)}`); // eslint-disable-line no-console
+                // console.log(`Component build: ${chalk.gray.yellow(folder)}`); // eslint-disable-line no-console
                 console.log(`Sizes of app/dependencies:\n${table}`); // eslint-disable-line no-console
                 console.log(`Total size: ${details.total}\n\n`); // eslint-disable-line no-console
               },
-            }),
-            {
+            }),*/
+            /*{
               async generateBundle(options, bundle) {
-                const { code } = bundle[`ibmdotcom-web-components-${folder}${dir !== 'rtl' ? '' : '.rtl'}.min.js`];
+                /!*const { code } = bundle[`ibmdotcom-web-components-${folder}${dir !== 'rtl' ? '' : '.rtl'}.min.js`];
                 const gzipSize = await gzip(code);
                 const { bundleSizeThreshold } = packageJson;
                 console.log(`${chalk.gray.yellow(folder)}: Total size (gzipped): ${gzipSize}`); // eslint-disable-line no-console
@@ -182,12 +200,26 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folder } = {}) {
                   throw new RangeError(
                     `${chalk.gray.yellow(folder)}: Exceeded size threshold of ${bundleSizeThreshold} bytes (gzipped)!`
                   );
-                }
+                }*!/
               },
-            },
+            },*/
           ]),
     ],
   };
+
+  /* if (folder === 'dotcom-shell') {
+    rollupConfig.plugins.push({
+      resolveId(id, importer) {
+        // Builds all components' styles as one Sass file so we can optimize styles across components,
+        // especially of `import-once` guard
+        return !/\.(css\.js|scss)$/i.test(id)
+          ? null
+          : this.resolve(path.resolve(__dirname, '../src/globals/scss/ibmdotcom-web-components-dotcom-shell.scss'), importer, {
+              skipSelf: true,
+            });
+      },
+    });
+  } */
 
   return rollupConfig;
 }
