@@ -140,5 +140,5 @@ gulp.task('build:components:rtl', gulp.series(gulp.task('build:components:rtl:de
 // Build all components
 gulp.task(
   'build:components',
-  gulp.series(gulp.task('vendor'), gulp.series(gulp.task('build:components:ltr'), gulp.task('build:components:rtl')))
+  gulp.series(gulp.task('vendor'), gulp.series(gulp.task('build:components:ltr:prod'), gulp.task('build:components:rtl:prod')))
 );
