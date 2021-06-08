@@ -10,10 +10,11 @@
 'use strict';
 
 const path = require('path');
-const commander = require('commander');
+const program = require('commander');
 
 const collect = (v, a) => a.add(v);
-const { browser: browsers, spec: specs, ...rest } = commander
+
+const { ...rest } = program
   .option('-b, --browser [browser]', 'Browser to test with (ChromeHeadless or Chrome) for Karma testing', collect, new Set())
   .option(
     '-d, --debug',
@@ -26,7 +27,8 @@ const { browser: browsers, spec: specs, ...rest } = commander
   .option('--update-snapshot', 'Updates snapshot')
   .option('--verbose', 'Enables verbose output')
   .parse(process.argv);
-const cloptions = { browsers: Array.from(browsers), specs: Array.from(specs), ...rest };
+
+const cloptions = { browsers: [], specs: [], ...rest };
 
 module.exports = {
   ENV_PRODUCTION: 'production',

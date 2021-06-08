@@ -221,6 +221,9 @@ class VideoPlayerAPI {
               align: 'left',
               text: '{mediaProxy.entry.name}',
             },
+            ibm: {
+              template: 'idl',
+            },
           },
           // Ready callback is issued for this player:
           readyCallback: function(playerId) {
