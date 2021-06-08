@@ -44,7 +44,6 @@ const readFile = promisify(fs.readFile);
  * @returns {object} The Rollup config.
  */
 function getRollupConfig({ mode = 'development', dir = 'ltr', folder } = {}) {
-  const importIcon = folder === 'dotcom-shell' || folder === 'masthead' || folder === 'footer';
   const postCSSPlugins = [
     fixHostPseudo(),
     autoprefixer({
@@ -103,6 +102,7 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folder } = {}) {
           'redux-logger/dist/redux-logger.js': ['createLogger'],
         },
       }),
+      ibmdotcomIcon(),
       babel({
         extensions: ['.ts'],
         exclude: ['node_modules/**'], // only transpile our source code
@@ -185,10 +185,6 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folder } = {}) {
           ]),
     ],
   };
-
-  if (importIcon) {
-    rollupConfig.plugins.push(ibmdotcomIcon());
-  }
 
   return rollupConfig;
 }
