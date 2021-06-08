@@ -895,6 +895,7 @@ export default {
     knobs: {
       escapeHTML: false,
       DotcomShell: ({ groupId }) => ({
+        platform: select('Platform (platform)', { none: null, platform: platformData.name }, null, groupId),
         hasProfile: boolean('Show profile in masthead (profile)', true, groupId),
         hasSearch: boolean('Show search in masthead (search)', true, groupId),
         searchPlaceholder: textNullable('Search placeholder (searchPlaceholder)', inPercy() ? ' ' : 'Search all of IBM', groupId),
