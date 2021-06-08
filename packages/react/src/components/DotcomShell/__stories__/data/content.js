@@ -15,7 +15,7 @@ import {
   CTASection,
   LeadSpaceBlock,
   LogoGrid,
-  FeatureCardBlockLarge,
+  FeatureCard,
   TableOfContents,
 } from '../../../../index';
 
@@ -27,8 +27,14 @@ import imgMd16x9 from '../../../../../../storybook-images/assets/480/fpo--16x9--
 import imgMd16x9_2 from '../../../../../../storybook-images/assets/480/fpo--16x9--480x270--004.jpg';
 import imgSm16x9 from '../../../../../../storybook-images/assets/320/fpo--16x9--320x180--003.jpg';
 import imgSm16x9_2 from '../../../../../../storybook-images/assets/320/fpo--16x9--320x180--004.jpg';
-import imgSm1x1 from '../../../../../../storybook-images/assets/320/fpo--1x1--320x320--001.jpg';
 import imgXlg4x3 from '../../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--002.jpg';
+import logoAdobe from '../../../../../../storybook-images/assets/logos/logo-adobe.png';
+import logoCisco from '../../../../../../storybook-images/assets/logos/logo-cisco.png';
+import logoDell from '../../../../../../storybook-images/assets/logos/logo-dell.png';
+import logoMicrosoft from '../../../../../../storybook-images/assets/logos/logo-microsoft.png';
+import logoRabobank from '../../../../../../storybook-images/assets/logos/logo-rabobank.png';
+import logoUsBank from '../../../../../../storybook-images/assets/logos/logo-usbank.png';
+
 import React from 'react';
 
 /**
@@ -126,20 +132,24 @@ const Content = () => (
           },
         ]}
       />
-      <FeatureCardBlockLarge
-        eyebrow="scelerisque purus"
-        heading="Elementum nibh tellus molestie nunc?"
-        copy="Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbi tristique."
-        cta={{
-          href: 'https://example.com',
-          icon: {
-            src: ArrowRight20,
+      <FeatureCard
+        card={{
+          eyebrow: 'scelerisque purus',
+          heading: 'Elementum nibh tellus molestie nunc?',
+          copy:
+            'Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbi tristique.',
+          cta: {
+            href: 'https://example.com',
+            icon: {
+              src: ArrowRight20,
+            },
+          },
+          image: {
+            defaultSrc: imgLg1x1,
+            alt: 'Image alt text',
           },
         }}
-        image={{
-          defaultSrc: imgLg1x1,
-          alt: 'Image alt text',
-        }}
+        size={'large'}
       />
 
       <a
@@ -282,44 +292,36 @@ const Content = () => (
         heading="Lobortis elementum nibh tellus"
         logosGroup={[
           {
-            title: 'Company A',
-            imgSrc: imgSm1x1,
-            altText: 'Image alt text',
-            href: 'http://example.com/',
+            label: 'Microsoft',
+            imgSrc: logoMicrosoft,
+            altText: 'Microsoft',
           },
           {
-            title: 'Company B',
-            imgSrc: imgSm1x1,
-            altText: 'Image alt text',
-            href: 'http://example.com/',
+            label: 'Dell',
+            imgSrc: logoDell,
+            altText: 'Dell',
           },
           {
-            title: 'Company C',
-            imgSrc: imgSm1x1,
-            altText: 'Image alt text',
-            href: 'http://example.com/',
+            label: 'Rabobank',
+            imgSrc: logoRabobank,
+            altText: 'Rabobank',
           },
           {
-            title: 'Company D',
-            imgSrc: imgSm1x1,
-            altText: 'Image alt text',
-            href: 'http://example.com/',
+            label: 'Adobe',
+            imgSrc: logoAdobe,
+            altText: 'Adobe',
           },
           {
-            title: 'Company E',
-            imgSrc: imgSm1x1,
-            altText: 'Image alt text',
-            href: 'http://example.com/',
+            label: 'US Bank',
+            imgSrc: logoUsBank,
+            altText: 'US Bank',
           },
           {
-            title: 'Company F',
-            imgSrc: imgSm1x1,
-            altText: 'Image alt text',
-            href: 'http://example.com/',
+            label: 'Cisco',
+            imgSrc: logoCisco,
+            altText: 'Cisco',
           },
         ]}
-        ctaCopy="Amet justo donec"
-        ctaHref="https://www.example.com"
       />
 
       <a name="section-6" data-title="Aliquam condimentum interdum" />

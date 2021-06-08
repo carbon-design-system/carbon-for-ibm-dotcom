@@ -8,6 +8,13 @@
 @import '../masthead.scss';
 @import '../../cta/cta.scss';
 
+// Cloud Masthead.
+
+:host(#{$dds-prefix}-cloud-masthead-container) {
+  position: relative;
+  z-index: 99;
+}
+
 :host(#{$dds-prefix}-cloud-masthead-global-bar) {
   @extend :host(#{$dds-prefix}-masthead-global-bar);
 
@@ -28,17 +35,22 @@
   margin: 0;
   padding-right: 0;
 
-  &.console .bx--btn--ghost {
+  &.console .#{$prefix}--btn--ghost {
     border-left: 1px solid $button-separator;
-    color: $link-01;
+    color: $link-02;
   }
 
-  .bx--btn {
+  .#{$prefix}--btn {
     padding: calc(0.875rem - 3px) carbon--rem(15px);
   }
 
-  .bx--btn--ghost {
-    color: $text-01;
+  .#{$prefix}--btn--ghost {
+    color: $text-02;
+
+    &:hover,
+    &:focus {
+      color: $text-01;
+    }
   }
 }
 
@@ -46,10 +58,24 @@
   outline: none;
 
   a.#{$prefix}--header__name {
+    margin-left: 0;
+
     @include masthead-top-nav-name;
 
     @include carbon--breakpoint-down(800px) {
       display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    @include carbon--breakpoint('lg') {
+      margin-left: 0;
+    }
+
+    @include carbon--breakpoint('xlg') {
+      margin-left: $carbon--spacing-05;
+      position: relative;
     }
   }
 }
@@ -58,6 +84,24 @@
 
 :host(#{$dds-prefix}-cloud-megamenu),
 .#{$prefix}--masthead__megamenu {
+  position: relative;
+  min-height: carbon--rem(230px);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: carbon--rem(48px);
+    background: linear-gradient(rgba(255, 255, 255, 0.001), $ui-background); /* transparent keyword is broken in Safari */
+  }
+
+  .#{$prefix}--masthead__megamenu__container {
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+  }
+
   .#{$prefix}--masthead__megamenu__container--row {
     // Override flex-direction: column set in _masthead-megamenu.scss.
     @include carbon--breakpoint-between(800px, 1055px) {
@@ -73,9 +117,21 @@
   flex-direction: column;
   justify-content: space-between;
   border-right: carbon--rem(1px) solid $ui-03;
+
+  @include carbon--breakpoint('md') {
+    min-height: carbon--rem(580px);
+  }
+
+  @include carbon--breakpoint('xlg') {
+    min-height: carbon--rem(475px);
+  }
 }
 
 :host(#{$dds-prefix}-cloud-megamenu-right-navigation) {
+  @include carbon--make-col(12, 16);
+
+  display: flex;
+  flex-direction: column;
   padding-top: $spacing-06;
   margin-bottom: $spacing-07;
 }
@@ -93,7 +149,8 @@
 
 :host(#{$dds-prefix}-cloud-megamenu-tab) {
   button {
-    @include carbon--type-style('body-long-01');
+    @include use-carbon-productive-tokens();
+    @include carbon--type-style(body-short-01);
 
     color: $text-02;
     width: 100%;
@@ -103,8 +160,10 @@
     background-color: $ui-background;
     cursor: pointer;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: $hover-ui;
+      color: $text-01;
     }
   }
 
@@ -115,27 +174,27 @@
 
 :host(#{$dds-prefix}-cloud-megamenu-tab)[selected] button {
   background-color: $selected-ui;
+  color: $text-01;
 }
 
 :host(#{$dds-prefix}-cloud-megamenu-category-link-group) {
-  display: block;
-  column-count: 2;
-  column-gap: 0;
-  column-fill: auto;
-
-  @include carbon--breakpoint('xlg') {
-    column-count: 3;
-  }
+  display: flex;
+  flex-flow: wrap;
+  justify-content: flex-start;
 }
 
 :host(#{$dds-prefix}-cloud-megamenu-category-link) {
-  display: block;
-  page-break-inside: avoid;
-  break-inside: avoid;
+  width: 100%;
+  max-width: 50%;
+
+  @include carbon--breakpoint('xlg') {
+    max-width: 33.33%;
+  }
 
   a {
     display: block;
     padding: $spacing-04 $spacing-05;
+    height: 100%;
 
     p {
       @include carbon--type-style('expressive-heading-01');
@@ -144,7 +203,8 @@
     }
 
     span {
-      @include carbon--type-style('body-long-01');
+      @include use-carbon-productive-tokens();
+      @include carbon--type-style(body-short-01);
 
       color: $text-02;
       display: block;
@@ -170,7 +230,7 @@
   width: 66.66%;
 
   @include carbon--breakpoint('lg') {
-    width: 50%;
+    width: auto;
   }
 
   h2 {
@@ -199,22 +259,50 @@
   }
 
   span {
-    @include carbon--type-style('body-short-01');
+    display: block;
+    @include use-carbon-productive-tokens();
+    @include carbon--type-style(body-short-01);
 
     color: $text-02;
+
+    @include carbon--breakpoint('lg') {
+      width: 40%;
+    }
   }
 }
 
 :host(#{$dds-prefix}-cloud-left-nav-item) {
   @extend :host(#{$dds-prefix}-left-nav-item);
 
-  &.left-nav-cta .bx--side-nav__link .bx--side-nav__link-text {
-    color: $link-01;
+  a.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
+    color: $text-02;
+
+    &:hover,
+    &:focus {
+      color: $text-01;
+    }
+  }
+
+  &:last-child {
+    a.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
+      color: $link-01;
+
+      &:hover,
+      &:focus {
+        color: $link-02;
+      }
+    }
   }
 }
 
-:host(#{$dds-prefix}-cloud-masthead-profile) .bx--header__menu-title[aria-expanded='true'] + .bx--header__menu {
+:host(#{$dds-prefix}-cloud-masthead-profile) .#{$prefix}--header__menu-title[aria-expanded='true'] + .#{$prefix}--header__menu {
   @include carbon--breakpoint-down('md') {
     width: 100vw;
+  }
+}
+
+:host(#{$dds-prefix}-cloud-masthead-profile) a.#{$prefix}--header__menu-item {
+  svg {
+    fill: $icon-02;
   }
 }

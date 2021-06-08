@@ -9,6 +9,11 @@
 
 import './leadspace';
 import './leadspace-heading';
+import './breadcrumb';
+import './breadcrumb-item';
+import './breadcrumb-link';
 import '../image/image';
 import '../button-group/button-group';
 import '../button-group/button-group-item';
+import '../tag-group/tag-group';
+import '../tag-link/tag-link';

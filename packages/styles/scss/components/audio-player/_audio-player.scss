@@ -1,0 +1,169 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../../globals/imports';
+@import '../../globals/utils/ratio-base';
+@import 'carbon-components/scss/components/slider/slider';
+
+@mixin audio-player {
+  .#{$prefix}--audio-player {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: $spacing-09;
+    padding: 0 $spacing-03 0 0;
+    background-color: $ui-01;
+
+    /* For Accessibility on the buttons, when focusing the button */
+    .#{$prefix}--btn {
+      border-width: 0;
+
+      &.#{$prefix}--btn--icon-only {
+        &:not(.#{prefix}--audio-player__play-button) {
+          padding-left: $spacing-03;
+          padding-right: $spacing-03;
+
+          min-width: var(--cds-icon-size-01, 1.25rem);
+        }
+
+        &.#{$prefix}--btn--ghost {
+          &.#{$prefix}--btn--icon-only {
+            &.#{$prefix}--btn--disabled {
+              svg {
+                path {
+                  &:not([data-icon-path]) {
+                    &:not([fill='none']) {
+                      fill: $ui-03;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &.#{$prefix}--tooltip__trigger:focus {
+          outline: $spacing-01 solid var(--cds-focus, $carbon--blue-60);
+          outline-offset: calc(-1 * #{$spacing-01});
+        }
+      }
+    }
+  }
+
+  .#{$prefix}--audio-player__captions {
+    position: absolute;
+    bottom: $spacing-09;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: $spacing-05;
+    background-color: $ui-01;
+    border-bottom: 1px solid $ui-03;
+  }
+
+  .#{$prefix}--audio-player__captions-text {
+    min-height: calc(#{$spacing-05} + #{$spacing-01});
+    color: $text-01;
+    @include carbon--type-style('caption-01');
+  }
+
+  .#{$prefix}--audio-player__thumbnail {
+    width: $spacing-09;
+    height: $spacing-09;
+    border: 1px solid $ui-03;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    box-sizing: border-box;
+  }
+
+  /* To hide the original player */
+  .#{$prefix}--audio-player__embedded-player {
+    display: none;
+    width: 0;
+    height: 0;
+    z-index: -1;
+  }
+
+  .#{$prefix}--audio-player__play-button {
+    &.#{$prefix}--btn {
+      &.#{$prefix}--btn--icon-only {
+        padding: $spacing-03;
+        margin-left: $spacing-03;
+      }
+    }
+    svg {
+      &.#{$prefix}--btn__icon {
+        width: var(--cds-icon-size-04, 2rem);
+        height: var(--cds-icon-size-04, 2rem);
+      }
+    }
+  }
+
+  .#{$prefix}--audio-player__audio-time {
+    min-width: 17.5rem;
+    height: $spacing-08;
+
+    .#{$prefix}--slider__range-label:first-of-type {
+      margin-left: $spacing-05;
+    }
+  }
+
+  .#{$prefix}--audio-player__volume-control {
+    position: relative;
+
+    .#{$prefix}--force-tooltip-hidden {
+      &.#{$prefix}--tooltip__trigger {
+        &.#{$prefix}--tooltip--visible {
+          overflow: hidden;
+
+          .#{$prefix}--assistive-text {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .#{$prefix}--menu--open {
+      background-color: $hover-ui;
+    }
+  }
+  .#{$prefix}--audio-player__volume-control-menu {
+    position: absolute;
+    bottom: calc(#{$spacing-09} + #{$spacing-03});
+    right: 0;
+    display: flex;
+    align-items: center;
+    max-width: 15.5rem;
+    height: $spacing-09;
+    padding: 0 $spacing-03 $spacing-03;
+    background-color: $field-02;
+    z-index: 2;
+  }
+
+  .#{$prefix}--audio-player__shadow {
+    /* Box Shadow from OverFlowMenu */
+    box-shadow: 0 $spacing-01 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .#{$prefix}--audio-player__overflow-menu-container {
+    width: calc(#{$spacing-07} + #{$spacing-02});
+    height: $spacing-09;
+
+    button {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@include exports('audio-player') {
+  @include audio-player;
+}
