@@ -10,6 +10,10 @@
 @mixin content-block-segmented {
   :host(#{$dds-prefix}-content-block-segmented),
   .#{$prefix}--content-block-segmented {
+    .#{$prefix}--content-block {
+      padding-bottom: 0;
+    }
+
     .#{$prefix}--row {
       &.#{$prefix}--layout--border {
         @include carbon--breakpoint('lg') {
