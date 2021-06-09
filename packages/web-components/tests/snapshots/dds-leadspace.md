@@ -10,7 +10,7 @@
   part="section"
 >
   <div class="bx--leadspace__container">
-    <div class="bx--leadspace--gradient bx--leadspace__overlay">
+    <div class="bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="navigation">
@@ -48,7 +48,7 @@
   part="section"
 >
   <div class="bx--leadspace__container">
-    <div class="bx--leadspace--gradient bx--leadspace__overlay">
+    <div class="bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="navigation">
@@ -88,7 +88,7 @@
   part="section"
 >
   <div class="bx--leadspace__container">
-    <div class="bx--leadspace--gradient bx--leadspace__overlay">
+    <div class="bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="navigation">
@@ -166,7 +166,7 @@
   part="section"
 >
   <div class="bx--leadspace__container">
-    <div class="bx--leadspace--gradient bx--leadspace__overlay">
+    <div class="bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="navigation">
@@ -204,7 +204,7 @@
   part="section"
 >
   <div class="bx--leadspace__container">
-    <div class="bx--leadspace--gradient bx--leadspace__overlay">
+    <div class="bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="navigation">
@@ -244,7 +244,7 @@
   part="section"
 >
   <div class="bx--leadspace__container">
-    <div class="bx--leadspace--gradient bx--leadspace__overlay">
+    <div class="bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="navigation">
@@ -322,7 +322,7 @@
   part="section"
 >
   <div class="bx--leadspace__container--medium">
-    <div class="bx--leadspace--gradient bx--leadspace__overlay">
+    <div class="bx--leadspace__overlay">
       <div class="bx--leadspace--content__container--medium">
         <div class="bx--leadspace__row">
           <slot name="navigation">
@@ -360,7 +360,7 @@
   part="section"
 >
   <div class="bx--leadspace__container--medium">
-    <div class="bx--leadspace--gradient bx--leadspace__overlay">
+    <div class="bx--leadspace__overlay">
       <div class="bx--leadspace--content__container--medium">
         <div class="bx--leadspace__row">
           <slot name="navigation">
@@ -400,7 +400,7 @@
   part="section"
 >
   <div class="bx--leadspace__container--medium">
-    <div class="bx--leadspace--gradient bx--leadspace__overlay">
+    <div class="bx--leadspace__overlay">
       <div class="bx--leadspace--content__container--medium">
         <div class="bx--leadspace__row">
           <slot name="navigation">

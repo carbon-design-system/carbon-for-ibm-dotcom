@@ -51,7 +51,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
    */
   protected _getGradientClass() {
     return classMap({
-      [`${prefix}--leadspace--gradient`]: this.gradientStyleScheme === LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT,
+      [`${prefix}--leadspace--gradient`]: this.defaultSrc,
       [`${prefix}--leadspace__overlay`]: true,
     });
   }

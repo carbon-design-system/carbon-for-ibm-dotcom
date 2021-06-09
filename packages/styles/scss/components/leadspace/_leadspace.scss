@@ -14,15 +14,7 @@
 $btn-min-width: 26;
 
 @mixin gradient($color) {
-  .#{$prefix}--leadspace--gradient {
-    background-color: rgba($color, 0.75);
-  }
-
-  &.#{$prefix}--leadspace--centered .#{$prefix}--leadspace--gradient {
-    background-color: rgba($color, 1);
-  }
-
-  @include carbon--breakpoint(md) {
+  @include carbon--breakpoint(lg) {
     .#{$prefix}--leadspace--gradient {
       background-color: transparent;
       background-image: linear-gradient(
@@ -74,6 +66,10 @@ $btn-min-width: 26;
 
   .#{$prefix}--buttongroup {
     padding-left: 0;
+
+    @include carbon--breakpoint(md) {
+      display: flex;
+    }
   }
 
   @include carbon--breakpoint(md) {
@@ -145,11 +141,10 @@ $btn-min-width: 26;
 
     ::slotted(#{$dds-prefix}-button-group),
     .#{$prefix}--buttongroup {
+      padding-bottom: $spacing-07;
+
       @include carbon--breakpoint(md) {
         display: flex;
-      }
-      @include carbon--breakpoint(md) {
-        padding-bottom: $spacing-07;
       }
     }
 
@@ -161,7 +156,6 @@ $btn-min-width: 26;
       flex-direction: column;
       justify-content: space-between;
       padding-top: $spacing-05;
-      padding-bottom: $spacing-05;
       z-index: 1;
       height: 100%;
       width: 100%;
@@ -278,21 +272,8 @@ $btn-min-width: 26;
       background-size: cover;
       background-position: center top;
 
-      .bx--image {
-        margin-top: $spacing-04;
-
-        @include carbon--breakpoint(md) {
-          margin-top: $spacing-07;
-        }
-
-        @include carbon--breakpoint(lg) {
-          margin-top: 0;
-        }
-      }
-
       ::slotted(#{$dds-prefix}-button-group),
       .#{$prefix}--buttongroup {
-        padding-bottom: $carbon--layout-01;
         padding-top: 0;
       }
 
@@ -347,10 +328,6 @@ $btn-min-width: 26;
       }
 
       @include carbon--breakpoint(md) {
-        .#{$prefix}--buttongroup {
-          padding-bottom: 0;
-        }
-
         .#{$prefix}--leadspace__overlay {
           padding: $spacing-07 0 0 0;
         }
@@ -406,6 +383,7 @@ $btn-min-width: 26;
       left: 0;
       width: 100%;
       height: 100%;
+      padding-bottom: 0;
     }
 
     .#{$prefix}--leadspace__gradient__rect {
@@ -507,7 +485,6 @@ $btn-min-width: 26;
 
   :host(#{$dds-prefix}-leadspace-image),
   .#{$prefix}--leadspace .#{$prefix}--image {
-    margin-top: $spacing-04;
     @include ratio-base(4, 3, false);
 
     @include carbon--breakpoint(md) {
@@ -515,7 +492,6 @@ $btn-min-width: 26;
     }
 
     @include carbon--breakpoint(lg) {
-      margin-top: 0;
       position: absolute;
       top: 0;
       left: 0;

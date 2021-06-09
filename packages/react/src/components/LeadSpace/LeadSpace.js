@@ -47,7 +47,6 @@ function imageClassname(image) {
  * @param {object} props props object
  * @param {Array} props.buttons array of buttons for lead space (max 2 buttons)
  * @param {string} props.copy lead space short copy to support the title
- * @param {boolean} props.gradient determines whether to render gradient overlay
  * @param {object} props.image image object with diff source for diff breakpoints
  * @param {string} props.theme theme of the pattern (g100 or white (default))
  * @param {string} props.title lead space title
@@ -58,7 +57,6 @@ function imageClassname(image) {
 const LeadSpace = ({
   buttons,
   copy,
-  gradient,
   image,
   theme,
   title,
@@ -69,7 +67,7 @@ const LeadSpace = ({
     <div
       data-autoid={`${stablePrefix}--leadspace`}
       className={`${prefix}--leadspace`}>
-      <section className={classNames(type, image, theme)}>
+      <section className={classNames(type, theme)}>
         <div
           className={classnames({
             [`${prefix}--leadspace__container`]: size === 'tall',
@@ -78,7 +76,7 @@ const LeadSpace = ({
           })}>
           <div
             className={classnames(`${prefix}--leadspace__overlay`, {
-              [`${prefix}--leadspace--gradient`]: gradient,
+              [`${prefix}--leadspace--gradient`]: image && image.defaultSrc,
             })}>
             <div className={`${prefix}--leadspace--content__container`}>
               <div className={`${prefix}--leadspace__row`}>
@@ -124,11 +122,6 @@ LeadSpace.propTypes = {
    * Short copy of LeadSpace.
    */
   copy: PropTypes.string,
-
-  /**
-   * `true` to render overlay gradient.
-   */
-  gradient: PropTypes.bool,
 
   /**
    * Object with different ratio options for corresponding breakpoints.
