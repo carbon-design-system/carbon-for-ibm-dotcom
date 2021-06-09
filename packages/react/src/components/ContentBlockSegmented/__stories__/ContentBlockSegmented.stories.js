@@ -120,7 +120,7 @@ const getBaseKnobs = ({ groupId }) => {
  * @param {string} options.groupId The knob group ID.
  * @returns {object} The knobs data.
  */
- const getCTAKnobs = ({ groupId }) => {
+const getCTAKnobs = ({ groupId }) => {
   return {
     cta: {
       cta: {
@@ -168,7 +168,7 @@ Default.story = {
     knobs: {
       ContentBlockSegmented: ({ groupId }) => {
         const knobs = getBaseKnobs({ groupId });
-        const ctaKnobs = getCTAKnobs({groupId});
+        const ctaKnobs = getCTAKnobs({ groupId });
 
         return {
           ...knobs,
@@ -222,7 +222,7 @@ WithLinkList.story = {
       ContentBlockSegmented: ({ groupId }) => {
         const knobs = getBaseKnobs({ groupId });
         const items = defaultItems;
-        
+
         const linkListProps = {
           heading: text('Link list heading (heading):', 'Tutorials', groupId),
           items: [
@@ -267,17 +267,17 @@ WithLinkList.story = {
 
         const aside = {
           items: <LinkList style="card" {...linkListProps} />,
-        };
-
-        const result = {
-          ...knobs,
-          ...ctaKnobs,
           border: select(
             'Container bottom border',
             borderOptions,
             borderOptions['With border'],
             groupId
           ),
+        };
+
+        const result = {
+          ...knobs,
+          ...ctaKnobs,
           heading: 'Lorem ipsum dolor sit amet.',
           // The URL in the JSON from the knob gets `&amp`
           items: items.map(item => {
