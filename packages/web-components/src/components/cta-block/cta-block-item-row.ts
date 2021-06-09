@@ -10,7 +10,7 @@
 import { customElement, html, internalProperty, LitElement, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { sameHeight } from '@carbon/ibmdotcom-utilities';
+import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 import styles from './cta-block.scss';
