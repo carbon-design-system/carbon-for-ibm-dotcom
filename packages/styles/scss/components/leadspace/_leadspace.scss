@@ -444,6 +444,24 @@ $btn-min-width: 26;
     }
   }
 
+  .#{$prefix}--leadspace--medium {
+    .#{$prefix}--leadspace__section {
+      height: carbon--mini-units(60);
+    }
+  }
+
+  .#{$prefix}--leadspace--tall {
+    .#{$prefix}--leadspace__section {
+      height: carbon--mini-units(70);
+    }
+  }
+
+  .#{$prefix}--leadspace--super {
+    .#{$prefix}--leadspace__section {
+      height: carbon--mini-units(80);
+    }
+  }
+
   :host(#{$dds-prefix}-leadspace) ::slotted([slot='navigation']) {
     z-index: 1;
     padding-left: $spacing-05;
