@@ -10,6 +10,7 @@ import React, { useRef, useCallback, useEffect } from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { Card } from '../Card';
 import { CTA } from '../CTA';
+import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight';
@@ -23,7 +24,7 @@ const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 /**
  * CardGroup component
  */
-const CardGroup = ({ cards, cta }) => {
+const CardGroup = ({ cards, cta, border }) => {
   const containerRef = useRef();
 
   /**
@@ -121,7 +122,7 @@ const CardGroup = ({ cards, cta }) => {
       return resultArray;
     }, []);
   };
-  return _renderCards(cards, containerRef, cta);
+  return _renderCards(cards, containerRef, cta, border);
 };
 
 /**
@@ -130,12 +131,16 @@ const CardGroup = ({ cards, cta }) => {
  * @param {Array} cards objects array
  * @param {object} containerRef ref of elements
  * @param {object} cta object
+ * @param {boolean} border boolean
  * @returns {*} CardGroup JSX objects
  */
-const _renderCards = (cards, containerRef, cta) => (
+const _renderCards = (cards, containerRef, cta, border) => (
   <div
     data-autoid={`${stablePrefix}--card-group`}
-    className={`${prefix}--card-group__cards__row ${prefix}--row--condensed`}
+    className={cx(`${prefix}--card-group__cards__row`, {
+      [`${prefix}--card-group--border`]: border,
+      [`${prefix}--row--condensed`]: !border,
+    })}
     ref={containerRef}>
     {cards.map((card, index) => {
       return (

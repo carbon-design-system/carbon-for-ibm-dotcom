@@ -19,6 +19,7 @@ import styles from './masthead.stories.scss';
 import { mastheadLinks as links } from './links';
 import { authenticatedProfileItems, unauthenticatedProfileItems } from './profile-items';
 import readme from './README.stories.mdx';
+import textNullable from '../../../../.storybook/knob-text-nullable';
 import { DDS_CLOUD_MASTHEAD } from '../../../globals/internal/feature-flags';
 
 /**
@@ -66,7 +67,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
                 .navLinks="${navLinks}"
                 ?has-profile="${hasProfile}"
                 ?has-search="${hasSearch}"
-                data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead/jsononly"
+                data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"
               ></dds-cloud-masthead-container>
             `}
       `;
@@ -102,6 +103,7 @@ export default !DDS_CLOUD_MASTHEAD
               groupId
             ),
             hasContact: boolean('Contact us button visibility (has-contact)', true, groupId),
+            selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Docs', groupId),
           }),
         },
         props: (() => {
