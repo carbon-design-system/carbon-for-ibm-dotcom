@@ -26,7 +26,6 @@ export default {
           : null;
 
         let outlinedCard = boolean('Outlined card', false, groupId);
-        let addTags = boolean('Add tags', false, groupId);
         return {
           image:
             (boolean('image', false, groupId) && {
@@ -48,17 +47,6 @@ export default {
             iconPlacement: 'right',
           },
           pictogram: showPictogram && DDS_CARD_WITH_PICTOGRAM ? <Bee /> : null,
-          tags: addTags
-            ? [
-                {
-                  copy: 'Most popular',
-                },
-                {
-                  copy: 'Enterprise',
-                  color: 'purple',
-                },
-              ]
-            : null,
         };
       },
     },
@@ -107,7 +95,6 @@ CardStatic.story = {
     knobs: {
       Card: ({ groupId }) => {
         let outlinedCard = boolean('Outlined card', true, groupId);
-        let addTags = boolean('Add tags', true, groupId);
         return {
           image:
             (boolean('image', false, groupId) && {
@@ -134,17 +121,6 @@ CardStatic.story = {
             },
             iconPlacement: 'right',
           },
-          tags: addTags
-            ? [
-                {
-                  copy: 'Most popular',
-                },
-                {
-                  copy: 'Enterprise',
-                  color: 'purple',
-                },
-              ]
-            : null,
         };
       },
     },
