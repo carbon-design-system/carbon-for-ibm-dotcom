@@ -227,9 +227,9 @@ export default {
             </dds-video-cta-container>
           `
         : html`
-            <div class="bx--grid">
+            <div class="bx--grid cta-feature-grid">
               <div class="bx--row">
-                <div class="bx--col-sm-4 bx--col-lg-8 cta-feature-container">
+                <div class="bx--col-sm-4 bx--col-lg-8">
                   <dds-video-cta-container class="${classes}">
                     ${story()}
                   </dds-video-cta-container>
