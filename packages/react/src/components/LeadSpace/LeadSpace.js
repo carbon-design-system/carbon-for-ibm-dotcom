@@ -78,6 +78,43 @@ const LeadSpace = ({
             className={classnames(`${prefix}--leadspace__overlay`, {
               [`${prefix}--leadspace--gradient`]: image && image.defaultSrc,
             })}>
+            {image && image.defaultSrc === true ? (
+              undefined
+            ) : (
+              <svg
+                class={`${prefix}--leadspace__gradient`}
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink">
+                <defs>
+                  <linearGradient
+                    id="stops"
+                    class={`${prefix}--leadspace__gradient__stops`}>
+                    {type === 'centered' ? (
+                      <>
+                        <stop offset="0%" />
+                        <stop offset="27%" />
+                        <stop offset="53%" />
+                        <stop offset="80%" />
+                      </>
+                    ) : (
+                      <>
+                        <stop offset="0%" />
+                        <stop offset="25%" />
+                        <stop offset="50%" />
+                        <stop offset="75%" />
+                      </>
+                    )}
+                  </linearGradient>
+                </defs>
+                <rect
+                  class={`${prefix}--leadspace__gradient__rect`}
+                  width="100"
+                  height="100"
+                />
+              </svg>
+            )}
             <div className={`${prefix}--leadspace--content__container`}>
               <div className={`${prefix}--leadspace__row`}>
                 <h1 className={`${prefix}--leadspace__title`}>{title}</h1>
