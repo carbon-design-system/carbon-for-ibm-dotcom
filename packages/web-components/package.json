@@ -47,8 +47,9 @@
   ],
   "scripts": {
     "build": "gulp build && yarn wca",
-    "build:dist": "gulp build:dist",
     "build:components": "gulp build:components",
+    "build:dist": "gulp build:dist",
+    "build:sass:plex": "gulp build:sass:plex",
     "build-storybook": "build-storybook",
     "build-storybook:react": "gulp build:modules:react && node --max-old-space-size=8192 ../../node_modules/@storybook/react/dist/server/build.js -c .storybook/react -o storybook-static-react",
     "ci-check": "yarn wca && yarn format:diff && yarn lint:src && yarn typecheck && yarn build && yarn test:unit",
@@ -117,6 +118,7 @@
     "@carbon/ibmdotcom-services-store": "1.20.0-rc.0",
     "@carbon/icon-helpers": "10.18.0",
     "@carbon/icons": "10.33.0",
+    "@carbon/type": "10.29.0",
     "@open-wc/semantic-dom-diff": "^0.15.0",
     "@percy-io/in-percy": "^0.1.11",
     "@percy/storybook": "^3.3.0",

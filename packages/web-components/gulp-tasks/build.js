@@ -15,6 +15,7 @@ require('./build/dist');
 require('./build/components');
 require('./build/modules');
 require('./build/sass');
+require('./build/sass-plex');
 
 gulp.task(
   'build',

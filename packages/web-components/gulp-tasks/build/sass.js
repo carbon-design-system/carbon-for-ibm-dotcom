@@ -18,7 +18,9 @@ const config = require('../config');
  * @returns {*} gulp stream
  */
 function sass() {
-  return gulp.src([`${config.srcDir}/**/*.scss`, `!${config.srcDir}/**/*-story.scss`]).pipe(gulp.dest(config.sassDestDir));
+  return gulp
+    .src([`${config.srcDir}/**/*.scss`, `!${config.srcDir}/**/*-story.scss`, `!${config.srcDir}/globals/scss/plex.scss`])
+    .pipe(gulp.dest(config.sassDestDir));
 }
 
 gulp.task('build:sass', sass);
