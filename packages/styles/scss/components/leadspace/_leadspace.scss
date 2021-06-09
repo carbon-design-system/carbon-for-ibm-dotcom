@@ -482,7 +482,7 @@ $btn-min-width: 26;
   :host(#{$dds-prefix}-leadspace)[size] {
     ::slotted(#{$dds-prefix}-leadspace-heading) {
       margin-bottom: $spacing-06;
-      @include carbon--type-style(expressive-heading-05, true);
+      @include carbon--type-style(expressive-heading-06, true);
     }
     .#{$prefix}--leadspace__section {
       height: carbon--mini-units(70);
