@@ -327,7 +327,6 @@ class DDSMastheadComposite extends LitElement {
                     `
               );
           }
-          console.log('sections', sections);
           if (target === NAV_ITEMS_RENDER_TARGET.TOP_NAV) {
             if (sections.length === 0) {
               return html`
