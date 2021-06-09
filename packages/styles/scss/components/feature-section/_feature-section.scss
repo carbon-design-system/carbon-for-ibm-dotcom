@@ -17,6 +17,17 @@
   :host(#{$dds-prefix}-feature-section),
   .#{$prefix}--feature-section {
     position: relative;
+    padding-left: $carbon--spacing-05;
+    padding-right: $carbon--spacing-05;
+  }
+
+  // Reverse row direction if media-alignment="left".
+  .#{$prefix}--feature-section__align-left {
+    .#{$prefix}--feature-section__container {
+      @include carbon--breakpoint('md') {
+        flex-direction: row-reverse;
+      }
+    }
   }
 
   .#{$prefix}--feature-section__container {

@@ -11,20 +11,27 @@ import '../index';
 
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { select } from '@storybook/addon-knobs';
 
 import imgXlg1x1 from '../../../../../storybook-images/assets/1584/fpo--1x1--1584x1584--002.jpg';
 import imgLg1x1 from '../../../../../storybook-images/assets/1312/fpo--1x1--1312x1312--002.jpg';
 import imgMd1x1 from '../../../../../storybook-images/assets/960/fpo--1x1--960x960--002.jpg';
 import imgSm1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 import imgXs1x1 from '../../../../../storybook-images/assets/320/fpo--1x1--320x320--002.jpg';
+import { MEDIA_ALIGNMENT } from '../defs';
 
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
+const mediaAlignment = {
+  [`Left`]: MEDIA_ALIGNMENT.LEFT,
+  [`Right`]: MEDIA_ALIGNMENT.RIGHT,
+};
+
 export const Default = ({ parameters }) => {
-  const { eyebrow, heading, copy, href } = parameters?.props?.['dds-feature-section'] ?? {};
+  const { mediaAlign, eyebrow, heading, copy, href } = parameters?.props?.['dds-feature-section'] ?? {};
   return html`
-    <dds-feature-section>
+    <dds-feature-section media-alignment="${mediaAlign}">
       <dds-image slot="image" default-src="${ifNonNull(imgLg1x1)}">
         <dds-image-item media="(min-width: 1584px)" srcset="${imgXlg1x1}"> </dds-image-item>
         <dds-image-item media="(min-width: 1312px)" srcset="${imgLg1x1}"> </dds-image-item>
@@ -70,12 +77,13 @@ export default {
     hasGrid: true,
     knobs: {
       'dds-feature-section': ({ groupId }) => ({
+        mediaAlign: select('Media Alignment', mediaAlignment, MEDIA_ALIGNMENT.RIGHT, groupId),
         eyebrow: textNullable('Card Eyebrow (required) (eyebrow):', '5 min activity', groupId),
         heading: textNullable('Card Heading (heading):', 'Ready when you are', groupId),
         copy: textNullable(
           'Card copy (copy):',
-          `We're flexible. We can work with you on a wide variety of engagements on a project 
-          or consulting basis. And we're technology agnostic. Our experts work with any vendor's technology, not just IBM's. 
+          `Were flexible. We can work with you on a wide variety of engagements on a project 
+          or consulting basis. And were technology agnostic. Our experts work with any vendors technology, not just IBMs. 
           You decide how you want to work and where to focus our expertise.`,
           groupId
         ),

@@ -7,13 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, customElement, html } from 'lit-element';
+import { css, customElement, html, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSFeatureCard from '../feature-card/feature-card';
 import '../image/image';
 import styles from './feature-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { MEDIA_ALIGNMENT } from './defs';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -25,9 +26,15 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-feature-section`)
 class DDSFeatureSection extends StableSelectorMixin(DDSFeatureCard) {
+  /**
+   * Media Alignment (right (default) | left)
+   */
+  @property({ attribute: 'media-alignment', reflect: true })
+  mediaAlignment = MEDIA_ALIGNMENT.RIGHT;
+
   render() {
     return html`
-      <div class="${prefix}--grid ${prefix}--feature-section">
+      <div class="${prefix}--grid ${prefix}--feature-section ${prefix}--feature-section__align-${this.mediaAlignment}">
         <div class="${prefix}--row ${prefix}--feature-section__container">
           <div class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__body">
             <div class="${prefix}--grid">
