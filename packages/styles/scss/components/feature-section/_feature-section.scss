@@ -1,0 +1,52 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
+@import '../../globals/vars';
+@import '../../globals/imports';
+@import '../../components/image/image';
+@import '../../components/card/index';
+@import '../../globals/utils/aspect-ratio';
+@import '../../globals/utils/hang';
+
+@mixin feature-section {
+  :host(#{$dds-prefix}-feature-section),
+  .#{$prefix}--feature-section {
+    position: relative;
+  }
+
+  .#{$prefix}--feature-section__container {
+    background-color: $hover-ui;
+  }
+
+  .#{$prefix}--feature-section__body {
+    padding-top: $carbon--spacing-07;
+    padding-left: 0;
+    padding-right: 0;
+
+    @include carbon--breakpoint('xlg') {
+      padding-top: $carbon--spacing-08;
+    }
+  }
+
+  .#{$prefix}--feature-section__image {
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+
+    .#{$prefix}--card-link,
+    ::slotted(#{$dds-prefix}-card-link) {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+
+@include exports('feature-section') {
+  @include feature-section;
+}
