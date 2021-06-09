@@ -30,7 +30,6 @@ export const Card = ({
   image,
   eyebrow,
   heading,
-  tags,
   customClassName,
   copy,
   cta,
@@ -207,25 +206,6 @@ export const cardPropTypes = {
     alt: PropTypes.string.isRequired,
     longDescription: PropTypes.string,
   }),
-
-  /**
-   * Array of tag objects to render.
-   * Use the following for each items:
-   *
-   * | Name         | Data Type | Description                                                                                                                               |
-   * | ------------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-   * | `copy`       | String    | Button copy                                                                                                                               |
-   * | `color`      | String    | Provide a different color than the default (green) for [Carbon's tag component](https://www.carbondesignsystem.com/components/tag/usage/) |
-   *
-   * Visit the [Tag documentation](https://react.carbondesignsystem.com/?path=/story/components-tag--default)
-   * from Carbon for a full list of available props.
-   */
-  tags: PropTypes.arrayOf(
-    PropTypes.shape({
-      copy: PropTypes.string,
-      color: PropTypes.string,
-    })
-  ),
 
   /**
    * `true` to set a 1px solid border around Card.
