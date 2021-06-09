@@ -11,7 +11,7 @@ import { classMap } from 'lit-html/directives/class-map';
 import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { sameHeight } from '@carbon/ibmdotcom-utilities';
+import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import { GRID_MODE } from './defs';
 import styles from './card-group.scss';
