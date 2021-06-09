@@ -104,9 +104,11 @@ const wrapper = (CTA, style, type) => {
             {CTA}
           </div>
         </div>
-      ) : style === 'feature' 
-      ? (<div className="bx--row">
-          <div className="bx--col-sm-4 bx--col-lg-8 cta-feature-container">{CTA}</div>
+      ) : style === 'feature' ? (
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-lg-8 cta-feature-container">
+            {CTA}
+          </div>
         </div>
       ) : (
         <div className="bx--row">
@@ -277,7 +279,11 @@ Card.story = {
 
 export const Feature = ({ parameters }) => {
   const { type, ...props } = parameters?.props?.CTA ?? {};
-  return wrapper(<CTA type={type} style="feature" {...props} />, 'feature', type);
+  return wrapper(
+    <CTA type={type} style="feature" {...props} />,
+    'feature',
+    type
+  );
 };
 
 Feature.story = {
