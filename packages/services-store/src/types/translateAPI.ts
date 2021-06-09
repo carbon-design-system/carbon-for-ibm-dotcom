@@ -87,17 +87,7 @@ export interface MastheadLink {
 export interface MastheadL1 {
   title: string;
   url?: string;
-  menuItems?: MastheadL1Item[];
-}
-/**
- * An item for MastheadL1
- */
-
-export interface MastheadL1Item {
-  title: string;
-  titleEnglish?: string;
-  url?: string;
-  menuItems?: MastheadL1Item[];
+  menuItems?: MastheadLink[];
 }
 
 /**
