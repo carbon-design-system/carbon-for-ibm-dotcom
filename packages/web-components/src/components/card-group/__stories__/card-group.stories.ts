@@ -96,14 +96,14 @@ const cardGroupItemWithCTAs = html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { cards, optionalBorder } = parameters?.props?.CardGroup ?? {};
+  const { cards, cardsInRow, optionalBorder } = parameters?.props?.CardGroup ?? {};
   const allCards: object[] = [];
   allCards.push(longHeadingCardGroupItem(optionalBorder));
   for (let i = 1; i < cards; i++) {
     allCards.push(cardsDiffLengthPhrase(i, optionalBorder));
   }
   return html`
-    <dds-card-group grid-mode=${optionalBorder ? 'border' : null}>
+    <dds-card-group cards-in-row="${cardsInRow}" grid-mode=${optionalBorder ? 'border' : null}>
       ${allCards}
     </dds-card-group>
   `;
@@ -279,6 +279,7 @@ export default {
       CardGroup: ({ groupId }) => ({
         cards: number('Number of cards', 5, {}, groupId),
         optionalBorder: boolean('Outlined cards:', false, groupId),
+        cardsInRow: number('Cards per row (cards-in-row):', 3, {}, groupId),
       }),
     },
     decorators: [

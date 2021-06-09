@@ -35,6 +35,12 @@ const tagBottomMargin = 16;
 @customElement(`${ddsPrefix}-card-group`)
 class DDSCardGroup extends LitElement {
   /**
+   * The number of columns per row. Min 2, max 4. Applies to >=lg breakpoint only. Defaults to 3
+   */
+  @property({ attribute: 'cards-in-row', reflect: true })
+  cardsInRow?: number;
+
+  /**
    * Array to hold the card-heading elements within child items.
    */
   private _childItemHeadings: any[] = [];
@@ -109,6 +115,9 @@ class DDSCardGroup extends LitElement {
         );
       });
     }
+
+    const { customPropertyCardsInRow } = this.constructor as typeof DDSCardGroup;
+    this.style.setProperty(customPropertyCardsInRow, String(this.cardsInRow));
   }
 
   /**
@@ -235,6 +244,13 @@ class DDSCardGroup extends LitElement {
     return html`
       <slot @slotchange="${this._handleSlotChange}" class="${slotClasses}"></slot>
     `;
+  }
+
+  /**
+   * The CSS custom property name for the live button group item cout.
+   */
+  static get customPropertyCardsInRow() {
+    return `--${ddsPrefix}--card-group--cards-in-row`;
   }
 
   static get stableSelector() {

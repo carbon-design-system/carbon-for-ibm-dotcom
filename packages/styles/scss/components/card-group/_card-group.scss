@@ -80,6 +80,8 @@
   :host(#{$dds-prefix}-card-group),
   .#{$prefix}--card-group__row,
   .#{$prefix}--card-group__cards__row {
+    --#{$dds-prefix}--card-group--card-count: 3;
+
     display: grid;
     grid-template-columns: 1fr;
 
@@ -88,7 +90,10 @@
     }
 
     @include carbon--breakpoint('lg') {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(
+        var(--#{$dds-prefix}--card-group--card-count),
+        1fr
+      );
     }
   }
 
