@@ -99,6 +99,8 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
 
   const inputs = {};
 
+  inputs.plex = `src/globals/scss/plex.scss`;
+
   folders.forEach(folder => {
     inputs[`${folder}${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/${folder}/index.ts`;
   });
@@ -173,7 +175,7 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
         : [
             terser(),
             license(licenseOptions),
-            /*sizes({
+            /* sizes({
               report(details) {
                 console.log('details', details);
                 const table = new Table({
@@ -189,8 +191,8 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
                 console.log(`Sizes of app/dependencies:\n${table}`); // eslint-disable-line no-console
                 console.log(`Total size: ${details.total}\n\n`); // eslint-disable-line no-console
               },
-            }),*/
-            /*{
+            }), */
+            /* {
               async generateBundle(options, bundle) {
                 /!*const { code } = bundle[`ibmdotcom-web-components-${folder}${dir !== 'rtl' ? '' : '.rtl'}.min.js`];
                 const gzipSize = await gzip(code);
@@ -202,7 +204,7 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
                   );
                 }*!/
               },
-            },*/
+            }, */
           ]),
     ],
   };
