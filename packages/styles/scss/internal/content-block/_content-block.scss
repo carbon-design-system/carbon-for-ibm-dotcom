@@ -26,7 +26,7 @@
 
     @include carbon--breakpoint('md') {
       padding-top: $carbon--layout-05;
-      padding-bottom: $carbon--layout-06;
+      padding-bottom: $carbon--layout-05;
     }
 
     @include carbon--breakpoint('max') {
@@ -41,6 +41,10 @@
     }
 
     @include carbon--breakpoint('lg') {
+      &:not(:first-of-type) {
+        padding-top: 0;
+      }
+
       .#{$prefix}--link-list {
         margin-right: -$carbon--spacing-05;
 
