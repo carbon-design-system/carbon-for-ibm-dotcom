@@ -34,12 +34,12 @@ class DDSFeatureSection extends StableSelectorMixin(DDSFeatureCard) {
 
   render() {
     return html`
-      <div class="${prefix}--grid ${prefix}--feature-section ${prefix}--feature-section__align-${this.mediaAlignment}">
+      <div class="${prefix}--grid ${prefix}--feature-section__align-${this.mediaAlignment}">
         <div class="${prefix}--row ${prefix}--feature-section__container">
           <div class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__body">
             <div class="${prefix}--grid">
               <div class="${prefix}--row">
-                <div class="${prefix}--col-sm-4 ${prefix}--col-lg-13">
+                <div class="${prefix}--col-sm-4 ${prefix}--col-md-6 ${prefix}--col-lg-13">
                   <slot name="eyebrow"></slot>
                   <slot name="heading"></slot>
                   <slot name="copy"></slot>

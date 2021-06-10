@@ -17,8 +17,6 @@
   :host(#{$dds-prefix}-feature-section),
   .#{$prefix}--feature-section {
     position: relative;
-    padding-left: $carbon--spacing-05;
-    padding-right: $carbon--spacing-05;
   }
 
   // Reverse row direction if media-alignment="left".
@@ -49,6 +47,15 @@
 
     @include carbon--breakpoint('xlg') {
       padding-top: $carbon--spacing-08;
+    }
+
+    .#{$prefix}--content-item__copy p,
+    ::slotted(#{$dds-prefix}-content-item-paragraph) {
+      margin-bottom: $carbon--spacing-07;
+
+      @include carbon--breakpoint('md') {
+        margin-bottom: $carbon--spacing-09;
+      }
     }
   }
 
