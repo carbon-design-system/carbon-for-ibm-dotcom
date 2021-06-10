@@ -28,6 +28,14 @@
         flex-direction: row-reverse;
       }
     }
+
+    .#{$prefix}--feature-section__image {
+      .#{$prefix}--card-link,
+      ::slotted(#{$dds-prefix}-card-link) {
+        right: inherit;
+        left: 0;
+      }
+    }
   }
 
   .#{$prefix}--feature-section__container {

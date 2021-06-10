@@ -43,7 +43,7 @@ export const Default = ({ parameters }) => {
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-content-item-paragraph slot="copy">${copy}</dds-content-item-paragraph>
 
-      <dds-card-link slot="footer" href="${href}" type="local">
+      <dds-card-link slot="footer" href="${href}" type="local" color-scheme="inverse">
         Try a free virtual business framing session with IBM Garage
         <dds-card-footer>
           <svg
