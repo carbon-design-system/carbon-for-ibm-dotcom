@@ -104,26 +104,6 @@ $btn-min-width: 26;
       }
     }
 
-    .#{$prefix}--leadspace__section {
-      .#{$prefix}--leadspace__container--medium {
-        @include carbon--breakpoint(lg) {
-          height: carbon--mini-units(60);
-        }
-      }
-
-      .#{$prefix}--leadspace__container {
-        @include carbon--breakpoint(lg) {
-          height: carbon--mini-units(70);
-        }
-      }
-
-      .#{$prefix}--leadspace__container--super {
-        @include carbon--breakpoint(lg) {
-          height: carbon--mini-units(80);
-        }
-      }
-    }
-
     .#{$prefix}--leadspace__image {
       object-fit: cover;
       width: 100%;
@@ -434,6 +414,24 @@ $btn-min-width: 26;
     }
   }
 
+  .#{$prefix}--leadspace--medium {
+    .#{$prefix}--leadspace__section {
+      height: carbon--mini-units(60);
+    }
+  }
+
+  .#{$prefix}--leadspace--tall {
+    .#{$prefix}--leadspace__section {
+      height: carbon--mini-units(70);
+    }
+  }
+
+  .#{$prefix}--leadspace--super {
+    .#{$prefix}--leadspace__section {
+      height: carbon--mini-units(80);
+    }
+  }
+
   :host(#{$dds-prefix}-leadspace) ::slotted([slot='navigation']) {
     z-index: 1;
     padding-left: $spacing-05;
@@ -462,6 +460,13 @@ $btn-min-width: 26;
     width: 95%;
     z-index: 1;
     @include carbon--type-style(expressive-heading-06, true);
+  }
+
+  :host(#{$dds-prefix}-leadspace)[size='tall'],
+  :host(#{$dds-prefix}-leadspace)[size] {
+    .#{$prefix}--leadspace__section {
+      height: carbon--mini-units(70);
+    }
   }
 
   :host(#{$dds-prefix}-leadspace)[size='medium'] {
