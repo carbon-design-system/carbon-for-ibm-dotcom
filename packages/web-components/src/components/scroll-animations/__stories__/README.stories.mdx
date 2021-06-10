@@ -1,5 +1,6 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
+import plex from '../../../../docs/plex.md';
 
 # Fade In Out
 
@@ -21,7 +22,7 @@ passing in a querystring containing the exact identifiers to control which eleme
 
 Here's a simple example to get started:
 
-#### JS (via import)
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/scroll-animations/index.js'
@@ -48,7 +49,9 @@ import '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_scroll-into-v
 <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/scroll-animations.css" />
 ```
 
-#### HTML
+<Description markdown={plex} />
+
+### HTML
 
 ```html
 <dds-scroll-animations animation='fade' selector-targets='.targeted-class'>

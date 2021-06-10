@@ -1,5 +1,6 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
+import plex from '../../../../docs/plex.md';
 import '../text-cta';
 import '../card-cta';
 import '../feature-cta';
@@ -22,7 +23,7 @@ import '../feature-cta';
 
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/cta/text)
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
@@ -43,6 +44,8 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 <!-- SPECIFIC VERSION (available starting v1.6.0) -->
 <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/text-cta.min.js"></script>
 ```
+
+<Description markdown={plex} />
 
 ### HTML
 
@@ -66,7 +69,7 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/cta/card)
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta.js';
@@ -87,6 +90,8 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta.js';
 <!-- SPECIFIC VERSION (available starting v1.6.0) -->
 <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/card-cta.min.js"></script>
 ```
+
+<Description markdown={plex} />
 
 ### HTML
 
@@ -110,7 +115,7 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta.js';
 
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/cta/feature)
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/cta/feature-cta.js';
@@ -178,6 +183,8 @@ The `<dds-video-cta-container>` component lets you integrate `<dds-text-cta>`/`<
 Only one `<dds-cta-container>` has to be put in application.
 Ensure that `<dds-cta-container>` contains all `<dds-text-cta>`/`<dds-card-cta>`/`<dds-feature-cta>`:
 
+### JS (via import)
+
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 import '@carbon/ibmdotcom-web-components/es/components/cta/video-cta-container.js';
@@ -202,6 +209,10 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/video-cta-container.j
 <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/text-cta.min.js"></script>
 <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/video-cta-container.min.js"></script>
 ```
+
+<Description markdown={plex} />
+
+### HTML
 
 ```html
 <dds-video-cta-container>
