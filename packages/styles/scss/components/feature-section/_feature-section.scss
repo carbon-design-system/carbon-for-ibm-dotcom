@@ -8,10 +8,6 @@
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
 @import '../../globals/vars';
 @import '../../globals/imports';
-@import '../../components/image/image';
-@import '../../components/card/index';
-@import '../../globals/utils/aspect-ratio';
-@import '../../globals/utils/hang';
 
 @mixin feature-section {
   :host(#{$dds-prefix}-feature-section),

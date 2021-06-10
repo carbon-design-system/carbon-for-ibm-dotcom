@@ -29,10 +29,10 @@ const mediaAlignment = {
 };
 
 export const Default = ({ parameters }) => {
-  const { mediaAlign, eyebrow, heading, copy, href } = parameters?.props?.['dds-feature-section'] ?? {};
+  const { alt, mediaAlign, eyebrow, heading, copy, href } = parameters?.props?.['dds-feature-section'] ?? {};
   return html`
     <dds-feature-section media-alignment="${mediaAlign}">
-      <dds-image slot="image" default-src="${ifNonNull(imgLg1x1)}">
+      <dds-image slot="image" default-src="${ifNonNull(imgLg1x1)}" alt="${alt}">
         <dds-image-item media="(min-width: 1584px)" srcset="${imgXlg1x1}"> </dds-image-item>
         <dds-image-item media="(min-width: 1312px)" srcset="${imgLg1x1}"> </dds-image-item>
         <dds-image-item media="(min-width: 960px)" srcset="${imgMd1x1}"> </dds-image-item>
@@ -87,6 +87,7 @@ export default {
           You decide how you want to work and where to focus our expertise.`,
           groupId
         ),
+        alt: textNullable('Image Alt Text (alt):', 'Image alt text', groupId),
         href: textNullable('Card Href (href):', 'https://example.com', groupId),
       }),
     },
