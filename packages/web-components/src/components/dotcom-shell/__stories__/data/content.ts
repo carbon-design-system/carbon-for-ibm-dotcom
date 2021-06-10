@@ -321,7 +321,7 @@ const StoryContent = ({ type = 'default' }) =>
               ${Array.from([1, 2]).map(() => contentBlockSegmentedItems)}
             </dds-content-block-segmented>
 
-            <dds-feature-card-block-large href="https://example.com">
+            <dds-feature-card size='large' href="https://example.com">
               <dds-image slot="image" alt="Image alt text"
                          default-src="${imgLg1x1}"
               >
@@ -334,10 +334,10 @@ const StoryContent = ({ type = 'default' }) =>
               <dds-card-eyebrow>scelerisque purus</dds-card-eyebrow>
               <dds-card-heading>Elementum nibh tellus molestie nunc?</dds-card-heading>
               <p>Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbu tristique.</p>
-              <dds-feature-card-block-large-footer>
+              <dds-feature-card-footer>
                 ${ArrowRight20({ slot: 'icon' })}
-              </dds-feature-card-block-large-footer>
-            </dds-feature-card-block-large>
+              </dds-feature-card-footer>
+            </dds-feature-card>
 
             <a name="3" data-title="Elementum nibh tellus molestie nunc non."></a>
             <dds-content-block-segmented>
