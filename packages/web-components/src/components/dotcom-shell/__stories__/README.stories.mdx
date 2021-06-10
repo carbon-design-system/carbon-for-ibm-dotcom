@@ -18,10 +18,26 @@ import contributing from '../../../../../../docs/contributing-license.md';
 
 `<dds-dotcom-shell-container>` automatically renders contents of dotcom shell from default service data.
 
-#### JS
+#### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/dotcom-shell-container.js';
+```
+
+### JS (via CDN)
+
+```html
+<!-- LATEST tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/dotcom-shell.min.js"></script>
+
+<!-- NEXT tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/dotcom-shell.min.js"></script>
+
+<!-- BETA tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/dotcom-shell.min.js"></script>
+
+<!-- SPECIFIC VERSION (available starting v1.6.0) -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/dotcom-shell.min.js"></script>
 ```
 
 #### HTML

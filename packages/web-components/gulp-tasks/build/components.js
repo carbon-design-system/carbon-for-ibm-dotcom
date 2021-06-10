@@ -18,39 +18,6 @@ const getRollupConfig = require('../../tools/get-rollup-config');
 const config = require('../config');
 
 /**
- * Stores the suffix to append depending on build mode
- *
- * @type {{development: string, production: string}}
- */
-const modeSuffixes = {
-  development: '',
-  production: '.min',
-};
-
-/**
- * Stores the suffix to append for render direction setting
- *
- * @type {{ltr: string, rtl: string}}
- */
-const dirSuffixes = {
-  ltr: '',
-  rtl: '.rtl',
-};
-
-/**
- * Converts a string with dashes to camel case
- *
- * @param {string} input Input string with dashes
- * @returns {string} Camel case string
- * @private
- */
-function _camelCase(input) {
-  return input.toLowerCase().replace(/-(.)/g, function(match, group1) {
-    return group1.toUpperCase();
-  });
-}
-
-/**
  * Gets all of the folders and returns out
  *
  * @param {string} dir Directory to check

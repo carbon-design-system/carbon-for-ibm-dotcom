@@ -95,7 +95,30 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
   const inputs = {};
 
   folders.forEach(folder => {
-    inputs[`${folder}${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/${folder}/index.ts`;
+    if (folder === 'cta') {
+      inputs[`card-cta${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/card-cta.ts`;
+      inputs[`feature-cta${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/feature-cta.ts`;
+      inputs[`text-cta${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/text-cta.ts`;
+      inputs[`video-cta-container${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/video-cta-container.ts`;
+    } else if (folder === 'lightbox-media-viewer') {
+      inputs[
+        `lightbox-image-viewer${dirSuffixes[dir]}${modeSuffixes[mode]}`
+      ] = `src/components/lightbox-media-viewer/lightbox-image-viewer.ts`;
+      inputs[
+        `lightbox-video-player${dirSuffixes[dir]}${modeSuffixes[mode]}`
+      ] = `src/components/lightbox-media-viewer/lightbox-video-player-container.ts`;
+    } else {
+      inputs[`${folder}${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/${folder}/index.ts`;
+    }
+
+    if (folder === 'callout-with-media') {
+      inputs[
+        `callout-with-media-image${dirSuffixes[dir]}${modeSuffixes[mode]}`
+      ] = `src/components/callout-with-media/callout-with-media-image.ts`;
+      inputs[
+        `callout-with-media-video${dirSuffixes[dir]}${modeSuffixes[mode]}`
+      ] = `src/components/callout-with-media/callout-with-media-video.ts`;
+    }
   });
 
   const rollupConfig = {
