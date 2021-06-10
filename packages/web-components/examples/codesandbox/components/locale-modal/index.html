@@ -147,6 +147,11 @@ LICENSE file in the root directory of this source tree.
     <link rel="alternate" hreflang="en-zw" href="https://www.ibm.com/zw-en" />
     <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/plex.css" />
     <style type="text/css">
+      /* Suppress custom element until styles are loaded */
+      dds-button-expressive:not(:defined), dds-locale-modal-container:not(:defined) {
+        display: none;
+      }
+
       #app {
         width: 300px;
       }
