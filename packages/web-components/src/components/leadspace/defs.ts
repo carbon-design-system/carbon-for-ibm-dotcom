@@ -52,6 +52,11 @@ export enum LEADSPACE_SIZE {
   NONE = '',
 
   /**
+   * Tall - tall size of the leadspace
+   */
+  TALL = 'tall',
+
+  /**
    * Medium - medium size of the leadspace
    */
   MEDIUM = 'medium',

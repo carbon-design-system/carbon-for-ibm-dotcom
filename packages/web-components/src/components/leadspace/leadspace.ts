@@ -82,7 +82,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
     return classMap({
       [`${prefix}--leadspace__container--super`]: this.size === LEADSPACE_SIZE.SUPER,
       [`${prefix}--leadspace__container--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
-      [`${prefix}--leadspace__container`]: this.size === LEADSPACE_SIZE.NONE,
+      [`${prefix}--leadspace__container`]: this.size === LEADSPACE_SIZE.NONE || this.size === LEADSPACE_SIZE.TALL,
     });
   }
 
@@ -107,7 +107,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
     return classMap({
       [`${prefix}--leadspace__desc--super`]: this.size === LEADSPACE_SIZE.SUPER,
       [`${prefix}--leadspace__desc--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
-      [`${prefix}--leadspace__desc`]: this.size === LEADSPACE_SIZE.NONE,
+      [`${prefix}--leadspace__desc`]: this.size === LEADSPACE_SIZE.NONE || this.size === LEADSPACE_SIZE.TALL,
     });
   }
 
@@ -116,7 +116,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
    */
   protected _getContentType() {
     return classMap({
-      [`${prefix}--leadspace--content__container`]: this.size === LEADSPACE_SIZE.NONE,
+      [`${prefix}--leadspace--content__container`]: this.size === LEADSPACE_SIZE.NONE || this.size === LEADSPACE_SIZE.TALL,
       [`${prefix}--leadspace--content__container--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
       [`${prefix}--leadspace--content__container--super`]: this.size === LEADSPACE_SIZE.SUPER,
     });

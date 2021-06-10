@@ -82,15 +82,13 @@ const LeadSpace = ({
   return (
     <div
       data-autoid={`${stablePrefix}--leadspace`}
-      className={`${prefix}--leadspace`}>
-      <section className={classNames(type, image, theme)}>
-        <div
-          style={background}
-          className={classnames({
-            [`${prefix}--leadspace__container`]: size === 'tall',
-            [`${prefix}--leadspace__container--medium`]: size === 'medium',
-            [`${prefix}--leadspace__container--super`]: size === 'super',
-          })}>
+      className={classnames(`${prefix}--leadspace`, {
+        [`${prefix}--leadspace--medium`]: size === 'medium',
+        [`${prefix}--leadspace--tall`]: size === 'tall',
+        [`${prefix}--leadspace--super`]: size === 'super',
+      })}>
+      <section style={background} className={classNames(type, image, theme)}>
+        <div className={`${prefix}--leadspace__container`}>
           <div
             className={classnames(`${prefix}--leadspace__overlay`, {
               [`${prefix}--leadspace--gradient`]: gradient,
