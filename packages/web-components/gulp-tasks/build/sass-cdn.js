@@ -34,6 +34,23 @@ function _buildPlex() {
 }
 
 /**
+ * Builds the sass file for the carbon grid
+ *
+ * @returns {*} gulp stream
+ */
+function _buildGrid() {
+  return gulp
+    .src([`${config.srcDir}/globals/scss/grid.scss`])
+    .pipe(
+      sass({
+        includePaths: ['node_modules', '../../node_modules'],
+        outputStyle: 'compressed',
+      }).on('error', sass.logError)
+    )
+    .pipe(gulp.dest(config.bundleDestDir));
+}
+
+/**
  * Builds the sass file for scroll animation
  *
  * @returns {*} gulp stream
@@ -70,6 +87,10 @@ function _buildTOC() {
 }
 
 gulp.task('build:sass:cdn:plex', _buildPlex);
+gulp.task('build:sass:cdn:grid', _buildGrid);
 gulp.task('build:sass:cdn:scroll', _buildScroll);
 gulp.task('build:sass:cdn:toc', _buildTOC);
-gulp.task('build:sass:cdn', gulp.parallel('build:sass:cdn:plex', 'build:sass:cdn:scroll', 'build:sass:cdn:toc'));
+gulp.task(
+  'build:sass:cdn',
+  gulp.parallel('build:sass:cdn:plex', 'build:sass:cdn:grid', 'build:sass:cdn:scroll', 'build:sass:cdn:toc')
+);

@@ -48,11 +48,11 @@ async function _buildComponents({ mode = 'development', dir = 'ltr' } = {}) {
     .then(bundle => {
       bundle.write({
         format: 'es',
-        // name: `IBMDotcomWebComponents${_camelCase(folder)}`,
         dir: config.bundleDestDir,
-        // file: `${config.bundleDestDir}/ibmdotcom-web-components-${folder}${dirSuffixes[dir]}${modeSuffixes[mode]}.js`,
         // FIXME: Figure out how to handle `process.env` without build toolstack
-        banner: 'let process = { env: {} };',
+        banner:
+          // eslint-disable-next-line max-len
+          'let process = { env: { DDS_CONTENT_BLOCK_CARD_STATIC: true, DDS_CALLOUT_DATA: true, DDS_CONTENT_BLOCK_HEADLINES: true } };',
       });
     })
     .catch(err => {

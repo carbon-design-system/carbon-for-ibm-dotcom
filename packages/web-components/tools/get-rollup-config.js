@@ -92,7 +92,9 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
     },
   };
 
-  const inputs = {};
+  const inputs = {
+    'ibmdotcom-web-components-dotcom-shell': 'src/components/dotcom-shell/index.ts', // retaining for legacy support
+  };
 
   folders.forEach(folder => {
     if (folder === 'cta') {
@@ -186,12 +188,7 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
       replace({
         'process.env.NODE_ENV': JSON.stringify(mode),
       }),
-      ...(mode === 'development'
-        ? [license(licenseOptions)]
-        : [
-            terser(),
-            license(licenseOptions),
-          ]),
+      ...(mode === 'development' ? [license(licenseOptions)] : [terser(), license(licenseOptions)]),
     ],
   };
 
