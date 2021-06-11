@@ -5,10 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
- import cx from 'classnames';
 import ContentBlock from '../../internal/components/ContentBlock/ContentBlock';
 import ContentGroup from '../../internal/components/ContentGroup/ContentGroup';
 import ContentItem from '../../internal/components/ContentItem/ContentItem';
+import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { ImageWithCaption } from '../ImageWithCaption';
 import PropTypes from 'prop-types';
@@ -36,7 +36,8 @@ const ContentBlockSegmented = ({
     <div
       data-autoid={`${stablePrefix}--content-block-segmented`}
       className={cx(`${prefix}--content-block-segmented`, {
-        [`${prefix}--content-block-segmented-border`]: border || (aside && aside.border),
+        [`${prefix}--content-block-segmented-border`]:
+          border || (aside && aside.border),
       })}>
       <ContentBlock
         heading={heading}
