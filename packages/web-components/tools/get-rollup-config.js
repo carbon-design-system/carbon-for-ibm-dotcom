@@ -130,6 +130,13 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
       resolve({
         browser: true,
         mainFields: ['jsnext', 'module', 'main'],
+        dedupe: [
+          '@carbon/ibmdotcom-utilities',
+          '@carbon/ibmdotcom-services',
+          '@carbon/ibmdotcom-styles',
+          'carbon-web-components',
+          'carbon-components',
+        ],
         extensions: ['.js', '.ts'],
       }),
       commonjs({
