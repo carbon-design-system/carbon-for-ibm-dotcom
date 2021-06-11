@@ -11,9 +11,11 @@ LICENSE file in the root directory of this source tree.
   <head>
     <title>@carbon/ibmdotcom-web-components example</title>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/plex.css" />
     <style type="text/css">
-      body {
-        font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+      /* Suppress custom element until styles are loaded */
+      dds-button-expressive:not(:defined), dds-lightbox-video-player-container:not(:defined) {
+        display: none;
       }
     </style>
     <script src="src/index.js"></script>
@@ -22,9 +24,12 @@ LICENSE file in the root directory of this source tree.
     <div id="app">
       <dds-button-expressive id="open-modal-btn">Open modal</dds-button-expressive>
     </div>
-    <dds-expressive-modal id="lightbox" size="full-width">
-      <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
-      <dds-lightbox-video-player id="video-player"> </dds-lightbox-video-player>
-    </dds-expressive-modal>
+    <dds-lightbox-video-player-container id="my-video" video-id="1_9h94wo6b"> </dds-lightbox-video-player-container>
+
+    <script type="text/javascript">
+      document.getElementById('open-modal-btn').addEventListener('click', () => {
+        document.getElementById('my-video').open = true;
+      });
+    </script>
   </body>
 </html>

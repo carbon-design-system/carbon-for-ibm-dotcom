@@ -1,16 +1,35 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
+import plex from '../../../../docs/plex.md';
 import '../video-player';
 
 # Video player
 
 ## Getting started
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player-container.js';
 ```
+
+### JS (via CDN)
+
+```html
+<!-- LATEST tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/video-player.min.js"></script>
+
+<!-- NEXT tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/video-player.min.js"></script>
+
+<!-- BETA tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/video-player.min.js"></script>
+
+<!-- SPECIFIC VERSION (available starting v1.6.0) -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/video-player.min.js"></script>
+```
+
+<Description markdown={plex} />
 
 ### HTML
 
@@ -48,11 +67,31 @@ VideoPlayerAPI.checkScript().then(() => {
 
 ## Video player with onClick Lightbox Trigger
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player-container.js';
 import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player-container.js';
+```
+
+### JS (via CDN)
+
+```html
+<!-- LATEST tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/video-player.min.js"></script>
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/lightbox-video-player.min.js"></script>
+
+<!-- NEXT tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/video-player.min.js"></script>
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/lightbox-video-player.min.js"></script>
+
+<!-- BETA tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/video-player.min.js"></script>
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/lightbox-video-player.min.js"></script>
+
+<!-- SPECIFIC VERSION (available starting v1.6.0) -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/video-player.min.js"></script>
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/lightbox-video-player.min.js"></script>
 ```
 
 ### HTML

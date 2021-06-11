@@ -1,0 +1,54 @@
+<!--
+@license
+
+Copyright IBM Corp. 2020
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+<head>
+  <title>@carbon/ibmdotcom-web-components example</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/plex.css" />
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/grid.css" />
+  <style>
+    /* Suppress custom element until styles are loaded */
+    dds-content-block-simple:not(:defined) {
+      display: none;
+    }
+  </style>
+  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/content-block-simple.min.js"></script>
+</head>
+<body>
+<div class="bx--grid">
+  <div class="bx--row">
+    <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+      <dds-content-block-simple>
+        <dds-content-block-heading>Curabitur malesuada varius mi eu posuere</dds-content-block-heading>
+        <dds-content-item-copy>
+          Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
+          hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, *consequat* libero. Here are some common categories:
+        </dds-content-item-copy>
+        <dds-content-item-copy>
+          Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris
+          iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+        </dds-content-item-copy>
+        <dds-content-item-copy>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
+          hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+        </dds-content-item-copy>
+        <dds-content-item-copy>
+          - [list item](https://www.ibm.com) - list item 1a 1. list item 2 1. list item 2a
+        </dds-content-item-copy>
+        <dds-card-cta slot="footer" cta-type="local" href="https://example.com">
+          Lorem ipsum dolor
+          <dds-card-cta-footer></dds-card-cta-footer>
+        </dds-card-cta>
+      </dds-content-block-simple>
+    </div>
+  </div>
+</div>
+</body>
+</html>
