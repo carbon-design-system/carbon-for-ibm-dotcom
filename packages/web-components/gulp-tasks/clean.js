@@ -16,7 +16,7 @@ const config = require('./config');
 /**
  * Clean task
  *
- * @returns {Promise<unknown[]>} Promise after all folders are cleaned
+ * @returns {Promise} Promise after all folders are cleaned
  * @private
  */
 function _clean() {

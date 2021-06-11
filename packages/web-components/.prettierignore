@@ -3,9 +3,11 @@
 /tests/coverage
 /tests/snapshots
 /tests/e2e/build/examples-scaffold
+/tests/e2e/dist
 es
 lib
 node_modules
 docs
+storybook-static
 storybook-static-react
 CHANGELOG.md

@@ -25,7 +25,7 @@ const config = require('../config');
  * @private
  */
 function _getFolders(dir) {
-  return fs.readdirSync(dir).filter((file) => {
+  return fs.readdirSync(dir).filter(file => {
     return fs.statSync(path.join(dir, file)).isDirectory();
   });
 }

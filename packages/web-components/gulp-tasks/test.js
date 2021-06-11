@@ -21,7 +21,7 @@ const { browsers, debug, specs, keepalive, noPruneSnapshot, random, updateSnapsh
 /**
  * Runs the unit tests
  *
- * @param {function} done done callback
+ * @param {Function} done done callback
  */
 function unit(done) {
   new Server(

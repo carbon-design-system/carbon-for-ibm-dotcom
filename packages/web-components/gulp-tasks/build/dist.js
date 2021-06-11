@@ -16,26 +16,6 @@ const getRollupConfig = require('../../tools/get-rollup-config');
 const config = require('../config');
 
 /**
- * Stores the suffix to append depending on build mode
- *
- * @type {{development: string, production: string}}
- */
-const modeSuffixes = {
-  development: '',
-  production: '.min',
-};
-
-/**
- * Stores the suffix to append for render direction setting
- *
- * @type {{ltr: string, rtl: string}}
- */
-const dirSuffixes = {
-  ltr: '',
-  rtl: '.rtl',
-};
-
-/**
  * Builds a Rollup bundle.
  *
  * @param {object} [options] The build options.
@@ -48,9 +28,7 @@ async function _buildBundle({ mode = 'development', dir = 'ltr' } = {}) {
   const bundle = await rollup(conf);
   await bundle.write({
     format: 'es',
-    // name: 'IBMDotcomWebComponentsDotcomShell',
     dir: config.bundleDestDir,
-    // file: `${config.bundleDestDir}/ibmdotcom-web-components-dotcom-shell${dirSuffixes[dir]}${modeSuffixes[mode]}.js`,
     // FIXME: Figure out how to handle `process.env` without build toolstack
     banner: 'let process = { env: {} };',
   });
