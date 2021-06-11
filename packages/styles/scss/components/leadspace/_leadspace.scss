@@ -13,14 +13,6 @@
 
 $btn-min-width: 26;
 
-// @mixin gradient($color) {
-//   @include carbon--breakpoint(lg) {
-//     .#{$prefix}--leadspace--gradient {
-//       background-color: transparent;
-//     }
-//   }
-// }
-
 // items that change according to the theme applied
 @mixin themed-items($theme: white) {
   // TODO: figure out how to use the $ui-background color token instead with rgba()
@@ -62,12 +54,6 @@ $btn-min-width: 26;
       background-color: transparent;
     }
   }
-
-  // @if $theme == dark {
-  //   @include gradient($dds--gradient-dark);
-  // } @else {
-  //   @include gradient($dds--gradient-light);
-  // }
 }
 
 @mixin leadspace {
