@@ -13,28 +13,13 @@
 
 $btn-min-width: 26;
 
-@mixin gradient($color) {
-  @include carbon--breakpoint(lg) {
-    .#{$prefix}--leadspace--gradient {
-      background-color: transparent;
-      background-image: linear-gradient(
-        to right,
-        rgba($color, 0.95),
-        rgba($color, 0) 75%
-      );
-    }
-
-    &.#{$prefix}--leadspace--centered .#{$prefix}--leadspace--gradient {
-      background: linear-gradient(
-        to bottom,
-        $color,
-        rgba($color, 0.8),
-        rgba($color, 0.6),
-        rgba($color, 0) 80%
-      );
-    }
-  }
-}
+// @mixin gradient($color) {
+//   @include carbon--breakpoint(lg) {
+//     .#{$prefix}--leadspace--gradient {
+//       background-color: transparent;
+//     }
+//   }
+// }
 
 // items that change according to the theme applied
 @mixin themed-items($theme: white) {
@@ -78,11 +63,11 @@ $btn-min-width: 26;
     }
   }
 
-  @if $theme == dark {
-    @include gradient($dds--gradient-dark);
-  } @else {
-    @include gradient($dds--gradient-light);
-  }
+  // @if $theme == dark {
+  //   @include gradient($dds--gradient-dark);
+  // } @else {
+  //   @include gradient($dds--gradient-light);
+  // }
 }
 
 @mixin leadspace {
