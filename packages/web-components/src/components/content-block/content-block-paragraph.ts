@@ -1,14 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement, LitElement } from 'lit-element';
+import { html, customElement, LitElement, internalProperty } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { render } from 'lit-html';
+import { stripHTML } from '@carbon/ibmdotcom-utilities/es/utilities/stripHTML/index.js';
 import styles from './content-block.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -20,9 +22,22 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-block-paragraph`)
 class DDSContentBlockParagraph extends LitElement {
+  @internalProperty()
+  content = '';
+
+  firstUpdated() {
+    this.content = stripHTML(this.innerHTML);
+    render(
+      html`
+        <p>${this.content}</p>
+      `,
+      this
+    );
+  }
+
   render() {
     return html`
-      <slot></slot>
+      ${this.content}
     `;
   }
 
