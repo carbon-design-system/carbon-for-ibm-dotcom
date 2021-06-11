@@ -43,13 +43,6 @@ export const DDS_CONTENT_BLOCK_CARD_STATIC: boolean =
   process!.env.DDS_CONTENT_BLOCK_CARD_STATIC === 'true' || DDS_FLAGS_ALL || false;
 
 /**
- * Enables Promo Group Component
- *
- * @type {boolean}
- */
-export const DDS_PROMO_GROUP: boolean = process!.env.DDS_PROMO_GROUP === 'true' || DDS_FLAGS_ALL || false;
-
-/**
  * Enables Cloud Masthead Components
  *
  * @type {boolean}
