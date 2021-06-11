@@ -15,6 +15,7 @@
     bottom: 0;
     display: flex;
     padding-bottom: $carbon--spacing-05;
+    padding-right: $carbon--spacing-05;
     outline: none;
 
     .#{$prefix}--back-to-top__btn {

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -58,7 +58,11 @@ module.exports = {
       });
       const glob = paths.reduce(
         (acc, item) => acc.concat(gitignoreToGlob(item)),
-        ['**/*.{js,ts,tsx,scss,html}', '!**/examples/**']
+        [
+          '**/*.{js,ts,tsx,scss,html}',
+          '!**/examples/**',
+          '!**/examples-scaffold/**',
+        ]
       );
       await promisifyStream(() =>
         gulp.src(glob, { allowEmpty: true }).pipe(gulpCheckLicense())
