@@ -82,86 +82,6 @@ export enum NAV_ITEMS_RENDER_TARGET {
 @customElement(`${ddsPrefix}-masthead-composite`)
 class DDSMastheadComposite extends LitElement {
   /**
-   * Renders the L1 Items
-   *
-   * @param options The options.
-   * @param [options.selectedMenuItem] The selected nav item.
-   * @param options.target The target of rendering navigation items.
-   */
-  protected _renderL1Items({ selectedMenuItem, target }: { selectedMenuItem?: string; target: NAV_ITEMS_RENDER_TARGET }) {
-    if (!this.l1Data) return undefined;
-    const { menuItems } = this.l1Data;
-    if (menuItems) {
-      return target === NAV_ITEMS_RENDER_TARGET.TOP_NAV
-        ? html`
-            <dds-top-nav-l1>
-              ${menuItems.map((elem, i) => {
-                const selected = selectedMenuItem && elem.titleEnglish === selectedMenuItem;
-                return elem.menuItems
-                  ? html`
-                      <dds-top-nav-menu
-                        ?active="${selected}"
-                        menu-label="${elem.title}"
-                        trigger-content="${elem.title}"
-                        data-autoid="${ddsPrefix}--masthead__l1-nav--nav${i}"
-                      >
-                        ${elem.menuItems.map(
-                          (item, j) => html`
-                            <dds-top-nav-menu-item
-                              href="${item.url}"
-                              title="${item.title}"
-                              data-autoid="${ddsPrefix}--masthead__l1-nav--subnav-col${i}-item${j}"
-                            ></dds-top-nav-menu-item>
-                          `
-                        )}
-                      </dds-top-nav-menu>
-                    `
-                  : html`
-                      <dds-top-nav-item
-                        ?active="${selected}"
-                        href="${elem.url}"
-                        title="${elem.title}"
-                        data-autoid="${ddsPrefix}--masthead__l1-nav--nav${i}"
-                      ></dds-top-nav-item>
-                    `;
-              })}
-            </dds-top-nav-l1>
-          `
-        : menuItems.map((elem, i) => {
-            const selected = selectedMenuItem && elem.titleEnglish === selectedMenuItem;
-            return elem.menuItems
-              ? html`
-                  <dds-left-nav-menu
-                    ?active="${selected}"
-                    title="${elem.title}"
-                    data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav${i}"
-                  >
-                    ${elem.menuItems.map(
-                      (item, j) => html`
-                        <dds-left-nav-menu-item
-                          href="${item.url}"
-                          title="${item.title}"
-                          data-autoid="${ddsPrefix}--masthead__l1-sidenav--subnav-col${i}-item${j}"
-                        ></dds-left-nav-menu-item>
-                      `
-                    )}
-                  </dds-left-nav-menu>
-                `
-              : html`
-                  <dds-left-nav-item
-                    ?active="${selected}"
-                    href="${elem.url}"
-                    title="${elem.title}"
-                    data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav${i}"
-                  ></dds-left-nav-item>
-                `;
-          });
-    }
-
-    return undefined;
-  }
-
-  /**
    * Renders L1 menu based on l1Data
    *
    * @param [options] The options.
@@ -178,7 +98,9 @@ class DDSMastheadComposite extends LitElement {
           : html`
               <dds-masthead-l1-name title="${title}" aria-selected="${!selectedMenuItem}" url="${url}"></dds-masthead-l1-name>
             `}
-        ${this._renderL1Items({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
+        <dds-top-nav-l1
+          >${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: true })}</dds-top-nav-l1
+        >
       </dds-masthead-l1>
     `;
   }
@@ -359,11 +281,24 @@ class DDSMastheadComposite extends LitElement {
    * @param options.target The target of rendering navigation items.
    * @returns The nav items.
    */
-  protected _renderNavItems({ selectedMenuItem, target }: { selectedMenuItem?: string; target: NAV_ITEMS_RENDER_TARGET }) {
-    const { navLinks } = this;
-    return !navLinks
+  protected _renderNavItems({
+    selectedMenuItem,
+    target,
+    hasL1,
+  }: {
+    selectedMenuItem?: string;
+    target: NAV_ITEMS_RENDER_TARGET;
+    hasL1: boolean;
+  }) {
+    const { navLinks, l1Data } = this;
+    let menu: MastheadLink[] | undefined = navLinks;
+    const autoid = `${ddsPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
+    if (hasL1) {
+      menu = l1Data?.menuItems;
+    }
+    return !menu
       ? undefined
-      : navLinks.map((link, i) => {
+      : menu.map((link, i) => {
           const { menuSections = [], title, titleEnglish, url } = link;
           const selected = selectedMenuItem && titleEnglish === selectedMenuItem;
           let sections;
@@ -382,14 +317,14 @@ class DDSMastheadComposite extends LitElement {
                       <dds-top-nav-menu-item
                         href="${menuItemUrl}"
                         title="${menuItemTitle}"
-                        data-autoid="${ddsPrefix}--masthead__l0-nav--subnav-col${i}-item${j}"
+                        data-autoid="${autoid}-nav--subnav-col${i}-item${j}"
                       ></dds-top-nav-menu-item>
                     `
                   : html`
                       <dds-left-nav-menu-item
                         href="${menuItemUrl}"
                         title="${menuItemTitle}"
-                        data-autoid="${ddsPrefix}--masthead__l0-sidenav--subnav-col${i}-item${j}"
+                        data-autoid="${autoid}-sidenav--subnav-col${i}-item${j}"
                       ></dds-left-nav-menu-item>
                     `
               );
@@ -401,7 +336,7 @@ class DDSMastheadComposite extends LitElement {
                   ?active="${selected}"
                   href="${url}"
                   title="${title}"
-                  data-autoid="${ddsPrefix}--masthead__l0-nav--nav${i}"
+                  data-autoid="${autoid}-nav--nav${i}"
                 ></dds-top-nav-item>
               `;
             }
@@ -411,7 +346,7 @@ class DDSMastheadComposite extends LitElement {
                   ?active="${selected}"
                   menu-label="${title}"
                   trigger-content="${title}"
-                  data-autoid="${ddsPrefix}--masthead__l0-nav--nav${i}"
+                  data-autoid="${autoid}-nav--nav${i}"
                 >
                   ${sections}
                 </dds-megamenu-top-nav-menu>
@@ -422,7 +357,7 @@ class DDSMastheadComposite extends LitElement {
                 ?active="${selected}"
                 menu-label="${title}"
                 trigger-content="${title}"
-                data-autoid="${ddsPrefix}--masthead__l0-nav--nav${i}"
+                data-autoid="${autoid}-nav--nav${i}"
               >
                 ${sections}
               </dds-top-nav-menu>
@@ -434,15 +369,11 @@ class DDSMastheadComposite extends LitElement {
                   ?active="${selected}"
                   href="${url}"
                   title="${title}"
-                  data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav${i}"
+                  data-autoid="${autoid}-sidenav--nav${i}"
                 ></dds-left-nav-item>
               `
             : html`
-                <dds-left-nav-menu
-                  ?active="${selected}"
-                  title="${title}"
-                  data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav${i}"
-                >
+                <dds-left-nav-menu ?active="${selected}" title="${title}" data-autoid="${autoid}-sidenav--nav${i}">
                   ${sections}
                 </dds-left-nav-menu>
               `;
@@ -686,8 +617,7 @@ class DDSMastheadComposite extends LitElement {
           : html`
               <dds-left-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-left-nav-name>
             `}
-        ${l1Data ? undefined : this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
-        ${l1Data ? this._renderL1Items({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV }) : undefined}
+        ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV, hasL1: !!l1Data })}
       </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-masthead-menu-button
@@ -707,7 +637,7 @@ class DDSMastheadComposite extends LitElement {
           ? undefined
           : html`
               <dds-top-nav menu-bar-label="${ifNonNull(menuBarAssistiveText)}" ?hideNav="${activateSearch}">
-                ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
+                ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: false })}
               </dds-top-nav>
             `}
         ${!hasSearch
