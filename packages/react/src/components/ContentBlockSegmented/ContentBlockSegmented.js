@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+ import cx from 'classnames';
 import ContentBlock from '../../internal/components/ContentBlock/ContentBlock';
 import ContentGroup from '../../internal/components/ContentGroup/ContentGroup';
 import ContentItem from '../../internal/components/ContentItem/ContentItem';
@@ -34,7 +35,9 @@ const ContentBlockSegmented = ({
   return (
     <div
       data-autoid={`${stablePrefix}--content-block-segmented`}
-      className={`${prefix}--content-block-segmented`}>
+      className={cx(`${prefix}--content-block-segmented`, {
+        [`${prefix}--content-block-segmented-border`]: border || (aside && aside.border),
+      })}>
       <ContentBlock
         heading={heading}
         copy={copy}

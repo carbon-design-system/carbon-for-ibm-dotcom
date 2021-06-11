@@ -10,10 +10,6 @@
 @mixin content-block-segmented {
   :host(#{$dds-prefix}-content-block-segmented),
   .#{$prefix}--content-block-segmented {
-    .#{$prefix}--content-block {
-      padding-bottom: 0;
-    }
-
     .#{$prefix}--row {
       &.#{$prefix}--layout--border {
         @include carbon--breakpoint('lg') {
@@ -40,6 +36,27 @@
       margin-bottom: $spacing-07;
       @include carbon--breakpoint('lg') {
         margin-bottom: $spacing-13;
+      }
+    }
+  }
+
+  // React specific classes to manage bottom spacing
+  .#{$prefix}--content-block-segmented {
+
+    &-border {
+      .#{$prefix}--content-block {
+        padding-bottom: 0;
+      }
+    }
+
+    .#{$prefix}--content-block__cta-row {
+      margin-bottom: 0;
+
+      &-border {
+        margin-bottom: $spacing-07;
+        @include carbon--breakpoint('lg') {
+          margin-bottom: $spacing-13;
+        }
       }
     }
   }
