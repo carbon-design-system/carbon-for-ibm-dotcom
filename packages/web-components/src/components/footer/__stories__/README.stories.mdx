@@ -1,5 +1,6 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
+import plex from '../../../../docs/plex.md';
 
 # Footer
 
@@ -18,13 +19,31 @@ import contributing from '../../../../../../docs/contributing-license.md';
 
 `<dds-footer-container>` automatically renders contents of footer from default service data. If you want change in services/data integration, etc., see ["Customizing data integration" section](#customizing-data-integration) below.
 
-##### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/footer/footer-container';
 ```
 
-##### HTML
+### JS (via CDN)
+
+```html
+<!-- LATEST tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/footer.min.js"></script>
+
+<!-- NEXT tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/footer.min.js"></script>
+
+<!-- BETA tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/footer.min.js"></script>
+
+<!-- SPECIFIC VERSION (available starting v1.6.0) -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/footer.min.js"></script>
+```
+
+<Description markdown={plex} />
+
+### HTML
 
 ```html
 <dds-footer-container></dds-footer-container>

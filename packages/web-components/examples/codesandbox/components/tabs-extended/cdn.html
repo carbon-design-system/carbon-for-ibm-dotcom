@@ -1,0 +1,36 @@
+<!--
+@license
+
+Copyright IBM Corp. 2020
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+<head>
+  <title>@carbon/ibmdotcom-web-components example</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/plex.css" />
+  <style type="text/css">
+    /* Suppress custom element until styles are loaded */
+    dds-tabs-extended:not(:defined) {
+      display: none;
+    }
+  </style>
+  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/tabs-extended.min.js"></script>
+</head>
+<body>
+<h1>Hello World! 👋</h1>
+<div id="app">
+  <dds-tabs-extended>
+    <dds-tab label="First tab">
+      <p>Content for first tab goes here.</p>
+    </dds-tab>
+    <dds-tab label="Second tab">
+      <p>Content for second tab goes here.</p>
+    </dds-tab>
+  </dds-tabs-extended>
+</div>
+</body>
+</html>
