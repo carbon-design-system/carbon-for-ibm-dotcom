@@ -26,20 +26,20 @@
 /* stylelint-disable-next-line selector-type-no-unknown */
 dds-card-group.dds-ce-demo-devenv--cards-in-row-2 {
   @include carbon--breakpoint(lg) {
-    --dds--card-group--cards-in-row: 2;
+    --dds--card-group--cards-in-row: 2 !important; /* stylelint-disable-line declaration-no-important */
   }
 }
 
 /* stylelint-disable-next-line selector-type-no-unknown */
 dds-card-group.dds-ce-demo-devenv--cards-in-row-3 {
   @include carbon--breakpoint(lg) {
-    --dds--card-group--cards-in-row: 3;
+    --dds--card-group--cards-in-row: 3 !important; /* stylelint-disable-line declaration-no-important */
   }
 }
 
 /* stylelint-disable-next-line selector-type-no-unknown */
 dds-card-group.dds-ce-demo-devenv--cards-in-row-4 {
   @include carbon--breakpoint(lg) {
-    --dds--card-group--cards-in-row: 4;
+    --dds--card-group--cards-in-row: 4 !important; /* stylelint-disable-line declaration-no-important */
   }
 }

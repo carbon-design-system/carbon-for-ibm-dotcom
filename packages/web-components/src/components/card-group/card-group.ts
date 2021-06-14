@@ -109,10 +109,8 @@ class DDSCardGroup extends LitElement {
         );
       });
 
-      if (this._cardsPerRow !== undefined) {
-        const { customPropertyCardsPerRow } = this.constructor as typeof DDSCardGroup;
-        this.style.setProperty(customPropertyCardsPerRow, String(this.cardsPerRow));
-      }
+      const { customPropertyCardsPerRow } = this.constructor as typeof DDSCardGroup;
+      this.style.setProperty(customPropertyCardsPerRow, String(this.cardsPerRow));
     }
   }
 
@@ -214,6 +212,9 @@ class DDSCardGroup extends LitElement {
   @internalProperty()
   private _cardsPerRow?: number;
 
+  /**
+   * Default number of cards per row. Applies to >=`lg` breakpoint only.
+   */
   @internalProperty()
   private _cardsPerRowAuto = 3;
 
