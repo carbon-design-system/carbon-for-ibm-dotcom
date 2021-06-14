@@ -22,3 +22,24 @@
     grid-column: 5 / span 16;
   }
 }
+
+/* stylelint-disable-next-line selector-type-no-unknown */
+dds-card-group.dds-ce-demo-devenv--cards-in-row-2 {
+  @include carbon--breakpoint(lg) {
+    --dds--card-group--cards-in-row: 2;
+  }
+}
+
+/* stylelint-disable-next-line selector-type-no-unknown */
+dds-card-group.dds-ce-demo-devenv--cards-in-row-3 {
+  @include carbon--breakpoint(lg) {
+    --dds--card-group--cards-in-row: 3;
+  }
+}
+
+/* stylelint-disable-next-line selector-type-no-unknown */
+dds-card-group.dds-ce-demo-devenv--cards-in-row-4 {
+  @include carbon--breakpoint(lg) {
+    --dds--card-group--cards-in-row: 4;
+  }
+}
