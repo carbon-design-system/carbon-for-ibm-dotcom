@@ -1,0 +1,54 @@
+<!--
+@license
+
+Copyright IBM Corp. 2020
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+<head>
+  <title>@carbon/ibmdotcom-web-components example</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/plex.css" />
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/grid.css" />
+  <style type="text/css">
+    /* Suppress custom element until styles are loaded */
+    dds-leadspace:not(:defined) {
+      display: none;
+    }
+  </style>
+  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/leadspace.min.js"></script>
+</head>
+<body>
+<div class="bx--grid">
+  <div class="bx--row">
+    <div class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
+      <dds-leadspace size="" gradient-style-scheme="with-gradient" alt="Image alt text" default-src="http://ibmdotcom-web-components-canary.mybluemix.net/91dd8c7e3d16deb031ba01bbb7aab9a6.jpg" data-autoid="dds--leadspace" type="left">
+        <dds-leadspace-heading role="heading" aria-level="1" slot="heading">Heading can go on two lines max</dds-leadspace-heading>
+        Use this area for a short line of copy to support the title
+        <dds-button-group slot="action" role="list" style="--dds--button-group--item-count:2;">
+          <dds-button-group-item aria-label="" href="https://example.com" role="listitem" icon-layout="" kind="tertiary" size="">
+            Button 1
+            <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" slot="icon">
+              <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+            </svg>
+          </dds-button-group-item>
+          <dds-button-group-item aria-label="" href="https://example.com" role="listitem" icon-layout="" kind="primary" size="">
+            Button 2
+            <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" slot="icon">
+              <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+            </svg>
+          </dds-button-group-item>
+        </dds-button-group>
+        <dds-image slot="image" class="bx--image" alt="Image alt text" default-src="http://ibmdotcom-web-components-canary.mybluemix.net/91dd8c7e3d16deb031ba01bbb7aab9a6.jpg" data-autoid="dds--image">
+          <dds-image-item media="(min-width: 672px)" srcset="http://ibmdotcom-web-components-canary.mybluemix.net/91dd8c7e3d16deb031ba01bbb7aab9a6.jpg"></dds-image-item>
+          <dds-image-item media="(min-width: 0)" srcset="http://ibmdotcom-web-components-canary.mybluemix.net/91dd8c7e3d16deb031ba01bbb7aab9a6.jpg"></dds-image-item>
+        </dds-image>
+      </dds-leadspace>
+    </div>
+  </div>
+</div>
+</body>
+</html>

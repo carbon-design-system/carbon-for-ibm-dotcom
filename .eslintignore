@@ -56,3 +56,4 @@ packages/web-components/node_modules
 packages/web-components/storybook-static
 packages/web-components/storybook-static-react
 packages/web-components/src/internal/vendor
+packages/web-components/tests/e2e/dist
