@@ -96,5 +96,6 @@ app.get('/', async function topRoute(req, res) {
 const PORT = 3000;
 
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`Server listening on port ${PORT}.`);
 });

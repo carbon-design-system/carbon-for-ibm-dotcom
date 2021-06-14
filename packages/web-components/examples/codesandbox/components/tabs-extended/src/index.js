@@ -7,5 +7,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/tabs-extended/tabs-extended.js';
-import '@carbon/ibmdotcom-web-components/es/components/tabs-extended/tab.js';
+import '@carbon/ibmdotcom-web-components/es/components/tabs-extended/index.js';

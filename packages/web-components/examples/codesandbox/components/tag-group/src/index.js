@@ -7,5 +7,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/tag-group/tag-group.js';
-import '@carbon/ibmdotcom-web-components/es/components/tag-link/tag-link.js';
+import '@carbon/ibmdotcom-web-components/es/components/tag-group/index.js';
