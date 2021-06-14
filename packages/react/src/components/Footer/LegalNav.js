@@ -18,7 +18,7 @@ const { prefix } = settings;
 /**
  * Footer legal nav component.
  */
-const LegalNav = ({ links, type, button }) => {
+const LegalNav = ({ links, type, button, adjunctLink }) => {
   if (!links?.length) {
     return null;
   }
@@ -62,6 +62,15 @@ const LegalNav = ({ links, type, button }) => {
               data-autoid={`${stablePrefix}--privacy-cp`}
             />
           </ul>
+          {type !== 'micro' && adjunctLink && (
+            <div className={`${prefix}--adjunct-link__container`}>
+              <Link
+                className={`${prefix}--footer__link`}
+                href={adjunctLink?.url}>
+                {adjunctLink?.title}
+              </Link>
+            </div>
+          )}
           {button}
         </div>
       </nav>
@@ -86,6 +95,14 @@ LegalNav.propTypes = {
   type: PropTypes.string,
 
   /**
+   * Adjunct link (optional)
+   */
+  adjunctLink: PropTypes.shape({
+    title: PropTypes.string,
+    url: PropTypes.string,
+  }),
+
+  /**
    * The locale/language selector button.
    * Renders only in micro version
    */
@@ -94,6 +111,7 @@ LegalNav.propTypes = {
 
 LegalNav.defaultProps = {
   links: null,
+  adjunctLink: null,
 };
 
 export default LegalNav;

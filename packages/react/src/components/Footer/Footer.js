@@ -34,6 +34,7 @@ const Footer = ({
   languageItems,
   languageInitialItem,
   languageCallback,
+  adjunctLink,
 }) => {
   let [footerMenuData, setFooterMenuData] = useState([]);
   let [footerLegalData, setFooterLegalData] = useState([]);
@@ -123,6 +124,7 @@ const Footer = ({
       <LegalNav
         links={footerLegalData}
         type={type}
+        adjunctLink={adjunctLink}
         button={
           type === 'micro'
             ? _loadLocaleLanguage(
@@ -218,6 +220,14 @@ Footer.propTypes = {
   type: PropTypes.oneOf(['default', 'short', 'micro']),
 
   /**
+   * Adjunct link (optional)
+   */
+  adjunctLink: PropTypes.shape({
+    title: PropTypes.string,
+    url: PropTypes.string,
+  }),
+
+  /**
    * Language code for fetching the display name.
    */
   langCode: PropTypes.shape({
@@ -270,6 +280,7 @@ Footer.propTypes = {
 Footer.defaultProps = {
   navigation: null,
   type: 'default',
+  adjunctLink: null,
   langCode: null,
   disableLocaleButton: false,
   languageOnly: false,

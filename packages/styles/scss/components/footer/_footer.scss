@@ -96,6 +96,13 @@
             }
           }
         }
+        .#{$prefix}--adjunct-link__container {
+          margin-top: $spacing-09;
+          margin-bottom: $spacing-05;
+          @include carbon--breakpoint('lg') {
+            @include carbon--make-col-offset(4, 16);
+          }
+        }
       }
     }
   }
