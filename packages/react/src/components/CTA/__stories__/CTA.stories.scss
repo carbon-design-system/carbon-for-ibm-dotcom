@@ -10,6 +10,9 @@
 }
 
 .cta-grid {
-  padding-left: 1rem !important; // to override padding-left: 2rem from bx--grid
-  margin-left: 0;
+  /* stylelint-disable declaration-no-important */
+  /* uses !important to override padding-left: 2rem from bx--grid */
+  padding-left: 1rem !important;
+  margin-left: 0 !important;
+  /* stylelint-enable declaration-no-important */
 }

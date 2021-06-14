@@ -69,8 +69,8 @@ Large.story = {
         heading: textNullable('Card Heading (heading):', 'Explore AI use cases in all industries', groupId),
         copy: textNullable(
           'Card copy (copy):',
-          `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-          dolore magna aliqua.`,
+          `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ` +
+            `dolore magna aliqua.`,
           groupId
         ),
         href: textNullable('Card Href (href):', 'https://example.com', groupId),

@@ -5,15 +5,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import './CTA.stories.scss';
 import CTA from '../CTA';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import { select } from '@storybook/addon-knobs';
-import './CTA.stories.scss';
 
 const types = ['local', 'download', 'jump', 'external', 'video', 'default'];
-const copy = ['Lorem ipsum dolor sit amet', 'Consectetur adipisicing elit'];
+const copy = [
+  'Lorem ipsum dolor sit amet',
+  'Explore AI uses cases in all industries',
+];
 const placement = ['left', 'right'];
 
 const urlBy = {

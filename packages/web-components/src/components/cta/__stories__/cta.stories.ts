@@ -179,14 +179,14 @@ Card.story = {
 };
 
 export const Feature = ({ parameters }) => {
-  const { copy, ctaType, download, href } = parameters?.props?.FeatureCTA ?? {};
+  const { heading, ctaType, download, href } = parameters?.props?.FeatureCTA ?? {};
   const { copy: footerCopy, download: footerDownload, href: footerHref } = parameters?.props?.FeatureCTAFooter ?? {};
   return html`
     <style>
       ${styles}
     </style>
     <dds-feature-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${ifNonNull(href)}">
-      <dds-card-heading>${copy}</dds-card-heading>
+      <dds-card-heading>${heading}</dds-card-heading>
       <dds-image slot="image" alt="Image alt text" default-src="${imgLg1x1}"> </dds-image>
       <dds-feature-cta-footer
         cta-type="${ifNonNull(ctaType)}"
@@ -205,8 +205,21 @@ Feature.story = {
     hasGrid: true,
     useRawContainer: true,
     knobs: {
-      FeatureCTA: ({ groupId }) => Card.story.parameters.knobs.CardCTA({ groupId }),
-      FeatureCTAFooter: ({ groupId }) => Card.story.parameters.knobs.CardCTAFooter({ groupId }),
+      FeatureCTA: ({ groupId }) => {
+        const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL, groupId);
+        const heading =
+          ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Heading', 'Explore AI uses cases in all industries', groupId);
+        const download =
+          ctaType !== CTA_TYPE.DOWNLOAD
+            ? undefined
+            : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
+        return {
+          heading,
+          ctaType,
+          download,
+          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR], groupId),
+        };
+      },
     },
   },
 };
