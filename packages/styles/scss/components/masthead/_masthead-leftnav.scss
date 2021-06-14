@@ -158,6 +158,7 @@
     }
   }
 
+  :host(#{$dds-prefix}-left-nav-menu-section),
   .#{$prefix}--side-nav__menu-section {
     position: absolute;
     width: 100%;
@@ -289,6 +290,7 @@
     }
   }
 
+  :host(#{$dds-prefix}-left-nav-menu-section)[expanded],
   .#{$prefix}--side-nav__menu-section--expanded {
     z-index: 1;
     left: 0;

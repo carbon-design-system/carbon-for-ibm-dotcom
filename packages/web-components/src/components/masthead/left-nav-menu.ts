@@ -11,7 +11,6 @@ import { classMap } from 'lit-html/directives/class-map';
 import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings';
-import ChevronLeft20 from 'carbon-web-components/es/icons/chevron--left/20.js';
 import ChevronDown20 from 'carbon-web-components/es/icons/chevron--down/20.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import { forEach } from '../../globals/internal/collection-helpers';
@@ -36,7 +35,7 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
    *
    * @param expanded The new expanded state.
    */
-  private _handleUserInitiatedToggle(expanded = !this.expanded) {
+  private _handleUserInitiatedToggle(expanded = !this.expanded, panelId = this.panelId) {
     const { eventBeforeToggle, eventToggle } = this.constructor as typeof DDSLeftNavMenu;
     const init = {
       bubbles: true,
@@ -44,6 +43,7 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
       composed: true,
       detail: {
         expanded,
+        panelId,
       },
     };
     if (this.dispatchEvent(new CustomEvent(eventBeforeToggle, init))) {
@@ -66,16 +66,16 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
   active = false;
 
   /**
-   * The back button's text.
-   */
-  @property({ attribute: 'back-button-text' })
-  backButtonText = 'Back';
-
-  /**
    * `true` if the menu should be open.
    */
   @property({ type: Boolean, reflect: true })
   expanded = false;
+
+  /**
+   * `true` if the menu should be open.
+   */
+  @property({ type: String, attribute: 'panel-id' })
+  panelId = '';
 
   /**
    * The title text.
@@ -94,35 +94,28 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
   }
 
   render() {
-    const { active, backButtonText, expanded, title, _handleClickExpando: handleClickExpando } = this;
+    const { active, expanded, title, _handleClickExpando: handleClickExpando } = this;
     const buttonClasses = classMap({
       [`${prefix}--side-nav__submenu`]: true,
       [`${prefix}--masthead__side-nav--submemu--selected`]: active,
     });
     return html`
-      <button
-        type="button"
-        aria-haspopup="true"
-        aria-expanded="${String(Boolean(expanded))}"
-        class="${buttonClasses}"
-        @click=${handleClickExpando}
-      >
-        <div class="${prefix}--side-nav__submenu-content">
-          <span class="${prefix}--side-nav__submenu-title">${title}</span>
-          <div class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron">
-            ${ChevronDown20()}
+      <div class="${prefix}--side-nav__item">
+        <button
+          type="button"
+          aria-haspopup="true"
+          aria-expanded="${String(Boolean(expanded))}"
+          class="${buttonClasses}"
+          @click=${handleClickExpando}
+        >
+          <div class="${prefix}--side-nav__submenu-content">
+            <span class="${prefix}--side-nav__submenu-title">${title}</span>
+            <div class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron">
+              ${ChevronDown20()}
+            </div>
           </div>
-        </div>
-      </button>
-      <ul class="${prefix}--side-nav__menu" role="menu">
-        <li class="bx--side-nav__menu-item bx--masthead__side-nav--submemu-back" role="none">
-          <button class="bx--side-nav__link" role="menuitem" @click="${handleClickExpando}">
-            <span class="bx--side-nav__link-text">${ChevronLeft20()}${backButtonText}</span>
-          </button>
-        </li>
-        <li class="bx--masthead__side-nav--submemu-title">${title}</li>
-        <slot></slot>
-      </ul>
+        </button>
+      </div>
     `;
   }
 
