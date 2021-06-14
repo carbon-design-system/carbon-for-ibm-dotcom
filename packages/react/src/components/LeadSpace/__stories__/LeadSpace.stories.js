@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean, number, select, text } from '@storybook/addon-knobs';
+import { number, select, text } from '@storybook/addon-knobs';
 import ArrowDown20 from '@carbon/icons-react/es/arrow--down/20';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import LeadSpace from '../LeadSpace';
@@ -92,8 +92,13 @@ TallWithNoImage.story = {
 };
 
 export const TallWithImage = ({ parameters }) => {
-  const { title, copy, gradient, buttons, image, size } =
+  const { title, defaultSrc, copy, gradient, buttons, image, size } =
     parameters?.props?.LeadSpace ?? {};
+  if (defaultSrc) {
+    image.defaultSrc = defaultSrc;
+    image.sources[0].src = defaultSrc;
+    image.sources[1].src = defaultSrc;
+  }
   const params = new URLSearchParams(window.location.search);
   const themeParam = params.has('theme') ? params.get('theme') : null;
   const theme =
@@ -123,7 +128,11 @@ TallWithImage.story = {
         });
         return {
           ...knobs,
-          gradient: boolean('gradient overlay (gradient)', true, groupId),
+          defaultSrc: text(
+            'Default image (defaultSrc):',
+            leadspaceImg,
+            groupId
+          ),
           image: images,
         };
       },
@@ -196,13 +205,34 @@ Centered.story = {
 };
 
 export const CenteredWithImage = ({ parameters }) => {
-  const { title, copy, gradient, buttons } = parameters?.props?.Leadspace ?? {};
+  const { title, copy, gradient, buttons, defaultSrc } =
+    parameters?.props?.Leadspace ?? {};
   const params = new URLSearchParams(window.location.search);
   const themeParam = params.has('theme') ? params.get('theme') : null;
   const theme =
     themeParam ||
     document.documentElement.getAttribute('storybook-carbon-theme') ||
     'white';
+
+  const centeredImage = {
+    sources: [
+      {
+        src: leadspaceImg3,
+        breakpoint: 'sm',
+      },
+      {
+        src: leadspaceImg3,
+        breakpoint: 'md',
+      },
+    ],
+    defaultSrc: leadspaceImg3,
+    alt: 'lead space image',
+  };
+  if (defaultSrc) {
+    centeredImage.defaultSrc = defaultSrc;
+    centeredImage.sources[0].src = defaultSrc;
+    centeredImage.sources[1].src = defaultSrc;
+  }
   return (
     <LeadSpace
       type="centered"
@@ -211,20 +241,7 @@ export const CenteredWithImage = ({ parameters }) => {
       copy={copy}
       gradient={gradient}
       buttons={buttons}
-      image={{
-        sources: [
-          {
-            src: leadspaceImg3,
-            breakpoint: 'sm',
-          },
-          {
-            src: leadspaceImg3,
-            breakpoint: 'md',
-          },
-        ],
-        defaultSrc: leadspaceImg3,
-        alt: 'lead space image',
-      }}
+      image={centeredImage}
     />
   );
 };
@@ -264,7 +281,11 @@ CenteredWithImage.story = {
             'Use this area for a short line of copy to support the title',
             groupId
           ),
-          gradient: boolean('gradient overlay (gradient)', true, groupId),
+          defaultSrc: text(
+            'Default image (defaultSrc):',
+            leadspaceImg3,
+            groupId
+          ),
           buttons,
         };
       },
@@ -359,6 +380,11 @@ MediumWithImage.story = {
             groupId
           ),
           buttons,
+          defaultSrc: text(
+            'Default image (defaultSrc):',
+            leadspaceImg,
+            groupId
+          ),
           size: 'medium',
           image: images,
           gradient: true,
@@ -455,6 +481,11 @@ SuperWithImage.story = {
             groupId
           ),
           buttons,
+          defaultSrc: text(
+            'Default image (defaultSrc):',
+            leadspaceImg,
+            groupId
+          ),
           size: 'super',
           gradient: true,
           image: images,
