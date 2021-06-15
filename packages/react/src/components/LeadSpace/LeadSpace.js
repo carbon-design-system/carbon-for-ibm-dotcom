@@ -21,35 +21,24 @@ const { prefix } = settings;
  * renders main class name
  *
  * @param {string} type switches between centered or default
- * @param {object} image image object
  * @param {string} theme theme of the pattern
  * @returns {string} classnames
  */
-const classNames = (type, image, theme) => {
+const classNames = (type, theme) => {
   return classnames(`${prefix}--leadspace__section`, {
     [`${prefix}--leadspace--${theme}`]: theme,
     [`${prefix}--leadspace--centered`]: type === 'centered',
-    [`${prefix}--leadspace--centered__image`]: image && type === 'centered',
     [`${prefix}--leadspace--productive`]: type === 'small',
   });
 };
 
 /**
  *
- * @param {string} type type
  * @param {object} image image
  * @returns {object} returns either image component or the centered image div
  */
-function imageClassname(type, image) {
-  if (type === 'centered') {
-    return (
-      <div
-        data-autoid={`${stablePrefix}--leadspace--centered--mobile__image`}
-        className={`${prefix}--leadspace--centered--mobile__image`}>
-        <img src={image.defaultSrc} alt={image.alt} />
-      </div>
-    );
-  } else return <Image {...image} />;
+function imageClassname(image) {
+  return <Image {...image} />;
 }
 
 /**
@@ -58,43 +47,73 @@ function imageClassname(type, image) {
  * @param {object} props props object
  * @param {Array} props.buttons array of buttons for lead space (max 2 buttons)
  * @param {string} props.copy lead space short copy to support the title
- * @param {boolean} props.gradient determines whether to render gradient overlay
  * @param {object} props.image image object with diff source for diff breakpoints
  * @param {string} props.theme theme of the pattern (g100 or white (default))
  * @param {string} props.title lead space title
  * @param {string} props.type type of lead space
  * @returns {*} Lead space component
  */
+
 const LeadSpace = ({
   buttons,
   copy,
-  gradient,
   image,
   theme,
   title,
   type,
   size = 'tall',
 }) => {
-  const background = image && {
-    backgroundImage: `url(${image.defaultSrc})`,
-  };
-
   return (
     <div
       data-autoid={`${stablePrefix}--leadspace`}
-      className={`${prefix}--leadspace`}>
+      className={classnames(`${prefix}--leadspace`, {
+        [`${prefix}--leadspace--medium`]: size === 'medium',
+        [`${prefix}--leadspace--tall`]: size === 'tall',
+        [`${prefix}--leadspace--super`]: size === 'super',
+      })}>
       <section className={classNames(type, image, theme)}>
-        <div
-          style={background}
-          className={classnames({
-            [`${prefix}--leadspace__container`]: size === 'tall',
-            [`${prefix}--leadspace__container--medium`]: size === 'medium',
-            [`${prefix}--leadspace__container--super`]: size === 'super',
-          })}>
+        <div className={`${prefix}--leadspace__container`}>
           <div
             className={classnames(`${prefix}--leadspace__overlay`, {
-              [`${prefix}--leadspace--gradient`]: gradient,
+              [`${prefix}--leadspace--gradient`]: image && image.defaultSrc,
             })}>
+            {image && image.defaultSrc === true ? (
+              undefined
+            ) : (
+              <svg
+                class={`${prefix}--leadspace__gradient`}
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink">
+                <defs>
+                  <linearGradient
+                    id="stops"
+                    class={`${prefix}--leadspace__gradient__stops`}>
+                    {type === 'centered' ? (
+                      <>
+                        <stop offset="0%" />
+                        <stop offset="27%" />
+                        <stop offset="53%" />
+                        <stop offset="80%" />
+                      </>
+                    ) : (
+                      <>
+                        <stop offset="0%" />
+                        <stop offset="25%" />
+                        <stop offset="50%" />
+                        <stop offset="75%" />
+                      </>
+                    )}
+                  </linearGradient>
+                </defs>
+                <rect
+                  class={`${prefix}--leadspace__gradient__rect`}
+                  width="100"
+                  height="100"
+                />
+              </svg>
+            )}
             <div className={`${prefix}--leadspace--content__container`}>
               <div className={`${prefix}--leadspace__row`}>
                 <h1 className={`${prefix}--leadspace__title`}>{title}</h1>
@@ -115,7 +134,7 @@ const LeadSpace = ({
               </div>
             </div>
           </div>
-          {image && imageClassname(type, image)}
+          {image && imageClassname(image)}
         </div>
       </section>
     </div>
@@ -139,11 +158,6 @@ LeadSpace.propTypes = {
    * Short copy of LeadSpace.
    */
   copy: PropTypes.string,
-
-  /**
-   * `true` to render overlay gradient.
-   */
-  gradient: PropTypes.bool,
 
   /**
    * Object with different ratio options for corresponding breakpoints.

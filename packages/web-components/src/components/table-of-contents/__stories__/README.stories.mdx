@@ -1,5 +1,6 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
+import plex from '../../../../docs/plex.md';
 
 # `<dds-table-of-contents>`
 
@@ -19,13 +20,31 @@ Here's a quick example to get you started.
 
 > 💡 `bx--tableofcontents__contents` class in the content `<div>` ensures the `<h3>` is visible by navigating to a hashbang URL (e.g. `https://yoursite.com/yourpage#2`).
 
-##### JS
+### JS (via import)
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/table-of-contents/table-of-contents.js';
+import '@carbon/ibmdotcom-web-components/es/components/table-of-contents/index.js';
 ```
 
-##### SCSS
+### JS (via CDN)
+
+```html
+<!-- LATEST tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/table-of-contents.min.js"></script>
+
+<!-- NEXT tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/table-of-contents.min.js"></script>
+
+<!-- BETA tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/table-of-contents.min.js"></script>
+
+<!-- SPECIFIC VERSION (available starting v1.6.0) -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/table-of-contents.min.js"></script>
+```
+
+<Description markdown={plex} />
+
+### SCSS
 
 ```scss
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';

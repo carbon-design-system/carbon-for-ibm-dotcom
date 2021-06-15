@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.20.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.20.0-rc.0...@carbon/ibmdotcom-services@1.20.0) (2021-06-14)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+# [1.20.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.19.1...@carbon/ibmdotcom-services@1.20.0-rc.0) (2021-06-04)
+
+
+### Features
+
+* audio-player and kaltura player service ([#6102](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6102)) ([d9ebe96](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d9ebe96)), closes [#5105](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5105)
+
+
+
+
+
 ## [1.19.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.19.1-rc.0...@carbon/ibmdotcom-services@1.19.1) (2021-06-01)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services

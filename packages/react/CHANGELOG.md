@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.20.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.20.0-rc.1...@carbon/ibmdotcom-react@1.20.0) (2021-06-14)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.20.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.20.0-rc.0...@carbon/ibmdotcom-react@1.20.0-rc.1) (2021-06-10)
+
+
+### Bug Fixes
+
+* **leadspace:** overlapping bug ([#6336](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6336)) ([e5a1789](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e5a1789)), closes [#6323](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6323)
+
+
+
+
+
+# [1.20.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.12.0-beta.60.60...@carbon/ibmdotcom-react@1.20.0-rc.0) (2021-06-04)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
 ## [1.19.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.19.1-rc.0...@carbon/ibmdotcom-react@1.19.1) (2021-06-01)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react

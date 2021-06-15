@@ -8,4 +8,3 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/leaving-ibm/leaving-ibm-container.js';
-import './index.scss';
