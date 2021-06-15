@@ -38,8 +38,7 @@ class DDSContentBlockSegmented extends DDSContentBlock {
       [`${prefix}--content-layout`]: true,
       [`${prefix}--content-layout--with-complementary`]: hasComplementary,
       [`${ddsPrefix}-ce--content-layout--with-adjacent-heading-content`]: hasHeading && hasContent && !hasCopy && !hasMedia,
-      [`${prefix}--layout--border`]:
-        hasComplementary && complementaryStyleScheme === CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
+      [`${prefix}--layout--border`]: complementaryStyleScheme === CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
     });
   }
 

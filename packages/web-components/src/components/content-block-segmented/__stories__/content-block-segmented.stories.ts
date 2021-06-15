@@ -40,9 +40,9 @@ const ctaStyles = {
 };
 
 const complementaryStyleSchemes = {
-  'Regular style scheme': null,
+  Without: null,
   // eslint-disable-next-line max-len
-  [`With border (${CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER})`]: CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
+  'With border': CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
 };
 const image = html`
   <dds-image-with-caption
@@ -57,10 +57,6 @@ const image = html`
   </dds-image-with-caption>
 `;
 
-const video = html`
-  <dds-video-player-container slot="media" video-id="0_uka1msg4"></dds-video-player-container>
-`;
-
 const contentItemCopy =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ' +
   'sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus ' +
@@ -72,10 +68,21 @@ const contentItemCopy =
   'turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium ' +
   'elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.';
 
+const video = html`
+  <dds-video-player-container slot="media" video-id="0_uka1msg4"></dds-video-player-container>
+`;
+
+const linkListItems = [
+  'Containerization A Complete Guide',
+  'Why should you use microservices and containers',
+  'Learn more about Kubernetes',
+  'Explore AI use cases in all industries',
+];
+
 export const Default = ({ parameters }) => {
-  const { heading, copy, ctaStyle, ctaType } = parameters?.props?.ContentBlockSegmented ?? {};
+  const { heading, copy, ctaStyle, ctaType, complementaryStyleScheme } = parameters?.props?.ContentBlockSegmented ?? {};
   return html`
-    <dds-content-block-segmented>
+    <dds-content-block-segmented complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-content-block-copy>${copy}</dds-content-block-copy>
       ${image}
@@ -89,7 +96,7 @@ export const Default = ({ parameters }) => {
       <dds-content-block-segmented-item>
         <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
         <dds-content-item-copy>${contentItemCopy}</dds-content-item-copy>
-        ${image}
+        ${video}
         <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
           >Lorem Ipsum dolor sit</dds-text-cta
         >
@@ -110,49 +117,12 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const withVideo = ({ parameters }) => {
-  const { heading, copy, ctaStyle, ctaType } = parameters?.props?.ContentBlockSegmented ?? {};
-  return html`
-    <dds-content-block-segmented>
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-block-copy>${copy}</dds-content-block-copy>
-      ${video}
-      <dds-content-block-segmented-item>
-        <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
-        <dds-content-item-copy>${contentItemCopy}</dds-content-item-copy>
-        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
-          >Lorem Ipsum dolor sit</dds-text-cta
-        >
-      </dds-content-block-segmented-item>
-      <dds-content-block-segmented-item>
-        <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
-        <dds-content-item-copy>${contentItemCopy}</dds-content-item-copy>
-        ${image}
-        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
-          >Lorem Ipsum dolor sit</dds-text-cta
-        >
-      </dds-content-block-segmented-item>
-      ${ctaStyle === 'text'
-        ? html`
-            <dds-text-cta slot="footer" cta-type=${ctaType} icon-placement="right" href=${hrefsForType[ctaType]}
-              >Lorem ipsum dolor</dds-text-cta
-            >
-          `
-        : html`
-            <dds-card-cta slot="footer" cta-type=${ctaType} href=${hrefsForType[ctaType]}>
-              Lorem ipsum dolor
-              <dds-card-cta-footer></dds-card-cta-footer>
-            </dds-card-cta>
-          `}
-    </dds-content-block-segmented>
-  `;
-};
-
-export const withAsideElements = ({ parameters }) => {
-  const { heading, copy, ctaStyle, ctaType, complementaryStyleScheme } = parameters?.props?.ContentBlockSegmented ?? {};
+export const withLinkList = ({ parameters }) => {
+  const { blockHeading, heading, copy, ctaStyle, ctaType, complementaryStyleScheme, totalLinks } =
+    parameters?.props?.ContentBlockSegmented ?? {};
   return html`
     <dds-content-block-segmented complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
-      <dds-content-block-heading>Lorem ipsum dolor sit amet.</dds-content-block-heading>
+      <dds-content-block-heading>${blockHeading}</dds-content-block-heading>
       <dds-content-block-copy>${copy}</dds-content-block-copy>
       ${image}
       <dds-content-block-segmented-item>
@@ -172,14 +142,14 @@ export const withAsideElements = ({ parameters }) => {
       </dds-content-block-segmented-item>
       <dds-link-list type="default" slot="complementary">
         <dds-link-list-heading>${heading}</dds-link-list-heading>
-        <dds-link-list-item-card-cta href="https://example.com" cta-type="local">
-          <p>Containerization A Complete Guide</p>
-          <dds-card-cta-footer></dds-card-cta-footer>
-        </dds-link-list-item-card-cta>
-        <dds-link-list-item-card-cta href="https://example.com" cta-type="external">
-          <p>Why should you use microservices and containers</p>
-          <dds-card-cta-footer></dds-card-cta-footer>
-        </dds-link-list-item-card-cta>
+        ${linkListItems.slice(0, totalLinks).map(
+          linkListCopy => html`
+            <dds-link-list-item-card-cta href="https://example.com" cta-type="local">
+              <p>${linkListCopy}</p>
+              <dds-card-cta-footer></dds-card-cta-footer>
+            </dds-link-list-item-card-cta>
+          `
+        )}
       </dds-link-list>
       ${ctaStyle === 'text'
         ? html`
@@ -197,18 +167,27 @@ export const withAsideElements = ({ parameters }) => {
   `;
 };
 
-withAsideElements.story = {
+withLinkList.story = {
+  name: 'With link list',
   parameters: {
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout--with-complementary',
     knobs: {
       ContentBlockSegmented: () => ({
+        blockHeading: textNullable('Heading (required)', 'Lorem ipsum dolor sit amet.'),
         heading: textNullable('Link list heading (heading)', 'Tutorials'),
+        totalLinks: select('Number of links', [2, 3, 4], 2),
+        copy:
+          'Lorem ipsum dolor sit amet, consectetur ' +
+          'adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
+          'Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. ' +
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.' +
+          ' Mauris iaculis eget dolor nec hendrerit.',
         ctaStyle: select('CTA style (cta-style)', ctaStyles, null),
         ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
         complementaryStyleScheme: select(
-          'Complementary style scheme (complementary-style-scheme)',
+          'Container bottom border',
           complementaryStyleSchemes,
-          null
+          complementaryStyleSchemes['With border']
         ),
       }),
     },
@@ -240,6 +219,11 @@ export default {
           ' Mauris iaculis eget dolor nec hendrerit.',
         ctaStyle: select('CTA style (cta-style)', ctaStyles, null),
         ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
+        complementaryStyleScheme: select(
+          'Container bottom border',
+          complementaryStyleSchemes,
+          complementaryStyleSchemes['With border']
+        ),
       }),
     },
   },

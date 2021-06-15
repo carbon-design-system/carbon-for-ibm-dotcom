@@ -12,9 +12,6 @@
 const fs = require('fs');
 const path = require('path');
 const { promisify } = require('util');
-const chalk = require('chalk');
-const Table = require('cli-table');
-const gzip = require('gzip-size');
 const postcss = require('postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
@@ -24,9 +21,8 @@ const babel = require('rollup-plugin-babel');
 const commonjs = require('rollup-plugin-commonjs');
 const replace = require('rollup-plugin-replace');
 const { terser } = require('rollup-plugin-terser');
-const sizes = require('rollup-plugin-sizes');
+const multiInput = require('rollup-plugin-multi-input').default;
 
-const packageJson = require('../package.json');
 const ibmdotcomIcon = require('./rollup-plugin-ibmdotcom-icon');
 const litSCSS = require('./rollup-plugin-lit-scss');
 const fixHostPseudo = require('./postcss-fix-host-pseudo');
@@ -35,12 +31,35 @@ const license = require('./rollup-plugin-license');
 const readFile = promisify(fs.readFile);
 
 /**
+ * Stores the suffix to append depending on build mode
+ *
+ * @type {{development: string, production: string}}
+ */
+const modeSuffixes = {
+  development: '',
+  production: '.min',
+};
+
+/**
+ * Stores the suffix to append for render direction setting
+ *
+ * @type {{ltr: string, rtl: string}}
+ */
+const dirSuffixes = {
+  ltr: '',
+  rtl: '.rtl',
+};
+
+/**
+ * Sets the rollup configuration based on various settings
+ *
  * @param {object} [options] The build options.
  * @param {string} [options.mode=development] The build mode.
  * @param {string} [options.dir=development] The UI direction.
+ * @param {Array} [options.folders] Package names as inputs
  * @returns {object} The Rollup config.
  */
-function getRollupConfig({ mode = 'development', dir = 'ltr' } = {}) {
+function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom-shell'] } = {}) {
   const postCSSPlugins = [
     fixHostPseudo(),
     autoprefixer({
@@ -73,23 +92,51 @@ function getRollupConfig({ mode = 'development', dir = 'ltr' } = {}) {
     },
   };
 
-  return {
-    input: 'src/globals/ibmdotcom-web-components-dotcom-shell.ts',
+  const inputs = {
+    'ibmdotcom-web-components-dotcom-shell': 'src/components/dotcom-shell/index.ts', // retaining for legacy support
+  };
+
+  folders.forEach(folder => {
+    if (folder === 'cta') {
+      inputs[`card-cta${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/card-cta.ts`;
+      inputs[`feature-cta${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/feature-cta.ts`;
+      inputs[`text-cta${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/text-cta.ts`;
+      inputs[`video-cta-container${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/video-cta-container.ts`;
+    } else if (folder === 'lightbox-media-viewer') {
+      inputs[
+        `lightbox-image-viewer${dirSuffixes[dir]}${modeSuffixes[mode]}`
+      ] = `src/components/lightbox-media-viewer/lightbox-image-viewer.ts`;
+      inputs[
+        `lightbox-video-player${dirSuffixes[dir]}${modeSuffixes[mode]}`
+      ] = `src/components/lightbox-media-viewer/lightbox-video-player-container.ts`;
+    } else {
+      inputs[`${folder}${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/${folder}/index.ts`;
+    }
+
+    if (folder === 'callout-with-media') {
+      inputs[
+        `callout-with-media-image${dirSuffixes[dir]}${modeSuffixes[mode]}`
+      ] = `src/components/callout-with-media/callout-with-media-image.ts`;
+      inputs[
+        `callout-with-media-video${dirSuffixes[dir]}${modeSuffixes[mode]}`
+      ] = `src/components/callout-with-media/callout-with-media-video.ts`;
+    }
+  });
+
+  const rollupConfig = {
+    input: inputs,
     plugins: [
-      {
-        resolveId(id, importer) {
-          // Builds all components' styles as one Sass file so we can optimize styles across components,
-          // especially of `import-once` guard
-          return !/\.(css\.js|scss)$/i.test(id)
-            ? null
-            : this.resolve(path.resolve(__dirname, '../src/globals/scss/ibmdotcom-web-components-dotcom-shell.scss'), importer, {
-                skipSelf: true,
-              });
-        },
-      },
+      multiInput(),
       resolve({
         browser: true,
         mainFields: ['jsnext', 'module', 'main'],
+        dedupe: [
+          '@carbon/ibmdotcom-utilities',
+          '@carbon/ibmdotcom-services',
+          '@carbon/ibmdotcom-styles',
+          'carbon-web-components',
+          'carbon-components',
+        ],
         extensions: ['.js', '.ts'],
       }),
       commonjs({
@@ -99,6 +146,7 @@ function getRollupConfig({ mode = 'development', dir = 'ltr' } = {}) {
           'redux-logger/dist/redux-logger.js': ['createLogger'],
         },
       }),
+      ibmdotcomIcon(),
       babel({
         extensions: ['.ts'],
         exclude: ['node_modules/**'], // only transpile our source code
@@ -138,7 +186,6 @@ function getRollupConfig({ mode = 'development', dir = 'ltr' } = {}) {
         include: [/carbon-web-components\/es\/components\//i],
         plugins: [path.resolve(__dirname, 'babel-plugin-undef-custom-elements')],
       }),
-      ibmdotcomIcon(),
       litSCSS({
         includePaths: [path.resolve(__dirname, '../node_modules'), path.resolve(__dirname, '../../../node_modules')],
         async preprocessor(contents, id) {
@@ -148,40 +195,11 @@ function getRollupConfig({ mode = 'development', dir = 'ltr' } = {}) {
       replace({
         'process.env.NODE_ENV': JSON.stringify(mode),
       }),
-      ...(mode === 'development'
-        ? [license(licenseOptions)]
-        : [
-            terser(),
-            license(licenseOptions),
-            sizes({
-              report(details) {
-                const table = new Table({
-                  head: [chalk.gray.yellow('Dependency/app'), chalk.gray.yellow('Size')],
-                  colAligns: ['left', 'right'],
-                });
-                details.totals
-                  .map(item => [chalk.white.bold(item.name), item.size])
-                  .forEach(item => {
-                    table.push(item);
-                  });
-                console.log(`Sizes of app/dependencies:\n${table}`); // eslint-disable-line no-console
-                console.log('Total size:', details.total); // eslint-disable-line no-console
-              },
-            }),
-            {
-              async generateBundle(options, bundle) {
-                const { code } = bundle[`ibmdotcom-web-components-dotcom-shell${dir !== 'rtl' ? '' : '.rtl'}.min.js`];
-                const gzipSize = await gzip(code);
-                const { bundleSizeThreshold } = packageJson;
-                console.log('Total size (gzipped):', gzipSize); // eslint-disable-line no-console
-                if (gzipSize > bundleSizeThreshold) {
-                  throw new RangeError(`Exceeded size threshold of ${bundleSizeThreshold} bytes (gzipped)!`);
-                }
-              },
-            },
-          ]),
+      ...(mode === 'development' ? [license(licenseOptions)] : [terser(), license(licenseOptions)]),
     ],
   };
+
+  return rollupConfig;
 }
 
 module.exports = getRollupConfig;

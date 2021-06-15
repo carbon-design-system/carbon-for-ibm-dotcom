@@ -1,5 +1,6 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
+import plex from '../../../../docs/plex.md';
 
 # LeadSpace Block
 
@@ -13,7 +14,7 @@ import contributing from '../../../../../../docs/contributing-license.md';
 
 Here's a quick example to get you started.
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/index';
@@ -24,6 +25,32 @@ import '@carbon/ibmdotcom-web-components/es/components/link-list/index';
 // with media (video)
 import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player-container';
 ```
+
+### JS (via CDN)
+
+```html
+<!-- LATEST tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/leadspace-block.min.js"></script>
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/link-list.min.js"></script> <!-- optional -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/video-player-container.min.js"></script> <!-- optional -->
+
+<!-- NEXT tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/leadspace-block.min.js"></script>
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/link-list.min.js"></script> <!-- optional -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/video-player-container.min.js"></script> <!-- optional -->
+
+<!-- BETA tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/leadspace-block.min.js"></script>
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/link-list.min.js"></script> <!-- optional -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/video-player-container.min.js"></script> <!-- optional -->
+
+<!-- SPECIFIC VERSION (available starting v1.6.0) -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/leadspace-block.min.js"></script>
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/link-list.min.js"></script> <!-- optional -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/video-player-container.min.js"></script> <!-- optional -->
+```
+
+<Description markdown={plex} />
 
 ### HTML
 
