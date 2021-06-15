@@ -1,6 +1,7 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import markdownContents from '../../../../docs/markdown-contents.md';
+import plex from '../../../../docs/plex.md';
 
 # Tag Link
 
@@ -14,13 +15,31 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 
 Here's a quick example to get you started.
 
-##### JS
+### JS (via import)
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/tag-link/tag-link.js';
+import '@carbon/ibmdotcom-web-components/es/components/tag-link/index.js';
 ```
 
-##### HTML
+### JS (via CDN)
+
+```html
+<!-- LATEST tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/tag-link.min.js"></script>
+
+<!-- NEXT tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/tag-link.min.js"></script>
+
+<!-- BETA tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/tag-link.min.js"></script>
+
+<!-- SPECIFIC VERSION (available starting v1.6.0) -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/tag-link.min.js"></script>
+```
+
+<Description markdown={plex} />
+
+### HTML
 
 ```html
 <dds-tag-link href="https://example.com">

@@ -35,14 +35,6 @@ const platformData = {
   url: 'https://www.ibm.com/cloud',
 };
 
-/**
- * l1 platform data
- */
-const l1PlatformData = {
-  name: 'Stock Charts',
-  url: 'https://www.example.com',
-};
-
 export const Default = ({ parameters }) => {
   const { platform, hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
     parameters?.props?.MastheadComposite ?? {};
@@ -196,7 +188,7 @@ withPlatform.story = {
 };
 
 export const withL1 = ({ parameters }) => {
-  const { platform, selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder } =
+  const { selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder } =
     parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -206,8 +198,6 @@ export const withL1 = ({ parameters }) => {
     ${useMock
       ? html`
           <dds-masthead-composite
-            platform="${ifNonNull(platform.name)}"
-            platform-url="${ifNonNull(platform.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             user-status="${ifNonNull(userStatus)}"
@@ -221,8 +211,6 @@ export const withL1 = ({ parameters }) => {
         `
       : html`
           <dds-masthead-container
-            platform="${ifNonNull(platform.name)}"
-            platform-url="${ifNonNull(platform.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             ?has-profile="${hasProfile}"
@@ -238,7 +226,6 @@ withL1.story = {
   parameters: {
     knobs: {
       MastheadComposite: ({ groupId }) => ({
-        platform: l1PlatformData,
         hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
         hasSearch: boolean('show the search functionality (has-search)', true, groupId),
         searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? '' : 'Search all of IBM', groupId),
