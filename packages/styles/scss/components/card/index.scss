@@ -135,12 +135,16 @@
       align-self: flex-start;
       &:hover {
         text-decoration: underline;
+
+        .#{$prefix}--card__cta__copy {
+          color: $hover-primary-text;
+        }
       }
 
       &:active,
       &:focus {
         align-self: flex-start;
-        outline: auto;
+        outline: 1px solid $focus;
       }
       &::after {
         position: relative;
