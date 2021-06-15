@@ -29,7 +29,7 @@ class DDSContentBlockParagraph extends LitElement {
     this.content = stripHTML(this.innerHTML);
     render(
       html`
-        <p>${this.content}</p>
+        ${this.content}
       `,
       this
     );
@@ -37,7 +37,7 @@ class DDSContentBlockParagraph extends LitElement {
 
   render() {
     return html`
-      ${this.content}
+      <slot></slot>
     `;
   }
 
