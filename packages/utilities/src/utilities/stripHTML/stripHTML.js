@@ -16,6 +16,11 @@
  * @param {string} content with html tags
  * @returns {null} content without html tags
  */
-const stripHTML = content => content.replace(/(<([^>]+)>)/gi, '');
+const stripHTML = content => {
+  const component = document.createElement('textarea');
+  component.innerHTML = content;
+
+  return component.childNodes[0].nodeValue.replace(/(<([^>]+)>)/gi, '');
+};
 
 export default stripHTML;

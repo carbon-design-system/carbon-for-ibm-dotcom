@@ -54,7 +54,7 @@ class DDSContentBlockHeading extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <slot></slot>
+      ${this.content}
     `;
   }
 
