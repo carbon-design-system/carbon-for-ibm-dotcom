@@ -336,6 +336,10 @@
     }
   }
 
+  .#{$prefix}--list-box__menu {
+    bottom: rem(48px);
+  }
+
   .#{$prefix}--dropdown,
   .#{$prefix}--text-input {
     border-bottom: none;
