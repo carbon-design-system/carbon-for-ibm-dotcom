@@ -227,77 +227,35 @@ class DDSMastheadComposite extends LitElement {
   }
 
   /**
-   *  Render MegaMenu mobile content
-   *
-   * @param sections menu section data object
-   */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderMobileMegaMenu(sections) {
-    const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
-    const menuItems = highlightedItems.concat(menu);
-    if (viewAllLink) {
-      menuItems.push(viewAllLink);
-    }
-
-    return html`
-      ${sections[0]?.heading &&
-        html`
-          <dds-left-nav-menu-category-heading>${sections[0]?.heading}</dds-left-nav-menu-category-heading>
-        `}
-      ${menuItems.map((item, i) => {
-        const lastHighlighted = i + 1 === highlightedItems.length;
-        return item.megapanelContent?.quickLinks?.links
-          ? html`
-              <dds-left-nav-menu
-                ?last-highlighted=${lastHighlighted}
-                title="${item.title}"
-                data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav${i}"
-              >
-                ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, j) => {
-                  return html`
-                    <dds-left-nav-menu-item
-                      href="${url}"
-                      title="${title}"
-                      data-autoid="${ddsPrefix}--masthead__l0-sidenav--subnav-col${j}-item${j}"
-                    ></dds-left-nav-menu-item>
-                  `;
-                })}
-              </dds-left-nav-menu>
-            `
-          : html`
-              <dds-left-nav-menu-item
-                ?last-highlighted=${lastHighlighted}
-                href="${item.url}"
-                title="${item.title}"
-                data-autoid="${ddsPrefix}--masthead__l0-sidenav--subnav-col${i}-item${i}"
-              ></dds-left-nav-menu-item>
-            `;
-      })}
-    `;
-  }
-
-  /**
    * Renders the left nav menus sections
    *
    * @param menuItems menu items
+   * @param heading heading of menu section
    * @param selectedMenuItem The selected menu item
    * @param showBackButton Determines whether to show back button
    * @param sectionTitle title of menu section
    * @param sectionId id of menu section
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _renderLeftNavMenuSections(menuItems, selectedMenuItem, showBackButton, sectionTitle, sectionId) {
+  protected _renderLeftNavMenuSections(menuItems, heading, selectedMenuItem, showBackButton, sectionTitle, sectionId) {
     const items = menuItems.map(elem => {
       const selected = selectedMenuItem && elem.titleEnglish === selectedMenuItem;
       if (elem.menu) {
         return html`
-          <dds-left-nav-menu panel-id=${elem.panelId} ?active="${selected}" title="${elem.title}" data-autoid="${elem.autoid}">
+          <dds-left-nav-menu
+            ?last-highlighted=${elem.lastHighlightedItem}
+            panel-id=${elem.panelId}
+            ?active="${selected}"
+            title="${elem.title}"
+            data-autoid="${elem.autoid}"
+          >
           </dds-left-nav-menu>
         `;
       }
 
       return html`
         <dds-left-nav-item
+          ?last-highlighted=${elem.lastHighlightedItem}
           ?active="${selected}"
           href="${elem.url}"
           title="${elem.title}"
@@ -305,6 +263,15 @@ class DDSMastheadComposite extends LitElement {
         ></dds-left-nav-item>
       `;
     });
+
+    if (heading) {
+      items.unshift(
+        html`
+          <dds-left-nav-menu-category-heading>${heading}</dds-left-nav-menu-category-heading>
+        `
+      );
+    }
+
     return html`
       <dds-left-nav-menu-section
         section-id="${sectionId}"
@@ -331,20 +298,35 @@ class DDSMastheadComposite extends LitElement {
       if (elem.menuSections) {
         const level1Items: {
           title: string;
-          heading?: string;
           panelId: string;
           autoid: string;
+          lastHighlightedItem: boolean;
           url?: string;
           menu: boolean;
         }[] = [];
 
+        let menuElems = elem.menuSections;
+        let highlightedItems: MastheadMenuItem[] = [];
+
+        if (elem.hasMegapanel) {
+          const { viewAllLink, highlightedItems: hightlighted, menu: nonHighlightedMenuItems } = this._getHighlightedMenuItems(
+            elem.menuSections
+          );
+          highlightedItems = hightlighted;
+          menuElems = hightlighted.concat(nonHighlightedMenuItems);
+          if (viewAllLink) {
+            menuElems.push(viewAllLink);
+          }
+        }
         // render level 1 menu sections
-        elem.menuSections[0].menuItems?.map((item, k) => {
+        menuElems?.map((item, k) => {
           const level2Items: {
             title: string;
             url?: string;
             autoid: string;
           }[] = [];
+
+          const lastHighlighted = k + 1 === highlightedItems.length;
 
           // render level 2 menu sections
           item.megapanelContent?.quickLinks?.links.map((submenu, j) => {
@@ -355,19 +337,28 @@ class DDSMastheadComposite extends LitElement {
             });
           });
           if (level2Items.length !== 0) {
-            menu.push(this._renderLeftNavMenuSections(level2Items, selectedMenuItem, true, item.title, `${i}, ${k}`));
+            menu.push(this._renderLeftNavMenuSections(level2Items, null, selectedMenuItem, true, item.title, `${i}, ${k}`));
           }
 
           return level1Items.push({
             title: item.title,
-            heading: elem.menuSections[0].heading,
             autoid: `${autoid}--sidenav--nav${i}-list${k}`,
+            lastHighlightedItem: lastHighlighted,
             url: item.url,
             panelId: `${i}, ${k}`,
             menu: !!item.megapanelContent?.quickLinks?.links,
           });
         });
-        menu.push(this._renderLeftNavMenuSections(level1Items, selectedMenuItem, true, elem.title, `${i}, -1`));
+        menu.push(
+          this._renderLeftNavMenuSections(
+            level1Items,
+            elem.menuSections[0]?.heading,
+            selectedMenuItem,
+            true,
+            elem.title,
+            `${i}, -1`
+          )
+        );
       }
       return {
         title: elem.title,
@@ -380,7 +371,7 @@ class DDSMastheadComposite extends LitElement {
     });
 
     return html`
-      ${this._renderLeftNavMenuSections(level0Items, selectedMenuItem, null, null, '-1, -1')} ${menu}
+      ${this._renderLeftNavMenuSections(level0Items, null, selectedMenuItem, null, null, '-1, -1')} ${menu}
     `;
   }
 
@@ -465,7 +456,7 @@ class DDSMastheadComposite extends LitElement {
           });
     }
 
-    return this._renderLeftNav(menu, selectedMenuItem, autoid);
+    return !menu ? undefined : this._renderLeftNav(menu, selectedMenuItem, autoid);
   }
 
   /**
