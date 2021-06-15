@@ -7,15 +7,13 @@
 
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import logosGroup from '../../../logo-grid/__stories__/data/logos.js';
-
-import imgSm16x9 from '../../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
-import imgMd16x9 from '../../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
-import imgLg16x9 from '../../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
 import imgLg1x1 from '../../../../../../storybook-images/assets/960/fpo--1x1--960x960--006.jpg';
-import imgXlg4x3 from '../../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
-
 import leadspaceImg from '../../../../../../storybook-images/assets/leadspace/leadspaceMax2.jpg';
+
+const copy = `Many organizations are engaging in open source technology to optimize their Linux environment.
+The ability to integrate open systems with traditional or hybrid cloud IT infrastructure has a profound effect
+on driving innovation and a growing number of IT professionals are actively participating in open source
+communities as a way to stay at the forefront of development.`;
 
 const StoryContent = () =>
   html`
@@ -25,7 +23,6 @@ const StoryContent = () =>
       alt="Image alt text"
       default-src="${leadspaceImg}"
       data-autoid="dds--leadspace"
-      type="left"
     >
       <dds-leadspace-heading role="heading" aria-level="1" slot="heading"
         >Linux servers and operating systems</dds-leadspace-heading
@@ -62,25 +59,20 @@ const StoryContent = () =>
             <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path></svg
         ></dds-button-group-item>
       </dds-button-group>
-      <dds-image slot="image" alt="Image alt text" default-src="${leadspaceImg}" data-autoid="dds--image">
+      <dds-leadspace-image slot="image" alt="Image alt text" default-src="${leadspaceImg}" data-autoid="dds--image">
         <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
         <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
-      </dds-image>
+      </dds-leadspace-image>
     </dds-leadspace>
     <main>
-      <div class="bx--grid">
+      <div class="bx--grid bx--grid--narrow">
         <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12">
+          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-4">
             <dds-content-block-simple>
               <dds-content-block-heading
                 >Flexibility and control are the key to open source Linux development</dds-content-block-heading
               >
-              <dds-content-block-copy size="sm">
-                Many organizations are engaging in open source technology to optimize their Linux environment. The ability to
-                integrate open systems with traditional or hybrid cloud IT infrastructure has a profound effect on driving
-                innovation and a growing number of IT professionals are actively participating in open source communities as a way
-                to stay at the forefront of development.
-              </dds-content-block-copy>
+              <dds-content-block-copy allowHTML="false" size="sm">${copy}</dds-content-block-copy>
               <dds-text-cta slot="footer" cta-type="local" href="https://example.com">
                 Explore supply chain consulting services
               </dds-text-cta>
@@ -88,7 +80,7 @@ const StoryContent = () =>
           </div>
         </div>
         <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-16">
+          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-4">
             <dds-content-block-simple>
               <dds-content-block-heading>What sets IBM Linux servers apart?</dds-content-block-heading>
               <dds-link-list type="default" slot="complementary">
@@ -102,48 +94,58 @@ const StoryContent = () =>
                   <dds-card-cta-footer></dds-card-cta-footer>
                 </dds-link-list-item-card-cta>
               </dds-link-list>
-              <dds-content-item>
-                <dds-content-item-heading>Industry-leading performance</dds-content-item-heading>
-                <dds-content-item-copy
-                  >Potential for 30% improvement in transactional response time with fast data retrieval and queries, plus disk
-                  space compression.</dds-content-item-copy
-                >
-              </dds-content-item>
-              <dds-content-item>
-                <dds-content-item-heading>Advanced protection</dds-content-item-heading>
-                <dds-content-item-copy
-                  >Sophisticated authorization, encryption at rest and in transit, and comprehensive security controls for
-                  managing GDPR compliance.</dds-content-item-copy
-                >
-              </dds-content-item>
-              <dds-content-item>
-                <dds-content-item-heading>Continuous availability</dds-content-item-heading>
-                <dds-content-item-copy
-                  >Auto resynchronization and recovery plus clustering with IBM pureScale® to keep your business running
-                  24x7.</dds-content-item-copy
-                >
-              </dds-content-item>
-              <dds-content-item>
-                <dds-content-item-heading>Automated administration and tooling</dds-content-item-heading>
-                <dds-content-item-copy
-                  >Automatic setup, optimization, diagnostics and management of the database environment to save administration
-                  time and cut maintenance costs.</dds-content-item-copy
-                >
-              </dds-content-item>
-              <dds-content-item>
-                <dds-content-item-heading>Multiple data types and languages</dds-content-item-heading>
-                <dds-content-item-copy
-                  >Integration with multiple platforms to build robust apps. Supports NoSQL, pureXML, Graph and JSON, Java, .Net,
-                  Ruby, Python, Perl and more.</dds-content-item-copy
-                >
-              </dds-content-item>
-              <dds-content-item>
-                <dds-content-item-heading>Scaling</dds-content-item-heading>
-                <dds-content-item-copy
-                  >Elastic scaling of up to 128 machines in multicloud and hybrid environments to reduce storage costs, plus data
-                  federation to eliminate data silos.</dds-content-item-copy
-                >
-              </dds-content-item>
+              <dds-content-block-copy>
+                <dds-content-item>
+                  <dds-content-item-heading>Industry-leading performance</dds-content-item-heading>
+                  <dds-content-item-copy
+                    >Potential for 30% improvement in transactional response time with fast data retrieval and queries, plus disk
+                    space compression.</dds-content-item-copy
+                  >
+                </dds-content-item>
+                <dds-content-item>
+                  <dds-content-item-heading>Advanced protection</dds-content-item-heading>
+                  <dds-content-item-copy
+                    >Sophisticated authorization, encryption at rest and in transit, and comprehensive security controls for
+                    managing GDPR compliance.</dds-content-item-copy
+                  >
+                </dds-content-item>
+                <dds-content-item>
+                  <dds-content-item-heading>Continuous availability</dds-content-item-heading>
+                  <dds-content-item-copy
+                    >Auto resynchronization and recovery plus clustering with IBM pureScale® to keep your business running
+                    24x7.</dds-content-item-copy
+                  >
+                </dds-content-item>
+                <dds-content-item>
+                  <dds-content-item-heading>Automated administration and tooling</dds-content-item-heading>
+                  <dds-content-item-copy
+                    >Automatic setup, optimization, diagnostics and management of the database environment to save administration
+                    time and cut maintenance costs.</dds-content-item-copy
+                  >
+                </dds-content-item>
+                <dds-content-item>
+                  <dds-content-item-heading>Multiple data types and languages</dds-content-item-heading>
+                  <dds-content-item-copy
+                    >Integration with multiple platforms to build robust apps. Supports NoSQL, pureXML, Graph and JSON, Java,
+                    .Net, Ruby, Python, Perl and more.</dds-content-item-copy
+                  >
+                </dds-content-item>
+                <dds-content-item>
+                  <dds-content-item-heading>Scaling</dds-content-item-heading>
+                  <dds-content-item-copy
+                    >Elastic scaling of up to 128 machines in multicloud and hybrid environments to reduce storage costs, plus
+                    data federation to eliminate data silos.</dds-content-item-copy
+                  >
+                </dds-content-item>
+              </dds-content-block-copy>
+            </dds-content-block-simple>
+          </div>
+        </div>
+      </div>
+      <div class="bx--grid bx--no-gutter">
+        <div class="bx--row">
+          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-8 bx--offset-lg-4">
+            <dds-content-group>
               <dds-feature-card href="https://example.com">
                 <dds-image slot="image" alt="Feature card image" default-src="${imgLg1x1}"></dds-image>
                 <dds-card-heading
@@ -153,9 +155,11 @@ const StoryContent = () =>
                   ${ArrowRight20({ slot: 'icon' })}
                 </dds-feature-card-footer>
               </dds-feature-card>
-            </dds-content-block-simple>
+            </dds-content-group>
           </div>
         </div>
+      </div>
+      <div class="bx--grid bx--no-gutter">
         <div class="bx--row">
           <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-16">
             <dds-card-section-simple>
