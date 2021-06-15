@@ -34,7 +34,40 @@ const LegalNav = ({ links, type, button, adjunctLinks }) => {
       <nav className={`${prefix}--legal-nav`}>
         <div className={`${prefix}--legal-nav__list ${listStyle}`}>
           <ul className={`${prefix}--legal-nav__holder`}>
-            {links.map(({ title, titleEnglish, url }, index) => {
+            {links &&
+              links.map(({ title, titleEnglish, url }, index) => {
+                if (!title || !url) {
+                  return null;
+                }
+
+                const dataTitle = titleEnglish
+                  ? titleEnglish
+                      .replace(/[^-a-zA-Z0-9_ ]/g, '')
+                      .replace(/ +/g, '-')
+                      .toLowerCase()
+                  : null;
+
+                return (
+                  <li className={`${prefix}--legal-nav__list-item`} key={index}>
+                    <Link
+                      data-autoid={`${stablePrefix}--footer-legal-nav__link-${dataTitle}`}
+                      className={`${prefix}--footer__link`}
+                      href={url}>
+                      {title}
+                    </Link>
+                  </li>
+                );
+              })}
+            <li
+              className={`${prefix}--legal-nav__list-item`}
+              data-autoid={`${stablePrefix}--privacy-cp`}
+            />
+          </ul>
+          {button}
+        </div>
+        <ul className={`${prefix}--adjunct-links__holder`}>
+          {adjunctLinks &&
+            adjunctLinks.map(({ title, titleEnglish, url }, index) => {
               if (!title || !url) {
                 return null;
               }
@@ -57,37 +90,6 @@ const LegalNav = ({ links, type, button, adjunctLinks }) => {
                 </li>
               );
             })}
-            <li
-              className={`${prefix}--legal-nav__list-item`}
-              data-autoid={`${stablePrefix}--privacy-cp`}
-            />
-          </ul>
-          {button}
-        </div>
-        <ul className={`${prefix}--adjunct-links__holder`}>
-          {adjunctLinks.map(({ title, titleEnglish, url }, index) => {
-            if (!title || !url) {
-              return null;
-            }
-
-            const dataTitle = titleEnglish
-              ? titleEnglish
-                  .replace(/[^-a-zA-Z0-9_ ]/g, '')
-                  .replace(/ +/g, '-')
-                  .toLowerCase()
-              : null;
-
-            return (
-              <li className={`${prefix}--legal-nav__list-item`} key={index}>
-                <Link
-                  data-autoid={`${stablePrefix}--footer-legal-nav__link-${dataTitle}`}
-                  className={`${prefix}--footer__link`}
-                  href={url}>
-                  {title}
-                </Link>
-              </li>
-            );
-          })}
         </ul>
       </nav>
     </aside>

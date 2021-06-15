@@ -145,9 +145,9 @@
 
   .#{$prefix}--adjunct-links__holder {
     margin-left: 0;
-    padding: $carbon--spacing-05 $carbon--layout-03 $carbon--spacing-09
+    padding: $carbon--spacing-03 $carbon--layout-04 $carbon--spacing-09
       $carbon--spacing-05;
-    width: 50%;
+    width: 100%;
 
     @include carbon--breakpoint('lg') {
       margin-left: 25%;
@@ -155,7 +155,7 @@
     }
 
     .#{$prefix}--legal-nav__list-item:not(:first-of-type) {
-      padding-top: $carbon--spacing-02;
+      padding-top: $carbon--spacing-03;
     }
   }
 
