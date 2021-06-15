@@ -1,0 +1,46 @@
+<!--
+@license
+
+Copyright IBM Corp. 2020
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+<head>
+  <title>@carbon/ibmdotcom-web-components example</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/plex.css" />
+  <style type="text/css">
+    /* Suppress custom element until styles are loaded */
+    dds-link-with-icon:not(:defined) {
+      display: none;
+    }
+
+    #app {
+      width: 300px;
+    }
+  </style>
+  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/link-with-icon.min.js"></script>
+</head>
+<body>
+<div id="app">
+  <dds-link-with-icon href="https://www.ibm.com/standards/web/carbon-for-ibm-dotcom">
+    Link text
+    <svg
+      slot="icon"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+    >
+      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+    </svg>
+  </dds-link-with-icon>
+</div>
+</body>
+</html>

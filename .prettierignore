@@ -18,3 +18,5 @@ carbon-tools
 CHANGELOG.md
 packages/**/src/internal/vendor
 packages/web-components/tests/snapshots
+packages/web-components/tests/e2e/build/examples-scaffold
+packages/web-components/tests/e2e/dist

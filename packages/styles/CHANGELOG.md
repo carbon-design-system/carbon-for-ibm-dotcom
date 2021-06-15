@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.20.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.20.0-rc.1...@carbon/ibmdotcom-styles@1.20.0) (2021-06-14)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.20.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.20.0-rc.0...@carbon/ibmdotcom-styles@1.20.0-rc.1) (2021-06-10)
+
+
+### Bug Fixes
+
+* **card-in-card:** lowered z-index value ([#6327](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6327)) ([e5283fb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e5283fb)), closes [#6326](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6326)
+* **leadspace:** overlapping bug ([#6336](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6336)) ([e5a1789](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e5a1789)), closes [#6323](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6323)
+
+
+
+
+
+# [1.20.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.19.1...@carbon/ibmdotcom-styles@1.20.0-rc.0) (2021-06-04)
+
+
+### Bug Fixes
+
+* **card-group:** optional border for card group default ([#6152](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6152)) ([440ffa0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/440ffa0))
+* **card-group:** optional border for card group default ([#6221](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6221)) ([51f91be](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/51f91be))
+* **card-static:** change background color on hover ([#6213](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6213)) ([95dd9e2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/95dd9e2))
+* **code-snippet:** expressive code snippet carbon 10.31.0 update adjustments ([#6171](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6171)) ([44145a1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/44145a1)), closes [#5611](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5611)
+* **content-block:** heading spacing fix ([#6103](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6103)) ([f49b1fd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f49b1fd))
+* **content-block-simple:** storybook cleanup ([#5943](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5943)) ([3a62dfe](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3a62dfe))
+* **content-group-simple:** multiple storybook fixes ([#6092](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6092)) ([ae07c6e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ae07c6e))
+* **horizontal-rule:** update grid layout ([#6037](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6037)) ([4a12651](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4a12651))
+* **leadspace:** add super variation and tag group ([#6154](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6154)) ([d0994f3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d0994f3)), closes [#5960](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5960) [#6153](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6153) [#6160](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6160)
+* **leadspace:** added deprecation warning and sync with web-components version ([#6166](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6166)) ([5ab11b0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5ab11b0)), closes [#5507](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5507)
+* **leadspace:** breadcrumb style import ([#6239](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6239)) ([27eabf1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/27eabf1)), closes [#6237](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6237)
+* **leadspace:** fixes gradient and adds new leadspace image ([#6259](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6259)) ([ae0021a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ae0021a))
+* **leadspace:** wrap breadcrumb after full row ([#6216](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6216)) ([7b860a9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7b860a9))
+* **linklist:** video heading link style is broken ([#6184](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6184)) ([3235d04](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3235d04)), closes [#6086](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6086)
+* **logo-grid:** styles and functionality fixes ([#6097](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6097)) ([4520af3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4520af3)), closes [#6040](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6040)
+* **masthead:** apply global styles updates based on Unified Cloud Masthead project ([#5922](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5922)) ([1882bf1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1882bf1))
+* **tabs-extended:** label wraps 2 lines then truncates with tooltip ([#6155](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6155)) ([2b673cf](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2b673cf)), closes [#5963](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5963)
+
+
+### Features
+
+* **content-block-card-static:** created component ([#6198](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6198)) ([3ff3fe4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3ff3fe4)), closes [#5961](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5961)
+* audio-player and kaltura player service ([#6102](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6102)) ([d9ebe96](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d9ebe96)), closes [#5105](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5105)
+* **card:** introducing static variant with tag-group ([#6133](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6133)) ([9fcc91f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9fcc91f)), closes [#5962](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5962)
+* **tag-group:** create new component ([#6107](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6107)) ([3a4a064](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3a4a064)), closes [#5996](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5996)
+* **tag-link:** create new component ([#6038](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6038)) ([b47b0e1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b47b0e1)), closes [#5957](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5957)
+
+
+
+
+
 ## [1.19.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.19.1-rc.0...@carbon/ibmdotcom-styles@1.19.1) (2021-06-01)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

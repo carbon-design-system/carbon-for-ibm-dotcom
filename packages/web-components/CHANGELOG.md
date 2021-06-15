@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.5.0-rc.1...@carbon/ibmdotcom-web-components@1.5.0) (2021-06-14)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.5.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.5.0-rc.0...@carbon/ibmdotcom-web-components@1.5.0-rc.1) (2021-06-10)
+
+
+### Bug Fixes
+
+* **card-group:** use default import for sameHeight utility function ([#6318](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6318)) ([1c8f59b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/1c8f59b))
+* **leadspace:** overlapping bug ([#6336](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6336)) ([e5a1789](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/e5a1789)), closes [#6323](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6323)
+
+
+
+
+
+# [1.5.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.5.0-beta.60.60...@carbon/ibmdotcom-web-components@1.5.0-rc.0) (2021-06-04)
+
+
+### Features
+
+* **content-block-card-static:** created component ([#6198](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6198)) ([3ff3fe4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/3ff3fe4)), closes [#5961](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5961)
+
+
+
+
+
 ## [1.4.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.4.1-rc.1...@carbon/ibmdotcom-web-components@1.4.1) (2021-06-01)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components

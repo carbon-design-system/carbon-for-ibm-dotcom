@@ -50,7 +50,7 @@
       background-color: $ui-01;
       height: auto;
       padding: $carbon--spacing-05;
-      z-index: 5;
+      z-index: 1;
 
       @include carbon--breakpoint('lg') {
         width: 33.33%;

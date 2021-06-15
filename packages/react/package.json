@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-react",
   "description": "Carbon for IBM.com React Components",
-  "version": "1.19.1",
+  "version": "1.20.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -54,9 +54,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@carbon/ibmdotcom-services": "1.19.1",
-    "@carbon/ibmdotcom-styles": "1.19.1",
-    "@carbon/ibmdotcom-utilities": "1.19.1",
+    "@carbon/ibmdotcom-services": "1.20.0",
+    "@carbon/ibmdotcom-styles": "1.20.0",
+    "@carbon/ibmdotcom-utilities": "1.20.0",
     "@carbon/telemetry": "^0.0.0-alpha.6",
     "autosuggest-highlight": "^3.1.1",
     "carbon-components": "10.36.0",
