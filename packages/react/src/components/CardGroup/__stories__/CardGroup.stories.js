@@ -130,7 +130,7 @@ Default.story = {
         }).map(_ => defaultCard),
         border: boolean('Outlined cards:', false, groupId),
         cardsPerRow: select(
-          'Number of cards per row (--dds--card-group--cards-in-row CSS custom property):',
+          'Number of cards per row (cardsPerRow):',
           cardsCol,
           cardsCol['3 cards per row (Default)'],
           groupId
@@ -166,7 +166,7 @@ WithCTA.story = {
         }).map(_ => defaultCard),
         cta: groupCTA,
         cardsPerRow: select(
-          'Number of cards per row (--dds--card-group--cards-in-row CSS custom property):',
+          'Number of cards per row (cardsPerRow):',
           cardsCol,
           cardsCol['3 cards per row (Default)'],
           groupId
@@ -201,7 +201,7 @@ WithImages.story = {
           length: number('Number of cards', 5, {}, groupId),
         }).map(_ => cardWithImages),
         cardsPerRow: select(
-          'Number of cards per row (--dds--card-group--cards-in-row CSS custom property):',
+          'Number of cards per row (cardsPerRow):',
           cardsCol,
           cardsCol['3 cards per row (Default)'],
           groupId
@@ -234,7 +234,7 @@ WithImagesAndCTA.story = {
         }).map(_ => cardWithImages),
         cta: groupCTA,
         cardsPerRow: select(
-          'Number of cards per row (--dds--card-group--cards-in-row CSS custom property):',
+          'Number of cards per row (cardsPerRow):',
           cardsCol,
           cardsCol['3 cards per row (Default)'],
           groupId

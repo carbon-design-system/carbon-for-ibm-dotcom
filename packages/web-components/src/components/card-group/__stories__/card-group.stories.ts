@@ -145,12 +145,7 @@ withCTA.story = {
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
         }).map(() => cardGroupItemWithCTAs),
-        cardsPerRow: select(
-          'Number of cards per row (--dds--card-group--cards-in-row CSS custom property):',
-          cardsCol,
-          cardsCol['3 cards per row (Default)'],
-          groupId
-        ),
+        cardsPerRow: select('Number of cards per row (cards-per-row):', cardsCol, cardsCol['3 cards per row (Default)'], groupId),
       }),
     },
   },
@@ -174,12 +169,7 @@ withImages.story = {
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
         }).map(() => cardGroupItemWithImages),
-        cardsPerRow: select(
-          'Number of cards per row (--dds--card-group--cards-in-row CSS custom property):',
-          cardsCol,
-          cardsCol['3 cards per row (Default)'],
-          groupId
-        ),
+        cardsPerRow: select('Number of cards per row (cards-per-row):', cardsCol, cardsCol['3 cards per row (Default)'], groupId),
       }),
     },
   },
@@ -250,12 +240,7 @@ withMixedMedia.story = {
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
         }).map((_, index) => (index % 2 ? cardGroupItemWithImages : cardGroupItemWithVideos)),
-        cardsPerRow: select(
-          'Number of cards per row (--dds--card-group--cards-in-row CSS custom property):',
-          cardsCol,
-          cardsCol['3 cards per row (Default)'],
-          groupId
-        ),
+        cardsPerRow: select('Number of cards per row (cards-per-row):', cardsCol, cardsCol['3 cards per row (Default)'], groupId),
       }),
     },
   },
@@ -316,12 +301,7 @@ export default {
       CardGroup: ({ groupId }) => ({
         cards: number('Number of cards', 5, {}, groupId),
         optionalBorder: boolean('Outlined cards:', false, groupId),
-        cardsPerRow: select(
-          'Number of cards per row (--dds--card-group--cards-in-row CSS custom property):',
-          cardsCol,
-          cardsCol['3 cards per row (Default)'],
-          groupId
-        ),
+        cardsPerRow: select('Number of cards per row (cards-per-row):', cardsCol, cardsCol['3 cards per row (Default)'], groupId),
       }),
     },
     decorators: [
