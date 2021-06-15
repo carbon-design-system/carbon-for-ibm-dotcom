@@ -12,11 +12,9 @@ import { internalProperty, customElement, html, LitElement, property } from 'lit
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { LINK_LIST_TYPE } from './defs';
+import { LINK_LIST_TYPE, LINK_LIST_ITEM_TYPE } from './defs';
 import styles from './link-list.scss';
-import DDSLinkListItem, { LINK_LIST_ITEM_TYPE } from './link-list-item';
-
-export { LINK_LIST_TYPE };
+import DDSLinkListItem from './link-list-item';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
