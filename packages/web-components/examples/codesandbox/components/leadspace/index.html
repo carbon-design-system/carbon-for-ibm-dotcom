@@ -11,10 +11,11 @@ LICENSE file in the root directory of this source tree.
   <head>
     <title>@carbon/ibmdotcom-web-components example</title>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/plex.css" />
     <style type="text/css">
-      /* Avoids FOUC - Will be overriden by `index.scss` */
-      body {
-        visibility: hidden;
+      /* Suppress custom element until styles are loaded */
+      dds-leadspace:not(:defined) {
+        display: none;
       }
     </style>
     <script type="module" src="src/index.js"></script>
@@ -40,10 +41,10 @@ LICENSE file in the root directory of this source tree.
                 </svg>
               </dds-button-group-item>
             </dds-button-group>
-            <dds-image slot="image" class="bx--image" alt="Image alt text" default-src="http://ibmdotcom-web-components-canary.mybluemix.net/91dd8c7e3d16deb031ba01bbb7aab9a6.jpg" data-autoid="dds--image">
+            <dds-leadspace-image slot="image" class="bx--image" alt="Image alt text" default-src="http://ibmdotcom-web-components-canary.mybluemix.net/91dd8c7e3d16deb031ba01bbb7aab9a6.jpg" data-autoid="dds--image">
               <dds-image-item media="(min-width: 672px)" srcset="http://ibmdotcom-web-components-canary.mybluemix.net/91dd8c7e3d16deb031ba01bbb7aab9a6.jpg"></dds-image-item>
               <dds-image-item media="(min-width: 0)" srcset="http://ibmdotcom-web-components-canary.mybluemix.net/91dd8c7e3d16deb031ba01bbb7aab9a6.jpg"></dds-image-item>
-            </dds-image>
+            </dds-leadspace-image>
           </dds-leadspace>
         </div>
       </div>

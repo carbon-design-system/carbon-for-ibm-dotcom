@@ -47,18 +47,11 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * Sets background image for leadspace centered
-   */
-  protected _getBackgroundImage() {
-    return this.defaultSrc && this.type === LEADSPACE_TYPE.CENTERED ? `background-image: url(${this.defaultSrc})` : '';
-  }
-
-  /**
    * Returns a class-name based on the gradient parameter type
    */
   protected _getGradientClass() {
     return classMap({
-      [`${prefix}--leadspace--gradient`]: this.gradientStyleScheme === LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT,
+      [`${prefix}--leadspace--gradient`]: this.defaultSrc,
       [`${prefix}--leadspace__overlay`]: true,
     });
   }
@@ -82,7 +75,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
     return classMap({
       [`${prefix}--leadspace__container--super`]: this.size === LEADSPACE_SIZE.SUPER,
       [`${prefix}--leadspace__container--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
-      [`${prefix}--leadspace__container`]: this.size === LEADSPACE_SIZE.NONE,
+      [`${prefix}--leadspace__container`]: this.size === LEADSPACE_SIZE.NONE || this.size === LEADSPACE_SIZE.TALL,
     });
   }
 
@@ -107,7 +100,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
     return classMap({
       [`${prefix}--leadspace__desc--super`]: this.size === LEADSPACE_SIZE.SUPER,
       [`${prefix}--leadspace__desc--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
-      [`${prefix}--leadspace__desc`]: this.size === LEADSPACE_SIZE.NONE,
+      [`${prefix}--leadspace__desc`]: this.size === LEADSPACE_SIZE.NONE || this.size === LEADSPACE_SIZE.TALL,
     });
   }
 
@@ -116,7 +109,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
    */
   protected _getContentType() {
     return classMap({
-      [`${prefix}--leadspace--content__container`]: this.size === LEADSPACE_SIZE.NONE,
+      [`${prefix}--leadspace--content__container`]: this.size === LEADSPACE_SIZE.NONE || this.size === LEADSPACE_SIZE.TALL,
       [`${prefix}--leadspace--content__container--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
       [`${prefix}--leadspace--content__container--super`]: this.size === LEADSPACE_SIZE.SUPER,
     });
@@ -129,23 +122,6 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
     const { title } = this;
     return html`
       <slot name="heading">${title}</slot>
-    `;
-  }
-
-  /**
-   *  Renders the image slot or the mobile image for centered leadspace
-   */
-  protected _renderImage() {
-    const { defaultSrc, alt, type } = this;
-    if (this.defaultSrc && type === LEADSPACE_TYPE.CENTERED) {
-      return html`
-        <div data-autoid="${ddsPrefix}--leadspace--centered--mobile__image" class="${prefix}--leadspace--centered--mobile__image">
-          <img src="${defaultSrc}" alt="${alt}" loading="lazy" />
-        </div>
-      `;
-    }
-    return html`
-      <slot name="image"></slot>
     `;
   }
 
@@ -194,7 +170,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   render() {
     const { gradientStyleScheme, type } = this;
     return html`
-      <section style="${this._getBackgroundImage()}" class="${this._getTypeClass()}" part="section">
+      <section class="${this._getTypeClass()}" part="section">
         <div class="${this._getContainerClass()}">
           <div class="${this._getGradientClass()}">
             ${gradientStyleScheme === LEADSPACE_GRADIENT_STYLE_SCHEME.NONE
@@ -219,6 +195,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
                         `
                           : svg`
                           <stop offset="0%" />
+                          <stop offset="25%" />
                           <stop offset="50%" />
                           <stop offset="75%" />
                         `
@@ -239,7 +216,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
               </div>
             </div>
           </div>
-          ${this._renderImage()}
+          <slot name="image"></slot>
         </div>
       </section>
     `;

@@ -107,7 +107,9 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           ${sortedMenuItems.map(item => {
             return html`
               <div id="panel-${item.itemKey}" role="tabpanel" aria-labelledby="tab-${item.itemKey}" hidden>
-                <dds-cloud-megamenu-category-heading title="${item.megapanelContent?.headingTitle}"
+                <dds-cloud-megamenu-category-heading
+                  href="${item.megapanelContent?.headingUrl}"
+                  title="${item.megapanelContent?.headingTitle}"
                   >${item.megapanelContent?.description}</dds-cloud-megamenu-category-heading
                 >
                 <dds-cloud-megamenu-category-link-group>
@@ -164,8 +166,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           : html`
               <dds-left-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-left-nav-name>
             `}
-        ${l1Data ? undefined : this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
-        ${l1Data ? this._renderL1Items({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV }) : undefined}
+        ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV, hasL1: !!l1Data })}
         ${authenticated
           ? null
           : html`
@@ -177,7 +178,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
             `}
         ${ctaButtons?.map(item => {
           return html`
-            <dds-cloud-left-nav-item href="${item.url}" title="${item.title}" class="left-nav-cta"></dds-cloud-left-nav-item>
+            <dds-cloud-left-nav-item href="${item.url}" title="${item.title}"></dds-cloud-left-nav-item>
           `;
         })}
       </dds-left-nav>
@@ -198,7 +199,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           ? undefined
           : html`
               <dds-top-nav menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
-                ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
+                ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: false })}
               </dds-top-nav>
             `}
         <dds-masthead-search-composite

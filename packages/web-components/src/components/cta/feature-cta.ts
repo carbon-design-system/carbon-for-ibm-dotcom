@@ -7,8 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import { property, customElement, html } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import {
   formatVideoCaption,
@@ -17,14 +16,17 @@ import {
 import DDSFeatureCard from '../feature-card/feature-card';
 import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
+/* eslint-disable import/no-duplicates */
 import DDSFeatureCTAFooter from './feature-cta-footer';
+import './feature-cta-footer';
+/* eslint-enable import/no-duplicates */
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
+
 import '../image/image';
 
 export { CTA_TYPE };
 
-const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -41,23 +43,28 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
       videoName,
       formatVideoCaption: formatCaptionInEffect,
       formatVideoDuration: formatDurationInEffect,
-      _hasCopy: hasCopy,
     } = this;
     if (ctaType !== CTA_TYPE.VIDEO) {
       return super._renderCopy();
     }
-    const caption = hasCopy
-      ? undefined
-      : formatCaptionInEffect({
-          duration: formatDurationInEffect({ duration: !videoDuration ? videoDuration : videoDuration * 1000 }),
-          name: videoName,
-        });
+    const caption = formatCaptionInEffect({
+      duration: formatDurationInEffect({ duration: !videoDuration ? videoDuration : videoDuration * 1000 }),
+      name: videoName,
+    });
+
+    this.captionHeading = caption;
     return html`
-      <div ?hidden="${!hasCopy && !caption}" class="${prefix}--card__copy">
-        <slot @slotchange="${this._handleSlotChange}"></slot>${caption}
+      <div class="bx--card__copy">
+        <slot @slotchange="${this._handleSlotChange}"></slot>
       </div>
     `;
   }
+
+  /**
+   * The video caption to replace the heading with.
+   */
+  @property({ attribute: false })
+  captionHeading;
 
   /**
    * The CTA type.
@@ -107,6 +114,18 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
         (footer as DDSFeatureCTAFooter).ctaType = ctaType;
       }
     }
+    if (changedProperties.has('captionHeading')) {
+      (this.querySelector(
+        (this.constructor as typeof DDSFeatureCTA).selectorHeading
+      ) as HTMLElement)!.innerText = this.captionHeading;
+    }
+  }
+
+  /**
+   * A selector that will return the child heading.
+   */
+  static get selectorHeading() {
+    return `${ddsPrefix}-card-heading`;
   }
 
   /**

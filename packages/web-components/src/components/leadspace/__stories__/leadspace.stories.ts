@@ -7,27 +7,20 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { text, select, number } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20.js';
 import Pdf20 from 'carbon-web-components/es/icons/PDF/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-/* eslint-disable import/no-duplicates */
-import { LEADSPACE_GRADIENT_STYLE_SCHEME } from '../leadspace';
 
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
-import leadspaceImg from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
+import leadspaceImg from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import { LEADSPACE_SIZE } from '../defs';
-
-const gradientStyleSchemes = {
-  [`Without gradient (${LEADSPACE_GRADIENT_STYLE_SCHEME.NONE})`]: LEADSPACE_GRADIENT_STYLE_SCHEME.NONE,
-  [`With gradient (${LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT})`]: LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT,
-};
 
 const navigationOptions = ['with Tag group (using Tag link)', 'with Breadcrumbs', 'none'];
 
@@ -53,9 +46,9 @@ const navigationWithBreadcrumbs = html`
 `;
 
 export const TallWithNoImage = ({ parameters }) => {
-  const { alt, defaultSrc, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
+  const { title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace size="${LEADSPACE_SIZE.NONE}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
+    <dds-leadspace size="${LEADSPACE_SIZE.NONE}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
@@ -75,6 +68,7 @@ export const TallWithNoImage = ({ parameters }) => {
 
 export const TallWithImage = ({ parameters }) => {
   const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
+  const image = defaultSrc || leadspaceImg;
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.NONE}"
@@ -95,10 +89,10 @@ export const TallWithImage = ({ parameters }) => {
           `;
         })}
       </dds-button-group>
-      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
-        <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
-        <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
-      </dds-image>
+      <dds-leadspace-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${image}">
+        <dds-image-item media="(min-width: 672px)" srcset="${image}"></dds-image-item>
+        <dds-image-item media="(min-width: 0)" srcset="${image}"></dds-image-item>
+      </dds-leadspace-image>
     </dds-leadspace>
   `;
 };
@@ -126,6 +120,7 @@ export const Centered = ({ parameters }) => {
 
 export const CenteredWithImage = ({ parameters }) => {
   const { alt, defaultSrc, gradient, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
+  const image = defaultSrc || leadspaceImg;
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.NONE}"
@@ -147,18 +142,18 @@ export const CenteredWithImage = ({ parameters }) => {
           `;
         })}
       </dds-button-group>
-      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
-        <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
-        <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
-      </dds-image>
+      <dds-leadspace-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${image}">
+        <dds-image-item media="(min-width: 672px)" srcset="${image}"></dds-image-item>
+        <dds-image-item media="(min-width: 0)" srcset="${image}"></dds-image-item>
+      </dds-leadspace-image>
     </dds-leadspace>
   `;
 };
 
 export const Medium = ({ parameters }) => {
-  const { alt, defaultSrc, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
+  const { title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace size="${LEADSPACE_SIZE.MEDIUM}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
+    <dds-leadspace size="${LEADSPACE_SIZE.MEDIUM}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
@@ -178,6 +173,7 @@ export const Medium = ({ parameters }) => {
 
 export const MediumWithImage = ({ parameters }) => {
   const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
+  const image = defaultSrc || leadspaceImg;
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.MEDIUM}"
@@ -198,18 +194,18 @@ export const MediumWithImage = ({ parameters }) => {
           `;
         })}
       </dds-button-group>
-      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
-        <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
-        <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
-      </dds-image>
+      <dds-leadspace-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${image}">
+        <dds-image-item media="(min-width: 672px)" srcset="${image}"></dds-image-item>
+        <dds-image-item media="(min-width: 0)" srcset="${image}"></dds-image-item>
+      </dds-leadspace-image>
     </dds-leadspace>
   `;
 };
 
 export const Super = ({ parameters }) => {
-  const { alt, defaultSrc, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
+  const { title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace size="${LEADSPACE_SIZE.SUPER}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
+    <dds-leadspace size="${LEADSPACE_SIZE.SUPER}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
@@ -229,6 +225,7 @@ export const Super = ({ parameters }) => {
 
 export const SuperWithImage = ({ parameters }) => {
   const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
+  const image = defaultSrc || leadspaceImg;
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.SUPER}"
@@ -249,10 +246,10 @@ export const SuperWithImage = ({ parameters }) => {
           `;
         })}
       </dds-button-group>
-      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
-        <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
-        <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
-      </dds-image>
+      <dds-leadspace-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${image}">
+        <dds-image-item media="(min-width: 672px)" srcset="${image}"></dds-image-item>
+        <dds-image-item media="(min-width: 0)" srcset="${image}"></dds-image-item>
+      </dds-leadspace-image>
     </dds-leadspace>
   `;
 };
@@ -300,13 +297,6 @@ export default {
         navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2], groupId),
         title: text('title (title):', 'Heading can go on two lines max', groupId),
         copy: text('copy (copy):', 'Use this area for a short line of copy to support the title', groupId),
-        gradient: boolean('gradient overlay (gradient)', true, groupId),
-        gradientStyleScheme: select(
-          'Gradient style scheme (gradient-style-scheme)',
-          gradientStyleSchemes,
-          LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT,
-          groupId
-        ),
         buttons: Array.from({
           length: number('Number of buttons', 2, {}, groupId),
         }).map((_, i) => {

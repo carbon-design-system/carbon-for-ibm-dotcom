@@ -145,13 +145,14 @@ LICENSE file in the root directory of this source tree.
     <link rel="alternate" hreflang="en-vn" href="https://www.ibm.com/vn-en" />
     <link rel="alternate" hreflang="en-zm" href="https://www.ibm.com/zm-en" />
     <link rel="alternate" hreflang="en-zw" href="https://www.ibm.com/zw-en" />
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/plex.css" />
     <style type="text/css">
-      /* Avoids FOUC - Will be overriden by `index.scss` */
-      body {
-        visibility: hidden;
+      /* Suppress custom element until styles are loaded */
+      dds-dotcom-shell-container:not(:defined) {
+        display: none;
       }
     </style>
-    <script type="module" src="src/index.js"></script>
+    <script type="module" src="src/index-cdn.js"></script>
   </head>
   <body>
     <dds-dotcom-shell-container>

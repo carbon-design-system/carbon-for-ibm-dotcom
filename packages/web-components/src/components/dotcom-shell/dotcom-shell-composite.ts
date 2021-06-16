@@ -116,13 +116,15 @@ class DDSDotcomShellComposite extends LitElement {
    * Resets masthead to top upon resize in larger breakpoints
    */
   private _handleResize() {
-    if (window.innerWidth >= gridBreakpoint && this._tableOfContentsLayout !== 'horizontal') {
-      this._masthead!.style.top = '0';
-    } else {
-      if (this._masthead!.getBoundingClientRect().top === 0) {
-        this._tableOfContentsInnerBar!.style.top = `${this._masthead!.offsetHeight}px`;
+    if (this._tableOfContentsInnerBar) {
+      if (window.innerWidth >= gridBreakpoint && this._tableOfContentsLayout !== 'horizontal') {
+        this._masthead!.style.top = '0';
+      } else {
+        if (this._masthead!.getBoundingClientRect().top === 0) {
+          this._tableOfContentsInnerBar!.style.top = `${this._masthead!.offsetHeight}px`;
+        }
+        this._handleIntersect();
       }
-      this._handleIntersect();
     }
   }
 
@@ -130,19 +132,25 @@ class DDSDotcomShellComposite extends LitElement {
    * Scrolls the masthead in/out of view depending on scroll direction if toc is present
    */
   private _handleIntersect = () => {
-    if (window.innerWidth < gridBreakpoint || this._tableOfContentsLayout === 'horizontal') {
-      const mastheadTop = Math.min(0, this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead!.offsetHeight);
-      const tocPosition = this._tableOfContentsInnerBar!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY;
-      this._masthead!.style.transition = 'none';
-      if (window.scrollY < this._lastScrollPosition) {
-        this._tableOfContentsInnerBar!.style.top = `${Math.min(tocPosition, this._masthead!.offsetHeight)}px`;
-        this._masthead!.style.top = `${mastheadTop}px`;
-      } else {
-        this._tableOfContentsInnerBar!.style.top = `${Math.max(tocPosition, 0)}px`;
-        this._masthead!.style.top = `${mastheadTop}px`;
+    if (this._tableOfContentsInnerBar) {
+      if (window.innerWidth < gridBreakpoint || this._tableOfContentsLayout === 'horizontal') {
+        const mastheadTop = Math.min(
+          0,
+          this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead!.offsetHeight
+        );
+        const tocPosition =
+          this._tableOfContentsInnerBar!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY;
+        this._masthead!.style.transition = 'none';
+        if (window.scrollY < this._lastScrollPosition) {
+          this._tableOfContentsInnerBar!.style.top = `${Math.min(tocPosition, this._masthead!.offsetHeight)}px`;
+          this._masthead!.style.top = `${mastheadTop}px`;
+        } else {
+          this._tableOfContentsInnerBar!.style.top = `${Math.max(tocPosition, 0)}px`;
+          this._masthead!.style.top = `${mastheadTop}px`;
+        }
       }
+      this._lastScrollPosition = window.scrollY;
     }
-    this._lastScrollPosition = window.scrollY;
   };
 
   connectedCallback() {

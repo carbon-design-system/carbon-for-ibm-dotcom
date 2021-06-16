@@ -103,7 +103,6 @@
   :host(#{$dds-prefix}-card-group),
   .#{$prefix}--card-group__cards__row {
     position: relative;
-
     &::after {
       content: '';
       display: block;
@@ -114,6 +113,24 @@
       top: 0;
       pointer-events: none;
       box-shadow: inset 0 0 0 1px $ui-background;
+    }
+  }
+
+  :host(#{$dds-prefix}-card-group-item),
+  .#{$prefix}--card-group__cards__col {
+    padding: 0;
+    background: $decorative-01;
+
+    border-right: 1px solid $decorative-01;
+    border-top: 1px solid $decorative-01;
+
+    &:last-of-type {
+      border-right: 0;
+      width: calc(100% - 1px);
+    }
+
+    .#{$prefix}--card--inverse {
+      height: 100%;
     }
   }
 
@@ -133,6 +150,7 @@
 
     ::slotted(#{$dds-prefix}-card-group-item),
     .#{$prefix}--card-group__cards__col {
+      border: 0;
       background-color: inherit;
       padding: $carbon--spacing-03 0 0 0;
 
@@ -142,23 +160,80 @@
     }
   }
 
-  :host(#{$dds-prefix}-card-group-item),
-  .#{$prefix}--card-group__cards__col {
-    padding-left: $carbon--grid-gutter--condensed / 2;
-    padding-right: $carbon--grid-gutter--condensed / 2;
+  :host(#{$dds-prefix}-card-group)[grid-mode='border'],
+  .#{$prefix}--card-group--border {
+    &::after {
+      content: none;
+      box-shadow: none;
+    }
 
-    background: $ui-03;
-    padding-top: $carbon--grid-gutter--condensed;
+    ::slotted(#{$dds-prefix}-card-group-item),
+    .#{$prefix}--card-group__cards__col {
+      padding: 0;
+      border: 1px solid $decorative-01;
+      border-bottom: 0;
+    }
 
-    &:last-of-type {
+    ::slotted(#{$dds-prefix}-card-group-item:last-of-type),
+    .#{$prefix}--card-group__cards__col:last-of-type {
+      border-bottom: 1px solid $decorative-01;
       padding-right: 0;
-      .#{$prefix}--card {
-        padding-right: $carbon--grid-gutter--condensed / 2;
+    }
+
+    @include carbon--breakpoint('md') {
+      ::slotted(#{$dds-prefix}-card-group-item),
+      .#{$prefix}--card-group__cards__col {
+        border-bottom: 0;
+        border-right: 0;
+      }
+
+      ::slotted(#{$dds-prefix}-card-group-item:nth-child(2n)),
+      ::slotted(#{$dds-prefix}-card-group-item:last-of-type),
+      .#{$prefix}--card-group__cards__col:nth-child(2n),
+      .#{$prefix}--card-group__cards__col:last-of-type {
+        border-right: 1px solid $decorative-01;
+      }
+
+      ::slotted(#{$dds-prefix}-card-group-item:last-of-type:not(:nth-child(2n))),
+      .#{$prefix}--card-group__cards__col:last-of-type:not(:nth-child(2n)) {
+        width: calc(100% + 1px);
+      }
+
+      ::slotted(#{$dds-prefix}-card-group-item:nth-last-of-type(-n + 2)),
+      .#{$prefix}--card-group__cards__col:nth-last-of-type(-n + 2) {
+        border-bottom: 1px solid $decorative-01;
+        height: calc(100% + 1px);
       }
     }
 
-    .#{$prefix}--card--inverse {
-      height: 100%;
+    @include carbon--breakpoint('lg') {
+      ::slotted(#{$dds-prefix}-card-group-item:nth-child(2n)),
+      ::slotted(#{$dds-prefix}-card-group-item:nth-last-of-type(-n + 2)),
+      .#{$prefix}--card-group__cards__col:nth-child(2n),
+      .#{$prefix}--card-group__cards__col:nth-last-of-type(-n + 2) {
+        border-bottom: 0;
+        border-right: 0;
+        height: auto;
+      }
+
+      ::slotted(#{$dds-prefix}-card-group-item:nth-child(3n)),
+      ::slotted(#{$dds-prefix}-card-group-item:last-of-type),
+      .#{$prefix}--card-group__cards__col:nth-child(3n),
+      .#{$prefix}--card-group__cards__col:last-of-type {
+        border-right: 1px solid $decorative-01;
+        width: calc(100% + 1px);
+      }
+
+      ::slotted(#{$dds-prefix}-card-group-item:nth-last-of-type(-n + 3)),
+      .#{$prefix}--card-group__cards__col:nth-last-of-type(-n + 3) {
+        border-bottom: 1px solid $decorative-01;
+        height: calc(100% + 1px);
+      }
+
+      ::slotted(#{$dds-prefix}-card-group-item:last-of-type:not(:nth-child(3n))),
+      .#{$prefix}--card-group__cards__col:last-of-type:not(:nth-child(3n)) {
+        width: calc(100% + 1px);
+      }
     }
   }
 

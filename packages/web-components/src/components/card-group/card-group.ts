@@ -11,7 +11,7 @@ import { classMap } from 'lit-html/directives/class-map';
 import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { sameHeight } from '@carbon/ibmdotcom-utilities';
+import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import { GRID_MODE } from './defs';
 import styles from './card-group.scss';
@@ -22,6 +22,10 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
+
+// tag constants used for same height calculations
+const headingBottomMargin = 64;
+const tagBottomMargin = 16;
 
 /**
  * Card Group.
@@ -39,6 +43,11 @@ class DDSCardGroup extends LitElement {
    * Array to hold the card-eyebrow elements within child items.
    */
   private _childItemEyebrows: any[] = [];
+
+  /**
+   * Array to hold the tag-group elements within child items.
+   */
+  private _childItemTagGroup: any[] = [];
 
   /**
    * Array to hold the card-cta-footer elements within child items.
@@ -89,6 +98,9 @@ class DDSCardGroup extends LitElement {
         this._childItemEyebrows.push(
           (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemEyebrow)
         );
+        this._childItemTagGroup.push(
+          (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemTagGroup)
+        );
         this._childItemHeadings.push(
           (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemHeading)
         );
@@ -110,7 +122,10 @@ class DDSCardGroup extends LitElement {
       // split arrays into chunks to handle height setting in each row separately
       const splitItemEyebrows = this._splitArrayPerRows(this._childItemEyebrows, columns);
       const splitItemHeadings = this._splitArrayPerRows(this._childItemHeadings, columns);
+      const splitItemTagGroup = this._splitArrayPerRows(this._childItemTagGroup, columns);
       const splitItemFooters = this._splitArrayPerRows(this._childItemFooters, columns);
+
+      const tagGroupHeightPerRow: number[] = [];
 
       splitItemEyebrows.forEach(row => {
         sameHeight(
@@ -135,6 +150,35 @@ class DDSCardGroup extends LitElement {
           }),
           'md'
         );
+      });
+
+      splitItemTagGroup.forEach(row => {
+        let maxTagGroupRowHeight = 0;
+
+        // get tallest height from each row
+        row.forEach(e => {
+          if (e) {
+            const groupHeight = (e as HTMLElement).offsetHeight;
+            if (groupHeight > maxTagGroupRowHeight) {
+              maxTagGroupRowHeight = groupHeight;
+            }
+          }
+        });
+        tagGroupHeightPerRow.push(maxTagGroupRowHeight);
+      });
+
+      splitItemHeadings.forEach((row, index) => {
+        const combinedMarginBottom = headingBottomMargin + tagBottomMargin;
+
+        row.forEach((e, column) => {
+          // add all of the margin stuff to the ones lacking tag group
+          if (!e.nextElementSibling.matches((this.constructor as typeof DDSCardGroup).selectorItemTagGroup)) {
+            e.style.marginBottom = `${tagGroupHeightPerRow[index] + combinedMarginBottom}px`;
+          } else {
+            splitItemTagGroup[index][column].style.marginTop = `${tagGroupHeightPerRow[index] -
+              splitItemTagGroup[index][column].offsetHeight}px`;
+          }
+        });
       });
     });
   };
@@ -185,6 +229,7 @@ class DDSCardGroup extends LitElement {
     const slotClasses = classMap({
       [`${prefix}--card-group--narrow`]: this.gridMode === GRID_MODE.NARROW,
       [`${prefix}--card-group--collapsed`]: this.gridMode === GRID_MODE.COLLAPSED,
+      [`${prefix}--card-group--border`]: this.gridMode === GRID_MODE.BORDER,
     });
 
     return html`
@@ -208,6 +253,13 @@ class DDSCardGroup extends LitElement {
    */
   static get selectorItemEyebrow() {
     return `${ddsPrefix}-card-eyebrow`;
+  }
+
+  /**
+   * A selector that will return the card item's eyebrow
+   */
+  static get selectorItemTagGroup() {
+    return `${ddsPrefix}-tag-group`;
   }
 
   /**

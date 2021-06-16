@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,7 @@
 import { property, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXModalCloseButton from 'carbon-web-components/es/components/modal/modal-close-button.js';
-import { EXPRESSIVE_MODAL_SIZE } from './expressive-modal';
+import { EXPRESSIVE_MODAL_SIZE } from './defs';
 import styles from './expressive-modal.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
