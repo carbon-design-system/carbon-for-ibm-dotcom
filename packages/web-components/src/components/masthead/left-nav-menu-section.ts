@@ -30,6 +30,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-left-nav-menu-section`)
 class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   /**
+   * Set aria-hidden property.
+   */
+  @property({ type: Boolean, attribute: 'aria-hidden', reflect: true })
+  ariaHidden = true;
+
+  /**
    * The back button's text.
    */
   @property({ attribute: 'back-button-text' })
@@ -46,6 +52,18 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
    */
   @property({ type: String, attribute: 'section-id' })
   sectionId = '';
+
+  /**
+   * in transition mode.
+   */
+  @property({ type: Boolean, reflect: true })
+  transition = false;
+
+  /**
+   * is a submenu menu section.
+   */
+  @property({ type: Boolean, attribute: 'is-submenu' })
+  isSubmenu = false;
 
   /**
    * Render back button.
@@ -89,10 +107,25 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   @HostListener('parentRoot:eventToggle')
   protected _handleContentStateChangeDocument = (event: CustomEvent) => {
     const { panelId } = event.detail;
-    if (this.sectionId === panelId) {
+    const { sectionId } = this;
+    if (sectionId === panelId) {
       this.expanded = true;
+      this.ariaHidden = false;
+      this.transition = false;
     } else {
+      const id = panelId.split(', ');
+      const section = sectionId.split(', ');
+
+      /**
+       * if next menu section expanded is a level 2 menu section and current expanded
+       * menu section is a level 1 menu section, add transition attribute for proper animation
+       */
+      if (id[0] !== '-1' && id[1] !== '-1' && this.expanded === true && section[1] === '-1') {
+        this.transition = true;
+      }
+
       this.expanded = false;
+      this.ariaHidden = true;
     }
   };
 
@@ -109,6 +142,7 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   firstUpdated() {
     if (this.sectionId === '-1, -1') {
       this.expanded = true;
+      this.ariaHidden = false;
     }
   }
 

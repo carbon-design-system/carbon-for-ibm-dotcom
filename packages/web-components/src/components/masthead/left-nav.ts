@@ -20,7 +20,7 @@ import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSLeftNavOverlay from './left-nav-overlay';
 import styles from './masthead.scss';
-import DDSLeftNavMenu from './left-nav-menu';
+import DDSLeftNavMenuSection from './left-nav-menu-section';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -119,11 +119,17 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [startSentinelNode, endSentinelNode]);
         doc?.body?.classList.add(`${prefix}--body__lock-scroll`);
       } else {
-        const { selectorNavItemsExpanded } = this.constructor as typeof DDSLeftNav;
+        const { selectorMenuSections, selectorFirstMenuSection } = this.constructor as typeof DDSLeftNav;
         doc?.body?.classList.remove(`${prefix}--body__lock-scroll`);
 
-        this.querySelectorAll(selectorNavItemsExpanded).forEach(ddsLeftNavMenu => {
-          (ddsLeftNavMenu as DDSLeftNavMenu).expanded = false;
+        this.querySelectorAll(selectorMenuSections).forEach(ddsLeftNavMenuSection => {
+          (ddsLeftNavMenuSection as DDSLeftNavMenuSection).expanded = false;
+          (ddsLeftNavMenuSection as DDSLeftNavMenuSection).transition = false;
+        });
+
+        // reset to frist menu section
+        this.querySelectorAll(selectorFirstMenuSection).forEach(ddsLeftNavMenuSection => {
+          (ddsLeftNavMenuSection as DDSLeftNavMenuSection).expanded = true;
         });
 
         if (this._hFocusWrap) {
@@ -156,10 +162,17 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
   }
 
   /**
-   * A selector that will return expanded nav menus.
+   * A selector that will return menu sections.
    */
-  static get selectorNavItemsExpanded() {
-    return `${ddsPrefix}-left-nav-menu[expanded]`;
+  static get selectorMenuSections() {
+    return `${ddsPrefix}-left-nav-menu-section`;
+  }
+
+  /**
+   * A selector that will return first main visible menu section.
+   */
+  static get selectorFirstMenuSection() {
+    return `${ddsPrefix}-left-nav-menu-section[section-id='-1, -1']`;
   }
 
   /**

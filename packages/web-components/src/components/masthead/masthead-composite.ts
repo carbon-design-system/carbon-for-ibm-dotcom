@@ -231,13 +231,14 @@ class DDSMastheadComposite extends LitElement {
    *
    * @param menuItems menu items
    * @param heading heading of menu section
+   * @param isSubmenu determines whether menu section is a submenu section
    * @param selectedMenuItem The selected menu item
    * @param showBackButton Determines whether to show back button
    * @param sectionTitle title of menu section
    * @param sectionId id of menu section
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _renderLeftNavMenuSections(menuItems, heading, selectedMenuItem, showBackButton, sectionTitle, sectionId) {
+  protected _renderLeftNavMenuSections(menuItems, heading, isSubmenu, selectedMenuItem, showBackButton, sectionTitle, sectionId) {
     const items = menuItems.map(elem => {
       const selected = selectedMenuItem && elem.titleEnglish === selectedMenuItem;
       if (elem.menu) {
@@ -275,6 +276,7 @@ class DDSMastheadComposite extends LitElement {
     return html`
       <dds-left-nav-menu-section
         section-id="${sectionId}"
+        ?is-submenu=${ifNonNull(isSubmenu)}
         title=${ifNonNull(sectionTitle)}
         show-back-button=${ifNonNull(showBackButton)}
       >
@@ -337,7 +339,7 @@ class DDSMastheadComposite extends LitElement {
             });
           });
           if (level2Items.length !== 0) {
-            menu.push(this._renderLeftNavMenuSections(level2Items, null, selectedMenuItem, true, item.title, `${i}, ${k}`));
+            menu.push(this._renderLeftNavMenuSections(level2Items, null, true, selectedMenuItem, true, item.title, `${i}, ${k}`));
           }
 
           return level1Items.push({
@@ -353,6 +355,7 @@ class DDSMastheadComposite extends LitElement {
           this._renderLeftNavMenuSections(
             level1Items,
             elem.menuSections[0]?.heading,
+            true,
             selectedMenuItem,
             true,
             elem.title,
@@ -371,7 +374,7 @@ class DDSMastheadComposite extends LitElement {
     });
 
     return html`
-      ${this._renderLeftNavMenuSections(level0Items, null, selectedMenuItem, null, null, '-1, -1')} ${menu}
+      ${this._renderLeftNavMenuSections(level0Items, null, false, selectedMenuItem, null, null, '-1, -1')} ${menu}
     `;
   }
 
