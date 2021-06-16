@@ -73,6 +73,7 @@
           }
 
           .#{$prefix}--legal-nav__list-item {
+            width: 100%;
             margin-right: 0;
 
             @include carbon--breakpoint('md') {
@@ -148,6 +149,10 @@
     padding: $carbon--spacing-03 $carbon--layout-04 $carbon--spacing-09
       $carbon--spacing-05;
     width: 100%;
+
+    @include carbon--breakpoint('md') {
+      width: 50%;
+    }
 
     @include carbon--breakpoint('lg') {
       margin-left: 25%;

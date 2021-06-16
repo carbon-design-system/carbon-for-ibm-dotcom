@@ -65,9 +65,9 @@ const LegalNav = ({ links, type, button, adjunctLinks }) => {
           </ul>
           {button}
         </div>
-        <ul className={`${prefix}--adjunct-links__holder`}>
-          {adjunctLinks &&
-            adjunctLinks.map(({ title, titleEnglish, url }, index) => {
+        {adjunctLinks && (
+          <ul className={`${prefix}--adjunct-links__holder`}>
+            {adjunctLinks.map(({ title, titleEnglish, url }, index) => {
               if (!title || !url) {
                 return null;
               }
@@ -90,7 +90,8 @@ const LegalNav = ({ links, type, button, adjunctLinks }) => {
                 </li>
               );
             })}
-        </ul>
+          </ul>
+        )}
       </nav>
     </aside>
   );
