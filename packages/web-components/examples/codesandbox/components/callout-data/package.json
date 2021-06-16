@@ -8,7 +8,7 @@
   "scripts": {
     "clean": "rimraf node_modules dist .cache",
     "start": "NODE_ENV=* parcel index.html --port=9000 --no-hmr",
-    "build": "parcel build index.html --no-minify --public-url ./"
+    "build": "parcel build *.html --no-minify --public-url ./"
   },
   "dependencies": {
     "@carbon/ibmdotcom-web-components": "canary",

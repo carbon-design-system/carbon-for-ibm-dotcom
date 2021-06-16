@@ -1,0 +1,63 @@
+<!--
+@license
+
+Copyright IBM Corp. 2020
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+<head>
+  <title>@carbon/ibmdotcom-web-components example</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/plex.css" />
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/grid.css" />
+  <style>
+    /* Suppress custom element until styles are loaded */
+    dds-content-block-card-static:not(:defined) {
+      display: none;
+    }
+  </style>
+  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/content-block-card-static.min.js"></script>
+</head>
+<body>
+<div class="bx--grid">
+  <div class="bx--row">
+    <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+      <dds-content-block-card-static>
+        <dds-content-block-heading>${heading}</dds-content-block-heading>
+        <dds-card-group>
+          <dds-card-group-item>
+            <dds-card-heading>Nunc convallis</dds-card-heading>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+              Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+            </p>
+          </dds-card-group-item>
+          <dds-card-group-item>
+            <dds-card-heading>Nunc convallis</dds-card-heading>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+              Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+            </p>
+          </dds-card-group-item>
+        </dds-card-group>
+        <dds-content-item>
+          <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
+          <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
+        </dds-content-item>
+        <dds-button-group slot="footer">
+          <dds-button-group-item href="https://example.com">
+            Contact us
+          </dds-button-group-item>
+          <dds-button-group-item href="https://example.com">
+            Free trial
+          </dds-button-group-item>
+        </dds-button-group>
+      </dds-content-block-card-static>
+    </div>
+  </div>
+</div>
+</body>
+</html>

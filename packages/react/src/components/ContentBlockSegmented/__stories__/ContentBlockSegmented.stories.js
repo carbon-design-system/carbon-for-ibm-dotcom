@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select, text, boolean } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 import ContentBlockSegmented from '../ContentBlockSegmented';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--003.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--003.jpg';
@@ -16,6 +16,12 @@ import readme from '../README.stories.mdx';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { prefix } = settings;
+
+const borderOptions = {
+  'Without border': false,
+  // eslint-disable-next-line max-len
+  'With border': true,
+};
 
 const image = {
   heading: 'Mauris iaculis eget dolor nec hendrerit.',
@@ -39,15 +45,6 @@ const image = {
   },
 };
 
-const video = {
-  videoId: '1_9h94wo6b',
-  showCaption: true,
-};
-
-const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-      nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.`;
-
 const ctaStyles = {
   text: 'text',
   card: 'card',
@@ -57,6 +54,11 @@ const ctaTypes = {
   external: 'external',
   jump: 'jump',
   local: 'local',
+};
+
+const video = {
+  videoId: '1_9h94wo6b',
+  showCaption: true,
 };
 
 const defaultItems = [
@@ -71,7 +73,7 @@ const defaultItems = [
   },
   {
     heading: 'Lorem ipsum dolor sit amet.',
-    image,
+    video,
     copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.`,
     cta: {
       type: 'local',
@@ -104,7 +106,22 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
  */
 const getBaseKnobs = ({ groupId }) => {
   return {
-    copy,
+    heading: text('Heading (heading):', 'Lorem ipsum dolor sit amet.', groupId),
+    copy: text(
+      'Copy (copy):',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
+      groupId
+    ),
+  };
+};
+
+/**
+ * @param {object} options The options.
+ * @param {string} options.groupId The knob group ID.
+ * @returns {object} The knobs data.
+ */
+const getCTAKnobs = ({ groupId }) => {
+  return {
     cta: {
       cta: {
         href: 'https://www.example.com',
@@ -125,7 +142,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { copy, cta, heading, items } =
+  const { copy, cta, heading, items, border } =
     parameters?.props?.ContentBlockSegmented ?? {};
   return (
     <div className={`${prefix}--grid`}>
@@ -138,6 +155,7 @@ export const Default = ({ parameters }) => {
             mediaType="image"
             mediaData={image}
             items={items}
+            border={border}
           />
         </div>
       </div>
@@ -150,20 +168,18 @@ Default.story = {
     knobs: {
       ContentBlockSegmented: ({ groupId }) => {
         const knobs = getBaseKnobs({ groupId });
+        const ctaKnobs = getCTAKnobs({ groupId });
 
         return {
           ...knobs,
-          copy: text(
-            'Copy (copy):',
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
-            groupId
-          ),
-          heading: text(
-            'Heading (heading):',
-            'Lorem ipsum dolor sit amet.',
-            groupId
-          ),
+          ...ctaKnobs,
           items: defaultItems,
+          border: select(
+            'Container bottom border',
+            borderOptions,
+            borderOptions['With border'],
+            groupId
+          ),
         };
       },
     },
@@ -177,63 +193,7 @@ Default.story = {
   },
 };
 
-export const WithVideo = ({ parameters }) => {
-  const { copy, cta, heading, items } =
-    parameters?.props?.ContentBlockSegmented ?? {};
-  return (
-    <div className={`${prefix}--grid`}>
-      <div className="bx--row">
-        <div className="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4">
-          <ContentBlockSegmented
-            copy={copy}
-            cta={cta}
-            heading={heading}
-            mediaType="video"
-            mediaData={video}
-            items={items}
-          />
-        </div>
-      </div>
-    </div>
-  );
-};
-
-WithVideo.story = {
-  parameters: {
-    percy: {
-      skip: true,
-    },
-    knobs: {
-      ContentBlockSegmented: ({ groupId }) => {
-        const knobs = getBaseKnobs({ groupId });
-
-        return {
-          ...knobs,
-          copy: text(
-            'Copy (copy):',
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
-            groupId
-          ),
-          heading: text(
-            'Heading (heading):',
-            'Lorem ipsum dolor sit amet.',
-            groupId
-          ),
-          items: defaultItems,
-        };
-      },
-    },
-    propsSet: {
-      default: {
-        ContentBlockSegmented: {
-          items: defaultItems,
-        },
-      },
-    },
-  },
-};
-
-export const WithAsideElements = ({ parameters }) => {
+export const WithLinkList = ({ parameters }) => {
   const { copy, cta, heading, items, aside } =
     parameters?.props?.ContentBlockSegmented ?? {};
   return (
@@ -255,11 +215,14 @@ export const WithAsideElements = ({ parameters }) => {
   );
 };
 
-WithAsideElements.story = {
-  name: 'With aside elements',
+WithLinkList.story = {
+  name: 'With link list',
   parameters: {
     knobs: {
       ContentBlockSegmented: ({ groupId }) => {
+        const knobs = getBaseKnobs({ groupId });
+        const items = defaultItems;
+
         const linkListProps = {
           heading: text('Link list heading (heading):', 'Tutorials', groupId),
           items: [
@@ -277,20 +240,44 @@ WithAsideElements.story = {
                 href: 'https://ibm.com',
               },
             },
+            {
+              type: 'local',
+              copy: 'Learn more about Kubernetes',
+              cta: {
+                href: 'https://ibm.com',
+              },
+            },
+            {
+              type: 'local',
+              copy: 'Explore AI use cases in all industries',
+              cta: {
+                href: 'https://ibm.com',
+              },
+            },
           ],
+          totalLinks: select('Number of links', [2, 3, 4], 2, groupId),
         };
+
+        linkListProps.items = linkListProps.items.slice(
+          0,
+          linkListProps.totalLinks
+        );
+
+        const ctaKnobs = getCTAKnobs({ groupId });
 
         const aside = {
           items: <LinkList style="card" {...linkListProps} />,
-          border: boolean('Border (border):', false, groupId),
+          border: select(
+            'Container bottom border',
+            borderOptions,
+            borderOptions['With border'],
+            groupId
+          ),
         };
-
-        const knobs = getBaseKnobs({ groupId });
-
-        const items = defaultWithAsideElementsItems;
 
         const result = {
           ...knobs,
+          ...ctaKnobs,
           heading: 'Lorem ipsum dolor sit amet.',
           // The URL in the JSON from the knob gets `&amp`
           items: items.map(item => {

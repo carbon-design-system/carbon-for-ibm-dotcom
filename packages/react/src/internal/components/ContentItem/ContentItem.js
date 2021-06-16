@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -65,7 +65,7 @@ const ContentItem = ({
       )}
       {cta && (
         <CTA
-          style="text"
+          style={cta.style}
           type={cta.type}
           copy={cta.copy}
           href={cta.href}
@@ -102,6 +102,7 @@ ContentItem.propTypes = {
    * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
    */
   cta: PropTypes.shape({
+    style: PropTypes.oneOf(['text', 'button']),
     type: PropTypes.oneOfType([
       PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
       PropTypes.arrayOf(
