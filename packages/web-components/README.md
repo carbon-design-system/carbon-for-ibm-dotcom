@@ -160,16 +160,18 @@ There are references to the `process.env` global variable in the our web-compone
 };
 ```
 
-### Dotcom Shell CDN Bundle
+### CDN Bundles
 
-For quick start, you can use our pre-built CDN bundle that contains the dotcom shell (masthead and footer). With it, you can use our components as easy as using HTML tags, just by loading the bundle:
+To get an application running without the need for front-end bundlers, there are pre-built CDN bundles available for each individual component.
+
+Here is an example of implementing the `dotcom-shell`:
 
 ```html
 <!DOCTYPE html>
 <html>
   <head>
     <script type="module">
-      import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/ibmdotcom-web-components-dotcom-shell.min.js';
+      import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/dotcom-shell.min.js';
 
       // The minimum prerequisite to use our service for translation data, etc.
       window.digitalData = {
@@ -197,8 +199,22 @@ For quick start, you can use our pre-built CDN bundle that contains the dotcom s
     ...
   </head>
   <body>
-    <dds-masthead-container></dds-masthead-container>
+    <dds-dotcom-shell-container></dds-dotcom-shell-container>
   </body>
+</html>
+```
+
+There is aslo an optional CDN artifact available that will run the Carbon reset
+as well as import Plex fonts necessary for the page. This can be included if your
+application does not already take these steps:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/plex.css" />
+    ...
+  </head>
 </html>
 ```
 
@@ -217,37 +233,35 @@ For quick start, you can use our pre-built CDN bundle that contains the dotcom s
 The CDN packages are available by NPM tags `latest` (full releases), `next` (latest release candidate), and `beta` (bi-weekly releases), as well as specific versions. The URL pattern for import would be:
 
 ```html
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/[VERSION]/dotcom-shell.min.js"></script>
+```
+
+or
+
+```html
 <script type="module">
-  import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/[VERSION]/ibmdotcom-web-components-dotcom-shell.min.js';
+  import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/[VERSION]/dotcom-shell.min.js';
 </script>
 ```
 
 A tag release would be called as:
 
 ```html
-<script type="module">
-  // latest
-  import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/ibmdotcom-web-components-dotcom-shell.min.js';
-</script>
+<!-- LATEST -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/dotcom-shell.min.js"></script>
 
-<script type="module">
-  // next
-  import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/ibmdotcom-web-components-dotcom-shell.min.js';
-</script>
+<!-- NEXT -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/dotcom-shell.min.js"></script>
 
-<script type="module">
-  // beta
-  import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/ibmdotcom-web-components-dotcom-shell.min.js';
-</script>
+<!-- BETA -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/dotcom-shell.min.js"></script>
 ```
 
 A specific release would be called as:
 
 ```html
-<script type="module">
-  // v0.6.0
-  import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v0.6.0/ibmdotcom-web-components-dotcom-shell.min.js';
-</script>
+<!-- SPECIFIC VERSION (available starting v1.6.0) -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/dotcom-shell.min.js"></script>
 ```
 
 #### Using RTL
@@ -271,7 +285,7 @@ For applications that are currently running on other design systems like [legacy
 <link rel="stylesheet" href="https://1.www.s81c.com/common/v18/css/www.css" />
 <script src="https://1.www.s81c.com/common/v18/js/www.js"></script>
 <!-- Loads Carbon for IBM.com Web Components masthead -->
-<script type="module">
+<script type="module" src="">
   import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container.js';
 </script>
 

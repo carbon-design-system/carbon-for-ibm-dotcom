@@ -11,26 +11,6 @@
 
 :host(#{$dds-prefix}-leadspace) {
   display: block;
-
-  @include carbon--breakpoint(sm) {
-    .#{$prefix}--leadspace--gradient {
-      background: none;
-    }
-  }
-
-  @include carbon--breakpoint(sm) {
-    .#{$prefix}--leadspace__section.#{$prefix}--leadspace--centered .#{$prefix}--leadspace--gradient {
-      background-color: $ui-background;
-    }
-  }
-
-  @include carbon--breakpoint(md) {
-    // Uses `<svg>` rather than CSS for gradient, to support CSS custom properties
-    .#{$prefix}--leadspace--gradient,
-    .#{$prefix}--leadspace__section.#{$prefix}--leadspace--centered .#{$prefix}--leadspace--gradient {
-      background: none;
-    }
-  }
 }
 
 :host(#{$dds-prefix}-breadcrumb) {

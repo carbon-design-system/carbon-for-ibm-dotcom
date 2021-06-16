@@ -1,0 +1,16 @@
+//
+// Copyright IBM Corp. 2021
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+// This import is used for generating the CDN artifact
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
+
+body {
+  /* stylelint-disable-next-line */
+  scroll-behaviour: smooth;
+  overflow-y: scroll;
+}
