@@ -8,16 +8,10 @@
 @import '@carbon/ibmdotcom-styles/scss/components/content-block-segmented/content-block-segmented';
 
 :host(#{$dds-prefix}-content-block-segmented) {
-  padding-bottom: $carbon--layout-05;
-
   ::slotted(:not([slot])) {
     display: block;
     margin-top: $carbon--layout-05;
     margin-bottom: $carbon--layout-05;
-  }
-
-  &:not(:first-of-type) {
-    padding-top: 0;
   }
 
   ::slotted(:not([slot]):last-of-type) {

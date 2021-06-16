@@ -15,22 +15,18 @@
   :host(#{$dds-prefix}-content-block-simple),
   :host(#{$dds-prefix}-content-block-media),
   :host(#{$dds-prefix}-content-block-mixed),
+  :host(#{$dds-prefix}-content-block-cards),
   :host(#{$dds-prefix}-content-group-horizontal),
   :host(#{$dds-prefix}-leadspace-block-content),
   :host(#{$dds-prefix}-content-block-segmented),
   :host(#{$dds-prefix}-content-block-headlines),
   .#{$prefix}--content-block {
     display: block;
-    padding-top: $carbon--layout-03;
-    padding-bottom: $carbon--layout-05;
+    margin-top: $spacing-07;
+    margin-bottom: $spacing-07;
 
     @include carbon--breakpoint('md') {
-      padding-top: $carbon--layout-05;
-      padding-bottom: $carbon--layout-05;
-    }
-
-    @include carbon--breakpoint('max') {
-      padding-bottom: $carbon--layout-07;
+      margin-bottom: $spacing-09;
     }
 
     .#{$prefix}--card__CTA {
@@ -41,10 +37,6 @@
     }
 
     @include carbon--breakpoint('lg') {
-      &:not(:first-of-type) {
-        padding-top: 0;
-      }
-
       .#{$prefix}--link-list {
         margin-right: -$carbon--spacing-05;
 
