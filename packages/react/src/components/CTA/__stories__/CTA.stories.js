@@ -13,6 +13,7 @@ import readme from '../README.stories.mdx';
 import { select } from '@storybook/addon-knobs';
 
 const types = ['local', 'download', 'jump', 'external', 'video', 'default'];
+const featureTypes = ['local', 'download', 'jump', 'external', 'video'];
 const copy = [
   'Lorem ipsum dolor sit amet',
   'Explore AI uses cases in all industries',
@@ -294,12 +295,15 @@ Feature.story = {
   parameters: {
     knobs: {
       CTA: ({ groupId }) => {
-        const knobs = Card.story.parameters.knobs.CTA({
-          groupId,
-        });
+        const type = select(
+          'CTA type:',
+          featureTypes,
+          featureTypes[0],
+          groupId
+        );
         return {
-          ...knobs,
-          ...miscCTAData['feature']({ type: knobs.type }),
+          ...type,
+          ...miscCTAData['feature']({ type }),
         };
       },
     },

@@ -206,7 +206,7 @@ Feature.story = {
     useRawContainer: true,
     knobs: {
       FeatureCTA: ({ groupId }) => {
-        const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL, groupId);
+        const ctaType = select('CTA type:', types, CTA_TYPE.LOCAL, groupId);
         const heading =
           ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Heading', 'Explore AI uses cases in all industries', groupId);
         const download =
@@ -217,7 +217,7 @@ Feature.story = {
           heading,
           ctaType,
           download,
-          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR], groupId),
+          href: hrefsForType[ctaType ?? CTA_TYPE.REGULAR],
         };
       },
     },

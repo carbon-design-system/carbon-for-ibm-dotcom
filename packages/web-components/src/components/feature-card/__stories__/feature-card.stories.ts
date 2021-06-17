@@ -65,15 +65,14 @@ Large.story = {
     useRawContainer: true,
     knobs: {
       'dds-feature-card': ({ groupId }) => ({
-        eyebrow: textNullable('Card Eyebrow (required) (eyebrow):', 'This is an eyebrow', groupId),
-        heading: textNullable('Card Heading (heading):', 'Explore AI use cases in all industries', groupId),
+        eyebrow: textNullable('Card eyebrow:', 'This is an eyebrow', groupId),
+        heading: textNullable('Card heading:', 'Explore AI use cases in all industries', groupId),
         copy: textNullable(
-          'Card copy (copy):',
+          'Card copy:',
           `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ` +
             `dolore magna aliqua.`,
           groupId
         ),
-        href: textNullable('Card Href (href):', 'https://example.com', groupId),
       }),
     },
   },
@@ -102,8 +101,7 @@ export default {
     hasGrid: true,
     knobs: {
       'dds-feature-card': () => ({
-        heading: textNullable('Card Heading (heading):', 'Explore AI use cases in all industries'),
-        href: textNullable('Card Href (href):', 'https://example.com'),
+        heading: textNullable('Card heading:', 'Explore AI use cases in all industries'),
       }),
     },
   },
