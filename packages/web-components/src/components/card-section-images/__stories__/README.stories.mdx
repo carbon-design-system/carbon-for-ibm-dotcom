@@ -1,7 +1,11 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
 import markdownContents from '../../../../docs/markdown-contents.md';
-import plex from '../../../../docs/plex.md';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
+
 
 # `<dds-card-section-images>`
 
@@ -15,7 +19,7 @@ import plex from '../../../../docs/plex.md';
 
 Here's a quick example to get you started.
 
-##### JS
+### JS (via import)
 
 ```javascript
 
@@ -23,23 +27,9 @@ import '@carbon/ibmdotcom-web-components/es/components/card-section-images/index
 
 ```
 
-### JS (via CDN)
+<Description markdown={`${cdnJs({ components: ['card-section-images'] })}`} />
 
-```html
-<!-- LATEST tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/card-section-images.min.js"></script>
-
-<!-- NEXT tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/card-section-images.min.js"></script>
-
-<!-- BETA tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/card-section-images.min.js"></script>
-
-<!-- SPECIFIC VERSION (available starting v1.6.0) -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/card-section-images.min.js"></script>
-```
-
-<Description markdown={plex} />
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
