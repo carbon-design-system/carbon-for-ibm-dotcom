@@ -18,8 +18,11 @@
     color: $inverse-link;
   }
 
-  &:hover .#{$prefix}--card__cta__copy {
-    color: $hover-primary-text;
+  &:hover {
+    svg,
+    .#{$prefix}--card__cta__copy {
+      color: $hover-primary-text;
+    }
   }
 }
 

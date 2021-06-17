@@ -136,6 +136,7 @@
       &:hover {
         text-decoration: underline;
 
+        svg,
         .#{$prefix}--card__cta__copy {
           color: $hover-primary-text;
         }
