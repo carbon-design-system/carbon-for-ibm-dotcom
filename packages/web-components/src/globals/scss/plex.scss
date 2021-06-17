@@ -1,0 +1,14 @@
+//
+// Copyright IBM Corp. 2021
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import 'carbon-components/scss/globals/scss/css--reset';
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@import '@carbon/type/scss/reset';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+@include carbon--type-reset();

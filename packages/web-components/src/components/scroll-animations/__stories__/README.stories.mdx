@@ -1,5 +1,6 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
+import plex from '../../../../docs/plex.md';
 
 # Fade In Out
 
@@ -21,14 +22,36 @@ passing in a querystring containing the exact identifiers to control which eleme
 
 Here's a simple example to get started:
 
-#### JS
+### JS (via import)
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/scroll-animations/scroll-animations.js'
+import '@carbon/ibmdotcom-web-components/es/components/scroll-animations/index.js'
 import '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_scroll-into-view.scss';
 ```
 
-#### HTML
+### JS (via CDN)
+
+```html
+<!-- LATEST tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/scroll-animations.min.js"></script>
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/scroll-animations.css" />
+
+<!-- NEXT tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/scroll-animations.min.js"></script>
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/scroll-animations.css" />
+
+<!-- BETA tag -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/scroll-animations.min.js"></script>
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/scroll-animations.css" />
+
+<!-- SPECIFIC VERSION (available starting v1.6.0) -->
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/scroll-animations.min.js"></script>
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/scroll-animations.css" />
+```
+
+<Description markdown={plex} />
+
+### HTML
 
 ```html
 <dds-scroll-animations animation='fade' selector-targets='.targeted-class'>
@@ -54,7 +77,7 @@ An optional custom delay can be set within targeted class in the application's C
 
 ### Animation Effects
 
-There are currently nine effects that can be applied in the component. 
+There are currently nine effects that can be applied in the component.
 To use a specific animation effect, pass one of the following to the `animation` attribute (e.g. `animation='slide-left'`):
 
 * `fade`

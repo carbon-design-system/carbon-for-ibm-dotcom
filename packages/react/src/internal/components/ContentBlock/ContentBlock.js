@@ -47,7 +47,7 @@ const ContentBlock = ({
         className={`${prefix}--content-block__children`}>
         {children}
       </div>
-      {cta && _renderCTA(cta)}
+      {cta && _renderCTA(cta, border)}
     </>
   );
 
@@ -101,7 +101,7 @@ const _layoutWrap = (content, border) => (
  * @param {object} cta a cta object
  * @returns {*} jsx cta component
  */
-function _renderCTA(cta) {
+function _renderCTA(cta, border) {
   if (cta.style === 'feature') {
     return (
       <CTA customClassName={cx(`${prefix}--content-block__cta`)} {...cta} />
@@ -111,7 +111,9 @@ function _renderCTA(cta) {
   return (
     <div
       data-autoid={`${stablePrefix}--content-block__cta`}
-      className={`${prefix}--content-block__cta-row`}>
+      className={cx(`${prefix}--content-block__cta-row`, {
+        [`${prefix}--content-block__cta-row-border`]: border,
+      })}>
       <CTA
         customClassName={`${prefix}--content-block__cta ${prefix}--content-block__cta-col`}
         {...cta}

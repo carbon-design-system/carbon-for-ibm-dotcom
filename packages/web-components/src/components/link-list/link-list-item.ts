@@ -14,8 +14,6 @@ import styles from './link-list.scss';
 
 import { LINK_LIST_ITEM_TYPE } from './defs';
 
-export { LINK_LIST_ITEM_TYPE };
-
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**

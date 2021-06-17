@@ -36,6 +36,6 @@ const servicesStoreVendorESDst = () =>
 const servicesStoreVendorCJSDst = () =>
   gulp.src([`${servicesStoreCJSSrcDir}/**/*`, '!**/*-{test,story}.js']).pipe(gulp.dest(servicesStoreVendorCJSDstDir));
 
-module.exports = {
-  servicesStore: gulp.parallel(servicesStoreVendorSrc, servicesStoreVendorCJSDst, servicesStoreVendorESDst),
-};
+// Vendor builds
+gulp.task('vendor:services-store', gulp.parallel(servicesStoreVendorSrc, servicesStoreVendorCJSDst, servicesStoreVendorESDst));
+gulp.task('vendor', gulp.task('vendor:services-store'));
