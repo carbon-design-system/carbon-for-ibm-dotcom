@@ -1,7 +1,10 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
 import markdownContents from '../../../../docs/markdown-contents.md';
-import plex from '../../../../docs/plex.md';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
 
 # `<dds-content-block-simple>`
 
@@ -20,7 +23,7 @@ Here's a quick example to get you started.
 
 ## With text CTA
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/content-block-simple/index.js';
@@ -29,23 +32,9 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-simple/inde
 import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 ```
 
-### JS (via CDN)
+<Description markdown={`${cdnJs({ components: ['content-block-simple'] })}`} />
 
-```html
-<!-- LATEST tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/back-to-top.min.js"></script>
-
-<!-- NEXT tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/back-to-top.min.js"></script>
-
-<!-- BETA tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/back-to-top.min.js"></script>
-
-<!-- SPECIFIC VERSION (available starting v1.6.0) -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/back-to-top.min.js"></script>
-```
-
-<Description markdown={plex} />
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
@@ -71,7 +60,7 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 
 ## With Card CTA
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/content-block-simple/index.js';
@@ -122,7 +111,7 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 
 ## With Link List
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/content-block-simple/index.js';
