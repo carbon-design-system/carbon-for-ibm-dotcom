@@ -1,6 +1,9 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
-import plex from '../../../../docs/plex.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
 
 # Dotcom shell
 
@@ -22,26 +25,12 @@ import plex from '../../../../docs/plex.md';
 ### JS (via import)
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/dotcom-shell-container.js';
+import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/index.js';
 ```
 
-### JS (via CDN)
+<Description markdown={`${cdnJs({ components: ['dotcom-shell'] })}`} />
 
-```html
-<!-- LATEST tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/dotcom-shell.min.js"></script>
-
-<!-- NEXT tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/dotcom-shell.min.js"></script>
-
-<!-- BETA tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/dotcom-shell.min.js"></script>
-
-<!-- SPECIFIC VERSION (available starting v1.6.0) -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/dotcom-shell.min.js"></script>
-```
-
-<Description markdown={plex} />
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 

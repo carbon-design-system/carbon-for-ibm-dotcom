@@ -1,7 +1,11 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
-import plex from '../../../../docs/plex.md';
 import '../leadspace';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
+
 
 # LeadSpace
 
@@ -24,23 +28,9 @@ import '@carbon/ibmdotcom-web-components/es/components/leadspace/index.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 ```
 
-### JS (via CDN)
+<Description markdown={`${cdnJs({ components: ['leadspace'] })}`} />
 
-```html
-<!-- LATEST tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/leadspace.min.js"></script>
-
-<!-- NEXT tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/leadspace.min.js"></script>
-
-<!-- BETA tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/leadspace.min.js"></script>
-
-<!-- SPECIFIC VERSION (available starting v1.6.0) -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/leadspace.min.js"></script>
-```
-
-<Description markdown={plex} />
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
