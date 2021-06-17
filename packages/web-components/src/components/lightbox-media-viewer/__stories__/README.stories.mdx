@@ -1,7 +1,10 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
-import plex from '../../../../docs/plex.md';
 import '../lightbox-video-player';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
 
 # Lightbox Media Viewer
 
@@ -19,23 +22,9 @@ import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lig
 document.getElementById('my-lightbox').open = true;
 ```
 
-### JS (via CDN)
+<Description markdown={`${cdnJs({ components: ['lightbox-image-viewer'] })}`} />
 
-```html
-<!-- LATEST tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/lightbox-image-viewer.min.js"></script>
-
-<!-- NEXT tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/lightbox-image-viewer.min.js"></script>
-
-<!-- BETA tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/lightbox-image-viewer.min.js"></script>
-
-<!-- SPECIFIC VERSION (available starting v1.6.0) -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/lightbox-image-viewer.min.js"></script>
-```
-
-<Description markdown={plex} />
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
@@ -63,23 +52,9 @@ import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lig
 document.getElementById('my-video').open = true;
 ```
 
-### JS (via CDN)
+<Description markdown={`${cdnJs({ components: ['lightbox-video-player'] })}`} />
 
-```html
-<!-- LATEST tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/lightbox-video-player.min.js"></script>
-
-<!-- NEXT tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/lightbox-video-player.min.js"></script>
-
-<!-- BETA tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/lightbox-video-player.min.js"></script>
-
-<!-- SPECIFIC VERSION (available starting v1.6.0) -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/lightbox-video-player.min.js"></script>
-```
-
-<Description markdown={plex} />
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
