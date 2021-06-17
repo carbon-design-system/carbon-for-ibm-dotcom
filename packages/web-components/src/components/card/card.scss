@@ -19,7 +19,7 @@
   }
 
   &:hover {
-    svg,
+    ::slotted(svg[slot='icon']),
     .#{$prefix}--card__cta__copy {
       color: $hover-primary-text;
     }
