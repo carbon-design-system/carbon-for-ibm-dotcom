@@ -8,7 +8,8 @@
  */
 import pickBy from 'lodash-es/pickBy.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import cloudLoginStatusCookie from '@carbon/ibmdotcom-utilities/es/utilities/cloudLoginStatusCookie/cloudLoginStatusCookie';
+import cloudAccountAuthentication
+  from '@carbon/ibmdotcom-utilities/es/utilities/cloudAccountAuthentication/cloudAccountAuthentication';
 import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
 import { customElement } from 'lit-element';
 import store from '../../../internal/vendor/@carbon/ibmdotcom-services-store/store';
@@ -45,7 +46,7 @@ export function mapStateToProps(state: MastheadContainerState): MastheadContaine
       navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
       unauthenticatedProfileItems: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedout.links,
       unauthenticatedCtaButtons: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedout.ctaButtons,
-      userStatus: cloudLoginStatusCookie.get(),
+      userStatus: cloudAccountAuthentication.checkCookie(),
       currentSearchResults: currentSearchResults ?? [],
     },
     value => value !== undefined
@@ -82,6 +83,6 @@ class DDSCloudMastheadContainer extends ConnectMixin<
   store as Store<MastheadContainerState, LocaleAPIActions | TranslateAPIActions | SearchAPIActions>,
   mapStateToProps,
   mapDispatchToProps
-)(DDSCloudMastheadComposite) {}
+)(DDSCloudMastheadComposite) { }
 
 export default DDSCloudMastheadContainer;
