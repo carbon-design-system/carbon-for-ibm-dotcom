@@ -1,0 +1,91 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../../globals/vars';
+@import '../../globals/imports';
+@import 'carbon-components/scss/components/accordion/accordion';
+@import 'carbon-components/scss/components/accordion/keyframes';
+@import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/accordion';
+@import 'carbon-components/scss/components/checkbox/checkbox';
+@import 'carbon-components/scss/components/button/button';
+
+@mixin filter-panel {
+  :host(#{$prefix}--filter-panel__section) {
+    background-color: $ui-01;
+  }
+  .#{$prefix}--input_container {
+    width: 100%;
+  }
+  .#{$prefix}--input_container:focus {
+    outline: 2px solid $focus;
+  }
+  .select {
+    position: relative;
+    cursor: pointer;
+    //padding-left: $spacing-05;
+    //padding-right: $spacing-05;
+    //padding-top: 7px;
+    //padding-bottom: 7px;
+    padding: 7px $spacing 7px $spacing-05;
+    color: $text-01;
+    @include carbon--type-style('body-short-01');
+    &:hover {
+      background-color: $hover-ui;
+    }
+    &.svg {
+      position: absolute;
+      right: 16px;
+      top: 18px;
+      margin-top: -8px;
+    }
+    &.selected {
+      background-color: #d0e2ff;
+    }
+  }
+  .select-dropdown {
+    //position: absolute;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  .select-option {
+    width: 100%;
+    cursor: pointer;
+    //color: black;
+    position: relative;
+    //padding-left: $spacing-08;
+    //padding-right: $spacing-05;
+    //padding-top: 7px;
+    //padding-bottom: 7px;
+    padding: 7px $spacing-05 7px $spacing-08;
+    &:hover {
+      background-color: $hover-ui;
+    }
+    &:focus {
+      background-color: #d0e2ff;
+    }
+    &.selected {
+      background-color: #d0e2ff;
+    }
+  }
+  .select-option .svg {
+    position: absolute;
+    right: $spacing-05;
+    top: 50%;
+    margin-top: -8px;
+  }
+  @media (min-width: 640px) {
+    .bx--accordion__content {
+      padding-right: 0;
+    }
+  }
+}
+@include exports('filter-panel') {
+  @include filter-panel;
+}
