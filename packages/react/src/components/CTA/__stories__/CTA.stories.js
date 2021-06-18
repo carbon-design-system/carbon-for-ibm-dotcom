@@ -14,6 +14,10 @@ import readme from '../README.stories.mdx';
 
 const types = ['local', 'download', 'jump', 'external', 'video', 'default'];
 const featureTypes = ['local', 'download', 'jump', 'external', 'video'];
+const buttonCopy = [
+  'See more use cases',
+  'Try for free',
+];
 const copy = [
   'Explore AI uses cases in all industries',
   'Contact sales',
@@ -79,7 +83,7 @@ const miscCTAData = {
         {
           type: type[0],
           href: urlBy[type[0]],
-          copy: copy[0],
+          copy: buttonCopy[0],
           media: {
             src: '1_9h94wo6b',
             type: 'video',
@@ -88,7 +92,7 @@ const miscCTAData = {
         {
           type: type[1],
           href: urlBy[type[1]],
-          copy: copy[1],
+          copy: buttonCopy[1],
           media: {
             src: '1_sf5ovm7u',
             type: 'video',
