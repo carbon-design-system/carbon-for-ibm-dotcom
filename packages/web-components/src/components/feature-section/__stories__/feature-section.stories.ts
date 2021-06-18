@@ -78,10 +78,10 @@ export default {
     knobs: {
       'dds-feature-section': ({ groupId }) => ({
         mediaAlign: select('Media Alignment', mediaAlignment, MEDIA_ALIGNMENT.RIGHT, groupId),
-        eyebrow: textNullable('Card Eyebrow (required) (eyebrow):', '5 min activity', groupId),
-        heading: textNullable('Card Heading (heading):', 'Ready when you are', groupId),
+        eyebrow: textNullable('Card Eyebrow (optional)(eyebrow):', '5 min activity', groupId),
+        heading: textNullable('Card Heading (required)(heading):', 'Ready when you are', groupId),
         copy: textNullable(
-          'Card copy (copy):',
+          'Card copy (optional)(copy):',
           `Were flexible. We can work with you on a wide variety of engagements on a project 
           or consulting basis. And were technology agnostic. Our experts work with any vendors technology, not just IBMs. 
           You decide how you want to work and where to focus our expertise.`,
