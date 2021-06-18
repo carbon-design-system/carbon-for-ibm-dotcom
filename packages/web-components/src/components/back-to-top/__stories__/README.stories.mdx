@@ -1,5 +1,6 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 # Back to top
 
@@ -13,11 +14,15 @@ import contributing from '../../../../../../docs/contributing-license.md';
 
 Here's a quick example to get you started.
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/back-to-top/index.js';
 ```
+
+<Description markdown={`${cdnJs({ components: ['back-to-top'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 

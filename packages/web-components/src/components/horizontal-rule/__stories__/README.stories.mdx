@@ -1,6 +1,11 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
 import '../horizontal-rule';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
+
 
 # Horizontal Rule
 
@@ -14,11 +19,15 @@ import '../horizontal-rule';
 
 Here's a quick example to get you started.
 
-### JS
+### JS (via import)
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/horizontal-rule/horizontal-rule.js';
+import '@carbon/ibmdotcom-web-components/es/components/horizontal-rule/index.js';
 ```
+
+<Description markdown={`${cdnJs({ components: ['horizontal-rule'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 

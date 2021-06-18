@@ -13,7 +13,48 @@
     .#{$prefix}--row {
       &.#{$prefix}--layout--border {
         @include carbon--breakpoint('lg') {
-          padding-bottom: $carbon--layout-06;
+          padding-bottom: $spacing-13;
+        }
+
+        .#{$prefix}--content-block__cta-row {
+          margin-bottom: 0;
+        }
+
+        .#{$prefix}--layout-2-3 {
+          padding-left: 0;
+        }
+      }
+    }
+
+    .#{$prefix}--content-group__cta-row {
+      @include carbon--breakpoint-down('md') {
+        margin-left: 0;
+      }
+    }
+
+    .#{$prefix}--content-block__cta-row {
+      margin-bottom: $spacing-07;
+      @include carbon--breakpoint('lg') {
+        margin-bottom: $spacing-13;
+      }
+    }
+  }
+
+  // React specific classes to manage bottom spacing
+  .#{$prefix}--content-block-segmented {
+    &-border {
+      .#{$prefix}--content-block {
+        padding-bottom: 0;
+      }
+    }
+
+    .#{$prefix}--content-block__cta-row {
+      margin-bottom: 0;
+
+      &-border {
+        margin-bottom: $spacing-07;
+        @include carbon--breakpoint('lg') {
+          margin-bottom: $spacing-13;
         }
       }
     }

@@ -1,6 +1,10 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
 import '../link-with-icon';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
 
 # `<dds-link-with-icon>`
 
@@ -16,11 +20,15 @@ import '../link-with-icon';
 
 ## Getting started
 
-### JS
+### JS (via import)
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/link-with-icon/link-with-icon.js';
+import '@carbon/ibmdotcom-web-components/es/components/link-with-icon/index.js';
 ```
+
+<Description markdown={`${cdnJs({ components: ['link-with-icon'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
