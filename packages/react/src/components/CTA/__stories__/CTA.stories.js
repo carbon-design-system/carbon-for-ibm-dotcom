@@ -6,11 +6,11 @@
  */
 
 import './CTA.stories.scss';
+import { select, text } from '@storybook/addon-knobs';
 import CTA from '../CTA';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 import React from 'react';
 import readme from '../README.stories.mdx';
-import { select } from '@storybook/addon-knobs';
 
 const types = ['local', 'download', 'jump', 'external', 'video', 'default'];
 const featureTypes = ['local', 'download', 'jump', 'external', 'video'];
@@ -282,7 +282,9 @@ Card.story = {
 };
 
 export const Feature = ({ parameters }) => {
-  const { type, ...props } = parameters?.props?.CTA ?? {};
+  const { type, featureHeading, ...props } = parameters?.props?.CTA ?? {};
+  props.card.heading = featureHeading;
+
   return wrapper(
     <CTA type={type} style="feature" {...props} />,
     'feature',
@@ -301,7 +303,13 @@ Feature.story = {
           featureTypes[0],
           groupId
         );
+        const featureHeading = text(
+          'Heading:',
+          'Explore AI use cases in all industries',
+          groupId
+        );
         return {
+          featureHeading,
           ...type,
           ...miscCTAData['feature']({ type }),
         };

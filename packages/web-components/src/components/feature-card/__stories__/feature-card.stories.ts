@@ -73,6 +73,7 @@ Large.story = {
             `dolore magna aliqua.`,
           groupId
         ),
+        href: 'https://www.example.com',
       }),
     },
   },
@@ -102,6 +103,7 @@ export default {
     knobs: {
       'dds-feature-card': () => ({
         heading: textNullable('Card heading:', 'Explore AI use cases in all industries'),
+        href: 'https://www.example.com',
       }),
     },
   },
