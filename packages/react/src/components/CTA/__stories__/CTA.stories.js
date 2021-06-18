@@ -281,7 +281,7 @@ Card.story = {
 
 export const Feature = ({ parameters }) => {
   const { type, featureHeading, ...props } = parameters?.props?.CTA ?? {};
-  if(props.card.type !== 'video') {
+  if (props.card.type !== 'video') {
     props.card.heading = featureHeading;
   }
 
