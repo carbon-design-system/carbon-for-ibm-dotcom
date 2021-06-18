@@ -29,13 +29,11 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @param state The Redux state for masthead.
  * @returns The converted version of the given state, tailored for `<dds-masthead-container>`.
  */
-export function mapStateToProps(state: MastheadContainerState, ownProps: { authMethod: string; }): MastheadContainerStateProps {
+export function mapStateToProps(state: MastheadContainerState): MastheadContainerStateProps {
   const { localeAPI, translateAPI, searchAPI } = state;
   const { language } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
   const { currentSearchQueryString, searchResults } = searchAPI ?? {};
-  const { authMethod } = ownProps;
-  const userStatus = authMethod === 'cookie' ? cloudAccountAuthentication.checkCookie() : cloudAccountAuthentication.checkAPI();
   let currentSearchResults;
   for (let { length = 0 } = currentSearchQueryString ?? {}; !currentSearchResults && length > 0; --length) {
     currentSearchResults = searchResults?.[currentSearchQueryString!.substr(0, length)]?.[language!];
@@ -48,7 +46,7 @@ export function mapStateToProps(state: MastheadContainerState, ownProps: { authM
       navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
       unauthenticatedProfileItems: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedout.links,
       unauthenticatedCtaButtons: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedout.ctaButtons,
-      userStatus,
+      userStatus: 'anonymous',
       currentSearchResults: currentSearchResults ?? [],
     },
     value => value !== undefined

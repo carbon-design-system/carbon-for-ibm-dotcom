@@ -65,6 +65,12 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
   unauthenticatedCtaButtons?: MastheadProfileItem[];
 
   /**
+   * The selected authentication method, either 'cookie' or 'api'.
+   */
+  @property({ attribute: 'auth-method' })
+  authMethod = 'cookie';
+
+  /**
    *  Render MegaMenu content
    *
    * @param sections menu section data object
