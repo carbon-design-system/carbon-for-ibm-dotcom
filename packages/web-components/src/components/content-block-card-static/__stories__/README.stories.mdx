@@ -1,7 +1,11 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
 import markdownContents from '../../../../docs/markdown-contents.md';
-import plex from '../../../../docs/plex.md';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
+
 
 # `<dds-content-block-card-static>`
 
@@ -27,7 +31,7 @@ to add the following into your `.env` file.
 
 Here's a quick example to get you started.
 
-##### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/content-block-card-static/index.js';
@@ -40,23 +44,9 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import Chat20 from 'carbon-web-components/es/icons/chat/20.js';
 ```
 
-### JS (via CDN)
+<Description markdown={`${cdnJs({ components: ['content-block-card-static', 'tag'] })}`} />
 
-```html
-<!-- LATEST tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/content-block-card-static.min.js"></script>
-
-<!-- NEXT tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/content-block-card-static.min.js"></script>
-
-<!-- BETA tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/content-block-card-static.min.js"></script>
-
-<!-- SPECIFIC VERSION (available starting v1.6.0) -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/content-block-card-static.min.js"></script>
-```
-
-<Description markdown={plex} />
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
