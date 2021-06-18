@@ -14,14 +14,8 @@ import readme from '../README.stories.mdx';
 
 const types = ['local', 'download', 'jump', 'external', 'video', 'default'];
 const featureTypes = ['local', 'download', 'jump', 'external', 'video'];
-const buttonCopy = [
-  'See more use cases',
-  'Try for free',
-];
-const copy = [
-  'Explore AI uses cases in all industries',
-  'Contact sales',
-];
+const buttonCopy = ['See more use cases', 'Try for free'];
+const copy = ['Explore AI uses cases in all industries', 'Contact sales'];
 const placement = ['left', 'right'];
 
 const urlBy = {
