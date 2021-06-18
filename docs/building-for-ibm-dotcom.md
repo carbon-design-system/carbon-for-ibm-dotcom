@@ -7,10 +7,10 @@
 
 - [Overview](#overview)
 - [Digital data object](#digital-data-object)
-- [Page Language](#page-language)
+- [Page language](#page-language)
   - [Configuring available languages](#configuring-available-languages)
-- [Meta Tags](#meta-tags)
-- [IBM.com Tag Management and Site Analytics](#ibmcom-tag-management-and-site-analytics)
+- [Meta tags](#meta-tags)
+- [IBM.com tag management and site analytics](#ibmcom-tag-management-and-site-analytics)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <!-- prettier-ignore-end -->
@@ -72,7 +72,7 @@ for your page:
 </script>
 ```
 
-## Page Language
+## Page language
 
 The page language is a requirement in order to define what language the current 
 page is translated in. 
@@ -143,7 +143,7 @@ For example:
 
 ```
 
-## Meta Tags
+## Meta tags
 
 These meta tags are required for all IBM.com pages:
 
@@ -158,7 +158,7 @@ These meta tags are required for all IBM.com pages:
     <meta name="robots" content="index,follow">
 ```
 
-## IBM.com Tag Management and Site Analytics
+## IBM.com tag management and site analytics
 
 It is required to include the common script tag that allows tag management and 
 site analytics on all IBM.com pages. The following must be included on every 

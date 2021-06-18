@@ -151,9 +151,7 @@ export const micro = ({ parameters }) => {
     langList: '',
   };
   return html`
-    <div class="micro-container">
-      ${base({ parameters })}
-    </div>
+    ${base({ parameters })}
   `;
 };
 
@@ -167,9 +165,7 @@ export const microLanguageOnly = ({ parameters }) => {
     selectedLanguage: 'English',
   };
   return html`
-    <div class="micro-container">
-      ${base({ parameters })}
-    </div>
+    ${base({ parameters })}
   `;
 };
 
