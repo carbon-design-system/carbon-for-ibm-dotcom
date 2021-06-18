@@ -32,7 +32,7 @@ global.sessionStorage = {
 };
 
 app.get('/', async function topRoute(req, res) {
-  // Determins user's preferred language
+  // Determines user's preferred language
   const { code = 'en', region = 'US' } = acceptLanguageParser.parse(req.headers['accept-language'])[0] || {};
   // Loads translation, etc. data from IBM.com services
   const [langDisplay, localeList, translation] = await Promise.all([

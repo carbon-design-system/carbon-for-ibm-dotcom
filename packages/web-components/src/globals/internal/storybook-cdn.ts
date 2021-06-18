@@ -50,16 +50,16 @@ export const cdnJs = ({ components }) => {
 
 \`\`\`html
 // SPECIFIC VERSION (available starting v1.6.0)
-${_renderScript(components, `v${packageJson.version}`)}
+${_renderScript(components, `version/v${packageJson.version}`)}
 
 // LATEST tag
-${_renderScript(components, 'latest')}
+${_renderScript(components, 'tag/v1/latest')}
 
 // NEXT tag
-${_renderScript(components, 'next')}
+${_renderScript(components, 'tag/v1/next')}
 
 // BETA tag
-${_renderScript(components, 'beta')}
+${_renderScript(components, 'tag/v1/beta')}
 \`\`\`
 
 > NOTE: The latest/next/beta tags are moving versions. While beneficial to
@@ -83,16 +83,16 @@ in your application's style bundle, this can be included via CDN:
 
 \`\`\`html
 // SPECIFIC VERSION (available starting v1.6.0)
-${_renderStyle(components, `v${packageJson.version}`)}
+${_renderStyle(components, `version/v${packageJson.version}`)}
 
 // LATEST tag
-${_renderStyle(components, 'latest')}
+${_renderStyle(components, 'tag/v1/latest')}
 
 // NEXT tag
-${_renderStyle(components, 'next')}
+${_renderStyle(components, 'tag/v1/next')}
 
 // BETA tag
-${_renderStyle(components, 'beta')}
+${_renderStyle(components, 'tag/v1/beta')}
 \`\`\`
   `;
 };
@@ -110,16 +110,16 @@ application does not already take these steps:
 
 \`\`\`html
 // SPECIFIC VERSION (available starting v1.6.0)
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v${packageJson.version}/plex.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v${packageJson.version}/plex.css" />
 
 // LATEST tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/plex.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" />
 
 // NEXT tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/plex.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/next/plex.css" />
 
 // BETA tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/plex.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/beta/plex.css" />
 \`\`\`
   `;
 };
