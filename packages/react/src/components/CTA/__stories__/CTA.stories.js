@@ -281,7 +281,9 @@ Card.story = {
 
 export const Feature = ({ parameters }) => {
   const { type, featureHeading, ...props } = parameters?.props?.CTA ?? {};
-  props.card.heading = featureHeading;
+  if(props.card.type !== 'video') {
+    props.card.heading = featureHeading;
+  }
 
   return wrapper(
     <CTA type={type} style="feature" {...props} />,
@@ -308,7 +310,7 @@ Feature.story = {
         );
         return {
           featureHeading,
-          ...type,
+          type,
           ...miscCTAData['feature']({ type }),
         };
       },
