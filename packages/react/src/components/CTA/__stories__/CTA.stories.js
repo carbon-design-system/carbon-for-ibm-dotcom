@@ -15,8 +15,8 @@ import readme from '../README.stories.mdx';
 const types = ['local', 'download', 'jump', 'external', 'video', 'default'];
 const featureTypes = ['local', 'download', 'jump', 'external', 'video'];
 const copy = [
-  'Lorem ipsum dolor sit amet',
   'Explore AI uses cases in all industries',
+  'Contact sales',
 ];
 const placement = ['left', 'right'];
 
