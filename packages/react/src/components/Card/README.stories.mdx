@@ -42,7 +42,54 @@ import { Card } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
-  return <Card title="Lorem ipsum dolor sit amet" href="https://example.com" />;
+  return (
+    <Card 
+      heading="Lorem ipsum dolor sit amet" 
+      copy="Copy text"
+      href="https://example.com" 
+    />);
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+## Card - static
+
+The static variation should be used when there is no URL being passed to the `Card`'s href attribute,
+to ensure the card is no longer clickable. To use it, be sure to pass in the `static` boolean prop.
+
+
+
+##### JS
+
+```javascript
+
+function App() {
+  return (
+    <Card 
+      heading="Lorem ipsum dolor sit amet" 
+      copy="Copy text"
+      href="https://example.com"
+      static={true}
+    />);
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+## Light theme
+
+An optional light theme is available by passing in the `light` boolean attribute. 
+
+```javascript
+function App() {
+  return (
+    <Card 
+      heading="Lorem ipsum dolor sit amet" 
+      copy="Copy text"
+      href="https://example.com"
+      light={true}
+    />);
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
