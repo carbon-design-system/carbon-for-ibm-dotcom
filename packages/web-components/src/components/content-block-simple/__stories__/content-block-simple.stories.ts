@@ -78,7 +78,7 @@ export const Default = ({ parameters }) => {
   const href = 'https://www.example.com';
   return html`
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
+      <dds-content-block-heading><h2>${heading}</h2></dds-content-block-heading>
       <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
       ${ctaStyle === 'card'
         ? html`
@@ -112,7 +112,7 @@ export const WithImage = ({ parameters }) => {
   const href = 'https://www.example.com';
   return html`
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
+      <dds-content-block-heading><h2>${heading}</h2></dds-content-block-heading>
       ${image}
       <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
       ${ctaStyle === 'card'
@@ -151,7 +151,7 @@ export const WithVideo = ({ parameters }) => {
   const href = 'https://www.example.com';
   return html`
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
+      <dds-content-block-heading><h2>${heading}</h2></dds-content-block-heading>
       <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
       <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
       ${ctaStyle === 'card'
@@ -193,7 +193,7 @@ export const WithLinkList = ({ parameters }) => {
   const href = 'https://www.example.com';
   return html`
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
+      <dds-content-block-heading><h2>${heading}</h2></dds-content-block-heading>
       <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
       ${image}
       <dds-link-list type="default" slot="complementary">
