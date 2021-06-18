@@ -96,8 +96,11 @@
       }
     }
 
-    .#{$prefix}--list-box__menu {
-      z-index: 1;
+    .#{$prefix}--list-box--up {
+      .#{$prefix}--list-box__menu {
+        z-index: 1;
+        bottom: rem(47px);
+      }
     }
 
     .#{$prefix}--select-input__wrapper {

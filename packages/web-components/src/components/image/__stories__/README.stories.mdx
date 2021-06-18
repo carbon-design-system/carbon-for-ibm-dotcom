@@ -1,7 +1,11 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
-import plex from '../../../../docs/plex.md';
 import Image from '../Image';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
+
 
 # Image
 
@@ -22,26 +26,12 @@ Here's a quick example to get you started.
 ### JS (via import)
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/image/image.js';
+import '@carbon/ibmdotcom-web-components/es/components/image/index.js';
 ```
 
-### JS (via CDN)
+<Description markdown={`${cdnJs({ components: ['image'] })}`} />
 
-```html
-<!-- LATEST tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/image.min.js"></script>
-
-<!-- NEXT tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/image.min.js"></script>
-
-<!-- BETA tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/image.min.js"></script>
-
-<!-- SPECIFIC VERSION (available starting v1.6.0) -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/image.min.js"></script>
-```
-
-<Description markdown={plex} />
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
