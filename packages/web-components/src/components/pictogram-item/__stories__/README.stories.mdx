@@ -2,6 +2,10 @@ import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks
 import contributing from '../../../../../../docs/contributing-license.md';
 import markdownContents from '../../../../docs/markdown-contents.md';
 import'../pictogram-item';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
 
 # Pictogram Item
 
@@ -15,11 +19,15 @@ import'../pictogram-item';
 
 Here's a quick example to get you started.
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/pictogram-item/index.js';
 ```
+
+<Description markdown={`${cdnJs({ components: ['pictogram-item'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 

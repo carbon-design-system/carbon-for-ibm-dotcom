@@ -1,6 +1,9 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import markdownContents from '../../../../docs/markdown-contents.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
 
 # `<dds-tabs-extended-media>`
 
@@ -16,13 +19,17 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 
 Here's a quick example to get you started.
 
-##### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/tabs-extended-media/index.js';
 ```
 
-##### HTML
+<Description markdown={`${cdnJs({ components: ['tabs-extended-media'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
+
+### HTML
 
 ```html
 <dds-tabs-extended-media>
