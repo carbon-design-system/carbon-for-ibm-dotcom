@@ -8,11 +8,14 @@
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
 @import '../../globals/vars';
 @import '../../globals/imports';
+@import '../../globals/utils/aspect-ratio';
+@import '../../globals/utils/ratio-base';
 
 @mixin feature-section {
-  :host(#{$dds-prefix}-feature-section),
   .#{$prefix}--feature-section {
     position: relative;
+    padding-left: $carbon--spacing-05;
+    padding-right: $carbon--spacing-05;
   }
 
   // Reverse row direction if media-alignment="left".
@@ -28,12 +31,21 @@
       ::slotted(#{$dds-prefix}-card-link) {
         right: inherit;
         left: 0;
+
+        @include carbon--breakpoint('sm') {
+          left: $carbon--spacing-05;
+        }
       }
     }
   }
 
   .#{$prefix}--feature-section__container {
     background-color: $hover-ui;
+    display: block;
+
+    @include carbon--breakpoint('lg') {
+      display: flex;
+    }
   }
 
   .#{$prefix}--feature-section__body {
@@ -41,8 +53,9 @@
     padding-left: 0;
     padding-right: 0;
 
-    @include carbon--breakpoint('xlg') {
+    @include carbon--breakpoint('max') {
       padding-top: $carbon--spacing-08;
+      padding-left: $carbon--spacing-03;
     }
 
     .#{$prefix}--content-item__copy p,
@@ -60,11 +73,34 @@
     padding-left: 0;
     padding-right: 0;
 
+    .#{$prefix}--image,
+    ::slotted(#{$dds-prefix}-image) {
+      overflow: hidden;
+
+      @include carbon--breakpoint('sm') {
+        height: aspect-ratio(1, 1);
+      }
+
+      @include carbon--breakpoint('md') {
+        height: aspect-ratio(4, 3);
+      }
+
+      @include carbon--breakpoint('lg') {
+        height: aspect-ratio(1, 1);
+      }
+    }
+
     .#{$prefix}--card-link,
     ::slotted(#{$dds-prefix}-card-link) {
       position: absolute;
       right: 0;
       bottom: 0;
+      padding-left: 25%;
+
+      @include carbon--breakpoint('md') {
+        right: $carbon--spacing-05;
+        padding-left: 0;
+      }
     }
   }
 }

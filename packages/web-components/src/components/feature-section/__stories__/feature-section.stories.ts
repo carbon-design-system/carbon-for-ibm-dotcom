@@ -15,7 +15,7 @@ import { select } from '@storybook/addon-knobs';
 
 import imgXlg1x1 from '../../../../../storybook-images/assets/1584/fpo--1x1--1584x1584--002.jpg';
 import imgLg1x1 from '../../../../../storybook-images/assets/1312/fpo--1x1--1312x1312--002.jpg';
-import imgMd1x1 from '../../../../../storybook-images/assets/960/fpo--1x1--960x960--002.jpg';
+import imgMd4x3 from '../../../../../storybook-images/assets/960/fpo--4x3--960x720--002.jpg';
 import imgSm1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 import imgXs1x1 from '../../../../../storybook-images/assets/320/fpo--1x1--320x320--002.jpg';
 import { MEDIA_ALIGNMENT } from '../defs';
@@ -34,9 +34,9 @@ export const Default = ({ parameters }) => {
     <dds-feature-section media-alignment="${mediaAlign}">
       <dds-image slot="image" default-src="${ifNonNull(imgLg1x1)}" alt="${alt}">
         <dds-image-item media="(min-width: 1584px)" srcset="${imgXlg1x1}"> </dds-image-item>
-        <dds-image-item media="(min-width: 1312px)" srcset="${imgLg1x1}"> </dds-image-item>
-        <dds-image-item media="(min-width: 960px)" srcset="${imgMd1x1}"> </dds-image-item>
-        <dds-image-item media="(min-width: 720px)" srcset="${imgSm1x1}"> </dds-image-item>
+        <dds-image-item media="(min-width: 1056px)" srcset="${imgLg1x1}"> </dds-image-item>
+        <dds-image-item media="(min-width: 672px)" srcset="${imgMd4x3}"> </dds-image-item>
+        <dds-image-item media="(min-width: 320px)" srcset="${imgSm1x1}"> </dds-image-item>
         <dds-image-item media="(min-width: 0px)" srcset="${imgXs1x1}"> </dds-image-item>
       </dds-image>
       <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
