@@ -14,11 +14,13 @@
     position: sticky;
     bottom: 0;
     display: flex;
-    padding-bottom: $carbon--spacing-05;
     padding-right: $carbon--spacing-05;
     outline: none;
+    height: 0;
 
     .#{$prefix}--back-to-top__btn {
+      position: relative;
+      bottom: $carbon--spacing-10;
       border-color: $ui-background;
       border-radius: 50%;
       width: $container-02;
