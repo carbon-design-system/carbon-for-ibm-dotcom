@@ -1,6 +1,8 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
-import plex from '../../../../docs/plex.md';
+import { cdnJs, cdnCss, cdnCssAdditional } from '../../../globals/internal/storybook-cdn';
+
+
 
 # `<dds-table-of-contents>`
 
@@ -20,29 +22,13 @@ Here's a quick example to get you started.
 
 > 💡 `bx--tableofcontents__contents` class in the content `<div>` ensures the `<h3>` is visible by navigating to a hashbang URL (e.g. `https://yoursite.com/yourpage#2`).
 
-### JS (via import)
+## Example using imports
+
+### JS
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/table-of-contents/index.js';
 ```
-
-### JS (via CDN)
-
-```html
-<!-- LATEST tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/table-of-contents.min.js"></script>
-
-<!-- NEXT tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/table-of-contents.min.js"></script>
-
-<!-- BETA tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/table-of-contents.min.js"></script>
-
-<!-- SPECIFIC VERSION (available starting v1.6.0) -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/table-of-contents.min.js"></script>
-```
-
-<Description markdown={plex} />
 
 ### SCSS
 
@@ -58,7 +44,15 @@ body {
 
 > 💡 `scroll-behaviour: smooth` ensures that scrolling triggered by `table-of-contents` is smooth.
 
-### HTML
+## Example using CDN
+
+<Description markdown={`${cdnJs({ components: ['table-of-contents'] })}`} />
+
+<Description markdown={`${cdnCssAdditional({ components: ['table-of-contents'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
+
+## Example HTML
 
 ```html
 <dds-table-of-contents>
@@ -76,7 +70,7 @@ body {
 </dds-table-of-contents>
 ```
 
-#### Horizontal variation
+### Horizontal variation
 
 ```html
 <dds-table-of-contents toc-layout="horizontal">

@@ -1,6 +1,6 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
-import plex from '../../../../docs/plex.md';
+import { cdnJs, cdnCss, cdnCssAdditional } from '../../../globals/internal/storybook-cdn';
 
 # Fade In Out
 
@@ -22,36 +22,28 @@ passing in a querystring containing the exact identifiers to control which eleme
 
 Here's a simple example to get started:
 
-### JS (via import)
+## Example using imports
+
+### JS
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/scroll-animations/index.js'
-import '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_scroll-into-view.scss';
 ```
 
-### JS (via CDN)
-
-```html
-<!-- LATEST tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/scroll-animations.min.js"></script>
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/scroll-animations.css" />
-
-<!-- NEXT tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/scroll-animations.min.js"></script>
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/scroll-animations.css" />
-
-<!-- BETA tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/scroll-animations.min.js"></script>
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/scroll-animations.css" />
-
-<!-- SPECIFIC VERSION (available starting v1.6.0) -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/scroll-animations.min.js"></script>
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/scroll-animations.css" />
+### SCSS
+```scss
+@import '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_scroll-into-view.scss';
 ```
 
-<Description markdown={plex} />
+## Example using CDN
 
-### HTML
+<Description markdown={`${cdnJs({ components: ['scroll-animations'] })}`} />
+
+<Description markdown={`${cdnCssAdditional({ components: ['scroll-animations'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
+
+## Example HTML
 
 ```html
 <dds-scroll-animations animation='fade' selector-targets='.targeted-class'>
@@ -65,7 +57,7 @@ import '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_scroll-into-v
 </dds-scroll-animations>
 ```
 
-### CSS
+### Customizing Delay
 
 An optional custom delay can be set within targeted class in the application's CSS code as such:
 
