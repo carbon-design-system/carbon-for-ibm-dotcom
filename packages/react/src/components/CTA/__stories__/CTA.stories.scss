@@ -1,0 +1,18 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.cta-feature-container {
+  padding-top: 1rem;
+}
+
+.cta-grid {
+  /* stylelint-disable declaration-no-important */
+  /* uses !important to override padding-left: 2rem from bx--grid */
+  padding-left: 1rem !important;
+  margin-left: 0 !important;
+  /* stylelint-enable declaration-no-important */
+}
