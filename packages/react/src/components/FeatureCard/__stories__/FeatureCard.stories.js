@@ -49,7 +49,7 @@ Default.story = {
       FeatureCard: ({ groupId }) => ({
         card: {
           heading: text(
-            'Card Heading (heading):',
+            'Card heading:',
             'Explore AI use cases in all industries',
             groupId
           ),
@@ -58,11 +58,7 @@ Default.story = {
             alt: 'Image alt text',
           },
           cta: {
-            href: text(
-              'Card href (cta.href):',
-              'https://www.example.com',
-              groupId
-            ),
+            href: 'https://www.example.com',
             icon: {
               src: ArrowRight20,
             },
@@ -95,27 +91,19 @@ Large.story = {
     knobs: {
       FeatureCard: ({ groupId }) => ({
         card: {
-          eyebrow: text(
-            'Card Eyebrow (required) (eyebrow):',
-            'This is an eyebrow',
-            groupId
-          ),
+          eyebrow: text('Card eyebrow:', 'This is an eyebrow', groupId),
           heading: text(
-            'Card Heading (heading):',
+            'Card heading:',
             'Explore AI use cases in all industries',
             groupId
           ),
           copy: text(
-            'Card copy (copy):',
+            'Card copy:',
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             groupId
           ),
           cta: {
-            href: text(
-              'Card href (cta.href):',
-              'https://www.example.com',
-              groupId
-            ),
+            href: 'https://www.example.com',
             icon: {
               src: ArrowRight20,
             },
