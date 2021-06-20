@@ -125,38 +125,20 @@
   :host(#{$dds-prefix}-content-item-horizontal-thumbnail-copy) ::slotted(:not([slot])) {
     margin-bottom: $carbon--spacing-07;
 
-    @include carbon--breakpoint(sm) {
-      margin-bottom: $carbon--spacing-07;
-    }
-
-    @include carbon--breakpoint(md) {
-      margin-bottom: $layout-05;
-    }
-
-    @include carbon--breakpoint(lg) {
-      margin-bottom: $layout-05;
-    }
-
     p {
       color: $text-01;
     }
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal-thumbnail) .#{$prefix}--content-item__cta,
-  .#{$prefix}--content-item-horizontal-thumbnail__item--cta {
-    margin-top: auto;
+  :host(#{$dds-prefix}-link-list) ::slotted([slot='footer']) {
+    margin-bottom: $carbon--spacing-07;
+  }
 
-    .#{$prefix}--link-list {
-      padding: 0;
-      &:first-of-type {
-        padding: 0;
-      }
-    }
+  :host(#{$dds-prefix}-content-item-horizontal-thumbnail) .#{$prefix}--content-item__cta {
+    margin-bottom: $carbon--spacing-05;
 
-    .#{$prefix}--link-list li {
-      @include carbon--breakpoint(md) {
-        margin-bottom: $carbon--spacing-05;
-      }
+    @include carbon--breakpoint(md) {
+      margin-bottom: 0;
     }
   }
 }
