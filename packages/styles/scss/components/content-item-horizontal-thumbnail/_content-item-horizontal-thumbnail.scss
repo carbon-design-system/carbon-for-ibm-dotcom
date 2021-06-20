@@ -1,0 +1,159 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../../globals/imports';
+@import '../link-list/index';
+
+@mixin content-item-horizontal-thumbnail {
+  :host(#{$dds-prefix}-content-item-horizontal-thumbnail),
+  .#{$prefix}--content-item-horizontal__row {
+    @include carbon--make-row;
+
+    border-top: 1px solid $ui-03;
+
+    @include carbon--breakpoint(sm) {
+      padding-top: $carbon--spacing-07;
+      padding-bottom: $carbon--spacing-07;
+    }
+
+    @include carbon--breakpoint(md) {
+      min-height: rem(320px);
+      padding-top: $carbon--spacing-07;
+      padding-bottom: $carbon--spacing-09;
+    }
+
+    @include carbon--breakpoint(lg) {
+      min-height: rem(296px);
+      padding-top: $carbon--spacing-07;
+      padding-bottom: $carbon--layout-05;
+    }
+
+    padding-left: $carbon--spacing-05;
+    padding-right: $carbon--spacing-05;
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal) ::slotted([slot='heading']),
+  :host(#{$dds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])),
+  :host(#{$dds-prefix}-content-item-horizontal-eyebrow),
+  .#{$prefix}--content-item-horizontal__item--eyebrow,
+  .#{$prefix}--content-item-horizontal__item--heading,
+  .#{$prefix}--content-item-horizontal__item--copy {
+    @include carbon--breakpoint(md) {
+      max-width: 90%;
+    }
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal-eyebrow),
+  .#{$prefix}--content-item-horizontal__item--eyebrow {
+    color: $text-05;
+    padding-bottom: $spacing-03;
+    @include carbon--type-style('label-01');
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal) ::slotted([slot='heading']),
+  .#{$prefix}--content-item-horizontal__item--heading {
+    display: block;
+    color: $text-01;
+    @include carbon--type-style('expressive-heading-03', true);
+    @include carbon--breakpoint(sm) {
+      margin-bottom: $carbon--spacing-07;
+    }
+
+    @include carbon--breakpoint(md) {
+      margin-bottom: $carbon--layout-04;
+    }
+
+    @include carbon--breakpoint(lg) {
+      margin-bottom: $carbon--layout-04;
+    }
+  }
+  :host(#{$dds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])),
+  .#{$prefix}--content-item-horizontal__item--copy {
+    margin-bottom: $carbon--spacing-07;
+    @include carbon--breakpoint(sm) {
+      margin-bottom: $carbon--spacing-07;
+    }
+    @include carbon--breakpoint(md) {
+      margin-bottom: $layout-05;
+    }
+    @include carbon--breakpoint(lg) {
+      margin-bottom: $layout-05;
+    }
+    p {
+      color: $text-01;
+    }
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal) .#{$prefix}--content-item__cta,
+  .#{$prefix}--content-item-horizontal__item--cta {
+    margin-top: auto;
+
+    .#{$prefix}--link-list {
+      padding: 0;
+      &:first-of-type {
+        padding: 0;
+      }
+    }
+
+    .#{$prefix}--link-list li {
+      @include carbon--breakpoint(md) {
+        margin-bottom: $carbon--spacing-05;
+      }
+    }
+  }
+
+  .#{$prefix}--content-item-horizontal__row {
+    @include carbon--make-row;
+
+    width: 100%;
+    min-height: 160px;
+  }
+
+  .#{$prefix}--content-item-horizontal__col {
+    flex-direction: column;
+
+    @include carbon--make-col-ready;
+
+    &:first-of-type {
+      @include carbon--breakpoint(sm) {
+        @include carbon--make-col(4, 4);
+      }
+
+      @include carbon--breakpoint(md) {
+        @include carbon--make-col(4, 8);
+      }
+
+      @include carbon--breakpoint(lg) {
+        @include carbon--make-col(4, 10);
+      }
+    }
+
+    &:last-of-type {
+      @include carbon--breakpoint(sm) {
+        @include carbon--make-col(4, 4);
+
+        display: flex;
+      }
+
+      @include carbon--breakpoint(md) {
+        @include carbon--make-col(4, 8);
+
+        display: flex;
+      }
+
+      @include carbon--breakpoint(lg) {
+        @include carbon--make-col(6, 10);
+
+        display: flex;
+      }
+    }
+  }
+}
+
+@include exports('content-item-horizontal-thumbnail') {
+  @include content-item-horizontal-thumbnail;
+}
