@@ -64,6 +64,34 @@ export const Default = ({ parameters }) => {
   `;
 };
 
+export const WithThumbnail = ({ parameters }) => {
+  const { alt, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
+    parameters?.props?.ContentItemHorizontal ?? {};
+  return html`
+    <dds-content-item-horizontal thumbnail="true">
+      <dds-content-item-heading>${heading}</dds-content-item-heading>
+      <dds-content-item-horizontal-copy>${copy}</dds-content-item-horizontal-copy>
+      <dds-link-list slot="footer" type="vertical">
+        <dds-link-list-item-cta
+          icon-placement="${ICON_PLACEMENT.RIGHT}"
+          href="${ifNonNull(href1)}"
+          cta-type="${ifNonNull(ctaType1)}"
+        >
+          ${ctaCopy1}
+        </dds-link-list-item-cta>
+        <dds-link-list-item-cta
+          icon-placement="${ICON_PLACEMENT.RIGHT}"
+          href="${ifNonNull(href2)}"
+          cta-type="${ifNonNull(ctaType2)}"
+        >
+          ${ctaCopy2}
+        </dds-link-list-item-cta>
+      </dds-link-list>
+      <dds-image slot="thumbnail" alt="${ifNonNull(alt)}" default-src="${imgMd4x3}"></dds-image>
+    </dds-content-item-horizontal>
+  `;
+};
+
 export const WithMedia = ({ parameters }) => {
   const { align, type, alt, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
     parameters?.props?.ContentItemHorizontal ?? {};
@@ -101,47 +129,17 @@ export const WithMedia = ({ parameters }) => {
   `;
 };
 
-export const WithThumbnail = ({ parameters }) => {
-  const { alt, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
-    parameters?.props?.ContentItemHorizontal ?? {};
-  return html`
-    <dds-content-item-horizontal-thumbnail>
-      <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-horizontal-thumbnail-copy>${copy}</dds-content-item-horizontal-thumbnail-copy>
-      <dds-link-list slot="footer" type="vertical">
-        <dds-link-list-item-cta
-          icon-placement="${ICON_PLACEMENT.RIGHT}"
-          href="${ifNonNull(href1)}"
-          cta-type="${ifNonNull(ctaType1)}"
-        >
-          ${ctaCopy1}
-        </dds-link-list-item-cta>
-        <dds-link-list-item-cta
-          icon-placement="${ICON_PLACEMENT.RIGHT}"
-          href="${ifNonNull(href2)}"
-          cta-type="${ifNonNull(ctaType2)}"
-        >
-          ${ctaCopy2}
-        </dds-link-list-item-cta>
-      </dds-link-list>
-      <dds-image slot="thumbnail" alt="${ifNonNull(alt)}" default-src="${imgMd4x3}"></dds-image>
-    </dds-content-item-horizontal-thumbnail>
-  `;
-};
-
 Default.story = {
   parameters: {
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal',
   },
 };
 
-WithMedia.story = {
+WithThumbnail.story = {
   parameters: {
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal-media',
+    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal-thumbnail',
     knobs: {
       ContentItemHorizontal: () => ({
-        align: select('Alignment', mediaAlign, MEDIA_ALIGN.RIGHT),
-        type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
         alt: textNullable('Image alt text', 'Lorem ipsum'),
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
         copy:
@@ -159,11 +157,13 @@ WithMedia.story = {
   },
 };
 
-WithThumbnail.story = {
+WithMedia.story = {
   parameters: {
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal-thumbnail',
+    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal-media',
     knobs: {
       ContentItemHorizontal: () => ({
+        align: select('Alignment', mediaAlign, MEDIA_ALIGN.RIGHT),
+        type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
         alt: textNullable('Image alt text', 'Lorem ipsum'),
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
         copy:
