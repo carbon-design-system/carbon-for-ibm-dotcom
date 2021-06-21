@@ -6,6 +6,8 @@
 //
 
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import '@carbon/ibmdotcom-styles/scss/globals/imports';
 
 .dds-ce-demo-devenv--simple-grid--card-group > * {
   grid-column: 1 / span 16;
@@ -20,5 +22,12 @@
   @include carbon--breakpoint-up('lg') {
     margin: 0;
     grid-column: 5 / span 16;
+  }
+}
+
+.dds-ce-demo-devenv--grid--stretch {
+  /* stylelint-disable-next-line selector-type-no-unknown */
+  dds-card-group {
+    --#{$dds-prefix}--card-group-gradient: linear-gradient(45deg, #ffff00, #ff0000);
   }
 }
