@@ -42,16 +42,16 @@ Default.story = {
         TranslationAPI.getTranslation = !useMockData
           ? origGetTranslation
           : () =>
-            new Promise(resolve => {
-              setTimeout(resolve, 300000);
-            });
+              new Promise(resolve => {
+                setTimeout(resolve, 300000);
+              });
 
         const customProfileLogin = DDS_CUSTOM_PROFILE_LOGIN
           ? text(
-            'custom profile login url (customProfileLogin)',
-            'https://www.example.com/',
-            groupId
-          )
+              'custom profile login url (customProfileLogin)',
+              'https://www.example.com/',
+              groupId
+            )
           : null;
 
         return {
@@ -107,10 +107,10 @@ WithCustomNavigation.story = {
       Masthead: ({ groupId }) => {
         const customProfileLogin = DDS_CUSTOM_PROFILE_LOGIN
           ? text(
-            'custom profile login url (customProfileLogin)',
-            'https://www.example.com/',
-            groupId
-          )
+              'custom profile login url (customProfileLogin)',
+              'https://www.example.com/',
+              groupId
+            )
           : null;
 
         return {
