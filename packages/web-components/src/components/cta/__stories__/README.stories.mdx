@@ -1,9 +1,13 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
-import plex from '../../../../docs/plex.md';
 import '../text-cta';
 import '../card-cta';
 import '../feature-cta';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
+
 
 # CTA
 
@@ -29,23 +33,9 @@ import '../feature-cta';
 import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 ```
 
-### JS (via CDN)
+<Description markdown={`${cdnJs({ components: ['text-cta'] })}`} />
 
-```html
-<!-- LATEST tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/text-cta.min.js"></script>
-
-<!-- NEXT tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/text-cta.min.js"></script>
-
-<!-- BETA tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/text-cta.min.js"></script>
-
-<!-- SPECIFIC VERSION (available starting v1.6.0) -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/text-cta.min.js"></script>
-```
-
-<Description markdown={plex} />
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
@@ -75,23 +65,7 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta.js';
 ```
 
-### JS (via CDN)
-
-```html
-<!-- LATEST tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/card-cta.min.js"></script>
-
-<!-- NEXT tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/card-cta.min.js"></script>
-
-<!-- BETA tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/card-cta.min.js"></script>
-
-<!-- SPECIFIC VERSION (available starting v1.6.0) -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/card-cta.min.js"></script>
-```
-
-<Description markdown={plex} />
+<Description markdown={`${cdnJs({ components: ['card-cta'] })}`} />
 
 ### HTML
 
@@ -121,21 +95,7 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta.js';
 import '@carbon/ibmdotcom-web-components/es/components/cta/feature-cta.js';
 ```
 
-### JS (via CDN)
-
-```html
-<!-- LATEST tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/feature-cta.min.js"></script>
-
-<!-- NEXT tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/feature-cta.min.js"></script>
-
-<!-- BETA tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/feature-cta.min.js"></script>
-
-<!-- SPECIFIC VERSION (available starting v1.6.0) -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/feature-cta.min.js"></script>
-```
+<Description markdown={`${cdnJs({ components: ['feature-cta'] })}`} />
 
 ### HTML
 
@@ -190,27 +150,9 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 import '@carbon/ibmdotcom-web-components/es/components/cta/video-cta-container.js';
 ```
 
-### JS (via CDN)
+<Description markdown={`${cdnJs({ components: ['text-cta','video-cta-container'] })}`} />
 
-```html
-<!-- LATEST tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/text-cta.min.js"></script>
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/video-cta-container.min.js"></script>
-
-<!-- NEXT tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/text-cta.min.js"></script>
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/video-cta-container.min.js"></script>
-
-<!-- BETA tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/text-cta.min.js"></script>
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/video-cta-container.min.js"></script>
-
-<!-- SPECIFIC VERSION (available starting v1.6.0) -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/text-cta.min.js"></script>
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/video-cta-container.min.js"></script>
-```
-
-<Description markdown={plex} />
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
