@@ -5,14 +5,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import './CTA.stories.scss';
+import { select, text } from '@storybook/addon-knobs';
 import CTA from '../CTA';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 import React from 'react';
 import readme from '../README.stories.mdx';
-import { select } from '@storybook/addon-knobs';
 
 const types = ['local', 'download', 'jump', 'external', 'video', 'default'];
-const copy = ['Lorem ipsum dolor sit amet', 'Consectetur adipisicing elit'];
+const featureTypes = ['local', 'download', 'jump', 'external', 'video'];
+const buttonCopy = ['See more use cases', 'Try for free'];
+const copy = ['Explore AI uses cases in all industries', 'Contact sales'];
 const placement = ['left', 'right'];
 
 const urlBy = {
@@ -74,7 +77,7 @@ const miscCTAData = {
         {
           type: type[0],
           href: urlBy[type[0]],
-          copy: copy[0],
+          copy: buttonCopy[0],
           media: {
             src: '1_9h94wo6b',
             type: 'video',
@@ -83,7 +86,7 @@ const miscCTAData = {
         {
           type: type[1],
           href: urlBy[type[1]],
-          copy: copy[1],
+          copy: buttonCopy[1],
           media: {
             src: '1_sf5ovm7u',
             type: 'video',
@@ -96,10 +99,16 @@ const miscCTAData = {
 
 const wrapper = (CTA, style, type) => {
   return (
-    <div className="bx--grid">
+    <div className="bx--grid cta-grid">
       {style === 'card' ? (
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4">
+            {CTA}
+          </div>
+        </div>
+      ) : style === 'feature' ? (
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-lg-8 cta-feature-container">
             {CTA}
           </div>
         </div>
@@ -271,8 +280,16 @@ Card.story = {
 };
 
 export const Feature = ({ parameters }) => {
-  const { type, ...props } = parameters?.props?.CTA ?? {};
-  return wrapper(<CTA type={type} style="feature" {...props} />, type);
+  const { type, featureHeading, ...props } = parameters?.props?.CTA ?? {};
+  if (props.card.type !== 'video') {
+    props.card.heading = featureHeading;
+  }
+
+  return wrapper(
+    <CTA type={type} style="feature" {...props} />,
+    'feature',
+    type
+  );
 };
 
 Feature.story = {
@@ -280,12 +297,21 @@ Feature.story = {
   parameters: {
     knobs: {
       CTA: ({ groupId }) => {
-        const knobs = Card.story.parameters.knobs.CTA({
-          groupId,
-        });
+        const type = select(
+          'CTA type:',
+          featureTypes,
+          featureTypes[0],
+          groupId
+        );
+        const featureHeading = text(
+          'Heading:',
+          'Explore AI use cases in all industries',
+          groupId
+        );
         return {
-          ...knobs,
-          ...miscCTAData['feature']({ type: knobs.type }),
+          featureHeading,
+          type,
+          ...miscCTAData['feature']({ type }),
         };
       },
     },

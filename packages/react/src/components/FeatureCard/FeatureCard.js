@@ -24,7 +24,7 @@ const { prefix } = settings;
  * @returns {*} FeatureCard JSX component
  */
 const FeatureCard = ({ card, size, ...otherProps }) => {
-  const { eyebrow, heading, image, cta, copy } = card;
+  const { image, cta, copy } = card;
 
   return (
     cta &&
@@ -32,8 +32,7 @@ const FeatureCard = ({ card, size, ...otherProps }) => {
       <div
         className={classNames({
           [`${prefix}--feature-card`]: size == 'medium',
-          [`${prefix}--feature-card-large`]:
-            size == 'large' && eyebrow && heading,
+          [`${prefix}--feature-card-large`]: size == 'large',
           [`${prefix}--feature-card-large_no-copy-text`]:
             size === 'large' && !copy,
         })}
