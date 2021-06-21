@@ -77,6 +77,7 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
         const tabbable = findLast(this.querySelectorAll(selectorTabbableForLeftnav), elem =>
           Boolean((elem as HTMLElement).offsetParent)
         );
+        console.log('tabbable PRECEDING', tabbable, PRECEDING);
         if (tabbable) {
           (tabbable as HTMLElement).focus();
         }
@@ -86,6 +87,8 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
         const tabbable = find(this.querySelectorAll(selectorTabbableForLeftnav), elem =>
           Boolean((elem as HTMLElement).offsetParent)
         );
+
+        console.log('tabbable FOLLOWING', tabbable, FOLLOWING);
         if (tabbable) {
           (tabbable as HTMLElement).focus();
         }
