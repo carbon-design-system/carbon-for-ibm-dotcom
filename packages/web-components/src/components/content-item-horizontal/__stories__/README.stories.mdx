@@ -50,6 +50,25 @@ import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/i
 </dds-content-item-horizontal>
 ```
 
+### HTML (with thumbnail)
+
+```html
+<dds-content-item-horizontal thumbnail="true">
+  <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
+  <dds-content-item-horizontal-copy>Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+    Phasellus at elit sollicitudin.</dds-content-item-horizontal-copy>
+  <dds-link-list slot="footer" type="vertical">
+    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
+      Learn more
+    </dds-link-list-item-cta>
+    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
+      Microservices and containers
+    </dds-link-list-item-cta>
+  </dds-link-list>
+  <dds-image slot="thumbnail" alt="Alt text" default-src="image.jpg"></dds-image>
+</dds-content-item-horizontal>
+```
+
 ## With Media (image)
 
 ### JS (via import)
@@ -106,33 +125,6 @@ import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/c
     </dds-link-list-item-cta>
   </dds-link-list>
 </dds-content-item-horizontal-media>
-```
-
-## With Thumbnail
-
-### JS
-
-```javascript
-import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/index.js';
-```
-
-### HTML
-
-```html
-<dds-content-item-horizontal-thumbnail>
-  <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
-  <dds-content-item-horizontal-thumbnail-copy>Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-    Phasellus at elit sollicitudin.</dds-content-item-horizontal-thumbnail-copy>
-  <dds-link-list slot="footer" type="vertical">
-    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
-      Learn more
-    </dds-link-list-item-cta>
-    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
-      Microservices and containers
-    </dds-link-list-item-cta>
-  </dds-link-list>
-  <dds-image slot="thumbnail" alt="Alt text" default-src="image.jpg"></dds-image>
-</dds-content-item-horizontal-thumbnail>
 ```
 
 ## Props
