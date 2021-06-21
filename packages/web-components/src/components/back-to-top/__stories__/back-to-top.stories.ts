@@ -11,8 +11,7 @@ import { html } from 'lit-element';
 import '../index';
 import '../../dotcom-shell/dotcom-shell-container';
 import readme from './README.stories.mdx';
-// import StoryContent from '../../dotcom-shell/__stories__/data/content';
-import StoryContent from './data/contentNew';
+import StoryContent from './data/content';
 import styles from './back-to-top.stories.scss';
 
 export const Default = () => {
