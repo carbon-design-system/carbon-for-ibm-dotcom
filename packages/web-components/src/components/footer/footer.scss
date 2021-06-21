@@ -41,6 +41,10 @@
 :host(#{$dds-prefix}-footer),
 :host(#{$dds-prefix}-legal-nav) {
   display: block;
+  .#{$prefix}--adjunct-links__container {
+    list-style: none;
+    padding: $spacing-09 0 $spacing-05;
+  }
 }
 
 :host(#{$dds-prefix}-footer-nav-group[open]) {
@@ -135,6 +139,10 @@
     align-items: center;
     padding: 0;
     height: 3rem;
+  }
+
+  .#{$prefix}--adjunct-links__container {
+    display: none;
   }
 
   .#{$prefix}--legal-nav {

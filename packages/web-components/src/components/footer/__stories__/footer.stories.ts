@@ -17,6 +17,7 @@ import '../footer-container';
 import mockLangList from './language-list';
 import mockLinks from './links';
 import mockLegalLinks from './legal-links';
+import mockAdjunctLinks from './adjunct-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
 import readme from './README.stories.mdx';
 import styles from './footer.stories.scss';
@@ -34,6 +35,7 @@ export const base = ({ parameters }) => {
     clearSelectionLabel,
     languageSelectorLabel,
     selectedLanguage,
+    adjunctLinks,
   } = parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
 
@@ -48,6 +50,7 @@ export const base = ({ parameters }) => {
             lang-display="${ifNonNull(langDisplay)}"
             size="${ifNonNull(size)}"
             .langList="${ifNonNull(langList)}"
+            .adjunctLinks="${ifNonNull(adjunctLinks)}"
             .legalLinks="${ifNonNull(legalLinks)}"
             .links="${ifNonNull(links)}"
             .localeList="${ifNonNull(localeList)}"
@@ -64,6 +67,7 @@ export const base = ({ parameters }) => {
             lang-display="${ifNonNull(langDisplay)}"
             size="${ifNonNull(size)}"
             .langList="${ifNonNull(langList)}"
+            .adjunctLinks="${ifNonNull(adjunctLinks)}"
             .legalLinks="${ifNonNull(legalLinks)}"
             .links="${ifNonNull(links)}"
             .localeList="${ifNonNull(localeList)}"
@@ -180,6 +184,18 @@ microLanguageOnly.story = {
   },
 };
 
+export const withAdjunctLinks = ({ parameters }) => {
+  const { props = {} } = parameters;
+  props.FooterComposite = {
+    ...(props.FooterComposite || {}),
+    size: FOOTER_SIZE.REGULAR,
+    adjunctLinks: mockAdjunctLinks,
+  };
+  return base({ parameters });
+};
+
+withAdjunctLinks.story = {};
+
 export default {
   title: 'Components/Footer',
   parameters: {
@@ -197,6 +213,7 @@ export default {
         FooterComposite: {
           langDisplay: !useMock ? undefined : 'United States - English',
           legalLinks: !useMock ? undefined : mockLegalLinks,
+          adjunctLinks: !useMock ? undefined : mockAdjunctLinks,
           links: !useMock ? undefined : mockLinks,
           localeList: !useMock ? undefined : mockLocaleList,
         },
