@@ -85,19 +85,13 @@
     }
   }
 
-  .#{$prefix}--content-item-horizontal-thumbnail__heading-wrapper,
+  :host(#{$dds-prefix}-content-item-horizontal-thumbnail) ::slotted([slot='heading']),
   .#{$prefix}--content-item-horizontal-thumbnail__content-wrapper {
     @include carbon--breakpoint(md) {
       padding-right: $carbon--spacing-07;
     }
     @include carbon--breakpoint(lg) {
       @include carbon--make-col(4, 8);
-    }
-  }
-
-  .#{$prefix}--content-item-horizontal-thumbnail__heading-wrapper {
-    @include carbon--breakpoint(lg) {
-      padding-right: $carbon--spacing-05;
     }
   }
 
@@ -120,6 +114,11 @@
     display: block;
     margin-bottom: $carbon--spacing-07;
     width: 100%;
+
+    @include carbon--breakpoint(lg) {
+      margin-bottom: 0;
+      padding-right: $carbon--spacing-05;
+    }
   }
 
   :host(#{$dds-prefix}-content-item-horizontal-thumbnail-copy) ::slotted(:not([slot])) {
@@ -130,7 +129,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-link-list) ::slotted([slot='footer']) {
+  :host(#{$dds-prefix}-content-item-horizontal-thumbnail) ::slotted([slot='footer']) {
     margin-bottom: $carbon--spacing-07;
   }
 

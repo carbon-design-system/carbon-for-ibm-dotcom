@@ -27,9 +27,7 @@ class DDSContentItemHorizontalThumbnail extends DDSContentItem {
     return html`
       <div class="${prefix}--content-item-horizontal-thumbnail__row">
         <div class="${prefix}--content-item-horizontal-thumbnail__col ${prefix}--content-item-horizontal-thumbnail__col--1">
-          <div class="${prefix}--content-item-horizontal-thumbnail__heading-wrapper">
-            <slot name="heading"></slot>
-          </div>
+          <slot name="heading"></slot>
           <div class="${prefix}--content-item-horizontal-thumbnail__content-wrapper">
             ${this._renderBody()}${this._renderFooter()}
           </div>
