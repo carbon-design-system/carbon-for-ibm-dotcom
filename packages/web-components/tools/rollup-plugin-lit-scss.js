@@ -61,10 +61,16 @@ function rollupPluginLitSCSS({ include = /\.scss$/i, exclude, preprocessor = noo
         return null;
       }
 
+      const finalContent = `
+        $feature-flags: (
+          enable-css-custom-properties: true,
+        );
+       ${contents}`;
+
       const { css } = await renderSass({
         ...options,
         file: id,
-        data: contents,
+        data: finalContent,
       });
 
       return {
