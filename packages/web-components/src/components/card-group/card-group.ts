@@ -227,7 +227,7 @@ class DDSCardGroup extends LitElement {
         e.style.paddingLeft = '0';
         if (e.hasAttribute('empty')) {
           e.style.paddingRight = '0';
-          if (this._childItems[index - 1].hasAttribute('empty')) {
+          if (index > 0 && this._childItems[index - 1].hasAttribute('empty')) {
             this._childItems[index - 1].style.paddingRight = '0';
           }
         }
@@ -278,6 +278,25 @@ class DDSCardGroup extends LitElement {
             this._childItems[index - columns].style.paddingTop = '0';
           }
         }
+      }
+
+      if (this.gridMode !== 'border') {
+        if (e.hasAttribute('empty')) {
+          // first row
+          if (index < columns) {
+            e.style.marginTop = '0';
+            e.style.paddingRight = '0';
+          }
+          if (index !== 0 && !this._childItems[index - 1].hasAttribute('empty')) {
+            this._childItems[index - 1].style.paddingRight = '0';
+          }
+          // first column
+          if ((index + 1) % columns === 1) {
+            e.style.marginLeft = '0';
+          }
+        }
+      } else if (columns === 1 && index === 1 && this._childItems[index - 1].hasAttribute('empty')) {
+        e.style.paddingTop = '1px';
       }
     });
   };

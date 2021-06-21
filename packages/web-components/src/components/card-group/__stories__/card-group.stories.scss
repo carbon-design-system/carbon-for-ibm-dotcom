@@ -24,10 +24,3 @@
     grid-column: 5 / span 16;
   }
 }
-
-.dds-ce-demo-devenv--grid--stretch {
-  /* stylelint-disable-next-line selector-type-no-unknown */
-  dds-card-group {
-    --#{$dds-prefix}--card-group-gradient: linear-gradient(45deg, #ffff00, #ff0000);
-  }
-}

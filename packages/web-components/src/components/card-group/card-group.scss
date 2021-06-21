@@ -19,17 +19,19 @@
   /* stylelint-disable-next-line selector-type-no-unknown */
   dds-card-group-item[empty] {
     background-color: $ui-background;
-    display: none;
-
-    @include carbon--breakpoint('sm') {
-      display: block;
-    }
+    margin-left: -1px;
   }
 }
 
 :host(#{$dds-prefix}-card-group)[grid-mode='border'] {
   background: var(--#{$dds-prefix}--card-group-gradient, $decorative-01);
   box-shadow: none;
+
+  /* stylelint-disable-next-line selector-type-no-unknown */
+  dds-card-group-item[empty] {
+    margin-left: 0;
+    margin-top: 0;
+  }
 }
 
 :host(#{$dds-prefix}-card-group)[grid-mode='narrow'] {
@@ -49,8 +51,17 @@
     padding-left: 0;
     padding-bottom: 0;
     padding-top: 0;
+    margin-top: -1px;
+    margin-left: 1px;
+    display: none;
+
+    @include carbon--breakpoint('md') {
+      display: block;
+    }
+
     .bx--card__wrapper {
       background: $ui-background;
+      height: 100%;
     }
 
     &:hover {

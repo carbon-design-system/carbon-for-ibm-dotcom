@@ -100,50 +100,27 @@ const cardGroupItemWithCTAs = html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { cards, optionalBorder } = parameters?.props?.CardGroup ?? {};
+  const { cards, optionalBorder, offset } = parameters?.props?.CardGroup ?? {};
+  let temp = cards;
   const allCards: object[] = [];
-  allCards.push(longHeadingCardGroupItem(optionalBorder));
-  for (let i = 1; i < cards; i++) {
+  if (offset) {
+    for (let i = 0; i < offset; i++) {
+      allCards.push(emptyCard);
+    }
+
+    temp += 1;
+  } else {
+    allCards.push(longHeadingCardGroupItem(optionalBorder));
+  }
+  for (let i = 1; i < temp; i++) {
     allCards.push(cardsDiffLengthPhrase(i, optionalBorder));
   }
   return html`
     <dds-card-group grid-mode=${optionalBorder ? 'border' : null}>
       ${allCards}
     </dds-card-group>
+    <div style="height: 100px"></div>
   `;
-};
-
-export const withEmptyCard = ({ parameters }) => {
-  const { cards, optionalBorder, emptyCardIndex, emptyCardIndex2 } = parameters?.props?.CardGroup ?? {};
-  const allCards: object[] = [];
-  for (let i = 1; i < cards + 1; i++) {
-    if (emptyCardIndex === i) {
-      allCards.push(emptyCard);
-    } else if (emptyCardIndex2 === i) {
-      allCards.push(emptyCard);
-    } else {
-      allCards.push(cardsDiffLengthPhrase(i, optionalBorder));
-    }
-  }
-  return html`
-    <dds-card-group grid-mode=${optionalBorder ? 'border' : null}>
-      ${allCards}
-    </dds-card-group>
-  `;
-};
-
-withEmptyCard.story = {
-  parameters: {
-    ...readme.parameters,
-    knobs: {
-      CardGroup: ({ groupId }) => ({
-        cards: number('Number of cards', 5, {}, groupId),
-        emptyCardIndex: number('Empty card position', 1, {}, groupId),
-        emptyCardIndex2: number('Empty card position 2', 0, {}, groupId),
-        optionalBorder: boolean('Outlined cards:', false, groupId),
-      }),
-    },
-  },
 };
 
 export const withCTA = ({ parameters }) => {
@@ -316,6 +293,7 @@ export default {
       CardGroup: ({ groupId }) => ({
         cards: number('Number of cards', 5, {}, groupId),
         optionalBorder: boolean('Outlined cards:', false, groupId),
+        offset: select('Offset', ['0', '1'], '0', groupId),
       }),
     },
     decorators: [
