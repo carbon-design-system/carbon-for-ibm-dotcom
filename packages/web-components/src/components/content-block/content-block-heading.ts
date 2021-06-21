@@ -1,14 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, customElement, LitElement, internalProperty } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { stripHTML } from '@carbon/ibmdotcom-utilities/es/utilities/stripHTML/index.js';
+import { render } from 'lit-html';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-block.scss';
 
@@ -27,6 +29,9 @@ class DDSContentBlockHeading extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'heading';
 
+  @internalProperty()
+  content = '';
+
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'heading');
@@ -37,9 +42,19 @@ class DDSContentBlockHeading extends StableSelectorMixin(LitElement) {
     super.connectedCallback();
   }
 
+  firstUpdated() {
+    this.content = stripHTML(this.innerHTML);
+    render(
+      html`
+        ${this.content}
+      `,
+      this
+    );
+  }
+
   render() {
     return html`
-      <slot></slot>
+      ${this.content}
     `;
   }
 
