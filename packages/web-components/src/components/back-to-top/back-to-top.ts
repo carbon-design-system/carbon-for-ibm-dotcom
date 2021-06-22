@@ -15,6 +15,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import throttle from 'lodash-es/throttle.js';
 import UpToTop20 from 'carbon-web-components/es/icons/up-to-top/20.js';
 import styles from './back-to-top.scss';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -28,7 +29,7 @@ interface Cancelable {
  * @element dds-back-to-top
  */
 @customElement(`${ddsPrefix}-back-to-top`)
-class DDSBackToTop extends HostListenerMixin(LitElement) {
+class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * The observer for the resize of the document body.
    */
