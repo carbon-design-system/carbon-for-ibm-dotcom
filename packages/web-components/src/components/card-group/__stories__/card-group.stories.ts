@@ -113,7 +113,6 @@ export const Default = ({ parameters }) => {
     <dds-card-group grid-mode=${optionalBorder ? 'border' : null}>
       ${allCards}
     </dds-card-group>
-    <div style="height: 100px"></div>
   `;
 };
 
