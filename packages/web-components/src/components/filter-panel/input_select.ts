@@ -27,11 +27,24 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
   @property({ type: String, reflect: true })
   protected selectValue = '';
 
+  // Figure out how to pass array of strings through props
   @property()
-  options = ['option 1', 'option 2', 'option 3', 'option 4'];
+  options: string[] = ['Content Management System', 'Digital Asset Management', 'Document Management', 'Web Content Management'];
+
+  @property()
+  title: string;
 
   protected _toggleSelect = () => {
     this.isOpen = !this.isOpen;
+    // if (this._tierOneElementIsSelected() === true) {
+    //
+    // }
+    const { eventContentStateChange } = this.constructor as typeof DDSInputSelect;
+    this.dispatchEvent(
+      new CustomEvent(eventContentStateChange, {
+        bubbles: true,
+      })
+    );
   };
 
   /**
@@ -50,10 +63,11 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
   };
 
   render() {
+    const { title } = this;
     return html`
       <div class="${prefix}--input_container">
         <div class="${this._tierOneElementIsSelected()} select" tabindex="1" @click=${this._toggleSelect}>
-          <span>Tier 1 label label label label label</span>
+          <span>${title}</span>
           <div class="svg">
             ${!this.selectValue && this.isOpen ? Close() : null}
           </div>

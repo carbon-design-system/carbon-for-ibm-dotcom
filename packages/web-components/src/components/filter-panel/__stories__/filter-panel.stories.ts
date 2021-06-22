@@ -12,11 +12,13 @@ import { html } from 'lit-element';
 import '../filter-panel';
 import '../input_select';
 import '../filter-group';
-import textNullable from '../../../../.storybook/knob-text-nullable';
+import '../checkbox';
+// import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+// import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Input = () => {
   return html`
-    <dds-input-select></dds-input-select>
+    <dds-input-select title="Opting?"></dds-input-select>
   `;
 };
 
@@ -28,7 +30,13 @@ export const Filter = () => {
 
 export const real = () => {
   return html`
-    <dds-filter-panel></dds-filter-panel>
+    <dds-filter-panel title="Filter"></dds-filter-panel>
+  `;
+};
+
+export const checkbox = () => {
+  return html`
+    <dds-checkbox></dds-checkbox>
   `;
 };
 
@@ -39,16 +47,12 @@ export default {
       html`
         <div class="bx--grid">
           <div class="bx--row">
-            <div>
-              ${story()}
-            </div>
+            ${story()}
           </div>
         </div>
       `,
   ],
   knobs: {
-    'dds-filter-panel': ({ groupId }) => ({
-      alt: textNullable('Alt text', 'Image alt text', groupId),
-    }),
+    'dds-filter-panel': () => ({}),
   },
 };

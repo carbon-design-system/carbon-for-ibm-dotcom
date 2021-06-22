@@ -14,7 +14,14 @@
 @import 'carbon-components/scss/components/button/button';
 
 @mixin filter-panel {
-  :host(#{$prefix}--filter-panel__section) {
+  .#{$prefix}--filter_heading {
+    padding: $spacing-05;
+  }
+  .#{$prefix}--filter_footer {
+    padding-bottom: $spacing-09;
+  }
+  .#{$prefix}--filter-panel__section {
+    min-width: 300px;
     background-color: $ui-01;
   }
   .#{$prefix}--input_container {
@@ -30,13 +37,13 @@
     //padding-right: $spacing-05;
     //padding-top: 7px;
     //padding-bottom: 7px;
-    padding: 7px $spacing 7px $spacing-05;
+    padding: 7px $spacing-05 7px $spacing-05;
     color: $text-01;
     @include carbon--type-style('body-short-01');
     &:hover {
       background-color: $hover-ui;
     }
-    &.svg {
+    .svg {
       position: absolute;
       right: 16px;
       top: 18px;
@@ -63,7 +70,7 @@
     //padding-right: $spacing-05;
     //padding-top: 7px;
     //padding-bottom: 7px;
-    padding: 7px $spacing-05 7px $spacing-08;
+    padding: 7px $spacing-08 7px $spacing-08;
     &:hover {
       background-color: $hover-ui;
     }
@@ -84,6 +91,12 @@
     .bx--accordion__content {
       padding-right: 0;
     }
+  }
+  .bx--accordion__content {
+    padding-left: 0;
+  }
+  .bx--form-item.bx--checkbox-wrapper {
+    padding-left: $spacing-05;
   }
 }
 @include exports('filter-panel') {

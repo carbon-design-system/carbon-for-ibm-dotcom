@@ -13,12 +13,14 @@ import {
   // property,
   LitElement,
   internalProperty,
+  property,
 } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import { classMap } from 'lit-html/directives/class-map';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './input_select';
+import './checkbox';
 
 import styles from './filter-panel.scss';
 
@@ -28,65 +30,61 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-filter-group`)
 class DDSFilterGroup extends StableSelectorMixin(LitElement) {
   @internalProperty()
-  private categories: String[] = ['Section 1'];
+  private _childItems: Element[] = [];
 
   @internalProperty()
-  private activeTab: Number = 0;
+  private selectorItem: string;
 
-  @internalProperty()
-  private activeTabs: Number[] = [0, 1];
-
-  protected setActiveTab(index: Number) {
-    this.activeTab = index;
+  private _handleSlotChange(event: Event) {
+    this._childItems = (event.target as HTMLSlotElement)
+      .assignedNodes({ flatten: true })
+      .filter(node => node.nodeType === Node.ELEMENT_NODE && (node as Element)?.matches(this.selectorItem)) as Element[];
   }
 
-  protected setActiveTabs(index: Number) {
-    if (this.activeTabs.includes(index)) {
-      this.activeTabs.splice(this.activeTabs.indexOf(index));
-    } else {
-      this.activeTabs.push(index);
-    }
+  @property()
+  private title: string;
+
+  @internalProperty()
+  private isOpen: boolean = true;
+
+  protected toggleAccordion() {
+    this.isOpen = !this.isOpen;
   }
 
   render() {
-    const { categories } = this;
+    const { title, isOpen } = this;
+    const classes = classMap({
+      'bx--accordion__item': true,
+      'bx--accordion__item--active': isOpen,
+    });
     return html`
       <ul class="${prefix}--accordion">
-        ${categories.map((cat, idx) => {
-          const active = idx === this.activeTab;
-          const classes = classMap({
-            'bx--accordion__item': true,
-            'bx--accordion__item--active': active,
-          });
-          return html`
-            <li data-accordion-item class="${classes}">
-              <button
-                class="bx--accordion__heading"
-                aria-expanded="false"
-                aria-controls="pane1"
-                @click=${() => this.setActiveTab(idx)}
-              >
-                <svg
-                  focusable="false"
-                  preserveAspectRatio="xMidYMid meet"
-                  style="will-change: transform;"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="bx--accordion__arrow"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  aria-hidden="true"
-                >
-                  <path d="M11 8L6 13 5.3 12.3 9.6 8 5.3 3.7 6 3z"></path>
-                </svg>
-                <div class="bx--accordion__title">${cat}</div>
-              </button>
-              <div id="pane-${idx}" class="bx--accordion__content">
-                <dds-input-select></dds-input-select>
-              </div>
-            </li>
-          `;
-        })}
+        <li data-accordion-item class="${classes}">
+          <button
+            class="bx--accordion__heading"
+            aria-expanded="false"
+            aria-controls="pane1"
+            @click=${() => this.toggleAccordion()}
+          >
+            <svg
+              focusable="false"
+              preserveAspectRatio="xMidYMid meet"
+              style="will-change: transform;"
+              xmlns="http://www.w3.org/2000/svg"
+              class="bx--accordion__arrow"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+            >
+              <path d="M11 8L6 13 5.3 12.3 9.6 8 5.3 3.7 6 3z"></path>
+            </svg>
+            <div class="bx--accordion__title">${title}</div>
+          </button>
+          <div class="bx--accordion__content">
+            <slot @slotchange="${this._handleSlotChange}"></slot>
+          </div>
+        </li>
       </ul>
     `;
   }

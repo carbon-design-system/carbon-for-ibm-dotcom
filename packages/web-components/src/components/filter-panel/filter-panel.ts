@@ -7,8 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, LitElement } from 'lit-element';
+import { customElement, html, LitElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+// import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './filter-group';
@@ -20,10 +21,44 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-filter-panel`)
 class DDSFilterPanel extends StableSelectorMixin(LitElement) {
+  /**
+   *
+   * renders filter title slot
+   */
+  protected _renderHeading() {
+    const { title } = this;
+    return html`
+      <slot name="heading">${title}</slot>
+    `;
+  }
+
+  /**
+   * the filter title
+   */
+  @property()
+  title = '';
+
+  // protected _handleContentStateChange(_: CustomEvent) {}
+  //
+  // /** host listener */
+  // @HostListener('document:eventContentStateChange')
+  // protected _handleContentStateChangeDocument = (event: CustomEvent) => {
+  //
+  // }
+
   render() {
     return html`
-      <section class="${prefix}--filter-panel__section">hi</section>
-      <dds-filter-group></dds-filter-group>
+      <section class="${prefix}--filter-panel__section">
+        <div>pills</div>
+        <div class="${prefix}--filter_heading">${this._renderHeading()}</div>
+        <dds-filter-group title="My guy">
+          <dds-input-select title="Content Management"></dds-input-select>
+        </dds-filter-group>
+        <dds-filter-group title="checkbox">
+          <dds-checkbox></dds-checkbox>
+        </dds-filter-group>
+        <div class="${prefix}--filter_footer"></div>
+      </section>
     `;
   }
 
