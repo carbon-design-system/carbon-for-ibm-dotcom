@@ -1,7 +1,11 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
 import markdownContents from '../../../../docs/markdown-contents.md';
-import plex from '../../../../docs/plex.md';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
+
 
 # `<dds-cta-section>`
 
@@ -31,25 +35,9 @@ import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player
 import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player-container.js';
 ```
 
-### JS (via CDN)
+<Description markdown={`${cdnJs({ components: ['cta-section'] })}`} />
 
-```html
-<!-- LATEST tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/cta-section.min.js"></script>
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/link-list.min.js"></script> <!-- optional -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/video-player-container.min.js"></script> <!-- optional -->
-
-<!-- NEXT tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/cta-section.min.js"></script>
-
-<!-- BETA tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/cta-section.min.js"></script>
-
-<!-- SPECIFIC VERSION (available starting v1.6.0) -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/cta-section.min.js"></script>
-```
-
-<Description markdown={plex} />
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
