@@ -133,7 +133,6 @@
 
   .#{$prefix}--legal-nav__holder {
     margin-left: 0;
-    padding-left: $carbon--spacing-01;
     @include carbon--breakpoint('md') {
       column-count: 2;
     }
@@ -141,6 +140,7 @@
     @include carbon--breakpoint('lg') {
       margin-left: 25%;
       column-count: 3;
+      padding-left: $carbon--spacing-01;
     }
   }
 
