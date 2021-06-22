@@ -43,7 +43,7 @@ export const Default = ({ parameters }) => {
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-content-item-paragraph slot="copy">${copy}</dds-content-item-paragraph>
 
-      <dds-card-link slot="footer" href="${href}" type="local" color-scheme="inverse">
+      <dds-feature-section-card-link slot="footer" href="${href}" type="local" color-scheme="inverse">
         Try a free virtual business framing session with IBM Garage
         <dds-card-footer>
           <svg
@@ -59,7 +59,7 @@ export const Default = ({ parameters }) => {
             <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
           </svg>
         </dds-card-footer>
-      </dds-card-link>
+      </dds-feature-section-card-link>
     </dds-feature-section>
   `;
 };

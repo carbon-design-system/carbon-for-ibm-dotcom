@@ -91,15 +91,19 @@
     }
 
     .#{$prefix}--card-link,
-    ::slotted(#{$dds-prefix}-card-link) {
+    ::slotted(#{$dds-prefix}-feature-section-card-link) {
       position: absolute;
       right: 0;
       bottom: 0;
-      padding-left: 25%;
+      width: 75%;
 
       @include carbon--breakpoint('md') {
+        width: 50%;
         right: $carbon--spacing-05;
-        padding-left: 0;
+      }
+
+      .#{$prefix}--card {
+        max-width: inherit;
       }
     }
   }
