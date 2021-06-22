@@ -214,89 +214,33 @@ class DDSCardGroup extends LitElement {
 
   private _borderAdjustments = columns => {
     this._childItems.forEach((e, index) => {
-      // card in first or last column
-      if ((index + 1) % columns === 1 || (index + 1) % columns === 0) {
-        if (e.hasAttribute('empty')) {
-          if (index >= columns && this._childItems[index - columns].hasAttribute('empty')) {
-            this._childItems[index - columns].style.paddingBottom = '0';
-          }
-        }
-      }
-      // card in middle or last column
-      if ((index + 1) % columns !== 1 || (index + 1) % columns === 0) {
-        e.style.paddingLeft = '0';
-        if (e.hasAttribute('empty')) {
-          e.style.paddingRight = '0';
-          if (index > 0 && this._childItems[index - 1].hasAttribute('empty')) {
-            this._childItems[index - 1].style.paddingRight = '0';
-          }
-        }
-      }
-      // first column
-      if ((index + 1) % columns === 1) {
-        if (e.hasAttribute('empty')) {
-          e.style.paddingRight = '1px';
-          e.style.marginTop = '0';
-        } else {
-          e.style.paddingLeft = '1px';
-        }
-      }
-      if (e.hasAttribute('empty')) {
-        // last column
-        if ((index + 1) % columns === 0) {
-          e.style.paddingRight = '0';
-        }
-        // middle columns
-        if ((index + 1) % columns !== 0 && (index + 1) % columns !== 1) {
-          e.style.paddingRight = '1px';
-        }
-      }
-      // first row
-      if (index < columns) {
-        e.style.paddingTop = '1px';
-        if (e.hasAttribute('empty')) {
-          e.style.paddingBottom = '0';
-          if (this._childItems.length > columns) {
-            e.style.marginTop = '-1px';
-          } else {
-            e.style.paddingTop = '0';
-          }
-        }
-      } else {
-        e.style.paddingTop = '0';
-        if (e.hasAttribute('empty')) {
-          // not the last row
-          if (index < this._childItems.length - columns) {
-            e.style.paddingBottom = '1px';
-          } else {
-            e.style.paddingBottom = '0';
-          }
-          // card above current is in first row and is empty
-          if (index - columns < columns && this._childItems[index - columns].hasAttribute('empty')) {
-            this._childItems[index - columns].style.marginTop = '0';
-            this._childItems[index - columns].style.paddingBottom = '0';
-            this._childItems[index - columns].style.paddingTop = '0';
-          }
-        }
-      }
-
       if (this.gridMode !== 'border') {
         if (e.hasAttribute('empty')) {
-          // first row
+          e.style.paddingBottom = '0';
+          e.style.paddingRight = '0';
+        }
+      } else {
+        if (e.hasAttribute('empty')) {
+          e.style.paddingBottom = '1px';
+          e.style.paddingRight = '1px';
+        } else {
+          e.style.paddingTop = '0';
+          // if first row
           if (index < columns) {
-            e.style.marginTop = '0';
-            e.style.paddingRight = '0';
-          }
-          if (index !== 0 && !this._childItems[index - 1].hasAttribute('empty')) {
-            this._childItems[index - 1].style.paddingRight = '0';
-          }
-          // first column
-          if ((index + 1) % columns === 1) {
-            e.style.marginLeft = '0';
+            e.style.paddingTop = '1px';
           }
         }
-      } else if (columns === 1 && index === 1 && this._childItems[index - 1].hasAttribute('empty')) {
-        e.style.paddingTop = '1px';
+
+        // if not empty and first column
+        if (!e.hasAttribute('empty') && (index + 1) % columns === 1) {
+          e.style.paddingLeft = '1px';
+        } else {
+          e.style.paddingLeft = '0';
+        }
+        // if one column and first item is empty then set top border for second item
+        if (columns === 1 && index === 1 && this._childItems[0].hasAttribute('empty')) {
+          e.style.paddingTop = '1px';
+        }
       }
     });
   };

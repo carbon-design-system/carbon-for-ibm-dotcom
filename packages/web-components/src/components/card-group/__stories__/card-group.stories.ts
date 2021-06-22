@@ -101,18 +101,12 @@ const cardGroupItemWithCTAs = html`
 
 export const Default = ({ parameters }) => {
   const { cards, optionalBorder, offset } = parameters?.props?.CardGroup ?? {};
-  let temp = cards;
   const allCards: object[] = [];
-  if (offset) {
-    for (let i = 0; i < offset; i++) {
-      allCards.push(emptyCard);
-    }
-
-    temp += 1;
-  } else {
-    allCards.push(longHeadingCardGroupItem(optionalBorder));
+  if (offset === '1') {
+    allCards.push(emptyCard);
   }
-  for (let i = 1; i < temp; i++) {
+  allCards.push(longHeadingCardGroupItem(optionalBorder));
+  for (let i = 1; i < cards; i++) {
     allCards.push(cardsDiffLengthPhrase(i, optionalBorder));
   }
   return html`

@@ -20,6 +20,7 @@
   dds-card-group-item[empty] {
     background-color: $ui-background;
     margin-left: -1px;
+    margin-top: -1px;
   }
 }
 
@@ -29,8 +30,8 @@
 
   /* stylelint-disable-next-line selector-type-no-unknown */
   dds-card-group-item[empty] {
-    margin-left: 0;
     margin-top: 0;
+    margin-left: 0;
   }
 }
 
@@ -41,18 +42,14 @@
 
 :host(#{$dds-prefix}-card-group-item) {
   background: transparent;
-  padding: 1px;
+  padding-bottom: 1px;
+  padding-right: 1px;
 
   &:hover {
     background: none;
   }
 
   &[empty] {
-    padding-left: 0;
-    padding-bottom: 0;
-    padding-top: 0;
-    margin-top: -1px;
-    margin-left: 1px;
     display: none;
 
     @include carbon--breakpoint('md') {
