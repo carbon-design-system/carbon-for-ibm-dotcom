@@ -19,6 +19,7 @@ import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdow
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 import DDSMastheadSearchItem from './masthead-search-item';
 import styles from './masthead.scss';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -40,7 +41,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-masthead-search`)
 // `BXDropdown` extends `HostListenerMixin`
-class DDSMastheadSearch extends BXDropdown {
+class DDSMastheadSearch extends StableSelectorMixin(BXDropdown) {
   /**
    * The `<button>` to open the search box.
    */
@@ -458,6 +459,10 @@ class DDSMastheadSearch extends BXDropdown {
         </button>
       </div>
     `;
+  }
+
+  static get stableSelector() {
+    return `${ddsPrefix}--masthead-search`;
   }
 
   /**
