@@ -99,7 +99,7 @@ export const Default = ({ parameters }) => {
               href="${ifNonNull(href)}"
               @click="${onClick}"
             >
-              ${ctaCopy}F
+              ${ctaCopy}
             </dds-text-cta>
           `}
     </dds-content-block-simple>
