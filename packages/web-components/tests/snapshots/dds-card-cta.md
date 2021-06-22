@@ -56,6 +56,7 @@
     </slot>
     <dds-card-heading
       aria-level="3"
+      data-autoid="dds--card-heading"
       role="heading"
     >
       video-name-foo-caption

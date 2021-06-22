@@ -1,6 +1,11 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
 import '../leadspace';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
+
 
 # LeadSpace
 
@@ -14,7 +19,7 @@ import '../leadspace';
 
 Here's a quick example to get you started.
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/leadspace/index.js';
@@ -22,6 +27,10 @@ import '@carbon/ibmdotcom-web-components/es/components/leadspace/index.js';
 // icon for the button
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 ```
+
+<Description markdown={`${cdnJs({ components: ['leadspace'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
@@ -43,10 +52,10 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
       </svg>
     </dds-button-group-item>
   </dds-button-group>
-  <dds-image slot="image" class="bx--image" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
+  <dds-leadspace-image slot="image" class="bx--image" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
     <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
     <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
-  </dds-image>
+  </dds-leadspace-image>
 </dds-leadspace>
 ```
 
@@ -78,10 +87,10 @@ If using the video player cta in the Leadspace, make sure to follow the guidelin
       </dds-button-group-item>
     </dds-button-group>
   </dds-video-cta-container>
-  <dds-image slot="image" class="bx--image" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
+  <dds-leadspace-image slot="image" class="bx--image" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
     <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
     <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
-  </dds-image>
+  </dds-leadspace-image>
 </dds-leadspace>
 ```
 

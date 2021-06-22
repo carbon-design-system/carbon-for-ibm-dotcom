@@ -1,5 +1,9 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
 
 # Callout Quote
 
@@ -13,11 +17,15 @@ import contributing from '../../../../../../docs/contributing-license.md';
 
 Here's a quick example to get you started.
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/callout-quote/index.js';
 ```
+
+<Description markdown={`${cdnJs({ components: ['callout-quote'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 

@@ -9,7 +9,8 @@
 
 import { html, render } from 'lit-html';
 import EventManager from '../../../../tests/utils/event-manager';
-import DDSExpressiveModal, { EXPRESSIVE_MODAL_SIZE } from '../expressive-modal';
+import DDSExpressiveModal from '../expressive-modal';
+import { EXPRESSIVE_MODAL_SIZE } from '../defs';
 import { Default } from '../__stories__/expressive-modal.stories';
 
 const template = (props?) =>
