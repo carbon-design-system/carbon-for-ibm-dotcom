@@ -8,6 +8,7 @@
   video-id="video-id-foo"
 >
   <dds-video-player
+    data-autoid="dds--video-player"
     duration="120"
     name="video-name-foo"
     playing-mode="inline"
