@@ -102,24 +102,11 @@ ${_renderStyle(components, 'tag/v1/beta')}
  */
 export const cdnCss = () => {
   return `
-### CSS (optional)
+### Carbon CDN style helpers (optional)
 
-There is an optional CDN artifact available that will run the Carbon reset as
-well as import Plex fonts necessary for the page. This can be included if your
-application does not already take these steps:
+There are optional CDN artifacts available that can assist with global Carbon
+styles in lieu of including into your specific application bundle.
 
-\`\`\`html
-// SPECIFIC VERSION (available starting v1.6.0)
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v${packageJson.version}/plex.css" />
-
-// LATEST tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" />
-
-// NEXT tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/next/plex.css" />
-
-// BETA tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/beta/plex.css" />
-\`\`\`
+[Click here to learn more](/docs/overview-carbon-cdn-style-helpers--page)\n\n
   `;
 };
