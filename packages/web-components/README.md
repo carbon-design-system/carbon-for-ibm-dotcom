@@ -7,7 +7,7 @@ A `Carbon for IBM.com` variant that is as easy to use as native HTML elements, w
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-## Table of Contents
+## Table of contents
 
 - [Getting started](#getting-started)
 - [Usage Examples](#usage-examples)
@@ -15,7 +15,8 @@ A `Carbon for IBM.com` variant that is as easy to use as native HTML elements, w
     - [Basic Setup](#basic-setup)
     - [Using Sass](#using-sass)
     - [Enabling RTL](#enabling-rtl)
-  - [Dotcom Shell CDN Bundle](#dotcom-shell-cdn-bundle)
+    - [Process.env Error](#processenv-error)
+  - [CDN Bundles](#cdn-bundles)
     - [Versioned Bundles](#versioned-bundles)
     - [Using RTL](#using-rtl)
   - [Using with other design systems (e.g Northstar v18)](#using-with-other-design-systems-eg-northstar-v18)
@@ -171,7 +172,7 @@ Here is an example of implementing the `dotcom-shell`:
 <html>
   <head>
     <script type="module">
-      import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/dotcom-shell.min.js';
+      import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/dotcom-shell.min.js';
 
       // The minimum prerequisite to use our service for translation data, etc.
       window.digitalData = {
@@ -204,22 +205,27 @@ Here is an example of implementing the `dotcom-shell`:
 </html>
 ```
 
-There is aslo an optional CDN artifact available that will run the Carbon reset
-as well as import Plex fonts necessary for the page. This can be included if your
-application does not already take these steps:
+#### Carbon CDN style helpers (optional)
+
+There are optional CDN artifacts available that can assist with global Carbon
+styles in lieu of including into your specific application bundle.
+
+For example, the following adds Carbon reset and necessary Plex fonts to the page:
 
 ```html
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/plex.css" />
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" />
     ...
   </head>
 </html>
 ```
 
+[Learn more about Carbon CDN style helpers here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/web-components/docs/carbon-cdn-style-helpers.md)
+
 > 💡 Refer to
-> ["Building for IBM.com'](http://ibmdotcom-web-components.mybluemix.net/?path=/docs/overview-building-for-ibm-dotcom--page) page
+> ["Building for IBM.com'](https://ibmdotcom-web-components.mybluemix.net/?path=/docs/overview-building-for-ibm-dotcom--page) page
 > for `window.digitalData` and `<link rel="alternate" ...>`.
 
 > 💡 Check our
@@ -233,14 +239,14 @@ application does not already take these steps:
 The CDN packages are available by NPM tags `latest` (full releases), `next` (latest release candidate), and `beta` (bi-weekly releases), as well as specific versions. The URL pattern for import would be:
 
 ```html
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/[VERSION]/dotcom-shell.min.js"></script>
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/[VERSION]/dotcom-shell.min.js"></script>
 ```
 
 or
 
 ```html
 <script type="module">
-  import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/[VERSION]/dotcom-shell.min.js';
+  import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/[VERSION]/dotcom-shell.min.js';
 </script>
 ```
 
@@ -248,21 +254,25 @@ A tag release would be called as:
 
 ```html
 <!-- LATEST -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/dotcom-shell.min.js"></script>
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/dotcom-shell.min.js"></script>
 
 <!-- NEXT -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/dotcom-shell.min.js"></script>
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/next/dotcom-shell.min.js"></script>
 
 <!-- BETA -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/dotcom-shell.min.js"></script>
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/beta/dotcom-shell.min.js"></script>
 ```
 
 A specific release would be called as:
 
 ```html
 <!-- SPECIFIC VERSION (available starting v1.6.0) -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/dotcom-shell.min.js"></script>
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.x.y/dotcom-shell.min.js"></script>
 ```
+
+> NOTE: The latest/next/beta tags are moving versions. While beneficial to
+> always stay on the most recent version, it is recommended to choose a specific
+> version and properly test your application when upgrading to a newer version.
 
 #### Using RTL
 
@@ -285,9 +295,7 @@ For applications that are currently running on other design systems like [legacy
 <link rel="stylesheet" href="https://1.www.s81c.com/common/v18/css/www.css" />
 <script src="https://1.www.s81c.com/common/v18/js/www.js"></script>
 <!-- Loads Carbon for IBM.com Web Components masthead -->
-<script type="module" src="">
-  import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container.js';
-</script>
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/masthead.min.js"></script>
 
 ...
 
