@@ -13,6 +13,7 @@ import { html, property, internalProperty, LitElement, TemplateResult } from 'li
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from './defs';
 import styles from './content-block.scss';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 export { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME };
 
@@ -40,7 +41,7 @@ const slotExistencePropertyNames = {
  * @slot complementary - The complementary (aside) content.
  * @abstract
  */
-class DDSContentBlock extends LitElement {
+class DDSContentBlock extends StableSelectorMixin(LitElement) {
   /**
    * `true` if there is complementary content.
    */

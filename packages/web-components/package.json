@@ -55,7 +55,7 @@
     "ci-check": "yarn wca && yarn format:diff && yarn lint:src && yarn typecheck && yarn build && yarn test:unit",
     "clean": "gulp clean",
     "clean:dist": "rimraf dist",
-    "doctoc": "doctoc --title '## Table of Contents' docs && doctoc --title '## Table of Contents' README.md",
+    "doctoc": "doctoc --title '## Table of contents' docs && doctoc --title '## Table of contents' README.md",
     "format": "prettier --write \"**/*.{css,js,ts,md,scss}\"",
     "format:diff": "prettier --check \"**/*.{css,js,ts,md,scss}\"",
     "format:staged": "prettier --write",

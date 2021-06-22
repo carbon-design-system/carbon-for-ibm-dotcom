@@ -17,10 +17,10 @@
   tabindex="-1"
 >
   <div class="bx--modal-content">
-    <dds-expressive-modal-header>
-      <dds-expressive-modal-close-button>
+    <dds-expressive-modal-header data-autoid="dds--expressive-modal-header">
+      <dds-expressive-modal-close-button data-autoid="dds--expressive-modal-close-button">
       </dds-expressive-modal-close-button>
-      <dds-expressive-modal-heading>
+      <dds-expressive-modal-heading data-autoid="dds--expressive-modal-heading">
       </dds-expressive-modal-heading>
     </dds-expressive-modal-header>
     <div class="bx--locale-modal bx--modal-content">
@@ -58,10 +58,10 @@
   tabindex="-1"
 >
   <div class="bx--modal-content">
-    <dds-expressive-modal-header>
-      <dds-expressive-modal-close-button>
+    <dds-expressive-modal-header data-autoid="dds--expressive-modal-header">
+      <dds-expressive-modal-close-button data-autoid="dds--expressive-modal-close-button">
       </dds-expressive-modal-close-button>
-      <dds-expressive-modal-heading>
+      <dds-expressive-modal-heading data-autoid="dds--expressive-modal-heading">
         <p class="bx--modal-header__label bx--type-delta">
           lang-display-foo
         </p>
@@ -105,10 +105,16 @@
   tabindex="-1"
 >
   <div class="bx--modal-content">
-    <dds-expressive-modal-header slot="header">
-      <dds-expressive-modal-close-button size="">
+    <dds-expressive-modal-header
+      data-autoid="dds--expressive-modal-header"
+      slot="header"
+    >
+      <dds-expressive-modal-close-button
+        data-autoid="dds--expressive-modal-close-button"
+        size=""
+      >
       </dds-expressive-modal-close-button>
-      <dds-expressive-modal-heading>
+      <dds-expressive-modal-heading data-autoid="dds--expressive-modal-heading">
         <dds-link-with-icon
           data-autoid="dds--link-with-icon"
           href="#"
