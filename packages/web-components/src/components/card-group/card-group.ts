@@ -230,7 +230,6 @@ class DDSCardGroup extends LitElement {
             e.style.paddingTop = '1px';
           }
         }
-
         // if not empty and first column
         if (!e.hasAttribute('empty') && (index + 1) % columns === 1) {
           e.style.paddingLeft = '1px';
