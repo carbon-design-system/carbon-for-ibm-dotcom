@@ -15,6 +15,7 @@ import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/same
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import { GRID_MODE } from './defs';
 import styles from './card-group.scss';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 export { GRID_MODE };
 
@@ -33,7 +34,7 @@ const tagBottomMargin = 16;
  * @element dds-card-group
  */
 @customElement(`${ddsPrefix}-card-group`)
-class DDSCardGroup extends LitElement {
+class DDSCardGroup extends StableSelectorMixin(LitElement) {
   /**
    * Array to hold the card-heading elements within child items.
    */
@@ -238,7 +239,7 @@ class DDSCardGroup extends LitElement {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}-card-group`;
+    return `${ddsPrefix}--card-group`;
   }
 
   /**

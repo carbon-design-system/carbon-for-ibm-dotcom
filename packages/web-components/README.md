@@ -7,7 +7,7 @@ A `Carbon for IBM.com` variant that is as easy to use as native HTML elements, w
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-## Table of Contents
+## Table of contents
 
 - [Getting started](#getting-started)
 - [Usage Examples](#usage-examples)
@@ -15,7 +15,8 @@ A `Carbon for IBM.com` variant that is as easy to use as native HTML elements, w
     - [Basic Setup](#basic-setup)
     - [Using Sass](#using-sass)
     - [Enabling RTL](#enabling-rtl)
-  - [Dotcom Shell CDN Bundle](#dotcom-shell-cdn-bundle)
+    - [Process.env Error](#processenv-error)
+  - [CDN Bundles](#cdn-bundles)
     - [Versioned Bundles](#versioned-bundles)
     - [Using RTL](#using-rtl)
   - [Using with other design systems (e.g Northstar v18)](#using-with-other-design-systems-eg-northstar-v18)
@@ -204,9 +205,12 @@ Here is an example of implementing the `dotcom-shell`:
 </html>
 ```
 
-There is aslo an optional CDN artifact available that will run the Carbon reset
-as well as import Plex fonts necessary for the page. This can be included if your
-application does not already take these steps:
+#### Carbon CDN style helpers (optional)
+
+There are optional CDN artifacts available that can assist with global Carbon
+styles in lieu of including into your specific application bundle.
+
+For example, the following adds Carbon reset and necessary Plex fonts to the page:
 
 ```html
 <!DOCTYPE html>
@@ -218,8 +222,10 @@ application does not already take these steps:
 </html>
 ```
 
+[Learn more about Carbon CDN style helpers here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/web-components/docs/carbon-cdn-style-helpers.md)
+
 > 💡 Refer to
-> ["Building for IBM.com'](http://ibmdotcom-web-components.mybluemix.net/?path=/docs/overview-building-for-ibm-dotcom--page) page
+> ["Building for IBM.com'](https://ibmdotcom-web-components.mybluemix.net/?path=/docs/overview-building-for-ibm-dotcom--page) page
 > for `window.digitalData` and `<link rel="alternate" ...>`.
 
 > 💡 Check our
