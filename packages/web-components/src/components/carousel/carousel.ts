@@ -18,6 +18,7 @@ import HostListener from 'carbon-web-components/es/globals/decorators/host-liste
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import DDSCard from '../card/card';
 import styles from './carousel.scss';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -33,7 +34,7 @@ const MIN_DISTANCE_TRAVELLED = 75; // min distance traveled to be considered swi
  * @csspart next-button The button to go to the next page.
  */
 @customElement(`${ddsPrefix}-carousel`)
-class DDSCarousel extends HostListenerMixin(LitElement) {
+class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * The scrolling contents node.
    */
@@ -399,6 +400,10 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
    */
   static get customPropertyPageSize() {
     return `--${ddsPrefix}--carousel--page-size`;
+  }
+
+  static get stableSelector() {
+    return `${ddsPrefix}--carousel`;
   }
 
   static styles = styles;

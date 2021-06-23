@@ -27,6 +27,10 @@ class DDSCardGroupItem extends DDSCardCTA {
   @property({ type: Boolean, reflect: true })
   empty = false;
 
+  static get stableSelector() {
+    return `${ddsPrefix}--card-group-item`;
+  }
+
   static styles = styles;
 }
 

@@ -10,11 +10,12 @@
   data-autoid="dds--locale-modal"
   header-title="Select geographic area"
 >
-  <dds-regions>
+  <dds-regions data-autoid="dds--regions">
   </dds-regions>
   <dds-locale-search
     availability-label-text="This page is available in the following locations and languages"
     close-button-assistive-text="Clear search input"
+    data-autoid="dds--locale-search"
     label-text="Search by location or language"
     placeholder="Search by location or language"
     unavailability-label-text="This page is unavailable in your preferred location or language"
@@ -34,7 +35,7 @@
   lang-display="lang-display-foo"
   open=""
 >
-  <dds-regions>
+  <dds-regions data-autoid="dds--regions">
     <dds-region-item name="region-name-foo">
     </dds-region-item>
     <dds-region-item name="region-name-bar">
@@ -43,6 +44,7 @@
   <dds-locale-search
     availability-label-text="availability-text-foo"
     close-button-assistive-text="search-clear-text-foo"
+    data-autoid="dds--locale-search"
     label-text="search-label-foo"
     placeholder="search-placeholder-foo"
     unavailability-label-text="unavailability-text-foo"
