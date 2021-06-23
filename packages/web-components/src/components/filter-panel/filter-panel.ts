@@ -45,7 +45,7 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
   title = '';
 
   @property()
-  selectedValues: string[] = [];
+  selectedValues: any[] = [];
 
   // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
   protected _handleContentStateChange(_: CustomEvent) {}
@@ -54,16 +54,20 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
   @HostListener('document:eventContentStateChange')
   protected _handleContentStateChangeDocument = (event: CustomEvent) => {
     const { selection } = event.detail;
-    if(!this.selectedValues.includes(selection)) {
-      this.selectedValues.push(event.detail.selection)
-
-      console.log(this.selectedValues)
-
-
-      const newTag = document.createElement('bx-filter-tag');
-      newTag.innerHTML = selection;
-      this.shadowRoot?.querySelector('dds-tag-group')?.appendChild(newTag);
+    if(!this.selectedValues[selection]) {
+      this._createTag(selection);
     }
+  }
+
+  protected _createTag(value) {
+    const newTag = document.createElement('bx-filter-tag');
+    newTag.innerHTML = value;
+    newTag.setAttribute('type', 'blue');
+    this.shadowRoot?.querySelector('dds-tag-group')?.appendChild(newTag);
+
+    this.selectedValues[value] = newTag;
+
+    console.log(this.selectedValues)
   }
 
   protected _clearSelections() {
@@ -76,6 +80,22 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
     })
   }
 
+    /** host listener */
+  protected _handleCheckboxStateChange = (value, event: CustomEvent) => {
+
+    // remove tag upon unchecking box
+    if((event.target as HTMLElement).hasAttribute('checked')) {
+      this.selectedValues[value].removeAttribute('open');
+      return;
+    }
+
+    if(!this.selectedValues[value]) {
+      this._createTag(value);
+    } else {
+      this.selectedValues[value].setAttribute('open', 'true');
+    }
+  }
+
   render() {
     return html`
       <section class="${prefix}--filter-panel__section">
@@ -86,7 +106,7 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
           <dds-input-select title="Content Management"></dds-input-select>
         </dds-filter-group>
         <dds-filter-group title="checkbox">
-          <dds-checkbox></dds-checkbox>
+          <bx-checkbox @click=${e => this._handleCheckboxStateChange('Checkbox2', e)}} label-text="Checkbox 2">Checkbox 2</bx-checkbox>
         </dds-filter-group>
         <div class="${prefix}--filter_footer"></div>
       </section>
