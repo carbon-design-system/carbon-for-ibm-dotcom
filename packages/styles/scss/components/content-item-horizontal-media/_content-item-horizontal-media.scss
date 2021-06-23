@@ -87,6 +87,7 @@
   }
 
   .#{$prefix}--content-item-horizontal__row {
+    width: 100%;
     display: grid;
     column-gap: $carbon--spacing-07;
 
