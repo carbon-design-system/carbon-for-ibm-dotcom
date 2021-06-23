@@ -41,7 +41,7 @@ class DDSFilterGroup extends StableSelectorMixin(LitElement) {
   }
 
   @property()
-  title: string;
+  title: string = '';
 
   @internalProperty()
   private isOpen: boolean = true;
