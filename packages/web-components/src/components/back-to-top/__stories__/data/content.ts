@@ -68,7 +68,7 @@ const StoryContent = () =>
       <div class="bx--grid bx--grid--narrow">
         <div class="bx--row">
           <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-4">
-            <dds-content-block-simple>
+            <dds-content-block-simple complementary-style-scheme="with-border">
               <dds-content-block-heading
                 >Flexibility and control are the key to open source Linux development</dds-content-block-heading
               >
@@ -85,11 +85,11 @@ const StoryContent = () =>
               <dds-content-block-heading>What sets IBM Linux servers apart?</dds-content-block-heading>
               <dds-link-list type="default" slot="complementary">
                 <dds-link-list-heading>Resources</dds-link-list-heading>
-                <dds-link-list-item-card-cta href="https://example.com" cta-type="download">
+                <dds-link-list-item-card-cta href="https://example.com" cta-type="local">
                   <p>Read the solution brief</p>
                   <dds-card-cta-footer></dds-card-cta-footer>
                 </dds-link-list-item-card-cta>
-                <dds-link-list-item-card-cta href="https://example.com" cta-type="video">
+                <dds-link-list-item-card-cta href="https://example.com" cta-type="external">
                   <p>What is LinuxOne?</p>
                   <dds-card-cta-footer></dds-card-cta-footer>
                 </dds-link-list-item-card-cta>
@@ -146,6 +146,7 @@ const StoryContent = () =>
         <div class="bx--row">
           <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-8 bx--offset-lg-4">
             <dds-content-group>
+              <dds-content-group-heading>See how it works</dds-content-group-heading>
               <dds-feature-card href="https://example.com">
                 <dds-image slot="image" alt="Feature card image" default-src="${imgLg1x1}"></dds-image>
                 <dds-card-heading
@@ -170,10 +171,8 @@ const StoryContent = () =>
               <dds-card-group>
                 <dds-card-group-item href="https://example.com">
                   <dds-card-heading>Linux OS on mainframes</dds-card-heading>
-                  <p>
-                    Linux on IBM mainframes lets you transform your application and data portfolio with data privacy, security,
-                    and cyber resiliency.
-                  </p>
+                  Linux on IBM mainframes lets you transform your application and data portfolio with data privacy, security, and
+                  cyber resiliency.
                   <dds-card-footer slot="footer">
                     ${ArrowRight20({ slot: 'icon' })}
                   </dds-card-footer>
@@ -208,7 +207,7 @@ const StoryContent = () =>
         <div class="bx--row">
           <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-16">
             <dds-cta-section>
-              <dds-cta-block>
+              <dds-cta-block no-border>
                 <dds-content-block-heading>Take the next step</dds-content-block-heading>
                 <dds-content-block-copy
                   >Get started with Linux servers and operating systems at the foundation of your IT
