@@ -1,0 +1,7 @@
+{
+  "host": "http://localhost:8080",
+  "fixturesFolder": false,
+  "nodeVersion": "system",
+  "includeShadowDom": true,
+  "testFiles": "tests/e2e/__tests__/**/*.e2e.js"
+}
