@@ -72,12 +72,20 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       const { comparisonResult } = event.detail;
       const { selectorTabbable: selectorTabbableForLeftnav } = this.constructor as typeof DDSLeftNav;
 
+      if (comparisonResult === -1) {
+        const tabbable = find(this.querySelectorAll(selectorTabbableForLeftnav), elem =>
+          Boolean((elem as HTMLElement).offsetParent)
+        );
+
+        if (tabbable) {
+          (tabbable as HTMLElement).focus();
+        }
+      }
       // eslint-disable-next-line no-bitwise
-      if (comparisonResult & PRECEDING) {
+      else if (comparisonResult & PRECEDING) {
         const tabbable = findLast(this.querySelectorAll(selectorTabbableForLeftnav), elem =>
           Boolean((elem as HTMLElement).offsetParent)
         );
-        console.log('tabbable PRECEDING', tabbable, PRECEDING);
         if (tabbable) {
           (tabbable as HTMLElement).focus();
         }
@@ -88,7 +96,6 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
           Boolean((elem as HTMLElement).offsetParent)
         );
 
-        console.log('tabbable FOLLOWING', tabbable, FOLLOWING);
         if (tabbable) {
           (tabbable as HTMLElement).focus();
         }

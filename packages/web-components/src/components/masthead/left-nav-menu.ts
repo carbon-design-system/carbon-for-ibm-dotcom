@@ -13,7 +13,6 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import settings from 'carbon-components/es/globals/js/settings';
 import ChevronDown20 from 'carbon-web-components/es/icons/chevron--down/20.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
-import { forEach } from '../../globals/internal/collection-helpers';
 import styles from './masthead.scss';
 
 const { prefix } = settings;
@@ -83,16 +82,6 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
   @property()
   title = '';
 
-  updated(changedProperties) {
-    if (changedProperties.has('expanded')) {
-      const { selectorItem } = this.constructor as typeof DDSLeftNavMenu;
-      const { expanded } = this;
-      forEach(this.querySelectorAll(selectorItem), elem => {
-        (elem as HTMLElement).tabIndex = expanded ? 0 : -1;
-      });
-    }
-  }
-
   render() {
     const { active, expanded, title, _handleClickExpando: handleClickExpando } = this;
     const buttonClasses = classMap({
@@ -117,13 +106,6 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
         </button>
       </div>
     `;
-  }
-
-  /**
-   * A selector that will return the menu items.
-   */
-  static get selectorItem() {
-    return `${ddsPrefix}-left-nav-menu-item`;
   }
 
   /**
