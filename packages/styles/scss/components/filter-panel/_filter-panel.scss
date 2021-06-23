@@ -33,10 +33,6 @@
   .select {
     position: relative;
     cursor: pointer;
-    //padding-left: $spacing-05;
-    //padding-right: $spacing-05;
-    //padding-top: 7px;
-    //padding-bottom: 7px;
     padding: 7px $spacing-05 7px $spacing-05;
     color: $text-01;
     @include carbon--type-style('body-short-01');
@@ -64,12 +60,7 @@
   .select-option {
     width: 100%;
     cursor: pointer;
-    //color: black;
     position: relative;
-    //padding-left: $spacing-08;
-    //padding-right: $spacing-05;
-    //padding-top: 7px;
-    //padding-bottom: 7px;
     padding: 7px $spacing-08 7px $spacing-08;
     &:hover {
       background-color: $hover-ui;
@@ -92,10 +83,21 @@
       padding-right: 0;
     }
   }
-  .bx--accordion__content {
+  .#{$prefix}--accordion__content {
     padding-left: 0;
   }
-  .bx--form-item.bx--checkbox-wrapper {
+  .#{$prefix}--form-item.bx--checkbox-wrapper {
+    padding-left: $spacing-05;
+  }
+  .#{$prefix}--clear {
+    padding-left: $spacing-05;
+    padding-top: $spacing-05;
+    border: 0;
+    color: #0f62fe;
+    background-color: $ui-01;
+    @include carbon--type-style('body-short-01');
+  }
+  .#{$prefix}--checkbox-space {
     padding-left: $spacing-05;
   }
 }

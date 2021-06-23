@@ -12,7 +12,6 @@ import { html } from 'lit-element';
 import '../filter-panel';
 import '../input_select';
 import '../filter-group';
-import '../checkbox';
 // import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 // import textNullable from '../../../../.storybook/knob-text-nullable';
 
@@ -22,21 +21,9 @@ export const Input = () => {
   `;
 };
 
-export const Filter = () => {
-  return html`
-    <dds-filter-group>hi</dds-filter-group>
-  `;
-};
-
-export const real = () => {
+export const FilterPanel = () => {
   return html`
     <dds-filter-panel title="Filter"></dds-filter-panel>
-  `;
-};
-
-export const checkbox = () => {
-  return html`
-    <dds-checkbox></dds-checkbox>
   `;
 };
 
