@@ -45,6 +45,9 @@
     list-style: none;
     padding: $spacing-09 0 $spacing-05;
   }
+  .#{$prefix}--adjunct-links__container--hidden {
+    display: none;
+  }
 }
 
 :host(#{$dds-prefix}-footer-nav-group[open]) {
