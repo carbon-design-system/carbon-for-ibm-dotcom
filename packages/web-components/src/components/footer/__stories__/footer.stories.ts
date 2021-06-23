@@ -87,6 +87,7 @@ export const Default = ({ parameters }) => {
     ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.REGULAR,
     langList: '',
+    adjunctLinks: [],
   };
   return base({ parameters });
 };
@@ -99,6 +100,7 @@ export const defaultLanguageOnly = ({ parameters }) => {
     languageSelectorLabel: 'Choose a language',
     clearSelectionLabel: 'Clear language selection',
     selectedLanguage: 'English',
+    adjunctLinks: [],
   };
   return base({ parameters });
 };
@@ -120,6 +122,7 @@ export const short = ({ parameters }) => {
     ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
     langList: '',
+    adjunctLinks: [],
   };
   return base({ parameters });
 };
@@ -132,6 +135,7 @@ export const shortLanguageOnly = ({ parameters }) => {
     languageSelectorLabel: 'Choose a language',
     clearSelectionLabel: 'Clear language selection',
     selectedLanguage: 'English',
+    adjunctLinks: [],
   };
   return base({ parameters });
 };
@@ -189,7 +193,6 @@ export const withAdjunctLinks = ({ parameters }) => {
   props.FooterComposite = {
     ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.REGULAR,
-    adjunctLinks: mockAdjunctLinks,
   };
   return base({ parameters });
 };
@@ -209,7 +212,6 @@ export const shortWithAdjunctLink = ({ parameters }) => {
   props.FooterComposite = {
     ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
-    adjunctLinks: mockAdjunctLinks,
   };
   return base({ parameters });
 };
