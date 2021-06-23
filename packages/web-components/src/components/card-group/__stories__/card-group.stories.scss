@@ -6,6 +6,8 @@
 //
 
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import '@carbon/ibmdotcom-styles/scss/globals/imports';
 
 .dds-ce-demo-devenv--simple-grid--card-group > * {
   grid-column: 1 / span 16;
