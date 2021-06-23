@@ -10,6 +10,7 @@
 import { customElement, html, property } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
 import './cloud-button-cta';
 import './cloud-left-nav-item';
 import './cloud-masthead-global-bar';
@@ -40,6 +41,13 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-cloud-masthead-composite`)
 class DDSCloudMastheadComposite extends DDSMastheadComposite {
+  /**
+   * The placeholder for `loadUserStatus()` Redux action that will be mixed in.
+   *
+   * @internal
+   */
+  _loadUserStatus?: (authMethod?: string) => void;
+
   /**
    * The profile items for unauthenticated state.
    */
@@ -134,6 +142,16 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         </dds-cloud-megamenu-right-navigation>
       </dds-cloud-megamenu>
     `;
+  }
+
+  firstUpdated() {
+    const { language, dataEndpoint } = this;
+    globalInit();
+    if (language) {
+      this._setLanguage?.(language);
+    }
+    this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
+    this._loadUserStatus?.(this.authMethod);
   }
 
   render() {

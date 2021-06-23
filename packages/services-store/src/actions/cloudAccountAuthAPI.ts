@@ -54,9 +54,12 @@ export type CloudAccountAuthAPIActions =
 /**
  * @returns A Redux action that sends a REST call for user authentication status.
  */
-export function loadUserStatus(): ThunkAction<Promise<UserStatus>, { cloudAccountAuthAPI: CloudAccountAuthAPIState }, void, CloudAccountAuthAPIActions> {
+export function loadUserStatus(
+  authMethod: string
+): ThunkAction<Promise<UserStatus>, { cloudAccountAuthAPI: CloudAccountAuthAPIState }, void, CloudAccountAuthAPIActions> {
   return async dispatch => {
-    const promiseStatus: Promise<UserStatus> = CloudAccountAuthAPI.checkAPI();
+    const promiseStatus: Promise<UserStatus> =
+      authMethod === 'cookie' ? CloudAccountAuthAPI.checkCookie() : CloudAccountAuthAPI.checkAPI();
     dispatch(setRequestUserStatusInProgress(promiseStatus));
     try {
       dispatch(setUserStatus(await promiseStatus));

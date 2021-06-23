@@ -13,7 +13,7 @@ import Cookies from 'js-cookie';
  * @type {string}
  * @private
  */
- const _cookieName = 'com.ibm.cloud.iam.LoggedIn.manual';
+const _cookieName = 'com.ibm.cloud.iam.LoggedIn.manual';
 
 class CloudAccountAuthAPI {
   /**
@@ -26,7 +26,7 @@ class CloudAccountAuthAPI {
    *
    * @returns {string} string determining login status
    */
-   static checkCookie() {
+  static checkCookie() {
     const cloudLogin = Cookies.get(_cookieName);
 
     return cloudLogin === '1' ? 'authenticated' : 'anonymous';
@@ -44,9 +44,9 @@ class CloudAccountAuthAPI {
    */
   static async checkAPI() {
     const cloudLogin = await axios
-    .get('https://cloud.ibm.com/api/v6/selected-account?profile=true', {
+      .get('https://cloud.ibm.com/api/v6/selected-account?profile=true', {
         headers: {
-          'Content-Type': 'application/json; charset=utf-8',
+          Accept: 'application/json',
         },
       })
       .then(response => {
