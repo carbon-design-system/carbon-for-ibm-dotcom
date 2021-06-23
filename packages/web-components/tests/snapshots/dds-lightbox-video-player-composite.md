@@ -8,7 +8,7 @@
     data-autoid="dds--expressive-modal"
     expressive-size="full-width"
   >
-    <dds-expressive-modal-close-button>
+    <dds-expressive-modal-close-button data-autoid="dds--expressive-modal-close-button">
     </dds-expressive-modal-close-button>
     <dds-lightbox-video-player
       description="video-description-foo"
