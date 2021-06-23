@@ -182,9 +182,11 @@ LeadSpace.propTypes = {
    * | Name    | Data Type | Description           |
    * | ------- | --------- | --------------------- |
    * | `white` | String    | Carbon White theme    |
+   * | `g10`   | String    | Carbon Gray 10 theme  |
+   * | `g90`   | String    | Carbon Gray 90 theme  |
    * | `g100`  | String    | Carbon Gray 100 theme |
    */
-  theme: PropTypes.oneOf(['white', 'g100']),
+  theme: PropTypes.oneOf(['white', 'g10', 'g90', 'g100']),
 
   /**
    * Title of LeadSpace.
