@@ -221,7 +221,7 @@ export const withMixedMedia = ({ parameters }) => {
     [cardsPerRow]: cardsPerRow,
   });
   return html`
-    <dds-video-cta-container>
+    <dds-video-cta-container class="${classes}">
       <dds-card-group class="${classes}">
         ${cards}
       </dds-card-group>
@@ -304,12 +304,5 @@ export default {
         cardsPerRow: select('Number of cards per row (cards-per-row):', cardsCol, cardsCol['3 cards per row (Default)'], groupId),
       }),
     },
-    decorators: [
-      story => html`
-        <div class="dds-ce-demo-devenv--grid--stretch">
-          ${story()}
-        </div>
-      `,
-    ],
   },
 };

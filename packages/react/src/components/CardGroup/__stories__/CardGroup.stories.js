@@ -105,10 +105,12 @@ const groupCTA = {
 export const Default = ({ parameters }) => {
   const { cards: data, cardsPerRow, cta, border } =
     parameters?.props?.CardGroup ?? {};
+  const bxCol = cardsPerRow == 2 ? 8 : 12;
+
   return (
     <div className="bx--grid bx--content-group-story">
       <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
+        <div className={`bx--col-sm-4 bx--col-lg-${bxCol} bx--offset-lg-2`}>
           <CardGroup
             cards={data}
             cardsPerRow={cardsPerRow}
@@ -145,11 +147,12 @@ Default.story = {
 
 export const WithCTA = ({ parameters }) => {
   const { cards: data, cardsPerRow, cta } = parameters?.props?.CardGroup ?? {};
+  const bxCol = cardsPerRow == 2 ? 8 : 12;
 
   return (
     <div className="bx--grid bx--content-group-story">
       <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
+        <div className={`bx--col-sm-4 bx--col-lg-${bxCol} bx--offset-lg-2`}>
           <CardGroup cards={data} cardsPerRow={cardsPerRow} cta={cta} />
         </div>
       </div>
@@ -181,11 +184,12 @@ WithCTA.story = {
 
 export const WithImages = ({ parameters }) => {
   const { cards: data, cardsPerRow, cta } = parameters?.props?.CardGroup ?? {};
+  const bxCol = cardsPerRow == 2 ? 8 : 12;
 
   return (
     <div className="bx--grid bx--content-group-story">
       <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
+        <div className={`bx--col-sm-4 bx--col-lg-${bxCol} bx--offset-lg-2`}>
           <CardGroup cards={data} cardsPerRow={cardsPerRow} cta={cta} />
         </div>
       </div>
@@ -213,11 +217,12 @@ WithImages.story = {
 
 export const WithImagesAndCTA = ({ parameters }) => {
   const { cards: data, cardsPerRow, cta } = parameters?.props?.CardGroup ?? {};
+  const bxCol = cardsPerRow == 2 ? 8 : 12;
 
   return (
     <div className="bx--grid bx--content-group-story">
       <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
+        <div className={`bx--col-sm-4 bx--col-lg-${bxCol} bx--offset-lg-2`}>
           <CardGroup cards={data} cardsPerRow={cardsPerRow} cta={cta} />
         </div>
       </div>
