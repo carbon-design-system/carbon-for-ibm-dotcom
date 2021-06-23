@@ -119,8 +119,11 @@ export const Default = ({ parameters }) => {
   for (let i = 1; i < cards; i++) {
     allCards.push(cardsDiffLengthPhrase(i, optionalBorder));
   }
+
+  const colCount = cardsPerRow[cardsPerRow.length - 1];
+
   return html`
-    <dds-card-group class="${classes}" grid-mode=${optionalBorder ? 'border' : null}>
+    <dds-card-group cards-per-row="${colCount}" class="${classes}" grid-mode=${optionalBorder ? 'border' : null}>
       ${allCards}
     </dds-card-group>
   `;

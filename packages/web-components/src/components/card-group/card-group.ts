@@ -140,8 +140,9 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
           columns = 2;
           break;
         default:
-          columns = 3;
+          columns = this.cardsPerRow;
       }
+
       this._setSameHeight(columns);
       if (this.gridMode !== GRID_MODE.NARROW) {
         this._fillLastRowWithEmptyCards(columns);
