@@ -98,7 +98,7 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
     return html`
       <section class="${prefix}--filter-panel__section">
         <button class="${prefix}--clear" @click=${this._clearSelections}>Clear all Filters</button>
-        <dds-tag-group></dds-tag-group>
+        <div class="${prefix}--bubbles"><dds-tag-group></dds-tag-group></div>
         <div class="${prefix}--filter_heading">${this._renderHeading()}</div>
         <dds-filter-group title="My guy">
           <dds-input-select title="Content Management"></dds-input-select>
