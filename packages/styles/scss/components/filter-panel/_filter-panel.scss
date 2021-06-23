@@ -101,6 +101,13 @@
     display: flex;
     justify-content: space-between;
   }
+  .#{$prefix}--reset_icon {
+    padding-top: $spacing-01;
+    padding-left: $spacing-03;
+  }
+  .#{$prefix}--clear_container {
+    display: flex;
+  }
 }
 @include exports('filter-panel') {
   @include filter-panel;

@@ -11,6 +11,7 @@ import { customElement, html, LitElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 // import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import settings from 'carbon-components/es/globals/js/settings';
+import Reset from 'carbon-web-components/es/icons/reset/16';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -100,18 +101,23 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
       <section class="${prefix}--filter-panel__section">
         <div class="${prefix}--heading-clear">
           <div class="${prefix}--filter_heading">${this._renderHeading()}</div>
-          <button class="${prefix}--clear" @click=${this._clearSelections}>Clear</button>
+          <button class="${prefix}--clear" @click=${this._clearSelections}>
+            <div class="${prefix}--clear_container">
+              Clear
+              <div class="${prefix}--reset_icon">${Reset()}</div>
+            </div>
+          </button>
         </div>
         <dds-filter-group title="My guy">
           <dds-input-select title="Content Management"></dds-input-select>
         </dds-filter-group>
         <dds-filter-group title="checkbox">
           <div class="${prefix}--checkbox-space">
-            <bx-checkbox @click="${e => this._handleCheckboxStateChange('Checkbox2', e)}}" label-text="Checkbox 2"
-              >Checkbox 2</bx-checkbox
+            <bx-checkbox @click="${e => this._handleCheckboxStateChange('Checkbox2', e)}}" label-text="Checkbox 2">
+              Checkbox 2</bx-checkbox
             >
-            <bx-checkbox @click="${e => this._handleCheckboxStateChange('Checkbox4', e)}}" label-text="Checkbox 4"
-              >Checkbox 4</bx-checkbox
+            <bx-checkbox @click="${e => this._handleCheckboxStateChange('Checkbox4', e)}}" label-text="Checkbox 4">
+              Checkbox 4</bx-checkbox
             >
           </div>
         </dds-filter-group>
