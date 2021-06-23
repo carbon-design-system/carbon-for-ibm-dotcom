@@ -323,6 +323,10 @@ class DDSScrollAnimations extends StableSelectorMixin(LitElement) {
       <slot></slot>
     `;
   }
+
+  static get stableSelector() {
+    return `${ddsPrefix}--scroll-animations`;
+  }
 }
 
 export default DDSScrollAnimations;

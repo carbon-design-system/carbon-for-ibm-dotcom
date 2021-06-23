@@ -51,6 +51,23 @@ function _buildGrid() {
 }
 
 /**
+ * Builds the sass file for the theme zone classes
+ *
+ * @returns {*} gulp stream
+ */
+function _buildThemes() {
+  return gulp
+    .src([`${config.srcDir}/globals/scss/themes.scss`])
+    .pipe(
+      sass({
+        includePaths: ['node_modules', '../../node_modules'],
+        outputStyle: 'compressed',
+      }).on('error', sass.logError)
+    )
+    .pipe(gulp.dest(config.bundleDestDir));
+}
+
+/**
  * Builds the sass file for scroll animation
  *
  * @returns {*} gulp stream
@@ -88,9 +105,16 @@ function _buildTOC() {
 
 gulp.task('build:sass:cdn:plex', _buildPlex);
 gulp.task('build:sass:cdn:grid', _buildGrid);
+gulp.task('build:sass:cdn:themes', _buildThemes);
 gulp.task('build:sass:cdn:scroll', _buildScroll);
 gulp.task('build:sass:cdn:toc', _buildTOC);
 gulp.task(
   'build:sass:cdn',
-  gulp.parallel('build:sass:cdn:plex', 'build:sass:cdn:grid', 'build:sass:cdn:scroll', 'build:sass:cdn:toc')
+  gulp.parallel(
+    'build:sass:cdn:plex',
+    'build:sass:cdn:grid',
+    'build:sass:cdn:themes',
+    'build:sass:cdn:scroll',
+    'build:sass:cdn:toc'
+  )
 );

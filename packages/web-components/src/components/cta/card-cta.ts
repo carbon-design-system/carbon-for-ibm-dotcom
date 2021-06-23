@@ -131,6 +131,10 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
     }
   }
 
+  static get stableSelector() {
+    return `${ddsPrefix}--card-cta`;
+  }
+
   /**
    * A selector that will return the child footer.
    */
