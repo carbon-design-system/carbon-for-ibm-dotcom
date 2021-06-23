@@ -13,7 +13,8 @@ import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-list
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ChevronLeft20 from 'carbon-web-components/es/icons/chevron--left/20.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
-import { forEach } from '../../globals/internal/collection-helpers';
+import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
+import { forEach, find } from '../../globals/internal/collection-helpers';
 import styles from './masthead.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -32,8 +33,8 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   /**
    * Set aria-hidden property.
    */
-  @property({ type: Boolean, attribute: 'aria-hidden', reflect: true })
-  ariaHidden = true;
+  @property({ type: String, attribute: 'aria-hidden', reflect: true })
+  ariaHidden = 'true';
 
   /**
    * The back button's text.
@@ -110,7 +111,7 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
     const { sectionId } = this;
     if (sectionId === panelId) {
       this.expanded = true;
-      this.ariaHidden = false;
+      this.ariaHidden = 'false';
       this.transition = false;
     } else {
       const id = panelId.split(', ');
@@ -125,24 +126,62 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
       }
 
       this.expanded = false;
-      this.ariaHidden = true;
+      this.ariaHidden = 'true';
     }
   };
-
-  updated(changedProperties) {
-    if (changedProperties.has('expanded')) {
-      const { selectorItem } = this.constructor as typeof DDSLeftNavMenuSection;
-      const { expanded } = this;
-      forEach(this.querySelectorAll(selectorItem), elem => {
-        (elem as HTMLElement).tabIndex = expanded ? 0 : -1;
-      });
-    }
-  }
 
   firstUpdated() {
     if (this.sectionId === '-1, -1') {
       this.expanded = true;
-      this.ariaHidden = false;
+      this.ariaHidden = 'false';
+    }
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('expanded')) {
+      const { selectorNavMenu, selectorNavItem } = this.constructor as typeof DDSLeftNavMenuSection;
+      const { selectorTabbable: selectorTabbableForLeftNavMenuSection } = this.constructor as typeof DDSLeftNavMenuSection;
+      const { expanded } = this;
+
+      if (expanded) {
+        forEach(this.querySelectorAll(selectorNavMenu), elem => {
+          const item = (elem as HTMLElement).shadowRoot?.querySelector('button');
+          if (item) {
+            item.tabIndex = 0;
+          }
+        });
+        forEach(this.querySelectorAll(selectorNavItem), elem => {
+          const item = (elem as HTMLElement).shadowRoot?.querySelector('a');
+          if (item) {
+            item.tabIndex = 0;
+          }
+        });
+
+        // set focus to first element of menu panel to allow for tabbing through the menu
+        const tabbable = find(this.querySelectorAll(selectorTabbableForLeftNavMenuSection), elem =>
+          Boolean((elem as HTMLElement).offsetParent)
+        );
+
+        if (tabbable) {
+          this.addEventListener('transitionend', () => {
+            console.log('backBtn', tabbable);
+            (tabbable as HTMLElement).focus();
+          });
+        }
+      } else {
+        forEach(this.querySelectorAll(selectorNavMenu), elem => {
+          const item = (elem as HTMLElement).shadowRoot?.querySelector('button');
+          if (item) {
+            item.tabIndex = -1;
+          }
+        });
+        forEach(this.querySelectorAll(selectorNavItem), elem => {
+          const item = (elem as HTMLElement).shadowRoot?.querySelector('a');
+          if (item) {
+            item.tabIndex = -1;
+          }
+        });
+      }
     }
   }
 
@@ -170,17 +209,36 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   }
 
   /**
-   * A selector that will return the menu items.
-   */
-  static get selectorItem() {
-    return `${ddsPrefix}-left-nav-menu-item`;
-  }
-
-  /**
    * The name of the custom event fired after this side nav menu is toggled upon a user gesture.
    */
   static get eventToggle() {
     return `${ddsPrefix}-left-nav-menu-toggled`;
+  }
+
+  /**
+   * A selector that will return the nav menus.
+   */
+  static get selectorNavMenu() {
+    return `${ddsPrefix}-left-nav-menu`;
+  }
+
+  /**
+   * A selector that will return the menu items.
+   */
+  static get selectorNavItem() {
+    return `${ddsPrefix}-left-nav-item`;
+  }
+
+  /**
+   * A selector selecting tabbable nodes.
+   */
+  static get selectorTabbable() {
+    return [
+      selectorTabbable,
+      'dds-left-nav-item:not([tabindex="-1"])',
+      'dds-left-nav-menu:not([tabindex="-1"])',
+      'dds-left-nav-menu-item:not([tabindex="-1"])',
+    ].join(',');
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
