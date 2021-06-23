@@ -18,8 +18,9 @@ import './filter-group';
 
 import styles from './filter-panel.scss';
 
-import 'carbon-web-components/es/components/tag/filter-tag';
+// import 'carbon-web-components/es/components/tag/filter-tag';
 import 'carbon-web-components/es/components/checkbox/checkbox';
+import 'carbon-web-components/es/components/modal/modal';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -61,8 +62,8 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
   protected _createTag(value) {
     const newTag = document.createElement('bx-filter-tag');
     newTag.innerHTML = value;
-    newTag.setAttribute('type', 'blue');
-    this.shadowRoot?.querySelector('dds-tag-group')?.appendChild(newTag);
+    // newTag.setAttribute('type', 'blue');
+    // this.shadowRoot?.querySelector('dds-tag-group')?.appendChild(newTag);
 
     this.selectedValues[value] = newTag;
 
@@ -97,9 +98,10 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
   render() {
     return html`
       <section class="${prefix}--filter-panel__section">
-        <button class="${prefix}--clear" @click=${this._clearSelections}>Clear all Filters</button>
-        <div class="${prefix}--bubbles"><dds-tag-group></dds-tag-group></div>
-        <div class="${prefix}--filter_heading">${this._renderHeading()}</div>
+        <div class="${prefix}--heading-clear">
+          <div class="${prefix}--filter_heading">${this._renderHeading()}</div>
+          <button class="${prefix}--clear" @click=${this._clearSelections}>Clear</button>
+        </div>
         <dds-filter-group title="My guy">
           <dds-input-select title="Content Management"></dds-input-select>
         </dds-filter-group>

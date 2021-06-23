@@ -23,7 +23,7 @@ export const Input = () => {
 
 export const FilterPanel = () => {
   return html`
-    <dds-filter-panel title="More"></dds-filter-panel>
+    <dds-filter-panel title="Filter"></dds-filter-panel>
   `;
 };
 
@@ -32,8 +32,8 @@ export default {
   decorators: [
     story =>
       html`
-        <div class="bx--grid">
-          <div class="bx--row">
+        <div>
+          <div>
             ${story()}
           </div>
         </div>

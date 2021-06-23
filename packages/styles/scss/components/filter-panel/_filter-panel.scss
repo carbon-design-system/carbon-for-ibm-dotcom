@@ -21,7 +21,7 @@
     padding-bottom: $spacing-09;
   }
   .#{$prefix}--filter-panel__section {
-    min-width: 300px;
+    width: 300px;
     background-color: $ui-01;
   }
   .#{$prefix}--input_container {
@@ -88,8 +88,7 @@
     padding-left: $spacing-05;
   }
   .#{$prefix}--clear {
-    padding-left: $spacing-05;
-    padding-top: $spacing-05;
+    padding-right: $spacing-05;
     border: 0;
     color: #0f62fe;
     background-color: $ui-01;
@@ -98,8 +97,9 @@
   .#{$prefix}--checkbox-space {
     padding-left: $spacing-05;
   }
-  .#{$prefix}--bubbles {
-    padding-left: $spacing-03;
+  .#{$prefix}--heading-clear {
+    display: flex;
+    justify-content: space-between;
   }
 }
 @include exports('filter-panel') {
