@@ -1,7 +1,11 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
-import plex from '../../../../docs/plex.md';
 import ExpressiveModal from './ExpressiveModal';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
+
 
 # Expressive modal
 
@@ -25,23 +29,9 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/index.js';
 ```
 
-### JS (via CDN)
+<Description markdown={`${cdnJs({ components: ['expressive-modal'] })}`} />
 
-```html
-<!-- LATEST tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/expressive-modal.min.js"></script>
-
-<!-- NEXT tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/expressive-modal.min.js"></script>
-
-<!-- BETA tag -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/expressive-modal.min.js"></script>
-
-<!-- SPECIFIC VERSION (available starting v1.6.0) -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v1.6.0/expressive-modal.min.js"></script>
-```
-
-<Description markdown={plex} />
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 

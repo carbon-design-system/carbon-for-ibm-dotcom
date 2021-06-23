@@ -74,6 +74,10 @@ const longHeadingCardGroupItem = border => {
   `;
 };
 
+const emptyCard = html`
+  <dds-card-group-item empty></dds-card-group-item>
+`;
+
 const cardGroupItemWithImages = html`
   <dds-card-group-item href="https://example.com">
     <dds-card-cta-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-card-cta-image>
@@ -103,11 +107,14 @@ const cardGroupItemWithCTAs = html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { cards, cardsPerRow, optionalBorder } = parameters?.props?.CardGroup ?? {};
+  const { cards, cardsPerRow, offset, optionalBorder } = parameters?.props?.CardGroup ?? {};
   const classes = classMap({
     [cardsPerRow]: cardsPerRow,
   });
   const allCards: object[] = [];
+  if (offset === '1') {
+    allCards.push(emptyCard);
+  }
   allCards.push(longHeadingCardGroupItem(optionalBorder));
   for (let i = 1; i < cards; i++) {
     allCards.push(cardsDiffLengthPhrase(i, optionalBorder));
@@ -302,6 +309,7 @@ export default {
         cards: number('Number of cards', 5, {}, groupId),
         optionalBorder: boolean('Outlined cards:', false, groupId),
         cardsPerRow: select('Number of cards per row (cards-per-row):', cardsCol, cardsCol['3 cards per row (Default)'], groupId),
+        offset: select('Offset', ['0', '1'], '0', groupId),
       }),
     },
   },

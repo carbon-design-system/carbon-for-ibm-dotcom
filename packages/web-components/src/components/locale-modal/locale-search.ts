@@ -16,6 +16,7 @@ import { forEach } from '../../globals/internal/collection-helpers';
 import DDSSearch, { SEARCH_COLOR_SCHEME } from '../search/search';
 import DDSLocaleItem from './locale-item';
 import styles from './locale-modal.scss';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -39,7 +40,7 @@ function search(target?: (string | void)[], searchText?: string) {
  * @element dds-locale-search
  */
 @customElement(`${ddsPrefix}-locale-search`)
-class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
+class DDSLocaleSearch extends ThrottedInputMixin(StableSelectorMixin(LitElement)) {
   /**
    * The container for the locale list.
    */
@@ -210,6 +211,10 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
         </div>
       </div>
     `;
+  }
+
+  static get stableSelector() {
+    return `${ddsPrefix}--locale-search`;
   }
 
   /**

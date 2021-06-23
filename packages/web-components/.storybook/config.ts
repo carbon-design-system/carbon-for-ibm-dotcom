@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -33,6 +33,7 @@ addParameters({
     storySort: getSimpleStorySort([
       'overview-getting-started--page',
       'overview-building-for-ibm-dotcom--page',
+      'overview-carbon-cdn-style-helpers--page',
       'overview-stable-selectors--page',
       'overview-using-server-side-template--page',
       'overview-enable-right-to-left-rtl--page',

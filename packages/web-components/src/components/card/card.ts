@@ -212,6 +212,10 @@ class DDSCard extends StableSelectorMixin(BXLink) {
     return !href ? this._renderInner() : super.render();
   }
 
+  static get stableSelector() {
+    return `${ddsPrefix}--card`;
+  }
+
   /**
    * A selector that will return the child footer.
    */

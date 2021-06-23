@@ -71,7 +71,7 @@ const LeadSpace = ({
         [`${prefix}--leadspace--tall`]: size === 'tall',
         [`${prefix}--leadspace--super`]: size === 'super',
       })}>
-      <section className={classNames(type, image, theme)}>
+      <section className={classNames(type, theme)}>
         <div className={`${prefix}--leadspace__container`}>
           <div
             className={classnames(`${prefix}--leadspace__overlay`, {
@@ -81,7 +81,7 @@ const LeadSpace = ({
               undefined
             ) : (
               <svg
-                class={`${prefix}--leadspace__gradient`}
+                className={`${prefix}--leadspace__gradient`}
                 viewBox="0 0 100 100"
                 preserveAspectRatio="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,7 @@ const LeadSpace = ({
                 <defs>
                   <linearGradient
                     id="stops"
-                    class={`${prefix}--leadspace__gradient__stops`}>
+                    className={`${prefix}--leadspace__gradient__stops`}>
                     {type === 'centered' ? (
                       <>
                         <stop offset="0%" />
@@ -108,7 +108,7 @@ const LeadSpace = ({
                   </linearGradient>
                 </defs>
                 <rect
-                  class={`${prefix}--leadspace__gradient__rect`}
+                  className={`${prefix}--leadspace__gradient__rect`}
                   width="100"
                   height="100"
                 />
@@ -182,9 +182,11 @@ LeadSpace.propTypes = {
    * | Name    | Data Type | Description           |
    * | ------- | --------- | --------------------- |
    * | `white` | String    | Carbon White theme    |
+   * | `g10`   | String    | Carbon Gray 10 theme  |
+   * | `g90`   | String    | Carbon Gray 90 theme  |
    * | `g100`  | String    | Carbon Gray 100 theme |
    */
-  theme: PropTypes.oneOf(['white', 'g100']),
+  theme: PropTypes.oneOf(['white', 'g10', 'g90', 'g100']),
 
   /**
    * Title of LeadSpace.
