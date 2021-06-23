@@ -32,8 +32,12 @@
         right: inherit;
         left: 0;
 
-        @include carbon--breakpoint('sm') {
+        @include carbon--breakpoint('md') {
           left: $carbon--spacing-05;
+        }
+
+        @include carbon--breakpoint('max') {
+          left: $carbon--spacing-06;
         }
       }
     }
@@ -100,6 +104,10 @@
       @include carbon--breakpoint('md') {
         width: 50%;
         right: $carbon--spacing-05;
+      }
+
+      @include carbon--breakpoint('max') {
+        right: $carbon--spacing-06;
       }
 
       .#{$prefix}--card {
