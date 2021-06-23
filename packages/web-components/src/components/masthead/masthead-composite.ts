@@ -255,13 +255,13 @@ class DDSMastheadComposite extends LitElement {
       }
 
       return html`
-        <dds-left-nav-item
+        <dds-left-nav-menu-item
           ?last-highlighted=${elem.lastHighlightedItem}
           ?active="${selected}"
           href="${elem.url}"
           title="${elem.title}"
           data-autoid="${elem.autoid}"
-        ></dds-left-nav-item>
+        ></dds-left-nav-menu-item>
       `;
     });
 
@@ -307,7 +307,7 @@ class DDSMastheadComposite extends LitElement {
           menu: boolean;
         }[] = [];
 
-        let menuElems = elem.menuSections;
+        let menuElems = elem.menuSections[0]?.menuItems;
         let highlightedItems: MastheadMenuItem[] = [];
 
         if (elem.hasMegapanel) {
@@ -348,7 +348,7 @@ class DDSMastheadComposite extends LitElement {
             lastHighlightedItem: lastHighlighted,
             url: item.url,
             panelId: `${i}, ${k}`,
-            menu: !!item.megapanelContent?.quickLinks?.links,
+            menu: item.megapanelContent?.quickLinks?.links && item.megapanelContent?.quickLinks?.links.length !== 0,
           });
         });
         menu.push(
@@ -366,7 +366,7 @@ class DDSMastheadComposite extends LitElement {
       return {
         title: elem.title,
         titleEnglish: elem.titleEnglish,
-        menu: !!elem.menuSections,
+        menu: elem.menuSections && elem.menuSections.length !== 0,
         url: elem.url,
         panelId: `${i}, -1`,
         autoid: `${autoid}--sidenav--nav${i}`,

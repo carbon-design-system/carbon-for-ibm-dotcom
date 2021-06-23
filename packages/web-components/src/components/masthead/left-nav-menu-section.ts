@@ -164,7 +164,6 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
 
         if (tabbable) {
           this.addEventListener('transitionend', () => {
-            console.log('backBtn', tabbable);
             (tabbable as HTMLElement).focus();
           });
         }
@@ -226,7 +225,7 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
    * A selector that will return the menu items.
    */
   static get selectorNavItem() {
-    return `${ddsPrefix}-left-nav-item`;
+    return `${ddsPrefix}-left-nav-menu-item`;
   }
 
   /**
