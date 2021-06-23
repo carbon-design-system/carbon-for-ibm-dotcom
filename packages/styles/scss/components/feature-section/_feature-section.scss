@@ -19,29 +19,29 @@
   }
 
   // Reverse row direction if media-alignment="left".
-  .#{$prefix}--feature-section__align-left {
-    .#{$prefix}--feature-section__container {
-      @include carbon--breakpoint('md') {
-        flex-direction: row-reverse;
-      }
-    }
+  // .#{$prefix}--feature-section__align-left {
+  //   .#{$prefix}--feature-section__container {
+  //     @include carbon--breakpoint('md') {
+  //       flex-direction: row-reverse;
+  //     }
+  //   }
 
-    .#{$prefix}--feature-section__image {
-      .#{$prefix}--card-link,
-      ::slotted(#{$dds-prefix}-card-link) {
-        right: inherit;
-        left: 0;
+  //   .#{$prefix}--feature-section__image {
+  //     .#{$prefix}--card-link,
+  //     ::slotted(#{$dds-prefix}-card-link) {
+  //       right: inherit;
+  //       left: 0;
 
-        @include carbon--breakpoint('md') {
-          left: $carbon--spacing-05;
-        }
+  //       @include carbon--breakpoint('md') {
+  //         left: $carbon--spacing-05;
+  //       }
 
-        @include carbon--breakpoint('max') {
-          left: $carbon--spacing-06;
-        }
-      }
-    }
-  }
+  //       @include carbon--breakpoint('max') {
+  //         left: $carbon--spacing-06;
+  //       }
+  //     }
+  //   }
+  // }
 
   .#{$prefix}--feature-section__container {
     background-color: $hover-ui;
@@ -53,6 +53,7 @@
   }
 
   .#{$prefix}--feature-section__body {
+    position: relative;
     padding-top: $carbon--spacing-07;
     padding-left: 0;
     padding-right: 0;
@@ -68,6 +69,22 @@
 
       @include carbon--breakpoint('md') {
         margin-bottom: $carbon--spacing-09;
+      }
+    }
+
+    .#{$prefix}--card-link,
+    ::slotted(#{$dds-prefix}-feature-section-card-link) {
+      position: relative;
+      display: inline-block;
+      margin-left: 25%;
+
+      @include carbon--breakpoint('md') {
+        margin-left: 50%;
+      }
+
+      @include carbon--breakpoint('lg') {
+        position: absolute;
+        margin-left: 0;
       }
     }
   }
@@ -93,26 +110,26 @@
         height: aspect-ratio(1, 1);
       }
     }
+  }
 
-    .#{$prefix}--card-link,
-    ::slotted(#{$dds-prefix}-feature-section-card-link) {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      width: 75%;
+  .#{$prefix}--card-link,
+  ::slotted(#{$dds-prefix}-feature-section-card-link) {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 75%;
 
-      @include carbon--breakpoint('md') {
-        width: 50%;
-        right: $carbon--spacing-05;
-      }
+    @include carbon--breakpoint('md') {
+      width: 50%;
+      right: $carbon--spacing-05;
+    }
 
-      @include carbon--breakpoint('max') {
-        right: $carbon--spacing-06;
-      }
+    .#{$prefix}--card {
+      max-width: inherit;
+    }
 
-      .#{$prefix}--card {
-        max-width: inherit;
-      }
+    @include carbon--breakpoint('max') {
+      right: $carbon--spacing-06;
     }
   }
 }
