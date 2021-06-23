@@ -71,6 +71,7 @@ $btn-min-width: 26;
     .#{$prefix}--image {
       picture {
         width: 100%;
+        max-width: rem(1584px);
       }
     }
 
