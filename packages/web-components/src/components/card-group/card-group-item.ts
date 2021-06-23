@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement } from 'lit-element';
+import { customElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSCardCTA from '../cta/card-cta';
 import styles from './card-group.scss';
@@ -21,6 +21,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-card-group-item`)
 class DDSCardGroupItem extends DDSCardCTA {
+  /**
+   * `true` if the card group item is empty.
+   */
+  @property({ type: Boolean, reflect: true })
+  empty = false;
+
   static get stableSelector() {
     return `${ddsPrefix}--card-group-item`;
   }
