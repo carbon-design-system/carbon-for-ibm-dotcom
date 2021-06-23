@@ -194,7 +194,35 @@ export const withAdjunctLinks = ({ parameters }) => {
   return base({ parameters });
 };
 
-withAdjunctLinks.story = {};
+withAdjunctLinks.story = {
+  parameters: {
+    knobs: {
+      FooterComposite: ({ groupId }) => ({
+        adjunctLinks: object('adjunct links (adjunctLinks):', mockAdjunctLinks, groupId),
+      }),
+    },
+  },
+};
+
+export const shortWithAdjunctLink = ({ parameters }) => {
+  const { props = {} } = parameters;
+  props.FooterComposite = {
+    ...(props.FooterComposite || {}),
+    size: FOOTER_SIZE.SHORT,
+    adjunctLinks: mockAdjunctLinks,
+  };
+  return base({ parameters });
+};
+
+shortWithAdjunctLink.story = {
+  parameters: {
+    knobs: {
+      FooterComposite: ({ groupId }) => ({
+        adjunctLinks: object('adjunct links (adjunctLinks):', mockAdjunctLinks, groupId),
+      }),
+    },
+  },
+};
 
 export default {
   title: 'Components/Footer',
