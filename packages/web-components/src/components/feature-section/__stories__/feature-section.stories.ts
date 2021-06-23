@@ -45,7 +45,7 @@ export const Default = ({ parameters }) => {
 
       <dds-feature-section-card-link slot="footer" href="${href}" type="local" color-scheme="inverse">
         Try a free virtual business framing session with IBM Garage
-        <dds-card-footer>
+        <dds-card-footer color-scheme="inverse">
           <svg
             slot="icon"
             focusable="false"
