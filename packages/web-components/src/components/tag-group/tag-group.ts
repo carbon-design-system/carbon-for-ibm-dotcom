@@ -11,6 +11,7 @@ import { html, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './tag-group.scss';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -21,7 +22,7 @@ const { prefix } = settings;
  * @element dds-tag-group
  */
 @customElement(`${ddsPrefix}-tag-group`)
-class DDSTagGroup extends LitElement {
+class DDSTagGroup extends StableSelectorMixin(LitElement) {
   /**
    * Handler for @slotchange, ensure that the only elements being rendered are BXTag and DDSTagLink
    *
