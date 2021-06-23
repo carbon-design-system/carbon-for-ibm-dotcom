@@ -29,10 +29,10 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-filter-group`)
 class DDSFilterGroup extends StableSelectorMixin(LitElement) {
   @internalProperty()
-  private _childItems: Element[] = [];
+  protected _childItems: Element[] = [];
 
   @internalProperty()
-  private selectorItem: string;
+  private selectorItem: string = '';
 
   private _handleSlotChange(event: Event) {
     this._childItems = (event.target as HTMLSlotElement)
@@ -41,7 +41,7 @@ class DDSFilterGroup extends StableSelectorMixin(LitElement) {
   }
 
   @property()
-  private title: string;
+  title: string;
 
   @internalProperty()
   private isOpen: boolean = true;
