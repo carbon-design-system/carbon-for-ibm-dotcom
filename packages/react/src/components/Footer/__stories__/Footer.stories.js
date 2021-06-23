@@ -46,20 +46,7 @@ export const Default = ({ parameters }) => {
       languageItems={languageOnly ? items : null}
       languageInitialItem={languageInitialItem}
       languageCallback={languageCallback}
-      adjunctLinks={
-        adjunctLinks
-          ? [
-              {
-                title: 'Read the updated Terms of Use.',
-                url: 'https://www.example.com',
-              },
-              {
-                title: 'Read Learning Technologies Privacy',
-                url: 'https://www.example.com',
-              },
-            ]
-          : false
-      }
+      adjunctLinks={adjunctLinks}
     />
   );
 };
@@ -75,8 +62,56 @@ Default.story = {
             false,
             groupId
           ),
-          adjunctLinks: boolean(
-            'Adjunct legal links (adjunctLinks)',
+        };
+      },
+    },
+  },
+};
+
+export const DefaultWithAdjunctLinks = ({ parameters }) => {
+  const {
+    type,
+    isCustom,
+    navigation,
+    disableLocaleButton,
+    languageOnly,
+    items,
+    languageInitialItem,
+    languageCallback,
+  } = parameters?.props?.Footer ?? {};
+
+  return (
+    <Footer
+      navigation={isCustom ? navigation : null}
+      type={type}
+      disableLocaleButton={disableLocaleButton}
+      langCode={inPercy() ? { lc: 'en', cc: 'us' } : null}
+      languageOnly={languageOnly}
+      languageItems={languageOnly ? items : null}
+      languageInitialItem={languageInitialItem}
+      languageCallback={languageCallback}
+      adjunctLinks={[
+        {
+          title: 'Read the updated Terms of Use.',
+          url: 'https://www.example.com',
+        },
+        {
+          title: 'Read Learning Technologies Privacy',
+          url: 'https://www.example.com',
+        },
+      ]}
+    />
+  );
+};
+
+DefaultWithAdjunctLinks.story = {
+  parameters: {
+    knobs: {
+      Footer: ({ groupId }) => {
+        return {
+          languageInitialItem: { id: 'en', text: 'English' },
+          disableLocaleButton: boolean(
+            'hide the locale button (disableLocaleButton)',
             false,
             groupId
           ),
@@ -170,11 +205,6 @@ Short.story = {
             false,
             groupId
           ),
-          adjunctLinks: boolean(
-            'Adjunct legal links (adjunctLinks)',
-            false,
-            groupId
-          ),
         };
       },
     },
@@ -243,6 +273,71 @@ ShortLanguageOnly.story = {
 };
 
 /**
+ * Footer (short)
+ *
+ * @returns {*} CSF story
+ */
+export const ShortWithAdjunctLinks = ({ parameters }) => {
+  const massagedParameters = {
+    ...parameters,
+    props: {
+      Footer: {
+        ...(parameters?.props?.Footer ?? {}),
+        type: 'short',
+        adjunctLinks: [
+          {
+            title: 'Read the updated Terms of Use.',
+            url: 'https://www.example.com',
+          },
+          {
+            title: 'Read Learning Technologies Privacy',
+            url: 'https://www.example.com',
+          },
+        ],
+      },
+    },
+  };
+
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+      <Default parameters={massagedParameters} />
+    </div>
+  );
+};
+
+ShortWithAdjunctLinks.story = {
+  parameters: {
+    knobs: {
+      Footer: ({ groupId }) => {
+        const isCustom = boolean(
+          'show custom navigation (not a prop)',
+          inPercy(),
+          groupId
+        );
+        return {
+          isCustom,
+          navigation: isCustom
+            ? object(
+                'custom navigation data (navigation)',
+                {
+                  footerMenu,
+                  footerThin,
+                },
+                groupId
+              )
+            : null,
+          disableLocaleButton: boolean(
+            'hide the locale button (disableLocaleButton)',
+            false,
+            groupId
+          ),
+        };
+      },
+    },
+  },
+};
+
+/**
  * Footer (micro)
  *
  * @returns {*} CSF story
@@ -276,6 +371,7 @@ Micro.story = {
             groupId
           ),
           languageInitialItem: { id: 'en', text: 'English' },
+          adjunctLinks: false,
         };
       },
     },
