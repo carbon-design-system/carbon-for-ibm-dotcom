@@ -39,8 +39,8 @@ class DDSTextCTA extends VideoCTAMixin(CTAMixin(DDSLinkWithIcon)) {
   /**
    * Handles `slotchange` event on the default `<slot>`.
    */
-  protected _handleSlotChange({ target }: { target: HTMLSlotElement }) {
-    this._hasContent = target
+  protected _handleSlotChange({ target }: Event) {
+    this._hasContent = (target as HTMLSlotElement)
       .assignedNodes()
       .some(node => node.nodeType !== Node.COMMENT_NODE && (node.nodeType !== Node.TEXT_NODE || node.nodeValue?.trim()));
   }
