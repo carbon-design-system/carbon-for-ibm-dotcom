@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -39,8 +39,8 @@ class DDSTextCTA extends VideoCTAMixin(CTAMixin(DDSLinkWithIcon)) {
   /**
    * Handles `slotchange` event on the default `<slot>`.
    */
-  protected _handleSlotChange({ target }: { target: HTMLSlotElement }) {
-    this._hasContent = target
+  protected _handleSlotChange({ target }: Event) {
+    this._hasContent = (target as HTMLSlotElement)
       .assignedNodes()
       .some(node => node.nodeType !== Node.COMMENT_NODE && (node.nodeType !== Node.TEXT_NODE || node.nodeValue?.trim()));
   }
