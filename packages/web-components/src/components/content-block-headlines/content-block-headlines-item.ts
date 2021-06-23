@@ -36,7 +36,7 @@ class DDSContentBlockHeadlinesItem extends StableSelectorMixin(DDSContentItem) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}-content-block-headlines-item`;
+    return `${ddsPrefix}--content-block-headlines-item`;
   }
 }
 
