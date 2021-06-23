@@ -12,15 +12,20 @@ import packageJson from '../../../package.json';
 /* eslint-disable import/prefer-default-export,max-len */
 
 /**
+ *
+ */
+/**
  * Renders the component(s) script tag content and returns back the string
  *
  * @param {Array} components array of component names
  * @param {string} tag tag folder
+ * @param {boolean} isRTL flag to show rtl version
  */
-function _renderScript(components, tag) {
+function _renderScript(components, tag, isRTL = false) {
   let scripts = '';
+  const rtl = isRTL ? '.rtl' : '';
   components.forEach(component => {
-    scripts += `<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/${tag}/${component}.min.js"></script>\n`;
+    scripts += `<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/${tag}/${component}${rtl}.min.js"></script>\n`;
   });
   return scripts;
 }
@@ -65,6 +70,22 @@ ${_renderScript(components, 'tag/v1/beta')}
 > NOTE: The latest/next/beta tags are moving versions. While beneficial to
 > always stay on the most recent version, it is recommended to choose a specific
 > version and properly test your application when upgrading to a newer version.
+
+#### Right-to-left (RTL) versions
+
+\`\`\`html
+// SPECIFIC VERSION (available starting v1.6.0)
+${_renderScript(components, `version/v${packageJson.version}`, true)}
+
+// LATEST tag
+${_renderScript(components, 'tag/v1/latest', true)}
+
+// NEXT tag
+${_renderScript(components, 'tag/v1/next', true)}
+
+// BETA tag
+${_renderScript(components, 'tag/v1/beta', true)}
+\`\`\`
   `;
 };
 
@@ -107,6 +128,6 @@ export const cdnCss = () => {
 There are optional CDN artifacts available that can assist with global Carbon
 styles in lieu of including into your specific application bundle.
 
-[Click here to learn more](/docs/overview-carbon-cdn-style-helpers--page)\n\n
+[Click here to learn more](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/web-components/docs/carbon-cdn-style-helpers.md)\n\n
   `;
 };
