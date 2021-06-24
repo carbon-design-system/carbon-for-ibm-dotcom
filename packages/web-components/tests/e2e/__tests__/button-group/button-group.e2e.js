@@ -7,13 +7,11 @@
 
 'use strict';
 
-describe('dds-masthead', () => {
-  it('should load the default masthead example', () => {
-    cy.visit('/masthead/index.html');
-
-    cy.get('[data-autoid="dds--masthead__megamenu"]');
+describe('dds-button-group', () => {
+  it('should load the default button group example', () => {
+    cy.visit('/button-group');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-masthead | default');
+    cy.percySnapshot('dds-button-group | default');
   });
 });

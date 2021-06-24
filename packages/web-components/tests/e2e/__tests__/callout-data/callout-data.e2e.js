@@ -7,13 +7,11 @@
 
 'use strict';
 
-describe('dds-masthead', () => {
-  it('should load the default masthead example', () => {
-    cy.visit('/masthead/index.html');
-
-    cy.get('[data-autoid="dds--masthead__megamenu"]');
+describe('dds-callout-data', () => {
+  it('should load the default callout data example', () => {
+    cy.visit('/callout-data');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-masthead | default');
+    cy.percySnapshot('dds-callout-data | default');
   });
 });
