@@ -20,9 +20,9 @@ import styles from './masthead.scss';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * Masthead left nav submenu section.
+ * Masthead left nav menu section.
  *
- * @element dds-left-nav-menu
+ * @element dds-left-nav-menu-section
  * @fires dds-left-nav-menu-beingtoggled
  *   The custom event fired before this side nav menu is being toggled upon a user gesture.
  *   Cancellation of this event stops the user-initiated action of toggling this side nav menu.
