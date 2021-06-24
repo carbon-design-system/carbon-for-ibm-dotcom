@@ -50,9 +50,7 @@ async function _buildComponents({ mode = 'development', dir = 'ltr' } = {}) {
         format: 'es',
         dir: config.bundleDestDir,
         // FIXME: Figure out how to handle `process.env` without build toolstack
-        banner:
-          // eslint-disable-next-line max-len
-          'let process = { env: { DDS_CONTENT_BLOCK_CARD_STATIC: true, DDS_CALLOUT_DATA: true, DDS_CONTENT_BLOCK_HEADLINES: true } };',
+        banner: 'let process = { env: {} };',
       });
     })
     .catch(err => {
