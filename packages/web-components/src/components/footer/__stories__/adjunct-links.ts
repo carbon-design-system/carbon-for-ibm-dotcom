@@ -14,6 +14,10 @@ const adjunctLinks: BasicLink[] = [
     title: 'See the updated Terms of Use. Learn more.',
     url: 'https://www.example.com',
   },
+  {
+    title: 'Read Learning Technologies Privacy.',
+    url: 'https://www.example.com',
+  },
 ];
 
 export default adjunctLinks;

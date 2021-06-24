@@ -92,6 +92,25 @@ export const Default = ({ parameters }) => {
   return base({ parameters });
 };
 
+export const defaultWithAdjunctLegalLinks = ({ parameters }) => {
+  const { props = {} } = parameters;
+  props.FooterComposite = {
+    ...(props.FooterComposite || {}),
+    size: FOOTER_SIZE.REGULAR,
+  };
+  return base({ parameters });
+};
+
+defaultWithAdjunctLegalLinks.story = {
+  parameters: {
+    knobs: {
+      FooterComposite: ({ groupId }) => ({
+        adjunctLinks: object('adjunct links (adjunctLinks):', mockAdjunctLinks, groupId),
+      }),
+    },
+  },
+};
+
 export const defaultLanguageOnly = ({ parameters }) => {
   const { props = {} } = parameters;
   props.FooterComposite = {
@@ -125,6 +144,25 @@ export const short = ({ parameters }) => {
     adjunctLinks: [],
   };
   return base({ parameters });
+};
+
+export const shortWithAdjunctLegalLinks = ({ parameters }) => {
+  const { props = {} } = parameters;
+  props.FooterComposite = {
+    ...(props.FooterComposite || {}),
+    size: FOOTER_SIZE.SHORT,
+  };
+  return base({ parameters });
+};
+
+shortWithAdjunctLegalLinks.story = {
+  parameters: {
+    knobs: {
+      FooterComposite: ({ groupId }) => ({
+        adjunctLinks: object('adjunct links (adjunctLinks):', mockAdjunctLinks, groupId),
+      }),
+    },
+  },
 };
 
 export const shortLanguageOnly = ({ parameters }) => {
@@ -183,44 +221,6 @@ microLanguageOnly.story = {
       FooterComposite: ({ groupId }) => ({
         disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
         langList: object('language dropdown items (langList)', mockLangList, groupId),
-      }),
-    },
-  },
-};
-
-export const withAdjunctLinks = ({ parameters }) => {
-  const { props = {} } = parameters;
-  props.FooterComposite = {
-    ...(props.FooterComposite || {}),
-    size: FOOTER_SIZE.REGULAR,
-  };
-  return base({ parameters });
-};
-
-withAdjunctLinks.story = {
-  parameters: {
-    knobs: {
-      FooterComposite: ({ groupId }) => ({
-        adjunctLinks: object('adjunct links (adjunctLinks):', mockAdjunctLinks, groupId),
-      }),
-    },
-  },
-};
-
-export const shortWithAdjunctLink = ({ parameters }) => {
-  const { props = {} } = parameters;
-  props.FooterComposite = {
-    ...(props.FooterComposite || {}),
-    size: FOOTER_SIZE.SHORT,
-  };
-  return base({ parameters });
-};
-
-shortWithAdjunctLink.story = {
-  parameters: {
-    knobs: {
-      FooterComposite: ({ groupId }) => ({
-        adjunctLinks: object('adjunct links (adjunctLinks):', mockAdjunctLinks, groupId),
       }),
     },
   },
