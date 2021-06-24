@@ -17,11 +17,6 @@ import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-list
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './filter-group';
 
-import { baseFontSize, breakpoints } from '@carbon/layout';
-
-
-import BXModal from 'carbon-web-components/es/components/modal/modal';
-
 import styles from './filter-panel.scss';
 
 // import 'carbon-web-components/es/components/tag/filter-tag';
@@ -30,9 +25,6 @@ import 'carbon-web-components/es/components/modal/modal';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-const gridBreakpoint = parseFloat(breakpoints.md.width) * baseFontSize;
-
 
 @customElement(`${ddsPrefix}-filter-panel`)
 class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
@@ -137,11 +129,9 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
           </div>
         </dds-filter-group>
         <div class="${prefix}--filter_footer">
-
-        <bx-modal-footer>
-<!--          <bx-btn data-autoid="bx&#45;&#45;leaving-ibm-cta" href="example.com" kind="primary">Test</bx-btn>-->
-        </bx-modal-footer>
-
+          <bx-modal-footer>
+            <!--          <bx-btn data-autoid="bx&#45;&#45;leaving-ibm-cta" href="example.com" kind="primary">Test</bx-btn>-->
+          </bx-modal-footer>
         </div>
       </section>
     `;

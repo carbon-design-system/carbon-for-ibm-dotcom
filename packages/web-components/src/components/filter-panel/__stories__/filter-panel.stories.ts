@@ -19,21 +19,12 @@ import '../filter-panel-composite';
 
 import styles from './filter-panel.stories.scss';
 
-export const Input = () => {
-  return html`
-    <dds-input-select title="Opting?"></dds-input-select>
-  `;
-};
-
 export const FilterPanel = () => {
   return html`
-<style>
-${styles}
-</style>
-  <dds-filter-panel-composite>
-  
-  </dds-filter-panel-composite>
-
+    <style>
+      ${styles}
+    </style>
+    <dds-filter-panel-composite> </dds-filter-panel-composite>
   `;
 };
 

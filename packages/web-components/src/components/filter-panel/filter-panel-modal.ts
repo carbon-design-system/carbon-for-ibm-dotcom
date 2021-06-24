@@ -7,32 +7,25 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, LitElement, property } from 'lit-element';
+import { customElement, html, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 // import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import Reset from 'carbon-web-components/es/icons/reset/16';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
-import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './filter-group';
 
-import { baseFontSize, breakpoints } from '@carbon/layout';
-
-
 import BXModal from 'carbon-web-components/es/components/modal/modal';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 import styles from './filter-panel.scss';
 
 // import 'carbon-web-components/es/components/tag/filter-tag';
 import 'carbon-web-components/es/components/checkbox/checkbox';
-import 'carbon-web-components/es/components/modal/modal';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-const gridBreakpoint = parseFloat(breakpoints.md.width) * baseFontSize;
-
 
 @customElement(`${ddsPrefix}-filter-panel-modal`)
 class DDSFilterPanelModal extends HostListenerMixin(StableSelectorMixin(BXModal)) {
