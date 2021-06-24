@@ -10,10 +10,14 @@
 // import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import '../filter-panel';
+import '../filter-panel-modal';
 import '../input_select';
 import '../filter-group';
+import '../filter-panel-composite';
 // import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 // import textNullable from '../../../../.storybook/knob-text-nullable';
+
+import styles from './filter-panel.stories.scss';
 
 export const Input = () => {
   return html`
@@ -23,7 +27,13 @@ export const Input = () => {
 
 export const FilterPanel = () => {
   return html`
-    <dds-filter-panel title="Filter"></dds-filter-panel>
+<style>
+${styles}
+</style>
+  <dds-filter-panel-composite>
+  
+  </dds-filter-panel-composite>
+
   `;
 };
 
@@ -32,11 +42,7 @@ export default {
   decorators: [
     story =>
       html`
-        <div>
-          <div>
-            ${story()}
-          </div>
-        </div>
+        ${story()}
       `,
   ],
   knobs: {

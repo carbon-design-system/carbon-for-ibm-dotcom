@@ -7,5 +7,54 @@
  * LICENSE file in the root directory of this source tree.
  */
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import '@carbon/ibmdotcom-styles/scss/components/expressive-modal/expressive-modal';
 @import '@carbon/ibmdotcom-styles/scss/components/filter-panel/filter-panel';
 @import 'carbon-components/scss/components/accordion/accordion';
+
+@import 'carbon-web-components/scss/components/modal/modal';
+
+
+:host(#{$dds-prefix}-filter-panel-modal) {
+  @extend :host(#{$prefix}-modal);
+
+	@include carbon--breakpoint('md') {
+		visibility: hidden;
+	}
+
+  &[open] {
+    @extend :host(#{$prefix}-modal[open]);
+		@include carbon--breakpoint('md') {
+			visibility: hidden;
+		}
+  }
+
+  &[expressive-size='full-width'] {
+    .#{$prefix}--modal-container {
+      max-height: none;
+
+      @include carbon--breakpoint('md') {
+        width: calc(100% - 2rem);
+        height: calc(100% - 2rem);
+      }
+
+      .#{$prefix}--modal-content {
+        margin: $layout-04 $layout-03;
+        padding: 0;
+      }
+    }
+  }
+}
+
+:host(#{$dds-prefix}-filter-panel) {
+	@include carbon--breakpoint-down('md') {
+		visibility: hidden;
+	}
+}
+
+:host(dds-filter-panel-composite) {
+	.bx--filter-button {
+		@include carbon--breakpoint('md') {
+			visibility: hidden;
+		}
+	}
+}
