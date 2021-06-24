@@ -108,6 +108,10 @@
   .#{$prefix}--clear_container {
     display: flex;
   }
+  .#{$prefix}--filter__modal_button{
+    display: flex;
+    justify-content: space-between;
+  }
 }
 @include exports('filter-panel') {
   @include filter-panel;

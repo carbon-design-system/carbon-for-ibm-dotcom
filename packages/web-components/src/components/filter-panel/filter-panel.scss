@@ -17,14 +17,14 @@
 :host(#{$dds-prefix}-filter-panel-modal) {
   @extend :host(#{$prefix}-modal);
 
-	@include carbon--breakpoint('md') {
-		visibility: hidden;
+	@include carbon--breakpoint('lg') {
+		display: none;
 	}
 
   &[open] {
     @extend :host(#{$prefix}-modal[open]);
-		@include carbon--breakpoint('md') {
-			visibility: hidden;
+		@include carbon--breakpoint('lg') {
+			display: none;
 		}
   }
 
@@ -32,7 +32,7 @@
     .#{$prefix}--modal-container {
       max-height: none;
 
-      @include carbon--breakpoint('md') {
+      @include carbon--breakpoint('lg') {
         width: calc(100% - 2rem);
         height: calc(100% - 2rem);
       }
@@ -46,15 +46,23 @@
 }
 
 :host(#{$dds-prefix}-filter-panel) {
-	@include carbon--breakpoint-down('md') {
-		visibility: hidden;
+	@include carbon--breakpoint-down('lg') {
+		display: none;
 	}
 }
 
 :host(dds-filter-panel-composite) {
 	.bx--filter-button {
-		@include carbon--breakpoint('md') {
-			visibility: hidden;
+    @include carbon--type-style('body-short-01');
+    border: 1px solid #0f62fe;
+    color: #0f62fe;
+    padding: 1rem;
+    background-color: white;
+    width: 128px;
+		@include carbon--breakpoint('lg') {
+			display: none;
 		}
 	}
 }
+
+

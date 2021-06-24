@@ -137,11 +137,10 @@ class DDSFilterPanelModal extends HostListenerMixin(StableSelectorMixin(BXModal)
           </div>
         </dds-filter-group>
         <div class="${prefix}--filter_footer">
-
-        <bx-modal-footer>
-          <bx-btn data-autoid="${ddsPrefix}--leaving-ibm-cta" href="example.com" kind="primary">Test</bx-btn>
-        </bx-modal-footer>
-        
+          <bx-modal-footer>
+            <bx-btn data-autoid="${ddsPrefix}--leaving-ibm-cta" href="example.com" kind="tertiary">Clear</bx-btn>
+            <bx-btn data-autoid="${ddsPrefix}--leaving-ibm-cta" href="example.com" kind="primary">See Results</bx-btn>
+          </bx-modal-footer>
         </div>
       </section>
     `;

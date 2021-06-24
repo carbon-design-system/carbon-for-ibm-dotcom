@@ -139,9 +139,9 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
         <div class="${prefix}--filter_footer">
 
         <bx-modal-footer>
-          <bx-btn data-autoid="${ddsPrefix}--leaving-ibm-cta" href="example.com" kind="primary">Test</bx-btn>
+<!--          <bx-btn data-autoid="bx&#45;&#45;leaving-ibm-cta" href="example.com" kind="primary">Test</bx-btn>-->
         </bx-modal-footer>
-        
+
         </div>
       </section>
     `;
