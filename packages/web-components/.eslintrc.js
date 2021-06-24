@@ -130,5 +130,12 @@ module.exports = {
         sourceType: 'script',
       },
     },
+    {
+      files: ['tests/e2e/**/*.e2e.js'],
+      extends: ['plugin:cypress/recommended'],
+      parserOptions: {
+        sourceType: 'script',
+      },
+    },
   ],
 };

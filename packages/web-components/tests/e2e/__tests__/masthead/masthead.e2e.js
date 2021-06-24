@@ -9,6 +9,11 @@
 
 describe('dds-masthead', () => {
   it('should load the default masthead example', () => {
-    expect(true).to.equal(true);
+    cy.visit('/masthead/index.html');
+
+    cy.get('[data-autoid="dds--masthead__megamenu"]');
+
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('dds-masthead|default');
   });
 });
