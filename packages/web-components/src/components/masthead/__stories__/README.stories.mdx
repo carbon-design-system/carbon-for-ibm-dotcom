@@ -91,6 +91,12 @@ To set a custom endpoint for the translation service to fetch from, set either t
 
 <Props of="dds-masthead-composite" />
 
+For Cloud-specific version of masthead-container, `<dds-cloud-masthead-container>`, we support two user authentication methods, via cookie or api. To select between the two, provide the `auth-method` prop with a value of either 'cookie' or 'api'.
+
+```html
+<dds-cloud-masthead-container auth-method="cookie"></dds-cloud-masthead-container>
+```
+
 ## Stable selectors
 
 See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.

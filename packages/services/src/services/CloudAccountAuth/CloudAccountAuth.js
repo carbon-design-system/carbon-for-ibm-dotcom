@@ -44,7 +44,7 @@ class CloudAccountAuthAPI {
    */
   static async checkAPI() {
     const cloudLogin = await axios
-      .get('https://cloud.ibm.com/api/v6/selected-account?profile=true', {
+      .get('/api/v6/selected-account?profile=true', {
         headers: {
           Accept: 'application/json',
         },

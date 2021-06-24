@@ -28,13 +28,3 @@ describe('cloudAccountAuthentication cookie utility', () => {
     expect(loginStatus).toStrictEqual('anonymous');
   });
 });
-
-describe('cloudAccountAuthentication api utility', () => {
-  xit('should fetch the cloudAccountAuthentication api and return the authenticated string', () => {
-    expect(true).toBe(true);
-  });
-
-  xit('should fetch the cloudAccountAuthentication api and return the anonymous string', () => {
-    expect(true).toBe(true);
-  });
-});
