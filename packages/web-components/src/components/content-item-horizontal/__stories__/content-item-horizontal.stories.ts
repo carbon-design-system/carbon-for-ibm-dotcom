@@ -40,7 +40,7 @@ export const Default = ({ parameters }) => {
   const { eyebrow, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
     parameters?.props?.ContentItemHorizontal ?? {};
   return html`
-    <dds-content-item-horizontal thumbnail="false">
+    <dds-content-item-horizontal>
       <dds-content-item-horizontal-eyebrow>${eyebrow}</dds-content-item-horizontal-eyebrow>
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       <dds-content-item-horizontal-copy>${copy}</dds-content-item-horizontal-copy>
@@ -68,7 +68,7 @@ export const WithThumbnail = ({ parameters }) => {
   const { alt, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
     parameters?.props?.ContentItemHorizontal ?? {};
   return html`
-    <dds-content-item-horizontal thumbnail="true">
+    <dds-content-item-horizontal thumbnail>
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       <dds-content-item-horizontal-thumbnail-copy>${copy}</dds-content-item-horizontal-thumbnail-copy>
       <dds-link-list slot="footer" type="vertical">

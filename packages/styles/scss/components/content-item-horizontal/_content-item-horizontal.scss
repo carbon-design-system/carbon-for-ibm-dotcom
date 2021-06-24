@@ -36,7 +36,7 @@
       padding-bottom: $carbon--layout-05;
     }
 
-    &[thumbnail='true'] {
+    &[thumbnail] {
       @include carbon--breakpoint(md) {
         min-height: rem(306px);
       }
@@ -60,7 +60,7 @@
 
     min-height: 160px;
 
-    :host(#{$dds-prefix}-content-item-horizontal)[thumbnail='true'] & {
+    :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
       justify-content: space-between;
       min-height: auto;
     }
@@ -87,7 +87,7 @@
         width: auto;
       }
 
-      :host(#{$dds-prefix}-content-item-horizontal)[thumbnail='true'] & {
+      :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
         @include carbon--breakpoint(md) {
           @include carbon--make-col(4, 8);
         }
@@ -101,7 +101,7 @@
     }
 
     &--2 {
-      :host(#{$dds-prefix}-content-item-horizontal)[thumbnail='true'] & {
+      :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
         @include carbon--breakpoint(md) {
           @include carbon--make-col(3, 8);
         }
@@ -124,7 +124,7 @@
       @include carbon--make-col(4, 8);
     }
 
-    :host(#{$dds-prefix}-content-item-horizontal)[thumbnail='true'] & {
+    :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
       @include carbon--make-col(4, 4);
 
       @include carbon--breakpoint(lg) {
@@ -146,8 +146,17 @@
   .#{$prefix}--content-item-horizontal__content-wrapper,
   // React
   .#{$prefix}--content-item-horizontal__col:last-of-type {
+    display: flex;
+    flex-direction: column;
+
+    @include carbon--breakpoint(md) {
+      display: flex;
+    }
+
     @include carbon--breakpoint(lg) {
       @include carbon--make-col(6, 10);
+
+      display: flex;
     }
   }
 
@@ -189,7 +198,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal)[thumbnail='true']
+  :host(#{$dds-prefix}-content-item-horizontal)[thumbnail]
     ::slotted([slot='heading']) {
     margin-bottom: $carbon--spacing-07;
     max-width: 100%;

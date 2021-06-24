@@ -27,14 +27,14 @@ class DDSContentItemHorizontal extends DDSContentItem {
    * Determines whether to render the thumbnail variant
    */
   @property({ type: Boolean })
-  thumbnail = false;
+  thumbnail = true;
 
   render() {
     return html`
       <div class="${prefix}--content-item-horizontal__row">
         <div class="${prefix}--content-item-horizontal__col--1">
           <div class="${prefix}--content-item-horizontal__heading-wrapper">
-            ${this.thumbnail === true
+            ${this.thumbnai
               ? ''
               : html`
                   <slot name="eyebrow" @slotchange="${this._handleSlotChange}"> </slot>
@@ -45,7 +45,7 @@ class DDSContentItemHorizontal extends DDSContentItem {
             ${this._renderBody()}${this._renderFooter()}
           </div>
         </div>
-        ${this.thumbnail === false
+        ${!this.thumbnail
           ? ''
           : html`
               <div class="${prefix}--content-item-horizontal__col--2">
