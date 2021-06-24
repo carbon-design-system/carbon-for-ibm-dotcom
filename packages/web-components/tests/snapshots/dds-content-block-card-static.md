@@ -95,7 +95,6 @@
                 hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
       <dds-card-footer
-        aria-hidden="true"
         color-scheme=""
         data-autoid="dds--card-footer"
         icon-placement="right"
