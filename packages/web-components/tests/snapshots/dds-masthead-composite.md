@@ -83,24 +83,33 @@
   data-autoid="dds--masthead__l0-sidenav"
   role="navigation"
 >
-  <dds-left-nav-item
-    data-autoid="dds--masthead__l0-sidenav--nav0"
-    href="https://ibmdotcom-webcomponents.mybluemix.net/foo"
-    role="listitem"
-    title="item-title-foo"
-  >
-  </dds-left-nav-item>
-  <dds-left-nav-menu
-    data-autoid="dds--masthead__l0-sidenav--nav1"
+  <dds-left-nav-menu-section section-id="-1, -1">
+    <dds-left-nav-menu-item
+      data-autoid="dds--masthead__l0--sidenav--nav0"
+      href="https://ibmdotcom-webcomponents.mybluemix.net/foo"
+      title="item-title-foo"
+    >
+    </dds-left-nav-menu-item>
+    <dds-left-nav-menu
+      data-autoid="dds--masthead__l0--sidenav--nav1"
+      panel-id="1, -1"
+      title="menu-title-foo"
+    >
+    </dds-left-nav-menu>
+  </dds-left-nav-menu-section>
+  <dds-left-nav-menu-section
+    is-submenu=""
+    section-id="1, -1"
+    show-back-button="true"
     title="menu-title-foo"
   >
     <dds-left-nav-menu-item
-      data-autoid="dds--masthead__l0-sidenav--subnav-col1-item0"
+      data-autoid="dds--masthead__l0--sidenav--nav1-list0"
       href="https://ibmdotcom-webcomponents.mybluemix.net/bar"
       title="menu-item-title-bar"
     >
     </dds-left-nav-menu-item>
-  </dds-left-nav-menu>
+  </dds-left-nav-menu-section>
 </dds-left-nav>
 
 ```
