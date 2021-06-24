@@ -39,12 +39,17 @@ class DDSBackgroundMedia extends DDSImage {
   render() {
     
     return html`
-      <div class="${prefix}--background-media-container">
-      <slot></slot>
-        <div class="${prefix}--background-media-gradient">
-          <img class="${prefix}--background-media-image" src="${this.source}">
+      <div class="${prefix}--background-media">
+        <div class="${prefix}--background-media-container">
+          <div class="${prefix}--background-media-content">
+            <slot></slot>
+          </div>
+          <div class="${prefix}--background-media-item">
+            <div class="${prefix}--background-media-gradient">
+              <img class="${prefix}--background-media-image" src="${this.source}">
+            </div>
+          </div>
         </div>
-
       </div>
     `;
   }

@@ -38,9 +38,12 @@ export const Default = ({ parameters }) => {
   const { source, gradient_direction, mobile_position } = parameters?.props?.['dds-background-media'] ?? {};
 
   return html`
+  
     <dds-background-media source="${ifNonNull(source)}" gradient-direction="${ifNonNull(gradient_direction)}" mobile-position="${ifNonNull(mobile_position)}">
-     
+      <div style="width:1200px; height:500px"></div>
+       
     </dds-background-media>
+    
   `;
 };
 
@@ -49,13 +52,9 @@ export default {
   decorators: [
     story =>
       html`
-        <div class="bx--grid">
-          <div class="bx--row">
-            <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+        
               ${story()}
-            </div>
-          </div>
-        </div>
+
       `,
   ],
   parameters: {

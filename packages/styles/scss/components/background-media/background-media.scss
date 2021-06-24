@@ -1,17 +1,38 @@
+//
+// Copyright IBM Corp. 2021
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../globals/utils/aspect-ratio';
+
 @mixin background-media {
   :host(#{$dds-prefix}-background-media) {
+
+    .#{$prefix}--background-media {
+        width: 100%;
+        height: 100%;
+    }
+      
     .#{$prefix}--background-media-container {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
+        position:relative;
+        height: 100%;
+        width: 100%;
+
+        @include carbon--breakpoint-down('md') {
+            position: flex;
+            flex-direction: column;
+        }
     }
 
     .#{$prefix}--background-media-gradient {
-        position: relative;
+        position: absolute;
         width: 100%;
         height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
 
         &:after {
             content:'';
@@ -20,13 +41,14 @@
             top: 0;
             width: 100%;
             height: 100%;
-            display: inline-block;
-            z-index: 2;
+        }
 
+        .#{$prefix}--background-media-item {
             @include carbon--breakpoint-down('md') {
                 position: relative;
-                height: aspect-ratio(4, 3);
-
+                padding-top: aspect-ratio(4, 3);
+                width: 100%;
+                order: 2;
             }
         }
     }
@@ -35,13 +57,21 @@
       object-fit: cover;
       height: 100%;
       width: 100%;  
+
+      
     }
 
 
     &[gradient-direction='left'] .#{$prefix}--background-media-gradient:after {
-        background: linear-gradient(0deg, rgba(#ffffff, 1) 0%, rgba(#ffffff, .4) 50%, rgba(#ffffff, 0) 75%);
-        @include carbon--breakpoint(md) {
-            background: linear-gradient(90deg, rgba(#ffffff, 1) 0%, rgba(#ffffff, .4) 50%, rgba(#ffffff, 0) 75%);           
+        // TODO : Figure out how to use the ui-background color variable in these rules
+        background: linear-gradient(90deg, rgba(#ffffff, 1) 0%, rgba(#ffffff, .4) 50%, rgba(#ffffff, 0) 75%);     
+
+        @include carbon--breakpoint-down(md) {
+            background: linear-gradient(0deg, rgba(#ffffff, 1) 0%, rgba(#ffffff, .4) 50%, rgba(#ffffff, 0) 75%);           
+        }
+
+        @include carbon--breakpoint-down(sm) {
+            background: none;           
         }
     }
 
