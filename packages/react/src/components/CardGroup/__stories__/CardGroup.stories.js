@@ -7,6 +7,7 @@
 
 import { number, boolean, select } from '@storybook/addon-knobs';
 import CardGroup from '../CardGroup';
+import cx from 'classnames';
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--001.jpg';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -105,12 +106,17 @@ const groupCTA = {
 export const Default = ({ parameters }) => {
   const { cards: data, cardsPerRow, cta, border } =
     parameters?.props?.CardGroup ?? {};
-  const bxCol = cardsPerRow == 2 ? 8 : 12;
+  const classes = cx({
+    [`bx--col-sm-4`]: true,
+    [`bx--col-lg-8`]: cardsPerRow == 2,
+    [`bx--col-lg-12`]: cardsPerRow == 3,
+    [`bx--col-lg-16`]: cardsPerRow == 4,
+  });
 
   return (
     <div className="bx--grid bx--content-group-story">
       <div className="bx--row">
-        <div className={`bx--col-sm-4 bx--col-lg-${bxCol} bx--offset-lg-2`}>
+        <div className={classes}>
           <CardGroup
             cards={data}
             cardsPerRow={cardsPerRow}
@@ -147,12 +153,17 @@ Default.story = {
 
 export const WithCTA = ({ parameters }) => {
   const { cards: data, cardsPerRow, cta } = parameters?.props?.CardGroup ?? {};
-  const bxCol = cardsPerRow == 2 ? 8 : 12;
+  const classes = cx({
+    [`bx--col-sm-4`]: true,
+    [`bx--col-lg-8`]: cardsPerRow == 2,
+    [`bx--col-lg-12`]: cardsPerRow == 3,
+    [`bx--col-lg-16`]: cardsPerRow == 4,
+  });
 
   return (
     <div className="bx--grid bx--content-group-story">
       <div className="bx--row">
-        <div className={`bx--col-sm-4 bx--col-lg-${bxCol} bx--offset-lg-2`}>
+        <div className={classes}>
           <CardGroup cards={data} cardsPerRow={cardsPerRow} cta={cta} />
         </div>
       </div>
@@ -184,12 +195,17 @@ WithCTA.story = {
 
 export const WithImages = ({ parameters }) => {
   const { cards: data, cardsPerRow, cta } = parameters?.props?.CardGroup ?? {};
-  const bxCol = cardsPerRow == 2 ? 8 : 12;
+  const classes = cx({
+    [`bx--col-sm-4`]: true,
+    [`bx--col-lg-8`]: cardsPerRow == 2,
+    [`bx--col-lg-12`]: cardsPerRow == 3,
+    [`bx--col-lg-16`]: cardsPerRow == 4,
+  });
 
   return (
     <div className="bx--grid bx--content-group-story">
       <div className="bx--row">
-        <div className={`bx--col-sm-4 bx--col-lg-${bxCol} bx--offset-lg-2`}>
+        <div className={classes}>
           <CardGroup cards={data} cardsPerRow={cardsPerRow} cta={cta} />
         </div>
       </div>
@@ -217,12 +233,17 @@ WithImages.story = {
 
 export const WithImagesAndCTA = ({ parameters }) => {
   const { cards: data, cardsPerRow, cta } = parameters?.props?.CardGroup ?? {};
-  const bxCol = cardsPerRow == 2 ? 8 : 12;
+  const classes = cx({
+    [`bx--col-sm-4`]: true,
+    [`bx--col-lg-8`]: cardsPerRow == 2,
+    [`bx--col-lg-12`]: cardsPerRow == 3,
+    [`bx--col-lg-16`]: cardsPerRow == 4,
+  });
 
   return (
     <div className="bx--grid bx--content-group-story">
       <div className="bx--row">
-        <div className={`bx--col-sm-4 bx--col-lg-${bxCol} bx--offset-lg-2`}>
+        <div className={classes}>
           <CardGroup cards={data} cardsPerRow={cardsPerRow} cta={cta} />
         </div>
       </div>

@@ -119,7 +119,6 @@ export const Default = ({ parameters }) => {
   for (let i = 1; i < cards; i++) {
     allCards.push(cardsDiffLengthPhrase(i, optionalBorder));
   }
-
   const colCount = cardsPerRow[cardsPerRow.length - 1];
 
   return html`
@@ -134,8 +133,10 @@ export const withCTA = ({ parameters }) => {
   const classes = classMap({
     [cardsPerRow]: cardsPerRow,
   });
+  const colCount = cardsPerRow[cardsPerRow.length - 1];
+
   return html`
-    <dds-card-group class="${classes}" border>
+    <dds-card-group cards-per-row="${colCount}" class="${classes}" border>
       ${cards}
       <dds-card-group-item href="https://example.com" color-scheme="inverse">
         <dds-card-heading>Top level card link</dds-card-heading>
@@ -166,8 +167,10 @@ export const withImages = ({ parameters }) => {
   const classes = classMap({
     [cardsPerRow]: cardsPerRow,
   });
+  const colCount = cardsPerRow[cardsPerRow.length - 1];
+
   return html`
-    <dds-card-group class="${classes}">${cards}</dds-card-group>
+    <dds-card-group cards-per-row="${colCount}" class="${classes}">${cards}</dds-card-group>
   `;
 };
 
@@ -230,9 +233,11 @@ export const withMixedMedia = ({ parameters }) => {
   const classes = classMap({
     [cardsPerRow]: cardsPerRow,
   });
+  const colCount = cardsPerRow[cardsPerRow.length - 1];
+
   return html`
     <dds-video-cta-container class="${classes}">
-      <dds-card-group class="${classes}">
+      <dds-card-group cards-per-row="${colCount}" class="${classes}">
         ${cards}
       </dds-card-group>
     </dds-video-cta-container>
