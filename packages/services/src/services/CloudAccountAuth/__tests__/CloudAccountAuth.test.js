@@ -5,26 +5,26 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { cloudAccountAuthentication } from '../';
+import { cloudAccountAuth } from '../';
 
-describe('cloudAccountAuthentication cookie utility', () => {
-  it('should fetch the cloudAccountAuthentication cookie and return the authenticated string', () => {
+describe('cloudAccountAuth cookie utility', () => {
+  it('should fetch the cloudAccountAuth cookie and return the authenticated string', () => {
     Object.defineProperty(window.document, 'cookie', {
       writable: true,
       value: 'com.ibm.cloud.iam.LoggedIn.manual=1',
     });
 
-    const loginStatus = cloudAccountAuthentication.checkCookie();
+    const loginStatus = cloudAccountAuth.checkCookie();
     expect(loginStatus).toStrictEqual('authenticated');
   });
 
-  it('should fetch the cloudAccountAuthentication cookie and return the anonymous string', () => {
+  it('should fetch the cloudAccountAuth cookie and return the anonymous string', () => {
     Object.defineProperty(window.document, 'cookie', {
       writable: true,
       value: 'com.ibm.cloud.iam.LoggedIn.manual=0',
     });
 
-    const loginStatus = cloudAccountAuthentication.checkCookie();
+    const loginStatus = cloudAccountAuth.checkCookie();
     expect(loginStatus).toStrictEqual('anonymous');
   });
 });
