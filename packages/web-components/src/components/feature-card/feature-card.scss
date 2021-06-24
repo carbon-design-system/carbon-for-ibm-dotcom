@@ -55,23 +55,24 @@
   @include carbon--breakpoint('md') {
     justify-content: flex-end;
   }
-}
 
-:host(#{$dds-prefix}-feature-card-footer) {
-  .dds-ce--card__footer ::slotted(svg[slot='icon']) {
-    @include carbon--breakpoint('sm') {
-      width: carbon--rem(20px);
-      height: carbon--rem(20px);
-    }
+  .dds-ce--card__footer {
+    svg,
+    ::slotted(svg[slot='icon']) {
+      @include carbon--breakpoint('sm') {
+        width: carbon--rem(20px);
+        height: carbon--rem(20px);
+      }
 
-    @include carbon--breakpoint('md') {
-      width: $carbon--spacing-06;
-      height: $carbon--spacing-06;
-    }
+      @include carbon--breakpoint('md') {
+        width: $carbon--spacing-06;
+        height: $carbon--spacing-06;
+      }
 
-    @include carbon--breakpoint('max') {
-      width: $carbon--spacing-07;
-      height: $carbon--spacing-07;
+      @include carbon--breakpoint('lg') {
+        width: $carbon--spacing-07;
+        height: $carbon--spacing-07;
+      }
     }
   }
 

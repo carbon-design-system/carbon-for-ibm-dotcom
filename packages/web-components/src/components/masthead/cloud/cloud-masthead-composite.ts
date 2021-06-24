@@ -94,7 +94,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         return viewAllLink;
       }
       const title = item.title
-        .replace(/[^-a-zA-Z0-9_ ]/g, '')
+        .replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')
         .replace(/ +/g, '-')
         .toLowerCase();
 

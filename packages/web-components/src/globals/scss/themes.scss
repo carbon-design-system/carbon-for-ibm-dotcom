@@ -1,0 +1,30 @@
+//
+// Copyright IBM Corp. 2021
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import 'carbon-components/scss/globals/scss/css--helpers';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
+
+:host(.#{$dds-prefix}-theme-zone-white),
+.#{$dds-prefix}-theme-zone-white {
+  @include carbon--theme($carbon--theme--white, true);
+}
+
+:host(.#{$dds-prefix}-theme-zone-g10),
+.#{$dds-prefix}-theme-zone-g10 {
+  @include carbon--theme($carbon--theme--g10, true);
+}
+
+:host(.#{$dds-prefix}-theme-zone-g90),
+.#{$dds-prefix}-theme-zone-g90 {
+  @include carbon--theme($carbon--theme--g90, true);
+}
+
+:host(.#{$dds-prefix}-theme-zone-g100),
+.#{$dds-prefix}-theme-zone-g100 {
+  @include carbon--theme($carbon--theme--g100, true);
+}

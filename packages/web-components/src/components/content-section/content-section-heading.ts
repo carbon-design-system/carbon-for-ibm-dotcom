@@ -10,6 +10,7 @@
 import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './content-section.scss';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -19,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-content-section-heading
  */
 @customElement(`${ddsPrefix}-content-section-heading`)
-class DDSContentSectionHeading extends LitElement {
+class DDSContentSectionHeading extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'heading';
 
@@ -37,6 +38,10 @@ class DDSContentSectionHeading extends LitElement {
     return html`
       <slot></slot>
     `;
+  }
+
+  static get stableSelector() {
+    return `${ddsPrefix}--content-section-heading`;
   }
 
   static styles = styles;

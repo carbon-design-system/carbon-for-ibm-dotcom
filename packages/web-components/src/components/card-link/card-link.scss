@@ -25,6 +25,18 @@
   }
 }
 
+:host(#{$dds-prefix}-feature-section-card-link) {
+  .#{$prefix}--card {
+    max-width: inherit;
+  }
+
+  .#{$prefix}--card__wrapper {
+    .#{$prefix}--card__copy {
+      flex: 1;
+    }
+  }
+}
+
 :host(#{$dds-prefix}-link-list-item-card),
 :host(#{$dds-prefix}-link-list-item-card-cta) {
   ::slotted(#{$dds-prefix}-card-footer) {
