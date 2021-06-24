@@ -8,3 +8,4 @@ storybook-static-react
 src/internal/vendor
 tests/coverage
 tests/e2e/dist
+tests/e2e/cypress
