@@ -164,9 +164,6 @@ const StoryContent = () =>
         <div class="bx--row">
           <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-16">
             <dds-card-section-simple>
-              <dds-content-section-copy>
-                Find the hardware that gives you flexibility and scale
-              </dds-content-section-copy>
               <dds-content-section-heading>Linux operating systems</dds-content-section-heading>
               <dds-card-group>
                 <dds-card-group-item href="https://example.com">
