@@ -41,9 +41,17 @@
 :host(#{$dds-prefix}-footer),
 :host(#{$dds-prefix}-legal-nav) {
   display: block;
-  .#{$prefix}--adjunct-links__container {
+  div.#{$prefix}--adjunct-links__container {
     list-style: none;
     padding: $spacing-09 0 $spacing-05;
+    padding-left: 1rem;
+    .#{$prefix}--adjunct-links__row {
+      @include carbon--make-row;
+      .#{$prefix}--adjunct-links__col {
+        padding-right: $spacing-05;
+        @include carbon--make-col(4, 12);
+      }
+    }
   }
   .#{$prefix}--adjunct-links__container--hidden {
     display: none;
