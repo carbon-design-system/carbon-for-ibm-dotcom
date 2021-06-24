@@ -220,7 +220,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
    * A selector that will return the child footer.
    */
   static get selectorFooter() {
-    return `${ddsPrefix}-card`;
+    return `${ddsPrefix}-card-footer`;
   }
 
   static styles = styles;

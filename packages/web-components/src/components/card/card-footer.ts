@@ -100,7 +100,7 @@ class DDSCardFooter extends DDSLinkWithIcon {
   updated() {
     super.updated();
 
-    if (!this.hasAttribute('aria-hidden')) {
+    if (!this.hasAttribute('aria-hidden') && this._shouldUseParentLink) {
       this.setAttribute('aria-hidden', 'true');
     }
 
