@@ -43,13 +43,22 @@
   display: block;
   div.#{$prefix}--adjunct-links__container {
     list-style: none;
-    padding: $spacing-09 0 $spacing-05;
-    padding-left: 1rem;
+    padding: $spacing-09 0 $spacing-05 1rem;
+    @include carbon--breakpoint-down('md') {
+      @include carbon--make-container;
+    }
     .#{$prefix}--adjunct-links__row {
+      margin-right: 0;
       @include carbon--make-row;
       .#{$prefix}--adjunct-links__col {
-        padding-right: $spacing-05;
-        @include carbon--make-col(4, 12);
+        @include carbon--make-col(4, 4);
+        @include carbon--breakpoint('md') {
+          @include carbon--make-col(4, 8);
+        }
+        @include carbon--breakpoint('lg') {
+          padding-right: $spacing-05;
+          @include carbon--make-col(4, 12);
+        }
       }
     }
   }
