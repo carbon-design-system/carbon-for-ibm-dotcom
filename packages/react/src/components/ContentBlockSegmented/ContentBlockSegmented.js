@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -8,6 +8,7 @@
 import ContentBlock from '../../internal/components/ContentBlock/ContentBlock';
 import ContentGroup from '../../internal/components/ContentGroup/ContentGroup';
 import ContentItem from '../../internal/components/ContentItem/ContentItem';
+import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { ImageWithCaption } from '../ImageWithCaption';
 import PropTypes from 'prop-types';
@@ -29,12 +30,21 @@ const ContentBlockSegmented = ({
   mediaData,
   items,
   aside,
+  border,
 }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--content-block-segmented`}
-      className={`${prefix}--content-block-segmented`}>
-      <ContentBlock heading={heading} copy={copy} cta={cta} aside={aside}>
+      className={cx(`${prefix}--content-block-segmented`, {
+        [`${prefix}--content-block-segmented-border`]:
+          border || (aside && aside.border),
+      })}>
+      <ContentBlock
+        heading={heading}
+        copy={copy}
+        cta={cta}
+        aside={aside}
+        border={border}>
         {_renderMedia(mediaType, mediaData)}
         {_renderGroup(items)}
       </ContentBlock>
@@ -82,9 +92,10 @@ const _renderGroup = items =>
       <div
         data-autoid={`${stablePrefix}--content-block-segmented__content-group`}>
         <ContentItem copy={item.copy} key={index} />
-        {item.image && (
+        {(item.image || item.video) && (
           <div data-autoid={`${stablePrefix}--content-block-segmented__media`}>
-            <ImageWithCaption {...item.image} />
+            {item.image && <ImageWithCaption {...item.image} />}
+            {item.video && <VideoPlayer {...item.video} />}
           </div>
         )}
       </div>
@@ -204,6 +215,12 @@ ContentBlockSegmented.propTypes = {
         copy: PropTypes.string,
         customClassName: PropTypes.string,
       }),
+      video: PropTypes.shape({
+        customClassName: PropTypes.string,
+        videoId: PropTypes.string.isRequired,
+        showCaption: PropTypes.bool,
+        inverse: PropTypes.bool,
+      }),
     })
   ).isRequired,
 
@@ -220,6 +237,11 @@ ContentBlockSegmented.propTypes = {
     items: PropTypes.element,
     border: PropTypes.bool,
   }),
+
+  /**
+   * Boolean to show border without aside elements.
+   */
+  border: PropTypes.bool,
 };
 
 export default ContentBlockSegmented;

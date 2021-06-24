@@ -12,6 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './callout-data.scss';
 import { DDS_CALLOUT_DATA } from '../../globals/internal/feature-flags';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -24,7 +25,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot copy - The copy content.
  * @slot source - The source content.
  */
-class DDSCalloutData extends LitElement {
+class DDSCalloutData extends StableSelectorMixin(LitElement) {
   render() {
     return html`
       <div class="${prefix}--callout__container">
@@ -37,6 +38,10 @@ class DDSCalloutData extends LitElement {
       </div>
       <slot name="source"></slot>
     `;
+  }
+
+  static get stableSelector() {
+    return `${ddsPrefix}--callout-data`;
   }
 
   static styles = styles;

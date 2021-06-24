@@ -23,7 +23,10 @@ const { prefix } = settings;
  * Card Link Component.
  */
 export const Card = ({
+  cardStatic,
+  light,
   inverse,
+  border,
   image,
   eyebrow,
   heading,
@@ -66,8 +69,11 @@ export const Card = ({
       className={classNames(
         `${prefix}--card`,
         {
+          [`${prefix}--card--static`]: cardStatic,
+          [`${prefix}--card--light`]: light,
           [`${prefix}--card--inverse`]: inverse,
           [`${prefix}--card__CTA--disabled`]: props.disabled,
+          [`${prefix}--card--border`]: border,
         },
         customClassName
       )}
@@ -202,9 +208,24 @@ export const cardPropTypes = {
   }),
 
   /**
-   * `true` to sets the high contrast for Card.
+   * `true` to set a 1px solid border around Card.
+   */
+  border: PropTypes.bool,
+
+  /**
+   * `true` to set the Card static variation.
+   */
+  cardStatic: PropTypes.bool,
+
+  /**
+   * `true` to set the high contrast for Card.
    */
   inverse: PropTypes.bool,
+
+  /**
+   * `true` to set the light theme for Card.
+   */
+  light: PropTypes.bool,
 
   /**
    * Classname to be assigned to the Card component.

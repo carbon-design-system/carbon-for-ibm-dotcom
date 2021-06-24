@@ -1,6 +1,11 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
 import markdownContents from '../../../../docs/markdown-contents.md';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
+
 
 # `<dds-content-block-card-static>`
 
@@ -26,7 +31,7 @@ to add the following into your `.env` file.
 
 Here's a quick example to get you started.
 
-##### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/content-block-card-static/index.js';
@@ -38,6 +43,10 @@ import 'carbon-web-components/es/components/tag/tag';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import Chat20 from 'carbon-web-components/es/icons/chat/20.js';
 ```
+
+<Description markdown={`${cdnJs({ components: ['content-block-card-static', 'tag'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
