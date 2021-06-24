@@ -30,7 +30,7 @@
   .#{$prefix}--input_container:focus {
     outline: 2px solid $focus;
   }
-  .select {
+  .#{$prefix}--input_container-heading {
     position: relative;
     cursor: pointer;
     padding: 7px $spacing-05 7px $spacing-05;
@@ -39,23 +39,23 @@
     &:hover {
       background-color: $hover-ui;
     }
-    .svg {
+    .#{$prefix}--close_icon {
       position: absolute;
       right: 16px;
       top: 18px;
       margin-top: -8px;
     }
-    &.selected {
+    &.#{$prefix}--selected__option {
       background-color: #d0e2ff;
     }
   }
-  .select-dropdown {
-    &.hidden {
+  .#{$prefix}--selected__option_dropdown {
+    &.#{$prefix}--selected__option_dropdown_hidden {
       display: none;
     }
   }
 
-  .select-option {
+  .#{$prefix}--input_container-option {
     width: 100%;
     cursor: pointer;
     position: relative;
@@ -66,11 +66,11 @@
     &:focus {
       background-color: #d0e2ff;
     }
-    &.selected {
+    &.#{$prefix}--selected__option {
       background-color: #d0e2ff;
     }
   }
-  .select-option .svg {
+  .#{$prefix}--input_container-option .#{$prefix}--close_icon {
     position: absolute;
     right: $spacing-05;
     top: 50%;
@@ -108,7 +108,7 @@
   .#{$prefix}--clear_container {
     display: flex;
   }
-  .#{$prefix}--filter__modal_button{
+  .#{$prefix}--filter__modal_button {
     display: flex;
     justify-content: space-between;
   }

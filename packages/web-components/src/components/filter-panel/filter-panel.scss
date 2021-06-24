@@ -10,22 +10,20 @@
 @import '@carbon/ibmdotcom-styles/scss/components/expressive-modal/expressive-modal';
 @import '@carbon/ibmdotcom-styles/scss/components/filter-panel/filter-panel';
 @import 'carbon-components/scss/components/accordion/accordion';
-
 @import 'carbon-web-components/scss/components/modal/modal';
-
 
 :host(#{$dds-prefix}-filter-panel-modal) {
   @extend :host(#{$prefix}-modal);
 
-	@include carbon--breakpoint('lg') {
-		display: none;
-	}
+  @include carbon--breakpoint('lg') {
+    display: none;
+  }
 
   &[open] {
     @extend :host(#{$prefix}-modal[open]);
-		@include carbon--breakpoint('lg') {
-			display: none;
-		}
+    @include carbon--breakpoint('lg') {
+      display: none;
+    }
   }
 
   &[expressive-size='full-width'] {
@@ -46,23 +44,22 @@
 }
 
 :host(#{$dds-prefix}-filter-panel) {
-	@include carbon--breakpoint-down('lg') {
-		display: none;
-	}
+  @include carbon--breakpoint-down('lg') {
+    display: none;
+  }
 }
 
-:host(dds-filter-panel-composite) {
-	.bx--filter-button {
+:host(#{$dds-prefix}-filter-panel-composite) {
+  .#{$prefix}--filter-button {
     @include carbon--type-style('body-short-01');
+
     border: 1px solid #0f62fe;
     color: #0f62fe;
     padding: 1rem;
-    background-color: white;
+    background-color: #ffffff;
     width: 128px;
-		@include carbon--breakpoint('lg') {
-			display: none;
-		}
-	}
+    @include carbon--breakpoint('lg') {
+      display: none;
+    }
+  }
 }
-
-

@@ -7,14 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  customElement,
-  html,
-  // property,
-  LitElement,
-  internalProperty,
-  property,
-} from 'lit-element';
+import { customElement, html, LitElement, internalProperty, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import { classMap } from 'lit-html/directives/class-map';

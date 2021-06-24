@@ -8,12 +8,10 @@
  */
 
 import { customElement, html, property, LitElement } from 'lit-element';
-// import { classMap } from 'lit-html/directives/class-map';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import Close from 'carbon-web-components/es/icons/close/16';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-
 import styles from './filter-panel.scss';
 
 const { prefix } = settings;
@@ -27,7 +25,6 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
   @property({ type: String, reflect: true })
   selectValue = '';
 
-  // Figure out how to pass array of strings through props
   @property()
   options: string[] = ['Content Management System', 'Digital Asset Management', 'Document Management', 'Web Content Management'];
 
@@ -36,9 +33,6 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
 
   protected _toggleSelect = () => {
     this.isOpen = !this.isOpen;
-    // if (this._tierOneElementIsSelected() === true) {
-    //
-    // }
   };
 
   /**
@@ -62,7 +56,7 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
 
   protected _tierOneElementIsSelected = () => {
     if (this.isOpen && !this.selectValue) {
-      return 'selected';
+      return `${prefix}--selected__option`;
     }
     return null;
   };
@@ -71,23 +65,27 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
     const { title } = this;
     return html`
       <div class="${prefix}--input_container">
-        <div class="${this._tierOneElementIsSelected()} select" tabindex="1" @click=${this._toggleSelect}>
+        <div
+          class="${this._tierOneElementIsSelected()} ${prefix}--input_container-heading"
+          tabindex="1"
+          @click=${this._toggleSelect}
+        >
           <span>${title}</span>
-          <div class="svg">
+          <div class="${prefix}--close_icon">
             ${!this.selectValue && this.isOpen ? Close() : null}
           </div>
         </div>
-        <ul class="${this.isOpen ? '' : 'hidden'} select-dropdown">
+        <ul class="${this.isOpen ? '' : `${prefix}--selected__option_dropdown_hidden`} ${prefix}--selected__option_dropdown">
           ${this.options.map((option, idx) => {
             const selectedOption = this.selectValue;
             return html`
               <li
                 id="${idx}"
                 @click=${e => this._setValue(option, e)}
-                class="select-option ${selectedOption === option ? 'selected' : ''}"
+                class="${prefix}--input_container-option ${selectedOption === option ? `${prefix}--selected__option` : ''}"
               >
                 ${option}
-                <div class="svg" @click=${e => this._setValue('', e)}>
+                <div class="${prefix}--close_icon" @click=${e => this._setValue('', e)}>
                   ${selectedOption === option ? Close() : null}
                 </div>
               </li>

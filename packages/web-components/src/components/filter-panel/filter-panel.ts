@@ -9,17 +9,13 @@
 
 import { customElement, html, LitElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-// import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import Reset from 'carbon-web-components/es/icons/reset/16';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './filter-group';
-
 import styles from './filter-panel.scss';
-
-// import 'carbon-web-components/es/components/tag/filter-tag';
 import 'carbon-web-components/es/components/checkbox/checkbox';
 import 'carbon-web-components/es/components/modal/modal';
 
@@ -63,18 +59,12 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
   protected _createTag(value) {
     const newTag = document.createElement('bx-filter-tag');
     newTag.innerHTML = value;
-    // newTag.setAttribute('type', 'blue');
-    // this.shadowRoot?.querySelector('dds-tag-group')?.appendChild(newTag);
-
     this.selectedValues[value] = newTag;
-
-    // console.log(this.selectedValues)
   }
 
   protected _clearSelections() {
     this.selectedValues = [];
 
-    // removes the
     this.shadowRoot?.querySelector('dds-input-select')?.setAttribute('selectValue', '');
     this.shadowRoot?.querySelectorAll('bx-filter-tag').forEach(e => {
       e.removeAttribute('open');
@@ -83,7 +73,6 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
 
   /** host listener */
   protected _handleCheckboxStateChange = (value, event: CustomEvent) => {
-    // remove tag upon unchecking box
     if ((event.target as HTMLElement).hasAttribute('checked')) {
       this.selectedValues[value].removeAttribute('open');
       return;
@@ -115,7 +104,7 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
             </div>
           </button>
         </div>
-        <dds-filter-group title="My guy">
+        <dds-filter-group title="Category Headline 1">
           <dds-input-select title="Content Management"></dds-input-select>
         </dds-filter-group>
         <dds-filter-group title="checkbox">
@@ -129,9 +118,7 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
           </div>
         </dds-filter-group>
         <div class="${prefix}--filter_footer">
-          <bx-modal-footer>
-            <!--          <bx-btn data-autoid="bx&#45;&#45;leaving-ibm-cta" href="example.com" kind="primary">Test</bx-btn>-->
-          </bx-modal-footer>
+          <bx-modal-footer> </bx-modal-footer>
         </div>
       </section>
     `;

@@ -9,25 +9,18 @@
 
 import { customElement, html, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-// import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import Filter from 'carbon-web-components/es/icons/filter/16';
-// import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import './filter-group';
-
 import { baseFontSize, breakpoints } from '@carbon/layout';
-
 import BXModal from 'carbon-web-components/es/components/modal/modal';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-
 import styles from './filter-panel.scss';
-
 import 'carbon-web-components/es/components/checkbox/checkbox';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
 const gridBreakpoint = parseFloat(breakpoints.md.width) * baseFontSize;
 
 @customElement(`${ddsPrefix}-filter-panel-composite`)
@@ -40,14 +33,11 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(BXMo
 
   protected _openModal() {
     this.openFilterModal = true;
-    // console.log(gridBreakpoint)
-    // console.log(document.body.clientWidth)
   }
 
   protected _renderButton = gridBreakpoint < document.body.clientHeight;
 
   render() {
-    // console.log(this._renderButton)
     return html`
       <button class="bx--filter-button" @click=${this._openModal}>
         <div class="${prefix}--filter__modal_button">Filter ${Filter()}</div>

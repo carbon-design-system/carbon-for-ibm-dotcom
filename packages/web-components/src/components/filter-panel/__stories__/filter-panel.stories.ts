@@ -7,15 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import '../filter-panel';
 import '../filter-panel-modal';
 import '../input_select';
 import '../filter-group';
 import '../filter-panel-composite';
-// import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-// import textNullable from '../../../../.storybook/knob-text-nullable';
 
 import styles from './filter-panel.stories.scss';
 
@@ -33,7 +30,13 @@ export default {
   decorators: [
     story =>
       html`
-        ${story()}
+        <div class="bx--grid bx--grid--condensed" style="width: 100%">
+          <div class="bx--row">
+            <div class="bx--col-sm-16 bx--col-md-6 bx--col-lg-16">
+              ${story()}
+            </div>
+          </div>
+        </div>
       `,
   ],
   knobs: {
