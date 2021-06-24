@@ -212,67 +212,6 @@ Short.story = {
 };
 
 /**
- * Footer (short language only)
- *
- * @returns {*} CSF story
- */
-export const ShortLanguageOnly = ({ parameters }) => {
-  const massagedParameters = {
-    ...parameters,
-    props: {
-      Footer: {
-        ...(parameters?.props?.Footer ?? {}),
-        type: 'short',
-      },
-    },
-  };
-
-  return (
-    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-      <Default parameters={massagedParameters} />
-    </div>
-  );
-};
-
-ShortLanguageOnly.story = {
-  parameters: {
-    knobs: {
-      Footer: ({ groupId }) => {
-        const isCustom = boolean(
-          'show custom navigation (not a prop)',
-          inPercy(),
-          groupId
-        );
-        const languageOnly = true;
-
-        return {
-          isCustom,
-          languageOnly,
-          items: !languageOnly
-            ? undefined
-            : object(
-                'language dropdown items (languageItems)',
-                languageItems,
-                groupId
-              ),
-          languageInitialItem: { id: 'en', text: 'English' },
-          navigation: isCustom
-            ? object(
-                'custom navigation data (navigation)',
-                {
-                  footerMenu,
-                  footerThin,
-                },
-                groupId
-              )
-            : null,
-        };
-      },
-    },
-  },
-};
-
-/**
  * Footer (short)
  *
  * @returns {*} CSF story
@@ -331,6 +270,67 @@ ShortWithAdjunctLinks.story = {
             false,
             groupId
           ),
+        };
+      },
+    },
+  },
+};
+
+/**
+ * Footer (short language only)
+ *
+ * @returns {*} CSF story
+ */
+export const ShortLanguageOnly = ({ parameters }) => {
+  const massagedParameters = {
+    ...parameters,
+    props: {
+      Footer: {
+        ...(parameters?.props?.Footer ?? {}),
+        type: 'short',
+      },
+    },
+  };
+
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+      <Default parameters={massagedParameters} />
+    </div>
+  );
+};
+
+ShortLanguageOnly.story = {
+  parameters: {
+    knobs: {
+      Footer: ({ groupId }) => {
+        const isCustom = boolean(
+          'show custom navigation (not a prop)',
+          inPercy(),
+          groupId
+        );
+        const languageOnly = true;
+
+        return {
+          isCustom,
+          languageOnly,
+          items: !languageOnly
+            ? undefined
+            : object(
+                'language dropdown items (languageItems)',
+                languageItems,
+                groupId
+              ),
+          languageInitialItem: { id: 'en', text: 'English' },
+          navigation: isCustom
+            ? object(
+                'custom navigation data (navigation)',
+                {
+                  footerMenu,
+                  footerThin,
+                },
+                groupId
+              )
+            : null,
         };
       },
     },
