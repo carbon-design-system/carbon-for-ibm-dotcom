@@ -68,7 +68,7 @@ Default.story = {
   },
 };
 
-export const DefaultWithAdjunctLinks = ({ parameters }) => {
+export const DefaultWithAdjunctLegalLinks = ({ parameters }) => {
   const {
     type,
     isCustom,
@@ -104,7 +104,7 @@ export const DefaultWithAdjunctLinks = ({ parameters }) => {
   );
 };
 
-DefaultWithAdjunctLinks.story = {
+DefaultWithAdjunctLegalLinks.story = {
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {
@@ -216,7 +216,7 @@ Short.story = {
  *
  * @returns {*} CSF story
  */
-export const ShortWithAdjunctLinks = ({ parameters }) => {
+export const ShortWithAdjunctLegalLinks = ({ parameters }) => {
   const massagedParameters = {
     ...parameters,
     props: {
@@ -244,7 +244,7 @@ export const ShortWithAdjunctLinks = ({ parameters }) => {
   );
 };
 
-ShortWithAdjunctLinks.story = {
+ShortWithAdjunctLegalLinks.story = {
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {
