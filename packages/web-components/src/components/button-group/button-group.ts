@@ -10,6 +10,7 @@ import { customElement, html, LitElement } from 'lit-element';
 import { BUTTON_KIND } from 'carbon-web-components/es/components/button/defs';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import styles from './button-group.scss';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -19,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-button-group
  */
 @customElement(`${ddsPrefix}-button-group`)
-class DDSButtonGroup extends LitElement {
+class DDSButtonGroup extends StableSelectorMixin(LitElement) {
   /**
    * Handler for @slotchange, set the first button-group-item to kind tertiary and primary for the remaining ones
    *

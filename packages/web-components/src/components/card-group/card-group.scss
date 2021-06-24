@@ -8,4 +8,63 @@
  */
 
 @import '@carbon/ibmdotcom-styles/scss/components/card/index';
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import '@carbon/ibmdotcom-styles/scss/globals/imports';
 @import '@carbon/ibmdotcom-styles/scss/components/card-group/card-group';
+
+:host(#{$dds-prefix}-card-group) {
+  background-color: $decorative-01;
+  box-shadow: inset 0 0 0 1px $ui-background;
+
+  /* stylelint-disable-next-line selector-type-no-unknown */
+  dds-card-group-item[empty] {
+    background-color: $ui-background;
+    margin-left: -1px;
+    margin-top: -1px;
+  }
+}
+
+:host(#{$dds-prefix}-card-group)[grid-mode='border'] {
+  background: var(--#{$dds-prefix}--card-group-gradient, $decorative-01);
+  box-shadow: none;
+
+  /* stylelint-disable-next-line selector-type-no-unknown */
+  dds-card-group-item[empty] {
+    margin-top: 0;
+    margin-left: 0;
+  }
+}
+
+:host(#{$dds-prefix}-card-group)[grid-mode='narrow'] {
+  background-color: inherit;
+  box-shadow: inset 0 0 0 1px $ui-background;
+}
+
+:host(#{$dds-prefix}-card-group-item) {
+  background: transparent;
+  padding-bottom: 1px;
+  padding-right: 1px;
+
+  &:hover {
+    background: none;
+  }
+
+  &[empty] {
+    display: none;
+
+    @include carbon--breakpoint('md') {
+      display: block;
+    }
+
+    .bx--card__wrapper {
+      background: $ui-background;
+      height: 100%;
+    }
+
+    &:hover {
+      .bx--card__wrapper {
+        background: $ui-background;
+      }
+    }
+  }
+}

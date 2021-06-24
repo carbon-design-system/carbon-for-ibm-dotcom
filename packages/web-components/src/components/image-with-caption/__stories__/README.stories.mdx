@@ -1,6 +1,11 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
 import '../image-with-caption';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
+
 
 # Image
 
@@ -16,11 +21,15 @@ import '../image-with-caption';
 
 Here's a quick example to get you started.
 
-### JS
+### JS (via import)
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/image-with-caption/image-with-caption.js';
+import '@carbon/ibmdotcom-web-components/es/components/image-with-caption/index.js';
 ```
+
+<Description markdown={`${cdnJs({ components: ['image-with-caption'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 

@@ -1,6 +1,9 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import markdownContents from '../../../../docs/markdown-contents.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
 
 # Tag Group
 
@@ -14,14 +17,17 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 
 Here's a quick example to get you started.
 
-##### JS
+### JS (via import)
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/tag-group/tag-group.js';
-import '@carbon/ibmdotcom-web-components/es/components/tag-link/tag-link.js';
+import '@carbon/ibmdotcom-web-components/es/components/tag-group/index.js';
 ```
 
-##### HTML
+<Description markdown={`${cdnJs({ components: ['tag-group'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
+
+### HTML
 
 ```html
 <dds-tag-group>

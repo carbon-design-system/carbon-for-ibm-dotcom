@@ -29,8 +29,6 @@ import { EXPRESSIVE_MODAL_SIZE } from './defs';
 import DDSExpressiveModalCloseButton from './expressive-modal-close-button';
 import styles from './expressive-modal.scss';
 
-export { EXPRESSIVE_MODAL_SIZE };
-
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

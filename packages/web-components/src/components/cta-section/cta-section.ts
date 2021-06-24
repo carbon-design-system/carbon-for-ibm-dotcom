@@ -23,6 +23,10 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-cta-section`)
 class DDSCTASection extends StableSelectorMixin(DDSContentSection) {
+  static get stableSelector() {
+    return `${ddsPrefix}--cta-section`;
+  }
+
   static get styles() {
     return css`${super.styles}${styles}`;
   }
