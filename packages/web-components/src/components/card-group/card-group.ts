@@ -15,13 +15,15 @@ import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/same
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import { GRID_MODE } from './defs';
 import styles from './card-group.scss';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 export { GRID_MODE };
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
+const gridLgBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
+const gridMdBreakpoint = parseFloat(breakpoints.md.width) * baseFontSize;
 
 // tag constants used for same height calculations
 const headingBottomMargin = 64;
@@ -33,7 +35,12 @@ const tagBottomMargin = 16;
  * @element dds-card-group
  */
 @customElement(`${ddsPrefix}-card-group`)
-class DDSCardGroup extends LitElement {
+class DDSCardGroup extends StableSelectorMixin(LitElement) {
+  /**
+   * Array to hold the card-heading elements within child items.
+   */
+  private _childItems: any[] = [];
+
   /**
    * Array to hold the card-heading elements within child items.
    */
@@ -73,7 +80,7 @@ class DDSCardGroup extends LitElement {
     if (create) {
       // TODO: Wait for `.d.ts` update to support `ResizeObserver`
       // @ts-ignore
-      this._observerResizeRoot = new ResizeObserver(this._setSameHeight);
+      this._observerResizeRoot = new ResizeObserver(this._resizeHandler);
       this._observerResizeRoot.observe(this.ownerDocument!.documentElement);
     }
   }
@@ -84,7 +91,7 @@ class DDSCardGroup extends LitElement {
    * @private
    */
   private _handleSlotChange(event: Event) {
-    const childItems = (event.target as HTMLSlotElement)
+    this._childItems = (event.target as HTMLSlotElement)
       .assignedNodes()
       .filter(elem =>
         (elem as HTMLElement).matches !== undefined
@@ -93,8 +100,8 @@ class DDSCardGroup extends LitElement {
       );
 
     // retrieve item heading, eyebrows, and footers to set same height
-    if (childItems) {
-      childItems.forEach(e => {
+    if (this._childItems) {
+      this._childItems.forEach(e => {
         this._childItemEyebrows.push(
           (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemEyebrow)
         );
@@ -108,79 +115,147 @@ class DDSCardGroup extends LitElement {
           (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemFooter)
         );
       });
+
+      if (this.gridMode !== GRID_MODE.NARROW) {
+        this._resizeHandler();
+      }
     }
   }
 
   /**
    * The observer for the resize of the viewport, calls sameHeight utility function
    */
-  private _setSameHeight = entries => {
+  private _resizeHandler = () => {
     window.requestAnimationFrame(() => {
-      const documentWidth = entries[0].contentRect.width;
-      const columns = documentWidth < gridBreakpoint ? 2 : 3;
+      const documentWidth = this.ownerDocument!.documentElement.clientWidth;
+      let columns;
+      switch (true) {
+        case documentWidth < gridMdBreakpoint:
+          columns = 1;
+          break;
+        case documentWidth < gridLgBreakpoint:
+          columns = 2;
+          break;
+        default:
+          columns = 3;
+      }
+      this._setSameHeight(columns);
+      if (this.gridMode !== GRID_MODE.NARROW) {
+        this._fillLastRowWithEmptyCards(columns);
+        this._borderAdjustments(columns);
+      }
+    });
+  };
 
-      // split arrays into chunks to handle height setting in each row separately
-      const splitItemEyebrows = this._splitArrayPerRows(this._childItemEyebrows, columns);
-      const splitItemHeadings = this._splitArrayPerRows(this._childItemHeadings, columns);
-      const splitItemTagGroup = this._splitArrayPerRows(this._childItemTagGroup, columns);
-      const splitItemFooters = this._splitArrayPerRows(this._childItemFooters, columns);
+  private _setSameHeight = columns => {
+    // split arrays into chunks to handle height setting in each row separately
+    const splitItemEyebrows = this._splitArrayPerRows(this._childItemEyebrows, columns);
+    const splitItemHeadings = this._splitArrayPerRows(this._childItemHeadings, columns);
+    const splitItemTagGroup = this._splitArrayPerRows(this._childItemTagGroup, columns);
+    const splitItemFooters = this._splitArrayPerRows(this._childItemFooters, columns);
 
-      const tagGroupHeightPerRow: number[] = [];
+    const tagGroupHeightPerRow: number[] = [];
 
-      splitItemEyebrows.forEach(row => {
-        sameHeight(
-          row.filter(e => {
-            return e;
-          }),
-          'md'
-        );
-      });
-      splitItemHeadings.forEach(row => {
-        sameHeight(
-          row.filter(e => {
-            return e;
-          }),
-          'md'
-        );
-      });
-      splitItemFooters.forEach(row => {
-        sameHeight(
-          row.filter(e => {
-            return e;
-          }),
-          'md'
-        );
-      });
+    splitItemEyebrows.forEach(row => {
+      sameHeight(
+        row.filter(e => {
+          return e;
+        }),
+        'md'
+      );
+    });
+    splitItemHeadings.forEach(row => {
+      sameHeight(
+        row.filter(e => {
+          return e;
+        }),
+        'md'
+      );
+    });
+    splitItemFooters.forEach(row => {
+      sameHeight(
+        row.filter(e => {
+          return e;
+        }),
+        'md'
+      );
+    });
 
-      splitItemTagGroup.forEach(row => {
-        let maxTagGroupRowHeight = 0;
+    splitItemTagGroup.forEach(row => {
+      let maxTagGroupRowHeight = 0;
 
-        // get tallest height from each row
-        row.forEach(e => {
-          if (e) {
-            const groupHeight = (e as HTMLElement).offsetHeight;
-            if (groupHeight > maxTagGroupRowHeight) {
-              maxTagGroupRowHeight = groupHeight;
-            }
+      // get tallest height from each row
+      row.forEach(e => {
+        if (e) {
+          const groupHeight = (e as HTMLElement).offsetHeight;
+          if (groupHeight > maxTagGroupRowHeight) {
+            maxTagGroupRowHeight = groupHeight;
           }
-        });
-        tagGroupHeightPerRow.push(maxTagGroupRowHeight);
+        }
       });
+      tagGroupHeightPerRow.push(maxTagGroupRowHeight);
+    });
 
-      splitItemHeadings.forEach((row, index) => {
-        const combinedMarginBottom = headingBottomMargin + tagBottomMargin;
+    splitItemHeadings.forEach((row, index) => {
+      const combinedMarginBottom = headingBottomMargin + tagBottomMargin;
 
-        row.forEach((e, column) => {
-          // add all of the margin stuff to the ones lacking tag group
+      row.forEach((e, column) => {
+        // add all of the margin stuff to the ones lacking tag group
+        if (e) {
           if (!e.nextElementSibling.matches((this.constructor as typeof DDSCardGroup).selectorItemTagGroup)) {
             e.style.marginBottom = `${tagGroupHeightPerRow[index] + combinedMarginBottom}px`;
           } else {
             splitItemTagGroup[index][column].style.marginTop = `${tagGroupHeightPerRow[index] -
               splitItemTagGroup[index][column].offsetHeight}px`;
           }
-        });
+        }
       });
     });
+  };
+
+  private _borderAdjustments = columns => {
+    this._childItems.forEach((e, index) => {
+      if (this.gridMode !== 'border') {
+        if (e.hasAttribute('empty')) {
+          e.style.paddingBottom = '0';
+          e.style.paddingRight = '0';
+        }
+      } else {
+        if (e.hasAttribute('empty')) {
+          e.style.paddingBottom = '1px';
+          e.style.paddingRight = '1px';
+        } else {
+          e.style.paddingTop = '0';
+          // if first row
+          if (index < columns) {
+            e.style.paddingTop = '1px';
+          }
+        }
+        // if not empty and first column
+        if (!e.hasAttribute('empty') && (index + 1) % columns === 1) {
+          e.style.paddingLeft = '1px';
+        } else {
+          e.style.paddingLeft = '0';
+        }
+        // if one column and first item is empty then set top border for second item
+        if (columns === 1 && index === 1 && this._childItems[0].hasAttribute('empty')) {
+          e.style.paddingTop = '1px';
+        }
+      }
+    });
+  };
+
+  private _fillLastRowWithEmptyCards = columns => {
+    // remove all empty cards
+    this.shadowRoot?.querySelectorAll('[empty]').forEach(e => e.remove());
+    const emptyNeeded = this.childElementCount % columns > 0 && columns > 1 ? columns - (this.childElementCount % columns) : 0;
+
+    // add empty cards
+    for (let i = 0; i < emptyNeeded; i++) {
+      const card = document.createElement('dds-card-group-item');
+      card.setAttribute('empty', '');
+      this.shadowRoot?.appendChild(card);
+    }
   };
 
   /**
@@ -225,6 +300,10 @@ class DDSCardGroup extends LitElement {
     this._cleanAndCreateObserverResize({ create: true });
   }
 
+  updated() {
+    this._resizeHandler();
+  }
+
   render() {
     const slotClasses = classMap({
       [`${prefix}--card-group--narrow`]: this.gridMode === GRID_MODE.NARROW,
@@ -238,7 +317,7 @@ class DDSCardGroup extends LitElement {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}-card-group`;
+    return `${ddsPrefix}--card-group`;
   }
 
   /**

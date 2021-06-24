@@ -179,11 +179,14 @@ Card.story = {
 };
 
 export const Feature = ({ parameters }) => {
-  const { copy, ctaType, download, href } = parameters?.props?.FeatureCTA ?? {};
+  const { heading, ctaType, download, href } = parameters?.props?.FeatureCTA ?? {};
   const { copy: footerCopy, download: footerDownload, href: footerHref } = parameters?.props?.FeatureCTAFooter ?? {};
   return html`
+    <style>
+      ${styles}
+    </style>
     <dds-feature-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${ifNonNull(href)}">
-      <dds-card-heading>${copy}</dds-card-heading>
+      <dds-card-heading>${heading}</dds-card-heading>
       <dds-image slot="image" alt="Image alt text" default-src="${imgLg1x1}"> </dds-image>
       <dds-feature-cta-footer
         cta-type="${ifNonNull(ctaType)}"
@@ -202,8 +205,21 @@ Feature.story = {
     hasGrid: true,
     useRawContainer: true,
     knobs: {
-      FeatureCTA: ({ groupId }) => Card.story.parameters.knobs.CardCTA({ groupId }),
-      FeatureCTAFooter: ({ groupId }) => Card.story.parameters.knobs.CardCTAFooter({ groupId }),
+      FeatureCTA: ({ groupId }) => {
+        const ctaType = select('CTA type:', types, CTA_TYPE.LOCAL, groupId);
+        const heading =
+          ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Heading', 'Explore AI uses cases in all industries', groupId);
+        const download =
+          ctaType !== CTA_TYPE.DOWNLOAD
+            ? undefined
+            : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
+        return {
+          heading,
+          ctaType,
+          download,
+          href: hrefsForType[ctaType ?? CTA_TYPE.REGULAR],
+        };
+      },
     },
   },
 };
@@ -224,9 +240,9 @@ export default {
             </dds-video-cta-container>
           `
         : html`
-            <div class="bx--grid">
+            <div class="bx--grid cta-feature-grid">
               <div class="bx--row">
-                <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+                <div class="bx--col-sm-4 bx--col-lg-8">
                   <dds-video-cta-container class="${classes}">
                     ${story()}
                   </dds-video-cta-container>

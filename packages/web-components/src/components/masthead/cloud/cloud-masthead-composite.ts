@@ -80,7 +80,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         return viewAllLink;
       }
       const title = item.title
-        .replace(/[^-a-zA-Z0-9_ ]/g, '')
+        .replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')
         .replace(/ +/g, '-')
         .toLowerCase();
 
@@ -166,8 +166,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           : html`
               <dds-left-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-left-nav-name>
             `}
-        ${l1Data ? undefined : this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
-        ${l1Data ? this._renderL1Items({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV }) : undefined}
+        ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV, hasL1: !!l1Data })}
         ${authenticated
           ? null
           : html`
@@ -200,7 +199,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           ? undefined
           : html`
               <dds-top-nav menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
-                ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
+                ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: false })}
               </dds-top-nav>
             `}
         <dds-masthead-search-composite

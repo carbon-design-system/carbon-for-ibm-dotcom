@@ -1,6 +1,10 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import DDSLogoGrid from '../logo-grid';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
 
 # Logo Grid
 
@@ -14,11 +18,15 @@ import DDSLogoGrid from '../logo-grid';
 
 Here's a quick example to get you started.
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/logo-grid/index.js';
 ```
+
+<Description markdown={`${cdnJs({ components: ['logo-grid'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 

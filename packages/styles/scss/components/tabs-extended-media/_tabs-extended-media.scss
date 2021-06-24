@@ -19,6 +19,7 @@
   :host(#{$dds-prefix}-tabs-extended-media) {
     margin: 0;
     grid-column: 1 / span 16;
+    overflow-x: hidden;
     @include carbon--breakpoint(sm) {
       padding-top: $carbon--spacing-07;
       padding-bottom: $carbon--spacing-12;
