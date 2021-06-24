@@ -141,7 +141,7 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
     if (changedProperties.has('expanded')) {
       const { selectorNavMenu, selectorNavItem } = this.constructor as typeof DDSLeftNavMenuSection;
       const { selectorTabbable: selectorTabbableForLeftNavMenuSection } = this.constructor as typeof DDSLeftNavMenuSection;
-      const { expanded } = this;
+      const { expanded, isSubmenu } = this;
 
       if (expanded) {
         forEach(this.querySelectorAll(selectorNavMenu), elem => {
@@ -158,12 +158,17 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
         });
 
         // set focus to first element of menu panel to allow for tabbing through the menu
-        const tabbable = find(this.querySelectorAll(selectorTabbableForLeftNavMenuSection), elem =>
-          Boolean((elem as HTMLElement).offsetParent)
-        );
+        let tabbable;
+        if (isSubmenu) {
+          tabbable = this.shadowRoot?.querySelector('button');
+        } else {
+          tabbable = find(this.querySelectorAll(selectorTabbableForLeftNavMenuSection), elem =>
+            Boolean((elem as HTMLElement).offsetParent)
+          );
+        }
 
         if (tabbable) {
-          this.addEventListener('transitionend', () => {
+          document.addEventListener('transitionend', () => {
             (tabbable as HTMLElement).focus();
           });
         }

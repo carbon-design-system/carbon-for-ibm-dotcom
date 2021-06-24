@@ -351,17 +351,19 @@ class DDSMastheadComposite extends LitElement {
             menu: item.megapanelContent?.quickLinks?.links && item.megapanelContent?.quickLinks?.links.length !== 0,
           });
         });
-        menu.push(
-          this._renderLeftNavMenuSections(
-            level1Items,
-            elem.menuSections[0]?.heading,
-            true,
-            selectedMenuItem,
-            true,
-            elem.title,
-            `${i}, -1`
-          )
-        );
+        if (level1Items.length !== 0) {
+          menu.push(
+            this._renderLeftNavMenuSections(
+              level1Items,
+              elem.menuSections[0]?.heading,
+              true,
+              selectedMenuItem,
+              true,
+              elem.title,
+              `${i}, -1`
+            )
+          );
+        }
       }
       return {
         title: elem.title,
