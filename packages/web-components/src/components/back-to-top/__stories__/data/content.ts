@@ -145,7 +145,7 @@ const StoryContent = () =>
       <div class="bx--grid bx--no-gutter">
         <div class="bx--row">
           <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-8 bx--offset-lg-4">
-            <dds-content-group>
+            <dds-content-group-simple>
               <dds-content-group-heading>See how it works</dds-content-group-heading>
               <dds-feature-card href="https://example.com">
                 <dds-image slot="image" alt="Feature card image" default-src="${imgLg1x1}"></dds-image>
@@ -156,7 +156,7 @@ const StoryContent = () =>
                   ${ArrowRight20({ slot: 'icon' })}
                 </dds-feature-card-footer>
               </dds-feature-card>
-            </dds-content-group>
+            </dds-content-group-simple>
           </div>
         </div>
       </div>
