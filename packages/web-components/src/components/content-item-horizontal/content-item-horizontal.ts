@@ -32,7 +32,7 @@ class DDSContentItemHorizontal extends DDSContentItem {
   render() {
     return html`
       <div class="${prefix}--content-item-horizontal__row">
-        <div class="${prefix}--content-item-horizontal__col ${prefix}--content-item-horizontal__col--1">
+        <div class="${prefix}--content-item-horizontal__col--1">
           <div class="${prefix}--content-item-horizontal__heading-wrapper">
             ${this.thumbnail === true
               ? ''
@@ -48,7 +48,7 @@ class DDSContentItemHorizontal extends DDSContentItem {
         ${this.thumbnail === false
           ? ''
           : html`
-              <div class="${prefix}--content-item-horizontal__col ${prefix}--content-item-horizontal__col--2">
+              <div class="${prefix}--content-item-horizontal__col--2">
                 <slot name="thumbnail" @slotchange="${this._handleSlotChange}"> </slot>
               </div>
             `}

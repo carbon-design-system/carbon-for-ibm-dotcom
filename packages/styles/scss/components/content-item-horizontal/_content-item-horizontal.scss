@@ -9,12 +9,13 @@
 @import '../link-list/index';
 
 @mixin content-item-horizontal {
+  // Web component
   :host(#{$dds-prefix}-content-item-horizontal),
+  // React
   .#{$prefix}--content-item-horizontal__item {
     @include carbon--make-row;
 
     border-top: 1px solid $ui-03;
-    margin: 0;
     padding-left: $carbon--spacing-05;
     padding-right: $carbon--spacing-05;
 
@@ -50,6 +51,10 @@
     }
   }
 
+  :host(#{$dds-prefix}-content-item-horizontal) {
+    margin: 0;
+  }
+
   .#{$prefix}--content-item-horizontal__row {
     @include carbon--make-row;
 
@@ -62,7 +67,14 @@
   }
 
   .#{$prefix}--content-item-horizontal__col {
+    // React styles - only accounting for the default variation
     @include carbon--make-col-ready;
+
+    // Web component layout styles - accommodating the thumbnail variation
+    &--1,
+    &--2 {
+      @include carbon--make-col-ready;
+    }
 
     &--1 {
       @include carbon--make-col(4, 4);
@@ -101,8 +113,12 @@
     }
   }
 
+  // Web component
   .#{$prefix}--content-item-horizontal__heading-wrapper,
-  .#{$prefix}--content-item-horizontal__content-wrapper {
+  .#{$prefix}--content-item-horizontal__content-wrapper,
+  // React
+  .#{$prefix}--content-item-horizontal__col:first-of-type,
+  .#{$prefix}--content-item-horizontal__col:last-of-type {
     @include carbon--breakpoint(md) {
       @include carbon--make-col-ready;
       @include carbon--make-col(4, 8);
@@ -117,13 +133,19 @@
     }
   }
 
-  .#{$prefix}--content-item-horizontal__heading-wrapper {
+  // Web component
+  .#{$prefix}--content-item-horizontal__heading-wrapper,
+  // React
+  .#{$prefix}--content-item-horizontal__col:first-of-type {
     @include carbon--breakpoint(lg) {
       @include carbon--make-col(4, 10);
     }
   }
 
-  .#{$prefix}--content-item-horizontal__content-wrapper {
+  // Web component
+  .#{$prefix}--content-item-horizontal__content-wrapper,
+  // React
+  .#{$prefix}--content-item-horizontal__col:last-of-type {
     @include carbon--breakpoint(lg) {
       @include carbon--make-col(6, 10);
     }
@@ -167,15 +189,10 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal)[thumbnail='true'] {
-    ::slotted([slot='heading']),
-    .#{$prefix}--content-item-horizontal__item--heading {
-      @include carbon--breakpoint(md) {
-        margin-bottom: $carbon--spacing-05;
-        max-width: auto;
-        padding-right: rem(32px);
-      }
-    }
+  :host(#{$dds-prefix}-content-item-horizontal)[thumbnail='true']
+    ::slotted([slot='heading']) {
+    margin-bottom: $carbon--spacing-07;
+    max-width: 100%;
   }
 
   :host(#{$dds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])),
@@ -197,8 +214,10 @@
 
   :host(#{$dds-prefix}-content-item-horizontal-thumbnail-copy)
     ::slotted(#{$dds-prefix}-content-item-paragraph) {
+    margin-bottom: $carbon--spacing-07;
+
     @include carbon--breakpoint(md) {
-      margin-bottom: $carbon--spacing-07;
+      padding-right: rem(32px);
     }
   }
 
