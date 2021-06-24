@@ -1,5 +1,8 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
 
 # Masthead
 
@@ -16,11 +19,15 @@ import contributing from '../../../../../../docs/contributing-license.md';
 ## Getting Started
 ##### Note: Masthead uses the Carbon White theme by design. Using other themes will not change the Masthead color scheme.
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container.js';
 ```
+
+<Description markdown={`${cdnJs({ components: ['masthead'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 

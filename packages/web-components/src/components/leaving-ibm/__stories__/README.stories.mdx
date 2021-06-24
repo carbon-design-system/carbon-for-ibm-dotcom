@@ -1,5 +1,8 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
 
 # Leaving IBM
 
@@ -13,11 +16,15 @@ import contributing from '../../../../../../docs/contributing-license.md';
 
 Here's a quick example to get you started.
 
-### JS
+### JS (via import)
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/leaving-ibm/leaving-ibm-container';
+import '@carbon/ibmdotcom-web-components/es/components/leaving-ibm/index';
 ```
+
+<Description markdown={`${cdnJs({ components: ['leaving-ibm'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 

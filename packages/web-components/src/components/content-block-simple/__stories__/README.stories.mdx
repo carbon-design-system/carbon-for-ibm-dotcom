@@ -1,6 +1,10 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
 import markdownContents from '../../../../docs/markdown-contents.md';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
 
 # `<dds-content-block-simple>`
 
@@ -19,7 +23,7 @@ Here's a quick example to get you started.
 
 ## With text CTA
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/content-block-simple/index.js';
@@ -27,6 +31,10 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-simple/inde
 // with text CTA
 import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 ```
+
+<Description markdown={`${cdnJs({ components: ['content-block-simple'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
@@ -52,7 +60,7 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 
 ## With Card CTA
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/content-block-simple/index.js';
@@ -103,7 +111,7 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 
 ## With Link List
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/content-block-simple/index.js';

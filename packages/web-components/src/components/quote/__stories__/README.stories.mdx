@@ -1,6 +1,10 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import '../quote';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
 
 # Quote
 
@@ -14,11 +18,15 @@ import '../quote';
 
 Here's a quick example to get you started.
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/quote/index.js';
 ```
+
+<Description markdown={`${cdnJs({ components: ['quote'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 

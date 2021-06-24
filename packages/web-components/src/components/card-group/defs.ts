@@ -20,4 +20,9 @@ export enum GRID_MODE {
    * Collapsed 1px gutter
    */
   COLLAPSED = 'collapsed',
+
+  /**
+   * 1px optional border
+   */
+  BORDER = 'border',
 }

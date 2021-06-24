@@ -53,3 +53,4 @@ export * from './SimpleBenefits';
 export * from './TableOfContents';
 export * from './carbon-components-react/UIShell';
 export * from './VideoPlayer';
+export * from './AudioPlayer';

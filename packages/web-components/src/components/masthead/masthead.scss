@@ -156,6 +156,7 @@
   .#{$prefix}--header__nav-caret-right-container {
     bottom: 0;
     z-index: 1;
+    position: relative;
   }
 
   .#{$prefix}--header__nav-caret-right-container {

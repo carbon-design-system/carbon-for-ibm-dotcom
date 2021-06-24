@@ -1,6 +1,11 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
 import markdownContents from '../../../../docs/markdown-contents.md';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
+
 
 # `<dds-content-block-segmented>`
 
@@ -17,11 +22,15 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 
 Here's a quick example to get you started.
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/content-block-segmented/index.js';
 ```
+
+<Description markdown={`${cdnJs({ components: ['content-block-segmented'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
@@ -62,7 +71,7 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-segmented/i
 
 ## With Video
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/content-block-segmented/index.js';
@@ -114,7 +123,7 @@ import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player
 
 ## With Aside Items
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/content-block-segmented/index.js';

@@ -35,11 +35,12 @@ export const DDS_CALLOUT_DATA: boolean = process!.env.DDS_CALLOUT_DATA === 'true
 export const DDS_CONTENT_BLOCK_HEADLINES: boolean = process!.env.DDS_CONTENT_BLOCK_HEADLINES === 'true' || DDS_FLAGS_ALL || false;
 
 /**
- * Enables Promo Group Component
+ * Enables Content Block - Card static
  *
  * @type {boolean}
  */
-export const DDS_PROMO_GROUP: boolean = process!.env.DDS_PROMO_GROUP === 'true' || DDS_FLAGS_ALL || false;
+export const DDS_CONTENT_BLOCK_CARD_STATIC: boolean =
+  process!.env.DDS_CONTENT_BLOCK_CARD_STATIC === 'true' || DDS_FLAGS_ALL || false;
 
 /**
  * Enables Cloud Masthead Components

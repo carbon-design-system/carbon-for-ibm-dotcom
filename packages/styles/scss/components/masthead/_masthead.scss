@@ -129,22 +129,24 @@ $search-transition-timing: 95ms;
   border: none;
   border-bottom: $spacing-01 solid transparent;
   padding: $spacing-01 $menu-item-padding 0 $menu-item-padding;
-  color: $text-01;
+  color: $text-02;
   white-space: nowrap;
 
   &:hover {
     background-color: $hover-ui;
     cursor: pointer;
+    color: $text-01;
     > svg {
-      fill: $text-01;
+      fill: currentColor;
     }
   }
 
   &:active,
   &:focus {
-    background-color: $ui-01;
+    background-color: $selected-ui;
     outline: 2px solid $interactive-01;
     outline-offset: -2px;
+    color: $text-01;
     > svg {
       fill: $text-01;
     }
@@ -161,7 +163,7 @@ $search-transition-timing: 95ms;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 99;
     transition-delay: 200ms;
     transition-timing-function: $search-transition;
     transition-duration: 300ms;
@@ -266,9 +268,9 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--header__menu-arrow {
-      fill: $text-01;
+      fill: $icon-02;
       &:hover {
-        fill: $text-01;
+        fill: $icon-02;
       }
     }
   }
@@ -320,6 +322,10 @@ $search-transition-timing: 95ms;
           border-bottom-color: transparent;
         }
       }
+    }
+
+    a.#{$prefix}--header__menu-item[role='menuitem'][aria-selected='true'] {
+      color: $text-01;
     }
 
     a.#{$prefix}--header__menu-item[aria-selected='true']::after,
@@ -388,7 +394,7 @@ $search-transition-timing: 95ms;
     > {
       svg {
         position: relative;
-        fill: currentColor;
+        fill: $icon-02;
       }
     }
     &:hover {
@@ -396,7 +402,7 @@ $search-transition-timing: 95ms;
       transition-duration: $search-transition-timing;
       > {
         svg {
-          fill: $text-01;
+          fill: $icon-01;
         }
       }
     }

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -53,10 +53,10 @@ describe('CTA', () => {
             icon: {
               src: '',
             },
-            media: {
-              src: '1_9h94wo6b',
-              type: 'video',
-            },
+          },
+          image: {
+            src: '1_9h94wo6b',
+            type: 'video',
           },
         }}
         openLightBox={jest.fn()}

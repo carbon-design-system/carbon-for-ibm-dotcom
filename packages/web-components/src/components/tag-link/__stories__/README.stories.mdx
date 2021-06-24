@@ -1,6 +1,9 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import markdownContents from '../../../../docs/markdown-contents.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
 
 # Tag Link
 
@@ -14,13 +17,17 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 
 Here's a quick example to get you started.
 
-##### JS
+### JS (via import)
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/tag-link/tag-link.js';
+import '@carbon/ibmdotcom-web-components/es/components/tag-link/index.js';
 ```
 
-##### HTML
+<Description markdown={`${cdnJs({ components: ['tag-link'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
+
+### HTML
 
 ```html
 <dds-tag-link href="https://example.com">

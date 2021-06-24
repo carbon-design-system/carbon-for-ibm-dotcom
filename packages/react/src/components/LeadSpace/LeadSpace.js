@@ -8,6 +8,7 @@
 import { ButtonGroup } from '../../components/ButtonGroup';
 import classnames from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import deprecate from '@carbon/ibmdotcom-utilities/es/utilities/deprecate/deprecate.js';
 import { Image } from '../Image';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -20,35 +21,24 @@ const { prefix } = settings;
  * renders main class name
  *
  * @param {string} type switches between centered or default
- * @param {object} image image object
  * @param {string} theme theme of the pattern
  * @returns {string} classnames
  */
-const classNames = (type, image, theme) => {
+const classNames = (type, theme) => {
   return classnames(`${prefix}--leadspace__section`, {
     [`${prefix}--leadspace--${theme}`]: theme,
     [`${prefix}--leadspace--centered`]: type === 'centered',
-    [`${prefix}--leadspace--centered__image`]: image && type === 'centered',
     [`${prefix}--leadspace--productive`]: type === 'small',
   });
 };
 
 /**
  *
- * @param {string} type type
  * @param {object} image image
  * @returns {object} returns either image component or the centered image div
  */
-function imageClassname(type, image) {
-  if (type === 'centered') {
-    return (
-      <div
-        data-autoid={`${stablePrefix}--leadspace--centered--mobile__image`}
-        className={`${prefix}--leadspace--centered--mobile__image`}>
-        <img src={image.defaultSrc} alt={image.alt} />
-      </div>
-    );
-  } else return <Image {...image} />;
+function imageClassname(image) {
+  return <Image {...image} />;
 }
 
 /**
@@ -57,27 +47,73 @@ function imageClassname(type, image) {
  * @param {object} props props object
  * @param {Array} props.buttons array of buttons for lead space (max 2 buttons)
  * @param {string} props.copy lead space short copy to support the title
- * @param {boolean} props.gradient determines whether to render gradient overlay
  * @param {object} props.image image object with diff source for diff breakpoints
  * @param {string} props.theme theme of the pattern (g100 or white (default))
  * @param {string} props.title lead space title
  * @param {string} props.type type of lead space
  * @returns {*} Lead space component
  */
-const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
-  const background = image && {
-    backgroundImage: `url(${image.defaultSrc})`,
-  };
+
+const LeadSpace = ({
+  buttons,
+  copy,
+  image,
+  theme,
+  title,
+  type,
+  size = 'tall',
+}) => {
   return (
     <div
       data-autoid={`${stablePrefix}--leadspace`}
-      className={`${prefix}--leadspace`}>
-      <section style={background} className={classNames(type, image, theme)}>
+      className={classnames(`${prefix}--leadspace`, {
+        [`${prefix}--leadspace--medium`]: size === 'medium',
+        [`${prefix}--leadspace--tall`]: size === 'tall',
+        [`${prefix}--leadspace--super`]: size === 'super',
+      })}>
+      <section className={classNames(type, theme)}>
         <div className={`${prefix}--leadspace__container`}>
           <div
             className={classnames(`${prefix}--leadspace__overlay`, {
-              [`${prefix}--leadspace--gradient`]: gradient,
+              [`${prefix}--leadspace--gradient`]: image && image.defaultSrc,
             })}>
+            {image && image.defaultSrc === true ? (
+              undefined
+            ) : (
+              <svg
+                className={`${prefix}--leadspace__gradient`}
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink">
+                <defs>
+                  <linearGradient
+                    id="stops"
+                    className={`${prefix}--leadspace__gradient__stops`}>
+                    {type === 'centered' ? (
+                      <>
+                        <stop offset="0%" />
+                        <stop offset="27%" />
+                        <stop offset="53%" />
+                        <stop offset="80%" />
+                      </>
+                    ) : (
+                      <>
+                        <stop offset="0%" />
+                        <stop offset="25%" />
+                        <stop offset="50%" />
+                        <stop offset="75%" />
+                      </>
+                    )}
+                  </linearGradient>
+                </defs>
+                <rect
+                  className={`${prefix}--leadspace__gradient__rect`}
+                  width="100"
+                  height="100"
+                />
+              </svg>
+            )}
             <div className={`${prefix}--leadspace--content__container`}>
               <div className={`${prefix}--leadspace__row`}>
                 <h1 className={`${prefix}--leadspace__title`}>{title}</h1>
@@ -98,7 +134,7 @@ const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
               </div>
             </div>
           </div>
-          {image && imageClassname(type, image)}
+          {image && imageClassname(image)}
         </div>
       </section>
     </div>
@@ -124,11 +160,6 @@ LeadSpace.propTypes = {
   copy: PropTypes.string,
 
   /**
-   * `true` to render overlay gradient.
-   */
-  gradient: PropTypes.bool,
-
-  /**
    * Object with different ratio options for corresponding breakpoints.
    * See [`<Image>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-image--default#props) for full usage details.
    */
@@ -151,9 +182,11 @@ LeadSpace.propTypes = {
    * | Name    | Data Type | Description           |
    * | ------- | --------- | --------------------- |
    * | `white` | String    | Carbon White theme    |
+   * | `g10`   | String    | Carbon Gray 10 theme  |
+   * | `g90`   | String    | Carbon Gray 90 theme  |
    * | `g100`  | String    | Carbon Gray 100 theme |
    */
-  theme: PropTypes.oneOf(['white', 'g100']),
+  theme: PropTypes.oneOf(['white', 'g10', 'g90', 'g100']),
 
   /**
    * Title of LeadSpace.
@@ -163,13 +196,28 @@ LeadSpace.propTypes = {
   /**
    * Sets the type of Leadspace layout. Choose from:
    *
-   * | Name              | Data Type | Description                                       |
-   * | ----------------- | --------- | ------------------------------------------------- |
-   * | `small`/`default` | String    | Left-aligned - small style of the leadspace title |
-   * | `left`            | String    | Left-aligned - large style of the leadspace title |
-   * | `centered`        | String    | Centered type of the LeadSpace                    |
+   * | Name              | Data Type | Description                                         |
+   * | ----------------- | --------- | --------------------------------------------------- |
+   * | `default`         | String    | Left-aligned - default style of the leadspace title |
+   * | `left`            | String    | Left-aligned - large style of the leadspace title   |
+   * | `centered`        | String    | Centered type of the LeadSpace                      |
    */
-  type: PropTypes.oneOf(['small', 'left', 'centered']),
+  type: PropTypes.oneOf(['default', 'left', 'centered']),
+  /**
+   * | Name         | Data Type | Description                           |
+   * |--------------|-----------|---------------------------------------|
+   * | `tall`/empty | String/-- | Default - tall size of the leadspace  |
+   * | `medium`     | String    | Medium - medium size of the leadspace |
+   * | `super`      | String    | Super - super size of the leadspace   |
+   */
+  size: PropTypes.oneOf(['tall', 'medium', 'super']),
 };
 
-export default LeadSpace;
+export default deprecate(
+  LeadSpace,
+  `
+  The Leadspace Small and Leadspace Small With Image variations are now deprecated.
+  Please refer to the Carbon for IBM.com documentation for further details.
+  https://www.ibm.com/standards/web/carbon-for-ibm-dotcom/components/leadspace
+`
+);
