@@ -5,12 +5,12 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--feature-section__align-undefined bx--grid">
+<div class="bx--feature-section bx--grid">
   <div class="bx--feature-section__container bx--row">
     <div class="bx--col-lg-8 bx--col-md-8 bx--col-sm-4 bx--feature-section__body">
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-lg-13 bx--col-md-6 bx--col-sm-4">
+          <div class="bx--col-lg-12 bx--col-md-6 bx--col-sm-4">
             <slot name="eyebrow">
             </slot>
             <slot name="heading">
@@ -35,12 +35,12 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--feature-section__align-right bx--grid">
+<div class="bx--feature-section bx--grid">
   <div class="bx--feature-section__container bx--row">
     <div class="bx--col-lg-8 bx--col-md-8 bx--col-sm-4 bx--feature-section__body">
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-lg-13 bx--col-md-6 bx--col-sm-4">
+          <div class="bx--col-lg-12 bx--col-md-6 bx--col-sm-4">
             <slot name="eyebrow">
             </slot>
             <slot name="heading">
