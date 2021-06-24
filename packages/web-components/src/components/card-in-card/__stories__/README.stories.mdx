@@ -1,6 +1,10 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
 import ExpressiveModal from './ExpressiveModal';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
 
 # Card in Card
 
@@ -14,11 +18,15 @@ import ExpressiveModal from './ExpressiveModal';
 
 Here's a quick example to get you started.
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
 ```
+
+<Description markdown={`${cdnJs({ components: ['card-in-card'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 

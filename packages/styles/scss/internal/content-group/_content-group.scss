@@ -20,10 +20,15 @@
   :host(#{$dds-prefix}-content-group),
   :host(#{$dds-prefix}-content-group-simple),
   :host(#{$dds-prefix}-content-group-cards),
+  :host(#{$dds-prefix}-content-group-pictograms),
   .#{$prefix}--content-group {
     display: block;
-    margin-top: $carbon--layout-05;
-    margin-bottom: $carbon--layout-05;
+    margin-top: $spacing-07;
+    margin-bottom: $spacing-07;
+
+    @include carbon--breakpoint('md') {
+      margin-bottom: $spacing-09;
+    }
 
     .#{$prefix}--card__CTA {
       // TO DO: aspect ratio 2x1

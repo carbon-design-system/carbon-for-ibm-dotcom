@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { ifDefined } from 'lit-html/directives/if-defined';
 import { html, property, internalProperty, query, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -17,6 +18,7 @@ import HostListener from 'carbon-web-components/es/globals/decorators/host-liste
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import DDSCard from '../card/card';
 import styles from './carousel.scss';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -32,7 +34,7 @@ const MIN_DISTANCE_TRAVELLED = 75; // min distance traveled to be considered swi
  * @csspart next-button The button to go to the next page.
  */
 @customElement(`${ddsPrefix}-carousel`)
-class DDSCarousel extends HostListenerMixin(LitElement) {
+class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * The scrolling contents node.
    */
@@ -300,6 +302,18 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
   }
 
   /**
+   * The assistive text for the button to go to next page.
+   */
+  @property({ attribute: 'next-button-text' })
+  nextButtonText = 'Next page';
+
+  /**
+   * The assistive text for the button to go to previous page.
+   */
+  @property({ attribute: 'prev-button-text' })
+  prevButtonText = 'Previous page';
+
+  /**
    * The current zero-based index of the left-most card.
    */
   @property({ type: Number })
@@ -322,7 +336,9 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
   render() {
     const { customPropertyPageSize } = this.constructor as typeof DDSCarousel;
     const {
+      nextButtonText,
       pageSize,
+      prevButtonText,
       start,
       _contentsBaseWidth: contentsBaseWidth,
       _gap: gap,
@@ -357,6 +373,8 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
           class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
           ?disabled="${pagesBefore === 0}"
           @click="${handleClickPrevButton}"
+          aria-label="${ifDefined(prevButtonText)}"
+          title="${ifDefined(prevButtonText)}"
         >
           ${CaretLeft20()}
         </button>
@@ -366,6 +384,8 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
           class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
           ?disabled="${pagesSince <= 1}"
           @click="${handleClickNextButton}"
+          aria-label="${ifDefined(nextButtonText)}"
+          title="${ifDefined(nextButtonText)}"
         >
           ${CaretRight20()}
         </button>
@@ -380,6 +400,10 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
    */
   static get customPropertyPageSize() {
     return `--${ddsPrefix}--carousel--page-size`;
+  }
+
+  static get stableSelector() {
+    return `${ddsPrefix}--carousel`;
   }
 
   static styles = styles;

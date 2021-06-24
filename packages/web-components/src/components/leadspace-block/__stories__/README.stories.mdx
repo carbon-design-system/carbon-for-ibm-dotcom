@@ -1,5 +1,9 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
 
 # LeadSpace Block
 
@@ -13,7 +17,7 @@ import contributing from '../../../../../../docs/contributing-license.md';
 
 Here's a quick example to get you started.
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/index';
@@ -24,6 +28,10 @@ import '@carbon/ibmdotcom-web-components/es/components/link-list/index';
 // with media (video)
 import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player-container';
 ```
+
+<Description markdown={`${cdnJs({ components: ['leadspace-block','link-list','video-player-container'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 

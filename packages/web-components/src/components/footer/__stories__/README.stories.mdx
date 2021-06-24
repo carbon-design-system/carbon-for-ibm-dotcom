@@ -1,5 +1,9 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
 
 # Footer
 
@@ -18,13 +22,17 @@ import contributing from '../../../../../../docs/contributing-license.md';
 
 `<dds-footer-container>` automatically renders contents of footer from default service data. If you want change in services/data integration, etc., see ["Customizing data integration" section](#customizing-data-integration) below.
 
-##### JS
+### JS (via import)
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/footer/footer-container';
+import '@carbon/ibmdotcom-web-components/es/components/footer/index';
 ```
 
-##### HTML
+<Description markdown={`${cdnJs({ components: ['footer'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
+
+### HTML
 
 ```html
 <dds-footer-container></dds-footer-container>

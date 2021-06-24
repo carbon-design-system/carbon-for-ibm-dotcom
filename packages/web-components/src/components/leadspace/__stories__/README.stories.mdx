@@ -1,6 +1,11 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
 import '../leadspace';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
+
 
 # LeadSpace
 
@@ -14,7 +19,7 @@ import '../leadspace';
 
 Here's a quick example to get you started.
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/leadspace/index.js';
@@ -22,6 +27,10 @@ import '@carbon/ibmdotcom-web-components/es/components/leadspace/index.js';
 // icon for the button
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 ```
+
+<Description markdown={`${cdnJs({ components: ['leadspace'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 

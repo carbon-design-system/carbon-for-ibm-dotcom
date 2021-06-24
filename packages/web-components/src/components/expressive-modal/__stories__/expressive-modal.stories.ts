@@ -14,9 +14,9 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import 'carbon-web-components/es/components/button/button.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../../button/button';
-import { EXPRESSIVE_MODAL_SIZE } from '../expressive-modal';
+import { EXPRESSIVE_MODAL_SIZE } from '../defs';
 import '../index';
+import '../../button/button';
 import styles from './expressive-modal.stories.scss';
 import readme from './README.stories.mdx';
 

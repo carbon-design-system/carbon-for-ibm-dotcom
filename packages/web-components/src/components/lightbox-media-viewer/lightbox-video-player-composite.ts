@@ -50,6 +50,7 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
         iFrame?.contentWindow?.document.querySelector('.topBarContainer')?.setAttribute('aria-hidden', 'true');
       }
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.log('Failed to access element in iframe');
       throw error;
     }
