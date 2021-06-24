@@ -190,14 +190,15 @@
       margin-bottom: $layout-05;
     }
 
-    :host(#{$dds-prefix}-content-item-horizontal)[thumbnail='true'] & {
-      @include carbon--breakpoint(md) {
-        margin-bottom: $carbon--spacing-05;
-      }
-    }
-
     p {
       color: $text-01;
+    }
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal-thumbnail-copy)
+    ::slotted(#{$dds-prefix}-content-item-paragraph) {
+    @include carbon--breakpoint(md) {
+      margin-bottom: $carbon--spacing-07;
     }
   }
 
@@ -225,12 +226,14 @@
     @include carbon--make-col(3, 4);
 
     margin-top: $carbon--spacing-05;
-    padding: 0;
+    padding-left: 0;
+    padding-right: rem(8px);
 
     @include carbon--breakpoint(md) {
       @include carbon--make-col(3, 3);
 
       margin-top: 0;
+      padding-right: 0;
     }
   }
 }

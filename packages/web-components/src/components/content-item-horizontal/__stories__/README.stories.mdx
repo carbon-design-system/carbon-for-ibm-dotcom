@@ -54,9 +54,13 @@ import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/i
 
 ```html
 <dds-content-item-horizontal thumbnail="true">
-  <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
-  <dds-content-item-horizontal-copy>Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-    Phasellus at elit sollicitudin.</dds-content-item-horizontal-copy>
+  <dds-content-item-heading>
+    Aliquam condimentum
+  </dds-content-item-heading>
+  <dds-content-item-horizontal-thumbnail-copy>
+    Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+    Phasellus at elit sollicitudin.
+  </dds-content-item-horizontal-thumbnail-copy>
   <dds-link-list slot="footer" type="vertical">
     <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
       Learn more
@@ -65,7 +69,7 @@ import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/i
       Microservices and containers
     </dds-link-list-item-cta>
   </dds-link-list>
-  <dds-image slot="thumbnail" alt="Alt text" default-src="image.jpg"></dds-image>
+  <dds-image slot="thumbnail" alt="Alt text" default-src="https://fpoimg.com/960x720?text=4:3&bg_color=ee5396&text_color=161616"></dds-image>
 </dds-content-item-horizontal>
 ```
 
@@ -140,7 +144,6 @@ See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/t
 | ------------------------------------- | -------------------------------------------------- | ----------- |
 | `<dds-content-item-horizontal>`       | `data-autoid="dds--content-item-horizontal"`       | Component   |
 | `<dds-content-item-horizontal-media>` | `data-autoid="dds--content-item-horizontal-media"` | Component   |
-| `<dds-content-item-horizontal-thumbnail>` | `data-autoid="dds--content-item-horizontal-thumbnail"` | Component   |
 | `<dds-content-item-heading>`          | `data-autoid="dds--content-item-heading"`          | Component   |
 | `<dds-content-item-horizontal-copy>`  | `data-autoid="dds--content-item-horizontal-copy"`  | Component   |
 | `<dds-link-list>`                     | `data-autoid="dds--link-list"`                     | Component   |

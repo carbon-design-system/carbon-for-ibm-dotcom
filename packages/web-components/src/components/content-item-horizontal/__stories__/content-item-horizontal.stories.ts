@@ -40,7 +40,7 @@ export const Default = ({ parameters }) => {
   const { eyebrow, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
     parameters?.props?.ContentItemHorizontal ?? {};
   return html`
-    <dds-content-item-horizontal>
+    <dds-content-item-horizontal thumbnail="false">
       <dds-content-item-horizontal-eyebrow>${eyebrow}</dds-content-item-horizontal-eyebrow>
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       <dds-content-item-horizontal-copy>${copy}</dds-content-item-horizontal-copy>
@@ -70,7 +70,7 @@ export const WithThumbnail = ({ parameters }) => {
   return html`
     <dds-content-item-horizontal thumbnail="true">
       <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-horizontal-copy>${copy}</dds-content-item-horizontal-copy>
+      <dds-content-item-horizontal-thumbnail-copy>${copy}</dds-content-item-horizontal-thumbnail-copy>
       <dds-link-list slot="footer" type="vertical">
         <dds-link-list-item-cta
           icon-placement="${ICON_PLACEMENT.RIGHT}"
@@ -140,16 +140,15 @@ WithThumbnail.story = {
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal-thumbnail',
     knobs: {
       ContentItemHorizontal: () => ({
-        alt: textNullable('Image alt text', 'Lorem ipsum'),
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
         copy:
           'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. ' +
           'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
           'Phasellus at elit sollicitudin.',
-        ctaType1: select('CTA 1 type (cta-type)', types, CTA_TYPE.LOCAL),
+        ctaType1: select('CTA 1 type (cta-type):', types, CTA_TYPE.LOCAL),
         ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
         href1: textNullable('CTA 1 href (cta-href):', 'https://www.ibm.com'),
-        ctaType2: select('CTA 2 type (cta-type)', types, CTA_TYPE.EXTERNAL),
+        ctaType2: select('CTA 2 type (cta-type):', types, CTA_TYPE.EXTERNAL),
         ctaCopy2: textNullable('CTA 2 copy (cta-copy):', 'Microservices and containers'),
         href2: textNullable('CTA 2 href (cta-href):', 'https://www.ibm.com'),
       }),
@@ -170,10 +169,10 @@ WithMedia.story = {
           'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. ' +
           'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
           'Phasellus at elit sollicitudin.',
-        ctaType1: select('CTA 1 type (cta-type)', types, CTA_TYPE.LOCAL),
+        ctaType1: select('CTA 1 type (cta-type):', types, CTA_TYPE.LOCAL),
         ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
         href1: textNullable('CTA 1 href (cta-href):', 'https://www.ibm.com'),
-        ctaType2: select('CTA 2 type (cta-type)', types, CTA_TYPE.EXTERNAL),
+        ctaType2: select('CTA 2 type (cta-type):', types, CTA_TYPE.EXTERNAL),
         ctaCopy2: textNullable('CTA 2 copy (cta-copy):', 'Microservices and containers'),
         href2: textNullable('CTA 2 href (cta-href):', 'https://www.ibm.com'),
       }),
