@@ -14,7 +14,7 @@ const program = require('commander');
 
 const collect = (v, a) => a.add(v);
 
-const { ...rest } = program
+program
   .option('-b, --browser [browser]', 'Browser to test with (ChromeHeadless or Chrome) for Karma testing', collect, new Set())
   .option(
     '-d, --debug',
@@ -28,7 +28,7 @@ const { ...rest } = program
   .option('--verbose', 'Enables verbose output')
   .parse(process.argv);
 
-const cloptions = { browsers: [], specs: [], ...rest };
+const cloptions = { browsers: [], specs: [], ...program.opts() };
 
 module.exports = {
   ENV_PRODUCTION: 'production',
