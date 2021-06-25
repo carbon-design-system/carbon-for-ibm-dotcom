@@ -76,7 +76,7 @@ class DDSLegalNav extends StableSelectorMixin(LitElement) {
           <div class="${prefix}--adjunct-links__container">
             <div class="${prefix}--adjunct-links__row">
               <div class="${prefix}--adjunct-links__col">
-                <slot name="adjunct-links">
+                <slot name="adjunct-links"></slot>
               </div>
             </div>
           </div>
