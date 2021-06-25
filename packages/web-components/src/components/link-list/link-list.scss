@@ -52,10 +52,6 @@
   }
 
   .#{$prefix}--link {
-    > span {
-      flex: 1;
-    }
-
     // TODO: See if there is a better solution than an internal custom property
     padding: var(--#{$dds-prefix}--link-list-item--anchor-padding, 0);
   }
