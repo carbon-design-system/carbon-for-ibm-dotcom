@@ -262,7 +262,7 @@
 
   &[expanded][usage-mode='header-nav'],
   &[collapse-mode][expanded][usage-mode='header-nav'] {
-    overflow-y: auto;
+    overflow: hidden auto;
     left: 0;
     visibility: visible;
     /* stylelint-disable-next-line time-min-milliseconds */

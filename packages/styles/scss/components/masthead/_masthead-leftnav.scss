@@ -167,6 +167,7 @@
     z-index: 0;
     left: -100%;
     background-color: $ui-background;
+    padding-bottom: $spacing-09;
     transition: left $duration--moderate-01 motion(exit, productive);
 
     a {
@@ -288,6 +289,12 @@
         }
       }
     }
+  }
+
+  .#{$prefix}--masthead__side-nav--submemu-back
+    button:focus
+    > .#{$prefix}--side-nav__link-text {
+    color: $link-01;
   }
 
   :host(#{$dds-prefix}-left-nav-menu-section)[expanded],
