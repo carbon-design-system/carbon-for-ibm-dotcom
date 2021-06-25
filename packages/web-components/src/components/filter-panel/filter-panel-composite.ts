@@ -14,11 +14,11 @@ import Filter from 'carbon-web-components/es/icons/filter/16';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import './filter-group';
 import { baseFontSize, breakpoints } from '@carbon/layout';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
 import 'carbon-web-components/es/components/checkbox/checkbox';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -29,35 +29,29 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   /** host listener */
   @HostListener('document:eventContentStateChange')
   protected _handleContentStateChangeDocument = (event: CustomEvent) => {
-		const { value } = event.detail;
+    const { value } = event.detail;
 
+    // TODO
+    // whenever the input value is unselected, the value is empty, thus we cant delete it from the selections array
+    // probably need a way to get that old value somehow to remove it properly
 
-		// TODO
-		// whenever the input value is unselected, the value is empty, thus we cant delete it from the selections array
-		// probably need a way to get that old value somehow to remove it properly
-
-		if(!value) {
-			this._selectedValues = this._selectedValues.filter(e => e !== value);
+    if (!value) {
+      this._selectedValues = this._selectedValues.filter(e => e !== value);
 
       if (!this._selectedValues.length) {
         this.shadowRoot!.querySelector('dds-filter-panel-modal')?.removeAttribute('has-selections');
       }
+      return;
+    }
 
-			console.log(this._selectedValues)
-
-			return;
-		}
-
-		if (!this._selectedValues.includes(value)) {
+    if (!this._selectedValues.includes(value)) {
       this._selectedValues.push(value);
     }
 
-		// enables the clear button
-		if (this._selectedValues) {
-			this.shadowRoot!.querySelector('dds-filter-panel-modal')?.setAttribute('has-selections', '');
-		}
-
-		console.log(this._selectedValues)
+    // enables the clear button
+    if (this._selectedValues) {
+      this.shadowRoot!.querySelector('dds-filter-panel-modal')?.setAttribute('has-selections', '');
+    }
   };
 
   /** host listener */
@@ -88,7 +82,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
 
   /** host listener */
   @HostListener('document:eventSelectionClear')
-  protected _handleClearSelection = (event: CustomEvent) => {
+  protected _handleClearSelection = () => {
     this._selectedValues = [];
 
     this._contents.forEach(group => {
@@ -102,8 +96,8 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
       e.removeAttribute('checked');
     });
 
-		// disables the button
-		this.shadowRoot!.querySelector('dds-filter-panel-modal')?.removeAttribute('has-selections');
+    // disables the button
+    this.shadowRoot!.querySelector('dds-filter-panel-modal')?.removeAttribute('has-selections');
   };
 
   /**
@@ -141,7 +135,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
         <div class="${prefix}--filter__modal_button">Filter ${Filter()}</div>
       </button>
 
-      <dds-filter-panel-modal title="Filter" ?open=${!this.openFilterModal}>
+      <dds-filter-panel-modal title="Filter" ?open=${this.openFilterModal}>
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </dds-filter-panel-modal>
 

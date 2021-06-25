@@ -13,7 +13,6 @@ import settings from 'carbon-components/es/globals/js/settings';
 import { classMap } from 'lit-html/directives/class-map';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './input_select';
-
 import styles from './filter-panel.scss';
 
 const { prefix } = settings;
