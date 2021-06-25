@@ -67,6 +67,11 @@
   }
 }
 
+:host(#{$dds-prefix}-footer) .bx--adjunct-links__container .bx--adjunct-links__row .bx--adjunct-links__col,
+:host(dds-legal-nav) .bx--adjunct-links__container .bx--adjunct-links__row .bx--adjunct-links__col {
+  padding-right: $spacing-07;
+}
+
 :host(#{$dds-prefix}-footer-nav-group[open]) {
   @extend .#{$prefix}--accordion__item--active;
 }
