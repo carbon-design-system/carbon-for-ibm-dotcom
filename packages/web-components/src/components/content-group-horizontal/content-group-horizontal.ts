@@ -9,7 +9,9 @@
 
 import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import deprecate from '@carbon/ibmdotcom-utilities/es/utilities/deprecate/deprecate';
 import DDSContentBlockHorizontal from '../content-block-horizontal/content-block-horizontal';
+
 import '../horizontal-rule/horizontal-rule';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -25,5 +27,8 @@ class DDSContentGroupHorizontal extends DDSContentBlockHorizontal {
     return `${ddsPrefix}--content-group-horizontal`;
   }
 }
-
-export default DDSContentGroupHorizontal;
+export default deprecate(
+  DDSContentGroupHorizontal,
+  'The ContentGroupHorizontal component has been deprecated in favor of the ContentBlockHorizontal component. ' +
+    'See ContentBlockHorizontal documentation for more information.'
+);
