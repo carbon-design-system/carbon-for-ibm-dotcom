@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -49,10 +49,10 @@ class DDSMarkdown extends LitElement {
   protected get _renderer() {
     return {
       link(href, title, text) {
-        return `<${prefix}-link href="${href}"${title ? `title="${title}"` : ''}>${text}</${prefix}-link>`;
+        return `<${prefix}-link href="${href}" size="lg" ${title ? `title="${title}"` : ''}>${text}</${prefix}-link>`;
       },
       list(body, ordered) {
-        const tag = `${prefix}-${ordered ? 'ordered' : 'unordered'}-list`;
+        const tag = `${prefix}-${ordered ? 'ordered' : 'unordered'}-list isexpressive="true"`;
         return `<${tag}>${body}</${tag}>`;
       },
       listitem(text) {
@@ -77,6 +77,12 @@ class DDSMarkdown extends LitElement {
       this._hasRendered = true;
       render(lightDOMTemplateResult, this, { eventContext: this });
     }
+    this.querySelectorAll('bx-unordered-list').forEach(e => {
+      e.setAttribute('isexpressive', '');
+    });
+    this.querySelectorAll('bx-ordered-list').forEach(e => {
+      e.setAttribute('isexpressive', '');
+    });
   }
 
   render() {
