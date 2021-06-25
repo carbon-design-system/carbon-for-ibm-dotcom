@@ -144,6 +144,12 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
       const { expanded, isSubmenu } = this;
 
       if (expanded) {
+        if (isSubmenu) {
+          const backBtn = this.shadowRoot?.querySelector('button');
+          if (backBtn) {
+            backBtn.tabIndex = 0;
+          }
+        }
         forEach(this.querySelectorAll(selectorNavMenu), elem => {
           const item = (elem as HTMLElement).shadowRoot?.querySelector('button');
           if (item) {
@@ -160,8 +166,10 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
         // set focus to first element of menu panel to allow for tabbing through the menu
         let tabbable;
         if (isSubmenu) {
+          // set focus to back button
           tabbable = this.shadowRoot?.querySelector('button');
         } else {
+          // set focus to first menu item of section
           tabbable = find(this.querySelectorAll(selectorTabbableForLeftNavMenuSection), elem =>
             Boolean((elem as HTMLElement).offsetParent)
           );
@@ -185,6 +193,12 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
             item.tabIndex = -1;
           }
         });
+        if (isSubmenu) {
+          const backBtn = this.shadowRoot?.querySelector('button');
+          if (backBtn) {
+            backBtn.tabIndex = -1;
+          }
+        }
       }
     }
   }
@@ -196,7 +210,7 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
         ${showBackBtn
           ? html`
               <li class="bx--side-nav__menu-item bx--masthead__side-nav--submemu-back" role="none">
-                <button class="bx--side-nav__link" role="menuitem" @click="${handleClickBack}">
+                <button class="bx--side-nav__link" tabindex="-1" role="menuitem" @click="${handleClickBack}">
                   <span class="bx--side-nav__link-text">${ChevronLeft20()}${backButtonText}</span>
                 </button>
               </li>
