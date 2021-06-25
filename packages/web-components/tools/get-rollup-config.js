@@ -22,6 +22,7 @@ const commonjs = require('rollup-plugin-commonjs');
 const replace = require('rollup-plugin-replace');
 const { terser } = require('rollup-plugin-terser');
 const multiInput = require('rollup-plugin-multi-input').default;
+const injectProcessEnv = require('rollup-plugin-inject-process-env');
 
 const ibmdotcomIcon = require('./rollup-plugin-ibmdotcom-icon');
 const litSCSS = require('./rollup-plugin-lit-scss');
@@ -92,9 +93,14 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
     },
   };
 
-  const inputs = {
-    'ibmdotcom-web-components-dotcom-shell': 'src/components/dotcom-shell/index.ts', // retaining for legacy support
-  };
+  const inputs = {};
+
+  // retaining old dotcom-shell for legacy support
+  inputs[`ibmdotcom-web-components-dotcom-shell${dirSuffixes[dir]}${modeSuffixes[mode]}`] =
+    'src/components/dotcom-shell/index.ts';
+
+  // adding the cloud masthead
+  inputs[`cloud-masthead${dirSuffixes[dir]}${modeSuffixes[mode]}`] = 'src/components/masthead/cloud/index.ts';
 
   folders.forEach(folder => {
     if (folder === 'cta') {
@@ -147,6 +153,17 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
         },
       }),
       ibmdotcomIcon(),
+      injectProcessEnv(
+        {
+          DDS_CALLOUT_DATA: 'true',
+          DDS_CONTENT_BLOCK_HEADLINES: 'true',
+          DDS_CONTENT_BLOCK_CARD_STATIC: 'true',
+          DDS_CLOUD_MASTHEAD: 'true',
+        },
+        {
+          include: ['**/feature-flags.ts'],
+        }
+      ),
       babel({
         extensions: ['.ts'],
         exclude: ['node_modules/**'], // only transpile our source code
