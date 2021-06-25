@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { css, customElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
+import BXLink from 'carbon-web-components/es/components/link/link';
 import { MEGAMENU_LINK_WITH_ICON_STYLE_SCHEME } from './defs';
 import styles from './masthead.scss';
 
@@ -23,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-megamenu-link-with-icon
  */
 @customElement(`${ddsPrefix}-megamenu-link-with-icon`)
-class DDSMegaMenuLinkWithIcon extends DDSLinkWithIcon {
+class DDSMegaMenuLinkWithIcon extends BXLink {
   /**
    * link title.
    */
