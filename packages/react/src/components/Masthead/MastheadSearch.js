@@ -304,7 +304,7 @@ const MastheadSearch = ({
     onChange,
     onKeyDown,
     className: `${prefix}--header__search--input`,
-    'aria-labelledby': 'react-autowhatever-1',
+    'aria-label': placeHolderText,
     role: 'combobox',
     'aria-expanded': !!state.suggestions.length,
   };
