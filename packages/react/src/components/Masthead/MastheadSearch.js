@@ -148,6 +148,16 @@ const MastheadSearch = ({
     [isSearchActive, onChangeSearchActive]
   );
 
+  // Sets aria-labelledby to suggestions list to suppress a11y errors.
+  // Autosuggest package does not provide method to add attribute to this element.
+  useEffect(() => {
+    const suggestionsList = document.querySelector(
+      '.react-autosuggest__suggestions-list'
+    );
+    suggestionsList &&
+      suggestionsList.setAttribute('aria-labelledby', 'react-autowhatever-1');
+  });
+
   useEffect(() => {
     const abortController =
       typeof AbortController !== 'undefined'
@@ -286,7 +296,7 @@ const MastheadSearch = ({
   /**
    * Autosuggest will pass through all these props to the input.
    *
-   * @type {{placeholder: string, value: string, onChange: Function, className: string}}
+   * @type {{placeholder: string, value: string, onChange: Function, className: string, 'aria-labelledby': string, role: string, 'aria-expanded': string}}
    */
   const inputProps = {
     placeholder: placeHolderText,
@@ -294,15 +304,23 @@ const MastheadSearch = ({
     onChange,
     onKeyDown,
     className: `${prefix}--header__search--input`,
+    'aria-label': placeHolderText,
+    role: 'combobox',
+    'aria-expanded': !!state.suggestions.length,
   };
 
   /**
    * Autosuggest will pass through all these props to the container.
+   * Set WAI-ARIA attributes to null to override default container
+   * which is following outdated 1.1 specifications.
    *
-   * @type {{'aria-label': string}}
    */
   const containerProps = {
-    'aria-label': placeHolderText,
+    role: null,
+    'aria-haspopup': null,
+    'aria-owns': null,
+    'aria-expanded': null,
+    'aria-label': null,
   };
 
   /**
@@ -530,6 +548,13 @@ const MastheadSearch = ({
     }
   }
 
+  /* eslint-disable react/prop-types */
+  const renderSuggestionsContainer = ({ containerProps, children }) => (
+    <div {...containerProps} aria-labelledby="react-autowhatever-1">
+      {children}
+    </div>
+  );
+
   return (
     <div
       data-autoid={`${stablePrefix}--masthead__search`}
@@ -549,6 +574,7 @@ const MastheadSearch = ({
             onSuggestionsClearRequested={onSuggestionsClearedRequested} // When input bar loses focus
             getSuggestionValue={_getSuggestionValue} // Name of suggestion
             renderSuggestion={renderSuggestion} // How to display a suggestion
+            renderSuggestionsContainer={renderSuggestionsContainer}
             onSuggestionSelected={onSuggestionSelected} // When a suggestion is selected
             inputProps={inputProps}
             containerProps={containerProps}

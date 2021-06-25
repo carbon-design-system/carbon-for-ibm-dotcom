@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -73,8 +73,8 @@
           }
 
           .#{$prefix}--legal-nav__list-item {
-            padding: 0;
             margin-right: 0;
+            padding-top: 0;
 
             @include carbon--breakpoint('md') {
               margin-right: $carbon--spacing-07;
@@ -133,7 +133,6 @@
 
   .#{$prefix}--legal-nav__holder {
     margin-left: 0;
-
     @include carbon--breakpoint('md') {
       column-count: 2;
     }
@@ -141,6 +140,31 @@
     @include carbon--breakpoint('lg') {
       margin-left: 25%;
       column-count: 3;
+      padding-left: $carbon--spacing-02;
+    }
+  }
+
+  .#{$prefix}--adjunct-links__holder {
+    margin-left: 0;
+    padding: $carbon--spacing-03 $carbon--layout-04 $carbon--spacing-09
+      $carbon--spacing-05;
+    width: 100%;
+
+    @include carbon--breakpoint('md') {
+      width: 50%;
+    }
+
+    @include carbon--breakpoint('lg') {
+      margin-left: 25%;
+      width: 25%;
+    }
+
+    .#{$prefix}--legal-nav__list-item {
+      margin-right: 0;
+    }
+
+    .#{$prefix}--legal-nav__list-item:not(:first-of-type) {
+      padding-top: $carbon--spacing-03;
     }
   }
 

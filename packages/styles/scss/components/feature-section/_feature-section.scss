@@ -1,0 +1,120 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
+@import '../../globals/vars';
+@import '../../globals/imports';
+@import '../../globals/utils/aspect-ratio';
+@import '../../globals/utils/ratio-base';
+
+@mixin feature-section {
+  .#{$prefix}--feature-section {
+    position: relative;
+    padding-left: $carbon--spacing-05;
+    padding-right: $carbon--spacing-05;
+  }
+
+  .#{$prefix}--feature-section__container {
+    background-color: $hover-ui;
+    display: block;
+
+    @include carbon--breakpoint('lg') {
+      display: flex;
+    }
+  }
+
+  .#{$prefix}--feature-section__body {
+    position: relative;
+    padding-top: $carbon--spacing-07;
+    padding-left: 0;
+    padding-right: 0;
+
+    @include carbon--breakpoint('max') {
+      padding-top: $carbon--spacing-08;
+      padding-left: $carbon--spacing-03;
+    }
+
+    .#{$prefix}--content-item__copy p,
+    ::slotted(#{$dds-prefix}-content-item-paragraph) {
+      margin-bottom: $carbon--spacing-07;
+
+      @include carbon--breakpoint('md') {
+        margin-bottom: $carbon--spacing-09;
+      }
+    }
+
+    .#{$prefix}--card-link,
+    ::slotted(#{$dds-prefix}-feature-section-card-link) {
+      position: relative;
+      display: inline-block;
+      margin-left: 25%;
+
+      @include carbon--breakpoint('md') {
+        margin-left: 50%;
+      }
+
+      @include carbon--breakpoint('lg') {
+        position: absolute;
+        margin-left: 0;
+      }
+    }
+  }
+
+  .#{$prefix}--feature-section__image {
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+
+    .#{$prefix}--image,
+    ::slotted(#{$dds-prefix}-image) {
+      overflow: hidden;
+
+      @include carbon--breakpoint('sm') {
+        height: aspect-ratio(1, 1);
+      }
+
+      @include carbon--breakpoint('md') {
+        height: aspect-ratio(4, 3);
+      }
+
+      @include carbon--breakpoint('lg') {
+        height: aspect-ratio(1, 1);
+      }
+    }
+  }
+
+  .#{$prefix}--card__eyebrow,
+  ::slotted(#{$dds-prefix}-card-eyebrow) {
+    display: inline-block;
+    margin-bottom: $carbon--spacing-05;
+  }
+
+  .#{$prefix}--card-link,
+  ::slotted(#{$dds-prefix}-feature-section-card-link) {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 75%;
+
+    @include carbon--breakpoint('md') {
+      width: 50%;
+      right: $carbon--spacing-05;
+    }
+
+    .#{$prefix}--card {
+      max-width: inherit;
+    }
+
+    @include carbon--breakpoint('max') {
+      right: $carbon--spacing-06;
+    }
+  }
+}
+
+@include exports('feature-section') {
+  @include feature-section;
+}
