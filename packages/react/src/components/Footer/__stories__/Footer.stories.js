@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -33,6 +33,7 @@ export const Default = ({ parameters }) => {
     items,
     languageInitialItem,
     languageCallback,
+    adjunctLinks,
   } = parameters?.props?.Footer ?? {};
 
   return (
@@ -45,11 +46,65 @@ export const Default = ({ parameters }) => {
       languageItems={languageOnly ? items : null}
       languageInitialItem={languageInitialItem}
       languageCallback={languageCallback}
+      adjunctLinks={adjunctLinks}
     />
   );
 };
 
 Default.story = {
+  parameters: {
+    knobs: {
+      Footer: ({ groupId }) => {
+        return {
+          languageInitialItem: { id: 'en', text: 'English' },
+          disableLocaleButton: boolean(
+            'hide the locale button (disableLocaleButton)',
+            false,
+            groupId
+          ),
+        };
+      },
+    },
+  },
+};
+
+export const DefaultWithAdjunctLegalLinks = ({ parameters }) => {
+  const {
+    type,
+    isCustom,
+    navigation,
+    disableLocaleButton,
+    languageOnly,
+    items,
+    languageInitialItem,
+    languageCallback,
+  } = parameters?.props?.Footer ?? {};
+
+  return (
+    <Footer
+      navigation={isCustom ? navigation : null}
+      type={type}
+      disableLocaleButton={disableLocaleButton}
+      langCode={inPercy() ? { lc: 'en', cc: 'us' } : null}
+      languageOnly={languageOnly}
+      languageItems={languageOnly ? items : null}
+      languageInitialItem={languageInitialItem}
+      languageCallback={languageCallback}
+      adjunctLinks={[
+        {
+          title: 'Read the updated Terms of Use.',
+          url: 'https://www.example.com',
+        },
+        {
+          title: 'Read Learning Technologies Privacy',
+          url: 'https://www.example.com',
+        },
+      ]}
+    />
+  );
+};
+
+DefaultWithAdjunctLegalLinks.story = {
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {
@@ -125,6 +180,71 @@ export const Short = ({ parameters }) => {
 };
 
 Short.story = {
+  parameters: {
+    knobs: {
+      Footer: ({ groupId }) => {
+        const isCustom = boolean(
+          'show custom navigation (not a prop)',
+          inPercy(),
+          groupId
+        );
+        return {
+          isCustom,
+          navigation: isCustom
+            ? object(
+                'custom navigation data (navigation)',
+                {
+                  footerMenu,
+                  footerThin,
+                },
+                groupId
+              )
+            : null,
+          disableLocaleButton: boolean(
+            'hide the locale button (disableLocaleButton)',
+            false,
+            groupId
+          ),
+        };
+      },
+    },
+  },
+};
+
+/**
+ * Footer (short)
+ *
+ * @returns {*} CSF story
+ */
+export const ShortWithAdjunctLegalLinks = ({ parameters }) => {
+  const massagedParameters = {
+    ...parameters,
+    props: {
+      Footer: {
+        ...(parameters?.props?.Footer ?? {}),
+        type: 'short',
+        adjunctLinks: [
+          {
+            title: 'Read the updated Terms of Use.',
+            url: 'https://www.example.com',
+          },
+          {
+            title: 'Read Learning Technologies Privacy',
+            url: 'https://www.example.com',
+          },
+        ],
+      },
+    },
+  };
+
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+      <Default parameters={massagedParameters} />
+    </div>
+  );
+};
+
+ShortWithAdjunctLegalLinks.story = {
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {
@@ -251,6 +371,7 @@ Micro.story = {
             groupId
           ),
           languageInitialItem: { id: 'en', text: 'English' },
+          adjunctLinks: false,
         };
       },
     },
