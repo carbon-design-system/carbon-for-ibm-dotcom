@@ -15,8 +15,7 @@ import store from '../../../internal/vendor/@carbon/ibmdotcom-services-store/sto
 import { LocaleAPIActions } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
 import { TranslateAPIActions } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.d';
 import { loadUserStatus } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/cloudAccountAuthAPI';
-import { CloudAccountAuthAPIActions }
-  from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/cloudAccountAuthAPI.d';
+import { CloudAccountAuthAPIActions } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/cloudAccountAuthAPI.d';
 import { SearchAPIActions } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/searchAPI.d';
 import ConnectMixin from '../../../globals/mixins/connect';
 import { loadTranslation } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
@@ -41,13 +40,12 @@ export interface CloudMastheadContainerState extends MastheadContainerState {
 /**
  * The Redux actions used for `<dds-cloud-masthead-container>.
  */
- export type CloudMastheadContainerActions =
- | MastheadSearchContainerActions
- | ReturnType<typeof loadLanguage>
- | ReturnType<typeof setLanguage>
- | ReturnType<typeof loadTranslation>
- | ReturnType<typeof loadUserStatus>;
-
+export type CloudMastheadContainerActions =
+  | MastheadSearchContainerActions
+  | ReturnType<typeof loadLanguage>
+  | ReturnType<typeof setLanguage>
+  | ReturnType<typeof loadTranslation>
+  | ReturnType<typeof loadUserStatus>;
 
 /**
  * @param state The Redux state for masthead.
@@ -109,6 +107,6 @@ class DDSCloudMastheadContainer extends ConnectMixin<
   store as Store<MastheadContainerState, LocaleAPIActions | TranslateAPIActions | SearchAPIActions | CloudAccountAuthAPIActions>,
   mapStateToProps,
   mapDispatchToProps
-)(DDSCloudMastheadComposite) { }
+)(DDSCloudMastheadComposite) {}
 
 export default DDSCloudMastheadContainer;
