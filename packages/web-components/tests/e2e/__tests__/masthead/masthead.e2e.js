@@ -8,8 +8,8 @@
 'use strict';
 
 describe('dds-masthead', () => {
-  it('should load the default masthead example', () => {
-    cy.visit('/masthead/index.html');
+  it('should load the default dds-masthead example', () => {
+    cy.visit('/masthead');
 
     cy.get('[data-autoid="dds--masthead__megamenu"]');
 

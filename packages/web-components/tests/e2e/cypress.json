@@ -1,6 +1,7 @@
 {
   "baseUrl": "http://localhost:8080",
   "browser": "chrome",
+  "headless": true,
   "fixturesFolder": false,
   "fileServerFolder": "tests/e2e/dist",
   "screenshotsFolder": "tests/e2e/cypress/screenshots",
