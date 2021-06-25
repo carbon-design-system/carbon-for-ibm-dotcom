@@ -8,9 +8,14 @@
 import { stripHTML } from '../';
 
 describe('StripHTML utility', () => {
-  const content = '<h1>Lorem ipsum dolor sit amet.</h1>';
-
   it('should return a string without HTML tags', () => {
+    const content = '<h1>Lorem ipsum dolor sit amet.</h1>';
+    const output = stripHTML(content);
+    expect(output).toBe('Lorem ipsum dolor sit amet.');
+  });
+
+  it('should return the original string if there are no tags', () => {
+    const content = 'Lorem ipsum dolor sit amet.';
     const output = stripHTML(content);
     expect(output).toBe('Lorem ipsum dolor sit amet.');
   });
