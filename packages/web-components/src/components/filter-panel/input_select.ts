@@ -48,7 +48,7 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
         bubbles: true,
         composed: true,
         detail: {
-          selection: value,
+          value: value,
         },
       })
     );

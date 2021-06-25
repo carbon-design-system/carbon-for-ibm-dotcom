@@ -11,6 +11,7 @@
 @import '@carbon/ibmdotcom-styles/scss/components/filter-panel/filter-panel';
 @import 'carbon-components/scss/components/accordion/accordion';
 @import 'carbon-web-components/scss/components/modal/modal';
+@import 'carbon-web-components/scss/components/checkbox/checkbox';
 
 :host(#{$dds-prefix}-filter-panel-modal) {
   @extend :host(#{$prefix}-modal);
@@ -41,6 +42,19 @@
       }
     }
   }
+
+  .#{$prefix}--modal-container {
+    @include carbon--breakpoint-down('md') {
+      width: 100%;
+      display: block;
+    }
+  }
+}
+
+:host(#{$prefix}-modal-footer) {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 :host(#{$dds-prefix}-filter-panel) {
@@ -62,4 +76,9 @@
       display: none;
     }
   }
+}
+
+:host(#{$dds-prefix}-checkbox) {
+  @extend :host(#{$prefix}-checkbox);
+  padding-left: 0;
 }
