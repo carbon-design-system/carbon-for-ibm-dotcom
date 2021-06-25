@@ -16,8 +16,13 @@ import '../content-item-horizontal-copy';
 import '../content-item-horizontal-eyebrow';
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
 import { CTA_TYPE } from '../../cta/defs';
+// import {
+//   Default,
+//   WithThumbnail,
+//   WithMedia,
+// } from '../__stories__/content-item-horizontal.stories.ts';
 
-const template = (props?) => {
+const DefaultTemplate = (props?) => {
   const { children } = props ?? {};
   return html`
     <dds-content-item-horizontal>
@@ -26,17 +31,27 @@ const template = (props?) => {
   `;
 };
 
+// const WithThumbnailTemplate = (props?) => {
+//   WithThumbnail({
+//     parameters: {
+//       props: {
+//         ContentItemHorizontal: {...props},
+//       },
+//     },
+//   });
+// };
+
 describe('dds-content-item-horizontal', function() {
-  describe('Misc attributes', function() {
+  describe('Misc attributes - Default', function() {
     it('should render with minimum attributes', async function() {
-      render(template(), document.body);
+      render(DefaultTemplate(), document.body);
       await Promise.resolve();
       expect(document.body.querySelector('dds-content-item-horizontal')).toMatchSnapshot({ mode: 'shadow' });
     });
 
     it('should render with various attributes', async function() {
       render(
-        template({
+        DefaultTemplate({
           copy: 'copy-foo',
           children: html`
             <dds-content-item-horizontal-eyebrow>eyebrow-foo</dds-content-item-horizontal-eyebrow>
@@ -66,6 +81,25 @@ describe('dds-content-item-horizontal', function() {
       expect(document.body.querySelector('dds-content-item-horizontal')).toMatchSnapshot({ mode: 'shadow' });
     });
   });
+
+  // describe('Misc attributes - WithThumbnail', function() {
+  //   it('should render with minimum attributes', async function() {
+  //     render(WithThumbnailTemplate(), document.body);
+  //     await Promise.resolve();
+  //     expect(document.body.querySelector('dds-content-item-horizontal')).toMatchSnapshot();
+  //   });
+
+  //   it('should render with various attributes', async function() {
+  //     render(
+  //       WithThumbnailTemplate({
+  //         copy: 'copy-foo',
+  //       }),
+  //       document.body
+  //     );
+  //     await Promise.resolve();
+  //     expect(document.body.querySelector('dds-content-item-horizontal')).toMatchSnapshot();
+  //   });
+  // });
 
   afterEach(async function() {
     await render(undefined!, document.body);

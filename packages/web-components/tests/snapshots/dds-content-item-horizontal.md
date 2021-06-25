@@ -1,12 +1,12 @@
 # `dds-content-item-horizontal`
 
-## `Misc attributes`
+## `Misc attributes - Default`
 
 ####   `should render with minimum attributes`
 
 ```
 <div class="bx--content-item-horizontal__row">
-  <div class="bx--content-item-horizontal__col bx--content-item-horizontal__col--1">
+  <div class="bx--content-item-horizontal__col--1">
     <div class="bx--content-item-horizontal__heading-wrapper">
       <slot name="eyebrow">
       </slot>
@@ -33,7 +33,7 @@
 
 ```
 <div class="bx--content-item-horizontal__row">
-  <div class="bx--content-item-horizontal__col bx--content-item-horizontal__col--1">
+  <div class="bx--content-item-horizontal__col--1">
     <div class="bx--content-item-horizontal__heading-wrapper">
       <slot name="eyebrow">
       </slot>
