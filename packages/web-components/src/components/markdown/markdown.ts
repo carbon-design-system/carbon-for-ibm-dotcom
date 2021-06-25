@@ -77,11 +77,8 @@ class DDSMarkdown extends LitElement {
       this._hasRendered = true;
       render(lightDOMTemplateResult, this, { eventContext: this });
     }
-    this.querySelectorAll('bx-unordered-list').forEach(e => {
-      e.setAttribute('isexpressive', '');
-    });
-    this.querySelectorAll('bx-ordered-list').forEach(e => {
-      e.setAttribute('isexpressive', '');
+    this.querySelectorAll('bx-ordered-list, bx-unordered-list').forEach(e => {
+      e.setAttribute('isExpressive', '');
     });
   }
 
