@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.21.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.20.0...@carbon/ibmdotcom-utilities@1.21.0-rc.0) (2021-06-25)
+
+
+### Bug Fixes
+
+* **stripHTML:** add check if there are no surrounding elements ([#6484](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6484)) ([66a72e8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/66a72e8))
+
+
+
+# 1.12.0-beta.61.29 (2021-06-18)
+
+
+### Features
+
+* **content-block:** added mock markup for content-block-heading ([#6349](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6349)) ([b5146c1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b5146c1)), closes [#6083](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6083)
+
+
+
+
+
 # [1.20.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.20.0-rc.0...@carbon/ibmdotcom-utilities@1.20.0) (2021-06-14)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities
