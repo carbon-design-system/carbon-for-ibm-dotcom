@@ -13,6 +13,12 @@
   @include cta-block--pattern;
 
   .#{$prefix}--content-layout {
+    @include carbon--breakpoint('md') {
+      padding-left: 0;
+    }
+    @include carbon--breakpoint('sm') {
+      padding-left: $carbon--layout-01;
+    }
     ::slotted([slot]) {
       margin-left: 0;
       margin-right: 0;
