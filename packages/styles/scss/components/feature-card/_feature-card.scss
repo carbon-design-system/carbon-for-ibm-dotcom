@@ -65,6 +65,7 @@ $fcb-breakpoint-up--lg: map-get(
 
 @mixin feature-card {
   :host(#{$dds-prefix}-feature-card),
+  :host(#{$dds-prefix}-feature-cta),
   .#{$prefix}--feature-card {
     @include carbon--breakpoint-down('md') {
       @include carbon--make-row;
@@ -160,7 +161,7 @@ $fcb-breakpoint-up--lg: map-get(
       }
 
       .#{$prefix}--card__content {
-        height: 100%;
+        height: auto;
       }
     }
 

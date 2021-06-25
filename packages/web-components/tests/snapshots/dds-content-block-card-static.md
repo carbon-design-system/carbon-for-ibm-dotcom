@@ -9,11 +9,15 @@
   <dds-card-group-item
     color-scheme=""
     cta-type=""
+    data-autoid="dds--card-group-item"
     pictogram-placement="top"
     size=""
   >
   </dds-card-group-item>
-  <dds-card-group grid-mode="collapsed">
+  <dds-card-group
+    data-autoid="dds--card-group"
+    grid-mode="collapsed"
+  >
   </dds-card-group>
   <dds-content-item data-autoid="dds--content-item">
     <dds-content-item-heading
@@ -26,8 +30,12 @@
     <dds-content-item-copy data-autoid="dds--content-item__copy">
     </dds-content-item-copy>
   </dds-content-item>
-  <dds-button-group role="list">
+  <dds-button-group
+    data-autoid="dds--button-group"
+    role="list"
+  >
     <dds-button-group-item
+      data-autoid="dds--button-group-item"
       icon-layout=""
       kind="primary"
       role="listitem"
@@ -36,6 +44,7 @@
       Button 1
     </dds-button-group-item>
     <dds-button-group-item
+      data-autoid="dds--button-group-item"
       icon-layout=""
       kind="primary"
       role="listitem"
@@ -55,21 +64,27 @@
   <dds-card-group-item
     color-scheme=""
     cta-type=""
+    data-autoid="dds--card-group-item"
     pictogram-placement="top"
     size=""
   >
     heading-foo
   </dds-card-group-item>
-  <dds-card-group grid-mode="collapsed">
+  <dds-card-group
+    data-autoid="dds--card-group"
+    grid-mode="collapsed"
+  >
     <dds-card-group-item
       color-scheme=""
       cta-type=""
+      data-autoid="dds--card-group-item"
       href="https://example.com"
       pictogram-placement="top"
       size=""
     >
       <dds-card-heading
         aria-level="3"
+        data-autoid="dds--card-heading"
         role="heading"
         slot="heading"
       >
@@ -80,9 +95,8 @@
                 hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
       <dds-card-footer
-        aria-hidden="true"
         color-scheme=""
-        data-autoid="dds--link-with-icon"
+        data-autoid="dds--card-footer"
         icon-placement="right"
         size=""
         slot="footer"
@@ -100,13 +114,17 @@
       Lorem ipsum
     </dds-content-item-heading>
     <dds-content-item-copy data-autoid="dds--content-item__copy">
-      <dds-content-item-paragraph>
+      <dds-content-item-paragraph data-autoid="dds--content-item-paragraph">
         ipsum dolor sit amet
       </dds-content-item-paragraph>
     </dds-content-item-copy>
   </dds-content-item>
-  <dds-button-group role="list">
+  <dds-button-group
+    data-autoid="dds--button-group"
+    role="list"
+  >
     <dds-button-group-item
+      data-autoid="dds--button-group-item"
       icon-layout=""
       kind="primary"
       role="listitem"
@@ -115,6 +133,7 @@
       Button 1
     </dds-button-group-item>
     <dds-button-group-item
+      data-autoid="dds--button-group-item"
       icon-layout=""
       kind="primary"
       role="listitem"
