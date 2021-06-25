@@ -8,7 +8,7 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, internalProperty, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight.js';
@@ -116,6 +116,9 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
         );
       });
 
+      const { customPropertyCardsPerRow } = this.constructor as typeof DDSCardGroup;
+      this.style.setProperty(customPropertyCardsPerRow, String(this.cardsPerRow));
+
       if (this.gridMode !== GRID_MODE.NARROW) {
         this._resizeHandler();
       }
@@ -137,8 +140,9 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
           columns = 2;
           break;
         default:
-          columns = 3;
+          columns = this.cardsPerRow;
       }
+
       this._setSameHeight(columns);
       if (this.gridMode !== GRID_MODE.NARROW) {
         this._fillLastRowWithEmptyCards(columns);
@@ -279,6 +283,33 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
   };
 
   /**
+   * The number of columns per row. Min 2, max 4, default 3. Applies to >=`lg` breakpoint only.
+   */
+  @internalProperty()
+  private _cardsPerRow?: number;
+
+  /**
+   * Default number of cards per row. Applies to >=`lg` breakpoint only.
+   */
+  @internalProperty()
+  private _cardsPerRowAuto = 3;
+
+  /**
+   * Number of cards per column.
+   * If `--dds--card-group--cards-in-row` CSS custom property is set to `<dds-card-group>`.
+   */
+  @property({ type: Number, attribute: 'cards-per-row' })
+  get cardsPerRow() {
+    const { _cardsPerRow: cardsPerRow, _cardsPerRowAuto: cardsPerRowAuto } = this;
+    return cardsPerRow ?? cardsPerRowAuto;
+  }
+
+  set cardsPerRow(value: number) {
+    this._cardsPerRow = value;
+    // Don't call `.requestUpdate()` here given we track updates via `_cardsPerRow` and `_cardsPerRowAuto`
+  }
+
+  /**
    * The Grid Mode for the component layout.
    * Collapsed/1px (default) | Narrow/16px).
    */
@@ -314,6 +345,13 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
     return html`
       <slot @slotchange="${this._handleSlotChange}" class="${slotClasses}"></slot>
     `;
+  }
+
+  /**
+   * The CSS custom property name for the live button group item cout.
+   */
+  static get customPropertyCardsPerRow() {
+    return `--${ddsPrefix}--card-group--cards-in-row`;
   }
 
   static get stableSelector() {
