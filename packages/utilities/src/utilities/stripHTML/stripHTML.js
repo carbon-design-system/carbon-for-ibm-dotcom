@@ -20,7 +20,9 @@ const stripHTML = content => {
   const component = document.createElement('textarea');
   component.innerHTML = content;
 
-  return component.childNodes[0].nodeValue.replace(/(<([^>]+)>)/gi, '');
+  return component.childNodes[0]
+    ? component.childNodes[0].nodeValue.replace(/(<([^>]+)>)/gi, '')
+    : content;
 };
 
 export default stripHTML;
