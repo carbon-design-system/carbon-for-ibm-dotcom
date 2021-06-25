@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, customElement, query, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -30,6 +30,18 @@ class DDSLegalNav extends StableSelectorMixin(LitElement) {
    */
   @property()
   size = FOOTER_SIZE.REGULAR;
+
+  /**
+   * The adjunct links container
+   */
+  @query(`.${prefix}--adjunct-links__container`)
+  private _adjunctLinksContainer?: HTMLDivElement;
+
+  /**
+   * The adjunct links slot
+   */
+  @query('[name="adjunct-links"]')
+  private _adjunctLinksSlot?: HTMLSlotElement;
 
   /**
    * Returns a class-name based on the type parameter type
@@ -61,10 +73,26 @@ class DDSLegalNav extends StableSelectorMixin(LitElement) {
           <ul>
             <slot></slot>
           </ul>
+          <div class="${prefix}--adjunct-links__container">
+            <div class="${prefix}--adjunct-links__row">
+              <div class="${prefix}--adjunct-links__col">
+                <slot name="adjunct-links"></slot>
+              </div>
+            </div>
+          </div>
           <slot name='locale'>
         </div>
       </nav>
     `;
+  }
+
+  firstUpdated() {
+    const { _adjunctLinksContainer: adjunctLinksContainer, _adjunctLinksSlot: adjunctLinksSlot } = this;
+    const hideAdjunctLinksContainer =
+      adjunctLinksSlot?.assignedNodes().length === 0
+        ? adjunctLinksContainer?.classList.add(`${prefix}--adjunct-links__container--hidden`)
+        : '';
+    return hideAdjunctLinksContainer;
   }
 
   static get stableSelector() {
