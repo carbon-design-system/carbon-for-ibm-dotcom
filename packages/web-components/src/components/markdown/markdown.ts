@@ -52,7 +52,7 @@ class DDSMarkdown extends LitElement {
         return `<${prefix}-link href="${href}" size="lg" ${title ? `title="${title}"` : ''}>${text}</${prefix}-link>`;
       },
       list(body, ordered) {
-        const tag = `${prefix}-${ordered ? 'ordered' : 'unordered'}-list isexpressive="true"`;
+        const tag = `${prefix}-${ordered ? 'ordered' : 'unordered'}-list`;
         return `<${tag}>${body}</${tag}>`;
       },
       listitem(text) {
