@@ -88,6 +88,7 @@
     padding-left: $spacing-05;
   }
   .#{$prefix}--clear {
+    cursor: pointer;
     padding-right: $spacing-05;
     border: 0;
     color: #0f62fe;

@@ -13,6 +13,7 @@ import '../filter-panel-modal';
 import '../input_select';
 import '../filter-group';
 import '../filter-panel-composite';
+import '../checkbox';
 
 import styles from './filter-panel.stories.scss';
 
@@ -21,7 +22,25 @@ export const FilterPanel = () => {
     <style>
       ${styles}
     </style>
-    <dds-filter-panel-composite> </dds-filter-panel-composite>
+    <dds-filter-panel-composite>
+      <dds-filter-group title="Category headline 1">
+        <dds-input-select title="Content Management"></dds-input-select>
+      </dds-filter-group>
+
+      <dds-filter-group title="Category headline 2">
+        <dds-checkbox value="Business Operations">Business Operations</dds-checkbox>
+        <dds-checkbox value="Artificial Intelligence">Artificial Intelligence</dds-checkbox>
+        <dds-checkbox value="Collaboration">Collaboration</dds-checkbox>
+      </dds-filter-group>
+
+      <dds-filter-group title="Category headline 3">
+        <dds-checkbox value="Artifical Intelligence">Artificial Intelligence</dds-checkbox>
+      </dds-filter-group>
+
+      <dds-filter-group title="Category headline 4">
+        <dds-checkbox value="test">Test</dds-checkbox>
+      </dds-filter-group>
+    </dds-filter-panel-composite>
   `;
 };
 

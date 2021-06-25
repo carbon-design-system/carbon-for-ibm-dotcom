@@ -10,8 +10,6 @@
 import { customElement, html, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings';
-import Reset from 'carbon-web-components/es/icons/reset/16';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import './filter-group';
 import BXModal from 'carbon-web-components/es/components/modal/modal';
@@ -47,50 +45,20 @@ class DDSFilterPanelModal extends HostListenerMixin(StableSelectorMixin(BXModal)
   // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
   protected _handleContentStateChange(_: CustomEvent) {}
 
-  /** host listener */
-  @HostListener('document:eventContentStateChange')
-  protected _handleContentStateChangeDocument = (event: CustomEvent) => {
-    const { selection } = event.detail;
-    if (!this.selectedValues[selection]) {
-      this._createTag(selection);
-    }
-  };
-
-  protected _createTag(value) {
-    const newTag = document.createElement('bx-filter-tag');
-    newTag.innerHTML = value;
-
-    this.selectedValues[value] = newTag;
-  }
-
-  protected _clearSelections() {
-    this.selectedValues = [];
-
-    this.shadowRoot?.querySelector('dds-input-select')?.setAttribute('selectValue', '');
-    this.shadowRoot?.querySelectorAll('bx-filter-tag').forEach(e => {
-      e.removeAttribute('open');
-    });
-  }
-
-  /** host listener */
-  protected _handleCheckboxStateChange = (value, event: CustomEvent) => {
-    if ((event.target as HTMLElement).hasAttribute('checked')) {
-      this.selectedValues[value].removeAttribute('open');
-      return;
-    }
-
-    if (!this.selectedValues[value]) {
-      this._createTag(value);
-    } else {
-      this.selectedValues[value].setAttribute('open', 'true');
-    }
-  };
-
-  connectedCallback() {
-    if (!this.hasAttribute('role')) {
-      this.setAttribute('role', 'dialog');
-    }
-    super.connectedCallback();
+  /**
+   * Handles `click` event on the `<input>` in the shadow DOM.
+   */
+  protected _handleClear() {
+    const { eventSelectionClear } = this.constructor as typeof DDSFilterPanelModal;
+    this.dispatchEvent(
+      new CustomEvent(eventSelectionClear, {
+        bubbles: true,
+        composed: true,
+        detail: {
+          clear: true,
+        },
+      })
+    );
   }
 
   /**
@@ -99,47 +67,32 @@ class DDSFilterPanelModal extends HostListenerMixin(StableSelectorMixin(BXModal)
   @property({ type: Boolean })
   closeFilterModal = false;
 
+  @property({ attribute: 'has-selections', type: Boolean })
+  hasSelections = false;
+
   protected _openModal() {
     this.closeFilterModal = true;
   }
 
   render() {
     return html`
-      <section class="${prefix}--filter-panel__section">
+      <a id="start-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
+      <section class="${prefix}--filter-panel__section bx--modal-container">
         <div class="${prefix}--heading-clear">
           <div class="${prefix}--filter_heading">${this._renderHeading()}</div>
-          <button class="${prefix}--clear" @click=${this._clearSelections}>
-            <div class="${prefix}--clear_container">
-              Clear
-              <div class="${prefix}--reset_icon">${Reset()}</div>
-            </div>
-          </button>
         </div>
-        <dds-filter-group title="My guy">
-          <dds-input-select title="Content Management"></dds-input-select>
-        </dds-filter-group>
-        <dds-filter-group title="checkbox">
-          <div class="${prefix}--checkbox-space">
-            <bx-checkbox @click="${e => this._handleCheckboxStateChange('Checkbox2', e)}}" label-text="Checkbox 2">
-              Checkbox 2</bx-checkbox
-            >
-            <bx-checkbox @click="${e => this._handleCheckboxStateChange('Checkbox4', e)}}" label-text="Checkbox 4">
-              Checkbox 4</bx-checkbox
-            >
-          </div>
-        </dds-filter-group>
-        <div class="${prefix}--filter_footer">
-          <bx-modal-footer>
-            <bx-btn data-autoid="${ddsPrefix}--leaving-ibm-cta" href="example.com" kind="tertiary">Clear</bx-btn>
-            <bx-btn data-autoid="${ddsPrefix}--leaving-ibm-cta" kind="primary">See Results</bx-btn>
-          </bx-modal-footer>
-        </div>
+        <slot></slot>
+        <bx-modal-footer>
+          <bx-btn ?disabled="${!this.hasSelections}" @click=${this._handleClear} kind="tertiary">Clear</bx-btn>
+          <bx-btn kind="primary">See Results</bx-btn>
+        </bx-modal-footer>
       </section>
+      <a id="end-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
     `;
   }
 
-  static get eventContentStateChange() {
-    return `${ddsPrefix}-input-select`;
+  static get eventSelectionClear() {
+    return `${ddsPrefix}-selection-clear`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
