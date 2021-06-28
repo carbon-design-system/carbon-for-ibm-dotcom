@@ -6,7 +6,7 @@
  */
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/content-block-horizontal/content-block-horizontal"
-@warn 'Deprecated scss import for `content-group-horizontal`, remap to `@carbon/ibmdotcom-styles/scss/components/content-group-horizontal/content-group-horizontal`';
+@warn 'Deprecated scss import for `content-group-horizontal`, remap to `@carbon/ibmdotcom-styles/scss/components/content-block-horizontal/content-block-horizontal`';
 @import '../../../components/content-block-horizontal/content-block-horizontal';
 
 @mixin content-group-horizontal {

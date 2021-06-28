@@ -18,9 +18,9 @@ import { CTA_TYPE } from '../../cta/defs';
 const template = (props?) => {
   const { children } = props ?? {};
   return html`
-    <dds-content-group-horizontal>
+    <dds-content-block-horizontal>
       ${children}
-    </dds-content-group-horizontal>
+    </dds-content-block-horizontal>
   `;
 };
 

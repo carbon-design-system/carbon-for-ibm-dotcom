@@ -24,12 +24,12 @@ const template = (props?) => {
   `;
 };
 
-describe('dds-content-block-horizontal', function() {
+describe('dds-content-group-horizontal', function() {
   describe('Misc attributes', function() {
     it('should render with minimum attributes', async function() {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-content-block-horizontal')).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-content-group-horizontal')).toMatchSnapshot({ mode: 'shadow' });
     });
 
     it('should render with various attributes', async function() {
@@ -62,7 +62,7 @@ describe('dds-content-block-horizontal', function() {
         document.body
       );
       await Promise.resolve();
-      expect(document.body.querySelector('dds-content-block-horizontal')).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-content-group-horizontal')).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 

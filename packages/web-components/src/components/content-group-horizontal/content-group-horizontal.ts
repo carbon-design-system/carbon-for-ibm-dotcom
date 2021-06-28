@@ -29,6 +29,6 @@ class DDSContentGroupHorizontal extends DDSContentBlockHorizontal {
 }
 export default deprecate(
   DDSContentGroupHorizontal,
-  'The ContentGroupHorizontal component has been deprecated in favor of the ContentBlockHorizontal component. ' +
-    'See ContentBlockHorizontal documentation for more information.'
+  'The content-group-horizontal component has been deprecated in favor of the content-block-horizontal component. ' +
+    'See content-block-horizontal documentation for more information.'
 );
