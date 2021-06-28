@@ -14,10 +14,11 @@ import '../../cta/link-list-item-cta';
 import '../content-item-horizontal';
 import '../content-item-horizontal-copy';
 import '../content-item-horizontal-eyebrow';
+import '../content-item-horizontal-thumbnail-copy';
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
 import { CTA_TYPE } from '../../cta/defs';
 
-const template = (props?) => {
+const DefaultTemplate = (props?) => {
   const { children } = props ?? {};
   return html`
     <dds-content-item-horizontal>
@@ -26,17 +27,35 @@ const template = (props?) => {
   `;
 };
 
+const WithMediaTemplate = (props?) => {
+  const { children } = props ?? {};
+  return html`
+    <dds-content-item-horizontal-media>
+      ${children}
+    </dds-content-item-horizontal-media>
+  `;
+};
+
+const WithThumbnailTemplate = (props?) => {
+  const { children } = props ?? {};
+  return html`
+    <dds-content-item-horizontal thumbnail>
+      ${children}
+    </dds-content-item-horizontal>
+  `;
+};
+
 describe('dds-content-item-horizontal', function() {
-  describe('Misc attributes', function() {
+  describe('Misc attributes - Default', function() {
     it('should render with minimum attributes', async function() {
-      render(template(), document.body);
+      render(DefaultTemplate(), document.body);
       await Promise.resolve();
       expect(document.body.querySelector('dds-content-item-horizontal')).toMatchSnapshot({ mode: 'shadow' });
     });
 
     it('should render with various attributes', async function() {
       render(
-        template({
+        DefaultTemplate({
           copy: 'copy-foo',
           children: html`
             <dds-content-item-horizontal-eyebrow>eyebrow-foo</dds-content-item-horizontal-eyebrow>
@@ -58,6 +77,62 @@ describe('dds-content-item-horizontal', function() {
                 cta-copy-foo
               </dds-link-list-item-cta>
             </dds-link-list>
+          `,
+        }),
+        document.body
+      );
+      await Promise.resolve();
+      expect(document.body.querySelector('dds-content-item-horizontal')).toMatchSnapshot({ mode: 'shadow' });
+    });
+  });
+
+  describe('Misc attributes - WithMedia', function() {
+    it('should render with minimum attributes', async function() {
+      render(WithMediaTemplate(), document.body);
+      await Promise.resolve();
+      expect(document.body.querySelector('dds-content-item-horizontal-media')).toMatchSnapshot({ mode: 'shadow' });
+    });
+
+    it('should render with various attributes', async function() {
+      render(
+        WithMediaTemplate({
+          children: html`
+            <dds-image slot="media" alt="image" default-src=""></dds-image>
+            <dds-content-item-heading>heading-foo</dds-content-item-heading>
+            <dds-content-item-horizontal-media-copy>copy-foo</dds-content-item-horizontal-media-copy>
+            <dds-link-list slot="footer" type="vertical">
+              <dds-link-list-item-cta icon-placement="right" href="www.ibm.com" cta-type="local">
+                cta-copy
+              </dds-link-list-item-cta>
+            </dds-link-list>
+          `,
+        }),
+        document.body
+      );
+      await Promise.resolve();
+      expect(document.body.querySelector('dds-content-item-horizontal-media')).toMatchSnapshot({ mode: 'shadow' });
+    });
+  });
+
+  describe('Misc attributes - WithThumbnail', function() {
+    it('should render with minimum attributes', async function() {
+      render(WithThumbnailTemplate(), document.body);
+      await Promise.resolve();
+      expect(document.body.querySelector('dds-content-item-horizontal')).toMatchSnapshot({ mode: 'shadow' });
+    });
+
+    it('should render with various attributes', async function() {
+      render(
+        WithThumbnailTemplate({
+          children: html`
+            <dds-content-item-heading>heading-foo</dds-content-item-heading>
+            <dds-content-item-horizontal-thumbnail-copy>copy-foo</dds-content-item-horizontal-thumbnail-copy>
+            <dds-link-list slot="footer" type="vertical">
+              <dds-link-list-item-cta icon-placement="${ICON_PLACEMENT.RIGHT}" href="www.ibm.com" cta-type="local">
+                cta-copy
+              </dds-link-list-item-cta>
+            </dds-link-list>
+            <dds-image slot="thumbnail" alt="thumbnail-image" default-src=""></dds-image>
           `,
         }),
         document.body
