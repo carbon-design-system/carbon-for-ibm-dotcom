@@ -14,6 +14,8 @@ import '../input_select';
 import '../filter-group';
 import '../filter-panel-composite';
 import '../checkbox';
+import 'carbon-web-components/es/components/accordion/accordion';
+import 'carbon-web-components/es/components/accordion/accordion-item';
 
 import styles from './filter-panel.stories.scss';
 
@@ -23,22 +25,30 @@ export const FilterPanel = () => {
       ${styles}
     </style>
     <dds-filter-panel-composite>
-      <dds-filter-group title="Category headline 1">
-        <dds-input-select title="Content Management"></dds-input-select>
+      <dds-filter-group>
+        <bx-accordion-item title-text="Category Headline 1">
+          <dds-input-select title="Content Management"></dds-input-select>
+        </bx-accordion-item>
       </dds-filter-group>
 
-      <dds-filter-group title="Category headline 2">
-        <dds-checkbox value="Business Operations">Business Operations</dds-checkbox>
-        <dds-checkbox value="Artificial Intelligence">Artificial Intelligence</dds-checkbox>
-        <dds-checkbox value="Collaboration">Collaboration</dds-checkbox>
+      <dds-filter-group>
+        <bx-accordion-item title-text="Checkbox 1">
+          <dds-checkbox value="Business Operations">Business Operations</dds-checkbox>
+          <dds-checkbox value="Artificial Intelligence">Artificial Intelligence</dds-checkbox>
+          <dds-checkbox value="Collaboration">Collaboration</dds-checkbox>
+        </bx-accordion-item>
       </dds-filter-group>
 
       <dds-filter-group title="Category headline 3">
-        <dds-checkbox value="Artifical Intelligence">Artificial Intelligence</dds-checkbox>
+        <bx-accordion-item title-text="Checkbox 2">
+          <dds-checkbox value="Artifical Intelligence">Artificial Intelligence</dds-checkbox>
+        </bx-accordion-item>
       </dds-filter-group>
 
       <dds-filter-group title="Category headline 4">
-        <dds-checkbox value="test">Test</dds-checkbox>
+        <bx-accordion-item title-text="Checkbox 3">
+          <dds-checkbox value="test">Test</dds-checkbox>
+        </bx-accordion-item>
       </dds-filter-group>
     </dds-filter-panel-composite>
   `;

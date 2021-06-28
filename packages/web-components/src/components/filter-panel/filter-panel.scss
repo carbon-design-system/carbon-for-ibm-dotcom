@@ -12,6 +12,7 @@
 @import 'carbon-components/scss/components/accordion/accordion';
 @import 'carbon-web-components/scss/components/modal/modal';
 @import 'carbon-web-components/scss/components/checkbox/checkbox';
+@import 'carbon-web-components/scss/components/accordion/accordion';
 
 :host(#{$dds-prefix}-filter-panel-modal) {
   @extend :host(#{$prefix}-modal);
