@@ -286,6 +286,8 @@
     span {
       @include use-carbon-productive-tokens();
       @include type-style('body-short-01');
+
+      flex: inherit;
     }
   }
 
