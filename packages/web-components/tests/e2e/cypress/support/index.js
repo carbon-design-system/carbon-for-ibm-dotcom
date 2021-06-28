@@ -1,31 +1,18 @@
-// ***********************************************************
-// This example support/index.js is processed and
-// loaded automatically before your test files.
-//
-// This is a great place to put global configuration and
-// behavior that modifies Cypress.
-//
-// You can change the location of this file or turn off
-// automatically serving support files with the
-// 'supportFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/configuration
-// ***********************************************************
+/**
+ * Copyright IBM Corp. 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
 import serializeDOM from '@percy/dom';
 import '@percy/cypress';
 
-// Import commands.js using ES2015 syntax:
-import './commands'
-
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+import './commands';
 
 // Workaround, @percy/cypress was not properly loading in PercyDOM
 if (window) {
   window.PercyDOM = {
-    serialize: serializeDOM
+    serialize: serializeDOM,
   };
 }
-

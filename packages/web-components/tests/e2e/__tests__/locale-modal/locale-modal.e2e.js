@@ -11,10 +11,7 @@ describe('dds-locale-modal', () => {
   it('should load the default dds-locale-modal example', () => {
     cy.visit('/locale-modal');
 
-    cy.get('[data-autoid="dds--button-expressive"]')
-      .shadow()
-      .find('.bx--btn')
-      .click();
+    cy.get('[data-autoid="dds--button-expressive"]').click();
 
     // Take a snapshot for visual diffing
     cy.percySnapshot('dds-locale-modal | default');
