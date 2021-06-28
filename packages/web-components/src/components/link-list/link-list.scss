@@ -120,10 +120,8 @@
 
   .#{$dds-prefix}-ce--link-list__list--split,
   .#{$dds-prefix}-ce--link-list__list--three-columns {
-    @include carbon--breakpoint('sm') {
-      ::slotted(#{$dds-prefix}-link-list-item) {
-        margin-right: -$carbon--layout-01;
-      }
+    ::slotted(#{$dds-prefix}-link-list-item) {
+      margin-right: -$carbon--layout-01;
     }
 
     @include carbon--breakpoint('md') {
@@ -133,8 +131,7 @@
       ::slotted(#{$dds-prefix}-link-list-item) {
         display: block;
         margin-left: -$carbon--layout-01;
-
-        @include hang;
+        margin-right: 0;
       }
     }
   }

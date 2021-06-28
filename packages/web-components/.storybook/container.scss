@@ -83,6 +83,7 @@ html {
 .dds-ce-demo-devenv--simple-grid--card-group,
 .dds-ce-demo-devenv--simple-grid--content-horizontal,
 .dds-ce-demo-devenv--simple-grid--content-horizontal-media,
+.dds-ce-demo-devenv--simple-grid--content-horizontal-thumbnail,
 .dds-ce-demo-devenv--simple-grid--tabs-extended,
 .dds-ce-demo-devenv--simple-grid--content-layout,
 .dds-ce-demo-devenv--simple-grid--content-layout--with-complementary,
@@ -110,6 +111,7 @@ html {
   .dds-ce-demo-devenv--simple-grid--card-group,
   .dds-ce-demo-devenv--simple-grid--content-horizontal,
   .dds-ce-demo-devenv--simple-grid--content-horizontal-media,
+  .dds-ce-demo-devenv--simple-grid--content-horizontal-thumbnail,
   .dds-ce-demo-devenv--simple-grid--tabs-extended,
   .dds-ce-demo-devenv--simple-grid--content-layout,
   .dds-ce-demo-devenv--simple-grid--content-layout--with-complementary,
@@ -132,7 +134,12 @@ html {
     grid-column: 1 / span 6;
   }
 
-  .dds-ce-demo-devenv--simple-grid--content-horizontal,
+  .dds-ce-demo-devenv--simple-grid--content-horizontal {
+    > * {
+      grid-column: 5 / span 10;
+    }
+  }
+
   .dds-ce-demo-devenv--simple-grid--logo-grid {
     > * {
       grid-column: 4 / span 10;
@@ -140,6 +147,12 @@ html {
   }
 
   .dds-ce-demo-devenv--simple-grid--content-horizontal-media {
+    > * {
+      grid-column: 5 / span 12;
+    }
+  }
+
+  .dds-ce-demo-devenv--simple-grid--content-horizontal-thumbnail {
     > * {
       grid-column: 5 / span 12;
     }

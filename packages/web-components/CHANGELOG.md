@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.5.0-beta.61.29...@carbon/ibmdotcom-web-components@1.6.0-rc.0) (2021-06-25)
+
+
+### Bug Fixes
+
+* **card-group:** fix offset and optional gradient ([#6435](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6435)) ([1a3924a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/1a3924a)), closes [#6016](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6016)
+* **cdn:** enable CSS custom properties in CDN artifacts ([#6433](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6433)) ([d224759](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/d224759))
+* **cdn:** fix to properly pass in feature flags into rollup config ([#6458](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6458)) ([f9da958](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/f9da958)), closes [#6447](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6447)
+* **cloud-megamenu:** modify regex to only remove punctuation special characters ([#6451](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6451)) ([b69946b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/b69946b)), closes [#6340](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6340)
+* **cta:** aligned feature card stories ([#6301](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6301)) ([f87a172](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/f87a172)), closes [#5542](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5542)
+* **cta-block:** added padding on mobile breakpoint ([#6330](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6330)) ([8e949a8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/8e949a8))
+* **link-list:** remove border hang ([#6223](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6223)) ([aa1e3b4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/aa1e3b4)), closes [#6128](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6128)
+* **text-cta:** change handleSlotChange to use Event ([#6462](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6462)) ([dd7b2cd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/dd7b2cd))
+
+
+### Features
+
+* **card:** ensure card footer is accessible with card static ([#6467](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6467)) ([867cfa4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/867cfa4)), closes [#6280](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6280)
+* **card-group:** add option for 2-4 cards per row ([#6367](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6367)) ([940ec1e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/940ec1e)), closes [#5286](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5286) [#5520](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5520)
+* **content-item-horizontal-thumbnail:** add thumbnail variation ([#6425](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6425)) ([5c304af](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/5c304af))
+* **feature-section:** add "Feature section" layout component ([#6344](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6344)) ([80134c8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/80134c8))
+* **footer:** added adjunct links ([#6432](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6432)) ([7866358](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/7866358)), closes [#5588](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5588)
+
+
+
+
+
 # [1.5.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.5.0-rc.1...@carbon/ibmdotcom-web-components@1.5.0) (2021-06-14)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components

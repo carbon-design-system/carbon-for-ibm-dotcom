@@ -19,6 +19,7 @@ import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
 import { CTA_TYPE } from '../../cta/defs';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
+import imgMd4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--004.jpg';
 
 const types = {
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
@@ -59,6 +60,34 @@ export const Default = ({ parameters }) => {
           ${ctaCopy2}
         </dds-link-list-item-cta>
       </dds-link-list>
+    </dds-content-item-horizontal>
+  `;
+};
+
+export const WithThumbnail = ({ parameters }) => {
+  const { alt, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
+    parameters?.props?.ContentItemHorizontal ?? {};
+  return html`
+    <dds-content-item-horizontal thumbnail>
+      <dds-content-item-heading>${heading}</dds-content-item-heading>
+      <dds-content-item-horizontal-thumbnail-copy>${copy}</dds-content-item-horizontal-thumbnail-copy>
+      <dds-link-list slot="footer" type="vertical">
+        <dds-link-list-item-cta
+          icon-placement="${ICON_PLACEMENT.RIGHT}"
+          href="${ifNonNull(href1)}"
+          cta-type="${ifNonNull(ctaType1)}"
+        >
+          ${ctaCopy1}
+        </dds-link-list-item-cta>
+        <dds-link-list-item-cta
+          icon-placement="${ICON_PLACEMENT.RIGHT}"
+          href="${ifNonNull(href2)}"
+          cta-type="${ifNonNull(ctaType2)}"
+        >
+          ${ctaCopy2}
+        </dds-link-list-item-cta>
+      </dds-link-list>
+      <dds-image slot="thumbnail" alt="${ifNonNull(alt)}" default-src="${imgMd4x3}"></dds-image>
     </dds-content-item-horizontal>
   `;
 };
@@ -106,6 +135,27 @@ Default.story = {
   },
 };
 
+WithThumbnail.story = {
+  parameters: {
+    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal-thumbnail',
+    knobs: {
+      ContentItemHorizontal: () => ({
+        heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
+        copy:
+          'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. ' +
+          'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
+          'Phasellus at elit sollicitudin.',
+        ctaType1: select('CTA 1 type (cta-type):', types, CTA_TYPE.LOCAL),
+        ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
+        href1: textNullable('CTA 1 href (cta-href):', 'https://www.ibm.com'),
+        ctaType2: select('CTA 2 type (cta-type):', types, CTA_TYPE.EXTERNAL),
+        ctaCopy2: textNullable('CTA 2 copy (cta-copy):', 'Microservices and containers'),
+        href2: textNullable('CTA 2 href (cta-href):', 'https://www.ibm.com'),
+      }),
+    },
+  },
+};
+
 WithMedia.story = {
   parameters: {
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal-media',
@@ -119,10 +169,10 @@ WithMedia.story = {
           'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. ' +
           'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
           'Phasellus at elit sollicitudin.',
-        ctaType1: select('CTA 1 type (cta-type)', types, CTA_TYPE.LOCAL),
+        ctaType1: select('CTA 1 type (cta-type):', types, CTA_TYPE.LOCAL),
         ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
         href1: textNullable('CTA 1 href (cta-href):', 'https://www.ibm.com'),
-        ctaType2: select('CTA 2 type (cta-type)', types, CTA_TYPE.EXTERNAL),
+        ctaType2: select('CTA 2 type (cta-type):', types, CTA_TYPE.EXTERNAL),
         ctaCopy2: textNullable('CTA 2 copy (cta-copy):', 'Microservices and containers'),
         href2: textNullable('CTA 2 href (cta-href):', 'https://www.ibm.com'),
       }),
