@@ -251,6 +251,10 @@
       width: 100%;
       padding: 7px $spacing-05;
     }
+
+    span {
+      flex: inherit;
+    }
   }
 
   :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='view-all'],
