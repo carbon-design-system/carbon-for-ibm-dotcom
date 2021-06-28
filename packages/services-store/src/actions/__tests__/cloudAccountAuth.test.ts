@@ -35,7 +35,7 @@ describe('Redux actions for `CloudAccountAuthAPI`', () => {
   });
 
   it('dispatches the action to get user authentication status', async () => {
-    CloudAccountAuthAPI.getUserStatus.mockResolvedValue({ user: UNAUTHENTICATED_STATUS });
+    CloudAccountAuthAPI.checkAPI.mockResolvedValue({ user: UNAUTHENTICATED_STATUS });
     const store = mockStore();
     await store.dispatch(loadUserStatus('api'));
     expect(convertValue(store.getActions())).toEqual([
@@ -51,7 +51,7 @@ describe('Redux actions for `CloudAccountAuthAPI`', () => {
   });
 
   it('dispatches the action of error in monitoring user authentication status', async () => {
-    CloudAccountAuthAPI.getUserStatus.mockRejectedValue(new Error('error-getuserstatus'));
+    CloudAccountAuthAPI.checkAPI.mockRejectedValue(new Error('error-getuserstatus'));
     const store = mockStore();
     let caught;
     try {
