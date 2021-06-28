@@ -15,6 +15,7 @@ import store from '../../../internal/vendor/@carbon/ibmdotcom-services-store/sto
 import { LocaleAPIActions } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
 import { TranslateAPIActions } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.d';
 import { loadUserStatus } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/cloudAccountAuthAPI';
+// eslint-disable-next-line max-len
 import { CloudAccountAuthAPIActions } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/cloudAccountAuthAPI.d';
 import { SearchAPIActions } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/searchAPI.d';
 import ConnectMixin from '../../../globals/mixins/connect';
