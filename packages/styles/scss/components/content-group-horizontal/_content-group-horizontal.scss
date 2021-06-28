@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,11 +9,21 @@
 @import '../content-item-horizontal/content-item-horizontal';
 
 @mixin content-group-horizontal {
+  :host(#{$dds-prefix}-content-group-horizontal),
+  .#{$prefix}--content-group-horizontal {
+    /* stylelint-disable-next-line selector-type-no-unknown */
+    dds-hr,
+    .bx--content-block .bx--hr {
+      @include carbon--breakpoint('lg') {
+        margin-right: -9rem;
+      }
+    }
+  }
   :host(#{$dds-prefix}-content-group-horizontal) ::slotted([slot='heading']),
   .#{$prefix}--content-group-horizontal .#{$prefix}--content-block__heading {
     margin-bottom: $layout-05;
     @include carbon--breakpoint('lg') {
-      margin-bottom: $layout-06;
+      margin-bottom: $layout-03;
     }
   }
   :host(#{$dds-prefix}-content-item-horizontal):last-child,
