@@ -701,6 +701,11 @@ class DDSMastheadComposite extends LitElement {
           : html`
               <dds-left-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-left-nav-name>
             `}
+        ${!l1Data?.title
+          ? undefined
+          : html`
+              <dds-left-nav-name href="${ifNonNull(l1Data.url)}">${l1Data.title}</dds-left-nav-name>
+            `}
         ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV, hasL1: !!l1Data })}
       </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">

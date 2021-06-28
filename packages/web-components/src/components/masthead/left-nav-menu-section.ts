@@ -8,6 +8,7 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -17,6 +18,7 @@ import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
 import { forEach, find } from '../../globals/internal/collection-helpers';
 import styles from './masthead.scss';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -209,16 +211,16 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
       <ul>
         ${showBackBtn
           ? html`
-              <li class="bx--side-nav__menu-item bx--masthead__side-nav--submemu-back" role="none">
-                <button class="bx--side-nav__link" tabindex="-1" role="menuitem" @click="${handleClickBack}">
-                  <span class="bx--side-nav__link-text">${ChevronLeft20()}${backButtonText}</span>
+              <li class="${prefix}--side-nav__menu-item ${prefix}--masthead__side-nav--submemu-back" role="none">
+                <button class="${prefix}--side-nav__link" tabindex="-1" role="menuitem" @click="${handleClickBack}">
+                  <span class="${prefix}--side-nav__link-text">${ChevronLeft20()}${backButtonText}</span>
                 </button>
               </li>
             `
           : undefined}
         ${title
           ? html`
-              <li class="bx--masthead__side-nav--submemu-title">${title}</li>
+              <li class="${prefix}--masthead__side-nav--submemu-title">${title}</li>
             `
           : undefined}
         <slot></slot>
@@ -253,9 +255,9 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   static get selectorTabbable() {
     return [
       selectorTabbable,
-      'dds-left-nav-item:not([tabindex="-1"])',
-      'dds-left-nav-menu:not([tabindex="-1"])',
-      'dds-left-nav-menu-item:not([tabindex="-1"])',
+      `${ddsPrefix}-left-nav-item:not([tabindex="-1"])`,
+      `${ddsPrefix}-left-nav-menu:not([tabindex="-1"])`,
+      `${ddsPrefix}-left-nav-menu-item:not([tabindex="-1"])`,
     ].join(',');
   }
 
