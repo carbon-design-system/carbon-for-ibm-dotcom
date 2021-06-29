@@ -18,6 +18,14 @@
     color: $inverse-link;
   }
 
+  &[color-scheme='light'] {
+    position: relative;
+    &::after {
+      position: absolute;
+      pointer-events: none;
+    }
+  }
+
   &:hover {
     ::slotted(svg[slot='icon']),
     .#{$prefix}--card__cta__copy {
