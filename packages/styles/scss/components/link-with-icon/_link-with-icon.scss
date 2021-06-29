@@ -21,6 +21,7 @@
     span {
       vertical-align: middle;
       align-self: center;
+      flex: 1;
     }
 
     svg,
@@ -68,6 +69,7 @@
       margin-right: $carbon--spacing-03;
       margin-left: 0;
     }
+
     .#{$prefix}--link-with-icon__icon-right::slotted(svg[slot='icon']) {
       margin-left: $carbon--spacing-03;
       margin-right: 0;

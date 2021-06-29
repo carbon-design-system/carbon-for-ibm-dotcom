@@ -31,7 +31,6 @@ export default {
 
   parameters: {
     ...readme.parameters,
-
     knobs: {
       ButtonGroup: ({ groupId }) => ({
         buttons: Array.from({
