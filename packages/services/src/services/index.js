@@ -6,6 +6,7 @@
  */
 
 export * from './Analytics';
+export * from './CloudAccountAuth';
 export * from './DDO';
 export * from './global';
 export * from './Locale';
