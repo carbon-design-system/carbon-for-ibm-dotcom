@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.21.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.20.0...@carbon/ibmdotcom-services-store@1.21.0-rc.0) (2021-06-25)
+
+
+### Bug Fixes
+
+* **masthead-l1:** match data structure to react and reuse general `renderNavItems` function ([#6331](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/6331)) ([dfcbce5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/commit/dfcbce5)), closes [#4831](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/4831)
+
+
+
+
+
 # [1.20.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.20.0-rc.0...@carbon/ibmdotcom-services-store@1.20.0) (2021-06-14)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services-store
