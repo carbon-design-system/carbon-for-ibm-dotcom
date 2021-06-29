@@ -15,6 +15,7 @@
   :host(#{$dds-prefix}-content-block-simple),
   :host(#{$dds-prefix}-content-block-media),
   :host(#{$dds-prefix}-content-block-mixed),
+  :host(#{$dds-prefix}-content-block-horizontal),
   :host(#{$dds-prefix}-content-group-horizontal),
   :host(#{$dds-prefix}-leadspace-block-content),
   :host(#{$dds-prefix}-content-block-segmented),
@@ -153,7 +154,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-group-horizontal) #{$dds-prefix}-hr,
+  :host(#{$dds-prefix}-content-block-horizontal) #{$dds-prefix}-hr,
   .#{$prefix}--content-block .#{$prefix}--hr {
     margin-top: 0;
 

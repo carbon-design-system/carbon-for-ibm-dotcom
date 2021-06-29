@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import '@storybook/addon-a11y/register';
 import '@storybook/addon-storysource/register';
 import '@storybook/addon-docs/register';
 import '@storybook/addon-knobs/register';
