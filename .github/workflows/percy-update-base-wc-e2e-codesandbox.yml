@@ -1,0 +1,36 @@
+name: percy-update-base-wc-e2e-codesandbox
+
+on:
+  push:
+    branches:
+      - test/e2e-percy-baseline
+
+jobs:
+  web-components:
+    runs-on: ubuntu-16.04
+    strategy:
+      matrix:
+        node-version: ['14.x']
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: yarn install
+      - name: Install xvfb
+        run: sudo apt-get install xvfb
+      - name: Build
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
+      - name: Set env vars
+        uses: ./.github/actions/set-dotenv
+        with:
+          env-file: packages/web-components/.env
+        env:
+          KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
+          KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WEBCOMPONENTS_E2E_CODESANDBOX }}
+      - name: Run e2e codesandbox tests
+        run: yarn test:e2e:build && yarn test:e2e:test
+        working-directory: packages/web-components
