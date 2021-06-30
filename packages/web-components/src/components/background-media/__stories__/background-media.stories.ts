@@ -69,6 +69,7 @@ export default {
         ),
         mobilePosition: select('Mobile Position (mobile-position):', mobilePositions, MOBILE_POSITION.TOP, groupId),
         alt: text('Image alt text (alt):', 'Image alt text', groupId),
+        defaultSrc: text('Default image (default-src)', imgMax, groupId),
       }),
     },
   },
