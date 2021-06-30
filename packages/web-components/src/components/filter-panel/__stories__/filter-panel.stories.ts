@@ -11,6 +11,7 @@ import { html } from 'lit-element';
 import '../filter-panel';
 import '../filter-panel-modal';
 import '../input_select';
+import '../input_select_item';
 import '../filter-group';
 import '../filter-panel-composite';
 import '../checkbox';
@@ -27,7 +28,10 @@ export const FilterPanel = () => {
     <dds-filter-panel-composite>
       <dds-filter-group>
         <bx-accordion-item title-text="Category Headline 1">
-          <dds-input-select title="Content Management"></dds-input-select>
+          <dds-input-select title="Content Management">
+            <dds-input-select-item value="andy">andy</dds-input-select-item>
+            <dds-input-select-item value="ignacio">ignacio</dds-input-select-item>
+          </dds-input-select>
         </bx-accordion-item>
       </dds-filter-group>
 

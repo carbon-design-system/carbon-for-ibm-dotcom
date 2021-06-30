@@ -59,6 +59,15 @@
 }
 
 :host(#{$dds-prefix}-filter-panel) {
+  .#{$prefix}--clear {
+    display: block;
+  }
+
+  &:not([has-selections]) {
+    .#{$prefix}--clear {
+      display: none;
+    }
+  }
   @include carbon--breakpoint-down('lg') {
     display: none;
   }
@@ -83,4 +92,27 @@
   @extend :host(#{$prefix}-checkbox);
 
   padding-left: $spacing-05;
+}
+
+:host(#{$dds-prefix}-input-select-item) {
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+  padding: 7px $spacing-08 7px $spacing-08;
+  &:hover {
+    background-color: $hover-ui;
+  }
+  &:focus {
+    background-color: $highlight;
+  }
+
+  &[selected] {
+    background-color: $highlight;
+  }
+  .#{$prefix}--close_icon {
+    position: absolute;
+    right: 16px;
+    top: 18px;
+    margin-top: -8px;
+  }
 }

@@ -56,6 +56,9 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
   @property()
   selectedValues: any[] = [];
 
+  @property({ attribute: 'has-selections', type: Boolean })
+  hasSelections = false;
+
   // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
   protected _handleContentStateChange(_: CustomEvent) {}
 

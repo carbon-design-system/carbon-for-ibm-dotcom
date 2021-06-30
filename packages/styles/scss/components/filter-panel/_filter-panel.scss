@@ -51,6 +51,7 @@
     }
   }
   .#{$prefix}--selected__option_dropdown {
+    display: grid;
     &.#{$prefix}--selected__option_dropdown_hidden {
       display: none;
     }

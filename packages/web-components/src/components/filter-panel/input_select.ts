@@ -13,6 +13,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import Close from 'carbon-web-components/es/icons/close/16';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
+import DDSInputSelectItem from './input_select_item';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -26,32 +27,65 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
   selectValue = '';
 
   @property()
-  options: string[] = ['Content Management System', 'Digital Asset Management', 'Document Management', 'Web Content Management'];
-
-  @property()
   title!: string;
 
   protected _toggleSelect = () => {
     this.isOpen = !this.isOpen;
   };
 
-  /**
-   * Returns a value
-   */
-  protected _setValue(value: string, e) {
-    e.stopPropagation();
-    this.selectValue = value;
+  @property()
+  selected: string;
+
+  @property()
+  value: string;
+
+  @property()
+  lastValue: any;
+
+  static get selectorItem() {
+    return `${ddsPrefix}-input-select-item`;
+  }
+
+  protected _handleClickInner(event: MouseEvent) {
     const { eventContentStateChange } = this.constructor as typeof DDSInputSelect;
+    const selected = (event.target as Element).closest(
+      (this.constructor as typeof DDSInputSelect).selectorItem
+    ) as DDSInputSelectItem;
+    if (selected.hasAttribute('selected')) {
+      selected.removeAttribute('selected');
+    } else {
+      if (this.lastValue) {
+        this.lastValue.removeAttribute('selected');
+      }
+
+      selected.setAttribute('selected', '');
+    }
 
     this.dispatchEvent(
       new CustomEvent(eventContentStateChange, {
         bubbles: true,
         composed: true,
         detail: {
-          value: value,
+          value: selected.getAttribute('value'),
+          lastValue: this.lastValue ? this.lastValue.getAttribute('value') : '',
         },
       })
     );
+    this.lastValue = selected;
+  }
+
+  @property()
+  _items: any[] = [];
+
+  /**
+   * Handles `slotchange` event.
+   *
+   * @param event The event.
+   */
+  protected _handleSlotChange({ target }: Event) {
+    this._items = (target as HTMLSlotElement)
+      .assignedNodes()
+      .filter(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
   }
 
   protected _tierOneElementIsSelected = () => {
@@ -75,22 +109,11 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
             ${!this.selectValue && this.isOpen ? Close() : null}
           </div>
         </div>
-        <ul class="${this.isOpen ? '' : `${prefix}--selected__option_dropdown_hidden`} ${prefix}--selected__option_dropdown">
-          ${this.options.map((option, idx) => {
-            const selectedOption = this.selectValue;
-            return html`
-              <li
-                id="${idx}"
-                @click=${e => this._setValue(option, e)}
-                class="${prefix}--input_container-option ${selectedOption === option ? `${prefix}--selected__option` : ''}"
-              >
-                ${option}
-                <div class="${prefix}--close_icon" @click=${e => this._setValue('', e)}>
-                  ${selectedOption === option ? Close() : null}
-                </div>
-              </li>
-            `;
-          })}
+        <ul
+          @click=${this._handleClickInner}
+          class="${this.isOpen ? '' : `${prefix}--selected__option_dropdown_hidden`} ${prefix}--selected__option_dropdown"
+        >
+          <slot @slotchange="${this._handleSlotChange}"></slot>
         </ul>
       </div>
     `;
