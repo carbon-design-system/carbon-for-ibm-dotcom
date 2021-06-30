@@ -70,8 +70,10 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       }
     } else if ((event.target as HTMLElement).matches?.(selectorButtonToggle)) {
       const { comparisonResult } = event.detail;
-      const { selectorTabbable: selectorTabbableForLeftnav } = this.constructor as typeof DDSLeftNav;
+      const { selectorExpandedMenuSection, selectorTabbable: selectorTabbableForLeftnav } = this.constructor as typeof DDSLeftNav;
+      const expandedMenuSection = this.querySelector(selectorExpandedMenuSection);
 
+      // focus on first tabbable element when expanding left-nav
       if (comparisonResult === -1) {
         const tabbable = find(this.querySelectorAll(selectorTabbableForLeftnav), elem =>
           Boolean((elem as HTMLElement).offsetParent)
@@ -83,7 +85,7 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       }
       // eslint-disable-next-line no-bitwise
       else if (comparisonResult & PRECEDING) {
-        const tabbable = findLast(this.querySelectorAll(selectorTabbableForLeftnav), elem =>
+        const tabbable = findLast(expandedMenuSection?.querySelectorAll(selectorTabbableForLeftnav), elem =>
           Boolean((elem as HTMLElement).offsetParent)
         );
         if (tabbable) {
@@ -92,10 +94,16 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       }
       // eslint-disable-next-line no-bitwise
       else if (comparisonResult & FOLLOWING) {
-        const tabbable = find(this.querySelectorAll(selectorTabbableForLeftnav), elem =>
-          Boolean((elem as HTMLElement).offsetParent)
-        );
-
+        let tabbable;
+        if (expandedMenuSection?.hasAttribute('is-submenu')) {
+          tabbable = expandedMenuSection.shadowRoot?.querySelector('button');
+        } else {
+          tabbable =
+            expandedMenuSection &&
+            find(expandedMenuSection.querySelectorAll(selectorTabbableForLeftnav), elem =>
+              Boolean((elem as HTMLElement).offsetParent)
+            );
+        }
         if (tabbable) {
           (tabbable as HTMLElement).focus();
         }
@@ -179,6 +187,13 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
   }
 
   /**
+   * A selector that will return expanded menu section.
+   */
+  static get selectorExpandedMenuSection() {
+    return `${ddsPrefix}-left-nav-menu-section[expanded]`;
+  }
+
+  /**
    * A selector that will return first main visible menu section.
    */
   static get selectorFirstMenuSection() {
@@ -189,12 +204,9 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
    * A selector selecting tabbable nodes.
    */
   static get selectorTabbable() {
-    return [
-      selectorTabbable,
-      'dds-left-nav-item:not([tabindex="-1"])',
-      'dds-left-nav-menu:not([tabindex="-1"])',
-      'dds-left-nav-menu-item:not([tabindex="-1"])',
-    ].join(',');
+    return [selectorTabbable, `${ddsPrefix}-left-nav-item`, `${ddsPrefix}-left-nav-menu`, `${ddsPrefix}-left-nav-menu-item`].join(
+      ','
+    );
   }
 
   /**
