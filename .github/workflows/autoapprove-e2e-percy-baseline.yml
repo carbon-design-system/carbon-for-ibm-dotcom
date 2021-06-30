@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: hmarr/auto-approve-action@v2
-        if: github.actor == 'ibmdotcom-bot' && github.base_ref == 'test/e2e-percy-baseline'
+        if: ${{ github.actor == 'ibmdotcom-bot' && github.base_ref == 'test/e2e-percy-baseline' }}
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - run: echo "${{ github.base_ref }}"
