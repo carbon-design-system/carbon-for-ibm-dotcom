@@ -45,7 +45,7 @@ class DDSContentBlockCardStatic extends StableSelectorMixin(DDSContentBlock) {
 }
 
 // Define the new element
-if (DDS_CONTENT_BLOCK_CARD_STATIC) {
+if (DDS_CONTENT_BLOCK_CARD_STATIC && !customElements.get(`${ddsPrefix}-content-block-card-static`)) {
   customElements.define(`${ddsPrefix}-content-block-card-static`, DDSContentBlockCardStatic);
 }
 
