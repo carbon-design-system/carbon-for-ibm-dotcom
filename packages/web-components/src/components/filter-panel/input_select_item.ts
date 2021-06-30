@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-input-select-item`)
 class DDSInputSelectItem extends StableSelectorMixin(LitElement) {
   @property()
-  option: string;
+  option: string = '';
 
   @property({ type: Boolean, reflect: true })
   selected = false;

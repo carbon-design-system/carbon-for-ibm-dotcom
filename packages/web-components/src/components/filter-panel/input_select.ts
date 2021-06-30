@@ -34,10 +34,10 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
   };
 
   @property()
-  selected: string;
+  selected: string = '';
 
   @property()
-  value: string;
+  value: string = '';
 
   @property()
   lastValue: any;
