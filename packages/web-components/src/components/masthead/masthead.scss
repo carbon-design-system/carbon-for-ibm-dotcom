@@ -25,14 +25,6 @@
   width: mini-units(6);
   height: mini-units(6);
 
-  @include carbon--breakpoint('md') {
-    display: block;
-  }
-
-  @include carbon--breakpoint(800px) {
-    display: none;
-  }
-
   .#{$dds-prefix}-ce--header__menu-trigger__container {
     display: contents;
   }
@@ -267,6 +259,17 @@
     visibility: visible;
     /* stylelint-disable-next-line time-min-milliseconds */
     transition: visibility 1ms motion(exit, productive) 0ms, left $duration--fast-02 motion(exit, productive) 1ms;
+  }
+}
+
+:host(#{$dds-prefix}-masthead-menu-button),
+:host(#{$dds-prefix}-left-nav) {
+  @include carbon--breakpoint('md') {
+    display: block;
+  }
+
+  @include carbon--breakpoint(800px) {
+    display: none;
   }
 }
 
