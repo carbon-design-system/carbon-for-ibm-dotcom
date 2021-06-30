@@ -9,8 +9,6 @@
 @import '../../globals/vars';
 @import '../../globals/imports';
 @import '../image/image';
-@import '../../globals/utils/aspect-ratio';
-@import '../../globals/utils/ratio-base';
 
 @mixin background-media {
   :host(#{$dds-prefix}-background-media),
