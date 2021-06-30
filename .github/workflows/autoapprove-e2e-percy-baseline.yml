@@ -1,14 +1,15 @@
 name: Auto approve
 
 on:
-  pull_request_target
+  pull_request_target:
+    branches:
+      - test/e2e-percy-baseline
 
 jobs:
   auto-approve:
     runs-on: ubuntu-latest
     steps:
       - uses: hmarr/auto-approve-action@v2
-        if: ${{ github.actor == 'ibmdotcom-bot' && github.base_ref == 'test/e2e-percy-baseline' }}
+        if: ${{ github.actor == 'ibmdotcom-bot' }}
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
-      - run: echo "${{ github.base_ref }}"
