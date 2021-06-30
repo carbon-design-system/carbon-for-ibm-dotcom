@@ -31,7 +31,6 @@
         background-image: linear-gradient(
           to right,
           $ui-background 25%,
-          rgba(255, 255, 255, 0.75) 50%,
           rgba(255, 255, 255, 0) 75%
         );
       }
@@ -42,7 +41,6 @@
         background: linear-gradient(
           to bottom,
           $ui-background 0%,
-          rgba(255, 255, 255, 0.6) 64%,
           rgba(255, 255, 255, 0) 86%
         );
       }
