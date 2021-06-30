@@ -1,0 +1,40 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../../internal/content-block/content-block';
+@import '../content-item-horizontal/content-item-horizontal';
+
+@mixin content-block-horizontal {
+  :host(#{$dds-prefix}-content-block-horizontal) ::slotted([slot='heading']),
+  :host(#{$dds-prefix}-content-group-horizontal) ::slotted([slot='heading']),
+  .#{$prefix}--content-block-horizontal .#{$prefix}--content-block__heading {
+    margin-bottom: $layout-05;
+    @include carbon--breakpoint('lg') {
+      margin-bottom: $layout-06;
+    }
+  }
+  :host(#{$dds-prefix}-content-item-horizontal):last-child,
+  .#{$prefix}--content-block-horizontal
+    .#{$prefix}--content-item-horizontal__item:last-child {
+    @include carbon--breakpoint('max') {
+      padding-bottom: $layout-07;
+    }
+    @include carbon--breakpoint('lg') {
+      padding-bottom: $layout-07;
+    }
+    @include carbon--breakpoint('md') {
+      padding-bottom: $layout-06;
+    }
+    @include carbon--breakpoint('sm') {
+      padding-bottom: $layout-05;
+    }
+  }
+}
+
+@include exports('content-block-horizontal') {
+  @include content-block-horizontal;
+}

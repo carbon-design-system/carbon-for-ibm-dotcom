@@ -9,11 +9,15 @@
 @import '../link-list/index';
 
 @mixin content-item-horizontal {
+  // Web component
   :host(#{$dds-prefix}-content-item-horizontal),
+  // React
   .#{$prefix}--content-item-horizontal__item {
     @include carbon--make-row;
 
     border-top: 1px solid $ui-03;
+    padding-left: $carbon--spacing-05;
+    padding-right: $carbon--spacing-05;
 
     @include carbon--breakpoint(sm) {
       padding-top: $carbon--spacing-07;
@@ -32,8 +36,128 @@
       padding-bottom: $carbon--layout-05;
     }
 
-    padding-left: $carbon--spacing-05;
-    padding-right: $carbon--spacing-05;
+    &[thumbnail] {
+      @include carbon--breakpoint(md) {
+        min-height: rem(306px);
+      }
+
+      @include carbon--breakpoint(lg) {
+        min-height: rem(272px);
+      }
+
+      @include carbon--breakpoint(xlg) {
+        min-height: rem(252px);
+      }
+    }
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal) {
+    margin: 0;
+  }
+
+  .#{$prefix}--content-item-horizontal__row {
+    @include carbon--make-row;
+
+    min-height: 160px;
+
+    :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
+      justify-content: space-between;
+      min-height: auto;
+    }
+  }
+
+  .#{$prefix}--content-item-horizontal__col {
+    // React styles - only accounting for the default variation
+    @include carbon--make-col-ready;
+
+    // Web component layout styles - accommodating the thumbnail variation
+    &--1,
+    &--2 {
+      @include carbon--make-col-ready;
+    }
+
+    &--1 {
+      @include carbon--make-col(4, 4);
+
+      @include carbon--breakpoint(md) {
+        @include carbon--make-row;
+
+        margin: 0;
+        padding: 0;
+        width: auto;
+      }
+
+      :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
+        @include carbon--breakpoint(md) {
+          @include carbon--make-col(4, 8);
+        }
+
+        @include carbon--breakpoint(lg) {
+          @include carbon--make-col(8, 12);
+
+          display: flex;
+        }
+      }
+    }
+
+    &--2 {
+      :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
+        @include carbon--breakpoint(md) {
+          @include carbon--make-col(3, 8);
+        }
+
+        @include carbon--breakpoint(lg) {
+          @include carbon--make-col(3, 12);
+        }
+      }
+    }
+  }
+
+  // Web component
+  .#{$prefix}--content-item-horizontal__heading-wrapper,
+  .#{$prefix}--content-item-horizontal__content-wrapper,
+  // React
+  .#{$prefix}--content-item-horizontal__col:first-of-type,
+  .#{$prefix}--content-item-horizontal__col:last-of-type {
+    @include carbon--breakpoint(md) {
+      @include carbon--make-col-ready;
+      @include carbon--make-col(4, 8);
+    }
+
+    :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
+      @include carbon--make-col(4, 4);
+
+      @include carbon--breakpoint(lg) {
+        @include carbon--make-col(4, 8);
+      }
+    }
+  }
+
+  // Web component
+  .#{$prefix}--content-item-horizontal__heading-wrapper,
+  // React
+  .#{$prefix}--content-item-horizontal__col:first-of-type {
+    @include carbon--breakpoint(lg) {
+      @include carbon--make-col(4, 10);
+    }
+  }
+
+  // Web component
+  .#{$prefix}--content-item-horizontal__content-wrapper,
+  // React
+  .#{$prefix}--content-item-horizontal__col:last-of-type {
+    display: flex;
+    flex-direction: column;
+
+    @include carbon--breakpoint(md) {
+      display: flex;
+    }
+
+    @include carbon--breakpoint(lg) {
+      @include carbon--make-col(6, 10);
+
+      display: flex;
+    }
   }
 
   :host(#{$dds-prefix}-content-item-horizontal) ::slotted([slot='heading']),
@@ -58,7 +182,9 @@
   .#{$prefix}--content-item-horizontal__item--heading {
     display: block;
     color: $text-01;
+
     @include carbon--type-style('expressive-heading-03', true);
+
     @include carbon--breakpoint(sm) {
       margin-bottom: $carbon--spacing-07;
     }
@@ -71,20 +197,36 @@
       margin-bottom: $carbon--layout-04;
     }
   }
+
+  :host(#{$dds-prefix}-content-item-horizontal)[thumbnail]
+    ::slotted([slot='heading']) {
+    margin-bottom: $carbon--spacing-07;
+    max-width: 100%;
+  }
+
   :host(#{$dds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])),
   .#{$prefix}--content-item-horizontal__item--copy {
     margin-bottom: $carbon--spacing-07;
-    @include carbon--breakpoint(sm) {
-      margin-bottom: $carbon--spacing-07;
-    }
+
     @include carbon--breakpoint(md) {
       margin-bottom: $layout-05;
     }
+
     @include carbon--breakpoint(lg) {
       margin-bottom: $layout-05;
     }
+
     p {
       color: $text-01;
+    }
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal-thumbnail-copy)
+    ::slotted(#{$dds-prefix}-content-item-paragraph) {
+    margin-bottom: $carbon--spacing-07;
+
+    @include carbon--breakpoint(md) {
+      padding-right: rem(32px);
     }
   }
 
@@ -94,6 +236,7 @@
 
     .#{$prefix}--link-list {
       padding: 0;
+
       &:first-of-type {
         padding: 0;
       }
@@ -106,50 +249,19 @@
     }
   }
 
-  .#{$prefix}--content-item-horizontal__row {
-    @include carbon--make-row;
-
-    width: 100%;
-    min-height: 160px;
-  }
-
-  .#{$prefix}--content-item-horizontal__col {
-    flex-direction: column;
-
+  :host(#{$dds-prefix}-content-item-horizontal) ::slotted([slot='thumbnail']) {
     @include carbon--make-col-ready;
+    @include carbon--make-col(3, 4);
 
-    &:first-of-type {
-      @include carbon--breakpoint(sm) {
-        @include carbon--make-col(4, 4);
-      }
+    margin-top: $carbon--spacing-05;
+    padding-left: 0;
+    padding-right: rem(8px);
 
-      @include carbon--breakpoint(md) {
-        @include carbon--make-col(4, 8);
-      }
+    @include carbon--breakpoint(md) {
+      @include carbon--make-col(3, 3);
 
-      @include carbon--breakpoint(lg) {
-        @include carbon--make-col(4, 10);
-      }
-    }
-
-    &:last-of-type {
-      @include carbon--breakpoint(sm) {
-        @include carbon--make-col(4, 4);
-
-        display: flex;
-      }
-
-      @include carbon--breakpoint(md) {
-        @include carbon--make-col(4, 8);
-
-        display: flex;
-      }
-
-      @include carbon--breakpoint(lg) {
-        @include carbon--make-col(6, 10);
-
-        display: flex;
-      }
+      margin-top: 0;
+      padding-right: 0;
     }
   }
 }
