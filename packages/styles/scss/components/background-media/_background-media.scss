@@ -11,8 +11,7 @@
 @import '../image/image';
 
 @mixin background-media {
-  :host(#{$dds-prefix}-background-media),
-  .#{$prefix}--background-media {
+  :host(#{$dds-prefix}-background-media) {
     position: relative;
   }
 
