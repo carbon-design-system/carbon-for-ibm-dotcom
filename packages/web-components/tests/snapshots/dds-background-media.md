@@ -5,7 +5,7 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--background-media--mobile-position bx--background-media--mobile-position--top">
+<div class="bx--background-media--mobile-position bx--background-media--mobile-position--bottom">
   <div class="bx--background-media--gradient bx--background-media--gradient--left-to-right">
   </div>
   <slot>
@@ -35,7 +35,7 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--background-media--mobile-position bx--background-media--mobile-position--top">
+<div class="bx--background-media--mobile-position bx--background-media--mobile-position--bottom">
   <div class="bx--background-media--gradient bx--background-media--gradient--left-to-right">
   </div>
   <slot>

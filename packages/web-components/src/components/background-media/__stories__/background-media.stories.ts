@@ -14,7 +14,7 @@ import { text, select } from '@storybook/addon-knobs';
 import imgMax from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import imgLg16x9 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
 import imgSm4x3 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--4x3--480x360--005.jpg';
-import { GRADIENT_DIRECTION, MOBILE_POSITION } from '../defs';
+import { GRADIENT_DIRECTION } from '../defs';
 import readme from './README.stories.mdx';
 
 const gradientDirections = {
@@ -22,18 +22,12 @@ const gradientDirections = {
   [`Top to Bottom`]: GRADIENT_DIRECTION.TOP_TO_BOTTOM,
 };
 
-const mobilePositions = {
-  [`Top`]: MOBILE_POSITION.TOP,
-  [`Bottom`]: MOBILE_POSITION.BOTTOM,
-};
-
 export const Default = ({ parameters }) => {
-  const { alt, gradientDirection, mobilePosition } = parameters?.props?.['dds-background-media'] ?? {};
+  const { alt, gradientDirection } = parameters?.props?.['dds-background-media'] ?? {};
   return html`
     <dds-background-media
-      slot="image"
       gradient-direction="${ifNonNull(gradientDirection)}"
-      mobile-position="${ifNonNull(mobilePosition)}"
+      mobile-position="bottom"
       alt="${ifNonNull(alt)}"
       default-src="${imgMax}"
     >
@@ -67,7 +61,6 @@ export default {
           GRADIENT_DIRECTION.LEFT_TO_RIGHT,
           groupId
         ),
-        mobilePosition: select('Mobile Position (mobile-position):', mobilePositions, MOBILE_POSITION.TOP, groupId),
         alt: text('Image alt text (alt):', 'Image alt text', groupId),
         defaultSrc: text('Default image (default-src)', imgMax, groupId),
       }),

@@ -55,10 +55,19 @@ class DDSBackgroundMedia extends DDSImage {
   gradientDirection = GRADIENT_DIRECTION.LEFT_TO_RIGHT;
 
   /**
-   * Mobile Position (top (default) | bottom)
+   * Mobile Position (bottom (default) | top)
    */
   @property({ attribute: 'mobile-position', reflect: true })
-  mobilePosition = MOBILE_POSITION.TOP;
+  mobilePosition = MOBILE_POSITION.BOTTOM;
+
+  /**
+   * Append the dds-background-media to the parent element where this component is being used.
+   */
+  updated() {
+    if (this.mobilePosition === MOBILE_POSITION.TOP) {
+      this.parentElement?.shadowRoot?.prepend(this);
+    }
+  }
 
   render() {
     return html`
