@@ -44,8 +44,10 @@ export default {
   title: 'Components/Background media',
   decorators: [
     story => html`
-      <div class="bx--grid bx--no-gutter dds-ce-demo-devenv--grid--stretch">
-        ${story()}
+      <div class="bx--grid bx--grid--condensed">
+        <div class="bx--row">
+          ${story()}
+        </div>
       </div>
     `,
   ],
