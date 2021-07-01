@@ -13,5 +13,5 @@
   "includeShadowDom": true,
   "testFiles": "**/*.e2e.js",
   "pageLoadTimeout": 10000,
-  "defaultCommandTimeout": 10000
+  "defaultCommandTimeout": 20000
 }
