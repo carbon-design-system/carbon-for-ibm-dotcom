@@ -23,25 +23,25 @@
     right: 0;
     width: 100%;
     height: 100%;
+  }
 
-    &--left-to-right {
-      @include carbon--breakpoint('lg') {
-        background-image: linear-gradient(
-          to right,
-          $ui-background 25%,
-          rgba(255, 255, 255, 0) 75%
-        );
-      }
+  .#{$prefix}--background-media--gradient--left-to-right {
+    @include carbon--breakpoint('lg') {
+      background-image: linear-gradient(
+        to right,
+        $ui-background 25%,
+        rgba(255, 255, 255, 0) 75%
+      );
     }
+  }
 
-    &--top-to-bottom {
-      @include carbon--breakpoint('lg') {
-        background: linear-gradient(
-          to bottom,
-          $ui-background 0%,
-          rgba(255, 255, 255, 0) 86%
-        );
-      }
+  .#{$prefix}--background-media--gradient--top-to-bottom {
+    @include carbon--breakpoint('lg') {
+      background: linear-gradient(
+        to bottom,
+        $ui-background 0%,
+        rgba(255, 255, 255, 0) 86%
+      );
     }
   }
 }
