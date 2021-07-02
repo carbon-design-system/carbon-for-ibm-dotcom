@@ -576,6 +576,7 @@ const MastheadSearch = ({
             renderSuggestion={renderSuggestion} // How to display a suggestion
             renderSuggestionsContainer={renderSuggestionsContainer}
             onSuggestionSelected={onSuggestionSelected} // When a suggestion is selected
+            focusInputOnSuggestionClick={false}
             inputProps={inputProps}
             containerProps={containerProps}
             renderInputComponent={renderInputComponent}
