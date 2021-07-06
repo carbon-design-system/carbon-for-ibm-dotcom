@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-services",
   "description": "Carbon for IBM.com Services",
-  "version": "1.21.0-rc.1",
+  "version": "1.21.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.0",
-    "@carbon/ibmdotcom-utilities": "1.21.0-rc.1",
+    "@carbon/ibmdotcom-utilities": "1.21.0",
     "@carbon/telemetry": "0.0.0-alpha.6",
     "axios": "^0.21.1",
     "window-or-global": "^1.0.1"
