@@ -35,6 +35,21 @@ const platformData = {
   url: 'https://www.ibm.com/cloud',
 };
 
+const platformObject = {
+  'en-US': {
+    url: 'https://www.cloud.com/us-en',
+    name: 'Cloud',
+  },
+  'fr-FR': {
+    url: 'https://www.cloud.com/fr-fr',
+    name: 'Le Cloud',
+  },
+  'es-MX': {
+    url: 'https://www.cloud.com/ex-mx',
+    name: 'La Nube',
+  },
+};
+
 export const Default = ({ parameters }) => {
   const { platform, hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
     parameters?.props?.MastheadComposite ?? {};
@@ -162,6 +177,7 @@ export const withPlatform = ({ parameters }) => {
           <dds-masthead-container
             platform="${ifNonNull(platformData.name)}"
             platform-url="${ifNonNull(platformData.url)}"
+            .platformObj="${platformObject}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
