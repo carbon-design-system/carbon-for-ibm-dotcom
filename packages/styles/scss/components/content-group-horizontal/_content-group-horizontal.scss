@@ -30,21 +30,17 @@
   :host(#{$dds-prefix}-content-item-horizontal):last-child,
   .#{$prefix}--content-group-horizontal
     .#{$prefix}--content-item-horizontal__item:last-child {
-      @include carbon--breakpoint('max') {
-        padding-bottom: $layout-07;
-      }
-      @include carbon--breakpoint('lg') {
-        padding-bottom: $layout-07;
-      }
-      @include carbon--breakpoint('md') {
-        padding-bottom: $layout-06;
-      }
-      @include carbon--breakpoint('sm') {
-        padding-bottom: $layout-05;
-      }
+    @include carbon--breakpoint('max') {
+      padding-bottom: $layout-07;
     }
-    .#{$prefix}--content-block {
-      padding-bottom: 0;
+    @include carbon--breakpoint('lg') {
+      padding-bottom: $layout-07;
+    }
+    @include carbon--breakpoint('md') {
+      padding-bottom: $layout-06;
+    }
+    @include carbon--breakpoint('sm') {
+      padding-bottom: $layout-05;
     }
   }
 }

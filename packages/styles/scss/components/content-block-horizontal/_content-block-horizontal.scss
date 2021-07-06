@@ -9,12 +9,22 @@
 @import '../content-item-horizontal/content-item-horizontal';
 
 @mixin content-block-horizontal {
+  :host(#{$dds-prefix}-content-block-horizontal),
+  .#{$prefix}--content-block-horizontal {
+    /* stylelint-disable-next-line selector-type-no-unknown */
+    dds-hr,
+    .bx--content-block .bx--hr {
+      @include carbon--breakpoint('lg') {
+        margin-right: -9rem;
+      }
+    }
+  }
   :host(#{$dds-prefix}-content-block-horizontal) ::slotted([slot='heading']),
   :host(#{$dds-prefix}-content-group-horizontal) ::slotted([slot='heading']),
   .#{$prefix}--content-block-horizontal .#{$prefix}--content-block__heading {
     margin-bottom: $layout-05;
     @include carbon--breakpoint('lg') {
-      margin-bottom: $layout-06;
+      margin-bottom: $layout-03;
     }
   }
   :host(#{$dds-prefix}-content-item-horizontal):last-child,
