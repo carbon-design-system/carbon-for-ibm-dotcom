@@ -1,6 +1,10 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
 import '../lightbox-video-player';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
 
 # Lightbox Media Viewer
 
@@ -9,7 +13,7 @@ import '../lightbox-video-player';
 
 ## Getting started - Image viewer
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-image-viewer.js';
@@ -17,6 +21,10 @@ import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lig
 // Opens the lightbox image viewer
 document.getElementById('my-lightbox').open = true;
 ```
+
+<Description markdown={`${cdnJs({ components: ['lightbox-image-viewer'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
@@ -35,7 +43,7 @@ document.getElementById('my-lightbox').open = true;
 
 ## Getting started - Video player
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player-container.js';
@@ -43,6 +51,10 @@ import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lig
 // Opens the lightbox media viewer
 document.getElementById('my-video').open = true;
 ```
+
+<Description markdown={`${cdnJs({ components: ['lightbox-video-player'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 

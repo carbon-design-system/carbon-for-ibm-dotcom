@@ -1,6 +1,11 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
 import markdownContents from '../../../../docs/markdown-contents.md';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
+
 
 # `<dds-content-item-horizontal>`
 
@@ -14,11 +19,15 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 
 Here's a quick example to get you started.
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/index.js';
 ```
+
+<Description markdown={`${cdnJs({ components: ['content-item-horizontal'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
@@ -41,9 +50,32 @@ import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/i
 </dds-content-item-horizontal>
 ```
 
+### HTML (with thumbnail)
+
+```html
+<dds-content-item-horizontal thumbnail>
+  <dds-content-item-heading>
+    Aliquam condimentum
+  </dds-content-item-heading>
+  <dds-content-item-horizontal-thumbnail-copy>
+    Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+    Phasellus at elit sollicitudin.
+  </dds-content-item-horizontal-thumbnail-copy>
+  <dds-link-list slot="footer" type="vertical">
+    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
+      Learn more
+    </dds-link-list-item-cta>
+    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
+      Microservices and containers
+    </dds-link-list-item-cta>
+  </dds-link-list>
+  <dds-image slot="thumbnail" alt="Alt text" default-src="https://fpoimg.com/960x720?text=4:3&bg_color=ee5396&text_color=161616"></dds-image>
+</dds-content-item-horizontal>
+```
+
 ## With Media (image)
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/index.js';
@@ -72,7 +104,7 @@ import '@carbon/ibmdotcom-web-components/es/components/image/image';
 
 ## With Media (video)
 
-### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/index.js';

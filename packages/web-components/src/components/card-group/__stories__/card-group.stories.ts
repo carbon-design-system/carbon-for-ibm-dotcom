@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { classMap } from 'lit-html/directives/class-map';
 import '../../card/index';
 import '../../card-in-card/index';
 import '../index';
@@ -34,6 +35,12 @@ const phraseArray = [
   'Te sint disputando pri, at his aliquip corrumpit',
   'Disputando lorem covallis',
 ];
+
+const cardsCol = {
+  '3 cards per row (Default)': 'dds-ce-demo-devenv--cards-in-row-3',
+  '2 cards per row': 'dds-ce-demo-devenv--cards-in-row-2',
+  '4 cards per row': 'dds-ce-demo-devenv--cards-in-row-4',
+};
 
 const cardsDiffLengthPhrase = (index, border) => {
   const defaultCardGroupItem = html`
@@ -67,6 +74,10 @@ const longHeadingCardGroupItem = border => {
   `;
 };
 
+const emptyCard = html`
+  <dds-card-group-item empty></dds-card-group-item>
+`;
+
 const cardGroupItemWithImages = html`
   <dds-card-group-item href="https://example.com">
     <dds-card-cta-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-card-cta-image>
@@ -96,23 +107,36 @@ const cardGroupItemWithCTAs = html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { cards, optionalBorder } = parameters?.props?.CardGroup ?? {};
+  const { cards, cardsPerRow, offset, optionalBorder } = parameters?.props?.CardGroup ?? {};
+  const classes = classMap({
+    [cardsPerRow]: cardsPerRow,
+  });
   const allCards: object[] = [];
+  if (offset === '1') {
+    allCards.push(emptyCard);
+  }
   allCards.push(longHeadingCardGroupItem(optionalBorder));
   for (let i = 1; i < cards; i++) {
     allCards.push(cardsDiffLengthPhrase(i, optionalBorder));
   }
+  const colCount = cardsPerRow[cardsPerRow.length - 1];
+
   return html`
-    <dds-card-group grid-mode=${optionalBorder ? 'border' : null}>
+    <dds-card-group cards-per-row="${colCount}" class="${classes}" grid-mode=${optionalBorder ? 'border' : null}>
       ${allCards}
     </dds-card-group>
   `;
 };
 
 export const withCTA = ({ parameters }) => {
-  const { cards } = parameters?.props?.CardGroup ?? {};
+  const { cards, cardsPerRow } = parameters?.props?.CardGroup ?? {};
+  const classes = classMap({
+    [cardsPerRow]: cardsPerRow,
+  });
+  const colCount = cardsPerRow[cardsPerRow.length - 1];
+
   return html`
-    <dds-card-group border>
+    <dds-card-group cards-per-row="${colCount}" class="${classes}" border>
       ${cards}
       <dds-card-group-item href="https://example.com" color-scheme="inverse">
         <dds-card-heading>Top level card link</dds-card-heading>
@@ -132,15 +156,21 @@ withCTA.story = {
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
         }).map(() => cardGroupItemWithCTAs),
+        cardsPerRow: select('Number of cards per row (cards-per-row):', cardsCol, cardsCol['3 cards per row (Default)'], groupId),
       }),
     },
   },
 };
 
 export const withImages = ({ parameters }) => {
-  const { cards } = parameters?.props?.CardGroup ?? {};
+  const { cards, cardsPerRow } = parameters?.props?.CardGroup ?? {};
+  const classes = classMap({
+    [cardsPerRow]: cardsPerRow,
+  });
+  const colCount = cardsPerRow[cardsPerRow.length - 1];
+
   return html`
-    <dds-card-group>${cards}</dds-card-group>
+    <dds-card-group cards-per-row="${colCount}" class="${classes}">${cards}</dds-card-group>
   `;
 };
 
@@ -152,6 +182,7 @@ withImages.story = {
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
         }).map(() => cardGroupItemWithImages),
+        cardsPerRow: select('Number of cards per row (cards-per-row):', cardsCol, cardsCol['3 cards per row (Default)'], groupId),
       }),
     },
   },
@@ -198,10 +229,15 @@ withCardInCard.story = {
 };
 
 export const withMixedMedia = ({ parameters }) => {
-  const { cards } = parameters?.props?.CardGroup ?? {};
+  const { cards, cardsPerRow } = parameters?.props?.CardGroup ?? {};
+  const classes = classMap({
+    [cardsPerRow]: cardsPerRow,
+  });
+  const colCount = cardsPerRow[cardsPerRow.length - 1];
+
   return html`
-    <dds-video-cta-container>
-      <dds-card-group>
+    <dds-video-cta-container class="${classes}">
+      <dds-card-group cards-per-row="${colCount}" class="${classes}">
         ${cards}
       </dds-card-group>
     </dds-video-cta-container>
@@ -219,6 +255,7 @@ withMixedMedia.story = {
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
         }).map((_, index) => (index % 2 ? cardGroupItemWithImages : cardGroupItemWithVideos)),
+        cardsPerRow: select('Number of cards per row (cards-per-row):', cardsCol, cardsCol['3 cards per row (Default)'], groupId),
       }),
     },
   },
@@ -279,14 +316,9 @@ export default {
       CardGroup: ({ groupId }) => ({
         cards: number('Number of cards', 5, {}, groupId),
         optionalBorder: boolean('Outlined cards:', false, groupId),
+        cardsPerRow: select('Number of cards per row (cards-per-row):', cardsCol, cardsCol['3 cards per row (Default)'], groupId),
+        offset: select('Offset', ['0', '1'], '0', groupId),
       }),
     },
-    decorators: [
-      story => html`
-        <div class="dds-ce-demo-devenv--grid--stretch">
-          ${story()}
-        </div>
-      `,
-    ],
   },
 };

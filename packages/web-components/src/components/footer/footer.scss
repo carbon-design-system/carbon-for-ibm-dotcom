@@ -41,6 +41,38 @@
 :host(#{$dds-prefix}-footer),
 :host(#{$dds-prefix}-legal-nav) {
   display: block;
+  .#{$prefix}--adjunct-links__container {
+    list-style: none;
+    padding: $spacing-09 0 $spacing-05 $spacing-05;
+    @include carbon--breakpoint-down('md') {
+      @include carbon--make-container;
+    }
+    .#{$prefix}--adjunct-links__row {
+      margin-right: 0;
+      @include carbon--make-row;
+      .#{$prefix}--adjunct-links__col {
+        @include carbon--make-col(4, 4);
+        @include carbon--breakpoint('md') {
+          @include carbon--make-col(4, 8);
+        }
+        @include carbon--breakpoint('lg') {
+          padding-right: $spacing-05;
+          @include carbon--make-col(4, 12);
+        }
+      }
+    }
+  }
+  .#{$prefix}--adjunct-links__container--hidden {
+    display: none;
+  }
+}
+
+:host(#{$dds-prefix}-footer).#{$prefix}--adjunct-links__container .#{$prefix}--adjunct-links__row .#{$prefix}--adjunct-links__col,
+:host(dds-legal-nav) .#{$prefix}--adjunct-links__container .#{$prefix}--adjunct-links__row .#{$prefix}--adjunct-links__col {
+  padding-right: $spacing-05;
+  @include carbon--breakpoint('md') {
+    padding-right: $spacing-07;
+  }
 }
 
 :host(#{$dds-prefix}-footer-nav-group[open]) {
@@ -135,6 +167,10 @@
     align-items: center;
     padding: 0;
     height: 3rem;
+  }
+
+  .#{$prefix}--adjunct-links__container {
+    display: none;
   }
 
   .#{$prefix}--legal-nav {
@@ -274,7 +310,7 @@
   .#{$prefix}--list-box__menu {
     position: absolute;
     top: auto;
-    bottom: $carbon--spacing-08;
+    bottom: rem(47px);
     max-height: 13.5rem;
   }
 
@@ -334,6 +370,10 @@
     &:hover {
       background-color: $hover-ui;
     }
+  }
+
+  .#{$prefix}--list-box__menu {
+    bottom: rem(48px);
   }
 
   .#{$prefix}--dropdown,

@@ -10,6 +10,7 @@
 import { customElement, html, property } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
 import './cloud-button-cta';
 import './cloud-left-nav-item';
 import './cloud-masthead-global-bar';
@@ -41,6 +42,13 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-cloud-masthead-composite`)
 class DDSCloudMastheadComposite extends DDSMastheadComposite {
   /**
+   * The placeholder for `loadUserStatus()` Redux action that will be mixed in.
+   *
+   * @internal
+   */
+  _loadUserStatus?: (authMethod?: string) => void;
+
+  /**
    * The profile items for unauthenticated state.
    */
   @property({ attribute: false })
@@ -65,6 +73,12 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
   unauthenticatedCtaButtons?: MastheadProfileItem[];
 
   /**
+   * The selected authentication method, either 'cookie' or 'api'.
+   */
+  @property({ attribute: 'auth-method' })
+  authMethod = 'cookie';
+
+  /**
    *  Render MegaMenu content
    *
    * @param sections menu section data object
@@ -80,7 +94,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         return viewAllLink;
       }
       const title = item.title
-        .replace(/[^-a-zA-Z0-9_ ]/g, '')
+        .replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')
         .replace(/ +/g, '-')
         .toLowerCase();
 
@@ -130,6 +144,106 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     `;
   }
 
+  /**
+   * Renders the left nav menus sections
+   *
+   * @param menuItems menu items
+   * @param heading heading of menu section
+   * @param isSubmenu determines whether menu section is a submenu section
+   * @param selectedMenuItem The selected menu item
+   * @param showBackButton Determines whether to show back button
+   * @param sectionTitle title of menu section
+   * @param sectionId id of menu section
+   */
+  protected _renderLeftNavMenuSections(menuItems, heading, isSubmenu, selectedMenuItem, showBackButton, sectionTitle, sectionId) {
+    const {
+      userStatus,
+      authenticatedProfileItems,
+      unauthenticatedProfileItems,
+      authenticatedCtaButtons,
+      unauthenticatedCtaButtons,
+    } = this;
+    const authenticated = userStatus !== 'anonymous';
+    const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
+    const ctaButtons = authenticated ? authenticatedCtaButtons : unauthenticatedCtaButtons;
+
+    const items = menuItems.map(elem => {
+      const selected = selectedMenuItem && elem.titleEnglish === selectedMenuItem;
+      if (elem.menu) {
+        return html`
+          <dds-left-nav-menu
+            ?last-highlighted=${elem.lastHighlightedItem}
+            panel-id=${elem.panelId}
+            ?active="${selected}"
+            title="${elem.title}"
+            data-autoid="${elem.autoid}"
+          >
+          </dds-left-nav-menu>
+        `;
+      }
+
+      return html`
+        <dds-left-nav-menu-item
+          ?last-highlighted=${elem.lastHighlightedItem}
+          ?active="${selected}"
+          href="${elem.url}"
+          title="${elem.title}"
+          data-autoid="${elem.autoid}"
+        ></dds-left-nav-menu-item>
+      `;
+    });
+
+    if (heading) {
+      items.unshift(
+        html`
+          <dds-left-nav-menu-category-heading>${heading}</dds-left-nav-menu-category-heading>
+        `
+      );
+    }
+
+    if (!isSubmenu) {
+      items.push(
+        html`
+          ${authenticated
+            ? null
+            : html`
+                ${profileItems?.map(item => {
+                  return html`
+                    <dds-cloud-left-nav-item href="${item.url}" title="${item.title}"></dds-cloud-left-nav-item>
+                  `;
+                })}
+              `}
+          ${ctaButtons?.map(item => {
+            return html`
+              <dds-cloud-left-nav-item href="${item.url}" title="${item.title}"></dds-cloud-left-nav-item>
+            `;
+          })}
+        `
+      );
+    }
+
+    return html`
+      <dds-left-nav-menu-section
+        section-id="${sectionId}"
+        ?is-submenu=${ifNonNull(isSubmenu)}
+        title=${ifNonNull(sectionTitle)}
+        show-back-button=${ifNonNull(showBackButton)}
+      >
+        ${items}
+      </dds-left-nav-menu-section>
+    `;
+  }
+
+  firstUpdated() {
+    const { language, dataEndpoint } = this;
+    globalInit();
+    if (language) {
+      this._setLanguage?.(language);
+    }
+    this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
+    this._loadUserStatus?.(this.authMethod);
+  }
+
   render() {
     const {
       activateSearch,
@@ -166,22 +280,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           : html`
               <dds-left-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-left-nav-name>
             `}
-        ${l1Data ? undefined : this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
-        ${l1Data ? this._renderL1Items({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV }) : undefined}
-        ${authenticated
-          ? null
-          : html`
-              ${profileItems?.map(item => {
-                return html`
-                  <dds-cloud-left-nav-item href="${item.url}" title="${item.title}"></dds-cloud-left-nav-item>
-                `;
-              })}
-            `}
-        ${ctaButtons?.map(item => {
-          return html`
-            <dds-cloud-left-nav-item href="${item.url}" title="${item.title}"></dds-cloud-left-nav-item>
-          `;
-        })}
+        ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV, hasL1: !!l1Data })}
       </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-masthead-menu-button
@@ -200,7 +299,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           ? undefined
           : html`
               <dds-top-nav menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
-                ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
+                ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: false })}
               </dds-top-nav>
             `}
         <dds-masthead-search-composite

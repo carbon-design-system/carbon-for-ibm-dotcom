@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,6 +13,7 @@ import 'carbon-web-components/es/components/skip-to-content/skip-to-content.js';
 import { configure, addDecorator, addParameters, setCustomElements } from '@storybook/web-components'; // eslint-disable-line import/first
 import coreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
+import { withA11y } from '@storybook/addon-a11y';
 import { withKnobs } from '@storybook/addon-knobs';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
 import customElements from '../custom-elements.json';
@@ -33,6 +34,7 @@ addParameters({
     storySort: getSimpleStorySort([
       'overview-getting-started--page',
       'overview-building-for-ibm-dotcom--page',
+      'overview-carbon-cdn-style-helpers--page',
       'overview-stable-selectors--page',
       'overview-using-server-side-template--page',
       'overview-enable-right-to-left-rtl--page',
@@ -75,6 +77,7 @@ addDecorator((story, { parameters }) => {
   `;
 });
 
+addDecorator(withA11y);
 addDecorator(withKnobs);
 addDecorator(decoratorKnobs);
 

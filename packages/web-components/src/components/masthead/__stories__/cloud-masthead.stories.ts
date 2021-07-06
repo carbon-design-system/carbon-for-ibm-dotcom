@@ -62,6 +62,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
                 platform-url="${ifNonNull(platformData.url)}"
                 selected-menu-item="${ifNonNull(selectedMenuItem)}"
                 ?has-contact="${hasContact}"
+                auth-method="cookie"
                 user-status="${ifNonNull(userStatus)}"
                 searchPlaceholder="${ifNonNull(searchPlaceholder)}"
                 .navLinks="${navLinks}"

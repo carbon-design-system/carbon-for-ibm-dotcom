@@ -17,6 +17,13 @@
   &[color-scheme='inverse'] .#{$dds-prefix}-ce--card__footer--static {
     color: $inverse-link;
   }
+
+  &:hover {
+    ::slotted(svg[slot='icon']),
+    .#{$prefix}--card__cta__copy {
+      color: $hover-primary-text;
+    }
+  }
 }
 
 :host(#{$dds-prefix}-card-in-card),
@@ -107,4 +114,8 @@
   &[color-scheme='inverse'] ::slotted(svg[slot='pictogram']) {
     color: $inverse-link;
   }
+}
+
+:host(#{$dds-prefix}-card-footer[href])::after {
+  position: relative;
 }

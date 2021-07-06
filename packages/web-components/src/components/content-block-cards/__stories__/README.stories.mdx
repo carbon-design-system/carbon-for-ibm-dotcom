@@ -1,6 +1,11 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
-import contributing from '../../../../../../docs/contributing-license.md';
 import markdownContents from '../../../../docs/markdown-contents.md';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
+
 
 # `<dds-content-block-cards>`
 
@@ -17,11 +22,15 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 
 Here's a quick example to get you started.
 
-##### JS
+### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/content-block-cards/index.js';
 ```
+
+<Description markdown={`${cdnJs({ components: ['content-block-cards'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
 
 ### HTML
 

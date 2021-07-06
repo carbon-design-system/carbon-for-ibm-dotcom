@@ -23,7 +23,10 @@ const { prefix } = settings;
  * Card Link Component.
  */
 export const Card = ({
+  cardStatic,
+  light,
   inverse,
+  border,
   image,
   eyebrow,
   heading,
@@ -66,8 +69,11 @@ export const Card = ({
       className={classNames(
         `${prefix}--card`,
         {
+          [`${prefix}--card--static`]: cardStatic,
+          [`${prefix}--card--light`]: light,
           [`${prefix}--card--inverse`]: inverse,
           [`${prefix}--card__CTA--disabled`]: props.disabled,
+          [`${prefix}--card--border`]: border,
         },
         customClassName
       )}
@@ -78,7 +84,7 @@ export const Card = ({
           {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
           {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
           {optionalContent(copy)}
-          {renderFooter(cta, copy, heading, pictogram)}
+          {renderFooter(cta, copy, props.disabled, heading, pictogram)}
         </div>
       </div>
     </Tile>
@@ -107,10 +113,12 @@ function optionalContent(copy) {
  * @param {object} cta cta object
  * @returns {object} JSX object
  */
-function renderFooter(cta, copy, heading, pictogram) {
+function renderFooter(cta, copy, disabled, heading, pictogram) {
+  const CardFooter = disabled ? 'p' : Link;
+
   return (
     cta && (
-      <Link
+      <CardFooter
         className={classNames(`${prefix}--card__footer`, {
           [`${prefix}--card__footer__icon-left`]: cta?.iconPlacement === 'left',
           [`${prefix}--card__footer__copy`]: cta?.copy,
@@ -129,7 +137,7 @@ function renderFooter(cta, copy, heading, pictogram) {
           <cta.icon.src className={`${prefix}--card__cta`} {...cta?.icon} />
         )}
         {pictogram && pictogram}
-      </Link>
+      </CardFooter>
     )
   );
 }
@@ -202,9 +210,24 @@ export const cardPropTypes = {
   }),
 
   /**
-   * `true` to sets the high contrast for Card.
+   * `true` to set a 1px solid border around Card.
+   */
+  border: PropTypes.bool,
+
+  /**
+   * `true` to set the Card static variation.
+   */
+  cardStatic: PropTypes.bool,
+
+  /**
+   * `true` to set the high contrast for Card.
    */
   inverse: PropTypes.bool,
+
+  /**
+   * `true` to set the light theme for Card.
+   */
+  light: PropTypes.bool,
 
   /**
    * Classname to be assigned to the Card component.
