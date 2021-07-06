@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.6.0-rc.1...@carbon/ibmdotcom-web-components@1.6.0-rc.2) (2021-07-02)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.6.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.6.0-rc.0...@carbon/ibmdotcom-web-components@1.6.0-rc.1) (2021-06-29)
+
+
+### Bug Fixes
+
+* **card-static:** cta link not working in safari ([#6506](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6506)) ([b873e77](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/b873e77))
+
+
+
+
+
 # [1.6.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.5.0-beta.61.29...@carbon/ibmdotcom-web-components@1.6.0-rc.0) (2021-06-25)
 
 

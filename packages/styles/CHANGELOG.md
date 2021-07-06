@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.21.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.21.0-rc.1...@carbon/ibmdotcom-styles@1.21.0-rc.2) (2021-07-02)
+
+
+### Bug Fixes
+
+* **styles:** temporarily hard-code breakpoint values ([#6557](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6557)) ([6615d5e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6615d5e)), closes [#6554](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6554) [#6558](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6558)
+
+
+
+
+
+# [1.21.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.21.0-rc.0...@carbon/ibmdotcom-styles@1.21.0-rc.1) (2021-06-29)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
 # [1.21.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.20.0...@carbon/ibmdotcom-styles@1.21.0-rc.0) (2021-06-25)
 
 

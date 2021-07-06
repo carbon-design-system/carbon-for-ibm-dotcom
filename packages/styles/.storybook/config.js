@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -8,8 +8,8 @@
 import React from 'react';
 import requireContext from 'require-context.macro';
 import { configure, addParameters, addDecorator } from '@storybook/react';
-// import { addReadme } from 'storybook-readme';
 import { configureActions } from '@storybook/addon-actions';
+import { withA11y } from '@storybook/addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import Container from './Container';
 
@@ -50,6 +50,7 @@ addDecorator(
   })
 );
 
+addDecorator(withA11y);
 addDecorator(story => <Container story={story} />);
 
 const components = requireContext('../src', true, /(overview|-story)\.js$/);
