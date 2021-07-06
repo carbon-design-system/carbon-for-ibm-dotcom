@@ -124,11 +124,10 @@ $search-transition-timing: 95ms;
 /// @access private
 @mixin masthead-top-nav-link {
   @include carbon--type-style(body-short-02, true);
-  $menu-item-padding: calc(#{$spacing-01} + #{$spacing-05});
 
   border: none;
   border-bottom: $spacing-01 solid transparent;
-  padding: $spacing-01 $menu-item-padding 0 $menu-item-padding;
+  padding: $spacing-01 $spacing-05 0;
   color: $text-02;
   white-space: nowrap;
 
