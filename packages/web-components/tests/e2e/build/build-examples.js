@@ -7,7 +7,8 @@
 
 'use strict';
 
-const fs = require('fs-extra');
+const fsExtra = require('fs-extra');
+const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const chalk = require('chalk');
@@ -106,7 +107,7 @@ let _examples = [];
  * @private
  */
 function _getDirectories(folder) {
-  return fs
+  return fsExtra
     .readdirSync(folder, { withFileTypes: true })
     .filter(dirent => dirent.isDirectory())
     .map(dirent => dirent.name);
@@ -190,11 +191,11 @@ function _clean() {
     track();
 
     // Delete the dist folder
-    if (fs.existsSync(_distFolder)) {
+    if (fsExtra.existsSync(_distFolder)) {
       log(chalk.yellow(`Deleting dist folder: ${_distFolder}`));
-      fs.rmdirSync(_distFolder, { recursive: true });
+      fsExtra.rmdirSync(_distFolder, { recursive: true });
     }
-    fs.mkdirSync(_distFolder);
+    fsExtra.mkdirSync(_distFolder);
   }
 }
 
@@ -206,11 +207,37 @@ function _clean() {
 function _copyExamples() {
   if (!_opts.skipExamples) {
     log(chalk.yellow('Copying examples folder...'));
-    fs.mkdirSync(`${_exampleBuild}/components`);
-    fs.copySync(`${_testScriptFolder}/examples-scaffold`, `${_exampleBuild}`);
-    fs.copySync(_exampleSrc, `${_exampleBuild}/components`);
+    fsExtra.mkdirSync(`${_exampleBuild}/components`);
+    fsExtra.copySync(`${_testScriptFolder}/examples-scaffold`, `${_exampleBuild}`);
+    fsExtra.copySync(_exampleSrc, `${_exampleBuild}/components`);
     _examples = _getDirectories(`${_exampleBuild}/components`);
   }
+}
+
+/**
+ * Creates the index file for the deploy preview
+ *
+ * @private
+ */
+function _createIndex() {
+  log(chalk.yellow('Creating index file...'));
+
+  // eslint-disable-next-line max-len
+  let content = `<html><head><link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" /></head><body style="padding: 2rem;"><ul>`;
+
+  _examples.forEach(example => {
+    content += `
+<li>
+    <strong>${example}:</strong>
+    <a href="./${example}/index.html">ES version</a> |
+    <a href="./${example}/cdn.html">CDN version</a>
+</li>`;
+  });
+
+  content += '</ul></body></html>';
+
+  // Writing to dist
+  fs.writeFileSync(`${_distFolder}/index.html`, content);
 }
 
 /**
@@ -224,6 +251,8 @@ function build() {
 
   log(chalk.yellow(`Temporary examples directory created: ${_exampleBuild}`));
   _copyExamples();
+
+  _createIndex();
 
   _examples.forEach(example => {
     log(chalk.green(`Replacing dependencies for ${example} and installing`));
