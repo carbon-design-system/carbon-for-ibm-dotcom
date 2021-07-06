@@ -228,7 +228,9 @@ function _createIndex() {
   _examples.forEach(example => {
     content += `
 <li>
-    <strong>${example}:</strong> <a href="/${example}/index.html">ES version</a> | <a href="/${example}/cdn.html">CDN version</a>
+    <strong>${example}:</strong>
+    <a href="./${example}/index.html">ES version</a> |
+    <a href="./${example}/cdn.html">CDN version</a>
 </li>`;
   });
 
