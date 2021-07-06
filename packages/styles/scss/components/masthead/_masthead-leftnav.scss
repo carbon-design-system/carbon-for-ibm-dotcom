@@ -67,7 +67,7 @@
       }
     }
 
-    @include carbon--breakpoint-between('md', 'lg') {
+    @include carbon--breakpoint-between(42.02rem, 65.98rem) {
       + .#{$prefix}--header__logo {
         a {
           padding: 0 $carbon--spacing-05;
@@ -158,6 +158,7 @@
     }
   }
 
+  :host(#{$dds-prefix}-left-nav-menu-section),
   .#{$prefix}--side-nav__menu-section {
     position: absolute;
     width: 100%;
@@ -166,6 +167,7 @@
     z-index: 0;
     left: -100%;
     background-color: $ui-background;
+    padding-bottom: $spacing-09;
     transition: left $duration--moderate-01 motion(exit, productive);
 
     a {
@@ -289,19 +291,29 @@
     }
   }
 
+  .#{$prefix}--masthead__side-nav--submemu-back
+    button:focus
+    > .#{$prefix}--side-nav__link-text {
+    color: $link-01;
+  }
+
+  :host(#{$dds-prefix}-left-nav-menu-section)[expanded],
   .#{$prefix}--side-nav__menu-section--expanded {
     z-index: 1;
     left: 0;
   }
 
+  :host(#{$dds-prefix}-left-nav-menu-section)[is-submenu],
   .#{$prefix}--side-nav__menu-section-submenu {
     left: 100%;
   }
 
+  :host(#{$dds-prefix}-left-nav-menu-section)[is-submenu][expanded],
   .#{$prefix}--side-nav__menu-section-submenu.#{$prefix}--side-nav__menu-section--expanded {
     left: 0;
   }
 
+  :host(#{$dds-prefix}-left-nav-menu-section)[is-submenu][transition],
   .#{$prefix}--side-nav__menu-section-submenu--expanded {
     left: -100%;
   }
@@ -324,65 +336,6 @@
       height: rem(48px);
       display: flex;
       border-bottom: 1px solid $ui-03;
-    }
-
-    &[aria-expanded='true'] {
-      + .#{$prefix}--side-nav__menu[role='menu'] {
-        @include carbon--theme($carbon--theme--white, true);
-
-        position: absolute;
-        overflow-y: auto;
-        padding-bottom: $layout-05;
-        top: 0;
-        background: $ui-background;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        min-height: 100%;
-        transform: translateX(0);
-        transition-timing-function: $search-transition;
-        transition-duration: $search-transition-timing;
-
-        a {
-          @include carbon--type-style(body-short-02);
-
-          padding-left: $carbon--spacing-05;
-          height: carbon--mini-units(6);
-
-          &:hover {
-            text-decoration: none;
-          }
-        }
-
-        .#{$prefix}--masthead__side-nav--submemu-title {
-          @include use-carbon-productive-tokens();
-          @include carbon--type-style(productive-heading-02);
-
-          display: flex;
-          color: $text-01;
-          padding: 0 $carbon--spacing-05;
-          height: $container-04;
-          border-bottom: 1px solid $ui-04;
-          align-items: center;
-        }
-
-        .#{$prefix}--masthead__side-nav--submemu-section-title {
-          span {
-            @include use-carbon-productive-tokens();
-            @include carbon--type-style(productive-heading-02);
-
-            display: flex;
-            width: 100%;
-          }
-        }
-
-        .#{$prefix}--masthead__side-nav--submemu-section-title__icon {
-          display: flex;
-          flex: 1;
-          justify-content: flex-end;
-          align-items: center;
-        }
-      }
     }
 
     .#{$prefix}--side-nav__submenu-title {
@@ -483,7 +436,7 @@
     .#{$prefix}--side-nav__submenu-content,
   .#{$prefix}--side-nav__menu-item.#{$prefix}--masthead__side-nav__last-highlighted
     .#{$prefix}--side-nav__link::after,
-  :host(dds-left-nav-menu)
+  :host(dds-left-nav-menu-section)
     .#{$prefix}--masthead__side-nav--submemu-back
     .#{$prefix}--side-nav__link::after,
   :host(#{$dds-prefix}-left-nav-menu-item[last-highlighted])
