@@ -38,14 +38,14 @@
       }
 
       .#{$prefix}--buttongroup {
-        @include carbon--breakpoint(md) {
+        @include carbon--breakpoint('md') {
           flex-direction: row;
         }
       }
 
       .#{$prefix}--buttongroup-item {
-        @include carbon--breakpoint(md) {
-          padding-right: $carbon--layout-03;
+        @include carbon--breakpoint('md') {
+          padding-right: $carbon--spacing-05;
         }
       }
     }
