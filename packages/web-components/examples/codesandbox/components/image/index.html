@@ -6,24 +6,25 @@ LICENSE file in the root directory of this source tree.
 -->
 
 <html>
-  <head>
-    <title>@carbon/ibmdotcom-web-components example</title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" />
-    <style type="text/css">
-      /* Suppress custom element until styles are loaded */
-      dds-image:not(:defined) {
-        display: none;
-      }
-
-      #app {
-        width: 700px;
-      }
-    </style>
-    <script src="src/index.js"></script>
-  </head>
-  <body>
-    <div id="app">
+<head>
+  <title>@carbon/ibmdotcom-web-components example</title>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet"
+        href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/canary/plex.css"/>
+  <link rel="stylesheet"
+        href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/canary/grid.css"/>
+  <style type="text/css">
+    /* Suppress custom element until styles are loaded */
+    dds-image:not(:defined) {
+      display: none;
+    }
+  </style>
+  <script src="src/index.js"></script>
+</head>
+<body>
+<div class="bx--grid">
+  <div class="bx--row">
+    <div class="bx--col-sm-4 bx--col-lg-12">
       <dds-image
         slot="image"
         alt="Image alt text"
@@ -39,13 +40,18 @@ LICENSE file in the root directory of this source tree.
           srcset="https://fpoimg.com/600x300?text=2:1&bg_color=ee5396&text_color=161616"
         >
         </dds-image-item>
-        <dds-image-item media="(min-width: 991px)" srcset="https://fpoimg.com/600x600?text=1:1&bg_color=ee5396&text_color=161616">
+        <dds-image-item media="(min-width: 991px)"
+                        srcset="https://fpoimg.com/600x600?text=1:1&bg_color=ee5396&text_color=161616">
         </dds-image-item>
-        <dds-image-item media="(min-width: 672px)" srcset="https://fpoimg.com/400x200?text=2:1&bg_color=ee5396&text_color=161616">
+        <dds-image-item media="(min-width: 672px)"
+                        srcset="https://fpoimg.com/400x200?text=2:1&bg_color=ee5396&text_color=161616">
         </dds-image-item>
-        <dds-image-item media="(min-width: 320px)" srcset="https://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616">
+        <dds-image-item media="(min-width: 320px)"
+                        srcset="https://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616">
         </dds-image-item>
       </dds-image>
     </div>
-  </body>
+  </div>
+</div>
+</body>
 </html>
