@@ -126,6 +126,7 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "expect-playwright": "^0.2.0",
     "expect-puppeteer": "^4.4.0",
+    "fast-sass-loader": "2.0.0",
     "glob": "^7.1.0",
     "gulp": "^4.0.0",
     "gzip-size": "^5.0.0",
