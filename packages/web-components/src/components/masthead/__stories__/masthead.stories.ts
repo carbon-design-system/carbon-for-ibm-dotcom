@@ -41,12 +41,12 @@ const platformObject = {
     name: 'Cloud',
   },
   'fr-FR': {
-    url: 'https://www.cloud.com/fr-fr',
-    name: 'Le Cloud',
+    url: 'https://www.cloud.com/fr-fr/sample',
+    name: 'Nuage',
   },
   'es-MX': {
-    url: 'https://www.cloud.com/ex-mx',
-    name: 'La Nube',
+    url: 'https://www.cloud.com/ibm/sample/es-mx',
+    name: 'Nube',
   },
 };
 
