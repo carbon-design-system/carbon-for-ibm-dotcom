@@ -11,10 +11,15 @@
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/globals/imports';
 @import '@carbon/ibmdotcom-styles/scss/components/card-group/card-group';
+@import '@carbon/ibmdotcom-styles/scss/globals/utils/hang';
 
 :host(#{$dds-prefix}-card-group) {
   background-color: $decorative-01;
   box-shadow: inset 0 0 0 1px $ui-background;
+
+  @include carbon--breakpoint('md') {
+    @include hang;
+  }
 
   /* stylelint-disable-next-line selector-type-no-unknown */
   dds-card-group-item[empty] {

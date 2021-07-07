@@ -42,8 +42,8 @@
 
   :host(#{$dds-prefix}-content-block-cards) .#{$prefix}--content-block__cta,
   .#{$prefix}--content-block-cards .#{$prefix}--content-block__cta {
-    @include carbon--breakpoint('lg') {
-      @include carbon--make-col(4, 12);
+    .#{$prefix}--card {
+      max-width: rem(320px);
     }
   }
 
@@ -53,7 +53,6 @@
 
   .#{$prefix}--content-block-cards__content {
     .#{$prefix}--card__CTA {
-      // max-width: none;
       margin: 0;
     }
   }

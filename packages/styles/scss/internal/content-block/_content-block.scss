@@ -77,8 +77,8 @@
     // Most slotted contents have margins aligning to Carbon grid gutters.
     // Note: Child contents define their margin by their own
     ::slotted([slot]) {
-      margin-left: $carbon--spacing-05;
-      margin-right: $carbon--spacing-05;
+      // margin-left: $carbon--spacing-05;
+      // margin-right: $carbon--spacing-05;
     }
 
     // Cards and link lists are the exceptions of above
@@ -112,6 +112,7 @@
 
     ::slotted([slot='heading']) {
       grid-area: heading;
+      margin-left: 0;
     }
 
     ::slotted([slot='media']) {
