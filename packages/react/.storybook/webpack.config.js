@@ -142,6 +142,7 @@ module.exports = ({ config, mode }) => {
     test: /\.scss$/,
     sideEffects: true,
     use: [
+      'cache-loader',
       { loader: useExternalCss ? MiniCssExtractPlugin.loader : 'style-loader' },
       ...styleLoaders,
       NODE_ENV === 'production' ? sassLoader : fastSassLoader,
