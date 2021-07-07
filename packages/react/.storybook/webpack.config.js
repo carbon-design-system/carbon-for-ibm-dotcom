@@ -6,7 +6,6 @@
  */
 
 const path = require('path');
-const sass = require('node-sass');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -34,6 +33,28 @@ const useStyleSourceMap = process.env.REACT_STORYBOOK_SOURCEMAPS === 'true';
  * @type {boolean}
  */
 const useRtl = process.env.REACT_STORYBOOK_USE_RTL === 'true';
+
+const styleLoaders = [
+  {
+    loader: 'css-loader',
+    options: {
+      importLoaders: 2,
+      sourceMap: useStyleSourceMap,
+    },
+  },
+  {
+    loader: 'postcss-loader',
+    options: {
+      plugins: () => {
+        const autoPrefixer = require('autoprefixer')({
+          overrideBrowserslist: ['last 1 version', 'ie >= 11'],
+        });
+        return !useRtl ? [autoPrefixer] : [autoPrefixer, rtlcss];
+      },
+      sourceMap: useStyleSourceMap,
+    },
+  },
+];
 
 module.exports = ({ config, mode }) => {
   config.devtool = useStyleSourceMap ? 'source-map' : '';
@@ -86,50 +107,44 @@ module.exports = ({ config, mode }) => {
     use: ['@svgr/webpack', 'url-loader'],
   });
 
+  const sassLoader = {
+    loader: 'sass-loader',
+    options: {
+      includePaths: [
+        path.resolve(__dirname, '..', 'node_modules'),
+        path.resolve(__dirname, '../../../', 'node_modules'),
+      ],
+      data: `
+         $feature-flags: (
+           enable-css-custom-properties: true
+         );
+       `,
+      sourceMap: useStyleSourceMap,
+    },
+  };
+
+  const fastSassLoader = {
+    loader: 'fast-sass-loader',
+    options: {
+      includePaths: [
+        path.resolve(__dirname, '..', 'node_modules'),
+        path.resolve(__dirname, '../../../', 'node_modules'),
+      ],
+      data: `
+       $feature-flags: (
+         enable-css-custom-properties: true
+       );
+     `,
+    },
+  };
+
   config.module.rules.push({
     test: /\.scss$/,
     sideEffects: true,
     use: [
-      'cache-loader',
       { loader: useExternalCss ? MiniCssExtractPlugin.loader : 'style-loader' },
-      {
-        loader: 'css-loader',
-        options: {
-          importLoaders: 2,
-          sourceMap: useStyleSourceMap,
-        },
-      },
-      {
-        loader: 'postcss-loader',
-        options: {
-          plugins: () => {
-            const autoPrefixer = require('autoprefixer')({
-              overrideBrowserslist: ['last 1 version', 'ie >= 11'],
-            });
-            return !useRtl ? [autoPrefixer] : [autoPrefixer, rtlcss];
-          },
-          sourceMap: useStyleSourceMap,
-        },
-      },
-      {
-        loader: 'sass-loader',
-        options: {
-          additionalData: `
-            $feature-flags: (
-              enable-css-custom-properties: true
-            );
-          `,
-          implementation: sass,
-          sourceMap: useStyleSourceMap,
-          webpackImporter: false,
-          sassOptions: {
-            includePaths: [
-              path.resolve(__dirname, '..', 'node_modules'),
-              path.resolve(__dirname, '../../../', 'node_modules'),
-            ],
-          },
-        },
-      },
+      ...styleLoaders,
+      NODE_ENV === 'production' ? sassLoader : fastSassLoader,
     ],
   });
 
