@@ -3,7 +3,7 @@ name: percy-update-base-wc-e2e-codesandbox
 on:
   push:
     branches:
-      - test/e2e-percy-baseline
+      - master
 
 jobs:
   web-components:
