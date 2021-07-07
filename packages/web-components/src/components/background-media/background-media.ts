@@ -32,8 +32,7 @@ class DDSBackgroundMedia extends DDSImage {
   protected _getGradientClass() {
     return classMap({
       [`${prefix}--background-media--gradient`]: true,
-      [`${prefix}--background-media--gradient--left-to-right`]: this.gradientDirection === GRADIENT_DIRECTION.LEFT_TO_RIGHT,
-      [`${prefix}--background-media--gradient--top-to-bottom`]: this.gradientDirection === GRADIENT_DIRECTION.TOP_TO_BOTTOM,
+      [`${prefix}--background-media--gradient--${this.gradientDirection}`]: this.gradientDirection,
     });
   }
 
@@ -43,8 +42,7 @@ class DDSBackgroundMedia extends DDSImage {
   protected _getMobilePositionClass() {
     return classMap({
       [`${prefix}--background-media--mobile-position`]: true,
-      [`${prefix}--background-media--mobile-position--top`]: this.mobilePosition === MOBILE_POSITION.TOP,
-      [`${prefix}--background-media--mobile-position--bottom`]: this.mobilePosition === MOBILE_POSITION.BOTTOM,
+      [`${prefix}--background-media--mobile-position--${this.mobilePosition}`]: this.mobilePosition,
     });
   }
 

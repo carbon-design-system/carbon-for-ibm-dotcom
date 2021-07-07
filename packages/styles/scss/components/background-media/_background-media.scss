@@ -36,7 +36,7 @@
 
   .#{$prefix}--background-media--gradient--top-to-bottom {
     @include carbon--breakpoint('lg') {
-      background: linear-gradient(
+      background-image: linear-gradient(
         to bottom,
         $ui-background 0%,
         rgba(255, 255, 255, 0) 86%
