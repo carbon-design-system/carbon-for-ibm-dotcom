@@ -703,12 +703,10 @@ class DDSMastheadComposite extends LitElement {
     const formattedLang = language?.toLowerCase().replace(/-(.*)/, m => m.toUpperCase());
     let platformAltName = platform;
     let platformAltUrl = platformUrl;
-
     if (platformObj && formattedLang && Object.prototype.hasOwnProperty.call(platformObj, formattedLang)) {
       platformAltUrl = platformObj[formattedLang].url || platformUrl;
       platformAltName = platformObj[formattedLang].name || platform;
     }
-
     return html`
       <dds-left-nav-overlay></dds-left-nav-overlay>
       <dds-left-nav>

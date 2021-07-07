@@ -72,6 +72,7 @@ export function mapStateToProps(state: CloudMastheadContainerState): MastheadCon
       unauthenticatedCtaButtons: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedout.ctaButtons,
       userStatus: request?.user,
       currentSearchResults: currentSearchResults ?? [],
+      language,
     },
     value => value !== undefined
   );

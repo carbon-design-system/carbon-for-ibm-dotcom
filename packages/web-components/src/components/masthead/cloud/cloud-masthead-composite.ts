@@ -254,6 +254,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
       hasContact,
       platform,
       platformUrl,
+      platformObj,
       inputTimeout,
       mastheadAssistiveText,
       menuBarAssistiveText,
@@ -272,13 +273,20 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     const authenticated = userStatus !== 'anonymous';
     const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
     const ctaButtons = authenticated ? authenticatedCtaButtons : unauthenticatedCtaButtons;
+    const formattedLang = language?.toLowerCase().replace(/-(.*)/, m => m.toUpperCase());
+    let platformAltName = platform;
+    let platformAltUrl = platformUrl;
+    if (platformObj && formattedLang && Object.prototype.hasOwnProperty.call(platformObj, formattedLang)) {
+      platformAltUrl = platformObj[formattedLang].url || platformUrl;
+      platformAltName = platformObj[formattedLang].name || platform;
+    }
     return html`
       <dds-left-nav-overlay></dds-left-nav-overlay>
       <dds-left-nav>
-        ${!platform
+        ${!platformAltName
           ? undefined
           : html`
-              <dds-left-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-left-nav-name>
+              <dds-left-nav-name href="${ifNonNull(platformAltUrl)}">${platformAltName}</dds-left-nav-name>
             `}
         ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV, hasL1: !!l1Data })}
       </dds-left-nav>
@@ -290,10 +298,10 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         </dds-masthead-menu-button>
 
         ${this._renderLogo()}
-        ${!platform
+        ${!platformAltName
           ? undefined
           : html`
-              <dds-cloud-top-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-cloud-top-nav-name>
+              <dds-cloud-top-nav-name href="${ifNonNull(platformAltUrl)}">${platformAltName}</dds-cloud-top-nav-name>
             `}
         ${l1Data
           ? undefined

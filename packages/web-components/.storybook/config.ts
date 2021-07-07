@@ -91,7 +91,7 @@ addDecorator((story, { parameters }) => {
   } else {
     root.setAttribute('storybook-carbon-theme', preservedTheme || '');
   }
-  document.documentElement.setAttribute('lang', 'es-MX');
+  document.documentElement.setAttribute('lang', 'fr-FR');
   return story();
 });
 
