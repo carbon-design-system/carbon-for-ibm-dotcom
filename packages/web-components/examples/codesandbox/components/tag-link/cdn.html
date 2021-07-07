@@ -8,8 +8,11 @@ LICENSE file in the root directory of this source tree.
 <html>
 <head>
   <title>@carbon/ibmdotcom-web-components example</title>
-  <meta charset="UTF-8" />
-  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/canary/plex.css" />
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet"
+        href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/canary/plex.css"/>
+  <link rel="stylesheet"
+        href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/canary/grid.css"/>
   <style type="text/css">
     /* Suppress custom element until styles are loaded */
     dds-tag-link:not(:defined) {
@@ -19,18 +22,19 @@ LICENSE file in the root directory of this source tree.
     body {
       padding: 2rem;
     }
-
-    #app {
-      width: 600px;
-    }
   </style>
-  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/canary/tag-link.min.js"></script>
+  <script type="module"
+          src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/canary/tag-link.min.js"></script>
 </head>
 <body>
-<div id="app">
-  <dds-tag-link href="https://www.example.com">
-    Copy Text
-  </dds-tag-link>
+<div class="bx--grid">
+  <div class="bx--row">
+    <div class="bx--col-sm-4 bx--col-lg-12">
+      <dds-tag-link href="https://www.example.com">
+        Copy Text
+      </dds-tag-link>
+    </div>
+  </div>
 </div>
 </body>
 </html>

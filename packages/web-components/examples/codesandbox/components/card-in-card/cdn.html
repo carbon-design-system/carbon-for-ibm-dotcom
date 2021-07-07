@@ -10,47 +10,58 @@ LICENSE file in the root directory of this source tree.
 <html>
 <head>
   <title>@carbon/ibmdotcom-web-components example</title>
-  <meta charset="UTF-8" />
-  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/canary/plex.css" />
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet"
+        href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/canary/plex.css"/>
+  <link rel="stylesheet"
+        href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/canary/grid.css"/>
   <style>
     /* Suppress custom element until styles are loaded */
     dds-card-in-card:not(:defined) {
       display: none;
     }
-
-    #app {
-      width: 300px;
-    }
   </style>
-  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/canary/card-in-card.min.js"></script>
+  <script type="module"
+          src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/canary/card-in-card.min.js"></script>
 </head>
 <body>
-<h1>Hello World! 👋</h1>
-<div id="app">
-  <dds-card-in-card href="https://example.com">
-    <dds-card-in-card-image slot="image" alt="Image alt text" default-src="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
-      <dds-image-item media="(min-width: 1312px)" srcset="https://fpoimg.com/1312x738?text=16:9&bg_color=ee5396&text_color=161616"> </dds-image-item>
-      <dds-image-item media="(min-width: 672px)" srcset="https://fpoimg.com/960x540?text=16:9&bg_color=ee5396&text_color=161616"> </dds-image-item>
-      <dds-image-item media="(min-width: 320px)" srcset="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616"> </dds-image-item>
-    </dds-card-in-card-image>
-    <dds-card-eyebrow>Label</dds-card-eyebrow>
-    <dds-card-heading>Standard Bank Group prepares to embrace Africa’s AI opportunity</dds-card-heading>
-    <dds-card-cta-footer>
-      <svg
-        slot="icon"
-        focusable="false"
-        preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        aria-hidden="true"
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-      >
-        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-      </svg>
-    </dds-card-cta-footer>
-  </dds-card-in-card>
+<div class="bx--grid">
+  <div class="bx--row">
+    <div class="bx--col-sm-4 bx--col-lg-12">
+      <h1>Hello World! 👋</h1>
+      <dds-card-in-card href="https://example.com">
+        <dds-card-in-card-image slot="image" alt="Image alt text"
+                                default-src="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
+          <dds-image-item media="(min-width: 1312px)"
+                          srcset="https://fpoimg.com/1312x738?text=16:9&bg_color=ee5396&text_color=161616"></dds-image-item>
+          <dds-image-item media="(min-width: 672px)"
+                          srcset="https://fpoimg.com/960x540?text=16:9&bg_color=ee5396&text_color=161616"></dds-image-item>
+          <dds-image-item media="(min-width: 320px)"
+                          srcset="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616"></dds-image-item>
+        </dds-card-in-card-image>
+        <dds-card-eyebrow>Label</dds-card-eyebrow>
+        <dds-card-heading>Standard Bank Group prepares to embrace Africa’s AI
+          opportunity
+        </dds-card-heading>
+        <dds-card-cta-footer>
+          <svg
+            slot="icon"
+            focusable="false"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            aria-hidden="true"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          </svg>
+        </dds-card-cta-footer>
+      </dds-card-in-card>
+    </div>
+  </div>
 </div>
 </body>
 </html>
