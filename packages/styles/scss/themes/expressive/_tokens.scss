@@ -13,15 +13,6 @@
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
 
-/// As of Dart Sass 2.0.0, !global assignments no longer able to declare new variables.
-/// Defining variables at root of stylesheet to avoid warnings and deprecation errors.
-$button-field-height: null;
-$button-md-height: null;
-$button-sm-height: null;
-$input-height: null;
-$tab-container-height: null;
-$tab-height: null;
-
 /// Carbon core original size tokens.
 /// Used to theme-zone from expressive back to productive, and thus defines only items that expressive version defines.
 /// @type Map
