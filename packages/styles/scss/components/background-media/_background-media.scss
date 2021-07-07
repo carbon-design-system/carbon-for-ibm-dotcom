@@ -34,26 +34,11 @@
     }
   }
 
-  // TODO: Expose RGB values to $ui-background within the Carbon theme tokens so that it can be used within gradient and remove the need for the color-scheme attribute.
-  $dds--gradient-light: rgba(255, 255, 255, 0.6);
-  $dds--gradient-dark: rgba(22, 22, 22, 0.6);
-
   .#{$prefix}--background-media--gradient--top-to-bottom {
     @include carbon--breakpoint('lg') {
       background-image: linear-gradient(
         to bottom,
         $ui-background 0%,
-        $dds--gradient-light 64%,
-        rgba(255, 255, 255, 0) 86%
-      );
-    }
-
-    // Set dark RGB when color-scheme is defined as "inverse" on Top to Bottom Gradient.
-    &.bx--background-media--gradient--inverse {
-      background-image: linear-gradient(
-        to bottom,
-        $ui-background 0%,
-        $dds--gradient-dark 64%,
         rgba(255, 255, 255, 0) 86%
       );
     }

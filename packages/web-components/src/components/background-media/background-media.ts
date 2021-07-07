@@ -14,7 +14,6 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import DDSImage from '../image/image';
 import styles from './background-media.scss';
 import { GRADIENT_DIRECTION, MOBILE_POSITION } from './defs';
-import { BASIC_COLOR_SCHEME } from '../../globals/defs';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -34,7 +33,6 @@ class DDSBackgroundMedia extends DDSImage {
     return classMap({
       [`${prefix}--background-media--gradient`]: true,
       [`${prefix}--background-media--gradient--${this.gradientDirection}`]: this.gradientDirection,
-      [`${prefix}--background-media--gradient--${this.colorScheme}`]: this.colorScheme,
     });
   }
 
@@ -59,15 +57,6 @@ class DDSBackgroundMedia extends DDSImage {
    */
   @property({ attribute: 'mobile-position', reflect: true })
   mobilePosition = MOBILE_POSITION.BOTTOM;
-
-  /**
-   * The color scheme.
-   * This prop is needed so that we know if the gradient is part of a Light or Dark theme.
-   *
-   * Color scheme options are: "inverse" and "light"
-   */
-  @property({ attribute: 'color-scheme', reflect: true })
-  colorScheme = BASIC_COLOR_SCHEME.REGULAR;
 
   /**
    * Append the dds-background-media to the parent element where this component is being used.
