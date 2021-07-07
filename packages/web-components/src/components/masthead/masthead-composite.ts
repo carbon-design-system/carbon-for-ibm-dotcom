@@ -700,23 +700,22 @@ class DDSMastheadComposite extends LitElement {
     } = this;
     const authenticated = userStatus !== UNAUTHENTICATED_STATUS;
     const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
-
-    let newPlatform = platform;
-    let newUrl = platformUrl;
     const formattedLang = language?.toLowerCase().replace(/-(.*)/, m => m.toUpperCase());
+    let platformAltName = platform;
+    let platformAltUrl = platformUrl;
 
     if (platformObj && formattedLang && Object.prototype.hasOwnProperty.call(platformObj, formattedLang)) {
-      newUrl = platformObj[formattedLang].url || platformUrl;
-      newPlatform = platformObj[formattedLang].name || platform;
+      platformAltUrl = platformObj[formattedLang].url || platformUrl;
+      platformAltName = platformObj[formattedLang].name || platform;
     }
 
     return html`
       <dds-left-nav-overlay></dds-left-nav-overlay>
       <dds-left-nav>
-        ${!newPlatform
+        ${!platformAltName
           ? undefined
           : html`
-              <dds-left-nav-name href="${ifNonNull(newUrl)}">${newPlatform}</dds-left-nav-name>
+              <dds-left-nav-name href="${ifNonNull(platformAltUrl)}">${platformAltName}</dds-left-nav-name>
             `}
         ${!l1Data?.title
           ? undefined
@@ -737,7 +736,7 @@ class DDSMastheadComposite extends LitElement {
         ${!platform || l1Data
           ? undefined
           : html`
-              <dds-top-nav-name href="${ifNonNull(newUrl)}">${newPlatform}</dds-top-nav-name>
+              <dds-top-nav-name href="${ifNonNull(platformAltUrl)}">${platformAltName}</dds-top-nav-name>
             `}
         ${l1Data
           ? undefined
