@@ -165,6 +165,12 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
   legalLinks: BasicLink[] = [];
 
   /**
+   * The adjunct links.
+   */
+  @property({ attribute: false })
+  adjunctLinks: BasicLink[] = [];
+
+  /**
    * The footer links.
    */
   @property({ attribute: false })
@@ -248,6 +254,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
       size,
       links,
       legalLinks,
+      adjunctLinks,
       _handleClickLocaleButton: handleClickLocaleButton,
     } = this;
     return html`
@@ -303,6 +310,15 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
               <dds-legal-nav-item autoid="${ifNonNull(titleEnglish)}" href="${ifNonNull(url)}">${title}</dds-legal-nav-item>
             `
           )}
+          ${size !== FOOTER_SIZE.MICRO
+            ? adjunctLinks?.map(
+                ({ title, url, titleEnglish }) => html`
+                  <dds-legal-nav-item autoid="${ifNonNull(titleEnglish)}" href="${ifNonNull(url)}" slot="adjunct-links">
+                    ${title}
+                  </dds-legal-nav-item>
+                `
+              )
+            : ``}
           <dds-legal-nav-cookie-preferences-placeholder></dds-legal-nav-cookie-preferences-placeholder>
           ${size === FOOTER_SIZE.MICRO && !langList && !disableLocaleButton
             ? html`

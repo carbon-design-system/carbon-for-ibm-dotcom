@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,11 +13,12 @@ import translateAPIReducer from './translateAPI';
 import profileAPIReducer from './profileAPI';
 import searchAPIReducer from './searchAPI';
 import videoPlayerAPIReducer from './videoPlayerAPI';
+import cloudAccountAuthAPIReducer from './cloudAccountAuthAPI';
 
 export { localeAPIReducer as localeAPI, translateAPIReducer as translateAPI, profileAPIReducer as profileAPI };
 
 /**
- * The combined reducer of one for `LocaleAPI`, one for `TranslateAPI`. and one for `ProfileAPI`.
+ * The combined reducer for all APIs.
  */
 const reducers = combineReducers({
   localeAPI: localeAPIReducer,
@@ -25,6 +26,7 @@ const reducers = combineReducers({
   profileAPI: profileAPIReducer,
   searchAPI: searchAPIReducer,
   videoPlayerAPI: videoPlayerAPIReducer,
+  cloudAccountAuthAPI: cloudAccountAuthAPIReducer,
 });
 
 export default reducers;

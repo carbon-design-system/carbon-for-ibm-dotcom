@@ -115,3 +115,7 @@
     color: $inverse-link;
   }
 }
+
+:host(#{$dds-prefix}-card-footer[href])::after {
+  position: relative;
+}

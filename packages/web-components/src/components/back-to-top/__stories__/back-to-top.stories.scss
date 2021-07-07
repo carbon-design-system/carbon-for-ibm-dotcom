@@ -11,7 +11,7 @@
 @import '@carbon/ibmdotcom-styles/scss/components/link-list/link-list';
 @import '@carbon/ibmdotcom-styles/scss/components/callout-with-media/callout-with-media';
 @import '@carbon/ibmdotcom-styles/scss/components/video-player/video-player';
-@import '@carbon/ibmdotcom-styles/scss/components/content-group-horizontal/content-group-horizontal';
+@import '@carbon/ibmdotcom-styles/scss/components/content-block-horizontal/content-block-horizontal';
 @import '@carbon/ibmdotcom-styles/scss/components/ctasection/ctasection';
 
 @media (min-width: 66rem) {
@@ -20,13 +20,14 @@
   }
 }
 
-.bx--content {
-  padding: 2rem;
-  background: var(--cds-ui-02, #ffffff);
-  transform: translate3d(0, 0, 0);
-  will-change: margin-left;
+/* stylelint-disable-next-line selector-type-no-unknown */
+dds-leadspace {
+  @include carbon--theme($carbon--theme--g100, true);
 }
 
-.dds-ce-demo-devenv--container--has-grid {
-  padding-top: 0;
+/* stylelint-disable-next-line selector-type-no-unknown */
+dds-cta-section {
+  @include carbon--theme($carbon--theme--g10, true);
+
+  background-color: $ui-background;
 }

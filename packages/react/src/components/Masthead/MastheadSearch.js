@@ -304,7 +304,7 @@ const MastheadSearch = ({
     onChange,
     onKeyDown,
     className: `${prefix}--header__search--input`,
-    'aria-labelledby': 'react-autowhatever-1',
+    'aria-label': placeHolderText,
     role: 'combobox',
     'aria-expanded': !!state.suggestions.length,
   };
@@ -576,6 +576,7 @@ const MastheadSearch = ({
             renderSuggestion={renderSuggestion} // How to display a suggestion
             renderSuggestionsContainer={renderSuggestionsContainer}
             onSuggestionSelected={onSuggestionSelected} // When a suggestion is selected
+            focusInputOnSuggestionClick={false}
             inputProps={inputProps}
             containerProps={containerProps}
             renderInputComponent={renderInputComponent}
