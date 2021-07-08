@@ -41,6 +41,26 @@ import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-contain
 <dds-masthead-container platform="Lorem Ipsum"></dds-masthead-container>
 ```
 
+#### Setting Platform URL Object (Optional)
+
+```javascript
+const urlObject = {
+  'en-US': {
+    url: 'https://www.cloud.com/us-en',
+  },
+  'fr-FR': {
+    url: 'https://www.cloud.com/fr-fr/sample',
+  },
+  'es-MX': {
+    url: 'https://www.cloud.com/ibm/sample/es-mx',
+  },
+};
+```
+
+```html
+<dds-masthead-container platform="Lorem Ipsum" platformObj={urlObject}></dds-masthead-container>
+```
+
 #### Custom Navigation
 
 ```javascript
