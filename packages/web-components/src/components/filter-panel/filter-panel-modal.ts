@@ -58,6 +58,31 @@ class DDSFilterPanelModal extends HostListenerMixin(StableSelectorMixin(BXModal)
   @property({ attribute: 'has-selections', type: Boolean })
   hasSelections = false;
 
+  /**
+   * Handles user-initiated close request of this modal.
+   * @param triggeredBy The element that triggered this close request.
+   */
+  private _handleUserInitiatedClose(triggeredBy: EventTarget | null) {
+    if (this.open) {
+      const init = {
+        bubbles: true,
+        cancelable: true,
+        composed: true,
+        detail: {
+          triggeredBy,
+        },
+      };
+      if (this.dispatchEvent(new CustomEvent((this.constructor as typeof BXModal).eventBeforeClose, init))) {
+        this.open = false;
+        this.dispatchEvent(new CustomEvent((this.constructor as typeof BXModal).eventClose, init));
+      }
+    }
+  }
+
+  static get eventBeforeClose() {
+    return `${prefix}-modal-beingclosed`;
+  }
+
   render() {
     return html`
       <a id="start-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>

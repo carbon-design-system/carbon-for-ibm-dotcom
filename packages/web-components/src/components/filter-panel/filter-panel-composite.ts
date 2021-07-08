@@ -182,7 +182,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   _selectedValues: string[] = [];
 
   @property()
-  _filterButtonTitle: string;
+  _filterButtonTitle: string[] = [];
 
   /**
    * Handles `slotchange` event.
