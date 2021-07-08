@@ -19,6 +19,7 @@ import '../filter-panel-composite';
 import '../checkbox';
 import 'carbon-web-components/es/components/accordion/accordion';
 import 'carbon-web-components/es/components/accordion/accordion-item';
+import readme from './README.stories.mdx';
 
 import styles from './filter-panel.stories.scss';
 
@@ -92,6 +93,7 @@ export default {
   ],
   hasGrid: true,
   parameters: {
+    ...readme.parameters,
     knobs: {
       FilterPanel: ({ groupId }) => ({
         heading: text('heading', 'Filter', groupId),
