@@ -24,10 +24,10 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
    *
    * renders filter title slot
    */
+  // eslint-disable-next-line class-methods-use-this
   protected _renderHeading() {
-    const { title } = this;
     return html`
-      <slot name="heading">${title}</slot>
+      <slot name="heading"></slot>
     `;
   }
 

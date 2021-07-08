@@ -26,18 +26,12 @@ class DDSFilterPanelModal extends HostListenerMixin(StableSelectorMixin(BXModal)
    *
    * renders filter title slot
    */
+  // eslint-disable-next-line class-methods-use-this
   protected _renderHeading() {
-    const { title } = this;
     return html`
-      <slot name="heading">${title}</slot>
+      <slot name="heading"></slot>
     `;
   }
-
-  /**
-   * the filter title
-   */
-  @property()
-  title = '';
 
   @property()
   selectedValues: any[] = [];
@@ -61,18 +55,8 @@ class DDSFilterPanelModal extends HostListenerMixin(StableSelectorMixin(BXModal)
     );
   }
 
-  /**
-   * `true` to open the locale modal.
-   */
-  @property({ type: Boolean })
-  closeFilterModal = false;
-
   @property({ attribute: 'has-selections', type: Boolean })
   hasSelections = false;
-
-  protected _openModal() {
-    this.closeFilterModal = true;
-  }
 
   render() {
     return html`
@@ -84,7 +68,7 @@ class DDSFilterPanelModal extends HostListenerMixin(StableSelectorMixin(BXModal)
         <slot></slot>
         <bx-modal-footer>
           <bx-btn ?disabled="${!this.hasSelections}" @click=${this._handleClear} kind="tertiary">Clear</bx-btn>
-          <bx-btn kind="primary">See Results</bx-btn>
+          <bx-btn @click=${this._handleUserInitiatedClose} kind="primary">See Results</bx-btn>
         </bx-modal-footer>
       </section>
       <a id="end-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>

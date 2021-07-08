@@ -22,32 +22,33 @@
     padding-bottom: $spacing-09;
   }
   .#{$prefix}--filter-panel__section {
-    width: 300px;
     background-color: $ui-01;
+    padding-bottom: $spacing-09;
   }
   .#{$prefix}--input_container {
     width: 100%;
   }
   .#{$prefix}--input_container:focus {
-    outline: 2px solid $focus;
+    outline: $spacing-01 solid $focus;
   }
   .#{$prefix}--input_container-heading {
     position: relative;
     cursor: pointer;
-    padding: 7px $spacing-05 7px $spacing-05;
-    color: $text-01;
+    padding: $spacing-03 $spacing-05 $spacing-03 $spacing-05;
+    color: $text-02;
     @include carbon--type-style('body-short-01');
     &:hover {
       background-color: $hover-ui;
+      color: $text-01;
     }
     .#{$prefix}--close_icon {
       position: absolute;
-      right: 16px;
-      top: 18px;
-      margin-top: -8px;
+      right: $spacing-05;
+      top: $spacing-04;
     }
     &.#{$prefix}--selected__option {
-      background-color: #d0e2ff;
+      background-color: $highlight;
+      color: $text-01;
     }
   }
   .#{$prefix}--selected__option_dropdown {
@@ -61,22 +62,16 @@
     width: 100%;
     cursor: pointer;
     position: relative;
-    padding: 7px $spacing-08 7px $spacing-08;
+    padding: $spacing-03 $spacing-08 $spacing-03 $spacing-08;
     &:hover {
       background-color: $hover-ui;
     }
     &:focus {
-      background-color: #d0e2ff;
+      background-color: $highlight;
     }
     &.#{$prefix}--selected__option {
-      background-color: #d0e2ff;
+      background-color: $highlight;
     }
-  }
-  .#{$prefix}--input_container-option .#{$prefix}--close_icon {
-    position: absolute;
-    right: $spacing-05;
-    top: 50%;
-    margin-top: -8px;
   }
   @media (min-width: 640px) {
     .#{$prefix}--accordion__content {
@@ -93,7 +88,7 @@
     cursor: pointer;
     padding-right: $spacing-05;
     border: 0;
-    color: #0f62fe;
+    color: $interactive-01;
     background-color: $ui-01;
     @include carbon--type-style('body-short-01');
   }

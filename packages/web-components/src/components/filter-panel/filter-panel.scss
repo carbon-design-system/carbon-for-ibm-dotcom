@@ -8,11 +8,11 @@
  */
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/components/expressive-modal/expressive-modal';
-@import '@carbon/ibmdotcom-styles/scss/components/filter-panel/filter-panel';
 @import 'carbon-components/scss/components/accordion/accordion';
 @import 'carbon-web-components/scss/components/modal/modal';
 @import 'carbon-web-components/scss/components/checkbox/checkbox';
 @import 'carbon-web-components/scss/components/accordion/accordion';
+@import '../../../../styles/scss/components/filter-panel/filter-panel';
 
 :host(#{$dds-prefix}-filter-panel-modal) {
   @extend :host(#{$prefix}-modal);
@@ -77,10 +77,10 @@
   .#{$prefix}--filter-button {
     @include carbon--type-style('body-short-01');
 
-    border: 1px solid #0f62fe;
-    color: #0f62fe;
-    padding: 1rem;
-    background-color: #ffffff;
+    border: 1px solid $interactive-01;
+    color: $interactive-01;
+    padding: $spacing-05;
+    background-color: $ui-background;
     width: 128px;
     @include carbon--breakpoint('lg') {
       display: none;
@@ -91,28 +91,63 @@
 :host(#{$dds-prefix}-checkbox) {
   @extend :host(#{$prefix}-checkbox);
 
+  color: $text-02;
   padding-left: $spacing-05;
+  &:hover {
+    color: $text-01;
+  }
+  &[checked] {
+    color: $text-01;
+  }
 }
-
+:host(#{$dds-prefix}-input-select) {
+  display: block;
+  &[selected] {
+    background-color: $highlight;
+    .#{$prefix}--input_container-heading {
+      color: $text-01;
+    }
+  }
+}
 :host(#{$dds-prefix}-input-select-item) {
+  background-color: $ui-01;
   width: 100%;
   cursor: pointer;
   position: relative;
-  padding: 7px $spacing-08 7px $spacing-08;
+  color: $text-02;
+  padding: $spacing-03 $spacing-08 $spacing-03 $spacing-08;
   &:hover {
     background-color: $hover-ui;
+    color: $text-01;
   }
-  &:focus {
+  &:active {
     background-color: $highlight;
   }
 
   &[selected] {
     background-color: $highlight;
+    color: $text-01;
   }
   .#{$prefix}--close_icon {
     position: absolute;
-    right: 16px;
-    top: 18px;
-    margin-top: -8px;
+    right: $spacing-05;
+    top: $spacing-04;
+  }
+}
+:host(#{$dds-prefix}-filter-panel-heading) {
+  @include carbon--breakpoint('sm') {
+    margin-left: $spacing-05;
+    margin-bottom: $spacing-05;
+  }
+  @include carbon--breakpoint('lg') {
+    margin: 0;
+  }
+}
+
+:host(#{$dds-prefix}-filter-group:first-of-type) {
+  ::slotted(#{$prefix}-accordion-item:first-of-type) {
+    @include carbon--breakpoint-down('md') {
+      margin-top: 1rem;
+    }
   }
 }

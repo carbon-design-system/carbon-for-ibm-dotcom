@@ -29,12 +29,8 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
   @property()
   title!: string;
 
-  protected _toggleSelect = () => {
-    this.isOpen = !this.isOpen;
-  };
-
-  @property()
-  selected: string = '';
+  @property({ attribute: 'selected', type: Boolean })
+  selected: boolean = false;
 
   @property()
   value: string = '';
@@ -57,7 +53,8 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
       if (this.lastValue) {
         this.lastValue.removeAttribute('selected');
       }
-
+      this.selected = false;
+      this.removeAttribute('selected');
       selected.setAttribute('selected', '');
     }
 
@@ -68,6 +65,7 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
         detail: {
           value: selected.getAttribute('value'),
           lastValue: this.lastValue ? this.lastValue.getAttribute('value') : '',
+          headerValue: this.headerValue,
         },
       })
     );
@@ -76,6 +74,28 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
 
   @property()
   _items: any[] = [];
+
+  @property({ attribute: 'header-value' })
+  headerValue: string = '';
+
+  static get eventTitleChange() {
+    return `${ddsPrefix}-input-select-title`;
+  }
+
+  protected _handleClickHeader() {
+    const { eventTitleChange } = this.constructor as typeof DDSInputSelect;
+    this.isOpen = !this.isOpen;
+    this.selected = !this.selected;
+    this.dispatchEvent(
+      new CustomEvent(eventTitleChange, {
+        bubbles: true,
+        composed: true,
+        detail: {
+          headerValue: this.headerValue,
+        },
+      })
+    );
+  }
 
   /**
    * Handles `slotchange` event.
@@ -88,25 +108,14 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
       .filter(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
   }
 
-  protected _tierOneElementIsSelected = () => {
-    if (this.isOpen && !this.selectValue) {
-      return `${prefix}--selected__option`;
-    }
-    return null;
-  };
-
   render() {
     const { title } = this;
     return html`
       <div class="${prefix}--input_container">
-        <div
-          class="${this._tierOneElementIsSelected()} ${prefix}--input_container-heading"
-          tabindex="1"
-          @click=${this._toggleSelect}
-        >
-          <span>${title}</span>
+        <div class="${prefix}--input_container-heading" tabindex="1" @click=${this._handleClickHeader}>
+          ${title}
           <div class="${prefix}--close_icon">
-            ${!this.selectValue && this.isOpen ? Close() : null}
+            ${this.selected && this.isOpen ? Close() : null}
           </div>
         </div>
         <ul
