@@ -60,9 +60,10 @@ class DDSFilterPanelModal extends HostListenerMixin(StableSelectorMixin(BXModal)
 
   /**
    * Handles user-initiated close request of this modal.
+   *
    * @param triggeredBy The element that triggered this close request.
    */
-  private _handleUserInitiatedClose(triggeredBy: EventTarget | null) {
+  protected _handleUserClose(triggeredBy: EventTarget | null) {
     if (this.open) {
       const init = {
         bubbles: true,
@@ -93,7 +94,7 @@ class DDSFilterPanelModal extends HostListenerMixin(StableSelectorMixin(BXModal)
         <slot></slot>
         <bx-modal-footer>
           <bx-btn ?disabled="${!this.hasSelections}" @click=${this._handleClear} kind="tertiary">Clear</bx-btn>
-          <bx-btn @click=${this._handleUserInitiatedClose} kind="primary">See Results</bx-btn>
+          <bx-btn @click=${this._handleUserClose} kind="primary">See Results</bx-btn>
         </bx-modal-footer>
       </section>
       <a id="end-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>

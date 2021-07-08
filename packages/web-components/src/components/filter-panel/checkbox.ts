@@ -9,9 +9,9 @@
 
 import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import styles from './filter-panel.scss';
 import 'carbon-web-components/es/components/modal/modal';
 import BXCheckbox from 'carbon-web-components/es/components/checkbox/checkbox';
+import styles from './filter-panel.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

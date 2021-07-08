@@ -7,12 +7,7 @@
 
 @import '../../globals/vars';
 @import '../../globals/imports';
-@import 'carbon-components/scss/components/accordion/accordion';
 @import 'carbon-components/scss/components/accordion/keyframes';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/accordion';
-@import 'carbon-components/scss/components/checkbox/checkbox';
-@import 'carbon-components/scss/components/button/button';
-@import 'carbon-web-components/scss/components/accordion/accordion';
 
 @mixin filter-panel {
   .#{$prefix}--filter_heading {

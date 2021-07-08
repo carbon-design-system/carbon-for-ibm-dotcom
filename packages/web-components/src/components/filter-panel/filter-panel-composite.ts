@@ -95,8 +95,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     this._selectedValues = [];
     const { headerValue } = event.detail;
     // toggle title state
-
-    const selected = event.composedPath();
+    const selected = event.composedPath()[0];
     if ((selected as HTMLElement).hasAttribute('selected')) {
       (selected as HTMLElement).removeAttribute('selected');
       this._selectedValues = this._selectedValues.filter(e => e !== headerValue);
