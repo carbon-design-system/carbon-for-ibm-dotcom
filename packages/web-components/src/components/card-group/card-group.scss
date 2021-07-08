@@ -17,10 +17,6 @@
   background-color: $decorative-01;
   box-shadow: inset 0 0 0 1px $ui-background;
 
-  @include carbon--breakpoint('md') {
-    @include hang;
-  }
-
   /* stylelint-disable-next-line selector-type-no-unknown */
   dds-card-group-item[empty] {
     background-color: $ui-background;
