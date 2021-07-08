@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -28,7 +28,7 @@
 @mixin cta-section--pattern {
   :host(#{$dds-prefix}-cta-section),
   .#{$prefix}--cta-section {
-    &__cta {
+    .#{$prefix}--cta-section__cta {
       padding-bottom: $carbon--layout-05;
       @include carbon--breakpoint('md') {
         padding-bottom: $carbon--layout-06;
@@ -38,14 +38,14 @@
       }
 
       .#{$prefix}--buttongroup {
-        @include carbon--breakpoint(md) {
+        @include carbon--breakpoint('md') {
           flex-direction: row;
         }
       }
 
       .#{$prefix}--buttongroup-item {
-        @include carbon--breakpoint(md) {
-          padding-right: $carbon--layout-03;
+        @include carbon--breakpoint('md') {
+          padding-right: $carbon--spacing-05;
         }
       }
     }

@@ -29,15 +29,6 @@ $search-transition-timing: 95ms;
     transition-timing-function: $search-transition;
     overflow: visible;
 
-    // Exclude the target breakpoint itself (800px) by subtracting .02.
-    // This has been addressed in Carbon core, but only for breakpoint
-    // keywords, i.e. 'md', 'lg'.
-    // The calculation is not applied to numeric values.
-    // https://github.com/carbon-design-system/carbon/blob/master/packages/layout/scss/_breakpoint.scss#L172
-    @include carbon--breakpoint-down(799.98px) {
-      display: none;
-    }
-
     &::after {
       content: '';
       position: absolute;
@@ -80,16 +71,15 @@ $search-transition-timing: 95ms;
     z-index: 1;
     background-color: $ui-02;
     color: $text-04;
-    padding: 0 rem(12px);
+    padding: 0 0 0 rem(12px);
     align-items: stretch;
     white-space: nowrap;
 
     @include carbon--breakpoint-down(lg) {
-      min-width: rem(208px);
       padding-left: 0;
     }
 
-    &[aria-selected='true'] a::after {
+    &[aria-selected='true'] span::after {
       content: '';
       display: block;
       position: absolute;
@@ -106,8 +96,8 @@ $search-transition-timing: 95ms;
     display: flex;
     align-items: stretch;
     min-width: rem(67px);
-    padding: 0 $carbon--spacing-05;
     white-space: nowrap;
+    position: relative;
 
     a {
       @include type-style('productive-heading-02');
@@ -117,6 +107,17 @@ $search-transition-timing: 95ms;
       color: $text-01;
       position: relative;
       text-decoration: none;
+      padding: 0 $carbon--spacing-05;
+
+      &:active,
+      &:focus {
+        outline: 2px solid $interactive-01;
+        outline-offset: -2px;
+      }
+    }
+
+    &:hover {
+      background-color: $hover-ui;
     }
   }
 
@@ -150,7 +151,7 @@ $search-transition-timing: 95ms;
       background-color: $ui-03;
       + .#{$prefix}--header__menu {
         li {
-          background-color: $ui-01;
+          background-color: $ui-background;
 
           &:hover {
             background-color: $hover-ui;
