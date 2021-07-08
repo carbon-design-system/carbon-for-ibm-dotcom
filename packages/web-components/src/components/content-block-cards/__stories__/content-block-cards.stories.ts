@@ -129,8 +129,6 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    // hasGrid: true,
-    // hasVerticalSpacingInComponent: true,
     useRawContainer: true,
     knobs: {
       ContentBlockCards: () => ({
