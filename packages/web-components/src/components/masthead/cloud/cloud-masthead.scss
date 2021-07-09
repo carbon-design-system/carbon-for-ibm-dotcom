@@ -84,7 +84,9 @@
 
 :host(#{$dds-prefix}-cloud-megamenu),
 .#{$prefix}--masthead__megamenu {
+  width: 100%;
   position: relative;
+  overflow: hidden;
 
   &::after {
     content: '';
@@ -93,6 +95,12 @@
     width: 100%;
     height: carbon--rem(48px);
     background: linear-gradient(rgba(255, 255, 255, 0.001), $ui-background); /* transparent keyword is broken in Safari */
+  }
+
+  .#{$prefix}--masthead__megamenu__container {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 
   .#{$prefix}--masthead__megamenu__container--row {
