@@ -32,13 +32,13 @@ const platformData = {
 
 const urlObject = {
   'en-US': {
-    url: 'https://www.cloud.com/us-en',
+    url: 'https://www.example.com/us-en',
   },
   'fr-FR': {
-    url: 'https://www.cloud.com/fr-fr/sample',
+    url: 'https://www.example.com/fr-fr/sample',
   },
   'es-MX': {
-    url: 'https://www.cloud.com/ibm/sample/es-mx',
+    url: 'https://www.example.com/es-mx/sample',
   },
 };
 
@@ -56,7 +56,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
           ? html`
               <dds-cloud-masthead-composite
                 platform="Cloud"
-                platform-url="${ifNonNull(platformData.url)}"
+                .platformUrl="${ifNonNull(platformData.url)}"
                 selected-menu-item="${ifNonNull(selectedMenuItem)}"
                 user-status="${ifNonNull(userStatus)}"
                 searchPlaceholder="${ifNonNull(searchPlaceholder)}"
@@ -71,8 +71,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
           : html`
               <dds-cloud-masthead-container
                 platform="Cloud"
-                platform-url="${ifNonNull(platformData.url)}"
-                .platformObj="${urlObject}"
+                .platformUrl="${ifNonNull(urlObject)}"
                 selected-menu-item="${ifNonNull(selectedMenuItem)}"
                 ?has-contact="${hasContact}"
                 auth-method="cookie"

@@ -529,16 +529,10 @@ class DDSMastheadComposite extends LitElement {
   platform!: string;
 
   /**
-   * The platform url.
-   */
-  @property({ attribute: 'platform-url' })
-  platformUrl?: string;
-
-  /**
-   * The multiple locale platform and url object.
+   * The platform url. Accepts both a string or an object with a specific URL for each locale.
    */
   @property({ attribute: false })
-  platformObj?;
+  platformUrl?;
 
   /**
    * The brand name.
@@ -681,7 +675,6 @@ class DDSMastheadComposite extends LitElement {
       currentSearchResults,
       platform,
       platformUrl,
-      platformObj,
       hasProfile,
       inputTimeout,
       mastheadAssistiveText,
@@ -701,19 +694,20 @@ class DDSMastheadComposite extends LitElement {
     const authenticated = userStatus !== UNAUTHENTICATED_STATUS;
     const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
     const formattedLang = language?.toLowerCase().replace(/-(.*)/, m => m.toUpperCase());
-    let platformAltName = platform;
     let platformAltUrl = platformUrl;
-    if (platformObj && formattedLang && Object.prototype.hasOwnProperty.call(platformObj, formattedLang)) {
-      platformAltUrl = platformObj[formattedLang].url || platformUrl;
-      platformAltName = platformObj[formattedLang].name || platform;
+    if (platformUrl && formattedLang) {
+      if (typeof platformUrl === 'object' && Object.prototype.hasOwnProperty.call(platformUrl, formattedLang)) {
+        platformAltUrl = platformUrl[formattedLang].url || platformUrl;
+      }
     }
+
     return html`
       <dds-left-nav-overlay></dds-left-nav-overlay>
       <dds-left-nav>
-        ${!platformAltName
+        ${!platform
           ? undefined
           : html`
-              <dds-left-nav-name href="${ifNonNull(platformAltUrl)}">${platformAltName}</dds-left-nav-name>
+              <dds-left-nav-name href="${ifNonNull(platformAltUrl)}">${platform}</dds-left-nav-name>
             `}
         ${!l1Data?.title
           ? undefined
@@ -731,10 +725,10 @@ class DDSMastheadComposite extends LitElement {
         </dds-masthead-menu-button>
 
         ${this._renderLogo()}
-        ${!platformAltName || l1Data
+        ${!platform || l1Data
           ? undefined
           : html`
-              <dds-top-nav-name href="${ifNonNull(platformAltUrl)}">${platformAltName}</dds-top-nav-name>
+              <dds-top-nav-name href="${ifNonNull(platformAltUrl)}">${platform}</dds-top-nav-name>
             `}
         ${l1Data
           ? undefined

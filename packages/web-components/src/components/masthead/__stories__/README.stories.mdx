@@ -41,13 +41,19 @@ import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-contain
 <dds-masthead-container platform="Lorem Ipsum"></dds-masthead-container>
 ```
 
-#### Setting Platform and URL
+#### Setting Platform URL
+
+The `platformUrl` property accepts a single URL as string or an object with a specific URL for each locale.
+
+###### Setting a single platform URL:
 
 ```html
-<dds-masthead-container platform="Lorem Ipsum" platform-url="https://www.example.com"></dds-masthead-container>
+<dds-masthead-container platform="Lorem Ipsum" .platformUrl="${`https://www.example.com`}"></dds-masthead-container>
 ```
 
-#### Setting Platform URL Object (Optional)
+###### Setting multiple platform URLs with an object:
+
+With an object, the component will show a specific URL depending on the locale:
 
 ```javascript
 const urlObject = {
@@ -58,13 +64,13 @@ const urlObject = {
     url: 'https://www.example.com/fr-fr/sample',
   },
   'es-MX': {
-    url: 'https://www.example.com/sample/es-mx',
+    url: 'https://www.example.com/es-mx/sample',
   },
 };
 ```
 
 ```html
-<dds-masthead-container platform="Lorem Ipsum" platformObj={urlObject}></dds-masthead-container>
+<dds-masthead-container platform="Lorem Ipsum" .platformUrl=${urlObject}></dds-masthead-container>
 ```
 
 #### Custom Navigation

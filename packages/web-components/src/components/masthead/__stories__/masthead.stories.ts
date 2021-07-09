@@ -37,13 +37,13 @@ const platformData = {
 
 const urlObject = {
   'en-US': {
-    url: 'https://www.cloud.com/us-en',
+    url: 'https://www.example.com/us-en',
   },
   'fr-FR': {
-    url: 'https://www.cloud.com/fr-fr/sample',
+    url: 'https://www.example.com/fr-fr/sample',
   },
   'es-MX': {
-    url: 'https://www.cloud.com/ibm/sample/es-mx',
+    url: 'https://www.example.com/ibm/es-mx/sample',
   },
 };
 
@@ -59,7 +59,7 @@ export const Default = ({ parameters }) => {
       ? html`
           <dds-masthead-composite
             platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
+            .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
@@ -73,7 +73,7 @@ export const Default = ({ parameters }) => {
       : html`
           <dds-masthead-container
             platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
+            .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
@@ -94,7 +94,7 @@ export const WithCustomNavigation = ({ parameters }) => {
     </style>
     <dds-masthead-container-search-only
       platform="${ifNonNull(platform)}"
-      platform-url="${ifNonNull(platformData.url)}"
+      .platformUrl="${ifNonNull(platformData.url)}"
       selected-menu-item="${ifNonNull(selectedMenuItem)}"
       user-status="${ifNonNull(userStatus)}"
       searchPlaceholder="${ifNonNull(searchPlaceholder)}"
@@ -120,7 +120,7 @@ export const searchOpenOnload = ({ parameters }) => {
           <dds-masthead-composite
             activate-search="true"
             platform="${ifNonNull(platformData.name)}"
-            platform-url="${ifNonNull(platformData.url)}"
+            .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
@@ -135,7 +135,7 @@ export const searchOpenOnload = ({ parameters }) => {
           <dds-masthead-container
             activate-search="true"
             platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
+            .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
@@ -159,7 +159,7 @@ export const withPlatform = ({ parameters }) => {
       ? html`
           <dds-masthead-composite
             platform="${ifNonNull(platformData.name)}"
-            platform-url="${ifNonNull(platformData.url)}"
+            .platformUrl="${ifNonNull(urlObject)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
@@ -173,8 +173,7 @@ export const withPlatform = ({ parameters }) => {
       : html`
           <dds-masthead-container
             platform="${ifNonNull(platformData.name)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            .platformObj="${urlObject}"
+            .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
@@ -261,7 +260,7 @@ export const withAlternateLogoAndTooltip = ({ parameters }) => {
       ? html`
           <dds-masthead-composite
             platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
+            .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
@@ -276,7 +275,7 @@ export const withAlternateLogoAndTooltip = ({ parameters }) => {
       : html`
           <dds-masthead-container
             platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
+            .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
