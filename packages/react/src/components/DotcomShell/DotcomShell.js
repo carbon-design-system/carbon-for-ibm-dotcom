@@ -47,7 +47,7 @@ DotcomShell.propTypes = {
 
   /**
    * Props for the Masthead.
-   * See [`<Footer>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-footer--default) for more details.
+   * See [`<Footer>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-footer--default) for more details.
    */
   footerProps: PropTypes.shape({
     navigation: PropTypes.shape({
@@ -86,7 +86,7 @@ DotcomShell.propTypes = {
 
   /**
    * Props for the Masthead.
-   * See [`<Masthead>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-masthead--default) for more details.
+   * See [`<Masthead>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-masthead--default) for more details.
    */
   mastheadProps: PropTypes.shape(Masthead.propTypes),
 };
