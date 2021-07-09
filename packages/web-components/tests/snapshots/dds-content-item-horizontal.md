@@ -26,6 +26,7 @@
     </div>
   </div>
 </div>
+
 ```
 
 ####   `should render with various attributes`
@@ -52,6 +53,7 @@
     </div>
   </div>
 </div>
+
 ```
 
 ## `Misc attributes - WithMedia`
@@ -138,6 +140,7 @@
     </slot>
   </div>
 </div>
+
 ```
 
 ####   `should render with various attributes`
@@ -166,5 +169,6 @@
     </slot>
   </div>
 </div>
+
 ```
 
