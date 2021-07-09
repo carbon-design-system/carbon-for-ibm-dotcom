@@ -218,6 +218,6 @@ export default deprecate(
   `
   The Leadspace Small and Leadspace Small With Image variations are now deprecated.
   Please refer to the Carbon for IBM.com documentation for further details.
-  https://www.ibm.com/standards/web/carbon-for-ibm-dotcom/components/leadspace
+  https://www.ibm.com/standards/carbon/components/leadspace
 `
 );

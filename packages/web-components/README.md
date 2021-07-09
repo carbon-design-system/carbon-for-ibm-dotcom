@@ -322,7 +322,7 @@ For applications that are currently running on other design systems like [legacy
 
 ## Browser support
 
-Based on [ibm.com browser support](https://www.ibm.com/standards/web/browser-support/):
+Based on [ibm.com browser support](https://w3.ibm.com/w3publisher/ibm-web-standards-external/standards-mandatory/browser-standards):
 
 - Latest Chrome/Safari/FF ESR
 - IE and classic Edge are _not_ supported
@@ -382,7 +382,7 @@ dds-link-with-icon {
 The color of the link in the code below changes to the one in the `g100` theme:
 
 ```html
-<dds-link-with-icon href="https://www.ibm.com/standards/web/carbon-for-ibm-dotcom">
+<dds-link-with-icon href="https://www.ibm.com/standards/carbon">
   Link text
   <svg
     slot="icon"
