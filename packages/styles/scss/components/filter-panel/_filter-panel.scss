@@ -31,6 +31,7 @@
     cursor: pointer;
     padding: $spacing-03 $spacing-05 $spacing-03 $spacing-05;
     color: $text-02;
+    @include use-carbon-productive-tokens();
     @include carbon--type-style('body-short-01');
     &:hover {
       background-color: $hover-ui;
@@ -85,6 +86,7 @@
     border: 0;
     color: $interactive-01;
     background-color: $ui-01;
+    @include use-carbon-productive-tokens();
     @include carbon--type-style('body-short-01');
   }
   .#{$prefix}--checkbox-space {

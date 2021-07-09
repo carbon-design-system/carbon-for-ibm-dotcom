@@ -17,6 +17,7 @@ import '../input_select_item';
 import '../filter-group';
 import '../filter-panel-composite';
 import '../checkbox';
+import '../filter-group-item';
 import 'carbon-web-components/es/components/accordion/accordion';
 import 'carbon-web-components/es/components/accordion/accordion-item';
 import readme from './README.stories.mdx';
@@ -33,7 +34,7 @@ export const FilterPanel = ({ parameters }) => {
       <dds-filter-panel-composite>
         <dds-filter-panel-heading slot="heading">${heading}</dds-filter-panel-heading>
         <dds-filter-group>
-          <bx-accordion-item title-text="Product types">
+          <dds-filter-group-item title-text="Product types">
             <dds-checkbox value="API">API</dds-checkbox>
             <dds-checkbox value="Application">Application</dds-checkbox>
             <dds-checkbox value="Data Set">Data Set</dds-checkbox>
@@ -42,10 +43,10 @@ export const FilterPanel = ({ parameters }) => {
             <dds-checkbox value="Service">Service</dds-checkbox>
             <dds-checkbox value="Service Assets">Service Assets</dds-checkbox>
             <dds-checkbox value="Software">Software</dds-checkbox>
-          </bx-accordion-item>
+          </dds-filter-group-item>
         </dds-filter-group>
         <dds-filter-group>
-          <bx-accordion-item title-text="Technologies">
+          <dds-filter-group-item title-text="Technologies">
             <dds-input-select header-value="Analytics" title="Analytics"></dds-input-select>
             <dds-input-select header-value="Artificial intelligence" title="Artificial intelligence">
               <dds-input-select-item value="Machine Learning">Machine Learning</dds-input-select-item>
@@ -60,23 +61,23 @@ export const FilterPanel = ({ parameters }) => {
             <dds-input-select header-value="Mobile technology" title="Mobile technology"></dds-input-select>
             <dds-input-select header-value="Security" title="Security"></dds-input-select>
             <dds-input-select header-value="Software development" title="Software development"></dds-input-select>
-          </bx-accordion-item>
+          </dds-filter-group-item>
         </dds-filter-group>
         <dds-filter-group>
-          <bx-accordion-item title-text="Business needs">
+          <dds-filter-group-item title-text="Business needs">
             <dds-input-select header-value="Business operations" title="Business operations"></dds-input-select>
             <dds-input-select header-value="Content Management" title="Content Management"></dds-input-select>
             <dds-input-select header-value="Customer service" title="Customer service"></dds-input-select>
             <dds-input-select header-value="Finance" title="Finance"></dds-input-select>
             <dds-input-select header-value="Marketing and sales" title="Marketing and sales"></dds-input-select>
             <dds-input-select header-value="Supply chain management" title="Supply chain management"></dds-input-select>
-          </bx-accordion-item>
+          </dds-filter-group-item>
         </dds-filter-group>
         <dds-filter-group>
-          <bx-accordion-item title-text="Deployment types">
+          <dds-filter-group-item title-text="Deployment types">
             <dds-checkbox value="On-premisis">On-premisis</dds-checkbox>
             <dds-checkbox value="SaaS">SaaS</dds-checkbox>
-          </bx-accordion-item>
+          </dds-filter-group-item>
         </dds-filter-group>
       </dds-filter-panel-composite>
     </div>

@@ -10,6 +10,7 @@
 @import 'carbon-web-components/scss/components/modal/modal';
 @import 'carbon-web-components/scss/components/checkbox/checkbox';
 @import '../../../../styles/scss/components/filter-panel/filter-panel';
+@import 'carbon-web-components/scss/components/accordion/accordion';
 
 :host(#{$dds-prefix}-filter-panel-modal) {
   @extend :host(#{$prefix}-modal);
@@ -73,6 +74,7 @@
 
 :host(#{$dds-prefix}-filter-panel-composite) {
   .#{$prefix}--filter-button {
+    @include use-carbon-productive-tokens();
     @include carbon--type-style('body-short-01');
 
     border: 1px solid $interactive-01;
@@ -88,6 +90,8 @@
 
 :host(#{$dds-prefix}-checkbox) {
   @extend :host(#{$prefix}-checkbox);
+  @include use-carbon-productive-tokens();
+  @include carbon--type-style('body-short-01');
 
   color: $text-02;
   padding-left: $spacing-05;
@@ -108,6 +112,9 @@
   }
 }
 :host(#{$dds-prefix}-input-select-item) {
+  @include use-carbon-productive-tokens();
+  @include carbon--type-style('body-short-01');
+
   background-color: $ui-01;
   width: 100%;
   cursor: pointer;
@@ -134,6 +141,8 @@
   }
 }
 :host(#{$dds-prefix}-filter-panel-heading) {
+  @include use-carbon-productive-tokens();
+  @include carbon--type-style('body-short-01');
   @include carbon--breakpoint('sm') {
     margin-left: $spacing-05;
     margin-bottom: $spacing-05;
@@ -148,5 +157,40 @@
     @include carbon--breakpoint-down('md') {
       margin-top: 1rem;
     }
+  }
+}
+
+:host(#{$dds-prefix}-filter-group-item) {
+  @extend :host(#{$prefix}-accordion-item);
+
+  display: block;
+  outline: none;
+
+  .#{$prefix}--accordion__heading {
+    padding-top: calc((#{$container-03} - #{map-get($body-long-01, 'line-height')}rem) / 2);
+    min-height: $container-03;
+    display: flex;
+    align-items: center;
+  }
+
+  .#{$prefix}--accordion__title {
+    @include use-carbon-productive-tokens();
+    @include carbon--type-style('body-short-01');
+  }
+}
+
+:host(#{$dds-prefix}-filter-group-item[open]:not([disabled])) {
+  @extend .#{$prefix}--accordion__item--active;
+
+  .#{$prefix}--accordion__content {
+    padding-right: $carbon--spacing-05;
+  }
+
+  .#{$prefix}-ce--accordion__content--sm {
+    padding-right: $carbon--spacing-09;
+  }
+
+  .#{$prefix}-ce--accordion__content--md {
+    padding-right: 25%;
   }
 }
