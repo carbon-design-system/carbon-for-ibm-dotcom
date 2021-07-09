@@ -31,6 +31,14 @@
         $ui-background 25%,
         rgba(255, 255, 255, 0) 75%
       );
+
+      [dir='rtl'] & {
+        background-image: linear-gradient(
+            to left,
+            $ui-background 25%,
+            rgba(255, 255, 255, 0) 75%
+        );
+      }
     }
   }
 

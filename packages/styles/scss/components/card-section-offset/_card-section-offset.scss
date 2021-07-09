@@ -1,0 +1,71 @@
+/**
+ * @license
+ *
+ * Copyright IBM Corp. 2020, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../../globals/vars';
+@import '../../globals/imports';
+@import '../card-group/card-group';
+
+@mixin card-section-offset {
+  :host(#{$dds-prefix}-card-section-offset){
+    display: block;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: 100%;
+
+    @include carbon--breakpoint('md'){
+      dds-background-media {
+        position: absolute;
+        //top: 0;
+        //left: 0;
+        //padding: 0;
+        z-index: -1;
+        //@include ratio-base(16, 9, false);
+
+        .#{$prefix}--image__img {
+          //height: 100%;
+          //object-fit: cover;
+          //display: block;
+        }
+      }
+    }
+
+    @include carbon--breakpoint('lg'){
+      display: flex;
+    }
+
+    ::slotted([slot='action']){
+      display: inline-block;
+    }
+
+
+
+    .#{$prefix}--card-section-offset__content {
+      width: 100%;
+      padding: $spacing-07 0 $spacing-10 $spacing-05;
+
+      @include carbon--breakpoint('lg'){
+        padding-bottom: 0;
+      }
+    }
+
+    ::slotted([slot='card-group']) {
+      width: 100%;
+      margin-top: auto;
+      padding-top: 0;
+
+      @include carbon--breakpoint('lg'){
+        padding-top: $spacing-07;
+      }
+    }
+  }
+}
+
+@include exports('card-section-offset') {
+  @include card-section-offset;
+}
