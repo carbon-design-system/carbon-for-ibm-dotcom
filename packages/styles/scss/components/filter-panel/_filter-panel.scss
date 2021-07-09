@@ -19,6 +19,10 @@
   .#{$prefix}--filter-panel__section {
     background-color: $ui-01;
     padding-bottom: calc((#{$spacing-12} + #{($spacing-05)}));
+
+    @include carbon--breakpoint('lg') {
+      padding-bottom: $spacing-09;
+    }
   }
   .#{$prefix}--modal-body {
     overflow-y: scroll;

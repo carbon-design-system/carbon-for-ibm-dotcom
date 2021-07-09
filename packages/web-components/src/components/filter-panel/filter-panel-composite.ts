@@ -215,7 +215,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
         <div class="${prefix}--filter__modal_button">${this._filterButtonTitle} ${Filter()}</div>
       </button>
 
-      <dds-filter-panel-modal ?open=${this.openFilterModal}>
+      <dds-filter-panel-modal ?open=${this.openFilterModal} heading="${this._filterButtonTitle}">
         <slot name="heading" @slotchange="${this._handleTitleSlotChange}"></slot>
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </dds-filter-panel-modal>

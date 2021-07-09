@@ -45,7 +45,7 @@
   .#{$prefix}--modal-container {
     @include carbon--breakpoint-down('md') {
       width: 100%;
-      display: block;
+      display: grid;
       overflow: scroll;
     }
   }
@@ -144,12 +144,29 @@
   @include carbon--breakpoint('lg') {
     margin: 0;
   }
+
+  @include carbon--breakpoint-down('lg') {
+    display: none;
+  }
 }
 
 :host(#{$dds-prefix}-filter-group:first-of-type) {
   ::slotted(#{$prefix}-filter-group-item:first-of-type) {
     @include carbon--breakpoint-down('md') {
       margin-top: 1rem;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-filter-group) {
+  ::slotted(#{$dds-prefix}-filter-group-item) {
+    border-top: 1px solid $ui-03;
+    border-bottom: none;
+  }
+
+  &:last-of-type {
+    ::slotted(#{$dds-prefix}-filter-group-item) {
+      border-bottom: 1px solid $ui-03;
     }
   }
 }
@@ -207,5 +224,14 @@
 
     max-width: none;
     width: 100%;
+    border-top: none;
+    border-left: none;
   }
+}
+
+:host(#{$dds-prefix}-filter-modal-heading) {
+  @include use-carbon-productive-tokens();
+  @include carbon--type-style('body-short-01');
+
+  display: block;
 }
