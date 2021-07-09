@@ -225,7 +225,7 @@ For example, the following adds Carbon reset and necessary Plex fonts to the pag
 [Learn more about Carbon CDN style helpers here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/web-components/docs/carbon-cdn-style-helpers.md)
 
 > 💡 Refer to
-> ["Building for IBM.com'](https://ibmdotcom-web-components.mybluemix.net/?path=/docs/overview-building-for-ibm-dotcom--page) page
+> ["Building for IBM.com'](https://www.ibm.com/standards/carbon/web-components/?path=/docs/overview-building-for-ibm-dotcom--page) page
 > for `window.digitalData` and `<link rel="alternate" ...>`.
 
 > 💡 Check our
@@ -329,7 +329,7 @@ Based on [ibm.com browser support](https://www.ibm.com/standards/web/browser-sup
 
 ## List of available components
 
-View available web components at: https://ibmdotcom-web-components.mybluemix.net/. You can see usage information in several ways:
+View available web components at: https://www.ibm.com/standards/carbon/web-components/. You can see usage information in several ways:
 
 1. Going to Docs tab, where it shows the usage and available attributes, properties and custom events.
 2. Clicking the **KNOBS** tab at the bottom and changing values there. Most knobs are shown as something like `Button kind (kind)`, where `kind` is the attribute name

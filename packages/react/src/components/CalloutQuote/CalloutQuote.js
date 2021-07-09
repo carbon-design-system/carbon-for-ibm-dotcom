@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -32,7 +32,7 @@ const CalloutQuote = ({ quote }) => {
 CalloutQuote.propTypes = {
   /**
    * Quote object.
-   * See [`<Quote>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-quote--default#props) for full usage details.
+   * See [`<Quote>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-quote--default#props) for full usage details.
    */
   quote: PropTypes.shape({
     markType: PropTypes.oneOf([

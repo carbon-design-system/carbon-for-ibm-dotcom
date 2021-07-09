@@ -144,7 +144,7 @@ const LeadSpace = ({
 LeadSpace.propTypes = {
   /**
    * Array of button objects to render (max 2).
-   * See [`<ButtonGroup>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-buttongroup--default#button-item) for full usage details.
+   * See [`<ButtonGroup>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-buttongroup--default#button-item) for full usage details.
    */
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
@@ -161,7 +161,7 @@ LeadSpace.propTypes = {
 
   /**
    * Object with different ratio options for corresponding breakpoints.
-   * See [`<Image>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-image--default#props) for full usage details.
+   * See [`<Image>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-image--default#props) for full usage details.
    */
   image: PropTypes.shape({
     classname: PropTypes.string,
