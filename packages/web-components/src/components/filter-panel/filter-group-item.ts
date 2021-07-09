@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, property, html } from 'lit-element';
+import { customElement, property, html, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXAccordionItem from 'carbon-web-components/es/components/accordion/accordion-item';
 import { classMap } from 'lit-html/directives/class-map';
@@ -30,6 +30,8 @@ const { prefix } = settings;
  * @param observer The resize observer.
  * @param elem The element to observe the resize.
  */
+// TODO: Wait for `.d.ts` update to support `ResizeObserver`
+// @ts-ignore
 const observeResize = (observer: ResizeObserver, elem: Element) => {
   if (!elem) {
     return null;
@@ -44,7 +46,7 @@ const observeResize = (observer: ResizeObserver, elem: Element) => {
 };
 
 @customElement(`${ddsPrefix}-filter-group-item`)
-class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
+class DDSFilterGroupItem extends StableSelectorMixin(LitElement) {
   /**
    * The current breakpoint.
    */

@@ -10,7 +10,7 @@
 @import 'carbon-web-components/scss/components/modal/modal';
 @import 'carbon-web-components/scss/components/checkbox/checkbox';
 @import '../../../../styles/scss/components/filter-panel/filter-panel';
-@import 'carbon-web-components/scss/components/accordion/accordion';
+@import 'carbon-components/scss/components/accordion/accordion';
 
 :host(#{$dds-prefix}-filter-panel-modal) {
   @extend :host(#{$prefix}-modal);
@@ -153,7 +153,7 @@
 }
 
 :host(#{$dds-prefix}-filter-group:first-of-type) {
-  ::slotted(#{$prefix}-accordion-item:first-of-type) {
+  ::slotted(#{$prefix}-filter-group-item:first-of-type) {
     @include carbon--breakpoint-down('md') {
       margin-top: 1rem;
     }
@@ -161,13 +161,13 @@
 }
 
 :host(#{$dds-prefix}-filter-group-item) {
-  @extend :host(#{$prefix}-accordion-item);
+  @extend .#{$prefix}--accordion__item;
 
   display: block;
   outline: none;
 
   .#{$prefix}--accordion__heading {
-    padding-top: calc((#{$container-03} - #{map-get($body-long-01, 'line-height')}rem) / 2);
+    padding-top: calc((#{$container-03} - #{map-get($body-long-01, 'line-height')}) / 2);
     min-height: $container-03;
     display: flex;
     align-items: center;
