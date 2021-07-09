@@ -18,7 +18,10 @@
   }
   .#{$prefix}--filter-panel__section {
     background-color: $ui-01;
-    padding-bottom: $spacing-09;
+    padding-bottom: calc((#{$spacing-12} + #{($spacing-05)}));
+  }
+  .#{$prefix}--modal-body {
+    overflow-y: scroll;
   }
   .#{$prefix}--input_container {
     width: 100%;

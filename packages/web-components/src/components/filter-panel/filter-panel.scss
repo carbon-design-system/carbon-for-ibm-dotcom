@@ -51,12 +51,6 @@
   }
 }
 
-:host(#{$prefix}-modal-footer) {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
 :host(#{$dds-prefix}-filter-panel) {
   .#{$prefix}--clear {
     display: block;
@@ -192,5 +186,26 @@
 
   .#{$prefix}-ce--accordion__content--md {
     padding-right: 25%;
+  }
+}
+
+:host(#{$dds-prefix}-filter-modal-footer) {
+  z-index: 999;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+:host(#{$dds-prefix}-filter-modal-footer-button) {
+  @extend :host(#{$prefix}-modal-footer-button);
+  &[kind='tertiary'] {
+    background-color: $interactive-02;
+  }
+  .bx--btn {
+    @include use-carbon-productive-tokens();
+    @include carbon--type-style('body-short-01');
+
+    max-width: none;
+    width: 100%;
   }
 }

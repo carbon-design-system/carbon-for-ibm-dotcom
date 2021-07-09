@@ -12,7 +12,9 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import settings from 'carbon-components/es/globals/js/settings';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import './filter-group';
+import './filter-modal-button';
 import BXModal from 'carbon-web-components/es/components/modal/modal';
+import './filter-modal-footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
 import 'carbon-web-components/es/components/checkbox/checkbox';
@@ -91,11 +93,15 @@ class DDSFilterPanelModal extends HostListenerMixin(StableSelectorMixin(BXModal)
         <div class="${prefix}--heading-clear">
           <div class="${prefix}--filter_heading">${this._renderHeading()}</div>
         </div>
-        <slot></slot>
-        <bx-modal-footer>
-          <bx-btn ?disabled="${!this.hasSelections}" @click=${this._handleClear} kind="tertiary">Clear</bx-btn>
-          <bx-btn @click=${this._handleUserClose} kind="primary">See Results</bx-btn>
-        </bx-modal-footer>
+        <div class="${prefix}--modal-body"><slot></slot></div>
+        <dds-filter-modal-footer>
+          <dds-filter-modal-footer-button ?disabled="${!this.hasSelections}" @click=${this._handleClear} kind="tertiary"
+            >Clear</dds-filter-modal-footer-button
+          >
+          <dds-filter-modal-footer-button @click=${this._handleUserClose} kind="primary"
+            >See Results</dds-filter-modal-footer-button
+          >
+        </dds-filter-modal-footer>
       </section>
       <a id="end-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
     `;
