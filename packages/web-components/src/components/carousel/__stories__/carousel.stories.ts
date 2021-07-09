@@ -21,7 +21,7 @@ import readme from './README.stories.mdx';
 
 import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
 
-const hrefDefault = 'https://www.ibm.com/standards/web/carbon-for-ibm-dotcom';
+const hrefDefault = 'https://www.ibm.com/standards/carbon';
 const headingDefault = 'Lorem ipsum dolor sit amet';
 const copyDefault = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
 const copyOdd = `

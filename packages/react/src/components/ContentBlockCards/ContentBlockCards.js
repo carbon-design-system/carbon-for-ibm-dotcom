@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -57,7 +57,7 @@ ContentBlockCards.propTypes = {
    * | `heading`  | YES      | String    | Heading of the card.                     |
    * | `cta.href` | YES      | String    | URI for internal or external resource.   |
    *
-   * See [`<CardGroup>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cardgroup--default#props) for full usage details.
+   * See [`<CardGroup>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-cardgroup--default#props) for full usage details.
    */
   cards: PropTypes.arrayOf(
     PropTypes.shape({
@@ -93,7 +93,7 @@ ContentBlockCards.propTypes = {
 
   /**
    * CTA used at the end of content body. `Card` style supported.
-   * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
+   * See the [`<CTA>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-cta--default#props) for full usage details.
    */
   cta: PropTypes.shape({
     style: PropTypes.oneOf(['card']),
