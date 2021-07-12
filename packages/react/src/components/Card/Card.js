@@ -180,7 +180,7 @@ export const cardPropTypes = {
    * | `copy`          | String    | Optional text for CTA                                                                                                            |
    * | `type`          | String    | type of CTA (local or external) when Card type is static                                                                         |
    *
-   * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
+   * See the [`<CTA>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-cta--default#props) for full usage details.
    */
   cta: PropTypes.shape({
     copy: PropTypes.string,
@@ -194,7 +194,7 @@ export const cardPropTypes = {
 
   /**
    * Contains source and alt text properties.
-   * See [`<Image>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-image--default#props) for full usage details.
+   * See [`<Image>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-image--default#props) for full usage details.
    */
   image: PropTypes.shape({
     classname: PropTypes.string,

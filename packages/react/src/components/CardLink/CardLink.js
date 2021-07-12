@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,7 +24,7 @@ const CardLink = ({ card, customClassName }) => {
 CardLink.propTypes = {
   /**
    * Card options.
-   * See [`<Card>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-card--link-clickable#props) for full usage details.
+   * See [`<Card>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-card--link-clickable#props) for full usage details.
    */
   card: PropTypes.shape(Card.propTypes).isRequired,
 
