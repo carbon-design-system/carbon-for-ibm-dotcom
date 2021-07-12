@@ -7,7 +7,7 @@ on:
 
 jobs:
   react:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
@@ -56,7 +56,7 @@ jobs:
           status: ${{ job.status }}
         if: failure()
   react-experimental:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
@@ -96,7 +96,7 @@ jobs:
           status: ${{ job.status }}
         if: failure()
   react-rtl:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
@@ -136,7 +136,7 @@ jobs:
           status: ${{ job.status }}
         if: failure()
   web-components:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
@@ -175,7 +175,7 @@ jobs:
           status: ${{ job.status }}
         if: failure()
   web-components-rtl:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
@@ -215,7 +215,7 @@ jobs:
           status: ${{ job.status }}
         if: failure()
   web-components-experimental:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
@@ -255,7 +255,7 @@ jobs:
           status: ${{ job.status }}
         if: failure()
   web-components-react:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
@@ -294,7 +294,7 @@ jobs:
           status: ${{ job.status }}
         if: failure()
   services:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
@@ -333,7 +333,7 @@ jobs:
           status: ${{ job.status }}
         if: failure()
   utilities:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
@@ -371,7 +371,7 @@ jobs:
           status: ${{ job.status }}
         if: failure()
   carbon-expressive:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
