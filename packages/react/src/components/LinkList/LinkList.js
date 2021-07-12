@@ -68,7 +68,7 @@ LinkList.propTypes = {
    * | `heading` | Describing the resource with added detail.                                              |
    * | `type`    | Describes after onClick where to load. It has `external`, `local`, and `video` options. |
    *
-   * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
+   * See the [`<CTA>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-cta--default#props) for full usage details.
    */
   items: PropTypes.arrayOf(
     PropTypes.shape({

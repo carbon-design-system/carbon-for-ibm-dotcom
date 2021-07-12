@@ -99,7 +99,7 @@ CTASection.propTypes = {
 
   /**
    * CTA object.
-   * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
+   * See the [`<CTA>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-cta--default#props) for full usage details.
    */
   cta: PropTypes.shape({
     style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
@@ -135,7 +135,7 @@ CTASection.propTypes = {
 
   /**
    * The `<ContentItem>` data to render.
-   * See the [`<ContentItem>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterms-contentitem--default#props) for full usage details.
+   * See the [`<ContentItem>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/patterns-sub-patterms-contentitem--default#props) for full usage details.
    */
   items: PropTypes.arrayOf(
     PropTypes.shape({

@@ -50,10 +50,10 @@ This includes the creation of:
 - Visual specifications
 - Functional specifications
 - Finalization of code/documentation per above specifications
-- Updates to the [Carbon for IBM.com website](https://www.ibm/com/standards/web/carbon-for-ibm-dotcom)
+- Updates to the [Carbon for IBM.com website](https://www.ibm/com/standards/carbon)
 
 The feature will also go through quality assurance with our design team as well
-as functional QA team per [browser support scope](https://www.ibm.com/standards/web/browser-support):
+as functional QA team per [browser support scope](https://w3.ibm.com/w3publisher/ibm-web-standards-external/standards-mandatory/browser-standards):
 
 - Visual QA
 - Production / a11y QA
