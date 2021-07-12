@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -55,9 +55,18 @@ function rtl() {
   return _sass()
     .pipe(rtlcss())
     .pipe(rename(global.config.distRtlCss))
+    .pipe(
+      cleanCSS({
+        format: 'beautify',
+        level: {
+          1: { specialComments: 'none' },
+          2: { removeDuplicateRules: true },
+        },
+      })
+    )
     .pipe(gulp.dest('dist'))
-    .pipe(cleanCSS())
     .pipe(rename(global.config.distRtlCssMin))
+    .pipe(cleanCSS())
     .pipe(gulp.dest('dist'));
 }
 
