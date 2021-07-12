@@ -32,10 +32,10 @@ document.body.addEventListener('dds-masthead-search-toggled', event => {
 });
 ```
 
-See Docs tab in each components in https://ibmdotcom-web-components.mybluemix.net/ to see more details on available custom events are available, available attributes/properties are for more context, etc.
+See Docs tab in each components in https://www.ibm.com/standards/carbon/web-components/ to see more details on available custom events are available, available attributes/properties are for more context, etc.
 
 ## `data-autoid` support for partial backward compatibility
 
 `@carbon/ibmdotcom-web-components` supports `data-autoid` stable selectors for some elements, to provide compatibility to and easier migration from `@carbon/ibmdotcom-react`. However, `document.querySelector('[data-autoid="stable-selector"]')` and `event.target.autoId` does not work with elements in shadow DOM, due to shadow DOM's nature. Therefore, `data-autoid` is _not_ provided for all elements.
 
-See Stable selectors section in Docs tab in each components in https://ibmdotcom-web-components.mybluemix.net/ to see the list of supported `data-autoid` and their Web Components alternatives.
+See Stable selectors section in Docs tab in each components in https://www.ibm.com/standards/carbon/web-components/ to see the list of supported `data-autoid` and their Web Components alternatives.

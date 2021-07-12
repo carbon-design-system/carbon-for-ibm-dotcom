@@ -144,7 +144,7 @@ const LeadSpace = ({
 LeadSpace.propTypes = {
   /**
    * Array of button objects to render (max 2).
-   * See [`<ButtonGroup>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-buttongroup--default#button-item) for full usage details.
+   * See [`<ButtonGroup>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-buttongroup--default#button-item) for full usage details.
    */
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
@@ -161,7 +161,7 @@ LeadSpace.propTypes = {
 
   /**
    * Object with different ratio options for corresponding breakpoints.
-   * See [`<Image>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-image--default#props) for full usage details.
+   * See [`<Image>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-image--default#props) for full usage details.
    */
   image: PropTypes.shape({
     classname: PropTypes.string,
@@ -218,6 +218,6 @@ export default deprecate(
   `
   The Leadspace Small and Leadspace Small With Image variations are now deprecated.
   Please refer to the Carbon for IBM.com documentation for further details.
-  https://www.ibm.com/standards/web/carbon-for-ibm-dotcom/components/leadspace
+  https://www.ibm.com/standards/carbon/components/leadspace
 `
 );
