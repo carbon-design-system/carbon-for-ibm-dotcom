@@ -60,14 +60,14 @@ ContentBlockMedia.propTypes = {
    * | ----------- | -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
    * | `heading`   | YES      | String    | Describes the block that it is a part of.                                                                                                                                          |
    * | `mediaData` | YES      | Object    | See `mediaData` below.                                                                                                                                                             |
-   * | `cta`       | NO       | Object    | See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details. |
+   * | `cta`       | NO       | Object    | See the [`<CTA>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-cta--default#props) for full usage details. |
    *
    * `mediaData`:
    *
    * | Name      | Description                                                                                                                            |
    * | --------- | -------------------------------------------------------------------------------------------------------------------------------------- |
    * | `heading` | Describes the media section                                                                                                            |
-   * | `image`   | See See [`<Image>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-image--default#props) for full usage details. |
+   * | `image`   | See See [`<Image>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-image--default#props) for full usage details. |
    */
   items: PropTypes.arrayOf(
     PropTypes.shape({
@@ -183,7 +183,7 @@ ContentBlockMedia.propTypes = {
 
   /**
    * Optional CTA. Must be `Feature Link`.
-   * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
+   * See the [`<CTA>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-cta--default#props) for full usage details.
    */
   cta: PropTypes.shape({
     style: PropTypes.oneOf(['feature']),
