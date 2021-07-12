@@ -54,6 +54,9 @@
 :host(#{$dds-prefix}-filter-panel) {
   .#{$prefix}--clear {
     display: block;
+    &:focus-visible {
+      outline: 2px solid $interactive-01;
+    }
   }
 
   &:not([has-selections]) {
@@ -74,8 +77,10 @@
     border: 1px solid $interactive-01;
     color: $interactive-01;
     padding: $spacing-05;
+    margin-top: $spacing-05;
+    margin-left: $spacing-05;
     background-color: $ui-background;
-    width: 128px;
+    width: calc((#{$spacing-10} + #{($spacing-10)}));
     @include carbon--breakpoint('lg') {
       display: none;
     }
@@ -83,25 +88,44 @@
 }
 
 :host(#{$dds-prefix}-checkbox) {
+  padding-left: calc((#{$spacing-04} + #{($spacing-01)}));
+  padding-bottom: calc((#{$spacing-01} + #{($spacing-02)}));
   @extend :host(#{$prefix}-checkbox);
   @include use-carbon-productive-tokens();
   @include carbon--type-style('body-short-01');
 
   color: $text-02;
-  padding-left: $spacing-05;
   &:hover {
     color: $text-01;
   }
   &[checked] {
     color: $text-01;
   }
+  label.#{$prefix}--checkbox-label {
+    padding-top: $spacing-01;
+    padding-left: $spacing-06;
+  }
 }
 :host(#{$dds-prefix}-input-select) {
+  .#{$prefix}--input_container {
+    &:focus-visible {
+      outline: 2px solid $interactive-01;
+    }
+  }
+
   display: block;
   &[selected] {
     background-color: $highlight;
     .#{$prefix}--input_container-heading {
       color: $text-01;
+      &:focus-visible {
+        outline: 2px solid $interactive-01;
+      }
+    }
+  }
+  .#{$prefix}--input_container-heading {
+    &:focus-visible {
+      outline: 2px solid $interactive-01;
     }
   }
 }
@@ -114,7 +138,7 @@
   cursor: pointer;
   position: relative;
   color: $text-02;
-  padding: $spacing-03 $spacing-08 $spacing-03 $spacing-08;
+  padding: $spacing-03 $spacing-06 $spacing-03 $spacing-06;
 
   &:hover {
     background-color: $hover-ui;
@@ -131,12 +155,12 @@
   .#{$prefix}--close_icon {
     position: absolute;
     right: $spacing-05;
-    top: $spacing-04;
+    top: calc((#{$spacing-04} - #{($spacing-01)}));
   }
 }
 :host(#{$dds-prefix}-filter-panel-heading) {
   @include use-carbon-productive-tokens();
-  @include carbon--type-style('body-short-01');
+  @include carbon--type-style('heading-01');
   @include carbon--breakpoint('sm') {
     margin-left: $spacing-05;
     margin-bottom: $spacing-05;
@@ -179,14 +203,13 @@
 
   .#{$prefix}--accordion__heading {
     padding-top: calc((#{$container-03} - #{map-get($body-long-01, 'line-height')}) / 2);
-    min-height: $container-03;
     display: flex;
     align-items: center;
   }
 
   .#{$prefix}--accordion__title {
     @include use-carbon-productive-tokens();
-    @include carbon--type-style('body-short-01');
+    @include carbon--type-style('heading-01');
   }
 }
 
@@ -194,15 +217,12 @@
   @extend .#{$prefix}--accordion__item--active;
 
   .#{$prefix}--accordion__content {
-    padding-right: $carbon--spacing-05;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .#{$prefix}-ce--accordion__content--sm {
     padding-right: $carbon--spacing-09;
-  }
-
-  .#{$prefix}-ce--accordion__content--md {
-    padding-right: 25%;
   }
 }
 
@@ -218,7 +238,7 @@
   &[kind='tertiary'] {
     background-color: $interactive-02;
   }
-  .bx--btn {
+  .#{$prefix}--btn {
     @include use-carbon-productive-tokens();
     @include carbon--type-style('body-short-01');
 

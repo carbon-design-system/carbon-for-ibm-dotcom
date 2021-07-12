@@ -24,7 +24,7 @@ import readme from './README.stories.mdx';
 
 import styles from './filter-panel.stories.scss';
 
-export const FilterPanel = ({ parameters }) => {
+export const Default = ({ parameters }) => {
   const { heading, gridKnobs } = parameters?.props?.FilterPanel ?? {};
   return html`
     <style>
@@ -85,7 +85,7 @@ export const FilterPanel = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Filter Panel',
+  title: 'Components/Filter panel',
   decorators: [
     story =>
       html`
