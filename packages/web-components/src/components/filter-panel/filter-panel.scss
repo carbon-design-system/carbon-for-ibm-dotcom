@@ -55,7 +55,10 @@
   .#{$prefix}--clear {
     display: block;
     &:focus-visible {
-      outline: 2px solid $interactive-01;
+      outline: $spacing-01 solid $interactive-01;
+      margin-bottom: $spacing-01;
+      margin-right: $spacing-01;
+      margin-top: $spacing-01;
     }
   }
 
@@ -109,7 +112,7 @@
 :host(#{$dds-prefix}-input-select) {
   .#{$prefix}--input_container {
     &:focus-visible {
-      outline: 2px solid $interactive-01;
+      outline: $spacing-01 solid $interactive-01;
     }
   }
 
@@ -119,13 +122,15 @@
     .#{$prefix}--input_container-heading {
       color: $text-01;
       &:focus-visible {
-        outline: 2px solid $interactive-01;
+        outline: $spacing-01 solid $interactive-01;
       }
     }
   }
   .#{$prefix}--input_container-heading {
     &:focus-visible {
-      outline: 2px solid $interactive-01;
+      outline: $spacing-01 solid $interactive-01;
+      margin-right: $spacing-01;
+      margin-left: $spacing-01;
     }
   }
 }
@@ -220,10 +225,6 @@
     padding-left: 0;
     padding-right: 0;
   }
-
-  .#{$prefix}-ce--accordion__content--sm {
-    padding-right: $carbon--spacing-09;
-  }
 }
 
 :host(#{$dds-prefix}-filter-modal-footer) {
@@ -238,6 +239,9 @@
   &[kind='tertiary'] {
     background-color: $interactive-02;
   }
+  &[disabled] {
+    background-color: $ui-03;
+  }
   .#{$prefix}--btn {
     @include use-carbon-productive-tokens();
     @include carbon--type-style('body-short-01');
@@ -247,11 +251,18 @@
     border-top: none;
     border-left: none;
   }
+  .#{$prefix}--btn--tertiary {
+    color: $ui-02;
+    &[disabled] {
+      color: $ui-04;
+    }
+  }
 }
 
 :host(#{$dds-prefix}-filter-modal-heading) {
   @include use-carbon-productive-tokens();
-  @include carbon--type-style('body-short-01');
+  @include carbon--type-style('heading-01');
 
   display: block;
+  padding-bottom: $spacing-03;
 }

@@ -24,6 +24,10 @@
     @include carbon--breakpoint('lg') {
       padding-bottom: $spacing-09;
     }
+    @include carbon--breakpoint-down('lg') {
+      height: 80%;
+      width: 60%;
+    }
   }
   .#{$prefix}--modal-body {
     overflow-y: scroll;
