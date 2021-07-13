@@ -377,7 +377,7 @@ Masthead.propTypes = {
    * Platform name that appears on L0.
    * Includes platform name (only available with `default` and `custom navigation`).
    * Object requires `name` and `url`.
-   * See [docs](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-masthead--default#platform) for more details.
+   * See [docs](http://www.ibm.com/standards/carbon/react/?path=/docs/components-masthead--default#platform) for more details.
    */
   platform: PropTypes.shape({
     name: PropTypes.string,
@@ -407,7 +407,7 @@ Masthead.propTypes = {
      * Platform name that appears on L1.
      * Includes platform name
      * Object requires `name` and `url`.
-     * See [docs](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-masthead--default#platform) for more details.
+     * See [docs](http://www.ibm.com/standards/carbon/react/?path=/docs/components-masthead--default#platform) for more details.
      */
     platform: PropTypes.shape({
       name: PropTypes.string,

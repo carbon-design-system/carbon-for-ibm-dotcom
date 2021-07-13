@@ -17,16 +17,9 @@
   :host(#{$dds-prefix}-card-in-card),
   .#{$prefix}--card-in-card {
     height: auto;
-    width: 100%;
 
     &:focus {
       outline: none;
-
-      ::slotted([slot='image']),
-      #{$dds-prefix}-card-in-card-image,
-      .#{$prefix}--card__wrapper {
-        z-index: -1;
-      }
     }
 
     &:hover {
@@ -42,15 +35,12 @@
       color: $text-01;
       background: $ui-background;
       position: relative;
-      width: 100%;
     }
 
     .#{$prefix}--card__wrapper {
-      width: 100%;
       background-color: $ui-01;
       height: auto;
       padding: $carbon--spacing-05;
-      z-index: 1;
 
       @include carbon--breakpoint('lg') {
         width: 33.33%;
@@ -63,8 +53,6 @@
       .#{$prefix}--card__heading,
       ::slotted(#{$dds-prefix}-card-eyebrow),
       ::slotted(#{$dds-prefix}-card-heading) {
-        width: 100%;
-
         @include carbon--breakpoint('md') {
           width: 90%;
         }
@@ -90,37 +78,68 @@
       }
     }
   }
-}
 
-// Adjust the card width when grid mode is equal to "narrow".
-:host(#{$dds-prefix}-card-in-card)[grid-mode='narrow'],
-.#{$prefix}--card-in-card--narrow {
-  @include carbon--breakpoint('lg') {
-    width: calc(100% - #{carbon--mini-units(2)});
-  }
+  :host(#{$dds-prefix}-card-in-card-image) {
+    @extend .#{$prefix}--image;
 
-  .#{$prefix}--card__wrapper {
-    @include carbon--breakpoint('lg') {
-      width: calc(33.33% - #{$carbon--spacing-04});
+    position: relative;
+    z-index: 0;
+
+    @include ratio-base(4, 3, true);
+
+    @include carbon--breakpoint('md') {
+      @include ratio-base(16, 9, true);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      z-index: 1;
+      background-color: $inverse-02;
+    }
+
+    .#{$prefix}--image__img {
+      position: absolute;
+      height: 100%;
+      top: 0;
     }
   }
-}
 
-// Add a $ui-03 border line color when the grid mode is equal "collapsed".
-:host(#{$dds-prefix}-card-in-card)[grid-mode='collapsed'],
-.#{$prefix}--card-in-card--narrow {
-  .#{$prefix}--card__wrapper {
-    &::after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 1px;
-      position: absolute;
-      left: 0;
-      bottom: -1px;
-      pointer-events: none;
-      z-index: 1;
-      background-color: $ui-03;
+  // Adjust the card width when grid mode is equal to "narrow".
+  :host(#{$dds-prefix}-card-in-card)[grid-mode='narrow'],
+  .#{$prefix}--card-in-card--narrow {
+    @include carbon--breakpoint('lg') {
+      width: calc(100% - #{carbon--mini-units(2)});
+    }
+
+    .#{$prefix}--card__wrapper {
+      @include carbon--breakpoint('lg') {
+        width: calc(33.33% - #{$carbon--spacing-04});
+      }
+    }
+  }
+
+  // Add a $ui-03 border line color when the grid mode is equal "collapsed".
+  :host(#{$dds-prefix}-card-in-card)[grid-mode='collapsed'],
+  .#{$prefix}--card-in-card--narrow {
+    .#{$prefix}--card__wrapper {
+      &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        pointer-events: none;
+        z-index: 1;
+        background-color: $ui-03;
+      }
     }
   }
 }

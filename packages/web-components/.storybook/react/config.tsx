@@ -12,6 +12,7 @@ import React, { StrictMode } from 'react';
 import coreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
 import { configure, addDecorator, addParameters } from '@storybook/react'; // eslint-disable-line import/first
+import { withA11y } from '@storybook/addon-a11y';
 import { withKnobs } from '@storybook/addon-knobs';
 import BXSkipToContent from 'carbon-web-components/es/components-react/skip-to-content/skip-to-content';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
@@ -65,6 +66,7 @@ addDecorator((story, { parameters }) => {
   );
 });
 
+addDecorator(withA11y);
 addDecorator(withKnobs);
 addDecorator(decoratorKnobs);
 

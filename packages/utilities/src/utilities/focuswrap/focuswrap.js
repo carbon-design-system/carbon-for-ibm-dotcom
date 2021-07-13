@@ -43,10 +43,12 @@ function focuswrap(
       let comparisonResult = target.compareDocumentPosition(relatedTarget);
       if (relatedTarget === startSentinelNode) {
         comparisonResult = Node.DOCUMENT_POSITION_PRECEDING;
-      }
-      if (relatedTarget === endSentinelNode) {
+      } else if (relatedTarget === endSentinelNode) {
         comparisonResult = Node.DOCUMENT_POSITION_FOLLOWING;
+      } else {
+        comparisonResult = -1;
       }
+
       element.dispatchEvent(
         new CustomEvent(eventRequestFocusWrap, {
           bubbles: true,

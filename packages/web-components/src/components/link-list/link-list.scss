@@ -14,8 +14,7 @@
 @import '../../../../styles/scss/globals/utils/hang';
 
 :host(#{$dds-prefix}-link-list-heading),
-:host(#{$dds-prefix}-link-list-item),
-:host(#{$dds-prefix}-link-list-item-cta) {
+:host(#{$dds-prefix}-link-list-item) {
   display: block;
 
   .#{$prefix}--link {
@@ -52,10 +51,6 @@
   }
 
   .#{$prefix}--link {
-    > span {
-      flex: 1;
-    }
-
     // TODO: See if there is a better solution than an internal custom property
     padding: var(--#{$dds-prefix}--link-list-item--anchor-padding, 0);
   }
@@ -120,10 +115,8 @@
 
   .#{$dds-prefix}-ce--link-list__list--split,
   .#{$dds-prefix}-ce--link-list__list--three-columns {
-    @include carbon--breakpoint('sm') {
-      ::slotted(#{$dds-prefix}-link-list-item) {
-        margin-right: -$carbon--layout-01;
-      }
+    ::slotted(#{$dds-prefix}-link-list-item) {
+      margin-right: -$carbon--layout-01;
     }
 
     @include carbon--breakpoint('md') {
@@ -133,8 +126,7 @@
       ::slotted(#{$dds-prefix}-link-list-item) {
         display: block;
         margin-left: -$carbon--layout-01;
-
-        @include hang;
+        margin-right: 0;
       }
     }
   }

@@ -3,6 +3,61 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.21.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.21.0-rc.3...@carbon/ibmdotcom-react@1.21.0) (2021-07-06)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.21.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.21.0-rc.2...@carbon/ibmdotcom-react@1.21.0-rc.3) (2021-07-02)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.21.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.21.0-rc.1...@carbon/ibmdotcom-react@1.21.0-rc.2) (2021-07-01)
+
+
+### Bug Fixes
+
+* **MastheadSearch:** set focus on search suggestion to false ([#6553](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6553)) ([a9275fa](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a9275fa)), closes [#6505](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6505)
+
+
+
+
+
+# [1.21.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.21.0-rc.0...@carbon/ibmdotcom-react@1.21.0-rc.1) (2021-06-29)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.21.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.12.0-beta.61.29...@carbon/ibmdotcom-react@1.21.0-rc.0) (2021-06-25)
+
+
+### Bug Fixes
+
+* **cta:** aligned feature card stories ([#6301](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6301)) ([f87a172](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f87a172)), closes [#5542](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5542)
+* **leadspace:** width and theme fix ([#6448](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6448)) ([1f18a3c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1f18a3c))
+* **masthead:** update search WAI-ARIA attributes ([#6440](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6440)) ([fb0cad6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/fb0cad6)), closes [#6115](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6115) [#6116](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6116) [#6117](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6117)
+* **masthead:** use aria-label instead of labelledby ([#6468](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6468)) ([a3cee0e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a3cee0e)), closes [#6465](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6465)
+
+
+### Features
+
+* **card-group:** add option for 2-4 cards per row ([#6367](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6367)) ([940ec1e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/940ec1e)), closes [#5286](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5286) [#5520](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5520)
+* **footer:** added custom adjunct links ([#6271](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6271)) ([c2cd4fb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c2cd4fb))
+
+
+
+
+
 # [1.20.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.20.0-rc.1...@carbon/ibmdotcom-react@1.20.0) (2021-06-14)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react
