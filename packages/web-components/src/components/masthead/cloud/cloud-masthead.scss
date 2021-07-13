@@ -149,7 +149,6 @@
 
 :host(#{$dds-prefix}-cloud-megamenu-tab) {
   button {
-    @include use-carbon-productive-tokens();
     @include carbon--type-style(body-short-01);
 
     color: $text-02;
@@ -203,7 +202,6 @@
     }
 
     span {
-      @include use-carbon-productive-tokens();
       @include carbon--type-style(body-short-01);
 
       color: $text-02;
@@ -260,7 +258,6 @@
 
   span {
     display: block;
-    @include use-carbon-productive-tokens();
     @include carbon--type-style(body-short-01);
 
     color: $text-02;

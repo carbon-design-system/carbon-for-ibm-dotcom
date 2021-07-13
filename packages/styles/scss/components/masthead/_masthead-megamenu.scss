@@ -159,7 +159,6 @@
   .#{$prefix}--masthead__megamenu__copy,
   :host(#{$dds-prefix}-megamenu-category-group-copy) {
     display: block;
-    @include use-carbon-productive-tokens();
     @include type-style('body-long-01');
 
     color: $text-02;
@@ -202,13 +201,13 @@
       padding: 6px $spacing-05;
       text-decoration: none;
       width: 100%;
+
+      @include type-style('expressive-heading-01');
     }
 
-    span,
-    p {
+    ::slotted(span),
+    span {
       color: $text-01;
-      @include use-carbon-productive-tokens();
-      @include type-style('expressive-heading-01');
 
       flex: inherit;
     }
@@ -226,7 +225,6 @@
 
   :host(#{$dds-prefix}-megamenu-category-link) a,
   .#{$prefix}--masthead__megamenu__category-sublink {
-    @include use-carbon-productive-tokens();
     @include type-style('body-long-01');
 
     color: $text-02;
@@ -242,19 +240,20 @@
 
   .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
   :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-sublink'] {
-    @include use-carbon-productive-tokens();
     @include type-style('body-short-01');
 
     width: 100%;
 
-    a {
-      width: 100%;
-      padding: 7px $spacing-05;
-    }
-
     span {
       flex: inherit;
     }
+  }
+
+  .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
+  :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-sublink']
+    a {
+    width: 100%;
+    padding: 7px $spacing-05;
   }
 
   :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='view-all'],
@@ -283,8 +282,12 @@
       }
     }
 
+    ::slotted(span) {
+      vertical-align: middle;
+      align-self: center;
+    }
+
     span {
-      @include use-carbon-productive-tokens();
       @include type-style('body-short-01');
 
       flex: inherit;
@@ -295,8 +298,7 @@
   :host(#{$dds-prefix}-megamenu-link-with-icon) a,
   .#{$prefix}--masthead__megamenu__category-headline
     .#{$prefix}--link-with-icon,
-  .#{$prefix}--masthead__megamenu__category-sublink--highlighted
-    .#{$prefix}--link-with-icon,
+  .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
   .#{$prefix}--masthead__megamenu__view-all-cta .#{$prefix}--link-with-icon,
   .#{$prefix}--masthead__megamenu__category-sublink {
     &:focus,

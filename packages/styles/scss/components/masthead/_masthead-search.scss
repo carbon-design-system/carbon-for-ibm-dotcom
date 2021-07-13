@@ -154,6 +154,7 @@
 
       button.#{$prefix}--header__search--close.#{$prefix}--header__action[aria-label='Close'] {
         display: inline-flex;
+        width: $carbon--spacing-09;
       }
 
       .#{$prefix}--header__search--actions {
@@ -190,11 +191,6 @@
           transition-duration: 112ms;
           transition-delay: 200ms;
         }
-      }
-
-      .#{$prefix}--header__search--close {
-        width: $carbon--spacing-09;
-        display: inline-flex;
       }
 
       .#{$prefix}--header__search--close,
@@ -259,7 +255,6 @@
     border-bottom: solid 1px $ui-01;
     background-color: $ui-background;
 
-    @include use-carbon-productive-tokens();
     @include type-style('body-short-01');
   }
 
