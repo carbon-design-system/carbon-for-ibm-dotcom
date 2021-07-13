@@ -120,6 +120,9 @@
   }
 }
 :host(#{$dds-prefix}-input-select) {
+  &:hover {
+    background-color: $hover-ui;
+  }
   .#{$prefix}--input_container {
     &:focus-visible {
       outline: $spacing-01 solid $interactive-01;
@@ -129,9 +132,6 @@
   display: block;
   &[selected] {
     background-color: $highlight;
-    @include carbon--breakpoint-down(sm) {
-      background-color: $highlight;
-    }
     .#{$prefix}--input_container-heading {
       color: $text-01;
       &:focus-visible {

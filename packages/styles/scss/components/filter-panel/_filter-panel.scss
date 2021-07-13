@@ -54,7 +54,6 @@
     @include use-carbon-productive-tokens();
     @include carbon--type-style('body-short-01');
     &:hover {
-      background-color: $hover-ui;
       color: $text-01;
     }
     .#{$prefix}--close_icon {
