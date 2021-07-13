@@ -258,6 +258,7 @@
 
   outline: 0;
   &[kind='tertiary'] {
+    height: calc((#{$spacing-10} + #{($spacing-01)}));
     background-color: $interactive-02;
     color: $text-04;
   }
