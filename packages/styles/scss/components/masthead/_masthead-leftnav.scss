@@ -26,7 +26,7 @@
       height: 100%;
     }
 
-    @include carbon--breakpoint-up(800px) {
+    @include carbon--breakpoint-up(959px) {
       display: none;
     }
   }
@@ -132,7 +132,7 @@
 
     .#{$prefix}--side-nav__overlay-active {
       display: none;
-      @include carbon--breakpoint-down(800px) {
+      @include carbon--breakpoint-down(959px) {
         display: block;
         background-color: $overlay-01;
       }

@@ -322,7 +322,7 @@
     @include carbon--make-col(4, 16);
   }
 
-  @include carbon--breakpoint-between(800px, 1055px) {
+  @include carbon--breakpoint-between(959px, 1055px) {
     .#{$prefix}--masthead__megamenu__container--row {
       flex-direction: column;
     }
