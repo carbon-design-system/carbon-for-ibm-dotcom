@@ -55,9 +55,9 @@ const miscCTAData = {
     return {
       heading: copy[0],
       card: {
-        type: type,
         heading: copy[1],
         cta: {
+          type: type,
           href: urlBy[type],
           media: {
             src: '1_9h94wo6b',

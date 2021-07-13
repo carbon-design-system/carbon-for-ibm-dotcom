@@ -20,8 +20,8 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
 const ctaProps = {
   heading: 'Lorem ipsum dolor sit amet',
   card: {
-    type: 'external',
     cta: {
+      type: 'external',
       href: 'https://www.example.com',
     },
     heading: 'Consectetur adipisicing elit',
