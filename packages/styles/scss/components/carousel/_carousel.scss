@@ -11,14 +11,9 @@
 @import 'carbon-components/scss/components/button/button';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/vendor/@carbon/layout/breakpoint';
 @import '../../globals/vars';
-@import '../../themes/expressive/tokens';
 
 :host(#{$dds-prefix}-carousel),
 .#{$prefix}--carousel {
-  @include use-carbon-expressive-tokens(
-    $type-tokens: (),
-    $component-tokens: ()
-  );
   --#{$dds-prefix}--carousel--page-size: 1;
 
   @include carbon--breakpoint(md) {

@@ -8,7 +8,7 @@
  */
 
 import { html, customElement, TemplateResult, property } from 'lit-element';
-import BXLink from 'carbon-web-components/es/components/link/link';
+import BXLink, { LINK_SIZE } from 'carbon-web-components/es/components/link/link';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { ICON_PLACEMENT } from '../../globals/defs';
@@ -34,6 +34,14 @@ class DDSLinkWithIcon extends StableSelectorMixin(BXLink) {
    */
   @property({ attribute: 'icon-placement', reflect: true })
   iconPlacement = ICON_PLACEMENT.RIGHT;
+
+  /**
+   * Property that specifies the link to use size large
+   *
+   * @internal
+   */
+  @property()
+  size = LINK_SIZE.LARGE;
 
   /**
    * @returns The main content.

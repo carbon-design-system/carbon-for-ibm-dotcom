@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import ArrowRight16 from '@carbon/icons-react/es/arrow--right/16';
-import { LinkWithIcon } from '../../LinkWithIcon';
+import Link from '../../../internal/vendor/carbon-components-react/components/Link/Link';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -19,12 +19,12 @@ const CategoryLink = ({ href, title, highlighted, ...rest }) => {
   return (
     <>
       {highlighted ? (
-        <LinkWithIcon
+        <Link
           className={`${prefix}--masthead__megamenu__category-sublink--highlighted`}
-          href={href}>
+          href={href}
+          renderIcon={ArrowRight16}>
           <span>{title}</span>
-          <ArrowRight16 />
-        </LinkWithIcon>
+        </Link>
       ) : (
         <a
           tabIndex={0}

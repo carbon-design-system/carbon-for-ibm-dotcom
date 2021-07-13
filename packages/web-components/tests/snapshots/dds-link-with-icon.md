@@ -6,7 +6,7 @@
 
 ```
 <a
-  class="bx--link bx--link-with-icon"
+  class="bx--link bx--link--lg bx--link-with-icon"
   id="link"
   part="link"
 >
@@ -24,7 +24,7 @@
 
 ```
 <p
-  class="bx--link bx--link--disabled bx--link-with-icon"
+  class="bx--link bx--link--disabled bx--link--lg bx--link-with-icon"
   id="link"
   part="link"
 >
