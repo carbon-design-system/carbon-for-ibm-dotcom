@@ -58,7 +58,7 @@ export const Default = ({ parameters }) => {
     document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
 
   return (
-    <div className={`bx--card--g90`}>
+    <div className={`bx--card--${theme}`}>
       <div className="bx--grid bx--grid--card">
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">

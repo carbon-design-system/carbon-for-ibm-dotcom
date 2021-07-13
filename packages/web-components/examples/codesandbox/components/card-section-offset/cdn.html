@@ -23,12 +23,18 @@ LICENSE file in the root directory of this source tree.
 <body>
 <dds-card-section-offset>
   <dds-content-block-heading slot="heading">heading</dds-content-block-heading>
+  <dds-background-media
+    gradient-direction="left-to-right"
+    mobile-position="top"
+    alt="alt text"
+    default-src="https://fpoimg.com/1584x891?bg_color=ee5396&text_color=161616"
+  >
+  </dds-background-media>
   <dds-text-cta
     slot="action"
-    cta-type="${ifNonNull(ctaType)}"
+    cta-type="local"
     icon-placement="right"
-    href="${ifNonNull(href)}"
-    @click="${onClick}"
+    href="https://example.com"
   >
     CTA copy
   </dds-text-cta>

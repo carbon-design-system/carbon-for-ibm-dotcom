@@ -10,14 +10,12 @@
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { select, text } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
-// import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
 import { CTA_TYPE } from '../../cta/defs';
-import imgMax from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import imgLg16x9 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
-import imgSm4x3 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--4x3--480x360--005.jpg';
+import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const ctaTypes = {
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
@@ -40,23 +38,17 @@ const defaultCardGroupItem = html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { heading, cards, ctaType, onClick, alt } = parameters?.props?.CardSectionOffset ?? {};
+  const { heading, cards, ctaType, onClick, alt, defaultSrc } = parameters?.props?.CardSectionOffset ?? {};
   const ctaCopy = 'Lorem ipsum dolor sit amet';
   const href = 'https://www.example.com';
   return html`
     <dds-card-section-offset>
       <dds-background-media
-        slot="image"
         gradient-direction="left-to-right"
         mobile-position="top"
         alt="${ifNonNull(alt)}"
-        default-src="${imgMax}"
+        default-src="${ifNonNull(defaultSrc)}"
       >
-        <dds-image-item media="(min-width: 1584px)" srcset="${imgLg16x9}"> </dds-image-item>
-        <dds-image-item media="(min-width: 1312px)" srcset="${imgLg16x9}"> </dds-image-item>
-        <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
-        <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}"> </dds-image-item>
-        <dds-image-item media="(min-width: 0px)" srcset="${imgSm4x3}"> </dds-image-item>
       </dds-background-media>
       <dds-content-block-heading slot="heading">${heading}</dds-content-block-heading>
       <dds-text-cta
@@ -97,22 +89,8 @@ export default {
         cards: Array.from({
           length: 3,
         }).map(() => defaultCardGroupItem),
-        // image: [
-        //   {
-        //     src: leadspaceImg,
-        //     breakpoint: 'sm',
-        //   },
-        //   {
-        //     src: leadspaceImg,
-        //     breakpoint: 'md',
-        //   },
-        //   {
-        //     src: leadspaceImg,
-        //     breakpoint: 'lg',
-        //   },
-        // ],
-        alt: text('Image alt text (alt):', 'Image alt text', groupId),
-        // defaultSrc: text('Default image (defaultSrc):', leadspaceImg, groupId),
+        alt: textNullable('Alt text', 'Image alt text', groupId),
+        defaultSrc: textNullable('Default image (default-src)', imgLg16x9, groupId),
       }),
     },
   },

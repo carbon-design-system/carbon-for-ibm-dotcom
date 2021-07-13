@@ -12,87 +12,48 @@
 @import '../card-group/card-group';
 
 @mixin card-section-offset {
-  :host(#{$dds-prefix}-card-section-offset){
+  :host(#{$dds-prefix}-card-section-offset) {
     display: block;
-    aspect-ratio: 16 / 9;
+    position: relative;
     width: 100%;
     height: 100%;
 
-    @include carbon--breakpoint('md'){
-      //dds-background-media {
-      //  position: absolute;
-      //  //top: 0px;
-      //  //left: 0px;
-      //  width: 100%;
-      //  height: 100%;
-      //  padding: 0px;
-      //  z-index: -1;
-      //  display: flex;
-      //
-      //  .#{$prefix}--image {
-      //    picture {
-      //      width: 100%;
-      //      max-width: rem(1584px);
-      //    }
-      //  }
-      //
-      //  &:before {
-      //    content: "";
-      //    width: 1px;
-      //    margin-left: -1px;
-      //    float: left;
-      //    height: 0px;
-      //    padding-top: 56.25%;
-      //  }
-      //
-      //  &:after {
-      //    content: "";
-      //    display: table;
-      //    clear: both;
-      //  }
-      //}
+    /* stylelint-disable-next-line property-no-unknown */
+    aspect-ratio: 16 / 9;
 
-      dds-background-media {
+    @include carbon--breakpoint('md') {
+      #{$dds-prefix}-background-media {
         position: absolute;
-        //top: 0;
-        //left: 0;
-        //padding: 0;
-        z-index: -1;
-        //@include ratio-base(16, 9, false);
-
-        .#{$prefix}--image__img {
-          //height: 100%;
-          //object-fit: cover;
-          //display: block;
-        }
+        width: 100%;
+        height: 100%;
       }
     }
 
-    @include carbon--breakpoint('lg'){
+    @include carbon--breakpoint('lg') {
       display: flex;
     }
 
-    ::slotted([slot='action']){
+    ::slotted([slot='action']) {
       display: inline-block;
     }
 
-
-
     .#{$prefix}--card-section-offset__content {
+      position: relative;
       width: 100%;
       padding: $spacing-07 0 $spacing-10 $spacing-05;
 
-      @include carbon--breakpoint('lg'){
+      @include carbon--breakpoint('lg') {
         padding-bottom: 0;
       }
     }
 
     ::slotted([slot='card-group']) {
+      position: relative;
       width: 100%;
       margin-top: auto;
       padding-top: 0;
 
-      @include carbon--breakpoint('lg'){
+      @include carbon--breakpoint('lg') {
         padding-top: $spacing-07;
       }
     }

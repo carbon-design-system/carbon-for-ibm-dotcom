@@ -24,7 +24,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot heading - The heading content.
  * @slot action - The text-cta content.
  * @slot card-group - The L shaped card group content.
- * @slot image - The background media content.
  */
 @customElement(`${ddsPrefix}-card-section-offset`)
 class DDSCardSectionOffset extends StableSelectorMixin(DDSContentBlock) {
@@ -38,10 +37,9 @@ class DDSCardSectionOffset extends StableSelectorMixin(DDSContentBlock) {
         (elem as HTMLElement).querySelector(`${ddsPrefix}-card-group-item`)?.hasAttribute('empty')
       ) {
         return true;
-      } else {
-        this.querySelector('dds-card-group')!.innerHTML = '';
-        return false;
       }
+      this.querySelector('dds-card-group')!.innerHTML = '';
+      return false;
     });
   }
 
@@ -52,7 +50,6 @@ class DDSCardSectionOffset extends StableSelectorMixin(DDSContentBlock) {
         <slot name="action"></slot>
       </div>
       <slot name="card-group" @slotchange="${this._handleSlotChangeCardGroup}"></slot>
-      <slot name="image"></slot>
     `;
   }
 
