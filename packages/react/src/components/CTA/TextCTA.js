@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -29,7 +29,7 @@ const TextCTA = ({
         : otherProps.cta?.href
       : null;
   return type === 'video' ? (
-    <div>
+    <>
       {CTALogic.launchLightBox(renderLightBox, openLightBox, otherProps.media)}
       {!renderLightBox && (
         <LinkWithIcon
@@ -45,7 +45,7 @@ const TextCTA = ({
           <Icon />
         </LinkWithIcon>
       )}
-    </div>
+    </>
   ) : (
     <LinkWithIcon
       href={href}

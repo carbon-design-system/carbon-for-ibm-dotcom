@@ -64,4 +64,4 @@ become enabled by default in Carbon for IBM.com starting in `v1.10.0`.
 ## Learn More
 
 To read more about the expressive theme, visit
-https://www.ibm.com/standards/web/guidelines/expressive-theme.
+https://www.ibm.com/standards/carbon/guidelines/expressive-theme.

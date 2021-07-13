@@ -14,7 +14,7 @@ import '../index';
 import styles from './card-section-carousel.stories.scss';
 import readme from './README.stories.mdx';
 
-const hrefDefault = 'https://www.ibm.com/standards/web/carbon-for-ibm-dotcom';
+const hrefDefault = 'https://www.ibm.com/standards/carbon';
 const headingDefault = 'Lorem ipsum dolor sit amet';
 const copyDefault = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
 const copyOdd = `

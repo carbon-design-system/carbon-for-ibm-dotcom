@@ -84,7 +84,7 @@ ContentBlockHeadlines.propTypes = {
 
   /**
    * Array of content items.
-   * See [CTA](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#text-link) for full usage details.
+   * See [CTA](http://www.ibm.com/standards/carbon/react/?path=/docs/components-cta--default#text-link) for full usage details.
    */
   items: PropTypes.arrayOf(
     PropTypes.shape({

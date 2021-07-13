@@ -84,7 +84,7 @@ export const Card = ({
           {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
           {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
           {optionalContent(copy)}
-          {renderFooter(cta, copy, heading, pictogram)}
+          {renderFooter(cta, copy, props.disabled, heading, pictogram)}
         </div>
       </div>
     </Tile>
@@ -113,10 +113,12 @@ function optionalContent(copy) {
  * @param {object} cta cta object
  * @returns {object} JSX object
  */
-function renderFooter(cta, copy, heading, pictogram) {
+function renderFooter(cta, copy, disabled, heading, pictogram) {
+  const CardFooter = disabled ? 'p' : Link;
+
   return (
     cta && (
-      <Link
+      <CardFooter
         className={classNames(`${prefix}--card__footer`, {
           [`${prefix}--card__footer__icon-left`]: cta?.iconPlacement === 'left',
           [`${prefix}--card__footer__copy`]: cta?.copy,
@@ -135,7 +137,7 @@ function renderFooter(cta, copy, heading, pictogram) {
           <cta.icon.src className={`${prefix}--card__cta`} {...cta?.icon} />
         )}
         {pictogram && pictogram}
-      </Link>
+      </CardFooter>
     )
   );
 }
@@ -178,7 +180,7 @@ export const cardPropTypes = {
    * | `copy`          | String    | Optional text for CTA                                                                                                            |
    * | `type`          | String    | type of CTA (local or external) when Card type is static                                                                         |
    *
-   * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
+   * See the [`<CTA>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-cta--default#props) for full usage details.
    */
   cta: PropTypes.shape({
     copy: PropTypes.string,
@@ -192,7 +194,7 @@ export const cardPropTypes = {
 
   /**
    * Contains source and alt text properties.
-   * See [`<Image>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-image--default#props) for full usage details.
+   * See [`<Image>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-image--default#props) for full usage details.
    */
   image: PropTypes.shape({
     classname: PropTypes.string,
