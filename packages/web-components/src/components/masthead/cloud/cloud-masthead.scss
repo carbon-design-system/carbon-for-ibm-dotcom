@@ -84,9 +84,7 @@
 
 :host(#{$dds-prefix}-cloud-megamenu),
 .#{$prefix}--masthead__megamenu {
-  width: 100%;
   position: relative;
-  overflow: hidden;
 
   &::after {
     content: '';
