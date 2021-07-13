@@ -8,21 +8,27 @@ LICENSE file in the root directory of this source tree.
 -->
 
 <html>
-  <head>
-    <title>@carbon/ibmdotcom-web-components example</title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" />
-    <style type="text/css">
-      /* Suppress custom element until styles are loaded */
-      dds-tabs-extended:not(:defined) {
-        display: none;
-      }
-    </style>
-    <script src="src/index.js"></script>
-  </head>
-  <body>
-    <h1>Hello World! 👋</h1>
-    <div id="app">
+<head>
+  <title>@carbon/ibmdotcom-web-components example</title>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet"
+        href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/canary/plex.css"/>
+  <link rel="stylesheet"
+        href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/canary/grid.css"/>
+  <style type="text/css">
+    /* Suppress custom element until styles are loaded */
+    dds-tabs-extended:not(:defined) {
+      display: none;
+    }
+  </style>
+  <script src="src/index.js"></script>
+</head>
+<body>
+<div class="bx--grid">
+  <div class="bx--row">
+    <div class="bx--col-sm-4 bx--col-lg-12">
+      <h1>Hello World! 👋</h1>
+
       <dds-tabs-extended>
         <dds-tab label="First tab">
           <p>Content for first tab goes here.</p>
@@ -32,5 +38,7 @@ LICENSE file in the root directory of this source tree.
         </dds-tab>
       </dds-tabs-extended>
     </div>
-  </body>
+  </div>
+</div>
+</body>
 </html>

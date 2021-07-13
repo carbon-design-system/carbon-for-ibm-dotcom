@@ -24,7 +24,7 @@ const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 /**
  * CardGroup component
  */
-const CardGroup = ({ cards, cta, border }) => {
+const CardGroup = ({ cards, cardsPerRow, cta, border }) => {
   const containerRef = useRef();
 
   /**
@@ -122,25 +122,27 @@ const CardGroup = ({ cards, cta, border }) => {
       return resultArray;
     }, []);
   };
-  return _renderCards(cards, containerRef, cta, border);
+  return _renderCards(cards, cardsPerRow, containerRef, cta, border);
 };
 
 /**
  * Renders the cards based on the CardGroup entries.
  *
  * @param {Array} cards objects array
+ * @param {number} cardsPerRow number of cards per column
  * @param {object} containerRef ref of elements
  * @param {object} cta object
  * @param {boolean} border boolean
  * @returns {*} CardGroup JSX objects
  */
-const _renderCards = (cards, containerRef, cta, border) => (
+const _renderCards = (cards, cardsPerRow, containerRef, cta, border) => (
   <div
     data-autoid={`${stablePrefix}--card-group`}
     className={cx(`${prefix}--card-group__cards__row`, {
       [`${prefix}--card-group--border`]: border,
       [`${prefix}--row--condensed`]: !border,
     })}
+    style={{ '--dds--card-group--cards-in-row': cardsPerRow }}
     ref={containerRef}>
     {cards.map((card, index) => {
       return (
@@ -205,7 +207,7 @@ CardGroup.propTypes = {
    * | `heading`  | YES      | String    | Heading of the card.                     |
    * | `cta.href` | YES      | String    | URI for internal or external resource.   |
    *
-   * See [`<CTA style="card">`'s README](https://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--card#props) for full usage details.
+   * See [`<CTA style="card">`'s README](https://www.ibm.com/standards/carbon/react/?path=/docs/components-cta--card#props) for full usage details.
    */
   cards: PropTypes.arrayOf(
     PropTypes.shape({
@@ -241,9 +243,14 @@ CardGroup.propTypes = {
   ).isRequired,
 
   /**
+   * The number of columns per row. Min 2, max 4, default 3. Applies to >=`lg` breakpoint only.
+   */
+  cardsPerRow: PropTypes.number,
+
+  /**
    * Optional CTA card for group. Always displays as last item.
    * Uses a sub-scheme of `<Card>`'s props.
-   * See [`<Card>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-card--static#props) for full usage details.
+   * See [`<Card>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-card--static#props) for full usage details.
    */
   cta: PropTypes.shape({
     heading: PropTypes.string,
@@ -251,6 +258,10 @@ CardGroup.propTypes = {
       href: PropTypes.string,
     }),
   }),
+};
+
+CardGroup.defaultProps = {
+  cardsPerRow: 3,
 };
 
 export default CardGroup;

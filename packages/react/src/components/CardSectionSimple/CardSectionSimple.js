@@ -79,7 +79,7 @@ CardSectionSimple.propTypes = {
 
   /**
    * Optional CTA card for group. Always displays as last item.
-   * See [`<CardGroup>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cardgroup--default#props) for full usage details.
+   * See [`<CardGroup>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-cardgroup--default#props) for full usage details.
    */
   cta: PropTypes.shape({
     heading: PropTypes.string,

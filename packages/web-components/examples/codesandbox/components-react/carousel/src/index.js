@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,7 +25,7 @@ const copyOdd = `
 
 // eslint-disable-next-line react/prop-types
 const Card = ({ copy = copyDefault, heading = headingDefault } = {}) => (
-  <DDSCard href="https://www.ibm.com/standards/web/carbon-for-ibm-dotcom">
+  <DDSCard href="https://www.ibm.com/standards/carbon">
     <DDSCardHeading>{heading}</DDSCardHeading>
     {copy}
     <DDSCardFooter>

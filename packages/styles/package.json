@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-styles",
   "description": "Carbon for IBM.com Styles",
-  "version": "1.20.0",
+  "version": "1.21.0",
   "license": "Apache-2.0",
   "main": "dist/ibm-dotcom-styles.min.css",
   "module": "src/scss",
@@ -34,15 +34,15 @@
     "visual-snapshot": "yarn build-storybook && percy-storybook --widths=320,1280"
   },
   "dependencies": {
-    "@carbon/grid": "10.29.0",
-    "@carbon/icons-react": "10.33.0",
+    "@carbon/grid": "10.31.0",
+    "@carbon/icons-react": "10.35.0",
     "@carbon/import-once": "10.6.0",
-    "@carbon/layout": "10.25.0",
-    "@carbon/motion": "10.19.0",
+    "@carbon/layout": "10.27.0",
+    "@carbon/motion": "10.20.0",
     "@carbon/telemetry": "0.0.0-alpha.6",
-    "@carbon/themes": "10.36.0",
-    "@carbon/type": "10.29.0",
-    "carbon-components": "10.37.0"
+    "@carbon/themes": "10.38.0",
+    "@carbon/type": "10.31.0",
+    "carbon-components": "10.39.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
@@ -52,6 +52,7 @@
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
     "@percy/storybook": "^3.3.0",
+    "@storybook/addon-a11y": "^5.3.0",
     "@storybook/addon-actions": "^5.3.0",
     "@storybook/addon-info": "^5.3.0",
     "@storybook/addon-knobs": "^5.3.0",
@@ -61,7 +62,7 @@
     "babel-loader": "^8.0.6",
     "browserslist-config-carbon": "^10.4.0",
     "cache-loader": "^4.1.0",
-    "carbon-components-react": "7.37.1",
+    "carbon-components-react": "7.39.0",
     "css-loader": "^5.2.0",
     "del": "^3.0.0",
     "gulp": "^4.0.2",

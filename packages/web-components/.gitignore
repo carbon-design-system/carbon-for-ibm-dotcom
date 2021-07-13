@@ -8,3 +8,5 @@ storybook-static
 storybook-static-react
 .vscode
 .env
+tests/e2e/cypress/screenshots
+tests/e2e/cypress/videos

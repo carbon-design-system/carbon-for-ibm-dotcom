@@ -4,6 +4,7 @@
 /tests/snapshots
 /tests/e2e/build/examples-scaffold
 /tests/e2e/dist
+tests/e2e/cypress
 es
 lib
 node_modules

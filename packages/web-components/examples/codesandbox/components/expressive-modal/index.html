@@ -8,55 +8,69 @@ LICENSE file in the root directory of this source tree.
 -->
 
 <html>
-  <head>
-    <title>@carbon/ibmdotcom-web-components example</title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" />
-    <style type="text/css">
-      #app {
-        width: 300px;
-      }
-    </style>
-    <script src="src/index.js"></script>
-  </head>
-  <body>
-    <div id="app">
-      <dds-button-expressive id="open-modal-btn">Open modal</dds-button-expressive>
+<head>
+  <title>@carbon/ibmdotcom-web-components example</title>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet"
+        href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/canary/plex.css"/>
+  <link rel="stylesheet"
+        href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/canary/grid.css"/>
+  <style type="text/css">
+    /* Suppress custom element until styles are loaded */
+    dds-expressive-modal:not(:defined), dds-button-expressive:not(:defined) {
+      display: none;
+    }
+  </style>
+  <script src="src/index.js"></script>
+</head>
+<body>
+<div class="bx--grid">
+  <div class="bx--row">
+    <div class="bx--col-sm-4 bx--col-lg-12">
+      <dds-button-expressive id="open-modal-btn">Open modal
+      </dds-button-expressive>
     </div>
-    <dds-expressive-modal id="modal">
-      <dds-expressive-modal-header>
-        <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
-        <dds-expressive-modal-heading>Modal Title</dds-expressive-modal-heading>
-      </dds-expressive-modal-header>
-      <dds-expressive-modal-body>
-        Quisque felis odio, egestas vel tempus iaculis, interdum vel eros. Phasellus pharetra, purus et pretium posuere, ipsum
-        risus pulvinar leo, non rutrum tortor risus vitae quam. Nulla sed nibh felis. Maecenas nec tincidunt eros. Fusce
-        sollicitudin sit amet quam eu fringilla. Donec tincidunt ut nisi vitae pharetra. Curabitur imperdiet ante sit amet mi
-        laoreet, vitae facilisis ante convallis. Aenean quis dapibus augue. Sed nisl dui, scelerisque et augue eget, pharetra
-        commodo elit. In venenatis sapien eu nisl congue suscipit.
-      </dds-expressive-modal-body>
-      <dds-expressive-modal-footer>
-        <dds-button-expressive>
-          Lorem ipsum dolor
-          <svg
-            slot="icon"
-            focusable="false"
-            preserveAspectRatio="xMidYMid meet"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-          >
-            <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-          </svg>
-        </dds-button-expressive>
-      </dds-expressive-modal-footer>
-    </dds-expressive-modal>
-  </body>
-  <script type="text/javascript">
-    document.getElementById('open-modal-btn').addEventListener('click', () => {
-      document.getElementById('modal').open = true;
-    });
-  </script>
+  </div>
+</div>
+<dds-expressive-modal id="modal">
+  <dds-expressive-modal-header>
+    <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
+    <dds-expressive-modal-heading>Modal Title</dds-expressive-modal-heading>
+  </dds-expressive-modal-header>
+  <dds-expressive-modal-body>
+    Quisque felis odio, egestas vel tempus iaculis, interdum vel eros. Phasellus
+    pharetra, purus et pretium posuere, ipsum
+    risus pulvinar leo, non rutrum tortor risus vitae quam. Nulla sed nibh
+    felis. Maecenas nec tincidunt eros. Fusce
+    sollicitudin sit amet quam eu fringilla. Donec tincidunt ut nisi vitae
+    pharetra. Curabitur imperdiet ante sit amet mi
+    laoreet, vitae facilisis ante convallis. Aenean quis dapibus augue. Sed nisl
+    dui, scelerisque et augue eget, pharetra
+    commodo elit. In venenatis sapien eu nisl congue suscipit.
+  </dds-expressive-modal-body>
+  <dds-expressive-modal-footer>
+    <dds-button-expressive>
+      Lorem ipsum dolor
+      <svg
+        slot="icon"
+        focusable="false"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+      >
+        <path
+          d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+      </svg>
+    </dds-button-expressive>
+  </dds-expressive-modal-footer>
+</dds-expressive-modal>
+</body>
+<script type="text/javascript">
+  document.getElementById('open-modal-btn').addEventListener('click', () => {
+    document.getElementById('modal').open = true;
+  });
+</script>
 </html>

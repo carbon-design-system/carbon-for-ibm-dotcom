@@ -11,7 +11,7 @@ import { html } from 'lit-element';
 import '../index';
 import '../../dotcom-shell/dotcom-shell-container';
 import readme from './README.stories.mdx';
-import StoryContent from '../../dotcom-shell/__stories__/data/content';
+import StoryContent from './data/content';
 import styles from './back-to-top.stories.scss';
 
 export const Default = () => {
@@ -20,7 +20,7 @@ export const Default = () => {
       ${styles}
     </style>
     <dds-dotcom-shell-container>
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
       <dds-back-to-top></dds-back-to-top>
     </dds-dotcom-shell-container>
   `;
@@ -30,5 +30,6 @@ export default {
   title: 'Components/Back to top',
   parameters: {
     ...readme.parameters,
+    useRawContainer: true,
   },
 };

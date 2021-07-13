@@ -18,6 +18,10 @@
     padding-top: 0;
     padding-left: $carbon--spacing-06;
     padding-bottom: $carbon--layout-04;
+
+    @include carbon--breakpoint('sm') {
+      padding-left: 0;
+    }
   }
 
   .#{$prefix}--content-section__leading {
