@@ -48,7 +48,7 @@
     background-color: #dcdcdc;
   }
 
-  @include carbon--breakpoint-down(800px) {
+  @include carbon--breakpoint-down(959px) {
     display: none;
   }
 }
