@@ -63,7 +63,7 @@ components and patterns.
 ### Learn More
 
 To read more about the expressive theme, visit
-https://www.ibm.com/standards/web/guidelines/expressive-theme.
+https://www.ibm.com/standards/carbon/guidelines/expressive-theme.
 
 To see a storybook output of the Carbon components with the expressive theme
 applied, run the following command:
@@ -102,9 +102,8 @@ it.
 
 ## Documentation
 
-- See our documentation site
-  [here](https://www.ibm.com/standards/web/carbon-for-ibm-dotcom) for full
-  how-to docs and guidelines
+- See our documentation site [here](https://www.ibm.com/standards/carbon) for
+  full how-to docs and guidelines
 - [Contributing](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/.github/CONTRIBUTING.md):
   Guidelines for making contributions to this repo.
 

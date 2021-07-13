@@ -45,8 +45,9 @@ framework agnostic and can be used with any framework.
 
 ### List of Available Components
 
-View available React Components [here](https://ibmdotcom-react.mybluemix.net).
-You can see usage information in several ways:
+View available React Components
+[here](https://www.ibm.com/standards/carbon/react). You can see usage
+information in several ways:
 
 1. Clicking the **DOCS** tab in the top of the selected component. You can see
    the list of available React props as well as how to use in your project.

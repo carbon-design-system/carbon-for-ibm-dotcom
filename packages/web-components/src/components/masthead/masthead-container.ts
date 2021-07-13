@@ -99,6 +99,7 @@ export function mapStateToProps(state: MastheadContainerState): MastheadContaine
       unauthenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedout,
       userStatus: request?.user,
       currentSearchResults: currentSearchResults ?? [],
+      language,
     },
     value => value !== undefined
   );
