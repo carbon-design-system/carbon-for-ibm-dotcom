@@ -18,8 +18,6 @@ import '../filter-group';
 import '../filter-panel-composite';
 import '../checkbox';
 import '../filter-group-item';
-import 'carbon-web-components/es/components/accordion/accordion';
-import 'carbon-web-components/es/components/accordion/accordion-item';
 import readme from './README.stories.mdx';
 
 import styles from './filter-panel.stories.scss';
