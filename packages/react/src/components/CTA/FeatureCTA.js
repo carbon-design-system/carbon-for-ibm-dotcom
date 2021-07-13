@@ -70,9 +70,8 @@ const _renderFeatureCard = ({ card }) => {
   else if (card.type === 'video') card.cta.href = '#';
   card.cta = {
     ...card.cta,
-    icon: { src: CTALogic.iconSelector(card.type) },
+    icon: { src: CTALogic.iconSelector(card.cta.type) },
   };
-  card.target = CTALogic.external(card.type);
   card.type = 'link';
   return card;
 };
