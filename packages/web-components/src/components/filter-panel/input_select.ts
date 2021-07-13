@@ -20,21 +20,33 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-input-select`)
 class DDSInputSelect extends StableSelectorMixin(LitElement) {
+  /**
+   * Sets the input selected dropdown to closed
+   */
   @property()
   isOpen = false;
 
-  @property({ type: String, reflect: true })
-  selectValue = '';
-
+  /**
+   * sets the title value to a string
+   */
   @property()
   title!: string;
 
+  /**
+   * sets the selected value attribute to selected
+   */
   @property({ attribute: 'selected', type: Boolean })
   selected: boolean = false;
 
+  /**
+   * property for setting the value to a string
+   */
   @property()
   value: string = '';
 
+  /**
+   * targets the last selected item
+   */
   @property()
   lastValue: any;
 
@@ -42,6 +54,11 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
     return `${ddsPrefix}-input-select-item`;
   }
 
+  /**
+   *
+   * @param event sets the selected value attribute to selected and removes the attribute from the 'lastvalue'
+   * @private
+   */
   protected _handleClickInner(event: MouseEvent) {
     const { eventContentStateChange } = this.constructor as typeof DDSInputSelect;
     const selected = (event.target as Element).closest(
@@ -72,9 +89,15 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
     this.lastValue = selected;
   }
 
+  /**
+   * sets the input select items to an array
+   */
   @property()
   _items: any[] = [];
 
+  /**
+   * sets header-value attribute to the input selected header
+   */
   @property({ attribute: 'header-value' })
   headerValue: string = '';
 
@@ -82,6 +105,11 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
     return `${ddsPrefix}-input-select-title`;
   }
 
+  /**
+   * Toggles the input select dropdown and sets the header to selected and sets the value
+   *
+   * @private
+   */
   protected _handleClickHeader() {
     const { eventTitleChange } = this.constructor as typeof DDSInputSelect;
     this.isOpen = !this.isOpen;

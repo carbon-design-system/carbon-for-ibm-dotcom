@@ -53,9 +53,15 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
   @property()
   title = '';
 
+  /**
+   * renders the selected values
+   */
   @property()
   selectedValues: any[] = [];
 
+  /**
+   * Handles items in the selected array
+   */
   @property({ attribute: 'has-selections', type: Boolean })
   hasSelections = false;
 

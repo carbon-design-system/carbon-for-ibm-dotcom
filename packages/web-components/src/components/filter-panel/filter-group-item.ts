@@ -14,7 +14,6 @@ import { classMap } from 'lit-html/directives/class-map';
 import './input_select';
 import ChevronRight16 from 'carbon-web-components/es/icons/chevron--right/16';
 import settings from 'carbon-components/es/globals/js/settings';
-import Handle from '../../globals/internal/handle';
 import { ACCORDION_ITEM_BREAKPOINT } from './defs';
 import styles from './filter-panel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -30,20 +29,6 @@ const { prefix } = settings;
  * @param observer The resize observer.
  * @param elem The element to observe the resize.
  */
-// TODO: Wait for `.d.ts` update to support `ResizeObserver`
-// @ts-ignore
-const observeResize = (observer: ResizeObserver, elem: Element) => {
-  if (!elem) {
-    return null;
-  }
-  observer.observe(elem);
-  return {
-    release() {
-      observer.unobserve(elem);
-      return null;
-    },
-  } as Handle;
-};
 
 @customElement(`${ddsPrefix}-filter-group-item`)
 class DDSFilterGroupItem extends StableSelectorMixin(LitElement) {
@@ -51,11 +36,6 @@ class DDSFilterGroupItem extends StableSelectorMixin(LitElement) {
    * The current breakpoint.
    */
   private _currentBreakpoint?: ACCORDION_ITEM_BREAKPOINT;
-
-  /**
-   * The handle for observing resize of the parent element of this element.
-   */
-  private _hObserveResize: Handle | null = null;
 
   /**
    * Handles user-initiated toggle request of this accordion item.
@@ -94,20 +74,6 @@ class DDSFilterGroupItem extends StableSelectorMixin(LitElement) {
   };
 
   /**
-   * The `ResizeObserver` instance for observing element resizes for re-positioning floating menu position.
-   */
-  // TODO: Wait for `.d.ts` update to support `ResizeObserver`
-  // @ts-ignore
-  private _resizeObserver = new ResizeObserver((records: ResizeObserverEntry[]) => {
-    const { width } = records[records.length - 1].contentRect;
-    const { _sizesBreakpoints: sizesBreakpoints } = this.constructor as typeof BXAccordionItem;
-    this._currentBreakpoint = Object.keys(sizesBreakpoints)
-      .sort((lhs, rhs) => sizesBreakpoints[rhs] - sizesBreakpoints[lhs])
-      .find(size => width >= sizesBreakpoints[size]) as ACCORDION_ITEM_BREAKPOINT;
-    this.requestUpdate();
-  });
-
-  /**
    * `true` if the accordion item should be disabled.
    */
   @property({ type: Boolean, reflect: true })
@@ -124,23 +90,6 @@ class DDSFilterGroupItem extends StableSelectorMixin(LitElement) {
    */
   @property({ attribute: 'title-text' })
   titleText = '';
-
-  connectedCallback() {
-    if (!this.hasAttribute('role')) {
-      this.setAttribute('role', 'listitem');
-    }
-    super.connectedCallback();
-    if (this._hObserveResize) {
-      this._hObserveResize = this._hObserveResize.release();
-    }
-    this._hObserveResize = observeResize(this._resizeObserver, this);
-  }
-
-  disconnectedCallback() {
-    if (this._hObserveResize) {
-      this._hObserveResize = this._hObserveResize.release();
-    }
-  }
 
   render() {
     const {

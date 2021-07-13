@@ -27,6 +27,12 @@ const gridBreakpoint = parseFloat(breakpoints.md.width) * baseFontSize;
 @customElement(`${ddsPrefix}-filter-panel-composite`)
 class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /** host listener */
+  /**
+   * Event to filter selected values in the modal and add the 'has-selections' attribute
+   *
+   * @param event content state change
+   * @private
+   */
   @HostListener('document:eventContentStateChange')
   protected _handleContentStateChangeDocument = (event: CustomEvent) => {
     const { value, lastValue, headerValue } = event.detail;
@@ -59,6 +65,12 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   };
 
   /** host listener */
+  /**
+   * Host listener for handling the statechange when a checkbox is selected
+   *
+   * @param event checkbox select event
+   * @private
+   */
   @HostListener('document:eventCheckboxSelect')
   protected _handleCheckboxStateChange = (event: CustomEvent) => {
     const { value } = event.detail;
@@ -87,12 +99,21 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     this.renderStatus();
   };
 
+  /**
+   * handles modal close event
+   */
   @HostListener('document:eventModalClose')
   protected modalCloseEvent = () => {
     this.openFilterModal = false;
   };
 
   /** host listener for input select header */
+  /**
+   * Handles the Filter title state changing
+   *
+   * @param event title state change
+   * @private
+   */
   @HostListener('document:eventTitleChange')
   protected _handleTitleStateChange = (event: CustomEvent) => {
     const { headerValue } = event.detail;
@@ -120,6 +141,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
 
     (selected as HTMLElement).setAttribute('selected', '');
 
+    // removes the header value once a new value is selected
     if (!this._selectedValues.includes(headerValue)) {
       this._selectedValues.push(headerValue);
     }
@@ -136,10 +158,18 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     return `${ddsPrefix}-input-select`;
   }
 
+  /**
+   * selected value property
+   */
   @property({ type: String, reflect: true })
   selectValue = '';
 
   /** host listener */
+  /**
+   * Event handler for the clearing functionality
+   *
+   * @private
+   */
   @HostListener('document:eventSelectionClear')
   protected _handleClearSelection = () => {
     this._selectedValues = [];
@@ -184,19 +214,36 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   @property({ type: Boolean })
   openFilterModal = false;
 
+  /**
+   * Sets the open modal to true
+   *
+   * @private
+   */
   protected _openModal() {
     this.openFilterModal = true;
   }
 
+  /**
+   *
+   */
   @property()
   _contents: any[] = [];
 
+  /**
+   * sets the array for the filter button title
+   */
   @property()
   _title: any[] = [];
 
+  /**
+   * sets the selected values into an array
+   */
   @property()
   _selectedValues: string[] = [];
 
+  /**
+   * sets the filter button title
+   */
   @property()
   _filterButtonTitle: string = '';
 

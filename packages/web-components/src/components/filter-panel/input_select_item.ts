@@ -19,9 +19,15 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-input-select-item`)
 class DDSInputSelectItem extends StableSelectorMixin(LitElement) {
+  /**
+   * Property for the input select item value
+   */
   @property()
   option: string = '';
 
+  /**
+   * sets the input select dropdown to unselected
+   */
   @property({ type: Boolean, reflect: true })
   selected = false;
 

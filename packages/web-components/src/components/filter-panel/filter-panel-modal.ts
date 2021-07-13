@@ -36,6 +36,9 @@ class DDSFilterPanelModal extends HostListenerMixin(StableSelectorMixin(BXModal)
     `;
   }
 
+  /**
+   * renders the selected values
+   */
   @property()
   selectedValues: any[] = [];
 
@@ -58,9 +61,15 @@ class DDSFilterPanelModal extends HostListenerMixin(StableSelectorMixin(BXModal)
     );
   }
 
+  /**
+   * Handles items in the selected array
+   */
   @property({ attribute: 'has-selections', type: Boolean })
   hasSelections = false;
 
+  /**
+   * Renders the filter heading
+   */
   @property()
   heading!: string;
 
