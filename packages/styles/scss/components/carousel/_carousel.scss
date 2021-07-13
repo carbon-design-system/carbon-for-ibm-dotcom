@@ -94,9 +94,13 @@
   }
 
   .#{$prefix}--btn.#{$prefix}--carousel__navigation__btn {
-    padding: calc((#{$container-02} - #{$icon-size-01}) / 2);
-    min-height: $container-02;
-    width: $container-02;
-    height: $container-02;
+    padding: 0;
+    min-height: $container-04;
+    width: $container-04;
+    height: $container-04;
+
+    svg {
+      margin: auto;
+    }
   }
 }
