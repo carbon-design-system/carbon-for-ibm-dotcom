@@ -30,7 +30,7 @@ export const Default = ({ parameters }) => {
     <style>
       ${styles}
     </style>
-    <div class="grid-alignment ${gridKnobs === '3' ? 'bx--col-lg-3' : 'bx--col-lg-4'}">
+    <div class="grid-alignment ${gridKnobs === '3 columns' ? 'bx--col-lg-3' : 'bx--col-lg-4'}">
       <dds-filter-panel-composite>
         <dds-filter-panel-heading slot="heading">${heading}</dds-filter-panel-heading>
         <dds-filter-group>
@@ -98,7 +98,7 @@ export default {
     knobs: {
       FilterPanel: ({ groupId }) => ({
         heading: text('heading', 'Filter', groupId),
-        gridKnobs: select('gridKnobs', ['3', '4'], '4', groupId),
+        gridKnobs: select('Grid alignment', ['3 columns', '4 columns'], '4 columns', groupId),
       }),
     },
   },

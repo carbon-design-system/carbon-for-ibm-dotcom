@@ -87,6 +87,10 @@
     @include carbon--breakpoint('lg') {
       display: none;
     }
+    &:hover {
+      background-color: $hover-tertiary;
+      color: $text-04;
+    }
   }
 }
 
@@ -119,6 +123,9 @@
   display: block;
   &[selected] {
     background-color: $highlight;
+    @include carbon--breakpoint-down(sm) {
+      background-color: $highlight;
+    }
     .#{$prefix}--input_container-heading {
       color: $text-01;
       &:focus-visible {
@@ -253,8 +260,16 @@
   }
   .#{$prefix}--btn--tertiary {
     color: $ui-02;
+    &:hover {
+      background-color: $hover-secondary;
+    }
     &[disabled] {
       color: $ui-04;
+    }
+  }
+  .#{$prefix}--btn--disabled {
+    &:hover {
+      background-color: transparent;
     }
   }
 }
