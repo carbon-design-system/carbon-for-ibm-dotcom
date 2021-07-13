@@ -19,6 +19,39 @@
     height: 100%;
 
     @include carbon--breakpoint('md'){
+      //dds-background-media {
+      //  position: absolute;
+      //  //top: 0px;
+      //  //left: 0px;
+      //  width: 100%;
+      //  height: 100%;
+      //  padding: 0px;
+      //  z-index: -1;
+      //  display: flex;
+      //
+      //  .#{$prefix}--image {
+      //    picture {
+      //      width: 100%;
+      //      max-width: rem(1584px);
+      //    }
+      //  }
+      //
+      //  &:before {
+      //    content: "";
+      //    width: 1px;
+      //    margin-left: -1px;
+      //    float: left;
+      //    height: 0px;
+      //    padding-top: 56.25%;
+      //  }
+      //
+      //  &:after {
+      //    content: "";
+      //    display: table;
+      //    clear: both;
+      //  }
+      //}
+
       dds-background-media {
         position: absolute;
         //top: 0;

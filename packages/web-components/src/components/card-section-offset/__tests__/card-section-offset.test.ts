@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+// import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 
 import '../card-section-offset';
@@ -17,8 +17,8 @@ const template = (props?) => {
   const { heading, cta, children } = props ?? {};
   return html`
     <dds-card-section-offset>
-       <dds-content-block-heading>${heading}</dds-content-block-heading>
-       ${cta}
+      <dds-content-block-heading>${heading}</dds-content-block-heading>
+      ${cta}
       <dds-card-group>${children}</dds-card-group>
     </dds-card-section-offset>
   `;
@@ -36,13 +36,11 @@ describe('dds-card-section-offset', function() {
       render(
         template({
           heading: 'heading-foo',
-          cta: html`<dds-text-cta
-                  slot="action"
-                  cta-type="local"
-                  icon-placement="right"
-                  href="https://example.com">
-                  CTA copy
-                </dds-text-cta>`,
+          cta: html`
+            <dds-text-cta slot="action" cta-type="local" icon-placement="right" href="https://example.com">
+              CTA copy
+            </dds-text-cta>
+          `,
           cards: html`
             <dds-card-group-item empty></dds-card-group-item>
             <dds-card-group-item href="https://example.com">

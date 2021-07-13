@@ -11,5 +11,5 @@ import './card-section-offset';
 import '../content-block/content-block';
 import '../content-block/content-block-heading';
 import '../cta/text-cta';
- import '../background-media/background-media';
-import '../card-group/card-group'
+import '../background-media/background-media';
+import '../card-group/card-group';

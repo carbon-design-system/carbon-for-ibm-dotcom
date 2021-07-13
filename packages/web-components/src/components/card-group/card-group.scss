@@ -23,11 +23,11 @@
     margin-top: -1px;
   }
 
-  ::slotted(#{$dds-prefix}-card-group-item){
+  ::slotted(#{$dds-prefix}-card-group-item) {
     background-color: $decorative-01;
   }
 
-  ::slotted(#{$dds-prefix}-card-group-item[empty]){
+  ::slotted(#{$dds-prefix}-card-group-item[empty]) {
     background-color: transparent;
   }
 }
@@ -41,7 +41,7 @@
     margin-left: 0;
   }
 
-  ::slotted(#{$dds-prefix}-card-group-item){
+  ::slotted(#{$dds-prefix}-card-group-item) {
     background-color: transparent;
   }
 }

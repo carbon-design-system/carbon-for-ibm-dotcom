@@ -28,16 +28,19 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-card-section-offset`)
 class DDSCardSectionOffset extends StableSelectorMixin(DDSContentBlock) {
-
   protected _handleSlotChangeCardGroup(event: Event) {
     const childItems = (event.target as HTMLSlotElement).assignedNodes();
 
     childItems.filter(elem => {
-      if((elem as HTMLElement).matches((this.constructor as typeof DDSCardSectionOffset).cardGroupSelector) &&
+      if (
+        (elem as HTMLElement).matches((this.constructor as typeof DDSCardSectionOffset).cardGroupSelector) &&
         (elem as HTMLElement).querySelectorAll(`${ddsPrefix}-card-group-item`).length === 4 &&
-        (elem as HTMLElement).querySelector(`${ddsPrefix}-card-group-item`)?.hasAttribute("empty")){
+        (elem as HTMLElement).querySelector(`${ddsPrefix}-card-group-item`)?.hasAttribute('empty')
+      ) {
+        return true;
       } else {
         this.querySelector('dds-card-group')!.innerHTML = '';
+        return false;
       }
     });
   }
