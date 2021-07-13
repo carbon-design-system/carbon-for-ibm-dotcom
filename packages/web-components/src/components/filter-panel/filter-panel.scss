@@ -232,6 +232,7 @@
   position: absolute;
   bottom: 0;
   width: 100%;
+  overflow: auto;
 }
 
 :host(#{$dds-prefix}-filter-modal-footer-button) {
@@ -248,8 +249,7 @@
 
     max-width: none;
     width: 100%;
-    border-top: none;
-    border-left: none;
+    border: none;
   }
   .#{$prefix}--btn--tertiary {
     color: $ui-02;

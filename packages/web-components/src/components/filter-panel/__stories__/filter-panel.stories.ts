@@ -57,7 +57,7 @@ export const Default = ({ parameters }) => {
             <dds-input-select header-value="Blockchain" title="Blockchain"></dds-input-select>
             <dds-input-select header-value="Cloud computing" title="Cloud computing"></dds-input-select>
             <dds-input-select header-value="IT infrastructure" title="IT infrastructure"></dds-input-select>
-            <dds-input-select header-value="IT managament" title="IT managament"></dds-input-select>
+            <dds-input-select header-value="IT management" title="IT management"></dds-input-select>
             <dds-input-select header-value="Mobile technology" title="Mobile technology"></dds-input-select>
             <dds-input-select header-value="Security" title="Security"></dds-input-select>
             <dds-input-select header-value="Software development" title="Software development"></dds-input-select>

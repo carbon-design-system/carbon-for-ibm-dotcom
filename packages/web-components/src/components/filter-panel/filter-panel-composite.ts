@@ -55,6 +55,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
       this.shadowRoot!.querySelector('dds-filter-panel-modal')?.setAttribute('has-selections', '');
       this.shadowRoot!.querySelector('dds-filter-panel')?.setAttribute('has-selections', '');
     }
+    this.renderStatus();
   };
 
   /** host listener */
@@ -82,6 +83,8 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
       this.shadowRoot!.querySelector('dds-filter-panel-modal')?.setAttribute('has-selections', '');
       this.shadowRoot!.querySelector('dds-filter-panel')?.setAttribute('has-selections', '');
     }
+
+    this.renderStatus();
   };
 
   @HostListener('document:eventModalClose')
@@ -92,7 +95,6 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   /** host listener for input select header */
   @HostListener('document:eventTitleChange')
   protected _handleTitleStateChange = (event: CustomEvent) => {
-    this._selectedValues = [];
     const { headerValue } = event.detail;
     // toggle title state
     const selected = event.composedPath()[0];
@@ -105,6 +107,17 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
       }
       return;
     }
+
+    const currentFilterGroup = (selected as HTMLElement).closest('dds-filter-group');
+
+    // Clears all the selected DDSInputItems
+    currentFilterGroup?.querySelectorAll('dds-input-select').forEach(e => {
+      if (this._selectedValues.includes(e.getAttribute('header-value')!)) {
+        this._selectedValues = this._selectedValues.filter(str => str !== e.getAttribute('header-value'));
+      }
+      e.removeAttribute('selected');
+    });
+
     (selected as HTMLElement).setAttribute('selected', '');
 
     if (!this._selectedValues.includes(headerValue)) {
@@ -116,6 +129,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
       this.shadowRoot!.querySelector('dds-filter-panel-modal')?.setAttribute('has-selections', '');
       this.shadowRoot!.querySelector('dds-filter-panel')?.setAttribute('has-selections', '');
     }
+    this.renderStatus();
   };
 
   static get selectorInputSelect() {
@@ -160,6 +174,8 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     // disables the button
     this.shadowRoot!.querySelector('dds-filter-panel-modal')?.removeAttribute('has-selections');
     this.shadowRoot!.querySelector('dds-filter-panel')?.removeAttribute('has-selections');
+
+    this.renderStatus();
   };
 
   /**
@@ -182,7 +198,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   _selectedValues: string[] = [];
 
   @property()
-  _filterButtonTitle: string[] = [];
+  _filterButtonTitle: string = '';
 
   /**
    * Handles `slotchange` event.
@@ -193,6 +209,10 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     this._contents = (target as HTMLSlotElement)
       .assignedNodes()
       .filter(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+  }
+
+  protected renderStatus() {
+    this._filterButtonTitle = `Filter ${this._selectedValues.length > 0 ? `(${this._selectedValues.length})` : ''}`;
   }
 
   /**

@@ -20,13 +20,21 @@
     background-color: $ui-01;
     padding-bottom: calc((#{$spacing-12} + #{($spacing-05)}));
     margin-top: $spacing-05;
+    overflow: initial;
 
-    @include carbon--breakpoint('lg') {
-      padding-bottom: $spacing-09;
+    @include carbon--breakpoint('sm') {
+      height: 100%;
     }
-    @include carbon--breakpoint-down('lg') {
+
+    @include carbon--breakpoint('md') {
       height: 80%;
       width: 60%;
+    }
+
+    @include carbon--breakpoint('lg') {
+      height: auto;
+      width: auto;
+      padding-bottom: $spacing-09;
     }
   }
   .#{$prefix}--modal-body {
