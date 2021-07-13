@@ -160,6 +160,8 @@
 
   :host(#{$dds-prefix}-left-nav-menu-section),
   .#{$prefix}--side-nav__menu-section {
+    @include carbon--theme($carbon--theme--white, true);
+
     position: absolute;
     width: 100%;
     height: 100%;
