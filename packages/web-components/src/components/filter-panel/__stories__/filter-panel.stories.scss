@@ -19,3 +19,9 @@
     margin: 0;
   }
 }
+.#{$prefix}--col-lg-4 {
+  padding-right: $spacing-03;
+}
+.#{$prefix}--col-lg-3 {
+  padding-right: $spacing-03;
+}

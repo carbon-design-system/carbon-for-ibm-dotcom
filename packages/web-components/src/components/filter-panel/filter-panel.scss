@@ -112,6 +112,12 @@
     padding-top: $spacing-01;
     padding-left: $spacing-06;
   }
+  label.#{$prefix}--checkbox-label::before {
+    border: 1px solid $icon-02;
+  }
+  label.#{$prefix}--checkbox-label:hover::before {
+    border: 1px solid $icon-01;
+  }
 }
 :host(#{$dds-prefix}-input-select) {
   .#{$prefix}--input_container {
