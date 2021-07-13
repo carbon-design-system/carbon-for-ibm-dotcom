@@ -101,7 +101,7 @@
     cursor: pointer;
     padding-right: $spacing-05;
     border: 0;
-    color: $interactive-01;
+    color: $link-01;
     background-color: $ui-01;
     @include use-carbon-productive-tokens();
     @include carbon--type-style('body-short-01');
