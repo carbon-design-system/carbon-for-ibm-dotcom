@@ -272,13 +272,20 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     const authenticated = userStatus !== 'anonymous';
     const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
     const ctaButtons = authenticated ? authenticatedCtaButtons : unauthenticatedCtaButtons;
+    const formattedLang = language?.toLowerCase().replace(/-(.*)/, m => m.toUpperCase());
+    let platformAltUrl = platformUrl;
+    if (platformUrl && formattedLang) {
+      if (typeof platformUrl === 'object' && Object.prototype.hasOwnProperty.call(platformUrl, formattedLang)) {
+        platformAltUrl = platformUrl[formattedLang].url || platformUrl;
+      }
+    }
     return html`
       <dds-left-nav-overlay></dds-left-nav-overlay>
       <dds-left-nav>
         ${!platform
           ? undefined
           : html`
-              <dds-left-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-left-nav-name>
+              <dds-left-nav-name href="${ifNonNull(platformAltUrl)}">${platform}</dds-left-nav-name>
             `}
         ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV, hasL1: !!l1Data })}
       </dds-left-nav>
@@ -293,7 +300,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         ${!platform
           ? undefined
           : html`
-              <dds-cloud-top-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-cloud-top-nav-name>
+              <dds-cloud-top-nav-name href="${ifNonNull(platformAltUrl)}">${platform}</dds-cloud-top-nav-name>
             `}
         ${l1Data
           ? undefined
