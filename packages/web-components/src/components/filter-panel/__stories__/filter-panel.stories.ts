@@ -9,15 +9,7 @@
 
 import { html } from 'lit-element';
 import { text, select } from '@storybook/addon-knobs';
-import '../filter-panel';
-import '../filter-panel-heading';
-import '../filter-panel-modal';
-import '../input_select';
-import '../input_select_item';
-import '../filter-group';
-import '../filter-panel-composite';
-import '../checkbox';
-import '../filter-group-item';
+import '../index';
 import readme from './README.stories.mdx';
 
 import styles from './filter-panel.stories.scss';

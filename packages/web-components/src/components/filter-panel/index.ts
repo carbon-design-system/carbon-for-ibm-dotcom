@@ -15,3 +15,4 @@ import './checkbox';
 import './filter-panel-composite';
 import './filter-panel-heading';
 import './filter-panel-modal';
+import './filter-group-item';
