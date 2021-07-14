@@ -38,11 +38,7 @@ const VideoPlayer = ({
     let stale = false;
     (async () => {
       if (autoPlay || embedVideo) {
-        await VideoPlayerAPI.embedMedia(
-          videoId,
-          `${prefix}--${videoPlayerId}`,
-          true
-        );
+        await VideoPlayerAPI.embedMedia(videoId, `${prefix}--${videoPlayerId}`);
       }
       if (stale) {
         return;
