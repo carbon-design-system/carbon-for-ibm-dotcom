@@ -529,10 +529,10 @@ class DDSMastheadComposite extends LitElement {
   platform!: string;
 
   /**
-   * The platform url.
+   * The platform url. Accepts both a string or an object with a specific URL for each locale.
    */
-  @property({ attribute: 'platform-url' })
-  platformUrl?: string;
+  @property({ attribute: false })
+  platformUrl?;
 
   /**
    * The brand name.
@@ -693,13 +693,21 @@ class DDSMastheadComposite extends LitElement {
     } = this;
     const authenticated = userStatus !== UNAUTHENTICATED_STATUS;
     const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
+    const formattedLang = language?.toLowerCase().replace(/-(.*)/, m => m.toUpperCase());
+    let platformAltUrl = platformUrl;
+    if (platformUrl && formattedLang) {
+      if (typeof platformUrl === 'object' && Object.prototype.hasOwnProperty.call(platformUrl, formattedLang)) {
+        platformAltUrl = platformUrl[formattedLang].url || platformUrl;
+      }
+    }
+
     return html`
       <dds-left-nav-overlay></dds-left-nav-overlay>
       <dds-left-nav>
         ${!platform
           ? undefined
           : html`
-              <dds-left-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-left-nav-name>
+              <dds-left-nav-name href="${ifNonNull(platformAltUrl)}">${platform}</dds-left-nav-name>
             `}
         ${!l1Data?.title
           ? undefined
@@ -720,7 +728,7 @@ class DDSMastheadComposite extends LitElement {
         ${!platform || l1Data
           ? undefined
           : html`
-              <dds-top-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-top-nav-name>
+              <dds-top-nav-name href="${ifNonNull(platformAltUrl)}">${platform}</dds-top-nav-name>
             `}
         ${l1Data
           ? undefined
