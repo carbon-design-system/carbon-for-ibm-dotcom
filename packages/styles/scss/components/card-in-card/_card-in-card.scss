@@ -64,8 +64,6 @@
 
       .#{$prefix}--card__eyebrow,
       ::slotted(#{$dds-prefix}-card-eyebrow) {
-        @include carbon--type-style('label-01');
-
         margin-bottom: $carbon--spacing-03;
         color: $text-02;
       }
