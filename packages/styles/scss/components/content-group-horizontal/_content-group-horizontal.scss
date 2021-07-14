@@ -10,16 +10,6 @@
 @import '../content-block-horizontal/content-block-horizontal';
 
 @mixin content-group-horizontal {
-  :host(#{$dds-prefix}-content-group-horizontal),
-  .#{$prefix}--content-group-horizontal {
-    /* stylelint-disable-next-line selector-type-no-unknown */
-    dds-hr,
-    .bx--content-block .bx--hr {
-      @include carbon--breakpoint('lg') {
-        margin-right: -9rem;
-      }
-    }
-  }
   :host(#{$dds-prefix}-content-group-horizontal) ::slotted([slot='heading']),
   .#{$prefix}--content-group-horizontal .#{$prefix}--content-block__heading {
     margin-bottom: $layout-05;
