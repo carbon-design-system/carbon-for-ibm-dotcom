@@ -103,7 +103,6 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
 
       if (this.expanded) {
         doc.body.style.marginRight = `${this._scrollBarWidth}px`;
-        doc.body.style.position = `relative`;
         doc.body.style.overflow = `hidden`;
         forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
           (item as DDSMegaMenuOverlay).active = this.expanded;
@@ -113,7 +112,6 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         }
       } else {
         doc.body.style.marginRight = '0px';
-        doc.body.style.position = `inherit`;
         doc.body.style.overflow = `auto`;
         if (masthead) {
           masthead.style.marginRight = '0px';

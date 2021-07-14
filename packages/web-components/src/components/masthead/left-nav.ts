@@ -135,11 +135,9 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       const { expanded, _startSentinelNode: startSentinelNode, _endSentinelNode: endSentinelNode } = this;
       if (expanded) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [startSentinelNode, endSentinelNode]);
-        doc.body.style.position = `relative`;
         doc.body.style.overflow = `hidden`;
       } else {
         const { selectorMenuSections, selectorFirstMenuSection } = this.constructor as typeof DDSLeftNav;
-        doc.body.style.position = `inherit`;
         doc.body.style.overflow = `auto`;
 
         this.querySelectorAll(selectorMenuSections).forEach(ddsLeftNavMenuSection => {
