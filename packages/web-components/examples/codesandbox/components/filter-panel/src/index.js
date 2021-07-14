@@ -9,4 +9,3 @@
 
 import '@carbon/ibmdotcom-web-components/es/components/filter-panel/filter-panel-composite';
 import './index.scss';
-
