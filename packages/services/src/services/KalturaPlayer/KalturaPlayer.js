@@ -169,7 +169,6 @@ class KalturaPlayerAPI {
     let url = _thumbnailUrl + mediaId;
     if (height) url = url + `/height/${height}`;
     if (width) url = url + `/width/${width}`;
-    console.log({ mediaId, url });
     return url;
   }
 

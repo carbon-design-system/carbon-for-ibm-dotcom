@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -32,13 +32,13 @@ const VideoPlayer = ({
   // embedVideo is set to true when overlay thumbnail is clicked
   const [embedVideo, setEmbedVideo] = useState(false);
   const videoPlayerId = uniqueid(`video-player__video-${videoId}-`);
-  const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
+  const videoDuration = VideoPlayerAPI.getMediaDuration(videoData.msDuration);
 
   useEffect(() => {
     let stale = false;
     (async () => {
       if (autoPlay || embedVideo) {
-        await VideoPlayerAPI.embedVideo(
+        await VideoPlayerAPI.embedMedia(
           videoId,
           `${prefix}--${videoPlayerId}`,
           true
