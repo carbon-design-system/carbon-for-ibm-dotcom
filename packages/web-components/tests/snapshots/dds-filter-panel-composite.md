@@ -1,0 +1,40 @@
+# `dds-filter-panel-composite`
+
+## `Misc attributes`
+
+####   `should render with minimum attributes`
+
+```
+<button class="bx--filter-button">
+  <div class="bx--filter__modal_button">
+  </div>
+</button>
+<dds-filter-panel-modal heading="">
+  <slot name="heading">
+  </slot>
+  <slot>
+  </slot>
+</dds-filter-panel-modal>
+<dds-filter-panel>
+</dds-filter-panel>
+
+```
+
+####   `should render with various attributes`
+
+```
+<button class="bx--filter-button">
+  <div class="bx--filter__modal_button">
+  </div>
+</button>
+<dds-filter-panel-modal heading="">
+  <slot name="heading">
+  </slot>
+  <slot>
+  </slot>
+</dds-filter-panel-modal>
+<dds-filter-panel>
+</dds-filter-panel>
+
+```
+
