@@ -5,9 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import deprecate from '@carbon/ibmdotcom-utilities/es/utilities/deprecate/deprecate';
 import KalturaPlayerAPI from '../KalturaPlayer/KalturaPlayer';
 
 /**
+ * @deprecated in favor of KalturaPlayerAPI
  * VideoPlayerAPI class with methods of checking script state and
  * embed video meta data and api data
  *
@@ -17,6 +19,17 @@ import KalturaPlayerAPI from '../KalturaPlayer/KalturaPlayer';
  * - KALTURA_PARTNER_ID (or REACT_APP_KALTURA_PARTNER_ID)
  * - KALTURA_UICONF_ID (or REACT_APP_KALTURA_UICONF_ID)
  */
-class VideoPlayerAPI extends KalturaPlayerAPI {}
+class VideoPlayerAPI extends KalturaPlayerAPI {
+  static async embedVideo(videoId, targetId, autoPlay) {
+    await KalturaPlayerAPI.embedMedia(videoId, targetId, autoPlay);
+  }
 
-export default VideoPlayerAPI;
+  static getVideoDuration(duration) {
+    return KalturaPlayerAPI.getMediaDuration(duration);
+  }
+}
+
+export default deprecate(
+  VideoPlayerAPI,
+  'The VideoPlayerAPI service has been deprecated in favor of the KalturaPlayerAPI service.'
+);
