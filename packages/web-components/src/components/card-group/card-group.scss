@@ -18,8 +18,7 @@
   /* stylelint-disable-next-line selector-type-no-unknown */
   #{$dds-prefix}-card-group-item[empty] {
     background-color: $ui-background;
-    margin-left: -1px;
-    margin-top: -1px;
+    outline: 1px solid $ui-background;
   }
 
   ::slotted(#{$dds-prefix}-card-group-item) {
@@ -36,8 +35,7 @@
 
   /* stylelint-disable-next-line selector-type-no-unknown */
   #{$dds-prefix}-card-group-item[empty] {
-    margin-top: 0;
-    margin-left: 0;
+    outline: none;
   }
 
   ::slotted(#{$dds-prefix}-card-group-item) {
