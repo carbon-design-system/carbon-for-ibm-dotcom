@@ -58,6 +58,10 @@ const mastheadLinks = [
               },
             },
           },
+          {
+            title: 'Menu dropdowm item with extra long text',
+            url: '',
+          },
         ],
       },
     ],
