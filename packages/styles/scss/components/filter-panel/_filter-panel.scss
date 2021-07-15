@@ -16,18 +16,12 @@
   .#{$prefix}--filter_heading {
     padding: $spacing-05;
   }
-  .#{$prefix}--filter_footer {
-    padding-bottom: $spacing-09;
-  }
+
   .#{$prefix}--filter-panel__section {
     background-color: $ui-01;
-    padding-bottom: calc((#{$spacing-12} + #{($spacing-05)}));
+    padding-bottom: rem(112px);
     margin-top: $spacing-05;
     overflow: initial;
-
-    @include carbon--breakpoint('sm') {
-      height: 100%;
-    }
 
     @include carbon--breakpoint('md') {
       height: 80%;
@@ -40,35 +34,34 @@
       padding-bottom: $spacing-09;
     }
   }
+
   .#{$prefix}--modal-body {
     overflow-y: scroll;
   }
-  .#{$prefix}--input_container {
-    width: 100%;
-  }
+
   .#{$prefix}--input_container:focus {
     outline: $spacing-01 solid $focus;
   }
+
   .#{$prefix}--input_container-heading {
     position: relative;
     cursor: pointer;
-    padding: $spacing-03 $spacing-05 $spacing-03 $spacing-05;
+    padding: $spacing-03 $spacing-05;
     color: $text-02;
     @include use-carbon-productive-tokens();
     @include carbon--type-style('body-short-01');
+
     &:hover {
       color: $text-01;
     }
+
     .#{$prefix}--close_icon {
       position: absolute;
       right: $spacing-05;
-      top: calc((#{$spacing-04} - #{($spacing-01)}));
-    }
-    &.#{$prefix}--selected__option {
-      background-color: $highlight;
-      color: $text-01;
+      top: rem(10px);
     }
   }
+
   .#{$prefix}--selected__option_dropdown {
     display: grid;
     &.#{$prefix}--selected__option_dropdown_hidden {
@@ -76,30 +69,17 @@
     }
   }
 
-  .#{$prefix}--input_container-option {
-    width: 100%;
-    cursor: pointer;
-    position: relative;
-    padding: $spacing-03 $spacing-08 $spacing-03 $spacing-08;
-    &:hover {
-      background-color: $hover-ui;
-    }
-    &:focus {
-      background-color: $highlight;
-    }
-    &.#{$prefix}--selected__option {
-      background-color: $highlight;
-    }
-  }
   @media (min-width: 640px) {
     .#{$prefix}--accordion__content {
       padding-right: 0;
     }
   }
+
   .#{$prefix}--accordion__content {
     padding-left: 0;
     padding-right: 0;
   }
+
   .#{$prefix}--clear {
     cursor: pointer;
     padding-right: $spacing-05;
@@ -109,20 +89,21 @@
     @include use-carbon-productive-tokens();
     @include carbon--type-style('body-short-01');
   }
-  .#{$prefix}--checkbox-space {
-    padding-left: $spacing-05;
-  }
+
   .#{$prefix}--heading-clear {
     display: flex;
     justify-content: space-between;
   }
+
   .#{$prefix}--reset_icon {
     padding-top: $spacing-01;
     padding-left: $spacing-03;
   }
+
   .#{$prefix}--clear_container {
     display: flex;
   }
+
   .#{$prefix}--filter__modal_button {
     display: flex;
     justify-content: space-between;
@@ -157,24 +138,19 @@
         }
       }
     }
-
-    .#{$prefix}--modal-container {
-      @include carbon--breakpoint-down('md') {
-        width: 100%;
-        display: grid;
-      }
-    }
   }
 
   :host(#{$dds-prefix}-filter-panel) {
     .#{$prefix}--clear {
       display: block;
+
       &:focus-visible {
         outline: $spacing-01 solid $focus;
         margin-bottom: $spacing-01;
         margin-right: $spacing-01;
         margin-top: $spacing-01;
       }
+
       &:hover {
         color: $hover-primary-text;
       }
@@ -202,10 +178,11 @@
       margin-top: $spacing-05;
       margin-left: $spacing-05;
       background-color: transparent;
-      width: calc((#{$spacing-10} + #{($spacing-10)}));
+      width: rem(128px);
       @include carbon--breakpoint('lg') {
         display: none;
       }
+
       &:hover {
         background-color: $hover-tertiary;
         color: $inverse-01;
@@ -214,34 +191,38 @@
   }
 
   :host(#{$dds-prefix}-checkbox) {
-    padding-left: calc((#{$spacing-04} + #{($spacing-01)}));
-    padding-bottom: calc((#{$spacing-01} + #{($spacing-02)}));
+    padding-left: rem(14px);
+    padding-bottom: rem(6px);
     @extend :host(#{$prefix}-checkbox);
     @include use-carbon-productive-tokens();
     @include carbon--type-style('body-short-01');
 
     color: $text-02;
-    &:hover {
-      color: $text-01;
-    }
+
+    &:hover,
     &[checked] {
       color: $text-01;
     }
+
     label.#{$prefix}--checkbox-label {
       padding-top: $spacing-01;
       padding-left: $spacing-06;
-    }
-    label.#{$prefix}--checkbox-label::before {
-      border: 1px solid $icon-02;
-    }
-    label.#{$prefix}--checkbox-label:hover::before {
-      border: 1px solid $icon-01;
+
+      &::before {
+        border: 1px solid $icon-02;
+      }
+
+      &:hover::before {
+        border: 1px solid $icon-01;
+      }
     }
   }
+
   :host(#{$dds-prefix}-input-select) {
     &:hover {
       background-color: $hover-ui;
     }
+
     .#{$prefix}--input_container {
       &:focus-visible {
         outline: $spacing-01 solid $focus;
@@ -249,24 +230,29 @@
     }
 
     display: block;
+
     &[selected] {
       background-color: $highlight;
+
       .#{$prefix}--input_container-heading {
         color: $text-01;
+
         &:focus-visible {
           outline: $spacing-01 solid $focus;
         }
       }
     }
+
     .#{$prefix}--input_container-heading {
       &:focus-visible {
         outline: $spacing-01 solid $focus;
         margin-right: $spacing-01;
         margin-left: $spacing-01;
-        padding-left: calc((#{$spacing-04} + #{($spacing-01)}));
+        padding-left: rem(14px);
       }
     }
   }
+
   :host(#{$dds-prefix}-input-select-item) {
     @include use-carbon-productive-tokens();
     @include carbon--type-style('body-short-01');
@@ -276,12 +262,13 @@
     cursor: pointer;
     position: relative;
     color: $text-02;
-    padding: $spacing-03 $spacing-06 $spacing-03 $spacing-06;
+    padding: $spacing-03 $spacing-06;
 
     &:hover {
       background-color: $hover-ui;
       color: $text-01;
     }
+
     &:active {
       background-color: $highlight;
     }
@@ -290,12 +277,14 @@
       background-color: $highlight;
       color: $text-01;
     }
+
     .#{$prefix}--close_icon {
       position: absolute;
       right: $spacing-05;
-      top: calc((#{$spacing-04} - #{($spacing-01)}));
+      top: rem(10px);
     }
   }
+
   :host(#{$dds-prefix}-filter-panel-heading) {
     @include use-carbon-productive-tokens();
     @include carbon--type-style('heading-01');
@@ -315,7 +304,7 @@
   :host(#{$dds-prefix}-filter-group:first-of-type) {
     ::slotted(#{$prefix}-filter-group-item:first-of-type) {
       @include carbon--breakpoint-down('md') {
-        margin-top: 1rem;
+        margin-top: $spacing-05;
       }
     }
   }
@@ -374,15 +363,18 @@
     @extend :host(#{$prefix}-modal-footer-button);
 
     outline: 0;
+
     &[kind='tertiary'] {
       height: calc((#{$spacing-10} + #{($spacing-01)}));
       background-color: $interactive-02;
       color: $text-04;
     }
+
     &[disabled] {
       background-color: $disabled-02;
       color: $disabled-03;
     }
+
     .#{$prefix}--btn {
       @include use-carbon-productive-tokens();
       @include carbon--type-style('body-short-01');
@@ -391,20 +383,25 @@
       width: 100%;
       border: none;
     }
+
     .#{$prefix}--btn--tertiary {
       color: $text-04;
+
       &:hover {
         background-color: $hover-secondary;
       }
+
       &[disabled] {
         color: $disabled-03;
       }
     }
+
     .#{$prefix}--btn--disabled {
       &:hover {
         background-color: transparent;
       }
     }
+
     .#{$prefix}--btn.#{$prefix}--btn--primary:focus {
       box-shadow: inset 0 0 0 $button-outline-width $focus,
         inset 0 0 0 $button-border-width $ui-background;

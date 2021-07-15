@@ -15,9 +15,9 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * The heading content of leadspace.
+ * The heading content of filter panel.
  *
- * @element dds-leadspace-heading
+ * @element dds-filter-panel-heading
  */
 @customElement(`${ddsPrefix}-filter-panel-heading`)
 class DDSFilterPanelHeading extends StableSelectorMixin(LitElement) {

@@ -17,6 +17,11 @@ import styles from './filter-panel.scss';
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+/**
+ * The input select inner dropdown.
+ *
+ * @element dds-input-select-item
+ */
 @customElement(`${ddsPrefix}-input-select-item`)
 class DDSInputSelectItem extends StableSelectorMixin(LitElement) {
   /**
@@ -38,6 +43,10 @@ class DDSInputSelectItem extends StableSelectorMixin(LitElement) {
         ${this.selected ? Close() : null}
       </div>
     `;
+  }
+
+  static get stableSelector() {
+    return `${ddsPrefix}-input_select_item`;
   }
 
   static styles = styles;

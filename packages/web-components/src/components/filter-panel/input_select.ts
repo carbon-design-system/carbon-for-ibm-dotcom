@@ -18,6 +18,11 @@ import DDSInputSelectItem from './input_select_item';
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+/**
+ * The container of the input select.
+ *
+ * @element dds-input-select
+ */
 @customElement(`${ddsPrefix}-input-select`)
 class DDSInputSelect extends StableSelectorMixin(LitElement) {
   /**
@@ -160,6 +165,10 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
    * The name of the custom event fired after the search content is changed upon a user gesture.
    */
   static get eventContentStateChange() {
+    return `${ddsPrefix}-input-select`;
+  }
+
+  static get stableSelector() {
     return `${ddsPrefix}-input-select`;
   }
 

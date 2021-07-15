@@ -24,12 +24,10 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Observes resize of the given element with the given resize observer.
+ * DDSFilterGroupItem renders each individual accordion
  *
- * @param observer The resize observer.
- * @param elem The element to observe the resize.
+ * @element dds-filter-group-item
  */
-
 @customElement(`${ddsPrefix}-filter-group-item`)
 class DDSFilterGroupItem extends StableSelectorMixin(LitElement) {
   /**
