@@ -24,6 +24,20 @@ const ctaTypes = {
   [`Video (${CTA_TYPE.VIDEO})`]: CTA_TYPE.VIDEO,
 };
 
+const hrefsForType = {
+  [CTA_TYPE.LOCAL]: 'https://www.example.com',
+  [CTA_TYPE.EXTERNAL]: 'https://www.example.com',
+  [CTA_TYPE.DOWNLOAD]: 'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
+  [CTA_TYPE.VIDEO]: '1_9h94wo6b',
+};
+
+const knobNamesForType = {
+  [CTA_TYPE.LOCAL]: 'Content link href (href)',
+  [CTA_TYPE.EXTERNAL]: 'Content link href (href)',
+  [CTA_TYPE.DOWNLOAD]: 'Download link href (href)',
+  [CTA_TYPE.VIDEO]: 'Video ID (href)',
+};
+
 const defaultCardGroupItem = html`
   <dds-card-group-item href="https://example.com">
     <dds-card-eyebrow>Label</dds-card-eyebrow>
@@ -38,9 +52,7 @@ const defaultCardGroupItem = html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { heading, cards, ctaType, onClick, alt, defaultSrc } = parameters?.props?.CardSectionOffset ?? {};
-  const ctaCopy = 'Lorem ipsum dolor sit amet';
-  const href = 'https://www.example.com';
+  const { heading, cards, ctaType, ctaCopy, download, href, alt, defaultSrc } = parameters?.props?.CardSectionOffset ?? {};
   return html`
     <dds-card-section-offset>
       <dds-background-media
@@ -53,10 +65,10 @@ export const Default = ({ parameters }) => {
       <dds-content-block-heading slot="heading">${heading}</dds-content-block-heading>
       <dds-text-cta
         slot="action"
-        cta-type="${ifNonNull(ctaType)}"
         icon-placement="right"
+        cta-type="${ifNonNull(ctaType)}"
+        download="${ifNonNull(download)}"
         href="${ifNonNull(href)}"
-        @click="${onClick}"
       >
         ${ctaCopy}
       </dds-text-cta>
@@ -73,7 +85,9 @@ export default {
     story => html`
       <div class="bx--grid">
         <div class="bx--row">
-          ${story()}
+          <dds-video-cta-container>
+            ${story()}
+          </dds-video-cta-container>
         </div>
       </div>
     `,
@@ -83,15 +97,34 @@ export default {
     hasGrid: true,
     hasVerticalSpacingInComponent: true,
     knobs: {
-      CardSectionOffset: ({ groupId }) => ({
-        heading: 'Aliquam condimentum interdum',
-        ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId),
-        cards: Array.from({
-          length: 3,
-        }).map(() => defaultCardGroupItem),
-        alt: textNullable('Alt text', 'Image alt text', groupId),
-        defaultSrc: textNullable('Default image (default-src)', imgLg16x9, groupId),
-      }),
+      CardSectionOffset: ({ groupId }) => {
+        const ctaType = select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId);
+        const ctaCopy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text', 'Lorem ipsum dolor sit amet', groupId);
+        const download =
+          ctaType !== CTA_TYPE.DOWNLOAD
+            ? undefined
+            : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
+        return {
+          heading: 'Aliquam condimentum interdum',
+          ctaCopy,
+          ctaType,
+          download,
+          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR], groupId),
+          cards: Array.from({
+            length: 3,
+          }).map(() => defaultCardGroupItem),
+          alt: textNullable('Alt text', 'Image alt text', groupId),
+          defaultSrc: textNullable('Default image (default-src)', imgLg16x9, groupId),
+        };
+      },
     },
   },
 };
+
+// heading: 'Aliquam condimentum interdum',
+//   ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId),
+//   cards: Array.from({
+//   length: 3,
+// }).map(() => defaultCardGroupItem),
+//   alt: textNullable('Alt text', 'Image alt text', groupId),
+//   defaultSrc: textNullable('Default image (default-src)', imgLg16x9, groupId),

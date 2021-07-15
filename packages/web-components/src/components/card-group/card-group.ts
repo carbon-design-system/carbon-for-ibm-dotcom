@@ -114,11 +114,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
         this._childItemFooters.push(
           (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemFooter)
         );
-        if (this.gridMode === 'border') {
-          e.setAttribute('border', '');
-        } else {
-          e.removeAttribute('border');
-        }
+        e.toggleAttribute('border', this.gridMode === 'border');
       });
 
       const { customPropertyCardsPerRow } = this.constructor as typeof DDSCardGroup;

@@ -24,7 +24,6 @@
     @include carbon--breakpoint('md') {
       #{$dds-prefix}-background-media {
         position: absolute;
-        width: 100%;
         height: 100%;
       }
     }
@@ -34,7 +33,12 @@
     }
 
     ::slotted([slot='action']) {
-      display: inline-block;
+      width: 90%;
+      max-width: 40rem;
+
+      @include carbon--breakpoint('md') {
+        width: calc(100% - var(--cds-layout-03, 2rem));
+      }
     }
 
     .#{$prefix}--card-section-offset__content {
