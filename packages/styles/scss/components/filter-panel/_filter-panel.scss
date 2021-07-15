@@ -213,7 +213,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-checkbox) {
+  :host(#{$dds-prefix}-filter-panel-checkbox) {
     padding-left: calc((#{$spacing-04} + #{($spacing-01)}));
     padding-bottom: calc((#{$spacing-01} + #{($spacing-02)}));
     @extend :host(#{$prefix}-checkbox);

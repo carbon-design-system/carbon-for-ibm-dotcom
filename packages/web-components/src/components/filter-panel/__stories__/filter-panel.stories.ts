@@ -25,14 +25,14 @@ export const Default = ({ parameters }) => {
         <dds-filter-panel-heading slot="heading">${heading}</dds-filter-panel-heading>
         <dds-filter-group>
           <dds-filter-group-item title-text="Product types">
-            <dds-checkbox value="API">API</dds-checkbox>
-            <dds-checkbox value="Application">Application</dds-checkbox>
-            <dds-checkbox value="Data Set">Data Set</dds-checkbox>
-            <dds-checkbox value="Free Trial">Free Trial</dds-checkbox>
-            <dds-checkbox value="Hardware">Hardware</dds-checkbox>
-            <dds-checkbox value="Service">Service</dds-checkbox>
-            <dds-checkbox value="Service Assets">Service Assets</dds-checkbox>
-            <dds-checkbox value="Software">Software</dds-checkbox>
+            <dds-filter-panel-checkbox value="API">API</dds-filter-panel-checkbox>
+            <dds-filter-panel-checkbox value="Application">Application</dds-filter-panel-checkbox>
+            <dds-filter-panel-checkbox value="Data Set">Data Set</dds-filter-panel-checkbox>
+            <dds-filter-panel-checkbox value="Free Trial">Free Trial</dds-filter-panel-checkbox>
+            <dds-filter-panel-checkbox value="Hardware">Hardware</dds-filter-panel-checkbox>
+            <dds-filter-panel-checkbox value="Service">Service</dds-filter-panel-checkbox>
+            <dds-filter-panel-checkbox value="Service Assets">Service Assets</dds-filter-panel-checkbox>
+            <dds-filter-panel-checkbox value="Software">Software</dds-filter-panel-checkbox>
           </dds-filter-group-item>
           <dds-filter-group-item title-text="Technologies">
             <dds-input-select header-value="Analytics" title="Analytics"></dds-input-select>
@@ -59,8 +59,8 @@ export const Default = ({ parameters }) => {
             <dds-input-select header-value="Supply chain management" title="Supply chain management"></dds-input-select>
           </dds-filter-group-item>
           <dds-filter-group-item title-text="Deployment types">
-            <dds-checkbox value="On-premisis">On-premisis</dds-checkbox>
-            <dds-checkbox value="SaaS">SaaS</dds-checkbox>
+            <dds-filter-panel-checkbox value="On-premisis">On-premisis</dds-filter-panel-checkbox>
+            <dds-filter-panel-checkbox value="SaaS">SaaS</dds-filter-panel-checkbox>
           </dds-filter-group-item>
         </dds-filter-group>
       </dds-filter-panel-composite>
