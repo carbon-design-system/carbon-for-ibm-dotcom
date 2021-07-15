@@ -59,7 +59,7 @@ const mastheadLinks = [
             },
           },
           {
-            title: 'Menu dropdowm item with extra long text',
+            title: 'Menu dropdown item with extra long text',
             url: '',
           },
         ],
