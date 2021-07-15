@@ -34,7 +34,7 @@
 
     ::slotted([slot='action']) {
       width: 90%;
-      max-width: 40rem;
+      max-width: rem(640px);
 
       @include carbon--breakpoint('md') {
         width: calc(100% - $spacing-07);
