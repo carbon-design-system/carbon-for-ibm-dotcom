@@ -11,7 +11,7 @@ import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXModalFooter from 'carbon-web-components/es/components/modal/modal-footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import './input_select';
+import './input-select';
 import styles from './filter-panel.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;

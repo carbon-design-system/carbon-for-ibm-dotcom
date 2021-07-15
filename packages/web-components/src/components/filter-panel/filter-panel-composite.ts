@@ -139,6 +139,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
           if (inputSelect === e) return;
           this._selectedValues = this._selectedValues.filter(str => str !== inputSelect.getAttribute('header-value'));
           inputSelect.removeAttribute('selected');
+          inputSelect.removeAttribute('is-open');
         });
 
         e.toggleAttribute('selected');

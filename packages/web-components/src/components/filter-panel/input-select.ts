@@ -13,7 +13,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import Close from 'carbon-web-components/es/icons/close/16';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
-import DDSInputSelectItem from './input_select_item';
+import DDSInputSelectItem from './input-select-item';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

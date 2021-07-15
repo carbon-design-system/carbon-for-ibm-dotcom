@@ -46,7 +46,7 @@ class DDSInputSelectItem extends StableSelectorMixin(LitElement) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}-input_select_item`;
+    return `${ddsPrefix}-input-select-item`;
   }
 
   static styles = styles;
