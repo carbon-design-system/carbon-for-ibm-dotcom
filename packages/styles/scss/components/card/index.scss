@@ -161,12 +161,10 @@
   :host(#{$dds-prefix}-card),
   :host(#{$dds-prefix}-card-group-item) {
     &:not([href]) {
-      .#{$prefix}--card:focus {
+      &:focus-within,.#{$prefix}--card:focus-within  {
         outline: none;
       }
-      .#{$prefix}--card .#{$prefix}--card__wrapper:focus{
-        outline: none;
-      }
+
       &,
       &:hover {
         .#{$prefix}--card__wrapper {
