@@ -11,7 +11,7 @@ import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXAccordion from 'carbon-web-components/es/components/accordion/accordion';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import './input-select';
+import './filter-panel-input-select';
 import styles from './filter-panel.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;

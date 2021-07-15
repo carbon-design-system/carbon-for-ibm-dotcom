@@ -20,10 +20,10 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 /**
  * The input select inner dropdown.
  *
- * @element dds-input-select-item
+ * @element dds-filter-panel-input-select-item
  */
-@customElement(`${ddsPrefix}-input-select-item`)
-class DDSInputSelectItem extends StableSelectorMixin(LitElement) {
+@customElement(`${ddsPrefix}-filter-panel-input-select-item`)
+class DDSFilterPanelInputSelectItem extends StableSelectorMixin(LitElement) {
   /**
    * Property for the input select item value
    */
@@ -39,17 +39,17 @@ class DDSInputSelectItem extends StableSelectorMixin(LitElement) {
   render() {
     return html`
       <slot></slot>
-      <div class="${prefix}--close_icon">
+      <div class="${prefix}--close__icon">
         ${this.selected ? Close() : null}
       </div>
     `;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}-input-select-item`;
+    return `${ddsPrefix}-filter-panel-input-select-item`;
   }
 
   static styles = styles;
 }
 
-export default DDSInputSelectItem;
+export default DDSFilterPanelInputSelectItem;

@@ -12,7 +12,7 @@
 @import 'carbon-web-components/scss/components/checkbox/checkbox';
 
 @mixin filter-panel {
-  .#{$prefix}--filter_heading {
+  .#{$prefix}--filter__heading {
     padding: $spacing-05;
   }
 
@@ -38,11 +38,11 @@
     overflow-y: scroll;
   }
 
-  .#{$prefix}--input_container:focus {
+  .#{$prefix}--input-container:focus {
     outline: $spacing-01 solid $focus;
   }
 
-  .#{$prefix}--input_container-heading {
+  .#{$prefix}--input-container__heading {
     position: relative;
     cursor: pointer;
     padding: $spacing-03 $spacing-05;
@@ -54,16 +54,24 @@
       color: $text-01;
     }
 
-    .#{$prefix}--close_icon {
+    &:focus-visible {
+      outline: $spacing-01 solid $focus;
+      margin-left: $spacing-01;
+      margin-right: $spacing-01;
+      padding-left: rem(14px);
+      z-index: 1;
+    }
+
+    .#{$prefix}--close__icon {
       position: absolute;
       right: $spacing-05;
       top: rem(10px);
     }
   }
 
-  .#{$prefix}--selected__option_dropdown {
+  .#{$prefix}--selected-option-dropdown {
     display: grid;
-    &.#{$prefix}--selected__option_dropdown_hidden {
+    &.#{$prefix}--selected-option-dropdown__hidden {
       display: none;
     }
   }
@@ -94,16 +102,16 @@
     justify-content: space-between;
   }
 
-  .#{$prefix}--reset_icon {
+  .#{$prefix}--reset__icon {
     padding-top: $spacing-01;
     padding-left: $spacing-03;
   }
 
-  .#{$prefix}--clear_container {
+  .#{$prefix}--clear__container {
     display: flex;
   }
 
-  .#{$prefix}--filter__modal_button {
+  .#{$prefix}--filter__modal__button {
     display: flex;
     justify-content: space-between;
   }
@@ -186,42 +194,19 @@
     }
   }
 
-  :host(#{$dds-prefix}-input-select) {
+  :host(#{$dds-prefix}-filter-panel-input-select) {
+    display: block;
+
     &:hover {
       background-color: $hover-ui;
     }
 
-    .#{$prefix}--input_container {
-      &:focus-visible {
-        outline: $spacing-01 solid $focus;
-      }
-    }
-
-    display: block;
-
     &[selected] {
       background-color: $highlight;
-
-      .#{$prefix}--input_container-heading {
-        color: $text-01;
-
-        &:focus-visible {
-          outline: $spacing-01 solid $focus;
-        }
-      }
-    }
-
-    .#{$prefix}--input_container-heading {
-      &:focus-visible {
-        outline: $spacing-01 solid $focus;
-        margin-right: $spacing-01;
-        margin-left: $spacing-01;
-        padding-left: rem(14px);
-      }
     }
   }
 
-  :host(#{$dds-prefix}-input-select-item) {
+  :host(#{$dds-prefix}-filter-panel-input-select-item) {
     @include use-carbon-productive-tokens();
     @include carbon--type-style('body-short-01');
 
@@ -246,7 +231,7 @@
       color: $text-01;
     }
 
-    .#{$prefix}--close_icon {
+    .#{$prefix}--close__icon {
       position: absolute;
       right: $spacing-05;
       top: rem(10px);
