@@ -11,7 +11,7 @@ import './filter-panel';
 import './filter-group';
 import './input_select';
 import './input_select_item';
-import './checkbox';
+import './filter-panel-checkbox';
 import './filter-panel-composite';
 import './filter-panel-heading';
 import './filter-panel-modal';
