@@ -9,8 +9,8 @@
 
 import './filter-panel';
 import './filter-group';
-import './input-select';
-import './input-select-item';
+import './filter-panel-input-select';
+import './filter-panel-input-select-item';
 import './filter-panel-checkbox';
 import './filter-panel-composite';
 import './filter-panel-heading';

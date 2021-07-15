@@ -39,6 +39,13 @@
       }
     }
   }
+  .#{$prefix}--filter-panel__section.#{$prefix}--modal-container {
+    overflow: initial;
+    @include carbon--breakpoint('md') {
+      height: 80%;
+      width: 60%;
+    }
+  }
 }
 
 :host(#{$dds-prefix}-filter-modal-footer-button) {
@@ -75,12 +82,10 @@
 
     &[disabled] {
       color: $disabled-03;
-    }
-  }
 
-  .#{$prefix}--btn--disabled {
-    &:hover {
-      background-color: transparent;
+      &:hover {
+        background-color: transparent;
+      }
     }
   }
 
