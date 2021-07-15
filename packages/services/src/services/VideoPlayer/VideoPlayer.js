@@ -20,12 +20,41 @@ import KalturaPlayerAPI from '../KalturaPlayer/KalturaPlayer';
  * - KALTURA_UICONF_ID (or REACT_APP_KALTURA_UICONF_ID)
  */
 class VideoPlayerAPI extends KalturaPlayerAPI {
+  /**
+   * Gets the embed meta data
+   *
+   * @param {string} videoId  The videoId we're embedding the placeholder for.
+   * @param {string} targetId The targetId the ID where we're putting the placeholder.
+   * @param {boolean} autoPlay Determine whether to autoplay on load of video.
+   * @returns {object}  object
+   *
+   * @example
+   * import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
+   *
+   * function embedMyVideo() {
+   *   const elem = document.getElementById('foo');
+   *   const videoid = '12345';
+   *   VideoPlayerAPI.embedVideo(videoid, elem);
+   * }
+   */
   static async embedVideo(videoId, targetId, autoPlay) {
     await KalturaPlayerAPI.embedMedia(videoId, targetId, autoPlay);
   }
 
+  /**
+   * Convert video duration from milliseconds to HH:MM:SS
+   *
+   * @param {string} duration video duration in milliseconds
+   * @returns {string} converted duration
+   */
   static getVideoDuration(duration) {
-    return KalturaPlayerAPI.getMediaDuration(duration);
+    let seconds = Math.floor((duration / 1000) % 60);
+    const minutes = Math.floor((duration / (1000 * 60)) % 60);
+    let hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+    hours = hours > 0 ? hours + ':' : '';
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    return duration && '(' + hours + minutes + ':' + seconds + ')';
   }
 }
 

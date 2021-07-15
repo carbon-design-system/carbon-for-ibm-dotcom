@@ -32,7 +32,7 @@ const VideoPlayer = ({
   // embedVideo is set to true when overlay thumbnail is clicked
   const [embedVideo, setEmbedVideo] = useState(false);
   const videoPlayerId = uniqueid(`video-player__video-${videoId}-`);
-  const videoDuration = VideoPlayerAPI.getMediaDuration(videoData.msDuration);
+  const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
 
   useEffect(() => {
     let stale = false;
