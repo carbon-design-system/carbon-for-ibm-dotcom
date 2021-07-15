@@ -28,7 +28,7 @@ class DDSFilterPanelInputSelectItem extends StableSelectorMixin(LitElement) {
    * Property for the input select item value
    */
   @property()
-  option: string = '';
+  _title: string = '';
 
   /**
    * sets the input select dropdown to unselected
@@ -36,9 +36,38 @@ class DDSFilterPanelInputSelectItem extends StableSelectorMixin(LitElement) {
   @property({ type: Boolean, reflect: true })
   selected = false;
 
+  /**
+   * Handles `slotchange` event.
+   *
+   * @param event The event.
+   */
+  protected _handleSlotChange({ target }: Event) {
+    this._title = (target as HTMLSlotElement).assignedNodes()[0].textContent as string;
+
+    this.setAttribute('aria-label', `${this._title}, ${this.selected ? 'selected' : 'unselected'}`);
+  }
+
+  connectedCallback() {
+    if (!this.hasAttribute('tabindex')) {
+      this.setAttribute('tabindex', '0');
+    }
+
+    if (!this.hasAttribute('role')) {
+      this.setAttribute('role', 'button');
+    }
+    super.connectedCallback();
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('selected')) {
+      this.setAttribute('aria-selected', `${String(Boolean(this.selected))}`);
+      this.setAttribute('aria-label', `${this._title}, ${this.selected ? 'selected' : 'unselected'}`);
+    }
+  }
+
   render() {
     return html`
-      <slot></slot>
+      <slot @slotchange=${this._handleSlotChange}></slot>
       <div class="${prefix}--close__icon">
         ${this.selected ? Close() : null}
       </div>

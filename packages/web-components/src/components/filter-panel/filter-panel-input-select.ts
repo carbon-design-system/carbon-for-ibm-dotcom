@@ -25,6 +25,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-filter-panel-input-select`)
 class DDSFilterPanelInputSelect extends StableSelectorMixin(LitElement) {
+  @property()
+  ariaLabel = '';
+
   /**
    * Sets the input selected dropdown to closed
    */
@@ -64,7 +67,7 @@ class DDSFilterPanelInputSelect extends StableSelectorMixin(LitElement) {
    * @param event sets the selected value attribute to selected and removes the attribute from the 'lastvalue'
    * @private
    */
-  protected _handleClickInner(event: MouseEvent) {
+  protected _handleClickInner(event) {
     const { eventContentStateChange } = this.constructor as typeof DDSFilterPanelInputSelect;
     const selected = (event.target as Element).closest(
       (this.constructor as typeof DDSFilterPanelInputSelect).selectorItem
@@ -93,6 +96,30 @@ class DDSFilterPanelInputSelect extends StableSelectorMixin(LitElement) {
     );
     this.lastValue = selected;
   }
+
+  /**
+   * Ensures the click header handler gets called upon clicking enter if focused.
+   *
+   * @param event captures the inputed key
+   * @private
+   */
+  private _handleKeydown = ({ key }: KeyboardEvent) => {
+    if (key === 'Enter') {
+      this._handleClickHeader();
+    }
+  };
+
+  /**
+   * Ensures the click inner handler gets called upon clicking enter if focused.
+   *
+   * @param event captures the inputed key
+   * @private
+   */
+  private _handleKeydownInner = (event: KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      this._handleClickInner(event);
+    }
+  };
 
   /**
    * sets the input select items to an array
@@ -141,18 +168,35 @@ class DDSFilterPanelInputSelect extends StableSelectorMixin(LitElement) {
       .filter(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
   }
 
+  updated(changedProperties) {
+    if (changedProperties.has('selected')) {
+      this.ariaLabel = `${this.title}, ${this.selected ? 'selected' : 'unselected'}`;
+    }
+  }
+
   render() {
     const { title } = this;
     return html`
       <div class="${prefix}--input-container">
-        <div class="${prefix}--input-container__heading" tabindex="1" @click=${this._handleClickHeader}>
+        <div
+          class="${prefix}--input-container__heading"
+          tabindex="1"
+          @click=${this._handleClickHeader}
+          @keydown=${this._handleKeydown}
+          aria-controls="content"
+          aria-expanded="${String(Boolean(this.isOpen))}"
+          aria-label="${this.ariaLabel}"
+          role="button"
+        >
           ${title}
           <div class="${prefix}--close__icon">
             ${this.selected && this.isOpen ? Close() : null}
           </div>
         </div>
         <ul
+          id="content"
           @click=${this._handleClickInner}
+          @keydown=${this._handleKeydownInner}
           class="${this.isOpen ? '' : `${prefix}--selected-option-dropdown__hidden`} ${prefix}--selected-option-dropdown"
         >
           <slot @slotchange="${this._handleSlotChange}"></slot>
