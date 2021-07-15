@@ -62,7 +62,7 @@
 
     @include masthead-top-nav-name;
 
-    @include carbon--breakpoint-down(959px) {
+    @include carbon--breakpoint-down(800px) {
       display: flex;
       position: absolute;
       top: 0;
@@ -104,7 +104,7 @@
 
   .#{$prefix}--masthead__megamenu__container--row {
     // Override flex-direction: column set in _masthead-megamenu.scss.
-    @include carbon--breakpoint-between(959px, 1055px) {
+    @include carbon--breakpoint-between(800px, 1055px) {
       flex-direction: inherit;
     }
   }
