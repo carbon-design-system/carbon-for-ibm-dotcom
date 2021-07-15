@@ -120,11 +120,3 @@ export default {
     },
   },
 };
-
-// heading: 'Aliquam condimentum interdum',
-//   ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId),
-//   cards: Array.from({
-//   length: 3,
-// }).map(() => defaultCardGroupItem),
-//   alt: textNullable('Alt text', 'Image alt text', groupId),
-//   defaultSrc: textNullable('Default image (default-src)', imgLg16x9, groupId),
