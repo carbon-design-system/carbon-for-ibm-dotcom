@@ -11,6 +11,7 @@ import { customElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSCardCTA from '../cta/card-cta';
 import styles from './card-group.scss';
+import DDSCardFooter from "../card/card-footer";
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -21,6 +22,11 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-card-group-item`)
 class DDSCardGroupItem extends DDSCardCTA {
+
+  updated(changedProperties) {
+    super.updated(changedProperties);
+    const footer = this.querySelector((this.constructor as typeof DDSCardGroupItem).selectorFooter);
+  }
   /**
    * `true` if the card group item is empty.
    */
@@ -29,6 +35,13 @@ class DDSCardGroupItem extends DDSCardCTA {
 
   static get stableSelector() {
     return `${ddsPrefix}--card-group-item`;
+  }
+
+  /**
+   * A selector that will return the child footer.
+   */
+  static get selectorFooter() {
+    return `${ddsPrefix}-card-cta-footer`;
   }
 
   static styles = styles;

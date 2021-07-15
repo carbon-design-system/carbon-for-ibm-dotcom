@@ -8,6 +8,7 @@
  */
 
 import { html, property, customElement } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
@@ -26,9 +27,12 @@ import './card-cta-footer';
 /* eslint-enable import/no-duplicates */
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
+import DDSCardFooter from "../card/card-footer";
+import {BASIC_COLOR_SCHEME} from "../../globals/defs";
 
 export { CTA_TYPE };
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -104,7 +108,7 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
 
   updated(changedProperties) {
     super.updated(changedProperties);
-    const { selectorFooter } = this.constructor as typeof DDSCardCTA;
+    const footer = this.querySelector((this.constructor as typeof DDSCardCTA).selectorFooter);
     if (
       changedProperties.has('ctaType') ||
       changedProperties.has('formatCaption') ||
@@ -114,11 +118,15 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
       const {
         ctaType,
         videoDuration,
+        videoName,
         formatVideoCaption: formatVideoCaptionInEffect,
         formatVideoDuration: formatVideoDurationInEffect,
       } = this;
-      const footer = this.querySelector(selectorFooter);
+      const headingText = this.querySelector(`dds-card-heading`)?.textContent;
+      const copyText = this.textContent;
       if (footer) {
+
+        (footer as DDSCardFooter).altAriaLabel = videoName ? videoName : headingText ? headingText : copyText;
         (footer as DDSCardCTAFooter).ctaType = ctaType;
         (footer as DDSCardCTAFooter).videoDuration = videoDuration;
         if (formatVideoCaptionInEffect) {
