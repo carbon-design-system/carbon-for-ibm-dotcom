@@ -7,5 +7,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/filter-panel/filter-panel-composite';
+import '@carbon/ibmdotcom-web-components/es/components/filter-panel/index';
 import './index.scss';
