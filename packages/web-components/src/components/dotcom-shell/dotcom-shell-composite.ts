@@ -51,6 +51,11 @@ class DDSDotcomShellComposite extends LitElement {
   private _footerRenderRoot: Element | null = null;
 
   /**
+   * The Locale Modal element
+   */
+  private _localeModal?: HTMLElement;
+
+  /**
    * The render target of the masthead contents.
    */
   private _mastheadRenderRoot: Element | null = null;
@@ -132,7 +137,7 @@ class DDSDotcomShellComposite extends LitElement {
    * Scrolls the masthead in/out of view depending on scroll direction if toc is present
    */
   private _handleIntersect = () => {
-    if (this._tableOfContentsInnerBar) {
+    if (this._tableOfContentsInnerBar && !this._localeModal?.hasAttribute('open')) {
       if (window.innerWidth < gridBreakpoint || this._tableOfContentsLayout === 'horizontal') {
         const mastheadTop = Math.min(
           0,
@@ -441,6 +446,10 @@ class DDSDotcomShellComposite extends LitElement {
         this._tableOfContentsInnerBar = toc?.shadowRoot?.querySelector(`.${prefix}--tableofcontents__sidebar`) as HTMLElement;
       }
       this._masthead = document.querySelector(`${ddsPrefix}-masthead`) as HTMLElement;
+    }
+
+    if (!this._localeModal) {
+      this._localeModal = this.ownerDocument.querySelector('dds-locale-modal') as HTMLElement;
     }
 
     if (!this._mastheadRenderRoot) {
