@@ -24,7 +24,7 @@
 }
 
 :host(#{$dds-prefix}-cloud-masthead-global-bar) ::slotted(#{$dds-prefix}-cloud-button-cta) {
-  @include carbon--breakpoint-down(799px) {
+  @include carbon--breakpoint-down('md') {
     display: none;
   }
 }
@@ -104,7 +104,7 @@
 
   .#{$prefix}--masthead__megamenu__container--row {
     // Override flex-direction: column set in _masthead-megamenu.scss.
-    @include carbon--breakpoint-between(800px, 1055px) {
+    @include carbon--breakpoint-between(960px, 1055px) {
       flex-direction: inherit;
     }
   }

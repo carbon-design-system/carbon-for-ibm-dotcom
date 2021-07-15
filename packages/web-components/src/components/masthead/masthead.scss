@@ -181,6 +181,30 @@
   }
 }
 
+:host(#{$dds-prefix}-top-nav)[cloud],
+:host(#{$dds-prefix}-top-nav-l1)[cloud] {
+  @include carbon--breakpoint(800px) {
+    display: none;
+  }
+
+  @include carbon--breakpoint(960px) {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .#{$prefix}--header__nav {
+    @include carbon--breakpoint(800px) {
+      display: none;
+    }
+
+    @include carbon--breakpoint(960px) {
+      display: block;
+      position: absolute;
+    }
+  }
+}
+
 :host(#{$dds-prefix}-top-nav-l1) {
   overflow: visible;
 }
@@ -277,6 +301,17 @@
   }
 
   @include carbon--breakpoint(800px) {
+    display: none;
+  }
+}
+
+:host(#{$dds-prefix}-masthead-menu-button)[cloud],
+:host(#{$dds-prefix}-left-nav)[cloud] {
+  @include carbon--breakpoint('md') {
+    display: block;
+  }
+
+  @include carbon--breakpoint(960px) {
     display: none;
   }
 }

@@ -281,7 +281,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     }
     return html`
       <dds-left-nav-overlay></dds-left-nav-overlay>
-      <dds-left-nav>
+      <dds-left-nav cloud>
         ${!platform
           ? undefined
           : html`
@@ -291,6 +291,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
       </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-masthead-menu-button
+          cloud
           button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
           button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
         >
@@ -305,7 +306,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         ${l1Data
           ? undefined
           : html`
-              <dds-top-nav menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
+              <dds-top-nav cloud menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
                 ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: false })}
               </dds-top-nav>
             `}
