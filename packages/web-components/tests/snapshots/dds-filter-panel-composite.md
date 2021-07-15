@@ -9,13 +9,16 @@
   <div class="bx--filter__modal_button">
   </div>
 </button>
-<dds-filter-panel-modal heading="">
+<dds-filter-panel-modal
+  data-autoid="dds-filter-panel-modal"
+  heading=""
+>
   <slot name="heading">
   </slot>
   <slot>
   </slot>
 </dds-filter-panel-modal>
-<dds-filter-panel>
+<dds-filter-panel data-autoid="dds-filter-panel">
 </dds-filter-panel>
 
 ```
@@ -27,13 +30,16 @@
   <div class="bx--filter__modal_button">
   </div>
 </button>
-<dds-filter-panel-modal heading="">
+<dds-filter-panel-modal
+  data-autoid="dds-filter-panel-modal"
+  heading=""
+>
   <slot name="heading">
   </slot>
   <slot>
   </slot>
 </dds-filter-panel-modal>
-<dds-filter-panel>
+<dds-filter-panel data-autoid="dds-filter-panel">
 </dds-filter-panel>
 
 ```
