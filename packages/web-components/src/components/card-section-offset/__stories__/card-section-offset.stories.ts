@@ -14,7 +14,7 @@ import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
 import { CTA_TYPE } from '../../cta/defs';
-import imgLg16x9 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
+import image from '../../../../../storybook-images/assets/card-section-offset/background-media.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const ctaTypes = {
@@ -114,7 +114,7 @@ export default {
             length: 3,
           }).map(() => defaultCardGroupItem),
           alt: textNullable('Alt text', 'Image alt text', groupId),
-          defaultSrc: textNullable('Default image (default-src)', imgLg16x9, groupId),
+          defaultSrc: textNullable('Default image (default-src)', image, groupId),
         };
       },
     },
