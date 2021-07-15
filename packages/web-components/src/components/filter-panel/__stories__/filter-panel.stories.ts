@@ -34,8 +34,6 @@ export const Default = ({ parameters }) => {
             <dds-checkbox value="Service Assets">Service Assets</dds-checkbox>
             <dds-checkbox value="Software">Software</dds-checkbox>
           </dds-filter-group-item>
-        </dds-filter-group>
-        <dds-filter-group>
           <dds-filter-group-item title-text="Technologies">
             <dds-input-select header-value="Analytics" title="Analytics"></dds-input-select>
             <dds-input-select header-value="Artificial intelligence" title="Artificial intelligence">
@@ -48,12 +46,10 @@ export const Default = ({ parameters }) => {
             <dds-input-select header-value="Cloud computing" title="Cloud computing"></dds-input-select>
             <dds-input-select header-value="IT infrastructure" title="IT infrastructure"></dds-input-select>
             <dds-input-select header-value="IT management" title="IT management"></dds-input-select>
-            <dds-input-select header-value="Mobile technology" title="Mobile technology"></dds-input-select>
+            <dds-input-select header-value="Mobile technologys" title="Mobile technology"></dds-input-select>
             <dds-input-select header-value="Security" title="Security"></dds-input-select>
             <dds-input-select header-value="Software development" title="Software development"></dds-input-select>
           </dds-filter-group-item>
-        </dds-filter-group>
-        <dds-filter-group>
           <dds-filter-group-item title-text="Business needs">
             <dds-input-select header-value="Business operations" title="Business operations"></dds-input-select>
             <dds-input-select header-value="Content Management" title="Content Management"></dds-input-select>
@@ -62,8 +58,6 @@ export const Default = ({ parameters }) => {
             <dds-input-select header-value="Marketing and sales" title="Marketing and sales"></dds-input-select>
             <dds-input-select header-value="Supply chain management" title="Supply chain management"></dds-input-select>
           </dds-filter-group-item>
-        </dds-filter-group>
-        <dds-filter-group>
           <dds-filter-group-item title-text="Deployment types">
             <dds-checkbox value="On-premisis">On-premisis</dds-checkbox>
             <dds-checkbox value="SaaS">SaaS</dds-checkbox>

@@ -320,24 +320,13 @@
     }
   }
 
-  :host(#{$dds-prefix}-filter-group) {
-    ::slotted(#{$dds-prefix}-filter-group-item) {
-      border-top: 1px solid $ui-03;
-      border-bottom: none;
-    }
-
-    &:last-of-type {
-      ::slotted(#{$dds-prefix}-filter-group-item) {
-        border-bottom: 1px solid $ui-03;
-      }
-    }
-  }
-
   :host(#{$dds-prefix}-filter-group-item) {
     @extend .#{$prefix}--accordion__item;
 
     display: block;
     outline: none;
+    border-top: 1px solid $ui-03;
+    border-bottom: none;
 
     .#{$prefix}--accordion__heading {
       padding-top: calc(
@@ -350,6 +339,10 @@
     .#{$prefix}--accordion__title {
       @include use-carbon-productive-tokens();
       @include carbon--type-style('heading-01');
+    }
+
+    &:last-of-type {
+      border-bottom: 1px solid $ui-03;
     }
   }
 

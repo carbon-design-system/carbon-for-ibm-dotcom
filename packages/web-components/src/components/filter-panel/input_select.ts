@@ -23,7 +23,7 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
   /**
    * Sets the input selected dropdown to closed
    */
-  @property()
+  @property({ attribute: 'is-open', type: Boolean })
   isOpen = false;
 
   /**

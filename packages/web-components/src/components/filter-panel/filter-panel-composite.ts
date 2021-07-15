@@ -37,6 +37,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   protected _handleContentStateChangeDocument = (event: CustomEvent) => {
     const { value, lastValue, headerValue } = event.detail;
 
+    // remove the DDSInputSelect (header) value from list to add an inner child instead
     this._selectedValues = this._selectedValues.filter(e => e !== headerValue);
 
     if (!value) {
@@ -74,24 +75,27 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   @HostListener('document:eventCheckboxSelect')
   protected _handleCheckboxStateChange = (event: CustomEvent) => {
     const { value } = event.detail;
-    // toggle checkbox state
-    if ((event.target as HTMLElement).hasAttribute('checked')) {
-      (event.target as HTMLElement).removeAttribute('checked');
-      this._selectedValues = this._selectedValues.filter(e => e !== value);
 
-      if (!this._selectedValues.length) {
-        this.shadowRoot!.querySelector('dds-filter-panel-modal')?.removeAttribute('has-selections');
-        this.shadowRoot!.querySelector('dds-filter-panel')?.removeAttribute('has-selections');
+    // toggle checkbox in filter panel modal
+    this.querySelectorAll('dds-checkbox').forEach(e => {
+      if (e.getAttribute('value') === value) {
+        e.toggleAttribute('checked');
+        e.closest('dds-filter-group-item')?.setAttribute('open', '');
       }
-      return;
-    }
+    });
 
+    // toggle value in list
     if (!this._selectedValues.includes(value)) {
       this._selectedValues.push(value);
+    } else {
+      this._selectedValues = this._selectedValues.filter(e => e !== value);
     }
 
-    // enables the clear button
-    if (this._selectedValues) {
+    // shows clear button depending on the list's length
+    if (!this._selectedValues.length) {
+      this.shadowRoot!.querySelector('dds-filter-panel-modal')?.removeAttribute('has-selections');
+      this.shadowRoot!.querySelector('dds-filter-panel')?.removeAttribute('has-selections');
+    } else {
       this.shadowRoot!.querySelector('dds-filter-panel-modal')?.setAttribute('has-selections', '');
       this.shadowRoot!.querySelector('dds-filter-panel')?.setAttribute('has-selections', '');
     }
@@ -117,37 +121,40 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   @HostListener('document:eventTitleChange')
   protected _handleTitleStateChange = (event: CustomEvent) => {
     const { headerValue } = event.detail;
-    // toggle title state
-    const selected = event.composedPath()[0];
-    if ((selected as HTMLElement).hasAttribute('selected')) {
-      (selected as HTMLElement).removeAttribute('selected');
-      this._selectedValues = this._selectedValues.filter(e => e !== headerValue);
-      if (!this._selectedValues.length) {
-        this.shadowRoot!.querySelector('dds-filter-panel-modal')?.removeAttribute('has-selections');
-        this.shadowRoot!.querySelector('dds-filter-panel')?.removeAttribute('has-selections');
-      }
-      return;
-    }
 
-    const currentFilterGroup = (selected as HTMLElement).closest('dds-filter-group');
+    // toggle checkbox in filter panel modal
+    this.querySelectorAll('dds-input-select').forEach(e => {
+      // capture the element counterpart in Filter Panel Modal
+      if (e.getAttribute('header-value') === headerValue) {
+        const currentGroup = e.closest('dds-filter-group-item');
+        currentGroup?.setAttribute('open', '');
 
-    // Clears all the selected DDSInputItems
-    currentFilterGroup?.querySelectorAll('dds-input-select').forEach(e => {
-      if (this._selectedValues.includes(e.getAttribute('header-value')!)) {
-        this._selectedValues = this._selectedValues.filter(str => str !== e.getAttribute('header-value'));
+        // Clears all other sibling items in the Filter Group
+        currentGroup?.querySelectorAll('dds-input-select').forEach(inputSelect => {
+          if (inputSelect === e) return;
+          this._selectedValues = this._selectedValues.filter(str => str !== inputSelect.getAttribute('header-value'));
+          inputSelect.removeAttribute('selected');
+        });
+
+        e.toggleAttribute('selected');
+        e.toggleAttribute('is-open');
       }
-      e.removeAttribute('selected');
     });
 
-    (selected as HTMLElement).setAttribute('selected', '');
-
-    // removes the header value once a new value is selected
+    // toggle value in list
     if (!this._selectedValues.includes(headerValue)) {
       this._selectedValues.push(headerValue);
+    } else {
+      this._selectedValues = this._selectedValues.filter(e => e !== headerValue);
+    }
+
+    if (!this._selectedValues.length) {
+      this.shadowRoot!.querySelector('dds-filter-panel-modal')?.removeAttribute('has-selections');
+      this.shadowRoot!.querySelector('dds-filter-panel')?.removeAttribute('has-selections');
     }
 
     // enables the clear button
-    if (this._selectedValues) {
+    if (this._selectedValues.length > 0) {
       this.shadowRoot!.querySelector('dds-filter-panel-modal')?.setAttribute('has-selections', '');
       this.shadowRoot!.querySelector('dds-filter-panel')?.setAttribute('has-selections', '');
     }
@@ -174,6 +181,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   protected _handleClearSelection = () => {
     this._selectedValues = [];
 
+    // handles clear when clearing from the static filter panel
     this._contents.forEach(group => {
       group.querySelectorAll('dds-checkbox').forEach(e => {
         e.removeAttribute('checked');
@@ -186,17 +194,13 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
       });
     });
 
-    // handles the regular filter clear
+    // handles clear when clearing from the filter panel modal
     this.shadowRoot?.querySelectorAll('dds-checkbox').forEach(e => {
       e.removeAttribute('checked');
     });
-
-    // handles the regular filter clear
     this.shadowRoot?.querySelectorAll('dds-input-select-item').forEach(e => {
       e.removeAttribute('selected');
     });
-
-    // handles the regular filter clear
     this.shadowRoot?.querySelectorAll('dds-input-select').forEach(e => {
       e.removeAttribute('selected');
     });
