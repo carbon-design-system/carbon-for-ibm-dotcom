@@ -37,7 +37,7 @@
       max-width: 40rem;
 
       @include carbon--breakpoint('md') {
-        width: calc(100% - var(--cds-layout-03, 2rem));
+        width: calc(100% - $spacing-07);
       }
     }
 
