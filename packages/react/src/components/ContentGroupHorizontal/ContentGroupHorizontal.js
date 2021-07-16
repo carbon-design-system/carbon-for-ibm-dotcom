@@ -7,6 +7,7 @@
 import ContentBlock from '../../internal/components/ContentBlock/ContentBlock';
 import { ContentItemHorizontal } from '../ContentItemHorizontal';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import deprecate from '@carbon/ibmdotcom-utilities/es/utilities/deprecate/deprecate.js';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -71,4 +72,10 @@ ContentGroupHorizontal.propTypes = {
   ).isRequired,
 };
 
-export default ContentGroupHorizontal;
+export default deprecate(
+  ContentGroupHorizontal,
+  `
+  The ContentGroupHorizontal component has been deprecated in favor of the ContentBlockHorizontal component.
+  See ContentBlockHorizontal documentation for more information.
+`
+);
