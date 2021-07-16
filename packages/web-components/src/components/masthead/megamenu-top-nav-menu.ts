@@ -102,8 +102,8 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         ?.shadowRoot?.querySelector('.bx--masthead__l0');
 
       if (this.expanded) {
-        doc?.body?.classList.add(`${prefix}--body__lock-scroll`);
         doc.body.style.marginRight = `${this._scrollBarWidth}px`;
+        doc.body.style.overflow = `hidden`;
         forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
           (item as DDSMegaMenuOverlay).active = this.expanded;
         });
@@ -111,8 +111,8 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
           masthead.style.marginRight = `${this._scrollBarWidth}px`;
         }
       } else {
-        doc?.body?.classList.remove(`${prefix}--body__lock-scroll`);
         doc.body.style.marginRight = '0px';
+        doc.body.style.overflow = `auto`;
         if (masthead) {
           masthead.style.marginRight = '0px';
         }
