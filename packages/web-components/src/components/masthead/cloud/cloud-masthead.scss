@@ -148,6 +148,8 @@
 }
 
 :host(#{$dds-prefix}-cloud-megamenu-tab) {
+  outline: 0;
+
   button {
     @include use-carbon-productive-tokens();
     @include carbon--type-style(body-short-01);
@@ -162,13 +164,13 @@
 
     &:hover,
     &:focus {
-      background-color: $hover-ui;
       color: $text-01;
     }
-  }
 
-  &:focus {
-    outline: carbon--rem(2px) solid $focus;
+    &:focus {
+      outline: carbon--rem(2px) solid $focus;
+      outline-offset: carbon--rem(-2px);
+    }
   }
 }
 
@@ -186,6 +188,7 @@
 :host(#{$dds-prefix}-cloud-megamenu-category-link) {
   width: 100%;
   max-width: 50%;
+  outline: 0;
 
   @include carbon--breakpoint('xlg') {
     max-width: 33.33%;
@@ -254,6 +257,11 @@
         svg {
           fill: $hover-primary-text;
         }
+      }
+
+      &:focus {
+        outline: carbon--rem(2px) solid $focus;
+        outline-offset: carbon--rem(-2px);
       }
     }
   }
