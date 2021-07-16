@@ -42,8 +42,18 @@
 
   :host(#{$dds-prefix}-content-block-cards) .#{$prefix}--content-block__cta,
   .#{$prefix}--content-block-cards .#{$prefix}--content-block__cta {
+    @include carbon--make-col-ready;
+
     .#{$prefix}--card {
-      max-width: rem(320px);
+      @include carbon--make-col(4, 4);
+
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(8, 12);
+      }
+
+      @include carbon--breakpoint('xlg') {
+        max-width: rem(320px);
+      }
     }
   }
 
