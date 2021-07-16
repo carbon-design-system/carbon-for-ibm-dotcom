@@ -239,6 +239,10 @@
 :host(#{$dds-prefix}-masthead-profile-item) {
   @extend :host(#{$prefix}-header-menu-item);
   @include masthead-top-nav-menu-item;
+
+  a.#{$prefix}--header__menu-item[role='menuitem'] {
+    height: 100%;
+  }
 }
 
 :host(#{$dds-prefix}-top-nav-item),
