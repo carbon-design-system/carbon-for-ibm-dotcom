@@ -162,7 +162,7 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
         throw new TypeError('Cannot find the video player component to put the video content into.');
       }
       videoPlayer.appendChild(div);
-      const embedVideoHandle = await VideoPlayerAPI.embedVideo(videoId, playerId, true);
+      const embedVideoHandle = await VideoPlayerAPI.embedMedia(videoId, playerId);
       doc!.getElementById(playerId)!.dataset.videoId = videoId;
       return embedVideoHandle.kWidget();
     }
@@ -173,7 +173,7 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
      * @param videoId The video ID.
      * @internal
      */
-    _embedVideo = async (videoId: string) => {
+    _embedMedia = async (videoId: string) => {
       const { _requestsEmbedVideo: requestsEmbedVideo } = this;
       const requestEmbedVideo = requestsEmbedVideo[videoId];
       if (requestEmbedVideo) {
