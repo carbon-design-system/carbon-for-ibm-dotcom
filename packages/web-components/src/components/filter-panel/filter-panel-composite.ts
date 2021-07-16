@@ -82,7 +82,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     const { value } = event.detail;
 
     // toggle checkbox in filter panel modal
-    this.querySelectorAll('dds-checkbox').forEach(e => {
+    this.querySelectorAll('dds-filter-panel-checkbox').forEach(e => {
       if (e.getAttribute('value') === value) {
         e.toggleAttribute('checked');
         e.closest('dds-filter-group-item')?.setAttribute('open', '');
@@ -128,14 +128,14 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     const { headerValue } = event.detail;
 
     // toggle checkbox in filter panel modal
-    this.querySelectorAll('dds-input-select').forEach(e => {
+    this.querySelectorAll('dds-filter-panel-input-select').forEach(e => {
       // capture the element counterpart in Filter Panel Modal
       if (e.getAttribute('header-value') === headerValue) {
         const currentGroup = e.closest('dds-filter-group-item');
         currentGroup?.setAttribute('open', '');
 
         // Clears all other sibling items in the Filter Group
-        currentGroup?.querySelectorAll('dds-input-select').forEach(inputSelect => {
+        currentGroup?.querySelectorAll('dds-filter-panel-input-select').forEach(inputSelect => {
           if (inputSelect === e) return;
           this._selectedValues = this._selectedValues.filter(str => str !== inputSelect.getAttribute('header-value'));
           inputSelect.removeAttribute('selected');
@@ -168,7 +168,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   };
 
   static get selectorInputSelect() {
-    return `${ddsPrefix}-input-select`;
+    return `${ddsPrefix}-filter-panel-input-select`;
   }
 
   /**
@@ -187,28 +187,32 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   protected _handleClearSelection = () => {
     this._selectedValues = [];
 
-    // handles clear when clearing from the static filter panel
+    // handles clear when clearing from the static filter panel model
     this._contents.forEach(group => {
-      group.querySelectorAll('dds-checkbox').forEach(e => {
+      group.querySelectorAll('dds-filter-panel-checkbox').forEach(e => {
         e.removeAttribute('checked');
       });
-      group.querySelectorAll('dds-input-select-item').forEach(e => {
+      group.querySelectorAll('dds-filter-panel-input-select-item').forEach(e => {
         e.removeAttribute('selected');
+        e.removeAttribute('is-open');
       });
-      group.querySelectorAll('dds-input-select').forEach(e => {
+      group.querySelectorAll('dds-filter-panel-input-select').forEach(e => {
         e.removeAttribute('selected');
+        e.removeAttribute('is-open');
       });
     });
 
-    // handles clear when clearing from the filter panel modal
-    this.shadowRoot?.querySelectorAll('dds-checkbox').forEach(e => {
+    // handles clear when clearing from the filter panel static
+    this.shadowRoot?.querySelectorAll('dds-filter-panel-checkbox').forEach(e => {
       e.removeAttribute('checked');
     });
-    this.shadowRoot?.querySelectorAll('dds-input-select-item').forEach(e => {
+    this.shadowRoot?.querySelectorAll('dds-filter-panel-input-select-item').forEach(e => {
       e.removeAttribute('selected');
+      e.removeAttribute('is-open');
     });
-    this.shadowRoot?.querySelectorAll('dds-input-select').forEach(e => {
+    this.shadowRoot?.querySelectorAll('dds-filter-panel-input-select').forEach(e => {
       e.removeAttribute('selected');
+      e.removeAttribute('is-open');
     });
 
     // disables the button
@@ -289,7 +293,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   render() {
     return html`
       <button class="bx--filter-button" @click=${this._openModal}>
-        <div class="${prefix}--filter__modal_button">${this._filterButtonTitle} ${Filter()}</div>
+        <div class="${prefix}--filter__modal__button">${this._filterButtonTitle} ${Filter()}</div>
       </button>
 
       <dds-filter-panel-modal ?open=${this.openFilterModal} heading="${this._filterButtonTitle}">
@@ -313,11 +317,11 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   }
 
   static get eventContentStateChange() {
-    return `${ddsPrefix}-input-select`;
+    return `${ddsPrefix}-filter-panel-input-select`;
   }
 
   static get eventTitleChange() {
-    return `${ddsPrefix}-input-select-title`;
+    return `${ddsPrefix}-filter-panel-input-select-title`;
   }
 
   static get eventCheckboxSelect() {

@@ -13,7 +13,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import Close from 'carbon-web-components/es/icons/close/16';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
-import DDSInputSelectItem from './input-select-item';
+import DDSFilterPanelInputSelectItem from './filter-panel-input-select-item';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -21,10 +21,13 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 /**
  * The container of the input select.
  *
- * @element dds-input-select
+ * @element dds-filter-panel-input-select
  */
-@customElement(`${ddsPrefix}-input-select`)
-class DDSInputSelect extends StableSelectorMixin(LitElement) {
+@customElement(`${ddsPrefix}-filter-panel-input-select`)
+class DDSFilterPanelInputSelect extends StableSelectorMixin(LitElement) {
+  @property()
+  ariaLabel = '';
+
   /**
    * Sets the input selected dropdown to closed
    */
@@ -56,7 +59,7 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
   lastValue: any;
 
   static get selectorItem() {
-    return `${ddsPrefix}-input-select-item`;
+    return `${ddsPrefix}-filter-panel-input-select-item`;
   }
 
   /**
@@ -64,11 +67,11 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
    * @param event sets the selected value attribute to selected and removes the attribute from the 'lastvalue'
    * @private
    */
-  protected _handleClickInner(event: MouseEvent) {
-    const { eventContentStateChange } = this.constructor as typeof DDSInputSelect;
+  protected _handleClickInner(event) {
+    const { eventContentStateChange } = this.constructor as typeof DDSFilterPanelInputSelect;
     const selected = (event.target as Element).closest(
-      (this.constructor as typeof DDSInputSelect).selectorItem
-    ) as DDSInputSelectItem;
+      (this.constructor as typeof DDSFilterPanelInputSelect).selectorItem
+    ) as DDSFilterPanelInputSelectItem;
     if (selected.hasAttribute('selected')) {
       selected.removeAttribute('selected');
     } else {
@@ -95,6 +98,30 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
   }
 
   /**
+   * Ensures the click header handler gets called upon clicking enter if focused.
+   *
+   * @param event captures the inputed key
+   * @private
+   */
+  private _handleKeydown = ({ key }: KeyboardEvent) => {
+    if (key === 'Enter') {
+      this._handleClickHeader();
+    }
+  };
+
+  /**
+   * Ensures the click inner handler gets called upon clicking enter if focused.
+   *
+   * @param event captures the inputed key
+   * @private
+   */
+  private _handleKeydownInner = (event: KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      this._handleClickInner(event);
+    }
+  };
+
+  /**
    * sets the input select items to an array
    */
   @property()
@@ -107,7 +134,7 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
   headerValue: string = '';
 
   static get eventTitleChange() {
-    return `${ddsPrefix}-input-select-title`;
+    return `${ddsPrefix}-filter-panel-input-select-title`;
   }
 
   /**
@@ -116,7 +143,7 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
    * @private
    */
   protected _handleClickHeader() {
-    const { eventTitleChange } = this.constructor as typeof DDSInputSelect;
+    const { eventTitleChange } = this.constructor as typeof DDSFilterPanelInputSelect;
     this.isOpen = !this.isOpen;
     this.selected = !this.selected;
     this.dispatchEvent(
@@ -141,19 +168,36 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
       .filter(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
   }
 
+  updated(changedProperties) {
+    if (changedProperties.has('selected')) {
+      this.ariaLabel = `${this.title}, ${this.selected ? 'selected' : 'unselected'}`;
+    }
+  }
+
   render() {
     const { title } = this;
     return html`
-      <div class="${prefix}--input_container">
-        <div class="${prefix}--input_container-heading" tabindex="1" @click=${this._handleClickHeader}>
+      <div class="${prefix}--input-container">
+        <div
+          class="${prefix}--input-container__heading"
+          tabindex="1"
+          @click=${this._handleClickHeader}
+          @keydown=${this._handleKeydown}
+          aria-controls="content"
+          aria-expanded="${String(Boolean(this.isOpen))}"
+          aria-label="${this.ariaLabel}"
+          role="button"
+        >
           ${title}
-          <div class="${prefix}--close_icon">
+          <div class="${prefix}--close__icon">
             ${this.selected && this.isOpen ? Close() : null}
           </div>
         </div>
         <ul
+          id="content"
           @click=${this._handleClickInner}
-          class="${this.isOpen ? '' : `${prefix}--selected__option_dropdown_hidden`} ${prefix}--selected__option_dropdown"
+          @keydown=${this._handleKeydownInner}
+          class="${this.isOpen ? '' : `${prefix}--selected-option-dropdown__hidden`} ${prefix}--selected-option-dropdown"
         >
           <slot @slotchange="${this._handleSlotChange}"></slot>
         </ul>
@@ -165,14 +209,14 @@ class DDSInputSelect extends StableSelectorMixin(LitElement) {
    * The name of the custom event fired after the search content is changed upon a user gesture.
    */
   static get eventContentStateChange() {
-    return `${ddsPrefix}-input-select`;
+    return `${ddsPrefix}-filter-panel-input-select`;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}-input-select`;
+    return `${ddsPrefix}-filter-panel-input-select`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
-export default DDSInputSelect;
+export default DDSFilterPanelInputSelect;
