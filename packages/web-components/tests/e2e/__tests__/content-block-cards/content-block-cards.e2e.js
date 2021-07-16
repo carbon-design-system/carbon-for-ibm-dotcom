@@ -9,7 +9,7 @@
 
 describe('dds-content-block-cards', () => {
   // TODO: find out why components are getting double imported in parcel
-  xit('should load the default dds-content-block-cards example', () => {
+  it('should load the default dds-content-block-cards example', () => {
     cy.visit('/content-block-card-static');
 
     // Take a snapshot for visual diffing
