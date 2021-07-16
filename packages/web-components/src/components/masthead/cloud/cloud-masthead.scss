@@ -24,7 +24,7 @@
 }
 
 :host(#{$dds-prefix}-cloud-masthead-global-bar) ::slotted(#{$dds-prefix}-cloud-button-cta) {
-  @include carbon--breakpoint-down(799px) {
+  @include carbon--breakpoint-down('md') {
     display: none;
   }
 }
@@ -85,7 +85,6 @@
 :host(#{$dds-prefix}-cloud-megamenu),
 .#{$prefix}--masthead__megamenu {
   position: relative;
-  min-height: carbon--rem(230px);
 
   &::after {
     content: '';
@@ -97,14 +96,15 @@
   }
 
   .#{$prefix}--masthead__megamenu__container {
-    overflow-y: scroll;
     width: 100%;
     height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 
   .#{$prefix}--masthead__megamenu__container--row {
     // Override flex-direction: column set in _masthead-megamenu.scss.
-    @include carbon--breakpoint-between(800px, 1055px) {
+    @include carbon--breakpoint-between(960px, 1055px) {
       flex-direction: inherit;
     }
   }
@@ -148,6 +148,8 @@
 }
 
 :host(#{$dds-prefix}-cloud-megamenu-tab) {
+  outline: 0;
+
   button {
     @include carbon--type-style(body-short-01);
 
@@ -161,13 +163,13 @@
 
     &:hover,
     &:focus {
-      background-color: $hover-ui;
       color: $text-01;
     }
-  }
 
-  &:focus {
-    outline: carbon--rem(2px) solid $focus;
+    &:focus {
+      outline: carbon--rem(2px) solid $focus;
+      outline-offset: carbon--rem(-2px);
+    }
   }
 }
 
@@ -185,6 +187,7 @@
 :host(#{$dds-prefix}-cloud-megamenu-category-link) {
   width: 100%;
   max-width: 50%;
+  outline: 0;
 
   @include carbon--breakpoint('xlg') {
     max-width: 33.33%;
@@ -252,6 +255,11 @@
         svg {
           fill: $hover-primary-text;
         }
+      }
+
+      &:focus {
+        outline: carbon--rem(2px) solid $focus;
+        outline-offset: carbon--rem(-2px);
       }
     }
   }
