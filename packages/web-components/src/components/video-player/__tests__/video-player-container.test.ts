@@ -1,12 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
 import convertValue from '../../../../tests/utils/convert-value';
 import { DDSVideoPlayerContainerMixin } from '../video-player-container';
@@ -35,12 +36,12 @@ describe('dds-video-player-container', function() {
     });
 
     it('should make an API call to embed video', async function() {
-      spyOn(VideoPlayerAPI, 'embedVideo').and.callFake(async () => ({
+      spyOn(VideoPlayerAPI, 'embedMedia').and.callFake(async () => ({
         async kWidget() {
           return 'kwidget-foo';
         },
       }));
-      await videoPlayerContainer._embedVideo('video-id-foo');
+      await videoPlayerContainer._embedMedia('video-id-foo');
       const setRequestEmbedVideoInProgressArgs = convertValue(
         videoPlayerContainer._setRequestEmbedVideoInProgress.calls.argsFor(0)
       );
@@ -60,7 +61,7 @@ describe('dds-video-player-container', function() {
       videoPlayerContainer._requestsEmbedVideo = {
         'video-id-foo': Promise.resolve('kwidget-foo'),
       };
-      await videoPlayerContainer._embedVideo('video-id-foo');
+      await videoPlayerContainer._embedMedia('video-id-foo');
       const setRequestEmbedVideoInProgressArgs = convertValue(
         videoPlayerContainer._setRequestEmbedVideoInProgress.calls.argsFor(0)
       );
@@ -72,12 +73,12 @@ describe('dds-video-player-container', function() {
     });
 
     it('should track the error in embeddeding video', async function() {
-      spyOn(VideoPlayerAPI, 'embedVideo').and.callFake(async () => {
+      spyOn(KalturaPlayerAPI, 'embedMedia').and.callFake(async () => {
         throw new Error('error-embedvideo');
       });
       let caught;
       try {
-        await videoPlayerContainer._embedVideo('video-id-foo');
+        await videoPlayerContainer._embedMedia('video-id-foo');
       } catch (error) {
         caught = error;
       }
@@ -101,7 +102,7 @@ describe('dds-video-player-container', function() {
       };
       let caught;
       try {
-        await videoPlayerContainer._embedVideo('video-id-foo');
+        await videoPlayerContainer._embedMedia('video-id-foo');
       } catch (error) {
         caught = error;
       }

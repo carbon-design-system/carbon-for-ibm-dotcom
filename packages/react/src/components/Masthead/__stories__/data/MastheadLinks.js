@@ -58,6 +58,10 @@ const mastheadLinks = [
               },
             },
           },
+          {
+            title: 'Menu dropdown item with extra long text',
+            url: '',
+          },
         ],
       },
     ],

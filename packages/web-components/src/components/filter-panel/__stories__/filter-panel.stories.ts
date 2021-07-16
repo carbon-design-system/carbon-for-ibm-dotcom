@@ -35,28 +35,56 @@ export const Default = ({ parameters }) => {
             <dds-filter-panel-checkbox value="Software">Software</dds-filter-panel-checkbox>
           </dds-filter-group-item>
           <dds-filter-group-item title-text="Technologies">
-            <dds-input-select header-value="Analytics" title="Analytics"></dds-input-select>
-            <dds-input-select header-value="Artificial intelligence" title="Artificial intelligence">
-              <dds-input-select-item value="Machine Learning">Machine Learning</dds-input-select-item>
-              <dds-input-select-item value="Natural language processing">Natural language processing</dds-input-select-item>
-              <dds-input-select-item value="Speech recognition">Speech recognition</dds-input-select-item>
-            </dds-input-select>
-            <dds-input-select header-value="Automation" title="Automation"></dds-input-select>
-            <dds-input-select header-value="Blockchain" title="Blockchain"></dds-input-select>
-            <dds-input-select header-value="Cloud computing" title="Cloud computing"></dds-input-select>
-            <dds-input-select header-value="IT infrastructure" title="IT infrastructure"></dds-input-select>
-            <dds-input-select header-value="IT management" title="IT management"></dds-input-select>
-            <dds-input-select header-value="Mobile technologys" title="Mobile technology"></dds-input-select>
-            <dds-input-select header-value="Security" title="Security"></dds-input-select>
-            <dds-input-select header-value="Software development" title="Software development"></dds-input-select>
+            <dds-filter-panel-input-select header-value="Analytics" title="Analytics"></dds-filter-panel-input-select>
+            <dds-filter-panel-input-select header-value="Artificial intelligence" title="Artificial intelligence">
+              <dds-filter-panel-input-select-item value="Machine Learning">Machine Learning</dds-filter-panel-input-select-item>
+              <dds-filter-panel-input-select-item value="Natural language processing"
+                >Natural language processing</dds-filter-panel-input-select-item
+              >
+              <dds-filter-panel-input-select-item value="Speech recognition"
+                >Speech recognition</dds-filter-panel-input-select-item
+              >
+            </dds-filter-panel-input-select>
+            <dds-filter-panel-input-select header-value="Automation" title="Automation"></dds-filter-panel-input-select>
+            <dds-filter-panel-input-select header-value="Blockchain" title="Blockchain"></dds-filter-panel-input-select>
+            <dds-filter-panel-input-select header-value="Cloud computing" title="Cloud computing"></dds-filter-panel-input-select>
+            <dds-filter-panel-input-select
+              header-value="IT infrastructure"
+              title="IT infrastructure"
+            ></dds-filter-panel-input-select>
+            <dds-filter-panel-input-select header-value="IT management" title="IT management"></dds-filter-panel-input-select>
+            <dds-filter-panel-input-select
+              header-value="Mobile technologys"
+              title="Mobile technology"
+            ></dds-filter-panel-input-select>
+            <dds-filter-panel-input-select header-value="Security" title="Security"></dds-filter-panel-input-select>
+            <dds-filter-panel-input-select
+              header-value="Software development"
+              title="Software development"
+            ></dds-filter-panel-input-select>
           </dds-filter-group-item>
           <dds-filter-group-item title-text="Business needs">
-            <dds-input-select header-value="Business operations" title="Business operations"></dds-input-select>
-            <dds-input-select header-value="Content Management" title="Content Management"></dds-input-select>
-            <dds-input-select header-value="Customer service" title="Customer service"></dds-input-select>
-            <dds-input-select header-value="Finance" title="Finance"></dds-input-select>
-            <dds-input-select header-value="Marketing and sales" title="Marketing and sales"></dds-input-select>
-            <dds-input-select header-value="Supply chain management" title="Supply chain management"></dds-input-select>
+            <dds-filter-panel-input-select
+              header-value="Business operations"
+              title="Business operations"
+            ></dds-filter-panel-input-select>
+            <dds-filter-panel-input-select
+              header-value="Content Management"
+              title="Content Management"
+            ></dds-filter-panel-input-select>
+            <dds-filter-panel-input-select
+              header-value="Customer service"
+              title="Customer service"
+            ></dds-filter-panel-input-select>
+            <dds-filter-panel-input-select header-value="Finance" title="Finance"></dds-filter-panel-input-select>
+            <dds-filter-panel-input-select
+              header-value="Marketing and sales"
+              title="Marketing and sales"
+            ></dds-filter-panel-input-select>
+            <dds-filter-panel-input-select
+              header-value="Supply chain management"
+              title="Supply chain management"
+            ></dds-filter-panel-input-select>
           </dds-filter-group-item>
           <dds-filter-group-item title-text="Deployment types">
             <dds-filter-panel-checkbox value="On-premisis">On-premisis</dds-filter-panel-checkbox>
