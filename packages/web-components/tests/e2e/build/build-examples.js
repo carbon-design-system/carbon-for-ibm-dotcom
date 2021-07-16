@@ -189,12 +189,12 @@ function _buildDist() {
 function _buildExamples() {
   log(chalk.yellow('Installing all examples...'));
   // need to install twice for some reason, need to look into this
-  execSync('yarn install', {
+  execSync('yarn install --network-timeout 100000', {
     cwd: _exampleBuild,
     stdio: 'inherit',
   });
 
-  execSync('yarn cache clean && yarn install', {
+  execSync('yarn cache clean && yarn install --network-timeout 100000', {
     cwd: _exampleBuild,
     stdio: 'inherit',
   });
