@@ -44,6 +44,8 @@
   .#{$prefix}--content-block-cards .#{$prefix}--content-block__cta {
     @include carbon--make-col-ready;
 
+    padding: 0;
+
     .#{$prefix}--card {
       @include carbon--make-col(4, 4);
 
