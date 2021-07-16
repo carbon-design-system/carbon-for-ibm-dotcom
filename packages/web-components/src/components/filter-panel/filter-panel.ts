@@ -77,11 +77,11 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
     return html`
       <section class="${prefix}--filter-panel__section">
         <div class="${prefix}--heading-clear">
-          <div class="${prefix}--filter_heading">${this._renderHeading()}</div>
+          <div class="${prefix}--filter__heading">${this._renderHeading()}</div>
           <button class="${prefix}--clear" @click=${this._handleClear}>
-            <div class="${prefix}--clear_container">
+            <div class="${prefix}--clear__container">
               Clear
-              <div class="${prefix}--reset_icon">${Reset()}</div>
+              <div class="${prefix}--reset__icon">${Reset()}</div>
             </div>
           </button>
         </div>
@@ -91,7 +91,7 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
   }
 
   static get eventContentStateChange() {
-    return `${ddsPrefix}-input-select`;
+    return `${ddsPrefix}-filter-panel-input-select`;
   }
 
   static get eventSelectionClear() {
