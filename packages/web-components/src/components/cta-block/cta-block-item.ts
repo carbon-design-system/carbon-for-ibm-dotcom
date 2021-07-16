@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, css } from 'lit-element';
+import { customElement, html, css, internalProperty, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -17,6 +17,15 @@ import styles from './cta-block.scss';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
+
+/**
+ * The table mapping slot name with the private property name that indicates the existence of the slot content.
+ */
+const slotExistencePropertyNames = {
+  media: '_hasMedia',
+  statistic: '_hasStatistic',
+  footer: '_hasFooter',
+};
 
 /**
  * The CTA BLOCK ITEM component
@@ -30,14 +39,59 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-cta-block-item`)
 class DDSCTABlockItem extends StableSelectorMixin(DDSContentItem) {
+  /**
+   * `true` if there are CTA media in the content item area.
+   */
+  @internalProperty()
+  protected _hasMedia = false;
+
+  /**
+   * `true` if there are CTA statistic in the content item area.
+   */
+  @internalProperty()
+  protected _hasStatistic = false;
+
+  /**
+   * Handles `slotchange` event.
+   *
+   * @param event The event.
+   */
+  protected _handleSlotChange({ target }: Event) {
+    const { name } = target as HTMLSlotElement;
+    const hasContent = (target as HTMLSlotElement)
+      .assignedNodes()
+      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+    this[slotExistencePropertyNames[name] || '_hasStatistic'] = hasContent;
+  }
+
+  /**
+   * @returns The statistic content items
+   */
+  protected _renderStatistic(): TemplateResult | string | void {
+    const { _hasStatistic: hasStatistic, _handleSlotChange: handleSlotChange } = this;
+    return html`
+      <div ?hidden="${!hasStatistic}" class="${prefix}--cta-block-item__statitics">
+        <slot name="statistics" @slotchange="${handleSlotChange}"></slot>
+      </div>
+    `;
+  }
+
+  /**
+   * @returns The media content items
+   */
+  protected _renderMedia(): TemplateResult | string | void {
+    const { _hasMedia: hasMedia, _handleSlotChange: handleSlotChange } = this;
+
+    return html`
+      <div ?hidden="${!hasMedia}" class="${prefix}--cta-block-item__media">
+        <slot name="media" @slotchange="${handleSlotChange}"></slot>
+      </div>
+    `;
+  }
+
   render() {
     return html`
-      <div class="${prefix}--cta-block-item__statitics">
-        <slot name="statistics"></slot>
-      </div>
-      <div class="${prefix}--cta-block-item__media">
-        <slot name="media"></slot>
-      </div>
+      ${this._renderStatistic()} ${this._renderMedia()}
       <slot name="heading"></slot>
       ${super._renderBody()}${super._renderFooter()}
     `;
