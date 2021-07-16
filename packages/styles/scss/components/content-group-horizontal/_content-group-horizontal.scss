@@ -17,6 +17,7 @@
       margin-bottom: $layout-03;
     }
   }
+
   :host(#{$dds-prefix}-content-item-horizontal):last-child,
   .#{$prefix}--content-group-horizontal
     .#{$prefix}--content-item-horizontal__item:last-child {
