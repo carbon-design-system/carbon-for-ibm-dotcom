@@ -114,6 +114,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
         this._childItemFooters.push(
           (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemFooter)
         );
+        e.toggleAttribute('border', this.gridMode === 'border');
       });
 
       const { customPropertyCardsPerRow } = this.constructor as typeof DDSCardGroup;
@@ -223,6 +224,30 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
         if (e.hasAttribute('empty')) {
           e.style.paddingBottom = '0';
           e.style.paddingRight = '0';
+        } else {
+          // first column
+          if ((index + 1) % columns === 1) {
+            e.style.paddingLeft = '0';
+          }
+          // last column
+          if ((index + 1) % columns === 0) {
+            e.style.paddingRight = '0';
+            const borderColor = getComputedStyle(document.body).getPropertyValue('--cds-ui-background');
+            e.style.borderRight = `inset 1px ${borderColor}`;
+          } else {
+            e.style.paddingRight = '1px';
+            e.style.borderRight = 'none';
+          }
+          // first row
+          if (index < columns) {
+            e.style.paddingTop = '0';
+          }
+          // last row
+          if (Math.floor(index / columns) === Math.floor((this._childItems.length - 1) / columns)) {
+            e.style.paddingBottom = '0';
+          } else {
+            e.style.paddingBottom = '1px';
+          }
         }
       } else {
         if (e.hasAttribute('empty')) {
@@ -230,9 +255,17 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
           e.style.paddingRight = '1px';
         } else {
           e.style.paddingTop = '0';
-          // if first row
+          // first row
           if (index < columns) {
             e.style.paddingTop = '1px';
+          }
+          // last row
+          if (Math.floor(index / columns) === Math.floor(this._childItems.length / columns)) {
+            e.style.paddingBottom = '1px';
+          }
+          // last column
+          if ((index + 1) % columns === 0) {
+            e.style.paddingRight = '1px';
           }
         }
         // if not empty and first column
