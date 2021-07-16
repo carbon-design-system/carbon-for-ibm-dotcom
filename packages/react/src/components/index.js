@@ -16,6 +16,7 @@ export * from './CardSectionImages';
 export * from './CardSectionSimple';
 export * from './ContentBlockCards';
 export * from './ContentBlockHeadlines';
+export * from './ContentBlockHorizontal';
 export * from './ContentBlockMedia';
 export * from './ContentBlockMixed';
 export * from './ContentBlockSegmented';
