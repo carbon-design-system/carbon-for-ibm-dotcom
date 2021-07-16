@@ -280,7 +280,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
       }
     }
     return html`
-      <dds-left-nav-overlay></dds-left-nav-overlay>
+      <dds-left-nav-overlay cloud></dds-left-nav-overlay>
       <dds-left-nav cloud>
         ${!platform
           ? undefined
