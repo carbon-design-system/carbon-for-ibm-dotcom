@@ -98,6 +98,10 @@ const l1Data: MastheadL1 = {
                 },
               },
             },
+            {
+              title: 'Menu dropdown item with extra long text',
+              url: '',
+            },
           ],
         },
       ],
@@ -2202,8 +2206,13 @@ const customLinks: MastheadLink[] = [
         heading: '',
         menuItems: [
           {
-            title: 'Link 2',
-            titleEnglish: 'Link 2',
+            title: 'Link 1',
+            titleEnglish: 'Link 1',
+            url: '',
+          },
+          {
+            title: 'Menu dropdown item with extra long text',
+            titleEnglish: 'Menu dropdown item with extra long text',
             url: '',
           },
           {
