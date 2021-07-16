@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -38,11 +38,7 @@ const VideoPlayer = ({
     let stale = false;
     (async () => {
       if (autoPlay || embedVideo) {
-        await VideoPlayerAPI.embedVideo(
-          videoId,
-          `${prefix}--${videoPlayerId}`,
-          true
-        );
+        await VideoPlayerAPI.embedMedia(videoId, `${prefix}--${videoPlayerId}`);
       }
       if (stale) {
         return;
