@@ -430,8 +430,6 @@
 }
 
 :host(#{$dds-prefix}-left-nav-overlay)[cloud] {
-  @extend .#{$prefix}--side-nav__overlay;
-
   &[active] {
     @include carbon--breakpoint-down(960px) {
       @include left-nav-overlay;
