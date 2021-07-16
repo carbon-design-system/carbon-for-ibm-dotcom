@@ -6,7 +6,7 @@
 
 ```
 <button class="bx--filter-button">
-  <div class="bx--filter__modal_button">
+  <div class="bx--filter__modal__button">
   </div>
 </button>
 <dds-filter-panel-modal
@@ -27,7 +27,7 @@
 
 ```
 <button class="bx--filter-button">
-  <div class="bx--filter__modal_button">
+  <div class="bx--filter__modal__button">
   </div>
 </button>
 <dds-filter-panel-modal
