@@ -36,7 +36,7 @@ const CardCTA = ({
         ? cardProps.image
         : {
             defaultSrc: VideoPlayerAPI.getThumbnailUrl({
-              videoId: cardProps.media?.src,
+              mediaId: cardProps.media?.src,
               width: '320',
             }),
             alt: videoTitle[0].title,

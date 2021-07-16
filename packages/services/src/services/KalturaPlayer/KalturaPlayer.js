@@ -14,7 +14,11 @@ import root from 'window-or-global';
  * @type {number}
  * @private
  */
-const _partnerId = process.env.KALTURA_PARTNER_ID || 1773841;
+const _partnerId =
+  (process &&
+    (process.env.REACT_APP_KALTURA_PARTNER_ID ||
+      process.env.KALTURA_PARTNER_ID)) ||
+  1773841;
 
 /**
  * Sets the Kaltura UIConf ID, set by environment variable "KALTURA_UICONF_ID"
@@ -22,7 +26,11 @@ const _partnerId = process.env.KALTURA_PARTNER_ID || 1773841;
  * @type {number}
  * @private
  */
-const _uiConfId = process.env.KALTURA_UICONF_ID || 27941801;
+const _uiConfId =
+  (process &&
+    (process.env.REACT_APP_KALTURA_UICONF_ID ||
+      process.env.KALTURA_UICONF_ID)) ||
+  27941801;
 
 /**
  * @type {string} _embedUrl The API URL to call
@@ -199,6 +207,18 @@ class KalturaPlayerAPI {
             template: 'idl',
           },
         };
+        let isCustomCreated;
+
+        if (
+          !document.getElementById(targetId) &&
+          document.querySelector('dds-tabs-extended-media')
+        ) {
+          const newVideoDiv = document.createElement('div');
+          newVideoDiv.classList.add(`bx--video-player__video`);
+          newVideoDiv.setAttribute('id', targetId);
+          document.body.append(newVideoDiv);
+          isCustomCreated = true;
+        }
 
         root.kWidget.embed({
           targetId: targetId,
@@ -229,6 +249,17 @@ class KalturaPlayerAPI {
             resolve(kdp);
           },
         });
+
+        if (isCustomCreated) {
+          const previousVideoDiv = document
+            .querySelector('dds-tabs-extended-media')
+            .shadowRoot.querySelector(
+              `.bx--accordion__item--active dds-video-player`
+            ).lastChild;
+          previousVideoDiv.parentElement.appendChild(
+            document.getElementById(targetId)
+          );
+        }
       });
       return {
         kWidget() {
