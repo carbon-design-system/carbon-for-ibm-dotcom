@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.22.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.21.0...@carbon/ibmdotcom-utilities@1.22.0-rc.0) (2021-07-16)
+
+
+### Features
+
+* **cloud-masthead:** HC-1993 Expose a new authentication checking method for the docs/console team ([#6416](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6416)) ([7e3b5f3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7e3b5f3))
+* **left-nav:** refactor into left-nav-sections and include animations ([#6393](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6393)) ([17a70e4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/17a70e4)), closes [#4831](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4831) [#6209](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6209) [#5135](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5135)
+
+
+
+
+
 # [1.21.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.21.0-rc.1...@carbon/ibmdotcom-utilities@1.21.0) (2021-07-06)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities
