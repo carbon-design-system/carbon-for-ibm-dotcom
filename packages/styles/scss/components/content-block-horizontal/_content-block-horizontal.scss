@@ -26,7 +26,7 @@
   .#{$prefix}--content-group-horizontal
     .#{$prefix}--content-item-horizontal__item {
     @include carbon--breakpoint('lg') {
-      @include content-width;
+      width: calc(48rem - #{$spacing-07});
     }
   }
 
