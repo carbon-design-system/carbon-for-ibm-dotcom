@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property, customElement } from 'lit-element';
+import { property } from 'lit-element';
 import BXModal, { MODAL_SIZE } from 'carbon-web-components/es/components/modal/modal.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
@@ -21,7 +21,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-leaving-ibm-modal
  */
-@customElement(`${ddsPrefix}-leaving-ibm-modal`)
 class DDSLeavingIbmModal extends StableSelectorMixin(BXModal) {
   /**
    * The unique ID for ID ref.
@@ -85,6 +84,10 @@ class DDSLeavingIbmModal extends StableSelectorMixin(BXModal) {
   static get stableSelector() {
     return `${ddsPrefix}--leaving-ibm-modal`;
   }
+}
+
+if (!customElements.get(`${ddsPrefix}-leaving-ibm-modal`)) {
+  customElements.define(`${ddsPrefix}-leaving-ibm-modal`, DDSLeavingIbmModal);
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */

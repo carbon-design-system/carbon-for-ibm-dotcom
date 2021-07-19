@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, customElement } from 'lit-element';
+import { css } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSContentBlock from '../content-block/content-block';
 import styles from './content-block-media.scss';
@@ -19,7 +19,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-block-media
  */
-@customElement(`${ddsPrefix}-content-block-media`)
 class DDSContentBlockMedia extends DDSContentBlock {
   static get stableSelector() {
     return `${ddsPrefix}--content-block-media`;
@@ -29,6 +28,10 @@ class DDSContentBlockMedia extends DDSContentBlock {
   static get styles() {
     return css`${super.styles}${styles}`;
   }
+}
+
+if (!customElements.get(`${ddsPrefix}-content-block-media`)) {
+  customElements.define(`${ddsPrefix}-content-block-media`, DDSContentBlockMedia);
 }
 
 export default DDSContentBlockMedia;

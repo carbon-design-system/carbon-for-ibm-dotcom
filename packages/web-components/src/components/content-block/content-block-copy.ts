@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, property, customElement } from 'lit-element';
+import { css, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSMarkdown from '../markdown/markdown';
@@ -24,7 +24,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-block-copy
  */
-@customElement(`${ddsPrefix}-content-block-copy`)
 class DDSContentBlockCopy extends StableSelectorMixin(DDSMarkdown) {
   protected get _customTags() {
     const tags = new Set(super._customTags);
@@ -61,6 +60,10 @@ class DDSContentBlockCopy extends StableSelectorMixin(DDSMarkdown) {
   static get styles() {
     return css`${super.styles}${styles}`;
   }
+}
+
+if (!customElements.get(`${ddsPrefix}-content-block-copy`)) {
+  customElements.define(`${ddsPrefix}-content-block-copy`, DDSContentBlockCopy);
 }
 
 export default DDSContentBlockCopy;

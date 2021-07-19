@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
@@ -28,7 +28,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-video-player-composite
  */
-@customElement(`${ddsPrefix}-video-player-composite`)
 class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitElement)) {
   /**
    * The placeholder for `_loadVideoData()` Redux action that may be mixed in.
@@ -205,6 +204,10 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   static get eventContentStateChange() {
     return `${ddsPrefix}-video-player-content-state-changed`;
   }
+}
+
+if (!customElements.get(`${ddsPrefix}-video-player-composite`)) {
+  customElements.define(`${ddsPrefix}-video-player-composite`, DDSVideoPlayerComposite);
 }
 
 export default DDSVideoPlayerComposite;

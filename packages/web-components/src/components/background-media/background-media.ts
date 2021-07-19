@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, css } from 'lit-element';
+import { html, property, css } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -23,8 +23,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-background-media
  */
-
-@customElement(`${ddsPrefix}-background-media`)
 class DDSBackgroundMedia extends DDSImage {
   /**
    * Returns a class-name based on the Gradient Direction type
@@ -83,6 +81,10 @@ class DDSBackgroundMedia extends DDSImage {
   static get styles() {
     return css`${super.styles}${styles}`;
   }
+}
+
+if (!customElements.get(`${ddsPrefix}-background-media`)) {
+  customElements.define(`${ddsPrefix}-background-media`, DDSBackgroundMedia);
 }
 
 export default DDSBackgroundMedia;

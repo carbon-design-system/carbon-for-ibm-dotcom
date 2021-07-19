@@ -8,7 +8,7 @@
  */
 
 import { Part } from 'lit-html';
-import { css, customElement } from 'lit-element';
+import { css } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -23,7 +23,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-block-cards
  */
-@customElement(`${ddsPrefix}-content-block-cards`)
 class DDSContentBlockCards extends StableSelectorMixin(DDSContentBlock) {
   /**
    * The CSS class list for the container (grid) node.
@@ -41,6 +40,10 @@ class DDSContentBlockCards extends StableSelectorMixin(DDSContentBlock) {
   static get styles() {
     return css`${super.styles}${styles}`;
   }
+}
+
+if (!customElements.get(`${ddsPrefix}-content-block-cards`)) {
+  customElements.define(`${ddsPrefix}-content-block-cards`, DDSContentBlockCards);
 }
 
 export default DDSContentBlockCards;

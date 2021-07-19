@@ -8,7 +8,7 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings';
-import { customElement, html } from 'lit-element';
+import { html } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSTabsExtended from '../tabs-extended/tabs-extended';
 import styles from './tabs-extended-media.scss';
@@ -21,7 +21,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-tabs-extended-media
  */
-@customElement(`${ddsPrefix}-tabs-extended-media`)
 class DDSTabsExtendedMedia extends DDSTabsExtended {
   render() {
     return html`
@@ -44,6 +43,10 @@ class DDSTabsExtendedMedia extends DDSTabsExtended {
   }
 
   static styles = styles;
+}
+
+if (!customElements.get(`${ddsPrefix}-tabs-extended-media`)) {
+  customElements.define(`${ddsPrefix}-tabs-extended-media`, DDSTabsExtendedMedia);
 }
 
 export default DDSTabsExtendedMedia;

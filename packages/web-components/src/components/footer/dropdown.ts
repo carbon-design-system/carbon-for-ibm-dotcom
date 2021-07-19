@@ -10,7 +10,7 @@
 import settings from 'carbon-components/es/globals/js/settings';
 import { classMap } from 'lit-html/directives/class-map';
 import { ifDefined } from 'lit-html/directives/if-defined';
-import { html, query, customElement, property } from 'lit-element';
+import { html, query, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import BXDropdown from 'carbon-web-components/es/components/dropdown/dropdown';
 import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item';
@@ -42,7 +42,6 @@ const { prefix } = settings;
  * @fires bx-dropdown-selected - The custom event fired after a dropdown item is selected upon a user gesture.
  * @fires bx-dropdown-toggled - The custom event fired after the open state of this dropdown is toggled upon a user gesture.
  */
-@customElement(`${ddsPrefix}-dropdown`)
 class DDSDropdown extends BXDropdown {
   /**
    * The `<input` node in ComboBox, used to get value.
@@ -210,6 +209,10 @@ class DDSDropdown extends BXDropdown {
       </div>
     `;
   }
+}
+
+if (!customElements.get(`${ddsPrefix}-dropdown`)) {
+  customElements.define(`${ddsPrefix}-dropdown`, DDSDropdown);
 }
 
 export default DDSDropdown;
