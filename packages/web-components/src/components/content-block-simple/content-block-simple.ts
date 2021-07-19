@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, customElement } from 'lit-element';
+import { css } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentBlock from '../content-block/content-block';
@@ -20,7 +20,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-block-simple
  */
-@customElement(`${ddsPrefix}-content-block-simple`)
 class DDSContentBlockSimple extends StableSelectorMixin(DDSContentBlock) {
   static get stableSelector() {
     return `${ddsPrefix}--content-block-simple`;
@@ -30,6 +29,10 @@ class DDSContentBlockSimple extends StableSelectorMixin(DDSContentBlock) {
   static get styles() {
     return css`${super.styles}${styles}`;
   }
+}
+
+if (!customElements.get(`${ddsPrefix}-content-block-simple`)) {
+  customElements.define(`${ddsPrefix}-content-block-simple`, DDSContentBlockSimple);
 }
 
 export default DDSContentBlockSimple;

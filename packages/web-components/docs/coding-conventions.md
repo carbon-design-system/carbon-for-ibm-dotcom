@@ -124,7 +124,6 @@ import Handle from '../../globals/internal/handle';
 
 ...
 
-@customElement(`${ddsPrefix}-some-component`)
 class SomeComponent extends LitElement {
   ...
 
@@ -162,6 +161,10 @@ class SomeComponent extends LitElement {
   }
 
   ...
+}
+
+if (!customElements.get(`${ddsPrefix}-some-component`)) {
+  customElements.define(`${ddsPrefix}-some-component`, SomeComponent);
 }
 ```
 

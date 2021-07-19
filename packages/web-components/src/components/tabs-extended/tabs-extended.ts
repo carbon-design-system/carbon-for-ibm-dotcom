@@ -8,7 +8,7 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings';
-import { customElement, html, internalProperty, LitElement, TemplateResult } from 'lit-element';
+import { html, internalProperty, LitElement, TemplateResult } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import { classMap } from 'lit-html/directives/class-map';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -25,7 +25,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-tabs-extended
  */
-@customElement(`${ddsPrefix}-tabs-extended`)
 class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   /**
    * Child tab components.
@@ -168,6 +167,10 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   }
 
   static styles = styles;
+}
+
+if (!customElements.get(`${ddsPrefix}-tabs-extended`)) {
+  customElements.define(`${ddsPrefix}-tabs-extended`, DDSTabsExtended);
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement } from 'lit-element';
+import { html, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import BXLink from 'carbon-web-components/es/components/link/link';
@@ -25,7 +25,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-region-item
  */
-@customElement(`${ddsPrefix}-region-item`)
 class DDSRegionItem extends HostListenerMixin(BXLink) {
   @HostListener('click')
   // eslint-disable-next-line class-methods-use-this
@@ -95,6 +94,10 @@ class DDSRegionItem extends HostListenerMixin(BXLink) {
   }
 
   static styles = styles;
+}
+
+if (!customElements.get(`${ddsPrefix}-region-item`)) {
+  customElements.define(`${ddsPrefix}-region-item`, DDSRegionItem);
 }
 
 export default DDSRegionItem;

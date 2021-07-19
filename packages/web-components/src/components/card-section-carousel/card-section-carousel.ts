@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, customElement } from 'lit-element';
+import { css } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 
 import styles from './card-section-carousel.scss';
@@ -20,7 +20,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-card-section-carousel
  */
-@customElement(`${ddsPrefix}-card-section-carousel`)
 class DDSCardSectionCarousel extends DDSContentSection {
   static get stableSelector() {
     return `${ddsPrefix}--card-section-carousel`;
@@ -30,6 +29,10 @@ class DDSCardSectionCarousel extends DDSContentSection {
   static get styles() {
     return css`${super.styles}${styles}`;
   }
+}
+
+if (!customElements.get(`${ddsPrefix}-card-section-carousel`)) {
+  customElements.define(`${ddsPrefix}-card-section-carousel`, DDSCardSectionCarousel);
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */

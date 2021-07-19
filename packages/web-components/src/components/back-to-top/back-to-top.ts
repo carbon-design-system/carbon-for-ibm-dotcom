@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
@@ -28,7 +28,6 @@ interface Cancelable {
  *
  * @element dds-back-to-top
  */
-@customElement(`${ddsPrefix}-back-to-top`)
 class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * The observer for the resize of the document body.
@@ -156,6 +155,10 @@ class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   }
 
   static styles = styles;
+}
+
+if (!customElements.get(`${ddsPrefix}-back-to-top`)) {
+  customElements.define(`${ddsPrefix}-back-to-top`, DDSBackToTop);
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
