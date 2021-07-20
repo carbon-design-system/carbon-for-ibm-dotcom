@@ -1,0 +1,70 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
+@import '../../globals/vars';
+@import '../../globals/imports';
+@import '../image/image';
+
+@mixin background-media {
+  :host(#{$dds-prefix}-background-media) {
+    position: relative;
+  }
+
+  .#{$prefix}--background-media--mobile-position {
+    height: 100%;
+  }
+
+  .#{$prefix}--background-media--gradient {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+
+    @include carbon--breakpoint('md') {
+      background-image: linear-gradient(
+        to bottom,
+        $ui-background 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    }
+  }
+
+  .#{$prefix}--background-media--gradient--left-to-right {
+    @include carbon--breakpoint('lg') {
+      background-image: linear-gradient(
+        to right,
+        $ui-background 25%,
+        rgba(255, 255, 255, 0) 75%
+      );
+
+      [dir='rtl'] & {
+        background-image: linear-gradient(
+          to left,
+          $ui-background 25%,
+          rgba(255, 255, 255, 0) 75%
+        );
+      }
+    }
+  }
+
+  .#{$prefix}--background-media--gradient--top-to-bottom {
+    @include carbon--breakpoint('lg') {
+      background-image: linear-gradient(
+        to bottom,
+        $ui-background 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    }
+  }
+}
+
+@include exports('background-media') {
+  @include background-media;
+}

@@ -28,9 +28,8 @@ View available services [here](https://ibmdotcom-services.mybluemix.net/).
 
 ## Documentation
 
-- See our documentation site
-  [here](https://www.ibm.com/standards/web/carbon-for-ibm-dotcom) for full
-  how-to docs and guidelines
+- See our documentation site [here](https://www.ibm.com/standards/carbon) for
+  full how-to docs and guidelines
 - [Contributing](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/.github/CONTRIBUTING.md):
   Guidelines for making contributions to this repo.
 

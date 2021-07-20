@@ -272,18 +272,26 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     const authenticated = userStatus !== 'anonymous';
     const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
     const ctaButtons = authenticated ? authenticatedCtaButtons : unauthenticatedCtaButtons;
+    const formattedLang = language?.toLowerCase().replace(/-(.*)/, m => m.toUpperCase());
+    let platformAltUrl = platformUrl;
+    if (platformUrl && formattedLang) {
+      if (typeof platformUrl === 'object' && Object.prototype.hasOwnProperty.call(platformUrl, formattedLang)) {
+        platformAltUrl = platformUrl[formattedLang].url || platformUrl;
+      }
+    }
     return html`
-      <dds-left-nav-overlay></dds-left-nav-overlay>
-      <dds-left-nav>
+      <dds-left-nav-overlay cloud></dds-left-nav-overlay>
+      <dds-left-nav cloud>
         ${!platform
           ? undefined
           : html`
-              <dds-left-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-left-nav-name>
+              <dds-left-nav-name href="${ifNonNull(platformAltUrl)}">${platform}</dds-left-nav-name>
             `}
         ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV, hasL1: !!l1Data })}
       </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-masthead-menu-button
+          cloud
           button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
           button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
         >
@@ -293,12 +301,12 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         ${!platform
           ? undefined
           : html`
-              <dds-cloud-top-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-cloud-top-nav-name>
+              <dds-cloud-top-nav-name href="${ifNonNull(platformAltUrl)}">${platform}</dds-cloud-top-nav-name>
             `}
         ${l1Data
           ? undefined
           : html`
-              <dds-top-nav menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
+              <dds-top-nav cloud menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
                 ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: false })}
               </dds-top-nav>
             `}

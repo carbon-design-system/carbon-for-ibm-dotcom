@@ -12,8 +12,6 @@
   - [Environment Variables](#environment-variables)
   - [Storybook](#storybook)
   - [Unit Test Coverage](#unit-test-coverage)
-  - [Running build integration test](#running-build-integration-test)
-  - [Running UI integration test](#running-ui-integration-test)
   - [Further Reading](#further-reading)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -192,52 +190,6 @@ Above options can be used together. This is useful to debug your code as you tes
 
 ```
 > gulp test:unit -s src/components/link-with-icon/__tests__/link-with-icon.test.ts -b Chrome -d -k
-```
-
-## Running build integration test
-
-All commands below should be run at `packages/web-components` directory.
-
-To run build integration tests:
-
-```
-> yarn test:integration:build
-```
-
-To run a specific set of UI test steps (e.g. running `tests/integration/build/masthead_steps.js` only):
-
-```
-> yarn test:integration:build masthead_steps
-```
-
-By default Chrome runs in headless mode. To enable Chrome UI while running tests:
-
-```
-> CI=false yarn test:integration:build
-```
-
-## Running UI integration test
-
-All commands below should be run at `packages/web-components` directory.
-
-To run UI integration tests:
-
-```
-> yarn test:integration:ui
-```
-
-UI integration test runs against the Storybook environment. Running UI integration test will be faster by starting Storybook environment beforehand.
-
-To run a specific set of UI test steps (e.g. running `src/components/lightbox-media-viewer/__tests__/lightbox-media-viewer_steps.js` only):
-
-```
-> yarn test:integration:ui lightbox-media-viewer_steps
-```
-
-By default Chrome runs in headless mode. To enable Chrome UI while running tests:
-
-```
-> CI=false yarn test:integration:ui
 ```
 
 ## Further Reading

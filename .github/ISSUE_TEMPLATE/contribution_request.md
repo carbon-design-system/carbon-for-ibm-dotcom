@@ -3,13 +3,13 @@ name: Contribution Request 💓
 about: Contribute things large and small—of code, design, ideas, and guidance.
 title: ''
 labels: contribution
-assignees: jeffchew, ljcarot, shixiedesign, RobertaJHahn, DragosRistici, kennylam, andysherman2121
+assignees: jeffchew, ljcarot, shixiedesign, RobertaJHahn, RichKummer, ariellalgilmore, IgnacioBecerra
 
 ---
 
 ## Contribution Request 💓
 
-Thank you for contributing to Carbon for IBM.com. Before you submit your contribution, please visit the [Contribution section](https://www.ibm.com/standards/web/carbon-for-ibm-dotcom/contributing/overview/) on our website to understand the process and requirements.
+Thank you for contributing to Carbon for IBM.com. Before you submit your contribution, please visit the [Contribution section](https://www.ibm.com/standards/carbon/contributing/overview/) on our website to understand the process and requirements.
 
 ### Contribution type (please select one):
 
@@ -29,9 +29,9 @@ Contribution information and required documentations
 
 {{Please add any supporting or required documentations here with a short description to help us get started with your contribution inquiry (ex. Design spec document.)}}
 
-- For Documentation contribution, please visit the [Documentation contribution website page](https://www.ibm.com/standards/web/carbon-for-ibm-dotcom/contributions/documentation/) for detail on what information you need to provide.
-- For Components contribution, please visit the [Components contribution website page](https://www.ibm.com/standards/web/carbon-for-ibm-dotcom/contributing/components) for detail on what information you need to provide.
-- For Patterns contribution, please visit the [Patterns contribution website page](https://www.ibm.com/standards/web/carbon-for-ibm-dotcom/contributing/patterns) for detail on what information you need to provide.
+- For Documentation contribution, please visit the [Documentation contribution website page](https://www.ibm.com/standards/carbon/contributions/documentation/) for detail on what information you need to provide.
+- For Components contribution, please visit the [Components contribution website page](https://www.ibm.com/standards/carbon/contributing/components) for detail on what information you need to provide.
+- For Patterns contribution, please visit the [Patterns contribution website page](https://www.ibm.com/standards/carbon/contributing/patterns) for detail on what information you need to provide.
 
 ### Additional information
 

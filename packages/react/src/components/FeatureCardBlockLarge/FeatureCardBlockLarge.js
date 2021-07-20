@@ -65,7 +65,7 @@ FeatureCardBlockLarge.propTypes = {
    * | ------ | --------- | ------------------------------------------- |
    * | `href` | String    | Url of the FeatureCardBlockLarge component. |
    *
-   * See [`<Card>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-card--static#props) for full usage details.
+   * See [`<Card>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-card--static#props) for full usage details.
    */
   cta: PropTypes.shape({
     copy: PropTypes.string,
@@ -80,7 +80,7 @@ FeatureCardBlockLarge.propTypes = {
 
   /**
    * Contains source and alt text properties.
-   * See [`<Image>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-image--default#props) for full usage details.
+   * See [`<Image>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-image--default#props) for full usage details.
    */
   image: PropTypes.shape({
     classname: PropTypes.string,

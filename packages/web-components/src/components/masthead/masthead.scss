@@ -181,6 +181,30 @@
   }
 }
 
+:host(#{$dds-prefix}-top-nav)[cloud],
+:host(#{$dds-prefix}-top-nav-l1)[cloud] {
+  @include carbon--breakpoint(800px) {
+    display: none;
+  }
+
+  @include carbon--breakpoint(960px) {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .#{$prefix}--header__nav {
+    @include carbon--breakpoint(800px) {
+      display: none;
+    }
+
+    @include carbon--breakpoint(960px) {
+      display: block;
+      position: absolute;
+    }
+  }
+}
+
 :host(#{$dds-prefix}-top-nav-l1) {
   overflow: visible;
 }
@@ -215,6 +239,10 @@
 :host(#{$dds-prefix}-masthead-profile-item) {
   @extend :host(#{$prefix}-header-menu-item);
   @include masthead-top-nav-menu-item;
+
+  a.#{$prefix}--header__menu-item[role='menuitem'] {
+    height: 100%;
+  }
 }
 
 :host(#{$dds-prefix}-top-nav-item),
@@ -277,6 +305,17 @@
   }
 
   @include carbon--breakpoint(800px) {
+    display: none;
+  }
+}
+
+:host(#{$dds-prefix}-masthead-menu-button)[cloud],
+:host(#{$dds-prefix}-left-nav)[cloud] {
+  @include carbon--breakpoint('md') {
+    display: block;
+  }
+
+  @include carbon--breakpoint(960px) {
     display: none;
   }
 }
@@ -348,41 +387,52 @@
   }
 }
 
+@mixin left-nav-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(22, 22, 22, 0.5);
+  opacity: 1;
+  transition: opacity $transition--expansion $carbon--standard-easing,
+    background-color $transition--expansion $carbon--standard-easing;
+
+  // Makes the trigger button work without making it floated. In this way, we don't have to adjust the position of the logo
+  top: 0;
+  left: 0;
+  z-index: calc(#{z('header')} - 1);
+  clip-path: polygon(
+      mini-units(6) 0,
+      100% 0,
+      100% 100%,
+      0 100%,
+      0 calc(#{mini-units(6)} + 1px),
+      mini-units(6) calc(#{mini-units(6)} + 1px)
+    )
+    #{'/*rtl:polygon(
+    0 0,
+    calc(100% - ' + mini-units(6) + ') 0,
+    calc(100% - ' + mini-units(6) + ') calc(' +
+    mini-units(6) + ' + 1px),
+    100% calc(' + mini-units(6) + ' + 1px),
+    100% 100%,
+    0 100%
+  )*/'};
+}
+
 :host(#{$dds-prefix}-left-nav-overlay) {
   @extend .#{$prefix}--side-nav__overlay;
 
   &[active] {
     @include carbon--breakpoint-down(800px) {
-      position: fixed;
-      width: 100%;
-      height: 100vh;
-      background-color: rgba(22, 22, 22, 0.5);
-      opacity: 1;
-      transition: opacity $transition--expansion $carbon--standard-easing,
-        background-color $transition--expansion $carbon--standard-easing;
+      @include left-nav-overlay;
+    }
+  }
+}
 
-      // Makes the trigger button work without making it floated. In this way, we don't have to adjust the position of the logo
-      top: 0;
-      left: 0;
-      z-index: calc(#{z('header')} - 1);
-      clip-path: polygon(
-          mini-units(6) 0,
-          100% 0,
-          100% 100%,
-          0 100%,
-          0 calc(#{mini-units(6)} + 1px),
-          mini-units(6) calc(#{mini-units(6)} + 1px)
-        )
-        #{'/*rtl:polygon(
-        0 0,
-        calc(100% - ' + mini-units(6) + ') 0,
-        calc(100% - ' + mini-units(6) +
-        ') calc(' + mini-units(6) + ' + 1px),
-        100% calc(' + mini-units(6) +
-        ' + 1px),
-        100% 100%,
-        0 100%
-      )*/'};
+:host(#{$dds-prefix}-left-nav-overlay)[cloud] {
+  &[active] {
+    @include carbon--breakpoint-down(960px) {
+      @include left-nav-overlay;
     }
   }
 }

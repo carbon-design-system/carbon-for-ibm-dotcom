@@ -46,7 +46,7 @@ FeatureCardBlockMedium.propTypes = {
    * | Name      | Data Type | Description                                                                                                                                                                        |
    * | --------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
    * | `heading` | String    | Title of the Card item.                                                                                                                                                            |
-   * | `image`   | Object    | Image object used in the FeatureCard component. See [`<Image>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-image--default#props) for full usage details. |
+   * | `image`   | Object    | Image object used in the FeatureCard component. See [`<Image>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/components-image--default#props) for full usage details. |
    * | `cta`     | Object    | Object containing target and href of link. See `cta` below.                                                                                                                        |
    *
    * `cta`:
@@ -55,7 +55,7 @@ FeatureCardBlockMedium.propTypes = {
    * | ------ | --------- | --------------------------------- |
    * | `href` | String    | Url of the FeatureCard component. |
    *
-   * See [`<FeatureCard>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-blocks-featurecard--default#props) for full usage details.
+   * See [`<FeatureCard>`'s README](http://www.ibm.com/standards/carbon/react/?path=/docs/patterns-blocks-featurecard--default#props) for full usage details.
    */
   card: PropTypes.shape({
     heading: PropTypes.string,

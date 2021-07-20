@@ -3,11 +3,11 @@ name: percy-update-base-wc-e2e-codesandbox
 on:
   push:
     branches:
-      - test/e2e-percy-baseline
+      - master
 
 jobs:
   web-components:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
         node-version: ['14.x']
