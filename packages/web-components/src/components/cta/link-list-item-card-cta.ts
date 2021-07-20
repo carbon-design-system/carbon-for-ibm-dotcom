@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, css } from 'lit-element';
+import { html, css, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSCardCTA from './card-cta';
 import styles from '../link-list/link-list.scss';
@@ -19,6 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-link-list-item-card-cta
  */
+@customElement(`${ddsPrefix}-link-list-item-card-cta`)
 class DDSLinkListItemCardCTA extends DDSCardCTA {
   protected _renderImage() {
     // Link list doesn't show video thumbnail in card
@@ -42,10 +43,6 @@ class DDSLinkListItemCardCTA extends DDSCardCTA {
   static get styles() {
     return css`${super.styles}${styles}`;
   }
-}
-
-if (!customElements.get(`${ddsPrefix}-link-list-item-card-cta`)) {
-  customElements.define(`${ddsPrefix}-link-list-item-card-cta`, DDSLinkListItemCardCTA);
 }
 
 export default DDSLinkListItemCardCTA;

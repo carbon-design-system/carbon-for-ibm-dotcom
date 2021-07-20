@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, internalProperty, TemplateResult } from 'lit-element';
+import { html, property, internalProperty, customElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXLink from 'carbon-web-components/es/components/link/link';
@@ -37,6 +37,7 @@ const slotExistencePropertyNames = {
  * @slot image - The image content.
  * @slot footer - The footer content.
  */
+@customElement(`${ddsPrefix}-card`)
 class DDSCard extends StableSelectorMixin(BXLink) {
   /**
    * `true` if there is image content.
@@ -223,10 +224,6 @@ class DDSCard extends StableSelectorMixin(BXLink) {
   }
 
   static styles = styles;
-}
-
-if (!customElements.get(`${ddsPrefix}-card`)) {
-  customElements.define(`${ddsPrefix}-card`, DDSCard);
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */

@@ -1,13 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { ActionCreatorsMapObject, Store } from 'redux';
+import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { VideoData, VideoPlayerAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/videoPlayerAPI.d';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
@@ -49,6 +50,7 @@ export type CTAContainerActions = ReturnType<typeof loadVideoData>;
  *
  * @element dds-cta-container
  */
+@customElement(`${ddsPrefix}-video-cta-container`)
 class DDSVideoCTAContainer extends ConnectMixin<
   VideoCTAContainerState,
   VideoPlayerAPIActions,
@@ -59,9 +61,5 @@ class DDSVideoCTAContainer extends ConnectMixin<
   mapStateToProps,
   mapDispatchToProps
 )(DDSVideoPlayerContainerMixin(DDSVideoCTAComposite)) {}
-
-if (!customElements.get(`${ddsPrefix}-video-cta-container`)) {
-  customElements.define(`${ddsPrefix}-video-cta-container`, DDSVideoCTAContainer);
-}
 
 export default DDSVideoCTAContainer;
