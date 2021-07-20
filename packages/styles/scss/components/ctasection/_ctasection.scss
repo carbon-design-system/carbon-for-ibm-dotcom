@@ -30,9 +30,11 @@
   .#{$prefix}--cta-section {
     .#{$prefix}--cta-section__cta {
       padding-bottom: $carbon--layout-05;
+
       @include carbon--breakpoint('md') {
         padding-bottom: $carbon--layout-06;
       }
+
       @include carbon--breakpoint('lg') {
         padding-bottom: $carbon--layout-07;
       }
