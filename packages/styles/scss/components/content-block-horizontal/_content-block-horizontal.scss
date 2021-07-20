@@ -9,24 +9,21 @@
 @import '../content-item-horizontal/content-item-horizontal';
 
 @mixin content-block-horizontal {
+  :host(#{$dds-prefix}-content-block-horizontal) > *,
+  :host(#{$dds-prefix}-content-group-horizontal) > *,
+  .#{$prefix}--content-block-horizontal .#{$prefix}--content-block > *,
+  .#{$prefix}--content-group-horizontal .#{$prefix}--content-block > * {
+    @include carbon--breakpoint('lg') {
+      padding-right: 16.75%;
+    }
+  }
+
   :host(#{$dds-prefix}-content-block-horizontal) ::slotted([slot='heading']),
   :host(#{$dds-prefix}-content-group-horizontal) ::slotted([slot='heading']),
   .#{$prefix}--content-block-horizontal .#{$prefix}--content-block__heading {
     margin-bottom: $layout-05;
     @include carbon--breakpoint('lg') {
       margin-bottom: $layout-03;
-    }
-  }
-  :host(#{$dds-prefix}-content-block-horizontal)
-    ::slotted(#{$dds-prefix}-content-item-horizontal),
-  :host(#{$dds-prefix}-content-group-horizontal)
-    ::slotted(#{$dds-prefix}-content-item-horizontal),
-  .#{$prefix}--content-block-horizontal
-    .#{$prefix}--content-item-horizontal__item,
-  .#{$prefix}--content-group-horizontal
-    .#{$prefix}--content-item-horizontal__item {
-    @include carbon--breakpoint('lg') {
-      width: calc(48rem - #{$spacing-07});
     }
   }
 
