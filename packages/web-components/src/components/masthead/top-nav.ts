@@ -195,18 +195,33 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
     const caretRightNodeWidthAdjustment = isIntersectionRightTrackerInContent ? caretRightNode!.offsetWidth : 0;
     const elems = slotNode?.assignedElements() as HTMLElement[];
     if (elems) {
-      const navLeft = navNode!.getBoundingClientRect().left;
-      const lastVisibleElementIndex = findLastIndex(
-        elems,
-        elem => elem.getBoundingClientRect().left - navLeft < currentScrollPosition
-      );
-      if (lastVisibleElementIndex >= 0) {
-        const lastVisibleElementRight = elems[lastVisibleElementIndex].getBoundingClientRect().right - navLeft;
-        const newScrollPosition = lastVisibleElementRight - (contentContainerNode!.offsetWidth - caretRightNodeWidthAdjustment);
-        // If the new scroll position is less than the width of the left caret button,
-        // it means that hiding the left caret button reveals the whole of the left-most nav item.
-        // Snaps the left-most nav item to the left edge of nav container in this case.
-        this._currentScrollPosition = newScrollPosition <= caretLeftNode!.offsetWidth ? 0 : newScrollPosition;
+      const pageDir = this.ownerDocument!.documentElement.dir;
+      if (pageDir === 'rtl') {
+        const navRight = navNode!.getBoundingClientRect().right;
+        const lastVisibleElementIndex = elems.findIndex(
+          elem => elem.getBoundingClientRect().left < navRight - currentScrollPosition - caretRightNodeWidthAdjustment
+        );
+        if (lastVisibleElementIndex >= 0) {
+          this._currentScrollPosition =
+            navRight -
+            elems[lastVisibleElementIndex].getBoundingClientRect().left -
+            contentContainerNode!.offsetWidth +
+            caretRightNode!.offsetWidth;
+        }
+      } else {
+        const navLeft = navNode!.getBoundingClientRect().left;
+        const lastVisibleElementIndex = findLastIndex(
+          elems,
+          elem => elem.getBoundingClientRect().left - navLeft < currentScrollPosition
+        );
+        if (lastVisibleElementIndex >= 0) {
+          const lastVisibleElementRight = elems[lastVisibleElementIndex].getBoundingClientRect().right - navLeft;
+          const newScrollPosition = lastVisibleElementRight - (contentContainerNode!.offsetWidth - caretRightNodeWidthAdjustment);
+          // If the new scroll position is less than the width of the left caret button,
+          // it means that hiding the left caret button reveals the whole of the left-most nav item.
+          // Snaps the left-most nav item to the left edge of nav container in this case.
+          this._currentScrollPosition = newScrollPosition <= caretLeftNode!.offsetWidth ? 0 : newScrollPosition;
+        }
       }
     }
   }
@@ -232,15 +247,15 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
     if (elems) {
       const pageDir = this.ownerDocument!.documentElement.dir;
       if (pageDir === 'rtl') {
-        const navLeft = navNode!.getBoundingClientRect().left;
-        const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().left - navLeft < interimLeft);
+        const navRight = navNode!.getBoundingClientRect().right;
+        const firstVisibleElementIndex = elems.findIndex(
+          elem => navRight - elem.getBoundingClientRect().left > interimLeft - caretRightNodeWidthAdjustment
+        );
         if (firstVisibleElementIndex > 0) {
-          const firstVisibleElementLeft = elems[firstVisibleElementIndex].getBoundingClientRect().right - navLeft;
-          // Ensures that is there is no blank area at the right hand side in scroll area
-          // if we see the right remainder nav items can be contained in a page
-          const maxLeft =
-            contentNode!.scrollWidth -
-            (contentContainerNode!.offsetWidth - caretLeftNodeWidthAdjustment + caretRightNodeWidthAdjustment);
+          const firstVisibleElementLeft = Math.abs(
+            elems[firstVisibleElementIndex].getBoundingClientRect().right - navRight + caretRightNodeWidthAdjustment
+          );
+          const maxLeft = contentNode!.scrollWidth - contentContainerNode!.offsetWidth;
           this._currentScrollPosition = Math.min(firstVisibleElementLeft, maxLeft);
         }
       } else {
