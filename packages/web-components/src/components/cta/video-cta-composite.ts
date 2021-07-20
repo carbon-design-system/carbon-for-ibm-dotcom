@@ -36,12 +36,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-video-cta-composite`)
 class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement)) {
   /**
-   * The placeholder for `_embedVideo()` action that may be mixed in.
+   * The placeholder for `_embedMedia()` action that may be mixed in.
    *
    * @internal
    */
   @internalProperty()
-  _embedVideo?: (videoId: string) => Promise<any>;
+  _embedMedia?: (videoId: string) => Promise<any>;
 
   /**
    * The placeholder for `_loadVideoData()` Redux action that may be mixed in.
@@ -78,7 +78,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
   private async _handleRequestVideoData(event: CustomEvent) {
     const { href } = event.detail;
     (event.target as VideoCTAMixinImpl).videoThumbnailUrl = VideoPlayerAPI.getThumbnailUrl({
-      videoId: href,
+      mediaId: href,
       width: '320',
     });
     const videoData = await this._loadVideoData?.(href);
@@ -151,7 +151,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
    * @returns The media viewer lightbox for `type="video"`.
    */
   renderModal() {
-    const { embeddedVideos, videoData, _activeVideoId: activeVideoId, _embedVideo: embedVideo } = this;
+    const { embeddedVideos, videoData, _activeVideoId: activeVideoId, _embedMedia: embedMedia } = this;
     return html`
       <dds-lightbox-video-player-composite
         ?open="${Boolean(activeVideoId)}"
@@ -159,7 +159,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
         video-id="${ifNonNull(activeVideoId)}"
         .embeddedVideos="${ifNonNull(embeddedVideos)}"
         .videoData="${ifNonNull(videoData)}"
-        ._embedVideo="${ifNonNull(embedVideo)}"
+        ._embedMedia="${ifNonNull(embedMedia)}"
       >
       </dds-lightbox-video-player-composite>
     `;
