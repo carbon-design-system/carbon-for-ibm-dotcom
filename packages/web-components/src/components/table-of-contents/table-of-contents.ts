@@ -393,18 +393,33 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
       _currentScrollPosition: currentScrollPosition,
       _itemNodes: itemNodes,
     } = this;
-    const interimLeft = navBar!.getBoundingClientRect().right;
+
     const elems = Array.prototype.slice.call(itemNodes);
     if (elems) {
-      // 32 = total button width - grid offset
-      const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().right > interimLeft - 32);
-      if (firstVisibleElementIndex > 0) {
-        const firstVisibleElementLeft =
-          elems[firstVisibleElementIndex].getBoundingClientRect().left - navBar!.getBoundingClientRect().left - 32;
-        // Ensures that is there is no blank area at the right hand side in scroll area
-        // if we see the right remainder nav items can be contained in a page
-        const maxLeft = contentNode!.scrollWidth - navBar!.offsetWidth;
-        this._currentScrollPosition = Math.min(firstVisibleElementLeft + currentScrollPosition, maxLeft);
+      const pageIsRTL = this.ownerDocument!.documentElement.dir === 'rtl';
+      if (pageIsRTL) {
+        const interimLeft = navBar!.getBoundingClientRect().left;
+        const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().left < interimLeft + 32);
+        if (firstVisibleElementIndex > 0) {
+          const firstVisibleElementLeft =
+            elems[firstVisibleElementIndex].getBoundingClientRect().right + navBar!.getBoundingClientRect().right + 32;
+          // Ensures that is there is no blank area at the right hand side in scroll area
+          // if we see the right remainder nav items can be contained in a page
+          const maxLeft = contentNode!.scrollWidth - navBar!.offsetWidth;
+          this._currentScrollPosition = Math.min(firstVisibleElementLeft + currentScrollPosition, maxLeft);
+        }
+      } else {
+        const interimRight = navBar!.getBoundingClientRect().right;
+        // 32 = total button width - grid offset
+        const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().right > interimRight - 32);
+        if (firstVisibleElementIndex > 0) {
+          const firstVisibleElementLeft =
+            elems[firstVisibleElementIndex].getBoundingClientRect().left - navBar!.getBoundingClientRect().left - 32;
+          // Ensures that is there is no blank area at the right hand side in scroll area
+          // if we see the right remainder nav items can be contained in a page
+          const maxLeft = contentNode!.scrollWidth - navBar!.offsetWidth;
+          this._currentScrollPosition = Math.min(firstVisibleElementLeft + currentScrollPosition, maxLeft);
+        }
       }
     }
   }
