@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, LitElement } from 'lit-element';
+import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import on from 'carbon-components/es/globals/js/misc/on';
@@ -32,6 +32,8 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-image-with-caption
  */
+
+@customElement(`${ddsPrefix}-image-with-caption`)
 class DDSImageWithCaption extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElement))) {
   /**
    * `true` handles re-opening after model is closed
@@ -173,10 +175,6 @@ class DDSImageWithCaption extends StableSelectorMixin(ModalRenderMixin(FocusMixi
   }
 
   static styles = styles;
-}
-
-if (!customElements.get(`${ddsPrefix}-image-with-caption`)) {
-  customElements.define(`${ddsPrefix}-image-with-caption`, DDSImageWithCaption);
 }
 
 export default DDSImageWithCaption;

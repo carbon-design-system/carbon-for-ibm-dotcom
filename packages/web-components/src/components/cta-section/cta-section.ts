@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css } from 'lit-element';
+import { customElement, css } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
@@ -21,6 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-cta-section
  */
+@customElement(`${ddsPrefix}-cta-section`)
 class DDSCTASection extends StableSelectorMixin(DDSContentSection) {
   static get stableSelector() {
     return `${ddsPrefix}--cta-section`;
@@ -29,10 +30,6 @@ class DDSCTASection extends StableSelectorMixin(DDSContentSection) {
   static get styles() {
     return css`${super.styles}${styles}`;
   }
-}
-
-if (!customElements.get(`${ddsPrefix}-cta-section`)) {
-  customElements.define(`${ddsPrefix}-cta-section`, DDSCTASection);
 }
 
 export default DDSCTASection;

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, html } from 'lit-element';
+import { css, customElement, html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
@@ -25,6 +25,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-card-in-card
  */
+@customElement(`${ddsPrefix}-card-in-card`)
 class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
   protected _renderImage() {
     const { ctaType, videoName, videoThumbnailUrl, _hasImage: hasImage } = this;
@@ -64,10 +65,6 @@ class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
   static get styles() {
     return css`${super.styles}${styles}`;
   }
-}
-
-if (!customElements.get(`${ddsPrefix}-card-in-card`)) {
-  customElements.define(`${ddsPrefix}-card-in-card`, DDSCardInCard);
 }
 
 export default DDSCardInCard;

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, css, TemplateResult } from 'lit-element';
+import { html, css, customElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSContentGroup from '../content-group/content-group';
@@ -21,6 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-group-cards
  */
+@customElement(`${ddsPrefix}-content-group-cards`)
 class DDSContentGroupCards extends DDSContentGroup {
   protected _renderInnerBody(): TemplateResult | string | void {
     const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
@@ -43,10 +44,6 @@ class DDSContentGroupCards extends DDSContentGroup {
   static get styles() {
     return css`${super.styles}${styles}`;
   }
-}
-
-if (!customElements.get(`${ddsPrefix}-content-group-cards`)) {
-  customElements.define(`${ddsPrefix}-content-group-cards`, DDSContentGroupCards);
 }
 
 export default DDSContentGroupCards;
