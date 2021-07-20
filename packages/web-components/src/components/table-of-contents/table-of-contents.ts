@@ -153,6 +153,12 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
   private _targets: HTMLAnchorElement[] = [];
 
   /**
+   * Boolean checking if page is RTL
+   */
+  @internalProperty()
+  private _pageIsRTL: Boolean = this.ownerDocument!.documentElement.dir === 'rtl';
+
+  /**
    * The handler for throttled scrolling
    */
   private _throttleScroll: (((event: Event) => void) & Cancelable) | null = null;
@@ -361,24 +367,35 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
    * Handles `click` event on the left-hand paginator button.
    */
   private _paginateLeft() {
-    const { _currentScrollPosition: currentScrollPosition, _navBar: navBar, _itemNodes: itemNodes } = this;
+    const { _currentScrollPosition: currentScrollPosition, _navBar: navBar, _itemNodes: itemNodes, _pageIsRTL: pageIsRTL } = this;
     // If the right-side intersection sentinel is in the view, it means that right-side caret button is hidden.
     // Given scrolling to left makes it shown,
     // `contentContainerNode!.offsetWidth` will shrink as we scroll and we need to adjust for it.
     const elems = Array.prototype.slice.call(itemNodes);
     if (elems) {
-      // 32 = total button width - grid offset
-      const lastVisibleElementIndex = findLastIndex(
-        elems,
-        elem => elem.getBoundingClientRect().left < 32 + navBar!.getBoundingClientRect().left
-      );
-      if (lastVisibleElementIndex >= 0) {
-        const lastVisibleElementRight = elems[lastVisibleElementIndex].getBoundingClientRect().right;
-        const newScrollPosition = lastVisibleElementRight + currentScrollPosition - navBar!.getBoundingClientRect().right + 32;
-        // If the new scroll position is less than the width of the left caret button,
-        // it means that hiding the left caret button reveals the whole of the left-most nav item.
-        // Snaps the left-most nav item to the left edge of nav container in this case.
-        this._currentScrollPosition = newScrollPosition <= 0 ? 0 : newScrollPosition;
+      if (pageIsRTL) {
+        const interimLeft = navBar!.getBoundingClientRect().right;
+        const lastVisibleElementIndex = findLastIndex(elems, elem => elem.getBoundingClientRect().right > interimLeft - 32);
+        if (lastVisibleElementIndex >= 0) {
+          const lastVisibleElementRight = elems[lastVisibleElementIndex].getBoundingClientRect().left;
+          // 48 = button width - button gradient
+          const newScrollPosition = currentScrollPosition - lastVisibleElementRight + 48;
+          this._currentScrollPosition = newScrollPosition <= 0 ? 0 : newScrollPosition;
+        }
+      } else {
+        // 32 = total button width - grid offset
+        const lastVisibleElementIndex = findLastIndex(
+          elems,
+          elem => elem.getBoundingClientRect().left < 32 + navBar!.getBoundingClientRect().left
+        );
+        if (lastVisibleElementIndex >= 0) {
+          const lastVisibleElementRight = elems[lastVisibleElementIndex].getBoundingClientRect().right;
+          const newScrollPosition = lastVisibleElementRight + currentScrollPosition - navBar!.getBoundingClientRect().right + 32;
+          // If the new scroll position is less than the width of the left caret button,
+          // it means that hiding the left caret button reveals the whole of the left-most nav item.
+          // Snaps the left-most nav item to the left edge of nav container in this case.
+          this._currentScrollPosition = newScrollPosition <= 0 ? 0 : newScrollPosition;
+        }
       }
     }
   }
@@ -392,19 +409,18 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
       _contentNode: contentNode,
       _currentScrollPosition: currentScrollPosition,
       _itemNodes: itemNodes,
+      _pageIsRTL: pageIsRTL,
     } = this;
 
     const elems = Array.prototype.slice.call(itemNodes);
     if (elems) {
-      const pageIsRTL = this.ownerDocument!.documentElement.dir === 'rtl';
       if (pageIsRTL) {
         const interimLeft = navBar!.getBoundingClientRect().left;
         const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().left < interimLeft + 32);
         if (firstVisibleElementIndex > 0) {
-          const firstVisibleElementLeft =
-            elems[firstVisibleElementIndex].getBoundingClientRect().right + navBar!.getBoundingClientRect().right + 32;
-          // Ensures that is there is no blank area at the right hand side in scroll area
-          // if we see the right remainder nav items can be contained in a page
+          const firstVisibleElementLeft = Math.abs(
+            elems[firstVisibleElementIndex].getBoundingClientRect().right + 32 - navBar!.getBoundingClientRect().right
+          );
           const maxLeft = contentNode!.scrollWidth - navBar!.offsetWidth;
           this._currentScrollPosition = Math.min(firstVisibleElementLeft + currentScrollPosition, maxLeft);
         }
@@ -503,6 +519,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
       _handleSlotChangeHeading: handleSlotChangeHeading,
       _paginateLeft: paginateLeft,
       _paginateRight: paginateRight,
+      _pageIsRTL: pageIsRTL,
     } = this;
 
     const containerClasses = classMap({
@@ -524,8 +541,6 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
       [`${prefix}--toc__navbar-caret-right-container`]: true,
       [`${ddsPrefix}-ce--toc__navbar-caret-container--hidden`]: isIntersectionRightTrackerInContent,
     });
-
-    const pageIsRTL = this.ownerDocument!.documentElement.dir === 'rtl';
 
     return html`
       <div class="${containerClasses}">

@@ -124,6 +124,12 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
    */
   private _observerIntersection: IntersectionObserver | null = null;
 
+  /**
+   * Boolean checking if page is RTL
+   */
+  @internalProperty()
+  private _pageIsRTL: Boolean = this.ownerDocument!.documentElement.dir === 'rtl';
+
   @query('slot')
   private _slotNode?: HTMLSlotElement;
 
@@ -187,6 +193,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       _currentScrollPosition: currentScrollPosition,
       _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
       _navNode: navNode,
+      _pageIsRTL: pageIsRTL,
       _slotNode: slotNode,
     } = this;
     // If the right-side intersection sentinel is in the view, it means that right-side caret button is hidden.
@@ -195,8 +202,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
     const caretRightNodeWidthAdjustment = isIntersectionRightTrackerInContent ? caretRightNode!.offsetWidth : 0;
     const elems = slotNode?.assignedElements() as HTMLElement[];
     if (elems) {
-      const pageDir = this.ownerDocument!.documentElement.dir;
-      if (pageDir === 'rtl') {
+      if (pageIsRTL) {
         const navRight = navNode!.getBoundingClientRect().right;
         const lastVisibleElementIndex = elems.findIndex(
           elem => elem.getBoundingClientRect().left < navRight - currentScrollPosition - caretRightNodeWidthAdjustment
@@ -238,6 +244,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       _currentScrollPosition: currentScrollPosition,
       _isIntersectionLeftTrackerInContent: isIntersectionLeftTrackerInContent,
       _navNode: navNode,
+      _pageIsRTL: pageIsRTL,
       _slotNode: slotNode,
     } = this;
     const caretLeftNodeWidthAdjustment = isIntersectionLeftTrackerInContent ? caretLeftNode!.offsetWidth : 0;
@@ -245,8 +252,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
     const interimLeft = currentScrollPosition + contentContainerNode!.offsetWidth;
     const elems = slotNode?.assignedElements() as HTMLElement[];
     if (elems) {
-      const pageDir = this.ownerDocument!.documentElement.dir;
-      if (pageDir === 'rtl') {
+      if (pageIsRTL) {
         const navRight = navNode!.getBoundingClientRect().right;
         const firstVisibleElementIndex = elems.findIndex(
           elem => navRight - elem.getBoundingClientRect().left > interimLeft - caretRightNodeWidthAdjustment
@@ -322,6 +328,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
       _paginateLeft: paginateLeft,
       _paginateRight: paginateRight,
+      _pageIsRTL: pageIsRTL,
     } = this;
     const caretLeftContainerClasses = classMap({
       [`${prefix}--header__nav-caret-left-container`]: true,
@@ -332,11 +339,10 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       [`${ddsPrefix}-ce--header__nav-caret-container--hidden`]: isIntersectionRightTrackerInContent,
     });
 
-    const pageDir = this.ownerDocument!.documentElement.dir;
     return this.hideNav
       ? undefined!
       : html`
-          ${pageDir === 'rtl'
+          ${pageIsRTL
             ? html`
                 <div class="${caretRightContainerClasses}">
                   <div class="${prefix}--header__nav-caret-right-gradient"></div>
