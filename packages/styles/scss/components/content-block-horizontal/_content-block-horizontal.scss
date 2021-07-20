@@ -17,7 +17,6 @@
       padding-right: 16.75%;
     }
   }
-
   :host(#{$dds-prefix}-content-block-horizontal) ::slotted([slot='heading']),
   :host(#{$dds-prefix}-content-group-horizontal) ::slotted([slot='heading']),
   .#{$prefix}--content-block-horizontal .#{$prefix}--content-block__heading {
