@@ -22,6 +22,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-card-group-item`)
 class DDSCardGroupItem extends DDSCardCTA {
   /**
+   * `true` if the card group is using border.
+   */
+  @property({ type: Boolean, reflect: true })
+  border = false;
+
+  /**
    * `true` if the card group item is empty.
    */
   @property({ type: Boolean, reflect: true })
