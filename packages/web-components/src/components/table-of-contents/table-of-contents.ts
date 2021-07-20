@@ -510,6 +510,8 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
       [`${ddsPrefix}-ce--toc__navbar-caret-container--hidden`]: isIntersectionRightTrackerInContent,
     });
 
+    const pageIsRTL = this.ownerDocument!.documentElement.dir === 'rtl';
+
     return html`
       <div class="${containerClasses}">
         <div
@@ -528,18 +530,35 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
           <div class="${prefix}--tableofcontents__mobile-top"></div>
           ${this.layout === 'horizontal'
             ? html`
-                <div class="${caretLeftContainerClasses}">
-                  <button
-                    part="prev-button"
-                    tabindex="-1"
-                    aria-hidden="true"
-                    class="${prefix}--toc__navbar-caret-left"
-                    @click="${paginateLeft}"
-                  >
-                    ${CaretLeft20()}
-                  </button>
-                  <div class="${prefix}--toc__navbar-caret-left-gradient"></div>
-                </div>
+                ${pageIsRTL
+                  ? html`
+                      <div class="${caretRightContainerClasses}">
+                        <div class="${prefix}--toc__navbar-caret-right-gradient"></div>
+                        <button
+                          part="next-button"
+                          tabindex="-1"
+                          aria-hidden="true"
+                          class="${prefix}--toc__navbar-caret-right"
+                          @click="${paginateRight}"
+                        >
+                          ${CaretLeft20()}
+                        </button>
+                      </div>
+                    `
+                  : html`
+                      <div class="${caretLeftContainerClasses}">
+                        <button
+                          part="prev-button"
+                          tabindex="-1"
+                          aria-hidden="true"
+                          class="${prefix}--toc__navbar-caret-left"
+                          @click="${paginateLeft}"
+                        >
+                          ${CaretLeft20()}
+                        </button>
+                        <div class="${prefix}--toc__navbar-caret-left-gradient"></div>
+                      </div>
+                    `}
               `
             : ``}
           <div
@@ -547,8 +566,17 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
             style="position: sticky; top: ${stickyOffset && this.layout !== 'horizontal' ? `${stickyOffset}px` : 0}"
           >
             <div class="${prefix}--tableofcontents__desktop-container">
-              <div class="${prefix}--tableofcontents__desktop" style="left: -${currentScrollPosition}px">
-                <div class="${prefix}--sub-content-left"></div>
+              <div
+                class="${prefix}--tableofcontents__desktop"
+                style="${pageIsRTL ? 'right' : 'left'}: -${currentScrollPosition}px"
+              >
+                ${pageIsRTL
+                  ? html`
+                      <div class="${prefix}--sub-content-right"></div>
+                    `
+                  : html`
+                      <div class="${prefix}--sub-content-left"></div>
+                    `}
                 <ul>
                   ${targets.map(item => {
                     const name = item.getAttribute('name');
@@ -567,7 +595,13 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
                     `;
                   })}
                 </ul>
-                <div class="${prefix}--sub-content-right"></div>
+                ${pageIsRTL
+                  ? html`
+                      <div class="${prefix}--sub-content-left"></div>
+                    `
+                  : html`
+                      <div class="${prefix}--sub-content-right"></div>
+                    `}
               </div>
             </div>
             <div class="${prefix}--tableofcontents__mobile">
@@ -591,18 +625,35 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
           </div>
           ${this.layout === 'horizontal'
             ? html`
-                <div class="${caretRightContainerClasses}">
-                  <div class="${prefix}--toc__navbar-caret-right-gradient"></div>
-                  <button
-                    part="next-button"
-                    tabindex="-1"
-                    aria-hidden="true"
-                    class="${prefix}--toc__navbar-caret-right"
-                    @click="${paginateRight}"
-                  >
-                    ${CaretRight20()}
-                  </button>
-                </div>
+                ${pageIsRTL
+                  ? html`
+                      <div class="${caretLeftContainerClasses}">
+                        <button
+                          part="prev-button"
+                          tabindex="-1"
+                          aria-hidden="true"
+                          class="${prefix}--toc__navbar-caret-left"
+                          @click="${paginateLeft}"
+                        >
+                          ${CaretRight20()}
+                        </button>
+                        <div class="${prefix}--toc__navbar-caret-left-gradient"></div>
+                      </div>
+                    `
+                  : html`
+                      <div class="${caretRightContainerClasses}">
+                        <div class="${prefix}--toc__navbar-caret-right-gradient"></div>
+                        <button
+                          part="next-button"
+                          tabindex="-1"
+                          aria-hidden="true"
+                          class="${prefix}--toc__navbar-caret-right"
+                          @click="${paginateRight}"
+                        >
+                          ${CaretRight20()}
+                        </button>
+                      </div>
+                    `}
               `
             : ``}
         </div>

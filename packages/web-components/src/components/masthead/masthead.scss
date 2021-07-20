@@ -8,11 +8,9 @@
 @import 'carbon-components/scss/components/ui-shell/header';
 @import 'carbon-components/scss/components/ui-shell/side-nav';
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
-// @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead';
-@import '../../../../styles/scss/components/masthead/_masthead.scss';
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-leftnav';
-// @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-search';
-@import '../../../../styles/scss/components/masthead/_masthead-search.scss';
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-search';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-l1';
 @import 'carbon-web-components/scss/components/tooltip/tooltip';
 @import 'carbon-web-components/scss/components/ui-shell/header';
@@ -165,14 +163,14 @@
   .#{$prefix}--header__nav-caret-right-container {
     right: 0;
     /* !rtl:raw:
-    position: absolute;
+    position: absolute !important;
     */
   }
 
   .#{$prefix}--header__nav-caret-left-container {
     left: 0;
     /* !rtl:raw:
-    position: absolute;
+    position: absolute !important;
     */
   }
 
