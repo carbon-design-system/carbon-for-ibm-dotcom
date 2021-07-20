@@ -1,13 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { ActionCreatorsMapObject, Store } from 'redux';
+import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
 import { VideoPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/videoPlayerAPI.d';
@@ -29,6 +30,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-lightbox-video-player-container
  */
+@customElement(`${ddsPrefix}-lightbox-video-player-container`)
 class DDSLightboxVideoPlayerContainer extends ConnectMixin<
   VideoPlayerContainerState,
   VideoPlayerAPIActions,
@@ -39,9 +41,5 @@ class DDSLightboxVideoPlayerContainer extends ConnectMixin<
   mapStateToProps,
   mapDispatchToProps
 )(DDSVideoPlayerContainerMixin(DDSLightboxVideoPlayerComposite)) {}
-
-if (!customElements.get(`${ddsPrefix}-lightbox-video-player-container`)) {
-  customElements.define(`${ddsPrefix}-lightbox-video-player-container`, DDSLightboxVideoPlayerContainer);
-}
 
 export default DDSLightboxVideoPlayerContainer;

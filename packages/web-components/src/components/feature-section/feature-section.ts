@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, html, property } from 'lit-element';
+import { css, customElement, html, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSFeatureCard from '../feature-card/feature-card';
@@ -24,6 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-feature-section
  */
+@customElement(`${ddsPrefix}-feature-section`)
 class DDSFeatureSection extends StableSelectorMixin(DDSFeatureCard) {
   /**
    * Media Alignment (right (default) | left)
@@ -86,10 +87,6 @@ class DDSFeatureSection extends StableSelectorMixin(DDSFeatureCard) {
   static get styles() {
     return css`${super.styles}${styles}`;
   }
-}
-
-if (!customElements.get(`${ddsPrefix}-feature-section`)) {
-  customElements.define(`${ddsPrefix}-feature-section`, DDSFeatureSection);
 }
 
 export default DDSFeatureSection;

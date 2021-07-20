@@ -9,7 +9,7 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { TemplateResult } from 'lit-html';
-import { html, property, query } from 'lit-element';
+import { html, property, query, customElement } from 'lit-element';
 import BXComboBoxItem from 'carbon-web-components/es/components/combo-box/combo-box-item';
 import Close16 from 'carbon-web-components/es/icons/close/16.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
@@ -34,6 +34,7 @@ const { prefix } = settings;
  * @fires bx-combo-box-selected - The custom event fired after a combo box item is selected upon a user gesture.
  * @fires bx-combo-box-toggled - The custom event fired after the open state of this combo box is toggled upon a user gesture.
  */
+@customElement(`${ddsPrefix}-combo-box`)
 class DDSComboBox extends DDSDropdown {
   /**
    * The text content that should be set to the `<input>` for filtering.
@@ -259,10 +260,6 @@ class DDSComboBox extends DDSDropdown {
   static get eventSelect() {
     return `${prefix}-combo-box-selected`;
   }
-}
-
-if (!customElements.get(`${ddsPrefix}-combo-box`)) {
-  customElements.define(`${ddsPrefix}-combo-box`, DDSComboBox);
 }
 
 export default DDSComboBox;

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css } from 'lit-element';
+import { css, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentGroup from '../content-group/content-group';
@@ -20,6 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-group-banner
  */
+@customElement(`${ddsPrefix}-content-group-banner`)
 class DDSContentGroupBanner extends StableSelectorMixin(DDSContentGroup) {
   static get stableSelector() {
     return `${ddsPrefix}--content-group-banner`;
@@ -29,10 +30,6 @@ class DDSContentGroupBanner extends StableSelectorMixin(DDSContentGroup) {
   static get styles() {
     return css`${super.styles}${styles}`;
   }
-}
-
-if (!customElements.get(`${ddsPrefix}-content-group-banner`)) {
-  customElements.define(`${ddsPrefix}-content-group-banner`, DDSContentGroupBanner);
 }
 
 export default DDSContentGroupBanner;

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property } from 'lit-element';
+import { html, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import {
@@ -27,6 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot title - The title content.
  * @slot description - The description content.
  */
+@customElement(`${ddsPrefix}-lightbox-video-player`)
 class DDSLightboxVideoPlayer extends DDSLightboxMediaViewerBody {
   _renderDescription() {
     const { description } = this;
@@ -100,10 +101,6 @@ class DDSLightboxVideoPlayer extends DDSLightboxMediaViewerBody {
    */
   @property()
   name = '';
-}
-
-if (!customElements.get(`${ddsPrefix}-lightbox-video-player`)) {
-  customElements.define(`${ddsPrefix}-lightbox-video-player`, DDSLightboxVideoPlayer);
 }
 
 export default DDSLightboxVideoPlayer;

@@ -8,6 +8,7 @@
  */
 
 import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
+import { customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
@@ -197,6 +198,7 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
  *
  * @element dds-video-player-container
  */
+@customElement(`${ddsPrefix}-video-player-container`)
 class DDSVideoPlayerContainer extends ConnectMixin<
   VideoPlayerContainerState,
   VideoPlayerAPIActions,
@@ -207,9 +209,5 @@ class DDSVideoPlayerContainer extends ConnectMixin<
   mapStateToProps,
   mapDispatchToProps
 )(DDSVideoPlayerContainerMixin(DDSVideoPlayerComposite)) {}
-
-if (!customElements.get(`${ddsPrefix}-video-player-container`)) {
-  customElements.define(`${ddsPrefix}-video-player-container`, DDSVideoPlayerContainer);
-}
 
 export default DDSVideoPlayerContainer;
