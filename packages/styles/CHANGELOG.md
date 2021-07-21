@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.22.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.22.0-rc.0...@carbon/ibmdotcom-styles@1.22.0-rc.1) (2021-07-21)
+
+
+### Bug Fixes
+
+* **overflow:** ensure overflow looks and works properly in RTL ([#6681](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6681)) ([0fb254a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0fb254a)), closes [#6672](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6672)
+
+
+
+
+
 # [1.22.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.21.0...@carbon/ibmdotcom-styles@1.22.0-rc.0) (2021-07-16)
 
 
