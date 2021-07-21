@@ -162,10 +162,16 @@
 
   .#{$prefix}--header__nav-caret-right-container {
     right: 0;
+    /* rtl:raw:
+    position: absolute !important;
+    */
   }
 
   .#{$prefix}--header__nav-caret-left-container {
     left: 0;
+    /* rtl:raw:
+    position: absolute !important;
+    */
   }
 
   .#{$prefix}--header__nav-caret-left,
