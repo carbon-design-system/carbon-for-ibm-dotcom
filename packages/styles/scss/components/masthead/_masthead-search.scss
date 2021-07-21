@@ -110,6 +110,10 @@
     top: 0;
     right: 0;
 
+    /* rtl:raw:
+    left: 0;
+    */
+
     .#{$prefix}--header__search--search,
     .#{$prefix}--header__search--close {
       color: $icon-02;
