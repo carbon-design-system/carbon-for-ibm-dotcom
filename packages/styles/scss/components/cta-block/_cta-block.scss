@@ -28,7 +28,7 @@
 @mixin cta-block--pattern {
   :host(#{$dds-prefix}-cta-block),
   .#{$prefix}--cta-block {
-    &__cta {
+    .#{$prefix}--cta-block__cta {
       padding-bottom: $carbon--layout-05;
       @include carbon--breakpoint('md') {
         padding-bottom: $carbon--layout-06;
@@ -38,13 +38,13 @@
       }
 
       .#{$prefix}--buttongroup {
-        @include carbon--breakpoint(md) {
+        @include carbon--breakpoint('md') {
           flex-direction: row;
         }
       }
 
       .#{$prefix}--buttongroup-item {
-        @include carbon--breakpoint(md) {
+        @include carbon--breakpoint('md') {
           padding-right: $carbon--layout-03;
         }
       }
