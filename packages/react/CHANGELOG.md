@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.22.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.22.0-rc.0...@carbon/ibmdotcom-react@1.22.0-rc.1) (2021-07-21)
+
+
+### Features
+
+* **env:** adding rtl staging environments ([#6684](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6684)) ([56b813b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/56b813b))
+
+
+
+
+
 # [1.22.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.21.0...@carbon/ibmdotcom-react@1.22.0-rc.0) (2021-07-16)
 
 
