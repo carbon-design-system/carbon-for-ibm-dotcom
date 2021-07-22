@@ -155,12 +155,37 @@
   }
 
   :host(#{$dds-prefix}-content-block-horizontal) #{$dds-prefix}-hr,
-  .#{$prefix}--content-block .#{$prefix}--hr {
+  :host(#{$dds-prefix}-content-group-horizontal) #{$dds-prefix}-hr {
     margin: 0;
+    margin-top: $layout-03;
+
+    @include carbon--breakpoint('md') {
+      margin-top: $layout-04;
+    }
+    @include carbon--breakpoint('lg') {
+      margin-top: $layout-06;
+    }
   }
 
   .#{$prefix}--content-block .#{$prefix}--hr {
     @include hang;
+    @include carbon--breakpoint('md') {
+      margin-top: $layout-01;
+    }
+    @include carbon--breakpoint('lg') {
+      margin-top: $layout-06;
+    }
+  }
+
+  .#{$prefix}--content-group-horizontal
+    .#{$prefix}--content-block
+    .#{$prefix}--hr {
+    @include carbon--breakpoint('md') {
+      margin-top: $layout-03;
+    }
+    @include carbon--breakpoint('lg') {
+      margin-top: $layout-06;
+    }
   }
 
   :host(#{$dds-prefix}-content-block-heading),
