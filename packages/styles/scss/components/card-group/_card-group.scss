@@ -72,7 +72,8 @@
       }
     }
 
-    &:focus, &:focus-within {
+    &:focus,
+    &:focus-within {
       outline: none;
     }
   }
