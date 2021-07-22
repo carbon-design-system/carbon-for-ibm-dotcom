@@ -124,6 +124,12 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
    */
   private _observerIntersection: IntersectionObserver | null = null;
 
+  /**
+   * Boolean checking if page is RTL
+   */
+  @internalProperty()
+  private _pageIsRTL: Boolean = this.ownerDocument!.documentElement.dir === 'rtl';
+
   @query('slot')
   private _slotNode?: HTMLSlotElement;
 
@@ -187,6 +193,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       _currentScrollPosition: currentScrollPosition,
       _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
       _navNode: navNode,
+      _pageIsRTL: pageIsRTL,
       _slotNode: slotNode,
     } = this;
     // If the right-side intersection sentinel is in the view, it means that right-side caret button is hidden.
@@ -195,18 +202,32 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
     const caretRightNodeWidthAdjustment = isIntersectionRightTrackerInContent ? caretRightNode!.offsetWidth : 0;
     const elems = slotNode?.assignedElements() as HTMLElement[];
     if (elems) {
-      const navLeft = navNode!.getBoundingClientRect().left;
-      const lastVisibleElementIndex = findLastIndex(
-        elems,
-        elem => elem.getBoundingClientRect().left - navLeft < currentScrollPosition
-      );
-      if (lastVisibleElementIndex >= 0) {
-        const lastVisibleElementRight = elems[lastVisibleElementIndex].getBoundingClientRect().right - navLeft;
-        const newScrollPosition = lastVisibleElementRight - (contentContainerNode!.offsetWidth - caretRightNodeWidthAdjustment);
-        // If the new scroll position is less than the width of the left caret button,
-        // it means that hiding the left caret button reveals the whole of the left-most nav item.
-        // Snaps the left-most nav item to the left edge of nav container in this case.
-        this._currentScrollPosition = newScrollPosition <= caretLeftNode!.offsetWidth ? 0 : newScrollPosition;
+      if (pageIsRTL) {
+        const navRight = navNode!.getBoundingClientRect().right;
+        const lastVisibleElementIndex = elems.findIndex(
+          elem => elem.getBoundingClientRect().left < navRight - currentScrollPosition - caretRightNodeWidthAdjustment
+        );
+        if (lastVisibleElementIndex >= 0) {
+          this._currentScrollPosition =
+            navRight -
+            elems[lastVisibleElementIndex].getBoundingClientRect().left -
+            contentContainerNode!.offsetWidth +
+            caretRightNode!.offsetWidth;
+        }
+      } else {
+        const navLeft = navNode!.getBoundingClientRect().left;
+        const lastVisibleElementIndex = findLastIndex(
+          elems,
+          elem => elem.getBoundingClientRect().left - navLeft < currentScrollPosition
+        );
+        if (lastVisibleElementIndex >= 0) {
+          const lastVisibleElementRight = elems[lastVisibleElementIndex].getBoundingClientRect().right - navLeft;
+          const newScrollPosition = lastVisibleElementRight - (contentContainerNode!.offsetWidth - caretRightNodeWidthAdjustment);
+          // If the new scroll position is less than the width of the left caret button,
+          // it means that hiding the left caret button reveals the whole of the left-most nav item.
+          // Snaps the left-most nav item to the left edge of nav container in this case.
+          this._currentScrollPosition = newScrollPosition <= caretLeftNode!.offsetWidth ? 0 : newScrollPosition;
+        }
       }
     }
   }
@@ -223,6 +244,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       _currentScrollPosition: currentScrollPosition,
       _isIntersectionLeftTrackerInContent: isIntersectionLeftTrackerInContent,
       _navNode: navNode,
+      _pageIsRTL: pageIsRTL,
       _slotNode: slotNode,
     } = this;
     const caretLeftNodeWidthAdjustment = isIntersectionLeftTrackerInContent ? caretLeftNode!.offsetWidth : 0;
@@ -230,16 +252,30 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
     const interimLeft = currentScrollPosition + contentContainerNode!.offsetWidth;
     const elems = slotNode?.assignedElements() as HTMLElement[];
     if (elems) {
-      const navLeft = navNode!.getBoundingClientRect().left;
-      const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().right - navLeft > interimLeft);
-      if (firstVisibleElementIndex > 0) {
-        const firstVisibleElementLeft = elems[firstVisibleElementIndex].getBoundingClientRect().left - navLeft;
-        // Ensures that is there is no blank area at the right hand side in scroll area
-        // if we see the right remainder nav items can be contained in a page
-        const maxLeft =
-          contentNode!.scrollWidth -
-          (contentContainerNode!.offsetWidth - caretLeftNodeWidthAdjustment + caretRightNodeWidthAdjustment);
-        this._currentScrollPosition = Math.min(firstVisibleElementLeft, maxLeft);
+      if (pageIsRTL) {
+        const navRight = navNode!.getBoundingClientRect().right;
+        const firstVisibleElementIndex = elems.findIndex(
+          elem => navRight - elem.getBoundingClientRect().left > interimLeft - caretRightNodeWidthAdjustment
+        );
+        if (firstVisibleElementIndex > 0) {
+          const firstVisibleElementLeft = Math.abs(
+            elems[firstVisibleElementIndex].getBoundingClientRect().right - navRight + caretRightNodeWidthAdjustment
+          );
+          const maxLeft = contentNode!.scrollWidth - contentContainerNode!.offsetWidth;
+          this._currentScrollPosition = Math.min(firstVisibleElementLeft, maxLeft);
+        }
+      } else {
+        const navLeft = navNode!.getBoundingClientRect().left;
+        const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().right - navLeft > interimLeft);
+        if (firstVisibleElementIndex > 0) {
+          const firstVisibleElementLeft = elems[firstVisibleElementIndex].getBoundingClientRect().left - navLeft;
+          // Ensures that is there is no blank area at the right hand side in scroll area
+          // if we see the right remainder nav items can be contained in a page
+          const maxLeft =
+            contentNode!.scrollWidth -
+            (contentContainerNode!.offsetWidth - caretLeftNodeWidthAdjustment + caretRightNodeWidthAdjustment);
+          this._currentScrollPosition = Math.min(firstVisibleElementLeft, maxLeft);
+        }
       }
     }
   }
@@ -292,6 +328,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
       _paginateLeft: paginateLeft,
       _paginateRight: paginateRight,
+      _pageIsRTL: pageIsRTL,
     } = this;
     const caretLeftContainerClasses = classMap({
       [`${prefix}--header__nav-caret-left-container`]: true,
@@ -301,49 +338,95 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       [`${prefix}--header__nav-caret-right-container`]: true,
       [`${ddsPrefix}-ce--header__nav-caret-container--hidden`]: isIntersectionRightTrackerInContent,
     });
+
     return this.hideNav
       ? undefined!
       : html`
-          <div class="${caretLeftContainerClasses}">
-            <button
-              part="prev-button"
-              tabindex="-1"
-              aria-hidden="true"
-              class="${prefix}--header__nav-caret-left"
-              @click="${paginateLeft}"
-            >
-              ${CaretLeft20()}
-            </button>
-            <div class="${prefix}--header__nav-caret-left-gradient"></div>
-          </div>
-          <div class="${ddsPrefix}-ce--header__nav-content-container">
-            <div class="${prefix}--header__nav-content" style="left: -${currentScrollPosition}px">
-              <nav part="nav" class="${prefix}--header__nav">
-                <div class="${prefix}--sub-content-left"></div>
-                <ul
-                  part="menubar"
-                  role="menubar"
-                  class="${prefix}--header__menu-bar"
-                  aria-label="${ifNonNull(this.menuBarLabel)}"
-                >
-                  <slot></slot>
-                </ul>
-                <div class="${prefix}--sub-content-right"></div>
-              </nav>
-            </div>
-          </div>
-          <div class="${caretRightContainerClasses}">
-            <div class="${prefix}--header__nav-caret-right-gradient"></div>
-            <button
-              part="next-button"
-              tabindex="-1"
-              aria-hidden="true"
-              class="${prefix}--header__nav-caret-right"
-              @click="${paginateRight}"
-            >
-              ${CaretRight20()}
-            </button>
-          </div>
+          ${pageIsRTL
+            ? html`
+                <div class="${caretRightContainerClasses}">
+                  <div class="${prefix}--header__nav-caret-right-gradient"></div>
+                  <button
+                    part="next-button"
+                    tabindex="-1"
+                    aria-hidden="true"
+                    class="${prefix}--header__nav-caret-right"
+                    @click="${paginateRight}"
+                  >
+                    ${CaretLeft20()}
+                  </button>
+                </div>
+                <div class="${ddsPrefix}-ce--header__nav-content-container">
+                  <div class="${prefix}--header__nav-content" style="right: -${currentScrollPosition}px">
+                    <nav part="nav" class="${prefix}--header__nav">
+                      <div class="${prefix}--sub-content-right"></div>
+                      <ul
+                        part="menubar"
+                        role="menubar"
+                        class="${prefix}--header__menu-bar"
+                        aria-label="${ifNonNull(this.menuBarLabel)}"
+                      >
+                        <slot></slot>
+                      </ul>
+                      <div class="${prefix}--sub-content-left"></div>
+                    </nav>
+                  </div>
+                </div>
+                <div class="${caretLeftContainerClasses}">
+                  <button
+                    part="prev-button"
+                    tabindex="-1"
+                    aria-hidden="true"
+                    class="${prefix}--header__nav-caret-left"
+                    @click="${paginateLeft}"
+                  >
+                    ${CaretRight20()}
+                  </button>
+                  <div class="${prefix}--header__nav-caret-left-gradient"></div>
+                </div>
+              `
+            : html`
+                <div class="${caretLeftContainerClasses}">
+                  <button
+                    part="prev-button"
+                    tabindex="-1"
+                    aria-hidden="true"
+                    class="${prefix}--header__nav-caret-left"
+                    @click="${paginateLeft}"
+                  >
+                    ${CaretLeft20()}
+                  </button>
+                  <div class="${prefix}--header__nav-caret-left-gradient"></div>
+                </div>
+                <div class="${ddsPrefix}-ce--header__nav-content-container">
+                  <div class="${prefix}--header__nav-content" style="left: -${currentScrollPosition}px">
+                    <nav part="nav" class="${prefix}--header__nav">
+                      <div class="${prefix}--sub-content-left"></div>
+                      <ul
+                        part="menubar"
+                        role="menubar"
+                        class="${prefix}--header__menu-bar"
+                        aria-label="${ifNonNull(this.menuBarLabel)}"
+                      >
+                        <slot></slot>
+                      </ul>
+                      <div class="${prefix}--sub-content-right"></div>
+                    </nav>
+                  </div>
+                </div>
+                <div class="${caretRightContainerClasses}">
+                  <div class="${prefix}--header__nav-caret-right-gradient"></div>
+                  <button
+                    part="next-button"
+                    tabindex="-1"
+                    aria-hidden="true"
+                    class="${prefix}--header__nav-caret-right"
+                    @click="${paginateRight}"
+                  >
+                    ${CaretRight20()}
+                  </button>
+                </div>
+              `}
         `;
   }
 

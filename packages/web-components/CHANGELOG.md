@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.7.0-rc.0...@carbon/ibmdotcom-web-components@1.7.0-rc.1) (2021-07-21)
+
+
+### Bug Fixes
+
+* **cta-card:** updating `video-cta-composite` to match new API ([#6683](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6683)) ([95fa102](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/95fa102)), closes [#6674](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6674)
+* **overflow:** ensure overflow looks and works properly in RTL ([#6681](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6681)) ([0fb254a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/0fb254a)), closes [#6672](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6672)
+
+
+### Features
+
+* **env:** adding rtl staging environments ([#6684](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6684)) ([56b813b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/56b813b))
+
+
+
+
+
 # [1.7.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.6.0...@carbon/ibmdotcom-web-components@1.7.0-rc.0) (2021-07-16)
 
 
