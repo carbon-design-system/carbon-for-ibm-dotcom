@@ -26,7 +26,6 @@ import './card-cta-footer';
 /* eslint-enable import/no-duplicates */
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
-import DDSCardFooter from "../card/card-footer";
 
 export { CTA_TYPE };
 
@@ -119,11 +118,10 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
         formatVideoCaption: formatVideoCaptionInEffect,
         formatVideoDuration: formatVideoDurationInEffect,
       } = this;
-      const headingText = this.querySelector(`dds-card-heading`)?.textContent;
+      const headingText = this.querySelector(`${ddsPrefix}-card-heading`)?.textContent;
       const copyText = this.textContent;
       if (footer) {
-
-        (footer as DDSCardFooter).altAriaLabel = videoName ? videoName : headingText ? headingText : copyText;
+        (footer as DDSCardCTAFooter).altAriaLabel = videoName || headingText || copyText;
         (footer as DDSCardCTAFooter).ctaType = ctaType;
         (footer as DDSCardCTAFooter).videoDuration = videoDuration;
         if (formatVideoCaptionInEffect) {

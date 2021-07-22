@@ -33,8 +33,6 @@ class DDSFeatureCard extends DDSCard {
   updated(changedProperties) {
     super.updated(changedProperties);
     const { _linkNode: linkNode } = this;
-    // @ts-ignore
-    const footer = this.querySelector((this.constructor as typeof DDSFeatureCard).selectorFooter);
     if (linkNode) {
       linkNode.classList.remove(`${prefix}--link`);
       linkNode.classList.add(`${prefix}--feature-card__card`);

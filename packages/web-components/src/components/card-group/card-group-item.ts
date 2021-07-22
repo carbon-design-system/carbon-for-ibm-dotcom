@@ -21,12 +21,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-card-group-item`)
 class DDSCardGroupItem extends DDSCardCTA {
-
-  updated(changedProperties) {
-    super.updated(changedProperties);
-    // @ts-ignore
-    const footer = this.querySelector((this.constructor as typeof DDSCardGroupItem).selectorFooter);
-  }
   /**
    * `true` if the card group item is empty.
    */

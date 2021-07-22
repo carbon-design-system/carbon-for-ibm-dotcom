@@ -161,10 +161,6 @@
   :host(#{$dds-prefix}-card),
   :host(#{$dds-prefix}-card-group-item) {
     &:not([href]) {
-      &:focus-within,.#{$prefix}--card:focus-within  {
-        outline: none;
-      }
-
       &,
       &:hover {
         .#{$prefix}--card__wrapper {
@@ -172,7 +168,8 @@
         }
       }
 
-      &:focus-within {
+      &:focus-within,
+      .#{$prefix}--card:focus-within {
         outline: none;
       }
 
@@ -247,9 +244,9 @@
   }
 
   :host(#{$dds-prefix}-card-footer),
-  :host(#{$dds-prefix}-card-cta-footer) ,
-  :host(#{$dds-prefix}-card-in-card-footer) ,
-  :host(#{$dds-prefix}-feature-card-footer) ,
+  :host(#{$dds-prefix}-card-cta-footer),
+  :host(#{$dds-prefix}-card-in-card-footer),
+  :host(#{$dds-prefix}-feature-card-footer),
   :host(#{$dds-prefix}-feature-cta-footer) {
     margin-top: auto;
 
@@ -308,7 +305,8 @@
     }
   }
 
-  :host(#{$dds-prefix}-card-footer):not([parent-href]){
+  // static card footer
+  :host(#{$dds-prefix}-card-footer):not([parent-href]) {
     .#{$prefix}--card__footer {
       &::after {
         content: none;

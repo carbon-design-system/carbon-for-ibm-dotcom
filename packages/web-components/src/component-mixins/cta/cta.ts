@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -32,6 +32,9 @@ export const icons = {
   [CTA_TYPE.VIDEO]: PlayOutline20,
 };
 
+/**
+ * Aria Labels to use, keyed by CTA type.
+ */
 export const ariaLabels = {
   [CTA_TYPE.LOCAL]: '',
   [CTA_TYPE.DOWNLOAD]: ' - This link downloads a file',
@@ -138,8 +141,8 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
             linkNode.setAttribute('target', targetInEffect);
           }
         }
-        if(linkNode.hasAttribute('aria-label')){
-          linkNode.setAttribute('aria-label', linkNode.getAttribute('aria-label') + (ctaType ? ariaLabels[ctaType] : ''))
+        if (linkNode.hasAttribute('aria-label')) {
+          linkNode.setAttribute('aria-label', linkNode.getAttribute('aria-label') + (ctaType ? ariaLabels[ctaType] : ''));
         }
       }
     }

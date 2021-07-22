@@ -79,6 +79,12 @@ class DDSCardFooter extends DDSLinkWithIcon {
   }
 
   /**
+   * Alternative aria label if no text in footer.
+   */
+  @property({ reflect: false })
+  altAriaLabel?: string | null;
+
+  /**
    * The color scheme.
    */
   @property({ attribute: 'color-scheme', reflect: true })
@@ -97,15 +103,8 @@ class DDSCardFooter extends DDSLinkWithIcon {
   @property({ reflect: true })
   slot = 'footer';
 
-  @property({ reflect: false })
-  altAriaLabel?: string | null;
-
   updated() {
     super.updated();
-
-    // if (!this.hasAttribute('aria-hidden') && this._shouldUseParentLink) {
-    //   this.setAttribute('aria-hidden', 'true');
-    // }
 
     if (!this._hasCopy) {
       this.shadowRoot?.querySelector(`a`)?.setAttribute('aria-label', this.altAriaLabel ? this.altAriaLabel : '');
@@ -119,17 +118,6 @@ class DDSCardFooter extends DDSLinkWithIcon {
     targetNode!.classList.add(`${ddsPrefix}-ce--card__footer`);
     targetNode!.classList.toggle(`${prefix}--card__footer__icon-left`, iconPlacement === ICON_PLACEMENT.LEFT);
   }
-
-  // render() {
-  //   const { _shouldUseParentLink: shouldUseParentLink } = this;
-  //   console.log(shouldUseParentLink)
-  //   return shouldUseParentLink
-  //     ? html`
-  //         <span class="${ddsPrefix}-ce--card__footer--static">${this._renderInner()}</span>
-  //         ${console.log("HEREEEe")}
-  //       `
-  //     : super.render();
-  // }
 
   static get stableSelector() {
     return `${ddsPrefix}--card-footer`;

@@ -42,14 +42,6 @@ class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
     `;
   }
 
-  // render() {
-  //   return html`
-  //     <div class="${prefix}--card-in-card__container">
-  //       ${super.render()}
-  //     </div>
-  //   `;
-  // }
-
   updated(changedProperties) {
     super.updated(changedProperties);
     const { _linkNode: linkNode } = this;

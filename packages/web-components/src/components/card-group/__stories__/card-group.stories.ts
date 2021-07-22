@@ -11,7 +11,6 @@ import { classMap } from 'lit-html/directives/class-map';
 import '../../card/index';
 import '../../card-in-card/index';
 import '../index';
-import '../../cta/card-cta-footer';
 import '../../cta/video-cta-container';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';

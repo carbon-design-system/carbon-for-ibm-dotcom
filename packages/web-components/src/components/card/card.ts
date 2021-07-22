@@ -195,7 +195,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
     super.updated(changedProperties);
     const { colorScheme, href, _linkNode: linkNode } = this;
     if (changedProperties.has('colorScheme') || changedProperties.has('href')) {
-      const headingText = this.querySelector(`dds-card-heading`)?.textContent;
+      const headingText = this.querySelector(`${ddsPrefix}-card-heading`)?.textContent;
       const copyText = this.textContent;
       const footer = this.querySelector((this.constructor as typeof DDSCard).selectorFooter);
       if (footer && href) {
@@ -221,11 +221,13 @@ class DDSCard extends StableSelectorMixin(BXLink) {
   render() {
     return this._hasPictogram
       ? html`
-          <div tabindex="0" aria-label="${this.querySelector(`dds-card-heading`)?.textContent}">${this._renderInner()}</div>
+          <div tabindex="0" aria-label="${this.querySelector(`${ddsPrefix}-card-heading`)?.textContent}">
+            ${this._renderInner()}
+          </div>
         `
       : html`
           <div>${this._renderInner()}</div>
-      `;
+        `;
   }
 
   static get stableSelector() {
