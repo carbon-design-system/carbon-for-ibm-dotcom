@@ -53,7 +53,6 @@
       position: fixed;
       display: block;
       visibility: hidden;
-      min-height: carbon--mini-units(40);
       margin-bottom: $layout-05;
       left: 0;
       width: 100vw;
@@ -79,6 +78,7 @@
       // `100vw` in Shadow DOM causes delayed rendering bug in Safari
       // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4493
       width: var(--#{$dds-prefix}-ce--viewport-width, 100vw);
+      min-height: carbon--mini-units(40);
 
       ::slotted(#{$dds-prefix}-megamenu),
       ::slotted(#{$dds-prefix}-cloud-megamenu),

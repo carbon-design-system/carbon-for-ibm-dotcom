@@ -143,7 +143,7 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
       if (videoId) {
         this._loadVideoData?.(videoId);
         if (open) {
-          this._embedVideo?.(videoId);
+          this._embedMedia?.(videoId);
           this._handleAriaAndHiddenState();
         }
       }

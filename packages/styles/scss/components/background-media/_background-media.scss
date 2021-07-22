@@ -15,6 +15,10 @@
     position: relative;
   }
 
+  .#{$prefix}--background-media--mobile-position {
+    height: 100%;
+  }
+
   .#{$prefix}--background-media--gradient {
     display: block;
     position: absolute;
@@ -22,6 +26,14 @@
     right: 0;
     width: 100%;
     height: 100%;
+
+    @include carbon--breakpoint('md') {
+      background-image: linear-gradient(
+        to bottom,
+        $ui-background 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    }
   }
 
   .#{$prefix}--background-media--gradient--left-to-right {
@@ -31,6 +43,14 @@
         $ui-background 25%,
         rgba(255, 255, 255, 0) 75%
       );
+
+      [dir='rtl'] & {
+        background-image: linear-gradient(
+          to left,
+          $ui-background 25%,
+          rgba(255, 255, 255, 0) 75%
+        );
+      }
     }
   }
 

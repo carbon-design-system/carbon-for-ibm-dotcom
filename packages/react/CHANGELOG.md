@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.22.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.22.0-rc.0...@carbon/ibmdotcom-react@1.22.0-rc.1) (2021-07-21)
+
+
+### Features
+
+* **env:** adding rtl staging environments ([#6684](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6684)) ([56b813b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/56b813b))
+
+
+
+
+
+# [1.22.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.21.0...@carbon/ibmdotcom-react@1.22.0-rc.0) (2021-07-16)
+
+
+### Bug Fixes
+
+* **CardLink:** fix disabled behavior ([#6514](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6514)) ([3f6c76b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3f6c76b)), closes [#6513](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6513)
+* **FeatureCTA:** adjust prop cta structure to set target correctly ([#6590](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6590)) ([4b630ee](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4b630ee)), closes [#6550](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6550)
+* **link-with-icon:** fixes layout styles ([#6479](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6479)) ([664912d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/664912d)), closes [#6464](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6464)
+* **masthead:** set text wrapping for menu dropdown items ([#6640](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6640)) ([1a8b77a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1a8b77a))
+* **playwright:** removal of playwright and integration tests ([#6613](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6613)) ([13825e4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/13825e4))
+
+
+### Features
+
+* **content-block-horizontal:** name change and deprecation (React) ([#6666](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6666)) ([72708c9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/72708c9))
+
+
+
+
+
 # [1.21.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.21.0-rc.3...@carbon/ibmdotcom-react@1.21.0) (2021-07-06)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react

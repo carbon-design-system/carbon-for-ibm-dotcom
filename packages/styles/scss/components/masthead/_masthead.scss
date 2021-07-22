@@ -82,6 +82,7 @@ $search-transition-timing: 95ms;
 /// @access private
 @mixin masthead-top-nav-menu-item {
   position: relative;
+  height: 100%;
 
   &::before {
     content: '';
@@ -126,8 +127,7 @@ $search-transition-timing: 95ms;
   @include carbon--type-style(body-short-02, true);
 
   border: none;
-  border-bottom: $spacing-01 solid transparent;
-  padding: $spacing-01 $spacing-05 0;
+  padding: rem(13px) $spacing-05;
   color: $text-02;
   white-space: nowrap;
 
@@ -190,6 +190,7 @@ $search-transition-timing: 95ms;
     background-color: $overlay-01;
     visibility: visible;
     opacity: 1;
+    height: 100vh;
   }
 
   :host(#{$dds-prefix}-megamenu-link-with-icon) {
@@ -299,6 +300,13 @@ $search-transition-timing: 95ms;
     transition: left $transition--base motion(standard, productive);
   }
 
+  .#{$prefix}--header__submenu,
+  :host(#{$dds-prefix}-top-nav-menu-item) {
+    .#{$prefix}--text-truncate--end {
+      white-space: normal;
+    }
+  }
+
   :host(#{$dds-prefix}-top-nav-item),
   :host(#{$dds-prefix}-top-nav-menu),
   :host(#{$dds-prefix}-megamenu-top-nav-menu),
@@ -333,7 +341,7 @@ $search-transition-timing: 95ms;
       display: block;
       position: absolute;
       box-sizing: border-box;
-      bottom: -2px;
+      bottom: 0;
       left: 0;
       right: 0;
       height: rem(3px);
@@ -341,6 +349,15 @@ $search-transition-timing: 95ms;
     }
   }
 
+  :host(#{$dds-prefix}-top-nav-menu),
+  :host(#{$dds-prefix}-megamenu-top-nav-menu) {
+    a.#{$prefix}--header__menu-item {
+      border-bottom: $spacing-01 solid transparent;
+      padding: rem(13px) $spacing-05 rem(11px);
+    }
+  }
+
+  :host(#{$dds-prefix}-top-nav-menu),
   .#{$prefix}--header__nav {
     .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
       z-index: 0;
@@ -349,12 +366,14 @@ $search-transition-timing: 95ms;
         background-color: $ui-02;
         box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
         bottom: -1px;
+        width: rem(256px);
         li {
           @include masthead-top-nav-menu-item;
         }
         .#{$prefix}--header__menu-item {
           border: none;
           position: relative;
+          height: 100%;
 
           &:hover {
             color: $text-01;
@@ -377,6 +396,14 @@ $search-transition-timing: 95ms;
             left: 0;
           }
         }
+      }
+    }
+
+    .#{$prefix}--masthead__megamenu__l0-nav,
+    .#{$prefix}--masthead__megamenu__l1-nav {
+      .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true']
+        + .#{$prefix}--header__menu {
+        width: 100%;
       }
     }
 
