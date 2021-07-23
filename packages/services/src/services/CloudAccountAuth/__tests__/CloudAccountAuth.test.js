@@ -15,7 +15,7 @@ describe('CloudAccountAuth cookie utility', () => {
     });
 
     const loginStatus = CloudAccountAuthAPI.checkCookie();
-    expect(loginStatus).toStrictEqual('authenticated');
+    expect(loginStatus).toStrictEqual({ user: 'authenticated' });
   });
 
   it('should fetch the CloudAccountAuth cookie and return the anonymous string', () => {
@@ -25,6 +25,6 @@ describe('CloudAccountAuth cookie utility', () => {
     });
 
     const loginStatus = CloudAccountAuthAPI.checkCookie();
-    expect(loginStatus).toStrictEqual('anonymous');
+    expect(loginStatus).toStrictEqual({ user: 'anonymous' });
   });
 });
