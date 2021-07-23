@@ -11,7 +11,7 @@ import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 're
 import { customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
 import { VideoData, VideoPlayerAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/videoPlayerAPI.d';
 import { loadVideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/videoPlayerAPI';
@@ -162,7 +162,7 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
         throw new TypeError('Cannot find the video player component to put the video content into.');
       }
       videoPlayer.appendChild(div);
-      const embedVideoHandle = await VideoPlayerAPI.embedMedia(videoId, playerId);
+      const embedVideoHandle = await KalturaPlayerAPI.embedMedia(videoId, playerId);
       doc!.getElementById(playerId)!.dataset.videoId = videoId;
       return embedVideoHandle.kWidget();
     }

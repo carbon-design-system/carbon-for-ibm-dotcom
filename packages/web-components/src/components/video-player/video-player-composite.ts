@@ -10,7 +10,7 @@
 import { html, property, customElement, LitElement } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
@@ -166,7 +166,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
     } = this;
     const { [videoId]: currentVideoData = {} as VideoData } = videoData;
     const { duration, name } = currentVideoData;
-    const thumbnailUrl = VideoPlayerAPI.getThumbnailUrl({
+    const thumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
       mediaId: videoId,
       width: String(videoThumbnailWidth),
     });
