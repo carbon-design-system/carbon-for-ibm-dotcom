@@ -389,10 +389,10 @@
     .#{$prefix}--card__footer
     .#{$prefix}--card__cta__copy,
   :host(#{$dds-prefix}-card-cta-footer[color-scheme='inverse'])
-  .#{$dds-prefix}-ce--card__footer
-  ::slotted(svg[slot='icon']),
+    .#{$dds-prefix}-ce--card__footer
+    ::slotted(svg[slot='icon']),
   :host(#{$dds-prefix}-card-cta-footer[color-scheme='inverse'])
-  .#{$prefix}--card__cta__copy,
+    .#{$prefix}--card__cta__copy,
   :host(#{$dds-prefix}-card-footer[color-scheme='inverse'])
     .#{$dds-prefix}-ce--card__footer
     ::slotted(svg[slot='icon']),
