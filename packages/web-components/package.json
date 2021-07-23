@@ -1,6 +1,6 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "1.7.0-rc.1",
+  "version": "1.7.0-rc.2",
   "description": "Carbon for IBM.com Web Components",
   "license": "Apache-2.0",
   "exports": {
@@ -81,12 +81,12 @@
     "prettier": "^1.19.0"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "1.22.0-rc.0",
-    "@carbon/ibmdotcom-styles": "1.22.0-rc.1",
+    "@carbon/ibmdotcom-services": "1.22.0-rc.1",
+    "@carbon/ibmdotcom-styles": "1.22.0-rc.2",
     "@carbon/ibmdotcom-utilities": "1.22.0-rc.0",
     "@carbon/layout": "10.23.0",
     "@carbon/telemetry": "0.0.0-alpha.6",
-    "carbon-components": "10.39.0",
+    "carbon-components": "10.40.0",
     "carbon-web-components": "1.14.1",
     "lodash-es": "^4.17.0",
     "redux": "^4.0.0",
@@ -95,7 +95,7 @@
     "window-or-global": "^1.0.0"
   },
   "optionalDependencies": {
-    "@carbon/icons-react": "10.35.0",
+    "@carbon/icons-react": "10.36.0",
     "lodash.pickby": "^4.6.0",
     "prop-types": "^15.7.0",
     "react": "^16.10.0 || ^17.0.0",
@@ -118,10 +118,10 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/template": "^7.8.0",
     "@babel/traverse": "^7.8.0",
-    "@carbon/ibmdotcom-services-store": "1.22.0-rc.0",
-    "@carbon/icon-helpers": "10.19.0",
-    "@carbon/icons": "10.35.0",
-    "@carbon/type": "10.31.0",
+    "@carbon/ibmdotcom-services-store": "1.22.0-rc.1",
+    "@carbon/icon-helpers": "10.20.0",
+    "@carbon/icons": "10.36.0",
+    "@carbon/type": "10.32.0",
     "@open-wc/semantic-dom-diff": "^0.15.0",
     "@percy-io/in-percy": "^0.1.11",
     "@percy/cypress": "^3.1.0",
