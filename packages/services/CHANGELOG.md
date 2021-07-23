@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.22.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.22.0-rc.0...@carbon/ibmdotcom-services@1.22.0-rc.1) (2021-07-23)
+
+
+### Bug Fixes
+
+* **cloud-masthead:** hc-2086 properly form request return object ([#6714](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6714)) ([d1d5a47](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d1d5a47)), closes [#6703](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6703)
+
+
+
+
+
 # [1.22.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.21.0...@carbon/ibmdotcom-services@1.22.0-rc.0) (2021-07-16)
 
 
