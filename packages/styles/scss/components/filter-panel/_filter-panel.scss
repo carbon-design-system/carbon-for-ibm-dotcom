@@ -47,7 +47,6 @@
     cursor: pointer;
     padding: $spacing-03 $spacing-05;
     color: $text-02;
-    @include use-carbon-productive-tokens();
     @include carbon--type-style('body-short-01');
 
     &:hover {
@@ -93,7 +92,6 @@
     border: 0;
     color: $link-01;
     background-color: $ui-01;
-    @include use-carbon-productive-tokens();
     @include carbon--type-style('body-short-01');
   }
 
@@ -144,7 +142,6 @@
 
   :host(#{$dds-prefix}-filter-panel-composite) {
     .#{$prefix}--filter-button {
-      @include use-carbon-productive-tokens();
       @include carbon--type-style('body-short-01');
 
       cursor: pointer;
@@ -170,7 +167,6 @@
     padding-left: rem(14px);
     padding-bottom: rem(6px);
     @extend :host(#{$prefix}-checkbox);
-    @include use-carbon-productive-tokens();
     @include carbon--type-style('body-short-01');
 
     color: $text-02;
@@ -207,7 +203,6 @@
   }
 
   :host(#{$dds-prefix}-filter-panel-input-select-item) {
-    @include use-carbon-productive-tokens();
     @include carbon--type-style('body-short-01');
 
     background-color: $ui-01;
@@ -239,7 +234,6 @@
   }
 
   :host(#{$dds-prefix}-filter-panel-heading) {
-    @include use-carbon-productive-tokens();
     @include carbon--type-style('heading-01');
     @include carbon--breakpoint('sm') {
       margin-left: $spacing-05;
@@ -279,7 +273,6 @@
     }
 
     .#{$prefix}--accordion__title {
-      @include use-carbon-productive-tokens();
       @include carbon--type-style('heading-01');
     }
 
@@ -306,7 +299,6 @@
   }
 
   :host(#{$dds-prefix}-filter-modal-heading) {
-    @include use-carbon-productive-tokens();
     @include carbon--type-style('heading-01');
 
     display: block;
