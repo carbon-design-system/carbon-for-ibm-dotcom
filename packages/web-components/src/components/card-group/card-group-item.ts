@@ -37,6 +37,13 @@ class DDSCardGroupItem extends DDSCardCTA {
     return `${ddsPrefix}--card-group-item`;
   }
 
+  /**
+   * A selector that will return the child footer.
+   */
+  static get selectorFooter() {
+    return `${ddsPrefix}-card-cta-footer`;
+  }
+
   static styles = styles;
 }
 
