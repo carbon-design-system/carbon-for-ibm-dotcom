@@ -73,7 +73,7 @@
       position: fixed;
       left: 0;
       // TODO: come up with solution to fix height for cloud drupal without hardcoding
-      height: calc(100vh - $spacing-10 - $spacing-09);
+      height: calc(100vh - #{$spacing-10} - #{$spacing-09});
       transform: translateZ(0);
       visibility: visible;
       margin-bottom: $layout-05;
