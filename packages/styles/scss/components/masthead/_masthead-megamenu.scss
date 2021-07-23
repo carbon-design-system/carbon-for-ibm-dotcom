@@ -16,6 +16,7 @@
     }
 
     100% {
+      overflow-y: auto;
       max-height: 100%;
     }
   }
@@ -72,6 +73,7 @@
       + .#{$prefix}--header__menu {
       position: fixed;
       left: 0;
+      height: calc(100vh - 64px - 48px);
       transform: translateZ(0);
       visibility: visible;
       margin-bottom: $layout-05;
