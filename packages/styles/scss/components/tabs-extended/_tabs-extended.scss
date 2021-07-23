@@ -29,6 +29,10 @@
         width: $spacing-13;
         height: auto;
 
+        p {
+          @include carbon--type-style('body-long-01', true);
+        }
+
         &:hover:not(.bx--tabs__nav-item--disabled) {
           box-shadow: none;
         }

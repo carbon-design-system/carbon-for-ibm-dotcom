@@ -64,7 +64,6 @@
   }
 
   .#{$prefix}--btn {
-    @include use-carbon-productive-tokens();
     @include carbon--type-style('body-short-01');
 
     max-width: none;
