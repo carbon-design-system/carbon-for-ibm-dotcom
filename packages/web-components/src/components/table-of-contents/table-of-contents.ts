@@ -306,8 +306,20 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
    */
   private _handleUserInitiatedJump(target: string) {
     const elem = this.querySelector(`a[name="${target}"]`);
-    elem?.scrollIntoView();
-    if (elem) {
+    const masthead = this.ownerDocument.querySelector('dds-masthead');
+
+    if (elem instanceof HTMLElement) {
+      const currentY = window.scrollY;
+      let targetY;
+
+      if (currentY > elem.offsetTop && masthead) {
+        targetY = elem.offsetTop - 48;
+      } else {
+        targetY = elem.offsetTop;
+      }
+
+      window.scrollTo(0, targetY);
+
       elem.setAttribute('tabindex', '0');
       (elem as HTMLElement).focus({ preventScroll: true });
       elem.removeAttribute('tabindex');
