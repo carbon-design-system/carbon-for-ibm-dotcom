@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -151,7 +151,7 @@ describe('VideoPlayerAPI', () => {
 
   it('should return the video duration', async () => {
     const duration = 60000;
-    const time = VideoPlayerAPI.getVideoDuration(duration);
+    const time = VideoPlayerAPI.getVideoDuration(duration, true);
 
     expect(time).toEqual('(1:00)');
   });
