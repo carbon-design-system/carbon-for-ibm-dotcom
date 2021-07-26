@@ -13,9 +13,9 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
-import { VideoData, VideoPlayerAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/videoPlayerAPI.d';
-import { loadVideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/videoPlayerAPI';
-import { VideoPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/videoPlayerAPI.d';
+import { MediaData, MediaPlayerAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
+import { loadMediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI';
+import { MediaPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI.d';
 import { Constructor } from '../../globals/defs';
 import ConnectMixin from '../../globals/mixins/connect';
 import DDSVideoPlayerComposite from './video-player-composite';
@@ -28,9 +28,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 export interface VideoPlayerContainerState {
   /**
-   * The Redux state for `VideoPlayerAPI`.
+   * The Redux state for `KalturaPlayerAPI`.
    */
-  videoPlayerAPI?: VideoPlayerAPIState;
+  videoPlayerAPI?: MediaPlayerAPIState;
 }
 
 /**
@@ -40,10 +40,10 @@ export interface VideoPlayerContainerStateProps {
   /**
    * The video data, keyed by the video ID.
    */
-  videoData?: { [videoId: string]: VideoData };
+  mediaData?: { [videoId: string]: MediaData };
 }
 
-export type VideoPlayerActions = ReturnType<typeof loadVideoData>;
+export type VideoPlayerActions = ReturnType<typeof loadMediaData>;
 
 /**
  * @param state The Redux state for video player.
@@ -51,18 +51,18 @@ export type VideoPlayerActions = ReturnType<typeof loadVideoData>;
  */
 export function mapStateToProps(state: VideoPlayerContainerState): VideoPlayerContainerStateProps {
   const { videoPlayerAPI } = state;
-  const { videoData } = videoPlayerAPI ?? {};
-  return !videoData ? {} : { videoData };
+  const { mediaData } = videoPlayerAPI ?? {};
+  return !mediaData ? {} : { mediaData };
 }
 
 /**
  * @param dispatch The Redux `dispatch()` API.
  * @returns The methods in `<dds-video-player-container>` to dispatch Redux actions.
  */
-export function mapDispatchToProps(dispatch: Dispatch<VideoPlayerAPIActions>) {
+export function mapDispatchToProps(dispatch: Dispatch<MediaPlayerAPIActions>) {
   return bindActionCreators<VideoPlayerActions, ActionCreatorsMapObject<VideoPlayerActions>>(
     {
-      _loadVideoData: loadVideoData,
+      _loadVideoData: loadMediaData,
     },
     dispatch as Dispatch // TS definition of `bindActionCreators()` seems to have no templated `Dispatch`
   );
@@ -201,11 +201,11 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
 @customElement(`${ddsPrefix}-video-player-container`)
 class DDSVideoPlayerContainer extends ConnectMixin<
   VideoPlayerContainerState,
-  VideoPlayerAPIActions,
+  MediaPlayerAPIActions,
   VideoPlayerContainerStateProps,
   ActionCreatorsMapObject<VideoPlayerActions>
 >(
-  store as Store<VideoPlayerContainerState, VideoPlayerAPIActions>,
+  store as Store<VideoPlayerContainerState, MediaPlayerAPIActions>,
   mapStateToProps,
   mapDispatchToProps
 )(DDSVideoPlayerContainerMixin(DDSVideoPlayerComposite)) {}

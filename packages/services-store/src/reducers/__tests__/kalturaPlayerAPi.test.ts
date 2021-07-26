@@ -1,40 +1,40 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { VIDEO_PLAYER_API_ACTION, VideoData, VideoPlayerAPIState } from '../../types/videoPlayerAPI';
-import { VideoPlayerAPIActions } from '../../actions/videoPlayerAPI';
+import { MEDIA_PLAYER_API_ACTION, MediaData, MediaPlayerAPIState } from '../../types/kalturaPlayerAPI';
+import { MediaPlayerAPIActions } from '../../actions/kalturaPlayerAPI';
 import convertValue from '../../../tests/utils/convert-value';
-import reducer from '../videoPlayerAPI';
+import reducer from '../kalturaPlayerAPI';
 
-const mockVideoData: Partial<VideoData> = {
+const mockMediaData: Partial<MediaData> = {
   name: 'name-foo',
   description: 'description-foo',
   duration: 120,
 };
 
-describe('Redux reducers for `VideoPlayerAPI`', () => {
+describe('Redux reducers for `KalturaPlayerAPI`', () => {
   it('should return the state unmodified for unknown action', () => {
     const state = {
-      videoData: {
-        'video-id-foo': mockVideoData as VideoData,
+      mediaData: {
+        'video-id-foo': mockMediaData as MediaData,
       },
     };
-    expect(reducer(state, {} as VideoPlayerAPIActions)).toEqual(state);
+    expect(reducer(state, {} as MediaPlayerAPIActions)).toEqual(state);
   });
 
   it('should support starting the spinner for loading video data', () => {
-    const request = Promise.resolve(mockVideoData as VideoData);
+    const request = Promise.resolve(mockMediaData as MediaData);
     expect(
       convertValue(
-        reducer({} as VideoPlayerAPIState, {
-          type: VIDEO_PLAYER_API_ACTION.SET_REQUEST_VIDEO_DATA_IN_PROGRESS,
-          videoId: 'video-id-foo',
+        reducer({} as MediaPlayerAPIState, {
+          type: MEDIA_PLAYER_API_ACTION.SET_REQUEST_MEDIA_DATA_IN_PROGRESS,
+          mediaId: 'video-id-foo',
           request,
         })
       )
@@ -51,17 +51,17 @@ describe('Redux reducers for `VideoPlayerAPI`', () => {
   it('should support setting error in loading video data', () => {
     expect(
       convertValue(
-        reducer({} as VideoPlayerAPIState, {
-          type: VIDEO_PLAYER_API_ACTION.SET_ERROR_REQUEST_VIDEO_DATA,
-          videoId: 'video-id-foo',
+        reducer({} as MediaPlayerAPIState, {
+          type: MEDIA_PLAYER_API_ACTION.SET_ERROR_REQUEST_MEDIA_DATA,
+          mediaId: 'video-id-foo',
           error: new Error('error-getvideodata'),
         })
       )
     ).toEqual({
-      requestsVideoDataInProgress: {
+      requestsMediaDataInProgress: {
         'video-id-foo': false,
       },
-      errorsRequestVideoData: {
+      errorsRequestMediaData: {
         'video-id-foo': 'error-getvideodata',
       },
     });
@@ -70,21 +70,21 @@ describe('Redux reducers for `VideoPlayerAPI`', () => {
   it('should support setting loaded video data', () => {
     expect(
       convertValue(
-        reducer({} as VideoPlayerAPIState, {
-          type: VIDEO_PLAYER_API_ACTION.SET_VIDEO_DATA,
-          videoId: 'video-id-foo',
-          videoData: mockVideoData as VideoData,
+        reducer({} as MediaPlayerAPIState, {
+          type: MEDIA_PLAYER_API_ACTION.SET_MEDIA_DATA,
+          mediaId: 'video-id-foo',
+          mediaData: mockMediaData as MediaData,
         })
       )
     ).toEqual({
-      requestsVideoDataInProgress: {
+      requestsMediaDataInProgress: {
         'video-id-foo': false,
       },
-      requestsVideoData: {
+      requestsMediaData: {
         'video-id-foo': 'PROMISE',
       },
-      videoData: {
-        'video-id-foo': mockVideoData,
+      mediaData: {
+        'video-id-foo': mockMediaData,
       },
     });
   });

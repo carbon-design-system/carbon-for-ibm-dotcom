@@ -8,7 +8,6 @@
  */
 
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
-import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
 import convertValue from '../../../../tests/utils/convert-value';
 import { DDSVideoPlayerContainerMixin } from '../video-player-container';
 
@@ -36,7 +35,7 @@ describe('dds-video-player-container', function() {
     });
 
     it('should make an API call to embed video', async function() {
-      spyOn(VideoPlayerAPI, 'embedMedia').and.callFake(async () => ({
+      spyOn(KalturaPlayerAPI, 'embedMedia').and.callFake(async () => ({
         async kWidget() {
           return 'kwidget-foo';
         },
@@ -53,7 +52,7 @@ describe('dds-video-player-container', function() {
     });
 
     it('caches the embedded video', async () => {
-      spyOn(VideoPlayerAPI, 'embedVideo').and.callFake(async () => ({
+      spyOn(KalturaPlayerAPI, 'embedVideo').and.callFake(async () => ({
         async kWidget() {
           return 'kwidget-foo';
         },
@@ -94,7 +93,7 @@ describe('dds-video-player-container', function() {
     });
 
     it('caches the error in embeddeding video', async function() {
-      spyOn(VideoPlayerAPI, 'embedVideo').and.callFake(async () => {
+      spyOn(KalturaPlayerAPI, 'embedMedia').and.callFake(async () => {
         throw new Error('error-embedvideo');
       });
       videoPlayerContainer._requestsEmbedVideo = {
