@@ -208,12 +208,24 @@ function _buildExamples() {
     });
 
     // replace the CDN artifact before it's moved
-    const contents = fs.readFileSync(`${_exampleBuild}/components/${example}/dist/cdn.html`, 'utf8');
+    const cdnFile = `${_exampleBuild}/components/${example}/dist/cdn.html`;
+    const contents = fs.readFileSync(cdnFile, 'utf8');
     const contentsFinal = contents.replace(
       /https?:.\/1.www.s81c.com\/common\/carbon-for-ibm-dotcom\/tag\/v1\/canary\//g,
       '../cdn/'
     );
-    fs.writeFileSync(`${_exampleBuild}/components/${example}/dist/cdn.html`, contentsFinal);
+    fs.writeFileSync(cdnFile, contentsFinal);
+
+    // replace the CDN RTL version if it exists
+    const cdnRtlFile = `${_exampleBuild}/components/${example}/dist/cdn-rtl.html`;
+    if (fs.existsSync(cdnRtlFile)) {
+      const contentsRTL = fs.readFileSync(cdnRtlFile, 'utf8');
+      const contentsRTLFinal = contentsRTL.replace(
+        /https?:.\/1.www.s81c.com\/common\/carbon-for-ibm-dotcom\/tag\/v1\/canary\//g,
+        '../cdn/'
+      );
+      fs.writeFileSync(cdnRtlFile, contentsRTLFinal);
+    }
 
     // Copying dist output
     log(chalk.green(`Copying ${example} to dist...`));

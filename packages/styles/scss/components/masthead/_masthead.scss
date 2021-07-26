@@ -190,6 +190,7 @@ $search-transition-timing: 95ms;
     background-color: $overlay-01;
     visibility: visible;
     opacity: 1;
+    height: 100vh;
   }
 
   :host(#{$dds-prefix}-megamenu-link-with-icon) {

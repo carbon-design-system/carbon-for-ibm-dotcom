@@ -53,7 +53,6 @@
       position: fixed;
       display: block;
       visibility: hidden;
-      min-height: carbon--mini-units(40);
       margin-bottom: $layout-05;
       left: 0;
       width: 100vw;
@@ -73,12 +72,15 @@
       + .#{$prefix}--header__menu {
       position: fixed;
       left: 0;
+      // TODO: come up with solution to fix height for cloud drupal without hardcoding
+      height: calc(100vh - #{$spacing-10} - #{$spacing-09});
       transform: translateZ(0);
       visibility: visible;
       margin-bottom: $layout-05;
       // `100vw` in Shadow DOM causes delayed rendering bug in Safari
       // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4493
       width: var(--#{$dds-prefix}-ce--viewport-width, 100vw);
+      min-height: carbon--mini-units(40);
 
       ::slotted(#{$dds-prefix}-megamenu),
       ::slotted(#{$dds-prefix}-cloud-megamenu),
