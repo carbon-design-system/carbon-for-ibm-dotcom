@@ -17,7 +17,6 @@ import readme from './README.stories.react.mdx';
 
 export const Default = ({ parameters }) => {
   const { href, leavingIbmButtonLabel, leavingIbmCopy, open } = parameters?.props?.LeavingIbmComposite ?? {};
-  console.log('params', parameters.props.LeavingIbmComposite);
   const { useMock } = parameters?.props?.Other ?? {};
   return useMock ? (
     <DDSLeavingIbmComposite
