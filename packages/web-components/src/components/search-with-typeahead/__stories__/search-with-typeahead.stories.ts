@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit-element';
-import '../search-with-typeahead';
+import '../index';
 import readme from './README.stories.mdx';
 
 export const Default = () => html`
