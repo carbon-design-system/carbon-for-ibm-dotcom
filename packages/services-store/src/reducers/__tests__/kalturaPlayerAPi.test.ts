@@ -39,10 +39,10 @@ describe('Redux reducers for `KalturaPlayerAPI`', () => {
         })
       )
     ).toEqual({
-      requestsVideoDataInProgress: {
+      requestsMediaDataInProgress: {
         'video-id-foo': true,
       },
-      requestsVideoData: {
+      requestsMediaData: {
         'video-id-foo': 'PROMISE',
       },
     });

@@ -15,7 +15,7 @@ import { MEDIA_PLAYER_API_ACTION, MediaData, MediaPlayerAPIState } from '../../t
 import { setMediaData, loadMediaData } from '../kalturaPlayerAPI';
 import convertValue from '../../../tests/utils/convert-value';
 
-jest.mock('@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer');
+jest.mock('@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer');
 
 const mockStore = configureMockStore<
   { mediaPlayerAPI: MediaPlayerAPIState },
@@ -85,12 +85,12 @@ describe('Redux actions for `TranslateAPI`', () => {
     expect(convertValue(store.getActions())).toEqual([
       {
         type: MEDIA_PLAYER_API_ACTION.SET_REQUEST_MEDIA_DATA_IN_PROGRESS,
-        videoId: 'video-id-foo',
+        mediaId: 'video-id-foo',
         request: 'PROMISE',
       },
       {
         type: MEDIA_PLAYER_API_ACTION.SET_ERROR_REQUEST_MEDIA_DATA,
-        videoId: 'video-id-foo',
+        mediaId: 'video-id-foo',
         error: 'error-getvideodata',
       },
     ]);
