@@ -39,6 +39,13 @@ class DDSFeatureCard extends DDSCard {
     }
   }
 
+  /**
+   * A selector that will return the child footer.
+   */
+  static get selectorFooter() {
+    return `${ddsPrefix}-feature-card-footer`;
+  }
+
   static styles = styles;
 }
 
