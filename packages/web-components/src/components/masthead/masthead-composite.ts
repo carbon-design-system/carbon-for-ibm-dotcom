@@ -55,7 +55,8 @@ import './left-nav-menu-section';
 import './left-nav-menu-item';
 import './left-nav-menu-category-heading';
 import './left-nav-overlay';
-import './masthead-search-composite';
+import '../search-with-typeahead/search-with-typeahead';
+import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -740,7 +741,7 @@ class DDSMastheadComposite extends LitElement {
         ${!hasSearch
           ? undefined
           : html`
-              <dds-masthead-search-composite
+              <dds-search-with-typeahead
                 ?active="${activateSearch}"
                 input-timeout="${inputTimeout}"
                 language="${ifNonNull(language)}"
@@ -749,7 +750,7 @@ class DDSMastheadComposite extends LitElement {
                 placeholder="${ifNonNull(searchPlaceholder)}"
                 .currentSearchResults="${ifNonNull(currentSearchResults)}"
                 ._loadSearchResults="${ifNonNull(loadSearchResults)}"
-              ></dds-masthead-search-composite>
+              ></dds-search-with-typeahead>
             `}
         <dds-masthead-global-bar>
           ${!hasProfile

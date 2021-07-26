@@ -390,7 +390,7 @@ class DDSSearchWithTypeahead extends StableSelectorMixin(BXDropdown) {
         >
           ${this._renderTriggerContent()}
           <div id="result-list" class="react-autosuggest__suggestions-container">
-            <ul role="listbox" class="${ddsPrefix}-ce--masthead__search__list react-autosuggest__suggestions-list">
+            <ul role="listbox" class="${ddsPrefix}-ce__search__list react-autosuggest__suggestions-list">
               ${this.searchResults &&
                 this.searchResults.map(
                   item =>
