@@ -430,7 +430,6 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
                       <dds-search-with-typeahead-item text="${item[0]}"></dds-search-with-typeahead-item>
                     `
                 )}
-              <slot></slot>
             </ul>
           </div>
         </div>

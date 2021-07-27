@@ -19,8 +19,6 @@ export const Default = () => {
   return <DDSSearchWithTypeahead should-remain-open={true} active={true}></DDSSearchWithTypeahead>;
 };
 
-Default.story = {};
-
 export default {
   title: 'Components/Search with typeahead',
   decorators: [
