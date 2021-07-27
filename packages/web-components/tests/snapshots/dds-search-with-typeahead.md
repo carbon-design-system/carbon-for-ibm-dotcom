@@ -1,4 +1,4 @@
-# `dds-masthead-search`
+# `dds-search-with-typeahead`
 
 ## `Misc attributes`
 
@@ -92,7 +92,7 @@
       id="result-list"
     >
       <ul
-        class="dds-ce--masthead__search__list react-autosuggest__suggestions-list"
+        class="dds-ce__search__list react-autosuggest__suggestions-list"
         role="listbox"
       >
         <slot>

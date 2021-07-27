@@ -237,7 +237,7 @@ class DDSSearchWithTypeahead extends StableSelectorMixin(BXDropdown) {
   private _handleSubmit(event: Event) {
     const { selectorItemHighlighted } = this.constructor as typeof BXDropdown;
     const highlightedItem = this.shadowRoot!.querySelector(selectorItemHighlighted) as BXDropdownItem;
-    if (highlightedItem) {
+    if (highlightedItem || !this._searchInputNode.value) {
       event.preventDefault();
     }
   }
@@ -398,6 +398,7 @@ class DDSSearchWithTypeahead extends StableSelectorMixin(BXDropdown) {
                       <dds-search-with-typeahead-item text="${item[0]}"></dds-search-with-typeahead-item>
                     `
                 )}
+              <slot></slot>
             </ul>
           </div>
         </div>
@@ -497,9 +498,6 @@ class DDSSearchWithTypeahead extends StableSelectorMixin(BXDropdown) {
 
   firstUpdated() {
     this._setSearchParam();
-    if (this.searchOpenOnload) {
-      this._handleUserInitiatedToggleActiveState(true);
-    }
   }
 
   render() {
