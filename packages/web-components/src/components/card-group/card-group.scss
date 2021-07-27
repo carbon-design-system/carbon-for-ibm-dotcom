@@ -13,40 +13,46 @@
 @import '@carbon/ibmdotcom-styles/scss/components/card-group/card-group';
 
 :host(#{$dds-prefix}-card-group) {
-  background-color: $decorative-01;
-  box-shadow: inset 0 0 0 1px $ui-background;
+  background: none;
 
   /* stylelint-disable-next-line selector-type-no-unknown */
-  dds-card-group-item[empty] {
+  #{$dds-prefix}-card-group-item[empty] {
     background-color: $ui-background;
-    margin-left: -1px;
-    margin-top: -1px;
+    outline: 1px solid $ui-background;
+  }
+
+  ::slotted(#{$dds-prefix}-card-group-item) {
+    background-color: $decorative-01;
+  }
+
+  ::slotted(#{$dds-prefix}-card-group-item[empty]) {
+    background-color: transparent;
   }
 }
 
 :host(#{$dds-prefix}-card-group)[grid-mode='border'] {
   background: var(--#{$dds-prefix}--card-group-gradient, $decorative-01);
-  box-shadow: none;
 
   /* stylelint-disable-next-line selector-type-no-unknown */
-  dds-card-group-item[empty] {
-    margin-top: 0;
-    margin-left: 0;
+  #{$dds-prefix}-card-group-item[empty] {
+    outline: none;
+  }
+
+  ::slotted(#{$dds-prefix}-card-group-item) {
+    background-color: transparent;
   }
 }
 
-:host(#{$dds-prefix}-card-group)[grid-mode='narrow'] {
-  background-color: inherit;
-  box-shadow: inset 0 0 0 1px $ui-background;
-}
-
 :host(#{$dds-prefix}-card-group-item) {
-  background: transparent;
   padding-bottom: 1px;
   padding-right: 1px;
 
   &:hover {
     background: none;
+  }
+
+  &[border] {
+    border: none;
   }
 
   &[empty] {
@@ -56,13 +62,20 @@
       display: block;
     }
 
-    .bx--card__wrapper {
-      background: $ui-background;
+    .#{$prefix}--card__wrapper {
       height: 100%;
     }
 
-    &:hover {
-      .bx--card__wrapper {
+    .#{$prefix}--card,
+    .#{$prefix}--card__wrapper,
+    &:hover,
+    &:hover .#{$prefix}--card__wrapper {
+      background: transparent;
+    }
+
+    &[border],
+    &[border]:hover {
+      .#{$prefix}--card__wrapper {
         background: $ui-background;
       }
     }

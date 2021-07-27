@@ -153,6 +153,12 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
   private _targets: HTMLAnchorElement[] = [];
 
   /**
+   * Boolean checking if page is RTL
+   */
+  @internalProperty()
+  private _pageIsRTL: Boolean = this.ownerDocument!.documentElement.dir === 'rtl';
+
+  /**
    * The handler for throttled scrolling
    */
   private _throttleScroll: (((event: Event) => void) & Cancelable) | null = null;
@@ -361,24 +367,35 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
    * Handles `click` event on the left-hand paginator button.
    */
   private _paginateLeft() {
-    const { _currentScrollPosition: currentScrollPosition, _navBar: navBar, _itemNodes: itemNodes } = this;
+    const { _currentScrollPosition: currentScrollPosition, _navBar: navBar, _itemNodes: itemNodes, _pageIsRTL: pageIsRTL } = this;
     // If the right-side intersection sentinel is in the view, it means that right-side caret button is hidden.
     // Given scrolling to left makes it shown,
     // `contentContainerNode!.offsetWidth` will shrink as we scroll and we need to adjust for it.
     const elems = Array.prototype.slice.call(itemNodes);
     if (elems) {
-      // 32 = total button width - grid offset
-      const lastVisibleElementIndex = findLastIndex(
-        elems,
-        elem => elem.getBoundingClientRect().left < 32 + navBar!.getBoundingClientRect().left
-      );
-      if (lastVisibleElementIndex >= 0) {
-        const lastVisibleElementRight = elems[lastVisibleElementIndex].getBoundingClientRect().right;
-        const newScrollPosition = lastVisibleElementRight + currentScrollPosition - navBar!.getBoundingClientRect().right + 32;
-        // If the new scroll position is less than the width of the left caret button,
-        // it means that hiding the left caret button reveals the whole of the left-most nav item.
-        // Snaps the left-most nav item to the left edge of nav container in this case.
-        this._currentScrollPosition = newScrollPosition <= 0 ? 0 : newScrollPosition;
+      if (pageIsRTL) {
+        const interimLeft = navBar!.getBoundingClientRect().right;
+        const lastVisibleElementIndex = findLastIndex(elems, elem => elem.getBoundingClientRect().right > interimLeft - 32);
+        if (lastVisibleElementIndex >= 0) {
+          const lastVisibleElementRight = elems[lastVisibleElementIndex].getBoundingClientRect().left;
+          // 48 = button width - button gradient
+          const newScrollPosition = currentScrollPosition - lastVisibleElementRight + 48;
+          this._currentScrollPosition = newScrollPosition <= 0 ? 0 : newScrollPosition;
+        }
+      } else {
+        // 32 = total button width - grid offset
+        const lastVisibleElementIndex = findLastIndex(
+          elems,
+          elem => elem.getBoundingClientRect().left < 32 + navBar!.getBoundingClientRect().left
+        );
+        if (lastVisibleElementIndex >= 0) {
+          const lastVisibleElementRight = elems[lastVisibleElementIndex].getBoundingClientRect().right;
+          const newScrollPosition = lastVisibleElementRight + currentScrollPosition - navBar!.getBoundingClientRect().right + 32;
+          // If the new scroll position is less than the width of the left caret button,
+          // it means that hiding the left caret button reveals the whole of the left-most nav item.
+          // Snaps the left-most nav item to the left edge of nav container in this case.
+          this._currentScrollPosition = newScrollPosition <= 0 ? 0 : newScrollPosition;
+        }
       }
     }
   }
@@ -392,19 +409,33 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
       _contentNode: contentNode,
       _currentScrollPosition: currentScrollPosition,
       _itemNodes: itemNodes,
+      _pageIsRTL: pageIsRTL,
     } = this;
-    const interimLeft = navBar!.getBoundingClientRect().right;
+
     const elems = Array.prototype.slice.call(itemNodes);
     if (elems) {
-      // 32 = total button width - grid offset
-      const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().right > interimLeft - 32);
-      if (firstVisibleElementIndex > 0) {
-        const firstVisibleElementLeft =
-          elems[firstVisibleElementIndex].getBoundingClientRect().left - navBar!.getBoundingClientRect().left - 32;
-        // Ensures that is there is no blank area at the right hand side in scroll area
-        // if we see the right remainder nav items can be contained in a page
-        const maxLeft = contentNode!.scrollWidth - navBar!.offsetWidth;
-        this._currentScrollPosition = Math.min(firstVisibleElementLeft + currentScrollPosition, maxLeft);
+      if (pageIsRTL) {
+        const interimLeft = navBar!.getBoundingClientRect().left;
+        const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().left < interimLeft + 32);
+        if (firstVisibleElementIndex > 0) {
+          const firstVisibleElementLeft = Math.abs(
+            elems[firstVisibleElementIndex].getBoundingClientRect().right + 32 - navBar!.getBoundingClientRect().right
+          );
+          const maxLeft = contentNode!.scrollWidth - navBar!.offsetWidth;
+          this._currentScrollPosition = Math.min(firstVisibleElementLeft + currentScrollPosition, maxLeft);
+        }
+      } else {
+        const interimRight = navBar!.getBoundingClientRect().right;
+        // 32 = total button width - grid offset
+        const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().right > interimRight - 32);
+        if (firstVisibleElementIndex > 0) {
+          const firstVisibleElementLeft =
+            elems[firstVisibleElementIndex].getBoundingClientRect().left - navBar!.getBoundingClientRect().left - 32;
+          // Ensures that is there is no blank area at the right hand side in scroll area
+          // if we see the right remainder nav items can be contained in a page
+          const maxLeft = contentNode!.scrollWidth - navBar!.offsetWidth;
+          this._currentScrollPosition = Math.min(firstVisibleElementLeft + currentScrollPosition, maxLeft);
+        }
       }
     }
   }
@@ -488,6 +519,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
       _handleSlotChangeHeading: handleSlotChangeHeading,
       _paginateLeft: paginateLeft,
       _paginateRight: paginateRight,
+      _pageIsRTL: pageIsRTL,
     } = this;
 
     const containerClasses = classMap({
@@ -528,18 +560,35 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
           <div class="${prefix}--tableofcontents__mobile-top"></div>
           ${this.layout === 'horizontal'
             ? html`
-                <div class="${caretLeftContainerClasses}">
-                  <button
-                    part="prev-button"
-                    tabindex="-1"
-                    aria-hidden="true"
-                    class="${prefix}--toc__navbar-caret-left"
-                    @click="${paginateLeft}"
-                  >
-                    ${CaretLeft20()}
-                  </button>
-                  <div class="${prefix}--toc__navbar-caret-left-gradient"></div>
-                </div>
+                ${pageIsRTL
+                  ? html`
+                      <div class="${caretRightContainerClasses}">
+                        <div class="${prefix}--toc__navbar-caret-right-gradient"></div>
+                        <button
+                          part="next-button"
+                          tabindex="-1"
+                          aria-hidden="true"
+                          class="${prefix}--toc__navbar-caret-right"
+                          @click="${paginateRight}"
+                        >
+                          ${CaretLeft20()}
+                        </button>
+                      </div>
+                    `
+                  : html`
+                      <div class="${caretLeftContainerClasses}">
+                        <button
+                          part="prev-button"
+                          tabindex="-1"
+                          aria-hidden="true"
+                          class="${prefix}--toc__navbar-caret-left"
+                          @click="${paginateLeft}"
+                        >
+                          ${CaretLeft20()}
+                        </button>
+                        <div class="${prefix}--toc__navbar-caret-left-gradient"></div>
+                      </div>
+                    `}
               `
             : ``}
           <div
@@ -547,8 +596,17 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
             style="position: sticky; top: ${stickyOffset && this.layout !== 'horizontal' ? `${stickyOffset}px` : 0}"
           >
             <div class="${prefix}--tableofcontents__desktop-container">
-              <div class="${prefix}--tableofcontents__desktop" style="left: -${currentScrollPosition}px">
-                <div class="${prefix}--sub-content-left"></div>
+              <div
+                class="${prefix}--tableofcontents__desktop"
+                style="${pageIsRTL ? 'right' : 'left'}: -${currentScrollPosition}px"
+              >
+                ${pageIsRTL
+                  ? html`
+                      <div class="${prefix}--sub-content-right"></div>
+                    `
+                  : html`
+                      <div class="${prefix}--sub-content-left"></div>
+                    `}
                 <ul>
                   ${targets.map(item => {
                     const name = item.getAttribute('name');
@@ -567,7 +625,13 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
                     `;
                   })}
                 </ul>
-                <div class="${prefix}--sub-content-right"></div>
+                ${pageIsRTL
+                  ? html`
+                      <div class="${prefix}--sub-content-left"></div>
+                    `
+                  : html`
+                      <div class="${prefix}--sub-content-right"></div>
+                    `}
               </div>
             </div>
             <div class="${prefix}--tableofcontents__mobile">
@@ -591,18 +655,35 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
           </div>
           ${this.layout === 'horizontal'
             ? html`
-                <div class="${caretRightContainerClasses}">
-                  <div class="${prefix}--toc__navbar-caret-right-gradient"></div>
-                  <button
-                    part="next-button"
-                    tabindex="-1"
-                    aria-hidden="true"
-                    class="${prefix}--toc__navbar-caret-right"
-                    @click="${paginateRight}"
-                  >
-                    ${CaretRight20()}
-                  </button>
-                </div>
+                ${pageIsRTL
+                  ? html`
+                      <div class="${caretLeftContainerClasses}">
+                        <button
+                          part="prev-button"
+                          tabindex="-1"
+                          aria-hidden="true"
+                          class="${prefix}--toc__navbar-caret-left"
+                          @click="${paginateLeft}"
+                        >
+                          ${CaretRight20()}
+                        </button>
+                        <div class="${prefix}--toc__navbar-caret-left-gradient"></div>
+                      </div>
+                    `
+                  : html`
+                      <div class="${caretRightContainerClasses}">
+                        <div class="${prefix}--toc__navbar-caret-right-gradient"></div>
+                        <button
+                          part="next-button"
+                          tabindex="-1"
+                          aria-hidden="true"
+                          class="${prefix}--toc__navbar-caret-right"
+                          @click="${paginateRight}"
+                        >
+                          ${CaretRight20()}
+                        </button>
+                      </div>
+                    `}
               `
             : ``}
         </div>

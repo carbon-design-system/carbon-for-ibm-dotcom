@@ -42,7 +42,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    *
    * @internal
    */
-  _embedVideo?: (videoId: string) => Promise<any>;
+  _embedMedia?: (videoId: string) => Promise<any>;
 
   /**
    * Activate the DOM nodes for the embedded video of the given video ID, and deactivates others.
@@ -74,7 +74,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   protected _handleContentStateChange(event: CustomEvent) {
     const { contentState, playingMode, videoId } = event.detail;
     if (contentState === VIDEO_PLAYER_CONTENT_STATE.VIDEO && playingMode === VIDEO_PLAYER_PLAYING_MODE.INLINE && videoId) {
-      this._embedVideo?.(videoId);
+      this._embedMedia?.(videoId);
     }
   }
 
@@ -147,7 +147,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
       if (videoId) {
         this._loadVideoData?.(videoId);
         if (autoPlay) {
-          this._embedVideo?.(videoId);
+          this._embedMedia?.(videoId);
         }
       }
     }
@@ -167,7 +167,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
     const { [videoId]: currentVideoData = {} as VideoData } = videoData;
     const { duration, name } = currentVideoData;
     const thumbnailUrl = VideoPlayerAPI.getThumbnailUrl({
-      videoId,
+      mediaId: videoId,
       width: String(videoThumbnailWidth),
     });
     return html`

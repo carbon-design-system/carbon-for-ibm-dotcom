@@ -5,7 +5,7 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--feature-section bx--grid">
+<div class="bx--card bx--feature-card__card bx--feature-section bx--grid bx--tile">
   <div class="bx--feature-section__container bx--row">
     <div class="bx--col-lg-8 bx--col-md-8 bx--col-sm-4 bx--feature-section__body">
       <div class="bx--grid">
@@ -35,7 +35,7 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--feature-section bx--grid">
+<div class="bx--card bx--feature-card__card bx--feature-section bx--grid bx--tile">
   <div class="bx--feature-section__container bx--row">
     <div class="bx--col-lg-8 bx--col-md-8 bx--col-sm-4 bx--feature-section__body">
       <div class="bx--grid">

@@ -28,6 +28,7 @@ import {
   MastheadMenuItem,
   MastheadProfileItem,
 } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/cloudAccountAuthAPI';
 import styles from './cloud-masthead.scss';
 import DDSMastheadComposite, { NAV_ITEMS_RENDER_TARGET } from '../masthead-composite';
 
@@ -77,6 +78,12 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
    */
   @property({ attribute: 'auth-method' })
   authMethod = 'cookie';
+
+  /**
+   * The user authentication status.
+   */
+  @property({ attribute: 'user-status' })
+  userStatus = UNAUTHENTICATED_STATUS;
 
   /**
    *  Render MegaMenu content
@@ -280,8 +287,8 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
       }
     }
     return html`
-      <dds-left-nav-overlay></dds-left-nav-overlay>
-      <dds-left-nav>
+      <dds-left-nav-overlay cloud></dds-left-nav-overlay>
+      <dds-left-nav cloud>
         ${!platform
           ? undefined
           : html`
@@ -291,6 +298,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
       </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-masthead-menu-button
+          cloud
           button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
           button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
         >
@@ -305,7 +313,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         ${l1Data
           ? undefined
           : html`
-              <dds-top-nav menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
+              <dds-top-nav cloud menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
                 ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: false })}
               </dds-top-nav>
             `}
