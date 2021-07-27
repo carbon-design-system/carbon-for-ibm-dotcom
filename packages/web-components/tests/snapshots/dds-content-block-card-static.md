@@ -94,13 +94,17 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
                 hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-      <dds-card-footer
+      <dds-card-cta-footer
         color-scheme=""
-        data-autoid="dds--card-footer"
+        cta-type=""
+        data-autoid="dds--card-cta-footer"
+        href="https://example.com"
         icon-placement="right"
+        parent-href="https://example.com"
+        size=""
         slot="footer"
       >
-      </dds-card-footer>
+      </dds-card-cta-footer>
     </dds-card-group-item>
   </dds-card-group>
   <dds-content-item data-autoid="dds--content-item">
