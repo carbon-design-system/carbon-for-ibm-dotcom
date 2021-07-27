@@ -257,7 +257,6 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
       authenticatedProfileItems,
       authenticatedCtaButtons,
       contactUsButton,
-      currentSearchResults,
       hasContact,
       platform,
       platformUrl,
@@ -274,7 +273,6 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
       unauthenticatedCtaButtons,
       userStatus,
       l1Data,
-      _loadSearchResults: loadSearchResults,
     } = this;
     const authenticated = userStatus !== 'anonymous';
     const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
@@ -317,15 +315,13 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                 ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: false })}
               </dds-top-nav>
             `}
-        <dds-masthead-search-composite
+        <dds-search-with-typeahead
           ?active="${activateSearch}"
           input-timeout="${inputTimeout}"
           language="${ifNonNull(language)}"
           ?open="${openSearchDropdown}"
           placeholder="${ifNonNull(searchPlaceholder)}"
-          .currentSearchResults="${ifNonNull(currentSearchResults)}"
-          ._loadSearchResults="${ifNonNull(loadSearchResults)}"
-        ></dds-masthead-search-composite>
+        ></dds-search-with-typeahead>
         ${authenticated
           ? html`
               <dds-cloud-masthead-global-bar>

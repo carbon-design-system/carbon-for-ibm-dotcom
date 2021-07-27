@@ -95,8 +95,6 @@
         class="dds-ce__search__list react-autosuggest__suggestions-list"
         role="listbox"
       >
-        <slot>
-        </slot>
       </ul>
     </div>
   </div>

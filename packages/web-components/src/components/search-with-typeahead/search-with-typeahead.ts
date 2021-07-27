@@ -398,7 +398,6 @@ class DDSSearchWithTypeahead extends StableSelectorMixin(BXDropdown) {
                       <dds-search-with-typeahead-item text="${item[0]}"></dds-search-with-typeahead-item>
                     `
                 )}
-              <slot></slot>
             </ul>
           </div>
         </div>

@@ -14,10 +14,8 @@ import DDSSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/componen
 import readme from './README.stories.react.mdx';
 
 export const Default = () => {
-  return <DDSSearchWithTypeahead should-remain-open search-open-on-load></DDSSearchWithTypeahead>;
+  return <DDSSearchWithTypeahead should-remain-open active></DDSSearchWithTypeahead>;
 };
-
-Default.story = {};
 
 export default {
   title: 'Components/Tag group',
