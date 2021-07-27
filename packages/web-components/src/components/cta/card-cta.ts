@@ -104,7 +104,7 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
 
   updated(changedProperties) {
     super.updated(changedProperties);
-    const { selectorFooter } = this.constructor as typeof DDSCardCTA;
+    const footer = this.querySelector((this.constructor as typeof DDSCardCTA).selectorFooter);
     if (
       changedProperties.has('ctaType') ||
       changedProperties.has('formatCaption') ||
@@ -114,11 +114,14 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
       const {
         ctaType,
         videoDuration,
+        videoName,
         formatVideoCaption: formatVideoCaptionInEffect,
         formatVideoDuration: formatVideoDurationInEffect,
       } = this;
-      const footer = this.querySelector(selectorFooter);
+      const headingText = this.querySelector(`${ddsPrefix}-card-heading`)?.textContent;
+      const copyText = this.textContent;
       if (footer) {
+        (footer as DDSCardCTAFooter).altAriaLabel = videoName || headingText || copyText;
         (footer as DDSCardCTAFooter).ctaType = ctaType;
         (footer as DDSCardCTAFooter).videoDuration = videoDuration;
         if (formatVideoCaptionInEffect) {

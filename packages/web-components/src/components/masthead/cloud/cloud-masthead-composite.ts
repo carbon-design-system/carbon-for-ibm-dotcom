@@ -28,6 +28,7 @@ import {
   MastheadMenuItem,
   MastheadProfileItem,
 } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/cloudAccountAuthAPI';
 import styles from './cloud-masthead.scss';
 import DDSMastheadComposite, { NAV_ITEMS_RENDER_TARGET } from '../masthead-composite';
 
@@ -77,6 +78,12 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
    */
   @property({ attribute: 'auth-method' })
   authMethod = 'cookie';
+
+  /**
+   * The user authentication status.
+   */
+  @property({ attribute: 'user-status' })
+  userStatus = UNAUTHENTICATED_STATUS;
 
   /**
    *  Render MegaMenu content

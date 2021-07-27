@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.22.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.22.0-rc.2...@carbon/ibmdotcom-styles@1.22.0) (2021-07-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.22.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.22.0-rc.1...@carbon/ibmdotcom-styles@1.22.0-rc.2) (2021-07-23)
+
+
+### Bug Fixes
+
+* **cloud-masthead:** Megamenu height is not displaying correctly within the Drupal integration ([#6708](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6708)) ([b427aef](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b427aef))
+* **megamenu:** adjust height for megamenu to work for cloud's drupal integration ([#6718](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6718)) ([333b358](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/333b358)), closes [#6704](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6704)
+
+
+
+
+
 # [1.22.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.22.0-rc.0...@carbon/ibmdotcom-styles@1.22.0-rc.1) (2021-07-21)
 
 
