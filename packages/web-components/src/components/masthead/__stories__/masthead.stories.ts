@@ -15,7 +15,6 @@ import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
-import '../masthead-container-search-only';
 import styles from './masthead.stories.scss';
 import { mastheadLinks as links, customLinks, l1Data, logoData } from './links';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
@@ -92,7 +91,7 @@ export const WithCustomNavigation = ({ parameters }) => {
     <style>
       ${styles}
     </style>
-    <dds-masthead-container-search-only
+    <dds-masthead-container
       platform="${ifNonNull(platform)}"
       .platformUrl="${ifNonNull(platformData.url)}"
       selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -103,7 +102,7 @@ export const WithCustomNavigation = ({ parameters }) => {
       ?has-profile="${hasProfile}"
       ?has-search="${hasSearch}"
       .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-    ></dds-masthead-container-search-only>
+    ></dds-masthead-container>
   `;
 };
 

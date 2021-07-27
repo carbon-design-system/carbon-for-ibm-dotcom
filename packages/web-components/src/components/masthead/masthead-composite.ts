@@ -466,13 +466,6 @@ class DDSMastheadComposite extends LitElement {
   }
 
   /**
-   * The placeholder for `loadSearchResults()` Redux action that may be mixed in.
-   *
-   * @internal
-   */
-  _loadSearchResults?: (searchQueryString: string) => Promise<string[]>;
-
-  /**
    * The placeholder for `loadTranslation()` Redux action that will be mixed in.
    *
    * @internal
@@ -690,7 +683,6 @@ class DDSMastheadComposite extends LitElement {
       unauthenticatedProfileItems,
       userStatus,
       l1Data,
-      _loadSearchResults: loadSearchResults,
     } = this;
     const authenticated = userStatus !== UNAUTHENTICATED_STATUS;
     const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
@@ -749,7 +741,6 @@ class DDSMastheadComposite extends LitElement {
                 ?searchOpenOnload="${activateSearch}"
                 placeholder="${ifNonNull(searchPlaceholder)}"
                 .currentSearchResults="${ifNonNull(currentSearchResults)}"
-                ._loadSearchResults="${ifNonNull(loadSearchResults)}"
               ></dds-search-with-typeahead>
             `}
         <dds-masthead-global-bar>
