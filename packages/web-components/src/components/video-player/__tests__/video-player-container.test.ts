@@ -52,7 +52,7 @@ describe('dds-video-player-container', function() {
     });
 
     it('caches the embedded video', async () => {
-      spyOn(KalturaPlayerAPI, 'embedVideo').and.callFake(async () => ({
+      spyOn(KalturaPlayerAPI, 'embedMedia').and.callFake(async () => ({
         async kWidget() {
           return 'kwidget-foo';
         },
