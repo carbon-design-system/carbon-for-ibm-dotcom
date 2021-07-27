@@ -10,7 +10,7 @@
 import './card-section-images';
 import '../card/card-eyebrow';
 import '../card/card-heading';
-import '../card/card-footer';
+import '../cta/card-cta-footer';
 import '../card-group/card-group';
 import '../card-group/card-group-item';
 import '../content-section/content-section';
