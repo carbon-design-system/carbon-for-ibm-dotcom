@@ -59,6 +59,7 @@
     @include carbon--make-row;
 
     min-height: 160px;
+    width: 100%;
 
     :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
       justify-content: space-between;

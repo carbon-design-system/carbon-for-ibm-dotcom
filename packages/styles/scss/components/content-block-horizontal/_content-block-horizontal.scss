@@ -11,13 +11,13 @@
 @mixin content-block-horizontal {
   :host(#{$dds-prefix}-content-block-horizontal),
   :host(#{$dds-prefix}-content-group-horizontal) {
-    padding-top: $layout-03;
+    padding-top: $layout-05;
   }
 
   .#{$prefix}--content-block-horizontal,
   .#{$prefix}--content-group-horizontal {
     .#{$prefix}--content-block {
-      padding-top: $layout-03;
+      padding-top: $layout-05;
     }
   }
   .#{$prefix}--content-group-horizontal {
