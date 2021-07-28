@@ -9,6 +9,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
+  // eslint-disable-next-line max-len
 import DDSSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
 import './index.css';
 
