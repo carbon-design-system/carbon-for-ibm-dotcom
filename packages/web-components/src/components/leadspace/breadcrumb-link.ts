@@ -26,4 +26,5 @@ class DDSBreadcrumbLink extends StableSelectorMixin(BXBreadcrumbLink) {
   static styles = styles;
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSBreadcrumbLink;
