@@ -32,7 +32,11 @@ const App = () => (
         Button 2
       </DDSButtonGroupItem>
     </DDSButtonGroup>
-    <DDSLeadspaceImage slot="image" default-src="https://picsum.photos/id/1076/1056/480" className="bx--image" alt="Image alt text">
+    <DDSLeadspaceImage
+      slot="image"
+      default-src="https://picsum.photos/id/1076/1056/480"
+      className="bx--image"
+      alt="Image alt text">
       <DDSImageItem media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></DDSImageItem>
       <DDSImageItem media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></DDSImageItem>
     </DDSLeadspaceImage>
