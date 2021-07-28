@@ -1,8 +1,9 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 import '../index';
 
-# `<dds-search-with-typeahead>`
+# Search with Typeahead
 
 > Search with Typeahead provides built-in search functionality that returns search suggestions depending on input.
 
@@ -24,6 +25,10 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/search-with-typeahead/index.js';
 ```
 
+<Description markdown={`${cdnJs({ components: ['search-with-typeahead'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
+
 ## Example HTML
 This will render a search button that can be clicked on to expand the input bar to take the full width of the container. 
 Upon focusout or clicking the close button, the search bar will contract back to its single search button, ready to be activated again.
@@ -31,14 +36,14 @@ Upon focusout or clicking the close button, the search bar will contract back to
 <dds-search-with-typeahead></search-with-typeahead>
 ```
 
-## Search Open On Load
+### Search Open On Load
 This will ensure the search input is active from the moment it renders on the page. The close functionality will still apply upon focusing out
 or clicking the close button.
 ```html
 <dds-search-with-typeahead active></search-with-typeahead>
 ```
 
-## Search Should Remain Open
+### Search Should Remain Open
 This will ensure the component will always stay open, no matter if its focused out or close button is clicked. You can combine the previous attribute 
 with this one to ensure it will always be open.
 ```html

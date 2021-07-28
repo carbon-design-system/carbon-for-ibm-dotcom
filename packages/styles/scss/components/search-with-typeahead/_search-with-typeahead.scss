@@ -162,11 +162,6 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
       width: 100%;
       margin-left: 0;
 
-      @include carbon--breakpoint-down(md) {
-        width: 100vw;
-        right: 0;
-      }
-
       button.#{$prefix}--header__search--close.#{$prefix}--header__action[aria-label='Close'] {
         display: inline-flex;
       }
