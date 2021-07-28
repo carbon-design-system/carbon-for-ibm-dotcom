@@ -29,7 +29,7 @@ class CloudAccountAuthAPI {
   static checkCookie() {
     const cloudLogin = Cookies.get(_cookieName);
 
-    return cloudLogin === '1' ? 'authenticated' : 'anonymous';
+    return { user: cloudLogin === '1' ? 'authenticated' : 'anonymous' };
   }
 
   /**
@@ -57,7 +57,7 @@ class CloudAccountAuthAPI {
         return 'anonymous';
       });
 
-    return cloudLogin;
+    return { user: cloudLogin };
   }
 }
 

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,8 +14,8 @@ export default function App() {
   const mastheadProps = {
     navigation: 'default',
     platform: {
-      name: 'IBM Cloud',
-      url: 'https://www.ibm.com/cloud',
+      name: 'Stock Charts',
+      url: 'https://www.example.com',
     },
     hasNavigation: true,
     hasProfile: true,
@@ -25,8 +25,6 @@ export default function App() {
       searchOpenOnload: false,
     },
     mastheadL1Data: {
-      title: 'Stock Charts',
-      titleLink: 'https://example.com/',
       navigationL1: links,
     },
   };
