@@ -45,9 +45,9 @@ describe('dds-card-section-offset', function() {
             <dds-card-group-item href="https://example.com">
               <dds-card-eyebrow>Topic</dds-card-eyebrow>
               <dds-card-heading>Natural Language Processing.</dds-card-heading>
-              <dds-card-footer slot="footer">
+              <dds-card-cta-footer slot="footer">
                 ${ArrowRight20({ slot: 'icon' })}
-              </dds-card-footer>
+              </dds-card-cta-footer>
             </dds-card-group-item>
             <dds-card-group-item href="https://example.com">
               <dds-card-eyebrow>Topic</dds-card-eyebrow>
@@ -59,9 +59,9 @@ describe('dds-card-section-offset', function() {
             <dds-card-group-item href="https://example.com">
               <dds-card-eyebrow>Topic</dds-card-eyebrow>
               <dds-card-heading>Natural Language Processing.</dds-card-heading>
-              <dds-card-footer slot="footer">
+              <dds-card-cta-footer slot="footer">
                 ${ArrowRight20({ slot: 'icon' })}
-              </dds-card-footer>
+              </dds-card-cta-footer>
             </dds-card-group-item>
           `,
         }),

@@ -170,9 +170,9 @@ const StoryContent = () =>
                   <dds-card-heading>Linux OS on mainframes</dds-card-heading>
                   Linux on IBM mainframes lets you transform your application and data portfolio with data privacy, security, and
                   cyber resiliency.
-                  <dds-card-footer slot="footer">
+                  <dds-card-cta-footer slot="footer">
                     ${ArrowRight20({ slot: 'icon' })}
-                  </dds-card-footer>
+                  </dds-card-cta-footer>
                 </dds-card-group-item>
                 <dds-card-group-item href="https://example.com">
                   <dds-card-heading>Linux OS on LinuxONE</dds-card-heading>
@@ -180,9 +180,9 @@ const StoryContent = () =>
                     Transform your application and data portfolio with innovative data privacy, security and cyber resiliency
                     capabilities, plus minimal downtime.
                   </p>
-                  <dds-card-footer slot="footer">
+                  <dds-card-cta-footer slot="footer">
                     ${ArrowRight20({ slot: 'icon' })}
-                  </dds-card-footer>
+                  </dds-card-cta-footer>
                 </dds-card-group-item>
                 <dds-card-group-item href="https://example.com">
                   <dds-card-heading>Linux OS on Power Systems</dds-card-heading>
@@ -190,9 +190,9 @@ const StoryContent = () =>
                     Process massive amounts of data quickly, efficiently and cost-effectively on an open, scalable infrastructure
                     with built-in acceleration.
                   </p>
-                  <dds-card-footer slot="footer">
+                  <dds-card-cta-footer slot="footer">
                     ${ArrowRight20({ slot: 'icon' })}
-                  </dds-card-footer>
+                  </dds-card-cta-footer>
                 </dds-card-group-item>
               </dds-card-group>
             </dds-card-section-simple>
