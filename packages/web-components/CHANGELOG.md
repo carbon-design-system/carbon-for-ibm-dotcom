@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.7.0-rc.2...@carbon/ibmdotcom-web-components@1.7.0) (2021-07-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.7.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.7.0-rc.1...@carbon/ibmdotcom-web-components@1.7.0-rc.2) (2021-07-23)
+
+
+### Bug Fixes
+
+* **cloud-masthead:** hc-2086 properly form request return object ([#6714](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6714)) ([d1d5a47](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/d1d5a47)), closes [#6703](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6703)
+* **rtl:** add codesandbox example for cloud masthead ([#6713](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6713)) ([ce7d5a3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/ce7d5a3))
+
+
+
+
+
 # [1.7.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.7.0-rc.0...@carbon/ibmdotcom-web-components@1.7.0-rc.1) (2021-07-21)
 
 
