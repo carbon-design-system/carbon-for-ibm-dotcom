@@ -10,7 +10,7 @@ import React from 'react';
 import useVideoData from '../useVideoData';
 
 jest.mock(
-  '@carbon/ibmdotcom-services/lib/services/VideoPlayer/VideoPlayer',
+  '@carbon/ibmdotcom-services/lib/services/KalturaPlayer/KalturaPlayer',
   () => ({
     api: jest.fn(() => Promise.resolve({ msDuration: 10000 })),
     getMediaDuration: jest.fn(() => '1:30'),
