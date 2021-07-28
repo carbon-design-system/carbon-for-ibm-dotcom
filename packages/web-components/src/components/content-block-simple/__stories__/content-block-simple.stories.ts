@@ -84,11 +84,11 @@ export const Default = ({ parameters }) => {
         ? html`
             <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
               ${ctaCopy}
-              <dds-card-footer>
+              <dds-card-cta-footer>
                 ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
                 ${ctaType === 'jump' ? ArrowDown20({ slot: 'icon' }) : ''}
                 ${ctaType === 'external' ? Launch20({ slot: 'icon' }) : ''}
-              </dds-card-footer>
+              </dds-card-cta-footer>
             </dds-card-cta>
           `
         : html`
@@ -119,11 +119,11 @@ export const WithImage = ({ parameters }) => {
         ? html`
             <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
               ${ctaCopy}
-              <dds-card-footer>
+              <dds-card-cta-footer>
                 ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
                 ${ctaType === 'jump' ? ArrowDown20({ slot: 'icon' }) : ''}
                 ${ctaType === 'external' ? Launch20({ slot: 'icon' }) : ''}
-              </dds-card-footer>
+              </dds-card-cta-footer>
             </dds-card-cta>
           `
         : html`
@@ -158,11 +158,11 @@ export const WithVideo = ({ parameters }) => {
         ? html`
             <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
               ${ctaCopy}
-              <dds-card-footer>
+              <dds-card-cta-footer>
                 ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
                 ${ctaType === 'jump' ? ArrowDown20({ slot: 'icon' }) : ''}
                 ${ctaType === 'external' ? Launch20({ slot: 'icon' }) : ''}
-              </dds-card-footer>
+              </dds-card-cta-footer>
             </dds-card-cta>
           `
         : html`
@@ -211,11 +211,11 @@ export const WithLinkList = ({ parameters }) => {
         ? html`
             <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
               ${ctaCopy}
-              <dds-card-footer>
+              <dds-card-cta-footer>
                 ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
                 ${ctaType === 'jump' ? ArrowDown20({ slot: 'icon' }) : ''}
                 ${ctaType === 'external' ? Launch20({ slot: 'icon' }) : ''}
-              </dds-card-footer>
+              </dds-card-cta-footer>
             </dds-card-cta>
           `
         : html`
