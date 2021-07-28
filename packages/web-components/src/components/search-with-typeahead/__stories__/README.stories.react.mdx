@@ -1,6 +1,6 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
-import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/index';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
 
 # Tag Group
 
@@ -17,11 +17,21 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import DDSSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/index.js';
+import DDSSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead.js';
 
 function App() {
   return (
   <DDSSearchWithTypeahead></DDSSearchWithTypeahead>
+  );
+}
+```
+
+To have the Search open on load, and always be active, you can render the app as follows:
+```javascript
+
+function App() {
+  return (
+		<DDSSearchWithTypeahead should-remain-open={true} active={true}></DDSSearchWithTypeahead>
   );
 }
 ```
