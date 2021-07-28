@@ -157,10 +157,10 @@
   :host(#{$dds-prefix}-content-block-horizontal) #{$dds-prefix}-hr,
   :host(#{$dds-prefix}-content-group-horizontal) #{$dds-prefix}-hr {
     margin: 0;
-    margin-top: $layout-03;
+    margin-top: $layout-01;
 
     @include carbon--breakpoint('md') {
-      margin-top: $layout-03;
+      margin-top: $layout-04;
     }
     @include carbon--breakpoint('lg') {
       margin-top: $layout-06;

@@ -16,6 +16,10 @@
     @include carbon--breakpoint('lg') {
       padding-top: $layout-05;
     }
+
+    ::slotted(#{$dds-prefix}-content-item-horizontal) {
+      padding-bottom: $layout-03;
+    }
   }
 
   .#{$prefix}--content-block-horizontal,
