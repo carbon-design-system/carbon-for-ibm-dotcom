@@ -63,16 +63,17 @@
         overflow: visible;
         white-space: normal;
 
+        &[hasTooltip] {
+          @include tooltip--trigger('definition', top);
+          @include tooltip--placement('definition', 'bottom', 'start');
+
+          &:focus {
+            @include focus-outline('outline');
+          }
+        }
+
         div {
           align-self: flex-start;
-          &[hasTooltip] {
-            @include tooltip--trigger('definition', top);
-            @include tooltip--placement('definition', 'bottom', 'start');
-
-            &:focus {
-              outline: none;
-            }
-          }
         }
 
         /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
