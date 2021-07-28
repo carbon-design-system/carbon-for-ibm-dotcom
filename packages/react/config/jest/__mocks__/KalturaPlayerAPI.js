@@ -16,5 +16,5 @@ module.exports = {
     return '(1:00)';
   }),
   fireEvent: jest.fn(() => {}),
-  embedVideo: jest.fn(() => Promise.resolve()),
+  embedMedia: jest.fn(() => Promise.resolve()),
 };
