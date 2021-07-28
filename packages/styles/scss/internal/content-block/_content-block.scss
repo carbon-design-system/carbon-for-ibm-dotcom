@@ -160,31 +160,25 @@
     margin-top: $layout-03;
 
     @include carbon--breakpoint('md') {
-      margin-top: $layout-04;
+      margin-top: $layout-03;
     }
     @include carbon--breakpoint('lg') {
       margin-top: $layout-06;
     }
   }
 
-  .#{$prefix}--content-block .#{$prefix}--hr {
+  .#{$prefix}--content-block .#{$prefix}--hr,
+  .#{$prefix}--content-group-horizontal
+    .#{$prefix}--content-block
+    .#{$prefix}--hr {
+    margin-top: $layout-03;
+
     @include hang;
     @include carbon--breakpoint('md') {
       margin-top: $layout-01;
     }
     @include carbon--breakpoint('lg') {
-      margin-top: $layout-06;
-    }
-  }
-
-  .#{$prefix}--content-group-horizontal
-    .#{$prefix}--content-block
-    .#{$prefix}--hr {
-    @include carbon--breakpoint('md') {
-      margin-top: $layout-03;
-    }
-    @include carbon--breakpoint('lg') {
-      margin-top: $layout-06;
+      margin-top: calc(#{$layout-04} + #{$spacing-03});
     }
   }
 
