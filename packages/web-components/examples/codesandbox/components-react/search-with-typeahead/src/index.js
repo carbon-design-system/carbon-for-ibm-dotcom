@@ -12,8 +12,6 @@ import { render } from 'react-dom';
 import DDSSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
 import './index.css';
 
-const App = () => (
-  <DDSSearchWithTypeahead active={true}></DDSSearchWithTypeahead>
-);
+const App = () => <DDSSearchWithTypeahead active={true}></DDSSearchWithTypeahead>;
 
 render(<App />, document.getElementById('root'));
