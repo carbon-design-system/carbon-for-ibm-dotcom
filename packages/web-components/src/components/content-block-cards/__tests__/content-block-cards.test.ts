@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -46,9 +46,9 @@ describe('dds-content-block-cards', function() {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
                 hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
               </p>
-              <dds-card-footer slot="footer">
+              <dds-card-cta-footer slot="footer">
                 ${ArrowRight20({ slot: 'icon' })}
-              </dds-card-footer>
+              </dds-card-cta-footer>
             </dds-card-group-item>
           `,
         }),
