@@ -9,7 +9,7 @@
 
 import './card-section-simple';
 import '../card/card-heading';
-import '../card/card-footer';
+import '../cta/card-cta-footer';
 import '../card-group/card-group';
 import '../card-group/card-group-item';
 import '../content-section/content-section';

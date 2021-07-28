@@ -182,6 +182,7 @@ class DDSLocaleModal extends DDSExpressiveModal {
       const { selectorPrimaryFocus } = this.constructor as typeof DDSLocaleModal;
       const activeRegion = this.querySelector(selectorPrimaryFocus);
       if (activeRegion) {
+        (activeRegion as HTMLElement).tabIndex = 0;
         (activeRegion as HTMLElement).focus();
       }
     }
