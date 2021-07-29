@@ -9787,10 +9787,10 @@ carbon-icons@7.0.7:
   resolved "https://registry.yarnpkg.com/carbon-icons/-/carbon-icons-7.0.7.tgz#ebafe3e9fa25df973796a8eca06d8a7c501cc610"
   integrity sha512-3vgkdXJRgCViCrH3fLUdyAXo0I8wmohO6QETv7vWFx6yc7s+SirWFBSFL38zUx4MHtR8iTxIlLEzkeU6FlFtXg==
 
-carbon-web-components@1.15.0:
-  version "1.15.0"
-  resolved "https://registry.yarnpkg.com/carbon-web-components/-/carbon-web-components-1.15.0.tgz#e10635dd105214200b07d998d32be7c49d93820d"
-  integrity sha512-x/HEYtMxTDuHVOnDffZ0rq+oDMhLml4ndymFXN08Zj1Sey+rSOD8Yje/srZcCUjyMZbzUieWA57pUVdUR4u09g==
+carbon-web-components@1.15.1:
+  version "1.15.1"
+  resolved "https://registry.yarnpkg.com/carbon-web-components/-/carbon-web-components-1.15.1.tgz#b5ed5938c7eb0ca0dc070e313278883ea888652b"
+  integrity sha512-10QepYUCvkiNwKDiVebF812kKS5LQVI4I1jCZy1LlwTIbdDRC3y11gNKNsw/C6+59voJZvkUC3F7KNFQoWRy2g==
   dependencies:
     "@babel/runtime" "^7.8.0"
     lodash-es "^4.17.0"

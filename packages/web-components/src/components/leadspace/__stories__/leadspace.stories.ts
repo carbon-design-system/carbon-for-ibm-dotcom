@@ -45,7 +45,7 @@ const navigationWithBreadcrumbs = html`
   </dds-breadcrumb>
 `;
 
-export const TallWithNoImage = ({ parameters }) => {
+export const Tall = ({ parameters }) => {
   const { title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace size="${LEADSPACE_SIZE.NONE}">
@@ -308,20 +308,6 @@ export default {
             label: getAriaLabel(icon),
           };
         }),
-        image: [
-          {
-            src: leadspaceImg,
-            breakpoint: 'sm',
-          },
-          {
-            src: leadspaceImg,
-            breakpoint: 'md',
-          },
-          {
-            src: leadspaceImg,
-            breakpoint: 'lg',
-          },
-        ],
         alt: text('Image alt text (alt):', 'Image alt text', groupId),
         defaultSrc: text('Default image (defaultSrc):', leadspaceImg, groupId),
       }),

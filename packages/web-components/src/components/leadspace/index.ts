@@ -7,13 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import './leadspace';
-import './leadspace-heading';
 import './breadcrumb';
 import './breadcrumb-item';
 import './breadcrumb-link';
-import './leadspace-image';
 import '../button-group/button-group';
 import '../button-group/button-group-item';
+import '../image/image-item';
+import './leadspace';
+import './leadspace-heading';
+import './leadspace-image';
 import '../tag-group/tag-group';
 import '../tag-link/tag-link';
