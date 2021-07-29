@@ -27,7 +27,7 @@
     @include carbon--breakpoint(md) {
       min-height: rem(320px);
       padding-top: $carbon--spacing-07;
-      padding-bottom: $carbon--spacing-09;
+      padding-bottom: $carbon--spacing-10;
     }
 
     @include carbon--breakpoint(lg) {
@@ -59,6 +59,7 @@
     @include carbon--make-row;
 
     min-height: 160px;
+    width: 100%;
 
     :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
       justify-content: space-between;
@@ -232,8 +233,6 @@
 
   :host(#{$dds-prefix}-content-item-horizontal) .#{$prefix}--content-item__cta,
   .#{$prefix}--content-item-horizontal__item--cta {
-    margin-top: auto;
-
     .#{$prefix}--link-list {
       padding: 0;
 
@@ -242,10 +241,8 @@
       }
     }
 
-    .#{$prefix}--link-list li {
-      @include carbon--breakpoint(md) {
-        margin-bottom: $carbon--spacing-05;
-      }
+    .#{$prefix}--link-list li:last-of-type {
+      margin-bottom: 0;
     }
   }
 
