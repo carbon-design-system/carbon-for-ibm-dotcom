@@ -12,13 +12,19 @@
   :host(#{$dds-prefix}-content-block-horizontal),
   :host(#{$dds-prefix}-content-group-horizontal) {
     padding-top: $layout-03;
+    padding-bottom: $carbon--layout-03;
+
+    @include carbon--breakpoint('md') {
+      padding-bottom: $layout-03;
+    }
 
     @include carbon--breakpoint('lg') {
       padding-top: $layout-05;
+      padding-bottom: $layout-05;
     }
 
     ::slotted(#{$dds-prefix}-content-item-horizontal) {
-      padding-bottom: $layout-03;
+      padding-bottom: $layout-01;
     }
   }
 
@@ -26,9 +32,11 @@
   .#{$prefix}--content-group-horizontal {
     .#{$prefix}--content-block {
       padding-top: $layout-03;
+      padding-bottom: $layout-01;
 
       @include carbon--breakpoint('lg') {
         padding-top: $layout-05;
+        padding-bottom: $layout-04;
       }
     }
   }
