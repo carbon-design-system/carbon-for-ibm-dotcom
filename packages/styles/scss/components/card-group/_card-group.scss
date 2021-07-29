@@ -72,10 +72,10 @@
       }
     }
 
-    &:focus,
-    &:focus-within {
-      outline: none;
-    }
+    // &:focus,
+    // &:focus-within {
+    //   outline: none;
+    // }
   }
 
   :host(#{$dds-prefix}-card-group),

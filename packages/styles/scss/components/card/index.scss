@@ -72,6 +72,15 @@
     &:focus-within {
       outline: 2px solid $focus;
       outline-offset: -2px;
+      position: relative;
+      z-index: 2;
+
+      .#{$prefix}--image,
+      ::slotted(#{$dds-prefix}-image),
+      ::slotted(#{$dds-prefix}-card-cta-image) {
+        position: relative;
+        z-index: -1;
+      }
     }
 
     .#{$prefix}--card:focus,
@@ -81,6 +90,7 @@
       z-index: 2;
       text-decoration: none;
 
+      ::slotted(#{$dds-prefix}-image),
       .#{$prefix}--image {
         position: relative;
         z-index: -1;
@@ -100,10 +110,13 @@
       transition: $duration--moderate-01 motion(standard, productive);
     }
 
-    .#{$prefix}--card--link:hover {
+    .#{$prefix}--cardx:hover {
       text-decoration: none;
 
-      .#{$prefix}--card__img {
+      ::slotted(#{$dds-prefix}-image),
+      ::slotted(#{$dds-prefix}-card-cta-image),
+      .#{$prefix}--card__img,
+      .#{$prefix}--image {
         filter: brightness(92%);
       }
     }
@@ -360,6 +373,12 @@
 
     &:hover {
       background-color: $inverse-hover-ui;
+
+      .#{$prefix}--card__img,
+      ::slotted(#{$dds-prefix}-image),
+      .#{$prefix}--image {
+        filter: brightness(108%);
+      }
     }
   }
 
