@@ -9,17 +9,10 @@
 
 import { render } from 'lit-html';
 import '../leadspace';
-import {
-  TallWithNoImage,
-  TallWithImage,
-  Centered,
-  CenteredWithImage,
-  Medium,
-  MediumWithImage,
-} from '../__stories__/leadspace.stories';
+import { Tall, TallWithImage, Centered, CenteredWithImage, Medium, MediumWithImage } from '../__stories__/leadspace.stories';
 
-const TallWithNoImageTemplate = (props?) =>
-  TallWithNoImage({
+const TallTemplate = (props?) =>
+  Tall({
     parameters: {
       props: {
         LeadSpace: {
@@ -147,14 +140,14 @@ const MediumWithImageTemplate = (props?) =>
 describe('dds-leadspace', function() {
   describe('Misc attributes - TallWithNoImage', function() {
     it('should render with minimum attributes', async function() {
-      render(TallWithNoImageTemplate(), document.body);
+      render(TallTemplate(), document.body);
       await Promise.resolve(); // Update cycle for `<dds-leadspace>`
       expect(document.body.querySelector('dds-leadspace')).toMatchSnapshot({ mode: 'shadow' });
     });
 
     it('should render with various attributes', async function() {
       render(
-        TallWithNoImageTemplate({
+        TallTemplate({
           title: 'Lead space title',
           copy: 'Use this area for a short line of copy to support the title',
           gradient: true,
