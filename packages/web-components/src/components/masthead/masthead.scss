@@ -26,6 +26,12 @@
   width: mini-units(6);
   height: mini-units(6);
 
+  &[hide-menu-button] {
+    @include carbon--breakpoint-down('md') {
+      display: none;
+    }
+  }
+
   .#{$dds-prefix}-ce--header__menu-trigger__container {
     display: contents;
   }
@@ -95,6 +101,12 @@
 
 :host(#{$dds-prefix}-masthead-global-bar) {
   @extend .#{$prefix}--header__global;
+
+  &[has-search-active] {
+    @include carbon--breakpoint-down('md') {
+      display: none;
+    }
+  }
 
   .#{$dds-prefix}-ce--header__global__container {
     display: contents;

@@ -91,7 +91,7 @@ export const WithCustomNavigation = ({ parameters }) => {
     <style>
       ${styles}
     </style>
-    <dds-masthead-container
+    <dds-masthead-composite
       platform="${ifNonNull(platform)}"
       .platformUrl="${ifNonNull(platformData.url)}"
       selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -102,7 +102,7 @@ export const WithCustomNavigation = ({ parameters }) => {
       ?has-profile="${hasProfile}"
       ?has-search="${hasSearch}"
       .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-    ></dds-masthead-container>
+    ></dds-masthead-composite>
   `;
 };
 

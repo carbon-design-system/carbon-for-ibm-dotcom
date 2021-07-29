@@ -19,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 /**
  * Search result item in masthead.
  *
- * @element dds-masthead-search-item
+ * @element dds-search-with-typeahead-item
  */
 @customElement(`${ddsPrefix}-search-with-typeahead-item`)
 class DDSSearchWithTypeaheadItem extends LitElement {
@@ -30,7 +30,7 @@ class DDSSearchWithTypeaheadItem extends LitElement {
 
   /**
    * `true` if this dropdown item should be highlighted.
-   * If `true`, parent `<dds-masthead-search>` selects/deselects this dropdown item upon keyboard interaction.
+   * If `true`, parent `<dds-search-with-typeahead>` selects/deselects this dropdown item upon keyboard interaction.
    *
    * @private
    */

@@ -743,7 +743,7 @@ class DDSMastheadComposite extends LitElement {
                 .currentSearchResults="${ifNonNull(currentSearchResults)}"
               ></dds-search-with-typeahead>
             `}
-        <dds-masthead-global-bar>
+        <dds-masthead-global-bar ?has-search-active=${activateSearch}>
           ${!hasProfile
             ? undefined
             : html`
