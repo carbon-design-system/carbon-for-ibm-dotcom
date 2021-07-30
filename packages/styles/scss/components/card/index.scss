@@ -75,9 +75,10 @@
       position: relative;
       z-index: 2;
 
-      .#{$prefix}--image,
       ::slotted(#{$dds-prefix}-image),
-      ::slotted(#{$dds-prefix}-card-cta-image) {
+      ::slotted(#{$dds-prefix}-card-cta-image),
+      .#{$prefix}--card__img,
+      .#{$prefix}--image {
         position: relative;
         z-index: -1;
       }
@@ -110,7 +111,7 @@
       transition: $duration--moderate-01 motion(standard, productive);
     }
 
-    .#{$prefix}--cardx:hover {
+    .#{$prefix}--card:hover {
       text-decoration: none;
 
       ::slotted(#{$dds-prefix}-image),
@@ -374,8 +375,9 @@
     &:hover {
       background-color: $inverse-hover-ui;
 
-      .#{$prefix}--card__img,
       ::slotted(#{$dds-prefix}-image),
+      ::slotted(#{$dds-prefix}-card-cta-image),
+      .#{$prefix}--card__img,
       .#{$prefix}--image {
         filter: brightness(108%);
       }
@@ -398,6 +400,15 @@
 
     ::slotted(#{$dds-prefix}-card-heading) {
       color: $inverse-01;
+    }
+
+    &:hover {
+      .#{$prefix}--card__img,
+      ::slotted(#{$dds-prefix}-image),
+      ::slotted(#{$dds-prefix}-card-cta-image),
+      .#{$prefix}--image {
+        filter: brightness(108%);
+      }
     }
   }
 
