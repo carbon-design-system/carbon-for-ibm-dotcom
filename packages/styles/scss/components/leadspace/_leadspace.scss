@@ -69,6 +69,11 @@ $btn-min-width: 26;
   :host(#{$dds-prefix}-leadspace),
   .#{$prefix}--leadspace {
     .#{$prefix}--image {
+      /* stylelint-disable-next-line comment-whitespace-inside */
+      /*!rtl:raw:
+      transform: scaleX(-1);
+      */
+
       picture {
         width: 100%;
         max-width: rem(1584px);
@@ -359,17 +364,30 @@ $btn-min-width: 26;
     .#{$prefix}--leadspace__gradient__stops stop {
       &:nth-of-type(1) {
         stop-opacity: 1;
+        /* stylelint-disable-next-line comment-whitespace-inside */
+        /*!rtl:raw:
+        stop-opacity: 0;
+        */
       }
 
       &:nth-of-type(2) {
         stop-opacity: 1;
+        /* stylelint-disable-next-line comment-whitespace-inside */
+        /*!rtl:raw:
+        stop-opacity: 0;
+        */
       }
 
       &:nth-of-type(3) {
         stop-opacity: 0.75;
       }
+
       &:nth-of-type(4) {
         stop-opacity: 0;
+        /* stylelint-disable-next-line comment-whitespace-inside */
+        /*!rtl:raw:
+        stop-opacity: 1;
+        */
       }
     }
 
