@@ -358,7 +358,7 @@ $btn-min-width: 26;
     }
 
     .#{$prefix}--leadspace--centered .#{$prefix}--leadspace__gradient__stops {
-      transform: rotate(90deg);
+      transform: rotate(90deg) #{'/*rtl:ignore*/'};
     }
 
     .#{$prefix}--leadspace__gradient__stops stop {
