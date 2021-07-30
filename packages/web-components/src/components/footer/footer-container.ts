@@ -22,8 +22,6 @@ import {
 import {
   loadLanguage,
   setLanguage,
-  loadLangDisplay,
-  setLangDisplay,
   loadLocaleList,
   setLocaleList,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
@@ -46,8 +44,6 @@ export type FooterContainerActions =
   | LocaleModalContainerActions
   | ReturnType<typeof loadLanguage>
   | ReturnType<typeof setLanguage>
-  | ReturnType<typeof loadLangDisplay>
-  | ReturnType<typeof setLangDisplay>
   | ReturnType<typeof loadTranslation>
   | ReturnType<typeof setTranslation>;
 
@@ -71,11 +67,6 @@ export interface FooterContainerState extends LocaleModalContainerState {
  */
 export interface FooterContainerStateProps extends LocaleModalContainerStateProps {
   /**
-   * The language to show in the UI.
-   */
-  langDisplay?: string;
-
-  /**
    * The footer links.
    */
   links?: BasicLinkSet[];
@@ -92,11 +83,10 @@ export interface FooterContainerStateProps extends LocaleModalContainerStateProp
  */
 export function mapStateToProps(state: FooterContainerState): FooterContainerStateProps {
   const { localeAPI, translateAPI } = state;
-  const { langDisplays, language, localeLists } = localeAPI ?? {};
+  const { language, localeLists } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
   return pickBy(
     {
-      langDisplay: !language ? undefined : langDisplays?.[language],
       localeList: !language ? undefined : localeLists?.[language],
       links: !language ? undefined : translations?.[language]?.footerMenu,
       legalLinks: !language ? undefined : translations?.[language]?.footerThin,
@@ -114,8 +104,6 @@ export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions | Transla
     {
       _loadLanguage: loadLanguage,
       _setLanguage: setLanguage,
-      _loadLangDisplay: loadLangDisplay,
-      _setLangDisplay: setLangDisplay,
       _loadLocaleList: loadLocaleList,
       _setLocaleList: setLocaleList,
       _loadTranslation: loadTranslation,
