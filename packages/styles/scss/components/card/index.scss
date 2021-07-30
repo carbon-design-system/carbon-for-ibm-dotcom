@@ -117,6 +117,7 @@
       ::slotted(#{$dds-prefix}-image),
       ::slotted(#{$dds-prefix}-card-cta-image),
       .#{$prefix}--card__img,
+      .#{$prefix}--card__image_img,
       .#{$prefix}--image {
         filter: brightness(92%);
       }
@@ -393,7 +394,8 @@
   }
 
   :host(#{$dds-prefix}-card)[color-scheme='inverse'],
-  :host(#{$dds-prefix}-card-group-item)[color-scheme='inverse'] {
+  :host(#{$dds-prefix}-card-group-item)[color-scheme='inverse'],
+  .#{$prefix}--card-group__card {
     ::slotted(#{$dds-prefix}-card-eyebrow) {
       color: $text-03;
     }

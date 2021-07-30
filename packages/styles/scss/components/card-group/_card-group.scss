@@ -78,6 +78,35 @@
     }
   }
 
+  .#{$prefix}--card-group__card {
+    &:focus-within {
+      outline: none;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        outline: 2px solid $focus;
+        outline-offset: -2px;
+        pointer-events: none;
+      }
+
+      .#{$prefix}--card__img {
+        position: absolute;
+        z-index: auto;
+      }
+
+      .#{$prefix}--tile {
+        outline: none;
+      }
+    }
+  }
+
   :host(#{$dds-prefix}-card-group),
   .#{$prefix}--card-group__row,
   .#{$prefix}--card-group__cards__row {
