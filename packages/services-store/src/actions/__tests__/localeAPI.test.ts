@@ -12,7 +12,7 @@ import { AnyAction } from 'redux';
 import thunk, { ThunkDispatch } from 'redux-thunk';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 import { LocaleList, LOCALE_API_ACTION, LocaleAPIState } from '../../types/localeAPI';
-import { setLanguage, loadLanguage, setLangDisplay, loadLangDisplay, setLocaleList, loadLocaleList } from '../localeAPI';
+import { setLanguage, loadLanguage, setLocaleList, loadLocaleList } from '../localeAPI';
 import convertValue from '../../../tests/utils/convert-value';
 
 jest.mock('@carbon/ibmdotcom-services/es/services/Locale/Locale');
@@ -140,129 +140,6 @@ describe('Redux actions for `LocaleAPI`', () => {
     }
     expect(caught?.message).toBe('error-getlang');
     expect(convertValue(store.getActions())).toEqual([]);
-  });
-
-  it('dispatches the action to set display language', () => {
-    const store = mockStore();
-    store.dispatch(setLangDisplay('lang-foo', 'lang-display-foo'));
-    expect(store.getActions()).toEqual([
-      {
-        type: LOCALE_API_ACTION.SET_LANG_DISPLAY,
-        language: 'lang-foo',
-        langDisplay: 'lang-display-foo',
-      },
-    ]);
-  });
-
-  it('dispatches the action to load display language', async () => {
-    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
-    LocaleAPI.getLangDisplay.mockResolvedValue('lang-display-foo');
-    const store = mockStore();
-    expect(await store.dispatch(loadLangDisplay())).toBe('lang-display-foo');
-    expect(convertValue(store.getActions())).toEqual([
-      {
-        type: LOCALE_API_ACTION.SET_REQUEST_LANGUAGE_IN_PROGRESS,
-        request: 'PROMISE',
-      },
-      {
-        type: LOCALE_API_ACTION.SET_LANGUAGE,
-        language: 'ko-KR',
-      },
-      {
-        type: LOCALE_API_ACTION.SET_REQUEST_LANG_DISPLAY_IN_PROGRESS,
-        language: 'ko-KR',
-        request: 'PROMISE',
-      },
-      {
-        type: LOCALE_API_ACTION.SET_LANG_DISPLAY,
-        language: 'ko-KR',
-        langDisplay: 'lang-display-foo',
-      },
-    ]);
-  });
-
-  it('caches the loaded locale list data', async () => {
-    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
-    LocaleAPI.getLangDisplay.mockResolvedValue('lang-display-foo');
-    const store = mockStore({
-      localeAPI: {
-        requestsLangDisplay: {
-          'ko-KR': Promise.resolve('lang-display-foo'),
-        },
-      },
-    });
-    expect(await store.dispatch(loadLangDisplay())).toEqual('lang-display-foo');
-    expect(convertValue(store.getActions())).toEqual([
-      {
-        type: LOCALE_API_ACTION.SET_REQUEST_LANGUAGE_IN_PROGRESS,
-        request: 'PROMISE',
-      },
-      {
-        type: LOCALE_API_ACTION.SET_LANGUAGE,
-        language: 'ko-KR',
-      },
-    ]);
-  });
-
-  it('dispatches the action of error in loading display language', async () => {
-    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
-    LocaleAPI.getLangDisplay.mockRejectedValue(new Error('error-getlangdisplay'));
-    const store = mockStore();
-    let caught;
-    try {
-      await store.dispatch(loadLangDisplay());
-    } catch (error) {
-      caught = error;
-    }
-    expect(caught?.message).toBe('error-getlangdisplay');
-    expect(convertValue(store.getActions())).toEqual([
-      {
-        type: LOCALE_API_ACTION.SET_REQUEST_LANGUAGE_IN_PROGRESS,
-        request: 'PROMISE',
-      },
-      {
-        type: LOCALE_API_ACTION.SET_LANGUAGE,
-        language: 'ko-KR',
-      },
-      {
-        type: LOCALE_API_ACTION.SET_REQUEST_LANG_DISPLAY_IN_PROGRESS,
-        language: 'ko-KR',
-        request: 'PROMISE',
-      },
-      {
-        type: LOCALE_API_ACTION.SET_ERROR_REQUEST_LANG_DISPLAY,
-        language: 'ko-KR',
-        error: 'error-getlangdisplay',
-      },
-    ]);
-  });
-
-  it('caches the error in loading display language', async () => {
-    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
-    const store = mockStore({
-      localeAPI: {
-        requestsLangDisplay: {
-          'ko-KR': Promise.reject(new Error('error-getlangdisplay')),
-        },
-      },
-    });
-    let caught;
-    try {
-      await store.dispatch(loadLangDisplay());
-    } catch (error) {
-      caught = error;
-    }
-    expect(caught?.message).toBe('error-getlangdisplay');
-    expect(convertValue(store.getActions())).toEqual([
-      {
-        type: LOCALE_API_ACTION.SET_REQUEST_LANGUAGE_IN_PROGRESS,
-        request: 'PROMISE',
-      },
-      {
-        type: LOCALE_API_ACTION.SET_LANGUAGE,
-        language: 'ko-KR',
-      },
-    ]);
   });
 
   it('dispatches the action to set locale list data', () => {

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,8 +17,6 @@ import { LocaleList, LocaleAPIState } from '../../internal/vendor/@carbon/ibmdot
 import {
   loadLanguage,
   setLanguage,
-  loadLangDisplay,
-  setLangDisplay,
   loadLocaleList,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
 import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
@@ -32,8 +30,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 export type LocaleModalContainerActions =
   | ReturnType<typeof loadLanguage>
   | ReturnType<typeof setLanguage>
-  | ReturnType<typeof loadLangDisplay>
-  | ReturnType<typeof setLangDisplay>
   | ReturnType<typeof loadLocaleList>;
 
 /**
@@ -67,10 +63,9 @@ export interface LocaleModalContainerStateProps {
  */
 export function mapStateToProps(state: LocaleModalContainerState): LocaleModalContainerStateProps {
   const { localeAPI } = state;
-  const { langDisplays, language, localeLists } = localeAPI ?? {};
+  const { language, localeLists } = localeAPI ?? {};
   return pickBy(
     {
-      langDisplay: !language ? undefined : langDisplays?.[language],
       localeList: !language ? undefined : localeLists?.[language],
     },
     value => value !== undefined
@@ -86,8 +81,6 @@ export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions>) {
     {
       _loadLanguage: loadLanguage,
       _setLanguage: setLanguage,
-      _loadLangDisplay: loadLangDisplay,
-      _setLangDisplay: setLangDisplay,
       _loadLocaleList: loadLocaleList,
     },
     dispatch as Dispatch // TS definition of `bindActionCreators()` seems to have no templated `Dispatch`
