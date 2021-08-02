@@ -6,11 +6,11 @@
  */
 import { CardLink } from '../CardLink';
 import CTALogic from './CTALogic';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
 import PlayIcon from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
-import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 
 const { prefix } = settings;
 
@@ -35,7 +35,7 @@ const CardCTA = ({
       image = cardProps.image
         ? cardProps.image
         : {
-            defaultSrc: VideoPlayerAPI.getThumbnailUrl({
+            defaultSrc: KalturaPlayerAPI.getThumbnailUrl({
               mediaId: cardProps.media?.src,
               width: '320',
             }),

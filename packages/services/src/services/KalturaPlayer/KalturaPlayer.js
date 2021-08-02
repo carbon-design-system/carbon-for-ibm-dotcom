@@ -336,12 +336,22 @@ class KalturaPlayerAPI {
   }
 
   /**
-   * Convert media duration from seconds to HH:MM:SS
+   * Convert media duration from milliseconds and seconds to HH:MM:SS
    *
    * @param {string} duration media duration in seconds
+   * @param {boolean} fromMilliseconds the duration argument is expressed in milliseconds rather than seconds
    * @returns {string} converted duration
    */
-  static getMediaDuration(duration = 0) {
+  static getMediaDuration(duration = 0, fromMilliseconds) {
+    if (fromMilliseconds) {
+      let seconds = Math.floor((duration / 1000) % 60);
+      const minutes = Math.floor((duration / (1000 * 60)) % 60);
+      let hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+      hours = hours > 0 ? hours + ':' : '';
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+
+      return duration && '(' + hours + minutes + ':' + seconds + ')';
+    }
     const parsedTime = root?.kWidget?.seconds2Measurements(duration) || {};
     let hours = parsedTime?.hours || 0;
     let minutes = parsedTime?.minutes || 0;

@@ -42,19 +42,14 @@ class VideoPlayerAPI extends KalturaPlayerAPI {
   }
 
   /**
-   * Convert video duration from milliseconds to HH:MM:SS
+   * Convert media duration from milliseconds and seconds to HH:MM:SS
    *
    * @param {string} duration video duration in milliseconds
+   * @param {boolean} fromMilliseconds the duration argument is expressed in milliseconds rather than seconds
    * @returns {string} converted duration
    */
-  static getVideoDuration(duration) {
-    let seconds = Math.floor((duration / 1000) % 60);
-    const minutes = Math.floor((duration / (1000 * 60)) % 60);
-    let hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
-    hours = hours > 0 ? hours + ':' : '';
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-
-    return duration && '(' + hours + minutes + ':' + seconds + ')';
+  static getVideoDuration(duration, fromMilliseconds) {
+    return KalturaPlayerAPI.getMediaDuration(duration, fromMilliseconds);
   }
 }
 

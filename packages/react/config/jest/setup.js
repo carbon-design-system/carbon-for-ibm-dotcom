@@ -29,8 +29,8 @@ jest.mock('@carbon/ibmdotcom-services/lib/services/Profile/Profile', () =>
   require('./__mocks__/ProfileAPI')
 );
 jest.mock(
-  '@carbon/ibmdotcom-services/lib/services/VideoPlayer/VideoPlayer',
-  () => require('./__mocks__/VideoPlayerAPI')
+  '@carbon/ibmdotcom-services/lib/services/KalturaPlayer/KalturaPlayer',
+  () => require('./__mocks__/KalturaPlayerAPI')
 );
 jest.mock('@carbon/ibmdotcom-services/lib/services/global/global', () => ({
   globalInit: jest.fn(() => {}),

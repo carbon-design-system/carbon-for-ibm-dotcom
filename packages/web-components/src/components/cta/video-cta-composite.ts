@@ -15,7 +15,7 @@ import HostListener from 'carbon-web-components/es/globals/decorators/host-liste
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
-import { VideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/videoPlayerAPI.d';
+import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
 import Handle from '../../globals/internal/handle';
 /* eslint-disable import/no-duplicates */
 import DDSLightboxVideoPlayerComposite from '../lightbox-media-viewer/lightbox-video-player-composite';
@@ -48,7 +48,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
    *
    * @internal
    */
-  _loadVideoData?: (videoId: string) => Promise<VideoData>;
+  _loadVideoData?: (videoId: string) => Promise<MediaData>;
 
   /**
    * `true` to show the video player.
@@ -122,7 +122,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
    * The video data, keyed by the video ID.
    */
   @property({ attribute: false })
-  videoData?: { [videoId: string]: VideoData };
+  videoData?: { [videoId: string]: MediaData };
 
   disconnectedCallback() {
     if (this._hCloseModal) {
