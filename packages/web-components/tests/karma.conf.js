@@ -29,7 +29,7 @@ function normalizeBrowser(browser) {
 const serviceMocks = {
   '@carbon/ibmdotcom-services/es/services/Locale/Locale': path.resolve(__dirname, 'mocks/LocaleAPI'),
   '@carbon/ibmdotcom-services/es/services/Translation/Translation': path.resolve(__dirname, 'mocks/TranslationAPI'),
-  '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer': path.resolve(__dirname, 'mocks/VideoPlayerAPI'),
+  '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer': path.resolve(__dirname, 'mocks/KalturaPlayerAPI'),
 };
 
 const reServices = /^@carbon\/ibmdotcom-services/i;
