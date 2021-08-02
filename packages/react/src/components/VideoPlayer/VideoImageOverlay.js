@@ -6,11 +6,11 @@
  */
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { Image } from '../Image';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
 import PlayIcon from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
-import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -25,7 +25,7 @@ const VideoImageOverlay = ({ videoId, videoData, embedVideo }) => {
       data-autoid={`${stablePrefix}--video-player__image-overlay`}
       onClick={() => _embedPlayer(event, embedVideo)}>
       <Image
-        defaultSrc={VideoPlayerAPI.getThumbnailUrl({
+        defaultSrc={KalturaPlayerAPI.getThumbnailUrl({
           mediaId: videoId,
           width: '655',
         })}

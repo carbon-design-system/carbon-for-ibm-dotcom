@@ -31,7 +31,7 @@ import '@carbon/ibmdotcom-web-components/es/components/video-player/index.js';
 With `@carbon/ibmdotcom-services`, you can keep track of the readiness of [Kaltura API](http://player.kaltura.com/docs/api) and use it when it is ready. Here is an example of stopping the video player when it is hidden in DOM:
 
 ```javascript
-import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 
 // Keeps track of element resize and detect if the element of our interest is hidden
 const resizeObserver = new ResizeObserver(entries => {
@@ -44,7 +44,7 @@ const resizeObserver = new ResizeObserver(entries => {
   });
 });
 
-VideoPlayerAPI.checkScript().then(() => {
+KalturaPlayerAPI.checkScript().then(() => {
   window.kWidget.addReadyCallback(playerId => {
     // Observes the resize of the video player
     resizeObserver.observe(document.getElementById(playerId));
