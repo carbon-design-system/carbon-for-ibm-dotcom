@@ -15,6 +15,10 @@ export const Default = () => html`
   <dds-search-with-typeahead should-remain-open active> </dds-search-with-typeahead>
 `;
 
+export const Alternate = () => html`
+  <dds-search-with-typeahead should-remain-open active alt-search> </dds-search-with-typeahead>
+`;
+
 export default {
   title: 'Components/Search with typeahead',
   parameters: {

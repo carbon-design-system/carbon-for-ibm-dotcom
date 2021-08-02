@@ -225,6 +225,55 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
         transition-duration: 112ms;
       }
     }
+
+    &[alt-search] {
+      background: $ui-01;
+      outline: 2px solid transparent;
+      transition: background-color $duration--fast-02
+          motion(standard, productive),
+        outline $duration--fast-02 motion(standard, productive);
+
+      &:focus {
+        outline: 2px solid $focus;
+        .#{$prefix}--header__search--actions {
+          border-bottom: none;
+        }
+      }
+
+      .#{$prefix}--header__search--actions {
+        display: flex;
+        width: 100%;
+        border-bottom: 1px solid $ui-04;
+      }
+
+      .#{$prefix}--search-magnifier-icon {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: var(--cds-spacing-05, 1rem);
+        fill: var(--cds-icon-02, #525252);
+        pointer-events: none;
+        transform: translateY(-50%);
+      }
+
+      form {
+        width: 100%;
+        padding-left: $spacing-09;
+      }
+
+      .react-autosuggest__container {
+        &::after {
+          content: none;
+        }
+      }
+      .react-autosuggest__suggestions-container {
+        top: carbon--rem(50px);
+      }
+
+      .#{$prefix}--header__search--input {
+        border-bottom: none;
+      }
+    }
   }
 
   .react-autosuggest__container {

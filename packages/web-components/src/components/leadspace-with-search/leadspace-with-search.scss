@@ -1,0 +1,179 @@
+/*
+* Copyright IBM Corp. 2016, 2021
+*
+* This source code is licensed under the Apache-2.0 license found in the
+* LICENSE file in the root directory of this source tree.
+*/
+
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import '@carbon/ibmdotcom-styles/scss/globals/imports';
+@import '@carbon/ibmdotcom-styles/scss/internal/content-block/content-block';
+
+:host(#{$dds-prefix}-leadspace-with-search) {
+  position: relative;
+
+  ::slotted([slot='image']) {
+    @include carbon--breakpoint('lg') {
+      position: absolute;
+      height: 100%;
+      margin: 0 calc(50% - 50vw);
+      width: 100vw;
+      top: 0;
+      z-index: -1;
+    }
+  }
+
+  ::slotted(#{$dds-prefix}-leadspace-block-heading),
+  ::slotted(#{$dds-prefix}-leadspace-block-content) {
+    padding: 0;
+
+    ::slotted(*) {
+      padding: 0;
+    }
+  }
+
+  ::slotted(#{$dds-prefix}-content-block-copy) {
+    font-size: 1rem;
+  }
+
+  .#{$prefix}--content-layout {
+    position: relative;
+    padding: $spacing-05 0 $spacing-07;
+
+    &::before {
+      right: calc(50% - 50vw);
+      content: '';
+      background-color: $ui-background;
+      position: absolute;
+      width: 100vw;
+      height: 100%;
+      z-index: -1;
+    }
+
+    @include carbon--breakpoint('md') {
+      padding: $spacing-07 0 $spacing-09;
+    }
+
+    @include carbon--breakpoint('max') {
+      padding: $spacing-09 0;
+    }
+
+    &-g10 {
+      @include carbon--theme($carbon--theme--g10, true);
+    }
+
+    &-g90 {
+      @include carbon--theme($carbon--theme--g90, true);
+    }
+
+    &-g100 {
+      @include carbon--theme($carbon--theme--g100, true);
+    }
+  }
+
+  .#{$prefix}--search-container {
+    position: relative;
+    display: grid;
+    padding-bottom: $spacing-10;
+
+    @include carbon--breakpoint('md') {
+      padding-bottom: $spacing-12;
+    }
+
+    &-adjacent-theme {
+      padding: $spacing-07 0;
+
+      @include carbon--breakpoint('md') {
+        padding: $spacing-09 0;
+      }
+    }
+
+    &-g10 {
+      @include carbon--theme($carbon--theme--g10, true);
+    }
+
+    &-g90 {
+      @include carbon--theme($carbon--theme--g90, true);
+    }
+
+    &-g100 {
+      @include carbon--theme($carbon--theme--g100, true);
+    }
+
+    &::before {
+      right: calc(50% - 50vw);
+      content: '';
+      background-color: $ui-background;
+      position: absolute;
+      width: 100vw;
+      height: 100%;
+    }
+  }
+
+  #{$dds-prefix}-hr {
+    margin: 0 calc(50% - 50vw);
+    position: relative;
+  }
+
+  &[adjacent-theme='white-and-g10'] {
+    .#{$prefix}--search-container {
+      @include carbon--theme($carbon--theme--g10, true);
+    }
+  }
+
+  &[adjacent-theme='g10-and-white'] {
+    ::slotted(#{$dds-prefix}-background-media),
+    .#{$prefix}--content-layout {
+      @include carbon--theme($carbon--theme--g10, true);
+    }
+  }
+
+  &[adjacent-theme='g90-and-g100'] {
+    ::slotted(#{$dds-prefix}-background-media),
+    .#{$prefix}--content-layout {
+      @include carbon--theme($carbon--theme--g90, true);
+    }
+
+    .#{$prefix}--search-container {
+      @include carbon--theme($carbon--theme--g100, true);
+    }
+  }
+
+  &[adjacent-theme='g100-and-g90'] {
+    ::slotted(#{$dds-prefix}-background-media),
+    .#{$prefix}--content-layout {
+      @include carbon--theme($carbon--theme--g100, true);
+    }
+
+    .#{$prefix}--search-container {
+      @include carbon--theme($carbon--theme--g90, true);
+    }
+  }
+}
+
+:host(#{$dds-prefix}-leadspace-search-block-heading) {
+  @extend :host(#{$dds-prefix}-content-block-heading);
+
+  // !important required to override slotted styling from block-content component
+  @include carbon--breakpoint-down('md') {
+    /* stylelint-disable declaration-no-important */
+    margin-left: 0 !important;
+    /* stylelint-enable declaration-no-important */
+  }
+}
+
+:host(#{$dds-prefix}-leadspace-search-block-copy) {
+  @extend :host(#{$dds-prefix}-content-block-paragraph);
+  @include carbon--type-style('expressive-heading-03', true);
+
+  display: block;
+  padding-top: $spacing-07;
+  margin-bottom: 0;
+
+  // !important required to override slotted styling from block-content component
+  @include carbon--breakpoint-down('md') {
+    /* stylelint-disable declaration-no-important */
+    margin-left: 0 !important;
+    /* stylelint-enable declaration-no-important */
+  }
+}

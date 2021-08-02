@@ -50,6 +50,9 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
     return response;
   }
 
+  @property({ attribute: 'alt-search', type: Boolean })
+  altSearch = false;
+
   @property()
   searchResults;
 
@@ -421,17 +424,21 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
           @keypress="${handleKeypressInner}"
         >
           ${this._renderTriggerContent()}
-          <div id="result-list" class="react-autosuggest__suggestions-container">
-            <ul role="listbox" class="${ddsPrefix}-ce__search__list react-autosuggest__suggestions-list">
-              ${this.searchResults &&
-                this.searchResults.map(
-                  item =>
-                    html`
-                      <dds-search-with-typeahead-item text="${item[0]}"></dds-search-with-typeahead-item>
-                    `
-                )}
-            </ul>
-          </div>
+          ${!this.altSearch
+            ? html`
+                <div id="result-list" class="react-autosuggest__suggestions-container">
+                  <ul role="listbox" class="${ddsPrefix}-ce__search__list react-autosuggest__suggestions-list">
+                    ${this.searchResults &&
+                      this.searchResults.map(
+                        item =>
+                          html`
+                            <dds-search-with-typeahead-item text="${item[0]}"></dds-search-with-typeahead-item>
+                          `
+                      )}
+                  </ul>
+                </div>
+              `
+            : ``}
         </div>
       </form>
       <div class="${prefix}--assistive-text" role="status" aria-live="assertive" aria-relevant="additions text">
@@ -542,27 +549,60 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
     } = this;
     const searchButtonAssistiveText = !active ? openSearchButtonAssistiveText : performSearchButtonAssistiveText;
     return html`
-      ${this._renderForm()}
-      <div class="${prefix}--header__search--actions">
-        <button
-          type="button"
-          part="open-button"
-          class="${prefix}--header__action ${prefix}--header__search--search"
-          aria-label="${searchButtonAssistiveText}"
-          @click="${handleClickSearchButton}"
-        >
-          ${Search20()}
-        </button>
-        <button
-          type="button"
-          part="close-button"
-          class="${prefix}--header__action ${prefix}--header__search--close"
-          aria-label="${closeSearchButtonAssistiveText}"
-          @click="${handleClickCloseButton}"
-        >
-          ${Close20()}
-        </button>
-      </div>
+      ${!this.altSearch
+        ? html`
+            ${this._renderForm()}
+            <div class="${prefix}--header__search--actions">
+              <button
+                type="button"
+                part="open-button"
+                class="${prefix}--header__action ${prefix}--header__search--search"
+                aria-label="${searchButtonAssistiveText}"
+                @click="${handleClickSearchButton}"
+              >
+                ${Search20()}
+              </button>
+              <button
+                type="button"
+                part="close-button"
+                class="${prefix}--header__action ${prefix}--header__search--close"
+                aria-label="${closeSearchButtonAssistiveText}"
+                @click="${handleClickCloseButton}"
+              >
+                ${Close20()}
+              </button>
+            </div>
+          `
+        : html`
+            <div class="${prefix}--header__search--actions">
+              ${Search20({
+                part: 'search-icon',
+                class: `${prefix}--search-magnifier-icon`,
+                role: 'img',
+              })}
+              ${this._renderForm()}
+              <button
+                type="button"
+                part="close-button"
+                class="${prefix}--header__action ${prefix}--header__search--close"
+                aria-label="${closeSearchButtonAssistiveText}"
+                @click="${handleClickCloseButton}"
+              >
+                ${Close20()}
+              </button>
+            </div>
+            <div id="result-list" class="react-autosuggest__suggestions-container">
+              <ul role="listbox" class="${ddsPrefix}-ce__search__list react-autosuggest__suggestions-list">
+                ${this.searchResults &&
+                  this.searchResults.map(
+                    item =>
+                      html`
+                        <dds-search-with-typeahead-item text="${item[0]}"></dds-search-with-typeahead-item>
+                      `
+                  )}
+              </ul>
+            </div>
+          `}
     `;
   }
 
