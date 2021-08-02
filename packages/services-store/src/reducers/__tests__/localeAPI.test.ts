@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -101,65 +101,6 @@ describe('Redux reducers for `LocaleAPI`', () => {
       requestLanguageInProgress: false,
       requestLanguage: 'PROMISE',
       language: 'lang-foo',
-    });
-  });
-
-  it('should support starting the spinner for loading display language', () => {
-    const request = Promise.resolve('lang-display-foo');
-    expect(
-      reducer({} as LocaleAPIState, {
-        type: LOCALE_API_ACTION.SET_REQUEST_LANG_DISPLAY_IN_PROGRESS,
-        language: 'lang-foo',
-        request,
-      })
-    ).toEqual({
-      requestsLangDisplayInProgress: {
-        'lang-foo': true,
-      },
-      requestsLangDisplay: {
-        'lang-foo': request,
-      },
-    });
-  });
-
-  it('should support setting error in loading display language', () => {
-    expect(
-      convertValue(
-        reducer({} as LocaleAPIState, {
-          type: LOCALE_API_ACTION.SET_ERROR_REQUEST_LANG_DISPLAY,
-          language: 'lang-foo',
-          error: new Error('error-langdisplay'),
-        })
-      )
-    ).toEqual({
-      requestsLangDisplayInProgress: {
-        'lang-foo': false,
-      },
-      errorsRequestLangDisplay: {
-        'lang-foo': 'error-langdisplay',
-      },
-    });
-  });
-
-  it('should support setting loaded display language', () => {
-    expect(
-      convertValue(
-        reducer({} as LocaleAPIState, {
-          type: LOCALE_API_ACTION.SET_LANG_DISPLAY,
-          language: 'lang-foo',
-          langDisplay: 'lang-display-foo',
-        })
-      )
-    ).toEqual({
-      requestsLangDisplayInProgress: {
-        'lang-foo': false,
-      },
-      requestsLangDisplay: {
-        'lang-foo': 'PROMISE',
-      },
-      langDisplays: {
-        'lang-foo': 'lang-display-foo',
-      },
     });
   });
 
