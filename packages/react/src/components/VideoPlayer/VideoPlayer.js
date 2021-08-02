@@ -8,11 +8,11 @@
 import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
 import uniqueid from '@carbon/ibmdotcom-utilities/es/utilities/uniqueid/uniqueid';
 import VideoImageOverlay from './VideoImageOverlay';
-import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -32,18 +32,24 @@ const VideoPlayer = ({
   // embedVideo is set to true when overlay thumbnail is clicked
   const [embedVideo, setEmbedVideo] = useState(false);
   const videoPlayerId = uniqueid(`video-player__video-${videoId}-`);
-  const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
+  const videoDuration = KalturaPlayerAPI.getMediaDuration(
+    videoData.msDuration,
+    true
+  );
 
   useEffect(() => {
     let stale = false;
     (async () => {
       if (autoPlay || embedVideo) {
-        await VideoPlayerAPI.embedMedia(videoId, `${prefix}--${videoPlayerId}`);
+        await KalturaPlayerAPI.embedMedia(
+          videoId,
+          `${prefix}--${videoPlayerId}`
+        );
       }
       if (stale) {
         return;
       }
-      const newVideoData = await VideoPlayerAPI.api(videoId);
+      const newVideoData = await KalturaPlayerAPI.api(videoId);
       if (stale) {
         return;
       }

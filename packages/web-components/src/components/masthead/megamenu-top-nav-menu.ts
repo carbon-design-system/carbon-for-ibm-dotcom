@@ -112,7 +112,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         }
       } else {
         doc.body.style.marginRight = '0px';
-        doc.body.style.overflow = `auto`;
+        doc.body.style.overflow = ``;
         if (masthead) {
           masthead.style.marginRight = '0px';
         }
