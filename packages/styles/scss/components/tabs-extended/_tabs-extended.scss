@@ -114,6 +114,7 @@
     }
 
     .#{$prefix}--accordion__title {
+      z-index: 0;
       max-width: rem(640px);
       margin-right: $spacing-07;
     }

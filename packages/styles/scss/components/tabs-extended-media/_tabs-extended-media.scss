@@ -79,6 +79,10 @@
         margin-bottom: -$carbon--spacing-05;
       }
     }
+
+    .#{$prefix}--accordion__title {
+      z-index: 0;
+    }
   }
 }
 
