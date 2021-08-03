@@ -43,7 +43,7 @@ describe('Load plex utility | Arabic', () => {
 
 describe('Load plex utility | Japanese', () => {
   beforeAll(() => {
-    loadPlex('jp');
+    loadPlex('ja');
   });
 
   afterAll(() => {
@@ -67,7 +67,7 @@ describe('Load plex utility | Japanese', () => {
 
 describe('Load plex utility | Korean', () => {
   beforeAll(() => {
-    loadPlex('kr');
+    loadPlex('ko');
   });
 
   afterAll(() => {

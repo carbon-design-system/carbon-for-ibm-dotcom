@@ -24,11 +24,11 @@ const _fonts = {
     entry: 'sans-arabic',
     family: 'IBM Plex Sans Arabic',
   },
-  jp: {
+  ja: {
     entry: 'sans-jp',
     family: 'IBM Plex Sans JP',
   },
-  kr: {
+  ko: {
     entry: 'sans-kr',
     family: 'IBM Plex Sans KR',
   },
