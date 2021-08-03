@@ -16,6 +16,8 @@ import Close20 from 'carbon-web-components/es/icons/close/20.js';
 import Search20 from 'carbon-web-components/es/icons/search/20.js';
 import BXDropdown, { DROPDOWN_KEYBOARD_ACTION } from 'carbon-web-components/es/components/dropdown/dropdown.js';
 import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import SearchTypeaheadAPI from '@carbon/ibmdotcom-services/es/services/SearchTypeahead/SearchTypeahead';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 import styles from './search-with-typeahead.scss';
@@ -41,7 +43,7 @@ const { prefix } = settings;
  *   The name of the custom event fired after this search box is toggled upon a user gesture.
  */
 @customElement(`${ddsPrefix}-search-with-typeahead`)
-class DDSSearchWithTypeahead extends StableSelectorMixin(BXDropdown) {
+class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDropdown)) {
   // eslint-disable-next-line class-methods-use-this
   async getResults(searchQuery) {
     const response = await SearchTypeaheadAPI.getResults(searchQuery);
@@ -65,6 +67,27 @@ class DDSSearchWithTypeahead extends StableSelectorMixin(BXDropdown) {
    */
   @query(`.${prefix}--header__search--input`)
   private _searchInputNode!: HTMLInputElement;
+
+  /**
+   * The `<ul>` containing the search suggestions.
+   */
+  @query(`.react-autosuggest__suggestions-list`)
+  private _searchSuggestions!: HTMLElement;
+
+  /**
+   * Handles hiding search suggestions if focusing on other buttons.
+   *
+   * @param event The event.
+   */
+  @HostListener('shadowRoot:focusin')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleFocus = async ({ target }: FocusEvent) => {
+    if (target === this._searchInputNode) {
+      this._searchSuggestions.removeAttribute('hidden');
+    } else if (target === this._searchButtonNode) {
+      this._searchSuggestions.setAttribute('hidden', '');
+    }
+  };
 
   /**
    * Handles `click` event on the close button.
