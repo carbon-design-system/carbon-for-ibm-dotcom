@@ -8,7 +8,7 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings';
-import { customElement, html, internalProperty, LitElement, TemplateResult } from 'lit-element';
+import { customElement, html, internalProperty, LitElement, TemplateResult, property } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import { classMap } from 'lit-html/directives/class-map';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -16,6 +16,7 @@ import ChevronRight20 from 'carbon-web-components/es/icons/chevron--right/20.js'
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSTab from './tab';
 import styles from './tabs-extended.scss';
+import { ORIENTATION } from './defs';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -153,9 +154,25 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     `;
   }
 
+  /**
+   * Returns a class-name based on the Orientation value
+   */
+  protected _getOrientationClass() {
+    return classMap({
+      [`${prefix}--tabs-extended`]: true,
+      [`${prefix}--tabs-extended--${this.orientation}`]: this.orientation,
+    });
+  }
+
+  /**
+   * Orientation (horizontal (default) | Vertical)
+   */
+  @property({ attribute: 'orientation', reflect: true })
+  orientation = ORIENTATION.HORIZONTAL;
+
   render() {
     return html`
-      <div class="${prefix}--tabs-extended">
+      <div class="${this._getOrientationClass()}">
         ${this._renderAccordion()} ${this._renderTabs()}
         <div class="${prefix}--tab-content">
           <slot @slotchange="${this._handleSlotChange}"></slot>

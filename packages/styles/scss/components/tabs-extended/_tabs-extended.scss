@@ -94,6 +94,7 @@
         display: block;
       }
     }
+
     .#{$prefix}--tab-content {
       @include carbon--type-style('body-long-02', true);
 
@@ -102,6 +103,43 @@
         display: block;
       }
     }
+
+    // Add "Vertical" orientation styling.
+    .#{$prefix}--tabs-extended--vertical {
+      .#{$prefix}--tabs {
+        .#{$prefix}--tabs__nav {
+          @include carbon--breakpoint(md) {
+            flex-direction: column;
+          }
+        }
+
+        .#{$prefix}--tabs__nav-item--selected:not(.#{$prefix}--tabs__nav-item--disabled) {
+          .#{$prefix}--tabs__nav-link,
+          .#{$prefix}--tabs__nav-link:focus,
+          .#{$prefix}--tabs__nav-link:active {
+            p {
+              @include type-style('expressive-heading-02', true);
+
+              color: $text-01;
+            }
+          }
+        }
+
+        .#{$prefix}--tabs__nav-item {
+          @include carbon--breakpoint(md) {
+            min-height: auto;
+            margin-bottom: $spacing-05;
+          }
+        }
+
+        a.#{$prefix}--tabs__nav-link {
+          @include carbon--breakpoint(md) {
+            padding: 0;
+          }
+        }
+      }
+    }
+
     .#{$prefix}--accordion {
       display: block;
       @include carbon--breakpoint(lg) {
