@@ -36,6 +36,12 @@ class DDSLinkWithIcon extends StableSelectorMixin(BXLink) {
   iconPlacement = ICON_PLACEMENT.RIGHT;
 
   /**
+   * Positions the icon inline with text when `true`
+   */
+  @property({ type: Boolean })
+  iconInline = true;
+
+  /**
    * @returns The main content.
    */
   // eslint-disable-next-line class-methods-use-this
@@ -62,7 +68,7 @@ class DDSLinkWithIcon extends StableSelectorMixin(BXLink) {
   }
 
   updated() {
-    const { iconPlacement, _linkNode: linkNode } = this;
+    const { iconInline, iconPlacement, _linkNode: linkNode } = this;
     if (linkNode) {
       linkNode.classList.add(`${prefix}--link-with-icon`);
       linkNode.classList.toggle(`${prefix}--link-with-icon__icon-${ICON_PLACEMENT.LEFT}`, iconPlacement === ICON_PLACEMENT.LEFT);
@@ -70,6 +76,10 @@ class DDSLinkWithIcon extends StableSelectorMixin(BXLink) {
         `${prefix}--link-with-icon__icon-${ICON_PLACEMENT.RIGHT}`,
         iconPlacement === ICON_PLACEMENT.RIGHT
       );
+
+      if (iconInline) {
+        linkNode.classList.add(`${prefix}--link-with-icon--inline-icon`);
+      }
     }
   }
 
