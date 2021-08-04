@@ -5,4 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export { default as loadPlex } from './loadPlex';
+export { default as loadNonLatinPlex } from './loadNonLatinPlex';

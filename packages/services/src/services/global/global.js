@@ -7,7 +7,7 @@
 
 import { AnalyticsAPI } from '../Analytics';
 import { DDOAPI } from '../DDO';
-import loadPlex from '@carbon/ibmdotcom-utilities/es/utilities/loadPlex/loadPlex';
+import loadNonLatinPlex from '@carbon/ibmdotcom-utilities/es/utilities/loadNonLatinPlex/loadNonLatinPlex';
 import { LocaleAPI } from '../Locale';
 
 /**
@@ -38,7 +38,7 @@ export function globalInit() {
 
   // Sets the Plex font for non-Latin fonts
   LocaleAPI.getLang().then(lang => {
-    loadPlex(lang.lc);
+    loadNonLatinPlex(lang.lc);
   });
 
   // analytics tracking

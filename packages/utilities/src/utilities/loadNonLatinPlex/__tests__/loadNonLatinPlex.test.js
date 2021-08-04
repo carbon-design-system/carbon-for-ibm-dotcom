@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { loadPlex } from '../';
+import { loadNonLatinPlex } from '../';
 
 /**
  * Cleans the page after testing
@@ -19,7 +19,7 @@ function _cleanPage() {
 
 describe('Load plex utility | Arabic', () => {
   beforeAll(() => {
-    loadPlex('ar');
+    loadNonLatinPlex('ar');
   });
 
   afterAll(() => {
@@ -43,7 +43,7 @@ describe('Load plex utility | Arabic', () => {
 
 describe('Load plex utility | Japanese', () => {
   beforeAll(() => {
-    loadPlex('ja');
+    loadNonLatinPlex('ja');
   });
 
   afterAll(() => {
@@ -67,7 +67,7 @@ describe('Load plex utility | Japanese', () => {
 
 describe('Load plex utility | Korean', () => {
   beforeAll(() => {
-    loadPlex('ko');
+    loadNonLatinPlex('ko');
   });
 
   afterAll(() => {
@@ -91,7 +91,7 @@ describe('Load plex utility | Korean', () => {
 
 describe('Load plex utility | English', () => {
   beforeAll(() => {
-    loadPlex('en');
+    loadNonLatinPlex('en');
   });
 
   it('should not set anything if passing `en`', () => {

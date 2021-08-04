@@ -64,17 +64,17 @@ function _setFontFamily(language) {
  * Utility to load in the corresponding non-Latin Plex font if necessary
  *
  * @example
- * import {loadPlex} from '@carbon/ibmdotcom-utilities';
+ * import { loadNonLatinPlex } from '@carbon/ibmdotcom-utilities';
  *
- * loadPlex('ar');
+ * loadNonLatinPlex('ar');
  *
  * @param {string} language two-character language code
  */
-function loadPlex(language) {
+function loadNonLatinPlex(language) {
   if (_fonts[language]) {
     _injectCSS(language);
     _setFontFamily(language);
   }
 }
 
-export default loadPlex;
+export default loadNonLatinPlex;
