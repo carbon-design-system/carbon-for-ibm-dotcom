@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,9 +13,6 @@ import {
   setRequestLanguageInProgress,
   setErrorRequestLanguage,
   setLanguage,
-  setRequestLangDisplayInProgress,
-  setErrorRequestLangDisplay,
-  setLangDisplay,
   setRequestLocaleListInProgress,
   setErrorRequestLocaleList,
   setLocaleList,
@@ -52,53 +49,6 @@ export default function reducer(state: LocaleAPIState = {}, action: LocaleAPIAct
         requestLanguage: Promise.resolve(language),
         requestLanguageInProgress: false,
         language,
-      };
-    }
-    case LOCALE_API_ACTION.SET_REQUEST_LANG_DISPLAY_IN_PROGRESS: {
-      const { language, request } = action as ReturnType<typeof setRequestLangDisplayInProgress>;
-      return {
-        ...state,
-        requestsLangDisplayInProgress: {
-          ...(state.requestsLangDisplayInProgress || {}),
-          [language]: true,
-        },
-        requestsLangDisplay: {
-          ...(state.requestsLangDisplay || {}),
-          [language]: request,
-        },
-      };
-    }
-    case LOCALE_API_ACTION.SET_ERROR_REQUEST_LANG_DISPLAY: {
-      const { language, error } = action as ReturnType<typeof setErrorRequestLangDisplay>;
-      return {
-        ...state,
-        requestsLangDisplayInProgress: {
-          ...(state.requestsLangDisplayInProgress || {}),
-          [language]: false,
-        },
-        errorsRequestLangDisplay: {
-          ...(state.errorsRequestLangDisplay || {}),
-          [language]: error,
-        },
-      };
-    }
-    case LOCALE_API_ACTION.SET_LANG_DISPLAY: {
-      const { language, langDisplay } = action as ReturnType<typeof setLangDisplay>;
-      return {
-        ...state,
-        // If application sets language data without making a REST call, mark the request as resolved already
-        requestsLangDisplayInProgress: {
-          ...(state.requestsLangDisplayInProgress || {}),
-          [language]: false,
-        },
-        requestsLangDisplay: {
-          ...(state.requestsLangDisplay || {}),
-          [language]: Promise.resolve(langDisplay),
-        },
-        langDisplays: {
-          ...(state.langDisplays || {}),
-          [language]: langDisplay,
-        },
       };
     }
     case LOCALE_API_ACTION.SET_REQUEST_LOCALE_LIST_IN_PROGRESS: {

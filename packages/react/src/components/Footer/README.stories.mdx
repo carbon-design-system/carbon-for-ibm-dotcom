@@ -60,11 +60,12 @@ Add the following line in your `.env` file at the root of your project.
 
 ##### OPTIONAL 💡
 
-In addition, direct ES module imports can be used to speed up build compilation and have less reliance on tree-shaking determinations from build scripts:
+In addition, direct ES module imports can be used to speed up build compilation
+and have less reliance on tree-shaking determinations from build scripts:
 
-````js
+```js
 import Footer from '@carbon/ibmdotcom-react/es/components/Footer/Footer';
-````
+```
 
 ## Props
 
@@ -148,5 +149,17 @@ server.get('/', async (req, res) => {
   res.send(body);
 });
 ```
+
+## Cookie Preferences
+
+For Cookie Preferences to appear in the footer, make sure the analytics script
+tag has been set:
+
+```javascript
+<script src="//1.www.s81c.com/common/stats/ibm-common.js" defer="" async="async"></script>
+```
+
+More details can be found at
+[cookie consent adoption instructions](https://w3.ibm.com/w3publisher/digital-behavior-data-management/gdpr/cookie-consent-adoption).
 
 <Description markdown={contributing} />
