@@ -7,7 +7,7 @@
 
 import { AnalyticsAPI } from '../Analytics';
 import { DDOAPI } from '../DDO';
-import { loadPlex } from '@carbon/ibmdotcom-utilities/src/utilities/loadPlex';
+import loadPlex from '@carbon/ibmdotcom-utilities/es/utilities/loadPlex/loadPlex';
 import { LocaleAPI } from '../Locale';
 
 /**
