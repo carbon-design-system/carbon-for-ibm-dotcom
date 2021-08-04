@@ -115,6 +115,12 @@
       max-width: rem(640px);
       margin-right: $spacing-07;
     }
+
+    .#{$prefix}--accordion__content {
+      p {
+        @include carbon--type-style('body-long-02', true);
+      }
+    }
   }
 }
 
