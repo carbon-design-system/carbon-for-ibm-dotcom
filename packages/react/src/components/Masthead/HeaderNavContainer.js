@@ -30,6 +30,7 @@ const HeaderNavContainer = ({ children }) => {
   const [io, setIO] = useState(null);
   const [position, setPosition] = useState(0);
   const buttonSize = 48; // 40px(width) + 8px(gradient)
+  const pageIsRTL = document.dir === 'rtl';
 
   const paginateLeft = useCallback(() => {
     let menuItems = contentRef.current.querySelectorAll(
@@ -179,104 +180,45 @@ const HeaderNavContainer = ({ children }) => {
     }
   };
 
-  const renderOverflowContent = children => {
-    const pageIsRTL = document.dir === 'rtl';
-
-    if (pageIsRTL) {
-      return (
-        <>
-          <div className={`${prefix}--header__nav-content`} ref={contentRef}>
-            <div
-              className={`${prefix}--sub-content-right`}
-              ref={contentRightRef}
-            />
-            <div
-              className={`${prefix}--sub-content-left`}
-              ref={contentLeftRef}
-            />
-            {children}
-          </div>
-          <div
-            ref={caretRightRef}
-            className={`${prefix}--header__nav-caret-right-container`}
-            hidden>
-            <div className={`${prefix}--header__nav-caret-right-gradient`} />
-            <button
-              className={`${prefix}--header__nav-caret-right`}
-              aria-label="Masthead right caret"
-              onClick={paginateRight}
-              tabIndex="-1"
-              aria-hidden="true">
-              <CaretLeft20 />
-            </button>
-          </div>
-          <div
-            ref={caretLeftRef}
-            className={`${prefix}--header__nav-caret-left-container`}
-            hidden>
-            <button
-              className={`${prefix}--header__nav-caret-left`}
-              aria-label="Masthead left caret"
-              onClick={paginateLeft}
-              tabIndex="-1"
-              aria-hidden="true">
-              <CaretRight20 />
-            </button>
-            <div className={`${prefix}--header__nav-caret-left-gradient`} />
-          </div>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <div className={`${prefix}--header__nav-content`} ref={contentRef}>
-            <div
-              className={`${prefix}--sub-content-left`}
-              ref={contentLeftRef}
-            />
-            <div
-              className={`${prefix}--sub-content-right`}
-              ref={contentRightRef}
-            />
-            {children}
-          </div>
-          <div
-            ref={caretLeftRef}
-            className={`${prefix}--header__nav-caret-left-container`}
-            hidden>
-            <button
-              className={`${prefix}--header__nav-caret-left`}
-              aria-label="Masthead left caret"
-              onClick={paginateLeft}
-              tabIndex="-1"
-              aria-hidden="true">
-              <CaretLeft20 />
-            </button>
-            <div className={`${prefix}--header__nav-caret-left-gradient`} />
-          </div>
-          <div
-            ref={caretRightRef}
-            className={`${prefix}--header__nav-caret-right-container`}
-            hidden>
-            <div className={`${prefix}--header__nav-caret-right-gradient`} />
-            <button
-              className={`${prefix}--header__nav-caret-right`}
-              aria-label="Masthead right caret"
-              onClick={paginateRight}
-              tabIndex="-1"
-              aria-hidden="true">
-              <CaretRight20 />
-            </button>
-          </div>
-        </>
-      );
-    }
-  };
-
   return (
     <>
       <div className={`${prefix}--header__nav-container`} ref={containerRef}>
-        {renderOverflowContent(children)}
+        <div className={`${prefix}--header__nav-content`} ref={contentRef}>
+          <div className={`${prefix}--sub-content-left`} ref={contentLeftRef} />
+          <div
+            className={`${prefix}--sub-content-right`}
+            ref={contentRightRef}
+          />
+          {children}
+        </div>
+        <div
+          ref={caretLeftRef}
+          className={`${prefix}--header__nav-caret-left-container`}
+          hidden>
+          <button
+            className={`${prefix}--header__nav-caret-left`}
+            aria-label="Masthead left caret"
+            onClick={paginateLeft}
+            tabIndex="-1"
+            aria-hidden="true">
+            {pageIsRTL ? <CaretRight20 /> : <CaretLeft20 />}
+          </button>
+          <div className={`${prefix}--header__nav-caret-left-gradient`} />
+        </div>
+        <div
+          ref={caretRightRef}
+          className={`${prefix}--header__nav-caret-right-container`}
+          hidden>
+          <div className={`${prefix}--header__nav-caret-right-gradient`} />
+          <button
+            className={`${prefix}--header__nav-caret-right`}
+            aria-label="Masthead right caret"
+            onClick={paginateRight}
+            tabIndex="-1"
+            aria-hidden="true">
+            {pageIsRTL ? <CaretLeft20 /> : <CaretRight20 />}
+          </button>
+        </div>
       </div>
     </>
   );
