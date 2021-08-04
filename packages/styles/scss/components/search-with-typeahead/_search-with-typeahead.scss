@@ -143,6 +143,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
   }
 
   :host(#{$dds-prefix}-search-with-typeahead) {
+    display: block;
     position: relative;
     outline: none;
     height: $spacing-09;
