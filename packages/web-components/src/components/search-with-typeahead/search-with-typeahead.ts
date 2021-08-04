@@ -82,6 +82,8 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
   @HostListener('shadowRoot:focusin')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleFocus = async ({ target }: FocusEvent) => {
+    if (!this._searchSuggestions) return;
+
     if (target === this._searchInputNode) {
       this._searchSuggestions.removeAttribute('hidden');
     } else if (target === this._searchButtonNode) {
