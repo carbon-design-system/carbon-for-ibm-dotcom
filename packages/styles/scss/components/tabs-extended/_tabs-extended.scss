@@ -29,6 +29,10 @@
         width: $spacing-13;
         height: auto;
 
+        p {
+          @include carbon--type-style('body-long-01', true);
+        }
+
         &:hover:not(.bx--tabs__nav-item--disabled) {
           box-shadow: none;
         }
@@ -48,6 +52,7 @@
             @include type-style('productive-heading-01');
 
             color: $text-primary;
+            line-height: 1.375rem;
           }
         }
       }
@@ -111,6 +116,12 @@
     .#{$prefix}--accordion__title {
       max-width: rem(640px);
       margin-right: $spacing-07;
+    }
+
+    .#{$prefix}--accordion__content {
+      p {
+        @include carbon--type-style('body-long-02', true);
+      }
     }
   }
 }
