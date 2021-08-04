@@ -10,6 +10,7 @@
 import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
+import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
@@ -67,13 +68,6 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
       this.openLocaleModal = false;
     }
   };
-
-  /**
-   * The placeholder for `loadLangDisplay()` Redux action that may be mixed in.
-   *
-   * @internal
-   */
-  _loadLangDisplay?: (language?: string) => Promise<string>;
 
   /**
    * The placeholder for `loadLocaleList()` Redux action that may be mixed in.
@@ -194,14 +188,23 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
   @property({ reflect: true })
   size?: FOOTER_SIZE;
 
+  // eslint-disable-next-line class-methods-use-this
+  async getLangDisplay() {
+    const response = await LocaleAPI.getLangDisplay();
+    return response;
+  }
+
   firstUpdated() {
     const { language } = this;
     globalInit();
     if (language) {
       this._setLanguage?.(language);
     }
-    this._loadLangDisplay?.(language);
     this._loadTranslation?.(language);
+
+    this.getLangDisplay().then(res => {
+      this.langDisplay = res;
+    });
   }
 
   updated(changedProperties) {
@@ -209,7 +212,6 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
       const { language } = this;
       if (language) {
         this._setLanguage?.(language);
-        this._loadLangDisplay?.(language).catch(() => {}); // The error is logged in the Redux store
         this._loadTranslation?.(language).catch(() => {}); // The error is logged in the Redux store
       }
     }
@@ -219,15 +221,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
    * @returns The locale modal.
    */
   renderModal() {
-    const {
-      collatorCountryName,
-      langDisplay,
-      language,
-      localeList,
-      openLocaleModal,
-      _loadLangDisplay: loadLangDisplay,
-      _loadLocaleList: loadLocaleList,
-    } = this;
+    const { collatorCountryName, langDisplay, language, localeList, openLocaleModal, _loadLocaleList: loadLocaleList } = this;
     return html`
       <dds-locale-modal-composite
         lang-display="${ifNonNull(langDisplay)}"
@@ -235,7 +229,6 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
         ?open="${openLocaleModal}"
         .collatorCountryName="${ifNonNull(collatorCountryName)}"
         .localeList="${ifNonNull(localeList)}"
-        ._loadLangDisplay="${ifNonNull(loadLangDisplay)}"
         ._loadLocaleList="${ifNonNull(loadLocaleList)}"
       >
       </dds-locale-modal-composite>

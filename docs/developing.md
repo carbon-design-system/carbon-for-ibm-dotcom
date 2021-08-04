@@ -19,8 +19,8 @@
 
 ## Setup
 
-Our repository requires that a forked repo is used for any work before 
-contributing back to the repository. This includes regular team 
+Our repository requires that a forked repo is used for any work before
+contributing back to the repository. This includes regular team
 members/maintainers.
 
 1. Fork the project by navigating to the main
@@ -47,11 +47,8 @@ members/maintainers.
    $ git remote -v
    ```
 
-4. Switch to our version of Node. If you are using (nvm
-   [Node Version Manager](https://github.com/creationix/nvm)), you can run
-   `nvm use` to quicky switch Node versions. If you are aren't using nvm, you
-   can still check the `.nvmrc` dotfile in the root of this project to find the
-   major stable version of Node we are using, and then you can switch manually.
+4. Switch to our version of Node. The currently supported node versions are
+   listed within the package.json file under the "engines" key.
 
 ## Installing dependencies
 
@@ -118,11 +115,11 @@ yarn lerna run build
 
 ## Developing Locally
 
-There would be instances where in development, testing one of the packages before 
+There would be instances where in development, testing one of the packages before
 publishing would be required. Creating a symlink to the local package is typically
 the best way to approach this, using `yarn link`:
 
-https://yarnpkg.com/lang/en/docs/cli/link/ 
+https://yarnpkg.com/lang/en/docs/cli/link/
 
 ## Submitting a Pull Request
 

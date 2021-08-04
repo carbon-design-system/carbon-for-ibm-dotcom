@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -45,9 +45,9 @@ describe('dds-card-section-images', function() {
               </dds-image>
               <dds-card-eyebrow>Topic</dds-card-eyebrow>
               <dds-card-heading>Natural Language Processing.</dds-card-heading>
-              <dds-card-footer slot="footer">
+              <dds-card-cta-footer slot="footer">
                 ${ArrowRight20({ slot: 'icon' })}
-              </dds-card-footer>
+              </dds-card-cta-footer>
             </dds-card-group-item>
           `,
         }),

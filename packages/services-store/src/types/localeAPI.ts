@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -148,26 +148,6 @@ export interface LocaleAPIState {
    * The error from the request for the language data.
    */
   errorRequestLanguage?: Error;
-
-  /**
-   * The display language data, keyed by the language.
-   */
-  langDisplays?: { [language: string]: string };
-
-  /**
-   * The request for the display language data, keyed by the language.
-   */
-  requestsLangDisplay?: { [language: string]: Promise<string> };
-
-  /**
-   * `true` if the request for the display language data is in progress, keyed by the language.
-   */
-  requestsLangDisplayInProgress?: { [language: string]: boolean };
-
-  /**
-   * The error from the request for the display language data, keyed by the language.
-   */
-  errorsRequestLangDisplay?: { [language: string]: Error };
 
   /**
    * The locale list data, keyed by the language.
