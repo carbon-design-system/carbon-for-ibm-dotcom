@@ -111,6 +111,7 @@
 
     .#{$prefix}--accordion__heading {
       justify-content: space-between;
+      z-index: 0;
     }
 
     .#{$prefix}--accordion__title {
