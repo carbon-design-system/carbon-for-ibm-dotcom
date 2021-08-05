@@ -14,6 +14,7 @@ export * from './featureflag';
 export * from './formatVideoCaption';
 export * from './geolocation';
 export * from './ipcinfoCookie';
+export * from './loadNonLatinPlex';
 export * from './markdownToHtml';
 export * from './removeHtmlTagEntities';
 export * from './sameHeight';
