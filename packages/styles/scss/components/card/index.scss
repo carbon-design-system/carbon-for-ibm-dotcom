@@ -383,6 +383,22 @@
         filter: brightness(108%);
       }
     }
+
+    &:focus-within {
+      &::after {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border: 2px solid $focus;
+        outline: 1px solid #ffffff;
+        outline-offset: -3px;
+        pointer-events: none;
+      }
+    }
   }
 
   :host(#{$dds-prefix}-card-heading) {
