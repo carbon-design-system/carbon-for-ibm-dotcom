@@ -77,7 +77,7 @@ class DDSLinkWithIcon extends StableSelectorMixin(BXLink) {
         iconPlacement === ICON_PLACEMENT.RIGHT
       );
 
-      if (iconInline) {
+      if (iconInline && iconPlacement === ICON_PLACEMENT.RIGHT) {
         linkNode.classList.add(`${prefix}--link-with-icon--inline-icon`);
       }
     }
