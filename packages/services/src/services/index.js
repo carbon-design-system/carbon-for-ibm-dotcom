@@ -15,5 +15,4 @@ export * from './MastheadLogo';
 export * from './Profile';
 export * from './SearchTypeahead';
 export * from './Translation';
-export * from './VideoPlayer';
 export * from './KalturaPlayer';

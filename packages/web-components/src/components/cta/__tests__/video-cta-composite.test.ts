@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, render } from 'lit-html';
-import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import DDSExpressiveModal from '../../expressive-modal/expressive-modal';
 import DDSLightboxVideoPlayerComposite from '../../lightbox-media-viewer/lightbox-video-player-composite';
 import '../video-cta-composite';
@@ -20,8 +20,8 @@ const template = () => html`
 describe('dds-video-cta-composite', function() {
   describe('Handling video type', function() {
     beforeEach(function() {
-      spyOn(VideoPlayerAPI, 'api').and.returnValue(Promise.resolve({}));
-      spyOn(VideoPlayerAPI, 'embedVideo').and.returnValue(Promise.resolve({ kWidget() {} }));
+      spyOn(KalturaPlayerAPI, 'api').and.returnValue(Promise.resolve({}));
+      spyOn(KalturaPlayerAPI, 'embedMedia').and.returnValue(Promise.resolve({ kWidget() {} }));
     });
 
     it('should render the media viewer', async function() {

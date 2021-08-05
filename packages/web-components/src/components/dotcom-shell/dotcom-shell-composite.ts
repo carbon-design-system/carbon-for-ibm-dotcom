@@ -171,13 +171,6 @@ class DDSDotcomShellComposite extends LitElement {
   }
 
   /**
-   * The placeholder for `loadLangDisplay()` Redux action that may be mixed in. This goes to footer.
-   *
-   * @internal
-   */
-  _loadLangDisplay?: (language?: string) => Promise<string>;
-
-  /**
    * The placeholder for `loadLocaleList()` Redux action that may be mixed in. This goes to footer.
    *
    * @internal
@@ -488,7 +481,6 @@ class DDSDotcomShellComposite extends LitElement {
       selectedLanguage,
       selectedMenuItem,
       userStatus,
-      _loadLangDisplay,
       _setLanguage,
       _loadLocaleList,
       _loadTranslation,
@@ -547,7 +539,6 @@ class DDSDotcomShellComposite extends LitElement {
           openLocaleModal,
           selectedLanguage,
           size: footerSize,
-          _loadLangDisplay,
           _loadLocaleList,
           _loadTranslation,
           _setLanguage,
