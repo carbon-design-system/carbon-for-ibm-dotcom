@@ -17,14 +17,11 @@ import { TranslateAPIActions } from '../../../internal/vendor/@carbon/ibmdotcom-
 import { loadUserStatus } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/cloudAccountAuthAPI';
 // eslint-disable-next-line max-len
 import { CloudAccountAuthAPIActions } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/cloudAccountAuthAPI.d';
-import { SearchAPIActions } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/searchAPI.d';
 import ConnectMixin from '../../../globals/mixins/connect';
 import { loadTranslation } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
 import { loadLanguage, setLanguage } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
-import { loadSearchResults } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/searchAPI';
 import { MastheadContainerState, MastheadContainerStateProps } from '../masthead-container';
 import DDSCloudMastheadComposite from './cloud-masthead-composite';
-import { MastheadSearchContainerActions } from '../masthead-search-container';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -42,7 +39,6 @@ export interface CloudMastheadContainerState extends MastheadContainerState {
  * The Redux actions used for `<dds-cloud-masthead-container>.
  */
 export type CloudMastheadContainerActions =
-  | MastheadSearchContainerActions
   | ReturnType<typeof loadLanguage>
   | ReturnType<typeof setLanguage>
   | ReturnType<typeof loadTranslation>
@@ -53,15 +49,10 @@ export type CloudMastheadContainerActions =
  * @returns The converted version of the given state, tailored for `<dds-cloud-masthead-container>`.
  */
 export function mapStateToProps(state: CloudMastheadContainerState): MastheadContainerStateProps {
-  const { localeAPI, translateAPI, searchAPI, cloudAccountAuthAPI } = state;
+  const { localeAPI, translateAPI, cloudAccountAuthAPI } = state;
   const { language } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
   const { request } = cloudAccountAuthAPI ?? {};
-  const { currentSearchQueryString, searchResults } = searchAPI ?? {};
-  let currentSearchResults;
-  for (let { length = 0 } = currentSearchQueryString ?? {}; !currentSearchResults && length > 0; --length) {
-    currentSearchResults = searchResults?.[currentSearchQueryString!.substr(0, length)]?.[language!];
-  }
   return pickBy(
     {
       authenticatedProfileItems: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedin.links,
@@ -71,7 +62,6 @@ export function mapStateToProps(state: CloudMastheadContainerState): MastheadCon
       unauthenticatedProfileItems: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedout.links,
       unauthenticatedCtaButtons: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedout.ctaButtons,
       userStatus: request?.user,
-      currentSearchResults: currentSearchResults ?? [],
       language,
     },
     value => value !== undefined
@@ -89,7 +79,6 @@ export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions | Transla
       _setLanguage: setLanguage,
       _loadTranslation: loadTranslation,
       _loadUserStatus: loadUserStatus,
-      _loadSearchResults: loadSearchResults,
     },
     dispatch as Dispatch // TS definition of `bindActionCreators()` seems to have no templated `Dispatch`
   );
@@ -102,11 +91,11 @@ export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions | Transla
 @customElement(`${ddsPrefix}-cloud-masthead-container`)
 class DDSCloudMastheadContainer extends ConnectMixin<
   MastheadContainerState,
-  LocaleAPIActions | TranslateAPIActions | SearchAPIActions | CloudAccountAuthAPIActions,
+  LocaleAPIActions | TranslateAPIActions | CloudAccountAuthAPIActions,
   MastheadContainerStateProps,
   ActionCreatorsMapObject<CloudMastheadContainerActions>
 >(
-  store as Store<MastheadContainerState, LocaleAPIActions | TranslateAPIActions | SearchAPIActions | CloudAccountAuthAPIActions>,
+  store as Store<MastheadContainerState, LocaleAPIActions | TranslateAPIActions | CloudAccountAuthAPIActions>,
   mapStateToProps,
   mapDispatchToProps
 )(DDSCloudMastheadComposite) {}
