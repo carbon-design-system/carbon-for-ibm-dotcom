@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -7,6 +7,8 @@
 
 import { AnalyticsAPI } from '../Analytics';
 import { DDOAPI } from '../DDO';
+import loadNonLatinPlex from '@carbon/ibmdotcom-utilities/es/utilities/loadNonLatinPlex/loadNonLatinPlex';
+import { LocaleAPI } from '../Locale';
 
 /**
  * Flag to determine if the global init has been fired
@@ -32,6 +34,11 @@ export function globalInit() {
       'Error setting the version of the library in the DDO:',
       error
     );
+  });
+
+  // Sets the Plex font for non-Latin fonts
+  LocaleAPI.getLang().then(lang => {
+    loadNonLatinPlex(lang.lc);
   });
 
   // analytics tracking
