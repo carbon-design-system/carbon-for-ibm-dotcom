@@ -155,7 +155,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * Returns a class-name based on the Orientation value
+   * Returns a class-name based on the defined Orientation value
    */
   protected _getOrientationClass() {
     return classMap({
@@ -165,7 +165,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * Orientation (horizontal (default) | Vertical)
+   * Orientation (horizontal (default) | vertical)
    */
   @property({ attribute: 'orientation', reflect: true })
   orientation = ORIENTATION.HORIZONTAL;
