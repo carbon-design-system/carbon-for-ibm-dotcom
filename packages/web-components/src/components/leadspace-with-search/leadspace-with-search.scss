@@ -110,7 +110,7 @@
     }
   }
 
-  #{$dds-prefix}-hr {
+  ::slotted(#{$dds-prefix}-hr) {
     margin: 0 calc(50% - 50vw);
     position: relative;
   }
@@ -169,6 +169,7 @@
   display: block;
   padding-top: $spacing-07;
   margin-bottom: 0;
+  max-width: rem(640px);
 
   // !important required to override slotted styling from block-content component
   @include carbon--breakpoint-down('md') {
