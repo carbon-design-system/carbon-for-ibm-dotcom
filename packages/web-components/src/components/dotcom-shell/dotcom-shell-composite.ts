@@ -137,6 +137,18 @@ class DDSDotcomShellComposite extends LitElement {
    * Scrolls the masthead in/out of view depending on scroll direction if toc is present
    */
   private _handleIntersect = () => {
+    // masthead hide l0 on scroll if l1 is present
+
+    if (this._masthead && this._masthead.querySelector(`${ddsPrefix}-masthead-l1`)) {
+      const mastheadl1 = this._masthead.querySelector(`${ddsPrefix}-masthead-l1`) as HTMLElement;
+      this._masthead!.style.transition = 'none';
+      if (window.scrollY < this._lastScrollPosition) {
+        this._masthead.style.top = `0`;
+      } else {
+        this._masthead.style.top = `-${mastheadl1.getBoundingClientRect().height}px`;
+      }
+    }
+
     if (this._tableOfContentsInnerBar && !this._localeModal?.hasAttribute('open')) {
       if (window.innerWidth < gridBreakpoint || this._tableOfContentsLayout === 'horizontal') {
         const mastheadTop = Math.min(
@@ -146,6 +158,7 @@ class DDSDotcomShellComposite extends LitElement {
         const tocPosition =
           this._tableOfContentsInnerBar!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY;
         this._masthead!.style.transition = 'none';
+
         if (window.scrollY < this._lastScrollPosition) {
           this._tableOfContentsInnerBar!.style.top = `${Math.min(tocPosition, this._masthead!.offsetHeight)}px`;
           this._masthead!.style.top = `${mastheadTop}px`;
