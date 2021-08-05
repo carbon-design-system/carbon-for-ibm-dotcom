@@ -11,8 +11,7 @@ import { classMap } from 'lit-html/directives/class-map';
 import { html, property, customElement, LitElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import DDSMastheadSearch from './masthead-search';
-import styles from './masthead.scss';
+import styles from './search-with-typeahead.scss';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -20,10 +19,10 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 /**
  * Search result item in masthead.
  *
- * @element dds-masthead-search-item
+ * @element dds-search-with-typeahead-item
  */
-@customElement(`${ddsPrefix}-masthead-search-item`)
-class DDSMastheadSearchItem extends LitElement {
+@customElement(`${ddsPrefix}-search-with-typeahead-item`)
+class DDSSearchWithTypeaheadItem extends LitElement {
   /**
    * The the search result to be shown.
    */
@@ -31,7 +30,7 @@ class DDSMastheadSearchItem extends LitElement {
 
   /**
    * `true` if this dropdown item should be highlighted.
-   * If `true`, parent `<dds-masthead-search>` selects/deselects this dropdown item upon keyboard interaction.
+   * If `true`, parent `<dds-search-with-typeahead>` selects/deselects this dropdown item upon keyboard interaction.
    *
    * @private
    */
@@ -55,13 +54,13 @@ class DDSMastheadSearchItem extends LitElement {
     const result = super.shouldUpdate(changedProperties);
     if (changedProperties.has('text')) {
       const { text } = this;
-      const parent = this.closest((this.constructor as typeof DDSMastheadSearchItem).selectorParent) as DDSMastheadSearch;
+      const parent = (this.getRootNode() as any).host;
       const { searchQueryString } = parent ?? {};
       if (!searchQueryString) {
         this._content = text;
       } else {
         const highlightedResult = html`
-          <span class="${ddsPrefix}-ce--masthead-search-item__highlighted">${searchQueryString}</span>
+          <span class="${ddsPrefix}-ce--search-with-typeahead-item__highlighted">${searchQueryString}</span>
         `;
         const content = text.split(searchQueryString).reduce((acc, item) => {
           acc.push(item.replace(/^\s/, '\xa0').replace(/\s$/, '\xa0'));
@@ -93,14 +92,7 @@ class DDSMastheadSearchItem extends LitElement {
     `;
   }
 
-  /**
-   * A selector that will return the parent search box.
-   */
-  static get selectorParent() {
-    return `${ddsPrefix}-masthead-search`;
-  }
-
   static styles = styles;
 }
 
-export default DDSMastheadSearchItem;
+export default DDSSearchWithTypeaheadItem;
