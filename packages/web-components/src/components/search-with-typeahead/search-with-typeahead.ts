@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2019, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,32 +16,46 @@ import Close20 from 'carbon-web-components/es/icons/close/20.js';
 import Search20 from 'carbon-web-components/es/icons/search/20.js';
 import BXDropdown, { DROPDOWN_KEYBOARD_ACTION } from 'carbon-web-components/es/components/dropdown/dropdown.js';
 import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
+import SearchTypeaheadAPI from '@carbon/ibmdotcom-services/es/services/SearchTypeahead/SearchTypeahead';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
-import DDSMastheadSearchItem from './masthead-search-item';
-import styles from './masthead.scss';
+import styles from './search-with-typeahead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import './search-with-typeahead-item';
 
-const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix } = settings;
 
 /**
- * The search UI in the masthead.
+ * Search with Typeahead
  *
- * @element dds-masthead-search
+ * @element dds-search-with-typeahead
  * @csspart open-button The button to show the search box.
  * @csspart close-button The button to hide the search box.
  * @csspart search-input The input box for search.
- * @fires dds-masthead-search-beingredirected
+ * @fires dds-search-with-typeahead-beingredirected
  *   The custom event fired before the page is being redirected to the search result page.
  *   Cancellation of this event stops the user-initiated action of redirection.
- * @fires dds-masthead-search-input
+ * @fires dds-search-with-typeahead-input
  *   The name of the custom event fired after the search content is changed upon a user gesture.
- * @fires dds-masthead-search-toggled
+ * @fires dds-search-with-typeahead-toggled
  *   The name of the custom event fired after this search box is toggled upon a user gesture.
  */
-@customElement(`${ddsPrefix}-masthead-search`)
-// `BXDropdown` extends `HostListenerMixin`
-class DDSMastheadSearch extends StableSelectorMixin(BXDropdown) {
+@customElement(`${ddsPrefix}-search-with-typeahead`)
+class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDropdown)) {
+  // eslint-disable-next-line class-methods-use-this
+  async getResults(searchQuery) {
+    const response = await SearchTypeaheadAPI.getResults(searchQuery);
+    return response;
+  }
+
+  @property()
+  searchResults;
+
+  @property({ attribute: 'should-remain-open', type: Boolean })
+  shouldRemainOpen = false;
+
   /**
    * The `<button>` to open the search box.
    */
@@ -55,10 +69,49 @@ class DDSMastheadSearch extends StableSelectorMixin(BXDropdown) {
   private _searchInputNode!: HTMLInputElement;
 
   /**
+   * The `<ul>` containing the search suggestions.
+   */
+  @query(`.react-autosuggest__suggestions-list`)
+  private _searchSuggestions!: HTMLElement;
+
+  /**
+   * Handles hiding search suggestions if focusing on other buttons.
+   *
+   * @param event The event.
+   */
+  @HostListener('shadowRoot:focusin')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleFocus = async ({ target }: FocusEvent) => {
+    if (!this._searchSuggestions) return;
+
+    if (target === this._searchInputNode) {
+      this._searchSuggestions.removeAttribute('hidden');
+    } else if (target === this._searchButtonNode) {
+      this._searchSuggestions.setAttribute('hidden', '');
+    }
+  };
+
+  /**
    * Handles `click` event on the close button.
    */
   private async _handleClickCloseButton() {
     this._handleUserInitiatedToggleActiveState(false);
+  }
+
+  /**
+   * Handles `click` event on the top-level element in the shadow DOM.
+   *
+   * @param event The event.
+   */
+  protected _handleClickInner(event: MouseEvent) {
+    if ((event.target as HTMLElement).closest('.bx--header__search--input') === event.target) {
+      this._handleUserInitiatedToggle();
+    } else {
+      const item = (event.target as Element).closest((this.constructor as typeof BXDropdown).selectorItem) as BXDropdownItem;
+      if (this.shadowRoot!.contains(item)) {
+        this._handleUserInitiatedSelectItem(item);
+      }
+    }
   }
 
   /**
@@ -83,12 +136,12 @@ class DDSMastheadSearch extends StableSelectorMixin(BXDropdown) {
    * @param moveFocus
    *   `true` to move focus upon toggling, to the input box when activated, to the trigger button when deactivated.
    */
-  private async _handleUserInitiatedToggleActiveState(active = !this.active, moveFocus = true) {
+  private async _handleUserInitiatedToggleActiveState(active, moveFocus = true) {
     if (active === this.active) {
       return;
     }
     const { _searchInputNode: searchInputNode } = this;
-    const { eventInput, eventToggle } = this.constructor as typeof DDSMastheadSearch;
+    const { eventInput, eventToggle } = this.constructor as typeof DDSSearchWithTypeahead;
     if (!active && searchInputNode.value) {
       searchInputNode.value = '';
       this.dispatchEvent(
@@ -102,7 +155,8 @@ class DDSMastheadSearch extends StableSelectorMixin(BXDropdown) {
         })
       );
     }
-    this.active = active;
+    this.active = this.shouldRemainOpen ? true : !this.active;
+    this.searchResults = [];
     this.dispatchEvent(
       new CustomEvent(eventToggle, {
         bubbles: true,
@@ -116,7 +170,7 @@ class DDSMastheadSearch extends StableSelectorMixin(BXDropdown) {
     await this.updateComplete;
     if (moveFocus) {
       // Does not reuse destructed `searchInputNode` given it's `null` before expanded
-      (active ? this._searchInputNode : this._searchButtonNode).focus();
+      (this.active ? this._searchInputNode : this._searchButtonNode).focus();
     }
   }
 
@@ -126,7 +180,7 @@ class DDSMastheadSearch extends StableSelectorMixin(BXDropdown) {
    * @param event The event.
    */
   private _handleKeyInput(event: KeyboardEvent) {
-    if ((this.constructor as typeof DDSMastheadSearch).getAction(event.key) === DROPDOWN_KEYBOARD_ACTION.NONE) {
+    if ((this.constructor as typeof DDSSearchWithTypeahead).getAction(event.key) === DROPDOWN_KEYBOARD_ACTION.NONE) {
       event.stopPropagation();
     }
   }
@@ -138,7 +192,7 @@ class DDSMastheadSearch extends StableSelectorMixin(BXDropdown) {
    * @param [options.targetQuery] The query string the search query page should be of.
    */
   private _handleUserInitiatedRedirect({ targetQuery }: { targetQuery?: string } = {}) {
-    const { eventBeforeRedirect } = this.constructor as typeof DDSMastheadSearch;
+    const { eventBeforeRedirect } = this.constructor as typeof DDSSearchWithTypeahead;
     const { language, redirectUrl } = this;
     const [primary, country] = language.split('-');
     const tokens = redirectUrl.split('?');
@@ -165,6 +219,13 @@ class DDSMastheadSearch extends StableSelectorMixin(BXDropdown) {
     }
   }
 
+  /**
+   * Handles component reset if focusing outside.
+   *
+   * @param event The event.
+   */
+  @HostListener('focusout')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   protected _handleFocusOut(event: FocusEvent) {
     super._handleFocusOut(event);
     if (!(event.currentTarget as HTMLElement).contains(event.relatedTarget as HTMLElement) && !this.searchOpenOnload) {
@@ -179,7 +240,7 @@ class DDSMastheadSearch extends StableSelectorMixin(BXDropdown) {
     const { target } = event;
     const { value } = target as HTMLInputElement;
     this.dispatchEvent(
-      new CustomEvent((this.constructor as typeof DDSMastheadSearch).eventInput, {
+      new CustomEvent((this.constructor as typeof DDSSearchWithTypeahead).eventInput, {
         bubbles: true,
         composed: true,
         cancelable: false,
@@ -189,6 +250,11 @@ class DDSMastheadSearch extends StableSelectorMixin(BXDropdown) {
       })
     );
     this.value = value;
+
+    this.getResults(value).then(res => {
+      this.searchResults = res;
+    });
+
     if (value) {
       this.open = true;
     }
@@ -202,15 +268,48 @@ class DDSMastheadSearch extends StableSelectorMixin(BXDropdown) {
    */
   private _handleSubmit(event: Event) {
     const { selectorItemHighlighted } = this.constructor as typeof BXDropdown;
-    const highlightedItem = this.querySelector(selectorItemHighlighted) as BXDropdownItem;
-    if (highlightedItem) {
+    const highlightedItem = this.shadowRoot!.querySelector(selectorItemHighlighted) as BXDropdownItem;
+    if (highlightedItem || !this._searchInputNode.value) {
       event.preventDefault();
     }
   }
 
   protected _handleUserInitiatedSelectItem(item?: BXDropdownItem) {
     if (item) {
-      this._handleUserInitiatedRedirect({ targetQuery: ((item as unknown) as DDSMastheadSearchItem).text });
+      this._handleUserInitiatedRedirect({ targetQuery: ((item as unknown) as any).text });
+    }
+  }
+
+  /**
+   * Handler for the `keypress` event on the top-level element in the shadow DOM.
+   */
+  protected _handleKeypressInner(event: KeyboardEvent) {
+    const { key } = event;
+    const action = (this.constructor as typeof BXDropdown).getAction(key);
+    if (!this.open) {
+      switch (action) {
+        case DROPDOWN_KEYBOARD_ACTION.TRIGGERING:
+          this._handleUserInitiatedToggle(true);
+          break;
+        default:
+          break;
+      }
+    } else {
+      switch (action) {
+        case DROPDOWN_KEYBOARD_ACTION.TRIGGERING:
+          {
+            const constructor = this.constructor as typeof BXDropdown;
+            const highlightedItem = this.shadowRoot!.querySelector(constructor.selectorItemHighlighted) as BXDropdownItem;
+            if (highlightedItem) {
+              this._handleUserInitiatedSelectItem(highlightedItem);
+            } else {
+              this._handleUserInitiatedToggle(false);
+            }
+          }
+          break;
+        default:
+          break;
+      }
     }
   }
 
@@ -229,9 +328,9 @@ class DDSMastheadSearch extends StableSelectorMixin(BXDropdown) {
    * @param direction `-1` to navigate backward, `1` to navigate forward.
    */
   protected _navigate(direction: number) {
-    const constructor = this.constructor as typeof DDSMastheadSearch;
-    const items = this.querySelectorAll(constructor.selectorItem);
-    const highlightedItem = this.querySelector(constructor.selectorItemHighlighted);
+    const constructor = this.constructor as typeof DDSSearchWithTypeahead;
+    const items = this.shadowRoot!.querySelectorAll(constructor.selectorItem);
+    const highlightedItem = this.shadowRoot!.querySelector(constructor.selectorItemHighlighted);
     const highlightedIndex = indexOf(items, highlightedItem!);
     let nextIndex = highlightedIndex + direction;
     if (nextIndex < 0) {
@@ -323,8 +422,14 @@ class DDSMastheadSearch extends StableSelectorMixin(BXDropdown) {
         >
           ${this._renderTriggerContent()}
           <div id="result-list" class="react-autosuggest__suggestions-container">
-            <ul role="listbox" class="${ddsPrefix}-ce--masthead__search__list react-autosuggest__suggestions-list">
-              <slot></slot>
+            <ul role="listbox" class="${ddsPrefix}-ce__search__list react-autosuggest__suggestions-list">
+              ${this.searchResults &&
+                this.searchResults.map(
+                  item =>
+                    html`
+                      <dds-search-with-typeahead-item text="${item[0]}"></dds-search-with-typeahead-item>
+                    `
+                )}
             </ul>
           </div>
         </div>
@@ -461,22 +566,18 @@ class DDSMastheadSearch extends StableSelectorMixin(BXDropdown) {
     `;
   }
 
-  static get stableSelector() {
-    return `${ddsPrefix}--masthead-search`;
-  }
-
   /**
    * A selector that will return highlighted search result items.
    */
   static get selectorItemHighlighted() {
-    return `${ddsPrefix}-masthead-search-item[highlighted]`;
+    return `${ddsPrefix}-search-with-typeahead-item[highlighted]`;
   }
 
   /**
    * A selector that will return search result items.
    */
   static get selectorItem() {
-    return `${ddsPrefix}-masthead-search-item`;
+    return `${ddsPrefix}-search-with-typeahead-item`;
   }
 
   /**
@@ -484,24 +585,29 @@ class DDSMastheadSearch extends StableSelectorMixin(BXDropdown) {
    * Cancellation of this event stops the user-initiated action of redirection.
    */
   static get eventBeforeRedirect() {
-    return `${ddsPrefix}-masthead-search-beingredirected`;
+    return `${ddsPrefix}-search-with-typeahead-beingredirected`;
   }
 
   /**
    * The name of the custom event fired after the search content is changed upon a user gesture.
    */
   static get eventInput() {
-    return `${ddsPrefix}-masthead-search-input`;
+    return `${ddsPrefix}-search-with-typeahead-input`;
   }
 
   /**
    * The name of the custom event fired after this search box is toggled upon a user gesture.
    */
   static get eventToggle() {
-    return `${ddsPrefix}-masthead-search-toggled`;
+    return `${ddsPrefix}-search-with-typeahead-toggled`;
   }
 
-  static styles = styles;
+  static get stableSelector() {
+    return `${ddsPrefix}--search-with-typeahead`;
+  }
+
+  static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
-export default DDSMastheadSearch;
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
+export default DDSSearchWithTypeahead;
