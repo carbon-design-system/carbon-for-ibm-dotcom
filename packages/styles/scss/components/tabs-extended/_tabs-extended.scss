@@ -24,6 +24,7 @@
 
     .#{$prefix}--tabs {
       display: none;
+      margin-bottom: $spacing-05;
 
       .#{$prefix}--tabs__nav {
         position: relative;
@@ -42,14 +43,15 @@
 
       .#{$prefix}--tabs__nav-link:focus,
       .#{$prefix}--tabs__nav-link:active {
-        border-bottom: 2px solid $border-interactive;
+        border-bottom: carbon--rem(2px) solid $border-interactive;
       }
 
       .#{$prefix}--tabs__nav-item--selected:not(.#{$prefix}--tabs__nav-item--disabled) {
         .#{$prefix}--tabs__nav-link,
         .#{$prefix}--tabs__nav-link:focus,
         .#{$prefix}--tabs__nav-link:active {
-          border-bottom: 2px solid $border-interactive;
+          border-bottom: carbon--rem(2px) solid $border-interactive;
+
           p {
             @include type-style('productive-heading-01');
 
@@ -99,6 +101,9 @@
       @include carbon--type-style('body-long-02', true);
 
       display: none;
+      padding-top: 0;
+      padding-bottom: 0;
+
       @include carbon--breakpoint(lg) {
         display: block;
       }
@@ -106,7 +111,14 @@
 
     // Add "Vertical" orientation styling.
     .#{$prefix}--tabs-extended--vertical {
+      display: flex;
+      flex-wrap: wrap;
+
       .#{$prefix}--tabs {
+        @include carbon--breakpoint(lg) {
+          @include carbon--make-col(3, 16);
+        }
+
         .#{$prefix}--tabs__nav {
           @include carbon--breakpoint(md) {
             flex-direction: column;
@@ -118,25 +130,41 @@
           .#{$prefix}--tabs__nav-link:focus,
           .#{$prefix}--tabs__nav-link:active {
             p {
-              @include type-style('expressive-heading-02', true);
+              @include type-style('expressive-heading-02');
 
               color: $text-01;
             }
           }
         }
 
-        .#{$prefix}--tabs__nav-item {
-          @include carbon--breakpoint(md) {
-            min-height: auto;
-            margin-bottom: $spacing-05;
-          }
+        .#{$prefix}--tabs__nav-link {
+          width: auto;
         }
 
         a.#{$prefix}--tabs__nav-link {
-          @include carbon--breakpoint(md) {
-            padding: 0;
-          }
+          padding: 0;
+          border-bottom: carbon--rem(2px) solid transparent;
         }
+
+        .#{$prefix}--tabs__nav-item {
+          min-height: carbon--rem(26px);
+          margin-top: $spacing-05;
+        }
+      }
+
+      .#{$prefix}--accordion {
+        flex: 0 0 1;
+      }
+
+      .#{$prefix}--tab-content {
+        @include carbon--breakpoint(lg) {
+          @include carbon--make-col(12, 16);
+          @include carbon--make-col-offset(1, 16);
+        }
+      }
+
+      .#{$prefix}--accordion__content {
+        padding-right: 0;
       }
     }
 
