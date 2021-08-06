@@ -24,6 +24,7 @@ const { prefix } = settings;
  */
 const LinkList = ({ heading, iconPlacement, items, style }) => {
   const linkStyle = style === 'card' ? 'card' : 'text';
+  const iconInline = style === 'vertical' || style === 'horizontal';
   return (
     <div
       className={`${prefix}--link-list`}
@@ -46,6 +47,7 @@ const LinkList = ({ heading, iconPlacement, items, style }) => {
                 disableImage
                 {...(iconPlacement &&
                   linkStyle === 'text' && { iconPlacement })}
+                {...(linkStyle === 'text' && { iconInline })}
               />
             </li>
           );
