@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,6 +23,7 @@ const LinkWithIcon = ({
   className: customClassName,
   href,
   inverse,
+  iconInline,
   iconPlacement,
   ...props
 }) => {
@@ -40,6 +41,8 @@ const LinkWithIcon = ({
         href={href}
         className={classNames(`${prefix}--link-with-icon`, {
           [`${prefix}--link-with-icon__icon-left`]: iconPlacement === 'left',
+          [`${prefix}--link-with-icon--inline-icon`]:
+            iconInline && iconPlacement === 'right',
         })}
         {...props}>
         {children}
@@ -60,6 +63,11 @@ LinkWithIcon.propTypes = {
   href: PropTypes.string,
 
   /**
+   * Positions the icon inline with text when `true`
+   */
+  iconInline: PropTypes.bool,
+
+  /**
    * Icon placement.
    */
   iconPlacement: PropTypes.oneOf(['left', 'right']),
@@ -78,6 +86,7 @@ LinkWithIcon.propTypes = {
 LinkWithIcon.defaultProps = {
   children: [],
   href: '',
+  iconInline: true,
   iconPlacement: 'right',
 };
 
