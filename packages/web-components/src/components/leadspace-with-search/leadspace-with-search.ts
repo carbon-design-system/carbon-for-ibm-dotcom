@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, internalProperty, property, html, LitElement } from 'lit-element';
+import { customElement, property, html, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -29,7 +29,7 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   /**
    * `true` if there is an image.
    */
-  @internalProperty()
+  @property({ attribute: 'has-image', reflect: true, type: Boolean })
   protected _hasImage = false;
 
   /**

@@ -167,6 +167,10 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
         display: inline-flex;
       }
 
+      button.#{$prefix}--header__search--close.#{$prefix}--header__action.#{$prefix}--header__search--hide {
+        display: none;
+      }
+
       .#{$prefix}--header__search--actions {
         z-index: 10001;
       }
@@ -226,7 +230,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
       }
     }
 
-    &[alt-search] {
+    &[leadspace-search] {
       background: $ui-01;
       outline: 2px solid transparent;
       transition: background-color $duration--fast-02

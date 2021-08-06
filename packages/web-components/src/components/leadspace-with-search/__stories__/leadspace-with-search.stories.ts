@@ -9,13 +9,9 @@
 
 import { select, text } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
-import '../leadspace-with-search';
-import '../../search-with-typeahead/search-with-typeahead';
-import '../leadspace-search-block-heading';
-import '../leadspace-search-block-copy';
 import readme from './README.stories.mdx';
 import { ADJACENT_THEMES } from '../defs';
-
+import '../index';
 import image from '../../../../../storybook-images/assets/card-section-offset/background-media.jpg';
 
 const copy = `Automate your software release process with continuous 
@@ -31,22 +27,39 @@ const adjacentThemes = {
   Monotheme: '',
 };
 
+// observing the Storybook theme attribute change
+const htmlElement = document.documentElement;
+let currentTheme = '';
+const observer = new MutationObserver(mutations => {
+  mutations.forEach(function(mutation) {
+    if (mutation.type === 'attributes') {
+      currentTheme = htmlElement.getAttribute(mutation.attributeName!) as string;
+    }
+  });
+});
+observer.observe(htmlElement, { attributes: true });
+
 export const Default = ({ parameters }) => {
   const { theme, heading, subheading, paragraph } = parameters?.props?.LeadspaceWithSearch ?? {};
+  const secondTheme = theme.split('-')[2];
   return html`
     <dds-leadspace-with-search adjacent-theme="${theme}">
       <dds-leadspace-block-heading slot="heading">${heading}</dds-leadspace-block-heading>
       <dds-leadspace-block-content slot="content">
         <dds-leadspace-search-block-heading>${subheading}</dds-leadspace-search-block-heading>
-        <dds-leadspace-search-block-copy>${paragraph}</dds-leadspace-search-block-copy>
+        <dds-leadspace-search-block-copy style="${!paragraph ? 'display: none' : ''}"
+          >${paragraph}
+        </dds-leadspace-search-block-copy>
       </dds-leadspace-block-content>
-      <dds-search-with-typeahead slot="search" alt-search active should-remain-open></dds-search-with-typeahead>
+      <dds-search-with-typeahead slot="search" leadspace-search></dds-search-with-typeahead>
+      <dds-hr slot="hr" style="${currentTheme === secondTheme ? 'display: none' : ''}"></dds-hr>
     </dds-leadspace-with-search>
   `;
 };
 
 export const WithImage = ({ parameters }) => {
   const { theme, heading, subheading, paragraph } = parameters?.props?.LeadspaceWithSearch ?? {};
+  const secondTheme = theme.split('-')[2];
   return html`
     <dds-leadspace-with-search adjacent-theme="${theme}">
       <dds-background-media gradient-direction="left-to-right" mobile-position="bottom" default-src="${image}" slot="image">
@@ -54,9 +67,12 @@ export const WithImage = ({ parameters }) => {
       <dds-leadspace-block-heading slot="heading">${heading}</dds-leadspace-block-heading>
       <dds-leadspace-block-content slot="content">
         <dds-leadspace-search-block-heading>${subheading}</dds-leadspace-search-block-heading>
-        <dds-leadspace-search-block-copy>${paragraph}</dds-leadspace-search-block-copy>
+        <dds-leadspace-search-block-copy style="${!paragraph ? 'display: none' : ''}"
+          >${paragraph}
+        </dds-leadspace-search-block-copy>
       </dds-leadspace-block-content>
-      <dds-search-with-typeahead slot="search" alt-search active should-remain-open></dds-search-with-typeahead>
+      <dds-search-with-typeahead slot="search" leadspace-search></dds-search-with-typeahead>
+      <dds-hr slot="hr" style="${currentTheme === secondTheme ? 'display: none' : ''}"></dds-hr>
     </dds-leadspace-with-search>
   `;
 };
@@ -70,7 +86,7 @@ export default {
     knobs: {
       LeadspaceWithSearch: ({ groupId }) => ({
         heading: text('Heading:', 'Find a product', groupId),
-        subheading: text('Subheading:', 'Innovate like a startup, scale for the enterprise', groupId),
+        subheading: 'Innovate like a startup, scale for the enterprise',
         paragraph: text('Paragraph:', copy, groupId),
         theme: select(`Adjacent theme`, adjacentThemes, adjacentThemes.Monotheme, groupId) ?? 0,
       }),

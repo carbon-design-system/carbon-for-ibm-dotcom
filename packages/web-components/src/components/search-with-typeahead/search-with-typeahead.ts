@@ -9,7 +9,7 @@
 
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, query, customElement } from 'lit-element';
+import { html, property, query, customElement, internalProperty } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import Close20 from 'carbon-web-components/es/icons/close/20.js';
@@ -50,10 +50,10 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
     return response;
   }
 
-  @property({ attribute: 'alt-search', type: Boolean })
-  altSearch = false;
+  @property({ attribute: 'leadspace-search', type: Boolean })
+  leadspaceSearch = false;
 
-  @property()
+  @internalProperty()
   searchResults;
 
   @property({ attribute: 'should-remain-open', type: Boolean })
@@ -231,9 +231,11 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   protected _handleFocusOut(event: FocusEvent) {
     super._handleFocusOut(event);
+    const tempValue = this._searchInputNode.value;
     if (!(event.currentTarget as HTMLElement).contains(event.relatedTarget as HTMLElement) && !this.searchOpenOnload) {
       this._handleUserInitiatedToggleActiveState(false, false);
     }
+    this._searchInputNode.value = tempValue;
   }
 
   /**
@@ -424,7 +426,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
           @keypress="${handleKeypressInner}"
         >
           ${this._renderTriggerContent()}
-          ${!this.altSearch
+          ${!this.leadspaceSearch
             ? html`
                 <div id="result-list" class="react-autosuggest__suggestions-container">
                   <ul role="listbox" class="${ddsPrefix}-ce__search__list react-autosuggest__suggestions-list">
@@ -536,6 +538,10 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
 
   firstUpdated() {
     this._setSearchParam();
+    if (this.leadspaceSearch) {
+      this.setAttribute('should-remain-open', '');
+      this.setAttribute('active', '');
+    }
   }
 
   render() {
@@ -549,7 +555,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
     } = this;
     const searchButtonAssistiveText = !active ? openSearchButtonAssistiveText : performSearchButtonAssistiveText;
     return html`
-      ${!this.altSearch
+      ${!this.leadspaceSearch
         ? html`
             ${this._renderForm()}
             <div class="${prefix}--header__search--actions">
@@ -584,7 +590,9 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
               <button
                 type="button"
                 part="close-button"
-                class="${prefix}--header__action ${prefix}--header__search--close"
+                class="${prefix}--header__action ${prefix}--header__search--close ${!this.value
+                  ? `${prefix}--header__search--hide`
+                  : ''}"
                 aria-label="${closeSearchButtonAssistiveText}"
                 @click="${handleClickCloseButton}"
               >
