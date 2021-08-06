@@ -30,6 +30,7 @@ const adjacentThemes = {
 // observing the Storybook theme attribute change
 const htmlElement = document.documentElement;
 let currentTheme = '';
+// eslint-disable-next-line func-names
 const observer = new MutationObserver(mutations => {
   mutations.forEach(function(mutation) {
     if (mutation.type === 'attributes') {
