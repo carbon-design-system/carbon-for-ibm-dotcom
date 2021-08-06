@@ -270,6 +270,17 @@
     }
   }
 
+  :host(#{$dds-prefix}-card-footer) {
+    .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon {
+      display: flex;
+
+      svg,
+      ::slotted(svg[slot='icon']) {
+        display: block;
+      }
+    }
+  }
+
   .#{$prefix}--card .#{$prefix}--card__footer,
   :host(#{$dds-prefix}-card-footer) a,
   :host(#{$dds-prefix}-card-cta-footer) a,

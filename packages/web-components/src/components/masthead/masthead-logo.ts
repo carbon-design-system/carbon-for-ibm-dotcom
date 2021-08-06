@@ -93,7 +93,7 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(StableSelectorMixin(B
    * The name of the custom event fired after the seach is toggled.
    */
   static get eventToggleSearch() {
-    return `${ddsPrefix}-masthead-search-toggled`;
+    return `${ddsPrefix}-search-with-typeahead-toggled`;
   }
 
   static get stableSelector() {
