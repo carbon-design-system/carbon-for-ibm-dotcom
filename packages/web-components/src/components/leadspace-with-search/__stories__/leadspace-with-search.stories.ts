@@ -20,9 +20,9 @@ Build, test, and deploy code changes quickly,
 ensuring software is always ready for deployment.`;
 
 const adjacentThemes = {
-  'White/ Gray 10': ADJACENT_THEMES.WHITE_AND_G10,
-  'Gray 10/ White': ADJACENT_THEMES.G10_AND_WHITE,
-  'Gray 90/ Gray 100': ADJACENT_THEMES.G90_AND_G100,
+  'White/Gray 10': ADJACENT_THEMES.WHITE_AND_G10,
+  'Gray 10/White': ADJACENT_THEMES.G10_AND_WHITE,
+  'Gray 90/Gray 100': ADJACENT_THEMES.G90_AND_G100,
   'Gray 100/Gray 90': ADJACENT_THEMES.G100_AND_G90,
   Monotheme: '',
 };

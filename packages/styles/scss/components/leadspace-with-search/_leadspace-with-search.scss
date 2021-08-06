@@ -117,10 +117,6 @@
       }
     }
 
-    ::slotted(#{$dds-prefix}-content-block-copy) {
-      font-size: 1rem;
-    }
-
     .#{$prefix}--content-layout {
       position: relative;
       padding: $spacing-05 0 $spacing-07;
