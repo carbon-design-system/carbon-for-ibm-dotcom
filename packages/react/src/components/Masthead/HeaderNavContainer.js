@@ -42,7 +42,7 @@ const HeaderNavContainer = ({ children }) => {
           contentRef.current.offsetWidth -
             menuItems[i].offsetLeft -
             buttonSize >
-          -position
+          -parseFloat(window.getComputedStyle(contentRef.current).right)
         ) {
           setPosition(
             Math.min(
@@ -220,25 +220,49 @@ const HeaderNavContainer = ({ children }) => {
    */
   const handleOnKeyDown = event => {
     if (matches(event, [keys.Tab])) {
-      if (event.shiftKey) {
-        //Focus previous input
-        if (
-          document.activeElement.parentElement.previousSibling &&
-          document.activeElement.parentElement.previousSibling.offsetLeft +
-            position <=
-            buttonSize
-        ) {
-          paginateLeft();
+      if (pageIsRTL) {
+        if (event.shiftKey) {
+          if (
+            document.activeElement.parentElement.previousSibling &&
+            document.activeElement.parentElement.previousSibling.offsetLeft +
+              document.activeElement.parentElement.previousSibling.offsetWidth -
+              parseFloat(window.getComputedStyle(contentRef.current).right) +
+              buttonSize >
+              contentRef.current.offsetWidth
+          ) {
+            paginateLeft();
+          }
+        } else {
+          if (
+            document.activeElement.parentElement.nextSibling &&
+            contentRef.current.offsetWidth -
+              document.activeElement.parentElement.nextSibling.offsetLeft >
+              containerRef.current.offsetWidth - buttonSize - position
+          ) {
+            paginateRight();
+          }
         }
       } else {
-        //Focus next input
-        if (
-          document.activeElement.parentElement.nextSibling &&
-          document.activeElement.parentElement.nextSibling.offsetLeft +
-            document.activeElement.parentElement.nextSibling.offsetWidth >=
-            containerRef.current.offsetWidth - buttonSize
-        ) {
-          paginateRight();
+        if (event.shiftKey) {
+          //Focus previous input
+          if (
+            document.activeElement.parentElement.previousSibling &&
+            document.activeElement.parentElement.previousSibling.offsetLeft +
+              position <=
+              buttonSize
+          ) {
+            paginateLeft();
+          }
+        } else {
+          //Focus next input
+          if (
+            document.activeElement.parentElement.nextSibling &&
+            document.activeElement.parentElement.nextSibling.offsetLeft +
+              document.activeElement.parentElement.nextSibling.offsetWidth >=
+              containerRef.current.offsetWidth - buttonSize
+          ) {
+            paginateRight();
+          }
         }
       }
     }
