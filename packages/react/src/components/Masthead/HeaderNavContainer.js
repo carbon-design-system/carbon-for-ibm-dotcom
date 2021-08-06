@@ -13,6 +13,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import CaretLeft20 from '@carbon/icons-react/es/caret--left/20';
 import CaretRight20 from '@carbon/icons-react/es/caret--right/20';
 import PropTypes from 'prop-types';
+import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { prefix } = settings;
@@ -30,75 +31,140 @@ const HeaderNavContainer = ({ children }) => {
   const [io, setIO] = useState(null);
   const [position, setPosition] = useState(0);
   const buttonSize = 48; // 40px(width) + 8px(gradient)
+  const pageIsRTL = root.document?.dir === 'rtl';
 
   const paginateLeft = useCallback(() => {
     let menuItems = contentRef.current.querySelectorAll(
-      '.bx--header__menu-bar li'
+      '.bx--header__menu-bar > li'
     );
-    for (let i = 0; i < menuItems.length; i++) {
-      // checks if first visible item is partially hidden
-      if (
-        menuItems[i].offsetLeft + menuItems[i].offsetWidth + position >=
-        buttonSize
-      ) {
-        // checks if there is space for remaining menuItems
+    if (pageIsRTL) {
+      for (let i = 0; i < menuItems.length; i++) {
         if (
-          menuItems[i].offsetLeft + menuItems[i].offsetWidth >
-          containerRef.current.offsetWidth - buttonSize
+          contentRef.current.offsetWidth -
+            menuItems[i].offsetLeft -
+            buttonSize >
+          -parseFloat(window.getComputedStyle(contentRef.current).right)
         ) {
           setPosition(
-            containerRef.current.offsetWidth -
-              menuItems[i].offsetLeft -
-              menuItems[i].offsetWidth -
-              buttonSize
+            Math.min(
+              -contentRef.current.offsetWidth +
+                containerRef.current.offsetWidth +
+                menuItems[i].offsetLeft -
+                buttonSize,
+              0
+            )
           );
-          contentRef.current.style.left =
+          contentRef.current.style.right =
             String(
+              Math.min(
+                -contentRef.current.offsetWidth +
+                  containerRef.current.offsetWidth +
+                  menuItems[i].offsetLeft -
+                  buttonSize,
+                0
+              )
+            ) + 'px';
+          break;
+        }
+      }
+    } else {
+      for (let i = 0; i < menuItems.length; i++) {
+        // checks if first visible item is partially hidden
+        if (
+          menuItems[i].offsetLeft + menuItems[i].offsetWidth + position >=
+          buttonSize
+        ) {
+          // checks if there is space for remaining menuItems
+          if (
+            menuItems[i].offsetLeft + menuItems[i].offsetWidth >
+            containerRef.current.offsetWidth - buttonSize
+          ) {
+            setPosition(
               containerRef.current.offsetWidth -
                 menuItems[i].offsetLeft -
                 menuItems[i].offsetWidth -
                 buttonSize
-            ) + 'px';
-        } else {
-          setPosition(0);
-          contentRef.current.style.left = '0px';
+            );
+            contentRef.current.style.left =
+              String(
+                containerRef.current.offsetWidth -
+                  menuItems[i].offsetLeft -
+                  menuItems[i].offsetWidth -
+                  buttonSize
+              ) + 'px';
+          } else {
+            setPosition(0);
+            contentRef.current.style.left = '0px';
+          }
+          break;
         }
-        break;
       }
     }
-  }, [position]);
+  }, [position, pageIsRTL]);
 
   const paginateRight = useCallback(() => {
     let menuItems = contentRef.current.querySelectorAll(
-      '.bx--header__menu-bar li'
+      '.bx--header__menu-bar > li'
     );
-    for (let i = 0; i < menuItems.length; i++) {
-      // checks if the right most visible element is partially hidden
-      if (
-        menuItems[i].offsetLeft + menuItems[i].offsetWidth + position >
-        containerRef.current.offsetWidth - buttonSize
-      ) {
-        // checks if there is space for remaining menuItems
+    if (pageIsRTL) {
+      for (let i = 0; i < menuItems.length; i++) {
+        // checks if the right most visible element is partially hidden
         if (
-          contentRef.current.offsetWidth - menuItems[i].offsetLeft <
-          containerRef.current.offsetWidth - buttonSize
+          contentRef.current.offsetWidth - menuItems[i].offsetLeft >
+          containerRef.current.offsetWidth - buttonSize - position
         ) {
           setPosition(
-            containerRef.current.offsetWidth - contentRef.current.offsetWidth
-          );
-          contentRef.current.style.left =
-            String(
+            Math.max(
+              -contentRef.current.offsetWidth +
+                menuItems[i].offsetLeft +
+                menuItems[i].offsetWidth +
+                buttonSize,
               containerRef.current.offsetWidth - contentRef.current.offsetWidth
+            )
+          );
+          contentRef.current.style.right =
+            String(
+              Math.max(
+                -contentRef.current.offsetWidth +
+                  menuItems[i].offsetLeft +
+                  menuItems[i].offsetWidth +
+                  buttonSize,
+                containerRef.current.offsetWidth -
+                  contentRef.current.offsetWidth
+              )
             ) + 'px';
-        } else {
-          setPosition(buttonSize - menuItems[i].offsetLeft);
-          contentRef.current.style.left =
-            String(buttonSize - menuItems[i].offsetLeft) + 'px';
+          break;
         }
-        break;
+      }
+    } else {
+      for (let i = 0; i < menuItems.length; i++) {
+        if (
+          menuItems[i].offsetLeft + menuItems[i].offsetWidth + position >
+          containerRef.current.offsetWidth - buttonSize
+        ) {
+          // checks if there is space for remaining menuItems
+          if (
+            contentRef.current.offsetWidth - menuItems[i].offsetLeft <
+            containerRef.current.offsetWidth - buttonSize
+          ) {
+            setPosition(
+              containerRef.current.offsetWidth - contentRef.current.offsetWidth
+            );
+            contentRef.current.style.left =
+              String(
+                containerRef.current.offsetWidth -
+                  contentRef.current.offsetWidth
+              ) + 'px';
+          } else {
+            setPosition(buttonSize - menuItems[i].offsetLeft);
+            contentRef.current.style.left =
+              String(buttonSize - menuItems[i].offsetLeft) + 'px';
+          }
+          break;
+        }
       }
     }
-  }, [position]);
+  }, [position, pageIsRTL]);
 
   useEffect(() => {
     if (window.IntersectionObserver) {
@@ -155,25 +221,50 @@ const HeaderNavContainer = ({ children }) => {
    */
   const handleOnKeyDown = event => {
     if (matches(event, [keys.Tab])) {
-      if (event.shiftKey) {
-        //Focus previous input
-        if (
-          document.activeElement.parentElement.previousSibling &&
-          document.activeElement.parentElement.previousSibling.offsetLeft +
-            position <=
-            buttonSize
-        ) {
-          paginateLeft();
+      if (pageIsRTL) {
+        if (event.shiftKey) {
+          if (
+            document.activeElement?.parentElement?.previousSibling &&
+            document.activeElement?.parentElement?.previousSibling?.offsetLeft +
+              document.activeElement?.parentElement?.previousSibling
+                ?.offsetWidth -
+              parseFloat(window.getComputedStyle(contentRef.current).right) +
+              buttonSize >
+              contentRef.current.offsetWidth
+          ) {
+            paginateLeft();
+          }
+        } else {
+          if (
+            document.activeElement?.parentElement?.nextSibling &&
+            contentRef.current.offsetWidth -
+              document.activeElement?.parentElement?.nextSibling?.offsetLeft >
+              containerRef.current.offsetWidth - buttonSize - position
+          ) {
+            paginateRight();
+          }
         }
       } else {
-        //Focus next input
-        if (
-          document.activeElement.parentElement.nextSibling &&
-          document.activeElement.parentElement.nextSibling.offsetLeft +
-            document.activeElement.parentElement.nextSibling.offsetWidth >=
-            containerRef.current.offsetWidth - buttonSize
-        ) {
-          paginateRight();
+        if (event.shiftKey) {
+          //Focus previous input
+          if (
+            document.activeElement.parentElement.previousSibling &&
+            document.activeElement.parentElement.previousSibling.offsetLeft +
+              position <=
+              buttonSize
+          ) {
+            paginateLeft();
+          }
+        } else {
+          //Focus next input
+          if (
+            document.activeElement.parentElement.nextSibling &&
+            document.activeElement.parentElement.nextSibling.offsetLeft +
+              document.activeElement.parentElement.nextSibling.offsetWidth >=
+              containerRef.current.offsetWidth - buttonSize
+          ) {
+            paginateRight();
+          }
         }
       }
     }
@@ -200,7 +291,7 @@ const HeaderNavContainer = ({ children }) => {
             onClick={paginateLeft}
             tabIndex="-1"
             aria-hidden="true">
-            <CaretLeft20 />
+            {pageIsRTL ? <CaretRight20 /> : <CaretLeft20 />}
           </button>
           <div className={`${prefix}--header__nav-caret-left-gradient`} />
         </div>
@@ -215,7 +306,7 @@ const HeaderNavContainer = ({ children }) => {
             onClick={paginateRight}
             tabIndex="-1"
             aria-hidden="true">
-            <CaretRight20 />
+            {pageIsRTL ? <CaretLeft20 /> : <CaretRight20 />}
           </button>
         </div>
       </div>
