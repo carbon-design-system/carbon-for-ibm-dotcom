@@ -13,6 +13,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import CaretLeft20 from '@carbon/icons-react/es/caret--left/20';
 import CaretRight20 from '@carbon/icons-react/es/caret--right/20';
 import PropTypes from 'prop-types';
+import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { prefix } = settings;
@@ -30,7 +31,7 @@ const HeaderNavContainer = ({ children }) => {
   const [io, setIO] = useState(null);
   const [position, setPosition] = useState(0);
   const buttonSize = 48; // 40px(width) + 8px(gradient)
-  const pageIsRTL = document.dir === 'rtl';
+  const pageIsRTL = root.document.dir === 'rtl';
 
   const paginateLeft = useCallback(() => {
     let menuItems = contentRef.current.querySelectorAll(
