@@ -31,7 +31,7 @@ const HeaderNavContainer = ({ children }) => {
   const [io, setIO] = useState(null);
   const [position, setPosition] = useState(0);
   const buttonSize = 48; // 40px(width) + 8px(gradient)
-  const pageIsRTL = root.document.dir === 'rtl';
+  const pageIsRTL = root.document?.dir === 'rtl';
 
   const paginateLeft = useCallback(() => {
     let menuItems = contentRef.current.querySelectorAll(
