@@ -20,18 +20,16 @@ import './index.css';
 
 const App = () => (
   <DDSLeadspaceWithSearch>
-    <DDSLeadSpaceBlockHeading slot='heading'>Find a product</DDSLeadSpaceBlockHeading>
-    <DDSLeadSpaceBlockContent slot='content'>
+    <DDSLeadSpaceBlockHeading slot="heading">Find a product</DDSLeadSpaceBlockHeading>
+    <DDSLeadSpaceBlockContent slot="content">
       <DDSLeadspaceSearchBlockHeading>Innovate like a startup, scale for the enterprise</DDSLeadspaceSearchBlockHeading>
-      <DDSLeadspaceSearchBlockCopy
-        >Automate your software release process with continuous
-        delivery (CD)—the most critical part of adopting DevOps.
-        Build, test, and deploy code changes quickly, ensuring
-        software is always ready for deployment.
+      <DDSLeadspaceSearchBlockCopy>
+        Automate your software release process with continuous delivery (CD)—the most critical part of adopting DevOps. Build,
+        test, and deploy code changes quickly, ensuring software is always ready for deployment.
       </DDSLeadspaceSearchBlockCopy>
     </DDSLeadSpaceBlockContent>
-    <DDSSearchWithTypeahead slot='search' leadspace-search></DDSSearchWithTypeahead>
-    <DDSHorizontalRule slot='hr'></DDSHorizontalRule>
+    <DDSSearchWithTypeahead slot="search" leadspace-search></DDSSearchWithTypeahead>
+    <DDSHorizontalRule slot="hr"></DDSHorizontalRule>
   </DDSLeadspaceWithSearch>
 );
 

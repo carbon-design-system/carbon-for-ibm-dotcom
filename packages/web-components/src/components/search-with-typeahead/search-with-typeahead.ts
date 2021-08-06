@@ -66,6 +66,12 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
   private _searchButtonNode!: HTMLButtonElement;
 
   /**
+   * The `<button>` to open the search box.
+   */
+  @query(`.${prefix}--header__search--close`)
+  private _closeButtonNode!: HTMLButtonElement;
+
+  /**
    * The `<input>` of the search box.
    */
   @query(`.${prefix}--header__search--input`)
@@ -109,6 +115,11 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
   protected _handleClickInner(event: MouseEvent) {
     if ((event.target as HTMLElement).closest('.bx--header__search--input') === event.target) {
       this._handleUserInitiatedToggle();
+      if (this._searchInputNode.value && this.leadspaceSearch) {
+        this._closeButtonNode?.classList.remove(`${prefix}--header__search--hide`);
+      } else if (this.leadspaceSearch) {
+        this._closeButtonNode?.classList.add(`${prefix}--header__search--hide`);
+      }
     } else {
       const item = (event.target as Element).closest((this.constructor as typeof BXDropdown).selectorItem) as BXDropdownItem;
       if (this.shadowRoot!.contains(item)) {
@@ -147,6 +158,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
     const { eventInput, eventToggle } = this.constructor as typeof DDSSearchWithTypeahead;
     if (!active && searchInputNode.value) {
       searchInputNode.value = '';
+      this._closeButtonNode?.classList.add(`${prefix}--header__search--hide`);
       this.dispatchEvent(
         new CustomEvent(eventInput, {
           bubbles: true,
@@ -262,6 +274,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
 
     if (value) {
       this.open = true;
+      if (this.leadspaceSearch) this._closeButtonNode?.classList.remove(`${prefix}--header__search--hide`);
     }
   }
 
@@ -590,7 +603,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
               <button
                 type="button"
                 part="close-button"
-                class="${prefix}--header__action ${prefix}--header__search--close ${!this.value
+                class="${prefix}--header__action ${prefix}--header__search--close ${this.value.length === 0
                   ? `${prefix}--header__search--hide`
                   : ''}"
                 aria-label="${closeSearchButtonAssistiveText}"
