@@ -256,7 +256,6 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
     border-bottom: solid 1px $ui-01;
     background-color: $ui-background;
 
-    @include use-carbon-productive-tokens();
     @include type-style('body-short-01');
   }
 
