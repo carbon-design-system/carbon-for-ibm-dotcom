@@ -224,9 +224,10 @@ const HeaderNavContainer = ({ children }) => {
       if (pageIsRTL) {
         if (event.shiftKey) {
           if (
-            document.activeElement.parentElement.previousSibling &&
-            document.activeElement.parentElement.previousSibling.offsetLeft +
-              document.activeElement.parentElement.previousSibling.offsetWidth -
+            document.activeElement?.parentElement?.previousSibling &&
+            document.activeElement?.parentElement?.previousSibling?.offsetLeft +
+              document.activeElement?.parentElement?.previousSibling
+                ?.offsetWidth -
               parseFloat(window.getComputedStyle(contentRef.current).right) +
               buttonSize >
               contentRef.current.offsetWidth
@@ -235,9 +236,9 @@ const HeaderNavContainer = ({ children }) => {
           }
         } else {
           if (
-            document.activeElement.parentElement.nextSibling &&
+            document.activeElement?.parentElement?.nextSibling &&
             contentRef.current.offsetWidth -
-              document.activeElement.parentElement.nextSibling.offsetLeft >
+              document.activeElement?.parentElement?.nextSibling?.offsetLeft >
               containerRef.current.offsetWidth - buttonSize - position
           ) {
             paginateRight();
