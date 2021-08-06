@@ -58,6 +58,25 @@
     }
   }
 
+  .#{$prefix}--link-with-icon__container,
+  :host(#{$dds-prefix}-callout-link-with-icon),
+  :host(#{$dds-prefix}-card-cta-footer),
+  :host(#{$dds-prefix}-link-with-icon),
+  :host(#{$dds-prefix}-link-list-item),
+  :host(#{$dds-prefix}-link-list-item-cta),
+  :host(#{$dds-prefix}-text-cta) {
+    .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon {
+      display: inline-block;
+
+      svg,
+      ::slotted(svg[slot='icon']) {
+        display: inline;
+        vertical-align: middle;
+        white-space: nowrap;
+      }
+    }
+  }
+
   .#{$prefix}--link-with-icon,
   :host(#{$dds-prefix}-link-with-icon),
   :host(#{$dds-prefix}-text-cta) {
