@@ -36,6 +36,12 @@ class DDSLinkWithIcon extends StableSelectorMixin(BXLink) {
   iconPlacement = ICON_PLACEMENT.RIGHT;
 
   /**
+   * Positions the icon inline with text when `true`
+   */
+  @property({ type: Boolean })
+  iconInline = true;
+
+  /**
    * Property that specifies the link to use size large
    *
    * @internal
@@ -70,7 +76,7 @@ class DDSLinkWithIcon extends StableSelectorMixin(BXLink) {
   }
 
   updated() {
-    const { iconPlacement, _linkNode: linkNode } = this;
+    const { iconInline, iconPlacement, _linkNode: linkNode } = this;
     if (linkNode) {
       linkNode.classList.add(`${prefix}--link-with-icon`);
       linkNode.classList.toggle(`${prefix}--link-with-icon__icon-${ICON_PLACEMENT.LEFT}`, iconPlacement === ICON_PLACEMENT.LEFT);
@@ -78,6 +84,10 @@ class DDSLinkWithIcon extends StableSelectorMixin(BXLink) {
         `${prefix}--link-with-icon__icon-${ICON_PLACEMENT.RIGHT}`,
         iconPlacement === ICON_PLACEMENT.RIGHT
       );
+
+      if (iconInline && iconPlacement === ICON_PLACEMENT.RIGHT) {
+        linkNode.classList.add(`${prefix}--link-with-icon--inline-icon`);
+      }
     }
   }
 

@@ -125,6 +125,12 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
         (elem as DDSLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
       });
     }
+
+    if (this.type === LINK_LIST_TYPE.HORIZONTAL || this.type === LINK_LIST_TYPE.VERTICAL) {
+      this._childItems.forEach(elem => {
+        (elem as DDSLinkListItem).iconInline = true;
+      });
+    }
   }
 
   /**
