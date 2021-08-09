@@ -322,6 +322,14 @@
       background-color: $hover-ui;
       text-decoration: none;
     }
+
+    svg {
+      transform: none;
+      /* stylelint-disable-next-line comment-whitespace-inside */
+      /*!rtl:raw:
+      transform: scaleX(-1);
+      */
+    }
   }
 
   :host(#{$dds-prefix}-megamenu-left-navigation),
