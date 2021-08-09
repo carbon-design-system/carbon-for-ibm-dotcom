@@ -192,6 +192,14 @@
     span {
       flex: inherit;
     }
+
+    ::slotted([slot='icon']) {
+      transform: none;
+      /* stylelint-disable-next-line comment-whitespace-inside */
+      /*!rtl:raw:
+      transform: scaleX(-1);
+      */
+    }
   }
 
   :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-headline'],
