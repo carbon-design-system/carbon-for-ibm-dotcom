@@ -18,6 +18,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
  * Filter Panel Checkbox
+ *
  * @element dds-filter-panel-checkbox
  * @fires dds-checkbox-select - The custom event fired after this changebox changes its checked state.
  */

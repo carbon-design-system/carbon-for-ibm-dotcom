@@ -55,6 +55,17 @@ const _sessionTranslationKey = 'dds-translation';
 const _requestsTranslation = {};
 
 /**
+ * Sets the default location if nothing is returned
+ *
+ * @type {object}
+ * @private
+ */
+const _localeDefault = {
+  lc: 'en',
+  cc: 'us',
+};
+
+/**
  * Two hours in milliseconds to compare session timestamp.
  *
  * @type {number}
@@ -166,7 +177,19 @@ class TranslationAPI {
           });
       }
 
-      _requestsTranslation[key].then(resolve, reject);
+      _requestsTranslation[key].then(resolve, error => {
+        if (country === _localeDefault.cc && lang === _localeDefault.lc) {
+          reject(error);
+        } else {
+          this.fetchTranslation(
+            _localeDefault.lc,
+            _localeDefault.cc,
+            endpoint,
+            resolve,
+            reject
+          );
+        }
+      });
     }
   }
 
