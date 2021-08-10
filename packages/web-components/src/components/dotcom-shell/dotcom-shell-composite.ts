@@ -137,16 +137,26 @@ class DDSDotcomShellComposite extends LitElement {
    * Scrolls the masthead in/out of view depending on scroll direction if toc is present
    */
   private _handleIntersect = () => {
-    // masthead hide l0 on scroll if l1 is present
-
+    /**
+     * Sets sticky masthead. If both L0 and L1 are present, L1 will be sticky.
+     *
+     */
     if (this._masthead && this._masthead.querySelector(`${ddsPrefix}-masthead-l1`)) {
+      /**
+       * L0 will hide/show only in the top 25% of the viewport.
+       *
+       */
+      const hideTopnavThreshold = 0.25;
       const mastheadl1 = this._masthead.querySelector(`${ddsPrefix}-masthead-l1`) as HTMLElement;
       this._masthead!.style.transition = 'none';
+
       if (window.scrollY < this._lastScrollPosition) {
         this._masthead.style.top = `0`;
-      } else {
+      } else if (this._lastScrollPosition > window.innerHeight * hideTopnavThreshold) {
         this._masthead.style.top = `-${mastheadl1.getBoundingClientRect().height}px`;
       }
+
+      this._lastScrollPosition = window.scrollY;
     }
 
     if (this._tableOfContentsInnerBar && !this._localeModal?.hasAttribute('open')) {
@@ -158,7 +168,6 @@ class DDSDotcomShellComposite extends LitElement {
         const tocPosition =
           this._tableOfContentsInnerBar!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY;
         this._masthead!.style.transition = 'none';
-
         if (window.scrollY < this._lastScrollPosition) {
           this._tableOfContentsInnerBar!.style.top = `${Math.min(tocPosition, this._masthead!.offsetHeight)}px`;
           this._masthead!.style.top = `${mastheadTop}px`;
