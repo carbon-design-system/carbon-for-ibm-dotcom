@@ -147,6 +147,7 @@
         }
 
         .#{$prefix}--tabs__nav-item {
+          width: max-content;
           min-height: carbon--rem(26px);
           margin-top: $spacing-05;
         }
