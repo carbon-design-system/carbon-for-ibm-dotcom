@@ -197,7 +197,7 @@
 
     ::slotted(#{$dds-prefix}-search-with-typeahead) {
       @include carbon--breakpoint('md') {
-        width: calc(60% + #{$spacing-05});
+        width: 75%;
       }
 
       @include carbon--breakpoint('lg') {
@@ -252,7 +252,13 @@
 
     @include carbon--breakpoint-down('lg') {
       display: block;
-      width: calc(60% - #{$spacing-07});
+      width: calc(75% - #{$spacing-07});
+      margin-bottom: 0;
+    }
+
+    @include carbon--breakpoint('xlg') {
+      display: block;
+      width: calc(100% - #{$spacing-07});
       margin-bottom: 0;
     }
 
@@ -261,7 +267,7 @@
       /* stylelint-disable declaration-no-important */
       margin-left: 0 !important;
       /* stylelint-enable declaration-no-important */
-      width: 90%;
+      width: 100%;
     }
   }
 
@@ -274,8 +280,16 @@
     margin-bottom: 0;
     max-width: rem(640px);
 
-    @include carbon--breakpoint-down('lg') {
-      width: calc(60% - #{$spacing-07});
+    @include carbon--breakpoint('md') {
+      width: calc(75% - #{$spacing-07});
+    }
+
+    @include carbon--breakpoint('lg') {
+      width: calc(125% - #{$spacing-07});
+    }
+
+    @include carbon--breakpoint('xlg') {
+      width: calc(100% - #{$spacing-07});
     }
 
     // !important required to override slotted styling from block-content component
@@ -284,7 +298,7 @@
       margin-left: 0 !important;
       /* stylelint-enable declaration-no-important */
       padding-top: $spacing-06;
-      width: 90%;
+      width: 100%;
     }
   }
 }
