@@ -17,10 +17,10 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
 
 export const Default = ({ parameters }) => {
-  const { disabled, href, copy } = parameters?.props?.CardLink ?? {};
+  const { disabled, href, heading, copy } = parameters?.props?.CardLink ?? {};
   return html`
     <dds-card-link ?disabled=${disabled} href=${ifNonNull(href || undefined)}>
-      IBM developer
+      <dds-card-heading>${heading}</dds-card-heading>
       ${copy
         ? html`
             <p>${copy}</p>
@@ -49,7 +49,8 @@ export default {
       CardLink: ({ groupId }) => ({
         disabled: boolean('Disabled (disabled):', false, groupId),
         href: textNullable('Card href (href):', 'https://example.com', groupId),
-        copy: textNullable('Card copy (copy):', 'Learn, code, and connect with your community', groupId),
+        heading: textNullable('Card heading (heading):', 'Explore AI uses cases in all industries', groupId),
+        copy: textNullable('Card copy (copy):', '', groupId),
       }),
     },
   },
