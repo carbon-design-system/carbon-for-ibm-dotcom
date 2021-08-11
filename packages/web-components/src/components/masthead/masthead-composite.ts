@@ -55,7 +55,8 @@ import './left-nav-menu-section';
 import './left-nav-menu-item';
 import './left-nav-menu-category-heading';
 import './left-nav-overlay';
-import './masthead-search-composite';
+import '../search-with-typeahead/search-with-typeahead';
+import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -465,13 +466,6 @@ class DDSMastheadComposite extends LitElement {
   }
 
   /**
-   * The placeholder for `loadSearchResults()` Redux action that may be mixed in.
-   *
-   * @internal
-   */
-  _loadSearchResults?: (searchQueryString: string) => Promise<string[]>;
-
-  /**
    * The placeholder for `loadTranslation()` Redux action that will be mixed in.
    *
    * @internal
@@ -689,7 +683,6 @@ class DDSMastheadComposite extends LitElement {
       unauthenticatedProfileItems,
       userStatus,
       l1Data,
-      _loadSearchResults: loadSearchResults,
     } = this;
     const authenticated = userStatus !== UNAUTHENTICATED_STATUS;
     const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
@@ -740,7 +733,7 @@ class DDSMastheadComposite extends LitElement {
         ${!hasSearch
           ? undefined
           : html`
-              <dds-masthead-search-composite
+              <dds-search-with-typeahead
                 ?active="${activateSearch}"
                 input-timeout="${inputTimeout}"
                 language="${ifNonNull(language)}"
@@ -748,10 +741,9 @@ class DDSMastheadComposite extends LitElement {
                 ?searchOpenOnload="${activateSearch}"
                 placeholder="${ifNonNull(searchPlaceholder)}"
                 .currentSearchResults="${ifNonNull(currentSearchResults)}"
-                ._loadSearchResults="${ifNonNull(loadSearchResults)}"
-              ></dds-masthead-search-composite>
+              ></dds-search-with-typeahead>
             `}
-        <dds-masthead-global-bar>
+        <dds-masthead-global-bar ?has-search-active=${activateSearch}>
           ${!hasProfile
             ? undefined
             : html`

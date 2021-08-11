@@ -66,12 +66,13 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     this._tabItems.map((tab, index) => {
       (tab as DDSTab).selected = index === this._activeTab;
       (tab as DDSTab).setIndex(index);
-      const navLink = this.shadowRoot!.querySelectorAll('.bx--tabs__nav-link div p')[index];
-      if (navLink.scrollHeight > 70) {
+      const navLink = this.shadowRoot!.querySelectorAll(`.${prefix}--tabs__nav-link`)[index];
+      const navText = navLink!.querySelector('div p');
+      if (navText!.scrollHeight > 70) {
         const label = (tab as DDSTab).getAttribute('label');
         if (label) {
-          navLink.parentElement!.setAttribute('aria-label', label);
-          navLink.parentElement!.setAttribute('hasToolTip', label);
+          navLink!.setAttribute('aria-label', label);
+          navLink!.setAttribute('hasTooltip', label);
         }
       }
       return tab;

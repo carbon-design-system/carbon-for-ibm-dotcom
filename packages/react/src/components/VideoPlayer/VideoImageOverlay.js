@@ -6,11 +6,11 @@
  */
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { Image } from '../Image';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
 import PlayIcon from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
-import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -18,14 +18,14 @@ const { prefix } = settings;
 /**
  * VideoPlayer Image Overlay component
  */
-const VideoImageOverlay = ({ videoId, videoData, embedVideo }) => {
+const VideoImageOverlay = ({ videoId, videoData, embedVideo, playingMode }) => {
   return (
     <button
       className={`${prefix}--video-player__image-overlay`}
       data-autoid={`${stablePrefix}--video-player__image-overlay`}
-      onClick={() => _embedPlayer(event, embedVideo)}>
+      onClick={() => _embedPlayer(event, embedVideo, playingMode)}>
       <Image
-        defaultSrc={VideoPlayerAPI.getThumbnailUrl({
+        defaultSrc={KalturaPlayerAPI.getThumbnailUrl({
           mediaId: videoId,
           width: '655',
         })}
@@ -36,9 +36,11 @@ const VideoImageOverlay = ({ videoId, videoData, embedVideo }) => {
   );
 };
 
-const _embedPlayer = (e, embedVideo) => {
-  const element = e.target;
-  element.remove();
+const _embedPlayer = (e, embedVideo, playingMode) => {
+  if (playingMode === 'inline') {
+    const element = e.target;
+    element.remove();
+  }
   embedVideo(true);
 };
 
@@ -57,6 +59,11 @@ VideoImageOverlay.propTypes = {
    * Func to set state to trigger embedding of video
    */
   embedVideo: PropTypes.func,
+
+  /**
+   * Choose whether the video will be rendered inline or using the `LightboxMediaViewer`.
+   */
+  playingMode: PropTypes.oneOf(['inline', 'lightbox']),
 };
 
 export default VideoImageOverlay;

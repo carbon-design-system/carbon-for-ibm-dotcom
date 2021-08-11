@@ -16,10 +16,13 @@
     position: relative;
     padding-left: $carbon--spacing-05;
     padding-right: $carbon--spacing-05;
+    &:focus-within {
+      outline: none;
+    }
   }
 
   .#{$prefix}--feature-section__container {
-    background-color: $hover-ui;
+    background-color: $ui-01;
     display: block;
 
     @include carbon--breakpoint('lg') {

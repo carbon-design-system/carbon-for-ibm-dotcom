@@ -10,11 +10,11 @@
 import { html, property, customElement, LitElement } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
-import { VideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/videoPlayerAPI.d';
+import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
 /* eslint-disable import/no-duplicates */
 import { VIDEO_PLAYER_CONTENT_STATE, VIDEO_PLAYER_PLAYING_MODE } from './video-player';
 // Above import is interface-only ref and thus code won't be brought into the build
@@ -35,7 +35,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    *
    * @internal
    */
-  _loadVideoData?: (videoId: string) => Promise<VideoData>;
+  _loadVideoData?: (videoId: string) => Promise<MediaData>;
 
   /**
    * The placeholder for `_loadVideoData()` Redux action that may be mixed in.
@@ -114,7 +114,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    * The video data, keyed by the video ID.
    */
   @property({ attribute: false })
-  videoData?: { [videoId: string]: VideoData };
+  videoData?: { [videoId: string]: MediaData };
 
   /**
    * The video ID.
@@ -164,9 +164,9 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
       videoThumbnailWidth,
       playingMode,
     } = this;
-    const { [videoId]: currentVideoData = {} as VideoData } = videoData;
+    const { [videoId]: currentVideoData = {} as MediaData } = videoData;
     const { duration, name } = currentVideoData;
-    const thumbnailUrl = VideoPlayerAPI.getThumbnailUrl({
+    const thumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
       mediaId: videoId,
       width: String(videoThumbnailWidth),
     });

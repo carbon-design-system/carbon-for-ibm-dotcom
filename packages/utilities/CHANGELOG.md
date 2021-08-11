@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.23.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.22.0...@carbon/ibmdotcom-utilities@1.23.0-rc.0) (2021-08-06)
+
+
+### Features
+
+* **loadNonLatinPlex:** introduce loadNonLatinPlex utility ([#6802](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6802)) ([d312016](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d312016))
+
+
+
+# 1.12.0-beta.64.108 (2021-07-30)
+
+
+
+
+
+# [1.22.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.22.0-rc.0...@carbon/ibmdotcom-utilities@1.22.0) (2021-07-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
 # [1.22.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.21.0...@carbon/ibmdotcom-utilities@1.22.0-rc.0) (2021-07-16)
 
 

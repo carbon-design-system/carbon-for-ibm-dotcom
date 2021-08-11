@@ -5,7 +5,7 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--card-in-card__container">
+<div class="bx--card bx--card-in-card bx--tile">
   <slot name="image">
   </slot>
   <div class="bx--card__wrapper">
@@ -37,38 +37,31 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--card-in-card__container">
-  <a
-    class="bx--card bx--card--link bx--card-in-card bx--link bx--tile bx--tile--clickable"
-    href="https://example.com"
-    id="link"
-    part="link"
-  >
-    <slot name="image">
-    </slot>
-    <div class="bx--card__wrapper">
-      <div class="bx--card__content">
-        <slot name="eyebrow">
-        </slot>
-        <slot
-          data-pictogram-placement="top"
-          name="pictogram"
-        >
-        </slot>
-        <slot name="heading">
-        </slot>
-        <div
-          class="bx--card__copy"
-          hidden=""
-        >
-          <slot>
-          </slot>
-        </div>
-        <slot name="footer">
+<div class="bx--card bx--card--link bx--card-in-card bx--tile bx--tile--clickable">
+  <slot name="image">
+  </slot>
+  <div class="bx--card__wrapper">
+    <div class="bx--card__content">
+      <slot name="eyebrow">
+      </slot>
+      <slot
+        data-pictogram-placement="top"
+        name="pictogram"
+      >
+      </slot>
+      <slot name="heading">
+      </slot>
+      <div
+        class="bx--card__copy"
+        hidden=""
+      >
+        <slot>
         </slot>
       </div>
+      <slot name="footer">
+      </slot>
     </div>
-  </a>
+  </div>
 </div>
 
 ```
