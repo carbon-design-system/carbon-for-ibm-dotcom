@@ -1,6 +1,6 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "1.8.0-rc.0",
+  "version": "1.8.0-rc.1",
   "description": "Carbon for IBM.com Web Components",
   "license": "Apache-2.0",
   "exports": {
@@ -82,7 +82,7 @@
   },
   "dependencies": {
     "@carbon/ibmdotcom-services": "1.23.0-rc.0",
-    "@carbon/ibmdotcom-styles": "1.23.0-rc.0",
+    "@carbon/ibmdotcom-styles": "1.23.0-rc.1",
     "@carbon/ibmdotcom-utilities": "1.23.0-rc.0",
     "@carbon/layout": "10.23.0",
     "@carbon/telemetry": "0.0.0-alpha.6",
@@ -191,7 +191,6 @@
     "gulp-typescript": "^5.0.0",
     "gzip-size": "^5.0.0",
     "http-server": "^0.12.3",
-    "is-port-reachable": "^3.0.0",
     "istanbul-instrumenter-loader": "^3.0.0",
     "jasmine-core": "^3.0.0",
     "jest": "25.5.4",
