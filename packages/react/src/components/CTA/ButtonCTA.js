@@ -76,7 +76,7 @@ const _renderButtons = ({
         : formatCTAcopy({ title: title[0].title, duration: title[0].duration });
       button.href = '#';
     } else {
-      button.onClick = button.onClick || e => CTALogic.jump(e, button.type);
+      button.onClick = button.onClick || (e => CTALogic.jump(e, button.type));
       button.target = CTALogic.external(button.type);
     }
     button.renderIcon = CTALogic.iconSelector(button.type);
