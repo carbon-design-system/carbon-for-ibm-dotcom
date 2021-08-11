@@ -47,23 +47,16 @@
       }
 
       @include carbon--breakpoint('lg') {
-        margin-top: 0;
         grid-column: 3 / span 12;
+        margin: 0;
+        padding-left: $carbon--spacing-07;
+        padding-right: $carbon--spacing-07;
+        border-left: 1px solid $ui-03;
 
-        &::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -#{$carbon--spacing-07};
-          width: 1px;
-          height: 100%;
-          background-color: $ui-03;
-
-          // Adjust the direction of the border line on RTL.
-          [dir='rtl'] & {
-            left: inherit;
-            right: -#{$carbon--spacing-07};
-          }
+        // Adjust the direction of the border line on RTL.
+        [dir='rtl'] & {
+          border-left: inherit;
+          border-right: 1px solid $ui-03;
         }
       }
     }
