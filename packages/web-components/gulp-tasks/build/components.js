@@ -31,6 +31,33 @@ function _getFolders(dir) {
 }
 
 /**
+ * Creates the Carbon Web Components entry files
+ *
+ * @returns {{}} List of component names and corresponding entries
+ * @private
+ */
+function _createCarbonWebComponentsEntries() {
+  const carbonWebComponentsFolders = _getFolders(`${config.carbonWebComponentsESSrcDir}/components`);
+  const entries = {};
+
+  if (!fs.existsSync(config.cwcEntriesDir)) {
+    fs.mkdirSync(config.cwcEntriesDir);
+  }
+
+  // eslint-disable-next-line max-len
+  carbonWebComponentsFolders.forEach(folder => {
+    if (fs.existsSync(`${config.carbonWebComponentsESSrcDir}/components/${folder}/index.js`)) {
+      const content = `import 'carbon-web-components/es/components/${folder}/index.js';`;
+      const entry = `${config.cwcEntriesDir}/${folder}.js`;
+      fs.writeFileSync(`${config.cwcEntriesDir}/${folder}.js`, content);
+      entries[folder] = entry;
+    }
+  });
+
+  return entries;
+}
+
+/**
  * Builds all of the rollup bundles for all components
  *
  * @param {object} [options] The build options.
@@ -39,12 +66,13 @@ function _getFolders(dir) {
  */
 async function _buildComponents({ mode = 'development', dir = 'ltr' } = {}) {
   let folders = _getFolders(`${config.srcDir}/components`);
+  const cwcEntries = _createCarbonWebComponentsEntries();
 
   folders = folders.filter(item => {
     return item !== 'layout';
   });
 
-  return rollup(getRollupConfig({ mode, dir, folders }))
+  return rollup(getRollupConfig({ mode, dir, folders, cwcEntries }))
     .then(bundle => {
       bundle.write({
         format: 'es',

@@ -209,12 +209,14 @@ function _buildExamples() {
 
     // replace the CDN artifact before it's moved
     const cdnFile = `${_exampleBuild}/components/${example}/dist/cdn.html`;
-    const contents = fs.readFileSync(cdnFile, 'utf8');
-    const contentsFinal = contents.replace(
-      /https?:.\/1.www.s81c.com\/common\/carbon-for-ibm-dotcom\/tag\/v1\/canary\//g,
-      '../cdn/'
-    );
-    fs.writeFileSync(cdnFile, contentsFinal);
+    if (fs.existsSync(cdnFile)) {
+      const contents = fs.readFileSync(cdnFile, 'utf8');
+      const contentsFinal = contents.replace(
+        /https?:.\/1.www.s81c.com\/common\/carbon-for-ibm-dotcom\/tag\/v1\/canary\//g,
+        '../cdn/'
+      );
+      fs.writeFileSync(cdnFile, contentsFinal);
+    }
 
     // replace the CDN RTL version if it exists
     const cdnRtlFile = `${_exampleBuild}/components/${example}/dist/cdn-rtl.html`;
@@ -279,12 +281,20 @@ function _createIndex() {
   let content = `<html><head><link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" /></head><body style="padding: 2rem;"><ul>`;
 
   _examples.forEach(example => {
-    content += `
+    if (example === 'carbon-web-components') {
+      content += `
+<li>
+    <strong>${example}:</strong>
+    <a href="./${example}/cdn.html">CDN version</a>
+</li>`;
+    } else {
+      content += `
 <li>
     <strong>${example}:</strong>
     <a href="./${example}/index.html">ES version</a> |
     <a href="./${example}/cdn.html">CDN version</a>
 </li>`;
+    }
   });
 
   content += '</ul></body></html>';

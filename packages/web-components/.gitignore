@@ -1,6 +1,7 @@
 custom-elements.json
 es
 lib
+cwc-entries
 node_modules
 /src/internal/vendor
 /scss

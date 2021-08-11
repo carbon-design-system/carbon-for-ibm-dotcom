@@ -52,47 +52,15 @@ const dirSuffixes = {
 };
 
 /**
- * Sets the rollup configuration based on various settings
+ * Generates the multi-input for the rollup config
  *
- * @param {object} [options] The build options.
- * @param {string} [options.mode=development] The build mode.
- * @param {string} [options.dir=development] The UI direction.
- * @param {Array} [options.folders] Package names as inputs
- * @returns {object} The Rollup config.
+ * @param {string} mode The build mode
+ * @param {string} dir The UI direction
+ * @param {Array} folders Package names as inputs
+ * @returns {{}} Object with inputs
+ * @private
  */
-function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom-shell'] } = {}) {
-  const postCSSPlugins = [
-    fixHostPseudo(),
-    autoprefixer({
-      overrideBrowsersList: [
-        'last 1 version',
-        'Firefox ESR',
-        'not opera > 0',
-        'not op_mini > 0',
-        'not op_mob > 0',
-        'not android > 0',
-        'not edge > 0',
-        'not ie > 0',
-        'not ie_mob > 0',
-      ],
-    }),
-  ];
-
-  if (mode !== 'development') {
-    postCSSPlugins.push(cssnano());
-  }
-
-  if (dir === 'rtl') {
-    postCSSPlugins.push(rtlcss);
-  }
-
-  const licenseOptions = {
-    whitelist: /^(carbon-components|carbon-web-components|@carbon*)$/i,
-    async licenseSelf() {
-      return readFile(path.resolve(__dirname, '../../../tasks/license.js'), 'utf8');
-    },
-  };
-
+function _generateInputs(mode, dir, folders, cwcEntries) {
   const inputs = {};
 
   // retaining old dotcom-shell for legacy support
@@ -129,7 +97,58 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
     }
   });
 
-  const rollupConfig = {
+  Object.keys(cwcEntries).forEach(component => {
+    inputs[`${component}${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `cwc-entries/${component}.js`;
+  });
+
+  return inputs;
+}
+
+/**
+ * Sets the rollup configuration based on various settings
+ *
+ * @param {object} [options] The build options.
+ * @param {string} [options.mode=development] The build mode.
+ * @param {string} [options.dir=development] The UI direction.
+ * @param {Array} [options.folders] Package names as inputs
+ * @returns {object} The Rollup config.
+ */
+function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom-shell'], cwcEntries = {} } = {}) {
+  const postCSSPlugins = [
+    fixHostPseudo(),
+    autoprefixer({
+      overrideBrowsersList: [
+        'last 1 version',
+        'Firefox ESR',
+        'not opera > 0',
+        'not op_mini > 0',
+        'not op_mob > 0',
+        'not android > 0',
+        'not edge > 0',
+        'not ie > 0',
+        'not ie_mob > 0',
+      ],
+    }),
+  ];
+
+  if (mode !== 'development') {
+    postCSSPlugins.push(cssnano());
+  }
+
+  if (dir === 'rtl') {
+    postCSSPlugins.push(rtlcss);
+  }
+
+  const licenseOptions = {
+    whitelist: /^(carbon-components|carbon-web-components|@carbon*)$/i,
+    async licenseSelf() {
+      return readFile(path.resolve(__dirname, '../../../tasks/license.js'), 'utf8');
+    },
+  };
+
+  const inputs = _generateInputs(mode, dir, folders, cwcEntries);
+
+  return {
     input: inputs,
     plugins: [
       multiInput(),
@@ -215,8 +234,6 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
       ...(mode === 'development' ? [license(licenseOptions)] : [terser(), license(licenseOptions)]),
     ],
   };
-
-  return rollupConfig;
 }
 
 module.exports = getRollupConfig;

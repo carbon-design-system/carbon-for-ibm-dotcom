@@ -25,6 +25,7 @@ function _clean() {
     del(config.cjsDestDir),
     del(config.jsDestDir),
     del(config.sassDestDir),
+    del(config.cwcEntriesDir),
     del(config.servicesStoreVendorSrcDir),
     del('custom-elements.json'),
     del('storybook-static'),

@@ -41,6 +41,8 @@ module.exports = {
   sassDestDir: 'scss',
   tasksDir: 'gulp-tasks',
   testsDir: 'tests',
+  cwcEntriesDir: 'cwc-entries',
+  carbonWebComponentsESSrcDir: path.resolve(path.dirname(require.resolve('carbon-web-components/package.json')), 'es'),
   servicesStoreCJSSrcDir: path.resolve(path.dirname(require.resolve('@carbon/ibmdotcom-services-store/package.json')), 'lib'),
   servicesStoreESSrcDir: path.resolve(path.dirname(require.resolve('@carbon/ibmdotcom-services-store/package.json')), 'es'),
   servicesStoreVendorSrcDir: path.resolve(__dirname, '../src/internal/vendor/@carbon/ibmdotcom-services-store'),
