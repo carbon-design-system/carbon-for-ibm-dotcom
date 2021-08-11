@@ -118,6 +118,10 @@
       flex-direction: row;
     }
   }
+
+  .#{$prefix}--footer__logo-container {
+    display: flex;
+  }
 }
 
 @include exports('footer') {

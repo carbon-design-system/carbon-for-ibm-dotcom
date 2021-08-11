@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,6 +25,7 @@
 
       padding: 0;
       order: 1;
+      border-top: 1px solid $ui-03;
 
       @include carbon--breakpoint('md') {
         padding: 0 $carbon--grid-gutter / 2;
@@ -39,8 +40,9 @@
       }
 
       @include carbon--breakpoint('lg') {
+        padding-top: $spacing-05;
         @include carbon--make-col(12, 16);
-        @include carbon--make-col-offset(2, 16);
+        @include carbon--make-col-offset(4, 16);
       }
     }
   }

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,10 +23,8 @@
       @include button-expressive;
       @include carbon--make-col-ready;
 
-      margin-top: carbon--mini-units(2);
       padding-left: 0;
       padding-right: 0;
-      order: 0;
 
       .#{$prefix}--locale-btn {
         max-width: 100%;
@@ -41,17 +39,21 @@
       @include carbon--breakpoint('md') {
         @include carbon--make-col(4, 8);
 
-        margin-bottom: carbon--mini-units(2);
+        margin-bottom: $spacing-10;
       }
 
       @include carbon--breakpoint('lg') {
         @include carbon--make-col(4, 16);
-
-        order: 1;
       }
 
       @include carbon--breakpoint('max') {
-        @include carbon--make-col(3, 16);
+        @include carbon--make-col(4, 16);
+        @include carbon--make-col-offset(10, 16);
+
+        align-self: end;
+        button.#{$prefix}--locale-btn {
+          max-width: none;
+        }
       }
     }
   }

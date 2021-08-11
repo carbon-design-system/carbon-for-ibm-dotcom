@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -36,11 +36,10 @@
     $logo-size: carbon--mini-units(16) + ($logo-padding * 2);
 
     color: $text-04;
-    margin-top: -1 * $logo-padding;
     margin-left: -1 * $logo-padding;
-    padding: $logo-padding;
     display: inline-block;
 
+    @include carbon--make-col-ready;
     &:focus {
       outline: none;
       box-shadow: inset 0 0 0 2px $focus;
