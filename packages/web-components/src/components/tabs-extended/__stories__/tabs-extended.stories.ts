@@ -10,7 +10,6 @@
 import { html } from 'lit-element';
 import '../index';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { select } from '@storybook/addon-knobs';
 import { ORIENTATION } from '../defs';
 import readme from './README.stories.mdx';
@@ -20,28 +19,12 @@ const orientationType = {
   [`Vertical`]: ORIENTATION.VERTICAL,
 };
 
-const defaultCardGroupItem = html`
-  <dds-card-group-item href="https://example.com">
-    <dds-card-eyebrow>Label</dds-card-eyebrow>
-    <dds-card-heading>The United Nations Environment Program works with IBM to reduce marine litter</dds-card-heading>
-    <dds-card-cta-footer slot="footer">
-      ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-cta-footer>
-  </dds-card-group-item>
-`;
-
 export const Default = ({ parameters }) => {
-  const { orientation, cards } = parameters?.props?.['dds-tabs-extended'] ?? {};
+  const { orientation } = parameters?.props?.['dds-tabs-extended'] ?? {};
   return html`
     <dds-tabs-extended orientation="${ifNonNull(orientation)}">
       <dds-tab label="Tools for developers" selected="true">
-        ${orientation === ORIENTATION.VERTICAL
-          ? html`
-              <dds-card-group>${cards}</dds-card-group>
-            `
-          : html`
-              <p>Content for first tab goes here.</p>
-            `}
+        <p>Content for first tab goes here.</p>
       </dds-tab>
       <dds-tab label="Second tab">
         <p>Content for second tab goes here.</p>
@@ -63,7 +46,7 @@ export default {
   title: 'Components/Tabs extended',
   decorators: [
     story => html`
-      <div class="bx--grid">
+      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--tabs-extended">
         ${story()}
       </div>
     `,
@@ -75,9 +58,6 @@ export default {
     knobs: {
       'dds-tabs-extended': ({ groupId }) => ({
         orientation: select('Orientation (orientation):', orientationType, ORIENTATION.HORIZONTAL, groupId),
-        cards: Array.from({
-          length: 8,
-        }).map(() => defaultCardGroupItem),
       }),
     },
   },
