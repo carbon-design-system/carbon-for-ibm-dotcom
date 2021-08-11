@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -76,7 +76,9 @@ const _renderButtons = ({
         : formatCTAcopy({ title: title[0].title, duration: title[0].duration });
       button.href = '#';
     } else {
-      button.onClick = e => CTALogic.jump(e, button.type);
+      button.onClick = button.onClick
+        ? button.onClick
+        : e => CTALogic.jump(e, button.type);
       button.target = CTALogic.external(button.type);
     }
     button.renderIcon = CTALogic.iconSelector(button.type);
