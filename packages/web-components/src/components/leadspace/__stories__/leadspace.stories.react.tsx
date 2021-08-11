@@ -8,8 +8,10 @@
  */
 
 import React from 'react';
-import { text, select } from '@storybook/addon-knobs';
+import { text, select, number } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import ArrowDown20 from '@carbon/icons-react/es/arrow--down/20.js';
+import Pdf20 from '@carbon/icons-react/es/PDF/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
@@ -28,35 +30,18 @@ import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/i
 import DDSTagLink from '@carbon/ibmdotcom-web-components/es/components-react/tag-link/tag-link';
 // @ts-ignore
 import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
+// @ts-ignore
+import DDSBreadcrumbLink from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/breadcrumb-link';
+// @ts-ignore
+import DDSBreadcrumbItem from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/breadcrumb-item';
+// @ts-ignore
+import DDSBreadcrumb from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/breadcrumb';
 
 import leadspaceImg from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import readme from './README.stories.react.mdx';
 import { LEADSPACE_SIZE } from '../defs';
 
 const navigationOptions = ['with Tag group (using Tag link)', 'with Breadcrumbs', 'none'];
-// const getAriaLabel = type => {
-//   switch (type) {
-//     case 'ArrowDown20':
-//       return 'anchor link';
-//     case 'Pdf20':
-//       return 'pdf link';
-//     default:
-//       return '';
-//   }
-// };
-
-// const iconMap = {
-//   ArrowRight20: ArrowRight20({ slot: 'icon' }),
-//   ArrowDown20: ArrowDown20({ slot: 'icon' }),
-//   // Pdf20: Pdf20({ slot: 'icon' }),
-// };
-
-// const iconOptions = {
-//   None: null,
-//   'Arrow Right': 'ArrowRight20',
-//   'Arrow Down': 'ArrowDown20',
-//   PDF: 'Pdf20',
-// };
 
 const navigationWithTagGroup = (
   <DDSTagGroup slot="navigation">
@@ -65,25 +50,66 @@ const navigationWithTagGroup = (
   </DDSTagGroup>
 );
 
+const navigationWithBreadcrumbs = (
+  <DDSBreadcrumb slot="navigation">
+    <DDSBreadcrumbItem>
+      <DDSBreadcrumbLink href="/#">Breadcrumb 1</DDSBreadcrumbLink>
+    </DDSBreadcrumbItem>
+    <DDSBreadcrumbItem>
+      <DDSBreadcrumbLink href="/#">Breadcrumb 2</DDSBreadcrumbLink>
+    </DDSBreadcrumbItem>
+    <DDSBreadcrumbItem>
+      <DDSBreadcrumbLink href="/#" aria-current="page">
+        Breadcrumb 3
+      </DDSBreadcrumbLink>
+    </DDSBreadcrumbItem>
+  </DDSBreadcrumb>
+);
+
+const getAriaLabel = type => {
+  switch (type) {
+    case 'ArrowDown20':
+      return 'anchor link';
+    case 'Pdf20':
+      return 'pdf link';
+    default:
+      return '';
+  }
+};
+
+const iconMap = {
+  ArrowRight20: <ArrowRight20 slot="icon" />,
+  ArrowDown20: <ArrowDown20 slot="icon" />,
+  Pdf20: <Pdf20 slot="icon" />,
+};
+
+const iconOptions = {
+  None: null,
+  'Arrow Right': 'ArrowRight20',
+  'Arrow Down': 'ArrowDown20',
+  PDF: 'Pdf20',
+};
+
 const Default = ({ parameters }) => {
-  const { alt, copy, size, hasImage, type, title, navElements } = parameters?.props?.Leadspace ?? {};
+  const { alt, buttons, copy, defaultSrc, hasImage, navElements, size, title, type } = parameters?.props?.Leadspace ?? {};
   return (
     <DDSLeadspace size={size} type={type} {...(hasImage ? { alt } : {})}>
       {navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
+      {navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <DDSLeadspaceHeading>{title}</DDSLeadspaceHeading>
       {copy}
       <DDSButtonGroup slot="action">
-        <DDSButtonGroupItem href="https://www.example.com">
-          <ArrowRight20 slot="icon" />
-          Button 1
-        </DDSButtonGroupItem>
-        <DDSButtonGroupItem href="https://www.example.com">
-          <ArrowRight20 slot="icon" />
-          Button 2
-        </DDSButtonGroupItem>
+        {buttons.map(elem => {
+          return (
+            <DDSButtonGroupItem aria-label={elem.label} href={elem.href}>
+              {elem.copy}
+              {elem.renderIcon}
+            </DDSButtonGroupItem>
+          );
+        })}
       </DDSButtonGroup>
       {hasImage && (
-        <DDSLeadspaceImage slot="image" default-src={leadspaceImg} className="bx--image" alt={alt}>
+        <DDSLeadspaceImage slot="image" default-src={defaultSrc} className="bx--image" alt={alt}>
           <DDSImageItem media="(min-width: 672px)" srcset={leadspaceImg}></DDSImageItem>
           <DDSImageItem media="(min-width: 0)" srcset={leadspaceImg}></DDSImageItem>
         </DDSLeadspaceImage>
@@ -103,6 +129,17 @@ Tall.story = {
         title: text('title (title)', 'Heading can go on two lines max'),
         copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
         alt: text('Image alt text (alt)', 'Image alt text'),
+        buttons: Array.from({
+          length: number('Number of buttons', 2, {}),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ?? 0;
+          return {
+            href: text(`Link ${i + 1}`, `https://example.com`),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
       }),
     },
   },
@@ -119,6 +156,18 @@ TallWithImage.story = {
         title: text('title (title)', 'Heading can go on two lines max'),
         copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
         alt: text('Image alt text (alt)', 'Image alt text'),
+        buttons: Array.from({
+          length: number('Number of buttons', 2, {}),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ?? 0;
+          return {
+            href: text(`Link ${i + 1}`, `https://example.com`),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
+        defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
       }),
     },
   },
@@ -135,6 +184,17 @@ Medium.story = {
         title: text('title (title)', 'Heading can go on two lines max'),
         copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
         alt: text('Image alt text (alt)', 'Image alt text'),
+        buttons: Array.from({
+          length: number('Number of buttons', 2, {}),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ?? 0;
+          return {
+            href: text(`Link ${i + 1}`, `https://example.com`),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
       }),
     },
   },
@@ -152,6 +212,18 @@ MediumWithImage.story = {
         title: text('title (title)', 'Heading can go on two lines max'),
         copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
         alt: text('Image alt text (alt)', 'Image alt text'),
+        buttons: Array.from({
+          length: number('Number of buttons', 2, {}),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ?? 0;
+          return {
+            href: text(`Link ${i + 1}`, `https://example.com`),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
+        defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
       }),
     },
   },
@@ -168,6 +240,17 @@ Centered.story = {
         title: text('title (title)', 'Heading can go on two lines max'),
         copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
         alt: text('Image alt text (alt)', 'Image alt text'),
+        buttons: Array.from({
+          length: number('Number of buttons', 2, {}),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ?? 0;
+          return {
+            href: text(`Link ${i + 1}`, `https://example.com`),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
       }),
     },
   },
@@ -185,6 +268,18 @@ CenteredWithImage.story = {
         title: text('title (title)', 'Heading can go on two lines max'),
         copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
         alt: text('Image alt text (alt)', 'Image alt text'),
+        buttons: Array.from({
+          length: number('Number of buttons', 2, {}),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ?? 0;
+          return {
+            href: text(`Link ${i + 1}`, `https://example.com`),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
+        defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
       }),
     },
   },
@@ -201,6 +296,17 @@ Super.story = {
         title: text('title (title)', 'Heading can go on two lines max'),
         copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
         alt: text('Image alt text (alt)', 'Image alt text'),
+        buttons: Array.from({
+          length: number('Number of buttons', 2, {}),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ?? 0;
+          return {
+            href: text(`Link ${i + 1}`, `https://example.com`),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
       }),
     },
   },
@@ -218,6 +324,18 @@ SuperWithImage.story = {
         title: text('title (title)', 'Heading can go on two lines max'),
         copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
         alt: text('Image alt text (alt)', 'Image alt text'),
+        buttons: Array.from({
+          length: number('Number of buttons', 2, {}),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ?? 0;
+          return {
+            href: text(`Link ${i + 1}`, `https://example.com`),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
+        defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
       }),
     },
   },
