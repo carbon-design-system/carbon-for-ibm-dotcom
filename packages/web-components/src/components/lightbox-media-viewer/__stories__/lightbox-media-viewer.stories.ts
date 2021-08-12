@@ -45,6 +45,7 @@ export const Default = ({ parameters }) => {
     </style>
     <dds-expressive-modal
       expressive-size="full-width"
+      mode="lightbox"
       ?open="${open}"
       @dds-expressive-modal-beingclosed="${handleBeforeClose}"
       @dds-expressive-modal-closed="${onClose}"
