@@ -13,6 +13,7 @@
     cursor: not-allowed;
     &.#{$prefix}--card {
       .#{$prefix}--card__heading,
+      ::slotted([slot='heading']),
       .#{$prefix}--card__copy,
       .#{$prefix}--card__eyebrow {
         color: $disabled-02;

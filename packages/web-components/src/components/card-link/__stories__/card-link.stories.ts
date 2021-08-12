@@ -49,7 +49,7 @@ export default {
       CardLink: ({ groupId }) => ({
         disabled: boolean('Disabled (disabled):', false, groupId),
         href: textNullable('Card href (href):', 'https://example.com', groupId),
-        heading: textNullable('Card heading (heading):', 'Explore AI uses cases in all industries', groupId),
+        heading: textNullable('Card heading (heading):', 'Explore AI use cases in all industries', groupId),
         copy: textNullable('Card copy (copy):', '', groupId),
       }),
     },
