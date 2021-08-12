@@ -27,7 +27,7 @@ export interface VideoCTAContainerState {
   /**
    * The Redux state for `KalturaPlayerAPI`.
    */
-  videoPlayerAPI?: MediaPlayerAPIState;
+  kalturaPlayerAPI?: MediaPlayerAPIState;
 }
 
 /**
