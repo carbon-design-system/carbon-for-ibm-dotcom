@@ -101,11 +101,6 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         .querySelector('dds-masthead')
         ?.shadowRoot?.querySelector('.bx--masthead__l0');
 
-      // set position of masthead when megamenu is expanded specifically for cloud
-      const cloudMasthead: HTMLElement | null | undefined = doc
-        .querySelector('dds-cloud-masthead-container')
-        ?.querySelector('dds-masthead');
-
       if (this.expanded) {
         doc.body.style.marginRight = `${this._scrollBarWidth}px`;
         doc.body.style.overflow = `hidden`;
@@ -114,18 +109,12 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         });
         if (masthead) {
           masthead.style.marginRight = `${this._scrollBarWidth}px`;
-          if (cloudMasthead) {
-            cloudMasthead.style.position = 'fixed';
-          }
         }
       } else {
         doc.body.style.marginRight = '0px';
         doc.body.style.overflow = ``;
         if (masthead) {
           masthead.style.marginRight = '0px';
-          if (cloudMasthead) {
-            cloudMasthead.style.position = '';
-          }
         }
       }
     }
