@@ -67,15 +67,12 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       left: 0;
       opacity: 0;
       z-index: 1;
-      background-color: $inverse-02;
-      transition: opacity $transition--base motion(standard, productive);
+      background-color: $ui-05;
+      transition: opacity $moderate-01 motion(standard, productive);
     }
 
-    &:hover,
-    &:focus {
-      &::before {
-        opacity: 0.2;
-      }
+    &:hover::before {
+      opacity: 0.08;
     }
   }
 
@@ -124,10 +121,40 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     cursor: pointer;
     width: 100%;
     height: 100%;
+    transition: fill $moderate-01 motion(standard, productive),
+      opacity $moderate-01 motion(standard, productive);
 
     &:focus {
       outline: 3px solid $focus;
       outline-offset: 1px;
+    }
+
+    svg circle {
+      opacity: 0.8;
+    }
+
+    &:hover,
+    &:active {
+      svg {
+        circle {
+          opacity: 0.9;
+          fill: $gray-100;
+        }
+
+        path {
+          fill: $icon-03;
+        }
+      }
+    }
+  }
+
+  :host(#{$dds-prefix}-video-player) .#{$prefix}--video-player__image-overlay,
+  .#{$prefix}--video-player .#{$prefix}--video-player__image-overlay {
+    &:active {
+      #{$dds-prefix}-image::before,
+      .#{$prefix}--image::before {
+        opacity: 0.12;
+      }
     }
   }
 }
