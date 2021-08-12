@@ -32,28 +32,23 @@
 
         @include carbon--breakpoint('md') {
           min-width: carbon--mini-units(27);
-          max-width: carbon--mini-units(40);
         }
       }
 
       @include carbon--breakpoint('md') {
-        @include carbon--make-col(4, 8);
-
+        align-self: end;
         margin-bottom: $spacing-10;
+        @include carbon--make-col(4, 8);
+        @include carbon--make-col-offset(2, 8);
       }
 
       @include carbon--breakpoint('lg') {
+        @include carbon--make-col-offset(10, 16);
         @include carbon--make-col(4, 16);
       }
 
       @include carbon--breakpoint('max') {
         @include carbon--make-col(4, 16);
-        @include carbon--make-col-offset(10, 16);
-
-        align-self: end;
-        button.#{$prefix}--locale-btn {
-          max-width: none;
-        }
       }
     }
   }
