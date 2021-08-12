@@ -158,8 +158,8 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
   }
 
   renderModal() {
-    const { formatCaption, formatDuration, hideCaption, open, videoData = {}, videoId } = this;
-    const { [videoId]: currentVideoData = {} as MediaData } = videoData;
+    const { formatCaption, formatDuration, hideCaption, open, mediaData = {}, videoId } = this;
+    const { [videoId]: currentVideoData = {} as MediaData } = mediaData;
     const { description, duration, name } = currentVideoData;
     return html`
       <dds-expressive-modal ?open="${open}" expressive-size="full-width">
