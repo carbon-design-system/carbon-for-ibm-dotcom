@@ -10,7 +10,8 @@
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-leftnav';
-@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-search';
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-top-nav-name';
+@import '@carbon/ibmdotcom-styles/scss/components/search-with-typeahead/search-with-typeahead';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-l1';
 @import 'carbon-web-components/scss/components/tooltip/tooltip';
 @import 'carbon-web-components/scss/components/ui-shell/header';
@@ -24,6 +25,12 @@
   position: relative;
   width: mini-units(6);
   height: mini-units(6);
+
+  &[hide-menu-button] {
+    @include carbon--breakpoint-down('md') {
+      display: none;
+    }
+  }
 
   .#{$dds-prefix}-ce--header__menu-trigger__container {
     display: contents;
@@ -94,6 +101,12 @@
 
 :host(#{$dds-prefix}-masthead-global-bar) {
   @extend .#{$prefix}--header__global;
+
+  &[has-search-active] {
+    @include carbon--breakpoint-down('md') {
+      display: none;
+    }
+  }
 
   .#{$dds-prefix}-ce--header__global__container {
     display: contents;
@@ -172,6 +185,7 @@
     left: 0;
     /* stylelint-disable-next-line comment-whitespace-inside */
     /*!rtl:raw:
+    right: initial;
     position: absolute !important;
     */
   }

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,10 +10,10 @@
 import { ActionCreatorsMapObject, Store } from 'redux';
 import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { VideoData, VideoPlayerAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/videoPlayerAPI.d';
+import { MediaData, MediaPlayerAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
-import { loadVideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/videoPlayerAPI';
-import { VideoPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/videoPlayerAPI.d';
+import { loadMediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI';
+import { MediaPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI.d';
 import { DDSVideoPlayerContainerMixin, mapStateToProps, mapDispatchToProps } from '../video-player/video-player-container';
 import ConnectMixin from '../../globals/mixins/connect';
 import DDSVideoCTAComposite from './video-cta-composite';
@@ -25,9 +25,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 export interface VideoCTAContainerState {
   /**
-   * The Redux state for `VideoPlayerAPI`.
+   * The Redux state for `KalturaPlayerAPI`.
    */
-  videoPlayerAPI?: VideoPlayerAPIState;
+  kalturaPlayerAPI?: MediaPlayerAPIState;
 }
 
 /**
@@ -37,13 +37,13 @@ export interface VideoCTAContainerStateProps {
   /**
    * The video data, keyed by the video ID.
    */
-  videoData?: { [videoId: string]: VideoData };
+  mediaData?: { [videoId: string]: MediaData };
 }
 
 /**
  * The Redux actions used for `<dds-cta-container>.
  */
-export type CTAContainerActions = ReturnType<typeof loadVideoData>;
+export type CTAContainerActions = ReturnType<typeof loadMediaData>;
 
 /**
  * Container component for CTA.
@@ -53,11 +53,11 @@ export type CTAContainerActions = ReturnType<typeof loadVideoData>;
 @customElement(`${ddsPrefix}-video-cta-container`)
 class DDSVideoCTAContainer extends ConnectMixin<
   VideoCTAContainerState,
-  VideoPlayerAPIActions,
+  MediaPlayerAPIActions,
   VideoCTAContainerStateProps,
   ActionCreatorsMapObject<CTAContainerActions>
 >(
-  store as Store<VideoCTAContainerState, VideoPlayerAPIActions>,
+  store as Store<VideoCTAContainerState, MediaPlayerAPIActions>,
   mapStateToProps,
   mapDispatchToProps
 )(DDSVideoPlayerContainerMixin(DDSVideoCTAComposite)) {}

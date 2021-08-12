@@ -12,7 +12,7 @@ import on from 'carbon-components/es/globals/js/misc/on';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import { VideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/videoPlayerAPI.d';
+import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
 import DDSVideoPlayerComposite from '../video-player/video-player-composite';
@@ -158,8 +158,8 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
   }
 
   renderModal() {
-    const { formatCaption, formatDuration, hideCaption, open, videoData = {}, videoId } = this;
-    const { [videoId]: currentVideoData = {} as VideoData } = videoData;
+    const { formatCaption, formatDuration, hideCaption, open, mediaData = {}, videoId } = this;
+    const { [videoId]: currentVideoData = {} as MediaData } = mediaData;
     const { description, duration, name } = currentVideoData;
     return html`
       <dds-expressive-modal ?open="${open}" expressive-size="full-width" mode="lightbox">

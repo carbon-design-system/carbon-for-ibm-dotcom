@@ -21,14 +21,8 @@ import { loadTranslation } from '../../internal/vendor/@carbon/ibmdotcom-service
 import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.d';
 import { loadUserStatus } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI';
 import { ProfileAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI.d';
-import { loadSearchResults } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/searchAPI';
-import { SearchAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/searchAPI.d';
 import ConnectMixin from '../../globals/mixins/connect';
-import {
-  MastheadSearchContainerState,
-  MastheadSearchContainerStateProps,
-  MastheadSearchContainerActions,
-} from './masthead-search-container';
+
 import DDSMastheadComposite from './masthead-composite';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -36,7 +30,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 /**
  * The Redux state used for `<dds-masthead-container>`.
  */
-export interface MastheadContainerState extends MastheadSearchContainerState {
+export interface MastheadContainerState {
   /**
    * The Redux state for `LocaleAPI`.
    */
@@ -56,7 +50,7 @@ export interface MastheadContainerState extends MastheadSearchContainerState {
 /**
  * The properties for `<dds-masthead-container>` from Redux state.
  */
-export interface MastheadContainerStateProps extends MastheadSearchContainerStateProps {
+export interface MastheadContainerStateProps {
   /**
    * The nav links.
    */
@@ -72,7 +66,6 @@ export interface MastheadContainerStateProps extends MastheadSearchContainerStat
  * The Redux actions used for `<dds-masthead-container>.
  */
 export type MastheadContainerActions =
-  | MastheadSearchContainerActions
   | ReturnType<typeof loadLanguage>
   | ReturnType<typeof setLanguage>
   | ReturnType<typeof loadTranslation>
@@ -83,22 +76,16 @@ export type MastheadContainerActions =
  * @returns The converted version of the given state, tailored for `<dds-masthead-container>`.
  */
 export function mapStateToProps(state: MastheadContainerState): MastheadContainerStateProps {
-  const { localeAPI, translateAPI, profileAPI, searchAPI } = state;
+  const { localeAPI, translateAPI, profileAPI } = state;
   const { language } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
   const { request } = profileAPI ?? {};
-  const { currentSearchQueryString, searchResults } = searchAPI ?? {};
-  let currentSearchResults;
-  for (let { length = 0 } = currentSearchQueryString ?? {}; !currentSearchResults && length > 0; --length) {
-    currentSearchResults = searchResults?.[currentSearchQueryString!.substr(0, length)]?.[language!];
-  }
   return pickBy(
     {
       authenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedin,
       navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
       unauthenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedout,
       userStatus: request?.user,
-      currentSearchResults: currentSearchResults ?? [],
       language,
     },
     value => value !== undefined
@@ -116,7 +103,6 @@ export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions | Transla
       _setLanguage: setLanguage,
       _loadTranslation: loadTranslation,
       _loadUserStatus: loadUserStatus,
-      _loadSearchResults: loadSearchResults,
     },
     dispatch as Dispatch // TS definition of `bindActionCreators()` seems to have no templated `Dispatch`
   );
@@ -130,11 +116,11 @@ export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions | Transla
 @customElement(`${ddsPrefix}-masthead-container`)
 class DDSMastheadContainer extends ConnectMixin<
   MastheadContainerState,
-  LocaleAPIActions | TranslateAPIActions | ProfileAPIActions | SearchAPIActions,
+  LocaleAPIActions | TranslateAPIActions | ProfileAPIActions,
   MastheadContainerStateProps,
   ActionCreatorsMapObject<MastheadContainerActions>
 >(
-  store as Store<MastheadContainerState, LocaleAPIActions | TranslateAPIActions | ProfileAPIActions | SearchAPIActions>,
+  store as Store<MastheadContainerState, LocaleAPIActions | TranslateAPIActions | ProfileAPIActions>,
   mapStateToProps,
   mapDispatchToProps
 )(DDSMastheadComposite) {}
