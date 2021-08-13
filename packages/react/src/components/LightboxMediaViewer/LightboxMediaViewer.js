@@ -143,10 +143,12 @@ const LightboxMediaViewer = ({ media, onClose, ...modalProps }) => {
    */
   function closeModal() {
     if (onClose?.() !== false) {
-      root.kWidget.addReadyCallback(videoId => {
-        const kdp = document.getElementById(videoId);
-        kdp.sendNotification('doStop');
-      });
+      if (root.kWidget) {
+        root.kWidget.addReadyCallback(videoId => {
+          const kdp = document.getElementById(videoId);
+          kdp.sendNotification('doStop');
+        });
+      }
     }
   }
 };
