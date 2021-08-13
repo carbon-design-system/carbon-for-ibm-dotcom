@@ -23,7 +23,10 @@ export const Default = ({ parameters }) => {
   const { orientation } = parameters?.props?.['dds-tabs-extended'] ?? {};
   return html`
     <dds-tabs-extended orientation="${ifNonNull(orientation)}">
-      <dds-tab label="Tools for developers" selected="true">
+      <dds-tab
+        label="First tab with long text that wraps multiple lines. Lorem ipsum dolor sit amet, consectetur."
+        selected="true"
+      >
         <p>Content for first tab goes here.</p>
       </dds-tab>
       <dds-tab label="Second tab">

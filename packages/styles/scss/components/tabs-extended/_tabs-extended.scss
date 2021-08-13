@@ -116,7 +116,7 @@
 
       .#{$prefix}--tabs {
         @include carbon--breakpoint(lg) {
-          @include carbon--make-col(3, 16);
+          @include carbon--make-col(4, 16);
         }
 
         .#{$prefix}--tabs__nav {
@@ -148,6 +148,7 @@
 
         .#{$prefix}--tabs__nav-item {
           width: max-content;
+          max-width: calc(100% - #{$spacing-07});
           min-height: carbon--rem(26px);
           margin-top: $spacing-05;
         }
@@ -158,11 +159,10 @@
       }
 
       .#{$prefix}--tab-content {
-        padding: 0;
+        padding: $spacing-03;
 
         @include carbon--breakpoint(lg) {
           @include carbon--make-col(12, 16);
-          @include carbon--make-col-offset(1, 16);
         }
       }
 
