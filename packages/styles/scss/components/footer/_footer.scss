@@ -120,7 +120,19 @@
   }
 
   .#{$prefix}--footer__logo-container {
-    display: flex;
+    width: 100%;
+    margin-bottom: $spacing-09;
+    @include carbon--make-container;
+
+    @include carbon--breakpoint('md') {
+      margin-bottom: 0;
+      padding-left: $spacing-05;
+      padding-right: $spacing-05;
+    }
+
+    .#{$prefix}--footer__logo-row {
+      @include carbon--make-row;
+    }
   }
 }
 

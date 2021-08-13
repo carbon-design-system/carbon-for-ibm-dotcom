@@ -22,9 +22,9 @@
       @include button;
       @include button-expressive;
       @include carbon--make-col-ready;
+      @include carbon--make-col(4, 4);
 
-      padding-left: 0;
-      padding-right: 0;
+      margin-top: $spacing-09;
 
       .#{$prefix}--locale-btn {
         max-width: 100%;
@@ -40,15 +40,16 @@
         margin-bottom: $spacing-10;
         @include carbon--make-col(4, 8);
         @include carbon--make-col-offset(2, 8);
+
+        padding-left: 0;
+        padding-right: 0;
+        margin-top: 0;
       }
 
       @include carbon--breakpoint('lg') {
         @include carbon--make-col-offset(10, 16);
         @include carbon--make-col(4, 16);
-      }
-
-      @include carbon--breakpoint('max') {
-        @include carbon--make-col(4, 16);
+        @include carbon--make-col-offset(10, 16);
       }
     }
   }

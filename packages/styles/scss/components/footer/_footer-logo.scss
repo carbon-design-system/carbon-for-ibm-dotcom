@@ -16,12 +16,10 @@
       $carbon--theme--g90,
       feature-flag-enabled('enable-css-custom-properties')
     ) {
-      @include carbon--make-col-ready;
       @include carbon--make-col(2, 4);
 
-      margin-bottom: carbon--mini-units(6);
-
       @include carbon--breakpoint('md') {
+        margin-bottom: $spacing-09;
         @include carbon--make-col(2, 8);
       }
 
@@ -36,7 +34,7 @@
     $logo-size: carbon--mini-units(16) + ($logo-padding * 2);
 
     color: $text-04;
-    margin-left: -1 * $logo-padding;
+    padding-left: $logo-padding;
     display: inline-block;
 
     @include carbon--make-col-ready;
