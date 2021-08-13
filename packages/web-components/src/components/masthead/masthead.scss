@@ -457,6 +457,12 @@
   outline: none;
 }
 
+:host(#{$dds-prefix}-megamenu-category-link) {
+  &[active] a {
+    background-color: hotpink !important;
+  }
+}
+
 :host(#{$dds-prefix}-masthead-search-composite),
 :host(#{$dds-prefix}-masthead-search-container) {
   display: contents;

@@ -27,6 +27,9 @@ class DDSMegaMenuCateoryLink extends BXLink {
   @property({ reflect: true })
   title = '';
 
+  @property({ type: Boolean, reflect: true })
+  active = false;
+
   /**
    * @returns The inner content.
    */

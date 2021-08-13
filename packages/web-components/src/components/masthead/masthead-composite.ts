@@ -160,6 +160,8 @@ class DDSMastheadComposite extends LitElement {
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderMegaMenu(sections) {
+    // const { pathname } = window.location;
+    const pathname = '/supply-chain/sterling';
     const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
 
     const hasHighlights = highlightedItems.length !== 0;
@@ -191,7 +193,7 @@ class DDSMastheadComposite extends LitElement {
                                 </dds-megamenu-link-with-icon>
                               `
                             : html`
-                                <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${url}">
+                                <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${url}" ?active="${url?.search(pathname) !== -1}">
                                 </dds-megamenu-category-link>
                               `}
                         `;
@@ -215,7 +217,7 @@ class DDSMastheadComposite extends LitElement {
               <dds-megamenu-category-group data-autoid="${autoid}" href="${item.url}" title="${item.title}">
                 ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
                   return html`
-                    <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${url}">
+                    <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${url}" ?active="${url?.search(pathname) !== -1}">
                     </dds-megamenu-category-link>
                   `;
                 })}
