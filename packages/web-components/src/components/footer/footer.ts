@@ -50,9 +50,13 @@ class DDSFooter extends StableSelectorMixin(LitElement) {
     return html`
       <section class="${prefix}--footer__main">
         <div class="${prefix}--footer__main-container">
-          <slot name="brand"></slot>
+          <div class="${prefix}--footer__logo-container">
+            <div class="${prefix}--footer__logo-row">
+              <slot name="brand"></slot>
+              <slot name="locale-button"></slot>
+            </div>
+          </div>
           <slot></slot>
-          <slot name="locale-button"></slot>
           <slot name="language-selector"></slot>
         </div>
       </section>
