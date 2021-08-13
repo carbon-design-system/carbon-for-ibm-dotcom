@@ -142,13 +142,11 @@ const LightboxMediaViewer = ({ media, onClose, ...modalProps }) => {
    * Stop video on modal close
    */
   function closeModal() {
-    if (onClose?.() !== false) {
-      if (root.kWidget) {
-        root.kWidget.addReadyCallback(videoId => {
-          const kdp = document.getElementById(videoId);
-          kdp.sendNotification('doStop');
-        });
-      }
+    if (onClose?.() !== false && root.kWidget) {
+      root.kWidget.addReadyCallback(videoId => {
+        const kdp = document.getElementById(videoId);
+        kdp.sendNotification('doStop');
+      });
     }
   }
 };
