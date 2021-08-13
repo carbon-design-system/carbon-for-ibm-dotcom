@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.23.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.0-rc.2...@carbon/ibmdotcom-react@1.23.0-rc.3) (2021-08-13)
+
+
+### Bug Fixes
+
+* **lightbox-media:** check for kaltura onClose ([#6885](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6885)) ([eaeb5e5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/eaeb5e5)), closes [#6884](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6884)
+
+
+
+
+
 # [1.23.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.0-rc.1...@carbon/ibmdotcom-react@1.23.0-rc.2) (2021-08-11)
 
 

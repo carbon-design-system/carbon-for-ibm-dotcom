@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.8.0-rc.2...@carbon/ibmdotcom-web-components@1.8.0-rc.3) (2021-08-12)
+
+
+### Bug Fixes
+
+* **video-player:** set correct attribute name and state ([#6877](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6877)) ([fc53cce](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/fc53cce)), closes [#6869](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6869)
+
+
+
+
+
 # [1.8.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.8.0-rc.1...@carbon/ibmdotcom-web-components@1.8.0-rc.2) (2021-08-11)
 
 

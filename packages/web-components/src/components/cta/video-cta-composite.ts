@@ -122,7 +122,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
    * The video data, keyed by the video ID.
    */
   @property({ attribute: false })
-  videoData?: { [videoId: string]: MediaData };
+  mediaData?: { [videoId: string]: MediaData };
 
   disconnectedCallback() {
     if (this._hCloseModal) {
@@ -151,14 +151,14 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
    * @returns The media viewer lightbox for `type="video"`.
    */
   renderModal() {
-    const { embeddedVideos, videoData, _activeVideoId: activeVideoId, _embedMedia: embedMedia } = this;
+    const { embeddedVideos, mediaData, _activeVideoId: activeVideoId, _embedMedia: embedMedia } = this;
     return html`
       <dds-lightbox-video-player-composite
         ?open="${Boolean(activeVideoId)}"
         video-cta-lightbox="true"
         video-id="${ifNonNull(activeVideoId)}"
         .embeddedVideos="${ifNonNull(embeddedVideos)}"
-        .videoData="${ifNonNull(videoData)}"
+        .mediaData="${ifNonNull(mediaData)}"
         ._embedMedia="${ifNonNull(embedMedia)}"
       >
       </dds-lightbox-video-player-composite>

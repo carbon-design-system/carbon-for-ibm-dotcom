@@ -7,6 +7,7 @@
   <dds-expressive-modal
     data-autoid="dds--expressive-modal"
     expressive-size="full-width"
+    mode="lightbox"
   >
     <dds-expressive-modal-close-button data-autoid="dds--expressive-modal-close-button">
     </dds-expressive-modal-close-button>

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,7 +17,7 @@ import '../lightbox-video-player-composite';
 /* eslint-enable import/no-duplicates */
 
 const template = (props?) => {
-  const { embeddedVideos, formatCaption, formatDuration, hideCaption, videoId, videoData } = props ?? {};
+  const { embeddedVideos, formatCaption, formatDuration, hideCaption, videoId, mediaData } = props ?? {};
   return html`
     <dds-lightbox-video-player-composite
       ?hide-caption="${hideCaption}"
@@ -25,7 +25,7 @@ const template = (props?) => {
       .embeddedVideos="${ifNonNull(embeddedVideos)}"
       .formatCaption="${ifNonNull(formatCaption)}"
       .formatDuration="${ifNonNull(formatDuration)}"
-      .videoData="${ifNonNull(videoData)}"
+      .mediaData="${ifNonNull(mediaData)}"
     >
     </dds-lightbox-video-player-composite>
   `;
@@ -47,7 +47,7 @@ describe('dds-lightbox-video-player-composite', function() {
   });
 
   it('should render the video player', async function() {
-    const videoData = {
+    const mediaData = {
       'video-id-foo': {
         name: 'video-name-foo',
         description: 'video-description-foo',
@@ -55,7 +55,7 @@ describe('dds-lightbox-video-player-composite', function() {
       },
     };
 
-    render(template({ videoData, videoId: 'video-id-foo' }), document.body);
+    render(template({ mediaData, videoId: 'video-id-foo' }), document.body);
     await Promise.resolve();
     expect(
       (document.querySelector('dds-lightbox-video-player-composite') as DDSLightboxVideoPlayerComposite).modalRenderRoot
