@@ -134,6 +134,11 @@
       @include carbon--make-row;
     }
   }
+
+  .#{$prefix}--footer__logo-container-locale-button--disabled {
+    margin-left: 0;
+    @include carbon--make-col(2, 16);
+  }
 }
 
 @include exports('footer') {
