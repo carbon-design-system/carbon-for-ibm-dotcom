@@ -25,6 +25,7 @@ import {
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { UNAUTHENTICATED_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
+import { DDS_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
 import './masthead';
 import './masthead-logo';
 import './masthead-l1';
@@ -543,6 +544,12 @@ class DDSMastheadComposite extends LitElement {
   currentSearchResults: string[] = [];
 
   /**
+   * The custom profile login link.
+   */
+  @property({ attribute: 'custom-profile-login' })
+  customProfileLogin?: string;
+
+  /**
    * The `aria-label` attribute for the top-level container.
    */
   @property({ attribute: 'masthead-assistive-text' })
@@ -667,6 +674,7 @@ class DDSMastheadComposite extends LitElement {
       activateSearch,
       authenticatedProfileItems,
       currentSearchResults,
+      customProfileLogin,
       platform,
       platformUrl,
       hasProfile,
@@ -685,7 +693,20 @@ class DDSMastheadComposite extends LitElement {
       l1Data,
     } = this;
     const authenticated = userStatus !== UNAUTHENTICATED_STATUS;
-    const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
+
+    let profileItems;
+    if (DDS_CUSTOM_PROFILE_LOGIN && customProfileLogin) {
+      if (!authenticated) {
+        profileItems = unauthenticatedProfileItems?.map(item => {
+          if (item?.id === 'signin') {
+            return { ...item, url: customProfileLogin };
+          }
+          return item;
+        });
+      } else {
+        profileItems = authenticatedProfileItems;
+      }
+    }
     const formattedLang = language?.toLowerCase().replace(/-(.*)/, m => m.toUpperCase());
     let platformAltUrl = platformUrl;
     if (platformUrl && formattedLang) {
