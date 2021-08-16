@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,71 +34,6 @@ describe('AnalyticsAPI', function() {
 
     expect(root.ibmStats.event).toHaveBeenCalledTimes(1);
     expect(root.ibmStats.event).toHaveBeenCalledWith('testData');
-  });
-
-  describe('initScrollTracker', function() {
-    it('should set listener', function() {
-      root.addEventListener = jest.fn();
-      AnalyticsAPI.initScrollTracker('path', 'title');
-
-      expect(root.addEventListener).toHaveBeenCalledTimes(1);
-    });
-
-    it('should skip event on no scroll', function() {
-      root.addEventListener = jest.fn();
-      const registerEvent = jest.spyOn(AnalyticsAPI, 'registerEvent');
-      AnalyticsAPI.initScrollTracker('path', 'title');
-
-      jest.advanceTimersByTime(55);
-
-      expect(registerEvent).toHaveBeenCalledTimes(0);
-      registerEvent.mockRestore();
-    });
-
-    it('should register scroll event', function() {
-      root.addEventListener = jest.fn();
-      const registerEvent = jest.spyOn(AnalyticsAPI, 'registerEvent');
-      AnalyticsAPI.initScrollTracker('path', 'title');
-
-      const scrollCallback = root.addEventListener.mock.calls[0][1];
-      scrollCallback();
-      root.pageYOffset = 401;
-      jest.advanceTimersByTime(55);
-
-      expect(registerEvent).toHaveBeenCalledTimes(1);
-      registerEvent.mockRestore();
-    });
-
-    it('should avoid duplicate register scroll events', function() {
-      root.addEventListener = jest.fn();
-      const registerEvent = jest.spyOn(AnalyticsAPI, 'registerEvent');
-      AnalyticsAPI.initScrollTracker('path', 'title');
-
-      const scrollCallback = root.addEventListener.mock.calls[0][1];
-      scrollCallback();
-      root.pageYOffset = 401;
-      jest.advanceTimersByTime(55);
-      jest.advanceTimersByTime(55);
-
-      expect(registerEvent).toHaveBeenCalledTimes(1);
-      registerEvent.mockRestore();
-    });
-
-    it('should avoid duplicate register scroll events inside tracking interval', function() {
-      root.addEventListener = jest.fn();
-      const registerEvent = jest.spyOn(AnalyticsAPI, 'registerEvent');
-      AnalyticsAPI.initScrollTracker('path', 'title');
-
-      const scrollCallback = root.addEventListener.mock.calls[0][1];
-      scrollCallback();
-      root.pageYOffset = 401;
-      jest.advanceTimersByTime(55);
-      scrollCallback();
-      jest.advanceTimersByTime(55);
-
-      expect(registerEvent).toHaveBeenCalledTimes(1);
-      registerEvent.mockRestore();
-    });
   });
 
   it('should execute the triggerTabSelected analytics call', function() {
