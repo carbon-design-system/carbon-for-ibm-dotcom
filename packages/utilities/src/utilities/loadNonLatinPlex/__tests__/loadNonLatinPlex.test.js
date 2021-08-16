@@ -35,7 +35,7 @@ describe('Load plex utility | Arabic', () => {
   it('should load Plex Arabic font css on the page', () => {
     const headContent = document.getElementsByTagName('head')[0].innerHTML;
     const fontLink =
-      'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/plex/sans-arabic.css';
+      'https://1.www.s81c.com/common/carbon/plex/sans-arabic.css';
 
     expect(headContent.indexOf(fontLink)).not.toEqual(-1);
   });
@@ -58,8 +58,7 @@ describe('Load plex utility | Japanese', () => {
 
   it('should load Plex Japanese font css on the page', () => {
     const headContent = document.getElementsByTagName('head')[0].innerHTML;
-    const fontLink =
-      'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/plex/sans-jp.css';
+    const fontLink = 'https://1.www.s81c.com/common/carbon/plex/sans-jp.css';
 
     expect(headContent.indexOf(fontLink)).not.toEqual(-1);
   });
@@ -82,8 +81,7 @@ describe('Load plex utility | Korean', () => {
 
   it('should load Plex Korean font css on the page', () => {
     const headContent = document.getElementsByTagName('head')[0].innerHTML;
-    const fontLink =
-      'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/plex/sans-kr.css';
+    const fontLink = 'https://1.www.s81c.com/common/carbon/plex/sans-kr.css';
 
     expect(headContent.indexOf(fontLink)).not.toEqual(-1);
   });
