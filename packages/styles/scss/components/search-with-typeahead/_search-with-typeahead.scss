@@ -287,6 +287,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
       }
 
       .#{$prefix}--header__search--input {
+        color: $text-01;
         border-bottom: none;
 
         @include carbon--breakpoint('md') {
