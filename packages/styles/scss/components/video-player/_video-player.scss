@@ -121,16 +121,10 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     cursor: pointer;
     width: 100%;
     height: 100%;
-    transition: fill $moderate-01 motion(standard, productive),
-      opacity $moderate-01 motion(standard, productive);
 
     &:focus {
       outline: 3px solid $focus;
       outline-offset: 1px;
-    }
-
-    svg circle {
-      opacity: 0.8;
     }
 
     &:hover,
@@ -144,6 +138,18 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
         path {
           fill: $icon-03;
         }
+      }
+    }
+
+    svg {
+      circle,
+      path {
+        transition: fill $moderate-01 motion(standard, productive),
+          opacity $moderate-01 motion(standard, productive);
+      }
+
+      circle {
+        opacity: 0.8;
       }
     }
   }
