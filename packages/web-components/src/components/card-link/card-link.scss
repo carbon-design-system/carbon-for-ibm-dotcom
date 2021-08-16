@@ -43,3 +43,19 @@
     margin-bottom: auto;
   }
 }
+
+::slotted([slot='footer']) {
+  margin-top: $spacing-10;
+}
+
+::slotted([slot='heading']) {
+  margin-bottom: 0;
+}
+
+.#{$prefix}--card__CTA.#{$prefix}--card {
+  .#{$prefix}--card__copy {
+    @include carbon--type-style('body-long-02');
+
+    margin-bottom: 0;
+  }
+}
