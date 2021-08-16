@@ -278,12 +278,17 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
           content: none;
         }
       }
+
       .react-autosuggest__suggestions-container {
         top: carbon--rem(50px);
 
         @include carbon--breakpoint('md') {
           top: carbon--rem(66px);
         }
+      }
+
+      .react-autosuggest__suggestions-list {
+        background-color: $ui-01;
       }
 
       .#{$prefix}--header__search--input {
