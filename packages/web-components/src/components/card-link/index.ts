@@ -9,4 +9,5 @@
 
 import './card-link';
 import '../button-group/index';
+import '../card/card-heading';
 import '../card/card-footer';
