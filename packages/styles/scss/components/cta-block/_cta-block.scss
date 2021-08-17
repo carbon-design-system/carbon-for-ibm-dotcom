@@ -28,6 +28,7 @@
 @mixin cta-block--pattern {
   :host(#{$dds-prefix}-cta-block),
   .#{$prefix}--cta-block {
+    padding-top: $carbon--layout-03;
     padding-bottom: $carbon--layout-03;
 
     @include carbon--breakpoint('lg') {
