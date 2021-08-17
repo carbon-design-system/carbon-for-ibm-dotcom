@@ -143,23 +143,26 @@ class DDSDotcomShellComposite extends LitElement {
      */
     if (this._masthead && this._masthead.querySelector(`${ddsPrefix}-masthead-l1`)) {
       /**
-       * L0 will hide/show only in the top 25% of the viewport.
+       * L0 will hide/show only in the top 25% (10% on mobile to match toc) of the viewport.
        *
        */
-      const hideTopnavThreshold = 0.25;
+      const hideTopnavThreshold = window.innerWidth < gridBreakpoint ? 0.1 : 0.25;
       const mastheadl1 = this._masthead.querySelector(`${ddsPrefix}-masthead-l1`) as HTMLElement;
       this._masthead!.style.transition = 'none';
 
       if (window.scrollY < this._lastScrollPosition) {
         this._masthead.style.top = `0`;
+        if (window.innerWidth < gridBreakpoint) {
+          this._tableOfContentsInnerBar!.style.top = `${this._masthead.getBoundingClientRect().height}px`;
+        }
       } else if (this._lastScrollPosition > window.innerHeight * hideTopnavThreshold) {
         this._masthead.style.top = `-${mastheadl1.getBoundingClientRect().height}px`;
+        if (window.innerWidth < gridBreakpoint) {
+          this._tableOfContentsInnerBar!.style.top = `${mastheadl1.getBoundingClientRect().height}px`;
+        }
       }
-
       this._lastScrollPosition = window.scrollY;
-    }
-
-    if (this._tableOfContentsInnerBar && !this._localeModal?.hasAttribute('open')) {
+    } else if (this._tableOfContentsInnerBar && !this._localeModal?.hasAttribute('open')) {
       if (window.innerWidth < gridBreakpoint || this._tableOfContentsLayout === 'horizontal') {
         const mastheadTop = Math.min(
           0,
