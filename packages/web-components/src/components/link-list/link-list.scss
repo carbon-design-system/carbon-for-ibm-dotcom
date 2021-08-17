@@ -128,7 +128,7 @@
       grid-column-gap: 2rem;
 
       ::slotted(#{$dds-prefix}-link-list-item) {
-        display: block;
+        display: grid;
         margin-left: -$carbon--layout-01;
         margin-right: 0;
       }
