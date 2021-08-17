@@ -210,4 +210,5 @@ class DDSVideoPlayerContainer extends ConnectMixin<
   mapDispatchToProps
 )(DDSVideoPlayerContainerMixin(DDSVideoPlayerComposite)) {}
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSVideoPlayerContainer;
