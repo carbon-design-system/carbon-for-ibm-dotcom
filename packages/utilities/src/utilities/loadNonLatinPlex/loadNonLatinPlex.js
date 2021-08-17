@@ -35,19 +35,49 @@ const _fonts = {
 };
 
 /**
+ * Non-Latin font-weights and corresponding names
+ *
+ * @type {{'100': string, '200': string, '300': string, '400': string, '500': string, '600': string, '700': string, '450': string}}
+ * @private
+ */
+const _weights = {
+  100: 'thin',
+  200: 'extralight',
+  300: 'light',
+  400: 'regular',
+  450: 'text',
+  500: 'medium',
+  600: 'semibold',
+  700: 'bold',
+};
+
+/**
  * Injects the corresponding CSS entry point to the page
  *
  * @param {string} language two-character language code
+ * @param {Array} [weights=[]] Array of specific weights to load
  * @private
  */
-function _injectCSS(language) {
-  const link = document.createElement('link');
-  link.href = `${_host}/${_fonts[language].entry}.css`;
-  link.type = 'text/css';
-  link.rel = 'stylesheet';
-  link.media = 'screen,print';
+function _injectCSS(language, weights = []) {
+  if (weights.length === 0) {
+    const link = document.createElement('link');
+    link.href = `${_host}/${_fonts[language].entry}.css`;
+    link.type = 'text/css';
+    link.rel = 'stylesheet';
+    link.media = 'screen,print';
 
-  document.getElementsByTagName('head')[0].appendChild(link);
+    document.getElementsByTagName('head')[0].appendChild(link);
+  } else {
+    weights.forEach(weight => {
+      const linkWeight = document.createElement('link');
+      linkWeight.href = `${_host}/${_fonts[language].entry}-${_weights[weight]}.css`;
+      linkWeight.type = 'text/css';
+      linkWeight.rel = 'stylesheet';
+      linkWeight.media = 'screen,print';
+
+      document.getElementsByTagName('head')[0].appendChild(linkWeight);
+    });
+  }
 }
 
 /**
@@ -68,11 +98,15 @@ function _setFontFamily(language) {
  *
  * loadNonLatinPlex('ar');
  *
+ * // Load specific weights only
+ * loadNonLatinPlex('ar', [400,600]);
+ *
  * @param {string} language two-character language code
+ * @param {Array} [weights=[]] Array of specific weights to load (100-700)
  */
-function loadNonLatinPlex(language) {
+function loadNonLatinPlex(language, weights = []) {
   if (_fonts[language]) {
-    _injectCSS(language);
+    _injectCSS(language, weights);
     _setFontFamily(language);
   }
 }
