@@ -160,26 +160,28 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
   };
 
   private _setSameHeight = () => {
-    // check if items are not null or sameHeight() breaks
-    if (this._childItemEyebrows.every(eyebrow => eyebrow !== null)) {
-      sameHeight(this._childItemEyebrows, 'md');
-    }
-    if (this._childItemHeadings.every(heading => heading !== null)) {
-      sameHeight(this._childItemHeadings, 'md');
-    }
-    if (this._childItemTagGroup.every(tagGroup => tagGroup !== null)) {
-      sameHeight(this._childItemTagGroup, 'md');
-    }
-    if (this._childItemParagraphs.every(paragraph => paragraph !== null)) {
-      sameHeight(this._childItemParagraphs, 'md');
-    }
-    if (this._childItemFooters.every(footer => footer !== null)) {
-      sameHeight(this._childItemFooters, 'md');
-    }
+    // check if items are not null before using sameHeight
+
+    sameHeight(
+      this._childItemEyebrows.filter(item => item !== null),
+      'md'
+    );
+    sameHeight(
+      this._childItemHeadings.filter(item => item !== null),
+      'md'
+    );
+    sameHeight(
+      this._childItemParagraphs.filter(item => item !== null),
+      'md'
+    );
+    sameHeight(
+      this._childItemFooters.filter(item => item !== null),
+      'md'
+    );
 
     let tagGroupHeight: number = 0;
 
-    // get height of tallest tag group
+    // get tallest height of tag groups
     this._childItemTagGroup.forEach(item => {
       if (item) {
         const groupHeight = (item as HTMLElement).offsetHeight;
@@ -190,9 +192,16 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
     });
 
     this._childItemHeadings.forEach(e => {
-      // add tag group height to the ones lacking tag group
+      // add tag group height to heading to the cards lacking tag group
       if (e && !e.nextElementSibling.matches((this.constructor as typeof DDSCardGroup).selectorItemTagGroup)) {
         e.style.marginBottom = `${tagGroupHeight + headingBottomMargin}px`;
+      }
+    });
+
+    this._childItemTagGroup.forEach(e => {
+      // match all tagGroups spacing
+      if (e) {
+        e.style.marginTop = `${tagGroupHeight - e.offsetHeight}px`;
       }
     });
   };
@@ -372,7 +381,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * A selector that will return the card item's paragraph
+   * A selector that will return the card item's tag group
    */
   static get selectorItemParagraph() {
     return `p`;
