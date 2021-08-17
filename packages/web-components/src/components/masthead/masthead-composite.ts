@@ -695,17 +695,15 @@ class DDSMastheadComposite extends LitElement {
     const authenticated = userStatus !== UNAUTHENTICATED_STATUS;
 
     let profileItems;
-    if (DDS_CUSTOM_PROFILE_LOGIN && customProfileLogin) {
-      if (!authenticated) {
-        profileItems = unauthenticatedProfileItems?.map(item => {
-          if (item?.id === 'signin') {
-            return { ...item, url: customProfileLogin };
-          }
-          return item;
-        });
-      } else {
-        profileItems = authenticatedProfileItems;
-      }
+    if (DDS_CUSTOM_PROFILE_LOGIN && customProfileLogin && !authenticated) {
+      profileItems = unauthenticatedProfileItems?.map(item => {
+        if (item?.id === 'signin') {
+          return { ...item, url: customProfileLogin };
+        }
+        return item;
+      });
+    } else {
+      profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
     }
     const formattedLang = language?.toLowerCase().replace(/-(.*)/, m => m.toUpperCase());
     let platformAltUrl = platformUrl;
