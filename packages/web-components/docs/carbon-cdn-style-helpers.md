@@ -54,16 +54,119 @@ Plex fonts are also available as CSS artifacts, where the Plex font families can
 Available CSS files:
 
 - https://1.www.s81c.com/common/carbon/plex/mono.css
+  - https://1.www.s81c.com/common/carbon/plex/mono-bold.css
+  - https://1.www.s81c.com/common/carbon/plex/mono-bold-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/mono-extralight.css
+  - https://1.www.s81c.com/common/carbon/plex/mono-extralight-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/mono-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/mono-light.css
+  - https://1.www.s81c.com/common/carbon/plex/mono-light-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/mono-medium.css
+  - https://1.www.s81c.com/common/carbon/plex/mono-medium-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/mono-regular.css
+  - https://1.www.s81c.com/common/carbon/plex/mono-semibold.css
+  - https://1.www.s81c.com/common/carbon/plex/mono-semibold-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/mono-text.css
+  - https://1.www.s81c.com/common/carbon/plex/mono-text-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/mono-thin.css
+  - https://1.www.s81c.com/common/carbon/plex/mono-thin-italic.css
 - https://1.www.s81c.com/common/carbon/plex/sans.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-bold.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-bold-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-extralight.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-extralight-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-light.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-light-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-medium.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-medium-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-regular.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-semibold.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-semibold-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-text.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-text-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-thin.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-thin-italic.css
 - https://1.www.s81c.com/common/carbon/plex/sans-arabic.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-arabic-bold.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-arabic-extralight.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-arabic-light.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-arabic-medium.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-arabic-regular.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-arabic-semibold.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-arabic-text.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-arabic-thin.css
 - https://1.www.s81c.com/common/carbon/plex/sans-condensed.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-bold.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-bold-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-extralight.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-extralight-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-light.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-light-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-medium.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-medium-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-regular.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-semibold.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-semibold-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-text.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-text-italic.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-thin.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-thin-italic.css
 - https://1.www.s81c.com/common/carbon/plex/sans-devanagari.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-devanagari-bold.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-devanagari-extralight.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-devanagari-light.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-devanagari-medium.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-devanagari-regular.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-devanagari-semibold.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-devanagari-text.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-devanagari-thin.css
 - https://1.www.s81c.com/common/carbon/plex/sans-hebrew.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-hebrew-bold.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-hebrew-extralight.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-hebrew-light.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-hebrew-medium.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-hebrew-regular.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-hebrew-semibold.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-hebrew-text.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-hebrew-thin.css
 - https://1.www.s81c.com/common/carbon/plex/sans-jp.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-jp-bold.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-jp-extralight.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-jp-light.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-jp-medium.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-jp-regular.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-jp-semibold.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-jp-text.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-jp-thin.css
 - https://1.www.s81c.com/common/carbon/plex/sans-kr.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-kr-bold.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-kr-extralight.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-kr-light.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-kr-medium.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-kr-regular.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-kr-semibold.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-kr-text.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-kr-thin.css
 - https://1.www.s81c.com/common/carbon/plex/sans-thai.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-thai-bold.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-thai-extralight.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-thai-light.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-thai-medium.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-thai-regular.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-thai-semibold.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-thai-text.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-thai-thin.css
 - https://1.www.s81c.com/common/carbon/plex/sans-thai-looped.css
-- https://1.www.s81c.com/common/carbon/plex/serif.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-bold.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-extralight.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-light.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-medium.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-regular.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-semibold.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-text.css
+  - https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-thin.css
 
 And the full plex package (excluding `jp` and `kr`):
 
