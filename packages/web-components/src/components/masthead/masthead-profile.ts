@@ -108,9 +108,6 @@ class DDSMastheadProfile extends HostListenerMixin(FocusMixin(StableSelectorMixi
   }
 
   connectedCallback() {
-    if (!this.hasAttribute('role')) {
-      this.setAttribute('role', 'listitem');
-    }
     super.connectedCallback();
   }
 
