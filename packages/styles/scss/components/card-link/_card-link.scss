@@ -37,6 +37,10 @@
   .#{$prefix}--card__CTA.#{$prefix}--card .#{$prefix}--card__copy {
     @include carbon--type-style('expressive-heading-02');
   }
+
+  ::slotted([slot='heading']) {
+    margin-bottom: 0;
+  }
 }
 
 @include exports('card-link') {
