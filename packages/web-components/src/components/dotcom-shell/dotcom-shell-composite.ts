@@ -168,13 +168,8 @@ class DDSDotcomShellComposite extends LitElement {
         const tocPosition =
           this._tableOfContentsInnerBar!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY;
         this._masthead!.style.transition = 'none';
-        if (window.scrollY < this._lastScrollPosition) {
-          this._tableOfContentsInnerBar!.style.top = `${Math.min(tocPosition, this._masthead!.offsetHeight)}px`;
-          this._masthead!.style.top = `${mastheadTop}px`;
-        } else {
-          this._tableOfContentsInnerBar!.style.top = `${Math.max(tocPosition, 0)}px`;
-          this._masthead!.style.top = `${mastheadTop}px`;
-        }
+        this._tableOfContentsInnerBar!.style.top = `${Math.max(Math.min(tocPosition, this._masthead!.offsetHeight), 0)}px`;
+        this._masthead!.style.top = `${mastheadTop}px`;
       }
       this._lastScrollPosition = window.scrollY;
     }
