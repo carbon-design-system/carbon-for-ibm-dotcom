@@ -31,7 +31,7 @@ artifacts, these can be included as part of your project.
 ## Plex fonts and Carbon reset
 
 The following includes Carbon reset, as well as imports Plex fonts necessary for 
-the page. 
+the page. Note, this will import `IBM Plex Sans` and `IBM Plex Mono`.
 
 ```html
 // SPECIFIC VERSION
@@ -46,6 +46,65 @@ the page.
 // BETA tag
 <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/beta/plex.css" />
 ```
+
+### Alternative: individual Plex family loading
+
+Plex fonts are also available as CSS artifacts, where the Plex font families can be loaded in individually. 
+
+Available CSS files:
+
+- https://1.www.s81c.com/common/carbon/plex/mono.css
+- https://1.www.s81c.com/common/carbon/plex/sans.css
+- https://1.www.s81c.com/common/carbon/plex/sans-arabic.css
+- https://1.www.s81c.com/common/carbon/plex/sans-condensed.css
+- https://1.www.s81c.com/common/carbon/plex/sans-devanagari.css
+- https://1.www.s81c.com/common/carbon/plex/sans-hebrew.css
+- https://1.www.s81c.com/common/carbon/plex/sans-jp.css
+- https://1.www.s81c.com/common/carbon/plex/sans-kr.css
+- https://1.www.s81c.com/common/carbon/plex/sans-thai.css
+- https://1.www.s81c.com/common/carbon/plex/sans-thai-looped.css
+- https://1.www.s81c.com/common/carbon/plex/serif.css
+
+And the full plex package (excluding `jp` and `kr`):
+
+- https://1.www.s81c.com/common/carbon/plex/plex-full.css
+
+Example usage:
+
+```html
+<html>
+<head>
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans.css" />
+  <style>
+    body {
+      font-family: IBM Plex Sans,Helvetica Neue,Arial,sans-serif;
+    }
+  </style>
+  ...
+</head>
+<body>
+...
+</body>
+</html>
+```
+
+### Non-latin dynamic font loader
+
+A dynamic font loader for non-Latin fonts is available, called `load-non-latin-plex`. This utility is
+available at the following CDN url:
+
+- https://1.www.s81c.com/common/carbon/plex/load-non-latin-plex.js
+
+Usage:
+
+```html
+<script src="https://1.www.s81c.com/common/carbon/plex/load-non-latin-plex.js"></script>
+```
+
+Note, this script loads in the font based on the detected 2-character language code in the `window.digitalData` object.
+
+For more details, visit: https://www.ibm.com/standards/carbon/developing/building-for-ibm-dotcom/#page-language
+
 
 ## Carbon grid
 
