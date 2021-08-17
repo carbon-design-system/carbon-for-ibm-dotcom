@@ -98,3 +98,57 @@ export const Default = ({ parameters }) => {
     </div>
   );
 };
+
+export const WithMedia = () => {
+  return (
+    <p>
+      This component is maintained in{' '}
+      <code>@carbon/ibmdotcom-web-components</code> library with a{' '}
+      <a
+        className="bx--link"
+        target="_blank"
+        href="https://ibmdotcom-web-components-react.mybluemix.net/?path=/story/components-content-item-horizontal--with-media">
+        React wrapper
+      </a>
+      .
+    </p>
+  );
+};
+
+WithMedia.story = {
+  parameters: {
+    ...readme.parameters,
+    knobs: { ContentItemHorizontal: () => ({}) },
+    percy: {
+      skip: true,
+    },
+    proxy: true,
+  },
+};
+
+export const WithThumbnail = () => {
+  return (
+    <p>
+      This component is maintained in{' '}
+      <code>@carbon/ibmdotcom-web-components</code> library with a{' '}
+      <a
+        className="bx--link"
+        target="_blank"
+        href="https://ibmdotcom-web-components-react.mybluemix.net/?path=/story/components-content-item-horizontal--with-thumbnail">
+        React wrapper
+      </a>
+      .
+    </p>
+  );
+};
+
+WithThumbnail.story = {
+  parameters: {
+    ...readme.parameters,
+    knobs: { ContentItemHorizontal: () => ({}) },
+    percy: {
+      skip: true,
+    },
+    proxy: true,
+  },
+};
