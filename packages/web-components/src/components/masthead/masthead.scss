@@ -459,7 +459,8 @@
 
 :host(#{$dds-prefix}-megamenu-category-link) {
   &[active] a {
-    background-color: hotpink !important;
+    background-color: $hover-ui;
+    text-decoration: none;
   }
 }
 

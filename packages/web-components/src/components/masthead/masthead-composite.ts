@@ -159,9 +159,7 @@ class DDSMastheadComposite extends LitElement {
    * @param sections menu section data object
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _renderMegaMenu(sections) {
-    // const { pathname } = window.location;
-    const pathname = '/supply-chain/sterling';
+  protected _renderMegaMenu(sections, pathname) {
     const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
 
     const hasHighlights = highlightedItems.length !== 0;
@@ -193,7 +191,12 @@ class DDSMastheadComposite extends LitElement {
                                 </dds-megamenu-link-with-icon>
                               `
                             : html`
-                                <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${url}" ?active="${url?.search(pathname) !== -1}">
+                                <dds-megamenu-category-link
+                                  data-autoid="${autoid}-item${key}"
+                                  title="${title}"
+                                  href="${url}"
+                                  ?active="${url?.search(pathname) !== -1}"
+                                >
                                 </dds-megamenu-category-link>
                               `}
                         `;
@@ -217,7 +220,12 @@ class DDSMastheadComposite extends LitElement {
               <dds-megamenu-category-group data-autoid="${autoid}" href="${item.url}" title="${item.title}">
                 ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
                   return html`
-                    <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${url}" ?active="${url?.search(pathname) !== -1}">
+                    <dds-megamenu-category-link
+                      data-autoid="${autoid}-item${key}"
+                      title="${title}"
+                      href="${url}"
+                      ?active="${url?.search(pathname) !== -1}"
+                    >
                     </dds-megamenu-category-link>
                   `;
                 })}
@@ -384,6 +392,22 @@ class DDSMastheadComposite extends LitElement {
   }
 
   /**
+   * @param sections megamenu section links
+   * @param pathname current url path
+   * @returns true or false
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _hasChildLink(sections, pathname) {
+    const { menuItems } = sections[0];
+    for (let i = 0; i < menuItems.length; i++) {
+      if (menuItems[i]?.megapanelContent?.quickLinks?.links?.filter(link => link.url.search(pathname) !== -1).length) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
    * @param options The options.
    * @param [options.selectedMenuItem] The selected nav item.
    * @param options.target The target of rendering navigation items.
@@ -398,6 +422,8 @@ class DDSMastheadComposite extends LitElement {
     target: NAV_ITEMS_RENDER_TARGET;
     hasL1: boolean;
   }) {
+    // const { pathname } = window.location;
+    const pathname = '/quantum-computing';
     const { navLinks, l1Data } = this;
     let menu: MastheadLink[] | undefined = navLinks;
     const autoid = `${ddsPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
@@ -413,7 +439,7 @@ class DDSMastheadComposite extends LitElement {
             const selected = selectedMenuItem && titleEnglish === selectedMenuItem;
             let sections;
             if (link.hasMegapanel) {
-              sections = this._renderMegaMenu(menuSections);
+              sections = this._renderMegaMenu(menuSections, pathname);
             } else {
               sections = menuSections
                 // eslint-disable-next-line no-use-before-define
@@ -442,7 +468,7 @@ class DDSMastheadComposite extends LitElement {
             if (link.hasMegapanel) {
               return html`
                 <dds-megamenu-top-nav-menu
-                  ?active="${selected}"
+                  ?active="${this._hasChildLink(menuSections, pathname)}"
                   menu-label="${title}"
                   trigger-content="${title}"
                   data-autoid="${autoid}-nav--nav${i}"
