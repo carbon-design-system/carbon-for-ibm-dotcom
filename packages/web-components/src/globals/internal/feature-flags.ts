@@ -48,3 +48,10 @@ export const DDS_CONTENT_BLOCK_CARD_STATIC: boolean =
  * @type {boolean}
  */
 export const DDS_CLOUD_MASTHEAD: boolean = process!.env.DDS_CLOUD_MASTHEAD === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * Enables custom profile login url in Masthead
+ *
+ * @type {boolean}
+ */
+export const DDS_CUSTOM_PROFILE_LOGIN: boolean = process!.env.DDS_CUSTOM_PROFILE_LOGIN === 'true' || DDS_FLAGS_ALL || false;

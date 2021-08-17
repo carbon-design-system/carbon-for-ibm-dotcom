@@ -11,7 +11,7 @@
  * @type {string}
  * @private
  */
-const _host = 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/plex';
+const _host = 'https://1.www.s81c.com/common/carbon/plex';
 
 /**
  * Non-Latin font keys and corresponding entry file/font-family
