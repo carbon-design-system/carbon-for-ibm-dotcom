@@ -19,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 /**
  * extends the BXModalFooter
  *
- * @element filter modal footer
+ * @element dds-filter-modal-footer
  */
 @customElement(`${ddsPrefix}-filter-modal-footer`)
 class DDSFilterModalFooter extends StableSelectorMixin(BXModalFooter) {
