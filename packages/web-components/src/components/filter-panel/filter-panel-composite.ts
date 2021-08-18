@@ -27,7 +27,7 @@ const gridBreakpoint = parseFloat(breakpoints.md.width) * baseFontSize;
 /**
  * Filter panel composite
  *
- * @element Filter panel composite
+ * @element dds-filter-panel-composite
  */
 @customElement(`${ddsPrefix}-filter-panel-composite`)
 class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitElement)) {
