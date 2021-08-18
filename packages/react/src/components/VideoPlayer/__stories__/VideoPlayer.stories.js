@@ -21,7 +21,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { showCaption, aspectRatio, videoId } =
+  const { showCaption, aspectRatio, videoId, playingMode } =
     parameters?.props?.VideoPlayer ?? {};
 
   return (
@@ -32,6 +32,7 @@ export const Default = ({ parameters }) => {
             videoId={videoId}
             showCaption={showCaption}
             aspectRatio={aspectRatio}
+            playingMode={playingMode}
           />
         </div>
       </div>
@@ -46,6 +47,7 @@ Default.story = {
         showCaption: boolean('Show caption (showCaption):', true, groupId),
         aspectRatio: 'default',
         videoId: '1_9h94wo6b',
+        playingMode: 'inline',
       }),
     },
   },
@@ -64,6 +66,7 @@ aspectRatio1x1.story = {
           showCaption: boolean('Show caption (showCaption):', true, groupId),
           aspectRatio: '1x1',
           videoId: '1_9h94wo6b',
+          playingMode: 'inline',
         };
       },
     },
@@ -83,8 +86,27 @@ aspectRatio4x3.story = {
           showCaption: boolean('Show caption (showCaption):', true, groupId),
           aspectRatio: '4x3',
           videoId: '1_p2osmd1z',
+          playingMode: 'inline',
         };
       },
+    },
+  },
+};
+
+export const withLightboxMediaViewer = ({ parameters }) => (
+  <Default parameters={parameters} />
+);
+
+withLightboxMediaViewer.story = {
+  name: 'With lightbox media viewer',
+  parameters: {
+    knobs: {
+      VideoPlayer: ({ groupId }) => ({
+        showCaption: boolean('Show caption (showCaption):', true, groupId),
+        aspectRatio: 'default',
+        videoId: '1_p2osmd1z',
+        playingMode: 'lightbox',
+      }),
     },
   },
 };

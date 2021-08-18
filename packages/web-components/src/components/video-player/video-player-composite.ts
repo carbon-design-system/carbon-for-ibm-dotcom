@@ -114,7 +114,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    * The video data, keyed by the video ID.
    */
   @property({ attribute: false })
-  videoData?: { [videoId: string]: MediaData };
+  mediaData?: { [videoId: string]: MediaData };
 
   /**
    * The video ID.
@@ -159,12 +159,12 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
       formatCaption,
       formatDuration,
       hideCaption,
-      videoData = {},
+      mediaData = {},
       videoId,
       videoThumbnailWidth,
       playingMode,
     } = this;
-    const { [videoId]: currentVideoData = {} as MediaData } = videoData;
+    const { [videoId]: currentVideoData = {} as MediaData } = mediaData;
     const { duration, name } = currentVideoData;
     const thumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
       mediaId: videoId,
@@ -207,4 +207,5 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   }
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSVideoPlayerComposite;
