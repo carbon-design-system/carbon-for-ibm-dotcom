@@ -31,3 +31,14 @@
     margin-right: 0;
   }
 }
+
+:host(#{$dds-prefix}-link-list-item) {
+  .#{$prefix}--link {
+    align-content: flex-start;
+
+    span,
+    ::slotted(svg[slot='icon']) {
+      align-self: unset;
+    }
+  }
+}
