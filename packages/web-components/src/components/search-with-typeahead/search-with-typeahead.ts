@@ -104,6 +104,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
    * Handles `click` event on the close button.
    */
   private async _handleClickCloseButton() {
+    this._closeButtonNode?.classList.add(`${prefix}--header__search--hide`);
     this._handleUserInitiatedToggleActiveState(false);
   }
 
@@ -117,8 +118,6 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
       this._handleUserInitiatedToggle();
       if (this._searchInputNode.value && this.leadspaceSearch) {
         this._closeButtonNode?.classList.remove(`${prefix}--header__search--hide`);
-      } else if (this.leadspaceSearch) {
-        this._closeButtonNode?.classList.add(`${prefix}--header__search--hide`);
       }
     } else {
       const item = (event.target as Element).closest((this.constructor as typeof BXDropdown).selectorItem) as BXDropdownItem;
@@ -158,7 +157,6 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
     const { eventInput, eventToggle } = this.constructor as typeof DDSSearchWithTypeahead;
     if (!active && searchInputNode.value) {
       searchInputNode.value = '';
-      this._closeButtonNode?.classList.add(`${prefix}--header__search--hide`);
       this.dispatchEvent(
         new CustomEvent(eventInput, {
           bubbles: true,
