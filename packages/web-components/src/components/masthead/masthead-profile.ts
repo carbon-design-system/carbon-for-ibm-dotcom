@@ -107,10 +107,6 @@ class DDSMastheadProfile extends HostListenerMixin(FocusMixin(StableSelectorMixi
     });
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-  }
-
   render() {
     const { authenticated, expanded, menuLabel, triggerLabel, _handleClick: handleClick } = this;
     return html`
