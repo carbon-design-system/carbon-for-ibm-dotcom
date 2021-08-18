@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -77,36 +77,14 @@ class AnalyticsAPI {
    * function init() {
    *   AnalyticsAPI.initScrollTracker();
    * }
+   *
+   * @deprecated
    **/
   static initScrollTracker() {
     if (_scrollTracker) {
-      const trackingInterval = 400;
-      let trackedMarker = 0;
-      let curMarker = 0;
-      let didScroll = false;
-      const fireEvent = this.registerEvent;
-
-      root.addEventListener('scroll', () => {
-        didScroll = true;
-      });
-
-      setInterval(function() {
-        if (didScroll) {
-          didScroll = false;
-          curMarker = Math.floor(root.pageYOffset / trackingInterval);
-
-          if (curMarker > trackedMarker) {
-            trackedMarker = curMarker;
-            fireEvent({
-              type: 'element',
-              primaryCategory: 'SCROLL DISTANCE',
-              eventName: trackingInterval * trackedMarker,
-              executionPath: root.innerWidth,
-              execPathReturnCode: root.innerHeight,
-            });
-          }
-        }
-      }, 50);
+      console.warn(
+        'Scroll tracker service has been deprecated. Please refer to documentation for IBM DBDM gestures 2.0.'
+      );
     }
   }
 
