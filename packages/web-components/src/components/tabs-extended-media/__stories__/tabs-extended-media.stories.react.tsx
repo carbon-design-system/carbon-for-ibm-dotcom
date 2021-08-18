@@ -149,7 +149,6 @@ export const Default = ({ parameters }) => {
 
 Default.story = {
   parameters: {
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal',
     knobs: {
       TabsExtendedMedia: () => ({
         sectionHeading: textNullable('Heading', 'Title heading'),
