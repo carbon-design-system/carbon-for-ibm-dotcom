@@ -120,7 +120,6 @@
   .#{$dds-prefix}-ce--link-list__list--split,
   .#{$dds-prefix}-ce--link-list__list--three-columns {
     ::slotted(#{$dds-prefix}-link-list-item) {
-      display: grid;
       margin-right: -$carbon--layout-01;
     }
 
@@ -129,6 +128,7 @@
       grid-column-gap: 2rem;
 
       ::slotted(#{$dds-prefix}-link-list-item) {
+        display: grid;
         margin-left: -$carbon--layout-01;
         margin-right: 0;
       }
