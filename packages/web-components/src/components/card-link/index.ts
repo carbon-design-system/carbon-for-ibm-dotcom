@@ -8,6 +8,6 @@
  */
 
 import './card-link';
+import './card-link-heading';
 import '../button-group/index';
-import '../card/card-heading';
 import '../card/card-footer';

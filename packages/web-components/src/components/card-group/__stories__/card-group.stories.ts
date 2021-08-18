@@ -105,6 +105,16 @@ const cardGroupItemWithCTAs = html`
   </dds-card-group-item>
 `;
 
+const cardGroupItemWithCardLinks = html`
+  <dds-card-group-item href="https://example.com" pattern-background border>
+    <dds-card-link-heading slot="heading">IBM Developer</dds-card-link-heading>
+    <p>Learn, code and connect with your community</p>
+    <dds-card-cta-footer slot="footer">
+      ${ArrowRight20({ slot: 'icon' })}
+    </dds-card-cta-footer>
+  </dds-card-group-item>
+`;
+
 export const Default = ({ parameters }) => {
   const { cards, cardsPerRow, offset, optionalBorder } = parameters?.props?.CardGroup ?? {};
   const classes = classMap({
@@ -290,6 +300,34 @@ withCardInCardAndImageCards.story = {
         cards: Array.from({
           length: number('Number of cards', 3, {}, groupId),
         }).map(() => cardGroupItemWithImages),
+      }),
+    },
+  },
+};
+
+export const withCardLink = ({ parameters }) => {
+  const { cards, cardsPerRow } = parameters?.props?.CardGroup ?? {};
+  const classes = classMap({
+    [cardsPerRow]: cardsPerRow,
+  });
+  const colCount = cardsPerRow[cardsPerRow.length - 1];
+
+  return html`
+    <dds-card-group cards-per-row="${colCount}" class="${classes}">
+      ${cards}
+    </dds-card-group>
+  `;
+};
+
+withCardLink.story = {
+  parameters: {
+    ...readme.parameters,
+    knobs: {
+      CardGroup: ({ groupId }) => ({
+        cards: Array.from({
+          length: number('Number of cards', 8, {}, groupId),
+        }).map(() => cardGroupItemWithCardLinks),
+        cardsPerRow: select('Number of cards per row (cards-per-row):', cardsCol, cardsCol['3 cards per row (Default)'], groupId),
       }),
     },
   },

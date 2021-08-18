@@ -80,4 +80,13 @@
       }
     }
   }
+
+  &[pattern-background] {
+    padding-right: 0;
+
+    .#{$prefix}--card,
+    .#{$prefix}--card__wrapper {
+      background: $ui-background;
+    }
+  }
 }

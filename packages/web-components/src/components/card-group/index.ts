@@ -11,4 +11,5 @@ import './card-group';
 import './card-group-item';
 import '../cta/card-cta-footer';
 import '../card/index';
+import '../card-link/card-link-heading';
 import '../card-section-images/card-section-images';

@@ -33,6 +33,12 @@ class DDSCardGroupItem extends DDSCardCTA {
   @property({ type: Boolean, reflect: true })
   empty = false;
 
+  /**
+   * `true` if the card group item has the same background color as the pattern container.
+   */
+  @property({ type: Boolean, reflect: true })
+  patternBackground = false;
+
   static get stableSelector() {
     return `${ddsPrefix}--card-group-item`;
   }
