@@ -3,6 +3,71 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.23.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.0-rc.3...@carbon/ibmdotcom-react@1.23.0) (2021-08-16)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.23.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.0-rc.2...@carbon/ibmdotcom-react@1.23.0-rc.3) (2021-08-13)
+
+
+### Bug Fixes
+
+* **lightbox-media:** check for kaltura onClose ([#6885](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6885)) ([eaeb5e5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/eaeb5e5)), closes [#6884](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6884)
+
+
+
+
+
+# [1.23.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.0-rc.1...@carbon/ibmdotcom-react@1.23.0-rc.2) (2021-08-11)
+
+
+### Bug Fixes
+
+* **CTA:** allow onClick for buttonCTA to be passed ([#6863](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6863)) ([dac084a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/dac084a)), closes [#6844](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6844)
+
+
+
+
+
+# [1.23.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.0-rc.0...@carbon/ibmdotcom-react@1.23.0-rc.1) (2021-08-10)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.23.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.22.0...@carbon/ibmdotcom-react@1.23.0-rc.0) (2021-08-06)
+
+
+### Bug Fixes
+
+* **language-selector:** added missing label to select ([#6782](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6782)) ([60a3d78](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/60a3d78))
+* **link-with-icon:** add icon line wrap behavior by default ([#6812](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6812)) ([77a673f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/77a673f)), closes [#5705](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5705)
+* **masthead:** react rtl overflow ([#6828](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6828)) ([589a99b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/589a99b)), closes [#6750](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6750)
+
+
+### Features
+
+* **loadNonLatinPlex:** introduce loadNonLatinPlex utility ([#6802](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6802)) ([d312016](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d312016))
+
+
+
+# 1.12.0-beta.64.108 (2021-07-30)
+
+
+### Bug Fixes
+
+* **content-group-horizontal:** multiple style bugs ([#6494](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6494)) ([9b4c0cc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9b4c0cc))
+
+
+
+
+
 # [1.22.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.22.0-rc.2...@carbon/ibmdotcom-react@1.22.0) (2021-07-26)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react
