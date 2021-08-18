@@ -38,7 +38,7 @@
 
     span,
     ::slotted(svg[slot='icon']) {
-      align-self: unset;
+      align-self: flex-start;
     }
   }
 }
