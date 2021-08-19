@@ -457,6 +457,7 @@
   outline: none;
 }
 
+:host(#{$dds-prefix}-megamenu-link-with-icon),
 :host(#{$dds-prefix}-megamenu-category-link) {
   &[active] a {
     background-color: $hover-ui;

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -37,14 +37,22 @@ class DDSMegaMenuCategoryGroup extends LitElement {
   @property({ reflect: true })
   title = '';
 
+  @property({ reflect: false })
+  currentUrlPath = '';
+
   render() {
-    const { href, title } = this;
+    const { href, title, currentUrlPath } = this;
     return html`
       <div class="${prefix}--masthead__megamenu__category-group-shield">
         <div class="${prefix}--masthead__megamenu__category-group-content">
           ${href
             ? html`
-                <dds-megamenu-link-with-icon href="${ifNonNull(href)}" style-scheme="category-headline" title="${title}">
+                <dds-megamenu-link-with-icon
+                  href="${ifNonNull(href)}"
+                  style-scheme="category-headline"
+                  title="${title}"
+                  ?active="${href === currentUrlPath}"
+                >
                   <span>${title}</span>${ArrowRight16({ slot: 'icon' })}
                 </dds-megamenu-link-with-icon>
               `

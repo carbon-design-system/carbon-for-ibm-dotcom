@@ -157,12 +157,11 @@ class DDSMastheadComposite extends LitElement {
    *  Render MegaMenu content
    *
    * @param sections menu section data object
-   * @param href current url path
+   * @param currentUrlPath current url path
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _renderMegaMenu(sections, href) {
+  protected _renderMegaMenu(sections, currentUrlPath) {
     const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
-
     const hasHighlights = highlightedItems.length !== 0;
     return html`
       <dds-megamenu>
@@ -187,6 +186,7 @@ class DDSMastheadComposite extends LitElement {
                                   href="${url}"
                                   style-scheme="category-sublink"
                                   title="${title}"
+                                  ?active="${url === currentUrlPath}"
                                 >
                                   <span>${title}</span>${ArrowRight16({ slot: 'icon' })}
                                 </dds-megamenu-link-with-icon>
@@ -196,7 +196,7 @@ class DDSMastheadComposite extends LitElement {
                                   data-autoid="${autoid}-item${key}"
                                   title="${title}"
                                   href="${url}"
-                                  ?active="${url === href}"
+                                  ?active="${url === currentUrlPath}"
                                 >
                                 </dds-megamenu-category-link>
                               `}
@@ -218,14 +218,19 @@ class DDSMastheadComposite extends LitElement {
           ${menu.map((item, j) => {
             const autoid = `${ddsPrefix}--masthead__l0-nav-list${j + highlightedItems.length}`;
             return html`
-              <dds-megamenu-category-group data-autoid="${autoid}" href="${item.url}" title="${item.title}">
+              <dds-megamenu-category-group
+                data-autoid="${autoid}"
+                href="${item.url}"
+                title="${item.title}"
+                currentUrlPath="${currentUrlPath}"
+              >
                 ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
                   return html`
                     <dds-megamenu-category-link
                       data-autoid="${autoid}-item${key}"
                       title="${title}"
                       href="${url}"
-                      ?active="${url === href}"
+                      ?active="${url === currentUrlPath}"
                     >
                     </dds-megamenu-category-link>
                   `;
@@ -394,15 +399,18 @@ class DDSMastheadComposite extends LitElement {
 
   /**
    * @param sections megamenu section links
-   * @param href current url path
+   * @param currentUrlPath current url path
    * @returns true or false
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _hasChildLink(sections, href) {
+  protected _hasChildLink(sections, currentUrlPath) {
     const { menuItems } = sections[0];
 
     for (let i = 0; i < menuItems.length; i++) {
-      if (menuItems[i]?.megapanelContent?.quickLinks?.links?.filter(link => link.url === href).length) {
+      if (
+        menuItems[i]?.url === currentUrlPath ||
+        menuItems[i]?.megapanelContent?.quickLinks?.links?.filter(link => link.url === currentUrlPath).length
+      ) {
         return true;
       }
     }
@@ -424,8 +432,8 @@ class DDSMastheadComposite extends LitElement {
     target: NAV_ITEMS_RENDER_TARGET;
     hasL1: boolean;
   }) {
-    // const { href } = window.location;
-    const href = 'https://www.ibm.com/thought-leadership/institute-business-value/report/covid-19-action-guide?lnk=hpmex_buco';
+    // const currentUrlPath= window.location.href;
+    const currentUrlPath = 'https://www.ibm.com/docs/en?lnk=hpmls_budc';
     const { navLinks, l1Data } = this;
     let menu: MastheadLink[] | undefined = navLinks;
     const autoid = `${ddsPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
@@ -441,7 +449,7 @@ class DDSMastheadComposite extends LitElement {
             const selected = selectedMenuItem && titleEnglish === selectedMenuItem;
             let sections;
             if (link.hasMegapanel) {
-              sections = this._renderMegaMenu(menuSections, href);
+              sections = this._renderMegaMenu(menuSections, currentUrlPath);
             } else {
               sections = menuSections
                 // eslint-disable-next-line no-use-before-define
@@ -470,7 +478,7 @@ class DDSMastheadComposite extends LitElement {
             if (link.hasMegapanel) {
               return html`
                 <dds-megamenu-top-nav-menu
-                  ?active="${this._hasChildLink(menuSections, href)}"
+                  ?active="${this._hasChildLink(menuSections, currentUrlPath)}"
                   menu-label="${title}"
                   trigger-content="${title}"
                   data-autoid="${autoid}-nav--nav${i}"
