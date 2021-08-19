@@ -42,6 +42,14 @@
   .#{$prefix}--footer--micro {
     padding-top: 0;
 
+    .#{$prefix}--footer__logo-container {
+      display: none;
+    }
+
+    .bx--language-selector__container {
+      padding: 0;
+    }
+
     .#{$prefix}--legal-nav {
       border-top: 0;
     }
