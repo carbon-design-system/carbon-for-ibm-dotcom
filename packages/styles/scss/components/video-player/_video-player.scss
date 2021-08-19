@@ -14,7 +14,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 @mixin video-player {
   :host(#{$dds-prefix}-video-player),
   .#{$prefix}--video-player {
-    color: var(--#{$dds-prefix}--video-caption--color, $text-05);
+    color: var(--#{$dds-prefix}--video-caption--color, $text-02);
 
     .#{$prefix}--image__img {
       width: 100%;
