@@ -89,9 +89,7 @@ Default.story = {
 export default {
   title: 'Components/Card in card',
   decorators: [
-    story => {
-      return <>{story()}</>;
-    },
+    story => <div className="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--card-in-card">{story()}</div>,
   ],
   parameters: {
     ...readme.parameters,
