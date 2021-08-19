@@ -22,8 +22,6 @@
     ) {
       @include carbon--make-row;
 
-      border-top: 1px solid $ui-03;
-
       .#{$prefix}--footer:not(.#{$prefix}--footer--short) & {
         @include carbon--breakpoint-down($TEMP--breakpoint-down--md) {
           border-top: 0;
@@ -35,7 +33,11 @@
   .#{$prefix}--legal-nav__list {
     width: 100%;
     padding: 0 0 $carbon--spacing-07 $carbon--spacing-05;
+    border-top: 1px solid $ui-03;
 
+    @include carbon--breakpoint('lg') {
+      @include carbon--make-col-offset(4, 16);
+    }
     &.#{$prefix}--legal-nav__micro {
       @include carbon--theme(
         $carbon--theme--g90,
@@ -54,6 +56,7 @@
         @include carbon--breakpoint('lg') {
           justify-content: space-between;
           flex-direction: row;
+          margin-left: 0;
         }
 
         .#{$prefix}--legal-nav__holder {
@@ -138,9 +141,7 @@
     }
 
     @include carbon--breakpoint('lg') {
-      margin-left: 25%;
       column-count: 3;
-      padding-left: $carbon--spacing-02;
     }
   }
 

@@ -47,7 +47,6 @@
       }
 
       @include carbon--breakpoint('lg') {
-        @include carbon--make-col-offset(10, 16);
         @include carbon--make-col(4, 16);
         @include carbon--make-col-offset(10, 16);
       }
@@ -57,9 +56,10 @@
   :host(#{$dds-prefix}-footer[size='short'])
     ::slotted(#{$dds-prefix}-locale-button),
   .#{$prefix}--footer--short .#{$prefix}--locale-btn__container {
-    margin-top: 0;
+    margin-top: $spacing-09;
 
     @include carbon--breakpoint('md') {
+      margin-top: 0;
       @include carbon--make-col-offset(2, 8);
 
       .#{$prefix}--locale-btn {
@@ -69,10 +69,6 @@
 
     @include carbon--breakpoint('lg') {
       @include carbon--make-col-offset(10, 16);
-    }
-
-    @include carbon--breakpoint('max') {
-      @include carbon--make-col-offset(11, 16);
     }
   }
 }
