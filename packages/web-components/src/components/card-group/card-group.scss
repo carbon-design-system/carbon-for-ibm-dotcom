@@ -82,7 +82,9 @@
   }
 
   &[pattern-background] {
-    padding-right: 0;
+    .#{$prefix}--card {
+      border-bottom: 1px solid $ui-03;
+    }
 
     .#{$prefix}--card,
     .#{$prefix}--card__wrapper {

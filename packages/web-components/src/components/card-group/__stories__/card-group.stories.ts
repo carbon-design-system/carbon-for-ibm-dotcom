@@ -106,7 +106,7 @@ const cardGroupItemWithCTAs = html`
 `;
 
 const cardGroupItemWithCardLinks = html`
-  <dds-card-group-item href="https://example.com" pattern-background border>
+  <dds-card-group-item href="https://example.com" pattern-background>
     <dds-card-link-heading slot="heading">IBM Developer</dds-card-link-heading>
     <p>Learn, code and connect with your community</p>
     <dds-card-cta-footer slot="footer">
@@ -306,14 +306,10 @@ withCardInCardAndImageCards.story = {
 };
 
 export const withCardLink = ({ parameters }) => {
-  const { cards, cardsPerRow } = parameters?.props?.CardGroup ?? {};
-  const classes = classMap({
-    [cardsPerRow]: cardsPerRow,
-  });
-  const colCount = cardsPerRow[cardsPerRow.length - 1];
+  const { cards } = parameters?.props?.CardGroup ?? {};
 
   return html`
-    <dds-card-group cards-per-row="${colCount}" class="${classes}">
+    <dds-card-group grid-mode="narrow">
       ${cards}
     </dds-card-group>
   `;
@@ -327,7 +323,6 @@ withCardLink.story = {
         cards: Array.from({
           length: number('Number of cards', 8, {}, groupId),
         }).map(() => cardGroupItemWithCardLinks),
-        cardsPerRow: select('Number of cards per row (cards-per-row):', cardsCol, cardsCol['3 cards per row (Default)'], groupId),
       }),
     },
   },

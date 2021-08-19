@@ -10,7 +10,8 @@
 import { html } from 'lit-element';
 import '../index';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { select } from '@storybook/addon-knobs';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import { select, number } from '@storybook/addon-knobs';
 import { ORIENTATION } from '../defs';
 import readme from './README.stories.mdx';
 
@@ -19,8 +20,18 @@ const orientationType = {
   [`Vertical`]: ORIENTATION.VERTICAL,
 };
 
+const cardGroupItemWithCardLinks = html`
+  <dds-card-group-item href="https://example.com" pattern-background>
+    <dds-card-link-heading slot="heading">IBM Developer</dds-card-link-heading>
+    <p>Learn, code and connect with your community</p>
+    <dds-card-cta-footer slot="footer">
+      ${ArrowRight20({ slot: 'icon' })}
+    </dds-card-cta-footer>
+  </dds-card-group-item>
+`;
+
 export const Default = ({ parameters }) => {
-  const { orientation } = parameters?.props?.['dds-tabs-extended'] ?? {};
+  const { orientation } = parameters?.props?.TabExtended ?? {};
   return html`
     <dds-tabs-extended orientation="${ifNonNull(orientation)}">
       <dds-tab
@@ -45,6 +56,38 @@ export const Default = ({ parameters }) => {
   `;
 };
 
+export const withCardGroupCardLink = ({ parameters }) => {
+  const { cards } = parameters?.props?.TabExtended ?? {};
+  return html`
+    <dds-tabs-extended orientation="vertical">
+      <dds-tab label="Tools for developers" selected="true">
+        <dds-card-group grid-mode="narrow">
+          ${cards}
+        </dds-card-group>
+      </dds-tab>
+      <dds-tab label="Tools for business">
+        <p>Content for second tab goes here.</p>
+      </dds-tab>
+      <dds-tab label="Trending in tech">
+        <p>Content for third tab goes here.</p>
+      </dds-tab>
+    </dds-tabs-extended>
+  `;
+};
+
+withCardGroupCardLink.story = {
+  parameters: {
+    ...readme.parameters,
+    knobs: {
+      TabExtended: ({ groupId }) => ({
+        cards: Array.from({
+          length: number('Number of cards', 8, {}, groupId),
+        }).map(() => cardGroupItemWithCardLinks),
+      }),
+    },
+  },
+};
+
 export default {
   title: 'Components/Tabs extended',
   decorators: [
@@ -59,7 +102,7 @@ export default {
     useRawContainer: true,
     hasGrid: true,
     knobs: {
-      'dds-tabs-extended': ({ groupId }) => ({
+      TabExtended: ({ groupId }) => ({
         orientation: select('Orientation (orientation):', orientationType, ORIENTATION.HORIZONTAL, groupId),
       }),
     },
