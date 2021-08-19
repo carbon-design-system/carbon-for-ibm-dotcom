@@ -106,7 +106,7 @@ const Footer = ({
         <div className={`${prefix}--footer__main-container`}>
           <div
             className={classNames(`${prefix}--footer__logo-container`, {
-              [`${prefix}--footer__logo-container-locale-button--disabled`]: disableLocaleButton,
+              [`${prefix}--footer__locale-button--disabled`]: disableLocaleButton,
             })}>
             <div className={`${prefix}--footer__logo-row`}>
               {type !== 'micro' && <FooterLogo />}
@@ -124,7 +124,10 @@ const Footer = ({
             </div>
           </div>
           {(type === 'default' || type === undefined) && (
-            <FooterNav groups={footerMenuData} />
+            <FooterNav
+              groups={footerMenuData}
+              disableLocaleButton={disableLocaleButton}
+            />
           )}
         </div>
       </section>

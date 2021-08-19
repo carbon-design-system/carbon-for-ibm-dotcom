@@ -48,6 +48,16 @@
     }
   }
 
+  nav.#{$prefix}--footer-nav__locale-button--disabled {
+    @include carbon--breakpoint-down('md') {
+      border-top: none;
+    }
+    @include carbon--breakpoint('lg') {
+      padding-top: 0;
+      border-top: none;
+      @include carbon--make-col-offset(2, 16);
+    }
+  }
   .#{$prefix}--footer-nav__container {
     @include carbon--breakpoint('md') {
       @include carbon--make-row;

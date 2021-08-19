@@ -135,9 +135,11 @@
     }
   }
 
-  .#{$prefix}--footer__logo-container-locale-button--disabled {
-    margin-left: 0;
+  .#{$prefix}--footer__locale-button--disabled {
     @include carbon--make-col(2, 16);
+
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
