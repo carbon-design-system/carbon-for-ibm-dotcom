@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.8.1-rc.0...@carbon/ibmdotcom-web-components@1.8.1) (2021-08-19)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+## [1.8.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.8.0...@carbon/ibmdotcom-web-components@1.8.1-rc.0) (2021-08-18)
+
+
+### Bug Fixes
+
+* **cloud-masthead-contact-btn:** change data-ibm-contact to contact-link ([#6915](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6915)) ([257c2fe](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/257c2fe))
+
+
+
+
+
 # [1.8.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.8.0-rc.3...@carbon/ibmdotcom-web-components@1.8.0) (2021-08-16)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
