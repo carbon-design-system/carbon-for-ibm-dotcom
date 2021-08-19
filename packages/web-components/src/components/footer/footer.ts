@@ -8,6 +8,7 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
+import { classMap } from 'lit-html/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -35,6 +36,12 @@ class DDSFooter extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   size = FOOTER_SIZE.REGULAR;
 
+  /**
+   * Update the CSS selectors depending on the locale button being rendered or not.
+   */
+  @property({ type: Boolean, attribute: 'disable-locale-button' })
+  disableLocaleButton = false;
+
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'footer');
@@ -47,10 +54,17 @@ class DDSFooter extends StableSelectorMixin(LitElement) {
   }
 
   render() {
+    const { disableLocaleButton } = this;
+
+    const classes = {
+      [`${prefix}--footer__logo-container`]: true,
+      [`${prefix}--footer__locale-button--disabled`]: disableLocaleButton,
+    };
+
     return html`
       <section class="${prefix}--footer__main">
         <div class="${prefix}--footer__main-container">
-          <div class="${prefix}--footer__logo-container">
+          <div class=${classMap(classes)}>
             <div class="${prefix}--footer__logo-row">
               <slot name="brand"></slot>
               <slot name="locale-button"></slot>

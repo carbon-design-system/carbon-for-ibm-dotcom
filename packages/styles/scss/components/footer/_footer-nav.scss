@@ -48,6 +48,7 @@
     }
   }
 
+  :host(#{$dds-prefix}-footer-nav[disable-locale-button]),
   nav.#{$prefix}--footer-nav__locale-button--disabled {
     @include carbon--breakpoint-down('md') {
       border-top: none;
@@ -58,6 +59,7 @@
       @include carbon--make-col-offset(2, 16);
     }
   }
+
   .#{$prefix}--footer-nav__container {
     @include carbon--breakpoint('md') {
       @include carbon--make-row;
