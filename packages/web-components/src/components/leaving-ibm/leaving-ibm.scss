@@ -30,13 +30,17 @@
 :host(#{$dds-prefix}-leaving-ibm-modal-body) {
   @extend :host(#{$prefix}-modal-body);
 
+  #{$prefix}-link {
+    @include carbon--type-style('body-long-02', true);
+  }
+
   padding-right: 20%;
 
   ::slotted(slot[name='supplemental']) {
     display: block;
     margin-top: $spacing-07;
     color: $text-02;
-    @include carbon--type-style('label-01');
+    @include carbon--type-style('label-02');
   }
 }
 
@@ -44,5 +48,5 @@
   display: block;
   margin-top: $spacing-07;
   color: $text-02;
-  @include carbon--type-style('label-01');
+  @include carbon--type-style('label-02');
 }
