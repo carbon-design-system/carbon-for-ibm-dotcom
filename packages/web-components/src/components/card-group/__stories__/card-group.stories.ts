@@ -305,7 +305,7 @@ withCardInCardAndImageCards.story = {
   },
 };
 
-export const withCardLink = ({ parameters }) => {
+export const withCardLinks = ({ parameters }) => {
   const { cards } = parameters?.props?.CardGroup ?? {};
 
   return html`
@@ -315,7 +315,7 @@ export const withCardLink = ({ parameters }) => {
   `;
 };
 
-withCardLink.story = {
+withCardLinks.story = {
   parameters: {
     ...readme.parameters,
     knobs: {

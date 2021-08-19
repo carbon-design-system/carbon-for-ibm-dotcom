@@ -56,7 +56,7 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const withCardGroupCardLink = ({ parameters }) => {
+export const withCardGroupCardLinks = ({ parameters }) => {
   const { cards } = parameters?.props?.TabExtended ?? {};
   return html`
     <dds-tabs-extended orientation="vertical">
@@ -75,7 +75,7 @@ export const withCardGroupCardLink = ({ parameters }) => {
   `;
 };
 
-withCardGroupCardLink.story = {
+withCardGroupCardLinks.story = {
   parameters: {
     ...readme.parameters,
     knobs: {
