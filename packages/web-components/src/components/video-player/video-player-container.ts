@@ -30,7 +30,7 @@ export interface VideoPlayerContainerState {
   /**
    * The Redux state for `KalturaPlayerAPI`.
    */
-  videoPlayerAPI?: MediaPlayerAPIState;
+  kalturaPlayerAPI?: MediaPlayerAPIState;
 }
 
 /**
@@ -50,8 +50,8 @@ export type VideoPlayerActions = ReturnType<typeof loadMediaData>;
  * @returns The converted version of the given state, tailored for `<dds-video-player-container>`.
  */
 export function mapStateToProps(state: VideoPlayerContainerState): VideoPlayerContainerStateProps {
-  const { videoPlayerAPI } = state;
-  const { mediaData } = videoPlayerAPI ?? {};
+  const { kalturaPlayerAPI } = state;
+  const { mediaData } = kalturaPlayerAPI ?? {};
   return !mediaData ? {} : { mediaData };
 }
 
@@ -210,4 +210,5 @@ class DDSVideoPlayerContainer extends ConnectMixin<
   mapDispatchToProps
 )(DDSVideoPlayerContainerMixin(DDSVideoPlayerComposite)) {}
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSVideoPlayerContainer;

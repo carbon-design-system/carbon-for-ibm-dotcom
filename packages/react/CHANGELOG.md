@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.23.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.1-rc.0...@carbon/ibmdotcom-react@1.23.1) (2021-08-19)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+## [1.23.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.0...@carbon/ibmdotcom-react@1.23.1-rc.0) (2021-08-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.23.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.0-rc.3...@carbon/ibmdotcom-react@1.23.0) (2021-08-16)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.23.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.0-rc.2...@carbon/ibmdotcom-react@1.23.0-rc.3) (2021-08-13)
+
+
+### Bug Fixes
+
+* **lightbox-media:** check for kaltura onClose ([#6885](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6885)) ([eaeb5e5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/eaeb5e5)), closes [#6884](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6884)
+
+
+
+
+
+# [1.23.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.0-rc.1...@carbon/ibmdotcom-react@1.23.0-rc.2) (2021-08-11)
+
+
+### Bug Fixes
+
+* **CTA:** allow onClick for buttonCTA to be passed ([#6863](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6863)) ([dac084a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/dac084a)), closes [#6844](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6844)
+
+
+
+
+
+# [1.23.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.0-rc.0...@carbon/ibmdotcom-react@1.23.0-rc.1) (2021-08-10)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
 # [1.23.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.22.0...@carbon/ibmdotcom-react@1.23.0-rc.0) (2021-08-06)
 
 

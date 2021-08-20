@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.23.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.23.0-rc.1...@carbon/ibmdotcom-styles@1.23.0) (2021-08-16)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.23.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.23.0-rc.0...@carbon/ibmdotcom-styles@1.23.0-rc.1) (2021-08-10)
+
+
+### Bug Fixes
+
+* **masthead:** flip megamenu link arrow icons in rtl ([#6835](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6835)) ([ab45960](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ab45960)), closes [issue#6831](https://github.com/issue/issues/6831)
+
+
+
+
+
 # [1.23.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.22.0...@carbon/ibmdotcom-styles@1.23.0-rc.0) (2021-08-06)
 
 

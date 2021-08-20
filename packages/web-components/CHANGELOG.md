@@ -3,6 +3,67 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.8.1-rc.0...@carbon/ibmdotcom-web-components@1.8.1) (2021-08-19)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+## [1.8.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.8.0...@carbon/ibmdotcom-web-components@1.8.1-rc.0) (2021-08-18)
+
+
+### Bug Fixes
+
+* **cloud-masthead-contact-btn:** change data-ibm-contact to contact-link ([#6915](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6915)) ([257c2fe](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/257c2fe))
+
+
+
+
+
+# [1.8.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.8.0-rc.3...@carbon/ibmdotcom-web-components@1.8.0) (2021-08-16)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.8.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.8.0-rc.2...@carbon/ibmdotcom-web-components@1.8.0-rc.3) (2021-08-12)
+
+
+### Bug Fixes
+
+* **video-player:** set correct attribute name and state ([#6877](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6877)) ([fc53cce](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/fc53cce)), closes [#6869](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6869)
+
+
+
+
+
+# [1.8.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.8.0-rc.1...@carbon/ibmdotcom-web-components@1.8.0-rc.2) (2021-08-11)
+
+
+### Bug Fixes
+
+* **masthead:** remove cloud masthead position fixing code ([#6864](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6864)) ([fcdbcd8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/fcdbcd8))
+
+
+
+
+
+# [1.8.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.8.0-rc.0...@carbon/ibmdotcom-web-components@1.8.0-rc.1) (2021-08-10)
+
+
+### Bug Fixes
+
+* **cloud-masthead:** set position of masthead to fixed when expanded ([#6836](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6836)) ([89ae56e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/89ae56e)), closes [#6831](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6831)
+* **masthead:** flip megamenu link arrow icons in rtl ([#6835](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6835)) ([ab45960](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/ab45960)), closes [issue#6831](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6831)
+
+
+
+
+
 # [1.8.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.7.0...@carbon/ibmdotcom-web-components@1.8.0-rc.0) (2021-08-06)
 
 

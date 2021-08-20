@@ -8,4 +8,3 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/content-block-cards/index.js';
-import './index.scss';
