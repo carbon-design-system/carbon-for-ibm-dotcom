@@ -68,10 +68,10 @@ class DDSFooter extends StableSelectorMixin(LitElement) {
             <div class="${prefix}--footer__logo-row">
               <slot name="brand"></slot>
               <slot name="locale-button"></slot>
+              <slot name="language-selector"></slot>
             </div>
           </div>
           <slot></slot>
-          <slot name="language-selector"></slot>
         </div>
       </section>
       <slot name="legal-nav"></slot>

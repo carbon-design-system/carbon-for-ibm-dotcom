@@ -67,6 +67,8 @@
       display: block;
       column-count: 2;
       column-gap: $carbon--grid-gutter;
+      margin-left: 0;
+      margin-right: 0;
     }
 
     @include carbon--breakpoint('lg') {

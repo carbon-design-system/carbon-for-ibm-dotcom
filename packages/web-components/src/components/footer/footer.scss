@@ -104,23 +104,19 @@
     margin-top: 0;
 
     @include carbon--breakpoint('lg') {
-      flex: 0 0 25%;
-      margin-left: 62.5%;
-    }
-
-    @include carbon--breakpoint('max') {
-      flex: 0 0 18.75%;
-      margin-left: 68.75%;
+      @include carbon--make-col(4, 16);
+      @include carbon--make-col-offset(10, 16);
     }
   }
 
   ::slotted(#{$dds-prefix}-language-selector-mobile) {
     display: block;
-    margin-top: 0;
+    margin-top: $spacing-09;
 
     @include carbon--breakpoint('md') {
-      position: absolute;
-      right: 1rem;
+      margin-top: 0;
+      @include carbon--make-col(4, 8);
+      @include carbon--make-col-offset(2, 8);
     }
 
     @include carbon--breakpoint('lg') {
@@ -272,6 +268,10 @@
   .#{$prefix}--select-input {
     width: 100%;
     max-width: 100%;
+
+    &__wrapper {
+      margin-top: -16px;
+    }
   }
 
   @include carbon--breakpoint('md') {
@@ -293,14 +293,8 @@
 
   @include carbon--breakpoint('lg') {
     order: 1;
-    flex: 0 0 25%;
-    max-width: carbon--mini-units(40);
     min-width: carbon--mini-units(27);
-  }
-
-  @include carbon--breakpoint('max') {
-    flex: 0 0 18.75%;
-    max-width: 18.75%;
+    @include carbon--make-col(4, 16);
   }
 
   .#{$prefix}--combo-box {
