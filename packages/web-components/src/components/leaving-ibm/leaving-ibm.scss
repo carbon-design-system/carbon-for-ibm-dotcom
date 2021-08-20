@@ -31,11 +31,12 @@
   @extend :host(#{$prefix}-modal-body);
 
   padding-right: 20%;
-}
 
-:host(#{$dds-prefix}-leaving-ibm-modal-supplemental) {
-  display: block;
-  margin-top: $spacing-07;
-  color: $text-02;
-  @include carbon--type-style('label-02');
+  ::slotted(#{$dds-prefix}-leaving-ibm-modal-supplemental),
+  ::slotted(slot[name='supplemental']) {
+    display: block;
+    margin-top: $spacing-07;
+    color: $text-02;
+    @include carbon--type-style('label-02');
+  }
 }
