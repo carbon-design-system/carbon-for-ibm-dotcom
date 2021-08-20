@@ -1,0 +1,118 @@
+<!--
+@license
+Copyright IBM Corp. 2020
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+  <head>
+    <title>@carbon/ibmdotcom-web-components example</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" />
+    <style>
+      /* Suppress custom element until styles are loaded */
+      dds-tabs-extended-media:not(:defined) {
+        display: none;
+      }
+    </style>
+    <script src="src/index.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-lg-12 bx--col-sm-4 bx--offset-lg-4">
+            <dds-tabs-extended-media>
+              <dds-content-section-heading>Section heading</dds-content-section-heading>
+              <dds-tab label="First tab">
+                <dds-content-item-horizontal-media align="left">
+                  <dds-image
+                    slot="media"
+                    alt="Image alt text"
+                    default-src="https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
+                  </dds-image>
+                  <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
+                  <dds-content-item-horizontal-media-copy>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget
+                      dolor nec hendrerit. Phasellus at elit sollicitudin.
+                  </dds-content-item-horizontal-media-copy>
+                  <dds-link-list slot="footer" type="vertical">
+                    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
+                      Link text
+                    </dds-link-list-item-cta>
+                    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
+                      External link text
+                    </dds-link-list-item-cta>
+                  </dds-link-list>
+                </dds-content-item-horizontal-media>
+              </dds-tab>
+              <dds-tab label="Second tab">
+                <dds-content-item-horizontal-media align="left">
+                  <dds-image
+                    slot="media"
+                    alt="Image alt text"
+                    default-src="https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
+                  </dds-image>
+                  <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
+                  <dds-content-item-horizontal-media-copy>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget
+                    dolor nec hendrerit. Phasellus at elit sollicitudin.
+                  </dds-content-item-horizontal-media-copy>
+                  <dds-link-list slot="footer" type="vertical">
+                    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
+                      Link text
+                    </dds-link-list-item-cta>
+                    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
+                      External link text
+                    </dds-link-list-item-cta>
+                  </dds-link-list>
+                </dds-content-item-horizontal-media>
+              </dds-tab>
+              <dds-tab label="Third tab">
+                <dds-content-item-horizontal-media align="left">
+                  <dds-image
+                    slot="media"
+                    alt="Image alt text"
+                    default-src="https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
+                  </dds-image>
+                  <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
+                  <dds-content-item-horizontal-media-copy>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget
+                    dolor nec hendrerit. Phasellus at elit sollicitudin.
+                  </dds-content-item-horizontal-media-copy>
+                  <dds-link-list slot="footer" type="vertical">
+                    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
+                      Link text
+                    </dds-link-list-item-cta>
+                    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
+                      External link text
+                    </dds-link-list-item-cta>
+                  </dds-link-list>
+                </dds-content-item-horizontal-media>
+              </dds-tab>
+              <dds-tab label="Fourth tab">
+                <dds-content-item-horizontal-media align="left">
+                  <dds-image
+                    slot="media"
+                    alt="Image alt text"
+                    default-src="https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
+                  </dds-image>
+                  <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
+                  <dds-content-item-horizontal-media-copy>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget
+                    dolor nec hendrerit. Phasellus at elit sollicitudin.
+                  </dds-content-item-horizontal-media-copy>
+                  <dds-link-list slot="footer" type="vertical">
+                    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
+                      Link text
+                    </dds-link-list-item-cta>
+                    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
+                      External link text
+                    </dds-link-list-item-cta>
+                  </dds-link-list>
+                </dds-content-item-horizontal-media>
+              </dds-tab>
+            </dds-tabs-extended-media>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
