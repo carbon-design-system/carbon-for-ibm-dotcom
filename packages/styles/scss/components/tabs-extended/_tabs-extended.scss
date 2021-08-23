@@ -24,7 +24,6 @@
 
     .#{$prefix}--tabs {
       display: none;
-      margin-bottom: $spacing-05;
 
       .#{$prefix}--tabs__nav {
         position: relative;
@@ -108,8 +107,6 @@
       @include carbon--type-style('body-long-02', true);
 
       display: none;
-      padding-top: 0;
-      padding-bottom: 0;
 
       @include carbon--breakpoint(lg) {
         display: block;
