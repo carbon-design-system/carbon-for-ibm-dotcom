@@ -25,6 +25,7 @@ const SORT_ORDER = [
   'overview-feature-flags--page',
   'overview-enable-right-to-left-rtl--page',
   'overview-contributing-to-the-react-package--page',
+  'overview-breaking-changes--page',
 ];
 
 addParameters({
