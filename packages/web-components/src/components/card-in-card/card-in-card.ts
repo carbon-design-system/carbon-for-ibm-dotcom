@@ -63,4 +63,5 @@ class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
   }
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSCardInCard;
