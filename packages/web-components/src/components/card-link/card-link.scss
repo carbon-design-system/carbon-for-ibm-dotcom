@@ -41,5 +41,6 @@
 :host(#{$dds-prefix}-link-list-item-card-cta) {
   ::slotted(#{$dds-prefix}-card-footer) {
     margin-block: 2px;
+    margin-inline-start: 32px;
   }
 }
