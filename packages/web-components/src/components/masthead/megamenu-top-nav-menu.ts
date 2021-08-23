@@ -85,6 +85,10 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   firstUpdated() {
     this._menuNode.removeAttribute('role');
     this._cleanAndCreateObserverResize({ create: true });
+
+    if (this.hasAttribute('role') && this.getAttribute('role') === 'listitem') {
+      this.removeAttribute('role');
+    }
   }
 
   updated(changedProperties) {
