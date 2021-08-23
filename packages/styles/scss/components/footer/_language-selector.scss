@@ -44,12 +44,15 @@
         @include carbon--make-col(4, 8);
         @include carbon--make-col-offset(2, 8);
       }
-
       .#{$prefix}--language-selector {
         max-width: 100%;
         width: 100%;
         height: 3rem;
         margin-right: 0;
+
+        .#{$prefix}--list-box__field {
+          background-color: $ui-03;
+        }
 
         @include carbon--breakpoint('md') {
           min-width: carbon--mini-units(27);
