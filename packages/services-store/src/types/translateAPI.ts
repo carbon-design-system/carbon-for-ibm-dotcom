@@ -98,7 +98,10 @@ export interface MastheadProfileItem {
    * The title text.
    */
   title: string;
-
+  /**
+   * The id of the profile item.
+   */
+  id?: string;
   /**
    * The link URL.
    */
