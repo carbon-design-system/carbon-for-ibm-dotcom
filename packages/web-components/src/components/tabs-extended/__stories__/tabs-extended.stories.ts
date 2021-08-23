@@ -9,6 +9,7 @@
 
 import { html } from 'lit-element';
 import '../index';
+import '../../card-group/index';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { select, number } from '@storybook/addon-knobs';
@@ -17,12 +18,12 @@ import readme from './README.stories.mdx';
 
 const orientationType = {
   [`horizontal`]: ORIENTATION.HORIZONTAL,
-  [`Vertical`]: ORIENTATION.VERTICAL,
+  [`vertical`]: ORIENTATION.VERTICAL,
 };
 
 const cardGroupItemWithCardLinks = html`
   <dds-card-group-item href="https://example.com" pattern-background>
-    <dds-card-link-heading slot="heading">IBM Developer</dds-card-link-heading>
+    <dds-card-link-heading>IBM Developer</dds-card-link-heading>
     <p>Learn, code and connect with your community</p>
     <dds-card-cta-footer slot="footer">
       ${ArrowRight20({ slot: 'icon' })}
@@ -31,7 +32,7 @@ const cardGroupItemWithCardLinks = html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { orientation } = parameters?.props?.TabExtended ?? {};
+  const { orientation } = parameters?.props?.TabsExtended ?? {};
   return html`
     <dds-tabs-extended orientation="${ifNonNull(orientation)}">
       <dds-tab
@@ -57,7 +58,7 @@ export const Default = ({ parameters }) => {
 };
 
 export const withCardGroupCardLinks = ({ parameters }) => {
-  const { cards } = parameters?.props?.TabExtended ?? {};
+  const { cards } = parameters?.props?.TabsExtended ?? {};
   return html`
     <dds-tabs-extended orientation="vertical">
       <dds-tab label="Tools for developers" selected="true">
@@ -79,7 +80,7 @@ withCardGroupCardLinks.story = {
   parameters: {
     ...readme.parameters,
     knobs: {
-      TabExtended: ({ groupId }) => ({
+      TabsExtended: ({ groupId }) => ({
         cards: Array.from({
           length: number('Number of cards', 8, {}, groupId),
         }).map(() => cardGroupItemWithCardLinks),
@@ -102,7 +103,7 @@ export default {
     useRawContainer: true,
     hasGrid: true,
     knobs: {
-      TabExtended: ({ groupId }) => ({
+      TabsExtended: ({ groupId }) => ({
         orientation: select('Orientation (orientation):', orientationType, ORIENTATION.HORIZONTAL, groupId),
       }),
     },
