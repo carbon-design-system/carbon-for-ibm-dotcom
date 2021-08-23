@@ -134,45 +134,43 @@ class DDSDotcomShellComposite extends LitElement {
   }
 
   /**
-   * Scrolls the masthead in/out of view depending on scroll direction if toc is present
+   * Scrolls the masthead in/out of view depending on scroll direction
    */
   private _handleIntersect = () => {
-    /**
-     * Sets sticky masthead. If both L0 and L1 are present, L1 will be sticky.
-     *
-     */
-    if (this._masthead && this._masthead.querySelector(`${ddsPrefix}-masthead-l1`)) {
-      /**
-       * L0 will hide/show only in the top 25% (10% on mobile to match toc) of the viewport.
-       *
-       */
-      const hideTopnavThreshold = window.innerWidth < gridBreakpoint ? 0.1 : 0.25;
-      const mastheadl1 = this._masthead.querySelector(`${ddsPrefix}-masthead-l1`) as HTMLElement;
+    if (
+      (this._tableOfContentsInnerBar || (this._masthead && this._masthead.querySelector(`${ddsPrefix}-masthead-l1`))) &&
+      !this._localeModal?.hasAttribute('open')
+    ) {
       this._masthead!.style.transition = 'none';
+      const tocPosition = this._tableOfContentsInnerBar!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY;
 
-      if (window.scrollY < this._lastScrollPosition) {
+      if (this._masthead && window.scrollY < this._lastScrollPosition) {
+        // On scroll up, show masthead
         this._masthead.style.top = `0`;
-        if (window.innerWidth < gridBreakpoint) {
-          this._tableOfContentsInnerBar!.style.top = `${this._masthead.getBoundingClientRect().height}px`;
-        }
-      } else if (this._lastScrollPosition > window.innerHeight * hideTopnavThreshold) {
-        this._masthead.style.top = `-${mastheadl1.getBoundingClientRect().height}px`;
-        if (window.innerWidth < gridBreakpoint) {
-          this._tableOfContentsInnerBar!.style.top = `${mastheadl1.getBoundingClientRect().height}px`;
-        }
-      }
-      this._lastScrollPosition = window.scrollY;
-    } else if (this._tableOfContentsInnerBar && !this._localeModal?.hasAttribute('open')) {
-      if (window.innerWidth < gridBreakpoint || this._tableOfContentsLayout === 'horizontal') {
+        this._tableOfContentsInnerBar!.style.top = `${this._masthead.getBoundingClientRect().height}px`;
+      } else if (this._tableOfContentsLayout === 'horizontal') {
         const mastheadTop = Math.min(
           0,
           this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead!.offsetHeight
         );
-        const tocPosition =
-          this._tableOfContentsInnerBar!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY;
-        this._masthead!.style.transition = 'none';
         this._tableOfContentsInnerBar!.style.top = `${Math.max(Math.min(tocPosition, this._masthead!.offsetHeight), 0)}px`;
         this._masthead!.style.top = `${mastheadTop}px`;
+      } else if (this._masthead?.querySelector(`${ddsPrefix}-masthead-l1`)) {
+        /**
+         * If l1 is present
+         */
+
+        const mastheadl1 = this._masthead.querySelector(`${ddsPrefix}-masthead-l1`) as HTMLElement;
+        const mastheadTop = Math.min(0, this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead.offsetHeight);
+        this._tableOfContentsInnerBar!.style.top = `${Math.max(Math.min(tocPosition, this._masthead.offsetHeight), 0)}px`;
+        if (window.innerWidth < gridBreakpoint) {
+          this._masthead!.style.top = `${mastheadTop}px`;
+        } else {
+          this._masthead!.style.top = `${Math.max(
+            -Math.abs(this._masthead.offsetHeight - mastheadl1.offsetHeight),
+            mastheadTop
+          )}px`;
+        }
       }
       this._lastScrollPosition = window.scrollY;
     }
