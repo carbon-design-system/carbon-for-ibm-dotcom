@@ -22,7 +22,8 @@ Carbon for IBM.com will no longer be maintained.
 - `AnalyticsAPI.initScrollTracker` has been deprecated as GESTURES v1.x should 
   no longer be used. GESTURES v2.x is owned by IBM DBDM team and is managed 
   within their platform.
-  
+
+
 ## v1.22.0
 
 ### Deprecation warning
@@ -39,7 +40,8 @@ Carbon for IBM.com will no longer be maintained.
   version is now in feature freeze. For any new features and enhancements of the 
   `lead space`, the wrapper version of the `web-components` lead space should 
   be used.
-  
+
+
 ## v1.11.0
 
 - The `<HorizontalRule />` has a change in prop name, namely the `style` prop 

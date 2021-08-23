@@ -27,7 +27,8 @@ Carbon for IBM.com will no longer be maintained.
 - `AnalyticsAPI.initScrollTracker` has been deprecated as GESTURES v1.x should
   no longer be used. GESTURES v2.x is owned by IBM DBDM team and is managed
   within their platform.
-  
+
+
 ## v1.7.0
 
 ### Services
@@ -35,7 +36,8 @@ Carbon for IBM.com will no longer be maintained.
 #### Deprecation warning
 
 - `VideoPlayerAPI` has been deprecated in favor of `KalturaPlayerAPI`
-  
+
+
 ## v1.3.0
 
 - **card-in-card**: `<dds-card-in-card-footer>` is replaced with `<dds-card-cta-footer>`
