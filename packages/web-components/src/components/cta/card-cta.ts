@@ -118,7 +118,9 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
         formatVideoCaption: formatVideoCaptionInEffect,
         formatVideoDuration: formatVideoDurationInEffect,
       } = this;
-      const headingText = this.querySelector(`${ddsPrefix}-card-heading`)?.textContent;
+      const headingText =
+        this.querySelector(`${ddsPrefix}-card-heading`)?.textContent ||
+        this.querySelector(`${ddsPrefix}-card-link-heading`)?.textContent;
       const copyText = this.textContent;
       if (footer) {
         (footer as DDSCardCTAFooter).altAriaLabel = videoName || headingText || copyText;

@@ -107,7 +107,7 @@ const cardGroupItemWithCTAs = html`
 
 const cardGroupItemWithCardLinks = html`
   <dds-card-group-item href="https://example.com" pattern-background>
-    <dds-card-link-heading slot="heading">IBM Developer</dds-card-link-heading>
+    <dds-card-link-heading>IBM Developer</dds-card-link-heading>
     <p>Learn, code and connect with your community</p>
     <dds-card-cta-footer slot="footer">
       ${ArrowRight20({ slot: 'icon' })}
