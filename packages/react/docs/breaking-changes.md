@@ -6,13 +6,13 @@
 
 #### Styles
 
-The Expressive Theme has been integrated into Carbon Design System’s core 
-library. This means that expressive continues to be available to IBM.com, but 
-now all Carbon adopters can get both productive and expressive experiences from 
-the same library source. This change will be seamless for current adopters of 
-Carbon for IBM.com. In the next few sprints, we will be shifting to use 
-expressive styling and elements from core, then the Expressive Theme within 
-Carbon for IBM.com will no longer be maintained.
+- The `Expressive Theme` has been integrated into Carbon Design System’s core 
+  library. This means that expressive continues to be available to IBM.com, but 
+  now all Carbon adopters can get both productive and expressive experiences 
+  from the same library source. This change will be seamless for current 
+  adopters of Carbon for IBM.com. In the next few sprints, we will be shifting 
+  to use expressive styling and elements from core, then the Expressive Theme 
+  within Carbon for IBM.com will no longer be maintained.
 
 ## v1.23.0
 
