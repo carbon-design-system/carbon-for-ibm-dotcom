@@ -60,8 +60,8 @@ class DDSLegalNav extends StableSelectorMixin(LitElement) {
   slot = 'legal-nav';
 
   connectedCallback() {
-    if (!this.hasAttribute('role')) {
-      this.setAttribute('role', 'complementary');
+    if (this.hasAttribute('role')) {
+      this.removeAttribute('role');
     }
     super.connectedCallback();
   }
