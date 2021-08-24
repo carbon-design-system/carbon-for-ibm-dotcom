@@ -1,0 +1,7 @@
+dist
+es
+lib
+node_modules
+storybook-static
+tests/e2e/dist
+tests/e2e/cypress
