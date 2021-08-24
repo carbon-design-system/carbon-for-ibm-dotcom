@@ -106,6 +106,7 @@ withLightboxMediaViewer.story = {
         aspectRatio: 'default',
         videoId: '1_p2osmd1z',
         playingMode: 'lightbox',
+        autoPlay: false,
       }),
     },
   },
