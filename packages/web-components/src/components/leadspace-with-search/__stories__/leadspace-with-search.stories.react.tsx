@@ -66,7 +66,7 @@ export const Default = ({ parameters }) => {
   );
 };
 
-export const Defaul2t = ({ parameters }) => {
+export const WithImage = ({ parameters }) => {
   const { theme } = parameters?.props?.LeadspaceWithSearch ?? {};
   const secondTheme = theme.split('-')[2];
   return (
@@ -91,7 +91,7 @@ export const Defaul2t = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Leadspace with search',
+  title: 'Components/Lead space search',
   parameters: {
     ...readme.parameters,
     useRawContainer: true,

@@ -14,11 +14,6 @@ import { ADJACENT_THEMES } from '../defs';
 import '../index';
 import image from '../../../../../storybook-images/assets/card-section-offset/background-media.jpg';
 
-const copy = `Automate your software release process with continuous 
-delivery (CD)—the most critical part of adopting DevOps. 
-Build, test, and deploy code changes quickly, 
-ensuring software is always ready for deployment.`;
-
 const adjacentThemes = {
   'White/Gray 10': ADJACENT_THEMES.WHITE_AND_G10,
   'Gray 10/White': ADJACENT_THEMES.G10_AND_WHITE,
@@ -79,7 +74,7 @@ export const WithImage = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Leadspace with search',
+  title: 'Components/Lead space search',
   parameters: {
     ...readme.parameters,
     hasGrid: true,
@@ -88,7 +83,7 @@ export default {
       LeadspaceWithSearch: ({ groupId }) => ({
         heading: text('Heading:', 'Find a product', groupId),
         subheading: 'Innovate like a startup, scale for the enterprise',
-        paragraph: text('Paragraph:', copy, groupId),
+        paragraph: text('Paragraph:', '', groupId),
         theme: select(`Adjacent theme`, adjacentThemes, adjacentThemes.Monotheme, groupId) ?? 0,
       }),
     },

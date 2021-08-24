@@ -95,8 +95,14 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
 
     if (target === this._searchInputNode) {
       this._searchSuggestions.removeAttribute('hidden');
-    } else if (target === this._searchButtonNode) {
+    } else if (target === this._searchButtonNode || this._closeButtonNode) {
       this._searchSuggestions.setAttribute('hidden', '');
+    }
+
+    if (target === this._closeButtonNode) {
+      this.setAttribute('unfocused', '');
+    } else {
+      this.removeAttribute('unfocused');
     }
   };
 
@@ -254,6 +260,15 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
   private _handleInput(event: InputEvent) {
     const { target } = event;
     const { value } = target as HTMLInputElement;
+    this.removeAttribute('unfocused');
+
+    const items = this.shadowRoot!.querySelectorAll('dds-search-with-typeahead-item');
+    items.forEach(e => {
+      if (e.hasAttribute('highlighted')) {
+        this.setAttribute('unfocused', '');
+      }
+    });
+
     this.dispatchEvent(
       new CustomEvent((this.constructor as typeof DDSSearchWithTypeahead).eventInput, {
         bubbles: true,
@@ -358,6 +373,8 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
     forEach(items, (item, i) => {
       (item as BXDropdownItem).highlighted = i === nextIndex;
     });
+
+    this.setAttribute('unfocused', '');
 
     const nextItem = items[nextIndex];
     // Using `{ block: 'nearest' }` to prevent scrolling unless scrolling is absolutely necessary.
