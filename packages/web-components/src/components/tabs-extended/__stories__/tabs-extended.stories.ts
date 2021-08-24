@@ -16,7 +16,7 @@ import readme from './README.stories.mdx';
 
 const orientationType = {
   [`horizontal`]: ORIENTATION.HORIZONTAL,
-  [`Vertical`]: ORIENTATION.VERTICAL,
+  [`vertical`]: ORIENTATION.VERTICAL,
 };
 
 export const Default = ({ parameters }) => {
