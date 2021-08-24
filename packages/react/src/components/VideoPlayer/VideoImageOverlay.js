@@ -18,12 +18,27 @@ const { prefix } = settings;
 /**
  * VideoPlayer Image Overlay component
  */
-const VideoImageOverlay = ({ videoId, videoData, embedVideo, playingMode }) => {
+const VideoImageOverlay = ({
+  videoId,
+  videoData,
+  embedVideo,
+  playingMode,
+  ...rest
+}) => {
+  const handleClick = event => {
+    const { onClick } = rest;
+    onClick && onClick(event);
+
+    if (playingMode === 'inline') {
+      _embedPlayer(event, embedVideo);
+    }
+  };
+
   return (
     <button
       className={`${prefix}--video-player__image-overlay`}
       data-autoid={`${stablePrefix}--video-player__image-overlay`}
-      onClick={() => _embedPlayer(event, embedVideo, playingMode)}>
+      onClick={handleClick}>
       <Image
         defaultSrc={KalturaPlayerAPI.getThumbnailUrl({
           mediaId: videoId,
@@ -36,11 +51,9 @@ const VideoImageOverlay = ({ videoId, videoData, embedVideo, playingMode }) => {
   );
 };
 
-const _embedPlayer = (e, embedVideo, playingMode) => {
-  if (playingMode === 'inline') {
-    const element = e.target;
-    element.remove();
-  }
+const _embedPlayer = (e, embedVideo) => {
+  const element = e.target;
+  element.remove();
   embedVideo(true);
 };
 
