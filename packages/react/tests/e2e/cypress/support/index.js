@@ -7,11 +7,3 @@
 
 import '@percy/cypress';
 import './commands';
-import serializeDOM from '@percy/dom';
-
-// Workaround, @percy/cypress was not properly loading in PercyDOM
-if (window) {
-  window.PercyDOM = {
-    serialize: serializeDOM,
-  };
-}

@@ -10,7 +10,6 @@
   "supportFile": "tests/e2e/cypress/support/index.js",
   "pluginsFile": "tests/e2e/cypress/plugins/index.js",
   "nodeVersion": "system",
-  "includeShadowDom": true,
   "testFiles": "**/*.e2e.js",
   "pageLoadTimeout": 10000,
   "defaultCommandTimeout": 20000
