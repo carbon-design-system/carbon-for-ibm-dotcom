@@ -85,7 +85,7 @@ aspectRatio4x3.story = {
         return {
           showCaption: boolean('Show caption (showCaption):', true, groupId),
           aspectRatio: '4x3',
-          videoId: '1_p2osmd1z',
+          videoId: '1_9h94wo6b',
           playingMode: 'inline',
         };
       },
@@ -104,7 +104,7 @@ withLightboxMediaViewer.story = {
       VideoPlayer: ({ groupId }) => ({
         showCaption: boolean('Show caption (showCaption):', true, groupId),
         aspectRatio: 'default',
-        videoId: '1_p2osmd1z',
+        videoId: '1_9h94wo6b',
         playingMode: 'lightbox',
       }),
     },
