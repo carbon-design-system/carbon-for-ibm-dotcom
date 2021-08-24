@@ -42,5 +42,9 @@
   ::slotted(#{$dds-prefix}-card-footer) {
     margin-block: 2px;
     margin-inline-start: 32px;
+    @include carbon--breakpoint('lg') {
+      margin-inline-start: 0px;
+    }
+    
   }
 }
