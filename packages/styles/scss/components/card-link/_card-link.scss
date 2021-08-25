@@ -38,7 +38,7 @@
     @include carbon--type-style('expressive-heading-02');
   }
 
-  ::slotted([slot='heading']) {
+  :host(#{$dds-prefix}-card-link-heading) {
     margin-bottom: 0;
   }
 }
