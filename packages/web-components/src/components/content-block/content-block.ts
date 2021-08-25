@@ -9,15 +9,16 @@
 
 import { Part } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, internalProperty, customElement, LitElement, TemplateResult } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import { html, customElement, property, internalProperty, LitElement, TemplateResult } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from './defs';
 import styles from './content-block.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 export { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME };
 
+const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
