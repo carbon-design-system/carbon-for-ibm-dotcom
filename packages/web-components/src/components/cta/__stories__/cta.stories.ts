@@ -79,7 +79,7 @@ Text.story = {
     knobs: {
       TextCTA: ({ groupId }) => {
         const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL, groupId);
-        const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text', 'Lorem ipsum dolor sit amet', groupId);
+        const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy (copy):', 'Lorem ipsum dolor sit amet', groupId);
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD
             ? undefined
