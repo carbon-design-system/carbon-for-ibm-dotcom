@@ -95,7 +95,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
 
     if (target === this._searchInputNode) {
       this._searchSuggestions.removeAttribute('hidden');
-    } else if (target === this._searchButtonNode || this._closeButtonNode) {
+    } else if (target === (this._searchButtonNode || this._closeButtonNode)) {
       this._searchSuggestions.setAttribute('hidden', '');
     }
 
@@ -414,6 +414,18 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
   }
 
   /**
+   * Handles `click` event to redirect based on selected item.
+   *
+   * @param event The event.
+   */
+  protected _handleClickItem(event: MouseEvent) {
+    const item = (event.target as Element).closest((this.constructor as typeof BXDropdown).selectorItem) as BXDropdownItem;
+    if (this.shadowRoot!.contains(item)) {
+      this._handleUserInitiatedSelectItem(item);
+    }
+  }
+
+  /**
    * @returns The content of the search box.
    */
   private _renderForm() {
@@ -580,6 +592,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
       performSearchButtonAssistiveText,
       _handleClickCloseButton: handleClickCloseButton,
       _handleClickSearchButton: handleClickSearchButton,
+      _handleClickItem: handleClickItem,
     } = this;
     const searchButtonAssistiveText = !active ? openSearchButtonAssistiveText : performSearchButtonAssistiveText;
     return html`
@@ -633,7 +646,10 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
                   this.searchResults.map(
                     item =>
                       html`
-                        <dds-search-with-typeahead-item text="${item[0]}"></dds-search-with-typeahead-item>
+                        <dds-search-with-typeahead-item
+                          text="${item[0]}"
+                          @click=${handleClickItem}
+                        ></dds-search-with-typeahead-item>
                       `
                   )}
               </ul>
