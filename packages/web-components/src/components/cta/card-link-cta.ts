@@ -42,7 +42,7 @@ class DDSCardLinkCTA extends VideoCTAMixin(CTAMixin(DDSCardLink)) {
     }
     const caption = formatVideoCaptionInEffect({ name: videoName });
     return html`
-      <slot name="heading"></slot><dds-card-heading>${caption}</dds-card-heading>
+      <slot name="heading"></slot><dds-card-link-heading>${caption}</dds-card-link-heading>
     `;
   }
 

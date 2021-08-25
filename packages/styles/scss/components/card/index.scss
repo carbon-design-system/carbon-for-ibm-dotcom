@@ -227,6 +227,7 @@
   }
 
   :host(#{$dds-prefix}-card-cta),
+  :host(#{$dds-prefix}-card-link-cta),
   :host(#{$dds-prefix}-card-link) {
     outline: none;
   }
