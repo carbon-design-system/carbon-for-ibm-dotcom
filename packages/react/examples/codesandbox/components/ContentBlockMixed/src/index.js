@@ -47,12 +47,12 @@ const App = () => (
               mediaType: 'image',
               mediaData: {
                 sources: [
-                  { src: 'https://your-image.com/320/160', breakpoint: 320 },
-                  { src: 'https://your-image.com/400/400', breakpoint: 400 },
-                  { src: 'https://your-image.com/672/672', breakpoint: 672 },
+                  { src: 'https://fpoimg.com/320x160?text=16:9&bg_color=ee5396&text_color=161616', breakpoint: 320 },
+                  { src: 'https://fpoimg.com/400x400?text=16:9&bg_color=ee5396&text_color=161616', breakpoint: 400 },
+                  { src: 'https://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616', breakpoint: 672 },
                 ],
                 alt: 'Image alt',
-                defaultSrc: 'https://your-image.com/672/672',
+                defaultSrc: 'https://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616',
               },
               heading: 'ContentGroupSimple heading.',
               items: [

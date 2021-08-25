@@ -19,3 +19,11 @@ body {
     margin-top: 1rem;
   }
 }
+
+// Suppress styles in visual regression tool
+@media only percy {
+  .bx--link-list__list--video {
+    display: none !important;
+  }
+}
+

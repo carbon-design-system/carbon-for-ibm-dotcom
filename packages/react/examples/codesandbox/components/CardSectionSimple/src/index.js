@@ -26,6 +26,34 @@ const App = () => (
                   href: 'https://www.example.com',
                 },
               },
+              {
+                copy: 'Lorem ipsum dolor sit amet',
+                heading: 'Aliquam condimentum',
+                cta: {
+                  href: 'https://www.example.com',
+                },
+              },
+              {
+                copy: 'Lorem ipsum dolor sit amet',
+                heading: 'Aliquam condimentum',
+                cta: {
+                  href: 'https://www.example.com',
+                },
+              },
+              {
+                copy: 'Lorem ipsum dolor sit amet',
+                heading: 'Aliquam condimentum',
+                cta: {
+                  href: 'https://www.example.com',
+                },
+              },
+              {
+                copy: 'Lorem ipsum dolor sit amet',
+                heading: 'Aliquam condimentum',
+                cta: {
+                  href: 'https://www.example.com',
+                },
+              },
             ]
           }
           heading="Aliquam condimentum interdum"
