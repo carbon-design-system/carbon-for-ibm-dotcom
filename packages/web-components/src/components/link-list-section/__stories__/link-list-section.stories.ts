@@ -20,7 +20,7 @@ export const Default = ({ parameters }) => {
       <dds-link-list-heading>${heading}</dds-link-list-heading>
       <dds-link-list>
         <dds-link-list-item href="https://example.com">
-          Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
+          Learn more about Kubernetes and automating deployment ${ArrowRight20({ slot: 'icon' })}
         </dds-link-list-item>
         <dds-link-list-item href="https://example.com">
           Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}

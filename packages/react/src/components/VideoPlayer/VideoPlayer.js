@@ -76,6 +76,7 @@ const VideoPlayer = ({
           videoData={videoData}
           embedVideo={setEmbedVideo}
           playingMode={playingMode}
+          onClick={() => setEmbedVideo(true)}
         />
       </div>
       <LightboxMediaViewer
