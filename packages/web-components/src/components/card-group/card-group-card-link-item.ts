@@ -9,18 +9,18 @@
 
 import { customElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import DDSCardCTA from '../cta/card-cta';
+import DDSCardLinkCTA from '../cta/card-link-cta';
 import styles from './card-group.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * Card Group item.
+ * Card Group Card Link item.
  *
- * @element dds-card-group-item
+ * @element dds-card-group-card-link-item
  */
-@customElement(`${ddsPrefix}-card-group-item`)
-class DDSCardGroupItem extends DDSCardCTA {
+@customElement(`${ddsPrefix}-card-group-card-link-item`)
+class DDSCardGroupCardLinkItem extends DDSCardLinkCTA {
   /**
    * `true` if the card group is using border.
    */
@@ -33,8 +33,14 @@ class DDSCardGroupItem extends DDSCardCTA {
   @property({ type: Boolean, reflect: true })
   empty = false;
 
+  /**
+   * `true` if the card group item has the same background color as the pattern container.
+   */
+  @property({ type: Boolean, reflect: true })
+  patternBackground = false;
+
   static get stableSelector() {
-    return `${ddsPrefix}--card-group-item`;
+    return `${ddsPrefix}--card-group-card-link-item`;
   }
 
   /**
@@ -47,4 +53,4 @@ class DDSCardGroupItem extends DDSCardCTA {
   static styles = styles;
 }
 
-export default DDSCardGroupItem;
+export default DDSCardGroupCardLinkItem;

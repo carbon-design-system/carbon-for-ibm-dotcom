@@ -178,6 +178,52 @@ Card.story = {
   },
 };
 
+export const CardLink = ({ parameters }) => {
+  const { copy, ctaType, download, href } = parameters?.props?.CardCTA ?? {};
+  const { copy: footerCopy, download: footerDownload, href: footerHref } = parameters?.props?.CardCTAFooter ?? {};
+  return html`
+    <dds-card-link-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${ifNonNull(href)}">
+      ${ctaType !== 'video' ? copy : ''}
+      <dds-card-cta-footer
+        cta-type="${ifNonNull(ctaType)}"
+        download="${ifNonNull(footerDownload)}"
+        href="${ifNonNull(footerHref)}"
+      >
+        ${ctaType === 'local' ? footerCopy || ArrowRight20({ slot: 'icon' }) : ''}
+        ${ctaType === 'jump' ? footerCopy || ArrowDown20({ slot: 'icon' }) : ''}
+        ${ctaType === 'external' ? footerCopy || Launch20({ slot: 'icon' }) : ''}
+        ${ctaType === 'download' ? footerCopy || Download20({ slot: 'icon' }) : ''}
+        ${ctaType === 'video' ? footerCopy || PlayOutline20({ slot: 'icon' }) : ''}
+      </dds-card-cta-footer>
+    </dds-card-link-cta>
+  `;
+};
+
+CardLink.story = {
+  parameters: {
+    hasGrid: true,
+    hasCardGrid: true,
+    knobs: {
+      CardCTA: ({ groupId }) => Text.story.parameters.knobs.TextCTA({ groupId }),
+      CardCTAFooter: ({ groupId }) => {
+        const { ctaType } = Text.story.parameters.knobs.TextCTA({ groupId: groupId.replace(/Footer$/, '') });
+        return {
+          copy: textNullable('Footer copy text', '', groupId),
+          href: textNullable(
+            footerKnobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+            hrefsForType[ctaType ?? CTA_TYPE.REGULAR],
+            groupId
+          ),
+          download:
+            ctaType !== CTA_TYPE.DOWNLOAD
+              ? undefined
+              : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId),
+        };
+      },
+    },
+  },
+};
+
 export const Feature = ({ parameters }) => {
   const { heading, ctaType, download, href } = parameters?.props?.FeatureCTA ?? {};
   const { copy: footerCopy, download: footerDownload, href: footerHref } = parameters?.props?.FeatureCTAFooter ?? {};

@@ -22,13 +22,13 @@ const orientationType = {
 };
 
 const cardGroupItemWithCardLinks = html`
-  <dds-card-group-item href="https://example.com" pattern-background>
+  <dds-card-group-card-link-item href="https://example.com" pattern-background>
     <dds-card-link-heading>IBM Developer</dds-card-link-heading>
     <p>Learn, code and connect with your community</p>
     <dds-card-cta-footer slot="footer">
       ${ArrowRight20({ slot: 'icon' })}
     </dds-card-cta-footer>
-  </dds-card-group-item>
+  </dds-card-group-card-link-item>
 `;
 
 export const Default = ({ parameters }) => {

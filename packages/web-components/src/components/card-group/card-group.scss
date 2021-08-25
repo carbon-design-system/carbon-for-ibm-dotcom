@@ -16,16 +16,19 @@
   background: none;
 
   /* stylelint-disable-next-line selector-type-no-unknown */
-  #{$dds-prefix}-card-group-item[empty] {
+  #{$dds-prefix}-card-group-item[empty],
+  #{$dds-prefix}-card-group-card-link-item[empty] {
     background-color: $ui-background;
     outline: 1px solid $ui-background;
   }
 
-  ::slotted(#{$dds-prefix}-card-group-item) {
+  ::slotted(#{$dds-prefix}-card-group-item),
+  ::slotted(#{$dds-prefix}-card-group-card-link-item) {
     background-color: $decorative-01;
   }
 
-  ::slotted(#{$dds-prefix}-card-group-item[empty]) {
+  ::slotted(#{$dds-prefix}-card-group-item[empty]),
+  ::slotted(#{$dds-prefix}-card-group-card-link-item[empty]) {
     background-color: transparent;
   }
 }
@@ -34,16 +37,19 @@
   background: var(--#{$dds-prefix}--card-group-gradient, $decorative-01);
 
   /* stylelint-disable-next-line selector-type-no-unknown */
-  #{$dds-prefix}-card-group-item[empty] {
+  #{$dds-prefix}-card-group-item[empty],
+  #{$dds-prefix}-card-group-card-link-item[empty] {
     outline: none;
   }
 
-  ::slotted(#{$dds-prefix}-card-group-item) {
+  ::slotted(#{$dds-prefix}-card-group-item),
+  ::slotted(#{$dds-prefix}-card-group-card-link-item) {
     background-color: transparent;
   }
 }
 
-:host(#{$dds-prefix}-card-group-item) {
+:host(#{$dds-prefix}-card-group-item),
+:host(#{$dds-prefix}-card-group-card-link-item) {
   padding-bottom: 1px;
   padding-right: 1px;
 
