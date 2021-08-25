@@ -166,9 +166,11 @@ html {
   }
 
   .dds-ce-demo-devenv--simple-grid--tabs-extended {
+    padding-left: $spacing-07;
+    padding-right: $spacing-07;
+
     > * {
-      margin-top: $carbon--spacing-05;
-      grid-column: 1 / span 12;
+      grid-column: 1 / span 16;
     }
   }
 
@@ -199,6 +201,13 @@ html {
 @include carbon--breakpoint('xlg') {
   .dds-ce-demo-devenv--simple-grid--card > * {
     grid-column: 1 / span 4;
+  }
+}
+
+@include carbon--breakpoint('max') {
+  .dds-ce-demo-devenv--simple-grid--tabs-extended {
+    padding-left: $spacing-08;
+    padding-right: $spacing-08;
   }
 }
 

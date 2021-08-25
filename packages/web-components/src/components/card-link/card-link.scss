@@ -40,6 +40,10 @@
 :host(#{$dds-prefix}-link-list-item-card),
 :host(#{$dds-prefix}-link-list-item-card-cta) {
   ::slotted(#{$dds-prefix}-card-footer) {
-    margin-bottom: auto;
+    margin-block: 2px;
+    margin-inline-start: 32px;
+    @include carbon--breakpoint('lg') {
+      margin-inline-start: 0;
+    }
   }
 }
