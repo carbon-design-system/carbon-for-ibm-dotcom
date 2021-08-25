@@ -41,8 +41,8 @@ const { browser: browsers, spec: specs, ...rest } = commander
   .option('--verbose', 'Enables verbose output')
   .parse(process.argv);
 const cloptions = {
-  browsers: browsers && Array.from(browsers) || [],
-  specs: specs && Array.from(specs) || [],
+  browsers: (browsers && Array.from(browsers)) || [],
+  specs: (specs && Array.from(specs)) || [],
   ...rest,
 };
 
