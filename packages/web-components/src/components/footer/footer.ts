@@ -36,9 +36,7 @@ class DDSFooter extends StableSelectorMixin(LitElement) {
   size = FOOTER_SIZE.REGULAR;
 
   connectedCallback() {
-    if (!this.hasAttribute('role')) {
-      this.setAttribute('role', 'footer');
-    }
+    this.setAttribute('role', 'contentinfo');
 
     if (!this.hasAttribute('aria-label')) {
       this.setAttribute('aria-label', 'footer');
