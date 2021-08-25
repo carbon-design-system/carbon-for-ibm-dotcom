@@ -49,4 +49,5 @@ class DDSLeadSpaceBlockContent extends DDSContentBlock {
   }
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSLeadSpaceBlockContent;

@@ -9,7 +9,7 @@
 
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, query, customElement } from 'lit-element';
+import { html, property, query, customElement, internalProperty } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import Close20 from 'carbon-web-components/es/icons/close/20.js';
@@ -50,7 +50,10 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
     return response;
   }
 
-  @property()
+  @property({ attribute: 'leadspace-search', type: Boolean })
+  leadspaceSearch = false;
+
+  @internalProperty()
   searchResults;
 
   @property({ attribute: 'should-remain-open', type: Boolean })
@@ -61,6 +64,12 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
    */
   @query(`.${prefix}--header__search--search`)
   private _searchButtonNode!: HTMLButtonElement;
+
+  /**
+   * The `<button>` to open the search box.
+   */
+  @query(`.${prefix}--header__search--close`)
+  private _closeButtonNode!: HTMLButtonElement;
 
   /**
    * The `<input>` of the search box.
@@ -86,8 +95,14 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
 
     if (target === this._searchInputNode) {
       this._searchSuggestions.removeAttribute('hidden');
-    } else if (target === this._searchButtonNode) {
+    } else if (target === (this._searchButtonNode || this._closeButtonNode)) {
       this._searchSuggestions.setAttribute('hidden', '');
+    }
+
+    if (target === this._closeButtonNode) {
+      this.setAttribute('unfocused', '');
+    } else {
+      this.removeAttribute('unfocused');
     }
   };
 
@@ -95,6 +110,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
    * Handles `click` event on the close button.
    */
   private async _handleClickCloseButton() {
+    this._closeButtonNode?.classList.add(`${prefix}--header__search--hide`);
     this._handleUserInitiatedToggleActiveState(false);
   }
 
@@ -106,6 +122,9 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
   protected _handleClickInner(event: MouseEvent) {
     if ((event.target as HTMLElement).closest('.bx--header__search--input') === event.target) {
       this._handleUserInitiatedToggle();
+      if (this._searchInputNode.value && this.leadspaceSearch) {
+        this._closeButtonNode?.classList.remove(`${prefix}--header__search--hide`);
+      }
     } else {
       const item = (event.target as Element).closest((this.constructor as typeof BXDropdown).selectorItem) as BXDropdownItem;
       if (this.shadowRoot!.contains(item)) {
@@ -228,9 +247,11 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   protected _handleFocusOut(event: FocusEvent) {
     super._handleFocusOut(event);
+    const tempValue = this._searchInputNode.value;
     if (!(event.currentTarget as HTMLElement).contains(event.relatedTarget as HTMLElement) && !this.searchOpenOnload) {
       this._handleUserInitiatedToggleActiveState(false, false);
     }
+    this._searchInputNode.value = tempValue;
   }
 
   /**
@@ -239,6 +260,15 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
   private _handleInput(event: InputEvent) {
     const { target } = event;
     const { value } = target as HTMLInputElement;
+    this.removeAttribute('unfocused');
+
+    const items = this.shadowRoot!.querySelectorAll('dds-search-with-typeahead-item');
+    items.forEach(e => {
+      if (e.hasAttribute('highlighted')) {
+        this.setAttribute('unfocused', '');
+      }
+    });
+
     this.dispatchEvent(
       new CustomEvent((this.constructor as typeof DDSSearchWithTypeahead).eventInput, {
         bubbles: true,
@@ -257,6 +287,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
 
     if (value) {
       this.open = true;
+      if (this.leadspaceSearch) this._closeButtonNode?.classList.remove(`${prefix}--header__search--hide`);
     }
   }
 
@@ -276,6 +307,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
 
   protected _handleUserInitiatedSelectItem(item?: BXDropdownItem) {
     if (item) {
+      this._searchInputNode.value = ((item as unknown) as any).text;
       this._handleUserInitiatedRedirect({ targetQuery: ((item as unknown) as any).text });
     }
   }
@@ -343,6 +375,8 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
       (item as BXDropdownItem).highlighted = i === nextIndex;
     });
 
+    this.setAttribute('unfocused', '');
+
     const nextItem = items[nextIndex];
     // Using `{ block: 'nearest' }` to prevent scrolling unless scrolling is absolutely necessary.
     // `scrollIntoViewOptions` seems to work in latest Safari despite of MDN/caniuse table.
@@ -378,6 +412,18 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
         @keypress="${handleKeyInput}"
       />
     `;
+  }
+
+  /**
+   * Handles `click` event to redirect based on selected item.
+   *
+   * @param event The event.
+   */
+  protected _handleClickItem(event: MouseEvent) {
+    const item = (event.target as Element).closest((this.constructor as typeof BXDropdown).selectorItem) as BXDropdownItem;
+    if (this.shadowRoot!.contains(item)) {
+      this._handleUserInitiatedSelectItem(item);
+    }
   }
 
   /**
@@ -421,17 +467,21 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
           @keypress="${handleKeypressInner}"
         >
           ${this._renderTriggerContent()}
-          <div id="result-list" class="react-autosuggest__suggestions-container">
-            <ul role="listbox" class="${ddsPrefix}-ce__search__list react-autosuggest__suggestions-list">
-              ${this.searchResults &&
-                this.searchResults.map(
-                  item =>
-                    html`
-                      <dds-search-with-typeahead-item text="${item[0]}"></dds-search-with-typeahead-item>
-                    `
-                )}
-            </ul>
-          </div>
+          ${!this.leadspaceSearch
+            ? html`
+                <div id="result-list" class="react-autosuggest__suggestions-container">
+                  <ul role="listbox" class="${ddsPrefix}-ce__search__list react-autosuggest__suggestions-list">
+                    ${this.searchResults &&
+                      this.searchResults.map(
+                        item =>
+                          html`
+                            <dds-search-with-typeahead-item text="${item[0]}"></dds-search-with-typeahead-item>
+                          `
+                      )}
+                  </ul>
+                </div>
+              `
+            : ``}
         </div>
       </form>
       <div class="${prefix}--assistive-text" role="status" aria-live="assertive" aria-relevant="additions text">
@@ -529,6 +579,10 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
 
   firstUpdated() {
     this._setSearchParam();
+    if (this.leadspaceSearch) {
+      this.setAttribute('should-remain-open', '');
+      this.setAttribute('active', '');
+    }
   }
 
   render() {
@@ -539,30 +593,69 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
       performSearchButtonAssistiveText,
       _handleClickCloseButton: handleClickCloseButton,
       _handleClickSearchButton: handleClickSearchButton,
+      _handleClickItem: handleClickItem,
     } = this;
     const searchButtonAssistiveText = !active ? openSearchButtonAssistiveText : performSearchButtonAssistiveText;
     return html`
-      ${this._renderForm()}
-      <div class="${prefix}--header__search--actions">
-        <button
-          type="button"
-          part="open-button"
-          class="${prefix}--header__action ${prefix}--header__search--search"
-          aria-label="${searchButtonAssistiveText}"
-          @click="${handleClickSearchButton}"
-        >
-          ${Search20()}
-        </button>
-        <button
-          type="button"
-          part="close-button"
-          class="${prefix}--header__action ${prefix}--header__search--close"
-          aria-label="${closeSearchButtonAssistiveText}"
-          @click="${handleClickCloseButton}"
-        >
-          ${Close20()}
-        </button>
-      </div>
+      ${!this.leadspaceSearch
+        ? html`
+            ${this._renderForm()}
+            <div class="${prefix}--header__search--actions">
+              <button
+                type="button"
+                part="open-button"
+                class="${prefix}--header__action ${prefix}--header__search--search"
+                aria-label="${searchButtonAssistiveText}"
+                @click="${handleClickSearchButton}"
+              >
+                ${Search20()}
+              </button>
+              <button
+                type="button"
+                part="close-button"
+                class="${prefix}--header__action ${prefix}--header__search--close"
+                aria-label="${closeSearchButtonAssistiveText}"
+                @click="${handleClickCloseButton}"
+              >
+                ${Close20()}
+              </button>
+            </div>
+          `
+        : html`
+            <div class="${prefix}--header__search--actions">
+              ${Search20({
+                part: 'search-icon',
+                class: `${prefix}--search-magnifier-icon`,
+                role: 'img',
+              })}
+              ${this._renderForm()}
+              <button
+                type="button"
+                part="close-button"
+                class="${prefix}--header__action ${prefix}--header__search--close ${this.value.length === 0
+                  ? `${prefix}--header__search--hide`
+                  : ''}"
+                aria-label="${closeSearchButtonAssistiveText}"
+                @click="${handleClickCloseButton}"
+              >
+                ${Close20()}
+              </button>
+            </div>
+            <div id="result-list" class="react-autosuggest__suggestions-container">
+              <ul role="listbox" class="${ddsPrefix}-ce__search__list react-autosuggest__suggestions-list">
+                ${this.searchResults &&
+                  this.searchResults.map(
+                    item =>
+                      html`
+                        <dds-search-with-typeahead-item
+                          text="${item[0]}"
+                          @click=${handleClickItem}
+                        ></dds-search-with-typeahead-item>
+                      `
+                  )}
+              </ul>
+            </div>
+          `}
     `;
   }
 
