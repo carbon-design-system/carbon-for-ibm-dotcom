@@ -307,6 +307,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
 
   protected _handleUserInitiatedSelectItem(item?: BXDropdownItem) {
     if (item) {
+      this._searchInputNode.value = ((item as unknown) as any).text;
       this._handleUserInitiatedRedirect({ targetQuery: ((item as unknown) as any).text });
     }
   }
