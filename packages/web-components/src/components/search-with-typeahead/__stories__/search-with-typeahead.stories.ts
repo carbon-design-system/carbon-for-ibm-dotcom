@@ -12,7 +12,11 @@ import '../index';
 import readme from './README.stories.mdx';
 
 export const Default = () => html`
-  <dds-search-with-typeahead should-remain-open active> </dds-search-with-typeahead>
+  <dds-search-with-typeahead> </dds-search-with-typeahead>
+`;
+
+export const Alternate = () => html`
+  <dds-search-with-typeahead leadspace-search> </dds-search-with-typeahead>
 `;
 
 export default {
