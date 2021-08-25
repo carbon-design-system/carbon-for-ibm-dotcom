@@ -1,5 +1,18 @@
 node_modules
 
+# react
+packages/react/coverage
+packages/react/es
+packages/react/examples
+packages/react/umd
+packages/react/lib
+packages/react/node_modules
+packages/react/storybook-static
+packages/react/ssr-tests/nextjs/.next
+packages/react/src/internal/vendor
+packages/react/tests/e2e/dist
+packages/react/tests/e2e/cypress
+
 # storybook-addon-theme
 packages/storybook-addon-theme/es
 packages/storybook-addon-theme/node_modules
