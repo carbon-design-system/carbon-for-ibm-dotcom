@@ -26,7 +26,6 @@
     </dds-locale-button>
     <dds-legal-nav
       data-autoid="dds--footer-legal-nav"
-      role="complementary"
       size=""
     >
       <dds-legal-nav-cookie-preferences-placeholder data-autoid="dds--privacy-cp">
@@ -102,7 +101,6 @@
     </dds-locale-button>
     <dds-legal-nav
       data-autoid="dds--footer-legal-nav"
-      role="complementary"
       size=""
     >
       <dds-legal-nav-item
