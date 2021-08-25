@@ -3,7 +3,8 @@ name: snapshot-update
 on:
   push:
     branches:
-      - chore/react-update-snapshot-workflow
+      - master
+      - release/*
 
 jobs:
   react:
