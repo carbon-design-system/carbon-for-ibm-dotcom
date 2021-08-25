@@ -182,6 +182,7 @@ Text.story = {
         return {
           ...knobs,
           iconPlacement,
+          customVideoTitle: 'teste - opa',
           ...miscCTAData['text']({ type: knobs.type }),
         };
       },
@@ -261,6 +262,7 @@ Card.story = {
         const type = select('type', types, types[0], groupId);
         return {
           type,
+          customVideoTitle: 'teste - psdfds',
           ...miscCTAData['card']({ type }),
         };
       },
@@ -311,6 +313,7 @@ Feature.story = {
         return {
           featureHeading,
           type,
+          // customVideoTitle: 'testa mds adssa',
           ...miscCTAData['feature']({ type }),
         };
       },

@@ -17,14 +17,21 @@ import { useVideoData } from '../../internal/hooks/useVideoData';
 /**
  * CTA component.
  */
-const CTA = ({ style, type, size, customClassName, ...otherProps }) => {
+const CTA = ({
+  style,
+  type,
+  size,
+  customClassName,
+  customVideoTitle,
+  ...otherProps
+}) => {
   const [renderLightBox, openLightBox] = useState(false);
 
   const videoId =
     type && (type === 'video' || type.includes('video'))
       ? CTALogic.getVideoId(style, otherProps)
       : [];
-  const videoTitle = useVideoData(type, videoId);
+  const videoTitle = useVideoData(type, videoId, customVideoTitle);
 
   const CTAComponent =
     style === 'card'
@@ -53,6 +60,11 @@ const CTA = ({ style, type, size, customClassName, ...otherProps }) => {
 };
 
 CTA.propTypes = {
+  /**
+   * If it's  provided, overrides the video original title (affect only `CTA type video`)
+   */
+  customVideoTitle: PropTypes.string,
+
   /**
    * Size of Feature Card. Choose from:
    *
@@ -137,6 +149,7 @@ CTA.defaultProps = {
   type: 'default',
   copy: '',
   href: '',
+  customVideoTitle: null,
 };
 
 export default CTA;

@@ -13,9 +13,10 @@ import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlay
  *
  * @param {string} type type of CTA
  * @param {Array} videoId array of video ids
+ * @param {string} customVideoTitle if provided, overrides the video original title
  * @returns {*} JSX Object
  */
-function useVideoData(type, videoId) {
+function useVideoData(type, videoId, customVideoTitle) {
   const [videoTitle, setVideoTitle] = useState([
     { title: '', duration: '', key: 0 },
   ]);
@@ -42,7 +43,7 @@ function useVideoData(type, videoId) {
             true
           );
           return {
-            title: video.name,
+            title: customVideoTitle ? customVideoTitle : video.name,
             duration: time,
             key: vidId.key,
           };
@@ -50,7 +51,7 @@ function useVideoData(type, videoId) {
       );
       setVideoTitle(title);
     }
-  }, [type, videoId]);
+  }, [type, videoId, customVideoTitle]);
 
   return videoTitle;
 }
