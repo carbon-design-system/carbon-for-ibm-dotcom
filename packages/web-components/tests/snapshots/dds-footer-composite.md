@@ -9,7 +9,7 @@
   <dds-footer
     aria-label="footer"
     data-autoid="dds--footer"
-    role="footer"
+    role="contentinfo"
     size=""
   >
     <dds-footer-logo data-autoid="dds--footer-logo">
@@ -47,7 +47,7 @@
   <dds-footer
     aria-label="footer"
     data-autoid="dds--footer"
-    role="footer"
+    role="contentinfo"
     size=""
   >
     <dds-footer-logo data-autoid="dds--footer-logo">
