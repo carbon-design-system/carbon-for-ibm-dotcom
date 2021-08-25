@@ -10,8 +10,5 @@
 describe('VideoPlayer', () => {
   it('should load the default VideoPlayer example', () => {
     cy.visit('/VideoPlayer');
-
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('VideoPlayer | default');
   });
 });

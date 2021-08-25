@@ -1,16 +1,5 @@
 node_modules
 
-# react
-packages/react/coverage
-packages/react/es
-packages/react/examples
-packages/react/umd
-packages/react/lib
-packages/react/node_modules
-packages/react/storybook-static
-packages/react/ssr-tests/nextjs/.next
-packages/react/src/internal/vendor
-
 # storybook-addon-theme
 packages/storybook-addon-theme/es
 packages/storybook-addon-theme/node_modules
@@ -44,16 +33,3 @@ packages/utilities/es
 packages/utilities/umd
 packages/utilities/lib
 packages/utilities/node_modules
-
-# web-components
-packages/web-components/coverage
-packages/web-components/dist
-packages/web-components/es
-packages/web-components/examples
-packages/web-components/umd
-packages/web-components/lib
-packages/web-components/node_modules
-packages/web-components/storybook-static
-packages/web-components/storybook-static-react
-packages/web-components/src/internal/vendor
-packages/web-components/tests/e2e/dist

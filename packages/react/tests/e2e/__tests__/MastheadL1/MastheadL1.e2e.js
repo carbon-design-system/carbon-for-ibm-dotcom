@@ -8,6 +8,10 @@
 'use strict';
 
 describe('Masthead L1', () => {
+  beforeEach(() => {
+    cy.setTranslations();
+  });
+
   it('should load the default Masthead L1 example', () => {
     cy.visit('/MastheadL1');
 

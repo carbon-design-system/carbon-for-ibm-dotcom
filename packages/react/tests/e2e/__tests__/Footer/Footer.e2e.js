@@ -8,6 +8,10 @@
 'use strict';
 
 describe('Footer', () => {
+  beforeEach(() => {
+    cy.setTranslations();
+  });
+
   it('should load the default Footer example', () => {
     cy.visit('/Footer');
 

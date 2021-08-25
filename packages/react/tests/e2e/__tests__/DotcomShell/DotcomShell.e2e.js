@@ -8,6 +8,10 @@
 'use strict';
 
 describe('DotcomShell', () => {
+  beforeEach(() => {
+    cy.setTranslations();
+  });
+
   it('should load the default DotcomShell example', () => {
     cy.visit('/DotcomShell');
 
