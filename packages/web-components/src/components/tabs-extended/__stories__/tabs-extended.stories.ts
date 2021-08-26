@@ -39,7 +39,7 @@ export const Default = ({ parameters }) => {
       <dds-tab label="Fourth tab">
         <p>Content for fourth tab goes here.</p>
       </dds-tab>
-      <dds-tab label="Fifth tab (disabled)" disabled="true">
+      <dds-tab label="Fifth tab" disabled="true">
         <p>Content for fifth tab goes here.</p>
       </dds-tab>
     </dds-tabs-extended>

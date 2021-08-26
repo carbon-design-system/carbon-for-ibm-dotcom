@@ -90,8 +90,6 @@
           line-height: 1.375rem;
 
           @include type-style('body-short-02');
-
-          color: $text-02;
         }
         /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
       }
