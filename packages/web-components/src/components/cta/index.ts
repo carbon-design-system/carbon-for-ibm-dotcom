@@ -9,5 +9,6 @@
 
 import './button-cta';
 import './card-cta';
+import './card-link-cta';
 import './feature-cta';
 import './text-cta';
