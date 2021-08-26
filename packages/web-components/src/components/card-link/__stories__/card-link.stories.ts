@@ -20,7 +20,7 @@ export const Default = ({ parameters }) => {
   const { disabled, href, heading, copy } = parameters?.props?.CardLink ?? {};
   return html`
     <dds-card-link ?disabled=${disabled} href=${ifNonNull(href || undefined)}>
-      <dds-card-heading>${heading}</dds-card-heading>
+      <dds-card-link-heading>${heading}</dds-card-link-heading>
       ${copy
         ? html`
             <p>${copy}</p>

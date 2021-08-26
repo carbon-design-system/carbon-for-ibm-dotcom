@@ -1,7 +1,10 @@
 *.d.ts
+coverage
 dist
 es
+examples
 lib
+umd
 node_modules
 storybook-static
 storybook-static-react

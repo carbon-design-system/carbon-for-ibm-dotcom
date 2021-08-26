@@ -72,7 +72,7 @@ const App = () => (
       <div className="bx--col-sm-4 bx--col-lg-10">
         <h4>Text CTA</h4>
         <CTA type="local" {...ctaLocal} />
-        <CTA type="video" {...ctaLocal} />
+        <CTA type="video" {...ctaLocal} id="cta-video"/>
       </div>
     </div>
     <div className="bx--row">
