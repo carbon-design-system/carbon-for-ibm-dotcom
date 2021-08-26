@@ -9,6 +9,7 @@
 
 import { html } from 'lit-element';
 import '../index';
+import '../../card-group/index';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
 import { ORIENTATION } from '../defs';
@@ -16,11 +17,11 @@ import readme from './README.stories.mdx';
 
 const orientationType = {
   [`horizontal`]: ORIENTATION.HORIZONTAL,
-  [`Vertical`]: ORIENTATION.VERTICAL,
+  [`vertical`]: ORIENTATION.VERTICAL,
 };
 
 export const Default = ({ parameters }) => {
-  const { orientation } = parameters?.props?.['dds-tabs-extended'] ?? {};
+  const { orientation } = parameters?.props?.TabsExtended ?? {};
   return html`
     <dds-tabs-extended orientation="${ifNonNull(orientation)}">
       <dds-tab
@@ -59,7 +60,7 @@ export default {
     useRawContainer: true,
     hasGrid: true,
     knobs: {
-      'dds-tabs-extended': ({ groupId }) => ({
+      TabsExtended: ({ groupId }) => ({
         orientation: select('Orientation (orientation):', orientationType, ORIENTATION.HORIZONTAL, groupId),
       }),
     },
