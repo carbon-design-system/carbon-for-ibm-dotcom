@@ -12,6 +12,7 @@
 @import '@carbon/ibmdotcom-styles/scss/components/card-link/card-link';
 
 :host(#{$dds-prefix}-card-link),
+:host(#{$dds-prefix}-card-link-cta),
 :host(#{$dds-prefix}-link-list-item-card),
 :host(#{$dds-prefix}-link-list-item-card-cta) {
   .#{$prefix}--card {
