@@ -8,6 +8,7 @@
 @import '../button-group/button-group';
 @import '../link-with-icon/link-with-icon';
 @import '../feature-card/feature-card'; /* Covers regular card style, too */
+@import '../card-link/card-link.scss';
 
 .#{$dds-prefix}-ce--cta__icon {
   flex-shrink: 0;
