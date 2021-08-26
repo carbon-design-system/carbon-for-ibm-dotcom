@@ -144,32 +144,43 @@ class DDSDotcomShellComposite extends LitElement {
       this._masthead!.style.transition = 'none';
       const tocPosition = this._tableOfContentsInnerBar!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY;
 
-      if (this._masthead && window.scrollY < this._lastScrollPosition) {
+      if (window.scrollY < this._lastScrollPosition) {
         // On scroll up, show masthead
-        this._masthead.style.top = `0`;
-        this._tableOfContentsInnerBar!.style.top = `${this._masthead.getBoundingClientRect().height}px`;
-      } else if (this._tableOfContentsLayout === 'horizontal') {
-        const mastheadTop = Math.min(
-          0,
-          this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead!.offsetHeight
-        );
-        this._tableOfContentsInnerBar!.style.top = `${Math.max(Math.min(tocPosition, this._masthead!.offsetHeight), 0)}px`;
-        this._masthead!.style.top = `${mastheadTop}px`;
-      } else if (this._masthead?.querySelector(`${ddsPrefix}-masthead-l1`)) {
+        if (this._masthead) {
+          this._masthead.style.top = `0`;
+          this._tableOfContentsInnerBar!.style.top = `${this._masthead.getBoundingClientRect().height}px`;
+        }
+      } else {
+        if (this._tableOfContentsLayout === 'horizontal') {
+          const mastheadTop = Math.min(
+            0,
+            this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead!.offsetHeight
+          );
+          this._tableOfContentsInnerBar!.style.top = `${Math.max(Math.min(tocPosition, this._masthead!.offsetHeight), 0)}px`;
+          this._masthead!.style.top = `${mastheadTop}px`;
+        }
         /**
          * If l1 is present
          */
-
-        const mastheadl1 = this._masthead.querySelector(`${ddsPrefix}-masthead-l1`) as HTMLElement;
-        const mastheadTop = Math.min(0, this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead.offsetHeight);
-        this._tableOfContentsInnerBar!.style.top = `${Math.max(Math.min(tocPosition, this._masthead.offsetHeight), 0)}px`;
-        if (window.innerWidth < gridBreakpoint) {
-          this._masthead!.style.top = `${mastheadTop}px`;
-        } else {
-          this._masthead!.style.top = `${Math.max(
-            -Math.abs(this._masthead.offsetHeight - mastheadl1.offsetHeight),
-            mastheadTop
-          )}px`;
+        if (this._masthead?.querySelector(`${ddsPrefix}-masthead-l1`)) {
+          const mastheadl1 = this._masthead.querySelector(`${ddsPrefix}-masthead-l1`) as HTMLElement;
+          const mastheadTop = Math.min(
+            0,
+            this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead.offsetHeight
+          );
+          this._tableOfContentsInnerBar!.style.top = `0`;
+          if (window.innerWidth < gridBreakpoint) {
+            // small breakpoint only shows ToC
+            this._masthead!.style.top =
+              window.scrollY > this._tableOfContentsInnerBar!.getBoundingClientRect().top
+                ? `-${Math.abs(this._masthead.offsetHeight)}px`
+                : (this._masthead!.style.top = `0`);
+          } else {
+            this._masthead!.style.top = `${Math.max(
+              -Math.abs(this._masthead.offsetHeight - mastheadl1.offsetHeight),
+              mastheadTop
+            )}px`;
+          }
         }
       }
       this._lastScrollPosition = window.scrollY;
