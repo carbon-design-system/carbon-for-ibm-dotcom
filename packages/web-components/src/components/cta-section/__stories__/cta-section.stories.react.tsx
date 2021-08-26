@@ -174,7 +174,7 @@ export const WithContentItems = ({ parameters }) => {
 };
 
 WithContentItems.story = {
-  title: 'With content items',
+  name: 'With content items',
   parameters: {
     knobs: {
       CTASection: ({ groupId }) => ({
@@ -232,7 +232,7 @@ export const WithLinkList = ({ parameters }) => {
 };
 
 WithLinkList.story = {
-  title: 'With link list',
+  name: 'With link list',
   parameters: {
     knobs: {
       CTASection: ({ groupId }) => ({
@@ -245,7 +245,7 @@ WithLinkList.story = {
 };
 
 export default {
-  title: 'Components/CTA Section',
+  title: 'Components/CTA section',
   decorators: [
     story => {
       return (
