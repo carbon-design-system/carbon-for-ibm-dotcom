@@ -36,7 +36,6 @@ import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 
 import readme from './README.stories.react.mdx';
 import styles from './cta-section.stories.scss';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 import content from './content';
 
 const contentItemTypeMap = {
@@ -146,7 +145,7 @@ Simple.story = {
   parameters: {
     knobs: {
       CTASection: ({ groupId }) => ({
-        heading: textNullable('Heading (required)', 'Optional title heading-05 color text-01', groupId),
+        heading: 'Optional title heading-05 color text-01',
         copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
         border: boolean('CTA Block border', false, groupId),
       }),
@@ -178,7 +177,7 @@ WithContentItems.story = {
   parameters: {
     knobs: {
       CTASection: ({ groupId }) => ({
-        heading: textNullable('Heading (required)', 'Optional title heading-05 color text-01', groupId),
+        heading: 'Optional title heading-05 color text-01',
         copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
         border: boolean('CTA Block border', false, groupId),
       }),
@@ -236,7 +235,7 @@ WithLinkList.story = {
   parameters: {
     knobs: {
       CTASection: ({ groupId }) => ({
-        heading: textNullable('Heading (required)', 'Optional title heading-05 color text-01', groupId),
+        heading: 'Optional title heading-05 color text-01',
         copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
         border: boolean('CTA Block border', false, groupId),
       }),
