@@ -20,7 +20,6 @@ export { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME };
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
  * The table mapping slot name with the private property name that indicates the existence of the slot content.
