@@ -50,7 +50,6 @@ const items = [
 
 export default {
   title: 'Components|Link list',
-
   parameters: {
     ...readme.parameters,
   },
@@ -195,6 +194,7 @@ export const VerticalWithCards = ({ parameters }) => {
 };
 
 VerticalWithCards.story = {
+  name: 'Vertical with cards',
   parameters: {
     knobs: {
       LinkList: ({ groupId }) => ({
@@ -233,6 +233,7 @@ export const EndOfSection = ({ parameters }) => {
 };
 
 EndOfSection.story = {
+  name: 'End of section',
   parameters: {
     knobs: {
       LinkList: ({ groupId }) => ({
