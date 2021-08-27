@@ -56,8 +56,16 @@
       display: none;
     }
 
-    .bx--language-selector__container {
+    .#{$prefix}--language-selector__container {
       padding: 0;
+
+      input.bx--text-input[role='combobox'] {
+        border-left: 1px solid $ui-03;
+      }
+    }
+
+    .#{$prefix}--locale-btn__container {
+      flex-basis: auto;
     }
 
     .#{$prefix}--legal-nav {

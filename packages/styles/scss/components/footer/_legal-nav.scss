@@ -78,6 +78,9 @@
           .#{$prefix}--legal-nav__list-item {
             margin-right: 0;
             padding-top: 0;
+            height: $spacing-09;
+            display: flex;
+            align-items: center;
 
             @include carbon--breakpoint('md') {
               margin-right: $carbon--spacing-07;
@@ -87,7 +90,6 @@
               display: flex;
               align-items: center;
               width: 100%;
-              height: $carbon--spacing-09;
             }
           }
         }

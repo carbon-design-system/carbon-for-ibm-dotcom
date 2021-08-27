@@ -47,11 +47,15 @@
       .#{$prefix}--language-selector {
         max-width: 100%;
         width: 100%;
-        height: 3rem;
+        height: $spacing-09;
         margin-right: 0;
 
         .#{$prefix}--list-box__field {
           background-color: $ui-03;
+
+          input.bx--text-input[role='combobox'] {
+            background-color: $ui-background;
+          }
         }
 
         @include carbon--breakpoint('md') {
@@ -60,6 +64,10 @@
           .#{$prefix}--footer--short & {
             float: right;
           }
+        }
+
+        @include carbon--breakpoint('lg') {
+          margin-left: -16px;
         }
 
         // Expressive styles
