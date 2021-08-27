@@ -141,12 +141,11 @@ class DDSDotcomShellComposite extends LitElement {
     const l1Element = this._masthead!.querySelector(`${ddsPrefix}-masthead-l1`) as HTMLElement;
 
     if (this._tableOfContentsInnerBar && !this._localeModal?.hasAttribute('open')) {
+      const tocBoundingClient = this._tableOfContentsInnerBar!.getBoundingClientRect();
+
       if (this._tableOfContentsLayout === 'horizontal' || l1Element) {
-        const mastheadTop = Math.round(
-          Math.min(0, this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead!.offsetHeight)
-        );
-        const tocPosition =
-          this._tableOfContentsInnerBar!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY;
+        const mastheadTop = Math.round(Math.min(0, tocBoundingClient.top - this._masthead!.offsetHeight));
+        const tocPosition = tocBoundingClient.top + this._lastScrollPosition - window.scrollY;
         this._tableOfContentsInnerBar!.style.top = `${Math.max(Math.min(tocPosition, this._masthead!.offsetHeight), 0)}px`;
 
         if (window.innerWidth < gridBreakpoint) {
