@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "parcel serve -p 9000 index.html --no-hmr",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html --public-url ./"
   },
   "dependencies": {
     "@carbon/ibmdotcom-react": "latest",
@@ -22,10 +22,5 @@
   "resolutions": {
     "browserslist": "4.14.2",
     "caniuse-lite": "1.0.30001129"
-  },
-  "sass": {
-    "includePaths": [
-      "./node_modules"
-    ]
-  }
+    }
 }
