@@ -32,7 +32,7 @@
 
   .#{$prefix}--legal-nav__list {
     width: 100%;
-    padding: 0 0 $carbon--spacing-07 $carbon--spacing-05;
+    padding: 0 0 $spacing-09 $carbon--spacing-05;
     border-top: 1px solid $ui-03;
 
     @include carbon--breakpoint('lg') {
@@ -135,6 +135,7 @@
   }
 
   .#{$prefix}--legal-nav__holder {
+    padding-top: $spacing-03;
     margin-left: 0;
     @include carbon--breakpoint('md') {
       column-count: 2;

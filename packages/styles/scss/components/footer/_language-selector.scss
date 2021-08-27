@@ -123,6 +123,9 @@
     // <ComboBox /> for desktop
     .#{$prefix}--form-item {
       display: block;
+      select {
+        background-color: $ui-03;
+      }
 
       @include carbon--breakpoint('lg') {
         display: none;
