@@ -134,57 +134,47 @@ class DDSDotcomShellComposite extends LitElement {
   }
 
   /**
-   * Scrolls the masthead in/out of view depending on scroll direction
+   * Scrolls the masthead in/out of view depending on scroll direction if toc is present
    */
   private _handleIntersect = () => {
-    if (
-      (this._tableOfContentsInnerBar || (this._masthead && this._masthead.querySelector(`${ddsPrefix}-masthead-l1`))) &&
-      !this._localeModal?.hasAttribute('open')
-    ) {
-      this._masthead!.style.transition = 'none';
-      const tocPosition = this._tableOfContentsInnerBar!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY;
+    this._masthead!.style.transition = 'none';
+    const l1Element = this._masthead!.querySelector(`${ddsPrefix}-masthead-l1`) as HTMLElement;
 
-      if (window.scrollY < this._lastScrollPosition) {
-        // On scroll up, show masthead
-        if (this._masthead) {
-          this._masthead.style.top = `0`;
-          this._tableOfContentsInnerBar!.style.top = `${this._masthead.getBoundingClientRect().height}px`;
-        }
-      } else {
-        if (this._tableOfContentsLayout === 'horizontal') {
-          const mastheadTop = Math.min(
-            0,
-            this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead!.offsetHeight
-          );
+    if (this._tableOfContentsInnerBar && !this._localeModal?.hasAttribute('open')) {
+      if (this._tableOfContentsLayout === 'horizontal' || l1Element) {
+        const mastheadTop = Math.round(
+          Math.min(0, this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead!.offsetHeight)
+        );
+        const tocPosition =
+          this._tableOfContentsInnerBar!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY;
+        this._tableOfContentsInnerBar!.style.top = `${Math.max(Math.min(tocPosition, this._masthead!.offsetHeight), 0)}px`;
+
+        if (window.innerWidth < gridBreakpoint) {
+          // safari scroll bounce fix when choosing in ToC
+          if (this._tableOfContentsInnerBar!.style.top === '0px') {
+            this._masthead!.style.top = `-${this._masthead?.offsetHeight}px`;
+          } else {
+            this._masthead!.style.top = `${mastheadTop}px`;
+          }
+        } else if (l1Element) {
+          this._masthead!.style.top = `-${Math.min(
+            this._masthead!.offsetHeight - l1Element.offsetHeight,
+            Math.abs(mastheadTop)
+          )}px`;
+        } else if (this._tableOfContentsLayout === 'horizontal') {
           this._tableOfContentsInnerBar!.style.top = `${Math.max(Math.min(tocPosition, this._masthead!.offsetHeight), 0)}px`;
           this._masthead!.style.top = `${mastheadTop}px`;
-        }
-        /**
-         * If l1 is present
-         */
-        if (this._masthead?.querySelector(`${ddsPrefix}-masthead-l1`)) {
-          const mastheadl1 = this._masthead.querySelector(`${ddsPrefix}-masthead-l1`) as HTMLElement;
-          const mastheadTop = Math.min(
-            0,
-            this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead.offsetHeight
-          );
-          this._tableOfContentsInnerBar!.style.top = `0`;
-          if (window.innerWidth < gridBreakpoint) {
-            // small breakpoint only shows ToC
-            this._masthead!.style.top =
-              window.scrollY > this._tableOfContentsInnerBar!.getBoundingClientRect().top
-                ? `-${Math.abs(this._masthead.offsetHeight)}px`
-                : (this._masthead!.style.top = `0`);
-          } else {
-            this._masthead!.style.top = `${Math.max(
-              -Math.abs(this._masthead.offsetHeight - mastheadl1.offsetHeight),
-              mastheadTop
-            )}px`;
-          }
+        } else {
+          this._masthead!.style.top = '0';
         }
       }
-      this._lastScrollPosition = window.scrollY;
+    } else if (l1Element) {
+      this._masthead!.style.top = `-${Math.min(
+        this._masthead!.offsetHeight - l1Element.offsetHeight,
+        Math.abs(window.scrollY)
+      )}px`;
     }
+    this._lastScrollPosition = window.scrollY;
   };
 
   connectedCallback() {
