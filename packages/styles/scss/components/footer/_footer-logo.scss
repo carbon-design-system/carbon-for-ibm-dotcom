@@ -16,6 +16,9 @@
       $carbon--theme--g90,
       feature-flag-enabled('enable-css-custom-properties')
     ) {
+      &:focus-visible {
+        outline: none;
+      }
       @include carbon--make-col(2, 4);
 
       @include carbon--breakpoint('md') {
@@ -38,6 +41,8 @@
     display: inline-block;
 
     @include carbon--make-col-ready;
+
+    width: auto;
     &:focus {
       outline: none;
       box-shadow: inset 0 0 0 2px $focus;
