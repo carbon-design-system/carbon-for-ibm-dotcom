@@ -246,6 +246,7 @@ export const EndOfSection = ({ parameters }) => {
 };
 
 EndOfSection.story = {
+  name: 'End of section',
   parameters: {
     colLgClass: 'bx--col-lg-6',
     knobs: Default.story.parameters.knobs,

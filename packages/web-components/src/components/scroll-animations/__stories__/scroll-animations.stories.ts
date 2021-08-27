@@ -51,6 +51,10 @@ export const FadeOnce = () => {
   `;
 };
 
+FadeOnce.story = {
+  name: 'Fade once',
+};
+
 export const FadeWithContinuousAnimations = () => {
   return html`
     <style>
@@ -61,6 +65,10 @@ export const FadeWithContinuousAnimations = () => {
       ${StoryContent({ type: 'default' })}
     </dds-scroll-animations>
   `;
+};
+
+FadeWithContinuousAnimations.story = {
+  name: 'Fade with continuous animations',
 };
 
 export const SlideUp = () => {
@@ -75,6 +83,10 @@ export const SlideUp = () => {
   `;
 };
 
+SlideUp.story = {
+  name: 'Slide up',
+};
+
 export const SlideUpRight = () => {
   return html`
     <style>
@@ -85,6 +97,10 @@ export const SlideUpRight = () => {
       ${StoryContent({ type: 'default' })}
     </dds-scroll-animations>
   `;
+};
+
+SlideUpRight.story = {
+  name: 'Slide up right',
 };
 
 export const SlideRight = () => {
@@ -99,6 +115,10 @@ export const SlideRight = () => {
   `;
 };
 
+SlideRight.story = {
+  name: 'Slide right',
+};
+
 export const SlideDownRight = () => {
   return html`
     <style>
@@ -109,6 +129,10 @@ export const SlideDownRight = () => {
       ${StoryContent({ type: 'default' })}
     </dds-scroll-animations>
   `;
+};
+
+SlideDownRight.story = {
+  name: 'Slide down right',
 };
 
 export const SlideDown = () => {
@@ -123,6 +147,10 @@ export const SlideDown = () => {
   `;
 };
 
+SlideDown.story = {
+  name: 'Slide down',
+};
+
 export const SlideDownLeft = () => {
   return html`
     <style>
@@ -133,6 +161,10 @@ export const SlideDownLeft = () => {
       ${StoryContent({ type: 'default' })}
     </dds-scroll-animations>
   `;
+};
+
+SlideDownLeft.story = {
+  name: 'Slide down left',
 };
 
 export const SlideLeft = () => {
@@ -147,6 +179,10 @@ export const SlideLeft = () => {
   `;
 };
 
+SlideLeft.story = {
+  name: 'Slide left',
+};
+
 export const SlideUpLeft = () => {
   return html`
     <style>
@@ -157,6 +193,10 @@ export const SlideUpLeft = () => {
       ${StoryContent({ type: 'default' })}
     </dds-scroll-animations>
   `;
+};
+
+SlideUpLeft.story = {
+  name: 'Slide up left',
 };
 
 export default {
