@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+// @ts-nocheck
 import React from 'react';
 
 const content = () => (
