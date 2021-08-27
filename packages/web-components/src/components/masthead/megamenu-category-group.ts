@@ -37,11 +37,14 @@ class DDSMegaMenuCategoryGroup extends LitElement {
   @property({ reflect: true })
   title = '';
 
-  @property({ reflect: false })
-  currentUrlPath = '';
+  /**
+   * `true` if this group's icon link should represent its active state.
+   */
+  @property({ type: Boolean, reflect: true })
+  active = false;
 
   render() {
-    const { href, title, currentUrlPath } = this;
+    const { href, title, active } = this;
     return html`
       <div class="${prefix}--masthead__megamenu__category-group-shield">
         <div class="${prefix}--masthead__megamenu__category-group-content">
@@ -51,7 +54,7 @@ class DDSMegaMenuCategoryGroup extends LitElement {
                   href="${ifNonNull(href)}"
                   style-scheme="category-headline"
                   title="${title}"
-                  ?active="${href === currentUrlPath}"
+                  ?active="${active}"
                 >
                   <span>${title}</span>${ArrowRight16({ slot: 'icon' })}
                 </dds-megamenu-link-with-icon>

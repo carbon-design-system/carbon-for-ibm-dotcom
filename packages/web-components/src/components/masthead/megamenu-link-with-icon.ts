@@ -30,6 +30,9 @@ class DDSMegaMenuLinkWithIcon extends DDSLinkWithIcon {
   @property({ reflect: true, attribute: 'style-scheme' })
   styleScheme = MEGAMENU_LINK_WITH_ICON_STYLE_SCHEME.DEFAULT;
 
+  /**
+   * `true` if this link should represent its active state.
+   */
   @property({ type: Boolean, reflect: true })
   active = false;
 

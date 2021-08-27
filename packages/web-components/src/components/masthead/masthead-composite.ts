@@ -217,20 +217,22 @@ class DDSMastheadComposite extends LitElement {
         >
           ${menu.map((item, j) => {
             const autoid = `${ddsPrefix}--masthead__l0-nav-list${j + highlightedItems.length}`;
+            const iconLinkHighlight = item.url === currentUrlPath;
             return html`
               <dds-megamenu-category-group
                 data-autoid="${autoid}"
                 href="${item.url}"
                 title="${item.title}"
-                currentUrlPath="${currentUrlPath}"
+                ?active="${iconLinkHighlight}"
               >
                 ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
+                  const categoryLinkHighlight = url === currentUrlPath;
                   return html`
                     <dds-megamenu-category-link
                       data-autoid="${autoid}-item${key}"
                       title="${title}"
                       href="${url}"
-                      ?active="${url === currentUrlPath}"
+                      ?active="${iconLinkHighlight ? false : categoryLinkHighlight}"
                     >
                     </dds-megamenu-category-link>
                   `;
@@ -433,7 +435,7 @@ class DDSMastheadComposite extends LitElement {
     hasL1: boolean;
   }) {
     // const currentUrlPath= window.location.href;
-    const currentUrlPath = 'https://www.ibm.com/docs/en?lnk=hpmls_budc';
+    const currentUrlPath = 'https://www.ibm.com/cloud/ai';
     const { navLinks, l1Data } = this;
     let menu: MastheadLink[] | undefined = navLinks;
     const autoid = `${ddsPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
