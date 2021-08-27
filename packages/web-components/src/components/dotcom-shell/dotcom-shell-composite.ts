@@ -134,7 +134,7 @@ class DDSDotcomShellComposite extends LitElement {
   }
 
   /**
-   * Scrolls the masthead in/out of view depending on scroll direction if toc is present
+   * Scrolls the masthead in/out of view depending on scroll direction
    */
   private _handleIntersect = () => {
     this._masthead!.style.transition = 'none';
@@ -153,6 +153,8 @@ class DDSDotcomShellComposite extends LitElement {
           // safari scroll bounce fix when choosing in ToC
           if (this._tableOfContentsInnerBar!.style.top === '0px') {
             this._masthead!.style.top = `-${this._masthead?.offsetHeight}px`;
+          } else if (this._tableOfContentsInnerBar!.style.top === `${this._masthead!.offsetHeight}px`) {
+            this._masthead!.style.top = '0';
           } else {
             this._masthead!.style.top = `${mastheadTop}px`;
           }
