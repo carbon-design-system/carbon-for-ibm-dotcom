@@ -5,4 +5,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_scroll-into-view.scss';
+@import '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/scroll-into-view';
+
+body {
+  padding: 1rem 0;
+}
+
+.bx--row {
+  padding-top: 1rem;
+
+  h4 {
+    margin-top: 1rem;
+  }
+}
