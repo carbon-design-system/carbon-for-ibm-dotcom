@@ -21,7 +21,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { showCaption, aspectRatio, videoId, playingMode, caption } =
+  const { showCaption, aspectRatio, videoId, playingMode, caption, thumbnail } =
     parameters?.props?.VideoPlayer ?? {};
 
   return (
@@ -34,6 +34,7 @@ export const Default = ({ parameters }) => {
             aspectRatio={aspectRatio}
             playingMode={playingMode}
             caption={caption}
+            thumbnail={thumbnail}
           />
         </div>
       </div>
@@ -50,6 +51,7 @@ Default.story = {
         videoId: '1_9h94wo6b',
         playingMode: 'inline',
         caption: text('Caption (caption):', '', groupId),
+        thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
       }),
     },
   },
@@ -69,6 +71,7 @@ aspectRatio1x1.story = {
         videoId: '1_9h94wo6b',
         playingMode: 'inline',
         caption: text('Caption (caption):', '', groupId),
+        thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
       }),
     },
   },
@@ -88,6 +91,7 @@ aspectRatio4x3.story = {
         videoId: '1_9h94wo6b',
         playingMode: 'inline',
         caption: text('Caption (caption):', '', groupId),
+        thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
       }),
     },
   },
@@ -107,6 +111,7 @@ withLightboxMediaViewer.story = {
         videoId: '1_9h94wo6b',
         playingMode: 'lightbox',
         caption: text('Caption (caption):', '', groupId),
+        thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
       }),
     },
   },

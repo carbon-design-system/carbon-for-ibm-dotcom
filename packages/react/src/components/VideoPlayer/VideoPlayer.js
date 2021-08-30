@@ -29,6 +29,7 @@ const VideoPlayer = ({
   aspectRatio,
   playingMode,
   caption,
+  thumbnail,
 }) => {
   const [videoData, setVideoData] = useState({ description: '', name: '' });
 
@@ -78,6 +79,7 @@ const VideoPlayer = ({
           embedVideo={setEmbedVideo}
           playingMode={playingMode}
           onClick={() => setEmbedVideo(true)}
+          thumbnail={thumbnail}
         />
       </div>
       <LightboxMediaViewer
@@ -101,6 +103,7 @@ const VideoPlayer = ({
           videoData={videoData}
           embedVideo={setEmbedVideo}
           playingMode={playingMode}
+          thumbnail={thumbnail}
         />
       )}
     </div>
@@ -163,6 +166,11 @@ VideoPlayer.propTypes = {
    * Choose whether the video will be rendered inline or using the `LightboxMediaViewer`.
    */
   playingMode: PropTypes.oneOf(['inline', 'lightbox']),
+
+  /**
+   * Optional custom video thumbnail
+   */
+  thumbnail: PropTypes.string,
 };
 
 VideoPlayer.defaultProps = {
