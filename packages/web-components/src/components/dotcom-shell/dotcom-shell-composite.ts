@@ -134,23 +134,48 @@ class DDSDotcomShellComposite extends LitElement {
   }
 
   /**
-   * Scrolls the masthead in/out of view depending on scroll direction if toc is present
+   * Scrolls the masthead in/out of view depending on scroll direction
    */
   private _handleIntersect = () => {
+    this._masthead!.style.transition = 'none';
+    const l1Element = this._masthead!.querySelector(`${ddsPrefix}-masthead-l1`) as HTMLElement;
+
     if (this._tableOfContentsInnerBar && !this._localeModal?.hasAttribute('open')) {
-      if (window.innerWidth < gridBreakpoint || this._tableOfContentsLayout === 'horizontal') {
-        const mastheadTop = Math.min(
-          0,
-          this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead!.offsetHeight
-        );
-        const tocPosition =
-          this._tableOfContentsInnerBar!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY;
-        this._masthead!.style.transition = 'none';
+      const tocBoundingClient = this._tableOfContentsInnerBar!.getBoundingClientRect();
+
+      if (this._tableOfContentsLayout === 'horizontal' || l1Element) {
+        const mastheadTop = Math.round(Math.min(0, tocBoundingClient.top - this._masthead!.offsetHeight));
+        const tocPosition = tocBoundingClient.top + this._lastScrollPosition - window.scrollY;
         this._tableOfContentsInnerBar!.style.top = `${Math.max(Math.min(tocPosition, this._masthead!.offsetHeight), 0)}px`;
-        this._masthead!.style.top = `${mastheadTop}px`;
+
+        if (window.innerWidth < gridBreakpoint) {
+          // safari scroll bounce fix when choosing in ToC
+          if (this._tableOfContentsInnerBar!.style.top === '0px') {
+            this._masthead!.style.top = `-${this._masthead?.offsetHeight}px`;
+          } else if (this._tableOfContentsInnerBar!.style.top === `${this._masthead!.offsetHeight}px`) {
+            this._masthead!.style.top = '0';
+          } else {
+            this._masthead!.style.top = `${mastheadTop}px`;
+          }
+        } else if (l1Element) {
+          this._masthead!.style.top = `-${Math.min(
+            this._masthead!.offsetHeight - l1Element.offsetHeight,
+            Math.abs(mastheadTop)
+          )}px`;
+        } else if (this._tableOfContentsLayout === 'horizontal') {
+          this._tableOfContentsInnerBar!.style.top = `${Math.max(Math.min(tocPosition, this._masthead!.offsetHeight), 0)}px`;
+          this._masthead!.style.top = `${mastheadTop}px`;
+        } else {
+          this._masthead!.style.top = '0';
+        }
       }
-      this._lastScrollPosition = window.scrollY;
+    } else if (l1Element) {
+      this._masthead!.style.top = `-${Math.min(
+        this._masthead!.offsetHeight - l1Element.offsetHeight,
+        Math.abs(window.scrollY)
+      )}px`;
     }
+    this._lastScrollPosition = window.scrollY;
   };
 
   connectedCallback() {
