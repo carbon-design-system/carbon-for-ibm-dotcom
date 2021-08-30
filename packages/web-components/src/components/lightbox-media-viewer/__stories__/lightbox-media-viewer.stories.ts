@@ -108,6 +108,7 @@ export const EmbeddedVideoPlayer = ({ parameters }) => {
 };
 
 EmbeddedVideoPlayer.story = {
+  name: 'Embedded video player',
   parameters: {
     knobs: {
       LightboxVideoPlayerContainer: ({ groupId }) => ({
