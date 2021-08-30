@@ -109,11 +109,9 @@ const VideoPlayer = ({
     </div>
   );
 
-  const videoCaption = caption || `${videoData.name} ${videoDuration}`;
+  const videoCaption = `${caption || videoData.name} ${videoDuration}`;
   return (
-    <div
-      aria-label={`${videoData.name} ${videoDuration}`}
-      className={classnames}>
+    <div aria-label={videoCaption} className={classnames}>
       <div
         className={`${prefix}--video-player__video-container ${aspectRatioClass}`}
         data-autoid={`${stablePrefix}--video-player__video-${videoId}`}>
