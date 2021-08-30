@@ -28,6 +28,7 @@ const VideoPlayer = ({
   autoPlay,
   aspectRatio,
   playingMode,
+  caption,
 }) => {
   const [videoData, setVideoData] = useState({ description: '', name: '' });
 
@@ -105,6 +106,7 @@ const VideoPlayer = ({
     </div>
   );
 
+  const videoCaption = caption || `${videoData.name} ${videoDuration}`;
   return (
     <div
       aria-label={`${videoData.name} ${videoDuration}`}
@@ -116,7 +118,7 @@ const VideoPlayer = ({
       </div>
       {showCaption && (
         <div className={`${prefix}--video-player__video-caption`}>
-          {videoData.name} {videoDuration}
+          {videoCaption}
         </div>
       )}
     </div>
@@ -128,6 +130,7 @@ VideoPlayer.propTypes = {
    * `true` to autoplay the video on load
    */
   autoPlay: PropTypes.bool,
+
   /**
    * Override default aspect ratio of `16x9`.
    * Available aspect ratios:
@@ -135,6 +138,7 @@ VideoPlayer.propTypes = {
    * `16x9`, `9x16`, `2x1`, `1x2`, `4x3`, `3x4`, `1x1`
    */
   aspectRatio: PropTypes.string,
+
   /**
    * The CSS class name to apply.
    */
@@ -149,6 +153,11 @@ VideoPlayer.propTypes = {
    * `true` to show the description.
    */
   showCaption: PropTypes.bool,
+
+  /**
+   * Optional custom video caption
+   */
+  caption: PropTypes.string,
 
   /**
    * Choose whether the video will be rendered inline or using the `LightboxMediaViewer`.

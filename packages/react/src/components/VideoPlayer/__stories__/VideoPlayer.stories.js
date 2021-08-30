@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, text } from '@storybook/addon-knobs';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import VideoPlayer from '../VideoPlayer';
@@ -21,7 +21,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { showCaption, aspectRatio, videoId, playingMode } =
+  const { showCaption, aspectRatio, videoId, playingMode, caption } =
     parameters?.props?.VideoPlayer ?? {};
 
   return (
@@ -33,6 +33,7 @@ export const Default = ({ parameters }) => {
             showCaption={showCaption}
             aspectRatio={aspectRatio}
             playingMode={playingMode}
+            caption={caption}
           />
         </div>
       </div>
@@ -48,27 +49,27 @@ Default.story = {
         aspectRatio: 'default',
         videoId: '1_9h94wo6b',
         playingMode: 'inline',
+        caption: text('Caption (caption):', '', groupId),
       }),
     },
   },
 };
 
-export const aspectRatio1x1 = ({ parameters }) => {
-  return <Default parameters={parameters} />;
-};
+export const aspectRatio1x1 = ({ parameters }) => (
+  <Default parameters={parameters} />
+);
 
 aspectRatio1x1.story = {
   name: 'Aspect ratio 1:1',
   parameters: {
     knobs: {
-      VideoPlayer: ({ groupId }) => {
-        return {
-          showCaption: boolean('Show caption (showCaption):', true, groupId),
-          aspectRatio: '1x1',
-          videoId: '1_9h94wo6b',
-          playingMode: 'inline',
-        };
-      },
+      VideoPlayer: ({ groupId }) => ({
+        showCaption: boolean('Show caption (showCaption):', true, groupId),
+        aspectRatio: '1x1',
+        videoId: '1_9h94wo6b',
+        playingMode: 'inline',
+        caption: text('Caption (caption):', '', groupId),
+      }),
     },
   },
 };
@@ -81,14 +82,13 @@ aspectRatio4x3.story = {
   name: 'Aspect ratio 4:3',
   parameters: {
     knobs: {
-      VideoPlayer: ({ groupId }) => {
-        return {
-          showCaption: boolean('Show caption (showCaption):', true, groupId),
-          aspectRatio: '4x3',
-          videoId: '1_9h94wo6b',
-          playingMode: 'inline',
-        };
-      },
+      VideoPlayer: ({ groupId }) => ({
+        showCaption: boolean('Show caption (showCaption):', true, groupId),
+        aspectRatio: '4x3',
+        videoId: '1_9h94wo6b',
+        playingMode: 'inline',
+        caption: text('Caption (caption):', '', groupId),
+      }),
     },
   },
 };
@@ -106,6 +106,7 @@ withLightboxMediaViewer.story = {
         aspectRatio: 'default',
         videoId: '1_9h94wo6b',
         playingMode: 'lightbox',
+        caption: text('Caption (caption):', '', groupId),
       }),
     },
   },
