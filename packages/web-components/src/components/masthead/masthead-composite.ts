@@ -400,23 +400,30 @@ class DDSMastheadComposite extends LitElement {
   }
 
   /**
-   * @param sections megamenu section links
-   * @param currentUrlPath current url path
-   * @returns true or false
+   * @returns function that returns true or false
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _hasChildLink(sections, currentUrlPath) {
-    const { menuItems } = sections[0];
+  protected _childLinkChecker() {
+    let matchFound = false;
 
-    for (let i = 0; i < menuItems.length; i++) {
-      if (
-        menuItems[i]?.url === currentUrlPath ||
-        menuItems[i]?.megapanelContent?.quickLinks?.links?.filter(link => link.url === currentUrlPath).length
-      ) {
-        return true;
+    return (sections, currentUrlPath) => {
+      if (!matchFound) {
+        if (sections.length) {
+          const { menuItems } = sections[0];
+
+          for (let i = 0; i < menuItems.length; i++) {
+            if (
+              menuItems[i]?.url === currentUrlPath ||
+              menuItems[i]?.megapanelContent?.quickLinks?.links?.filter(link => link.url === currentUrlPath).length
+            ) {
+              matchFound = true;
+            }
+          }
+        }
+
+        return matchFound;
       }
-    }
-    return false;
+    };
   }
 
   /**
@@ -434,8 +441,9 @@ class DDSMastheadComposite extends LitElement {
     target: NAV_ITEMS_RENDER_TARGET;
     hasL1: boolean;
   }) {
-    // const currentUrlPath= window.location.href;
-    const currentUrlPath = 'https://www.ibm.com/cloud/ai';
+    // const currentUrlPath = window.location.href;
+    const currentUrlPath = 'https://www.ibm.com/analytics/data-science';
+    const hasChildLink = this._childLinkChecker();
     const { navLinks, l1Data } = this;
     let menu: MastheadLink[] | undefined = navLinks;
     const autoid = `${ddsPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
@@ -448,7 +456,8 @@ class DDSMastheadComposite extends LitElement {
         ? undefined
         : menu.map((link, i) => {
             const { menuSections = [], title, titleEnglish, url } = link;
-            const selected = selectedMenuItem && titleEnglish === selectedMenuItem;
+            // const selected = selectedMenuItem && titleEnglish === selectedMenuItem;
+            const selected = hasChildLink(menuSections, currentUrlPath);
             let sections;
             if (link.hasMegapanel) {
               sections = this._renderMegaMenu(menuSections, currentUrlPath);
@@ -460,6 +469,7 @@ class DDSMastheadComposite extends LitElement {
                   ({ title: menuItemTitle, url: menuItemUrl }, j) =>
                     html`
                       <dds-top-nav-menu-item
+                        ?active="${menuItemUrl === currentUrlPath}"
                         href="${menuItemUrl}"
                         title="${menuItemTitle}"
                         data-autoid="${autoid}-nav--subnav-col${i}-item${j}"
@@ -470,7 +480,7 @@ class DDSMastheadComposite extends LitElement {
             if (sections.length === 0) {
               return html`
                 <dds-top-nav-item
-                  ?active="${selected}"
+                  ?active="${url === currentUrlPath}"
                   href="${url}"
                   title="${title}"
                   data-autoid="${autoid}-nav--nav${i}"
@@ -480,7 +490,7 @@ class DDSMastheadComposite extends LitElement {
             if (link.hasMegapanel) {
               return html`
                 <dds-megamenu-top-nav-menu
-                  ?active="${this._hasChildLink(menuSections, currentUrlPath)}"
+                  ?active="${selected}"
                   menu-label="${title}"
                   trigger-content="${title}"
                   data-autoid="${autoid}-nav--nav${i}"

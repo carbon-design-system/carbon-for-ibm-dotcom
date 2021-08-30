@@ -458,7 +458,8 @@
 }
 
 :host(#{$dds-prefix}-megamenu-link-with-icon),
-:host(#{$dds-prefix}-megamenu-category-link) {
+:host(#{$dds-prefix}-megamenu-category-link),
+:host(#{$dds-prefix}-top-nav-menu-item) {
   &[active] a {
     background-color: $hover-ui;
     text-decoration: none;
