@@ -16,7 +16,6 @@ import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|Footer',
-
   parameters: {
     ...readme.parameters,
     'carbon-theme': { disabled: true },
@@ -105,6 +104,7 @@ export const DefaultWithAdjunctLegalLinks = ({ parameters }) => {
 };
 
 DefaultWithAdjunctLegalLinks.story = {
+  name: 'Default with adjunct legal links',
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {
@@ -135,6 +135,7 @@ export const DefaultLanguageOnly = ({ parameters }) => {
 };
 
 DefaultLanguageOnly.story = {
+  name: 'Default language only',
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {
@@ -245,6 +246,7 @@ export const ShortWithAdjunctLegalLinks = ({ parameters }) => {
 };
 
 ShortWithAdjunctLegalLinks.story = {
+  name: 'Short with adjunct legal links',
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {
@@ -300,6 +302,7 @@ export const ShortLanguageOnly = ({ parameters }) => {
 };
 
 ShortLanguageOnly.story = {
+  name: 'Short language only',
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {
@@ -402,6 +405,7 @@ export const MicroLanguageOnly = ({ parameters }) => {
 };
 
 MicroLanguageOnly.story = {
+  name: 'Micro language only',
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {

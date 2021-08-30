@@ -95,7 +95,7 @@ import readme from '../README.stories.mdx';
 export default !DDS_MY_COMPONENT
   ? undefined
   : {
-      title: 'Components|MyComponent',
+      title: 'Components|My component',
       parameters: {
         ...readme.parameters,
         knobs: {

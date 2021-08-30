@@ -82,7 +82,6 @@ const simpleItems = ContentGroupSimpleKnobs.items;
 
 export default {
   title: 'Components|Content block mixed',
-
   parameters: {
     ...readme.parameters,
   },

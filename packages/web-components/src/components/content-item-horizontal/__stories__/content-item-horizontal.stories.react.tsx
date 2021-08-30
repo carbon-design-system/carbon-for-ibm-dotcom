@@ -127,6 +127,7 @@ export const withThumbnail = ({ parameters }) => {
 };
 
 withThumbnail.story = {
+  name: 'With thumbnail',
   parameters: {
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal-thumbnail',
     knobs: {
@@ -174,6 +175,7 @@ export const withMedia = ({ parameters }) => {
 };
 
 withMedia.story = {
+  name: 'With media',
   parameters: {
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal-media',
     knobs: {
