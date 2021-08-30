@@ -3,7 +3,7 @@ name: Contribution Request 💓
 about: Contribute things large and small—of code, design, ideas, and guidance.
 title: ''
 labels: contribution
-assignees: jeffchew, ljcarot, shixiedesign, RobertaJHahn, photodow, kennylam, emyarod
+assignees: jeffchew, ljcarot, shixiedesign, RobertaJHahn, RichKummer, ariellalgilmore, IgnacioBecerra
 
 ---
 
