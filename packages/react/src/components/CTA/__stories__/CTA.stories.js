@@ -28,7 +28,7 @@ const urlBy = {
 };
 
 const miscCTAData = {
-  text({ type }) {
+  text({ type, customVideoTitle, customVideoDescription }) {
     return {
       type: type,
       href: urlBy[type],
@@ -36,10 +36,12 @@ const miscCTAData = {
       media: {
         src: '1_9h94wo6b',
         type: 'video',
+        title: customVideoTitle,
+        description: customVideoDescription,
       },
     };
   },
-  card({ type }) {
+  card({ type, customVideoTitle, customVideoDescription }) {
     return {
       copy: type !== 'video' ? copy[0] : '',
       cta: {
@@ -48,10 +50,12 @@ const miscCTAData = {
       media: {
         src: '1_9h94wo6b',
         type: 'video',
+        title: customVideoTitle,
+        description: customVideoDescription,
       },
     };
   },
-  feature({ type }) {
+  feature({ type, customVideoTitle, customVideoDescription }) {
     return {
       heading: copy[0],
       card: {
@@ -62,6 +66,8 @@ const miscCTAData = {
           media: {
             src: '1_9h94wo6b',
             type: 'video',
+            title: customVideoTitle,
+            description: customVideoDescription,
           },
         },
         image: {
@@ -179,11 +185,27 @@ Text.story = {
           placement[1],
           groupId
         );
+
+        const customVideoTitle =
+          knobs.type === 'video'
+            ? text('Custom video title', 'Custom video title', groupId)
+            : null;
+        const customVideoDescription =
+          knobs.type === 'video'
+            ? text(
+                'Custom video description',
+                'Custom video description',
+                groupId
+              )
+            : null;
         return {
           ...knobs,
           iconPlacement,
-
-          ...miscCTAData['text']({ type: knobs.type }),
+          ...miscCTAData['text']({
+            type: knobs.type,
+            customVideoTitle,
+            customVideoDescription,
+          }),
         };
       },
     },
@@ -260,9 +282,26 @@ Card.story = {
     knobs: {
       CTA: ({ groupId }) => {
         const type = select('type', types, types[0], groupId);
+
+        const customVideoTitle =
+          type === 'video'
+            ? text('Custom video title', 'Custom video title', groupId)
+            : null;
+        const customVideoDescription =
+          type === 'video'
+            ? text(
+                'Custom video description',
+                'Custom video description',
+                groupId
+              )
+            : null;
         return {
           type,
-          ...miscCTAData['card']({ type }),
+          ...miscCTAData['card']({
+            type,
+            customVideoTitle,
+            customVideoDescription,
+          }),
         };
       },
     },
@@ -309,10 +348,27 @@ Feature.story = {
           'Explore AI use cases in all industries',
           groupId
         );
+
+        const customVideoTitle =
+          type === 'video'
+            ? text('Custom video title', 'Custom video title', groupId)
+            : null;
+        const customVideoDescription =
+          type === 'video'
+            ? text(
+                'Custom video description',
+                'Custom video description',
+                groupId
+              )
+            : null;
         return {
           featureHeading,
           type,
-          ...miscCTAData['feature']({ type }),
+          ...miscCTAData['feature']({
+            type,
+            customVideoTitle,
+            customVideoDescription,
+          }),
         };
       },
     },
