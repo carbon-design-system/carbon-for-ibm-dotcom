@@ -5,7 +5,6 @@ on:
     branches:
       - master
       - release/*
-      - feat/expressive-sunset
 
 jobs:
   react:
