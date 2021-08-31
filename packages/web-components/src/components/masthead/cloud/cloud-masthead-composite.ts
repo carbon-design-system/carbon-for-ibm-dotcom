@@ -89,7 +89,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
    *  Render MegaMenu content
    *
    * @param sections menu section data object
-   *  @param parentKey parent key
+   * @param parentKey parent key
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderMegaMenu(sections, parentKey) {
