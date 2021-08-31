@@ -45,7 +45,7 @@ Default.story = {
 };
 
 export default {
-  title: 'Components/Card Link',
+  title: 'Components/Card link',
   decorators: [
     story => {
       return <div className="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--card">{story()}</div>;

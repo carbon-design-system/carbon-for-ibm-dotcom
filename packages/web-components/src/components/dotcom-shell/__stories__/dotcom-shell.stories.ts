@@ -223,6 +223,7 @@ export const DefaultFooterLanguageOnly = ({ parameters }) => {
   `;
 };
 DefaultFooterLanguageOnly.story = {
+  name: 'Default footer language only',
   parameters: {
     knobs: {
       FooterComposite: ({ groupId }) => ({
@@ -306,6 +307,10 @@ export const searchOpenOnload = ({ parameters }) => {
   `;
 };
 
+searchOpenOnload.story = {
+  name: 'Search open onload',
+};
+
 export const withPlatform = ({ parameters }) => {
   const {
     hasProfile,
@@ -373,6 +378,7 @@ export const withPlatform = ({ parameters }) => {
 };
 
 withPlatform.story = {
+  name: 'With platform',
   parameters: {
     knobs: {
       MastheadComposite: ({ groupId }) => ({
@@ -455,6 +461,10 @@ export const withShortFooter = ({ parameters }) => {
   `;
 };
 
+withShortFooter.story = {
+  name: 'With short footer',
+};
+
 export const withShortFooterLanguageOnly = ({ parameters }) => {
   const {
     platform,
@@ -534,6 +544,7 @@ export const withShortFooterLanguageOnly = ({ parameters }) => {
   `;
 };
 withShortFooterLanguageOnly.story = {
+  name: 'With short footer language only',
   parameters: {
     knobs: {
       FooterComposite: ({ groupId }) => ({
@@ -612,6 +623,8 @@ export const withMicroFooter = ({ parameters }) => {
         `}
   `;
 };
+
+withMicroFooter.story = { name: 'With micro footer' };
 
 export const withMicroFooterLanguageOnly = ({ parameters }) => {
   const {
@@ -692,6 +705,7 @@ export const withMicroFooterLanguageOnly = ({ parameters }) => {
 };
 
 withMicroFooterLanguageOnly.story = {
+  name: 'With micro footer language only',
   parameters: {
     knobs: {
       FooterComposite: ({ groupId }) => ({
@@ -772,6 +786,7 @@ export const withL1 = ({ parameters }) => {
 };
 
 withL1.story = {
+  name: 'With L1',
   parameters: {
     knobs: {
       DotcomShell: ({ groupId }) => ({

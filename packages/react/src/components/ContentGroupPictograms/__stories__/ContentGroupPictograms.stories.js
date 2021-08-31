@@ -55,7 +55,6 @@ const toggleCTA = item => {
 
 export default {
   title: 'Components|Content group pictograms',
-
   parameters: {
     ...readme.parameters,
     knobs: {

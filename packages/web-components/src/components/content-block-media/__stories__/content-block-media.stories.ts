@@ -247,6 +247,7 @@ export const withLinkList = ({ parameters }) => {
 };
 
 withLinkList.story = {
+  name: 'With link list',
   parameters: {
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout--with-complementary',
     knobs: {
