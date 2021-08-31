@@ -91,6 +91,12 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   embeddedVideos?: { [videoId: string]: any };
 
   /**
+   * An optional custom video caption.
+   */
+  @property()
+  caption?: '';
+
+  /**
    * The formatter for the video caption, composed with the video name and the video duration.
    * Should be changed upon the locale the UI is rendered with.
    */
@@ -159,6 +165,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
       formatCaption,
       formatDuration,
       hideCaption,
+      caption,
       mediaData = {},
       videoId,
       videoThumbnailWidth,
@@ -174,7 +181,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
       <dds-video-player
         duration="${ifNonNull(duration)}"
         ?hide-caption=${hideCaption}
-        name="${ifNonNull(name)}"
+        name="${ifNonNull(caption || name)}"
         thumbnail-url="${ifNonNull(thumbnailUrl)}"
         video-id="${ifNonNull(videoId)}"
         aspect-ratio="${ifNonNull(aspectRatio)}"
