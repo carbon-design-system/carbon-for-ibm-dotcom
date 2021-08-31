@@ -53,6 +53,7 @@ import '../../callout-with-media/callout-with-media-video';
 import readme from './README.stories.mdx';
 import StoryContent from './data/content';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+import { TOC_TYPES } from '../../table-of-contents/defs';
 
 const userStatuses = {
   authenticated: 'test.user@ibm.com',
@@ -735,7 +736,7 @@ export const withL1 = ({ parameters }) => {
   const contentConfig = {
     l1: true,
     leadspace: false,
-    tocLayout: '',
+    tocLayout: TOC_TYPES.DEFAULT,
   };
   return html`
     <style>
@@ -821,7 +822,7 @@ export const WithHorizontalTOC = ({ parameters }) => {
   const contentConfig = {
     l1: false,
     leadspace: true,
-    tocLayout: 'horizontal',
+    tocLayout: TOC_TYPES.HORIZONTAL,
   };
   return html`
     <style>
