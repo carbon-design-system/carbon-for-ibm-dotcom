@@ -14,19 +14,20 @@ import '../video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
 
 export const Default = ({ parameters }) => {
-  const { caption, hideCaption, videoId } = parameters?.props?.VideoPlayer ?? {};
+  const { caption, hideCaption, thumbnail, videoId } = parameters?.props?.VideoPlayer ?? {};
   return html`
     <dds-video-player-container
       playing-mode="inline"
       video-id=${videoId}
       caption=${caption}
       ?hide-caption=${hideCaption}
+      thumbnail=${thumbnail}
     ></dds-video-player-container>
   `;
 };
 
 export const aspectRatio1x1 = ({ parameters }) => {
-  const { aspectRatio, caption, hideCaption, videoId } = parameters?.props?.VideoPlayer ?? {};
+  const { aspectRatio, caption, hideCaption, thumbnail, videoId } = parameters?.props?.VideoPlayer ?? {};
   return html`
     <dds-video-player-container
       playing-mode="inline"
@@ -34,12 +35,13 @@ export const aspectRatio1x1 = ({ parameters }) => {
       aspect-ratio=${aspectRatio}
       caption=${caption}
       ?hide-caption=${hideCaption}
+      thumbnail=${thumbnail}
     ></dds-video-player-container>
   `;
 };
 
 export const aspectRatio4x3 = ({ parameters }) => {
-  const { aspectRatio, caption, hideCaption, videoId } = parameters?.props?.VideoPlayer ?? {};
+  const { aspectRatio, caption, hideCaption, thumbnail, videoId } = parameters?.props?.VideoPlayer ?? {};
   return html`
     <dds-video-player-container
       playing-mode="inline"
@@ -47,18 +49,20 @@ export const aspectRatio4x3 = ({ parameters }) => {
       aspect-ratio=${aspectRatio}
       caption=${caption}
       ?hide-caption=${hideCaption}
+      thumbnail=${thumbnail}
     ></dds-video-player-container>
   `;
 };
 
 export const withLightboxMediaViewer = ({ parameters }) => {
-  const { aspectRatio, caption, hideCaption, videoId } = parameters?.props?.VideoPlayer ?? {};
+  const { aspectRatio, caption, hideCaption, thumbnail, videoId } = parameters?.props?.VideoPlayer ?? {};
   return html`
     <dds-video-player-container
       video-id=${videoId}
       aspect-ratio=${aspectRatio}
       caption=${caption}
       ?hide-caption=${hideCaption}
+      thumbnail=${thumbnail}
       playing-mode="lightbox"
     >
     </dds-video-player-container>
@@ -75,6 +79,7 @@ aspectRatio4x3.story = {
           aspectRatio: '4x3',
           caption: text('Custom caption (caption):', '', groupId),
           hideCaption: boolean('Hide caption (hideCaption):', false, groupId),
+          thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
           videoId: '1_9h94wo6b',
         };
       },
@@ -91,6 +96,7 @@ aspectRatio1x1.story = {
           aspectRatio: '1x1',
           caption: text('Custom caption (caption):', '', groupId),
           hideCaption: boolean('Hide caption (hideCaption):', false, groupId),
+          thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
           videoId: '1_9h94wo6b',
         };
       },
@@ -107,6 +113,7 @@ withLightboxMediaViewer.story = {
           aspectRatio: '16x9',
           caption: text('Custom caption (caption):', '', groupId),
           hideCaption: boolean('Hide caption (hideCaption):', false, groupId),
+          thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
           videoId: '1_9h94wo6b',
         };
       },
@@ -133,6 +140,7 @@ export default {
       VideoPlayer: ({ groupId }) => ({
         caption: text('Custom caption (caption):', '', groupId),
         hideCaption: boolean('Hide caption (hideCaption):', false, groupId),
+        thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
         videoId: '1_9h94wo6b',
       }),
     },

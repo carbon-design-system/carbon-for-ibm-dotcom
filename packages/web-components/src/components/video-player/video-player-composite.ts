@@ -91,9 +91,9 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   embeddedVideos?: { [videoId: string]: any };
 
   /**
-   * An optional custom video caption.
+   * Optional custom video caption.
    */
-  @property()
+  @property({ reflect: true, attribute: 'caption' })
   caption?: '';
 
   /**
@@ -141,6 +141,12 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   playingMode = VIDEO_PLAYER_PLAYING_MODE.INLINE;
 
   /**
+   * Optional custom video thumbnail
+   */
+  @property({ reflect: true, attribute: 'thumbnail' })
+  thumbnail?: '';
+
+  /**
    * The video thumbnail width.
    */
   @property({ type: Number, attribute: 'video-thumbnail-width' })
@@ -169,14 +175,17 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
       mediaData = {},
       videoId,
       videoThumbnailWidth,
+      thumbnail,
       playingMode,
     } = this;
     const { [videoId]: currentVideoData = {} as MediaData } = mediaData;
     const { duration, name } = currentVideoData;
-    const thumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
-      mediaId: videoId,
-      width: String(videoThumbnailWidth),
-    });
+    const thumbnailUrl =
+      thumbnail ||
+      KalturaPlayerAPI.getThumbnailUrl({
+        mediaId: videoId,
+        width: String(videoThumbnailWidth),
+      });
     return html`
       <dds-video-player
         duration="${ifNonNull(duration)}"
