@@ -202,6 +202,7 @@ export const ShortWithImage = ({ parameters }) => {
 };
 
 ShortWithImage.story = {
+  name: 'Short with image',
   parameters: {
     knobs: {
       LeadSpace: ({ groupId }) => ({
