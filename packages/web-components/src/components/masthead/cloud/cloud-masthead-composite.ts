@@ -111,10 +111,10 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           view-all-href="${ifNonNull(viewAllLink?.url)}"
           view-all-title="${ifNonNull(viewAllLink?.title)}"
         >
-          <dds-cloud-megamenu-tabs value="${sortedMenuItems[0]?.itemKey}">
+          <dds-cloud-megamenu-tabs value="${sortedMenuItems[0]?.title}">
             ${sortedMenuItems.map(item => {
               return html`
-                <dds-cloud-megamenu-tab id="tab-${item.itemKey}" target="panel-${item.itemKey}" value="${item.itemKey}"
+                <dds-cloud-megamenu-tab id="tab-${item.itemKey}" target="panel-${item.itemKey}" value="${item.title}"
                   >${item.title}</dds-cloud-megamenu-tab
                 >
               `;
