@@ -8,6 +8,7 @@
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import logosGroup from '../../../logo-grid/__stories__/data/logos.js';
+import { TOC_TYPES } from '../../../table-of-contents/defs';
 
 import imgSm16x9 from '../../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
 import imgMd16x9 from '../../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
@@ -16,8 +17,6 @@ import imgLg1x1 from '../../../../../../storybook-images/assets/720/fpo--1x1--72
 import imgXlg4x3 from '../../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 
 import leadspaceImg from '../../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
-
-import { TOC_TYPES } from '../../../table-of-contents/defs.ts';
 
 const image = html`
   <dds-image-with-caption
@@ -265,7 +264,7 @@ const StoryContent = (
   config = {
     l1: false,
     leadspace: false,
-    tocLayout: '',
+    tocLayout: TOC_TYPES.DEFAULT,
   }
 ) => {
   const mainClasses = [
