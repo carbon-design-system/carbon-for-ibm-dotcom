@@ -89,23 +89,20 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
    *  Render MegaMenu content
    *
    * @param sections menu section data object
+   *  @param parentKey parent key
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _renderMegaMenu(sections) {
+  protected _renderMegaMenu(sections, parentKey) {
     let viewAllLink;
     type menuItem = MastheadMenuItem & { itemKey: String };
     const sortedMenuItems: menuItem[] = [];
-    sections[0].menuItems?.forEach(item => {
+    sections[0].menuItems?.forEach((item, i) => {
       if (item.megaPanelViewAll) {
         viewAllLink = item;
         return viewAllLink;
       }
-      const title = item.title
-        .replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')
-        .replace(/ +/g, '-')
-        .toLowerCase();
 
-      return sortedMenuItems.push({ ...item, itemKey: title });
+      return sortedMenuItems.push({ ...item, itemKey: `${parentKey}-${i}` });
     });
 
     return html`
