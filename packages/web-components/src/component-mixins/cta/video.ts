@@ -113,7 +113,7 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       super.updated(changedProperties);
       const { ctaType } = this;
       if (changedProperties.has('ctaType') && ctaType === CTA_TYPE.VIDEO) {
-        const { href, videoDuration } = this;
+        const { href, videoDuration, videoName } = this;
         if (typeof videoDuration === 'undefined') {
           const { eventRequestVideoData } = this.constructor as typeof VideoCTAMixinImpl;
           this.dispatchEvent(
@@ -123,6 +123,7 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
               composed: true,
               detail: {
                 href,
+                videoName,
               },
             })
           );

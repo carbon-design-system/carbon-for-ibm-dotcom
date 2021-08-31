@@ -55,12 +55,16 @@ class DDSTextCTA extends VideoCTAMixin(CTAMixin(DDSLinkWithIcon)) {
       videoName,
       formatVideoCaption: formatVideoCaptionInEffect,
       formatVideoDuration: formatVideoDurationInEffect,
+      customTitleVideo,
     } = this;
+
+    const videoTitle = customTitleVideo || videoName;
+
     const caption = hasContent
       ? undefined
       : formatVideoCaptionInEffect({
           duration: formatVideoDurationInEffect({ duration: !videoDuration ? videoDuration : videoDuration * 1000 }),
-          name: videoName,
+          name: videoTitle,
         });
     return html`
       <span><slot @slotchange="${this._handleSlotChange}"></slot>${caption}</span>
@@ -72,6 +76,12 @@ class DDSTextCTA extends VideoCTAMixin(CTAMixin(DDSLinkWithIcon)) {
    */
   @property({ reflect: true, attribute: 'cta-type' })
   ctaType = CTA_TYPE.REGULAR;
+
+  /**
+   *
+   */
+  @property({ reflect: true, attribute: 'custom-video-title' })
+  customTitleVideo?: string;
 
   /**
    * The formatter for the video caption, composed with the video name and the video duration.

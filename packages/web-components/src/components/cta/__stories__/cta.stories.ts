@@ -66,9 +66,14 @@ const types = {
 };
 
 export const Text = ({ parameters }) => {
-  const { copy, ctaType, download, href } = parameters?.props?.TextCTA ?? {};
+  const { copy, ctaType, download, href, customVideoTitle } = parameters?.props?.TextCTA ?? {};
   return html`
-    <dds-text-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${ifNonNull(href)}">
+    <dds-text-cta
+      cta-type="${ifNonNull(ctaType)}"
+      custom-video-title="${ifNonNull(customVideoTitle)}"
+      download="${ifNonNull(download)}"
+      href="${ifNonNull(href)}"
+    >
       ${copy}
     </dds-text-cta>
   `;
@@ -84,10 +89,15 @@ Text.story = {
           ctaType !== CTA_TYPE.DOWNLOAD
             ? undefined
             : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
+
+        const customVideoTitle =
+          ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video title', 'Custom video title', groupId) : null;
+
         return {
           copy,
           ctaType,
           download,
+          customVideoTitle,
           href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR], groupId),
         };
       },
@@ -133,10 +143,15 @@ Button.story = {
 };
 
 export const Card = ({ parameters }) => {
-  const { copy, ctaType, download, href } = parameters?.props?.CardCTA ?? {};
+  const { copy, ctaType, download, href, customVideoTitle } = parameters?.props?.CardCTA ?? {};
   const { copy: footerCopy, download: footerDownload, href: footerHref } = parameters?.props?.CardCTAFooter ?? {};
   return html`
-    <dds-card-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${ifNonNull(href)}">
+    <dds-card-cta
+      cta-type="${ifNonNull(ctaType)}"
+      video-name="${ifNonNull(customVideoTitle)}"
+      download="${ifNonNull(download)}"
+      href="${ifNonNull(href)}"
+    >
       ${ctaType !== 'video' ? copy : ''}
       <dds-card-cta-footer
         cta-type="${ifNonNull(ctaType)}"
