@@ -14,11 +14,11 @@ import '../video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
 
 export const Default = ({ parameters }) => {
-  const { caption, hideCaption } = parameters?.props?.VideoPlayer ?? {};
+  const { caption, hideCaption, videoId } = parameters?.props?.VideoPlayer ?? {};
   return html`
     <dds-video-player-container
       playing-mode="inline"
-      video-id="1_9h94wo6b"
+      video-id=${videoId}
       caption=${caption}
       ?hide-caption=${hideCaption}
     ></dds-video-player-container>
@@ -73,9 +73,9 @@ aspectRatio4x3.story = {
       VideoPlayer: ({ groupId }) => {
         return {
           aspectRatio: '4x3',
-          videoId: '1_9h94wo6b',
           caption: text('Custom caption (caption):', '', groupId),
           hideCaption: boolean('Hide caption (hideCaption):', false, groupId),
+          videoId: '1_9h94wo6b',
         };
       },
     },
@@ -89,9 +89,9 @@ aspectRatio1x1.story = {
       VideoPlayer: ({ groupId }) => {
         return {
           aspectRatio: '1x1',
-          videoId: '1_9h94wo6b',
           caption: text('Custom caption (caption):', '', groupId),
           hideCaption: boolean('Hide caption (hideCaption):', false, groupId),
+          videoId: '1_9h94wo6b',
         };
       },
     },
@@ -105,9 +105,9 @@ withLightboxMediaViewer.story = {
       VideoPlayer: ({ groupId }) => {
         return {
           aspectRatio: '16x9',
-          videoId: '1_9h94wo6b',
           caption: text('Custom caption (caption):', '', groupId),
           hideCaption: boolean('Hide caption (hideCaption):', false, groupId),
+          videoId: '1_9h94wo6b',
         };
       },
     },
@@ -133,6 +133,7 @@ export default {
       VideoPlayer: ({ groupId }) => ({
         caption: text('Custom caption (caption):', '', groupId),
         hideCaption: boolean('Hide caption (hideCaption):', false, groupId),
+        videoId: '1_9h94wo6b',
       }),
     },
     hasGrid: true,
