@@ -160,8 +160,8 @@ LightboxMediaViewer.propTypes = {
    * | `type`        | String    | Determines whether to render `image` or `video`                                                                        |
    * | `src`         | String    | Image link or video id                                                                                                 |
    * | `alt`         | String    | Alternate text for image. For video, this is generated from api call.                                                  |
-   * | `title`       | String    | If this prop is set when the `type` is equaled to `video`, this will override the video title from the API call.       |
-   * | `description` | String    | If this prop is set when the `type` is equaled to `video`, this will override the video description from the API call. |
+   * | `title`       | String    | Overrides the Kaltura video title if `type=video`.       |
+   * | `description` | String    | Overrides the Kaltura video description if `type=video`. |
    */
   media: PropTypes.shape({
     type: PropTypes.string,
