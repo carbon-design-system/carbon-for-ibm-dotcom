@@ -28,7 +28,6 @@ const iconOptions = {
 
 export default {
   title: 'Components|Button group',
-
   parameters: {
     ...readme.parameters,
     knobs: {

@@ -181,6 +181,7 @@
     }
 
     ::slotted(#{$dds-prefix}-card-group-item),
+    ::slotted(#{$dds-prefix}-card-group-card-link-item),
     .#{$prefix}--card-group__cards__col {
       border: 0;
       background-color: inherit;

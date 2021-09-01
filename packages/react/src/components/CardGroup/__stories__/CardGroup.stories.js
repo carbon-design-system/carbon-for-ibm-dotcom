@@ -20,7 +20,6 @@ const cardsCol = {
 
 export default {
   title: 'Components|Card group',
-
   parameters: {
     ...readme.parameters,
     propsSet: {
@@ -214,6 +213,7 @@ export const WithImages = ({ parameters }) => {
 };
 
 WithImages.story = {
+  name: 'With images',
   parameters: {
     knobs: {
       CardGroup: ({ groupId }) => ({
@@ -252,6 +252,7 @@ export const WithImagesAndCTA = ({ parameters }) => {
 };
 
 WithImagesAndCTA.story = {
+  name: 'With images and CTA',
   parameters: {
     knobs: {
       CardGroup: ({ groupId }) => ({

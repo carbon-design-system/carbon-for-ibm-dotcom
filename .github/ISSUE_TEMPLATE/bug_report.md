@@ -2,42 +2,43 @@
 name: Bug Report 🐛
 about: Something isn't working as expected? Here is the right place to report.
 labels: bug
-assignees: jeffchew, ljcarot, shixiedesign, RobertaJHahn, sorin-calinescu, annawen1, guilhermelMoraes
+assignees: jeffchew, ljcarot, shixiedesign, RobertaJHahn, RichKummer, ariellalgilmore, IgnacioBecerra
 ---
 
-<!-- Feel free to remove sections that aren't relevant.
+Use the form below to report any bugs you find. Feel free to leave blank any sections that aren’t relevant but try to include as much detail as possible. The more details we have, the faster we can respond.
 
-## Title line template: [Title]: Brief description
+<!-- Feel free to leave blank any sections that aren't relevant.
+
+[TITLE]: Brief description
+
+Business Priority*: High, Medium, or Low
 
 -->
 
-## Detailed description
 
-> Describe in detail the issue you're having.
+Describe the issue: 
 
-> Is this a feature request (new component, new icon), a bug, or a general
-> issue?
+> What did you expect to happen? What happened instead? 
 
-> Is this issue related to a specific component?
+> Component(s) impacted? Please include screenshots, or code and relevant URLs.
 
-> What did you expect to happen? What happened instead? What would you like to
-> see changed?
-
-> What browser are you working in?
+> What browser(s)are you working in?
 
 > What version of Carbon for IBM.com are you using?
 
-> What offering/product do you work on? Any pressing ship or release dates we
-> should be aware of?
+> What application/website do you work on? 
 
-## Steps to reproduce the issue
+> Release date (if applicable):
 
-1. Step one
-2. Step two
-3. Step three
-4. etc.
+Steps to reproduce the issue (if applicable):
 
-## Additional information
+1.
+2.
+3.
 
-- Screenshots or code
-- Notes
+Please provide any additional notes:
+
+*Priority
+High Priority = pressing release
+Medium Priority = upcoming release but is not pressing
+Low Priority = release date is not dependent on fix or not upcoming

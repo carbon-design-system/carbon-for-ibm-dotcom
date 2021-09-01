@@ -18,12 +18,27 @@ const { prefix } = settings;
 /**
  * VideoPlayer Image Overlay component
  */
-const VideoImageOverlay = ({ videoId, videoData, embedVideo }) => {
+const VideoImageOverlay = ({
+  videoId,
+  videoData,
+  embedVideo,
+  playingMode,
+  ...rest
+}) => {
+  const handleClick = event => {
+    const { onClick } = rest;
+    onClick && onClick(event);
+
+    if (playingMode === 'inline') {
+      _embedPlayer(event, embedVideo);
+    }
+  };
+
   return (
     <button
       className={`${prefix}--video-player__image-overlay`}
       data-autoid={`${stablePrefix}--video-player__image-overlay`}
-      onClick={() => _embedPlayer(event, embedVideo)}>
+      onClick={handleClick}>
       <Image
         defaultSrc={KalturaPlayerAPI.getThumbnailUrl({
           mediaId: videoId,
@@ -57,6 +72,11 @@ VideoImageOverlay.propTypes = {
    * Func to set state to trigger embedding of video
    */
   embedVideo: PropTypes.func,
+
+  /**
+   * Choose whether the video will be rendered inline or using the `LightboxMediaViewer`.
+   */
+  playingMode: PropTypes.oneOf(['inline', 'lightbox']),
 };
 
 export default VideoImageOverlay;

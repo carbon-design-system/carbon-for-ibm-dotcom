@@ -73,13 +73,6 @@
         margin-bottom: $carbon--spacing-03;
         color: $text-02;
       }
-
-      .#{$prefix}--card__heading,
-      ::slotted(#{$dds-prefix}-card-heading) {
-        @include carbon--type-style('expressive-heading-03');
-
-        margin-bottom: $carbon--layout-05;
-      }
     }
   }
 

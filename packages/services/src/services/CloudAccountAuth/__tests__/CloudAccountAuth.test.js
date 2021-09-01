@@ -11,7 +11,7 @@ describe('CloudAccountAuth cookie utility', () => {
   it('should fetch the CloudAccountAuth cookie and return the authenticated string', () => {
     Object.defineProperty(window.document, 'cookie', {
       writable: true,
-      value: 'com.ibm.cloud.iam.LoggedIn.manual=1',
+      value: 'com.ibm.cloud.iam.LoggedIn.prod=1',
     });
 
     const loginStatus = CloudAccountAuthAPI.checkCookie();
@@ -21,7 +21,7 @@ describe('CloudAccountAuth cookie utility', () => {
   it('should fetch the CloudAccountAuth cookie and return the anonymous string', () => {
     Object.defineProperty(window.document, 'cookie', {
       writable: true,
-      value: 'com.ibm.cloud.iam.LoggedIn.manual=0',
+      value: 'com.ibm.cloud.iam.LoggedIn.prod=0',
     });
 
     const loginStatus = CloudAccountAuthAPI.checkCookie();
