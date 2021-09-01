@@ -33,23 +33,23 @@ const App = () => (
                   sources: [
                     {
                       src:
-                        "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                        "https://fpoimg.com/320x180?text=16:9&bg_color=ee5396&text_color=161616",
                       breakpoint: 320,
                     },
                     {
                       src:
-                        "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                        "https://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616",
                       breakpoint: 400,
                     },
                     {
                       src:
-                        "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                        "https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616",
                       breakpoint: 672,
                     },
                   ],
                   alt: "Image alt text",
                   defaultSrc:
-                    "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                    "https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616",
                 },
               },
               heading: "Lorem ipsum dolor sit amet",
@@ -82,23 +82,23 @@ const App = () => (
                   sources: [
                     {
                       src:
-                        "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                        "https://fpoimg.com/320x180?text=16:9&bg_color=ee5396&text_color=161616",
                       breakpoint: 320,
                     },
                     {
                       src:
-                        "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                        "https://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616",
                       breakpoint: 400,
                     },
                     {
                       src:
-                        "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                        "https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616",
                       breakpoint: 672,
                     },
                   ],
                   alt: "Image alt text",
                   defaultSrc:
-                    "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                    "https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616",
                 },
               },
               heading: "Lorem ipsum dolor sit amet",
@@ -131,7 +131,7 @@ const App = () => (
               heading: "Consectetur adipisicing elit",
               image: {
                 defaultSrc:
-                  "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
+                  "https://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616",
                 alt: "Image alt text",
               },
               cta: {

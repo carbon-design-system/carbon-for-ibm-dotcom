@@ -78,6 +78,7 @@ Default.story = {
 };
 
 CardsWithImages.story = {
+  name: 'Cards with images',
   parameters: {
     gridCarouselClass: 'dds-ce-demo-devenv--simple-grid--carousel--full-16',
   },

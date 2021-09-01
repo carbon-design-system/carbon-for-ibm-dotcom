@@ -48,47 +48,6 @@ export function setLanguage(language: string) {
 
 /**
  * @param language A language.
- * @param request The promise of the REST call for display language data that is in progress.
- * @returns A Redux action to set the state that the REST call for display language data is in progress.
- * @private
- */
-export function setRequestLangDisplayInProgress(language: string, request: Promise<string>) {
-  return {
-    type: LOCALE_API_ACTION.SET_REQUEST_LANG_DISPLAY_IN_PROGRESS,
-    language,
-    request,
-  };
-}
-
-/**
- * @param language A language.
- * @param error An error from the REST call for display language data.
- * @returns A Redux action to set the state that the REST call for display language data failed.
- * @private
- */
-export function setErrorRequestLangDisplay(language: string, error: Error) {
-  return {
-    type: LOCALE_API_ACTION.SET_ERROR_REQUEST_LANG_DISPLAY,
-    language,
-    error,
-  };
-}
-
-/**
- * @param language A language.
- * @param langDisplay The display language data from the REST call.
- * @returns A Redux action to set the given display language data.
- */
-export function setLangDisplay(language: string, langDisplay: string) {
-  return {
-    type: LOCALE_API_ACTION.SET_LANG_DISPLAY,
-    language,
-    langDisplay,
-  };
-}
-
-/**
- * @param language A language.
  * @param request The promise of the REST call for locale list data of the given language that is in progress.
  * @returns A Redux action to set the state that the REST call for locale list data for the given language that is in progress.
  * @private
@@ -135,9 +94,6 @@ export type LocaleAPIActions =
   | ReturnType<typeof setRequestLanguageInProgress>
   | ReturnType<typeof setErrorRequestLanguage>
   | ReturnType<typeof setLanguage>
-  | ReturnType<typeof setRequestLangDisplayInProgress>
-  | ReturnType<typeof setErrorRequestLangDisplay>
-  | ReturnType<typeof setLangDisplay>
   | ReturnType<typeof setRequestLocaleListInProgress>
   | ReturnType<typeof setErrorRequestLocaleList>
   | ReturnType<typeof setLocaleList>;
@@ -162,36 +118,6 @@ export function loadLanguage(): ThunkAction<Promise<string>, { localeAPI: Locale
       throw error;
     }
     return promiseLanguage;
-  };
-}
-
-/**
- * @param language The language. If not given, the default language from DDO is used.
- * @returns A Redux action that sends a REST call for display language data.
- */
-export function loadLangDisplay(
-  language?: string
-): ThunkAction<Promise<string>, { localeAPI: LocaleAPIState }, void, LocaleAPIActions> {
-  return async (dispatch, getState) => {
-    const effectiveLanguage: string = language ?? (await dispatch(loadLanguage()));
-    const { requestsLangDisplay = {} } = getState().localeAPI ?? {};
-    const { [effectiveLanguage]: requestLangDisplay } = requestsLangDisplay;
-    if (requestLangDisplay) {
-      return requestLangDisplay;
-    }
-    const [primary, country] = effectiveLanguage.split('-');
-    const promiseLangDisplay: Promise<string> = LocaleAPI.getLangDisplay({
-      cc: country.toLowerCase(),
-      lc: primary.toLowerCase(),
-    });
-    dispatch(setRequestLangDisplayInProgress(effectiveLanguage, promiseLangDisplay));
-    try {
-      dispatch(setLangDisplay(effectiveLanguage, await promiseLangDisplay));
-    } catch (error) {
-      dispatch(setErrorRequestLangDisplay(effectiveLanguage, error));
-      throw error;
-    }
-    return promiseLangDisplay;
   };
 }
 

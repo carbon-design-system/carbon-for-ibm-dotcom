@@ -35,7 +35,6 @@ const selectorTargets = `
 
 export default {
   title: 'Components|Scroll animations',
-
   parameters: {
     ...readme.parameters,
     'carbon-theme': { disabled: true },
@@ -102,6 +101,7 @@ export const SlideUp = () => {
 };
 
 SlideUp.story = {
+  name: 'Slide up',
   // to avoid jest errors with Intersection Observer
   parameters: {
     storyshots: { disable: true },
@@ -124,6 +124,7 @@ export const SlideUpRight = () => {
 };
 
 SlideUpRight.story = {
+  name: 'Slide up right',
   // to avoid jest errors with Intersection Observer
   parameters: {
     storyshots: { disable: true },
@@ -146,6 +147,7 @@ export const SlideRight = () => {
 };
 
 SlideRight.story = {
+  name: 'Slide right',
   // to avoid jest errors with Intersection Observer
   parameters: {
     storyshots: { disable: true },
@@ -168,6 +170,7 @@ export const SlideDownRight = () => {
 };
 
 SlideDownRight.story = {
+  name: 'Slide down right',
   // to avoid jest errors with Intersection Observer
   parameters: {
     storyshots: { disable: true },
@@ -190,6 +193,7 @@ export const SlideDown = () => {
 };
 
 SlideDown.story = {
+  name: 'Slide down',
   // to avoid jest errors with Intersection Observer
   parameters: {
     storyshots: { disable: true },
@@ -212,6 +216,7 @@ export const SlideDownLeft = () => {
 };
 
 SlideDownLeft.story = {
+  name: 'Slide down left',
   // to avoid jest errors with Intersection Observer
   parameters: {
     storyshots: { disable: true },
@@ -234,6 +239,7 @@ export const SlideLeft = () => {
 };
 
 SlideLeft.story = {
+  name: 'Slide left',
   // to avoid jest errors with Intersection Observer
   parameters: {
     storyshots: { disable: true },

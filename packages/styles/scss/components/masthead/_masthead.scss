@@ -287,10 +287,8 @@ $search-transition-timing: 95ms;
     height: 100%;
     overflow-x: visible;
     position: relative;
-    @include carbon--breakpoint(md) {
-      display: flex;
-      flex: 1;
-    }
+    display: flex;
+    flex: 1;
   }
 
   .#{$prefix}--header__nav-content {

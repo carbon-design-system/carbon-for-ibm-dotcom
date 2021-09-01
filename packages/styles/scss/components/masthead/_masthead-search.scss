@@ -110,7 +110,8 @@
     top: 0;
     right: 0;
 
-    /* rtl:raw:
+    /* stylelint-disable-next-line comment-whitespace-inside */
+    /*!rtl:raw:
     left: 0;
     */
 
@@ -193,6 +194,7 @@
           opacity: 1;
           transition-duration: 112ms;
           transition-delay: 200ms;
+          color: $text-03;
         }
       }
 

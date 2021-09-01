@@ -79,6 +79,38 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta.js';
 
 <Props of="dds-card-cta" />
 
+## `<dds-card-link-cta>`
+
+`<dds-card-link-cta>` is a version of CTA presented as a card.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/cta/card)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/cta/card)
+
+### JS (via import)
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/cta/card-link-cta.js';
+```
+
+<Description markdown={`${cdnJs({ components: ['card-cta-link'] })}`} />
+
+### HTML
+
+```html
+<dds-card-link-cta href="https://www.ibm.com/" type="local">
+  <dds-card-link-heading>Heading text</dds-card-link-heading>
+  <p>Optional copy text</p>
+</dds-card-link-cta>
+```
+
+### Props
+
+<Props of="dds-card-link-cta" />
+
+
 ## `<dds-feature-cta>`
 
 `<dds-feature-cta>` is a version of CTA presented as a feature card.
@@ -177,7 +209,7 @@ video player component and working with our video player service API to put the
 video data into the video player component:
 
 ```javascript
-import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js.js';
 import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/index.js';
 import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player.js';
@@ -202,8 +234,8 @@ document.addEventListener('dds-cta-run-action', async event => {
     const videoPlayer = document.getElementById(`lightbox-video-player-${videoId}`);
     videoPlayer.appendChild(videoTarget);
     const [videoData] = await Promise.all([
-      VideoPlayerAPI.api(videoId),
-      VideoPlayerAPI.embedVideo(videoId, videoTarget.id, true),
+      KalturaPlayerAPI.api(videoId),
+      KalturaPlayerAPI.embedMedia(videoId, videoTarget.id, true),
     ]);
     const { name, description, duration } = videoData;
     videoPlayer.name = name;

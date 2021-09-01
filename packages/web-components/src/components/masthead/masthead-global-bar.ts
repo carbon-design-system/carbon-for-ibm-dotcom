@@ -8,7 +8,7 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, internalProperty, property, customElement, LitElement } from 'lit-element';
+import { html, property, customElement, LitElement } from 'lit-element';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -28,7 +28,7 @@ class DDSMastheadGlobalBar extends FocusMixin(HostListenerMixin(StableSelectorMi
   /**
    * Search bar opened flag.
    */
-  @internalProperty()
+  @property({ attribute: 'has-search-active', type: Boolean, reflect: true })
   private _hasSearchActive = false;
 
   /**
@@ -63,7 +63,7 @@ class DDSMastheadGlobalBar extends FocusMixin(HostListenerMixin(StableSelectorMi
    * The name of the custom event fired after the seach is toggled.
    */
   static get eventToggleSearch() {
-    return `${ddsPrefix}-masthead-search-toggled`;
+    return `${ddsPrefix}-search-with-typeahead-toggled`;
   }
 
   static get stableSelector() {

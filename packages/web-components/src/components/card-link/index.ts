@@ -8,5 +8,5 @@
  */
 
 import './card-link';
-import '../button-group/index';
+import './card-link-heading';
 import '../card/card-footer';

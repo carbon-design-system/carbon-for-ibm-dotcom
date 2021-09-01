@@ -72,6 +72,16 @@
     &:focus-within {
       outline: 2px solid $focus;
       outline-offset: -2px;
+      position: relative;
+      z-index: 2;
+
+      ::slotted(#{$dds-prefix}-image),
+      ::slotted(#{$dds-prefix}-card-cta-image),
+      .#{$prefix}--card__img,
+      .#{$prefix}--image {
+        position: relative;
+        z-index: -1;
+      }
     }
 
     .#{$prefix}--card:focus,
@@ -81,6 +91,7 @@
       z-index: 2;
       text-decoration: none;
 
+      ::slotted(#{$dds-prefix}-image),
       .#{$prefix}--image {
         position: relative;
         z-index: -1;
@@ -100,10 +111,14 @@
       transition: $duration--moderate-01 motion(standard, productive);
     }
 
-    .#{$prefix}--card--link:hover {
+    .#{$prefix}--card:hover {
       text-decoration: none;
 
-      .#{$prefix}--card__img {
+      ::slotted(#{$dds-prefix}-image),
+      ::slotted(#{$dds-prefix}-card-cta-image),
+      .#{$prefix}--card__img,
+      .#{$prefix}--card__image_img,
+      .#{$prefix}--image {
         filter: brightness(92%);
       }
     }
@@ -212,6 +227,7 @@
   }
 
   :host(#{$dds-prefix}-card-cta),
+  :host(#{$dds-prefix}-card-link-cta),
   :host(#{$dds-prefix}-card-link) {
     outline: none;
   }
@@ -252,6 +268,17 @@
 
     &:focus-visible {
       outline: none;
+    }
+  }
+
+  :host(#{$dds-prefix}-card-footer) {
+    .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon {
+      display: flex;
+
+      svg,
+      ::slotted(svg[slot='icon']) {
+        display: block;
+      }
     }
   }
 
@@ -360,25 +387,68 @@
 
     &:hover {
       background-color: $inverse-hover-ui;
+
+      ::slotted(#{$dds-prefix}-image),
+      ::slotted(#{$dds-prefix}-card-cta-image),
+      .#{$prefix}--card__img,
+      .#{$prefix}--image {
+        filter: brightness(108%);
+      }
+    }
+
+    &:focus-within {
+      &::after {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border: 2px solid $focus;
+        outline: 1px solid #ffffff;
+        outline-offset: -3px;
+        pointer-events: none;
+      }
     }
   }
 
-  :host(#{$dds-prefix}-card-heading) {
-    @include carbon--type-style('expressive-heading-03', true);
+  :host(#{$dds-prefix}-card-heading),
+  :host(#{$dds-prefix}-card-link-heading) {
     @include content-width;
 
     color: $text-01;
     margin-bottom: $carbon--layout-05;
   }
 
+  :host(#{$dds-prefix}-card-heading) {
+    @include carbon--type-style('expressive-heading-03', true);
+  }
+
+  :host(#{$dds-prefix}-card-link-heading) {
+    @include carbon--type-style('expressive-heading-02', true);
+
+    margin-bottom: 0;
+  }
+
   :host(#{$dds-prefix}-card)[color-scheme='inverse'],
-  :host(#{$dds-prefix}-card-group-item)[color-scheme='inverse'] {
+  :host(#{$dds-prefix}-card-group-item)[color-scheme='inverse'],
+  .#{$prefix}--card-group__card {
     ::slotted(#{$dds-prefix}-card-eyebrow) {
       color: $text-03;
     }
 
     ::slotted(#{$dds-prefix}-card-heading) {
       color: $inverse-01;
+    }
+
+    &:hover {
+      .#{$prefix}--card__img,
+      ::slotted(#{$dds-prefix}-image),
+      ::slotted(#{$dds-prefix}-card-cta-image),
+      .#{$prefix}--image {
+        filter: brightness(108%);
+      }
     }
   }
 

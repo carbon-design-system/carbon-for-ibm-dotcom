@@ -35,6 +35,7 @@ const TextCTA = ({
         <LinkWithIcon
           href="#"
           onClick={e => CTALogic.setLightBox(e, openLightBox)}
+          iconInline={otherProps.iconInline}
           {...(iconPlacement && { iconPlacement })}>
           <span>
             {formatCTAcopy({
@@ -51,6 +52,7 @@ const TextCTA = ({
       href={href}
       target={CTALogic.external(type)}
       onClick={e => CTALogic.jump(e, type)}
+      iconInline={otherProps.iconInline}
       {...(iconPlacement && { iconPlacement })}>
       <span>{otherProps.copy}</span>
       {type !== 'default' && <Icon />}

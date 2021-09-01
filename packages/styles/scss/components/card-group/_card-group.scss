@@ -78,6 +78,36 @@
     }
   }
 
+  // React card focus outline
+  .#{$prefix}--card-group__card {
+    &:focus-within {
+      outline: none;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        outline: 2px solid $focus;
+        outline-offset: -2px;
+        pointer-events: none;
+      }
+
+      .#{$prefix}--card__img {
+        position: absolute;
+        z-index: auto;
+      }
+
+      .#{$prefix}--tile {
+        outline: none;
+      }
+    }
+  }
+
   :host(#{$dds-prefix}-card-group),
   .#{$prefix}--card-group__row,
   .#{$prefix}--card-group__cards__row {
@@ -151,6 +181,7 @@
     }
 
     ::slotted(#{$dds-prefix}-card-group-item),
+    ::slotted(#{$dds-prefix}-card-group-card-link-item),
     .#{$prefix}--card-group__cards__col {
       border: 0;
       background-color: inherit;
@@ -158,6 +189,28 @@
 
       @include carbon--breakpoint('md') {
         padding: $carbon--spacing-05 0 0 0;
+      }
+    }
+  }
+
+  // card with video focus outline
+  :host(#{$dds-prefix}-card-group-item)[cta-type='video'] {
+    &:focus-within {
+      .#{$prefix}--tile {
+        outline: none;
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          z-index: 2;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          box-shadow: inset 0 0 0 2px $focus;
+          pointer-events: none;
+        }
       }
     }
   }

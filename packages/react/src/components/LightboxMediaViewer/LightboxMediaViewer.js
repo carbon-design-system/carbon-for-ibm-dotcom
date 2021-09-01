@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -8,6 +8,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { ExpressiveModal } from '../ExpressiveModal';
 import { Image } from '../Image';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
 import { ModalBody } from '../../internal/vendor/carbon-components-react/components/ComposedModal/ComposedModal';
 import PropTypes from 'prop-types';
 import removeHtmlTagEntities from '@carbon/ibmdotcom-utilities/es/utilities/removeHtmlTagEntities/removeHtmlTagEntities';
@@ -15,7 +16,6 @@ import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 import uniqueid from '@carbon/ibmdotcom-utilities/es/utilities/uniqueid/uniqueid';
 import { VideoPlayer } from '../VideoPlayer';
-import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -68,7 +68,7 @@ const LightboxMediaViewer = ({ media, onClose, ...modalProps }) => {
     let stale = false;
     (async () => {
       if (media.type === 'video') {
-        const data = await VideoPlayerAPI.api(media.src);
+        const data = await KalturaPlayerAPI.api(media.src);
         if (!stale) {
           setVideoData({
             title: media.title ? media.title : data.name,
@@ -105,7 +105,7 @@ const LightboxMediaViewer = ({ media, onClose, ...modalProps }) => {
               <div
                 className={`${prefix}--lightbox-media-viewer__media ${prefix}--no-gutter`}>
                 {media.type === 'video' ? (
-                  <VideoPlayer videoId={media.src} autoPlay />
+                  <VideoPlayer videoId={media.src} autoPlay={modalProps.open} />
                 ) : (
                   <Image defaultSrc={media.src} alt={videoData.alt} />
                 )}
@@ -142,7 +142,7 @@ const LightboxMediaViewer = ({ media, onClose, ...modalProps }) => {
    * Stop video on modal close
    */
   function closeModal() {
-    if (onClose?.() !== false) {
+    if (onClose?.() !== false && root.kWidget) {
       root.kWidget.addReadyCallback(videoId => {
         const kdp = document.getElementById(videoId);
         kdp.sendNotification('doStop');

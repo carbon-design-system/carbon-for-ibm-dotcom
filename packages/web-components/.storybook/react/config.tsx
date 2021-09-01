@@ -36,6 +36,7 @@ addParameters({
       'overview-enable-right-to-left-rtl--page',
       'overview-feature-flags--page',
       'overview-contributing-to-the-web-components-package--page',
+      'overview-breaking-changes--page',
     ]),
     theme: theme,
   },

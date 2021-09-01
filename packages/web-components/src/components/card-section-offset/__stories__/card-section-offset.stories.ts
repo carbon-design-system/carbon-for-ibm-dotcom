@@ -45,9 +45,9 @@ const defaultCardGroupItem = html`
     <p>
       Lorem ipsum dolor sit amet, habeo iisque eum ex. Vel postea singulis democritum ex. Illud ullum graecis
     </p>
-    <dds-card-footer slot="footer">
+    <dds-card-cta-footer slot="footer">
       ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-footer>
+    </dds-card-cta-footer>
   </dds-card-group-item>
 `;
 

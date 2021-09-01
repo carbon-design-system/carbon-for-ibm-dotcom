@@ -25,6 +25,7 @@ import {
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { UNAUTHENTICATED_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
+import { DDS_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
 import './masthead';
 import './masthead-logo';
 import './masthead-l1';
@@ -55,7 +56,8 @@ import './left-nav-menu-section';
 import './left-nav-menu-item';
 import './left-nav-menu-category-heading';
 import './left-nav-overlay';
-import './masthead-search-composite';
+import '../search-with-typeahead/search-with-typeahead';
+import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -156,9 +158,10 @@ class DDSMastheadComposite extends LitElement {
    *  Render MegaMenu content
    *
    * @param sections menu section data object
+   * @param _parentKey parent menu key (used for the cloud-masthead-composite component)
    */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderMegaMenu(sections) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  protected _renderMegaMenu(sections, _parentKey) {
     const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
 
     const hasHighlights = highlightedItems.length !== 0;
@@ -410,7 +413,7 @@ class DDSMastheadComposite extends LitElement {
             const selected = selectedMenuItem && titleEnglish === selectedMenuItem;
             let sections;
             if (link.hasMegapanel) {
-              sections = this._renderMegaMenu(menuSections);
+              sections = this._renderMegaMenu(menuSections, i);
             } else {
               sections = menuSections
                 // eslint-disable-next-line no-use-before-define
@@ -463,13 +466,6 @@ class DDSMastheadComposite extends LitElement {
 
     return !menu ? undefined : this._renderLeftNav(menu, selectedMenuItem, autoid);
   }
-
-  /**
-   * The placeholder for `loadSearchResults()` Redux action that may be mixed in.
-   *
-   * @internal
-   */
-  _loadSearchResults?: (searchQueryString: string) => Promise<string[]>;
 
   /**
    * The placeholder for `loadTranslation()` Redux action that will be mixed in.
@@ -547,6 +543,12 @@ class DDSMastheadComposite extends LitElement {
    */
   @property({ attribute: false })
   currentSearchResults: string[] = [];
+
+  /**
+   * The custom profile login link.
+   */
+  @property({ attribute: 'custom-profile-login' })
+  customProfileLogin?: string;
 
   /**
    * The `aria-label` attribute for the top-level container.
@@ -673,6 +675,7 @@ class DDSMastheadComposite extends LitElement {
       activateSearch,
       authenticatedProfileItems,
       currentSearchResults,
+      customProfileLogin,
       platform,
       platformUrl,
       hasProfile,
@@ -689,10 +692,20 @@ class DDSMastheadComposite extends LitElement {
       unauthenticatedProfileItems,
       userStatus,
       l1Data,
-      _loadSearchResults: loadSearchResults,
     } = this;
     const authenticated = userStatus !== UNAUTHENTICATED_STATUS;
-    const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
+
+    let profileItems;
+    if (DDS_CUSTOM_PROFILE_LOGIN && customProfileLogin && !authenticated) {
+      profileItems = unauthenticatedProfileItems?.map(item => {
+        if (item?.id === 'signin') {
+          return { ...item, url: customProfileLogin };
+        }
+        return item;
+      });
+    } else {
+      profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
+    }
     const formattedLang = language?.toLowerCase().replace(/-(.*)/, m => m.toUpperCase());
     let platformAltUrl = platformUrl;
     if (platformUrl && formattedLang) {
@@ -740,7 +753,7 @@ class DDSMastheadComposite extends LitElement {
         ${!hasSearch
           ? undefined
           : html`
-              <dds-masthead-search-composite
+              <dds-search-with-typeahead
                 ?active="${activateSearch}"
                 input-timeout="${inputTimeout}"
                 language="${ifNonNull(language)}"
@@ -748,10 +761,9 @@ class DDSMastheadComposite extends LitElement {
                 ?searchOpenOnload="${activateSearch}"
                 placeholder="${ifNonNull(searchPlaceholder)}"
                 .currentSearchResults="${ifNonNull(currentSearchResults)}"
-                ._loadSearchResults="${ifNonNull(loadSearchResults)}"
-              ></dds-masthead-search-composite>
+              ></dds-search-with-typeahead>
             `}
-        <dds-masthead-global-bar>
+        <dds-masthead-global-bar ?has-search-active=${activateSearch}>
           ${!hasProfile
             ? undefined
             : html`

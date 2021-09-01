@@ -29,6 +29,12 @@ class DDSLinkListItem extends DDSLinkWithIcon {
   @property({ reflect: true })
   type = LINK_LIST_ITEM_TYPE.DEFAULT;
 
+  /**
+   * Positions the icon inline with text when `true`
+   */
+  @property({ type: Boolean })
+  iconInline = false;
+
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'listitem');
@@ -46,4 +52,5 @@ class DDSLinkListItem extends DDSLinkWithIcon {
   }
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSLinkListItem;

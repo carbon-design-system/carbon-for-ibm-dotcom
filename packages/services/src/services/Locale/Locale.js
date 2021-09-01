@@ -98,6 +98,7 @@ const _getLocaleByLangAttr = () => {
  * The cache for in-flight or resolved requests for the country list, keyed by the initiating locale.
  *
  * @type {object}
+ * @private
  */
 const _requestsList = {};
 
@@ -184,8 +185,7 @@ class LocaleAPI {
     const lang = await this.getLang();
 
     if (lang) {
-      const list = await this.getList(lang);
-      return list.locale;
+      return lang;
     }
     // grab the locale from the cookie
     else if (cookie && cookie.cc && cookie.lc) {
@@ -321,7 +321,6 @@ class LocaleAPI {
         _requestsList[key] = axios.get(url, _axiosConfig).then(response => {
           const { data } = response;
           data['timestamp'] = Date.now();
-          data.locale = { lc, cc };
           sessionStorage.setItem(
             `${_sessionListKey}-${cc}-${lc}`,
             JSON.stringify(data)

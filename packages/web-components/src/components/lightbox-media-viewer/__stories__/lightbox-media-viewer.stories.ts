@@ -45,6 +45,7 @@ export const Default = ({ parameters }) => {
     </style>
     <dds-expressive-modal
       expressive-size="full-width"
+      mode="lightbox"
       ?open="${open}"
       @dds-expressive-modal-beingclosed="${handleBeforeClose}"
       @dds-expressive-modal-closed="${onClose}"
@@ -107,6 +108,7 @@ export const EmbeddedVideoPlayer = ({ parameters }) => {
 };
 
 EmbeddedVideoPlayer.story = {
+  name: 'Embedded video player',
   parameters: {
     knobs: {
       LightboxVideoPlayerContainer: ({ groupId }) => ({

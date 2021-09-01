@@ -420,9 +420,7 @@ describe('LocaleAPI', () => {
       .mockReturnValue(Promise.resolve('testLang'));
     jest
       .spyOn(LocaleAPI, 'getList')
-      .mockReturnValue(
-        Promise.resolve({ list: 'list data', locale: 'testLang' })
-      );
+      .mockReturnValue(Promise.resolve('testList'));
     jest.spyOn(LocaleAPI, 'verifyLocale').mockReturnValue('testVerified');
     const locale = await LocaleAPI.getLocale();
 

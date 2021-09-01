@@ -24,11 +24,14 @@ const { prefix } = settings;
  */
 const LinkList = ({ heading, iconPlacement, items, style }) => {
   const linkStyle = style === 'card' ? 'card' : 'text';
+  const iconInline = style === 'vertical' || style === 'horizontal';
   return (
     <div
       className={`${prefix}--link-list`}
       data-autoid={`${stablePrefix}--link-list`}>
-      <h4 className={`${prefix}--link-list__heading`}>{heading}</h4>
+      {heading && (
+        <h4 className={`${prefix}--link-list__heading`}>{heading}</h4>
+      )}
 
       <ul
         className={`${prefix}--link-list__list ${prefix}--link-list__list--${style}`}>
@@ -44,6 +47,7 @@ const LinkList = ({ heading, iconPlacement, items, style }) => {
                 disableImage
                 {...(iconPlacement &&
                   linkStyle === 'text' && { iconPlacement })}
+                {...(linkStyle === 'text' && { iconInline })}
               />
             </li>
           );

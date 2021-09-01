@@ -56,6 +56,9 @@
 
 :host(#{$dds-prefix}-cloud-top-nav-name) {
   outline: none;
+  position: relative;
+  z-index: 1;
+  background-color: $ui-background;
 
   a.#{$prefix}--header__name {
     margin-left: 0;
@@ -249,6 +252,11 @@
         margin: 0 $spacing-03;
         padding-top: $spacing-02;
         fill: $link-01;
+
+        /* stylelint-disable-next-line comment-whitespace-inside */
+        /*!rtl:raw:
+        transform: scaleX(-1);
+        */
       }
 
       &:hover {

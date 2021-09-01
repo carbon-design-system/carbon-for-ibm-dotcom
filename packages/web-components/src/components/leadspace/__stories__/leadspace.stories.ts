@@ -45,7 +45,7 @@ const navigationWithBreadcrumbs = html`
   </dds-breadcrumb>
 `;
 
-export const TallWithNoImage = ({ parameters }) => {
+export const Tall = ({ parameters }) => {
   const { title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace size="${LEADSPACE_SIZE.NONE}">
@@ -95,6 +95,10 @@ export const TallWithImage = ({ parameters }) => {
       </dds-leadspace-image>
     </dds-leadspace>
   `;
+};
+
+TallWithImage.story = {
+  name: 'Tall with image',
 };
 
 export const Centered = ({ parameters }) => {
@@ -150,6 +154,10 @@ export const CenteredWithImage = ({ parameters }) => {
   `;
 };
 
+CenteredWithImage.story = {
+  name: 'Centered with image',
+};
+
 export const Medium = ({ parameters }) => {
   const { title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
@@ -202,6 +210,10 @@ export const MediumWithImage = ({ parameters }) => {
   `;
 };
 
+MediumWithImage.story = {
+  name: 'Medium with image',
+};
+
 export const Super = ({ parameters }) => {
   const { title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
@@ -252,6 +264,10 @@ export const SuperWithImage = ({ parameters }) => {
       </dds-leadspace-image>
     </dds-leadspace>
   `;
+};
+
+SuperWithImage.story = {
+  name: 'Super with image',
 };
 
 const getAriaLabel = type => {
@@ -308,20 +324,6 @@ export default {
             label: getAriaLabel(icon),
           };
         }),
-        image: [
-          {
-            src: leadspaceImg,
-            breakpoint: 'sm',
-          },
-          {
-            src: leadspaceImg,
-            breakpoint: 'md',
-          },
-          {
-            src: leadspaceImg,
-            breakpoint: 'lg',
-          },
-        ],
         alt: text('Image alt text (alt):', 'Image alt text', groupId),
         defaultSrc: text('Default image (defaultSrc):', leadspaceImg, groupId),
       }),

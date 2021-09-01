@@ -18,7 +18,6 @@ const { prefix } = settings;
 
 export default {
   title: 'Components|Image',
-
   parameters: {
     ...readme.parameters,
     knobs: {

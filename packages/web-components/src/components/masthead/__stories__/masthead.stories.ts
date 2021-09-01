@@ -15,11 +15,11 @@ import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
-import '../masthead-container-search-only';
 import styles from './masthead.stories.scss';
 import { mastheadLinks as links, customLinks, l1Data, logoData } from './links';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { authenticatedProfileItems, unauthenticatedProfileItems } from './profile-items';
+import { DDS_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
 import readme from './README.stories.mdx';
 
 const userStatuses = {
@@ -48,7 +48,7 @@ const urlObject = {
 };
 
 export const Default = ({ parameters }) => {
-  const { platform, hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
+  const { customProfileLogin, platform, hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
     parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -68,6 +68,7 @@ export const Default = ({ parameters }) => {
             ?has-search="${hasSearch}"
             .navLinks="${navLinks}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+            custom-profile-login="${customProfileLogin}"
           ></dds-masthead-composite>
         `
       : html`
@@ -80,19 +81,20 @@ export const Default = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
+            custom-profile-login="${customProfileLogin}"
           ></dds-masthead-container>
         `}
   `;
 };
 
 export const WithCustomNavigation = ({ parameters }) => {
-  const { platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch } =
+  const { customProfileLogin, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch } =
     parameters?.props?.MastheadComposite ?? {};
   return html`
     <style>
       ${styles}
     </style>
-    <dds-masthead-container-search-only
+    <dds-masthead-composite
       platform="${ifNonNull(platform)}"
       .platformUrl="${ifNonNull(platformData.url)}"
       selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -103,12 +105,17 @@ export const WithCustomNavigation = ({ parameters }) => {
       ?has-profile="${hasProfile}"
       ?has-search="${hasSearch}"
       .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-    ></dds-masthead-container-search-only>
+      custom-profile-login="${customProfileLogin}"
+    ></dds-masthead-composite>
   `;
 };
 
+WithCustomNavigation.story = {
+  name: 'With custom navigation',
+};
+
 export const searchOpenOnload = ({ parameters }) => {
-  const { platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch, navLinks } =
+  const { customProfileLogin, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch, navLinks } =
     parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -129,6 +136,7 @@ export const searchOpenOnload = ({ parameters }) => {
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+            custom-profile-login="${customProfileLogin}"
           ></dds-masthead-composite>
         `
       : html`
@@ -142,9 +150,14 @@ export const searchOpenOnload = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
+            custom-profile-login="${customProfileLogin}"
           ></dds-masthead-container>
         `}
   `;
+};
+
+searchOpenOnload.story = {
+  name: 'Search open onload',
 };
 
 export const withPlatform = ({ parameters }) => {
@@ -186,6 +199,7 @@ export const withPlatform = ({ parameters }) => {
 };
 
 withPlatform.story = {
+  name: 'With platform',
   parameters: {
     knobs: {
       MastheadComposite: ({ groupId }) => ({
@@ -235,6 +249,7 @@ export const withL1 = ({ parameters }) => {
 };
 
 withL1.story = {
+  name: 'With L1',
   parameters: {
     knobs: {
       MastheadComposite: ({ groupId }) => ({
@@ -289,6 +304,7 @@ export const withAlternateLogoAndTooltip = ({ parameters }) => {
 };
 
 withAlternateLogoAndTooltip.story = {
+  name: 'With alternate logo and tooltip',
   parameters: {
     knobs: {
       MastheadComposite: ({ groupId }) => ({
@@ -335,6 +351,9 @@ export default {
         searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
         userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
+        customProfileLogin:
+          DDS_CUSTOM_PROFILE_LOGIN &&
+          textNullable('custom profile login url (customProfileLogin)', 'https://www.example.com/', groupId),
       }),
     },
     props: (() => {

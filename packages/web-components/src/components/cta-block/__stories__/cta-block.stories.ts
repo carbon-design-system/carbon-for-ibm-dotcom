@@ -128,7 +128,7 @@ export const WithContentItems = ({ parameters }) => {
 };
 
 WithContentItems.story = {
-  title: 'With content items',
+  name: 'With content items',
   parameters: {
     knobs: {
       WithContentItems: ({ groupId }) => ({
@@ -183,6 +183,10 @@ export const WithLinkList = ({ parameters }) => {
       </dds-link-list>
     </dds-cta-block>
   `;
+};
+
+WithLinkList.story = {
+  name: 'With link list',
 };
 
 export default {

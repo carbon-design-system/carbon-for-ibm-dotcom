@@ -3,6 +3,68 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.23.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.23.0-rc.1...@carbon/ibmdotcom-styles@1.23.0) (2021-08-16)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.23.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.23.0-rc.0...@carbon/ibmdotcom-styles@1.23.0-rc.1) (2021-08-10)
+
+
+### Bug Fixes
+
+* **masthead:** flip megamenu link arrow icons in rtl ([#6835](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6835)) ([ab45960](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ab45960)), closes [issue#6831](https://github.com/issue/issues/6831)
+
+
+
+
+
+# [1.23.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.22.0...@carbon/ibmdotcom-styles@1.23.0-rc.0) (2021-08-06)
+
+
+### Bug Fixes
+
+* **card:** multiple style bugs ([#6769](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6769)) ([0b7bdbf](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0b7bdbf))
+* **card-section-offset:** background with 100% ([#6809](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6809)) ([b9a0920](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b9a0920))
+* **feature-section:** add the correct token for the background container ([#6778](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6778)) ([1696362](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1696362))
+* **leadspace:** ensure leadspace image takes up entire width in lg bp ([#6810](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6810)) ([4513243](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4513243)), closes [#6807](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6807)
+* **leadspace:** set image and gradient to flip with RTL ([#6777](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6777)) ([4fb50c5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4fb50c5)), closes [#5653](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5653)
+* **link-with-icon:** add icon line wrap behavior by default ([#6812](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6812)) ([77a673f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/77a673f)), closes [#5705](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5705)
+* **tabs-extended:** ensure tab doesn't overlap with toc ([#6793](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6793)) ([9439d4a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9439d4a)), closes [#6670](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6670)
+
+
+### Features
+
+* **search-with-typeahead:** introducing component ([#6731](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6731)) ([957a17c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/957a17c)), closes [#6143](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6143) [#6144](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6144)
+
+
+
+# 1.12.0-beta.64.108 (2021-07-30)
+
+
+### Bug Fixes
+
+* **card:** update accessibility ([#6642](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6642)) ([228b720](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/228b720)), closes [#6693](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6693) [#6596](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6596) [#6281](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6281) [#6512](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6512) [#5504](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5504) [#6005](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6005) [#4614](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4614) [#4714](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4714)
+* **content-group-horizontal:** multiple style bugs ([#6494](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6494)) ([9b4c0cc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9b4c0cc))
+* **cta-section:** remove style concatenation ([#6686](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6686)) ([291b38d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/291b38d)), closes [#6685](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6685)
+* **rtl:** fix to not have rtlcss styles get parsed out ([#6729](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6729)) ([67b6132](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/67b6132)), closes [#6697](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6697)
+* **tabs-extended:** display tooltip on truncated tab focus ([#6736](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6736)) ([721e805](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/721e805)), closes [#6233](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6233) [#6155](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6155)
+
+
+
+
+
+# [1.22.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.22.0-rc.2...@carbon/ibmdotcom-styles@1.22.0) (2021-07-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
 # [1.22.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.22.0-rc.1...@carbon/ibmdotcom-styles@1.22.0-rc.2) (2021-07-23)
 
 
