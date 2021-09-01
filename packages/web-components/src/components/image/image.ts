@@ -8,6 +8,7 @@
  */
 
 import { html, property, internalProperty, customElement, LitElement } from 'lit-element';
+import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -62,15 +63,26 @@ class DDSImage extends StableSelectorMixin(LitElement) {
   @property({ attribute: 'default-src' })
   defaultSrc = '';
 
+  /**
+   * Whether or not to apply a border around the image.
+   */
+  @property({ type: Boolean, reflect: true })
+  border = false;
+
   render() {
     const { alt, defaultSrc, _images: images, _handleSlotChange: handleSlotChange } = this;
+    const imgClasses = classMap({
+      [`${prefix}--image__img`]: true,
+      [`${prefix}--image__img--border`]: this.hasAttribute('border'),
+    });
+
     return html`
       <slot @slotchange="${handleSlotChange}"></slot>
       <picture>
         ${images.map(
           image => html`<source media="${image.getAttribute('media')}" srcset="${image.getAttribute('srcset')}"></source>`
         )}
-        <img class="${prefix}--image__img" src="${defaultSrc}" alt="${alt}" aria-describedby="long-description" loading="lazy" />
+        <img class="${imgClasses}" src="${defaultSrc}" alt="${alt}" aria-describedby="long-description" loading="lazy" />
       </picture>
       <div id="long-description" class="${prefix}--image__longdescription">
         <slot name="long-description"></slot>
