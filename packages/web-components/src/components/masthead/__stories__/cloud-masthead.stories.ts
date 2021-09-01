@@ -45,7 +45,7 @@ const urlObject = {
 export const Default = !DDS_CLOUD_MASTHEAD
   ? undefined
   : ({ parameters }) => {
-      const { hasContact, hasProfile, hasSearch, searchPlaceholder, userStatus, navLinks } =
+      const { hasContact, hasProfile, hasSearch, searchPlaceholder, selectedMenuItem, userStatus, navLinks } =
         parameters?.props?.CloudMastheadComposite ?? {};
       const { useMock } = parameters?.props?.Other ?? {};
       return html`
@@ -57,6 +57,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
               <dds-cloud-masthead-composite
                 platform="Cloud"
                 .platformUrl="${ifNonNull(platformData.url)}"
+                selected-menu-item="${ifNonNull(selectedMenuItem)}"
                 user-status="${ifNonNull(userStatus)}"
                 searchPlaceholder="${ifNonNull(searchPlaceholder)}"
                 .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
@@ -71,6 +72,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
               <dds-cloud-masthead-container
                 platform="Cloud"
                 .platformUrl="${ifNonNull(urlObject)}"
+                selected-menu-item="${ifNonNull(selectedMenuItem)}"
                 ?has-contact="${hasContact}"
                 auth-method="cookie"
                 user-status="${ifNonNull(userStatus)}"

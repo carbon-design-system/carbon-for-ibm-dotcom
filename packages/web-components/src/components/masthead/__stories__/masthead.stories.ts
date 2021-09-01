@@ -47,7 +47,8 @@ const urlObject = {
 };
 
 export const Default = ({ parameters }) => {
-  const { platform, hasProfile, hasSearch, searchPlaceholder, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
+  const { platform, hasProfile, hasSearch, searchPlaceholder, selectedMenuItem, userStatus, navLinks } =
+    parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -58,6 +59,7 @@ export const Default = ({ parameters }) => {
           <dds-masthead-composite
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
@@ -71,6 +73,7 @@ export const Default = ({ parameters }) => {
           <dds-masthead-container
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .navLinks="${navLinks}"

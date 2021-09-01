@@ -160,7 +160,7 @@ class DDSMastheadComposite extends LitElement {
    * @param currentUrlPath current url path
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _renderMegaMenu(sections, currentUrlPath) {
+  protected _renderMegaMenu(sections, currentUrlPath = '') {
     const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
     const hasHighlights = highlightedItems.length !== 0;
     return html`
@@ -186,7 +186,7 @@ class DDSMastheadComposite extends LitElement {
                                   href="${url}"
                                   style-scheme="category-sublink"
                                   title="${title}"
-                                  ?active="${url === currentUrlPath}"
+                                  ?active="${currentUrlPath ? false : url === currentUrlPath}"
                                 >
                                   <span>${title}</span>${ArrowRight16({ slot: 'icon' })}
                                 </dds-megamenu-link-with-icon>
@@ -196,7 +196,7 @@ class DDSMastheadComposite extends LitElement {
                                   data-autoid="${autoid}-item${key}"
                                   title="${title}"
                                   href="${url}"
-                                  ?active="${url === currentUrlPath}"
+                                  ?active="${currentUrlPath ? false : url === currentUrlPath}"
                                 >
                                 </dds-megamenu-category-link>
                               `}
@@ -217,7 +217,7 @@ class DDSMastheadComposite extends LitElement {
         >
           ${menu.map((item, j) => {
             const autoid = `${ddsPrefix}--masthead__l0-nav-list${j + highlightedItems.length}`;
-            const iconLinkHighlight = item.url === currentUrlPath;
+            const iconLinkHighlight = currentUrlPath ? item.url === currentUrlPath : false;
             return html`
               <dds-megamenu-category-group
                 data-autoid="${autoid}"
@@ -226,7 +226,7 @@ class DDSMastheadComposite extends LitElement {
                 ?active="${iconLinkHighlight}"
               >
                 ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
-                  const categoryLinkHighlight = url === currentUrlPath;
+                  const categoryLinkHighlight = currentUrlPath ? url === currentUrlPath : false;
                   return html`
                     <dds-megamenu-category-link
                       data-autoid="${autoid}-item${key}"
@@ -423,6 +423,8 @@ class DDSMastheadComposite extends LitElement {
 
         return matchFound;
       }
+
+      return false;
     };
   }
 
@@ -441,8 +443,7 @@ class DDSMastheadComposite extends LitElement {
     target: NAV_ITEMS_RENDER_TARGET;
     hasL1: boolean;
   }) {
-    // const currentUrlPath = window.location.href;
-    const currentUrlPath = 'https://www.ibm.com/analytics/data-science';
+    const currentUrlPath = window.location.href;
     const hasChildLink = this._childLinkChecker();
     const { navLinks, l1Data } = this;
     let menu: MastheadLink[] | undefined = navLinks;
@@ -456,11 +457,23 @@ class DDSMastheadComposite extends LitElement {
         ? undefined
         : menu.map((link, i) => {
             const { menuSections = [], title, titleEnglish, url } = link;
-            // const selected = selectedMenuItem && titleEnglish === selectedMenuItem;
-            const selected = hasChildLink(menuSections, currentUrlPath);
+            let selected;
+            let useSelected = false;
+
+            if (selectedMenuItem) {
+              selected = selectedMenuItem && titleEnglish === selectedMenuItem;
+              useSelected = true;
+            } else {
+              selected = hasChildLink(menuSections, currentUrlPath);
+            }
+
             let sections;
             if (link.hasMegapanel) {
-              sections = this._renderMegaMenu(menuSections, currentUrlPath);
+              if (useSelected) {
+                sections = this._renderMegaMenu(menuSections);
+              } else {
+                sections = this._renderMegaMenu(menuSections, currentUrlPath);
+              }
             } else {
               sections = menuSections
                 // eslint-disable-next-line no-use-before-define
@@ -469,7 +482,7 @@ class DDSMastheadComposite extends LitElement {
                   ({ title: menuItemTitle, url: menuItemUrl }, j) =>
                     html`
                       <dds-top-nav-menu-item
-                        ?active="${menuItemUrl === currentUrlPath}"
+                        ?active="${useSelected ? false : menuItemUrl === currentUrlPath}"
                         href="${menuItemUrl}"
                         title="${menuItemTitle}"
                         data-autoid="${autoid}-nav--subnav-col${i}-item${j}"
@@ -480,7 +493,7 @@ class DDSMastheadComposite extends LitElement {
             if (sections.length === 0) {
               return html`
                 <dds-top-nav-item
-                  ?active="${url === currentUrlPath}"
+                  ?active="${useSelected ? true : url === currentUrlPath}"
                   href="${url}"
                   title="${title}"
                   data-autoid="${autoid}-nav--nav${i}"
