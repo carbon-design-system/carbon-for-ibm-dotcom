@@ -84,7 +84,7 @@ Text.story = {
     knobs: {
       TextCTA: ({ groupId }) => {
         const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL, groupId);
-        const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text', 'Lorem ipsum dolor sit amet', groupId);
+        const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy (copy):', 'Lorem ipsum dolor sit amet', groupId);
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD
             ? undefined
@@ -183,6 +183,73 @@ Card.story = {
     hasCardGrid: true,
     knobs: {
       CardCTA: ({ groupId }) => Text.story.parameters.knobs.TextCTA({ groupId }),
+      CardCTAFooter: ({ groupId }) => {
+        const { ctaType } = Text.story.parameters.knobs.TextCTA({ groupId: groupId.replace(/Footer$/, '') });
+        return {
+          copy: textNullable('Footer copy text', '', groupId),
+          href: textNullable(
+            footerKnobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+            hrefsForType[ctaType ?? CTA_TYPE.REGULAR],
+            groupId
+          ),
+          download:
+            ctaType !== CTA_TYPE.DOWNLOAD
+              ? undefined
+              : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId),
+        };
+      },
+    },
+  },
+};
+
+export const CardLink = ({ parameters }) => {
+  const { heading, copy, ctaType, download, href } = parameters?.props?.CardCTA ?? {};
+  const { copy: footerCopy, download: footerDownload, href: footerHref } = parameters?.props?.CardCTAFooter ?? {};
+  return html`
+    <dds-card-link-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${ifNonNull(href)}">
+      <dds-card-link-heading>${ctaType !== 'video' ? heading : ''}</dds-card-link-heading>
+      ${copy
+        ? html`
+            <p>${copy}</p>
+          `
+        : ``}
+      <dds-card-cta-footer
+        cta-type="${ifNonNull(ctaType)}"
+        download="${ifNonNull(footerDownload)}"
+        href="${ifNonNull(footerHref)}"
+      >
+        ${ctaType === 'local' ? footerCopy || ArrowRight20({ slot: 'icon' }) : ''}
+        ${ctaType === 'jump' ? footerCopy || ArrowDown20({ slot: 'icon' }) : ''}
+        ${ctaType === 'external' ? footerCopy || Launch20({ slot: 'icon' }) : ''}
+        ${ctaType === 'download' ? footerCopy || Download20({ slot: 'icon' }) : ''}
+        ${ctaType === 'video' ? footerCopy || PlayOutline20({ slot: 'icon' }) : ''}
+      </dds-card-cta-footer>
+    </dds-card-link-cta>
+  `;
+};
+
+CardLink.story = {
+  name: 'Card link',
+  parameters: {
+    hasGrid: true,
+    hasCardGrid: true,
+    knobs: {
+      CardCTA: ({ groupId }) => {
+        const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL, groupId);
+        const heading = textNullable('Heading (heading):', 'Explore AI use cases in all industries', groupId);
+        const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy (copy):', '', groupId);
+        const download =
+          ctaType !== CTA_TYPE.DOWNLOAD
+            ? undefined
+            : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
+        return {
+          heading,
+          copy,
+          ctaType,
+          download,
+          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR], groupId),
+        };
+      },
       CardCTAFooter: ({ groupId }) => {
         const { ctaType } = Text.story.parameters.knobs.TextCTA({ groupId: groupId.replace(/Footer$/, '') });
         return {

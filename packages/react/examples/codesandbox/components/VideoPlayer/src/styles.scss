@@ -5,13 +5,17 @@
  * LICENSE file in the root directory of this source tree.
 */
 
-.bx--grid {
-  padding-top: 1rem;
+@import '@carbon/ibmdotcom-styles/scss/components/video-player/video-player';
+@import '@carbon/ibmdotcom-styles/scss/components/lightbox-media-viewer/lightbox-media-viewer';
+
+body {
+  padding: 1rem 0;
 }
 
 .bx--row {
   padding-top: 1rem;
-}
 
-@import '@carbon/ibmdotcom-styles/scss/components/video-player/_video-player.scss';
-@import '@carbon/ibmdotcom-styles/scss/components/lightbox-media-viewer/_lightbox-media-viewer.scss';
+  h4 {
+    margin-top: 1rem;
+  }
+}

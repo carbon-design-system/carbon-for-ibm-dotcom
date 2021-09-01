@@ -36,7 +36,6 @@ const pictograms = {
 
 export default {
   title: 'Components|Pictogram item',
-
   parameters: {
     ...readme.parameters,
     knobs: {

@@ -147,6 +147,7 @@ Tall.story = {
 
 export const TallWithImage = context => Default(context);
 TallWithImage.story = {
+  name: 'Tall with image',
   parameters: {
     knobs: {
       Leadspace: () => ({
@@ -203,6 +204,7 @@ Medium.story = {
 export const MediumWithImage = context => Default(context);
 
 MediumWithImage.story = {
+  name: 'Medium with image',
   parameters: {
     knobs: {
       Leadspace: () => ({
@@ -259,6 +261,7 @@ Centered.story = {
 export const CenteredWithImage = context => Default(context);
 
 CenteredWithImage.story = {
+  name: 'Centered with image',
   parameters: {
     knobs: {
       Leadspace: () => ({
@@ -315,6 +318,7 @@ Super.story = {
 export const SuperWithImage = context => Tall(context);
 
 SuperWithImage.story = {
+  name: 'Super with image',
   parameters: {
     knobs: {
       Leadspace: () => ({

@@ -97,7 +97,7 @@
   }
 
   ::slotted(svg[slot='pictogram']) {
-    color: $icon-01;
+    fill: currentColor;
     @include carbon--breakpoint('md') {
       margin-left: 0;
     }

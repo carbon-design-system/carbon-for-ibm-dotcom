@@ -19,7 +19,6 @@ import { text } from '@storybook/addon-knobs';
 
 export default {
   title: 'Components|Feature card',
-
   parameters: {
     ...readme.parameters,
   },

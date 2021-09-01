@@ -148,7 +148,7 @@ $btn-min-width: 26;
     .#{$prefix}--leadspace__row {
       @include carbon--make-row;
 
-      flex-direction: column;
+      flex-flow: column nowrap;
     }
 
     .#{$prefix}--btn {

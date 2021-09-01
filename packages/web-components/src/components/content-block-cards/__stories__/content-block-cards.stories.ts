@@ -87,6 +87,10 @@ export const withImages = ({ parameters }) => {
   `;
 };
 
+withImages.story = {
+  name: 'With images',
+};
+
 export const withVideos = ({ parameters }) => {
   const { heading, ctaCopy, ctaType, href } = parameters?.props?.ContentBlockCards ?? {};
   return html`
@@ -105,6 +109,7 @@ export const withVideos = ({ parameters }) => {
 };
 
 withVideos.story = {
+  name: 'With videos',
   parameters: {
     percy: {
       skip: true,
