@@ -8,6 +8,7 @@
  */
 
 import { html, property, internalProperty, customElement, LitElement } from 'lit-element';
+import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -70,9 +71,10 @@ class DDSImage extends StableSelectorMixin(LitElement) {
 
   render() {
     const { alt, defaultSrc, _images: images, _handleSlotChange: handleSlotChange } = this;
-    const imgClasses = [`${prefix}--image__img`, this.hasAttribute('border') ? `${prefix}--image__img--border` : null]
-      .filter(className => className !== null)
-      .join(' ');
+    const imgClasses = classMap({
+      [`${prefix}--image__img`]: true,
+      [`${prefix}--image__img--border`]: this.hasAttribute('border'),
+    });
 
     return html`
       <slot @slotchange="${handleSlotChange}"></slot>
