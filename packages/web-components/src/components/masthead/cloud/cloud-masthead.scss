@@ -13,11 +13,7 @@
 :host(#{$dds-prefix}-cloud-masthead-container),
 #{$dds-prefix}-cloud-masthead-container {
   position: relative;
-
-  /* stylelint-disable declaration-no-important */
-  /* uses !important to override z-index defined in v18 .ibm-sitenav-menu-container */
-  z-index: 999 !important;
-  /* stylelint-enable declaration-no-important */
+  z-index: 999;
 }
 
 :host(#{$dds-prefix}-cloud-masthead-global-bar) {

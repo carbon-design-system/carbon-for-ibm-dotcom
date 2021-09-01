@@ -249,6 +249,8 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     }
     this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
     this._loadUserStatus?.(this.authMethod);
+
+    this.style.zIndex = '999';
   }
 
   render() {
