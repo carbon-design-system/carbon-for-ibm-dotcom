@@ -461,6 +461,10 @@ $btn-min-width: 26;
       @include carbon--type-style(expressive-heading-06, true);
     }
 
+    ::slotted(#{$dds-prefix}-leadspace-image) {
+      height: auto;
+    }
+
     .#{$prefix}--leadspace__section {
       @include carbon--breakpoint('lg') {
         height: carbon--mini-units(40);
