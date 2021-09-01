@@ -1,24 +1,27 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { render } from 'lit-html';
-import { Default } from '../__stories__/callout-data.stories';
+import { html, render } from 'lit-html';
 
-const template = (props?) =>
-  // @ts-ignore: Behind feature flag
-  Default({
-    parameters: {
-      props: {
-        'dds-callout-data': props,
-      },
-    },
-  });
+const template = () => {
+  return html`
+    <dds-callout-data>
+      <dds-callout-data-heading>51%</dds-callout-data-heading>
+      <dds-callout-data-copy>
+        Lorem ipsum
+      </dds-callout-data-copy>
+      <dds-callout-data-source>
+        Duis aute irure
+      </dds-callout-data-source>
+    </dds-callout-data>
+  `;
+};
 
 describe('dds-callout-data', function() {
   it('Renders as expected', async function() {
