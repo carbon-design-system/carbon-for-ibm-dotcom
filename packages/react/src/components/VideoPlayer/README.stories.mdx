@@ -42,11 +42,7 @@ import 'yourapplication.scss';
 
 function App() {
   return (
-    <VideoPlayer
-      inverse={false}
-      videoId="your-video-id"
-      showDescription={true}
-    />
+    <VideoPlayer inverse={false} videoId="your-video-id" showDescription />
   );
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -76,7 +72,9 @@ KALTURA_UICONF_ID=12905712
 
 ## Manual usage of Kaltura API
 
-With `@carbon/ibmdotcom-services`, you can keep track of the readiness of [Kaltura API](http://player.kaltura.com/docs/api) and use it when it is ready. Here is an example of stopping the video player when it is hidden in DOM:
+With `@carbon/ibmdotcom-services`, you can keep track of the readiness of
+[Kaltura API](http://player.kaltura.com/docs/api) and use it when it is ready.
+Here is an example of stopping the video player when it is hidden in DOM:
 
 ```javascript
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
@@ -100,15 +98,17 @@ KalturaPlayerAPI.checkScript().then(() => {
 });
 ```
 
-> 💡 We don't test `<VideoPlayer>` against arbitray usage of Kaltura API. Use this technique at your own risk.
+> 💡 We don't test `<VideoPlayer>` against arbitray usage of Kaltura API. Use
+> this technique at your own risk.
 
 ##### OPTIONAL 💡
 
-In addition, direct ES module imports can be used to speed up build compilation and have less reliance on tree-shaking determinations from build scripts:
+In addition, direct ES module imports can be used to speed up build compilation
+and have less reliance on tree-shaking determinations from build scripts:
 
-````js
+```js
 import VideoPlayer from '@carbon/ibmdotcom-react/es/components/VideoPlayer/VideoPlayer';
-````
+```
 
 ## Props
 
