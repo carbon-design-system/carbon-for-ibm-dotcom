@@ -8,6 +8,10 @@
   "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom",
   "bugs": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues",
   "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
     "./es": "./es/index.js",
     "./es/": "./es/",
     "./lib": "./lib/index.js",
