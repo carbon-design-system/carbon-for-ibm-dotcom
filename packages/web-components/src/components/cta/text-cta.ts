@@ -78,12 +78,6 @@ class DDSTextCTA extends VideoCTAMixin(CTAMixin(DDSLinkWithIcon)) {
   ctaType = CTA_TYPE.REGULAR;
 
   /**
-   *
-   */
-  @property({ reflect: true, attribute: 'custom-video-title' })
-  customTitleVideo?: string;
-
-  /**
    * The formatter for the video caption, composed with the video name and the video duration.
    * Should be changed upon the locale the UI is rendered with.
    */

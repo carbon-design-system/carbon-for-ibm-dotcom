@@ -70,7 +70,7 @@ export const Text = ({ parameters }) => {
   return html`
     <dds-text-cta
       cta-type="${ifNonNull(ctaType)}"
-      custom-video-title="${ifNonNull(customVideoTitle)}"
+      video-name="${ifNonNull(customVideoTitle)}"
       download="${ifNonNull(download)}"
       href="${ifNonNull(href)}"
     >
