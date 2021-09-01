@@ -16,7 +16,6 @@ export default !DDS_CONTENTBLOCK_HEADLINES
   ? undefined
   : {
       title: 'Components|Content block headlines',
-
       parameters: {
         ...readme.parameters,
         knobs: {

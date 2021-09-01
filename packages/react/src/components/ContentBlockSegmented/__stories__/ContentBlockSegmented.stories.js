@@ -135,7 +135,6 @@ const getCTAKnobs = ({ groupId }) => {
 
 export default {
   title: 'Components|Content block segmented',
-
   parameters: {
     ...readme.parameters,
   },

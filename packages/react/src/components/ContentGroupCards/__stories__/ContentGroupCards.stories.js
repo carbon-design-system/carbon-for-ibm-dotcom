@@ -12,7 +12,6 @@ import { text } from '@storybook/addon-knobs';
 
 export default {
   title: 'Components|Content group cards',
-
   parameters: {
     ...readme.parameters,
     knobs: {

@@ -41,7 +41,7 @@ const miscCTAData = {
   },
   card({ type }) {
     return {
-      copy: type !== 'video' ? copy[0] : '',
+      heading: type !== 'video' ? copy[0] : '',
       cta: {
         href: urlBy[type],
       },
@@ -151,7 +151,6 @@ const wrapper = (CTA, style, type) => {
 
 export default {
   title: 'Components|CTA',
-
   parameters: {
     ...readme.parameters,
   },
@@ -184,15 +183,6 @@ Text.story = {
           iconPlacement,
           ...miscCTAData['text']({ type: knobs.type }),
         };
-      },
-    },
-    propsSet: {
-      default: {
-        CTA: {
-          type: 'text',
-          href: 'https://www.example.com',
-          copy: copy[0],
-        },
       },
     },
   },
@@ -228,23 +218,6 @@ Button.story = {
         };
       },
     },
-    propsSet: {
-      default: {
-        CTA: {
-          style: 'button',
-          buttons: [
-            {
-              href: 'https://www.example.com',
-              copy: copy[0],
-            },
-            {
-              href: 'https://www.example.com',
-              copy: copy[1],
-            },
-          ],
-        },
-      },
-    },
   },
 };
 
@@ -263,17 +236,6 @@ Card.story = {
           type,
           ...miscCTAData['card']({ type }),
         };
-      },
-    },
-    propsSet: {
-      default: {
-        CTA: {
-          style: 'card',
-          copy: copy[0],
-          cta: {
-            href: 'https://www.example.com',
-          },
-        },
       },
     },
   },
@@ -313,24 +275,6 @@ Feature.story = {
           type,
           ...miscCTAData['feature']({ type }),
         };
-      },
-    },
-    propsSet: {
-      default: {
-        CTA: {
-          type: 'feature',
-          heading: copy[0],
-          card: {
-            heading: copy[1],
-            cta: {
-              href: 'https://www.example.com',
-            },
-            image: {
-              defaultSrc: imgLg1x1,
-              alt: 'Image alt text',
-            },
-          },
-        },
       },
     },
   },

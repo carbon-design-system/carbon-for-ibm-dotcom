@@ -184,6 +184,7 @@ export const withImages = ({ parameters }) => {
 };
 
 withImages.story = {
+  name: 'With images',
   parameters: {
     ...readme.parameters,
     knobs: {
@@ -224,6 +225,7 @@ const gridModes = {
 };
 
 withCardInCard.story = {
+  name: 'With card in card',
   parameters: {
     ...readme.parameters,
     knobs: {
@@ -254,6 +256,7 @@ export const withMixedMedia = ({ parameters }) => {
 };
 
 withMixedMedia.story = {
+  name: 'With mixed media',
   parameters: {
     ...readme.parameters,
     percy: {
@@ -292,6 +295,7 @@ export const withCardInCardAndImageCards = ({ parameters }) => {
 };
 
 withCardInCardAndImageCards.story = {
+  name: 'With card in card and image cards',
   parameters: {
     ...readme.parameters,
     knobs: {
@@ -316,6 +320,7 @@ export const withCardLinks = ({ parameters }) => {
 };
 
 withCardLinks.story = {
+  name: 'With card links',
   parameters: {
     ...readme.parameters,
     knobs: {

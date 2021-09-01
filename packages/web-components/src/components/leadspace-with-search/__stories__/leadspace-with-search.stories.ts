@@ -73,6 +73,10 @@ export const WithImage = ({ parameters }) => {
   `;
 };
 
+WithImage.story = {
+  name: 'With image',
+};
+
 export default {
   title: 'Components/Lead space search',
   parameters: {
