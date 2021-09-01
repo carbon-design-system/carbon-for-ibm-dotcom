@@ -155,20 +155,20 @@ LightboxMediaViewer.propTypes = {
   /**
    * Object containing media info. The structure is:
    *
-   * | Name          | Data Type | Description                                                           |
-   * | ------------- | --------- | --------------------------------------------------------------------- |
-   * | `type`        | String    | Determines whether to render `image` or `video`                       |
-   * | `src`         | String    | Image link or video id                                                |
-   * | `alt`         | String    | Alternate text for image. For video, this is generated from api call. |
-   * | `title`       | String    | Title copy. For video, this is generated from api call.               |
-   * | `description` | String    | Description copy. For video, this is generated from api call.         |
+   * | Name          | Data Type | Description                                                                                                            |
+   * | ------------- | --------- | ---------------------------------------------------------------------------------------------------------------------- |
+   * | `type`        | String    | Determines whether to render `image` or `video`                                                                        |
+   * | `src`         | String    | Image link or video id                                                                                                 |
+   * | `alt`         | String    | Alternate text for image. For video, this is generated from api call.                                                  |
+   * | `title`       | String    | If this prop is set when the `type` is equaled to `video`, this will override the video title from the API call.       |
+   * | `description` | String    | If this prop is set when the `type` is equaled to `video`, this will override the video description from the API call. |
    */
   media: PropTypes.shape({
     type: PropTypes.string,
     src: PropTypes.string,
     title: PropTypes.string,
-    alt: PropTypes.string,
     description: PropTypes.string,
+    alt: PropTypes.string,
   }).isRequired,
 
   /**
