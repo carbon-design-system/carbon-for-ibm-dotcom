@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -7,9 +7,8 @@
 
 import React, { useEffect } from 'react';
 import classNames from 'classnames';
-import { DDS_SIMPLEBENEFITS } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import featureFlag from '@carbon/ibmdotcom-utilities/es/utilities/featureflag/featureflag';
+import deprecate from '@carbon/ibmdotcom-utilities/es/utilities/deprecate/deprecate';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -62,8 +61,7 @@ const SimpleBenefits = ({ content, theme, title }) => {
     [`${prefix}--simplebenefits--multirow`]: content.length > 3,
   });
 
-  return featureFlag(
-    DDS_SIMPLEBENEFITS,
+  return (
     <section
       data-autoid={`${stablePrefix}--simplebenefits`}
       className={`${simpleBenefits} ${_setTheme(theme)}`}>
@@ -147,6 +145,11 @@ SimpleBenefits.propTypes = {
    * Main title of the pattern.
    */
   title: PropTypes.string.isRequired,
+
+  /**
+   * Theme of the pattern
+   */
+  theme: PropTypes.string,
 };
 
-export default SimpleBenefits;
+export default deprecate(SimpleBenefits);

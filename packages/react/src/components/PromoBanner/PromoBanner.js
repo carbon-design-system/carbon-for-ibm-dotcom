@@ -1,13 +1,12 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { DDS_PROMO_BANNER } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import featureFlag from '@carbon/ibmdotcom-utilities/es/utilities/featureflag/featureflag';
+import deprecate from '@carbon/ibmdotcom-utilities/es/utilities/deprecate/deprecate';
 import LinkWithIcon from '../LinkWithIcon/LinkWithIcon';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml';
 import PropTypes from 'prop-types';
@@ -18,30 +17,27 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 const PromoBanner = ({ banner, copy, cta }) =>
-  featureFlag(
-    DDS_PROMO_BANNER,
-    banner && copy && cta ? (
-      <section
-        data-autoid={`${stablePrefix}--promo-banner`}
-        className={`${prefix}--promo-banner`}>
-        <div className={`${prefix}--promo-banner__row`}>
-          <div className={`${prefix}--promo-banner__left-column`}>{banner}</div>
-          <div className={`${prefix}--promo-banner__content`}>
-            <div
-              className={`${prefix}--promo-banner__copy`}
-              dangerouslySetInnerHTML={{
-                __html: markdownToHtml(copy, { bold: false }),
-              }}
-            />
-            <LinkWithIcon href={cta.href}>
-              <span>{cta.copy}</span>
-              {cta.icon}
-            </LinkWithIcon>
-          </div>
+  banner && copy && cta ? (
+    <section
+      data-autoid={`${stablePrefix}--promo-banner`}
+      className={`${prefix}--promo-banner`}>
+      <div className={`${prefix}--promo-banner__row`}>
+        <div className={`${prefix}--promo-banner__left-column`}>{banner}</div>
+        <div className={`${prefix}--promo-banner__content`}>
+          <div
+            className={`${prefix}--promo-banner__copy`}
+            dangerouslySetInnerHTML={{
+              __html: markdownToHtml(copy, { bold: false }),
+            }}
+          />
+          <LinkWithIcon href={cta.href}>
+            <span>{cta.copy}</span>
+            {cta.icon}
+          </LinkWithIcon>
         </div>
-      </section>
-    ) : null
-  );
+      </div>
+    </section>
+  ) : null;
 
 PromoBanner.propTypes = {
   /**
@@ -62,4 +58,4 @@ PromoBanner.propTypes = {
   }).isRequired,
 };
 
-export default PromoBanner;
+export default deprecate(PromoBanner);

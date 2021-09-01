@@ -10,8 +10,8 @@
 import { html, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import deprecate from '@carbon/ibmdotcom-utilities/es/utilities/deprecate/deprecate.js';
 import styles from './callout-data.scss';
-import { DDS_CALLOUT_DATA } from '../../globals/internal/feature-flags';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 const { prefix } = settings;
@@ -47,9 +47,5 @@ class DDSCalloutData extends StableSelectorMixin(LitElement) {
   static styles = styles;
 }
 
-// Define the new element
-if (DDS_CALLOUT_DATA) {
-  customElements.define(`${ddsPrefix}-callout-data`, DDSCalloutData);
-}
-
-export default !DDS_CALLOUT_DATA ? undefined : DDSCalloutData;
+customElements.define(`${ddsPrefix}-callout-data`, DDSCalloutData);
+export default deprecate(DDSCalloutData);
