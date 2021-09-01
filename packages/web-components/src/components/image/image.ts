@@ -62,15 +62,25 @@ class DDSImage extends StableSelectorMixin(LitElement) {
   @property({ attribute: 'default-src' })
   defaultSrc = '';
 
+  /**
+   * Whether or not to apply a border around the image.
+   */
+  @property({ type: Boolean, reflect: true })
+  border = false;
+
   render() {
     const { alt, defaultSrc, _images: images, _handleSlotChange: handleSlotChange } = this;
+    const imgClasses = [`${prefix}--image__img`, this.hasAttribute('border') ? `${prefix}--image__img--border` : null]
+      .filter(className => className !== null)
+      .join(' ');
+
     return html`
       <slot @slotchange="${handleSlotChange}"></slot>
       <picture>
         ${images.map(
           image => html`<source media="${image.getAttribute('media')}" srcset="${image.getAttribute('srcset')}"></source>`
         )}
-        <img class="${prefix}--image__img" src="${defaultSrc}" alt="${alt}" aria-describedby="long-description" loading="lazy" />
+        <img class="${imgClasses}" src="${defaultSrc}" alt="${alt}" aria-describedby="long-description" loading="lazy" />
       </picture>
       <div id="long-description" class="${prefix}--image__longdescription">
         <slot name="long-description"></slot>
