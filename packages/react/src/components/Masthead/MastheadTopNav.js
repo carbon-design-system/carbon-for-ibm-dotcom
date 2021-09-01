@@ -33,7 +33,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
    * @returns {*} Top masthead navigation
    */
   const mastheadLinks = navigation.map((link, i) => {
-    const subMenuSelected = hasCurrentUrl(link, root.location.href);
+    const subMenuSelected = _hasCurrentUrl(link, root.location.href);
     const autoid = `${stablePrefix}--masthead-${topNavProps.navType}__l0-nav${i}`;
     const selected =
       link.titleEnglish === topNavProps.selectedMenuItem || subMenuSelected;
@@ -134,9 +134,10 @@ function renderNav(link, autoid) {
  *
  * @param {object} obj The navigation list to search
  * @param {string} target The URL to search for
+ * @private
  * @returns {boolean} Whether or not the URL is found in the navigation list
  */
-function hasCurrentUrl(obj, target) {
+const _hasCurrentUrl = (obj, target) => {
   const findUrl = obj => {
     /* eslint-disable no-unused-vars */
     for (const [key, val] of Object.entries(obj)) {
@@ -150,7 +151,7 @@ function hasCurrentUrl(obj, target) {
     }
   };
   return findUrl(obj);
-}
+};
 
 MastheadTopNav.propTypes = {
   /**
