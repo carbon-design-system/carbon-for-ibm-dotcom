@@ -46,7 +46,7 @@ export const FadeOnce = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="fade" selector-targets="${selectorTargets}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
 };
@@ -62,7 +62,7 @@ export const FadeWithContinuousAnimations = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="fade" selector-targets="${selectorTargets}" keep-animation="${true}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
 };
@@ -78,7 +78,7 @@ export const SlideUp = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="slide-up" selector-targets="${selectorTargets}" keep-animation="${true}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
 };
@@ -94,7 +94,7 @@ export const SlideUpRight = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="slide-up-right" selector-targets="${selectorTargets}" keep-animation="${true}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
 };
@@ -110,7 +110,7 @@ export const SlideRight = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="slide-right" selector-targets="${selectorTargets}" keep-animation="${true}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
 };
@@ -126,7 +126,7 @@ export const SlideDownRight = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="slide-down-right" selector-targets="${selectorTargets}" keep-animation="${true}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
 };
@@ -142,7 +142,7 @@ export const SlideDown = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="slide-down" selector-targets="${selectorTargets}" keep-animation="${true}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
 };
@@ -158,7 +158,7 @@ export const SlideDownLeft = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="slide-down-left" selector-targets="${selectorTargets}" keep-animation="${true}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
 };
@@ -174,7 +174,7 @@ export const SlideLeft = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="slide-left" selector-targets="${selectorTargets}" keep-animation="${true}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
 };
@@ -190,7 +190,7 @@ export const SlideUpLeft = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="slide-up-left" selector-targets="${selectorTargets}" keep-animation="${true}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
 };
