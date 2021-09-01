@@ -34,7 +34,6 @@ const ctaTypes = {
 
 export default {
   title: 'Components|Content block cards',
-
   parameters: {
     ...readme.parameters,
   },
@@ -102,6 +101,7 @@ export const WithImages = ({ parameters }) => {
 };
 
 WithImages.story = {
+  name: 'With images',
   parameters: {
     knobs: {
       ContentBlockCards: ({ groupId }) => {
@@ -146,6 +146,7 @@ export const WithVideos = ({ parameters }) => {
 };
 
 WithVideos.story = {
+  name: 'With videos',
   parameters: {
     percy: {
       skip: true,

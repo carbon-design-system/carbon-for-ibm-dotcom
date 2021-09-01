@@ -29,7 +29,6 @@ const getBaseKnobs = ({ groupId }) => {
 
 export default {
   title: 'Components|Card section simple',
-
   parameters: {
     ...readme.parameters,
     percy: {
