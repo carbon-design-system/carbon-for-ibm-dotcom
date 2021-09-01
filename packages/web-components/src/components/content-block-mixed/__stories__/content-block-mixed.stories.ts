@@ -296,6 +296,7 @@ export const WithAsideElements = ({ parameters }) => {
 };
 
 WithAsideElements.story = {
+  name: 'With aside elements',
   parameters: {
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout--with-complementary',
     knobs: {

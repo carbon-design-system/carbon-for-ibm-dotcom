@@ -158,9 +158,10 @@ class DDSMastheadComposite extends LitElement {
    *  Render MegaMenu content
    *
    * @param sections menu section data object
+   * @param _parentKey parent menu key (used for the cloud-masthead-composite component)
    */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderMegaMenu(sections) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  protected _renderMegaMenu(sections, _parentKey) {
     const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
 
     const hasHighlights = highlightedItems.length !== 0;
@@ -412,7 +413,7 @@ class DDSMastheadComposite extends LitElement {
             const selected = selectedMenuItem && titleEnglish === selectedMenuItem;
             let sections;
             if (link.hasMegapanel) {
-              sections = this._renderMegaMenu(menuSections);
+              sections = this._renderMegaMenu(menuSections, i);
             } else {
               sections = menuSections
                 // eslint-disable-next-line no-use-before-define

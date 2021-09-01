@@ -20,7 +20,6 @@ const origGetTranslation = TranslationAPI.getTranslation;
 
 export default {
   title: 'Components|Masthead',
-
   parameters: {
     ...readme.parameters,
   },
@@ -101,6 +100,7 @@ export const WithCustomNavigation = ({ parameters }) => (
 );
 
 WithCustomNavigation.story = {
+  name: 'With custom navigation',
   parameters: {
     knobs: {
       escapeHTML: false,
@@ -153,6 +153,7 @@ export const SearchOpenOnload = ({ parameters }) => (
 );
 
 SearchOpenOnload.story = {
+  name: 'Search open on load',
   parameters: {
     knobs: { escapeHTML: false, ...Default.story.parameters.knobs },
   },
@@ -163,6 +164,7 @@ export const WithPlatform = ({ parameters }) => (
 );
 
 WithPlatform.story = {
+  name: 'With platform',
   parameters: {
     knobs: {
       escapeHTML: false,
@@ -208,6 +210,7 @@ WithPlatform.story = {
 export const WithL1 = ({ parameters }) => <Default parameters={parameters} />;
 
 WithL1.story = {
+  name: 'With L1',
   parameters: {
     knobs: {
       escapeHTML: false,
@@ -248,6 +251,7 @@ export const WithAlternateLogoAndTooltip = ({ parameters }) => (
 );
 
 WithAlternateLogoAndTooltip.story = {
+  name: 'With alternate logo and tooltip',
   parameters: {
     knobs: {
       escapeHTML: false,

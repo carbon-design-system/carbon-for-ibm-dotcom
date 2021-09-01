@@ -205,6 +205,7 @@ export const CardLink = ({ parameters }) => {
 };
 
 CardLink.story = {
+  name: 'Card link',
   parameters: {
     hasGrid: true,
     hasCardGrid: true,

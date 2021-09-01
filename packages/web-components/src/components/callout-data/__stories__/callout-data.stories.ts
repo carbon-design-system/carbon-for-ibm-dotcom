@@ -34,7 +34,7 @@ export const Default = !DDS_CALLOUT_DATA
 export default !DDS_CALLOUT_DATA
   ? undefined
   : {
-      title: 'Components/Callout Data',
+      title: 'Components/Callout data',
       parameters: {
         ...readme.parameters,
         hasGrid: true,

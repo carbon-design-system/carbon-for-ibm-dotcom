@@ -88,6 +88,7 @@ Default.story = {
 export const Right12Columns = context => Default(context);
 
 Right12Columns.story = {
+  name: 'Right 12 columns',
   parameters: {
     gridCarouselClass: 'dds-ce-demo-devenv--simple-grid--carousel--right-12',
   },
@@ -96,6 +97,7 @@ Right12Columns.story = {
 export const Center8Columns = context => Default(context);
 
 Center8Columns.story = {
+  name: 'Center 8 columns',
   parameters: {
     gridCarouselClass: 'dds-ce-demo-devenv--simple-grid--carousel--center-8',
     knobs: {
