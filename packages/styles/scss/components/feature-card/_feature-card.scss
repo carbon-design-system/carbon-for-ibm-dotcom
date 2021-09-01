@@ -159,6 +159,11 @@ $fcb-breakpoint-up--lg: map-get(
         width: 50%;
         height: auto;
       }
+
+      .#{$prefix}--card__content {
+        height: auto;
+        min-height: 100%;
+      }
     }
 
     // image
