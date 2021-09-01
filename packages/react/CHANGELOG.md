@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.24.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.24.0-rc.0...@carbon/ibmdotcom-react@1.24.0-rc.1) (2021-08-31)
+
+
+### Bug Fixes
+
+* **LightboxMediaPlayer:** set `autoPlay` based on modal open state ([#7010](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7010)) ([333043c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/333043c)), closes [#6958](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6958)
+
+
+
+
+
 # [1.24.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.2...@carbon/ibmdotcom-react@1.24.0-rc.0) (2021-08-27)
 
 

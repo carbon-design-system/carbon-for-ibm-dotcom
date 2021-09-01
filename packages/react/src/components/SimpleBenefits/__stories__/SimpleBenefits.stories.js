@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -67,8 +67,7 @@ const defaultContent = [
 export default !DDS_SIMPLEBENEFITS
   ? undefined
   : {
-      title: 'Components|Simple Benefits',
-
+      title: 'Components|Simple benefits',
       parameters: {
         ...readme.parameters,
         knobs: {

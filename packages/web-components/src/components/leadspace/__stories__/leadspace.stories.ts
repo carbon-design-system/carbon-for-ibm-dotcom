@@ -97,6 +97,10 @@ export const TallWithImage = ({ parameters }) => {
   `;
 };
 
+TallWithImage.story = {
+  name: 'Tall with image',
+};
+
 export const Centered = ({ parameters }) => {
   const { title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
@@ -148,6 +152,10 @@ export const CenteredWithImage = ({ parameters }) => {
       </dds-leadspace-image>
     </dds-leadspace>
   `;
+};
+
+CenteredWithImage.story = {
+  name: 'Centered with image',
 };
 
 export const Medium = ({ parameters }) => {
@@ -202,6 +210,10 @@ export const MediumWithImage = ({ parameters }) => {
   `;
 };
 
+MediumWithImage.story = {
+  name: 'Medium with image',
+};
+
 export const Super = ({ parameters }) => {
   const { title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
@@ -252,6 +264,10 @@ export const SuperWithImage = ({ parameters }) => {
       </dds-leadspace-image>
     </dds-leadspace>
   `;
+};
+
+SuperWithImage.story = {
+  name: 'Super with image',
 };
 
 const getAriaLabel = type => {

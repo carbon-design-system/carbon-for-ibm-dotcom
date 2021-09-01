@@ -10,7 +10,6 @@ import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|Card section carousel',
-
   parameters: {
     ...readme.parameters,
     percy: {

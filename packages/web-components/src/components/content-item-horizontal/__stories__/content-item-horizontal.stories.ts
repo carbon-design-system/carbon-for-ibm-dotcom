@@ -136,6 +136,7 @@ Default.story = {
 };
 
 WithThumbnail.story = {
+  name: 'With thumbnail',
   parameters: {
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal-thumbnail',
     knobs: {
@@ -158,6 +159,7 @@ WithThumbnail.story = {
 };
 
 WithMedia.story = {
+  name: 'With media',
   parameters: {
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal-media',
     knobs: {
