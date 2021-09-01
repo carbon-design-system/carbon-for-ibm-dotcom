@@ -38,7 +38,7 @@ class DDSTopNavMenu extends BXHeaderMenu {
     if (changedProperties.has('active')) {
       const { active, _triggerNode: triggerNode } = this;
       if (triggerNode) {
-        triggerNode.setAttribute('aria-selected', String(Boolean(active)));
+        triggerNode.setAttribute('selected', String(Boolean(active)));
       }
     }
   }
