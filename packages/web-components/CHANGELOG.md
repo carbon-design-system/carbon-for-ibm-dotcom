@@ -39,6 +39,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **typescript:** upgrade to typescript v4.3.5 ([#6943](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6943)) ([04da1bb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/04da1bb)), closes [#6792](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6792)
 
 
+## [1.8.3-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.8.2...@carbon/ibmdotcom-web-components@1.8.3-rc.0) (2021-09-01)
+
+### Bug Fixes
+
+* **cloud-masthead:** adjust the cookie to PROD ID & overlapping issue on v18 L1 Nav ([#7037](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7037)) ([8f6a4d0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/8f6a4d0))
 
 
 

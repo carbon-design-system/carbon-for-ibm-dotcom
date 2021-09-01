@@ -6,6 +6,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 # [1.24.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.23.2...@carbon/ibmdotcom-services@1.24.0-rc.0) (2021-08-27)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
+## [1.23.3-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.23.2...@carbon/ibmdotcom-services@1.23.3-rc.0) (2021-09-01)
+
+
+### Bug Fixes
+
+* **cloud-masthead:** adjust the cookie to PROD ID & overlapping issue on v18 L1 Nav ([#7037](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7037)) ([8f6a4d0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8f6a4d0))
 
 
 
