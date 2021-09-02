@@ -14,7 +14,6 @@ import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|Locale modal',
-
   parameters: {
     ...readme.parameters,
     knobs: {

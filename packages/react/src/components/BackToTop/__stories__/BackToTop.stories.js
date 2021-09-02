@@ -10,7 +10,6 @@ import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|Back to top',
-
   parameters: {
     ...readme.parameters,
     percy: {

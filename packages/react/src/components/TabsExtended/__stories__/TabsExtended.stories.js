@@ -9,8 +9,7 @@ import React from 'react';
 import readme from '../README.stories.mdx';
 
 export default {
-  title: 'Components|Tabs Extended',
-
+  title: 'Components|Tabs extended',
   parameters: {
     ...readme.parameters,
     percy: {

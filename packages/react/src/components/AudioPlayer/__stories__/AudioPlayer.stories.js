@@ -14,7 +14,7 @@ import readme from '../README.stories.mdx';
 export default !DDS_AUDIO_PLAYER
   ? undefined
   : {
-      title: 'Components|AudioPlayer',
+      title: 'Components|Audio player',
       parameters: {
         ...readme.parameters,
         percy: {

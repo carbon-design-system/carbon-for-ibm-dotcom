@@ -12,7 +12,6 @@ import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|Content item horizontal',
-
   parameters: {
     ...readme.parameters,
     knobs: {
@@ -116,6 +115,7 @@ export const WithMedia = () => {
 };
 
 WithMedia.story = {
+  name: 'With media',
   parameters: {
     ...readme.parameters,
     knobs: { ContentItemHorizontal: () => ({}) },
@@ -143,6 +143,7 @@ export const WithThumbnail = () => {
 };
 
 WithThumbnail.story = {
+  name: 'With thumbnail',
   parameters: {
     ...readme.parameters,
     knobs: { ContentItemHorizontal: () => ({}) },

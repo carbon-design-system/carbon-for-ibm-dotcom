@@ -13,7 +13,6 @@ import { text } from '@storybook/addon-knobs';
 
 export default {
   title: 'Components|Card section images',
-
   parameters: {
     ...readme.parameters,
     knobs: {
