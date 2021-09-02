@@ -53,6 +53,8 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
     });
 
     this.captionHeading = caption;
+    this.videoName = caption;
+
     return html`
       <div class="bx--card__copy">
         <slot @slotchange="${this._handleSlotChange}"></slot>
@@ -107,11 +109,12 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
   updated(changedProperties) {
     super.updated(changedProperties);
     const { selectorFooter } = this.constructor as typeof DDSFeatureCTA;
-    if (changedProperties.has('ctaType')) {
+    if (changedProperties.has('ctaType') || changedProperties.has('videoName') || changedProperties.has('captionHeading')) {
       const { ctaType } = this;
       const footer = this.querySelector(selectorFooter);
       if (footer) {
         (footer as DDSFeatureCTAFooter).ctaType = ctaType;
+        (footer as DDSFeatureCTAFooter).altAriaLabel = this.videoName || this.captionHeading;
       }
     }
     if (changedProperties.has('captionHeading')) {
