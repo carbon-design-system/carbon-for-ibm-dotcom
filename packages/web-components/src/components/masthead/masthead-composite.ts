@@ -257,15 +257,25 @@ class DDSMastheadComposite extends LitElement {
    * @param sectionId id of menu section
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _renderLeftNavMenuSections(menuItems, heading, isSubmenu, selectedMenuItem, showBackButton, sectionTitle, sectionId) {
+  protected _renderLeftNavMenuSections(
+    menuItems,
+    heading,
+    isSubmenu,
+    selectedMenuItem,
+    showBackButton,
+    sectionTitle,
+    sectionId,
+    currentUrlPath = ''
+  ) {
     const items = menuItems.map(elem => {
       const selected = selectedMenuItem && elem.titleEnglish === selectedMenuItem;
+
       if (elem.menu) {
         return html`
           <dds-left-nav-menu
             ?last-highlighted=${elem.lastHighlightedItem}
             panel-id=${elem.panelId}
-            ?active="${selected}"
+            ?active="${elem.active}"
             title="${elem.title}"
             data-autoid="${elem.autoid}"
           >
@@ -276,7 +286,7 @@ class DDSMastheadComposite extends LitElement {
       return html`
         <dds-left-nav-menu-item
           ?last-highlighted=${elem.lastHighlightedItem}
-          ?active="${selected}"
+          ?active="${elem.url === currentUrlPath}"
           href="${elem.url}"
           title="${elem.title}"
           data-autoid="${elem.autoid}"
@@ -313,7 +323,7 @@ class DDSMastheadComposite extends LitElement {
    *
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _renderLeftNav(menuItems, selectedMenuItem, autoid) {
+  protected _renderLeftNav(menuItems, selectedMenuItem, autoid, currentUrlPath) {
     const menu: any[] = [];
     const level0Items = menuItems.map((elem, i) => {
       if (elem.menuSections) {
@@ -324,6 +334,7 @@ class DDSMastheadComposite extends LitElement {
           lastHighlightedItem: boolean;
           url?: string;
           menu: boolean;
+          active: boolean;
         }[] = [];
 
         let menuElems = elem.menuSections[0]?.menuItems;
@@ -347,6 +358,8 @@ class DDSMastheadComposite extends LitElement {
             autoid: string;
           }[] = [];
 
+          const isActive = item.megapanelContent?.quickLinks?.links?.filter(link => link.url === currentUrlPath).length === 1;
+
           const lastHighlighted = k + 1 === highlightedItems.length;
 
           // render level 2 menu sections
@@ -358,7 +371,18 @@ class DDSMastheadComposite extends LitElement {
             });
           });
           if (level2Items.length !== 0) {
-            menu.push(this._renderLeftNavMenuSections(level2Items, null, true, selectedMenuItem, true, item.title, `${i}, ${k}`));
+            menu.push(
+              this._renderLeftNavMenuSections(
+                level2Items,
+                null,
+                true,
+                selectedMenuItem,
+                true,
+                item.title,
+                `${i}, ${k}`,
+                currentUrlPath
+              )
+            );
           }
 
           return level1Items.push({
@@ -368,6 +392,7 @@ class DDSMastheadComposite extends LitElement {
             url: item.url,
             panelId: `${i}, ${k}`,
             menu: item.megapanelContent?.quickLinks?.links && item.megapanelContent?.quickLinks?.links.length !== 0,
+            active: isActive,
           });
         });
         if (level1Items.length !== 0) {
@@ -379,11 +404,18 @@ class DDSMastheadComposite extends LitElement {
               selectedMenuItem,
               true,
               elem.title,
-              `${i}, -1`
+              `${i}, -1`,
+              currentUrlPath
             )
           );
         }
       }
+
+      const isActive =
+        elem.menuSections[0]?.menuItems?.filter(item => {
+          return item.megapanelContent?.quickLinks?.links?.filter(link => link.url === currentUrlPath).length > 0;
+        }).length === 1;
+
       return {
         title: elem.title,
         titleEnglish: elem.titleEnglish,
@@ -391,11 +423,12 @@ class DDSMastheadComposite extends LitElement {
         url: elem.url,
         panelId: `${i}, -1`,
         autoid: `${autoid}--sidenav--nav${i}`,
+        active: isActive,
       };
     });
 
     return html`
-      ${this._renderLeftNavMenuSections(level0Items, null, false, selectedMenuItem, null, null, '-1, -1')} ${menu}
+      ${this._renderLeftNavMenuSections(level0Items, null, false, selectedMenuItem, null, null, '-1, -1', currentUrlPath)} ${menu}
     `;
   }
 
@@ -443,7 +476,8 @@ class DDSMastheadComposite extends LitElement {
     target: NAV_ITEMS_RENDER_TARGET;
     hasL1: boolean;
   }) {
-    const currentUrlPath = window.location.href;
+    // const currentUrlPath = window.location.href;
+    const currentUrlPath = 'https://www.ibm.com/docs/en?lnk=hpmls_budc';
     const hasChildLink = this._childLinkChecker();
     const { navLinks, l1Data } = this;
     let menu: MastheadLink[] | undefined = navLinks;
@@ -525,7 +559,7 @@ class DDSMastheadComposite extends LitElement {
           });
     }
 
-    return !menu ? undefined : this._renderLeftNav(menu, selectedMenuItem, autoid);
+    return !menu ? undefined : this._renderLeftNav(menu, selectedMenuItem, autoid, currentUrlPath);
   }
 
   /**
