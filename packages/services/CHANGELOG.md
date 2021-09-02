@@ -6,8 +6,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 # [1.24.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.23.2...@carbon/ibmdotcom-services@1.24.0-rc.0) (2021-08-27)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
+## [1.23.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.23.3-rc.0...@carbon/ibmdotcom-services@1.23.3) (2021-09-01)
 
-
+**Note:** Version bump only for package @carbon/ibmdotcom-services
 
 
 

@@ -16,7 +16,7 @@
   transition: margin-left 0.11s cubic-bezier(0.2, 0, 1, 0.9);
 }
 
-@media (min-width: 66rem) {
+@include carbon--breakpoint-down(lg) {
   .bx--offset-lg-3 {
     margin-left: 0;
   }
@@ -24,6 +24,24 @@
 
 .bx--content {
   padding: 6rem 0 2rem;
+
+  @include carbon--breakpoint-down(lg) {
+    padding-top: 0;
+  }
+
+  &.has-leadspace {
+    padding-top: 0;
+  }
+
+  &.has-l1 {
+    @include carbon--breakpoint-down(lg) {
+      padding-top: 3rem;
+    }
+  }
+
+  &.has-leadspace.has-l1 {
+    padding-top: 3rem;
+  }
 
   &.dds-ce-demo-devenv--ui-shell-content {
     h2 {

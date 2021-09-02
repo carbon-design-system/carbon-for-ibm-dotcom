@@ -9,6 +9,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 * **masthead:** add custom profile login feature ([#6895](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/6895)) ([71de1f0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/commit/71de1f0)), closes [#6263](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/6263)
+## [1.23.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.23.3-rc.0...@carbon/ibmdotcom-services-store@1.23.3) (2021-09-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services-store
 
 
 

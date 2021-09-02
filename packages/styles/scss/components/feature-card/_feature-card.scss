@@ -162,6 +162,7 @@ $fcb-breakpoint-up--lg: map-get(
 
       .#{$prefix}--card__content {
         height: auto;
+        min-height: 100%;
       }
     }
 
