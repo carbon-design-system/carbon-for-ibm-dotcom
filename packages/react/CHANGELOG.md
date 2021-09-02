@@ -42,6 +42,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **videoPlayer:** introducing `playingMode` feature (pairing with wc version) ([#6832](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6832)) ([9e281de](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9e281de)), closes [#5266](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5266)
 
 
+## [1.23.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.3-rc.0...@carbon/ibmdotcom-react@1.23.3) (2021-09-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+## [1.23.3-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.2...@carbon/ibmdotcom-react@1.23.3-rc.0) (2021-09-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
 
 
 
