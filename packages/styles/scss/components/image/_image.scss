@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,6 +17,10 @@
     height: 100%;
     object-fit: cover;
     display: block;
+  }
+
+  .#{$prefix}--image__img--border {
+    outline: 1px solid $decorative-01;
   }
 
   .#{$prefix}--image__longdescription {
