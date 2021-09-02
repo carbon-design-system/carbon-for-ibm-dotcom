@@ -321,9 +321,9 @@
   class="bx--leadspace__section"
   part="section"
 >
-  <div class="bx--leadspace__container--medium">
+  <div class="bx--leadspace__container">
     <div class="bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container--medium">
+      <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="navigation">
           </slot>
@@ -333,7 +333,7 @@
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
             <p
-              class="bx--leadspace__desc--medium"
+              class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
               <slot>
@@ -359,9 +359,9 @@
   class="bx--leadspace__section"
   part="section"
 >
-  <div class="bx--leadspace__container--medium">
+  <div class="bx--leadspace__container">
     <div class="bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container--medium">
+      <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="navigation">
           </slot>
@@ -371,7 +371,7 @@
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
             <p
-              class="bx--leadspace__desc--medium"
+              class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
               <slot>
@@ -399,9 +399,9 @@
   class="bx--leadspace__section"
   part="section"
 >
-  <div class="bx--leadspace__container--medium">
+  <div class="bx--leadspace__container">
     <div class="bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container--medium">
+      <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="navigation">
           </slot>
@@ -411,7 +411,7 @@
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
             <p
-              class="bx--leadspace__desc--medium"
+              class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
               <slot>
@@ -437,9 +437,9 @@
   class="bx--leadspace__section"
   part="section"
 >
-  <div class="bx--leadspace__container--medium">
+  <div class="bx--leadspace__container">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container--medium">
+      <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="navigation">
           </slot>
@@ -449,7 +449,7 @@
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
             <p
-              class="bx--leadspace__desc--medium"
+              class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
               <slot>
