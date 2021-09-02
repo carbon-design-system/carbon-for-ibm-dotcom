@@ -15,6 +15,7 @@
     <dds-footer-logo data-autoid="dds--footer-logo">
     </dds-footer-logo>
     <dds-footer-nav
+      aria-label="Footer navigation"
       data-autoid="dds--footer-nav"
       role="navigation"
     >
@@ -53,6 +54,7 @@
     <dds-footer-logo data-autoid="dds--footer-logo">
     </dds-footer-logo>
     <dds-footer-nav
+      aria-label="Footer navigation"
       data-autoid="dds--footer-nav"
       role="navigation"
     >
