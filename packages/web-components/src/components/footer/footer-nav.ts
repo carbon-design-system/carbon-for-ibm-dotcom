@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,6 +26,9 @@ class DDSFooterNav extends StableSelectorMixin(LitElement) {
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'navigation');
+    }
+    if (!this.hasAttribute('aria-label')) {
+      this.setAttribute('aria-label', 'Footer navigation');
     }
     super.connectedCallback();
   }

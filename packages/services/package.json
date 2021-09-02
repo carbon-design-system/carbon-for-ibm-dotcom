@@ -1,13 +1,17 @@
 {
   "name": "@carbon/ibmdotcom-services",
   "description": "Carbon for IBM.com Services",
-  "version": "1.24.0-rc.0",
+  "version": "1.23.3",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
   "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom",
   "bugs": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues",
   "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
     "./es": "./es/index.js",
     "./es/": "./es/",
     "./lib": "./lib/index.js",
@@ -44,7 +48,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.0",
-    "@carbon/ibmdotcom-utilities": "1.24.0-rc.0",
+    "@carbon/ibmdotcom-utilities": "1.23.3",
     "@carbon/telemetry": "0.0.0-alpha.6",
     "axios": "^0.21.1",
     "window-or-global": "^1.0.1"
