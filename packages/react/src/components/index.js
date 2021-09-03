@@ -6,7 +6,6 @@
  */
 
 export * from './ButtonGroup';
-export * from './CalloutData';
 export * from './CalloutQuote';
 export * from './CalloutWithMedia';
 export * from './Card';
@@ -50,7 +49,6 @@ export * from './Masthead';
 export * from './PictogramItem';
 export * from './Quote';
 export * from './ScrollAnimations';
-export * from './SimpleBenefits';
 export * from './TableOfContents';
 export * from './carbon-components-react/UIShell';
 export * from './VideoPlayer';
