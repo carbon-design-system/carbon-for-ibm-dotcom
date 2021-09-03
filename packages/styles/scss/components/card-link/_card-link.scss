@@ -34,6 +34,7 @@
     }
   }
   :host(#{$dds-prefix}-card-link-heading),
+  .#{$prefix}--card__CTA.#{$prefix}--card .#{$prefix}--card__copy,
   .#{$prefix}--card__CTA.#{$prefix}--card .#{$prefix}--card__copy p {
     @include carbon--type-style('expressive-heading-02');
   }
