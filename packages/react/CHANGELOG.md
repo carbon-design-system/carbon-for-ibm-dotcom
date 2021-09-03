@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.24.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.24.0-rc.1...@carbon/ibmdotcom-react@1.24.0-rc.2) (2021-09-02)
+
+
+### Bug Fixes
+
+* **github-action:** fix to the github action to have push access ([#7023](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7023)) ([f0b56c6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f0b56c6))
+
+
+
+
+
 # [1.24.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.24.0-rc.0...@carbon/ibmdotcom-react@1.24.0-rc.1) (2021-08-31)
 
 
@@ -40,6 +51,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 * **videoPlayer:** introducing `playingMode` feature (pairing with wc version) ([#6832](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6832)) ([9e281de](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9e281de)), closes [#5266](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5266)
+
+
+## [1.23.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.3-rc.0...@carbon/ibmdotcom-react@1.23.3) (2021-09-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
 
 
 

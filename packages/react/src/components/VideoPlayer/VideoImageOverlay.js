@@ -23,6 +23,7 @@ const VideoImageOverlay = ({
   videoData,
   embedVideo,
   playingMode,
+  thumbnail,
   ...rest
 }) => {
   const handleClick = event => {
@@ -34,19 +35,19 @@ const VideoImageOverlay = ({
     }
   };
 
+  const imageSrc =
+    thumbnail ||
+    KalturaPlayerAPI.getThumbnailUrl({
+      mediaId: videoId,
+      width: '655',
+    });
+
   return (
     <button
       className={`${prefix}--video-player__image-overlay`}
       data-autoid={`${stablePrefix}--video-player__image-overlay`}
       onClick={handleClick}>
-      <Image
-        defaultSrc={KalturaPlayerAPI.getThumbnailUrl({
-          mediaId: videoId,
-          width: '655',
-        })}
-        alt={videoData.name}
-        icon={PlayIcon}
-      />
+      <Image defaultSrc={imageSrc} alt={videoData.name} icon={PlayIcon} />
     </button>
   );
 };
@@ -77,6 +78,11 @@ VideoImageOverlay.propTypes = {
    * Choose whether the video will be rendered inline or using the `LightboxMediaViewer`.
    */
   playingMode: PropTypes.oneOf(['inline', 'lightbox']),
+
+  /**
+   * Optional custom video thumbnail
+   */
+  thumbnail: PropTypes.string,
 };
 
 export default VideoImageOverlay;
