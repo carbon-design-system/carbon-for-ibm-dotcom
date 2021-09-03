@@ -25,6 +25,7 @@ import {
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { UNAUTHENTICATED_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
+import { DDS_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
 import './masthead';
 import './masthead-logo';
 import './masthead-l1';
@@ -157,10 +158,11 @@ class DDSMastheadComposite extends LitElement {
    *  Render MegaMenu content
    *
    * @param sections menu section data object
+   * @param _parentKey parent menu key (used for the cloud-masthead-composite component)
    * @param currentUrlPath current url path
    */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderMegaMenu(sections, currentUrlPath = '') {
+  // eslint-disable-next-line
+  protected _renderMegaMenu(sections, _parentKey, currentUrlPath = '') {
     const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
     const hasHighlights = highlightedItems.length !== 0;
     return html`
@@ -504,9 +506,9 @@ class DDSMastheadComposite extends LitElement {
             let sections;
             if (link.hasMegapanel) {
               if (useSelected) {
-                sections = this._renderMegaMenu(menuSections);
+                sections = this._renderMegaMenu(menuSections, i);
               } else {
-                sections = this._renderMegaMenu(menuSections, currentUrlPath);
+                sections = this._renderMegaMenu(menuSections, i, currentUrlPath);
               }
             } else {
               sections = menuSections
@@ -640,6 +642,12 @@ class DDSMastheadComposite extends LitElement {
   currentSearchResults: string[] = [];
 
   /**
+   * The custom profile login link.
+   */
+  @property({ attribute: 'custom-profile-login' })
+  customProfileLogin?: string;
+
+  /**
    * The `aria-label` attribute for the top-level container.
    */
   @property({ attribute: 'masthead-assistive-text' })
@@ -764,6 +772,7 @@ class DDSMastheadComposite extends LitElement {
       activateSearch,
       authenticatedProfileItems,
       currentSearchResults,
+      customProfileLogin,
       platform,
       platformUrl,
       hasProfile,
@@ -782,7 +791,18 @@ class DDSMastheadComposite extends LitElement {
       l1Data,
     } = this;
     const authenticated = userStatus !== UNAUTHENTICATED_STATUS;
-    const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
+
+    let profileItems;
+    if (DDS_CUSTOM_PROFILE_LOGIN && customProfileLogin && !authenticated) {
+      profileItems = unauthenticatedProfileItems?.map(item => {
+        if (item?.id === 'signin') {
+          return { ...item, url: customProfileLogin };
+        }
+        return item;
+      });
+    } else {
+      profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
+    }
     const formattedLang = language?.toLowerCase().replace(/-(.*)/, m => m.toUpperCase());
     let platformAltUrl = platformUrl;
     if (platformUrl && formattedLang) {

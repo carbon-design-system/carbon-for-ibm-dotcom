@@ -50,7 +50,7 @@ import React from 'react';
 export default !DDS_MY_FEATURE
   ? undefined
   : {
-      title: 'Components|MyFeature',
+      title: 'Components|My feature',
       parameters: {
         ...
       },

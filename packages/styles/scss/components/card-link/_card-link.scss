@@ -13,6 +13,7 @@
     cursor: not-allowed;
     &.#{$prefix}--card {
       .#{$prefix}--card__heading,
+      ::slotted([slot='heading']),
       .#{$prefix}--card__copy,
       .#{$prefix}--card__eyebrow {
         color: $disabled-02;
@@ -32,8 +33,13 @@
       }
     }
   }
+  :host(#{$dds-prefix}-card-link-heading),
   .#{$prefix}--card__CTA.#{$prefix}--card .#{$prefix}--card__copy {
     @include carbon--type-style('expressive-heading-02');
+  }
+
+  :host(#{$dds-prefix}-card-link-heading) {
+    margin-bottom: 0;
   }
 }
 

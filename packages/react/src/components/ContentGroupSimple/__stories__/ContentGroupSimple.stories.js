@@ -19,7 +19,6 @@ const types = {
 
 export default {
   title: 'Components|Content group simple',
-
   parameters: {
     ...readme.parameters,
     knobs: {

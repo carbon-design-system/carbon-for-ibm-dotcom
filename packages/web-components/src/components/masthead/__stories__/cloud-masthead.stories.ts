@@ -89,7 +89,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
 export default !DDS_CLOUD_MASTHEAD
   ? undefined
   : {
-      title: 'Components/Cloud Masthead',
+      title: 'Components/Cloud masthead',
       decorators: [
         story => {
           if (!(window as any)._hPageShow) {

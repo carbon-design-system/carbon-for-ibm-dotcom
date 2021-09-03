@@ -93,9 +93,9 @@ const LeadSpace = ({
                     {type === 'centered' ? (
                       <>
                         <stop offset="0%" />
-                        <stop offset="27%" />
-                        <stop offset="53%" />
-                        <stop offset="80%" />
+                        <stop offset="54%" />
+                        <stop offset="77%" />
+                        <stop offset="100%" />
                       </>
                     ) : (
                       <>
