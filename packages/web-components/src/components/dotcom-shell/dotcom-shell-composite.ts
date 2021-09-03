@@ -169,13 +169,13 @@ class DDSDotcomShellComposite extends LitElement {
           this._masthead!.style.top = '0';
         }
       }
+      this._lastScrollPosition = window.scrollY;
     } else if (l1Element) {
       this._masthead!.style.top = `-${Math.min(
         this._masthead!.offsetHeight - l1Element.offsetHeight,
         Math.abs(window.scrollY)
       )}px`;
     }
-    this._lastScrollPosition = window.scrollY;
   };
 
   connectedCallback() {
