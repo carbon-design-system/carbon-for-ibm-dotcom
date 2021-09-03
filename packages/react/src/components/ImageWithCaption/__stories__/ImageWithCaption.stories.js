@@ -15,7 +15,6 @@ import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|Image with caption',
-
   parameters: {
     ...readme.parameters,
     knobs: {

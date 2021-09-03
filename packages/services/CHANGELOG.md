@@ -3,6 +3,93 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.24.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.24.0-rc.0...@carbon/ibmdotcom-services@1.24.0-rc.1) (2021-09-02)
+
+
+### Bug Fixes
+
+* **cloud-masthead:** adjust the cookie to PROD ID & overlapping issue on v18 L1 Nav ([#7037](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7037)) ([#7043](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7043)) ([40bec7a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/40bec7a))
+
+
+
+
+
+# [1.24.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.23.2...@carbon/ibmdotcom-services@1.24.0-rc.0) (2021-08-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+## [1.23.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.23.3-rc.0...@carbon/ibmdotcom-services@1.23.3) (2021-09-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+## [1.23.3-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.23.2...@carbon/ibmdotcom-services@1.23.3-rc.0) (2021-09-01)
+
+
+### Bug Fixes
+
+* **cloud-masthead:** adjust the cookie to PROD ID & overlapping issue on v18 L1 Nav ([#7037](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7037)) ([8f6a4d0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8f6a4d0))
+
+
+
+
+
+## [1.23.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.23.2-rc.0...@carbon/ibmdotcom-services@1.23.2) (2021-08-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+## [1.23.2-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.23.1...@carbon/ibmdotcom-services@1.23.2-rc.0) (2021-08-25)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+## [1.23.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.23.1-rc.0...@carbon/ibmdotcom-services@1.23.1) (2021-08-19)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+## [1.23.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.23.0...@carbon/ibmdotcom-services@1.23.1-rc.0) (2021-08-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+# [1.23.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.23.0-rc.0...@carbon/ibmdotcom-services@1.23.0) (2021-08-16)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+# [1.23.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.22.0...@carbon/ibmdotcom-services@1.23.0-rc.0) (2021-08-06)
+
+
+### Bug Fixes
+
+* **locale:** remove countrylist check for translation ([#6819](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6819)) ([2acf9dc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2acf9dc)), closes [#6811](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6811)
+
+
+### Features
+
+* **loadNonLatinPlex:** introduce loadNonLatinPlex utility ([#6802](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6802)) ([d312016](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d312016))
+
+
+
+
+
 # [1.22.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.22.0-rc.1...@carbon/ibmdotcom-services@1.22.0) (2021-07-26)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services

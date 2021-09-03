@@ -27,7 +27,6 @@
       }
 
       .#{$prefix}--modal-content {
-        margin: $layout-04 $layout-03;
         padding: 0;
       }
     }
@@ -72,8 +71,12 @@
 :host(#{$dds-prefix}-expressive-modal-body),
 :host(#{$dds-prefix}-lightbox-media-viewer-body) {
   @include carbon--type-style('body-long-02');
+}
 
-  *:last-child {
-    padding-bottom: 0;
+:host(#{$dds-prefix}-expressive-modal)[mode='lightbox'] {
+  .#{$prefix}--modal-container {
+    @include carbon--breakpoint-down('md') {
+      padding: 0 $spacing-05;
+    }
   }
 }

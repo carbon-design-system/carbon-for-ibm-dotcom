@@ -10,7 +10,6 @@ import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|Leaving IBM',
-
   parameters: {
     ...readme.parameters,
     percy: {

@@ -8,19 +8,32 @@
  */
 
 import { html } from 'lit-element';
-import readme from './README.stories.mdx';
 import '../index';
+import '../../card-group/index';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { select } from '@storybook/addon-knobs';
+import { ORIENTATION } from '../defs';
+import readme from './README.stories.mdx';
 
-export const Default = () => {
+const orientationType = {
+  [`horizontal`]: ORIENTATION.HORIZONTAL,
+  [`vertical`]: ORIENTATION.VERTICAL,
+};
+
+export const Default = ({ parameters }) => {
+  const { orientation } = parameters?.props?.TabsExtended ?? {};
   return html`
-    <dds-tabs-extended>
-      <dds-tab label="First tab with long text that wraps multiple lines">
+    <dds-tabs-extended orientation="${ifNonNull(orientation)}">
+      <dds-tab
+        label="First tab with long text that wraps multiple lines. Lorem ipsum dolor sit amet consectetur adipiscing elit"
+        selected="true"
+      >
         <p>Content for first tab goes here.</p>
       </dds-tab>
       <dds-tab label="Second tab">
         <p>Content for second tab goes here.</p>
       </dds-tab>
-      <dds-tab label="Third tab" selected="true">
+      <dds-tab label="Third tab">
         <p>Content for third tab goes here.</p>
       </dds-tab>
       <dds-tab label="Fourth tab">
@@ -33,25 +46,23 @@ export const Default = () => {
   `;
 };
 
-Default.story = {
-  parameters: {
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--tabs-extended',
-  },
-};
-
 export default {
   title: 'Components/Tabs extended',
   decorators: [
-    (story, { parameters }) => html`
-      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
+    story => html`
+      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--tabs-extended">
         ${story()}
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasVerticalSpacingInComponent: true,
+    useRawContainer: true,
     hasGrid: true,
-    knobs: {},
+    knobs: {
+      TabsExtended: ({ groupId }) => ({
+        orientation: select('Orientation (orientation):', orientationType, ORIENTATION.HORIZONTAL, groupId),
+      }),
+    },
   },
 };

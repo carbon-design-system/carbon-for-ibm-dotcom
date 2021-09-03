@@ -17,7 +17,7 @@ import '../video-player-composite';
 /* eslint-enable import/no-duplicates */
 
 const template = (props?) => {
-  const { embeddedVideos, formatCaption, formatDuration, hideCaption, videoId, videoData, playingMode } = props ?? {};
+  const { embeddedVideos, formatCaption, formatDuration, hideCaption, videoId, mediaData, playingMode } = props ?? {};
   return html`
     <dds-video-player-composite
       ?hide-caption="${hideCaption}"
@@ -25,7 +25,7 @@ const template = (props?) => {
       .embeddedVideos="${ifNonNull(embeddedVideos)}"
       .formatCaption="${ifNonNull(formatCaption)}"
       .formatDuration="${ifNonNull(formatDuration)}"
-      .videoData="${ifNonNull(videoData)}"
+      .mediaData="${ifNonNull(mediaData)}"
       .playingMode="${ifNonNull(playingMode)}"
     >
     </dds-video-player-composite>
@@ -46,14 +46,14 @@ describe('dds-video-player-composite', function() {
   });
 
   it('should render the video player', async function() {
-    const videoData = {
+    const mediaData = {
       'video-id-foo': {
         name: 'video-name-foo',
         duration: 120,
       },
     };
 
-    render(template({ videoData, videoId: 'video-id-foo' }), document.body);
+    render(template({ mediaData, videoId: 'video-id-foo' }), document.body);
     await Promise.resolve();
     expect(document.querySelector('dds-video-player-composite')).toMatchSnapshot();
   });

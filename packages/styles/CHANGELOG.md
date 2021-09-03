@@ -3,6 +3,90 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.24.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.23.0...@carbon/ibmdotcom-styles@1.24.0-rc.0) (2021-09-02)
+
+
+
+# 1.12.0-beta.66.203 (2021-08-27)
+
+
+### Bug Fixes
+
+* **card-in-card-5984:** default to using Card component headline styling ([#6843](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6843)) ([05ba37b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/05ba37b)), closes [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/scss/components/card/index.scss#L416](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/scss/components/card/index.scss/issues/L416) [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/scss/components/card/index.scss#L416](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/scss/components/card/index.scss/issues/L416)
+* **content-group-banner-6794:** fix before pseudo-element bug on safari ([#6865](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6865)) ([f83177d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f83177d))
+* **cta-block:** adjust header padding values to spec ([#6907](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6907)) ([71db2c3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/71db2c3)), closes [#6904](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6904)
+* **search:** update search placeholder color ([#6991](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6991)) ([7bb165f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7bb165f)), closes [#6989](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6989)
+* **tabs-extended:** adjust scope of vertical tab content spacing rules ([#6938](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6938)) ([0fb27ce](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0fb27ce)), closes [#6936](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6936) [#6614](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6614) [#6826](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6826)
+* **tabs-extended:** remove disabled label color override ([#6963](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6963)) ([1832890](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1832890)), closes [#6939](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6939)
+* **video-player:** update hover and active state styles ([#6841](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6841)) ([838d166](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/838d166)), closes [#5753](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5753) [#5514](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5514)
+
+
+### Features
+
+* **card-group:** modify to allow Card link design pattern & allow CTA on Card Link ([#6934](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6934)) ([14be07f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/14be07f)), closes [/github.com/carbon-design-system/carbon-for-ibm-dotcom-website/wiki/Tabs-extended#22](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom-website/wiki/Tabs-extended/issues/22)
+* **card-link-copy:** adding optional copy ([#6839](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6839)) ([04bdd94](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/04bdd94)), closes [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/86e62a820d41f43fdd5ce7cb674b128e454c2b1a/packages/web-components/src/components/card/__stories__/card.stories.ts#L46](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/86e62a820d41f43fdd5ce7cb674b128e454c2b1a/packages/web-components/src/components/card/__stories__/card.stories.ts/issues/L46)
+* **leadspace-with-search:** introducing component ([#6779](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6779)) ([9d211c9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9d211c9)), closes [#6144](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6144) [#6145](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6145)
+* **lightbox-media-viewer:** style updates ([#6881](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6881)) ([78a2092](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/78a2092)), closes [#6386](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6386) [#6842](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6842)
+* **tab-extended-vertical:** add "Vertical" Orientation ([#6826](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6826)) ([08bc40a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/08bc40a)), closes [/github.com/carbon-design-system/carbon-for-ibm-dotcom-website/wiki/Tabs-extended#22](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom-website/wiki/Tabs-extended/issues/22)
+
+
+
+
+
+# [1.23.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.23.0-rc.1...@carbon/ibmdotcom-styles@1.23.0) (2021-08-16)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.23.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.23.0-rc.0...@carbon/ibmdotcom-styles@1.23.0-rc.1) (2021-08-10)
+
+
+### Bug Fixes
+
+* **masthead:** flip megamenu link arrow icons in rtl ([#6835](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6835)) ([ab45960](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ab45960)), closes [issue#6831](https://github.com/issue/issues/6831)
+
+
+
+
+
+# [1.23.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.22.0...@carbon/ibmdotcom-styles@1.23.0-rc.0) (2021-08-06)
+
+
+### Bug Fixes
+
+* **card:** multiple style bugs ([#6769](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6769)) ([0b7bdbf](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0b7bdbf))
+* **card-section-offset:** background with 100% ([#6809](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6809)) ([b9a0920](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b9a0920))
+* **feature-section:** add the correct token for the background container ([#6778](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6778)) ([1696362](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1696362))
+* **leadspace:** ensure leadspace image takes up entire width in lg bp ([#6810](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6810)) ([4513243](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4513243)), closes [#6807](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6807)
+* **leadspace:** set image and gradient to flip with RTL ([#6777](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6777)) ([4fb50c5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4fb50c5)), closes [#5653](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5653)
+* **link-with-icon:** add icon line wrap behavior by default ([#6812](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6812)) ([77a673f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/77a673f)), closes [#5705](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5705)
+* **tabs-extended:** ensure tab doesn't overlap with toc ([#6793](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6793)) ([9439d4a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9439d4a)), closes [#6670](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6670)
+
+
+### Features
+
+* **search-with-typeahead:** introducing component ([#6731](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6731)) ([957a17c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/957a17c)), closes [#6143](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6143) [#6144](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6144)
+
+
+
+# 1.12.0-beta.64.108 (2021-07-30)
+
+
+### Bug Fixes
+
+* **card:** update accessibility ([#6642](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6642)) ([228b720](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/228b720)), closes [#6693](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6693) [#6596](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6596) [#6281](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6281) [#6512](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6512) [#5504](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5504) [#6005](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6005) [#4614](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4614) [#4714](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4714)
+* **content-group-horizontal:** multiple style bugs ([#6494](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6494)) ([9b4c0cc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9b4c0cc))
+* **cta-section:** remove style concatenation ([#6686](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6686)) ([291b38d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/291b38d)), closes [#6685](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6685)
+* **rtl:** fix to not have rtlcss styles get parsed out ([#6729](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6729)) ([67b6132](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/67b6132)), closes [#6697](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6697)
+* **tabs-extended:** display tooltip on truncated tab focus ([#6736](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6736)) ([721e805](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/721e805)), closes [#6233](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6233) [#6155](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6155)
+
+
+
+
+
 # [1.22.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.22.0-rc.2...@carbon/ibmdotcom-styles@1.22.0) (2021-07-26)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

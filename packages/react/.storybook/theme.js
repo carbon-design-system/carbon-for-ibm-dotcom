@@ -1,17 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { create } from '@storybook/theming';
+import packageJson from '../package.json';
 
 export default create({
   base: 'light',
-  brandTitle: 'Carbon for IBM.com React',
+  brandTitle: `Carbon for IBM.com React v${packageJson.version}`,
   brandUrl:
     'https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/react',
   fontBase: '"IBM Plex Sans", "Helvetica Neue", Arial, sans-serif',

@@ -40,7 +40,6 @@ function StoryContent({ title, paragraph, button }) {
 
 export default {
   title: 'Components|Expressive modal',
-
   parameters: {
     ...readme.parameters,
     'carbon-theme': { disabled: true },

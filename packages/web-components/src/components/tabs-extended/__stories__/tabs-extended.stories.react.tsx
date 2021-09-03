@@ -13,18 +13,28 @@ import React from 'react';
 // @ts-ignore
 import DDSTabsExtended from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended/tabs-extended';
 import DDSTab from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended/tab';
+import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.react.mdx';
+import { ORIENTATION } from '../defs';
 
-export const Default = () => {
+const orientationType = {
+  [`horizontal`]: ORIENTATION.HORIZONTAL,
+  [`vertical`]: ORIENTATION.VERTICAL,
+};
+
+export const Default = ({ parameters }) => {
+  const { orientation } = parameters?.props?.TabsExtended ?? {};
   return (
-    <DDSTabsExtended>
-      <DDSTab label="First tab with long text that wraps multiple lines">
+    <DDSTabsExtended orientation={orientation || undefined}>
+      <DDSTab
+        label="First tab with long text that wraps multiple lines. Lorem ipsum dolor sit amet consectetur adipiscing elit"
+        selected="true">
         <p>Content for first tab goes here.</p>
       </DDSTab>
       <DDSTab label="Second tab">
         <p>Content for second tab goes here.</p>
       </DDSTab>
-      <DDSTab label="Third tab" selected="true">
+      <DDSTab label="Third tab">
         <p>Content for third tab goes here.</p>
       </DDSTab>
       <DDSTab label="Fourth tab">
@@ -37,14 +47,26 @@ export const Default = () => {
   );
 };
 
+Default.story = {
+  parameters: {
+    knobs: {
+      TabsExtended: () => ({
+        orientation: select('Orientation (orientation):', orientationType, ORIENTATION.HORIZONTAL),
+      }),
+    },
+  },
+};
+
 export default {
   title: 'Components/Tabs extended',
   decorators: [
     story => {
-      return <>{story()}</>;
+      return <div className="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--tabs-extended">{story()}</div>;
     },
   ],
   parameters: {
     ...readme.parameters,
+    useRawContainer: true,
+    hasGrid: true,
   },
 };

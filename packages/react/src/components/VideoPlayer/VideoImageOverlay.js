@@ -18,20 +18,36 @@ const { prefix } = settings;
 /**
  * VideoPlayer Image Overlay component
  */
-const VideoImageOverlay = ({ videoId, videoData, embedVideo }) => {
+const VideoImageOverlay = ({
+  videoId,
+  videoData,
+  embedVideo,
+  playingMode,
+  thumbnail,
+  ...rest
+}) => {
+  const handleClick = event => {
+    const { onClick } = rest;
+    onClick && onClick(event);
+
+    if (playingMode === 'inline') {
+      _embedPlayer(event, embedVideo);
+    }
+  };
+
+  const imageSrc =
+    thumbnail ||
+    KalturaPlayerAPI.getThumbnailUrl({
+      mediaId: videoId,
+      width: '655',
+    });
+
   return (
     <button
       className={`${prefix}--video-player__image-overlay`}
       data-autoid={`${stablePrefix}--video-player__image-overlay`}
-      onClick={() => _embedPlayer(event, embedVideo)}>
-      <Image
-        defaultSrc={KalturaPlayerAPI.getThumbnailUrl({
-          mediaId: videoId,
-          width: '655',
-        })}
-        alt={videoData.name}
-        icon={PlayIcon}
-      />
+      onClick={handleClick}>
+      <Image defaultSrc={imageSrc} alt={videoData.name} icon={PlayIcon} />
     </button>
   );
 };
@@ -57,6 +73,16 @@ VideoImageOverlay.propTypes = {
    * Func to set state to trigger embedding of video
    */
   embedVideo: PropTypes.func,
+
+  /**
+   * Choose whether the video will be rendered inline or using the `LightboxMediaViewer`.
+   */
+  playingMode: PropTypes.oneOf(['inline', 'lightbox']),
+
+  /**
+   * Optional custom video thumbnail
+   */
+  thumbnail: PropTypes.string,
 };
 
 export default VideoImageOverlay;

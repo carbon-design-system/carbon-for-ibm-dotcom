@@ -9,12 +9,13 @@
   <dds-footer
     aria-label="footer"
     data-autoid="dds--footer"
-    role="footer"
+    role="contentinfo"
     size=""
   >
     <dds-footer-logo data-autoid="dds--footer-logo">
     </dds-footer-logo>
     <dds-footer-nav
+      aria-label="Footer navigation"
       data-autoid="dds--footer-nav"
       role="navigation"
     >
@@ -26,7 +27,6 @@
     </dds-locale-button>
     <dds-legal-nav
       data-autoid="dds--footer-legal-nav"
-      role="complementary"
       size=""
     >
       <dds-legal-nav-cookie-preferences-placeholder data-autoid="dds--privacy-cp">
@@ -48,12 +48,13 @@
   <dds-footer
     aria-label="footer"
     data-autoid="dds--footer"
-    role="footer"
+    role="contentinfo"
     size=""
   >
     <dds-footer-logo data-autoid="dds--footer-logo">
     </dds-footer-logo>
     <dds-footer-nav
+      aria-label="Footer navigation"
       data-autoid="dds--footer-nav"
       role="navigation"
     >
@@ -102,7 +103,6 @@
     </dds-locale-button>
     <dds-legal-nav
       data-autoid="dds--footer-legal-nav"
-      role="complementary"
       size=""
     >
       <dds-legal-nav-item

@@ -120,7 +120,7 @@ export const Default = !DDS_MY_FEATURE
 export default !DDS_MY_FEATURE
  ? undefined
  : {
-     title: 'Components/My Feature',
+     title: 'Components/My feature',
      ...
    };
 ```

@@ -91,6 +91,12 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   embeddedVideos?: { [videoId: string]: any };
 
   /**
+   * Optional custom video caption.
+   */
+  @property({ reflect: true, attribute: 'caption' })
+  caption?: '';
+
+  /**
    * The formatter for the video caption, composed with the video name and the video duration.
    * Should be changed upon the locale the UI is rendered with.
    */
@@ -114,7 +120,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    * The video data, keyed by the video ID.
    */
   @property({ attribute: false })
-  videoData?: { [videoId: string]: MediaData };
+  mediaData?: { [videoId: string]: MediaData };
 
   /**
    * The video ID.
@@ -133,6 +139,12 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    */
   @property({ reflect: true, attribute: 'playing-mode' })
   playingMode = VIDEO_PLAYER_PLAYING_MODE.INLINE;
+
+  /**
+   * Optional custom video thumbnail
+   */
+  @property({ reflect: true, attribute: 'thumbnail' })
+  thumbnail?: '';
 
   /**
    * The video thumbnail width.
@@ -159,22 +171,26 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
       formatCaption,
       formatDuration,
       hideCaption,
-      videoData = {},
+      caption,
+      mediaData = {},
       videoId,
       videoThumbnailWidth,
+      thumbnail,
       playingMode,
     } = this;
-    const { [videoId]: currentVideoData = {} as MediaData } = videoData;
+    const { [videoId]: currentVideoData = {} as MediaData } = mediaData;
     const { duration, name } = currentVideoData;
-    const thumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
-      mediaId: videoId,
-      width: String(videoThumbnailWidth),
-    });
+    const thumbnailUrl =
+      thumbnail ||
+      KalturaPlayerAPI.getThumbnailUrl({
+        mediaId: videoId,
+        width: String(videoThumbnailWidth),
+      });
     return html`
       <dds-video-player
         duration="${ifNonNull(duration)}"
         ?hide-caption=${hideCaption}
-        name="${ifNonNull(name)}"
+        name="${ifNonNull(caption || name)}"
         thumbnail-url="${ifNonNull(thumbnailUrl)}"
         video-id="${ifNonNull(videoId)}"
         aspect-ratio="${ifNonNull(aspectRatio)}"
@@ -207,4 +223,5 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   }
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSVideoPlayerComposite;

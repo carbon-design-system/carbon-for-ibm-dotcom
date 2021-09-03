@@ -105,7 +105,7 @@ const LightboxMediaViewer = ({ media, onClose, ...modalProps }) => {
               <div
                 className={`${prefix}--lightbox-media-viewer__media ${prefix}--no-gutter`}>
                 {media.type === 'video' ? (
-                  <VideoPlayer videoId={media.src} autoPlay />
+                  <VideoPlayer videoId={media.src} autoPlay={modalProps.open} />
                 ) : (
                   <Image defaultSrc={media.src} alt={videoData.alt} />
                 )}
@@ -142,7 +142,7 @@ const LightboxMediaViewer = ({ media, onClose, ...modalProps }) => {
    * Stop video on modal close
    */
   function closeModal() {
-    if (onClose?.() !== false) {
+    if (onClose?.() !== false && root.kWidget) {
       root.kWidget.addReadyCallback(videoId => {
         const kdp = document.getElementById(videoId);
         kdp.sendNotification('doStop');
@@ -155,20 +155,20 @@ LightboxMediaViewer.propTypes = {
   /**
    * Object containing media info. The structure is:
    *
-   * | Name          | Data Type | Description                                                           |
-   * | ------------- | --------- | --------------------------------------------------------------------- |
-   * | `type`        | String    | Determines whether to render `image` or `video`                       |
-   * | `src`         | String    | Image link or video id                                                |
-   * | `alt`         | String    | Alternate text for image. For video, this is generated from api call. |
-   * | `title`       | String    | Title copy. For video, this is generated from api call.               |
-   * | `description` | String    | Description copy. For video, this is generated from api call.         |
+   * | Name          | Data Type | Description                                                                                                            |
+   * | ------------- | --------- | ---------------------------------------------------------------------------------------------------------------------- |
+   * | `type`        | String    | Determines whether to render `image` or `video`                                                                        |
+   * | `src`         | String    | Image link or video id                                                                                                 |
+   * | `alt`         | String    | Alternate text for image. For video, this is generated from api call.                                                  |
+   * | `title`       | String    | Overrides the Kaltura video title if `type=video`.       |
+   * | `description` | String    | Overrides the Kaltura video description if `type=video`. |
    */
   media: PropTypes.shape({
     type: PropTypes.string,
     src: PropTypes.string,
     title: PropTypes.string,
-    alt: PropTypes.string,
     description: PropTypes.string,
+    alt: PropTypes.string,
   }).isRequired,
 
   /**

@@ -9,6 +9,7 @@ import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
+import LightboxMediaViewer from '../LightboxMediaViewer/LightboxMediaViewer';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
 import uniqueid from '@carbon/ibmdotcom-utilities/es/utilities/uniqueid/uniqueid';
@@ -26,6 +27,9 @@ const VideoPlayer = ({
   customClassName,
   autoPlay,
   aspectRatio,
+  playingMode,
+  caption,
+  thumbnail,
 }) => {
   const [videoData, setVideoData] = useState({ description: '', name: '' });
 
@@ -66,28 +70,56 @@ const VideoPlayer = ({
     [`${prefix}--video-player__aspect-ratio--${aspectRatio}`]: aspectRatio,
   });
 
-  return (
+  const renderInLightbox = (
+    <>
+      <div className={`${prefix}--video-player__video`}>
+        <VideoImageOverlay
+          videoId={videoId}
+          videoData={videoData}
+          embedVideo={setEmbedVideo}
+          playingMode={playingMode}
+          onClick={() => setEmbedVideo(true)}
+          thumbnail={thumbnail}
+        />
+      </div>
+      <LightboxMediaViewer
+        open={embedVideo}
+        media={{
+          type: 'video',
+          src: videoId,
+        }}
+        onClose={() => setEmbedVideo(false)}
+      />
+    </>
+  );
+
+  const renderInline = (
     <div
-      aria-label={`${videoData.name} ${videoDuration}`}
-      className={classnames}>
+      className={`${prefix}--video-player__video`}
+      id={`${prefix}--${videoPlayerId}`}>
+      {!autoPlay && (
+        <VideoImageOverlay
+          videoId={videoId}
+          videoData={videoData}
+          embedVideo={setEmbedVideo}
+          playingMode={playingMode}
+          thumbnail={thumbnail}
+        />
+      )}
+    </div>
+  );
+
+  const videoCaption = `${caption || videoData.name} ${videoDuration}`;
+  return (
+    <div aria-label={videoCaption} className={classnames}>
       <div
         className={`${prefix}--video-player__video-container ${aspectRatioClass}`}
         data-autoid={`${stablePrefix}--video-player__video-${videoId}`}>
-        <div
-          className={`${prefix}--video-player__video`}
-          id={`${prefix}--${videoPlayerId}`}>
-          {!autoPlay && (
-            <VideoImageOverlay
-              videoId={videoId}
-              videoData={videoData}
-              embedVideo={setEmbedVideo}
-            />
-          )}
-        </div>
+        {playingMode === 'lightbox' ? renderInLightbox : renderInline}
       </div>
       {showCaption && (
         <div className={`${prefix}--video-player__video-caption`}>
-          {videoData.name} {videoDuration}
+          {videoCaption}
         </div>
       )}
     </div>
@@ -99,6 +131,7 @@ VideoPlayer.propTypes = {
    * `true` to autoplay the video on load
    */
   autoPlay: PropTypes.bool,
+
   /**
    * Override default aspect ratio of `16x9`.
    * Available aspect ratios:
@@ -106,6 +139,7 @@ VideoPlayer.propTypes = {
    * `16x9`, `9x16`, `2x1`, `1x2`, `4x3`, `3x4`, `1x1`
    */
   aspectRatio: PropTypes.string,
+
   /**
    * The CSS class name to apply.
    */
@@ -120,10 +154,26 @@ VideoPlayer.propTypes = {
    * `true` to show the description.
    */
   showCaption: PropTypes.bool,
+
+  /**
+   * Optional custom video caption
+   */
+  caption: PropTypes.string,
+
+  /**
+   * Choose whether the video will be rendered inline or using the `LightboxMediaViewer`.
+   */
+  playingMode: PropTypes.oneOf(['inline', 'lightbox']),
+
+  /**
+   * Optional custom video thumbnail
+   */
+  thumbnail: PropTypes.string,
 };
 
 VideoPlayer.defaultProps = {
   autoPlay: false,
+  playingMode: 'inline',
 };
 
 export default VideoPlayer;
