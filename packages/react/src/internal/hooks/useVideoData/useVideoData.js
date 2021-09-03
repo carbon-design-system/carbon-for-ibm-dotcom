@@ -25,7 +25,7 @@ function useVideoData(type, videoId, customVideoTitle) {
 
   useEffect(() => {
     getVideoData();
-  }, [getVideoData, type]);
+  }, [getVideoData, type, customVideoTitle]);
   /**
    * retrieve duration and title information from the video if
    * the type of the CTA is `video`
