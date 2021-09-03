@@ -53,7 +53,6 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
     });
 
     this.captionHeading = caption;
-    this.videoName = caption;
 
     return html`
       <div class="bx--card__copy">

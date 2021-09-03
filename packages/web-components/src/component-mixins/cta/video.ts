@@ -129,7 +129,7 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         }
       }
 
-      if (changedProperties.has('videoName') && videoName === null) {
+      if (changedProperties.has('videoName') && (videoName === null || videoName === 'null')) {
         this.dispatchEvent(
           new CustomEvent(eventRequestVideoData, {
             bubbles: true,
