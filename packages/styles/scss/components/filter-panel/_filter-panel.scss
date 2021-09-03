@@ -269,6 +269,10 @@
       align-items: center;
     }
 
+    .#{$prefix}--accordion__arrow {
+      align-self: flex-start;
+    }
+
     .#{$prefix}--accordion__title {
       @include carbon--type-style('heading-01');
     }
