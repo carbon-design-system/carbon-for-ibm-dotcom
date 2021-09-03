@@ -241,12 +241,15 @@ CardLink.story = {
     knobs: {
       CardCTA: ({ groupId }) => {
         const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL, groupId);
-        const heading = textNullable('Heading (heading):', 'Explore AI use cases in all industries', groupId);
         const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy (copy):', '', groupId);
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD
             ? undefined
             : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
+        const heading =
+          ctaType === CTA_TYPE.VIDEO
+            ? null
+            : textNullable('Heading (heading):', 'Explore AI use cases in all industries', groupId);
         const customVideoTitle =
           ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video title', 'Custom video title', groupId) : null;
         return {
