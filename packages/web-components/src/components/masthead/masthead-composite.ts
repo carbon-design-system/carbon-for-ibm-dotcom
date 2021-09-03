@@ -255,6 +255,7 @@ class DDSMastheadComposite extends LitElement {
    * @param showBackButton Determines whether to show back button
    * @param sectionTitle title of menu section
    * @param sectionId id of menu section
+   * @param currentUrlPath current url path
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderLeftNavMenuSections(
@@ -275,7 +276,7 @@ class DDSMastheadComposite extends LitElement {
           <dds-left-nav-menu
             ?last-highlighted=${elem.lastHighlightedItem}
             panel-id=${elem.panelId}
-            ?active="${elem.active}"
+            ?active="${selected === null ? elem.active : selected}"
             title="${elem.title}"
             data-autoid="${elem.autoid}"
           >
@@ -286,7 +287,7 @@ class DDSMastheadComposite extends LitElement {
       return html`
         <dds-left-nav-menu-item
           ?last-highlighted=${elem.lastHighlightedItem}
-          ?active="${elem.url === currentUrlPath}"
+          ?active="${selected === null ? elem.url === currentUrlPath : selected}"
           href="${elem.url}"
           title="${elem.title}"
           data-autoid="${elem.autoid}"
@@ -320,7 +321,7 @@ class DDSMastheadComposite extends LitElement {
    * @param menuItems The options.
    * @param selectedMenuItem The selected menu item
    * @param autoid Base autoid to be applied to the menu items
-   *
+   * @param currentUrlPath current url path
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderLeftNav(menuItems, selectedMenuItem, autoid, currentUrlPath) {
@@ -476,8 +477,7 @@ class DDSMastheadComposite extends LitElement {
     target: NAV_ITEMS_RENDER_TARGET;
     hasL1: boolean;
   }) {
-    // const currentUrlPath = window.location.href;
-    const currentUrlPath = 'https://www.ibm.com/docs/en?lnk=hpmls_budc';
+    const currentUrlPath = window.location.href;
     const hasChildLink = this._childLinkChecker();
     const { navLinks, l1Data } = this;
     let menu: MastheadLink[] | undefined = navLinks;
