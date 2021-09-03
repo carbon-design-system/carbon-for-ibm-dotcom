@@ -155,7 +155,6 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
       ibmdotcomIcon(),
       injectProcessEnv(
         {
-          DDS_CALLOUT_DATA: 'true',
           DDS_CONTENT_BLOCK_HEADLINES: 'true',
           DDS_CONTENT_BLOCK_CARD_STATIC: 'true',
           DDS_CLOUD_MASTHEAD: 'true',
