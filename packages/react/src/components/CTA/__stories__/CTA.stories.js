@@ -77,7 +77,7 @@ const miscCTAData = {
       },
     };
   },
-  button({ type }) {
+  button({ type, customVideoTitle, customVideoDescription }) {
     return {
       buttons: [
         {
@@ -87,6 +87,8 @@ const miscCTAData = {
           media: {
             src: '1_9h94wo6b',
             type: 'video',
+            title: customVideoTitle[0],
+            description: customVideoDescription[0],
           },
         },
         {
@@ -96,6 +98,8 @@ const miscCTAData = {
           media: {
             src: '1_sf5ovm7u',
             type: 'video',
+            title: customVideoTitle[1],
+            description: customVideoDescription[1],
           },
         },
       ],
@@ -223,21 +227,44 @@ Button.story = {
       CTA: ({ groupId }) => {
         const type = [
           select(
-            'button 1 type (buttons[0].type)',
+            'Button 1 type (buttons[0].type)',
             [...types],
             types[0],
             groupId
           ),
           select(
-            'button 2 type (buttons[1].type)',
+            'Button 2 type (buttons[1].type)',
             [...types],
             types[0],
             groupId
           ),
         ];
+
+        const customVideoTitles = type
+          .filter(ctaType => ctaType === 'video')
+          .map((_ctaType, index) =>
+            text(
+              `Button ${index + 1} custom video title`,
+              `Custom video title ${index + 1}`,
+              groupId
+            )
+          );
+        const customVideoDescriptions = type
+          .filter(ctaType => ctaType === 'video')
+          .map((_ctaType, index) =>
+            text(
+              `Button ${index + 1}`,
+              `This is a custom video description for CTA Button ${index + 1}.`,
+              groupId
+            )
+          );
         return {
           type,
-          ...miscCTAData['button']({ type }),
+          ...miscCTAData['button']({
+            type,
+            customVideoTitle: customVideoTitles,
+            customVideoDescription: customVideoDescriptions,
+          }),
         };
       },
     },
