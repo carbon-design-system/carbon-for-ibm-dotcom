@@ -94,7 +94,7 @@ export const Default = ({ parameters }) => {
             logosGroup={logosGroup}
             hideBorder={hideBorder}
             ctaCopy={ctaCopy}
-            ctaHref={showCta ?? ctaHref}
+            ctaHref={showCta && ctaHref}
           />
         </div>
       </div>
