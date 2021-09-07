@@ -39,7 +39,6 @@ const images = {
 
 export default {
   title: 'Components|Lead space',
-
   parameters: {
     ...readme.parameters,
   },

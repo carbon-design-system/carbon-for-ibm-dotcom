@@ -10,7 +10,7 @@
 import '../image';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { select } from '@storybook/addon-knobs';
+import { select, boolean } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
@@ -32,11 +32,11 @@ const srcsets = {
 };
 
 export const Default = ({ parameters }) => {
-  const { alt, defaultSrc } = parameters?.props?.['dds-image'] ?? {};
+  const { alt, defaultSrc, border } = parameters?.props?.['dds-image'] ?? {};
   // TODO: See if we can fix unwanted `&` to `&amp` conversion upon changing the select knob
   const srcset = srcsets[defaultSrc?.replace(/&amp;/, '&')];
   return html`
-    <dds-image alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
+    <dds-image alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" ?border=${border}>
       ${!srcset
         ? undefined
         : html`
@@ -68,6 +68,7 @@ export default {
       'dds-image': ({ groupId }) => ({
         alt: textNullable('Alt text', 'Image alt text', groupId),
         defaultSrc: select('Default image (default-src)', images, imgLg2x1, groupId),
+        border: boolean('Border', false, groupId),
       }),
     },
   },

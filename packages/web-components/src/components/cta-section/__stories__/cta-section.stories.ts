@@ -173,7 +173,7 @@ export const WithContentItems = ({ parameters }) => {
 };
 
 WithContentItems.story = {
-  title: 'With content items',
+  name: 'With content items',
   parameters: {
     knobs: {
       WithContentItems: ({ groupId }) => ({
@@ -224,7 +224,7 @@ export const WithLinkList = ({ parameters }) => {
 };
 
 WithLinkList.story = {
-  title: 'With link list',
+  name: 'With link list',
 };
 
 export default {

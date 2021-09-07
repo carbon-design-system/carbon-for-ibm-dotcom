@@ -110,6 +110,10 @@ export const WithCustomNavigation = ({ parameters }) => {
   `;
 };
 
+WithCustomNavigation.story = {
+  name: 'With custom navigation',
+};
+
 export const searchOpenOnload = ({ parameters }) => {
   const { customProfileLogin, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch, navLinks } =
     parameters?.props?.MastheadComposite ?? {};
@@ -152,6 +156,10 @@ export const searchOpenOnload = ({ parameters }) => {
   `;
 };
 
+searchOpenOnload.story = {
+  name: 'Search open onload',
+};
+
 export const withPlatform = ({ parameters }) => {
   const { selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder } =
     parameters?.props?.MastheadComposite ?? {};
@@ -191,6 +199,7 @@ export const withPlatform = ({ parameters }) => {
 };
 
 withPlatform.story = {
+  name: 'With platform',
   parameters: {
     knobs: {
       MastheadComposite: ({ groupId }) => ({
@@ -240,6 +249,7 @@ export const withL1 = ({ parameters }) => {
 };
 
 withL1.story = {
+  name: 'With L1',
   parameters: {
     knobs: {
       MastheadComposite: ({ groupId }) => ({
@@ -294,6 +304,7 @@ export const withAlternateLogoAndTooltip = ({ parameters }) => {
 };
 
 withAlternateLogoAndTooltip.story = {
+  name: 'With alternate logo and tooltip',
   parameters: {
     knobs: {
       MastheadComposite: ({ groupId }) => ({

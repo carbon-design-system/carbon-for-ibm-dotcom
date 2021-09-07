@@ -16,7 +16,6 @@ import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|Card',
-
   parameters: {
     ...readme.parameters,
     knobs: {
@@ -89,7 +88,6 @@ export const CardStatic = ({ parameters }) => {
 
 CardStatic.story = {
   name: 'Card static',
-
   parameters: {
     ...readme.parameters,
     knobs: {

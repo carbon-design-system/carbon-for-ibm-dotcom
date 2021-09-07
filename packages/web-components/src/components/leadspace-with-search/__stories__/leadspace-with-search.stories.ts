@@ -27,7 +27,7 @@ const htmlElement = document.documentElement;
 let currentTheme = '';
 // eslint-disable-next-line func-names
 const observer = new MutationObserver(mutations => {
-  mutations.forEach(function(mutation) {
+  mutations.forEach(mutation => {
     if (mutation.type === 'attributes') {
       currentTheme = htmlElement.getAttribute(mutation.attributeName!) as string;
     }
@@ -71,6 +71,10 @@ export const WithImage = ({ parameters }) => {
       <dds-hr slot="hr" style="${currentTheme === secondTheme ? 'display: none' : ''}"></dds-hr>
     </dds-leadspace-with-search>
   `;
+};
+
+WithImage.story = {
+  name: 'With image',
 };
 
 export default {
