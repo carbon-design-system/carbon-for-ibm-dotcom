@@ -215,6 +215,11 @@
     .#{$prefix}--feature-card {
       @include carbon--make-row;
     }
+
+    // FIXME: CardLink is being used as Card in React, need to separate this
+    .#{$prefix}--card__CTA.#{$prefix}--card-link .#{$prefix}--card__heading {
+      @include carbon--type-style('expressive-heading-02', true);
+    }
   }
 
   .#{$prefix}--content-block__cta-row {

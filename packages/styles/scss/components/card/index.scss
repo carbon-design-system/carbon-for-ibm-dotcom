@@ -56,11 +56,6 @@
       margin-bottom: $carbon--layout-05;
     }
 
-    // FIXME: CardLink is being used as Card in React, need to separate this
-    &.#{$prefix}--card__CTA.#{$prefix}--card-link .#{$prefix}--card__heading {
-      @include carbon--type-style('expressive-heading-03', true);
-    }
-
     .#{$prefix}--card__heading,
     .#{$prefix}--card__copy {
       @include content-width;
