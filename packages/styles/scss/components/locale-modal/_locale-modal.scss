@@ -249,7 +249,7 @@
     position: sticky;
     top: 0;
     background-color: $ui-background;
-    border-bottom: 1px solid $icon-02;
+    border-bottom: rem(1px) solid $ui-03;
 
     .#{$prefix}--search-input {
       background-color: $field-01;
