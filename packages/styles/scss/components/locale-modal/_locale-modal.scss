@@ -110,8 +110,11 @@
         align-items: center;
 
         .#{$prefix}--locale-modal__label-globe {
+          width: rem(20px);
+          height: rem(20px);
           margin-left: $spacing-02;
         }
+
         .#{$prefix}--locale-modal__label-arrow {
           margin-right: $carbon--spacing-03;
         }
