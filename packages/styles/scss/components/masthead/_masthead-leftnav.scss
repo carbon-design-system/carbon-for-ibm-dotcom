@@ -407,13 +407,11 @@
   :host(#{$dds-prefix}-left-nav-menu-item)
     a.#{$prefix}--side-nav__link[role='menuitem'] {
     display: flex;
-    flex-direction: column;
     padding-left: $carbon--spacing-05;
     height: carbon--mini-units(6);
     width: 100%;
 
     .#{$prefix}--side-nav__link-text {
-      align-self: start;
       margin-top: auto;
     }
 
