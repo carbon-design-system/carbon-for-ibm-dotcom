@@ -260,7 +260,7 @@
     padding: $carbon--spacing-07 $carbon--spacing-05 $carbon--spacing-05;
     min-height: $carbon--spacing-09;
 
-    @include carbon--type-style(heading-02);
+    @include carbon--type-style('label-02');
   }
 
   .#{$prefix}--locale-modal__list {
