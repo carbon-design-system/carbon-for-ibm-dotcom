@@ -116,7 +116,7 @@
           margin-right: $carbon--spacing-03;
         }
 
-        @include carbon--type-style('caption-01');
+        @include carbon--type-style('body-short-02');
       }
 
       .#{$prefix}--modal-header__heading {
