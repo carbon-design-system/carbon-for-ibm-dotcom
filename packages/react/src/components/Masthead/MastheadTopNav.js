@@ -64,7 +64,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
     } else {
       return (
         <HeaderMenuItem
-          aria-selected={selected ? 'true' : 'false'}
+          data-selected={selected ? 'true' : 'false'}
           href={link.url}
           data-autoid={autoid}
           key={i}>
