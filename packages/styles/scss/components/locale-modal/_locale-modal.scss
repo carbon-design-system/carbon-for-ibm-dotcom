@@ -120,7 +120,7 @@
       }
 
       .#{$prefix}--modal-header__heading {
-        @include carbon--type-style(expressive-heading-04, true);
+        @include carbon--type-style('expressive-heading-04', true);
 
         margin-top: $carbon--spacing-04;
 
