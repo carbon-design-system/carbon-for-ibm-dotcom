@@ -12,7 +12,7 @@
 
 ```
 <a
-  class="bx--btn bx--btn--primary"
+  class="bx--btn bx--btn--expressive bx--btn--primary"
   href="https://example.com"
   id="button"
   part="button"
