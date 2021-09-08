@@ -1,5 +1,25 @@
 # Breaking changes
 
+## v1.10.0
+
+### Design adjustment
+
+- All content block and content group components should now use `<dds-card-link-cta>` 
+  instead of `<dds-card-cta>` for the footer CTA component per design 
+  specifications. Example markup:
+  
+```html
+<dds-content-block-simple>
+  ...
+  <dds-card-link-cta slot="footer" cta-type="local" href="https://www.ibm.com/">
+    <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
+    <dds-card-cta-footer>
+      ...
+    </dds-card-cta-footer>
+  </dds-card-link-cta>
+</dds-content-block-simple>
+```
+
 ## v1.9.0
 
 ### Deprecation warning

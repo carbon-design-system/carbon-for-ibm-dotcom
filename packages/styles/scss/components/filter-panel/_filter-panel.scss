@@ -265,11 +265,12 @@
     border-bottom: none;
 
     .#{$prefix}--accordion__heading {
-      padding-top: calc(
-        (#{$container-03} - #{map-get($body-long-01, 'line-height')}) / 2
-      );
       display: flex;
       align-items: center;
+    }
+
+    .#{$prefix}--accordion__arrow {
+      align-self: flex-start;
     }
 
     .#{$prefix}--accordion__title {
