@@ -76,7 +76,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
   @HostListener('eventRequestVideoData')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private async _handleRequestVideoData(event: CustomEvent) {
-    const { href } = event.detail;
+    const { href, videoName: customVideoName } = event.detail;
     (event.target as VideoCTAMixinImpl).videoThumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
       mediaId: href,
       width: '320',
@@ -84,7 +84,9 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
     const videoData = await this._loadVideoData?.(href);
     if (videoData) {
       const { duration, name } = videoData;
-      (event.target as VideoCTAMixinImpl).videoName = name;
+      const videoName = customVideoName || name;
+
+      (event.target as VideoCTAMixinImpl).videoName = videoName;
       (event.target as VideoCTAMixinImpl).videoDuration = duration;
     }
   }
