@@ -71,7 +71,7 @@ Default.story = {
             },
             style: 'card',
             type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
-            copy: 'Lorem ipsum dolor sit ametttt',
+            heading: 'Lorem ipsum dolor sit ametttt',
           },
         };
       },
@@ -116,7 +116,7 @@ WithImages.story = {
             },
             style: 'card',
             type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
-            copy: 'Lorem ipsum dolor sit ametttt',
+            heading: 'Lorem ipsum dolor sit ametttt',
           },
         };
       },
@@ -164,7 +164,7 @@ WithVideos.story = {
             },
             style: 'card',
             type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
-            copy: 'Lorem ipsum dolor sit ametttt',
+            heading: 'Lorem ipsum dolor sit ametttt',
           },
         };
       },

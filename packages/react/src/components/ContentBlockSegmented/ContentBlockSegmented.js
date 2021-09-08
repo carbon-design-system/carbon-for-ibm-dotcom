@@ -125,7 +125,7 @@ ContentBlockSegmented.propTypes = {
         PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
       ),
     ]),
-    copy: PropTypes.string,
+    heading: PropTypes.string,
     href: PropTypes.string,
     customClassName: PropTypes.string,
   }),
@@ -212,7 +212,7 @@ ContentBlockSegmented.propTypes = {
       cta: PropTypes.shape({
         style: PropTypes.oneOf(['card']),
         type: PropTypes.oneOf(['local']),
-        copy: PropTypes.string,
+        heading: PropTypes.string,
         customClassName: PropTypes.string,
       }),
       video: PropTypes.shape({

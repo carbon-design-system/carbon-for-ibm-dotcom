@@ -67,7 +67,7 @@ const App = () => (
             },
             style: 'card',
             type: 'local',
-            copy: 'Lorem ipsum dolor sit ametttt',
+            heading: 'Lorem ipsum dolor sit ametttt',
           }}
         />
       </div>

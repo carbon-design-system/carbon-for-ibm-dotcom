@@ -12,16 +12,10 @@
 @import 'carbon-web-components/scss/components/tooltip/tooltip';
 @import 'carbon-components/scss/components/accordion/accordion';
 @import 'carbon-components/scss/components/accordion/keyframes';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/tabs';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/accordion';
 
 @mixin tabs-extended {
   :host(#{$dds-prefix}-tabs-extended),
   :host(#{$dds-prefix}-tabs-extended-media) {
-    @include tabs-expressive;
-    @include accordion-expressive;
-
     .#{$prefix}--tabs {
       display: none;
 
@@ -34,6 +28,10 @@
         min-height: $spacing-09;
         width: $spacing-13;
         height: auto;
+
+        p {
+          @include carbon--type-style('body-long-01', true);
+        }
 
         &:hover:not(.bx--tabs__nav-item--disabled) {
           box-shadow: none;
@@ -178,6 +176,12 @@
     .#{$prefix}--accordion__title {
       max-width: rem(640px);
       margin-right: $spacing-07;
+    }
+
+    .#{$prefix}--accordion__content {
+      p {
+        @include carbon--type-style('body-long-02', true);
+      }
     }
   }
 }

@@ -84,7 +84,7 @@
 ```
 <a
   aria-label="video-name-foo - This link plays a video"
-  class="bx--card__footer bx--link bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right dds-ce--card__footer"
+  class="bx--card__footer bx--link bx--link--lg bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right dds-ce--card__footer"
   href="#"
   id="link"
   part="link"

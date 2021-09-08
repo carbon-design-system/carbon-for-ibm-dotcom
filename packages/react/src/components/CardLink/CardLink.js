@@ -17,7 +17,10 @@ const { prefix } = settings;
  * CardLink component
  */
 const CardLink = ({ card, customClassName }) => {
-  const cardLinkClassname = cx(`${prefix}--card__CTA`, customClassName);
+  const cardLinkClassname = cx(
+    `${prefix}--card-link ${prefix}--card__CTA`,
+    customClassName
+  );
   return <Card customClassName={cardLinkClassname} {...card} />;
 };
 
