@@ -9,7 +9,8 @@
 @import '../card/index';
 
 @mixin card-link {
-  .#{$prefix}--card__CTA--disabled {
+  :host(#{$dds-prefix}-card-link-heading).#{$prefix}--card__CTA--disabled,
+  .#{$prefix}--card-link.#{$prefix}--card__CTA--disabled {
     cursor: not-allowed;
     &.#{$prefix}--card {
       .#{$prefix}--card__heading,
@@ -33,8 +34,9 @@
       }
     }
   }
+
   :host(#{$dds-prefix}-card-link-heading),
-  .#{$prefix}--card__CTA.#{$prefix}--card .#{$prefix}--card__copy {
+  .#{$prefix}--card-link .#{$prefix}--card__heading {
     @include carbon--type-style('expressive-heading-02');
   }
 

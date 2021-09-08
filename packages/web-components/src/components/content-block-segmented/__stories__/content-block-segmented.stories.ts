@@ -35,7 +35,7 @@ const ctaTypes = {
 };
 
 const ctaStyles = {
-  [`Card (${CTA_STYLE.CARD})`]: CTA_STYLE.CARD,
+  [`Card Link (${CTA_STYLE.CARDLINK})`]: CTA_STYLE.CARDLINK,
   [`Text (${CTA_STYLE.TEXT})`]: CTA_STYLE.TEXT,
 };
 
@@ -108,10 +108,10 @@ export const Default = ({ parameters }) => {
             >
           `
         : html`
-            <dds-card-cta slot="footer" cta-type=${ctaType} href=${hrefsForType[ctaType]}>
-              Lorem ipsum dolor
+            <dds-card-link-cta slot="footer" cta-type=${ctaType} href=${hrefsForType[ctaType]}>
+              <dds-card-link-heading>Lorem ipsum dolor</dds-card-link-heading>
               <dds-card-cta-footer></dds-card-cta-footer>
-            </dds-card-cta>
+            </dds-card-link-cta>
           `}
     </dds-content-block-segmented>
   `;
@@ -158,10 +158,10 @@ export const withLinkList = ({ parameters }) => {
             >
           `
         : html`
-            <dds-card-cta slot="footer" cta-type=${ctaType} href=${hrefsForType[ctaType]}>
-              Lorem ipsum dolor
+            <dds-card-link-cta slot="footer" cta-type=${ctaType} href=${hrefsForType[ctaType]}>
+              <dds-card-link-heading>Lorem ipsum dolor</dds-card-link-heading>
               <dds-card-cta-footer></dds-card-cta-footer>
-            </dds-card-cta>
+            </dds-card-link-cta>
           `}
     </dds-content-block-segmented>
   `;

@@ -46,23 +46,17 @@ import 'yourapplication.scss';
 function App() {
   return (
     <LightboxMediaViewer
-    title='Curabitur malesuada varius mi eu posuere'
-    copy='Lorem ipsum dolor sit amet, consectetur adipiscing Aenean et ultricies est.'
-    media={
-      src: select('Image', images, images['1280 x 720 (16:9)']),
-      alt: 'Image alt text',
-      title: text(
-        'title (required)',
-        'Curabitur malesuada varius mi eu posuere'
-      ),
-      description: text(
-        'description (required)',
-        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.`
-      ),
-      type: 'image',
-    }
-    open={true}
-  />
+      title='Curabitur malesuada varius mi eu posuere'
+      copy='Lorem ipsum dolor sit amet, consectetur adipiscing Aenean et ultricies est.'
+      media={{
+        src: 'Image source string',
+        alt: 'Image alt text',
+        title: 'Curabitur malesuada varius mi eu posuere',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.',
+        type: 'image',
+      }}
+      open
+    />
   );
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -79,14 +73,14 @@ import 'yourapplication.scss';
 function App() {
   return (
     <LightboxMediaViewer
-    media={
-      src: '1_9h94wo6b',
-      type: 'video',
-      title='Curabitur malesuada varius mi eu posuere',
-      copy='Lorem ipsum dolor sit amet, consectetur adipiscing Aenean et ultricies est.'
-    }
-    open={true}
-  />
+      media={{
+        src: '1_9h94wo6b',
+        title: 'Curabitur malesuada varius mi eu posuere',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing Aenean et ultricies est.'
+        type: 'video',
+      }}
+      open
+    />
   );
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -126,9 +120,9 @@ import LightBoxMediaViewer from '@carbon/ibmdotcom-react/es/components/LightBoxM
 
 | Name                                         | Description |
 | -------------------------------------------- | ----------- |
-| `dds--Lightbox-media-viewer`                 | Component   |
-| `dds--Lightbox-media-viewer__image`          | Interactive |
-| `dds--Lightbox-media-viewer__content__title` | Interactive |
-| `dds--Lightbox-media-viewer__content__desc`  | Interactive |
+| `dds--lightbox-media-viewer`                 | Component   |
+| `dds--lightbox-media-viewer__image`          | Interactive |
+| `dds--lightbox-media-viewer__content__title` | Interactive |
+| `dds--lightbox-media-viewer__content__desc`  | Interactive |
 
 <Description markdown={contributing} />
