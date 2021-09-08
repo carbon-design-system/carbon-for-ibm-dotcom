@@ -113,6 +113,18 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
   open = false;
 
   /**
+   *
+   */
+  @property({ attribute: 'custom-video-name' })
+  customVideoName?: string;
+
+  /**
+   *
+   */
+  @property({ attribute: 'custom-video-description' })
+  customVideoDescription?: string;
+
+  /**
    * `true` if the modal is rendered for video cta component.
    */
   @property({ type: Boolean, attribute: 'video-cta-lightbox' })
@@ -158,16 +170,27 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
   }
 
   renderModal() {
-    const { formatCaption, formatDuration, hideCaption, open, mediaData = {}, videoId } = this;
+    const {
+      formatCaption,
+      formatDuration,
+      customVideoName,
+      hideCaption,
+      open,
+      mediaData = {},
+      videoId,
+      customVideoDescription,
+    } = this;
     const { [videoId]: currentVideoData = {} as MediaData } = mediaData;
     const { description, duration, name } = currentVideoData;
+    const videoName = customVideoName || name;
+    const videoDescription = customVideoDescription || description;
     return html`
       <dds-expressive-modal ?open="${open}" expressive-size="full-width" mode="lightbox">
         <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
         <dds-lightbox-video-player
-          description="${ifNonNull(description)}"
+          description="${ifNonNull(videoDescription)}"
           duration="${ifNonNull(duration)}"
-          name="${ifNonNull(name)}"
+          name="${ifNonNull(videoName)}"
           ?hide-caption="${hideCaption}"
           .formatCaption="${ifNonNull(formatCaption)}"
           .formatDuration="${ifNonNull(formatDuration)}"

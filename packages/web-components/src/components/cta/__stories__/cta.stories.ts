@@ -66,11 +66,12 @@ const types = {
 };
 
 export const Text = ({ parameters }) => {
-  const { copy, ctaType, download, href, customVideoTitle } = parameters?.props?.TextCTA ?? {};
+  const { copy, ctaType, download, href, customVideoTitle, customVideoDescription } = parameters?.props?.TextCTA ?? {};
   return html`
     <dds-text-cta
       cta-type="${ifNonNull(ctaType)}"
       video-name="${ifNonNull(customVideoTitle)}"
+      video-description="${ifNonNull(customVideoDescription)}"
       download="${ifNonNull(download)}"
       href="${ifNonNull(href)}"
     >
@@ -92,11 +93,17 @@ Text.story = {
         const customVideoTitle =
           ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video title', 'Custom video title', groupId) : null;
 
+        const customVideoDescription =
+          ctaType === CTA_TYPE.VIDEO
+            ? textNullable('Custom video description', 'This is a custom video description', groupId)
+            : null;
+
         return {
           copy,
           ctaType,
           download,
           customVideoTitle,
+          customVideoDescription,
           href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR], groupId),
         };
       },
