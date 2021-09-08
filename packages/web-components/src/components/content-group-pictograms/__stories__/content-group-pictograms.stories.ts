@@ -102,7 +102,6 @@ export const Default = ({ parameters }) => {
               </g>
               <g id="Layer_1"></g>
             </svg>
-
             <dds-content-item-heading>${heading}</dds-content-item-heading>
             <dds-content-item-copy>${copy}</dds-content-item-copy>
             <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
