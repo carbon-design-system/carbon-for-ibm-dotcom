@@ -127,6 +127,7 @@
     "@carbon/type": "10.33.0",
     "@open-wc/semantic-dom-diff": "^0.15.0",
     "@percy-io/in-percy": "^0.1.11",
+    "@percy/cli": "^1.0.0-beta.67",
     "@percy/cypress": "^3.1.0",
     "@percy/dom": "^1.0.0-beta.55",
     "@percy/sdk-utils": "^1.0.0-beta.55",

@@ -49,10 +49,12 @@ describe('dds-masthead | default (desktop)', () => {
       .find('a')
       .click();
 
+    cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-masthead | mega menu (nav 0)', {
-      widths: [1280],
-    });
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | mega menu (nav 0)', {
+    //   widths: [1280],
+    // });
   });
 
   it('should load the megamenu - second nav item', () => {
@@ -61,10 +63,12 @@ describe('dds-masthead | default (desktop)', () => {
       .find('a')
       .click();
 
+    cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-masthead | mega menu (nav 1)', {
-      widths: [1280],
-    });
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | mega menu (nav 1)', {
+    //   widths: [1280],
+    // });
   });
 
   it('should open the login menu', () => {
@@ -73,10 +77,12 @@ describe('dds-masthead | default (desktop)', () => {
       .find('a')
       .click();
 
+    cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-masthead | profile menu', {
-      widths: [1280],
-    });
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | profile menu', {
+    //   widths: [1280],
+    // });
   });
 });
 
@@ -92,6 +98,7 @@ describe('dds-masthead | default (mobile)', () => {
       .find('button')
       .click();
 
+    cy.screenshot();
     // Take a snapshot for visual diffing
     cy.percySnapshot('dds-masthead | mobile menu', {
       widths: [320],
@@ -102,10 +109,12 @@ describe('dds-masthead | default (mobile)', () => {
       .find('button')
       .click();
 
+    cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-masthead | mobile menu level 2', {
-      widths: [320],
-    });
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | mobile menu level 2', {
+    //   widths: [320],
+    // });
   });
 });
 
@@ -121,10 +130,12 @@ describe('dds-masthead | custom (desktop)', () => {
       .find('.bx--header__nav-caret-right-container > button')
       .click();
 
+    cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-masthead | custom - overflow', {
-      widths: [1280],
-    });
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | custom - overflow', {
+    //   widths: [1280],
+    // });
   });
 });
 
@@ -140,9 +151,11 @@ describe('dds-masthead | with platform (desktop)', () => {
       .find('.bx--header__search--search')
       .click();
 
+    cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-masthead | with platform - search', {
-      widths: [1280],
-    });
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | with platform - search', {
+    //   widths: [1280],
+    // });
   });
 });

@@ -1,7 +1,7 @@
 {
   "baseUrl": "http://localhost:8081",
   "browser": "chrome",
-  "headless": false,
+  "headless": true,
   "fixturesFolder": false,
   "fileServerFolder": "storybook-static",
   "screenshotsFolder": "tests/e2e-storybook/cypress/screenshots",
@@ -12,6 +12,6 @@
   "nodeVersion": "system",
   "includeShadowDom": true,
   "testFiles": "**/*.e2e.js",
-  "pageLoadTimeout": 10000,
+  "pageLoadTimeout": 20000,
   "defaultCommandTimeout": 20000
 }
