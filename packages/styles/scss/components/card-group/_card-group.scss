@@ -16,9 +16,6 @@
 @mixin themed-items {
   color: $text-01;
   background: $ui-background;
-  .#{$prefix}--card {
-    background-color: $ui-01;
-  }
   .#{$prefix}--card__heading {
     color: $text-01;
   }
