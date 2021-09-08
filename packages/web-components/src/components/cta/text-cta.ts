@@ -56,6 +56,7 @@ class DDSTextCTA extends VideoCTAMixin(CTAMixin(DDSLinkWithIcon)) {
       formatVideoCaption: formatVideoCaptionInEffect,
       formatVideoDuration: formatVideoDurationInEffect,
     } = this;
+
     const caption = hasContent
       ? undefined
       : formatVideoCaptionInEffect({
