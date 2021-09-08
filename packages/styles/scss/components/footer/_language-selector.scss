@@ -52,10 +52,6 @@
 
         .#{$prefix}--list-box__field {
           background-color: $ui-03;
-
-          input.bx--text-input[role='combobox'] {
-            background-color: $ui-background;
-          }
         }
 
         @include carbon--breakpoint('md') {
