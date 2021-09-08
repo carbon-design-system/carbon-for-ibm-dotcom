@@ -52,9 +52,9 @@
       height: 80px;
       width: 80px;
     }
-    ::slotted(svg) {
-      margin-left: $carbon--spacing-05;
-    }
+  }
+  :host(#{$dds-prefix}-pictogram-item) {
+    padding-left: $carbon--spacing-05;
   }
 }
 
