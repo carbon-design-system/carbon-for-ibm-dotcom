@@ -172,6 +172,11 @@
     border: 1px solid $ui-03;
   }
 
+  // FIXME: CardLink is being used as Card in React, need to separate this
+  .#{$prefix}--card__CTA.#{$prefix}--card__CardCTA .#{$prefix}--card__heading {
+    @include carbon--type-style('expressive-heading-03', true);
+  }
+
   // static card
   :host(#{$dds-prefix}-card),
   :host(#{$dds-prefix}-card-group-item) {

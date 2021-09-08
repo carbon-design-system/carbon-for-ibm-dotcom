@@ -1,5 +1,25 @@
 # Breaking changes
 
+## v1.25.0
+
+### Design adjustment
+
+- All content block and content group components should now pass the Card CTA `copy` as `heading`. Example:
+
+```javascript
+<ContentBlockSimple
+  cta={{
+    cta: {
+      href: 'https://www.example.com',
+    },
+    style: 'card',
+    type: 'local',
+    heading: 'Lorem ipsum dolor sit ametttt',
+  }}
+  ...
+/>
+```
+
 ## v1.24.0
 
 ### Deprecation warning
