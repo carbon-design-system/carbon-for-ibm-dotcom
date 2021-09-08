@@ -10,6 +10,7 @@
 import { customElement, query, internalProperty } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import { forEach } from '../../globals/internal/collection-helpers';
 import DDSTopNavMenu from './top-nav-menu';
 import DDSMegaMenuOverlay from './megamenu-overlay';
@@ -70,6 +71,23 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
     // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4493
     const { customPropertyViewportWidth } = this.constructor as typeof DDSMegaMenuTopNavMenu;
     this.style.setProperty(customPropertyViewportWidth, `${contentRect.width}px`);
+  };
+
+  @HostListener('shadowRoot:focusin')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleFocusIn = (event: Event) => {
+    if (event.target instanceof Element) {
+      const focusedItem = event.target;
+      const topNavItem = focusedItem.getRootNode().host;
+      const topNav = topNavItem.parentElement;
+      topNav.dispatchEvent(
+        new CustomEvent('requestScroll', {
+          detail: {
+            requestingItem: topNavItem,
+          },
+        })
+      );
+    }
   };
 
   connectedCallback() {

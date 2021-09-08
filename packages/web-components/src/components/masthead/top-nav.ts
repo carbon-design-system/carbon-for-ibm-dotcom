@@ -292,6 +292,28 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
     }
   };
 
+  @HostListener('requestScroll')
+  protected _handleRequestScroll = (event: CustomEvent) => {
+    if (event.detail.requestingItem !== undefined && this._contentContainerNode !== undefined) {
+      const { requestingItem } = event.detail;
+      const { _contentContainerNode: contentContainerNode } = this;
+
+      const containerRect = contentContainerNode.getBoundingClientRect();
+      const itemRect = requestingItem.getBoundingClientRect();
+
+      const isOverflowingLeft = itemRect.left < containerRect.left;
+      const isOverflowingRight = itemRect.right > containerRect.right;
+
+      if (isOverflowingLeft) {
+        this._paginateLeft();
+      }
+
+      if (isOverflowingRight) {
+        this._paginateRight();
+      }
+    }
+  };
+
   /**
    * `true` to hide the divider.
    */
