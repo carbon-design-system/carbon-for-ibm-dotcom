@@ -18,6 +18,9 @@
 // Carbon Components
 @import 'carbon-components/scss/globals/scss/styles';
 
+// Expressive Theme
+@import '../scss/themes/expressive/index';
+
 // Storybook styles
 .storybook-center-container {
   padding: 1rem;
