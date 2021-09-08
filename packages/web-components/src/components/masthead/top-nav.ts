@@ -199,22 +199,29 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
     // If the right-side intersection sentinel is in the view, it means that right-side caret button is hidden.
     // Given scrolling to left makes it shown,
     // `contentContainerNode!.offsetWidth` will shrink as we scroll and we need to adjust for it.
-    const caretRightNodeWidthAdjustment = isIntersectionRightTrackerInContent ? caretRightNode!.offsetWidth : 0;
+
     const elems = slotNode?.assignedElements() as HTMLElement[];
     if (elems) {
       if (pageIsRTL) {
+        const caretLeftNodeWidthAdjustment = this._isIntersectionLeftTrackerInContent ? caretLeftNode!.offsetWidth : 0;
         const navRight = navNode!.getBoundingClientRect().right;
         const lastVisibleElementIndex = elems.findIndex(
-          elem => elem.getBoundingClientRect().left < navRight - currentScrollPosition - caretRightNodeWidthAdjustment
+          elem => elem.getBoundingClientRect().left < navRight - currentScrollPosition - caretRightNode!.offsetWidth
         );
         if (lastVisibleElementIndex >= 0) {
-          this._currentScrollPosition =
+          this._currentScrollPosition = Math.max(
             navRight -
-            elems[lastVisibleElementIndex].getBoundingClientRect().left -
-            contentContainerNode!.offsetWidth +
-            caretRightNode!.offsetWidth;
+              elems[lastVisibleElementIndex].getBoundingClientRect().left -
+              contentContainerNode!.offsetWidth +
+              caretLeftNodeWidthAdjustment +
+              caretRightNode!.offsetWidth +
+              8,
+            0
+          );
         }
       } else {
+        const caretRightNodeWidthAdjustment = isIntersectionRightTrackerInContent ? caretRightNode!.offsetWidth + 8 : 8;
+        const caretLeftNodeWidthAdjustment = this._isIntersectionLeftTrackerInContent ? caretLeftNode!.offsetWidth + 8 : 0;
         const navLeft = navNode!.getBoundingClientRect().left;
         const lastVisibleElementIndex = findLastIndex(
           elems,
@@ -222,7 +229,9 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
         );
         if (lastVisibleElementIndex >= 0) {
           const lastVisibleElementRight = elems[lastVisibleElementIndex].getBoundingClientRect().right - navLeft;
-          const newScrollPosition = lastVisibleElementRight - (contentContainerNode!.offsetWidth - caretRightNodeWidthAdjustment);
+          const newScrollPosition =
+            lastVisibleElementRight -
+            (contentContainerNode!.offsetWidth + caretLeftNodeWidthAdjustment - caretRightNodeWidthAdjustment);
           // If the new scroll position is less than the width of the left caret button,
           // it means that hiding the left caret button reveals the whole of the left-most nav item.
           // Snaps the left-most nav item to the left edge of nav container in this case.
@@ -247,34 +256,84 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       _pageIsRTL: pageIsRTL,
       _slotNode: slotNode,
     } = this;
-    const caretLeftNodeWidthAdjustment = isIntersectionLeftTrackerInContent ? caretLeftNode!.offsetWidth : 0;
-    const caretRightNodeWidthAdjustment = caretRightNode!.offsetWidth;
     const interimLeft = currentScrollPosition + contentContainerNode!.offsetWidth;
     const elems = slotNode?.assignedElements() as HTMLElement[];
     if (elems) {
       if (pageIsRTL) {
         const navRight = navNode!.getBoundingClientRect().right;
         const firstVisibleElementIndex = elems.findIndex(
-          elem => navRight - elem.getBoundingClientRect().left > interimLeft - caretRightNodeWidthAdjustment
+          elem => navRight - elem.getBoundingClientRect().left > interimLeft - caretLeftNode!.offsetWidth - 8
         );
         if (firstVisibleElementIndex > 0) {
           const firstVisibleElementLeft = Math.abs(
-            elems[firstVisibleElementIndex].getBoundingClientRect().right - navRight + caretRightNodeWidthAdjustment
+            elems[firstVisibleElementIndex].getBoundingClientRect().right - navRight + caretLeftNode!.offsetWidth + 8
           );
           const maxLeft = contentNode!.scrollWidth - contentContainerNode!.offsetWidth;
           this._currentScrollPosition = Math.min(firstVisibleElementLeft, maxLeft);
         }
       } else {
+        const caretLeftNodeWidthAdjustment = isIntersectionLeftTrackerInContent ? caretLeftNode!.offsetWidth : 0;
         const navLeft = navNode!.getBoundingClientRect().left;
         const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().right - navLeft > interimLeft);
         if (firstVisibleElementIndex > 0) {
-          const firstVisibleElementLeft = elems[firstVisibleElementIndex].getBoundingClientRect().left - navLeft;
+          // 8 accounts for gradient width
+          const firstVisibleElementLeft = elems[firstVisibleElementIndex].getBoundingClientRect().left - navLeft - 8;
           // Ensures that is there is no blank area at the right hand side in scroll area
           // if we see the right remainder nav items can be contained in a page
           const maxLeft =
             contentNode!.scrollWidth -
-            (contentContainerNode!.offsetWidth - caretLeftNodeWidthAdjustment + caretRightNodeWidthAdjustment);
+            (contentContainerNode!.offsetWidth - caretLeftNodeWidthAdjustment + caretRightNode!.offsetWidth);
           this._currentScrollPosition = Math.min(firstVisibleElementLeft, maxLeft);
+        }
+      }
+    }
+  }
+
+  protected _handleOnKeyDown(event: KeyboardEvent) {
+    const target = event.target as HTMLAnchorElement;
+    const {
+      _pageIsRTL: pageIsRTL,
+      _navNode: navNode,
+      _currentScrollPosition: currentScrollPosition,
+      _contentContainerNode: contentContainerNode,
+      _caretRightNode: caretRightNode,
+    } = this;
+    if (target) {
+      if (pageIsRTL) {
+        if (event.key === 'Tab') {
+          if (event.shiftKey) {
+            if (
+              target.previousElementSibling &&
+              caretRightNode &&
+              target.previousElementSibling.getBoundingClientRect().right + currentScrollPosition >
+                navNode!.getBoundingClientRect().right - caretRightNode.offsetWidth
+            ) {
+              this._paginateLeft();
+            }
+          } else if (
+            target.nextElementSibling &&
+            caretRightNode &&
+            navNode!.getBoundingClientRect().right - target.nextElementSibling.getBoundingClientRect().left >
+              currentScrollPosition + contentContainerNode!.offsetWidth - caretRightNode.offsetWidth
+          ) {
+            this._paginateRight();
+          }
+        }
+      } else if (event.key === 'Tab') {
+        if (event.shiftKey) {
+          if (
+            target.previousElementSibling &&
+            target.previousElementSibling.getBoundingClientRect().left - navNode!.getBoundingClientRect().left <
+              currentScrollPosition
+          ) {
+            this._paginateLeft();
+          }
+        } else if (
+          target.nextElementSibling &&
+          Math.floor(target.nextElementSibling.getBoundingClientRect().right - navNode!.getBoundingClientRect().left) >
+            currentScrollPosition + contentContainerNode!.offsetWidth
+        ) {
+          this._paginateRight();
         }
       }
     }
@@ -329,6 +388,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       _paginateLeft: paginateLeft,
       _paginateRight: paginateRight,
       _pageIsRTL: pageIsRTL,
+      _handleOnKeyDown: handleOnKeyDown,
     } = this;
     const caretLeftContainerClasses = classMap({
       [`${prefix}--header__nav-caret-left-container`]: true,
@@ -366,7 +426,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                         class="${prefix}--header__menu-bar"
                         aria-label="${ifNonNull(this.menuBarLabel)}"
                       >
-                        <slot></slot>
+                        <slot @keydown="${handleOnKeyDown}"></slot>
                       </ul>
                       <div class="${prefix}--sub-content-left"></div>
                     </nav>
@@ -408,7 +468,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                         class="${prefix}--header__menu-bar"
                         aria-label="${ifNonNull(this.menuBarLabel)}"
                       >
-                        <slot></slot>
+                        <slot @keydown="${handleOnKeyDown}"></slot>
                       </ul>
                       <div class="${prefix}--sub-content-right"></div>
                     </nav>

@@ -216,8 +216,28 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
   private _handleOnKeyDown(event: KeyboardEvent) {
     const { selectorDesktopItem } = this.constructor as typeof DDSTableOfContents;
     const target = event.target as HTMLAnchorElement;
+    const { _pageIsRTL: pageIsRTL } = this;
     if (target.matches?.(selectorDesktopItem)) {
-      if (event.key === 'Tab') {
+      if (pageIsRTL) {
+        if (event.key === 'Tab') {
+          if (event.shiftKey) {
+            // 32 = total button width - grid offset
+            if (
+              target.parentElement?.previousElementSibling &&
+              target.parentElement?.previousElementSibling.getBoundingClientRect().right >
+                this._navBar!.getBoundingClientRect().right - 32
+            ) {
+              this._paginateLeft();
+            }
+          } else if (
+            target.parentElement?.nextElementSibling &&
+            target.parentElement?.nextElementSibling.getBoundingClientRect().left <
+              this._navBar!.getBoundingClientRect().left + 32
+          ) {
+            this._paginateRight();
+          }
+        }
+      } else if (event.key === 'Tab') {
         if (event.shiftKey) {
           // 32 = total button width - grid offset
           if (
