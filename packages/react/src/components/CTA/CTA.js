@@ -20,11 +20,14 @@ import { useVideoData } from '../../internal/hooks/useVideoData';
 const CTA = ({ style, type, size, customClassName, ...otherProps }) => {
   const [renderLightBox, openLightBox] = useState(false);
 
+  const customVideoData =
+    style === 'feature' ? otherProps?.card?.cta?.media : otherProps.media;
+
   const videoId =
     type && (type === 'video' || type.includes('video'))
       ? CTALogic.getVideoId(style, otherProps)
       : [];
-  const videoTitle = useVideoData(type, videoId);
+  const videoTitle = useVideoData(type, videoId, customVideoData?.title);
 
   const CTAComponent =
     style === 'card'
@@ -137,6 +140,7 @@ CTA.defaultProps = {
   type: 'default',
   copy: '',
   href: '',
+  customVideoTitle: null,
 };
 
 export default CTA;
