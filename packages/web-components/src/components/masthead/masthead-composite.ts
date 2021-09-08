@@ -159,10 +159,9 @@ class DDSMastheadComposite extends LitElement {
    *
    * @param sections menu section data object
    * @param _parentKey parent menu key (used for the cloud-masthead-composite component)
-   * @param currentUrlPath current url path
    */
   // eslint-disable-next-line
-  protected _renderMegaMenu(sections, _parentKey, currentUrlPath = '') {
+  protected _renderMegaMenu(sections, _parentKey) {
     const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
     const hasHighlights = highlightedItems.length !== 0;
     return html`
@@ -188,18 +187,12 @@ class DDSMastheadComposite extends LitElement {
                                   href="${url}"
                                   style-scheme="category-sublink"
                                   title="${title}"
-                                  ?active="${currentUrlPath ? false : url === currentUrlPath}"
                                 >
                                   <span>${title}</span>${ArrowRight16({ slot: 'icon' })}
                                 </dds-megamenu-link-with-icon>
                               `
                             : html`
-                                <dds-megamenu-category-link
-                                  data-autoid="${autoid}-item${key}"
-                                  title="${title}"
-                                  href="${url}"
-                                  ?active="${currentUrlPath ? false : url === currentUrlPath}"
-                                >
+                                <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${url}">
                                 </dds-megamenu-category-link>
                               `}
                         `;
@@ -219,23 +212,11 @@ class DDSMastheadComposite extends LitElement {
         >
           ${menu.map((item, j) => {
             const autoid = `${ddsPrefix}--masthead__l0-nav-list${j + highlightedItems.length}`;
-            const iconLinkHighlight = currentUrlPath ? item.url === currentUrlPath : false;
             return html`
-              <dds-megamenu-category-group
-                data-autoid="${autoid}"
-                href="${item.url}"
-                title="${item.title}"
-                ?active="${iconLinkHighlight}"
-              >
+              <dds-megamenu-category-group data-autoid="${autoid}" href="${item.url}" title="${item.title}">
                 ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
-                  const categoryLinkHighlight = currentUrlPath ? url === currentUrlPath : false;
                   return html`
-                    <dds-megamenu-category-link
-                      data-autoid="${autoid}-item${key}"
-                      title="${title}"
-                      href="${url}"
-                      ?active="${iconLinkHighlight ? false : categoryLinkHighlight}"
-                    >
+                    <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${url}">
                     </dds-megamenu-category-link>
                   `;
                 })}
@@ -278,7 +259,7 @@ class DDSMastheadComposite extends LitElement {
           <dds-left-nav-menu
             ?last-highlighted=${elem.lastHighlightedItem}
             panel-id=${elem.panelId}
-            ?active="${!selected ? elem.url === currentUrlPath : selected}"
+            ?active="${!selectedMenuItem ? elem.url === currentUrlPath : selected}"
             title="${elem.title}"
             data-autoid="${elem.autoid}"
           >
@@ -289,7 +270,7 @@ class DDSMastheadComposite extends LitElement {
       return html`
         <dds-left-nav-menu-item
           ?last-highlighted=${elem.lastHighlightedItem}
-          ?active="${!selected ? elem.url === currentUrlPath : selected}"
+          ?active="${!selectedMenuItem ? elem.url === currentUrlPath : selected}"
           href="${elem.url}"
           title="${elem.title}"
           data-autoid="${elem.autoid}"
@@ -337,7 +318,6 @@ class DDSMastheadComposite extends LitElement {
           lastHighlightedItem: boolean;
           url?: string;
           menu: boolean;
-          active: boolean;
         }[] = [];
 
         let menuElems = elem.menuSections[0]?.menuItems;
@@ -360,8 +340,6 @@ class DDSMastheadComposite extends LitElement {
             url?: string;
             autoid: string;
           }[] = [];
-
-          const isActive = item.megapanelContent?.quickLinks?.links?.filter(link => link.url === currentUrlPath).length === 1;
 
           const lastHighlighted = k + 1 === highlightedItems.length;
 
@@ -395,7 +373,6 @@ class DDSMastheadComposite extends LitElement {
             url: item.url,
             panelId: `${i}, ${k}`,
             menu: item.megapanelContent?.quickLinks?.links && item.megapanelContent?.quickLinks?.links.length !== 0,
-            active: isActive,
           });
         });
         if (level1Items.length !== 0) {
@@ -414,11 +391,6 @@ class DDSMastheadComposite extends LitElement {
         }
       }
 
-      const isActive =
-        elem.menuSections[0]?.menuItems?.filter(item => {
-          return item.megapanelContent?.quickLinks?.links?.filter(link => link.url === currentUrlPath).length > 0;
-        }).length === 1;
-
       return {
         title: elem.title,
         titleEnglish: elem.titleEnglish,
@@ -426,7 +398,6 @@ class DDSMastheadComposite extends LitElement {
         url: elem.url,
         panelId: `${i}, -1`,
         autoid: `${autoid}--sidenav--nav${i}`,
-        active: isActive,
       };
     });
 
@@ -494,22 +465,16 @@ class DDSMastheadComposite extends LitElement {
         : menu.map((link, i) => {
             const { menuSections = [], title, titleEnglish, url } = link;
             let selected;
-            let useSelected = false;
 
             if (selectedMenuItem) {
               selected = selectedMenuItem && titleEnglish === selectedMenuItem;
-              useSelected = true;
             } else {
               selected = hasChildLink(menuSections, currentUrlPath);
             }
 
             let sections;
             if (link.hasMegapanel) {
-              if (useSelected) {
-                sections = this._renderMegaMenu(menuSections, i);
-              } else {
-                sections = this._renderMegaMenu(menuSections, i, currentUrlPath);
-              }
+              sections = this._renderMegaMenu(menuSections, i);
             } else {
               sections = menuSections
                 // eslint-disable-next-line no-use-before-define
@@ -518,7 +483,7 @@ class DDSMastheadComposite extends LitElement {
                   ({ title: menuItemTitle, url: menuItemUrl }, j) =>
                     html`
                       <dds-top-nav-menu-item
-                        ?active="${useSelected ? false : menuItemUrl === currentUrlPath}"
+                        ?active="${selectedMenuItem ? selected : menuItemUrl === currentUrlPath}"
                         href="${menuItemUrl}"
                         title="${menuItemTitle}"
                         data-autoid="${autoid}-nav--subnav-col${i}-item${j}"
@@ -529,7 +494,7 @@ class DDSMastheadComposite extends LitElement {
             if (sections.length === 0) {
               return html`
                 <dds-top-nav-item
-                  ?active="${useSelected ? true : url === currentUrlPath}"
+                  ?active="${selectedMenuItem ? selected : url === currentUrlPath}"
                   href="${url}"
                   title="${title}"
                   data-autoid="${autoid}-nav--nav${i}"
