@@ -119,7 +119,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
     if (Object.keys(pageLangs).length === 0 && (regionList?.length as number) > 0) {
       const messages = [
         'Detected that `<link rel="alternate">` is likely missing.',
-        'The locale search UI will yeild to an empty result.',
+        'The locale search UI will yield to an empty result.',
       ];
       console.warn(messages.join(' ')); // eslint-disable-line no-console
     }
