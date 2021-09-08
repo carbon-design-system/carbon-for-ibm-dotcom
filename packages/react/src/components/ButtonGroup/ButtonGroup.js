@@ -38,6 +38,7 @@ const ButtonGroup = ({ buttons }) => {
           <li key={key} className={`${prefix}--buttongroup-item`}>
             <Button
               data-autoid={`${stablePrefix}--button-group-${key}`}
+              isExpressive
               {...button}
               type="button"
               kind={key === buttons.length - 1 ? 'primary' : 'tertiary'}>

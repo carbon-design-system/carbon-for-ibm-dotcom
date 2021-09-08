@@ -101,7 +101,6 @@
         href="https://example.com"
         icon-placement="right"
         parent-href="https://example.com"
-        size=""
         slot="footer"
       >
       </dds-card-cta-footer>

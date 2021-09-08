@@ -35,7 +35,7 @@ class DDSLeavingIbmModalBody extends StableSelectorMixin(BXModalBody) {
     return html`
       <p><slot></slot></p>
       <slot name="supplemental"></slot>
-      <bx-link href="${ifNonNull(href)}">${!href ? href : new URL(href).hostname}</bx-link>
+      <bx-link size="lg" href="${ifNonNull(href)}">${!href ? href : new URL(href).hostname}</bx-link>
     `;
   }
 
