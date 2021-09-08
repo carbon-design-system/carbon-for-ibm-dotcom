@@ -314,7 +314,7 @@ $search-transition-timing: 95ms;
 
       &:focus,
       &:active {
-        &[aria-selected='true'] {
+        &[data-selected='true'] {
           border-bottom-color: transparent;
         }
       }
@@ -323,18 +323,18 @@ $search-transition-timing: 95ms;
     a.#{$prefix}--header__menu-item.#{$prefix}--header__menu-title {
       &:focus,
       &:active {
-        &[aria-selected='true'][aria-expanded='false'] {
+        &[data-selected='true'][aria-expanded='false'] {
           border-bottom-color: transparent;
         }
       }
     }
 
-    a.#{$prefix}--header__menu-item[role='menuitem'][aria-selected='true'] {
+    a.#{$prefix}--header__menu-item[role='menuitem'][data-selected='true'] {
       color: $text-01;
     }
 
-    a.#{$prefix}--header__menu-item[aria-selected='true']::after,
-    a.#{$prefix}--header__menu-item.#{$prefix}--header__menu-title[aria-selected='true'][aria-expanded='false']::after {
+    a.#{$prefix}--header__menu-item[data-selected='true']::after,
+    a.#{$prefix}--header__menu-item.#{$prefix}--header__menu-title[data-selected='true'][aria-expanded='false']::after {
       content: '';
       display: block;
       position: absolute;

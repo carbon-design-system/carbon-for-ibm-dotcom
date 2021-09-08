@@ -308,7 +308,7 @@ $hover-transition-timing: 95ms;
     > {
       svg {
         position: absolute;
-        fill: currentColor;
+        fill: $icon-02;
         top: 50%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);

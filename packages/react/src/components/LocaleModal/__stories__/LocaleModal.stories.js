@@ -28,7 +28,7 @@ export const Default = ({ parameters }) => {
   const { useMockData } = parameters?.props?.LocaleModal ?? {};
   return (
     <LocaleModal
-      isOpen={true}
+      isOpen
       localeData={useMockData ? localeData : null}
       localeDisplay={useMockData ? 'United States - English' : null}
     />

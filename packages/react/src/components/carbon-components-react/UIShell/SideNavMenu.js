@@ -169,7 +169,7 @@ export class SideNavMenu extends React.Component {
         <button
           aria-haspopup="true"
           aria-expanded={isExpanded}
-          aria-selected={rest.selected ? 'true' : ''}
+          data-selected={rest.selected ? 'true' : ''}
           className={cx(`${prefix}--side-nav__submenu`, {
             [`${prefix}--masthead__side-nav--submemu--selected`]: rest.selected,
           })}
