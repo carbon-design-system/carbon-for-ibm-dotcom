@@ -278,7 +278,7 @@ class DDSMastheadComposite extends LitElement {
           <dds-left-nav-menu
             ?last-highlighted=${elem.lastHighlightedItem}
             panel-id=${elem.panelId}
-            ?active="${selected === null ? elem.active : selected}"
+            ?active="${!selected ? elem.url === currentUrlPath : selected}"
             title="${elem.title}"
             data-autoid="${elem.autoid}"
           >
@@ -289,7 +289,7 @@ class DDSMastheadComposite extends LitElement {
       return html`
         <dds-left-nav-menu-item
           ?last-highlighted=${elem.lastHighlightedItem}
-          ?active="${selected === null ? elem.url === currentUrlPath : selected}"
+          ?active="${!selected ? elem.url === currentUrlPath : selected}"
           href="${elem.url}"
           title="${elem.title}"
           data-autoid="${elem.autoid}"
