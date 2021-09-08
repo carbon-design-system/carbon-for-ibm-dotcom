@@ -124,6 +124,7 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
         (footer as DDSCardCTAFooter).altAriaLabel = videoName || headingText || copyText;
         (footer as DDSCardCTAFooter).ctaType = ctaType;
         (footer as DDSCardCTAFooter).videoDuration = videoDuration;
+        (footer as DDSCardCTAFooter).videoName = videoName;
         if (formatVideoCaptionInEffect) {
           (footer as DDSCardCTAFooter).formatVideoCaption = formatVideoCaptionInEffect;
         }
