@@ -11,17 +11,19 @@ import classnames from 'classnames';
 import ArrowDown20 from '@carbon/icons-react/es/arrow--down/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
-// @ts-ignore
 import DDSBackToTop from '@carbon/ibmdotcom-web-components/es/components-react/back-to-top/back-to-top';
-// @ts-ignore
 import DDSLeadspace from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace';
-// @ts-ignore
 import DDSLeadspaceHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace-heading';
-// @ts-ignore
 import DDSButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
-// @ts-ignore
 import DDSButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item';
-// @ts-ignore
+import DDSCTASection from '@carbon/ibmdotcom-web-components/es/components-react/cta-section/cta-section';
+import DDSCTABlock from '@carbon/ibmdotcom-web-components/es/components-react/cta-block/cta-block';
+import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
+import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import DDSLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
+import DDSLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import React from 'react';
 import readme from './README.stories.react.mdx';
 
@@ -38,6 +40,54 @@ export const Default = () => {
           </DDSButtonGroupItem>
         </DDSButtonGroup>
       </DDSLeadspace>
+      <DDSCTASection>
+        <DDSCTABlock _noBorder={true}>
+          <DDSContentBlockHeading>Welcome to the end of page</DDSContentBlockHeading>
+          <DDSContentBlockCopy>
+            To go back to the top of the page with one click, find the Back to top button at the lower right of this page.
+          </DDSContentBlockCopy>
+          <DDSButtonGroup slot="action">
+            <DDSButtonGroupItem href="#">
+              Try it on premises
+              <ArrowRight20 slot="icon" />
+            </DDSButtonGroupItem>
+            <DDSButtonGroupItem href="#">
+              Try it on cloud
+              <ArrowRight20 slot="icon" />
+            </DDSButtonGroupItem>
+          </DDSButtonGroup>
+          <DDSLinkList slot="link-list" type="end">
+            <DDSLinkListHeading>More ways to explore Linux servers</DDSLinkListHeading>
+            <DDSLinkListItem href="https://example.com">
+              Products <ArrowRight20 slot="icon" />
+            </DDSLinkListItem>
+            <DDSLinkListItem href="https://example.com">
+              Key concepts <ArrowRight20 slot="icon" />
+            </DDSLinkListItem>
+            <DDSLinkListItem href="https://example.com">
+              Analyst insights <ArrowRight20 slot="icon" />
+            </DDSLinkListItem>
+            <DDSLinkListItem href="https://example.com">
+              Blogs <ArrowRight20 slot="icon" />
+            </DDSLinkListItem>
+            <DDSLinkListItem href="https://example.com">
+              Client stories <ArrowRight20 slot="icon" />
+            </DDSLinkListItem>
+            <DDSLinkListItem href="https://example.com">
+              Events <ArrowRight20 slot="icon" />
+            </DDSLinkListItem>
+            <DDSLinkListItem href="https://example.com">
+              Latest Research <ArrowRight20 slot="icon" />
+            </DDSLinkListItem>
+            <DDSLinkListItem href="https://example.com">
+              Training <ArrowRight20 slot="icon" />
+            </DDSLinkListItem>
+            <DDSLinkListItem href="https://example.com">
+              Partners <ArrowRight20 slot="icon" />
+            </DDSLinkListItem>
+          </DDSLinkList>
+        </DDSCTABlock>
+      </DDSCTASection>
       <DDSBackToTop />
     </>
   );
