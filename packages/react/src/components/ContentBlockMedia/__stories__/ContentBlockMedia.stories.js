@@ -52,7 +52,6 @@ const simpleCta = ContentGroupSimpleKnobs.cta;
 
 export default {
   title: 'Components|Content block media',
-
   parameters: {
     ...readme.parameters,
   },
@@ -154,7 +153,7 @@ export const WithLinkList = ({ parameters }) => {
 };
 
 WithLinkList.story = {
-  name: 'With Link list',
+  name: 'With link list',
   parameters: {
     knobs: {
       ContentBlockMedia: ({ groupId }) => {

@@ -13,7 +13,6 @@ import { text } from '@storybook/addon-knobs';
 
 export default {
   title: 'Components|Content group horizontal',
-
   parameters: {
     ...readme.parameters,
     knobs: {

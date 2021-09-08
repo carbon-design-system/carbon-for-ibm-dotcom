@@ -47,7 +47,7 @@ const MastheadL1 = ({ navigationL1, ...rest }) => {
     } else {
       return (
         <HeaderMenuItem
-          aria-selected={selected ? 'true' : 'false'}
+          data-selected={selected ? 'true' : 'false'}
           href={link.url}
           data-autoid={autoid}
           key={index}>
@@ -63,7 +63,7 @@ const MastheadL1 = ({ navigationL1, ...rest }) => {
         <div className={`${prefix}--masthead__l1-inner-container`}>
           <div
             className={`${prefix}--masthead__l1-name`}
-            aria-selected={!rest.selectedMenuItem}>
+            data-selected={!rest.selectedMenuItem}>
             <span className={`${prefix}--masthead__l1-name-title`}>
               <a href={rest.platform.url}>{rest.platform.name}</a>
             </span>

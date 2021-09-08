@@ -147,6 +147,7 @@ Tall.story = {
 
 export const TallWithImage = context => Default(context);
 TallWithImage.story = {
+  name: 'Tall with image',
   parameters: {
     knobs: {
       Leadspace: () => ({
@@ -203,6 +204,7 @@ Medium.story = {
 export const MediumWithImage = context => Default(context);
 
 MediumWithImage.story = {
+  name: 'Medium with image',
   parameters: {
     knobs: {
       Leadspace: () => ({
@@ -223,6 +225,53 @@ MediumWithImage.story = {
             label: getAriaLabel(icon),
           };
         }),
+        defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
+      }),
+    },
+  },
+};
+
+export const Short = ({ parameters }) => {
+  const { alt, defaultSrc, hasImage, navElements, size, title, type } = parameters?.props?.Leadspace ?? {};
+  return (
+    <DDSLeadspace size={size} type={type} {...(hasImage ? { alt } : {})}>
+      {navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
+      {navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
+      <DDSLeadspaceHeading>{title}</DDSLeadspaceHeading>
+      {hasImage && (
+        <DDSLeadspaceImage slot="image" default-src={defaultSrc} className="bx--image" alt={alt}>
+          <DDSImageItem media="(min-width: 672px)" srcset={leadspaceImg}></DDSImageItem>
+          <DDSImageItem media="(min-width: 0)" srcset={leadspaceImg}></DDSImageItem>
+        </DDSLeadspaceImage>
+      )}
+    </DDSLeadspace>
+  );
+};
+
+Short.story = {
+  parameters: {
+    knobs: {
+      Leadspace: () => ({
+        size: LEADSPACE_SIZE.SHORT,
+        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
+        title: text('title (title)', 'A short headline can go on multiple lines in this leadspace'),
+      }),
+    },
+  },
+};
+
+export const ShortWithImage = context => Short(context);
+
+ShortWithImage.story = {
+  name: 'Short with image',
+  parameters: {
+    knobs: {
+      Leadspace: () => ({
+        size: LEADSPACE_SIZE.SHORT,
+        hasImage: true,
+        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
+        title: text('title (title)', 'A short headline can go on multiple lines in this leadspace'),
+        alt: text('Image alt text (alt)', 'Image alt text'),
         defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
       }),
     },
@@ -259,6 +308,7 @@ Centered.story = {
 export const CenteredWithImage = context => Default(context);
 
 CenteredWithImage.story = {
+  name: 'Centered with image',
   parameters: {
     knobs: {
       Leadspace: () => ({
@@ -315,6 +365,7 @@ Super.story = {
 export const SuperWithImage = context => Tall(context);
 
 SuperWithImage.story = {
+  name: 'Super with image',
   parameters: {
     knobs: {
       Leadspace: () => ({

@@ -29,8 +29,12 @@ export default function App() {
     },
   };
   return (
-    <div className="App">
-      <Masthead {...mastheadProps} />
+    <div className="bx--grid">
+      <div className="bx--row">
+        <div className="bx--col-sm-4 bx--col-lg-16">
+          <Masthead {...mastheadProps} />
+        </div>
+      </div>
     </div>
   );
 }

@@ -38,7 +38,6 @@ const getBaseKnobs = ({ groupId }) => {
 
 export default {
   title: 'Components|Card link',
-
   parameters: {
     ...readme.parameters,
     knobs: {

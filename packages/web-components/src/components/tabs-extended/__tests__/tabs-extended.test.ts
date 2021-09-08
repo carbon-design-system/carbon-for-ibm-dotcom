@@ -30,6 +30,7 @@ describe('dds-tabs-extended', function() {
     it('should render with various attributes', async function() {
       render(
         template({
+          orientation: 'horizontal',
           copy: 'copy-foo',
           children: html``,
         }),
