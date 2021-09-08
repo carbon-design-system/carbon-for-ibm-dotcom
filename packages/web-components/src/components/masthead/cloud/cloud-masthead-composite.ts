@@ -176,7 +176,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           <dds-left-nav-menu
             ?last-highlighted=${elem.lastHighlightedItem}
             panel-id=${elem.panelId}
-            ?active="${elem.selected}}"
+            ?active="${elem.selected}"
             title="${elem.title}"
             data-autoid="${elem.autoid}"
           >
