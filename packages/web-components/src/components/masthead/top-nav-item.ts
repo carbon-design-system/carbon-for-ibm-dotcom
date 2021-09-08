@@ -38,7 +38,7 @@ class DDSTopNavItem extends BXHeaderNavItem {
     if (changedProperties.has('active')) {
       const { active, _linkNode: linkNode } = this;
       if (linkNode) {
-        linkNode.setAttribute('aria-selected', String(Boolean(active)));
+        linkNode.setAttribute('data-selected', String(Boolean(active)));
       }
     }
   }
