@@ -154,12 +154,11 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
    * @param menuItems menu items
    * @param heading heading of menu section
    * @param isSubmenu determines whether menu section is a submenu section
-   * @param selectedMenuItem The selected menu item
    * @param showBackButton Determines whether to show back button
    * @param sectionTitle title of menu section
    * @param sectionId id of menu section
    */
-  protected _renderLeftNavMenuSections(menuItems, heading, isSubmenu, selectedMenuItem, showBackButton, sectionTitle, sectionId) {
+  protected _renderLeftNavMenuSections(menuItems, heading, isSubmenu, showBackButton, sectionTitle, sectionId) {
     const {
       userStatus,
       authenticatedProfileItems,
@@ -172,13 +171,12 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     const ctaButtons = authenticated ? authenticatedCtaButtons : unauthenticatedCtaButtons;
 
     const items = menuItems.map(elem => {
-      const selected = selectedMenuItem && elem.titleEnglish === selectedMenuItem;
       if (elem.menu) {
         return html`
           <dds-left-nav-menu
             ?last-highlighted=${elem.lastHighlightedItem}
             panel-id=${elem.panelId}
-            ?active="${selected}"
+            ?active="${elem.selected}}"
             title="${elem.title}"
             data-autoid="${elem.autoid}"
           >
@@ -189,7 +187,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
       return html`
         <dds-left-nav-menu-item
           ?last-highlighted=${elem.lastHighlightedItem}
-          ?active="${selected}"
+          ?active="${elem.selected}"
           href="${elem.url}"
           title="${elem.title}"
           data-autoid="${elem.autoid}"
