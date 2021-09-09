@@ -41,9 +41,10 @@ const SideNavMenuSection = ({
           'transitionend',
           function focus(event) {
             if (
-              event.propertyName === 'left' ||
-              event.propertyName === 'background-color' ||
-              event.propertyName === 'color'
+              focusElement &&
+              (event.propertyName === 'left' ||
+                event.propertyName === 'background-color' ||
+                event.propertyName === 'color')
             ) {
               focusElement.focus();
             }
