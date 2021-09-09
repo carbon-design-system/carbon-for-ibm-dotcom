@@ -369,6 +369,9 @@
   :host(#{$dds-prefix}-left-nav-menu-category-heading) {
     @include type-style('body-long-01');
 
+    font-size: 1rem;
+    line-height: 1.5rem;
+    letter-spacing: normal;
     display: block;
     color: $text-02;
     padding: $spacing-02 0;
