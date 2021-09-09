@@ -31,7 +31,7 @@ const LogoGrid = ({ heading, logosGroup, ctaCopy, ctaHref, hideBorder }) => {
     cta = {
       style: 'card',
       type: 'local',
-      copy: ctaCopy,
+      heading: ctaCopy,
       cta: {
         href: ctaHref,
       },
