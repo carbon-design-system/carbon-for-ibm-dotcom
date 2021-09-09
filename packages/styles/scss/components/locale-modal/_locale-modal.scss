@@ -7,7 +7,6 @@
 
 @import '../../globals/vars';
 @import '../../globals/imports';
-@import '../../themes/expressive/tokens';
 @import '../card/index';
 @import 'carbon-components/scss/components/search/search';
 @import 'carbon-components/scss/components/modal/modal';
@@ -106,23 +105,31 @@
         align-items: center;
 
         .#{$prefix}--locale-modal__label-globe {
+          width: rem(20px);
+          height: rem(20px);
           margin-left: $spacing-02;
         }
+
         .#{$prefix}--locale-modal__label-arrow {
           margin-right: $carbon--spacing-03;
         }
 
-        @include carbon--type-style('caption-01');
+        @include carbon--type-style('body-short-02');
       }
 
       .#{$prefix}--modal-header__heading {
-        @include carbon--type-style(expressive-heading-04, true);
+        @include carbon--type-style('expressive-heading-04', true);
 
         margin-top: $carbon--spacing-04;
 
         &:focus {
           outline: none;
         }
+      }
+
+      // FIXME: CardLink is being used as Card in React, need to separate this
+      .#{$prefix}--card__CTA.#{$prefix}--card-link .#{$prefix}--card__heading {
+        @include carbon--type-style('expressive-heading-03', true);
       }
     }
   }
@@ -242,7 +249,7 @@
     position: sticky;
     top: 0;
     background-color: $ui-background;
-    border-bottom: 1px solid $icon-02;
+    border-bottom: rem(1px) solid $ui-03;
 
     .#{$prefix}--search-input {
       background-color: $field-01;
@@ -250,10 +257,10 @@
   }
 
   .#{$prefix}--locale-modal__search-text {
-    padding: $carbon--spacing-05;
+    padding: $carbon--spacing-07 $carbon--spacing-05 $carbon--spacing-05;
     min-height: $carbon--spacing-09;
 
-    @include carbon--type-style(heading-02);
+    @include carbon--type-style('label-02');
   }
 
   .#{$prefix}--locale-modal__list {

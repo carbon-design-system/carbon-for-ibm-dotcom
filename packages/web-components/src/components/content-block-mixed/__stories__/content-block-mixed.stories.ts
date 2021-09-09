@@ -190,10 +190,10 @@ export const Default = ({ parameters }) => {
         <dds-content-group-heading>${heading}</dds-content-group-heading>
         <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
         ${image({ heading })}
-        <dds-card-cta slot="footer" cta-type=${ctaType} href="https://example.com">
-          Lorem ipsum dolor sit amet
+        <dds-card-link-cta slot="footer" cta-type=${ctaType} href="https://example.com">
+          <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
           <dds-card-cta-footer></dds-card-cta-footer>
-        </dds-card-cta>
+        </dds-card-link-cta>
       </dds-content-group-simple>
     </dds-content-block-mixed>
   `;
@@ -279,10 +279,10 @@ export const WithAsideElements = ({ parameters }) => {
         <dds-content-group-heading>${heading}</dds-content-group-heading>
         <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
         ${image({ heading })}
-        <dds-card-cta slot="footer" cta-type=${ctaType} href="https://example.com">
-          Lorem ipsum dolor sit amet
+        <dds-card-link-cta slot="footer" cta-type=${ctaType} href="https://example.com">
+          <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
           <dds-card-cta-footer></dds-card-cta-footer>
-        </dds-card-cta>
+        </dds-card-link-cta>
       </dds-content-group-simple>
       <dds-link-list type="default" slot="complementary">
         <dds-link-list-heading>${linkListHeading}</dds-link-list-heading>

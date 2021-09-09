@@ -93,7 +93,7 @@ ContentGroupCards.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
-      copy: PropTypes.string,
+      heading: PropTypes.string,
       cta: PropTypes.shape({
         href: PropTypes.string,
       }),
