@@ -9,6 +9,7 @@
 
 import { html } from 'lit-element';
 import { boolean, text } from '@storybook/addon-knobs';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import '../video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
@@ -55,12 +56,13 @@ export const aspectRatio4x3 = ({ parameters }) => {
 };
 
 export const withLightboxMediaViewer = ({ parameters }) => {
-  const { aspectRatio, caption, hideCaption, thumbnail, videoId } = parameters?.props?.VideoPlayer ?? {};
+  const { aspectRatio, caption, hideCaption, thumbnail, videoId, customVideoDescription } = parameters?.props?.VideoPlayer ?? {};
   return html`
     <dds-video-player-container
       video-id=${videoId}
       aspect-ratio=${aspectRatio}
       caption=${caption}
+      video-description="${ifNonNull(customVideoDescription)}"
       ?hide-caption=${hideCaption}
       thumbnail=${thumbnail}
       playing-mode="lightbox"
@@ -111,6 +113,7 @@ withLightboxMediaViewer.story = {
       VideoPlayer: ({ groupId }) => {
         return {
           aspectRatio: '16x9',
+          customVideoDescription: text('Custom video description', 'This is a custom video description.', groupId),
           caption: text('Custom caption (caption):', '', groupId),
           hideCaption: boolean('Hide caption (hideCaption):', false, groupId),
           thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
