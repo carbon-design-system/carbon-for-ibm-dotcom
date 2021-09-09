@@ -160,7 +160,6 @@ export const Default = ({ parameters }) => {
                 width="64"
                 height="64"
                 viewBox="8 8 32 32"
-                style="enable-background:new 0 0 48 48;"
                 xml:space="preserve"
               >
                 <g id="touch_screen">
@@ -249,7 +248,6 @@ export const WithAsideElements = ({ parameters }) => {
                 width="64"
                 height="64"
                 viewBox="8 8 32 32"
-                style="enable-background:new 0 0 48 48;"
                 xml:space="preserve"
               >
                 <g id="touch_screen">
