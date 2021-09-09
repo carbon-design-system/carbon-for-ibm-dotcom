@@ -97,6 +97,12 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   caption?: '';
 
   /**
+   * Custom video description. This property should only be set when `playing-mode="lightbox"`.
+   */
+  @property({ reflect: true, attribute: 'video-description' })
+  customVideoDescription?: string;
+
+  /**
    * The formatter for the video caption, composed with the video name and the video duration.
    * Should be changed upon the locale the UI is rendered with.
    */
@@ -172,6 +178,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
       formatDuration,
       hideCaption,
       caption,
+      customVideoDescription,
       mediaData = {},
       videoId,
       videoThumbnailWidth,
@@ -191,6 +198,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
         duration="${ifNonNull(duration)}"
         ?hide-caption=${hideCaption}
         name="${ifNonNull(caption || name)}"
+        video-description="${ifNonNull(customVideoDescription)}"
         thumbnail-url="${ifNonNull(thumbnailUrl)}"
         video-id="${ifNonNull(videoId)}"
         aspect-ratio="${ifNonNull(aspectRatio)}"

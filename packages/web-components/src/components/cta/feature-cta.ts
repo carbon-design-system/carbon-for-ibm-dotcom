@@ -100,6 +100,12 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
   videoName?: string;
 
   /**
+   * The custom video description.
+   */
+  @property({ attribute: 'video-description' })
+  videoDescription?: string;
+
+  /**
    * The video thumbnail URL.
    * Feature CTA does not support video thumbnail, and this property should never be set.
    */
@@ -109,11 +115,13 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
     super.updated(changedProperties);
     const { selectorFooter } = this.constructor as typeof DDSFeatureCTA;
     if (changedProperties.has('ctaType') || changedProperties.has('videoName') || changedProperties.has('captionHeading')) {
-      const { ctaType } = this;
+      const { ctaType, videoName, videoDescription } = this;
       const footer = this.querySelector(selectorFooter);
       if (footer) {
         (footer as DDSFeatureCTAFooter).ctaType = ctaType;
         (footer as DDSFeatureCTAFooter).altAriaLabel = this.videoName || this.captionHeading;
+        (footer as DDSFeatureCTAFooter).videoName = videoName;
+        (footer as DDSFeatureCTAFooter).videoDescription = videoDescription;
       }
     }
     if (changedProperties.has('captionHeading')) {
