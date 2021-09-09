@@ -85,6 +85,7 @@
     .#{$prefix}--side-nav {
       left: -100vw;
       visibility: hidden;
+      transform: translateZ(0.0001px);
       /* stylelint-disable-next-line  time-min-milliseconds */
       transition: visibility 1ms motion(exit, productive) $duration--fast-02,
         left $duration--fast-02 motion(exit, productive) 1ms;
@@ -142,6 +143,7 @@
       overflow-y: auto;
       left: 0;
       visibility: visible;
+      transform: translateZ(0.0001px);
       /* stylelint-disable-next-line time-min-milliseconds */
       transition: visibility 1ms motion(exit, productive) 0ms,
         left $duration--fast-02 motion(exit, productive) 1ms;
@@ -170,6 +172,7 @@
     left: -100%;
     background-color: $ui-background;
     padding-bottom: $spacing-09;
+    transform: translateZ(0.0001px);
     transition: left $duration--moderate-01 motion(exit, productive);
 
     a {
