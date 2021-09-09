@@ -20,7 +20,7 @@ const _host =
  * @type {string}
  * @private
  */
-const _pathTall = '/iframe.html?id=components-lead-space--tall';
+const _pathTall = '/iframe.html?id=components-lead-space--tall-with-no-image';
 
 /**
  * Sets the correct path (Tall with image)
