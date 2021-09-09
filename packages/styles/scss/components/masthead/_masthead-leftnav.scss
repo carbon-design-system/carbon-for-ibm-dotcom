@@ -411,10 +411,6 @@
     height: carbon--mini-units(6);
     width: 100%;
 
-    .#{$prefix}--side-nav__link-text {
-      margin-top: auto;
-    }
-
     &::after {
       content: '';
       width: 100%;
