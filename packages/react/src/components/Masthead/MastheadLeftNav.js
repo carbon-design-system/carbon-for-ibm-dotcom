@@ -234,17 +234,17 @@ function _renderLevel1Submenus(
                 }
               />
             );
-          } else {
-            return (
-              <SideNavMenuItem
-                href={item.url}
-                className={highlightedClass}
-                data-autoid={`${menu.autoid}-list${k}`}
-                key={item.title}>
-                {item.title}
-              </SideNavMenuItem>
-            );
           }
+
+          return (
+            <SideNavMenuItem
+              href={item.url}
+              className={highlightedClass}
+              data-autoid={`${menu.autoid}-list${k}`}
+              key={item.title}>
+              {item.title}
+            </SideNavMenuItem>
+          );
         })}
       </SideNavMenuSection>
     );
