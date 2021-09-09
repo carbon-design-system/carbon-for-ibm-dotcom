@@ -237,10 +237,10 @@
     max-width: 100%;
   }
 
-  .#{$prefix}--btn--secondary {
+  .#{$prefix}--btn--tertiary {
     background-color: $ui-background;
     margin: 0;
-
+    border: none;
     @include carbon--breakpoint('md') {
       align-self: flex-end;
       border-left: 1px solid $ui-03;
@@ -250,7 +250,7 @@
       margin: 0 (-$carbon--spacing-05) 0 0;
     }
 
-    .#{$prefix}--btn--secondary,
+    .#{$prefix}--btn--tertiary,
     .#{$prefix}--list-box,
     .#{$prefix}--select-input {
       background-color: $ui-background;
@@ -290,6 +290,9 @@
 
 :host(#{$dds-prefix}-language-selector-mobile) {
   width: 100%;
+  @include carbon--breakpoint-down('md') {
+    padding: 0 $spacing-05;
+  }
 
   .#{$prefix}--select-input {
     width: 100%;
@@ -352,12 +355,15 @@
 :host(#{$dds-prefix}-language-selector-mobile[size='micro']) {
   align-self: flex-end;
   margin-bottom: 0;
-  border-left: 1px solid $ui-03;
 
   @include carbon--breakpoint('sm') {
     .#{$prefix}--select-input__wrapper {
       height: 100%;
-      bottom: $carbon--spacing-05;
+      select {
+        @include carbon--breakpoint-down('md') {
+          padding-left: 0;
+        }
+      }
     }
 
     .#{$prefix}--select-input {
@@ -373,17 +379,22 @@
 
   @include carbon--breakpoint('md') {
     max-width: 50%;
+    border-left: 1px solid $ui-03;
   }
 }
 :host(#{$dds-prefix}-language-selector-desktop[size='micro']) {
   margin: 0;
-  padding-left: 1rem;
   border-left: 1px solid $ui-03;
 
   .#{$prefix}--dropdown {
     background-color: $ui-background;
     max-height: $carbon--spacing-09;
     height: $carbon--spacing-09;
+
+    .#{$prefix}--list-box__field {
+      height: inherit;
+      background-color: $ui-background;
+    }
 
     &:hover {
       background-color: $hover-ui;
