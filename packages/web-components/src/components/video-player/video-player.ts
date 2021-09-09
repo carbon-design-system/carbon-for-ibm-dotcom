@@ -49,7 +49,7 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
     if (this.playingMode === VIDEO_PLAYER_PLAYING_MODE.INLINE) {
       this.contentState = VIDEO_PLAYER_CONTENT_STATE.VIDEO;
     }
-    const { videoId } = this;
+    const { videoId, name, customVideoDescription } = this;
     const { eventContentStateChange } = this.constructor as typeof DDSVideoPlayer;
     this.dispatchEvent(
       new CustomEvent(eventContentStateChange, {
@@ -59,6 +59,8 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
           videoId,
           contentState: VIDEO_PLAYER_CONTENT_STATE.VIDEO,
           playingMode: this.playingMode,
+          name,
+          customVideoDescription,
         },
       })
     );
@@ -121,6 +123,12 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
    */
   @property()
   name = '';
+
+  /**
+   * Custom video description. This property should only be set when using `playing-mode="lightbox"`
+   */
+  @property({ attribute: 'video-description' })
+  customVideoDescription?: string;
 
   /**
    * The thumbnail URL.
