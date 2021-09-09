@@ -157,7 +157,9 @@ export const Default = ({ parameters }) => {
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 x="0px"
                 y="0px"
-                viewBox="0 0 48 48"
+                width="64"
+                height="64"
+                viewBox="8 8 32 32"
                 style="enable-background:new 0 0 48 48;"
                 xml:space="preserve"
               >
@@ -244,7 +246,9 @@ export const WithAsideElements = ({ parameters }) => {
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 x="0px"
                 y="0px"
-                viewBox="0 0 48 48"
+                width="64"
+                height="64"
+                viewBox="8 8 32 32"
                 style="enable-background:new 0 0 48 48;"
                 xml:space="preserve"
               >
