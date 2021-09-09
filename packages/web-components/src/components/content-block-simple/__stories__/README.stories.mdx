@@ -58,15 +58,15 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 </dds-content-block-simple>
 ```
 
-## With Card CTA
+## With Card Link CTA
 
 ### JS (via import)
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/content-block-simple/index.js';
 
-// with card CTA
-import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta.js';
+// with card link CTA
+import '@carbon/ibmdotcom-web-components/es/components/cta/card-link-cta.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 ```
 
@@ -88,8 +88,8 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
     <dds-image-item media="(min-width: 320px)" srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616">
     </dds-image-item>
   </dds-image>
-    <dds-card-cta slot="footer" cta-type="local" href="https://www.ibm.com/">
-      Lorem ipsum dolor sit amet
+    <dds-card-link-cta slot="footer" cta-type="local" href="https://www.ibm.com/">
+      <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
       <dds-card-cta-footer>
         <svg
           slot="icon"
@@ -105,7 +105,7 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
           <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
       </dds-card-cta-footer>
-    </dds-card-cta>
+    </dds-card-link-cta>
 </dds-content-block-simple>
 ```
 

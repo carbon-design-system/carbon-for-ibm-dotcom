@@ -25,7 +25,7 @@ import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { EXPRESSIVE_MODAL_SIZE } from './defs';
+import { EXPRESSIVE_MODAL_SIZE, EXPRESSIVE_MODAL_MODE } from './defs';
 import DDSExpressiveModalCloseButton from './expressive-modal-close-button';
 import styles from './expressive-modal.scss';
 
@@ -325,6 +325,12 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
    */
   @property({ reflect: true, attribute: 'expressive-size' })
   size = EXPRESSIVE_MODAL_SIZE.REGULAR;
+
+  /**
+   * The mode variant.
+   */
+  @property({ reflect: true, attribute: 'mode' })
+  mode = EXPRESSIVE_MODAL_MODE.DEFAULT;
 
   render() {
     const { size, _handleClickContainer: handleClickContainer, _handleSlotChange: handleSlotChange } = this;

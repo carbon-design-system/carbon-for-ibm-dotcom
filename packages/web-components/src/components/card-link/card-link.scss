@@ -12,6 +12,7 @@
 @import '@carbon/ibmdotcom-styles/scss/components/card-link/card-link';
 
 :host(#{$dds-prefix}-card-link),
+:host(#{$dds-prefix}-card-link-cta),
 :host(#{$dds-prefix}-link-list-item-card),
 :host(#{$dds-prefix}-link-list-item-card-cta) {
   .#{$prefix}--card {
@@ -23,6 +24,10 @@
       flex: 1;
     }
   }
+}
+
+:host(#{$dds-prefix}-card-link-cta) {
+  display: flex;
 }
 
 :host(#{$dds-prefix}-feature-section-card-link) {
@@ -40,6 +45,10 @@
 :host(#{$dds-prefix}-link-list-item-card),
 :host(#{$dds-prefix}-link-list-item-card-cta) {
   ::slotted(#{$dds-prefix}-card-footer) {
-    margin-bottom: auto;
+    margin-block: 2px;
+    margin-inline-start: 32px;
+    @include carbon--breakpoint('lg') {
+      margin-inline-start: 0;
+    }
   }
 }

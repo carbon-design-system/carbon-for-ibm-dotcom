@@ -35,7 +35,6 @@ const weights = {
 
 export default {
   title: 'Components|Horizontal rule',
-
   parameters: {
     ...readme.parameters,
     knobs: {

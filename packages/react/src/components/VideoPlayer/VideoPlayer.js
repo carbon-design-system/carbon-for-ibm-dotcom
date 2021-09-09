@@ -28,6 +28,8 @@ const VideoPlayer = ({
   autoPlay,
   aspectRatio,
   playingMode,
+  caption,
+  thumbnail,
 }) => {
   const [videoData, setVideoData] = useState({ description: '', name: '' });
 
@@ -76,6 +78,8 @@ const VideoPlayer = ({
           videoData={videoData}
           embedVideo={setEmbedVideo}
           playingMode={playingMode}
+          onClick={() => setEmbedVideo(true)}
+          thumbnail={thumbnail}
         />
       </div>
       <LightboxMediaViewer
@@ -99,15 +103,15 @@ const VideoPlayer = ({
           videoData={videoData}
           embedVideo={setEmbedVideo}
           playingMode={playingMode}
+          thumbnail={thumbnail}
         />
       )}
     </div>
   );
 
+  const videoCaption = `${caption || videoData.name} ${videoDuration}`;
   return (
-    <div
-      aria-label={`${videoData.name} ${videoDuration}`}
-      className={classnames}>
+    <div aria-label={videoCaption} className={classnames}>
       <div
         className={`${prefix}--video-player__video-container ${aspectRatioClass}`}
         data-autoid={`${stablePrefix}--video-player__video-${videoId}`}>
@@ -115,7 +119,7 @@ const VideoPlayer = ({
       </div>
       {showCaption && (
         <div className={`${prefix}--video-player__video-caption`}>
-          {videoData.name} {videoDuration}
+          {videoCaption}
         </div>
       )}
     </div>
@@ -127,6 +131,7 @@ VideoPlayer.propTypes = {
    * `true` to autoplay the video on load
    */
   autoPlay: PropTypes.bool,
+
   /**
    * Override default aspect ratio of `16x9`.
    * Available aspect ratios:
@@ -134,6 +139,7 @@ VideoPlayer.propTypes = {
    * `16x9`, `9x16`, `2x1`, `1x2`, `4x3`, `3x4`, `1x1`
    */
   aspectRatio: PropTypes.string,
+
   /**
    * The CSS class name to apply.
    */
@@ -150,9 +156,19 @@ VideoPlayer.propTypes = {
   showCaption: PropTypes.bool,
 
   /**
+   * Optional custom video caption
+   */
+  caption: PropTypes.string,
+
+  /**
    * Choose whether the video will be rendered inline or using the `LightboxMediaViewer`.
    */
   playingMode: PropTypes.oneOf(['inline', 'lightbox']),
+
+  /**
+   * Optional custom video thumbnail
+   */
+  thumbnail: PropTypes.string,
 };
 
 VideoPlayer.defaultProps = {

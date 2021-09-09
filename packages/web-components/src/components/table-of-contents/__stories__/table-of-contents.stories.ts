@@ -48,6 +48,7 @@ export const WithHeadingContent = ({ parameters }) => {
 };
 
 WithHeadingContent.story = {
+  name: 'With heading content',
   parameters: {
     knobs: {
       Other: () => ({

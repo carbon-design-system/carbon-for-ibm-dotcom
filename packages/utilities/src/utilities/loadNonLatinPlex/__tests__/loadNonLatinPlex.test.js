@@ -18,26 +18,49 @@ function _cleanPage() {
 }
 
 describe('Load plex utility | Arabic', () => {
-  beforeAll(() => {
-    loadNonLatinPlex('ar');
-  });
-
-  afterAll(() => {
+  afterEach(() => {
     _cleanPage();
   });
 
   it('should set Plex Arabic font-family on the page', () => {
+    loadNonLatinPlex('ar');
+
     expect(document.body.style.fontFamily).toBe(
       'IBM Plex Sans Arabic,IBM Plex Sans,Helvetica Neue,Arial,sans-serif'
     );
   });
 
   it('should load Plex Arabic font css on the page', () => {
+    loadNonLatinPlex('ar');
+
     const headContent = document.getElementsByTagName('head')[0].innerHTML;
     const fontLink =
-      'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/plex/sans-arabic.css';
+      'https://1.www.s81c.com/common/carbon/plex/sans-arabic.css';
 
     expect(headContent.indexOf(fontLink)).not.toEqual(-1);
+  });
+
+  it('should load specific Plex Arabic font css weight regular on the page', () => {
+    loadNonLatinPlex('ar', [400]);
+
+    const headContent = document.getElementsByTagName('head')[0].innerHTML;
+    const fontLink =
+      'https://1.www.s81c.com/common/carbon/plex/sans-arabic-regular.css';
+
+    expect(headContent.indexOf(fontLink)).not.toEqual(-1);
+  });
+
+  it('should load specific Plex Arabic font css weight regular and semibold on the page', () => {
+    loadNonLatinPlex('ar', [400, 600]);
+
+    const headContent = document.getElementsByTagName('head')[0].innerHTML;
+    const fontLinkRegular =
+      'https://1.www.s81c.com/common/carbon/plex/sans-arabic-regular.css';
+    const fontLinkSemiBold =
+      'https://1.www.s81c.com/common/carbon/plex/sans-arabic-semibold.css';
+
+    expect(headContent.indexOf(fontLinkRegular)).not.toEqual(-1);
+    expect(headContent.indexOf(fontLinkSemiBold)).not.toEqual(-1);
   });
 });
 
@@ -58,8 +81,7 @@ describe('Load plex utility | Japanese', () => {
 
   it('should load Plex Japanese font css on the page', () => {
     const headContent = document.getElementsByTagName('head')[0].innerHTML;
-    const fontLink =
-      'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/plex/sans-jp.css';
+    const fontLink = 'https://1.www.s81c.com/common/carbon/plex/sans-jp.css';
 
     expect(headContent.indexOf(fontLink)).not.toEqual(-1);
   });
@@ -82,8 +104,7 @@ describe('Load plex utility | Korean', () => {
 
   it('should load Plex Korean font css on the page', () => {
     const headContent = document.getElementsByTagName('head')[0].innerHTML;
-    const fontLink =
-      'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/plex/sans-kr.css';
+    const fontLink = 'https://1.www.s81c.com/common/carbon/plex/sans-kr.css';
 
     expect(headContent.indexOf(fontLink)).not.toEqual(-1);
   });

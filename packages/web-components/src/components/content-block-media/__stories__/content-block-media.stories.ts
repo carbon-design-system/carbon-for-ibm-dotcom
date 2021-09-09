@@ -109,12 +109,12 @@ export const Default = ({ parameters }) => {
             </dds-content-item>
           `
         )}
-        <dds-card-link slot="footer" href="https://example.com">
-          <p>Lorem ipsum dolor sit amet</p>
+        <dds-card-link-cta slot="footer" href="https://example.com">
+          <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
           <dds-card-footer>
             ${ArrowRight20({ slot: 'icon' })}
           </dds-card-footer>
-        </dds-card-link>
+        </dds-card-link-cta>
       </dds-content-block-media-content>
       <dds-content-block-media-content>
         <dds-content-group-heading>
@@ -133,12 +133,12 @@ export const Default = ({ parameters }) => {
             </dds-content-item>
           `
         )}
-        <dds-card-link slot="footer" href="https://example.com">
-          <p>Lorem ipsum dolor sit amet</p>
+        <dds-card-link-cta slot="footer" href="https://example.com">
+          <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
           <dds-card-footer>
             ${ArrowRight20({ slot: 'icon' })}
           </dds-card-footer>
-        </dds-card-link>
+        </dds-card-link-cta>
       </dds-content-block-media-content>
       <dds-content-block-media-content>
         ${featureCard === 'CTA'
@@ -187,12 +187,12 @@ export const withLinkList = ({ parameters }) => {
             </dds-content-item>
           `
         )}
-        <dds-card-link slot="footer" href="https://example.com">
-          <p>Lorem ipsum dolor sit amet</p>
+        <dds-card-link-cta slot="footer" href="https://example.com">
+          <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
           <dds-card-footer>
             ${ArrowRight20({ slot: 'icon' })}
           </dds-card-footer>
-        </dds-card-link>
+        </dds-card-link-cta>
       </dds-content-block-media-content>
       <dds-content-block-media-content>
         <dds-content-group-heading>
@@ -211,12 +211,12 @@ export const withLinkList = ({ parameters }) => {
             </dds-content-item>
           `
         )}
-        <dds-card-link slot="footer" href="https://example.com">
-          <p>Lorem ipsum dolor sit amet</p>
+        <dds-card-link-cta slot="footer" href="https://example.com">
+          <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
           <dds-card-footer>
             ${ArrowRight20({ slot: 'icon' })}
           </dds-card-footer>
-        </dds-card-link>
+        </dds-card-link-cta>
       </dds-content-block-media-content>
       <dds-content-block-media-content>
         ${featureCard === 'CTA'
@@ -247,6 +247,7 @@ export const withLinkList = ({ parameters }) => {
 };
 
 withLinkList.story = {
+  name: 'With link list',
   parameters: {
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout--with-complementary',
     knobs: {

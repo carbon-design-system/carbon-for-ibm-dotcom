@@ -30,8 +30,11 @@ const LegalNav = ({ links, type, button, adjunctLinks }) => {
   return (
     <aside
       data-autoid={`${stablePrefix}--footer-legal-nav`}
-      className={`${prefix}--legal-nav__container`}>
-      <nav className={`${prefix}--legal-nav`}>
+      className={`${prefix}--legal-nav__container`}
+      aria-label="Footer legal links container">
+      <nav
+        className={`${prefix}--legal-nav`}
+        aria-label="Footer legal link list">
         <div className={`${prefix}--legal-nav__list ${listStyle}`}>
           <ul className={`${prefix}--legal-nav__holder`}>
             {links &&
