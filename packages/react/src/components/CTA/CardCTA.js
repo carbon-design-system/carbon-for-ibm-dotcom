@@ -53,7 +53,7 @@ const CardCTA = ({
         )}
         {!renderLightBox && (
           <CardLink
-            customClassName={`${prefix}--card__video`}
+            customClassName={`${prefix}--card__CardCTA ${prefix}--card__video`}
             card={{
               ...cardProps,
               cta: {
@@ -75,6 +75,7 @@ const CardCTA = ({
   } else {
     return (
       <CardLink
+        customClassName={`${prefix}--card__CardCTA`}
         card={{
           ...cardProps,
           cta: {
