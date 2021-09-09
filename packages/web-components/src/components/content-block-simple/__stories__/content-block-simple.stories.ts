@@ -32,7 +32,7 @@ const ctaTypes = {
 };
 
 const ctaStyles = {
-  [`Card (${CTA_STYLE.CARD})`]: CTA_STYLE.CARD,
+  [`Card Link (${CTA_STYLE.CARDLINK})`]: CTA_STYLE.CARDLINK,
   [`Text (${CTA_STYLE.TEXT})`]: CTA_STYLE.TEXT,
 };
 
@@ -80,16 +80,16 @@ export const Default = ({ parameters }) => {
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading><h2>${heading}</h2></dds-content-block-heading>
       <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
-      ${ctaStyle === 'card'
+      ${ctaStyle === 'card-link'
         ? html`
-            <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
-              ${ctaCopy}
+            <dds-card-link-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+              <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
               <dds-card-cta-footer>
                 ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
                 ${ctaType === 'jump' ? ArrowDown20({ slot: 'icon' }) : ''}
                 ${ctaType === 'external' ? Launch20({ slot: 'icon' }) : ''}
               </dds-card-cta-footer>
-            </dds-card-cta>
+            </dds-card-link-cta>
           `
         : html`
             <dds-text-cta
@@ -115,16 +115,16 @@ export const WithImage = ({ parameters }) => {
       <dds-content-block-heading><h2>${heading}</h2></dds-content-block-heading>
       ${image}
       <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
-      ${ctaStyle === 'card'
+      ${ctaStyle === 'card-link'
         ? html`
-            <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
-              ${ctaCopy}
+            <dds-card-link-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+              <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
               <dds-card-cta-footer>
                 ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
                 ${ctaType === 'jump' ? ArrowDown20({ slot: 'icon' }) : ''}
                 ${ctaType === 'external' ? Launch20({ slot: 'icon' }) : ''}
               </dds-card-cta-footer>
-            </dds-card-cta>
+            </dds-card-link-cta>
           `
         : html`
             <dds-text-cta
@@ -154,16 +154,16 @@ export const WithVideo = ({ parameters }) => {
       <dds-content-block-heading><h2>${heading}</h2></dds-content-block-heading>
       <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
       <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
-      ${ctaStyle === 'card'
+      ${ctaStyle === 'card-link'
         ? html`
-            <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
-              ${ctaCopy}
+            <dds-card-link-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+              <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
               <dds-card-cta-footer>
                 ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
                 ${ctaType === 'jump' ? ArrowDown20({ slot: 'icon' }) : ''}
                 ${ctaType === 'external' ? Launch20({ slot: 'icon' }) : ''}
               </dds-card-cta-footer>
-            </dds-card-cta>
+            </dds-card-link-cta>
           `
         : html`
             <dds-text-cta
@@ -207,16 +207,16 @@ export const WithLinkList = ({ parameters }) => {
           <dds-card-cta-footer></dds-card-cta-footer>
         </dds-link-list-item-card-cta>
       </dds-link-list>
-      ${ctaStyle === 'card'
+      ${ctaStyle === 'card-link'
         ? html`
-            <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
-              ${ctaCopy}
+            <dds-card-link-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+              <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
               <dds-card-cta-footer>
                 ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
                 ${ctaType === 'jump' ? ArrowDown20({ slot: 'icon' }) : ''}
                 ${ctaType === 'external' ? Launch20({ slot: 'icon' }) : ''}
               </dds-card-cta-footer>
-            </dds-card-cta>
+            </dds-card-link-cta>
           `
         : html`
             <dds-text-cta

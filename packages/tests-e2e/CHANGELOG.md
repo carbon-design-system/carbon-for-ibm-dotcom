@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/tests-e2e@1.3.1-rc.0...@carbon/tests-e2e@1.4.0) (2021-09-08)
+
+**Note:** Version bump only for package @carbon/tests-e2e
+
+
+
+
+
 ## [1.3.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/tests-e2e@1.3.0...@carbon/tests-e2e@1.3.1-rc.0) (2021-09-02)
 
 **Note:** Version bump only for package @carbon/tests-e2e

@@ -19,7 +19,7 @@ export default {
     ...readme.parameters,
     knobs: {
       ImageWithCaption: ({ groupId }) => ({
-        heading: text('Heading (heading):', 'this is a caption', groupId),
+        heading: text('Heading (heading):', 'This is a caption', groupId),
         image: {
           sources: [
             {

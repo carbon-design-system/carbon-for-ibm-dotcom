@@ -16,8 +16,8 @@ const getBaseKnobs = ({ groupId }) => {
   const iconStyle = disabled ? Error20 : ArrowRight20;
   return {
     card: {
-      copy: text(
-        'Card Heading (card.copy):',
+      heading: text(
+        'Card Heading (card.heading):',
         'Explore AI use cases in all industries',
         groupId
       ),
