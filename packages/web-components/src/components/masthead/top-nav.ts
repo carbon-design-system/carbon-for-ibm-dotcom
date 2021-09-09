@@ -23,6 +23,9 @@ import styles from './masthead.scss';
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+// button gradient width size
+const buttonGradientWidth = 8;
+
 /**
  * @param a An array.
  * @param predicate The callback function.
@@ -215,13 +218,17 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
               contentContainerNode!.offsetWidth +
               caretLeftNodeWidthAdjustment +
               caretRightNode!.offsetWidth +
-              8,
+              buttonGradientWidth,
             0
           );
         }
       } else {
-        const caretRightNodeWidthAdjustment = isIntersectionRightTrackerInContent ? caretRightNode!.offsetWidth + 8 : 8;
-        const caretLeftNodeWidthAdjustment = this._isIntersectionLeftTrackerInContent ? caretLeftNode!.offsetWidth + 8 : 0;
+        const caretRightNodeWidthAdjustment = isIntersectionRightTrackerInContent
+          ? caretRightNode!.offsetWidth + buttonGradientWidth
+          : buttonGradientWidth;
+        const caretLeftNodeWidthAdjustment = this._isIntersectionLeftTrackerInContent
+          ? caretLeftNode!.offsetWidth + buttonGradientWidth
+          : 0;
         const navLeft = navNode!.getBoundingClientRect().left;
         const lastVisibleElementIndex = findLastIndex(
           elems,
@@ -262,11 +269,14 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       if (pageIsRTL) {
         const navRight = navNode!.getBoundingClientRect().right;
         const firstVisibleElementIndex = elems.findIndex(
-          elem => navRight - elem.getBoundingClientRect().left > interimLeft - caretLeftNode!.offsetWidth - 8
+          elem => navRight - elem.getBoundingClientRect().left > interimLeft - caretLeftNode!.offsetWidth - buttonGradientWidth
         );
         if (firstVisibleElementIndex > 0) {
           const firstVisibleElementLeft = Math.abs(
-            elems[firstVisibleElementIndex].getBoundingClientRect().right - navRight + caretLeftNode!.offsetWidth + 8
+            elems[firstVisibleElementIndex].getBoundingClientRect().right -
+              navRight +
+              caretLeftNode!.offsetWidth +
+              buttonGradientWidth
           );
           const maxLeft = contentNode!.scrollWidth - contentContainerNode!.offsetWidth;
           this._currentScrollPosition = Math.min(firstVisibleElementLeft, maxLeft);
@@ -276,8 +286,8 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
         const navLeft = navNode!.getBoundingClientRect().left;
         const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().right - navLeft > interimLeft);
         if (firstVisibleElementIndex > 0) {
-          // 8 accounts for gradient width
-          const firstVisibleElementLeft = elems[firstVisibleElementIndex].getBoundingClientRect().left - navLeft - 8;
+          const firstVisibleElementLeft =
+            elems[firstVisibleElementIndex].getBoundingClientRect().left - navLeft - buttonGradientWidth;
           // Ensures that is there is no blank area at the right hand side in scroll area
           // if we see the right remainder nav items can be contained in a page
           const maxLeft =
