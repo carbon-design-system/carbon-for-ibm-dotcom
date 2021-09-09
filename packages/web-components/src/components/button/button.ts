@@ -52,6 +52,7 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
       [`${prefix}--btn--${kind}`]: kind,
       [`${prefix}--btn--disabled`]: disabled,
       [`${prefix}--btn--icon-only`]: hasIcon && !hasMainContent,
+      [`${prefix}--btn--expressive`]: true,
       [`${prefix}--btn--${size}`]: size,
       [`${prefix}-ce--btn--has-icon`]: hasIcon,
     });
