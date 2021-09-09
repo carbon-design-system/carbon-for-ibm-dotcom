@@ -84,7 +84,7 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
 
   @HostListener('document:eventContentStateChange')
   protected _handleContentStateChangeDocument = (event: CustomEvent) => {
-    const { contentState, playingMode, videoId: requestedVideoId } = event.detail;
+    const { contentState, playingMode, videoId: requestedVideoId, name, customVideoDescription } = event.detail;
     if (this.videoCtaLightBox === false) {
       this.videoId = requestedVideoId;
       const { videoId } = this;
@@ -93,7 +93,9 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
         videoId === requestedVideoId &&
         playingMode === VIDEO_PLAYER_PLAYING_MODE.LIGHTBOX
       ) {
+        this.customVideoName = name;
         this.open = true;
+        this.customVideoDescription = customVideoDescription;
       }
     }
   };
