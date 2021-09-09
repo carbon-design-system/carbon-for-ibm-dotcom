@@ -31,7 +31,6 @@
       order: 0;
 
       @include carbon--breakpoint('md') {
-        @include carbon--make-col-ready;
         @include carbon--make-col(4, 4);
       }
 
