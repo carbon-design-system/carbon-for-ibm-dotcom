@@ -51,6 +51,11 @@
       margin-right: 0;
       @include carbon--make-row;
       .#{$prefix}--adjunct-links__col {
+        ::slotted(#{$dds-prefix}-legal-nav-item) {
+          padding-top: 0;
+          padding-bottom: $spacing-03;
+        }
+
         @include carbon--make-col(4, 4);
         @include carbon--breakpoint('md') {
           @include carbon--make-col(4, 8);
@@ -88,6 +93,12 @@
 
 :host(#{$dds-prefix}-footer-nav-group[open]) .#{$prefix}--accordion__content {
   display: block;
+}
+
+:host(#{$dds-prefix}-footer-nav-group) {
+  .#{$prefix}--accordion__heading {
+    border-top: 1px solid $ui-03;
+  }
 }
 
 :host(#{$dds-prefix}-locale-button) {
@@ -152,13 +163,14 @@
 // FIXME: Once the style is stabilized, change the markup of React, too, so we can share the style
 :host(#{$dds-prefix}-legal-nav):not([size='micro']) {
   .#{$prefix}--legal-nav__list {
+    padding-top: $spacing-03;
     @include carbon--breakpoint('lg') {
-      margin-left: 25%;
+      @include carbon--make-col-offset(4, 16);
     }
 
     > ul {
       width: 100%;
-
+      padding-right: $spacing-05;
       @include carbon--breakpoint('md') {
         display: block;
         column-count: 2;
@@ -219,6 +231,8 @@
 
 :host(#{$dds-prefix}-locale-button[size='micro']) {
   margin: 0;
+  flex-shrink: 1;
+  padding: 0;
 
   @include carbon--breakpoint('md') {
     margin-left: 50%;

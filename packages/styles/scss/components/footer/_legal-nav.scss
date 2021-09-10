@@ -33,7 +33,10 @@
   .#{$prefix}--legal-nav__list {
     width: 100%;
     padding: 0 0 $spacing-09 $carbon--spacing-05;
-    border-top: 1px solid $ui-03;
+
+    @include carbon--breakpoint('md') {
+      border-top: 1px solid $ui-03;
+    }
 
     @include carbon--breakpoint('lg') {
       @include carbon--make-col-offset(4, 16);
@@ -150,8 +153,7 @@
 
   .#{$prefix}--adjunct-links__holder {
     margin-left: 0;
-    padding: $carbon--spacing-03 $carbon--layout-04 $carbon--spacing-09
-      $carbon--spacing-05;
+    padding: 0 $carbon--layout-04 $carbon--spacing-09 $carbon--spacing-05;
     width: 100%;
 
     @include carbon--breakpoint('md') {
@@ -164,6 +166,7 @@
     }
 
     .#{$prefix}--legal-nav__list-item {
+      padding-top: 0;
       margin-right: 0;
     }
 

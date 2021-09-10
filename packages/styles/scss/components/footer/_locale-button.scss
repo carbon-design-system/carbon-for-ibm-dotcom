@@ -71,6 +71,12 @@
       @include carbon--make-col-offset(10, 16);
     }
   }
+
+  .#{$prefix}--footer--micro {
+    .bx--locale-btn__container {
+      padding: 0;
+    }
+  }
 }
 
 @include exports('local-button') {
