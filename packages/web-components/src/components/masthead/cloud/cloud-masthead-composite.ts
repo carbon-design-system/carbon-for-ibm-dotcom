@@ -64,7 +64,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
   /**
    * `true` if Contact us should be shown.
    */
-  @property({ type: Boolean, attribute: 'has-contact' })
+  @property({ type: Boolean, reflect: true, attribute: 'has-contact' })
   hasContact = true;
 
   /**
