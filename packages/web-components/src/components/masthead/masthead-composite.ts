@@ -287,25 +287,51 @@ class DDSMastheadComposite extends LitElement {
   }
 
   /**
-   * checks left nav menu items' url, if they match current url, return true for only the first valid item
+   * checks if menu item's children url match the current url path, if so return the menu item and its children
    *
-   * @returns function that returns true or false
+   * @returns {object} selectedItems
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _leftNavUrlChecker() {
+  protected _selectedLeftNavItems() {
     let matchFound = false;
+    const selectedItems = { level0: '', level1: '', level2: '' };
 
-    return ({ selectedMenuItem, title, itemUrl, currentUrlPath }) => {
-      if (selectedMenuItem) {
-        return selectedMenuItem && title === selectedMenuItem;
-      }
+    return ({
+      menu = [{ url: '', megapanelContent: { quickLinks: { links: [{ url: '' }] } } }],
+      key = '',
+      parentItemUrl = '',
+      currentUrlPath = '',
+    }) => {
       if (!matchFound) {
-        if (itemUrl && itemUrl === currentUrlPath) {
+        if (parentItemUrl === currentUrlPath) {
+          selectedItems.level0 = `${key}`;
           matchFound = true;
         }
-        return matchFound;
+        // check if child url matches current url path
+        else {
+          for (let i = 0; i < menu?.length; i++) {
+            if (menu[i]?.url === currentUrlPath) {
+              selectedItems.level0 = `${key}`;
+              selectedItems.level1 = `${key}-${i}`;
+              matchFound = true;
+              break;
+            } else {
+              const links = menu[i]?.megapanelContent?.quickLinks?.links;
+              for (let k = 0; k < links?.length; k++) {
+                if (links[k]?.url === currentUrlPath) {
+                  selectedItems.level0 = `${key}`;
+                  selectedItems.level1 = `${key}-${i}`;
+                  selectedItems.level2 = `${key}-${i}-${k}`;
+                  matchFound = true;
+                  break;
+                }
+              }
+            }
+          }
+        }
+        return selectedItems;
       }
-      return false;
+      return selectedItems;
     };
   }
 
@@ -320,8 +346,7 @@ class DDSMastheadComposite extends LitElement {
   // eslint-disable-next-line class-methods-use-this
   protected _renderLeftNav(menuItems, selectedMenuItem, autoid, currentUrlPath) {
     const menu: any[] = [];
-    const selectedItemUrl = this._leftNavUrlChecker();
-
+    const selectedItemUrl = this._selectedLeftNavItems();
     const level0Items = menuItems.map((elem, i) => {
       if (elem.menuSections) {
         const level1Items: {
@@ -347,6 +372,9 @@ class DDSMastheadComposite extends LitElement {
             menuElems.push(viewAllLink);
           }
         }
+
+        const selectedItems = selectedItemUrl({ menu: menuElems, key: i, parentItemUrl: elem.url, currentUrlPath });
+
         // render level 1 menu sections
         menuElems?.map((item, k) => {
           const level2Items: {
@@ -364,7 +392,9 @@ class DDSMastheadComposite extends LitElement {
               title: submenu.title,
               url: submenu.url,
               autoid: `${autoid}--sidenav--nav${i}-list${k}-item${j}`,
-              selected: selectedItemUrl({ selectedMenuItem, title: submenu.titleEnglish, itemUrl: submenu.url, currentUrlPath }),
+              selected: !selectedMenuItem
+                ? selectedItems?.level2 === `${i}-${k}-${j}`
+                : selectedMenuItem === submenu.titleEnglish,
             });
           });
           if (level2Items.length !== 0) {
@@ -377,7 +407,7 @@ class DDSMastheadComposite extends LitElement {
             lastHighlightedItem: lastHighlighted,
             url: item.url,
             panelId: `${i}, ${k}`,
-            selected: selectedItemUrl({ selectedMenuItem, title: item.titleEnglish, itemUrl: item.url, currentUrlPath }),
+            selected: !selectedMenuItem ? selectedItems?.level1 === `${i}-${k}` : selectedMenuItem === item.titleEnglish,
             menu: item.megapanelContent?.quickLinks?.links && item.megapanelContent?.quickLinks?.links.length !== 0,
           });
         });
@@ -388,6 +418,8 @@ class DDSMastheadComposite extends LitElement {
         }
       }
 
+      const selectedItems = selectedItemUrl({ key: i, parentItemUrl: elem.url, currentUrlPath });
+
       return {
         title: elem.title,
         titleEnglish: elem.titleEnglish,
@@ -395,7 +427,7 @@ class DDSMastheadComposite extends LitElement {
         url: elem.url,
         panelId: `${i}, -1`,
         autoid: `${autoid}--sidenav--nav${i}`,
-        selected: selectedItemUrl({ selectedMenuItem, title: elem.titleEnglish, itemUrl: elem.url, currentUrlPath }),
+        selected: !selectedMenuItem ? selectedItems?.level0 === `${i}` : selectedMenuItem === elem.titleEnglish,
       };
     });
 
