@@ -236,7 +236,7 @@ $fcb-breakpoint-up--lg: map-get(
       }
 
       .#{$prefix}--card__wrapper {
-        background: $hover-ui;
+        background-color: $inverse-hover-ui;
       }
     }
 
@@ -273,8 +273,6 @@ $fcb-breakpoint-up--lg: map-get(
     }
 
     .#{$prefix}--card__wrapper {
-      border: 1px solid #ff0000;
-
       &::before {
         padding-top: 0;
         @include carbon--breakpoint('md') {
@@ -377,6 +375,7 @@ $fcb-breakpoint-up--lg: map-get(
     .#{$prefix}--card__cta:visited {
     margin-top: auto;
     float: none;
+    fill: $inverse-link;
 
     @include carbon--breakpoint('sm') {
       width: carbon--rem(20px);
