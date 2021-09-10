@@ -105,7 +105,8 @@
     {
       "files": [
         "packages/react/tests/e2e/**/*.e2e.js",
-        "packages/react/tests/e2e/**/*.cdn.e2e.js"
+        "packages/react/tests/e2e/**/*.cdn.e2e.js",
+        "packages/react/src/components/**/*.e2e.js"
       ],
       "extends": [
         "plugin:cypress/recommended"
