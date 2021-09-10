@@ -33,7 +33,7 @@ Here's a quick example to get you started.
 @import "@carbon/ibmdotcom-styles/scss/components/link-with-icon/link-with-icon";
 ```
 
-> 💡 Only import fonts once per usage. 
+> 💡 Only import fonts once per usage.
 
 ##### JS
 
@@ -75,6 +75,33 @@ function App() {
       media={{
         src: '1_9h94wo6b',
         type: 'video',
+      }}
+    />
+  );
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
+###### Custom video title and description
+
+If needed, you can provide a custom video title and/or description for the video passing the props `title` and `description` under `media`. Example:
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { CTA } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
+
+function App() {
+  return (
+    <CTA
+      style="text"
+      type="video"
+      media={{
+        src: '1_9h94wo6b',
+        type: 'video',
+        title: 'Custom video title',
+        description: 'Custom video description',
       }}
     />
   );

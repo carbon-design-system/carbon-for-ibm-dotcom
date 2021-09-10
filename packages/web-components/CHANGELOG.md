@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.9.0-rc.3...@carbon/ibmdotcom-web-components@1.9.0) (2021-09-08)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.9.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.9.0-rc.2...@carbon/ibmdotcom-web-components@1.9.0-rc.3) (2021-09-07)
+
+
+### Bug Fixes
+
+* **image-with-caption:** update expressive modal prop to expressive-size ([#7071](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7071)) ([a1efad2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/a1efad2)), closes [#7073](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7073)
+
+
+
+
+
 # [1.9.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.9.0-rc.1...@carbon/ibmdotcom-web-components@1.9.0-rc.2) (2021-09-02)
 
 

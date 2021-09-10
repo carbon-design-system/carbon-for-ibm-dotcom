@@ -95,7 +95,8 @@ const MastheadLeftNav = ({
               selected && `${prefix}--masthead__side-nav--submemu--selected`
             }
             data-autoid={autoid}
-            key={link.title}>
+            key={link.title}
+            role="menuitem">
             {link.title}
           </SideNavMenuItem>
         );
@@ -234,17 +235,18 @@ function _renderLevel1Submenus(
                 }
               />
             );
-          } else {
-            return (
-              <SideNavMenuItem
-                href={item.url}
-                className={highlightedClass}
-                data-autoid={`${menu.autoid}-list${k}`}
-                key={item.title}>
-                {item.title}
-              </SideNavMenuItem>
-            );
           }
+
+          return (
+            <SideNavMenuItem
+              href={item.url}
+              className={highlightedClass}
+              data-autoid={`${menu.autoid}-list${k}`}
+              key={item.title}
+              role="menuitem">
+              {item.title}
+            </SideNavMenuItem>
+          );
         })}
       </SideNavMenuSection>
     );
@@ -289,7 +291,8 @@ function _renderLevel2Submenus(
             <SideNavMenuItem
               href={item.url}
               data-autoid={`${menu.autoid}-item${k}`}
-              key={item.title}>
+              key={item.title}
+              role="menuitem">
               {item.title}
             </SideNavMenuItem>
           );
