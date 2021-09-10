@@ -59,7 +59,6 @@ export const Default = ({ parameters }) => {
           Containerization A Complete Guide <ArrowRight20 slot="icon" />
         </DDSLinkListItem>
       </DDSLinkList>
-      )
     </DDSContentGroupBanner>
   ) : (
     <DDSContentGroupBanner>
