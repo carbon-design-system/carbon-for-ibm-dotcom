@@ -9,7 +9,6 @@
 
 import { text, select, number } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
-import on from 'carbon-components/es/globals/js/misc/on';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20.js';
 import Pdf20 from 'carbon-web-components/es/icons/PDF/20.js';
@@ -76,7 +75,6 @@ export const TallWithImage = ({ parameters }) => {
       gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
-      loading
     >
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
@@ -96,9 +94,6 @@ export const TallWithImage = ({ parameters }) => {
         <dds-image-item media="(min-width: 0)" srcset="${image}"></dds-image-item>
       </dds-leadspace-image>
     </dds-leadspace>
-    <div>
-      <button id="btn-leadspace">click me</button>
-    </div>
   `;
 };
 
@@ -302,18 +297,11 @@ const iconOptions = {
 export default {
   title: 'Components/Lead space',
   decorators: [
-    story => {
-      if (!(window as any)._hPageShow) {
-        (window as any)._hPageShow = on(window, 'pageshow', () => {
-          const leadspaceBtn = document.getElementById('btn-leadspace');
-          const leadspace = document.querySelector('dds-leadspace');
-          leadspaceBtn?.addEventListener('click', () => {
-            leadspace?.toggleAttribute('loading');
-          });
-        });
-      }
-      return story();
-    },
+    story => html`
+      <div class="bx--grid bx--no-gutter dds-ce-demo-devenv--grid--stretch">
+        ${story()}
+      </div>
+    `,
   ],
   parameters: {
     ...readme.parameters,
