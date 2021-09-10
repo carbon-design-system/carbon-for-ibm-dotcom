@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+// @ts-nocheck
 import ArrowDown20 from '@carbon/icons-react/es/arrow--down/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
@@ -129,7 +130,7 @@ export const Default = () => {
         </DDSButtonGroup>
       </DDSLeadspace>
       <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid, jsx-a11y/anchor-has-content */}
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid, jsx-a11y/anchor-has-content  */}
         <a name="section-1"></a>
         <DDSContentBlockSimple>
           <DDSContentBlockHeading>Best for long pages with important navigational items on top</DDSContentBlockHeading>
