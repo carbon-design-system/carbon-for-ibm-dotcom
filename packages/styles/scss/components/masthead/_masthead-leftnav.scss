@@ -225,8 +225,12 @@
         .#{$prefix}--side-nav__link-text {
           @include carbon--type-style(body-short-02);
 
+          display: flex;
+          align-items: center;
           color: $text-02;
           width: 100%;
+          height: 100%;
+          border-bottom: 1px solid $ui-03;
           text-overflow: ellipsis;
         }
       }
@@ -369,6 +373,9 @@
   :host(#{$dds-prefix}-left-nav-menu-category-heading) {
     @include type-style('body-long-01');
 
+    font-size: 1rem;
+    line-height: 1.5rem;
+    letter-spacing: normal;
     display: block;
     color: $text-02;
     padding: $spacing-02 0;
@@ -407,17 +414,6 @@
     padding-left: $carbon--spacing-05;
     height: carbon--mini-units(6);
     width: 100%;
-
-    .#{$prefix}--side-nav__link-text {
-      margin-top: auto;
-    }
-
-    &::after {
-      content: '';
-      width: 100%;
-      margin-top: auto;
-      border-bottom: 1px solid $ui-03;
-    }
   }
 
   .#{$prefix}--masthead__side-nav__last-highlighted,
@@ -432,12 +428,12 @@
   .#{$prefix}--masthead__side-nav__last-highlighted
     .#{$prefix}--side-nav__submenu-content,
   .#{$prefix}--side-nav__menu-item.#{$prefix}--masthead__side-nav__last-highlighted
-    .#{$prefix}--side-nav__link::after,
+    .#{$prefix}--side-nav__link,
   :host(dds-left-nav-menu-section)
     .#{$prefix}--masthead__side-nav--submemu-back
-    .#{$prefix}--side-nav__link::after,
+    .#{$prefix}--side-nav__link,
   :host(#{$dds-prefix}-left-nav-menu-item[last-highlighted])
-    .#{$prefix}--side-nav__link[role='menuitem']::after {
+    .#{$prefix}--side-nav__link[role='menuitem'] {
     border-bottom: none;
   }
 
