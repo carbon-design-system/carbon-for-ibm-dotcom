@@ -86,8 +86,7 @@
       feature-flag-enabled('enable-css-custom-properties')
     ) {
       .#{$prefix}--footer__link.#{$prefix}--link {
-        @include carbon--type-style('body-long-02');
-
+        @include carbon--type-style('body-short-02');
         &,
         &:visited {
           color: $text-02;

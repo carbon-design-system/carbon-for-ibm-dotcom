@@ -45,6 +45,7 @@
 
         .#{$prefix}--list-box__field {
           background-color: $ui-03;
+          height: inherit;
         }
 
         @include carbon--breakpoint('md') {
