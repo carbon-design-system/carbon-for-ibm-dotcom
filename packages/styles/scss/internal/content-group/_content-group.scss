@@ -69,6 +69,11 @@
       @include carbon--make-col-ready;
       @include carbon--make-col(4, 8);
     }
+
+    // FIXME: CardLink is being used as Card in React, need to separate this
+    .#{$prefix}--card__CTA.#{$prefix}--card-link .#{$prefix}--card__heading {
+      @include carbon--type-style('expressive-heading-02', true);
+    }
   }
 
   .#{$prefix}--content-group__cta-row {

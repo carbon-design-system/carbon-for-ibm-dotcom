@@ -61,6 +61,12 @@ class DDSFeatureCTAFooter extends VideoCTAMixin(CTAMixin(DDSFeatureCardFooter)) 
   videoName?: string;
 
   /**
+   * The video custom description.
+   */
+  @property({ attribute: 'video-description' })
+  videoDescription?: string;
+
+  /**
    * The CTA type.
    */
   @property({ reflect: true, attribute: 'cta-type' })

@@ -50,6 +50,11 @@
 
   :host(#{$dds-prefix}-card-group-item),
   .#{$prefix}--card-group__card {
+    // FIXME: CardLink is being used as Card in React, need to separate this
+    .#{$prefix}--card-link .#{$prefix}--card__heading {
+      @include carbon--type-style('expressive-heading-03', true);
+    }
+
     .#{$prefix}--image {
       &__img {
         height: carbon--mini-units(30);
@@ -70,6 +75,13 @@
     &:focus-within {
       outline: none;
     }
+  }
+
+  // FIXME: WC only override
+  :host(#{$dds-prefix}-card-group-item)
+    .#{$prefix}--card-link
+    .#{$prefix}--card__heading {
+    @include carbon--type-style('expressive-heading-02', true);
   }
 
   // React card focus outline

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -33,7 +33,7 @@ describe('Markdown converter utility', () => {
 
   it('returns the converted string with link', () => {
     const output = markdownToHtml(link);
-    const expected = `<p><a href="https://www.ibm.com" class="${prefix}--link">This</a> is an anchor link.</p>`;
+    const expected = `<p><a href="https://www.ibm.com" class="${prefix}--link ${prefix}--link--lg">This</a> is an anchor link.</p>`;
     expect(output.trim()).toBe(expected);
   });
 
