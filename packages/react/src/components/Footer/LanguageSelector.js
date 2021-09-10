@@ -87,6 +87,7 @@ const LanguageSelector = ({
         direction="top"
         placeholder={labelText}
         titleText={labelText}
+        size="xl"
       />
       <Select
         defaultValue={selectedItem.id}
