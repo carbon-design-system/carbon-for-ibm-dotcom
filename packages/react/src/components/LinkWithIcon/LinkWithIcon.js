@@ -38,6 +38,7 @@ const LinkWithIcon = ({
       )}
       data-autoid={`${stablePrefix}--link-with-icon`}>
       <Link
+        size="lg"
         href={href}
         className={classNames(`${prefix}--link-with-icon`, {
           [`${prefix}--link-with-icon__icon-left`]: iconPlacement === 'left',

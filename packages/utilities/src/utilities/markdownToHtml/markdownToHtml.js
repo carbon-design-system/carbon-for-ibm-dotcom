@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -60,7 +60,7 @@ function markdownToHtml(
   const defaultRenderer = {
     link(href, title, text) {
       const linkTitle = title ? `title="${title}"` : null;
-      return `<a class="${prefix}--link" href="${href}" ${linkTitle}>${text}</a>`;
+      return `<a class="${prefix}--link ${prefix}--link--lg" href="${href}" ${linkTitle}>${text}</a>`;
     },
     list(body, ordered) {
       const listType = ordered ? 'ol' : 'ul';

@@ -22,6 +22,7 @@ $search-transition-timing: 95ms;
   background-color: $ui-background;
 
   a {
+    position: relative;
     display: flex;
     height: 100%;
     align-items: center;
@@ -55,6 +56,20 @@ $search-transition-timing: 95ms;
     svg {
       width: 58px;
       height: 23px;
+    }
+
+    &::after {
+      @include carbon--breakpoint-up(800px) {
+        content: '';
+        display: block;
+        position: absolute;
+        right: carbon--rem(-3px);
+        top: 50%;
+        transform: translateY(-50%);
+        height: carbon--rem(24px);
+        width: carbon--rem(1px);
+        background-color: $ui-03;
+      }
     }
   }
 

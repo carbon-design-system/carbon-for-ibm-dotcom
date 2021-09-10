@@ -85,7 +85,7 @@ Default.story = {
 
 export const EmbeddedVideoPlayer = ({ parameters }) => {
   const { open, disableClose, onBeforeClose, onClose } = parameters?.props?.Modal ?? {};
-  const { hideCaption, videoId } = parameters?.props?.LightboxVideoPlayerContainer ?? {};
+  const { hideCaption, videoId, customVideoName, customVideoDescription } = parameters?.props?.LightboxVideoPlayerContainer ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose?.(event);
     if (disableClose) {
@@ -100,6 +100,8 @@ export const EmbeddedVideoPlayer = ({ parameters }) => {
       ?hide-caption="${hideCaption}"
       ?open="${open}"
       video-id="${videoId}"
+      custom-video-name="${ifNonNull(customVideoName)}"
+      custom-video-description="${ifNonNull(customVideoDescription)}"
       @dds-expressive-modal-beingclosed="${handleBeforeClose}"
       @dds-expressive-modal-closed="${onClose}"
     >
@@ -114,6 +116,8 @@ EmbeddedVideoPlayer.story = {
       LightboxVideoPlayerContainer: ({ groupId }) => ({
         hideCaption: boolean('hide caption (hide-caption)', false, groupId),
         videoId: textNullable('Video ID (video-id)', '1_9h94wo6b', groupId),
+        customVideoName: textNullable('Video custom name', 'Custom video name', groupId),
+        customVideoDescription: textNullable('Video custom description', 'This is a custom video description', groupId),
       }),
     },
   },

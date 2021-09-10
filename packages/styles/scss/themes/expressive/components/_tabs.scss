@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,25 +17,25 @@
 /// @group tabs-expressive
 @mixin tabs-expressive {
   .#{$prefix}--tabs-trigger {
-    height: $input-height;
+    height: $container-03;
   }
 
   @include carbon--breakpoint(md) {
     .#{$prefix}--tabs {
-      min-height: $tab-height;
+      min-height: $container-03;
     }
 
     .#{$prefix}--tabs--container {
-      min-height: $tab-container-height;
+      min-height: $container-04;
 
       a.#{$prefix}--tabs__nav-link {
-        height: $tab-container-height;
+        height: $container-04;
       }
     }
 
     .#{$prefix}--tabs__nav-item,
     a.#{$prefix}--tabs__nav-link {
-      height: $tab-height;
+      height: $container-03;
     }
 
     a.#{$prefix}--tabs__nav-link {
