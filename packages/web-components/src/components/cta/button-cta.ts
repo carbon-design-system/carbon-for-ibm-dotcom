@@ -104,6 +104,12 @@ class DDSButtonCTA extends VideoCTAMixin(CTAMixin(DDSButtonGroupItem)) {
   videoName?: string;
 
   /**
+   * The video description.
+   */
+  @property({ attribute: 'video-description' })
+  videoDescription?: string;
+
+  /**
    * The video thumbnail URL.
    * Button CTA does not support video thumbnail, and this property should never be set.
    */
