@@ -88,6 +88,12 @@ class DDSCardCTAFooter extends VideoCTAMixin(CTAMixin(DDSCardFooter)) {
    */
   videoName?: string;
 
+  /**
+   * The video custom description.
+   */
+  @property({ attribute: 'video-description' })
+  videoDescription?: string;
+
   static get stableSelector() {
     return `${ddsPrefix}--card-cta-footer`;
   }

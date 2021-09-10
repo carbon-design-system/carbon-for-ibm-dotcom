@@ -45,7 +45,7 @@ const SideNavMenuSection = ({
               event.propertyName === 'background-color' ||
               event.propertyName === 'color'
             ) {
-              focusElement.focus();
+              focusElement?.focus();
             }
             menuSectionRef.current?.removeEventListener('transitionend', focus);
           }
