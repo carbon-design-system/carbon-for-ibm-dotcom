@@ -102,7 +102,7 @@ $fcb-breakpoint-up--lg: map-get(
         height: 100%;
         padding: carbon--mini-units(2);
         justify-content: space-between;
-        background-color: #ff0000;
+        background-color: $inverse-02;
       }
 
       #{$prefix}--card__heading {
@@ -113,8 +113,7 @@ $fcb-breakpoint-up--lg: map-get(
         padding-bottom: $layout-03;
       }
 
-      #{$prefix}--card__footer {
-        padding: carbon--mini-units(2);
+      .#{$prefix}--card__footer {
         padding-top: 0;
         margin-top: carbon--mini-units(-4);
       }
@@ -137,9 +136,11 @@ $fcb-breakpoint-up--lg: map-get(
 
     .#{$prefix}--card__heading {
       margin-bottom: $layout-03;
+      color: $inverse-01;
     }
 
     .#{$prefix}--card__content {
+      background-color: $inverse-02;
       @include carbon--breakpoint('sm') {
         position: relative;
       }
@@ -186,6 +187,7 @@ $fcb-breakpoint-up--lg: map-get(
       }
 
       svg {
+        fill: $inverse-link;
         @include carbon--breakpoint('sm') {
           width: carbon--rem(20px);
           height: carbon--rem(20px);
