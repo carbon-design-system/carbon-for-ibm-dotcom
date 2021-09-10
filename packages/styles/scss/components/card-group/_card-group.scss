@@ -23,9 +23,6 @@
   .#{$prefix}--card__eyebrow {
     color: $text-02;
   }
-  .#{$prefix}--card:hover {
-    background: $hover-ui;
-  }
   .#{$prefix}--card--inverse {
     background-color: $inverse-02;
     height: 100%;
