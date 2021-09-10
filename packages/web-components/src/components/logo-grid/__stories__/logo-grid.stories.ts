@@ -35,7 +35,7 @@ export const Default = ({ parameters }) => {
       ${showCta
         ? html`
             <dds-logo-grid-link href="${ctaHref}">
-              ${ctaCopy}
+              <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
               <dds-card-footer>
                 ${ArrowRight20({ slot: 'icon' })}
               </dds-card-footer>
