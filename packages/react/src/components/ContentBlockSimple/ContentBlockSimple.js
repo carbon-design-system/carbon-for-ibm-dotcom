@@ -131,7 +131,7 @@ ContentBlockSimple.propTypes = {
         PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
       ),
     ]),
-    copy: PropTypes.string,
+    heading: PropTypes.string,
     href: PropTypes.string,
     customClassName: PropTypes.string,
   }),

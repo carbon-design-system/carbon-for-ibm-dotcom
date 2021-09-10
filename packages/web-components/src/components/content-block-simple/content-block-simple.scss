@@ -21,11 +21,13 @@
     }
   }
 
-  ::slotted(#{$dds-prefix}-card-cta[slot]) {
+  ::slotted(#{$dds-prefix}-card-cta[slot]),
+  ::slotted(#{$dds-prefix}-card-link-cta[slot]) {
     width: auto;
   }
 
-  ::slotted(#{$dds-prefix}-card-cta) {
+  ::slotted(#{$dds-prefix}-card-cta),
+  ::slotted(#{$dds-prefix}-card-link-cta) {
     width: auto;
     max-width: 320px;
   }

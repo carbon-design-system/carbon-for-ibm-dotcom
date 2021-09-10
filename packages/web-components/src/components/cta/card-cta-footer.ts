@@ -84,9 +84,15 @@ class DDSCardCTAFooter extends VideoCTAMixin(CTAMixin(DDSCardFooter)) {
 
   /**
    * The video name.
-   * Card CTA footer never renders video name, and this property should never be set.
+   * This property should be set when a custom video title is needed.
    */
-  videoName?: never;
+  videoName?: string;
+
+  /**
+   * The video custom description.
+   */
+  @property({ attribute: 'video-description' })
+  videoDescription?: string;
 
   static get stableSelector() {
     return `${ddsPrefix}--card-cta-footer`;

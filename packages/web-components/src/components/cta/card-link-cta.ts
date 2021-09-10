@@ -79,6 +79,12 @@ class DDSCardLinkCTA extends VideoCTAMixin(CTAMixin(DDSCardLink)) {
   videoName?: string;
 
   /**
+   * The video custom description.
+   */
+  @property({ attribute: 'video-description' })
+  videoDescription?: string;
+
+  /**
    * The video thumbnail URL.
    */
   @property({ attribute: 'video-thumbnail-url' })
@@ -91,12 +97,14 @@ class DDSCardLinkCTA extends VideoCTAMixin(CTAMixin(DDSCardLink)) {
       changedProperties.has('ctaType') ||
       changedProperties.has('formatCaption') ||
       changedProperties.has('formatDuration') ||
-      changedProperties.has('videoDuration')
+      changedProperties.has('videoDuration') ||
+      changedProperties.has('videoName')
     ) {
       const {
         ctaType,
         videoDuration,
         videoName,
+        videoDescription,
         formatVideoCaption: formatVideoCaptionInEffect,
         formatVideoDuration: formatVideoDurationInEffect,
       } = this;
@@ -106,6 +114,8 @@ class DDSCardLinkCTA extends VideoCTAMixin(CTAMixin(DDSCardLink)) {
         (footer as DDSCardCTAFooter).altAriaLabel = videoName || headingText || copyText;
         (footer as DDSCardCTAFooter).ctaType = ctaType;
         (footer as DDSCardCTAFooter).videoDuration = videoDuration;
+        (footer as DDSCardCTAFooter).videoName = videoName;
+        (footer as DDSCardCTAFooter).videoDescription = videoDescription;
         if (formatVideoCaptionInEffect) {
           (footer as DDSCardCTAFooter).formatVideoCaption = formatVideoCaptionInEffect;
         }

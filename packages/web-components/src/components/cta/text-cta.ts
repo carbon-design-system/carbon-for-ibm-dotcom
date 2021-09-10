@@ -56,6 +56,7 @@ class DDSTextCTA extends VideoCTAMixin(CTAMixin(DDSLinkWithIcon)) {
       formatVideoCaption: formatVideoCaptionInEffect,
       formatVideoDuration: formatVideoDurationInEffect,
     } = this;
+
     const caption = hasContent
       ? undefined
       : formatVideoCaptionInEffect({
@@ -98,6 +99,12 @@ class DDSTextCTA extends VideoCTAMixin(CTAMixin(DDSLinkWithIcon)) {
    */
   @property({ attribute: 'video-name' })
   videoName?: string;
+
+  /**
+   * The video description.
+   */
+  @property({ attribute: 'video-description' })
+  videoDescription?: string;
 
   /**
    * The video thumbnail URL.
