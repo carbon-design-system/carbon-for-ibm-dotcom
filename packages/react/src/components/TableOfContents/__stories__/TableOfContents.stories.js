@@ -71,7 +71,7 @@ export const ManuallyDefineMenuItems = ({ parameters }) => {
 };
 
 ManuallyDefineMenuItems.story = {
-  name: 'Manually define Menu Items',
+  name: 'Manually define menu items',
   parameters: {
     knobs: {
       TableOfContents: ({ groupId }) => ({
@@ -87,6 +87,7 @@ export const DynamicItems = ({ parameters }) => (
 );
 
 DynamicItems.story = {
+  name: 'Dynamic items',
   parameters: {
     knobs: {
       TableOfContents: ({ groupId }) => ({
@@ -101,6 +102,7 @@ export const WithHeadingContent = ({ parameters }) => (
 );
 
 WithHeadingContent.story = {
+  name: 'With heading content',
   parameters: {
     knobs: {
       TableOfContents: ({ groupId }) => ({

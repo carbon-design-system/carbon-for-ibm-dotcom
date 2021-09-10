@@ -10,9 +10,10 @@
 
 // Cloud Masthead.
 
-:host(#{$dds-prefix}-cloud-masthead-container) {
+:host(#{$dds-prefix}-cloud-masthead-container),
+#{$dds-prefix}-cloud-masthead-container {
   position: relative;
-  z-index: 99;
+  z-index: 999;
 }
 
 :host(#{$dds-prefix}-cloud-masthead-global-bar) {
@@ -56,6 +57,9 @@
 
 :host(#{$dds-prefix}-cloud-top-nav-name) {
   outline: none;
+  position: relative;
+  z-index: 1;
+  background-color: $ui-background;
 
   a.#{$prefix}--header__name {
     margin-left: 0;
@@ -151,7 +155,6 @@
   outline: 0;
 
   button {
-    @include use-carbon-productive-tokens();
     @include carbon--type-style(body-short-01);
 
     color: $text-02;
@@ -206,7 +209,6 @@
     }
 
     span {
-      @include use-carbon-productive-tokens();
       @include carbon--type-style(body-short-01);
 
       color: $text-02;
@@ -273,7 +275,6 @@
 
   span {
     display: block;
-    @include use-carbon-productive-tokens();
     @include carbon--type-style(body-short-01);
 
     color: $text-02;

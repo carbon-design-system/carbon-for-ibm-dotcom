@@ -15,6 +15,7 @@ import HeaderNavContainer from './HeaderNavContainer';
 import HeaderNavigation from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderNavigation';
 import MegaMenu from './MastheadMegaMenu/MegaMenu';
 import PropTypes from 'prop-types';
+import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -32,8 +33,10 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
    * @returns {*} Top masthead navigation
    */
   const mastheadLinks = navigation.map((link, i) => {
+    const subMenuSelected = _hasCurrentUrl(link, root.location.href);
     const autoid = `${stablePrefix}--masthead-${topNavProps.navType}__l0-nav${i}`;
-    const selected = link.titleEnglish === topNavProps.selectedMenuItem;
+    const selected =
+      link.titleEnglish === topNavProps.selectedMenuItem || subMenuSelected;
     const dataTitle = link.titleEnglish
       ? link.titleEnglish
           .replace(/[^-a-zA-Z0-9_ ]/g, '')
@@ -61,7 +64,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
     } else {
       return (
         <HeaderMenuItem
-          aria-selected={selected ? 'true' : 'false'}
+          data-selected={selected ? 'true' : 'false'}
           href={link.url}
           data-autoid={autoid}
           key={i}>
@@ -125,6 +128,30 @@ function renderNav(link, autoid) {
   }
   return navItems;
 }
+
+/**
+ * Checks if the current url exists in the list of links
+ *
+ * @param {object} obj The navigation list to search
+ * @param {string} target The URL to search for
+ * @private
+ * @returns {boolean} Whether or not the URL is found in the navigation list
+ */
+const _hasCurrentUrl = (obj, target) => {
+  const findUrl = obj => {
+    /* eslint-disable no-unused-vars */
+    for (const [key, val] of Object.entries(obj)) {
+      if (val === target) {
+        return true;
+      }
+      if (typeof val === 'object') {
+        const nextObj = findUrl(val);
+        if (nextObj) return nextObj;
+      }
+    }
+  };
+  return findUrl(obj);
+};
 
 MastheadTopNav.propTypes = {
   /**

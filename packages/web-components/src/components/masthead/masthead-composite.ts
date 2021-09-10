@@ -25,6 +25,7 @@ import {
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { UNAUTHENTICATED_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
+import { DDS_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
 import './masthead';
 import './masthead-logo';
 import './masthead-l1';
@@ -157,9 +158,10 @@ class DDSMastheadComposite extends LitElement {
    *  Render MegaMenu content
    *
    * @param sections menu section data object
+   * @param _parentKey parent menu key (used for the cloud-masthead-composite component)
    */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderMegaMenu(sections) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  protected _renderMegaMenu(sections, _parentKey) {
     const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
 
     const hasHighlights = highlightedItems.length !== 0;
@@ -411,7 +413,7 @@ class DDSMastheadComposite extends LitElement {
             const selected = selectedMenuItem && titleEnglish === selectedMenuItem;
             let sections;
             if (link.hasMegapanel) {
-              sections = this._renderMegaMenu(menuSections);
+              sections = this._renderMegaMenu(menuSections, i);
             } else {
               sections = menuSections
                 // eslint-disable-next-line no-use-before-define
@@ -543,6 +545,12 @@ class DDSMastheadComposite extends LitElement {
   currentSearchResults: string[] = [];
 
   /**
+   * The custom profile login link.
+   */
+  @property({ attribute: 'custom-profile-login' })
+  customProfileLogin?: string;
+
+  /**
    * The `aria-label` attribute for the top-level container.
    */
   @property({ attribute: 'masthead-assistive-text' })
@@ -667,6 +675,7 @@ class DDSMastheadComposite extends LitElement {
       activateSearch,
       authenticatedProfileItems,
       currentSearchResults,
+      customProfileLogin,
       platform,
       platformUrl,
       hasProfile,
@@ -685,7 +694,18 @@ class DDSMastheadComposite extends LitElement {
       l1Data,
     } = this;
     const authenticated = userStatus !== UNAUTHENTICATED_STATUS;
-    const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
+
+    let profileItems;
+    if (DDS_CUSTOM_PROFILE_LOGIN && customProfileLogin && !authenticated) {
+      profileItems = unauthenticatedProfileItems?.map(item => {
+        if (item?.id === 'signin') {
+          return { ...item, url: customProfileLogin };
+        }
+        return item;
+      });
+    } else {
+      profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
+    }
     const formattedLang = language?.toLowerCase().replace(/-(.*)/, m => m.toUpperCase());
     let platformAltUrl = platformUrl;
     if (platformUrl && formattedLang) {

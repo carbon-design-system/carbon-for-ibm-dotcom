@@ -39,8 +39,6 @@ const Footer = ({
   let [footerMenuData, setFooterMenuData] = useState([]);
   let [footerLegalData, setFooterLegalData] = useState([]);
   let [displayLang, setDisplayLang] = useState('');
-  let [localeButtonAria, setLocaleButtonAria] = useState('');
-
   useEffect(() => {
     // initialize global execution calls
     globalInit();
@@ -74,16 +72,6 @@ const Footer = ({
         return;
       }
       setDisplayLang(response);
-
-      const locale = await LocaleAPI.getLocale();
-      if (stale) {
-        return;
-      }
-      const list = await LocaleAPI.getList(locale);
-      if (stale) {
-        return;
-      }
-      setLocaleButtonAria(list.localeModal.headerTitle);
     })();
     return () => {
       stale = true;
@@ -111,7 +99,6 @@ const Footer = ({
           {type !== 'micro' &&
             _loadLocaleLanguage(
               disableLocaleButton,
-              localeButtonAria,
               displayLang,
               languageOnly,
               labelText,
@@ -129,7 +116,6 @@ const Footer = ({
           type === 'micro'
             ? _loadLocaleLanguage(
                 disableLocaleButton,
-                localeButtonAria,
                 displayLang,
                 languageOnly,
                 labelText,
@@ -148,8 +134,7 @@ const Footer = ({
  * Loads in the locale modal, language selector, or null
  *
  * @param {boolean} disableLocaleButton Flag to disable to locale button
- * @param {string} localeButtonAria String for the aria label
- * @param {string} displayLang display language for locale button
+ * @param {string} displayLang display language and aria-label for locale button
  * @param {boolean} languageOnly Switches to the language selector
  * @param {string} labelText Label text for locale/language selector
  * @param {Array} languageItems Array of language data for the dropdown
@@ -160,7 +145,6 @@ const Footer = ({
  */
 function _loadLocaleLanguage(
   disableLocaleButton,
-  localeButtonAria,
   displayLang,
   languageOnly,
   labelText,
@@ -178,7 +162,7 @@ function _loadLocaleLanguage(
       />
     );
   } else if (!disableLocaleButton) {
-    return <LocaleButton aria={localeButtonAria} displayLang={displayLang} />;
+    return <LocaleButton aria={displayLang} displayLang={displayLang} />;
   } else {
     return null;
   }

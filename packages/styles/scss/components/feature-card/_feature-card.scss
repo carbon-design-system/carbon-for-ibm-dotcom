@@ -162,6 +162,7 @@ $fcb-breakpoint-up--lg: map-get(
 
       .#{$prefix}--card__content {
         height: auto;
+        min-height: 100%;
       }
     }
 
@@ -315,7 +316,6 @@ $fcb-breakpoint-up--lg: map-get(
       .#{$prefix}--card__eyebrow,
       ::slotted(#{$dds-prefix}-card-eyebrow) {
         margin: 0 0 $spacing-05 0;
-        @include carbon--type-style('body-long-02');
       }
 
       .#{$prefix}--card__heading,

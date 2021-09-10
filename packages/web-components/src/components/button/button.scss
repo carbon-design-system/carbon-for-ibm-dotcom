@@ -7,23 +7,8 @@
 
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import 'carbon-web-components/scss/components/button/button';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/button';
 @import '../../globals/scss/box-sizing';
 
 :host(#{$dds-prefix}-button-expressive) {
-  // Enables expressive version of type/size/component tokens in this component
-  @include use-carbon-expressive-tokens();
-
   @extend :host(#{$prefix}-btn);
-
-  // Defines component token Sass variables as it's not defined in Carbon core
-  @include carbon-expressive-component-tokens;
-  // Enables CSS overrides to enable new Carbon tokens `@carbon/ibmdotcom-styles` define
-  @include button-expressive;
-
-  ::slotted([slot='icon']) {
-    flex-shrink: 0;
-    margin-left: calc(#{rem(60px)} - #{$spacing-04} - #{$icon-size-01});
-  }
 }

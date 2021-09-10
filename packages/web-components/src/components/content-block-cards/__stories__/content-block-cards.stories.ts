@@ -62,10 +62,10 @@ export const Default = ({ parameters }) => {
       <dds-card-group>
         ${cardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem}
       </dds-card-group>
-      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
-        <p>${ctaCopy}</p>
+      <dds-card-link-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+        <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
         <dds-card-cta-footer></dds-card-cta-footer>
-      </dds-card-cta>
+      </dds-card-link-cta>
     </dds-content-block-cards>
   `;
 };
@@ -79,12 +79,16 @@ export const withImages = ({ parameters }) => {
         ${cardGroupItemWithImages} ${cardGroupItemWithImages} ${cardGroupItemWithImages} ${cardGroupItemWithImages}
         ${cardGroupItemWithImages}
       </dds-card-group>
-      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
-        <p>${ctaCopy}</p>
+      <dds-card-link-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+        <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
         <dds-card-cta-footer></dds-card-cta-footer>
-      </dds-card-cta>
+      </dds-card-link-cta>
     </dds-content-block-cards>
   `;
+};
+
+withImages.story = {
+  name: 'With images',
 };
 
 export const withVideos = ({ parameters }) => {
@@ -96,15 +100,16 @@ export const withVideos = ({ parameters }) => {
         ${cardGroupItemWithVideos} ${cardGroupItemWithVideos} ${cardGroupItemWithVideos} ${cardGroupItemWithVideos}
         ${cardGroupItemWithVideos}
       </dds-card-group>
-      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
-        <p>${ctaCopy}</p>
+      <dds-card-link-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+        <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
         <dds-card-cta-footer></dds-card-cta-footer>
-      </dds-card-cta>
+      </dds-card-link-cta>
     </dds-content-block-cards>
   `;
 };
 
 withVideos.story = {
+  name: 'With videos',
   parameters: {
     percy: {
       skip: true,

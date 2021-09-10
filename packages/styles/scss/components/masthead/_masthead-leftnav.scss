@@ -185,7 +185,6 @@
     }
 
     .#{$prefix}--masthead__side-nav--submemu-title {
-      @include use-carbon-productive-tokens();
       @include carbon--type-style(productive-heading-02);
 
       display: flex;
@@ -201,7 +200,6 @@
       height: 3rem;
 
       span {
-        @include use-carbon-productive-tokens();
         @include carbon--type-style(productive-heading-02);
 
         display: flex;
@@ -276,7 +274,6 @@
       }
 
       > .#{$prefix}--side-nav__link-text {
-        @include use-carbon-productive-tokens();
         @include carbon--type-style(body-short-02);
 
         color: $link-01;
@@ -407,13 +404,11 @@
   :host(#{$dds-prefix}-left-nav-menu-item)
     a.#{$prefix}--side-nav__link[role='menuitem'] {
     display: flex;
-    flex-direction: column;
     padding-left: $carbon--spacing-05;
     height: carbon--mini-units(6);
     width: 100%;
 
     .#{$prefix}--side-nav__link-text {
-      align-self: start;
       margin-top: auto;
     }
 

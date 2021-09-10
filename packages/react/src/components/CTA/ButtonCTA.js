@@ -73,7 +73,10 @@ const _renderButtons = ({
       });
       button.copy = !title[0]
         ? button.copy
-        : formatCTAcopy({ title: title[0].title, duration: title[0].duration });
+        : formatCTAcopy({
+            title: button?.media.title || title[0].title,
+            duration: title[0].duration,
+          });
       button.href = '#';
     } else {
       button.onClick = button.onClick || (e => CTALogic.jump(e, button.type));

@@ -15,12 +15,11 @@ import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|Image with caption',
-
   parameters: {
     ...readme.parameters,
     knobs: {
       ImageWithCaption: ({ groupId }) => ({
-        heading: text('Heading (heading):', 'this is a caption', groupId),
+        heading: text('Heading (heading):', 'This is a caption', groupId),
         image: {
           sources: [
             {
