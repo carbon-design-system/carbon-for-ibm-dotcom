@@ -42,7 +42,7 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      */
     _handleClick(event: MouseEvent) {
       this.focus();
-      const { ctaType, disabled, href } = this;
+      const { ctaType, disabled, href, videoName, videoDescription } = this;
       if (ctaType === CTA_TYPE.VIDEO) {
         event.preventDefault(); // Stop following the link
       }
@@ -56,6 +56,8 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
             detail: {
               href,
               ctaType,
+              videoName,
+              videoDescription,
             },
           })
         );
@@ -100,6 +102,11 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     abstract videoName?: never | string;
 
     /**
+     * The video custom description.
+     */
+    abstract videoDescription?: never | string;
+
+    /**
      * The video thumbnail URL.
      */
     abstract videoThumbnailUrl?: never | string;
@@ -111,7 +118,7 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       // Declaring this mixin as it extends `LitElement` seems to cause a TS error
       // @ts-ignore
       super.updated(changedProperties);
-      const { ctaType, videoName, href, videoDuration } = this;
+      const { ctaType, videoName, videoDescription, href, videoDuration } = this;
       const { eventRequestVideoData } = this.constructor as typeof VideoCTAMixinImpl;
       if (changedProperties.has('ctaType') && ctaType === CTA_TYPE.VIDEO) {
         if (typeof videoDuration === 'undefined') {
@@ -123,13 +130,17 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
               detail: {
                 href,
                 videoName,
+                videoDescription,
               },
             })
           );
         }
       }
 
-      if (changedProperties.has('videoName') && (videoName === null || videoName === 'null')) {
+      if (
+        (changedProperties.has('videoName') && (videoName === null || videoName === 'null')) ||
+        changedProperties.has('videoDescription')
+      ) {
         this.dispatchEvent(
           new CustomEvent(eventRequestVideoData, {
             bubbles: true,
@@ -137,6 +148,7 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
             composed: true,
             detail: {
               videoName,
+              videoDescription,
               href,
             },
           })
