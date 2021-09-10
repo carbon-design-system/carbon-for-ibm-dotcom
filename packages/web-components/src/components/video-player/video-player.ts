@@ -190,6 +190,10 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
     }
   }
 
+  firstUpdated() {
+    this.tabIndex = 0;
+  }
+
   /**
    * The name of the custom event fired after video content state is changed upon a user gesture.
    */
