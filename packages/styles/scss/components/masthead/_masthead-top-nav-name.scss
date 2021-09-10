@@ -36,18 +36,6 @@
     background-color: $ui-01;
   }
 
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: calc(-1rem - 2px);
-    top: 50%;
-    transform: translateY(-50%);
-    height: 1.5rem;
-    width: 0.0625rem;
-    background-color: #dcdcdc;
-  }
-
   @include carbon--breakpoint-down(800px) {
     display: none;
   }
