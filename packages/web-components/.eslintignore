@@ -12,3 +12,4 @@ src/internal/vendor
 tests/coverage
 tests/e2e/dist
 tests/e2e/cypress
+tests/e2e-storybook/cypress
