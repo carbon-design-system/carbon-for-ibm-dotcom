@@ -27,7 +27,6 @@ const gridMdBreakpoint = parseFloat(breakpoints.md.width) * baseFontSize;
 
 // tag constants used for same height calculations
 const headingBottomMargin = 64;
-const tagBottomMargin = 16;
 
 /**
  * Card Group.
@@ -55,6 +54,11 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
    * Array to hold the tag-group elements within child items.
    */
   private _childItemTagGroup: any[] = [];
+
+  /**
+   * Array to hold the paragraph elements within child items.
+   */
+  private _childItemParagraphs: any[] = [];
 
   /**
    * Array to hold the card-cta-footer elements within child items.
@@ -105,6 +109,9 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
         this._childItemEyebrows.push(
           (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemEyebrow)
         );
+        this._childItemParagraphs.push(
+          (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemParagraph)
+        );
         this._childItemTagGroup.push(
           (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemTagGroup)
         );
@@ -144,7 +151,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
           columns = this.cardsPerRow;
       }
 
-      this._setSameHeight(columns);
+      this._setSameHeight();
       if (this.gridMode !== GRID_MODE.NARROW) {
         this._fillLastRowWithEmptyCards(columns);
         this._borderAdjustments(columns);
@@ -152,69 +159,50 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
     });
   };
 
-  private _setSameHeight = columns => {
-    // split arrays into chunks to handle height setting in each row separately
-    const splitItemEyebrows = this._splitArrayPerRows(this._childItemEyebrows, columns);
-    const splitItemHeadings = this._splitArrayPerRows(this._childItemHeadings, columns);
-    const splitItemTagGroup = this._splitArrayPerRows(this._childItemTagGroup, columns);
-    const splitItemFooters = this._splitArrayPerRows(this._childItemFooters, columns);
+  private _setSameHeight = () => {
+    // check if items are not null before using sameHeight
 
-    const tagGroupHeightPerRow: number[] = [];
+    sameHeight(
+      this._childItemEyebrows.filter(item => item !== null),
+      'md'
+    );
+    sameHeight(
+      this._childItemHeadings.filter(item => item !== null),
+      'md'
+    );
+    sameHeight(
+      this._childItemParagraphs.filter(item => item !== null),
+      'md'
+    );
+    sameHeight(
+      this._childItemFooters.filter(item => item !== null),
+      'md'
+    );
 
-    splitItemEyebrows.forEach(row => {
-      sameHeight(
-        row.filter(e => {
-          return e;
-        }),
-        'md'
-      );
-    });
-    splitItemHeadings.forEach(row => {
-      sameHeight(
-        row.filter(e => {
-          return e;
-        }),
-        'md'
-      );
-    });
-    splitItemFooters.forEach(row => {
-      sameHeight(
-        row.filter(e => {
-          return e;
-        }),
-        'md'
-      );
-    });
+    let tagGroupHeight: number = 0;
 
-    splitItemTagGroup.forEach(row => {
-      let maxTagGroupRowHeight = 0;
-
-      // get tallest height from each row
-      row.forEach(e => {
-        if (e) {
-          const groupHeight = (e as HTMLElement).offsetHeight;
-          if (groupHeight > maxTagGroupRowHeight) {
-            maxTagGroupRowHeight = groupHeight;
-          }
+    // get tallest height of tag groups
+    this._childItemTagGroup.forEach(item => {
+      if (item) {
+        const groupHeight = (item as HTMLElement).offsetHeight;
+        if (groupHeight > tagGroupHeight) {
+          tagGroupHeight = groupHeight;
         }
-      });
-      tagGroupHeightPerRow.push(maxTagGroupRowHeight);
+      }
     });
 
-    splitItemHeadings.forEach((row, index) => {
-      const combinedMarginBottom = headingBottomMargin + tagBottomMargin;
+    this._childItemHeadings.forEach(e => {
+      // add tag group height to heading to the cards lacking tag group
+      if (e && !e.nextElementSibling.matches((this.constructor as typeof DDSCardGroup).selectorItemTagGroup)) {
+        e.style.marginBottom = `${tagGroupHeight + headingBottomMargin}px`;
+      }
+    });
 
-      row.forEach((e, column) => {
-        // add all of the margin stuff to the ones lacking tag group
-        if (e) {
-          if (!e.nextElementSibling.matches((this.constructor as typeof DDSCardGroup).selectorItemTagGroup)) {
-            e.style.marginBottom = `${tagGroupHeightPerRow[index] + combinedMarginBottom}px`;
-          } else {
-            splitItemTagGroup[index][column].style.marginTop = `${tagGroupHeightPerRow[index] -
-              splitItemTagGroup[index][column].offsetHeight}px`;
-          }
-        }
-      });
+    this._childItemTagGroup.forEach(e => {
+      // match all tagGroups spacing
+      if (e) {
+        e.style.marginTop = `${tagGroupHeight - e.offsetHeight}px`;
+      }
     });
   };
 
@@ -293,26 +281,6 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
       card.setAttribute('empty', '');
       this.shadowRoot?.appendChild(card);
     }
-  };
-
-  /**
-   * Helper function that splits an array into smaller groups to ensure the sameHeight function
-   * handles rows independently from one another.
-   *
-   * @param array to be partitioned
-   * @param columns the amount of currently displayed columns in a row
-   */
-  private _splitArrayPerRows = (array, columns) => {
-    return array.reduce((resultArray, item, index) => {
-      const chunkIndex = Math.floor(index / columns);
-
-      if (!resultArray[chunkIndex]) {
-        resultArray[chunkIndex] = [];
-      }
-
-      resultArray[chunkIndex].push(item);
-      return resultArray;
-    }, []);
   };
 
   /**
@@ -406,10 +374,17 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * A selector that will return the card item's eyebrow
+   * A selector that will return the card item's tag group
    */
   static get selectorItemTagGroup() {
     return `${ddsPrefix}-tag-group`;
+  }
+
+  /**
+   * A selector that will return the card item's tag group
+   */
+  static get selectorItemParagraph() {
+    return `p`;
   }
 
   /**

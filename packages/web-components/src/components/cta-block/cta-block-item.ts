@@ -107,4 +107,5 @@ class DDSCTABlockItem extends StableSelectorMixin(DDSContentItem) {
   }
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSCTABlockItem;

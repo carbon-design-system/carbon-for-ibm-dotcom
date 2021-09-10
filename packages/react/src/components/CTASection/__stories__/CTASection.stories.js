@@ -36,7 +36,6 @@ const contentItemsProps = [
 
 export default {
   title: 'Components|CTA section',
-
   parameters: {
     ...readme.parameters,
   },
@@ -123,6 +122,7 @@ export const WithContentItems = ({ parameters }) => {
 };
 
 WithContentItems.story = {
+  name: 'With content items',
   parameters: {
     knobs: {
       CTASection: ({ groupId }) => ({

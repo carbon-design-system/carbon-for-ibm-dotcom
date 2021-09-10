@@ -43,7 +43,6 @@ const mediaDataByType = {
 
 export default {
   title: 'Components|Callout with media',
-
   parameters: {
     ...readme.parameters,
     knobs: {

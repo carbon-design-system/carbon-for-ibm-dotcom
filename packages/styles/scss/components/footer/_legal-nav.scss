@@ -102,7 +102,7 @@
           margin: 0;
 
           @include carbon--breakpoint('md') {
-            align-self: flex-end;
+            align-self: center;
             border-left: 1px solid $ui-03;
           }
 

@@ -21,13 +21,6 @@
 export const DDS_FLAGS_ALL: boolean = process!.env.DDS_FLAGS_ALL === 'true' || false;
 
 /**
- * Enables the Callout Data feature
- *
- * @type {boolean}
- */
-export const DDS_CALLOUT_DATA: boolean = process!.env.DDS_CALLOUT_DATA === 'true' || DDS_FLAGS_ALL || false;
-
-/**
  * Enables Content Block - Headline
  *
  * @type {boolean}
@@ -48,3 +41,10 @@ export const DDS_CONTENT_BLOCK_CARD_STATIC: boolean =
  * @type {boolean}
  */
 export const DDS_CLOUD_MASTHEAD: boolean = process!.env.DDS_CLOUD_MASTHEAD === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * Enables custom profile login url in Masthead
+ *
+ * @type {boolean}
+ */
+export const DDS_CUSTOM_PROFILE_LOGIN: boolean = process!.env.DDS_CUSTOM_PROFILE_LOGIN === 'true' || DDS_FLAGS_ALL || false;

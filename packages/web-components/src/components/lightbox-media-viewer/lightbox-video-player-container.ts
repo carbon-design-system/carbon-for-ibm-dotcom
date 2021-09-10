@@ -42,4 +42,5 @@ class DDSLightboxVideoPlayerContainer extends ConnectMixin<
   mapDispatchToProps
 )(DDSVideoPlayerContainerMixin(DDSLightboxVideoPlayerComposite)) {}
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSLightboxVideoPlayerContainer;

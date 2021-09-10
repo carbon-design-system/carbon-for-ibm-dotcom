@@ -28,6 +28,9 @@ class DDSFooterNav extends StableSelectorMixin(LitElement) {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'navigation');
     }
+    if (!this.hasAttribute('aria-label')) {
+      this.setAttribute('aria-label', 'Footer navigation');
+    }
     super.connectedCallback();
   }
 

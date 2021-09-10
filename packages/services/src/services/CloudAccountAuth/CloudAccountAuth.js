@@ -13,7 +13,7 @@ import Cookies from 'js-cookie';
  * @type {string}
  * @private
  */
-const _cookieName = 'com.ibm.cloud.iam.LoggedIn.manual';
+const _cookieName = 'com.ibm.cloud.iam.LoggedIn.prod';
 
 class CloudAccountAuthAPI {
   /**

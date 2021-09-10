@@ -97,6 +97,10 @@ export const TallWithImage = ({ parameters }) => {
   `;
 };
 
+TallWithImage.story = {
+  name: 'Tall with image',
+};
+
 export const Centered = ({ parameters }) => {
   const { title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
@@ -148,6 +152,67 @@ export const CenteredWithImage = ({ parameters }) => {
       </dds-leadspace-image>
     </dds-leadspace>
   `;
+};
+
+CenteredWithImage.story = {
+  name: 'Centered with image',
+};
+
+export const Short = ({ parameters }) => {
+  const { title, navElements } = parameters?.props?.LeadSpace ?? {};
+  return html`
+    <dds-leadspace size="${LEADSPACE_SIZE.SHORT}">
+      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
+      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
+      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+    </dds-leadspace>
+  `;
+};
+
+Short.story = {
+  parameters: {
+    knobs: {
+      LeadSpace: ({ groupId }) => ({
+        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2], groupId),
+        title: text('title (title):', 'A short headline can go on multiple lines in this leadspace', groupId),
+      }),
+    },
+  },
+};
+
+export const ShortWithImage = ({ parameters }) => {
+  const { alt, defaultSrc, gradientStyleScheme, title, navElements } = parameters?.props?.LeadSpace ?? {};
+  const image = defaultSrc || leadspaceImg;
+  return html`
+    <dds-leadspace
+      size="${LEADSPACE_SIZE.SHORT}"
+      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
+      alt="${ifNonNull(alt)}"
+      default-src="${ifNonNull(defaultSrc)}"
+    >
+      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
+      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
+      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      <dds-leadspace-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${image}">
+        <dds-image-item media="(min-width: 672px)" srcset="${image}"></dds-image-item>
+        <dds-image-item media="(min-width: 0)" srcset="${image}"></dds-image-item>
+      </dds-leadspace-image>
+    </dds-leadspace>
+  `;
+};
+
+ShortWithImage.story = {
+  name: 'Short with image',
+  parameters: {
+    knobs: {
+      LeadSpace: ({ groupId }) => ({
+        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2], groupId),
+        title: text('title (title):', 'A short headline can go on multiple lines in this leadspace', groupId),
+        alt: text('Image alt text (alt):', 'Image alt text', groupId),
+        defaultSrc: text('Default image (defaultSrc):', leadspaceImg, groupId),
+      }),
+    },
+  },
 };
 
 export const Medium = ({ parameters }) => {
@@ -202,6 +267,10 @@ export const MediumWithImage = ({ parameters }) => {
   `;
 };
 
+MediumWithImage.story = {
+  name: 'Medium with image',
+};
+
 export const Super = ({ parameters }) => {
   const { title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
@@ -252,6 +321,10 @@ export const SuperWithImage = ({ parameters }) => {
       </dds-leadspace-image>
     </dds-leadspace>
   `;
+};
+
+SuperWithImage.story = {
+  name: 'Super with image',
 };
 
 const getAriaLabel = type => {

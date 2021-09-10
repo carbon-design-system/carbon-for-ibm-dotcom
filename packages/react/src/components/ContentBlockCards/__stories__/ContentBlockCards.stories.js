@@ -34,7 +34,6 @@ const ctaTypes = {
 
 export default {
   title: 'Components|Content block cards',
-
   parameters: {
     ...readme.parameters,
   },
@@ -72,7 +71,7 @@ Default.story = {
             },
             style: 'card',
             type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
-            copy: 'Lorem ipsum dolor sit ametttt',
+            heading: 'Lorem ipsum dolor sit ametttt',
           },
         };
       },
@@ -102,6 +101,7 @@ export const WithImages = ({ parameters }) => {
 };
 
 WithImages.story = {
+  name: 'With images',
   parameters: {
     knobs: {
       ContentBlockCards: ({ groupId }) => {
@@ -116,7 +116,7 @@ WithImages.story = {
             },
             style: 'card',
             type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
-            copy: 'Lorem ipsum dolor sit ametttt',
+            heading: 'Lorem ipsum dolor sit ametttt',
           },
         };
       },
@@ -146,6 +146,7 @@ export const WithVideos = ({ parameters }) => {
 };
 
 WithVideos.story = {
+  name: 'With videos',
   parameters: {
     percy: {
       skip: true,
@@ -163,7 +164,7 @@ WithVideos.story = {
             },
             style: 'card',
             type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
-            copy: 'Lorem ipsum dolor sit ametttt',
+            heading: 'Lorem ipsum dolor sit ametttt',
           },
         };
       },

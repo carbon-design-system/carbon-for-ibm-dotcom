@@ -20,7 +20,6 @@ const types = {
 
 export default {
   title: 'Components|Callout quote',
-
   parameters: {
     ...readme.parameters,
     knobs: {

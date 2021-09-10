@@ -87,6 +87,10 @@ export const WithVideo = ({ parameters }) => {
   `;
 };
 
+WithVideo.story = {
+  name: 'With video',
+};
+
 export default {
   title: 'Components/Lead space block',
   parameters: {

@@ -9,9 +9,6 @@
 @import 'carbon-components/scss/components/list-box/list-box';
 @import 'carbon-components/scss/components/select/select';
 @import 'carbon-components/scss/components/text-input/text-input';
-@import '../../themes/expressive/components/combo-box';
-@import '../../themes/expressive/components/list-box';
-@import '../../themes/expressive/components/text-input';
 
 /// Footer language selector
 /// @access private
@@ -27,10 +24,6 @@
       @include listbox;
       @include select;
       @include text-input;
-      @include combo-box-expressive;
-      @include list-box-expressive;
-      @include select-expressive;
-      @include text-input-expressive;
 
       margin-top: $spacing-09;
       padding-left: 0;
@@ -69,7 +62,7 @@
         // Expressive styles
         .#{$prefix}--text-input,
         .#{$prefix}--list-box__menu-item__option {
-          @include carbon--type-style('body-long-02');
+          @include carbon--type-style('body-long-01');
         }
       }
 

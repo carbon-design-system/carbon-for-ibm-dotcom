@@ -43,9 +43,7 @@ class DDSFooter extends StableSelectorMixin(LitElement) {
   disableLocaleButton = false;
 
   connectedCallback() {
-    if (!this.hasAttribute('role')) {
-      this.setAttribute('role', 'footer');
-    }
+    this.setAttribute('role', 'contentinfo');
 
     if (!this.hasAttribute('aria-label')) {
       this.setAttribute('aria-label', 'footer');

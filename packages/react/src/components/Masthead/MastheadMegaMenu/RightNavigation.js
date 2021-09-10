@@ -35,7 +35,8 @@ const RightNavigation = ({
       <LinkWithIcon
         className={`${prefix}--masthead__megamenu__view-all-cta`}
         data-autoid={`${rest.autoid}-view-all`}
-        href={viewAllLinkHref}>
+        href={viewAllLinkHref}
+        iconInline={false}>
         <span>{viewAllLinkTitle}</span>
         <ArrowRight16 />
       </LinkWithIcon>

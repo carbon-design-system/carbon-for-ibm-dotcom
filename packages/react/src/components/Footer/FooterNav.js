@@ -27,6 +27,7 @@ const FooterNav = ({ groups, disableLocaleButton }) => {
   return (
     <nav
       data-autoid={`${stablePrefix}--footer-nav`}
+      aria-label="Footer navigation"
       className={cx(`${prefix}--footer-nav`, {
         [`${prefix}--footer-nav__locale-button--disabled`]: disableLocaleButton,
       })}>
