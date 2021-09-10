@@ -45,7 +45,7 @@ const urlObject = {
 export const Default = !DDS_CLOUD_MASTHEAD
   ? undefined
   : ({ parameters }) => {
-      const { hasContact, hasProfile, hasSearch, searchPlaceholder, selectedMenuItem, userStatus, navLinks } =
+      const { hasContact, hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
         parameters?.props?.CloudMastheadComposite ?? {};
       const { useMock } = parameters?.props?.Other ?? {};
       return html`
