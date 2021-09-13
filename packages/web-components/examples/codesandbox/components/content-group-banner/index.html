@@ -1,0 +1,48 @@
+<!--
+@license
+Copyright IBM Corp. 2020
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+  <head>
+    <title>@carbon/ibmdotcom-web-components example</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" />
+    <script src="src/index.js"></script>
+    <style type="text/css">
+      /* Suppress custom element until styles are loaded */
+      dds-content-group-banner:not(:defined) {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bx--grid">
+      <div class="bx--row">
+        <div class="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4">
+          <dds-content-group-banner>
+            <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
+            <dds-link-list type="vertical" slot="complementary">
+              <dds-link-list-item-cta
+                icon-placement="right"
+                href="https://www.ibm.com"
+                cta-type="local"
+              >
+                Link text
+              </dds-link-list-item-cta>
+              <dds-link-list-item-cta
+                icon-placement="right"
+                href="https://www.ibm.com"
+                cta-type="external"
+              >
+                External link text
+              </dds-link-list-item-cta>
+            </dds-link-list>
+          </dds-content-group-banner>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
