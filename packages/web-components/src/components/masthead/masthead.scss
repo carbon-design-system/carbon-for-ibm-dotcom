@@ -399,7 +399,8 @@
 }
 
 :host(#{$dds-prefix}-left-nav-menu),
-:host(#{$dds-prefix}-left-nav-menu-item) {
+:host(#{$dds-prefix}-left-nav-menu-item),
+:host(#{$dds-prefix}-left-nav-menu-section) {
   .#{$prefix}--side-nav__link,
   .#{$prefix}--side-nav__submenu,
   a.#{$prefix}--side-nav__link[role='menuitem'],
