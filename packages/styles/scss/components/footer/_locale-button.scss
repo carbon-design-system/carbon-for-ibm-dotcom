@@ -71,8 +71,15 @@
   }
 
   .#{$prefix}--footer--micro {
-    .bx--locale-btn__container {
+    .#{$prefix}--locale-btn__container {
       padding: 0;
+      .#{$prefix}--btn--tertiary {
+        &:hover,
+        &:focus {
+          background-color: $hover-ui;
+          color: $text-01;
+        }
+      }
     }
   }
 }
