@@ -135,13 +135,6 @@
     fill: $link-01;
   }
 
-  :host(#{$dds-prefix}-logo-grid-link) ::slotted(#{$dds-prefix}-card-heading),
-  .#{$prefix}--logo-grid
-    .#{$prefix}--content-block__cta
-    .#{$prefix}--card__heading {
-    @include carbon--type-style('productive-heading-01');
-  }
-
   .#{$prefix}--content-layout--logo-grid {
     display: grid;
     grid-template:
