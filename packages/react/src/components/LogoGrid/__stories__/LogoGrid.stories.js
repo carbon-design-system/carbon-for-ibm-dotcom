@@ -63,6 +63,13 @@ export default {
           false,
           groupId
         ),
+        showCta: boolean('Display CTA:', false, groupId),
+        ctaCopy: text(
+          'CTA Copy (ctaCopy)',
+          'Lorem ipsum dolor sit amet',
+          groupId
+        ),
+        ctaHref: text('CTA Href (ctaHref):', 'http://local.url.com/', groupId),
       }),
     },
     propsSet: {
@@ -76,7 +83,8 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { heading, logosGroup, hideBorder } = parameters?.props?.LogoGrid ?? {};
+  const { heading, logosGroup, hideBorder, showCta, ctaCopy, ctaHref } =
+    parameters?.props?.LogoGrid ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">
@@ -85,6 +93,8 @@ export const Default = ({ parameters }) => {
             heading={heading}
             logosGroup={logosGroup}
             hideBorder={hideBorder}
+            ctaCopy={ctaCopy}
+            ctaHref={showCta && ctaHref}
           />
         </div>
       </div>
