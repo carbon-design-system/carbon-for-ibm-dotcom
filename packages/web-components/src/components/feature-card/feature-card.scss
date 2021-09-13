@@ -15,6 +15,10 @@
 :host(#{$dds-prefix}-feature-cta) {
   display: block;
   outline: none;
+  ::slotted(#{$dds-prefix}-card-heading) {
+    color: $inverse-01;
+  }
+
   @include carbon--breakpoint-down('md') {
     .#{$prefix}--card__wrapper {
       display: block;
