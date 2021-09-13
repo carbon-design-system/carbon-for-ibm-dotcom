@@ -11,6 +11,7 @@
     "@carbon/ibmdotcom-react": "latest",
     "@carbon/ibmdotcom-styles": "latest",
     "@carbon/icons-react": "latest",
+    "carbon-components-react": "^7.43.0",
     "react": "16.13.0",
     "react-dom": "16.13.0"
   },

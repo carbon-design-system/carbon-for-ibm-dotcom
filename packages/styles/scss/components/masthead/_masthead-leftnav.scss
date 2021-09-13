@@ -246,6 +246,7 @@
     }
 
     &.#{$prefix}--side-nav__link--current {
+      background-color: $ui-background;
       > {
         .#{$prefix}--side-nav__link-text {
           color: $text-01;
