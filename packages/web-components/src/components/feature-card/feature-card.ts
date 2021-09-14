@@ -10,6 +10,7 @@
 import { customElement, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSCard from '../card/card';
 import '../image/image';
 import styles from './feature-card.scss';
@@ -23,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-feature-card
  */
 @customElement(`${ddsPrefix}-feature-card`)
-class DDSFeatureCard extends DDSCard {
+class DDSFeatureCard extends StableSelectorMixin(DDSCard) {
   /**
    * The size property to render either Medium (default) or Large Feature Card variants.
    */
@@ -37,6 +38,10 @@ class DDSFeatureCard extends DDSCard {
       linkNode.classList.remove(`${prefix}--link`);
       linkNode.classList.add(`${prefix}--feature-card__card`);
     }
+  }
+
+  static get stableSelector() {
+    return `${ddsPrefix}--feature-card`;
   }
 
   /**
