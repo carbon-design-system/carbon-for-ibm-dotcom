@@ -11,10 +11,9 @@
 :host(#{$dds-prefix}-cta-block) {
   @include cta-block--pattern;
 
+  display: block;
+
   .#{$prefix}--content-layout {
-    @include carbon--breakpoint('md') {
-      padding-left: 0;
-    }
     @include carbon--breakpoint('sm') {
       padding-left: $carbon--layout-01;
     }
@@ -27,8 +26,6 @@
   &.#{$prefix}--cta-block__border {
     border-bottom: 1px solid $ui-04;
   }
-
-  display: block;
 
   ::slotted([slot='action']) {
     margin-top: $carbon--layout-01;
