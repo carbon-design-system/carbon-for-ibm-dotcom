@@ -117,7 +117,7 @@ module.exports = {
       },
     },
     {
-      files: ['tests/e2e/cypress/**/*.js'],
+      files: ['tests/e2e/cypress/**/*.js', 'tests/e2e-storybook/cypress/**/*.js'],
       parserOptions: {
         sourceType: 'module',
       },
@@ -140,7 +140,7 @@ module.exports = {
       },
     },
     {
-      files: ['tests/e2e/**/*.e2e.js', 'tests/e2e/**/*.cdn.e2e.js'],
+      files: ['tests/e2e/**/*.e2e.js', 'tests/e2e/**/*.cdn.e2e.js', 'src/components/**/*.e2e.js'],
       extends: ['plugin:cypress/recommended'],
       parserOptions: {
         sourceType: 'script',
