@@ -27,6 +27,7 @@
       .#{$prefix}--locale-btn {
         max-width: 100%;
         width: 100%;
+        @include type-style('body-short-02');
 
         @include carbon--breakpoint('md') {
           min-width: carbon--mini-units(27);
