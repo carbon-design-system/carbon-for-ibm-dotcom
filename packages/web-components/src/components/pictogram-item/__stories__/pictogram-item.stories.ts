@@ -27,9 +27,9 @@ export const Default = ({ parameters }) => {
         stroke="currentColor"
         data-autoid="dds--pictogram-item__pictogram"
         aria-label="Pictogram description"
-        width="48"
-        height="48"
-        viewBox="0 0 48 48"
+        width="64"
+        height="64"
+        viewBox="8 8 32 32"
         role="img"
         class="bx--pictogram-item__pictogram"
       >
