@@ -415,6 +415,26 @@
   }
 }
 
+:host(#{$dds-prefix}-left-nav-menu),
+:host(#{$dds-prefix}-left-nav-menu-item),
+:host(#{$dds-prefix}-left-nav-menu-section) {
+  .#{$prefix}--side-nav__link,
+  .#{$prefix}--side-nav__submenu,
+  a.#{$prefix}--side-nav__link[role='menuitem'],
+  .#{$prefix}--side-nav__submenu .#{$prefix}--side-nav__submenu-content {
+    height: auto;
+    min-height: carbon--mini-units(6);
+  }
+
+  .#{$prefix}--side-nav__submenu-title,
+  a.#{$prefix}--side-nav__link > .#{$prefix}--side-nav__link-text,
+  button.#{$prefix}--side-nav__link > .#{$prefix}--side-nav__link-text {
+    height: auto;
+    white-space: normal;
+    padding: 0.8rem 0;
+  }
+}
+
 @mixin left-nav-overlay {
   position: fixed;
   width: 100%;
