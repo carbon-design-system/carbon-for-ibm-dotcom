@@ -111,11 +111,43 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
     }
   };
 
+  private _handleClickOut(event: MouseEvent) {
+    const { target } = event;
+    const { selectorButtonToggle } = this.constructor as typeof DDSLeftNav;
+    const toggleButton: HTMLElement | null = (this.getRootNode() as Document).querySelector(selectorButtonToggle);
+
+    if (
+      this.expanded &&
+      target instanceof Element &&
+      target.closest(selectorButtonToggle) === null &&
+      target.closest(this.tagName) === null
+    ) {
+      this.expanded = false;
+      toggleButton?.focus();
+    }
+  }
+
+  @HostListener('keydown')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleKeydown(event: KeyboardEvent) {
+    const { selectorButtonToggle } = this.constructor as typeof DDSLeftNav;
+    const toggleButton: HTMLElement | null = (this.getRootNode() as Document).querySelector(selectorButtonToggle);
+    if (event.key === 'Escape') {
+      this.expanded = false;
+      toggleButton?.focus();
+    }
+  }
+
   /**
    * Usage mode of the side nav.
    */
   @property({ reflect: true, attribute: 'usage-mode' })
   usageMode = SIDE_NAV_USAGE_MODE.HEADER_NAV;
+
+  connectedCallback() {
+    super.connectedCallback();
+    document.addEventListener('click', this._handleClickOut.bind(this));
+  }
 
   updated(changedProperties) {
     super.updated(changedProperties);
@@ -145,7 +177,7 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
           (ddsLeftNavMenuSection as DDSLeftNavMenuSection).transition = false;
         });
 
-        // reset to frist menu section
+        // reset to first menu section
         this.querySelectorAll(selectorFirstMenuSection).forEach(ddsLeftNavMenuSection => {
           (ddsLeftNavMenuSection as DDSLeftNavMenuSection).expanded = true;
         });

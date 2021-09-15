@@ -288,6 +288,14 @@
   }
 }
 
+:host(#{$dds-prefix}-megamenu-top-nav-menu) {
+  .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] + .#{$prefix}--header__menu {
+    bottom: auto;
+    height: auto;
+    max-height: calc(100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem));
+  }
+}
+
 :host(#{$dds-prefix}-left-nav) {
   @extend :host(#{$prefix}-side-nav);
 
@@ -371,6 +379,15 @@
 
 :host(#{$dds-prefix}-left-nav-menu) {
   @extend :host(#{$prefix}-side-nav-menu);
+}
+
+:host(#{$dds-prefix}-left-nav-menu-section) {
+  overflow-y: scroll;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 :host(#{$dds-prefix}-left-nav-menu-item) {
