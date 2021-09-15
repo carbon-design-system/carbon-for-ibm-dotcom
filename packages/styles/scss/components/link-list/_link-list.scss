@@ -92,7 +92,8 @@
   }
 
   .#{$prefix}--link-list__list.#{$prefix}--link-list__list--card {
-    @include hang;
+    // @include hang;
+    margin-left: -1rem;
   }
 
   .#{$prefix}--link-list__list--horizontal {
