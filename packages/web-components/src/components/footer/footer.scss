@@ -354,6 +354,10 @@
     bottom: rem(47px);
     max-height: 13.5rem;
   }
+
+  .#{$prefix}--text-input {
+    @include carbon--type-style('body-short-02');
+  }
 }
 
 :host(#{$dds-prefix}-language-selector-mobile[size='micro']) {
