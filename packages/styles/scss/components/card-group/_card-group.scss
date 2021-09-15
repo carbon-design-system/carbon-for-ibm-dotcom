@@ -16,18 +16,12 @@
 @mixin themed-items {
   color: $text-01;
   background: $ui-background;
-  .#{$prefix}--card {
-    background-color: $ui-01;
-  }
   .#{$prefix}--card__heading {
     color: $text-01;
   }
   .#{$prefix}--card__copy,
   .#{$prefix}--card__eyebrow {
     color: $text-02;
-  }
-  .#{$prefix}--card:hover {
-    background: $hover-ui;
   }
   .#{$prefix}--card--inverse {
     background-color: $inverse-02;
