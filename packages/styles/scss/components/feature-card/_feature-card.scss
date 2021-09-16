@@ -37,6 +37,7 @@ $fcb-breakpoint-up--lg: map-get(
   .#{$prefix}--card__heading,
   ::slotted(#{$dds-prefix}-card-heading) {
     margin-bottom: $layout-03;
+    color: $inverse-01;
   }
 
   &:focus-within {
