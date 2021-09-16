@@ -107,30 +107,6 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
     this.dispatchEvent(new CustomEvent(eventToggle, init));
   }
 
-  @HostListener('parentRoot:eventToggle')
-  protected _handleContentStateChangeDocument = (event: CustomEvent) => {
-    const { panelId } = event.detail;
-    const { sectionId } = this;
-    if (sectionId === panelId) {
-      this.expanded = true;
-      this.ariaHidden = 'false';
-      this.transition = false;
-    } else {
-      const id = panelId.split(', ');
-      const section = sectionId.split(', ');
-
-      /**
-       * if next menu section expanded is a level 2 menu section and current expanded
-       * menu section is a level 1 menu section, add transition attribute for proper animation
-       */
-      if (id[0] !== '-1' && id[1] !== '-1' && this.expanded === true && section[1] === '-1') {
-        this.transition = true;
-      }
-
-      this.expanded = false;
-      this.ariaHidden = 'true';
-    }
-  };
 
   firstUpdated() {
     if (this.sectionId === '-1, -1') {
