@@ -19,6 +19,15 @@
     @include themed-items;
   }
 
+  :host(#{$dds-prefix}-content-group-cards) ::slotted([slot='copy']),
+  .#{$prefix}--content-group__copy {
+    margin-bottom: $spacing-09;
+
+    @include carbon--breakpoint('md') {
+      margin-bottom: $spacing-10;
+    }
+  }
+
   .#{$prefix}--content-group-cards__row {
     margin-left: -1rem;
     margin-right: -1rem;
