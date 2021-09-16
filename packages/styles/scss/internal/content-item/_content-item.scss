@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -32,8 +32,12 @@
 
   :host(#{$dds-prefix}-content-item) ::slotted(#{$dds-prefix}-video-player),
   .#{$prefix}--content-item .#{$prefix}--video-player {
-    margin-top: $carbon--spacing-07;
+    margin-top: $spacing-05;
     margin-bottom: $carbon--spacing-07;
+  }
+
+  .#{$prefix}--content-item .#{$prefix}--image-with-caption {
+    margin-top: $spacing-05;
   }
 
   :host(#{$dds-prefix}-content-item-heading),
@@ -54,17 +58,11 @@
     color: $text-01;
   }
 
-  .#{$prefix}--content-item__image {
-    margin-top: $carbon--spacing-05;
-    margin-bottom: $carbon--spacing-07;
-  }
-
   :host(#{$dds-prefix}-content-item-paragraph),
   .#{$prefix}--content-item__copy p {
     @include carbon--type-style('body-long-02');
 
     color: $text-01;
-    margin-bottom: $carbon--spacing-06;
   }
 
   .#{$prefix}--content-item__cta {
