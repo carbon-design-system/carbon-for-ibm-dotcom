@@ -381,15 +381,6 @@
   @extend :host(#{$prefix}-side-nav-menu);
 }
 
-:host(#{$dds-prefix}-left-nav-menu-section) {
-  overflow-y: scroll;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
 :host(#{$dds-prefix}-left-nav-menu-item) {
   @extend :host(#{$prefix}-side-nav-menu-item);
 }
