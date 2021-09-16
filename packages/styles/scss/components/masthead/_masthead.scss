@@ -22,6 +22,7 @@ $search-transition-timing: 95ms;
   background-color: $ui-background;
 
   a {
+    position: relative;
     display: flex;
     height: 100%;
     align-items: center;
@@ -55,6 +56,20 @@ $search-transition-timing: 95ms;
     svg {
       width: 58px;
       height: 23px;
+    }
+
+    &::after {
+      @include carbon--breakpoint-up(800px) {
+        content: '';
+        display: block;
+        position: absolute;
+        right: carbon--rem(-3px);
+        top: 50%;
+        transform: translateY(-50%);
+        height: carbon--rem(24px);
+        width: carbon--rem(1px);
+        background-color: $ui-03;
+      }
     }
   }
 
@@ -314,7 +329,7 @@ $search-transition-timing: 95ms;
 
       &:focus,
       &:active {
-        &[aria-selected='true'] {
+        &[data-selected='true'] {
           border-bottom-color: transparent;
         }
       }
@@ -323,18 +338,18 @@ $search-transition-timing: 95ms;
     a.#{$prefix}--header__menu-item.#{$prefix}--header__menu-title {
       &:focus,
       &:active {
-        &[aria-selected='true'][aria-expanded='false'] {
+        &[data-selected='true'][aria-expanded='false'] {
           border-bottom-color: transparent;
         }
       }
     }
 
-    a.#{$prefix}--header__menu-item[role='menuitem'][aria-selected='true'] {
+    a.#{$prefix}--header__menu-item[role='menuitem'][data-selected='true'] {
       color: $text-01;
     }
 
-    a.#{$prefix}--header__menu-item[aria-selected='true']::after,
-    a.#{$prefix}--header__menu-item.#{$prefix}--header__menu-title[aria-selected='true'][aria-expanded='false']::after {
+    a.#{$prefix}--header__menu-item[data-selected='true']::after,
+    a.#{$prefix}--header__menu-item.#{$prefix}--header__menu-title[data-selected='true'][aria-expanded='false']::after {
       content: '';
       display: block;
       position: absolute;

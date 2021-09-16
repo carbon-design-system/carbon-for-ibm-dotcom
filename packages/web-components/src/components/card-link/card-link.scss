@@ -26,6 +26,10 @@
   }
 }
 
+:host(#{$dds-prefix}-card-link-cta) {
+  display: flex;
+}
+
 :host(#{$dds-prefix}-feature-section-card-link) {
   .#{$prefix}--card {
     max-width: inherit;

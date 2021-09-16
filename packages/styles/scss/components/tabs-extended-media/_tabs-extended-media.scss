@@ -11,9 +11,6 @@
 @import 'carbon-components/scss/components/tabs/tabs';
 @import 'carbon-components/scss/components/accordion/accordion';
 @import 'carbon-components/scss/components/accordion/keyframes';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/tabs';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/accordion';
 
 @mixin tabs-extended-media {
   :host(#{$dds-prefix}-tabs-extended-media) {

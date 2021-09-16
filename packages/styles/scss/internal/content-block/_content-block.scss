@@ -84,7 +84,8 @@
     // Cards and link lists are the exceptions of above
     // TODO: Remove negative margin adjustment from `<dds-link-list-item*>` and add `<dds-link-list>` here
     ::slotted(#{$dds-prefix}-card[slot]),
-    ::slotted(#{$dds-prefix}-card-cta[slot]) {
+    ::slotted(#{$dds-prefix}-card-cta[slot]),
+    ::slotted(#{$dds-prefix}-card-link-cta[slot]) {
       margin-left: 0;
       margin-right: 0;
     }
@@ -202,7 +203,6 @@
   .#{$prefix}--content-block__copy p {
     @include carbon--type-style('expressive-paragraph-01', true);
 
-    color: $text-01;
     margin-bottom: $carbon--spacing-07;
   }
 
@@ -214,6 +214,11 @@
 
     .#{$prefix}--feature-card {
       @include carbon--make-row;
+    }
+
+    // FIXME: CardLink is being used as Card in React, need to separate this
+    .#{$prefix}--card__CTA.#{$prefix}--card-link .#{$prefix}--card__heading {
+      @include carbon--type-style('expressive-heading-02', true);
     }
   }
 
