@@ -65,7 +65,7 @@
 
   :host(#{$dds-prefix}-content-group) ::slotted([slot='footer']) {
     @include carbon--breakpoint('md') {
-      margin-left: -$spacing-05;
+      margin-left: -1rem;
     }
   }
 
