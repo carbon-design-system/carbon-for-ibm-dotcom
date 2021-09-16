@@ -107,6 +107,10 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
     this.dispatchEvent(new CustomEvent(eventToggle, init));
   }
 
+  @HostListener('transitionend')
+  private _handleTransitionEnd(event: TransitionEvent) {
+    this.style.overflow = '';
+  }
 
   firstUpdated() {
     if (this.sectionId === '-1, -1') {
