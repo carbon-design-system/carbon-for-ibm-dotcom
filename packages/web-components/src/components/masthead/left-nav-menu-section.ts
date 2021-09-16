@@ -108,8 +108,11 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   }
 
   @HostListener('transitionend')
-  private _handleTransitionEnd(event: TransitionEvent) {
-    this.style.overflow = '';
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleTransitionEnd() {
+    if (this.offsetLeft === 0) {
+      this.style.overflow = '';
+    }
   }
 
   firstUpdated() {
@@ -117,6 +120,17 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
       this.expanded = true;
       this.ariaHidden = 'false';
     }
+  }
+
+  shouldUpdate(changedProperties) {
+    /**
+     * Prevent scrollbars during transition.
+     * We remove these styles in each section as needed on transitionend.
+     */
+    if (changedProperties.has('expanded')) {
+      this.style.overflow = 'hidden';
+    }
+    return true;
   }
 
   updated(changedProperties) {

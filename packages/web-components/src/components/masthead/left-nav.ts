@@ -148,12 +148,6 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
     const requestedSection = menuSections.filter(section => section.matches(`[section-id="${panelId}"]`)).shift();
 
     if (expandedSection !== undefined && requestedSection !== undefined && expandedSection !== requestedSection) {
-      /**
-       * Prevent scrollbars during transition.
-       * We remove these styles in each section on transitionend
-       */
-      expandedSection.style.overflow = 'hidden';
-      requestedSection.style.overflow = 'hidden';
       const id = panelId.split(', ');
       requestedSection.expanded = true;
       requestedSection.ariaHidden = 'false';
