@@ -208,6 +208,7 @@ $fcb-breakpoint-up--lg: map-get(
 
       svg {
         fill: $inverse-link;
+
         @include carbon--breakpoint('sm') {
           width: carbon--rem(20px);
           height: carbon--rem(20px);
@@ -224,6 +225,7 @@ $fcb-breakpoint-up--lg: map-get(
         }
       }
     }
+
     ::slotted(svg[slot='footer']) {
       margin-top: auto;
       margin-left: auto;
