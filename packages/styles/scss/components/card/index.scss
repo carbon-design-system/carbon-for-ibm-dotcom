@@ -142,10 +142,6 @@
   .#{$prefix}--card.#{$prefix}--card--static {
     outline: none;
 
-    .#{$prefix}--card__wrapper {
-      background-color: $ui-02;
-    }
-
     .#{$prefix}--card__footer {
       align-self: flex-start;
       &:hover {
@@ -334,6 +330,18 @@
       display: block;
       min-width: 20px;
       margin-left: 0;
+    }
+  }
+
+  :host(#{$dds-prefix}-feature-cta-footer) a {
+    svg,
+    ::slotted(svg[slot='icon']) {
+      fill: $inverse-link;
+
+      @include carbon--breakpoint('max') {
+        width: $carbon--spacing-07;
+        height: $carbon--spacing-07;
+      }
     }
   }
 

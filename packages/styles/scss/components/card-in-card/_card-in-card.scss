@@ -98,6 +98,8 @@
       opacity: 0;
       z-index: 1;
       background-color: $inverse-02;
+      transition: opacity $duration--moderate-01
+        motion('standard', 'productive');
     }
 
     .#{$prefix}--image__img {
