@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,7 +26,7 @@ const LocaleButton = ({ displayLang, aria }) => {
       <Button
         data-autoid={`${stablePrefix}--locale-btn`}
         className={`${prefix}--locale-btn`}
-        kind="secondary"
+        kind="tertiary"
         onClick={open}
         renderIcon={EarthFilled20}
         iconDescription="Earth Filled Icon"

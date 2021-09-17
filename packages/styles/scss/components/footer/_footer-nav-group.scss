@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,8 +10,6 @@
 /// @group footer
 
 @mixin footer-nav-group {
-  $TEMP--footer-nav-group-type: 'heading-02';
-
   :host(#{$dds-prefix}-footer-nav-group),
   .#{$prefix}--footer-nav-group {
     @include carbon--theme(
@@ -66,7 +64,7 @@
       @include carbon--breakpoint-down($TEMP--breakpoint-down--md) {
         margin-top: 0;
         display: block;
-        padding: 16px 13px;
+        padding: $spacing-05;
 
         &:hover,
         &:active {
@@ -90,10 +88,13 @@
   }
 
   .#{$prefix}--footer-nav-group__title {
-    // need to remove once 16 variants come out
-    @include carbon--type-style($TEMP--footer-nav-group-type);
+    @include carbon--type-style('expressive-heading-01');
 
     display: none;
+  }
+
+  .#{$prefix}--footer-nav-group__link {
+    @include carbon--type-style('body-long-01');
   }
 
   @include carbon--breakpoint('md') {
