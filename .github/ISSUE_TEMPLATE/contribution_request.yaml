@@ -43,7 +43,9 @@ body:
 Please add any supporting or required documentations here with a short description to help us get started with your contribution inquiry (ex. Design spec document.)
 
 - For Documentation contribution, please visit the [Documentation contribution website page](https://www.ibm.com/standards/carbon/contributions/documentation/) for detail on what information you need to provide.
+
 - For Components contribution, please visit the [Components contribution website page](https://www.ibm.com/standards/carbon/contributing/components) for detail on what information you need to provide.
+
 - For Patterns contribution, please visit the [Patterns contribution website page](https://www.ibm.com/standards/carbon/contributing/patterns) for detail on what information you need to provide."
     validations:
       required: true
