@@ -12,7 +12,7 @@ import '../../content-item/index';
 import '../../cta/text-cta';
 import '../../image-with-caption/index';
 import { html } from 'lit-element';
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--004.jpg';
 import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--004.jpg';
@@ -20,13 +20,17 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = ({ parameters }) => {
-  const { heading, copy, ctaCopy, contentItemSimple, contentItemWithImage, contentItemWithVideo } =
-    parameters?.props?.ContentGroup ?? {};
+  const { heading, showCopy, copy, cta, contentItemSelection } = parameters?.props?.ContentGroup ?? {};
+  console.log(contentItemSelection);
   return html`
     <dds-content-group>
       <dds-content-group-heading>${heading}</dds-content-group-heading>
-      <dds-content-group-copy>${copy}</dds-content-group-copy>
-      ${contentItemSimple
+      ${showCopy
+        ? html`
+            <dds-content-group-copy>${copy}</dds-content-group-copy>
+          `
+        : ''}
+      ${contentItemSelection.includes('simple')
         ? html`
             <dds-content-item>
               <dds-content-item-heading>Natural language understanding</dds-content-item-heading>
@@ -38,7 +42,7 @@ export const Default = ({ parameters }) => {
             </dds-content-item>
           `
         : ``}
-      ${contentItemWithImage
+      ${contentItemSelection.includes('with image')
         ? html`
             <dds-content-item>
               <dds-content-item-heading>Natural language understanding</dds-content-item-heading>
@@ -58,7 +62,7 @@ export const Default = ({ parameters }) => {
             </dds-content-item>
           `
         : ``}
-      ${contentItemWithVideo
+      ${contentItemSelection.includes('with video')
         ? html`
             <dds-content-item>
               <dds-content-item-heading>Natural language understanding</dds-content-item-heading>
@@ -74,10 +78,14 @@ export const Default = ({ parameters }) => {
             </dds-content-item>
           `
         : ``}
-      <dds-card-link-cta slot="footer" cta-type="local" href="https://www.example.com">
-        <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
-        <dds-card-cta-footer></dds-card-cta-footer>
-      </dds-card-link-cta>
+      ${cta
+        ? html`
+            <dds-card-link-cta slot="footer" cta-type="local" href="https://www.example.com">
+              <dds-card-link-heading>Learn more about natual language processing</dds-card-link-heading>
+              <dds-card-cta-footer></dds-card-cta-footer>
+            </dds-card-link-cta>
+          `
+        : ''}
     </dds-content-group>
   `;
 };
@@ -100,15 +108,23 @@ export default {
     knobs: {
       ContentGroup: () => ({
         heading: textNullable('Heading (heading)', 'Natural language processing (NLP)'),
+        showCopy: boolean('Copy (copy)', true),
         copy:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quam ante, mattis id pellentesque at,' +
           ' molestie et ipsum. Proin sodales est hendrerit maximus malesuada. Orci varius natoque penatibus et ' +
           'magnis dis parturient montes, nascetur ridiculus mus. Etiam at arcu ligula. Praesent faucibus est ligula,' +
           ' vitae finibus ante aliquet a.',
-        ctaCopy: textNullable('CTA Copy', 'Learn more about natual language processing'),
-        contentItemSimple: boolean('Content item simple', false),
-        contentItemWithImage: boolean('Content item with image', false),
-        contentItemWithVideo: boolean('Content item with video', false),
+        contentItemSelection: optionsKnob(
+          'Content item:',
+          {
+            simple: 'simple',
+            'with image': 'with image',
+            'with video': 'with video',
+          },
+          '',
+          { display: 'multi-select' }
+        ),
+        cta: boolean('CTA (cta)', true),
       }),
     },
   },

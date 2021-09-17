@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { text, boolean } from '@storybook/addon-knobs';
+import { text, boolean, optionsKnob } from '@storybook/addon-knobs';
 import ContentGroup from '../ContentGroup';
 import ContentItem from '../../../internal/components/ContentItem/ContentItem';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--003.jpg';
@@ -29,9 +29,16 @@ export default {
             'Copy (copy)',
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quam ante, mattis id pellentesque at, molestie et ipsum. Proin sodales est hendrerit maximus malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam at arcu ligula. Praesent faucibus est ligula, vitae finibus ante aliquet a.'
           ),
-          contentItemSimple: boolean('Content item simple', false),
-          contentItemWithImage: boolean('Content item with image', false),
-          contentItemWithVideo: boolean('Content item with video', false),
+          contentItemSelection: optionsKnob(
+            'Content item:',
+            {
+              simple: 'simple',
+              'with image': 'with image',
+              'with video': 'with video',
+            },
+            '',
+            { display: 'multi-select' }
+          ),
           contentItemCta: {
             style: 'text',
             type: 'local',
@@ -65,16 +72,14 @@ export default {
               showCaption: true,
             },
           },
+          showCTA: boolean('CTA', true),
           cta: {
             cta: {
               href: 'https://www.example.com',
             },
             style: 'card',
             type: 'local',
-            heading: text(
-              'CTA heading',
-              'Learn more about natual language processing'
-            ),
+            heading: 'Learn more about natual language processing',
           },
         };
       },
@@ -89,9 +94,8 @@ export const Default = ({ parameters }) => {
     cta,
     copy,
     contentItemCta,
-    contentItemSimple,
-    contentItemWithImage,
-    contentItemWithVideo,
+    contentItemSelection,
+    showCTA,
   } = parameters?.props?.ContentGroup ?? {};
   return (
     <div className="bx--grid">
@@ -100,7 +104,7 @@ export const Default = ({ parameters }) => {
           <ContentGroup
             heading={heading}
             children={[
-              contentItemSimple ? (
+              contentItemSelection.includes('simple') ? (
                 <ContentItem
                   heading="Natural language understanding"
                   copy='This area of NLP takes "real world" text and applies a symbolic system for a machine to interpret its meaning, using formal logic; structures that describe the various relationships between concepts (ontologies); and other semantic tools.'
@@ -108,7 +112,7 @@ export const Default = ({ parameters }) => {
               ) : (
                 ''
               ),
-              contentItemWithImage ? (
+              contentItemSelection.includes('with image') ? (
                 <ContentItem
                   heading="Natural language understanding"
                   mediaType="image"
@@ -119,7 +123,7 @@ export const Default = ({ parameters }) => {
               ) : (
                 ''
               ),
-              contentItemWithVideo ? (
+              contentItemSelection.includes('with video') ? (
                 <ContentItem
                   heading="Natural language understanding"
                   mediaType="video"
@@ -132,7 +136,7 @@ export const Default = ({ parameters }) => {
               ),
             ]}
             copy={copy}
-            cta={cta}
+            cta={showCTA ? cta : ''}
           />
         </div>
       </div>
