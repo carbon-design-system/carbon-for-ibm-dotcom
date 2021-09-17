@@ -21,20 +21,17 @@ export default {
     knobs: {
       ContentGroup: () => {
         return {
-          heading: text(
-            'Heading (heading)',
-            'Natural language processing (NLP)'
-          ),
+          heading: text('Heading:', 'Natural language processing (NLP)'),
           copy: text(
-            'Copy (copy)',
+            'Copy:',
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quam ante, mattis id pellentesque at, molestie et ipsum. Proin sodales est hendrerit maximus malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam at arcu ligula. Praesent faucibus est ligula, vitae finibus ante aliquet a.'
           ),
-          contentItemSelection: optionsKnob(
-            'Content item:',
+          addChildren: optionsKnob(
+            'Add children:',
             {
-              simple: 'simple',
-              'with image': 'with image',
-              'with video': 'with video',
+              'Content item simple': 'Content item simple',
+              'Content item with image': 'Content item with image',
+              'Content item with video': 'Content item with video',
             },
             '',
             { display: 'multi-select' }
@@ -72,7 +69,7 @@ export default {
               showCaption: true,
             },
           },
-          showCTA: boolean('CTA', true),
+          showCTA: boolean('CTA:', true),
           cta: {
             cta: {
               href: 'https://www.example.com',
@@ -94,7 +91,7 @@ export const Default = ({ parameters }) => {
     cta,
     copy,
     contentItemCta,
-    contentItemSelection,
+    addChildren,
     showCTA,
   } = parameters?.props?.ContentGroup ?? {};
   return (
@@ -104,7 +101,7 @@ export const Default = ({ parameters }) => {
           <ContentGroup
             heading={heading}
             children={[
-              contentItemSelection.includes('simple') ? (
+              addChildren.includes('Content item simple') ? (
                 <ContentItem
                   heading="Natural language understanding"
                   copy='This area of NLP takes "real world" text and applies a symbolic system for a machine to interpret its meaning, using formal logic; structures that describe the various relationships between concepts (ontologies); and other semantic tools.'
@@ -112,7 +109,7 @@ export const Default = ({ parameters }) => {
               ) : (
                 ''
               ),
-              contentItemSelection.includes('with image') ? (
+              addChildren.includes('Content item with image') ? (
                 <ContentItem
                   heading="Natural language understanding"
                   mediaType="image"
@@ -123,7 +120,7 @@ export const Default = ({ parameters }) => {
               ) : (
                 ''
               ),
-              contentItemSelection.includes('with video') ? (
+              addChildren.includes('Content item with video') ? (
                 <ContentItem
                   heading="Natural language understanding"
                   mediaType="video"
