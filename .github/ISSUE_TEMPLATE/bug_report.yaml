@@ -1,6 +1,7 @@
 name: Bug report 🐛
 description:
   Something isn't working as expected? Here is the right place to report.
+title: '[TITLE]: Brief description'
 assignees:
   - jeffchew,ljcarot,shixiedesign,RobertaJHahn,JBrandwine,andysherman2121,guilhermelMoraes
 labels: 'bug'
@@ -48,7 +49,6 @@ body:
     id: priority
     attributes:
       label: Business priority
-      description: 'High Priority = pressing release'
       options:
         - 'High Priority = pressing release'
         - 'Medium Priority = upcoming release but is not pressing'
@@ -91,8 +91,6 @@ body:
     id: reproduce
     attributes:
       label: "Steps to reproduce the issue (if applicable)"
-    validations:
-      required: true
   - type: textarea
     id: release-date
     attributes:
