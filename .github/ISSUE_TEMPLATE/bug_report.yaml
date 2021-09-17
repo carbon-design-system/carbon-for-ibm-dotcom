@@ -1,7 +1,7 @@
 name: Bug report 🐛
 description:
   Something isn't working as expected? Here is the right place to report.
-title: '[TITLE]: Brief description'
+title: '[YOUR TITLE]: Brief description'
 assignees:
   - jeffchew,ljcarot,shixiedesign,RobertaJHahn,JBrandwine,andysherman2121,guilhermelMoraes
 labels: 'bug'
