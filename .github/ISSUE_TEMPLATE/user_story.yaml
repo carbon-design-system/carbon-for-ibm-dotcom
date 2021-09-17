@@ -1,4 +1,4 @@
-name: User story \U0001F5E3
+name: User story
 description:
   Write a user story to begin solving their needs.
 title: '[YOUR TITLE]: Brief description'
@@ -18,7 +18,7 @@ body:
     id: user-story
     attributes:
       label: User story
-      placeholder: "> As a `[user role below]`:
+      value: "> As a `[user role below]`:
 
     > I need to:
 
@@ -29,7 +29,7 @@ body:
     id: additional-information
     attributes:
       label: Additional information
-      placeholder: "- _{{user research}}_
+      value: "- _{{user research}}_
 - _{{user insights}}_
 - _{{user metrics}}_"
     validations:
@@ -38,7 +38,7 @@ body:
     id: acceptance-criteria
     attributes:
       label: Acceptance criteria
-      placeholder: "- [ ] _{{State acceptance criteria}}_
+      value: "- [ ] _{{State acceptance criteria}}_
 - [ ] _{{State another}}_
 - [ ] _{{And another}}_"
     validations:
