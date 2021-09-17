@@ -29,8 +29,7 @@
   :host(#{$dds-prefix}-cta-block),
   .#{$prefix}--cta-block {
     padding-top: $carbon--layout-03;
-    padding-bottom: $carbon--layout-03;
-
+    padding-bottom: $carbon--layout-05;
     @include carbon--breakpoint('lg') {
       padding-top: $carbon--layout-05;
     }
