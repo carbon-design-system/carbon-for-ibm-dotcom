@@ -4,7 +4,7 @@ description:
 title: '[YOUR TITLE]: Brief description'
 assignees:
   - jeffchew,ljcarot,shixiedesign,RobertaJHahn,JBrandwine,andysherman2121,guilhermelMoraes
-labels: 'bug'
+labels: ['bug']
 body:
   - type: markdown
     attributes:
