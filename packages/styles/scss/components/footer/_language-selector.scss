@@ -29,6 +29,7 @@
       padding-left: 0;
       padding-right: 0;
       order: 0;
+      @include carbon--type-style('body-short-01');
       @include carbon--breakpoint-down('md') {
         @include carbon--make-col-ready;
       }
@@ -54,10 +55,6 @@
           .#{$prefix}--footer--short & {
             float: right;
           }
-        }
-
-        @include carbon--breakpoint('lg') {
-          margin-left: rem(-16px);
         }
 
         // Expressive styles
