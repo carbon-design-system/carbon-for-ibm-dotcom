@@ -28,7 +28,7 @@
   }
 
   ::slotted([slot='action']) {
-    margin-bottom: $carbon--layout-03;
+    margin-bottom: $carbon--layout-04;
   }
 
   ::slotted(#{$dds-prefix}-content-block-heading) {
@@ -53,6 +53,11 @@
     @include carbon--breakpoint('md') {
       width: 90%;
     }
+  }
+
+  ::slotted(#{$dds-prefix}-button-group) {
+    // <dds-button-group-item> elements have top margins
+    margin-top: -#{$carbon--layout-02};
   }
 
   ::slotted(#{$dds-prefix}-link-list) {
