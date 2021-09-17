@@ -159,10 +159,6 @@
       @include carbon--breakpoint('lg') {
         column-count: 3;
       }
-
-      ::slotted(#{$dds-prefix}-legal-nav-item) {
-        padding-bottom: $spacing-03;
-      }
     }
   }
 }

@@ -64,7 +64,7 @@
       @include carbon--breakpoint-down($TEMP--breakpoint-down--md) {
         margin-top: 0;
         display: block;
-        padding: 16px 13px;
+        padding: $spacing-05;
 
         &:hover,
         &:active {
