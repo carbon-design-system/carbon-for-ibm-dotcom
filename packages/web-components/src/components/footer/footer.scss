@@ -238,6 +238,7 @@
     background-color: $ui-background;
     margin: 0;
     border: none;
+    @include carbon--type-style('body-short-01');
     @include carbon--breakpoint('md') {
       align-self: flex-end;
       border-left: 1px solid $ui-03;

@@ -10,8 +10,6 @@
 /// @group footer
 
 @mixin footer-nav-group {
-  $TEMP--footer-nav-group-type: 'heading-02';
-
   :host(#{$dds-prefix}-footer-nav-group),
   .#{$prefix}--footer-nav-group {
     @include carbon--theme(
@@ -90,14 +88,13 @@
   }
 
   .#{$prefix}--footer-nav-group__title {
-    // need to remove once 16 variants come out
-    @include carbon--type-style($TEMP--footer-nav-group-type);
+    @include carbon--type-style('expressive-heading-01');
 
     display: none;
   }
 
   .#{$prefix}--footer-nav-group__link {
-    @include carbon--type-style('body-short-02');
+    @include carbon--type-style('body-long-01');
   }
 
   @include carbon--breakpoint('md') {
