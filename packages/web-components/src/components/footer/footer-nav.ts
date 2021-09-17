@@ -44,6 +44,7 @@ class DDSFooterNav extends StableSelectorMixin(LitElement) {
     const { disableLocaleButton } = this;
     const classes = {
       [`${prefix}--footer-nav__container`]: true,
+      [`${prefix}--accordion`]: true,
       [`${prefix}--footer-nav__locale-button--disabled`]: disableLocaleButton,
     };
 

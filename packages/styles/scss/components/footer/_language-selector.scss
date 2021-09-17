@@ -57,7 +57,7 @@
         }
 
         @include carbon--breakpoint('lg') {
-          margin-left: -16px;
+          margin-left: rem(-16px);
         }
 
         // Expressive styles

@@ -157,8 +157,8 @@
   .#{$prefix}--legal-nav__list {
     padding-top: $spacing-03;
     @include carbon--breakpoint-down('md') {
-      padding-top: 40px;
-      padding-bottom: 40px;
+      padding-top: $spacing-08;
+      padding-bottom: $spacing-08;
     }
     @include carbon--breakpoint('lg') {
       @include carbon--make-col-offset(4, 16);
@@ -178,7 +178,7 @@
       }
 
       ::slotted(#{$dds-prefix}-legal-nav-item) {
-        padding-bottom: 8px;
+        padding-bottom: $spacing-03;
       }
     }
   }
@@ -319,7 +319,7 @@
     max-width: 100%;
 
     &__wrapper {
-      margin-top: -16px;
+      margin-top: rem(-16px);
     }
   }
 

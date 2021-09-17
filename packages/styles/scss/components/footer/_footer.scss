@@ -51,7 +51,6 @@
   :host(#{$dds-prefix}-footer[size='micro']),
   .#{$prefix}--footer--micro {
     padding-top: 0;
-    // border: 1px solid red;
 
     .#{$prefix}--footer__logo-container {
       display: none;
