@@ -123,30 +123,13 @@
       @include carbon--make-col-offset(10, 16);
     }
   }
-}
 
-:host(#{$dds-prefix}-footer[size='short']) {
-  ::slotted(#{$dds-prefix}-language-selector-desktop) {
-    margin-top: 0;
-
-    @include carbon--breakpoint('lg') {
-      @include carbon--make-col(4, 16);
-      @include carbon--make-col-offset(10, 16);
-    }
-  }
-
-  ::slotted(#{$dds-prefix}-language-selector-mobile) {
-    display: block;
-    margin-top: $spacing-09;
-
-    @include carbon--breakpoint('md') {
+  &[size='short'] {
+    ::slotted(#{$dds-prefix}-language-selector-desktop) {
       margin-top: 0;
-      @include carbon--make-col(4, 8);
-      @include carbon--make-col-offset(2, 8);
     }
-
-    @include carbon--breakpoint('lg') {
-      display: none;
+    ::slotted(#{$dds-prefix}-language-selector-mobile) {
+      display: block;
     }
   }
 }
