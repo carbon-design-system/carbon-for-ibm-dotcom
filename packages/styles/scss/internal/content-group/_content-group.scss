@@ -63,14 +63,6 @@
     margin-bottom: $layout-03;
   }
 
-  :host(#{$dds-prefix}-content-group) ::slotted([slot='footer']) {
-    display: inline;
-
-    @include carbon--breakpoint('md') {
-      margin-left: -1rem;
-    }
-  }
-
   :host(#{$dds-prefix}-content-group) ::slotted([slot='footer']),
   .#{$prefix}--content-group__cta {
     margin-top: $carbon--layout-04;
@@ -78,6 +70,14 @@
     @include carbon--breakpoint('md') {
       @include carbon--make-col-ready;
       @include carbon--make-col(4, 8);
+    }
+  }
+
+  :host(#{$dds-prefix}-content-group) ::slotted([slot='footer']) {
+    display: inline;
+
+    @include carbon--breakpoint('md') {
+      margin-left: -1rem;
     }
   }
 
