@@ -32,10 +32,26 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   private _menuNode!: HTMLElement;
 
   /**
+   * The trigger button.
+   */
+  @query('[part="trigger"]')
+  private _topMenuItem!: HTMLAnchorElement;
+
+  /**
    * scrollbar width.
    */
   @internalProperty()
   private _scrollBarWidth = this.ownerDocument!.defaultView!.innerWidth - this.ownerDocument!.body.offsetWidth;
+
+  /**
+   * Removes inherited _handleBlur method from BXHeaderMenu
+   */
+  private _handleKeydown = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      this.expanded = false;
+      this._topMenuItem.focus();
+    }
+  };
 
   /**
    * The observer for the resize of the viewport.
@@ -75,6 +91,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
+    this.addEventListener('keydown', this._handleKeydown);
   }
 
   disconnectedCallback() {
@@ -133,6 +150,21 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
           }
         } else if (masthead) {
           masthead.style.marginRight = '0px';
+        }
+
+        /**
+         * Return focus to topMenuItem only when expanded explicitly equals false.
+         * On load, when expanded is undefined, avoid taking control of focus.
+         * This is deliberately in a 0ms timeout to put the check at the end of
+         * the event loop to avoid interrupting the browser's focus handoff.
+         */
+        if (changedProperties.get('expanded') === false) {
+          setTimeout(() => {
+            const { activeElement } = document;
+            if (activeElement === null || activeElement.tagName.toLowerCase() === 'body') {
+              this._topMenuItem.focus();
+            }
+          }, 0);
         }
       }
     }
