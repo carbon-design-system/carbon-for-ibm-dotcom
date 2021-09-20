@@ -596,17 +596,15 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
         ? html`
             ${this._renderForm()}
             <div class="${prefix}--header__search--actions">
-              <span tabindex="-1">
-                <button
-                  type="button"
-                  part="open-button"
-                  class="${prefix}--header__action ${prefix}--header__search--search"
-                  aria-label="${searchButtonAssistiveText}"
-                  @click="${handleClickSearchButton}"
-                >
-                  ${Search20()}
-                </button>
-              </span>
+              <button
+                type="button"
+                part="open-button"
+                class="${prefix}--header__action ${prefix}--header__search--search"
+                aria-label="${searchButtonAssistiveText}"
+                @click="${handleClickSearchButton}"
+              >
+                ${Search20()}
+              </button>
               <button
                 type="button"
                 part="close-button"
