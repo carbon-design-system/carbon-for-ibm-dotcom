@@ -56,6 +56,7 @@ class DDSTab extends StableSelectorMixin(LitElement) {
     return html`
       <div
         id="tab-panel-${this._index}-default"
+        tabindex="0"
         class="tab-${this._index}-container"
         role="tabpanel"
         aria-labelledby="tab-link-${this._index}-default"
