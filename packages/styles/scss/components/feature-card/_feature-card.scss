@@ -37,6 +37,7 @@ $fcb-breakpoint-up--lg: map-get(
   .#{$prefix}--card__heading,
   ::slotted(#{$dds-prefix}-card-heading) {
     margin-bottom: $layout-03;
+    color: $inverse-01;
   }
 
   &:focus-within {
@@ -87,7 +88,9 @@ $fcb-breakpoint-up--lg: map-get(
     &:hover {
       ::slotted([slot='image']),
       .#{$prefix}--image {
-        filter: brightness(80%);
+        &::before {
+          opacity: 0.08;
+        }
       }
 
       .#{$prefix}--card__content {
@@ -141,9 +144,13 @@ $fcb-breakpoint-up--lg: map-get(
 
     .#{$prefix}--card__content {
       background-color: $inverse-02;
+      transition: background-color $duration--moderate-01
+        motion(standard, productive);
+
       @include carbon--breakpoint('sm') {
         position: relative;
       }
+
       @include carbon--breakpoint(400px) {
         position: static;
       }
@@ -176,6 +183,19 @@ $fcb-breakpoint-up--lg: map-get(
         width: 50%;
         height: 100%;
       }
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        z-index: 1;
+        background-color: $inverse-01;
+        transition: opacity $duration--moderate-01 motion(standard, productive);
+      }
     }
 
     // footer
@@ -188,6 +208,7 @@ $fcb-breakpoint-up--lg: map-get(
 
       svg {
         fill: $inverse-link;
+
         @include carbon--breakpoint('sm') {
           width: carbon--rem(20px);
           height: carbon--rem(20px);
@@ -204,6 +225,7 @@ $fcb-breakpoint-up--lg: map-get(
         }
       }
     }
+
     ::slotted(svg[slot='footer']) {
       margin-top: auto;
       margin-left: auto;
