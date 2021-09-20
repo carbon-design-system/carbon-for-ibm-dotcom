@@ -1,13 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement, LitElement } from 'lit-element';
+import { html, customElement, LitElement, property } from 'lit-element';
+import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -27,12 +28,28 @@ class DDSFooterNav extends StableSelectorMixin(LitElement) {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'navigation');
     }
+    if (!this.hasAttribute('aria-label')) {
+      this.setAttribute('aria-label', 'Footer navigation');
+    }
     super.connectedCallback();
   }
 
+  /**
+   * Update the CSS selectors depending on the locale button being rendered or not.
+   */
+  @property({ type: Boolean, attribute: 'disable-locale-button' })
+  disableLocaleButton = false;
+
   render() {
+    const { disableLocaleButton } = this;
+    const classes = {
+      [`${prefix}--footer-nav__container`]: true,
+      [`${prefix}--accordion`]: true,
+      [`${prefix}--footer-nav__locale-button--disabled`]: disableLocaleButton,
+    };
+
     return html`
-      <ul class="${prefix}--accordion ${prefix}--footer-nav__container">
+      <ul class=${classMap(classes)}>
         <slot></slot>
       </ul>
     `;

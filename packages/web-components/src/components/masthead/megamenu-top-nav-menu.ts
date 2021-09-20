@@ -85,6 +85,10 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   firstUpdated() {
     this._menuNode.removeAttribute('role');
     this._cleanAndCreateObserverResize({ create: true });
+
+    if (this.hasAttribute('role') && this.getAttribute('role') === 'listitem') {
+      this.removeAttribute('role');
+    }
   }
 
   updated(changedProperties) {
@@ -101,10 +105,11 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         .querySelector('dds-masthead')
         ?.shadowRoot?.querySelector('.bx--masthead__l0');
 
-      // set position of masthead when megamenu is expanded specifically for cloud
+      // determine whether to apply margin-right on expand as HC has extra masthead styling
       const cloudMasthead: HTMLElement | null | undefined = doc
         .querySelector('dds-cloud-masthead-container')
-        ?.querySelector('dds-masthead');
+        ?.querySelector('dds-masthead')
+        ?.shadowRoot?.querySelector('.bx--masthead__l0');
 
       if (this.expanded) {
         doc.body.style.marginRight = `${this._scrollBarWidth}px`;
@@ -112,20 +117,22 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
           (item as DDSMegaMenuOverlay).active = this.expanded;
         });
-        if (masthead) {
-          masthead.style.marginRight = `${this._scrollBarWidth}px`;
-          if (cloudMasthead) {
-            cloudMasthead.style.position = 'fixed';
+        if (cloudMasthead) {
+          if (doc.body.classList.contains('ibm-masthead-sticky') && doc.body.classList.contains('ibm-masthead-sticky-showing')) {
+            cloudMasthead.style.marginRight = `${this._scrollBarWidth}px`;
           }
+        } else if (masthead) {
+          masthead.style.marginRight = `${this._scrollBarWidth}px`;
         }
       } else {
         doc.body.style.marginRight = '0px';
         doc.body.style.overflow = ``;
-        if (masthead) {
-          masthead.style.marginRight = '0px';
-          if (cloudMasthead) {
-            cloudMasthead.style.position = '';
+        if (cloudMasthead) {
+          if (doc.body.classList.contains('ibm-masthead-sticky') && doc.body.classList.contains('ibm-masthead-sticky-showing')) {
+            cloudMasthead.style.marginRight = '0px';
           }
+        } else if (masthead) {
+          masthead.style.marginRight = '0px';
         }
       }
     }

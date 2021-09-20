@@ -25,6 +25,10 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
+
+// total button width - grid offset
+const buttonWidthOffset = 32;
+
 interface Cancelable {
   cancel(): void;
 }
@@ -216,21 +220,39 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
   private _handleOnKeyDown(event: KeyboardEvent) {
     const { selectorDesktopItem } = this.constructor as typeof DDSTableOfContents;
     const target = event.target as HTMLAnchorElement;
+    const { _pageIsRTL: pageIsRTL } = this;
     if (target.matches?.(selectorDesktopItem)) {
-      if (event.key === 'Tab') {
+      if (pageIsRTL) {
+        if (event.key === 'Tab') {
+          if (event.shiftKey) {
+            if (
+              target.parentElement?.previousElementSibling &&
+              target.parentElement?.previousElementSibling.getBoundingClientRect().right >
+                this._navBar!.getBoundingClientRect().right - buttonWidthOffset
+            ) {
+              this._paginateLeft();
+            }
+          } else if (
+            target.parentElement?.nextElementSibling &&
+            target.parentElement?.nextElementSibling.getBoundingClientRect().left <
+              this._navBar!.getBoundingClientRect().left + buttonWidthOffset
+          ) {
+            this._paginateRight();
+          }
+        }
+      } else if (event.key === 'Tab') {
         if (event.shiftKey) {
-          // 32 = total button width - grid offset
           if (
             target.parentElement?.previousElementSibling &&
             target.parentElement?.previousElementSibling!.getBoundingClientRect().left <
-              this._navBar!.getBoundingClientRect().left + 32
+              this._navBar!.getBoundingClientRect().left + buttonWidthOffset
           ) {
             this._paginateLeft();
           }
         } else if (
           target.parentElement?.nextElementSibling &&
           target.parentElement?.nextElementSibling!.getBoundingClientRect().right >
-            this._navBar!.getBoundingClientRect().right - 32
+            this._navBar!.getBoundingClientRect().right - buttonWidthOffset
         ) {
           this._paginateRight();
         }
@@ -387,7 +409,10 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
     if (elems) {
       if (pageIsRTL) {
         const interimLeft = navBar!.getBoundingClientRect().right;
-        const lastVisibleElementIndex = findLastIndex(elems, elem => elem.getBoundingClientRect().right > interimLeft - 32);
+        const lastVisibleElementIndex = findLastIndex(
+          elems,
+          elem => elem.getBoundingClientRect().right > interimLeft - buttonWidthOffset
+        );
         if (lastVisibleElementIndex >= 0) {
           const lastVisibleElementRight = elems[lastVisibleElementIndex].getBoundingClientRect().left;
           // 48 = button width - button gradient
@@ -395,14 +420,14 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
           this._currentScrollPosition = newScrollPosition <= 0 ? 0 : newScrollPosition;
         }
       } else {
-        // 32 = total button width - grid offset
         const lastVisibleElementIndex = findLastIndex(
           elems,
-          elem => elem.getBoundingClientRect().left < 32 + navBar!.getBoundingClientRect().left
+          elem => elem.getBoundingClientRect().left < buttonWidthOffset + navBar!.getBoundingClientRect().left
         );
         if (lastVisibleElementIndex >= 0) {
           const lastVisibleElementRight = elems[lastVisibleElementIndex].getBoundingClientRect().right;
-          const newScrollPosition = lastVisibleElementRight + currentScrollPosition - navBar!.getBoundingClientRect().right + 32;
+          const newScrollPosition =
+            lastVisibleElementRight + currentScrollPosition - navBar!.getBoundingClientRect().right + buttonWidthOffset;
           // If the new scroll position is less than the width of the left caret button,
           // it means that hiding the left caret button reveals the whole of the left-most nav item.
           // Snaps the left-most nav item to the left edge of nav container in this case.
@@ -428,21 +453,28 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
     if (elems) {
       if (pageIsRTL) {
         const interimLeft = navBar!.getBoundingClientRect().left;
-        const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().left < interimLeft + 32);
+        const firstVisibleElementIndex = elems.findIndex(
+          elem => elem.getBoundingClientRect().left < interimLeft + buttonWidthOffset
+        );
         if (firstVisibleElementIndex > 0) {
           const firstVisibleElementLeft = Math.abs(
-            elems[firstVisibleElementIndex].getBoundingClientRect().right + 32 - navBar!.getBoundingClientRect().right
+            elems[firstVisibleElementIndex].getBoundingClientRect().right +
+              buttonWidthOffset -
+              navBar!.getBoundingClientRect().right
           );
           const maxLeft = contentNode!.scrollWidth - navBar!.offsetWidth;
           this._currentScrollPosition = Math.min(firstVisibleElementLeft + currentScrollPosition, maxLeft);
         }
       } else {
         const interimRight = navBar!.getBoundingClientRect().right;
-        // 32 = total button width - grid offset
-        const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().right > interimRight - 32);
+        const firstVisibleElementIndex = elems.findIndex(
+          elem => elem.getBoundingClientRect().right > interimRight - buttonWidthOffset
+        );
         if (firstVisibleElementIndex > 0) {
           const firstVisibleElementLeft =
-            elems[firstVisibleElementIndex].getBoundingClientRect().left - navBar!.getBoundingClientRect().left - 32;
+            elems[firstVisibleElementIndex].getBoundingClientRect().left -
+            navBar!.getBoundingClientRect().left -
+            buttonWidthOffset;
           // Ensures that is there is no blank area at the right hand side in scroll area
           // if we see the right remainder nav items can be contained in a page
           const maxLeft = contentNode!.scrollWidth - navBar!.offsetWidth;
@@ -734,4 +766,5 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSTableOfContents;

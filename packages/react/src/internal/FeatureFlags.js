@@ -49,36 +49,12 @@ export const DDS_LANGUAGE_SELECTOR =
   process.env.DDS_LANGUAGE_SELECTOR === 'true' || DDS_FLAGS_ALL || false;
 
 /**
- * This determines if the simplebenefits will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_SIMPLEBENEFITS =
-  process.env.DDS_SIMPLEBENEFITS === 'true' || DDS_FLAGS_ALL || false;
-
-/**
- * This determines if the logo grid will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_CALLOUT_DATA =
-  process.env.DDS_CALLOUT_DATA === 'true' || DDS_FLAGS_ALL || false;
-
-/**
  * This determines if content block - headlines will be rendered or not
  *
  * @type {string | boolean}
  */
 export const DDS_CONTENTBLOCK_HEADLINES =
   process.env.DDS_CONTENTBLOCK_HEADLINES === 'true' || DDS_FLAGS_ALL || false;
-
-/**
- * This determines if Promo Banner will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_PROMO_BANNER =
-  process.env.DDS_PROMO_BANNER === 'true' || DDS_FLAGS_ALL || false;
 
 /**
  * This determines if Leadspace with search will be rendered or not

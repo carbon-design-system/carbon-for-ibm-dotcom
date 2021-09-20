@@ -46,9 +46,13 @@ export const FadeOnce = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="fade" selector-targets="${selectorTargets}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
+};
+
+FadeOnce.story = {
+  name: 'Fade once',
 };
 
 export const FadeWithContinuousAnimations = () => {
@@ -58,9 +62,13 @@ export const FadeWithContinuousAnimations = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="fade" selector-targets="${selectorTargets}" keep-animation="${true}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
+};
+
+FadeWithContinuousAnimations.story = {
+  name: 'Fade with continuous animations',
 };
 
 export const SlideUp = () => {
@@ -70,9 +78,13 @@ export const SlideUp = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="slide-up" selector-targets="${selectorTargets}" keep-animation="${true}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
+};
+
+SlideUp.story = {
+  name: 'Slide up',
 };
 
 export const SlideUpRight = () => {
@@ -82,9 +94,13 @@ export const SlideUpRight = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="slide-up-right" selector-targets="${selectorTargets}" keep-animation="${true}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
+};
+
+SlideUpRight.story = {
+  name: 'Slide up right',
 };
 
 export const SlideRight = () => {
@@ -94,9 +110,13 @@ export const SlideRight = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="slide-right" selector-targets="${selectorTargets}" keep-animation="${true}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
+};
+
+SlideRight.story = {
+  name: 'Slide right',
 };
 
 export const SlideDownRight = () => {
@@ -106,9 +126,13 @@ export const SlideDownRight = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="slide-down-right" selector-targets="${selectorTargets}" keep-animation="${true}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
+};
+
+SlideDownRight.story = {
+  name: 'Slide down right',
 };
 
 export const SlideDown = () => {
@@ -118,9 +142,13 @@ export const SlideDown = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="slide-down" selector-targets="${selectorTargets}" keep-animation="${true}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
+};
+
+SlideDown.story = {
+  name: 'Slide down',
 };
 
 export const SlideDownLeft = () => {
@@ -130,9 +158,13 @@ export const SlideDownLeft = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="slide-down-left" selector-targets="${selectorTargets}" keep-animation="${true}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
+};
+
+SlideDownLeft.story = {
+  name: 'Slide down left',
 };
 
 export const SlideLeft = () => {
@@ -142,9 +174,13 @@ export const SlideLeft = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="slide-left" selector-targets="${selectorTargets}" keep-animation="${true}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
+};
+
+SlideLeft.story = {
+  name: 'Slide left',
 };
 
 export const SlideUpLeft = () => {
@@ -154,9 +190,13 @@ export const SlideUpLeft = () => {
       ${fadeOptions.cssText}
     </style>
     <dds-scroll-animations animation="slide-up-left" selector-targets="${selectorTargets}" keep-animation="${true}">
-      ${StoryContent({ type: 'default' })}
+      ${StoryContent()}
     </dds-scroll-animations>
   `;
+};
+
+SlideUpLeft.story = {
+  name: 'Slide up left',
 };
 
 export default {

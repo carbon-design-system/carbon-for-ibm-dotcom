@@ -1,18 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import EarthFilled16 from 'carbon-web-components/es/icons/earth--filled/16.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
-import EarthFilled20 from 'carbon-web-components/es/icons/earth--filled/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import settings from 'carbon-components/es/globals/js/settings';
 import { FOOTER_SIZE } from './footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss';
@@ -57,11 +57,11 @@ class DDSLocaleButton extends StableSelectorMixin(FocusMixin(LitElement)) {
     return html`
       <button
         id="button"
-        class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--locale-btn"
+        class="${prefix}--btn ${prefix}--btn--tertiary ${prefix}--locale-btn"
         aria-label="${ifNonNull(buttonLabel)}"
       >
         <slot></slot>
-        ${EarthFilled20()}
+        ${EarthFilled16()}
       </button>
     `;
   }

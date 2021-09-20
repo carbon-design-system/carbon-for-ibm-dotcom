@@ -142,10 +142,6 @@
   .#{$prefix}--card.#{$prefix}--card--static {
     outline: none;
 
-    .#{$prefix}--card__wrapper {
-      background-color: $ui-02;
-    }
-
     .#{$prefix}--card__footer {
       align-self: flex-start;
       &:hover {
@@ -170,6 +166,11 @@
 
   .#{$prefix}--card--border {
     border: 1px solid $ui-03;
+  }
+
+  // FIXME: CardLink is being used as Card in React, need to separate this
+  .#{$prefix}--card__CTA.#{$prefix}--card__CardCTA .#{$prefix}--card__heading {
+    @include carbon--type-style('expressive-heading-03', true);
   }
 
   // static card
@@ -227,13 +228,14 @@
   }
 
   :host(#{$dds-prefix}-card-cta),
+  :host(#{$dds-prefix}-card-link-cta),
   :host(#{$dds-prefix}-card-link) {
     outline: none;
   }
 
   :host(#{$dds-prefix}-card-eyebrow),
   .#{$prefix}--card__eyebrow {
-    @include carbon--type-style('label-01');
+    @include carbon--type-style('label-02');
 
     margin-bottom: $carbon--spacing-03;
     color: $text-02;
@@ -331,6 +333,18 @@
     }
   }
 
+  :host(#{$dds-prefix}-feature-cta-footer) a {
+    svg,
+    ::slotted(svg[slot='icon']) {
+      fill: $inverse-link;
+
+      @include carbon--breakpoint('max') {
+        width: $carbon--spacing-07;
+        height: $carbon--spacing-07;
+      }
+    }
+  }
+
   // static card footer
   :host(#{$dds-prefix}-card-footer):not([parent-href]) {
     .#{$prefix}--card__footer {
@@ -412,12 +426,22 @@
     }
   }
 
-  :host(#{$dds-prefix}-card-heading) {
-    @include carbon--type-style('expressive-heading-03', true);
+  :host(#{$dds-prefix}-card-heading),
+  :host(#{$dds-prefix}-card-link-heading) {
     @include content-width;
 
     color: $text-01;
     margin-bottom: $carbon--layout-05;
+  }
+
+  :host(#{$dds-prefix}-card-heading) {
+    @include carbon--type-style('expressive-heading-03', true);
+  }
+
+  :host(#{$dds-prefix}-card-link-heading) {
+    @include carbon--type-style('expressive-heading-02', true);
+
+    margin-bottom: 0;
   }
 
   :host(#{$dds-prefix}-card)[color-scheme='inverse'],

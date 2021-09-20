@@ -35,8 +35,6 @@ $btn-min-width: 26;
 
   ::slotted(#{$dds-prefix}-leadspace-heading),
   .#{$prefix}--leadspace__title,
-  .#{$prefix}--leadspace__desc--medium,
-  .#{$prefix}--leadspace__desc--super,
   .#{$prefix}--leadspace__desc {
     color: $text-01;
   }
@@ -80,8 +78,6 @@ $btn-min-width: 26;
       }
     }
 
-    .#{$prefix}--leadspace--content__container--super,
-    .#{$prefix}--leadspace--content__container--medium,
     .#{$prefix}--leadspace--content__container {
       display: flex;
       flex-direction: column;
@@ -97,9 +93,7 @@ $btn-min-width: 26;
       height: 100%;
     }
 
-    .#{$prefix}--leadspace__container,
-    .#{$prefix}--leadspace__container--medium,
-    .#{$prefix}--leadspace__container--super {
+    .#{$prefix}--leadspace__container {
       position: relative;
       @include carbon--breakpoint(lg) {
         height: 100%;
@@ -136,8 +130,6 @@ $btn-min-width: 26;
       }
     }
 
-    .#{$prefix}--leadspace__desc--super,
-    .#{$prefix}--leadspace__desc--medium,
     .#{$prefix}--leadspace__desc {
       z-index: 1;
       @include carbon--make-col-ready;
@@ -148,7 +140,7 @@ $btn-min-width: 26;
     .#{$prefix}--leadspace__row {
       @include carbon--make-row;
 
-      flex-direction: column;
+      flex-flow: column nowrap;
     }
 
     .#{$prefix}--btn {
@@ -156,8 +148,6 @@ $btn-min-width: 26;
     }
 
     @include carbon--breakpoint(md) {
-      .#{$prefix}--leadspace__container--super,
-      .#{$prefix}--leadspace__container--medium,
       .#{$prefix}--leadspace__container {
         position: relative;
       }
@@ -200,8 +190,6 @@ $btn-min-width: 26;
         position: relative;
       }
 
-      .#{$prefix}--leadspace__container--super,
-      .#{$prefix}--leadspace__container--medium,
       .#{$prefix}--leadspace__container {
         overflow: hidden;
         position: absolute;
@@ -216,8 +204,6 @@ $btn-min-width: 26;
         @include content-width;
       }
 
-      .#{$prefix}--leadspace__desc--super,
-      .#{$prefix}--leadspace__desc--medium,
       .#{$prefix}--leadspace__desc {
         @include carbon--make-col-ready;
         @include carbon--make-col(6, 16);
@@ -249,14 +235,10 @@ $btn-min-width: 26;
         padding-top: 0;
       }
 
-      .#{$prefix}--leadspace__container--super,
-      .#{$prefix}--leadspace__container--medium,
       .#{$prefix}--leadspace__container {
         position: relative;
       }
 
-      .#{$prefix}--leadspace--content__container--super,
-      .#{$prefix}--leadspace--content__container--medium,
       .#{$prefix}--leadspace--content__container {
         display: flex;
         flex-direction: column;
@@ -265,8 +247,6 @@ $btn-min-width: 26;
         @include carbon--make-col(4, 4);
       }
 
-      .#{$prefix}--leadspace__desc--super,
-      .#{$prefix}--leadspace__desc--medium,
       .#{$prefix}--leadspace__desc {
         width: 95%;
         padding-top: $spacing-09;
@@ -299,8 +279,6 @@ $btn-min-width: 26;
           padding: $spacing-07 0 0 0;
         }
 
-        .#{$prefix}--leadspace--content__container--super,
-        .#{$prefix}--leadspace--content__container--medium,
         .#{$prefix}--leadspace--content__container {
           margin: 0 auto;
           padding-left: $spacing-06;
@@ -311,14 +289,10 @@ $btn-min-width: 26;
 
         ::slotted(#{$dds-prefix}-leadspace-heading),
         .#{$prefix}--leadspace__title,
-        .#{$prefix}--leadspace__desc--super,
-        .#{$prefix}--leadspace__desc--medium,
         .#{$prefix}--leadspace__desc {
           @include content-width;
         }
 
-        .#{$prefix}--leadspace__desc--super,
-        .#{$prefix}--leadspace__desc--medium,
         .#{$prefix}--leadspace__desc {
           padding-top: $carbon--layout-04;
         }
@@ -481,6 +455,23 @@ $btn-min-width: 26;
     }
   }
 
+  :host(#{$dds-prefix}-leadspace)[size='short'] {
+    ::slotted(#{$dds-prefix}-leadspace-heading) {
+      margin-bottom: $spacing-10;
+      @include carbon--type-style(expressive-heading-06, true);
+    }
+
+    ::slotted(#{$dds-prefix}-leadspace-image) {
+      height: auto;
+    }
+
+    .#{$prefix}--leadspace__section {
+      @include carbon--breakpoint('lg') {
+        height: carbon--mini-units(40);
+      }
+    }
+  }
+
   :host(#{$dds-prefix}-leadspace)[size='medium'] {
     ::slotted(#{$dds-prefix}-leadspace-heading) {
       margin-bottom: $spacing-06;
@@ -489,7 +480,7 @@ $btn-min-width: 26;
 
     .#{$prefix}--leadspace__section {
       @include carbon--breakpoint('lg') {
-        height: rem(480px);
+        height: carbon--mini-units(60);
       }
     }
   }
@@ -501,7 +492,7 @@ $btn-min-width: 26;
 
     .#{$prefix}--leadspace__section {
       @include carbon--breakpoint('lg') {
-        height: rem(640px);
+        height: carbon--mini-units(80);
       }
     }
   }

@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { baseFontSize, breakpoints } from '@carbon/layout';
 import React, { useRef, useCallback, useEffect } from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { Card } from '../Card';
@@ -18,8 +17,6 @@ import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-
-const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
 /**
  * CardGroup component
@@ -43,85 +40,50 @@ const CardGroup = ({ cards, cardsPerRow, cta, border }) => {
   /**
    * Function that activates the sameHeight utility
    */
-  const setSameHeight = useCallback(entries => {
+  const setSameHeight = useCallback(() => {
     window.requestAnimationFrame(() => {
-      const documentWidth = entries[0].contentRect.width;
-      const columns = documentWidth < gridBreakpoint ? 2 : 3;
       const { current: containerNode } = containerRef;
       if (containerNode) {
-        // split arrays into chunks to handle height setting in each row separately
-        const splitItemEyebrows = splitArrayPerRows(
-          containerNode.getElementsByClassName(`${prefix}--card__eyebrow`),
-          columns
-        );
-        const splitItemHeadings = splitArrayPerRows(
-          containerNode.getElementsByClassName(`${prefix}--card__heading`),
-          columns
-        );
-        const splitItemCopies = splitArrayPerRows(
-          containerNode.getElementsByClassName(`${prefix}--card__copy`),
-          columns
-        );
-        const splitItemFooters = splitArrayPerRows(
-          containerNode.getElementsByClassName(`${prefix}--card__footer`),
-          columns
-        );
-
-        splitItemEyebrows.forEach(row => {
+        if (
+          containerNode.getElementsByClassName(`${prefix}--card__eyebrow`)
+            .length > 0
+        ) {
           sameHeight(
-            row.filter(e => {
-              return e;
-            }),
+            containerNode.getElementsByClassName(`${prefix}--card__eyebrow`),
             'md'
           );
-        });
-        splitItemHeadings.forEach(row => {
+        }
+        if (
+          containerNode.getElementsByClassName(`${prefix}--card__heading`)
+            .length > 0
+        ) {
           sameHeight(
-            row.filter(e => {
-              return e;
-            }),
+            containerNode.getElementsByClassName(`${prefix}--card__heading`),
             'md'
           );
-        });
-        splitItemCopies.forEach(row => {
+        }
+        if (
+          containerNode.getElementsByClassName(`${prefix}--card__copy`).length >
+          0
+        ) {
           sameHeight(
-            row.filter(e => {
-              return e;
-            }),
+            containerNode.getElementsByClassName(`${prefix}--card__copy`),
             'md'
           );
-        });
-        splitItemFooters.forEach(row => {
+        }
+        if (
+          containerNode.getElementsByClassName(`${prefix}--card__footer`)
+            .length > 0
+        ) {
           sameHeight(
-            row.filter(e => {
-              return e;
-            }),
+            containerNode.getElementsByClassName(`${prefix}--card__footer`),
             'md'
           );
-        });
+        }
       }
     });
   }, []);
 
-  /**
-   * Helper function that splits an array into smaller groups to ensure the sameHeight function
-   * handles rows independently from one another.
-   *
-   * @param {*} array to be partitioned
-   * @param {number} columns the amount of currently displayed columns in a row
-   */
-  const splitArrayPerRows = (array, columns) => {
-    return Array.from(array).reduce((resultArray, item, index) => {
-      const chunkIndex = Math.floor(index / columns);
-
-      if (!resultArray[chunkIndex]) {
-        resultArray[chunkIndex] = [];
-      }
-
-      resultArray[chunkIndex].push(item);
-      return resultArray;
-    }, []);
-  };
   return _renderCards(cards, cardsPerRow, containerRef, cta, border);
 };
 

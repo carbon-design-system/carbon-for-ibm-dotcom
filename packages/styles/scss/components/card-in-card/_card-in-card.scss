@@ -70,8 +70,6 @@
 
       .#{$prefix}--card__eyebrow,
       ::slotted(#{$dds-prefix}-card-eyebrow) {
-        @include carbon--type-style('label-01');
-
         margin-bottom: $carbon--spacing-03;
         color: $text-02;
       }
@@ -100,6 +98,8 @@
       opacity: 0;
       z-index: 1;
       background-color: $inverse-02;
+      transition: opacity $duration--moderate-01
+        motion('standard', 'productive');
     }
 
     .#{$prefix}--image__img {

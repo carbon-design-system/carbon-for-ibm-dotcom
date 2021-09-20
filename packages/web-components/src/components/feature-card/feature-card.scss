@@ -15,6 +15,10 @@
 :host(#{$dds-prefix}-feature-cta) {
   display: block;
   outline: none;
+  ::slotted(#{$dds-prefix}-card-heading) {
+    color: $inverse-01;
+  }
+
   @include carbon--breakpoint-down('md') {
     .#{$prefix}--card__wrapper {
       display: block;
@@ -54,26 +58,6 @@
 
   @include carbon--breakpoint('md') {
     justify-content: flex-end;
-  }
-
-  .dds-ce--card__footer {
-    svg,
-    ::slotted(svg[slot='icon']) {
-      @include carbon--breakpoint('sm') {
-        width: carbon--rem(20px);
-        height: carbon--rem(20px);
-      }
-
-      @include carbon--breakpoint('md') {
-        width: $carbon--spacing-06;
-        height: $carbon--spacing-06;
-      }
-
-      @include carbon--breakpoint('lg') {
-        width: $carbon--spacing-07;
-        height: $carbon--spacing-07;
-      }
-    }
   }
 
   &[size='large'] {

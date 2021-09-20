@@ -383,21 +383,10 @@
 :host(#{$dds-prefix}-left-nav-menu-item) a.#{$prefix}--side-nav__link[role='menuitem'] {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding-left: $carbon--spacing-05;
   height: carbon--mini-units(6);
   width: 100%;
-
-  .#{$prefix}--side-nav__link-text {
-    align-self: end;
-    margin-top: auto;
-  }
-
-  &::after {
-    content: '';
-    width: 100%;
-    margin-top: auto;
-    border-bottom: 1px solid $ui-03;
-  }
 }
 
 :host(#{$dds-prefix}-left-nav-item),
@@ -406,6 +395,26 @@
   .#{$prefix}--side-nav__link:hover {
     background-color: $shell-side-nav-bg-04;
     color: $ibm-color__gray-100;
+  }
+}
+
+:host(#{$dds-prefix}-left-nav-menu),
+:host(#{$dds-prefix}-left-nav-menu-item),
+:host(#{$dds-prefix}-left-nav-menu-section) {
+  .#{$prefix}--side-nav__link,
+  .#{$prefix}--side-nav__submenu,
+  a.#{$prefix}--side-nav__link[role='menuitem'],
+  .#{$prefix}--side-nav__submenu .#{$prefix}--side-nav__submenu-content {
+    height: auto;
+    min-height: carbon--mini-units(6);
+  }
+
+  .#{$prefix}--side-nav__submenu-title,
+  a.#{$prefix}--side-nav__link > .#{$prefix}--side-nav__link-text,
+  button.#{$prefix}--side-nav__link > .#{$prefix}--side-nav__link-text {
+    height: auto;
+    white-space: normal;
+    padding: 0.8rem 0;
   }
 }
 

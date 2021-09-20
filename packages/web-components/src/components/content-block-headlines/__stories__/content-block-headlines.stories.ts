@@ -56,7 +56,7 @@ export const Default = !DDS_CONTENT_BLOCK_HEADLINES
 export default !DDS_CONTENT_BLOCK_HEADLINES
   ? undefined
   : {
-      title: 'Components/Content Block Headlines',
+      title: 'Components/Content block headlines',
       parameters: {
         ...readme.parameters,
         hasGrid: true,

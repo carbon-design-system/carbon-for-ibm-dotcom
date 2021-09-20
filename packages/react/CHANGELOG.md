@@ -3,6 +3,180 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.25.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.24.0...@carbon/ibmdotcom-react@1.25.0-rc.0) (2021-09-17)
+
+
+### Bug Fixes
+
+* **dotcom-shell:** adding missing dependency for codesandbox example ([#7114](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7114)) ([8ec65a7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8ec65a7))
+* **footer:** expressive sunset cleanup ([#7103](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7103)) ([4d54b7b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4d54b7b)), closes [#7094](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7094)
+* **footer:** update footer a11y labels ([#7042](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7042)) ([adcef7e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/adcef7e)), closes [#6025](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6025)
+* **Logo-grid:** changed the card heading style to expressive ([#7045](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7045)) ([56978ee](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/56978ee)), closes [#6211](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6211)
+* **masthead:** add check for focus elem in Masthead SideNavMenuSection to prevent type error ([#7101](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7101)) ([6b15acc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6b15acc))
+* **masthead:** expressive sunset cleanup ([#7100](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7100)) ([ac46dc5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ac46dc5)), closes [#7087](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7087)
+* **masthead:** remove aria-selected from menu items ([#7030](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7030)) ([dacbc19](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/dacbc19)), closes [#6888](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6888)
+
+
+### Features
+
+* **content-group-banner:** create react wrapper ([#7115](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7115)) ([80f37b6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/80f37b6)), closes [#5372](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5372)
+* **CTA:** enabling custom video title ([#6983](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6983)) ([37473d7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/37473d7)), closes [#6868](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6868) [#7033](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7033)
+* **expressive-theme:** sunset of the expressive theme ([#7012](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7012)) ([265f563](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/265f563))
+* **masthead:** masthead L0 selected when child item is current page ([#7040](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7040)) ([37168e8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/37168e8)), closes [#6764](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6764)
+
+
+
+## 1.23.3 (2021-09-01)
+
+
+### Features
+
+* **VideoPlayer:** support image and caption overrides ([#7007](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7007)) ([d6d098b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d6d098b)), closes [#5753](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5753)
+
+
+
+## 1.23.3-rc.0 (2021-09-01)
+
+
+
+
+
+# [1.24.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.24.0-rc.2...@carbon/ibmdotcom-react@1.24.0) (2021-09-08)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.24.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.24.0-rc.1...@carbon/ibmdotcom-react@1.24.0-rc.2) (2021-09-02)
+
+
+### Bug Fixes
+
+* **github-action:** fix to the github action to have push access ([#7023](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7023)) ([f0b56c6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f0b56c6))
+
+
+
+
+
+# [1.24.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.24.0-rc.0...@carbon/ibmdotcom-react@1.24.0-rc.1) (2021-08-31)
+
+
+### Bug Fixes
+
+* **LightboxMediaPlayer:** set `autoPlay` based on modal open state ([#7010](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7010)) ([333043c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/333043c)), closes [#6958](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6958)
+
+
+
+
+
+# [1.24.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.2...@carbon/ibmdotcom-react@1.24.0-rc.0) (2021-08-27)
+
+
+### Bug Fixes
+
+* **background-media:** add generate react wrapper comment ([#6993](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6993)) ([ff46fc1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ff46fc1))
+* **card:** pictogram theme colors and heading font style ([#6990](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6990)) ([da12df6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/da12df6)), closes [#6985](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6985) [#6959](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6959)
+* **card-in-card:** create react wrapper ([#6920](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6920)) ([9086cc5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9086cc5)), closes [#5339](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5339)
+* **content-item-horizontal:** create react wrapper ([#6903](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6903)) ([a600476](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a600476)), closes [#5338](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5338)
+* **tabs-extended-media:** add react wrapper ([#6919](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6919)) ([82f03b2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/82f03b2)), closes [#5395](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5395)
+* **VideoPlayer:** restrict lightbox variant autoplay to modal open state ([#6958](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6958)) ([183b66a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/183b66a)), closes [#6953](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6953)
+
+
+### Features
+
+* **card-group:** change same height util to apply to whole group instead of per row ([#6900](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6900)) ([24dc4c6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/24dc4c6))
+* **plex:** adding optional weights for non-latin dynamic loader ([#6909](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6909)) ([cff0050](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cff0050))
+
+
+
+# 1.12.0-beta.65.147 (2021-08-13)
+
+
+### Features
+
+* **videoPlayer:** introducing `playingMode` feature (pairing with wc version) ([#6832](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6832)) ([9e281de](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9e281de)), closes [#5266](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5266)
+
+
+## [1.23.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.3-rc.0...@carbon/ibmdotcom-react@1.23.3) (2021-09-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+## [1.23.3-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.2...@carbon/ibmdotcom-react@1.23.3-rc.0) (2021-09-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+## [1.23.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.2-rc.0...@carbon/ibmdotcom-react@1.23.2) (2021-08-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+## [1.23.2-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.1...@carbon/ibmdotcom-react@1.23.2-rc.0) (2021-08-25)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+## [1.23.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.1-rc.0...@carbon/ibmdotcom-react@1.23.1) (2021-08-19)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+## [1.23.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.0...@carbon/ibmdotcom-react@1.23.1-rc.0) (2021-08-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.23.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.0-rc.3...@carbon/ibmdotcom-react@1.23.0) (2021-08-16)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.23.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.0-rc.2...@carbon/ibmdotcom-react@1.23.0-rc.3) (2021-08-13)
+
+
+### Bug Fixes
+
+* **lightbox-media:** check for kaltura onClose ([#6885](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6885)) ([eaeb5e5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/eaeb5e5)), closes [#6884](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6884)
+
+
+
+
+
+# [1.23.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.0-rc.1...@carbon/ibmdotcom-react@1.23.0-rc.2) (2021-08-11)
+
+
+### Bug Fixes
+
+* **CTA:** allow onClick for buttonCTA to be passed ([#6863](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6863)) ([dac084a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/dac084a)), closes [#6844](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6844)
+
+
+
+
+
 # [1.23.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.23.0-rc.0...@carbon/ibmdotcom-react@1.23.0-rc.1) (2021-08-10)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react
