@@ -89,29 +89,3 @@ jobs:
       - name: Run percy-storybook
         run: yarn build-storybook && yarn percy-storybook --widths=320,1280
         working-directory: packages/web-components
-  carbon-expressive:
-    runs-on: ubuntu-20.04
-    strategy:
-      matrix:
-        node-version: ['14.x']
-    steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Install dependencies
-        run: yarn install
-      - name: Install xvfb
-        run: sudo apt-get install xvfb
-      - name: Build
-        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react --ignore @carbon/ibmdotcom-services-store --ignore @carbon/ibmdotcom-web-components build
-      - name: Set env vars
-        uses: ./.github/actions/set-dotenv
-        with:
-          env-file: packages/styles/.env
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_EXPRESSIVE }}
-      - name: Run percy-storybook
-        run: yarn visual-snapshot
-        working-directory: packages/styles
