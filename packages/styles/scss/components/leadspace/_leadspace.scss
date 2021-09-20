@@ -87,12 +87,6 @@ $btn-min-width: 26;
       }
     }
 
-    .#{$prefix}--leadspace__image {
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-    }
-
     .#{$prefix}--leadspace__container {
       position: relative;
       @include carbon--breakpoint(lg) {
@@ -473,6 +467,14 @@ $btn-min-width: 26;
     }
   }
 
+  :host-context(#{$dds-prefix}-leadspace[size='short']) {
+    @include carbon--breakpoint('lg') {
+      .#{$prefix}--image__img {
+        object-position: left top;
+      }
+    }
+  }
+
   :host(#{$dds-prefix}-leadspace)[size='medium'] {
     ::slotted(#{$dds-prefix}-leadspace-heading) {
       margin-bottom: $spacing-06;
@@ -517,6 +519,7 @@ $btn-min-width: 26;
 
       .#{$prefix}--image__img {
         object-fit: cover;
+        object-position: 50% 50%;
         display: block;
       }
     }
