@@ -129,7 +129,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   type = LEADSPACE_TYPE.LEFT;
 
   /**
-   *  Leadspace size (super, tall, or medium)
+   *  Leadspace size (super, tall, medium, or short.)
    */
   @property({ reflect: true })
   size = 'tall';
