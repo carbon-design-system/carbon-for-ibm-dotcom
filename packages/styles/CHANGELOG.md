@@ -3,6 +3,45 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.25.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.24.0...@carbon/ibmdotcom-styles@1.25.0-rc.0) (2021-09-17)
+
+
+### Bug Fixes
+
+* **callout-with-media:** update copy color ([#7127](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7127)) ([8687c97](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8687c97)), closes [#6319](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6319)
+* **card:** removes light background override from static card class ([#7006](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7006)) ([fb30986](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/fb30986))
+* **card-in-card:** fixed transition animation speed on card image ([#7098](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7098)) ([066f847](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/066f847))
+* **cloud-masthead:** address choppy transitions on mobile menu ([#7108](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7108)) ([c9d8baa](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c9d8baa))
+* **content-block-media:** add missing style import ([#7156](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7156)) ([b6f1b20](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b6f1b20))
+* **content-group-pictogram:** icon size fix and alignment ([#7086](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7086)) ([3321d9e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3321d9e))
+* **cta-block:** clean up spacing ([#7157](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7157)) ([cb235c7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cb235c7)), closes [#5779](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5779)
+* **feature-card:** ensure arrow stays at the bottom ([#7028](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7028)) ([018f58d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/018f58d)), closes [#6689](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6689)
+* **feature-card:** resolve styling issues ([#7149](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7149)) ([99775d1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/99775d1)), closes [#6424](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6424)
+* **feature-card:** updating color tokens ([#7118](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7118)) ([60eb023](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/60eb023)), closes [#6350](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6350)
+* **footer:** expressive sunset cleanup ([#7103](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7103)) ([4d54b7b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4d54b7b)), closes [#7094](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7094)
+* **locale-modal:** correct modal close button positioning ([#7080](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7080)) ([0a6e064](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0a6e064)), closes [#7079](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7079)
+* **Logo-grid:** changed the card heading style to expressive ([#7045](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7045)) ([56978ee](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/56978ee)), closes [#6211](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6211)
+* **masthead:** add missing divider line ([#7106](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7106)) ([f777499](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f777499))
+* **masthead:** expressive sunset cleanup ([#7100](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7100)) ([ac46dc5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ac46dc5)), closes [#7087](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7087)
+* **masthead:** left-nav back link alignment ([#7034](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7034)) ([3424d51](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3424d51)), closes [#6622](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6622)
+* **masthead:** remove aria-selected from menu items ([#7030](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7030)) ([dacbc19](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/dacbc19)), closes [#6888](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6888)
+* **masthead:** Wrap menu content when longer than the mobile or medium breakpoint ([#7126](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7126)) ([a6762e7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a6762e7)), closes [#3518](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3518) [#4003](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4003)
+* **table-of-contents:** added text color token to navigation icon ([#7027](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7027)) ([c16d86b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c16d86b)), closes [#5997](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5997)
+* **tabs-extended:** add word break ([#7019](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7019)) ([e185953](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e185953)), closes [#7011](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7011)
+* **video-player:** update `moderate-01` token references ([#7165](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7165)) ([30de28b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/30de28b)), closes [#7164](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7164)
+
+
+### Features
+
+* **expressive-theme:** sunset of the expressive theme ([#7012](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7012)) ([265f563](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/265f563))
+* **image:** support optional image borders ([#7035](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7035)) ([f5817f8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f5817f8)), closes [#6528](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6528)
+* **leadspace:** add short variation ([#7026](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7026)) ([a29c1af](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a29c1af)), closes [#6929](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6929)
+* **masthead:** Add a logic that highlights the current and parent menu items within the Masthead dropdown + Mega Menu based on the URL ([#6937](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6937)) ([24c9624](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/24c9624)), closes [#6638](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6638)
+
+
+
+
+
 # [1.24.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.24.0-rc.0...@carbon/ibmdotcom-styles@1.24.0) (2021-09-08)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

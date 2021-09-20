@@ -1,0 +1,113 @@
+name: Bug report 🐛
+description:
+  Something isn't working as expected? Here is the right place to report.
+title: '[YOUR TITLE]: Brief description'
+assignees:
+  - jeffchew,ljcarot,shixiedesign,RobertaJHahn,JBrandwine,andysherman2121,guilhermelMoraes
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: '## Bug report 🐛'
+  - type: markdown
+    attributes:
+      value: 'Use the form below to report any bugs you find. Feel free to leave blank any sections that aren’t relevant but try to include as much detail as possible. The more details we have, the faster we can respond.'
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: "What did you expect to happen? What happened instead?"
+    validations:
+      required: true
+  - type: textarea
+    id: components
+    attributes:
+      label: Component(s) impacted
+      description: "Component(s) impacted? Please include screenshots, or code and relevant URLs."
+    validations:
+      required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      description: "What browser(s) are you working in?"
+      multiple: true
+      options:
+        - Chrome
+        - Safari
+        - Firefox
+        - Microsoft Edge
+  - type: input
+    id: version
+    attributes:
+      label: Carbon for IBM.com version
+      description: "What version of Carbon for IBM.com are you using?"
+      placeholder: e.g. v1.24.0
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Business priority
+      options:
+        - 'High Priority = pressing release'
+        - 'Medium Priority = upcoming release but is not pressing'
+        - 'Low Priority = release date is not dependent on fix or not upcoming'
+    validations:
+      required: true
+  - type: input
+    id: application
+    attributes:
+      label: Application/website
+      description: "What application/website do you work on?"
+    validations:
+      required: true
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      description: Which package(s) are you using?
+      multiple: true
+      options:
+        - '@carbon/ibmdotcom-react'
+        - '@carbon/ibmdotcom-web-components'
+        - '@carbon/ibmdotcom-styles'
+        - '@carbon/ibmdotcom-services'
+        - '@carbon/ibmdotcom-utilities'
+    validations:
+      required: true
+  - type: input
+    id: example-url
+    attributes:
+      label: CodeSandbox example
+      description:
+        'Use our
+        [Web Components](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components)
+        or [React](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/react/examples/codesandbox/components)
+        codesandboxes to re-create the issue'
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: "Steps to reproduce the issue (if applicable)"
+  - type: textarea
+    id: release-date
+    attributes:
+      label: "Release date (if applicable)"
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: Please confirm the following
+      options:
+        - label:
+            I agree to follow this project's [Code of
+            Conduct](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/.github/CODE_OF_CONDUCT.md)
+          required: true
+        - label:
+            I checked the [current
+            issues](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues) for
+            duplicate issues

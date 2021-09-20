@@ -251,9 +251,9 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
       _handleClickLocaleButton: handleClickLocaleButton,
     } = this;
     return html`
-      <dds-footer size="${ifNonNull(size)}">
+      <dds-footer size="${ifNonNull(size)}" ?disable-locale-button="${ifNonNull(disableLocaleButton)}">
         <dds-footer-logo></dds-footer-logo>
-        <dds-footer-nav>
+        <dds-footer-nav ?disable-locale-button="${ifNonNull(disableLocaleButton)}">
           ${links?.map(
             ({ title: groupTitle, links: groupLinks }) => html`
               <dds-footer-nav-group title-text="${ifNonNull(groupTitle)}">

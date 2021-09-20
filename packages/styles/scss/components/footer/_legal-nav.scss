@@ -22,8 +22,6 @@
     ) {
       @include carbon--make-row;
 
-      border-top: 1px solid $ui-03;
-
       .#{$prefix}--footer:not(.#{$prefix}--footer--short) & {
         @include carbon--breakpoint-down($TEMP--breakpoint-down--md) {
           border-top: 0;
@@ -34,8 +32,15 @@
 
   .#{$prefix}--legal-nav__list {
     width: 100%;
-    padding: 0 0 $carbon--spacing-07 $carbon--spacing-05;
+    padding: 0 0 $spacing-09 $carbon--spacing-05;
 
+    @include carbon--breakpoint('md') {
+      border-top: 1px solid $ui-03;
+    }
+
+    @include carbon--breakpoint('lg') {
+      @include carbon--make-col-offset(4, 16);
+    }
     &.#{$prefix}--legal-nav__micro {
       @include carbon--theme(
         $carbon--theme--g90,
@@ -54,6 +59,7 @@
         @include carbon--breakpoint('lg') {
           justify-content: space-between;
           flex-direction: row;
+          margin-left: 0;
         }
 
         .#{$prefix}--legal-nav__holder {
@@ -75,6 +81,9 @@
           .#{$prefix}--legal-nav__list-item {
             margin-right: 0;
             padding-top: 0;
+            height: $spacing-09;
+            display: flex;
+            align-items: center;
 
             @include carbon--breakpoint('md') {
               margin-right: $carbon--spacing-07;
@@ -84,7 +93,6 @@
               display: flex;
               align-items: center;
               width: 100%;
-              height: $carbon--spacing-09;
             }
           }
         }
@@ -94,12 +102,13 @@
           margin: 0;
 
           @include carbon--breakpoint('md') {
-            align-self: center;
+            align-self: flex-end;
+            width: 50%;
             border-left: 1px solid $ui-03;
           }
 
           @include carbon--breakpoint('lg') {
-            margin: 0 (-$carbon--spacing-05) 0 0;
+            margin: 0;
           }
 
           .#{$prefix}--btn--secondary,
@@ -132,22 +141,23 @@
   }
 
   .#{$prefix}--legal-nav__holder {
+    padding-top: $spacing-03;
     margin-left: 0;
+    @include carbon--breakpoint-down('md') {
+      padding-top: $spacing-08;
+    }
     @include carbon--breakpoint('md') {
       column-count: 2;
     }
 
     @include carbon--breakpoint('lg') {
-      margin-left: 25%;
       column-count: 3;
-      padding-left: $carbon--spacing-02;
     }
   }
 
   .#{$prefix}--adjunct-links__holder {
     margin-left: 0;
-    padding: $carbon--spacing-03 $carbon--layout-04 $carbon--spacing-09
-      $carbon--spacing-05;
+    padding: 0 $carbon--layout-04 $carbon--spacing-09 $carbon--spacing-05;
     width: 100%;
 
     @include carbon--breakpoint('md') {
@@ -160,6 +170,7 @@
     }
 
     .#{$prefix}--legal-nav__list-item {
+      padding-top: 0;
       margin-right: 0;
     }
 
@@ -173,6 +184,7 @@
   .#{$prefix}--legal-nav__list-item {
     margin-right: carbon--mini-units(4);
     padding: $spacing-03 0 0 0;
+    @include carbon--type-style('body-long-01');
 
     &:last-child {
       margin-right: 0;
