@@ -151,16 +151,21 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         } else if (masthead) {
           masthead.style.marginRight = '0px';
         }
+
         /**
+         * Return focus to topMenuItem only when expanded explicitly equals false.
+         * On load, when expanded is undefined, avoid taking control of focus.
          * This is deliberately in a 0ms timeout to put the check at the end of
          * the event loop to avoid interrupting the browser's focus handoff.
          */
-        setTimeout(() => {
-          const { activeElement } = document;
-          if (activeElement === null || activeElement.tagName.toLowerCase() === 'body') {
-            this._topMenuItem.focus();
-          }
-        }, 0);
+        if (changedProperties.get('expanded') === false) {
+          setTimeout(() => {
+            const { activeElement } = document;
+            if (activeElement === null || activeElement.tagName.toLowerCase() === 'body') {
+              this._topMenuItem.focus();
+            }
+          }, 0);
+        }
       }
     }
   }
