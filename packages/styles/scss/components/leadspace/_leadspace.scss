@@ -514,8 +514,7 @@ $btn-min-width: 26;
       padding: 0;
       display: block;
 
-      .bx--image__img {
-        height: 100%;
+      .#{$prefix}--image__img {
         object-fit: cover;
         display: block;
       }
