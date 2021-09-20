@@ -111,7 +111,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   copy = '';
 
   /**
-   * The gradient style sceheme.
+   * The gradient style scheme.
    */
   @property({ reflect: true, attribute: 'gradient-style-scheme' })
   gradientStyleScheme = LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT;
@@ -129,7 +129,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   type = LEADSPACE_TYPE.LEFT;
 
   /**
-   *  Leadspace size (super, tall, medium, or short.)
+   *  Leadspace size (super, tall, medium, or short)
    */
   @property({ reflect: true })
   size = 'tall';
