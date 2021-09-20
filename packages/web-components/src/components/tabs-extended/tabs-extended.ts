@@ -41,7 +41,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   private _activeTab: number = 0;
 
   @internalProperty()
-  private _isLTR: boolean = false;
+  private _isLTR: boolean = true;
 
   /**
    * Handler for @slotChange, creates tabs from dds-tab components.
