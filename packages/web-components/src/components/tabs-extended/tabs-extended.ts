@@ -40,6 +40,9 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   @internalProperty()
   private _activeTab: number = 0;
 
+  @internalProperty()
+  private _isLTR: boolean = false;
+
   /**
    * Handler for @slotChange, creates tabs from dds-tab components.
    *
@@ -69,13 +72,21 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
 
   private _handleTabListKeyDown(event: KeyboardEvent) {
     const { key } = event;
-    const { _activeTab: activeTab, _tabItems: tabItems } = this;
+    const { _activeTab: activeTab, _tabItems: tabItems, _isLTR: isLTR } = this;
     switch (key) {
       case 'ArrowRight':
-        this._setActiveItem(this._getNextTab(activeTab));
+        if (isLTR) {
+          this._setActiveItem(this._getNextTab(activeTab));
+        } else {
+          this._setActiveItem(this._getPrevTab(activeTab));
+        }
         break;
       case 'ArrowLeft':
-        this._setActiveItem(this._getPrevTab(activeTab));
+        if (isLTR) {
+          this._setActiveItem(this._getPrevTab(activeTab));
+        } else {
+          this._setActiveItem(this._getNextTab(activeTab));
+        }
         break;
       case 'Home':
         this._setActiveItem(this._getNextTab(-1));
@@ -129,6 +140,8 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   }
 
   updated() {
+    this._isLTR = window.getComputedStyle(this).direction === 'ltr';
+
     this._tabItems.map((tab, index) => {
       (tab as DDSTab).selected = index === this._activeTab;
       (tab as DDSTab).setIndex(index);
