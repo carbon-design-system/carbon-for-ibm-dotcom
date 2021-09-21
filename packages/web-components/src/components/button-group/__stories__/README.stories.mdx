@@ -49,11 +49,19 @@ import 'carbon-web-components/es/icons/arrow--right/20.js';
 </dds-button-group>
 ```
 
-### @click example
+### click handler example for web components
 
 ```html
 <dds-button-group>
-  <dds-button-group-item @click=${myCustomClickHandler}></dds-button-group-item>
+  <dds-button-group-item @click=${this._handleClick}></dds-button-group-item>
+</dds-button-group>
+```
+
+### click handler example for HTML
+
+```html
+<dds-button-group>
+  <dds-button-group-item onclick="handleClick()"></dds-button-group-item>
 </dds-button-group>
 ```
 ## Props
