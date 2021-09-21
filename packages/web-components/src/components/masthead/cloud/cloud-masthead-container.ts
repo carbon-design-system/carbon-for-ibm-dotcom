@@ -28,7 +28,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 /**
  * The Redux state used for `<dds-cloud-masthead-container>`
  */
-export interface CloudMastheadContainerState extends MastheadContainerState {
+export interface CloudMastheadContainerState extends Omit<MastheadContainerState, 'profileAPI'> {
   /**
    * The Redux state for `CloudAccountAuthAPI`
    */
@@ -90,12 +90,12 @@ export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions | Transla
  */
 @customElement(`${ddsPrefix}-cloud-masthead-container`)
 class DDSCloudMastheadContainer extends ConnectMixin<
-  MastheadContainerState,
+  CloudMastheadContainerState,
   LocaleAPIActions | TranslateAPIActions | CloudAccountAuthAPIActions,
   MastheadContainerStateProps,
   ActionCreatorsMapObject<CloudMastheadContainerActions>
 >(
-  store as Store<MastheadContainerState, LocaleAPIActions | TranslateAPIActions | CloudAccountAuthAPIActions>,
+  store as Store<CloudMastheadContainerState, LocaleAPIActions | TranslateAPIActions | CloudAccountAuthAPIActions>,
   mapStateToProps,
   mapDispatchToProps
 )(DDSCloudMastheadComposite) {}
