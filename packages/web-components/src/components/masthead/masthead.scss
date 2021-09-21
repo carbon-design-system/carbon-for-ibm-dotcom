@@ -271,7 +271,6 @@
 :host(#{$dds-prefix}-top-nav-menu),
 :host(#{$dds-prefix}-megamenu-top-nav-menu),
 :host(#{$dds-prefix}-top-nav-menu-item),
-:host(#{$dds-prefix}-cloud-masthead-profile),
 :host(#{$dds-prefix}-masthead-profile-item) {
   .#{$prefix}--header__menu-arrow {
     fill: $text-01;
