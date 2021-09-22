@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.10.0-rc.0...@carbon/ibmdotcom-web-components@1.10.0-rc.1) (2021-09-22)
+
+
+### Bug Fixes
+
+* **left-nav:** calculate offsetTop to set top of left-nav ([#7215](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7215)) ([37ca44d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/37ca44d)), closes [#7211](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7211)
+
+
+
+
+
 # [1.10.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.9.0...@carbon/ibmdotcom-web-components@1.10.0-rc.0) (2021-09-17)
 
 
