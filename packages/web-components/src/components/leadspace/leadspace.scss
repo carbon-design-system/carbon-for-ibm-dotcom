@@ -6,7 +6,8 @@
 //
 
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/components/leadspace/leadspace';
+// @import '@carbon/ibmdotcom-styles/scss/components/leadspace/leadspace';
+@import '../../../../styles/scss/components/leadspace/leadspace';
 @import 'carbon-web-components/scss/components/breadcrumb/breadcrumb';
 
 :host(#{$dds-prefix}-leadspace) {
