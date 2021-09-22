@@ -6,7 +6,7 @@
  */
 
 import ContentBlock from '../../internal/components/ContentBlock/ContentBlock';
-import ContentGroup from '../../internal/components/ContentGroup/ContentGroup';
+import ContentGroup from '../ContentGroup/ContentGroup';
 import ContentItem from '../../internal/components/ContentItem/ContentItem';
 import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';

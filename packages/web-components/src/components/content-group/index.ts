@@ -11,3 +11,4 @@ import './content-group';
 import './content-group-copy';
 import './content-group-heading';
 import './content-group-paragraph';
+import '../cta/index';

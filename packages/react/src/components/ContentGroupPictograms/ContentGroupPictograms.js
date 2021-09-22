@@ -6,7 +6,7 @@
  */
 
 import classNames from 'classnames';
-import ContentGroup from '../../internal/components/ContentGroup/ContentGroup';
+import ContentGroup from '../ContentGroup/ContentGroup';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { PictogramItem } from '../PictogramItem';
 import PropTypes from 'prop-types';

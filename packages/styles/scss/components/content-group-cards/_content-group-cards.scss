@@ -16,6 +16,15 @@
 @mixin content-group-cards {
   :host(#{$dds-prefix}-content-group-cards),
   .#{$prefix}--content-group-cards {
+    ::slotted([slot='copy']),
+    .#{$prefix}--content-group__copy {
+      margin-bottom: $spacing-09;
+
+      @include carbon--breakpoint('md') {
+        margin-bottom: $spacing-10;
+      }
+    }
+
     @include themed-items;
   }
 
