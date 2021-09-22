@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,6 +25,18 @@ class DDSLeftNavOverlay extends LitElement {
    */
   @property({ type: Boolean, reflect: true })
   active = false;
+
+  updated(changedProperties) {
+    super.updated(changedProperties);
+    if (changedProperties.has('active')) {
+      const doc = this.getRootNode() as Document;
+      if (this.active) {
+        const masthead: HTMLElement | null = doc?.querySelector('dds-masthead');
+        const mastheadTopOffset = masthead?.offsetTop;
+        this.style.top = `${mastheadTopOffset}px`;
+      }
+    }
+  }
 
   render() {
     return html`
