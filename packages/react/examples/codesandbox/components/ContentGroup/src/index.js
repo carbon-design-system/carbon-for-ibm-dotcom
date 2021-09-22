@@ -10,7 +10,7 @@ import './styles.scss';
 import React from 'react';
 import ReactDom from 'react-dom';
 
-import { ContentGroup } from '@carbon/ibmdotcom-react';
+import { ContentGroup } from '@carbon/ibmdotcom-react/es/components/ContentGroup';
 
 const App = () => (
   <div className="bx--grid">
@@ -20,8 +20,12 @@ const App = () => (
           heading='Lorem ipsum dolor sit amet.'
           copy='copy text'
           cta={{
-            title: 'Lorem ipsum dolor sit amet',
-            href: 'https://www.example.com'
+            cta: {
+              href: 'https://www.example.com',
+            },
+            style: 'card',
+            type: 'local',
+            heading: 'CTA heading',
           }}
         />
       </div>
