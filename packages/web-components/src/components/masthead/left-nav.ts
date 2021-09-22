@@ -136,6 +136,12 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       if (expanded) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [startSentinelNode, endSentinelNode]);
         doc.body.style.overflow = `hidden`;
+
+        // TODO: remove this logic once masthead can account for banners.
+        // calculate top offset to display left-nav correctly when page has banner above masthead
+        const masthead: HTMLElement | null = doc?.querySelector('dds-masthead');
+        const mastheadTopOffset = masthead?.offsetTop;
+        this.style.top = `${mastheadTopOffset}px`;
       } else {
         const { selectorMenuSections, selectorFirstMenuSection } = this.constructor as typeof DDSLeftNav;
         doc.body.style.overflow = `auto`;
