@@ -95,6 +95,13 @@ const cardGroupItemWithVideos = html`
   </dds-card-group-item>
 `;
 
+const cardGroupItemWithNoVideoPoster = html`
+  <dds-card-group-item cta-type="video" href="1_9h94wo6b" no-poster>
+    <dds-card-eyebrow>No Video Poster</dds-card-eyebrow>
+    <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b"> </dds-card-cta-footer>
+  </dds-card-group-item>
+`;
+
 const cardGroupItemWithCTAs = html`
   <dds-card-group-item href="https://example.com">
     <dds-card-eyebrow>Label</dds-card-eyebrow>
@@ -249,7 +256,7 @@ export const withMixedMedia = ({ parameters }) => {
   return html`
     <dds-video-cta-container class="${classes}">
       <dds-card-group cards-per-row="${colCount}" class="${classes}">
-        ${cards}
+        ${cards} ${cardGroupItemWithNoVideoPoster}
       </dds-card-group>
     </dds-video-cta-container>
   `;
@@ -266,7 +273,7 @@ withMixedMedia.story = {
       CardGroup: ({ groupId }) => ({
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
-        }).map((_, index) => (index % 2 ? cardGroupItemWithImages : cardGroupItemWithVideos)),
+        }).map((_, index) => (index % 3 ? cardGroupItemWithImages : cardGroupItemWithVideos)),
         cardsPerRow: select('Number of cards per row (cards-per-row):', cardsCol, cardsCol['3 cards per row (Default)'], groupId),
       }),
     },
