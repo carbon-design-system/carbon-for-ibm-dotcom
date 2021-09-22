@@ -437,6 +437,15 @@ $btn-min-width: 26;
   }
 
   :host(#{$dds-prefix}-leadspace)[size='tall'],
+  :host(#{$dds-prefix}-leadspace)[size='super'] {
+    ::slotted(#{$dds-prefix}-leadspace-heading) {
+      @include carbon--breakpoint('lg') {
+        margin-bottom: $spacing-12;
+      }
+    }
+  }
+
+  :host(#{$dds-prefix}-leadspace)[size='tall'],
   :host(#{$dds-prefix}-leadspace)[size] {
     .#{$prefix}--leadspace__section {
       height: auto;
