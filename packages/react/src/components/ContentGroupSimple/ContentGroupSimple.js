@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ContentGroup from '../../internal/components/ContentGroup/ContentGroup';
+import ContentGroup from '../ContentGroup/ContentGroup';
 import ContentItem from '../../internal/components/ContentItem/ContentItem';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { ImageWithCaption } from '../ImageWithCaption';
