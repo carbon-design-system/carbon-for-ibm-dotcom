@@ -7,7 +7,7 @@
 
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { Card } from '../Card';
-import ContentGroup from '../../internal/components/ContentGroup/ContentGroup';
+import ContentGroup from '../ContentGroup/ContentGroup';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';

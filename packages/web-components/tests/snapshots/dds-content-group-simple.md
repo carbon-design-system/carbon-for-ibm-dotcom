@@ -35,10 +35,7 @@
 <div class="bx--content-layout">
   <slot name="heading">
   </slot>
-  <div
-    class="bx--content-layout__body"
-    hidden=""
-  >
+  <div class="bx--content-layout__body">
     <slot name="copy">
     </slot>
     <slot name="media">
