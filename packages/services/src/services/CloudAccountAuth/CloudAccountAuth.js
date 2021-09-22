@@ -50,7 +50,7 @@ class CloudAccountAuthAPI {
         },
       })
       .then(response => {
-        return response.ok ? 'authenticated' : 'anonymous';
+        return response.status === 200 ? 'authenticated' : 'anonymous';
       })
       .catch(error => {
         console.error(error);
