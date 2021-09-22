@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement } from 'lit-element';
+import { html, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
@@ -24,6 +24,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-left-nav-name`)
 class DDSLeftNavName extends BXHeaderName {
+  /**
+   * Set aria-hidden property.
+   */
+  @property({ type: String, attribute: 'slot', reflect: true })
+  slot = 'platform-id';
+
   render() {
     const { href, prefix: namePrefix } = this;
     const namePrefixPart = !namePrefix
