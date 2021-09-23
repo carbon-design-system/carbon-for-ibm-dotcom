@@ -1,5 +1,12 @@
 # Breaking changes
 
+## v1.26.0
+
+### Deprecation warning
+
+- Due to low usage, and the availability of more rapid full releases, we are
+  discontinuing bi-weekly beta releases of Carbon for IBM.com.
+
 ## v1.23.0
 
 ### Deprecation warning
