@@ -170,6 +170,10 @@
       color: $text-01;
     }
 
+    &:hover {
+      background-color: $hover-ui;
+    }
+
     &:focus {
       outline: carbon--rem(2px) solid $focus;
       outline-offset: carbon--rem(-2px);

@@ -21,6 +21,3 @@
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
-:host(#{$dds-prefix}-content-item) ::slotted(#{$dds-prefix}-video-player-container) {
-  margin-top: 0;
-}

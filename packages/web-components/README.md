@@ -236,7 +236,7 @@ For example, the following adds Carbon reset and necessary Plex fonts to the pag
 
 #### Versioned Bundles
 
-The CDN packages are available by NPM tags `latest` (full releases), `next` (latest release candidate), and `beta` (bi-weekly releases), as well as specific versions. The URL pattern for import would be:
+The CDN packages are available by NPM tags `latest` (full releases), `next` (latest release candidate), and specific versions. The URL pattern for import would be:
 
 ```html
 <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/[VERSION]/dotcom-shell.min.js"></script>
@@ -258,9 +258,6 @@ A tag release would be called as:
 
 <!-- NEXT -->
 <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/next/dotcom-shell.min.js"></script>
-
-<!-- BETA -->
-<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/beta/dotcom-shell.min.js"></script>
 ```
 
 A specific release would be called as:
@@ -270,7 +267,7 @@ A specific release would be called as:
 <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.x.y/dotcom-shell.min.js"></script>
 ```
 
-> NOTE: The latest/next/beta tags are moving versions. While beneficial to
+> NOTE: The latest/next tags are moving versions. While beneficial to
 > always stay on the most recent version, it is recommended to choose a specific
 > version and properly test your application when upgrading to a newer version.
 
