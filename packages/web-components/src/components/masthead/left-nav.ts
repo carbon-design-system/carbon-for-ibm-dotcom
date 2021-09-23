@@ -141,7 +141,9 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
         // calculate top offset to display left-nav correctly when page has banner above masthead
         const masthead: HTMLElement | null = doc?.querySelector('dds-cloud-masthead-container');
         const mastheadTopOffset = masthead?.offsetTop;
-        this.style.top = `${mastheadTopOffset}px`;
+        if (mastheadTopOffset) {
+          this.style.top = `${mastheadTopOffset}px`;
+        }
       } else {
         const { selectorMenuSections, selectorFirstMenuSection } = this.constructor as typeof DDSLeftNav;
         doc.body.style.overflow = `auto`;

@@ -34,7 +34,9 @@ class DDSLeftNavOverlay extends LitElement {
         // TODO: remove when masthead can account for banners above
         const masthead: HTMLElement | null = doc?.querySelector('dds-cloud-masthead-container');
         const mastheadTopOffset = masthead?.offsetTop;
-        this.style.top = `${mastheadTopOffset}px`;
+        if (mastheadTopOffset) {
+          this.style.top = `${mastheadTopOffset}px`;
+        }
       }
     }
   }
