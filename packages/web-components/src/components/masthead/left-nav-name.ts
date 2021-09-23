@@ -13,6 +13,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import BXHeaderName from 'carbon-web-components/es/components/ui-shell/header-name.js';
 import styles from './masthead.scss';
+import DDSLeftNav from './left-nav';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -28,7 +29,14 @@ class DDSLeftNavName extends BXHeaderName {
    * Set aria-hidden property.
    */
   @property({ type: String, attribute: 'slot', reflect: true })
-  slot = 'platform-id';
+  slot = '';
+
+  connectedCallback() {
+    super.connectedCallback();
+    if (this.parentElement instanceof DDSLeftNav) {
+      this.slot = 'platform-id';
+    }
+  }
 
   render() {
     const { href, prefix: namePrefix } = this;
