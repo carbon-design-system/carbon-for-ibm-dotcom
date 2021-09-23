@@ -139,7 +139,7 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
 
         // TODO: remove this logic once masthead can account for banners.
         // calculate top offset to display left-nav correctly when page has banner above masthead
-        const masthead: HTMLElement | null = doc?.querySelector('dds-masthead');
+        const masthead: HTMLElement | null = doc?.querySelector('dds-cloud-masthead-container');
         const mastheadTopOffset = masthead?.offsetTop;
         this.style.top = `${mastheadTopOffset}px`;
       } else {
