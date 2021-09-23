@@ -152,7 +152,7 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   updated(changedProperties) {
     if (changedProperties.has('expanded')) {
       const { selectorNavMenu, selectorNavItem } = this.constructor as typeof DDSLeftNavMenuSection;
-      const { expanded, isSubmenu, sectionId } = this;
+      const { expanded, isSubmenu } = this;
 
       if (expanded) {
         if (isSubmenu) {
@@ -194,8 +194,6 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
           );
         }
       } else {
-        console.log(`Contracting ${sectionId}`);
-
         forEach(this.querySelectorAll(selectorNavMenu), elem => {
           const item = (elem as HTMLElement).shadowRoot?.querySelector('button');
           if (item) {
