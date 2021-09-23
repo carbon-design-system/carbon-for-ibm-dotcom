@@ -23,42 +23,42 @@ window.digitalData = {
 };
 
 const l1Data = {
-  title: "Stock Charts",
-  url: "https://example.com",
+  title: 'Stock Charts',
+  url: 'https://example.com',
   menuItems: [
     {
-      title: "Lorem ipsum dolor sit amet",
-      titleEnglish: "Lorem ipsum dolor sit amet",
-      url: "",
+      title: 'Lorem ipsum dolor sit amet',
+      titleEnglish: 'Lorem ipsum dolor sit amet',
+      url: '',
       hasMenu: true,
       hasMegapanel: false,
       menuSections: [
         {
-          heading: "Explore",
+          heading: 'Explore',
           menuItems: [
             {
-              title: "Link 1",
-              url: "https://www.example.com"
+              title: 'Link 1',
+              url: 'https://www.example.com',
             },
             {
-              title: "Menu dropdown item with extra long text",
-              url: "https://www.example.com"
-            }
-          ]
-        }
-      ]
+              title: 'Menu dropdown item with extra long text',
+              url: 'https://www.example.com',
+            },
+          ],
+        },
+      ],
     },
     {
-      title: "Link 2",
-      titleEnglish: "Link 2",
-      url: "https://example.com"
+      title: 'Link 2',
+      titleEnglish: 'Link 2',
+      url: 'https://example.com',
     },
     {
-      title: "Link 3",
-      titleEnglish: "Link 3",
-      url: "https://example.com"
-    }
-  ]
+      title: 'Link 3',
+      titleEnglish: 'Link 3',
+      url: 'https://example.com',
+    },
+  ],
 };
 
-document.querySelector("dds-masthead-composite").l1Data = l1Data;
+document.querySelector('dds-masthead-composite').l1Data = l1Data;
