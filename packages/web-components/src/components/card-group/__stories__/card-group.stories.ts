@@ -95,13 +95,6 @@ const cardGroupItemWithVideos = html`
   </dds-card-group-item>
 `;
 
-const cardGroupItemWithNoVideoPoster = html`
-  <dds-card-group-item cta-type="video" href="1_9h94wo6b" no-poster>
-    <dds-card-eyebrow>No Video Poster</dds-card-eyebrow>
-    <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b"> </dds-card-cta-footer>
-  </dds-card-group-item>
-`;
-
 const cardGroupItemWithCTAs = html`
   <dds-card-group-item href="https://example.com">
     <dds-card-eyebrow>Label</dds-card-eyebrow>
@@ -256,7 +249,7 @@ export const withMixedMedia = ({ parameters }) => {
   return html`
     <dds-video-cta-container class="${classes}">
       <dds-card-group cards-per-row="${colCount}" class="${classes}">
-        ${cards} ${cardGroupItemWithNoVideoPoster}
+        ${cards}
       </dds-card-group>
     </dds-video-cta-container>
   `;
