@@ -9,6 +9,8 @@
 @import '../../globals/imports';
 @import '../../globals/utils/content-width';
 @import '../../components/list/list';
+@import '../../components/link-with-icon/link-with-icon';
+@import '../../components/buttongroup/buttongroup';
 
 @mixin content-item {
   .#{$prefix}--content-item--inverse {

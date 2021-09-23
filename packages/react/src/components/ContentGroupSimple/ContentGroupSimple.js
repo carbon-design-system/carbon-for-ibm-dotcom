@@ -6,7 +6,7 @@
  */
 
 import ContentGroup from '../ContentGroup/ContentGroup';
-import ContentItem from '../../internal/components/ContentItem/ContentItem';
+import ContentItem from '../ContentItem/ContentItem';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { ImageWithCaption } from '../ImageWithCaption';
 import PropTypes from 'prop-types';
