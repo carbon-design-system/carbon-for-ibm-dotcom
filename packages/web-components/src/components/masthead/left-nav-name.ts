@@ -26,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-left-nav-name`)
 class DDSLeftNavName extends BXHeaderName {
   /**
-   * Set aria-hidden property.
+   * Set slot name property.
    */
   @property({ type: String, attribute: 'slot', reflect: true })
   slot = '';
