@@ -50,9 +50,9 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
   }
 
   protected _renderImage() {
-    const { ctaType, videoName, videoThumbnailUrl, _hasImage: hasImage } = this;
+    const { ctaType, videoName, videoThumbnailUrl, _hasImage: hasImage, noPoster } = this;
     const thumbnail =
-      hasImage || ctaType !== CTA_TYPE.VIDEO
+      hasImage || ctaType !== CTA_TYPE.VIDEO || noPoster
         ? undefined
         : html`
             <dds-card-cta-image alt="${ifNonNull(videoName)}" default-src="${ifNonNull(videoThumbnailUrl)}">
@@ -107,6 +107,12 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
    */
   @property({ attribute: 'video-thumbnail-url' })
   videoThumbnailUrl?: string;
+
+  /**
+   * Set `true` if Poster Video Image should not be shown.
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'no-poster' })
+  noPoster = false;
 
   updated(changedProperties) {
     super.updated(changedProperties);
