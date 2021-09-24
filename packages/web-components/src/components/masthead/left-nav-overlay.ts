@@ -26,18 +26,6 @@ class DDSLeftNavOverlay extends LitElement {
   @property({ type: Boolean, reflect: true })
   active = false;
 
-  updated(changedProperties) {
-    super.updated(changedProperties);
-    if (changedProperties.has('active')) {
-      const doc = this.getRootNode() as Document;
-      if (this.active) {
-        const masthead: HTMLElement | null = doc?.querySelector('dds-masthead');
-        const mastheadTopOffset = masthead?.offsetTop;
-        this.style.top = `${mastheadTopOffset}px`;
-      }
-    }
-  }
-
   render() {
     return html`
       <slot></slot>
