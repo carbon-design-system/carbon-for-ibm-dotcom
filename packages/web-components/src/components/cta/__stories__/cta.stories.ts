@@ -22,7 +22,7 @@ import Download20 from 'carbon-web-components/es/icons/download/20.js';
 import Launch20 from 'carbon-web-components/es/icons/launch/20.js';
 import PlayOutline20 from 'carbon-web-components/es/icons/play--outline/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { select } from '@storybook/addon-knobs';
+import { select, boolean } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports
 import { CTA_TYPE } from '../defs';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
@@ -166,8 +166,18 @@ Button.story = {
 };
 
 export const Card = ({ parameters }) => {
-  const { copy, footerCopy, ctaType, download, href, footerHref, customVideoTitle, customVideoDescription, footerDownload } =
-    parameters?.props?.CardCTA ?? {};
+  const {
+    copy,
+    footerCopy,
+    ctaType,
+    download,
+    href,
+    footerHref,
+    customVideoTitle,
+    customVideoDescription,
+    footerDownload,
+    noPoster,
+  } = parameters?.props?.CardCTA ?? {};
   return html`
     <dds-card-cta
       cta-type="${ifNonNull(ctaType)}"
@@ -175,6 +185,7 @@ export const Card = ({ parameters }) => {
       video-description="${ifNonNull(customVideoDescription)}"
       download="${ifNonNull(download)}"
       href="${ifNonNull(href)}"
+      ?no-poster=${noPoster}
     >
       ${ctaType !== 'video' ? copy : ''}
       <dds-card-cta-footer
@@ -199,6 +210,7 @@ Card.story = {
     knobs: {
       CardCTA: ({ groupId }) => {
         const { ctaType } = Text.story.parameters.knobs.TextCTA({ groupId: groupId.replace(/Footer$/, '') });
+        const noPoster = ctaType === CTA_TYPE.VIDEO ? boolean('No Video Poster', false, groupId) : null;
         return {
           ...Text.story.parameters.knobs.TextCTA({ groupId }),
           footerCopy: textNullable('Footer copy text', '', groupId),
@@ -207,6 +219,7 @@ Card.story = {
             hrefsForType[ctaType ?? CTA_TYPE.REGULAR],
             groupId
           ),
+          noPoster,
           download:
             ctaType !== CTA_TYPE.DOWNLOAD
               ? undefined
