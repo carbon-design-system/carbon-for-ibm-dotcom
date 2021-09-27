@@ -458,8 +458,12 @@ $btn-min-width: 26;
 
   :host(#{$dds-prefix}-leadspace)[size='short'] {
     ::slotted(#{$dds-prefix}-leadspace-heading) {
-      margin-bottom: $spacing-10;
+      margin-bottom: $spacing-07;
       @include carbon--type-style(expressive-heading-06, true);
+
+      @include carbon--breakpoint('lg') {
+        margin-bottom: $spacing-10;
+      }
     }
 
     .#{$prefix}--leadspace__section {
