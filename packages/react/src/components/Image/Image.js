@@ -46,6 +46,7 @@ const Image = ({
   alt,
   longDescription,
   icon: Icon,
+  border,
 }) => {
   if (!defaultSrc || !alt) {
     return null;
@@ -53,6 +54,9 @@ const Image = ({
 
   const sortedImages = sources ? sortSources(sources) : [];
   const id = uniqueid(`${prefix}--image-`);
+  const imageClasses = classnames(`${prefix}--image__img`, classname, {
+    [`${prefix}--image__img--border`]: border,
+  });
   return (
     <div
       className={`${prefix}--image`}
@@ -68,7 +72,7 @@ const Image = ({
           );
         })}
         <img
-          className={classnames(`${prefix}--image__img`, classname)}
+          className={imageClasses}
           src={defaultSrc}
           alt={alt}
           aria-describedby={longDescription ? `${id}` : undefined}
@@ -124,6 +128,11 @@ Image.propTypes = {
    * Icon that overlays the image
    */
   icon: PropTypes.func,
+
+  /**
+   * Option to apply a solid border around the image
+   */
+  border: PropTypes.bool,
 };
 
 export default Image;
