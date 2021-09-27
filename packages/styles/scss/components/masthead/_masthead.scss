@@ -697,6 +697,14 @@ $search-transition-timing: 95ms;
       display: block;
     }
   }
+
+  @media print {
+  
+    :host(#{$dds-prefix}-masthead),
+    .#{$prefix}--masthead {
+      display: none;
+    }
+  }
 }
 
 @include exports('masthead') {

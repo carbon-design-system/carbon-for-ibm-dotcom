@@ -169,6 +169,13 @@
     margin-left: 0;
     margin-right: 0;
   }
+
+  @media print {
+    :host(#{$dds-prefix}-footer),
+    .#{$prefix}--footer {
+      display: none;
+    }
+  }
 }
 
 @include exports('footer') {

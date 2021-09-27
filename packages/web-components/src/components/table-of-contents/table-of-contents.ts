@@ -587,6 +587,28 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
     });
 
     return html`
+      ${this.layout === 'horizontal'
+        ? html`
+          <ul class="${prefix}--toc__print-styles">
+            ${targets.map(item => {
+              const name = item.getAttribute('name');
+              const title = (item.dataset.title ?? item.textContent ?? '').trim();
+              const selected = item === currentTarget;
+              const itemClasses = classMap({
+                [`${prefix}--tableofcontents__desktop__item`]: true,
+                [`${prefix}--tableofcontents__desktop__item--active`]: selected,
+              });
+              return html`
+                <li class="${itemClasses}" @click="${handleClickItem}" @keydown="${handleOnKeyDown}">
+                  <a aria-current="${ifDefined(!selected ? undefined : 'location')}" data-target="${name}" href="#${name}">
+                    ${title}
+                  </a>
+                </li>
+              `;
+            })}
+          </ul>
+          `
+      : ``}
       <div class="${containerClasses}">
         <div
           part="table"
