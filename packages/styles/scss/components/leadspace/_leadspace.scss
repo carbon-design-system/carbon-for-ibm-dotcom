@@ -215,7 +215,7 @@ $btn-min-width: 26;
       ::slotted(#{$dds-prefix}-button-group),
       .#{$prefix}--buttongroup {
         padding-top: 0;
-        padding-bottom: calc(#{$spacing-06} + #{$spacing-07});
+        padding-bottom: calc(#{$layout-06} + #{$layout-07});
       }
 
       &.#{$prefix}--leadspace__section {
