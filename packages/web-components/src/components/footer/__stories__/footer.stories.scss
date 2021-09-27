@@ -9,9 +9,8 @@
 dds-footer-container {
   &[size='short'],
   &[size='micro'] {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    display: inherit;
+    display: flex;
+    align-items: center;
+    min-height: 100%;
   }
 }
