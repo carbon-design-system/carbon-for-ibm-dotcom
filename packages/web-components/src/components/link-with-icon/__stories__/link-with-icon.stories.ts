@@ -19,7 +19,15 @@ import { ICON_PLACEMENT } from '../link-with-icon';
 export const Default = ({ parameters }) => {
   const { children, disabled, href, onClick, iconPlacement } = parameters?.props?.LinkWithIcon ?? {};
   return html`
-    <dds-link-with-icon icon-placement="${iconPlacement}" ?disabled="${disabled}" href="${ifNonNull(href)}" @click="${onClick}">
+    <dds-link-with-icon icon-placement="${iconPlacement}" ?disabled="${disabled}" href="${ifNonNull(href)}" @click="${onClick}"
+    data-experimentid="12345"
+    data-dynamic-content="true"
+    data-driverintent="interactive"
+    data-driverformat="CF603"
+    data-driversource="target"
+    data-driverlocation="dds-leadspace__cta-0"
+    data-drivertype="TY702"
+  >
       ${children}${ArrowRight20({ slot: 'icon' })}
     </dds-link-with-icon>
   `;
