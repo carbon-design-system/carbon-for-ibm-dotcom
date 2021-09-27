@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,13 +27,11 @@ const sortSources = sources => {
   const images = sources.map(elem => {
     if (typeof elem.breakpoint == 'number') {
       return elem;
-    } else {
-      return {
-        breakpoint:
-          parseFloat(breakpoints[elem.breakpoint].width) * baseFontSize,
-        src: elem.src,
-      };
     }
+    return {
+      breakpoint: parseFloat(breakpoints[elem.breakpoint].width) * baseFontSize,
+      src: elem.src,
+    };
   });
   return images.sort((a, b) => (a.breakpoint > b.breakpoint ? -1 : 1));
 };
