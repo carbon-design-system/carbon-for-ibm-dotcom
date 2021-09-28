@@ -59,7 +59,7 @@ export default {
   title: 'Components/Content item',
   decorators: [
     story => html`
-      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
+      <div class="bx--grid" style="width: 100%">
         <div class="bx--row">
           <div class="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-4">
             <dds-video-container>
