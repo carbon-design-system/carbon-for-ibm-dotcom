@@ -92,20 +92,30 @@ const Footer = ({
       })}>
       <section className={`${prefix}--footer__main`}>
         <div className={`${prefix}--footer__main-container`}>
-          {type !== 'micro' && <FooterLogo />}
+          <div
+            className={classNames(`${prefix}--footer__logo-container`, {
+              [`${prefix}--footer__locale-button--disabled`]: disableLocaleButton,
+            })}>
+            <div className={`${prefix}--footer__logo-row`}>
+              {type !== 'micro' && <FooterLogo />}
+              {type !== 'micro' &&
+                _loadLocaleLanguage(
+                  disableLocaleButton,
+                  displayLang,
+                  languageOnly,
+                  labelText,
+                  languageItems,
+                  languageInitialItem,
+                  languageCallback
+                )}
+            </div>
+          </div>
           {(type === 'default' || type === undefined) && (
-            <FooterNav groups={footerMenuData} />
+            <FooterNav
+              groups={footerMenuData}
+              disableLocaleButton={disableLocaleButton}
+            />
           )}
-          {type !== 'micro' &&
-            _loadLocaleLanguage(
-              disableLocaleButton,
-              displayLang,
-              languageOnly,
-              labelText,
-              languageItems,
-              languageInitialItem,
-              languageCallback
-            )}
         </div>
       </section>
       <LegalNav

@@ -110,9 +110,9 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
    * @returns The non-header, non-complementary contents.
    */
   protected _renderBody(): TemplateResult | string | void {
-    const { _hasContent: hasContent, _hasCopy: hasCopy, _hasMedia: hasMedia } = this;
+    const { _hasContent: hasContent, _hasCopy: hasCopy, _hasMedia: hasMedia, _hasFooter: hasFooter } = this;
     return html`
-      <div ?hidden="${!hasContent && !hasCopy && !hasMedia}" class="${prefix}--content-layout__body">
+      <div ?hidden="${!hasContent && !hasCopy && !hasMedia && !hasFooter}" class="${prefix}--content-layout__body">
         ${this._renderCopy()}${this._renderInnerBody()}${this._renderFooter()}
       </div>
     `;

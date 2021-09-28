@@ -37,6 +37,11 @@
       margin-right: 0;
       @include carbon--make-row;
       .#{$prefix}--adjunct-links__col {
+        ::slotted(#{$dds-prefix}-legal-nav-item) {
+          padding-top: 0;
+          padding-bottom: $spacing-03;
+        }
+
         @include carbon--make-col(4, 4);
         @include carbon--breakpoint('md') {
           @include carbon--make-col(4, 8);
@@ -76,6 +81,18 @@
   display: block;
 }
 
+:host(#{$dds-prefix}-footer-nav-group) {
+  .#{$prefix}--accordion__heading {
+    border-top: 1px solid $ui-03;
+  }
+
+  &:last-child {
+    .#{$prefix}--accordion__heading {
+      border-bottom: 1px solid $ui-03;
+    }
+  }
+}
+
 :host(#{$dds-prefix}-locale-button) {
   outline: none;
 
@@ -85,28 +102,47 @@
   }
 }
 
+:host(#{$dds-prefix}-footer) {
+  ::slotted(#{$dds-prefix}-language-selector-mobile) {
+    margin-top: $spacing-09;
+
+    @include carbon--breakpoint('md') {
+      margin-top: 0;
+      @include carbon--make-col(4, 8);
+      @include carbon--make-col-offset(2, 8);
+    }
+
+    @include carbon--breakpoint('lg') {
+      display: none;
+    }
+  }
+
+  ::slotted(#{$dds-prefix}-language-selector-desktop) {
+    @include carbon--breakpoint('lg') {
+      @include carbon--make-col(4, 16);
+      @include carbon--make-col-offset(10, 16);
+    }
+  }
+}
+
 :host(#{$dds-prefix}-footer[size='short']) {
   ::slotted(#{$dds-prefix}-language-selector-desktop) {
     margin-top: 0;
 
     @include carbon--breakpoint('lg') {
-      flex: 0 0 25%;
-      margin-left: 62.5%;
-    }
-
-    @include carbon--breakpoint('max') {
-      flex: 0 0 18.75%;
-      margin-left: 68.75%;
+      @include carbon--make-col(4, 16);
+      @include carbon--make-col-offset(10, 16);
     }
   }
 
   ::slotted(#{$dds-prefix}-language-selector-mobile) {
     display: block;
-    margin-top: 0;
+    margin-top: $spacing-09;
 
     @include carbon--breakpoint('md') {
-      position: absolute;
-      right: 1rem;
+      margin-top: 0;
+      @include carbon--make-col(4, 8);
+      @include carbon--make-col-offset(2, 8);
     }
 
     @include carbon--breakpoint('lg') {
@@ -119,13 +155,18 @@
 // FIXME: Once the style is stabilized, change the markup of React, too, so we can share the style
 :host(#{$dds-prefix}-legal-nav):not([size='micro']) {
   .#{$prefix}--legal-nav__list {
+    padding-top: $spacing-03;
+    @include carbon--breakpoint-down('md') {
+      padding-top: $spacing-08;
+      padding-bottom: $spacing-08;
+    }
     @include carbon--breakpoint('lg') {
-      margin-left: 25%;
+      @include carbon--make-col-offset(4, 16);
     }
 
     > ul {
       width: 100%;
-
+      padding-right: $spacing-05;
       @include carbon--breakpoint('md') {
         display: block;
         column-count: 2;
@@ -186,13 +227,14 @@
 
 :host(#{$dds-prefix}-locale-button[size='micro']) {
   margin: 0;
+  flex-shrink: 1;
+  padding: 0;
 
   @include carbon--breakpoint('md') {
     margin-left: 50%;
   }
   @include carbon--breakpoint('lg') {
     margin-left: 0;
-    margin-right: $carbon--spacing-05;
   }
 
   .#{$prefix}--btn {
@@ -204,10 +246,11 @@
     max-width: 100%;
   }
 
-  .#{$prefix}--btn--secondary {
+  .#{$prefix}--btn--tertiary {
     background-color: $ui-background;
     margin: 0;
-
+    border: none;
+    @include carbon--type-style('body-short-01');
     @include carbon--breakpoint('md') {
       align-self: flex-end;
       border-left: 1px solid $ui-03;
@@ -217,7 +260,13 @@
       margin: 0 (-$carbon--spacing-05) 0 0;
     }
 
-    .#{$prefix}--btn--secondary,
+    &:hover,
+    &:focus {
+      background-color: $hover-ui;
+      color: $text-01;
+    }
+
+    .#{$prefix}--btn--tertiary,
     .#{$prefix}--list-box,
     .#{$prefix}--select-input {
       background-color: $ui-background;
@@ -249,15 +298,25 @@
   position: relative;
   height: $carbon--spacing-09;
   outline: none;
+
+  .#{$prefix}--list-box__field {
+    background-color: $ui-03;
+  }
 }
 
 :host(#{$dds-prefix}-language-selector-mobile) {
   width: 100%;
-  margin-bottom: 1rem;
+  @include carbon--breakpoint-down('md') {
+    padding: 0;
+  }
 
   .#{$prefix}--select-input {
     width: 100%;
     max-width: 100%;
+
+    &__wrapper {
+      margin-top: rem(-16px);
+    }
   }
 
   @include carbon--breakpoint('md') {
@@ -271,22 +330,14 @@
 }
 
 :host(#{$dds-prefix}-language-selector-desktop) {
-  margin: $carbon--spacing-05 0;
-
   @include carbon--breakpoint-down('lg') {
     display: none;
   }
 
   @include carbon--breakpoint('lg') {
     order: 1;
-    flex: 0 0 25%;
-    max-width: carbon--mini-units(40);
     min-width: carbon--mini-units(27);
-  }
-
-  @include carbon--breakpoint('max') {
-    flex: 0 0 18.75%;
-    max-width: 18.75%;
+    @include carbon--make-col(4, 16);
   }
 
   .#{$prefix}--combo-box {
@@ -299,17 +350,19 @@
     bottom: rem(47px);
     max-height: 13.5rem;
   }
+
+  .#{$prefix}--text-input {
+    @include carbon--type-style('body-short-01');
+  }
 }
 
 :host(#{$dds-prefix}-language-selector-mobile[size='micro']) {
   align-self: flex-end;
   margin-bottom: 0;
-  border-left: 1px solid $ui-03;
 
   @include carbon--breakpoint('sm') {
     .#{$prefix}--select-input__wrapper {
       height: 100%;
-      bottom: $carbon--spacing-05;
     }
 
     .#{$prefix}--select-input {
@@ -325,17 +378,22 @@
 
   @include carbon--breakpoint('md') {
     max-width: 50%;
+    border-left: 1px solid $ui-03;
   }
 }
 :host(#{$dds-prefix}-language-selector-desktop[size='micro']) {
   margin: 0;
-  padding-left: 1rem;
   border-left: 1px solid $ui-03;
 
   .#{$prefix}--dropdown {
     background-color: $ui-background;
     max-height: $carbon--spacing-09;
     height: $carbon--spacing-09;
+
+    .#{$prefix}--list-box__field {
+      height: inherit;
+      background-color: $ui-background;
+    }
 
     &:hover {
       background-color: $hover-ui;
