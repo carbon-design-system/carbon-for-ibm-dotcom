@@ -439,8 +439,6 @@ $btn-min-width: 26;
   :host(#{$dds-prefix}-leadspace)[size='tall'],
   :host(#{$dds-prefix}-leadspace)[size='super'] {
     ::slotted(#{$dds-prefix}-leadspace-heading) {
-      margin-bottom: $spacing-10;
-
       @include carbon--breakpoint('lg') {
         margin-bottom: $spacing-12;
       }
@@ -486,8 +484,6 @@ $btn-min-width: 26;
   :host(#{$dds-prefix}-leadspace)[size='medium'] {
     ::slotted(#{$dds-prefix}-leadspace-heading) {
       @include carbon--type-style(expressive-heading-05, true);
-
-      margin-bottom: $spacing-06;
 
       @include carbon--breakpoint('lg') {
         margin-bottom: $spacing-10;
