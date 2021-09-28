@@ -88,6 +88,7 @@ $btn-min-width: 26;
 
     .#{$prefix}--leadspace__container {
       position: relative;
+      width: 100%;
 
       @include carbon--breakpoint(lg) {
         position: static;
