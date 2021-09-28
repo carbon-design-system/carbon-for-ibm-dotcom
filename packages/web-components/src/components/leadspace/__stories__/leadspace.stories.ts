@@ -71,7 +71,7 @@ export const TallWithImage = ({ parameters }) => {
   const image = defaultSrc || leadspaceImg;
   return html`
     <dds-leadspace
-      size="${LEADSPACE_SIZE.NONE}"
+      size="${LEADSPACE_SIZE.TALL}"
       gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
