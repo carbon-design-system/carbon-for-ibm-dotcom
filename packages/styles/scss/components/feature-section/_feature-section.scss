@@ -16,8 +16,14 @@
     position: relative;
     padding-left: $carbon--spacing-05;
     padding-right: $carbon--spacing-05;
+
     &:focus-within {
       outline: none;
+
+      ::slotted(#{$dds-prefix}-image),
+      .#{$prefix}--image {
+        z-index: 0;
+      }
     }
   }
 
