@@ -71,9 +71,7 @@ class DDSLegalNav extends StableSelectorMixin(LitElement) {
       <nav class="${prefix}--legal-nav">
         <div class="${this._getTypeClass()}">
           <ul>
-            <template>
-              <slot></slot>
-            </template>
+            <slot></slot>
           </ul>
           <div class="${prefix}--adjunct-links__container">
             <div class="${prefix}--adjunct-links__row">
