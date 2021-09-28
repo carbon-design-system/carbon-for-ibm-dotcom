@@ -63,6 +63,10 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleRequestMenuButtonFocusWrap = (event: CustomEvent) => {
     const { selectorButtonToggle } = this.constructor as typeof DDSLeftNav;
+    /**
+     * If focus leaves this element, send focus to the menu toggle.
+     * Else if focus leaves the menu toggle, bring it back to this element.
+     */
     if (event.target === this) {
       const toggle = (this.getRootNode() as Document).querySelector(selectorButtonToggle);
       if (toggle) {
@@ -83,6 +87,7 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
           (tabbable as HTMLElement).focus();
         }
       }
+      // wrap focus to last tabbable element focusing out of first tabbable element
       // eslint-disable-next-line no-bitwise
       else if (comparisonResult & PRECEDING) {
         const tabbable = findLast(expandedMenuSection?.querySelectorAll(selectorTabbableForLeftnav), elem =>
@@ -92,18 +97,10 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
           (tabbable as HTMLElement).focus();
         }
       }
+      // wrap focus to first tabbable element focusing out of last tabbable element
       // eslint-disable-next-line no-bitwise
       else if (comparisonResult & FOLLOWING) {
-        let tabbable;
-        if (expandedMenuSection?.hasAttribute('is-submenu')) {
-          tabbable = expandedMenuSection.shadowRoot?.querySelector('button');
-        } else {
-          tabbable =
-            expandedMenuSection &&
-            find(expandedMenuSection.querySelectorAll(selectorTabbableForLeftnav), elem =>
-              Boolean((elem as HTMLElement).offsetParent)
-            );
-        }
+        const tabbable = this.querySelector(selectorTabbableForLeftnav);
         if (tabbable) {
           (tabbable as HTMLElement).focus();
         }
@@ -193,12 +190,28 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
         (item as DDSLeftNavOverlay).active = this.expanded;
       });
       const { expanded, _startSentinelNode: startSentinelNode, _endSentinelNode: endSentinelNode } = this;
+
+      const masthead: HTMLElement | null | undefined = doc
+        ?.querySelector('dds-cloud-masthead-container')
+        ?.querySelector('dds-masthead');
       if (expanded) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [startSentinelNode, endSentinelNode]);
         doc.body.style.overflow = `hidden`;
+
+        // TODO: remove this logic once masthead can account for banners.
+        // set masthead position to `fixed` when left-nav is open for cloud-mastead
+        if (masthead) {
+          masthead.style.position = 'fixed';
+        }
       } else {
         const { selectorMenuSections, selectorFirstMenuSection } = this.constructor as typeof DDSLeftNav;
         doc.body.style.overflow = `auto`;
+
+        // TODO: remove this logic once masthead can account for banners.
+        // remove set position from mastead when left-nav is closed for cloud-mastead
+        if (masthead) {
+          masthead.style.position = '';
+        }
 
         this.querySelectorAll(selectorMenuSections).forEach(ddsLeftNavMenuSection => {
           (ddsLeftNavMenuSection as DDSLeftNavMenuSection).expanded = false;
@@ -219,9 +232,16 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
 
   render() {
     return html`
-      <a id="start-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
-      <slot></slot>
-      <a id="end-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
+      <div class="${prefix}--side-nav__wrapper">
+        <a id="start-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
+        <div class="${prefix}--side-nav__platform-name">
+          <slot name="platform-id"></slot>
+        </div>
+        <div class="${prefix}--side-nav__menu-sections">
+          <slot></slot>
+        </div>
+        <a id="end-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
+      </div>
     `;
   }
 
@@ -236,7 +256,12 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
    * A selector that will return side nav focusable items.
    */
   static get selectorNavItems() {
-    return `${ddsPrefix}-left-nav-item,${ddsPrefix}-left-nav-menu,${ddsPrefix}-left-nav-menu-item`;
+    return [
+      `${ddsPrefix}-left-nav-item`,
+      `${ddsPrefix}-left-nav-menu`,
+      `${ddsPrefix}-left-nav-menu-item`,
+      `${ddsPrefix}-left-nav-name`,
+    ].join(', ');
   }
 
   /**
@@ -264,9 +289,13 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
    * A selector selecting tabbable nodes.
    */
   static get selectorTabbable() {
-    return [selectorTabbable, `${ddsPrefix}-left-nav-item`, `${ddsPrefix}-left-nav-menu`, `${ddsPrefix}-left-nav-menu-item`].join(
-      ','
-    );
+    return [
+      selectorTabbable,
+      `${ddsPrefix}-left-nav-item`,
+      `${ddsPrefix}-left-nav-menu`,
+      `${ddsPrefix}-left-nav-menu-item`,
+      `${ddsPrefix}-left-nav-name`,
+    ].join(', ');
   }
 
   /**

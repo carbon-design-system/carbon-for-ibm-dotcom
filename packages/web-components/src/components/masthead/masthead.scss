@@ -271,7 +271,6 @@
 :host(#{$dds-prefix}-top-nav-menu),
 :host(#{$dds-prefix}-megamenu-top-nav-menu),
 :host(#{$dds-prefix}-top-nav-menu-item),
-:host(#{$dds-prefix}-cloud-masthead-profile),
 :host(#{$dds-prefix}-masthead-profile-item) {
   .#{$prefix}--header__menu-arrow {
     fill: $text-01;
@@ -300,7 +299,7 @@
   @extend :host(#{$prefix}-side-nav);
 
   display: block;
-  overflow: auto;
+  overflow: hidden;
   margin-top: calc(#{mini-units(6)} + 1px);
   height: calc(100% - #{mini-units(6)} - 1px);
   width: 16rem;
@@ -325,6 +324,28 @@
     visibility: visible;
     /* stylelint-disable-next-line time-min-milliseconds */
     transition: visibility 1ms motion(exit, productive) 0ms, left $duration--fast-02 motion(exit, productive) 1ms;
+  }
+
+  .#{$prefix}--side-nav__wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .#{$prefix}--side-nav__platform-name {
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+
+  .#{$prefix}--side-nav__menu-sections {
+    flex-basis: 100%;
+    flex-shrink: 1;
+    position: relative;
+  }
+
+  ::slotted(#{$dds-prefix}-left-nav-menu-section) {
+    overflow: hidden;
+    height: auto;
   }
 }
 

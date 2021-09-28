@@ -92,7 +92,7 @@
 
   &::after {
     content: '';
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     height: carbon--rem(48px);
@@ -168,6 +168,10 @@
     &:hover,
     &:focus {
       color: $text-01;
+    }
+
+    &:hover {
+      background-color: $hover-ui;
     }
 
     &:focus {
