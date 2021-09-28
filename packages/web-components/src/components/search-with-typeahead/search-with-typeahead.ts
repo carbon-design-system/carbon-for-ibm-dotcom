@@ -247,11 +247,6 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   protected _handleFocusOut(event: FocusEvent) {
     super._handleFocusOut(event);
-    const tempValue = this._searchInputNode.value;
-    if (!(event.currentTarget as HTMLElement).contains(event.relatedTarget as HTMLElement) && !this.searchOpenOnload) {
-      this._handleUserInitiatedToggleActiveState(false, false);
-    }
-    this._searchInputNode.value = tempValue;
   }
 
   /**
@@ -601,17 +596,15 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
         ? html`
             ${this._renderForm()}
             <div class="${prefix}--header__search--actions">
-              <span tabindex="-1">
-                <button
-                  type="button"
-                  part="open-button"
-                  class="${prefix}--header__action ${prefix}--header__search--search"
-                  aria-label="${searchButtonAssistiveText}"
-                  @click="${handleClickSearchButton}"
-                >
-                  ${Search20()}
-                </button>
-              </span>
+              <button
+                type="button"
+                part="open-button"
+                class="${prefix}--header__action ${prefix}--header__search--search"
+                aria-label="${searchButtonAssistiveText}"
+                @click="${handleClickSearchButton}"
+              >
+                ${Search20()}
+              </button>
               <button
                 type="button"
                 part="close-button"
