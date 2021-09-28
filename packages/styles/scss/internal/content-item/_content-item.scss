@@ -32,10 +32,12 @@
     margin-bottom: $carbon--spacing-07;
   }
 
-  :host(#{$dds-prefix}-content-item) ::slotted(#{$dds-prefix}-video-player),
+  :host(#{$dds-prefix}-content-item)
+    ::slotted(#{$dds-prefix}-video-player-container),
   .#{$prefix}--content-item .#{$prefix}--video-player {
     margin-top: $spacing-05;
     margin-bottom: $carbon--spacing-07;
+    max-width: 40rem;
   }
 
   .#{$prefix}--content-item .#{$prefix}--image-with-caption {
