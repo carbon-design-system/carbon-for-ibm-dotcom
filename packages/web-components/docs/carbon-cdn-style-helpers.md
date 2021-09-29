@@ -50,8 +50,6 @@ Plex fonts are also available as CSS artifacts, where the Plex font families can
 
 Available CSS files:
 
-#### Plex Mono
-
 | IBM Plex Mono (all)             | https://1.www.s81c.com/common/carbon/plex/mono.css                   |
 | -------------                   | --------------------------------------------------                   |
 | IBM Plex Mono Bold              | https://1.www.s81c.com/common/carbon/plex/mono-bold.css              |
