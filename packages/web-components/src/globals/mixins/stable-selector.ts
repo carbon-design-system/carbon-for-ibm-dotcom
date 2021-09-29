@@ -29,7 +29,7 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       const dataAttributes = [].filter.call(this.attributes, (at) => {return /^data-/.test((at as any).name)});
       const linkNode = this.shadowRoot?.querySelector('a');
       dataAttributes.forEach( (e) => {
-        linkNode?.setAttribute((e as any).name, (e as any).value);
+        if(linkNode) linkNode?.setAttribute((e as any).name, (e as any).value);
       })
     }
 
