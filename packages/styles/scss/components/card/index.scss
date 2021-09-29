@@ -333,6 +333,18 @@
     }
   }
 
+  :host(#{$dds-prefix}-feature-cta-footer) a {
+    svg,
+    ::slotted(svg[slot='icon']) {
+      fill: $inverse-link;
+
+      @include carbon--breakpoint('max') {
+        width: $carbon--spacing-07;
+        height: $carbon--spacing-07;
+      }
+    }
+  }
+
   // static card footer
   :host(#{$dds-prefix}-card-footer):not([parent-href]) {
     .#{$prefix}--card__footer {
@@ -434,12 +446,14 @@
 
   :host(#{$dds-prefix}-card)[color-scheme='inverse'],
   :host(#{$dds-prefix}-card-group-item)[color-scheme='inverse'],
+  :host(#{$dds-prefix}-feature-section-card-link)[color-scheme='inverse'],
   .#{$prefix}--card-group__card {
     ::slotted(#{$dds-prefix}-card-eyebrow) {
       color: $text-03;
     }
 
-    ::slotted(#{$dds-prefix}-card-heading) {
+    ::slotted(#{$dds-prefix}-card-heading),
+    ::slotted(#{$dds-prefix}-card-link-heading) {
       color: $inverse-01;
     }
 

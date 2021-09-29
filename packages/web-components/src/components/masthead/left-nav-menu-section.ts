@@ -15,8 +15,9 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import ChevronLeft20 from 'carbon-web-components/es/icons/chevron--left/20.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
-import { forEach, find } from '../../globals/internal/collection-helpers';
+import { forEach } from '../../globals/internal/collection-helpers';
 import styles from './masthead.scss';
+import DDSLeftNav from './left-nav';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -107,42 +108,50 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
     this.dispatchEvent(new CustomEvent(eventToggle, init));
   }
 
-  @HostListener('parentRoot:eventToggle')
-  protected _handleContentStateChangeDocument = (event: CustomEvent) => {
-    const { panelId } = event.detail;
-    const { sectionId } = this;
-    if (sectionId === panelId) {
-      this.expanded = true;
-      this.ariaHidden = 'false';
-      this.transition = false;
-    } else {
-      const id = panelId.split(', ');
-      const section = sectionId.split(', ');
-
-      /**
-       * if next menu section expanded is a level 2 menu section and current expanded
-       * menu section is a level 1 menu section, add transition attribute for proper animation
-       */
-      if (id[0] !== '-1' && id[1] !== '-1' && this.expanded === true && section[1] === '-1') {
-        this.transition = true;
+  @HostListener('transitionend')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleTransitionEnd() {
+    setTimeout(() => {
+      if (this.expanded) {
+        // Allow active section to scroll
+        this.style.overflow = '';
+      } else {
+        // Hide previous section & restrict size
+        this.style.visibility = 'hidden';
+        this.style.height = '0';
+        this.style.overflow = 'hidden';
       }
-
-      this.expanded = false;
-      this.ariaHidden = 'true';
-    }
-  };
+    }, 0);
+  }
 
   firstUpdated() {
     if (this.sectionId === '-1, -1') {
       this.expanded = true;
       this.ariaHidden = 'false';
+    } else {
+      this.expanded = false;
+      this.ariaHidden = 'true';
+      // Hide all submenus, and restrict their height/overflow.
+      this.style.visibility = 'hidden';
+      this.style.overflow = 'hidden';
+      this.style.height = '0';
     }
+  }
+
+  shouldUpdate(changedProperties) {
+    if (changedProperties.has('expanded')) {
+      // Allow incoming menu section to show before transition.
+      if (this.expanded) {
+        this.style.visibility = '';
+        this.style.height = '';
+      }
+    }
+    return true;
   }
 
   updated(changedProperties) {
     if (changedProperties.has('expanded')) {
       const { selectorNavMenu, selectorNavItem } = this.constructor as typeof DDSLeftNavMenuSection;
-      const { selectorTabbable: selectorTabbableForLeftNavMenuSection } = this.constructor as typeof DDSLeftNavMenuSection;
       const { expanded, isSubmenu } = this;
 
       if (expanded) {
@@ -172,15 +181,17 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
           tabbable = this.shadowRoot?.querySelector('button');
         } else {
           // set focus to first menu item of section
-          tabbable = find(this.querySelectorAll(selectorTabbableForLeftNavMenuSection), elem =>
-            Boolean((elem as HTMLElement).offsetParent)
-          );
+          tabbable = (this.getRootNode() as ShadowRoot).querySelector(DDSLeftNav.selectorNavItems);
         }
 
         if (tabbable) {
-          document.addEventListener('transitionend', () => {
-            (tabbable as HTMLElement).focus();
-          });
+          document.addEventListener(
+            'transitionend',
+            () => {
+              (tabbable as HTMLElement).focus();
+            },
+            { once: true }
+          );
         }
       } else {
         forEach(this.querySelectorAll(selectorNavMenu), elem => {

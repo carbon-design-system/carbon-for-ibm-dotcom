@@ -68,7 +68,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       opacity: 0;
       z-index: 1;
       background-color: $ui-05;
-      transition: opacity $moderate-01 motion(standard, productive);
+      transition: opacity $duration--moderate-01 motion(standard, productive);
     }
 
     &:hover::before {
@@ -144,8 +144,8 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     svg {
       circle,
       path {
-        transition: fill $moderate-01 motion(standard, productive),
-          opacity $moderate-01 motion(standard, productive);
+        transition: fill $duration--moderate-01 motion(standard, productive),
+          opacity $duration--moderate-01 motion(standard, productive);
       }
 
       circle {

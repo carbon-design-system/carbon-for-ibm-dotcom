@@ -6,6 +6,7 @@
  */
 
 import Accordion from '../../internal/vendor/carbon-components-react/components/Accordion/Accordion';
+import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import FooterNavGroup from './FooterNavGroup';
 import PropTypes from 'prop-types';
@@ -18,7 +19,7 @@ const { prefix } = settings;
 /**
  * Footer nav component.
  */
-const FooterNav = ({ groups }) => {
+const FooterNav = ({ groups, disableLocaleButton }) => {
   if (!groups?.length) {
     return null;
   }
@@ -26,8 +27,10 @@ const FooterNav = ({ groups }) => {
   return (
     <nav
       data-autoid={`${stablePrefix}--footer-nav`}
-      className={`${prefix}--footer-nav`}
-      aria-label="Footer navigation">
+      aria-label="Footer navigation"
+      className={cx(`${prefix}--footer-nav`, {
+        [`${prefix}--footer-nav__locale-button--disabled`]: disableLocaleButton,
+      })}>
       <Accordion className={`${prefix}--footer-nav__container`}>
         {renderGroups(groups)}
       </Accordion>
@@ -49,6 +52,11 @@ function renderGroups(groups) {
 
 FooterNav.propTypes = {
   /**
+   * Update the CSS selectors depending on the locale button being rendered or not.
+   */
+  disableLocaleButton: PropTypes.bool,
+
+  /**
    * A list of groups to be rendered.
    */
   groups: PropTypes.arrayOf(
@@ -66,6 +74,7 @@ FooterNav.propTypes = {
 
 FooterNav.defaultProps = {
   groups: null,
+  disableLocaleButton: false,
 };
 
 export default FooterNav;

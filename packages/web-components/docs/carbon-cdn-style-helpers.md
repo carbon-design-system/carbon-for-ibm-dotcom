@@ -23,7 +23,7 @@ available to use.
 If your application is not already compiling its own version of the below 
 artifacts, these can be included as part of your project.
 
-> NOTE: The latest/next/beta tags are moving versions. While beneficial to
+> NOTE: The latest/next tags are moving versions. While beneficial to
 > always stay on the most recent version, it is recommended to choose a specific
 > version and properly test your application when upgrading to a newer version.
 > Check for latest version number on [npm](https://www.npmjs.com/package/@carbon/ibmdotcom-web-components).
@@ -42,9 +42,6 @@ the page. Note, this will import `IBM Plex Sans` and `IBM Plex Mono`.
 
 // NEXT tag
 <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/next/plex.css" />
-
-// BETA tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/beta/plex.css" />
 ```
 
 ### Alternative: individual Plex family loading
@@ -222,9 +219,6 @@ The following includes Carbon grid and all corresponding grid classes.
 
 // NEXT tag
 <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/next/grid.css" />
-
-// BETA tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/beta/grid.css" />
 ```
 
 [Learn more about the Carbon 2x Grid](https://carbondesignsystem.com/guidelines/2x-grid/overview)
@@ -244,9 +238,6 @@ in Carbon.
 
 // NEXT tag
 <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/next/themes.css" />
-
-// BETA tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/beta/themes.css" />
 ```
 
 ### Available classes
