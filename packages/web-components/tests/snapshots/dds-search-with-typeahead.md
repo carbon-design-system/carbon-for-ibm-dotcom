@@ -6,15 +6,13 @@
 
 ```
 <div class="bx--header__search--actions">
-  <span tabindex="-1">
-    <button
-      aria-label="Open IBM search field"
-      class="bx--header__action bx--header__search--search"
-      part="open-button"
-      type="button"
-    >
-    </button>
-  </span>
+  <button
+    aria-label="Open IBM search field"
+    class="bx--header__action bx--header__search--search"
+    part="open-button"
+    type="button"
+  >
+  </button>
   <button
     aria-label="Close"
     class="bx--header__action bx--header__search--close"
@@ -30,15 +28,13 @@
 
 ```
 <div class="bx--header__search--actions">
-  <span tabindex="-1">
-    <button
-      aria-label="open-search-button-assistive-text-foo"
-      class="bx--header__action bx--header__search--search"
-      part="open-button"
-      type="button"
-    >
-    </button>
-  </span>
+  <button
+    aria-label="open-search-button-assistive-text-foo"
+    class="bx--header__action bx--header__search--search"
+    part="open-button"
+    type="button"
+  >
+  </button>
   <button
     aria-label="Close"
     class="bx--header__action bx--header__search--close"
@@ -111,15 +107,13 @@
 >
 </div>
 <div class="bx--header__search--actions">
-  <span tabindex="-1">
-    <button
-      aria-label="perform-search-button-assistive-text-foo"
-      class="bx--header__action bx--header__search--search"
-      part="open-button"
-      type="button"
-    >
-    </button>
-  </span>
+  <button
+    aria-label="perform-search-button-assistive-text-foo"
+    class="bx--header__action bx--header__search--search"
+    part="open-button"
+    type="button"
+  >
+  </button>
   <button
     aria-label="close-search-button-assistive-text-foo"
     class="bx--header__action bx--header__search--close"

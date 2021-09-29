@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.10.0-rc.2...@carbon/ibmdotcom-web-components@1.10.0) (2021-09-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.10.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.10.0-rc.1...@carbon/ibmdotcom-web-components@1.10.0-rc.2) (2021-09-24)
+
+
+### Bug Fixes
+
+* **cloud-masthead:** set masthead position to fixed on menu open ([#7247](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7247)) ([227087f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/227087f))
+
+
+
+
+
 # [1.10.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.10.0-rc.0...@carbon/ibmdotcom-web-components@1.10.0-rc.1) (2021-09-22)
 
 
