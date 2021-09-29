@@ -31,7 +31,7 @@ class DDSLeftNavMenuItem extends BXSideNavMenuItem {
       [`${prefix}--side-nav__link--current`]: active,
     });
     return html`
-      <a tabindex="-1" role="menuitem" part="link" class="${classes}" href="${href}">
+      <a tabindex="-1" part="link" class="${classes}" href="${href}">
         <span part="title" class="${prefix}--side-nav__link-text">
           <slot>${title}</slot>
         </span>

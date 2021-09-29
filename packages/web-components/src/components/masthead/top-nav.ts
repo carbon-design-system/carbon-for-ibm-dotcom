@@ -430,12 +430,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                   <div class="${prefix}--header__nav-content" style="right: -${currentScrollPosition}px">
                     <nav part="nav" class="${prefix}--header__nav">
                       <div class="${prefix}--sub-content-right"></div>
-                      <ul
-                        part="menubar"
-                        role="menubar"
-                        class="${prefix}--header__menu-bar"
-                        aria-label="${ifNonNull(this.menuBarLabel)}"
-                      >
+                      <ul part="menubar" class="${prefix}--header__menu-bar" aria-label="${ifNonNull(this.menuBarLabel)}">
                         <slot @keydown="${handleOnKeyDown}"></slot>
                       </ul>
                       <div class="${prefix}--sub-content-left"></div>
@@ -472,12 +467,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                   <div class="${prefix}--header__nav-content" style="left: -${currentScrollPosition}px">
                     <nav part="nav" class="${prefix}--header__nav">
                       <div class="${prefix}--sub-content-left"></div>
-                      <ul
-                        part="menubar"
-                        role="menubar"
-                        class="${prefix}--header__menu-bar"
-                        aria-label="${ifNonNull(this.menuBarLabel)}"
-                      >
+                      <ul part="menubar" class="${prefix}--header__menu-bar" aria-label="${ifNonNull(this.menuBarLabel)}">
                         <slot @keydown="${handleOnKeyDown}"></slot>
                       </ul>
                       <div class="${prefix}--sub-content-right"></div>
