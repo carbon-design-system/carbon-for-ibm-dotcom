@@ -7,8 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import './index.scss';
-
 window.digitalData = {
   page: {
     pageInfo: {
