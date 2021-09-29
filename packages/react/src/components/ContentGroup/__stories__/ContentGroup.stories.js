@@ -7,7 +7,7 @@
 
 import { text, boolean, optionsKnob } from '@storybook/addon-knobs';
 import ContentGroup from '../ContentGroup';
-import ContentItem from '../../../internal/components/ContentItem/ContentItem';
+import ContentItem from '../../ContentItem/ContentItem';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--003.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--003.jpg';
 import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--003.jpg';
