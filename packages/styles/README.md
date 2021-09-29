@@ -18,62 +18,6 @@ instead:
 yarn add @carbon/ibmdotcom-styles
 ```
 
-## Expressive Theme
-
-Carbon for IBM.com runs optimally with the expressive theme enabled.
-
-### Step 1: CSS Custom Properties
-
-In order for the expressive theme to work, CSS Custom Properties needs to be
-enabled. This needs to be introduced before any other imports:
-
-```scss
-$feature-flags: (
-  enable-css-custom-properties: true,
-);
-```
-
-This can also be added in webpack configurations:
-
-```javascript
-const sassLoader = {
-  loader: 'sass-loader',
-  options: {
-    includePaths: [path.resolve(__dirname, '..', 'node_modules')],
-    data: `
-        $feature-flags: (
-          enable-css-custom-properties: true
-        );
-      `,
-    sourceMap: true,
-  },
-};
-```
-
-### Step 2: CSS Import
-
-This includes the expressive theme that would be applied to all Carbon
-components, as well as adjustments to the core type scale for Carbon for IBM.com
-components and patterns.
-
-```css
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/index';
-```
-
-### Learn More
-
-To read more about the expressive theme, visit
-https://www.ibm.com/standards/carbon/guidelines/expressive-theme.
-
-To see a storybook output of the Carbon components with the expressive theme
-applied, run the following command:
-
-```bash
-$ yarn storybook
-```
-
-This can also be viewed [here](https://carbon-expressive.mybluemix.net).
-
 ## Usage
 
 Import the package css into the top of your main CSS file.
