@@ -50,120 +50,139 @@ Plex fonts are also available as CSS artifacts, where the Plex font families can
 
 Available CSS files:
 
-- https://1.www.s81c.com/common/carbon/plex/mono.css
-  - https://1.www.s81c.com/common/carbon/plex/mono-bold.css
-  - https://1.www.s81c.com/common/carbon/plex/mono-bold-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/mono-extralight.css
-  - https://1.www.s81c.com/common/carbon/plex/mono-extralight-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/mono-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/mono-light.css
-  - https://1.www.s81c.com/common/carbon/plex/mono-light-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/mono-medium.css
-  - https://1.www.s81c.com/common/carbon/plex/mono-medium-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/mono-regular.css
-  - https://1.www.s81c.com/common/carbon/plex/mono-semibold.css
-  - https://1.www.s81c.com/common/carbon/plex/mono-semibold-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/mono-text.css
-  - https://1.www.s81c.com/common/carbon/plex/mono-text-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/mono-thin.css
-  - https://1.www.s81c.com/common/carbon/plex/mono-thin-italic.css
-- https://1.www.s81c.com/common/carbon/plex/sans.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-bold.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-bold-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-extralight.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-extralight-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-light.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-light-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-medium.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-medium-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-regular.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-semibold.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-semibold-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-text.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-text-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-thin.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-thin-italic.css
-- https://1.www.s81c.com/common/carbon/plex/sans-arabic.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-arabic-bold.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-arabic-extralight.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-arabic-light.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-arabic-medium.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-arabic-regular.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-arabic-semibold.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-arabic-text.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-arabic-thin.css
-- https://1.www.s81c.com/common/carbon/plex/sans-condensed.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-bold.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-bold-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-extralight.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-extralight-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-light.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-light-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-medium.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-medium-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-regular.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-semibold.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-semibold-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-text.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-text-italic.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-thin.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-condensed-thin-italic.css
-- https://1.www.s81c.com/common/carbon/plex/sans-devanagari.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-devanagari-bold.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-devanagari-extralight.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-devanagari-light.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-devanagari-medium.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-devanagari-regular.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-devanagari-semibold.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-devanagari-text.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-devanagari-thin.css
-- https://1.www.s81c.com/common/carbon/plex/sans-hebrew.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-hebrew-bold.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-hebrew-extralight.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-hebrew-light.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-hebrew-medium.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-hebrew-regular.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-hebrew-semibold.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-hebrew-text.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-hebrew-thin.css
-- https://1.www.s81c.com/common/carbon/plex/sans-jp.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-jp-bold.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-jp-extralight.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-jp-light.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-jp-medium.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-jp-regular.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-jp-semibold.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-jp-text.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-jp-thin.css
-- https://1.www.s81c.com/common/carbon/plex/sans-kr.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-kr-bold.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-kr-extralight.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-kr-light.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-kr-medium.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-kr-regular.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-kr-semibold.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-kr-text.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-kr-thin.css
-- https://1.www.s81c.com/common/carbon/plex/sans-thai.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-thai-bold.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-thai-extralight.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-thai-light.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-thai-medium.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-thai-regular.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-thai-semibold.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-thai-text.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-thai-thin.css
-- https://1.www.s81c.com/common/carbon/plex/sans-thai-looped.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-bold.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-extralight.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-light.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-medium.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-regular.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-semibold.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-text.css
-  - https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-thin.css
+| IBM Plex Mono (all)             | https://1.www.s81c.com/common/carbon/plex/mono.css                   |
+| -------------                   | --------------------------------------------------                   |
+| IBM Plex Mono Bold              | https://1.www.s81c.com/common/carbon/plex/mono-bold.css              |
+| IBM Plex Mono Bold Italic       | https://1.www.s81c.com/common/carbon/plex/mono-bold-italic.css       |
+| IBM Plex Mono ExtraLight        | https://1.www.s81c.com/common/carbon/plex/mono-extralight.css        |
+| IBM Plex Mono ExtraLight Italic | https://1.www.s81c.com/common/carbon/plex/mono-extralight-italic.css |
+| IBM Plex Mono Italic            | https://1.www.s81c.com/common/carbon/plex/mono-italic.css            |
+| IBM Plex Mono Light             | https://1.www.s81c.com/common/carbon/plex/mono-light.css             |
+| IBM Plex Mono Light Italic      | https://1.www.s81c.com/common/carbon/plex/mono-light-italic.css      |
+| IBM Plex Mono Medium            | https://1.www.s81c.com/common/carbon/plex/mono-medium.css            |
+| IBM Plex Mono Medium Italic     | https://1.www.s81c.com/common/carbon/plex/mono-medium-italic.css     |
+| IBM Plex Mono                   | https://1.www.s81c.com/common/carbon/plex/mono-regular.css           |
+| IBM Plex Mono SemiBold          | https://1.www.s81c.com/common/carbon/plex/mono-semibold.css          |
+| IBM Plex Mono SemiBold Italic   | https://1.www.s81c.com/common/carbon/plex/mono-semibold-italic.css   |
+| IBM Plex Mono Text              | https://1.www.s81c.com/common/carbon/plex/mono-text.css              |
+| IBM Plex Mono Text Italic       | https://1.www.s81c.com/common/carbon/plex/mono-text-italic.css       |
+| IBM Plex Mono Thin              | https://1.www.s81c.com/common/carbon/plex/mono-thin.css              |
+| IBM Plex Mono Thin Italic       | https://1.www.s81c.com/common/carbon/plex/mono-thin-italic.css       |
+
+| IBM Plex Sans (all)             | https://1.www.s81c.com/common/carbon/plex/sans.css                   |
+| -------------------             | --------------------------------------------------                   |
+| IBM Plex Sans Bold              | https://1.www.s81c.com/common/carbon/plex/sans-bold.css              |
+| IBM Plex Sans Bold Italic       | https://1.www.s81c.com/common/carbon/plex/sans-bold-italic.css       |
+| IBM Plex Sans ExtraLight        | https://1.www.s81c.com/common/carbon/plex/sans-extralight.css        |
+| IBM Plex Sans ExtraLight Italic | https://1.www.s81c.com/common/carbon/plex/sans-extralight-italic.css |
+| IBM Plex Sans Italic            | https://1.www.s81c.com/common/carbon/plex/sans-italic.css            |
+| IBM Plex Sans Light             | https://1.www.s81c.com/common/carbon/plex/sans-light.css             |
+| IBM Plex Sans Light Italic      | https://1.www.s81c.com/common/carbon/plex/sans-light-italic.css      |
+| IBM Plex Sans Medium            | https://1.www.s81c.com/common/carbon/plex/sans-medium.css            |
+| IBM Plex Sans Medium Italic     | https://1.www.s81c.com/common/carbon/plex/sans-medium-italic.css     |
+| IBM Plex Sans                   | https://1.www.s81c.com/common/carbon/plex/sans-regular.css           |
+| IBM Plex Sans SemiBold          | https://1.www.s81c.com/common/carbon/plex/sans-semibold.css          |
+| IBM Plex Sans SemiBold Italic   | https://1.www.s81c.com/common/carbon/plex/sans-semibold-italic.css   |
+| IBM Plex Sans Text              | https://1.www.s81c.com/common/carbon/plex/sans-text.css              |
+| IBM Plex Sans Text Italic       | https://1.www.s81c.com/common/carbon/plex/sans-text-italic.css       |
+| IBM Plex Sans Thin              | https://1.www.s81c.com/common/carbon/plex/sans-thin.css              |
+| IBM Plex Sans Thin Italic       | https://1.www.s81c.com/common/carbon/plex/sans-thin-italic.css       |
+
+| IBM Plex Sans Arabic (all)      | https://1.www.s81c.com/common/carbon/plex/sans-arabic.css            |
+| --------------------------      | ---------------------------------------------------------            |
+| IBM Plex Sans Arabic Bold       | https://1.www.s81c.com/common/carbon/plex/sans-arabic-bold.css       |
+| IBM Plex Sans Arabic ExtraLight | https://1.www.s81c.com/common/carbon/plex/sans-arabic-extralight.css |
+| IBM Plex Sans Arabic Light      | https://1.www.s81c.com/common/carbon/plex/sans-arabic-light.css      |
+| IBM Plex Sans Arabic Medium     | https://1.www.s81c.com/common/carbon/plex/sans-arabic-medium.css     |
+| IBM Plex Sans Arabic            | https://1.www.s81c.com/common/carbon/plex/sans-arabic-regular.css    |
+| IBM Plex Sans Arabic SemiBold   | https://1.www.s81c.com/common/carbon/plex/sans-arabic-semibold.css   |
+| IBM Plex Sans Arabic Text       | https://1.www.s81c.com/common/carbon/plex/sans-arabic-text.css       |
+| IBM Plex Sans Arabic Thin       | https://1.www.s81c.com/common/carbon/plex/sans-arabic-thin.css       |
+
+| IBM Plex Sans Cond (all)        | https://1.www.s81c.com/common/carbon/plex/sans-condensed.css                   |
+| -----------------------------   | ------------------------------------------------------------                   |
+| IBM Plex Sans Cond Bold         | https://1.www.s81c.com/common/carbon/plex/sans-condensed-bold.css              |
+| IBM Plex Sans Cond Bold Italic  | https://1.www.s81c.com/common/carbon/plex/sans-condensed-bold-italic.css       |
+| IBM Plex Sans Cond ExtLt        | https://1.www.s81c.com/common/carbon/plex/sans-condensed-extralight.css        |
+| IBM Plex Sans Cond ExtLt Italic | https://1.www.s81c.com/common/carbon/plex/sans-condensed-extralight-italic.css |
+| IBM Plex Sans Cond Italic       | https://1.www.s81c.com/common/carbon/plex/sans-condensed-italic.css            |
+| IBM Plex Sans Cond Light        | https://1.www.s81c.com/common/carbon/plex/sans-condensed-light.css             |
+| IBM Plex Sans Cond Light Italic | https://1.www.s81c.com/common/carbon/plex/sans-condensed-light-italic.css      |
+| IBM Plex Sans Cond Medm         | https://1.www.s81c.com/common/carbon/plex/sans-condensed-medium.css            |
+| IBM Plex Sans Cond Medm Italic  | https://1.www.s81c.com/common/carbon/plex/sans-condensed-medium-italic.css     |
+| IBM Plex Sans Cond              | https://1.www.s81c.com/common/carbon/plex/sans-condensed-regular.css           |
+| IBM Plex Sans Cond SmBld        | https://1.www.s81c.com/common/carbon/plex/sans-condensed-semibold.css          |
+| IBM Plex Sans Cond SmBld Italic | https://1.www.s81c.com/common/carbon/plex/sans-condensed-semibold-italic.css   |
+| IBM Plex Sans Cond Text         | https://1.www.s81c.com/common/carbon/plex/sans-condensed-text.css              |
+| IBM Plex Sans Cond Text Italic  | https://1.www.s81c.com/common/carbon/plex/sans-condensed-text-italic.css       |
+| IBM Plex Sans Cond Thin         | https://1.www.s81c.com/common/carbon/plex/sans-condensed-thin.css              |
+| IBM Plex Sans Cond Thin Italic  | https://1.www.s81c.com/common/carbon/plex/sans-condensed-thin-italic.css       |
+
+| IBM Plex Sans Devanagari (all)      | https://1.www.s81c.com/common/carbon/plex/sans-devanagari.css            |
+| ------------------------------      | -------------------------------------------------------------            |
+| IBM Plex Sans Devanagari Bold       | https://1.www.s81c.com/common/carbon/plex/sans-devanagari-bold.css       |
+| IBM Plex Sans Devanagari ExtraLight | https://1.www.s81c.com/common/carbon/plex/sans-devanagari-extralight.css |
+| IBM Plex Sans Devanagari Light      | https://1.www.s81c.com/common/carbon/plex/sans-devanagari-light.css      |
+| IBM Plex Sans Devanagari Medium     | https://1.www.s81c.com/common/carbon/plex/sans-devanagari-medium.css     |
+| IBM Plex Sans Devanagari            | https://1.www.s81c.com/common/carbon/plex/sans-devanagari-regular.css    |
+| IBM Plex Sans Devanagari SemiBold   | https://1.www.s81c.com/common/carbon/plex/sans-devanagari-semibold.css   |
+| IBM Plex Sans Devanagari Text       | https://1.www.s81c.com/common/carbon/plex/sans-devanagari-text.css       |
+| IBM Plex Sans Devanagari Thin       | https://1.www.s81c.com/common/carbon/plex/sans-devanagari-thin.css       |
+
+| IBM Plex Sans Hebrew (all)      | https://1.www.s81c.com/common/carbon/plex/sans-hebrew.css            |
+| --------------------------      | ---------------------------------------------------------            |
+| IBM Plex Sans Hebrew Bold       | https://1.www.s81c.com/common/carbon/plex/sans-hebrew-bold.css       |
+| IBM Plex Sans Hebrew ExtraLight | https://1.www.s81c.com/common/carbon/plex/sans-hebrew-extralight.css |
+| IBM Plex Sans Hebrew Light      | https://1.www.s81c.com/common/carbon/plex/sans-hebrew-light.css      |
+| IBM Plex Sans Hebrew Medium     | https://1.www.s81c.com/common/carbon/plex/sans-hebrew-medium.css     |
+| IBM Plex Sans Hebrew            | https://1.www.s81c.com/common/carbon/plex/sans-hebrew-regular.css    |
+| IBM Plex Sans Hebrew SemiBold   | https://1.www.s81c.com/common/carbon/plex/sans-hebrew-semibold.css   |
+| IBM Plex Sans Hebrew Text       | https://1.www.s81c.com/common/carbon/plex/sans-hebrew-text.css       |
+| IBM Plex Sans Hebrew Thin       | https://1.www.s81c.com/common/carbon/plex/sans-hebrew-thin.css       |
+
+| IBM Plex Sans JP (all)      | https://1.www.s81c.com/common/carbon/plex/sans-jp.css            |
+| ----------------------      | -----------------------------------------------------            |
+| IBM Plex Sans JP Bold       | https://1.www.s81c.com/common/carbon/plex/sans-jp-bold.css       |
+| IBM Plex Sans JP ExtraLight | https://1.www.s81c.com/common/carbon/plex/sans-jp-extralight.css |
+| IBM Plex Sans JP Light      | https://1.www.s81c.com/common/carbon/plex/sans-jp-light.css      |
+| IBM Plex Sans JP Medium     | https://1.www.s81c.com/common/carbon/plex/sans-jp-medium.css     |
+| IBM Plex Sans JP            | https://1.www.s81c.com/common/carbon/plex/sans-jp-regular.css    |
+| IBM Plex Sans JP SemiBold   | https://1.www.s81c.com/common/carbon/plex/sans-jp-semibold.css   |
+| IBM Plex Sans JP Text       | https://1.www.s81c.com/common/carbon/plex/sans-jp-text.css       |
+| IBM Plex Sans JP Thin       | https://1.www.s81c.com/common/carbon/plex/sans-jp-thin.css       |
+
+| IBM Plex Sans KR (all)      | https://1.www.s81c.com/common/carbon/plex/sans-kr.css            |
+| ----------------------      | -----------------------------------------------------            |
+| IBM Plex Sans KR Bold       | https://1.www.s81c.com/common/carbon/plex/sans-kr-bold.css       |
+| IBM Plex Sans KR ExtraLight | https://1.www.s81c.com/common/carbon/plex/sans-kr-extralight.css |
+| IBM Plex Sans KR Light      | https://1.www.s81c.com/common/carbon/plex/sans-kr-light.css      |
+| IBM Plex Sans KR Medium     | https://1.www.s81c.com/common/carbon/plex/sans-kr-medium.css     |
+| IBM Plex Sans KR            | https://1.www.s81c.com/common/carbon/plex/sans-kr-regular.css    |
+| IBM Plex Sans KR SemiBold   | https://1.www.s81c.com/common/carbon/plex/sans-kr-semibold.css   |
+| IBM Plex Sans KR Text       | https://1.www.s81c.com/common/carbon/plex/sans-kr-text.css       |
+| IBM Plex Sans KR Thin       | https://1.www.s81c.com/common/carbon/plex/sans-kr-thin.css       |
+
+| IBM Plex Sans Thai (all)      | https://1.www.s81c.com/common/carbon/plex/sans-thai.css            |
+| ------------------------      | -------------------------------------------------------            |
+| IBM Plex Sans Thai Bold       | https://1.www.s81c.com/common/carbon/plex/sans-thai-bold.css       |
+| IBM Plex Sans Thai ExtraLight | https://1.www.s81c.com/common/carbon/plex/sans-thai-extralight.css |
+| IBM Plex Sans Thai Light      | https://1.www.s81c.com/common/carbon/plex/sans-thai-light.css      |
+| IBM Plex Sans Thai Medium     | https://1.www.s81c.com/common/carbon/plex/sans-thai-medium.css     |
+| IBM Plex Sans Thai            | https://1.www.s81c.com/common/carbon/plex/sans-thai-regular.css    |
+| IBM Plex Sans Thai SemiBold   | https://1.www.s81c.com/common/carbon/plex/sans-thai-semibold.css   |
+| IBM Plex Sans Thai Text       | https://1.www.s81c.com/common/carbon/plex/sans-thai-text.css       |
+| IBM Plex Sans Thai Thin       | https://1.www.s81c.com/common/carbon/plex/sans-thai-thin.css       |
+
+| IBM Plex Sans Thai Looped (all)      | https://1.www.s81c.com/common/carbon/plex/sans-thai-looped.css            |
+| -------------------------------      | --------------------------------------------------------------            |
+| IBM Plex Sans Thai Looped Bold       | https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-bold.css       |
+| IBM Plex Sans Thai Looped ExtraLight | https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-extralight.css |
+| IBM Plex Sans Thai Looped Light      | https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-light.css      |
+| IBM Plex Sans Thai Looped Medium     | https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-medium.css     |
+| IBM Plex Sans Thai Looped            | https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-regular.css    |
+| IBM Plex Sans Thai Looped SemiBold   | https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-semibold.css   |
+| IBM Plex Sans Thai Looped Text       | https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-text.css       |
+| IBM Plex Sans Thai Looped Thin       | https://1.www.s81c.com/common/carbon/plex/sans-thai-looped-thin.css       |
 
 And the full plex package (excluding `jp` and `kr`):
 

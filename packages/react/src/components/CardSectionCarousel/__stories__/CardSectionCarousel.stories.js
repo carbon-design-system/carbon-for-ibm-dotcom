@@ -28,7 +28,7 @@ export const Default = () => {
       <a
         className="bx--link"
         target="_blank"
-        href="http://ibmdotcom-web-components-react.mybluemix.net/?path=/story/components-card-section-carousel--default">
+        href="https://www.ibm.com/standards/carbon/web-components/react/?path=/story/components-card-section-carousel--default">
         React wrapper
       </a>
       .
