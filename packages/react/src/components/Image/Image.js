@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,13 +27,11 @@ const sortSources = sources => {
   const images = sources.map(elem => {
     if (typeof elem.breakpoint == 'number') {
       return elem;
-    } else {
-      return {
-        breakpoint:
-          parseFloat(breakpoints[elem.breakpoint].width) * baseFontSize,
-        src: elem.src,
-      };
     }
+    return {
+      breakpoint: parseFloat(breakpoints[elem.breakpoint].width) * baseFontSize,
+      src: elem.src,
+    };
   });
   return images.sort((a, b) => (a.breakpoint > b.breakpoint ? -1 : 1));
 };
@@ -48,6 +46,7 @@ const Image = ({
   alt,
   longDescription,
   icon: Icon,
+  border,
 }) => {
   if (!defaultSrc || !alt) {
     return null;
@@ -55,6 +54,9 @@ const Image = ({
 
   const sortedImages = sources ? sortSources(sources) : [];
   const id = uniqueid(`${prefix}--image-`);
+  const imageClasses = classnames(`${prefix}--image__img`, classname, {
+    [`${prefix}--image__img--border`]: border,
+  });
   return (
     <div
       className={`${prefix}--image`}
@@ -70,7 +72,7 @@ const Image = ({
           );
         })}
         <img
-          className={classnames(`${prefix}--image__img`, classname)}
+          className={imageClasses}
           src={defaultSrc}
           alt={alt}
           aria-describedby={longDescription ? `${id}` : undefined}
@@ -126,6 +128,11 @@ Image.propTypes = {
    * Icon that overlays the image
    */
   icon: PropTypes.func,
+
+  /**
+   * Option to apply a solid border around the image
+   */
+  border: PropTypes.bool,
 };
 
 export default Image;
