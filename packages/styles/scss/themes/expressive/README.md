@@ -1,5 +1,8 @@
 # Expressive Theme for Carbon
 
+> **NOTE:** The Expressive Theme has been deprecated!
+> [Click here to learn more](https://www.ibm.com/standards/carbon/whats-happening/expressive-update/).
+
 ## Getting started
 
 To install `@carbon/ibmdotcom-styles` in your project, you will need to run the
@@ -64,4 +67,4 @@ become enabled by default in Carbon for IBM.com starting in `v1.10.0`.
 ## Learn More
 
 To read more about the expressive theme, visit
-https://www.ibm.com/standards/carbon/guidelines/expressive-theme.
+https://www.ibm.com/standards/carbon/whats-happening/expressive-update/.
