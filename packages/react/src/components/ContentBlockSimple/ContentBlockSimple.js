@@ -6,7 +6,7 @@
  */
 
 import ContentBlock from '../ContentBlock/ContentBlock';
-import ContentItem from '../../internal/components/ContentItem/ContentItem';
+import ContentItem from '../ContentItem/ContentItem';
 import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { ImageWithCaption } from '../ImageWithCaption';

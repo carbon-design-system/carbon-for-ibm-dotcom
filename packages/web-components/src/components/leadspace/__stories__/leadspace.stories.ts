@@ -48,7 +48,7 @@ const navigationWithBreadcrumbs = html`
 export const Tall = ({ parameters }) => {
   const { title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace size="${LEADSPACE_SIZE.NONE}">
+    <dds-leadspace size="${LEADSPACE_SIZE.TALL}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
@@ -71,7 +71,7 @@ export const TallWithImage = ({ parameters }) => {
   const image = defaultSrc || leadspaceImg;
   return html`
     <dds-leadspace
-      size="${LEADSPACE_SIZE.NONE}"
+      size="${LEADSPACE_SIZE.TALL}"
       gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
