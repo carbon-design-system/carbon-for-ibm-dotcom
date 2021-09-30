@@ -5,15 +5,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { CTA } from '../../../components/CTA';
+import { CTA } from '../CTA';
 import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import { ImageWithCaption } from '../../../components/ImageWithCaption';
+import { ImageWithCaption } from '../ImageWithCaption';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
-import { VideoPlayer } from '../../../components/VideoPlayer';
+import { VideoPlayer } from '../VideoPlayer';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -63,15 +63,7 @@ const ContentItem = ({
             __html: markdownToHtml(copy, { bold: false }),
           }}></div>
       )}
-      {cta && (
-        <CTA
-          style={cta.style}
-          type={cta.type}
-          copy={cta.copy}
-          href={cta.href}
-          customClassName={`${prefix}--content-item__cta`}
-        />
-      )}
+      {cta && <CTA {...cta} customClassName={`${prefix}--content-item__cta`} />}
     </div>
   );
 };

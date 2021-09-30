@@ -51,6 +51,7 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
       .filter(elem =>
         (elem as HTMLElement).matches !== undefined
           ? (elem as HTMLElement).matches((this.constructor as typeof DDSContentItem).selectorTextCTA) ||
+            (elem as HTMLElement).matches((this.constructor as typeof DDSContentItem).selectorButtonCTA) ||
             (elem as HTMLElement).matches((this.constructor as typeof DDSContentItem).selectorButtonGroup) ||
             (elem as HTMLElement).matches((this.constructor as typeof DDSContentItem).selectorLinkWithIcon) ||
             (elem as HTMLElement).matches((this.constructor as typeof DDSContentItem).selectorLinkList)
@@ -98,6 +99,10 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
 
   static get selectorTextCTA() {
     return `${ddsPrefix}-text-cta`;
+  }
+
+  static get selectorButtonCTA() {
+    return `${ddsPrefix}-button-cta`;
   }
 
   static get selectorLinkList() {

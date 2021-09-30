@@ -174,7 +174,7 @@ export const Short = ({ parameters }) => {
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+    <div style={{ display: 'flex', alignItems: 'center', minHeight: '100%' }}>
       <Default parameters={massagedParameters} />
     </div>
   );
@@ -239,7 +239,7 @@ export const ShortWithAdjunctLegalLinks = ({ parameters }) => {
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+    <div style={{ display: 'flex', alignItems: 'center', minHeight: '100%' }}>
       <Default parameters={massagedParameters} />
     </div>
   );
@@ -295,7 +295,7 @@ export const ShortLanguageOnly = ({ parameters }) => {
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+    <div style={{ display: 'flex', alignItems: 'center', minHeight: '100%' }}>
       <Default parameters={massagedParameters} />
     </div>
   );
@@ -357,7 +357,7 @@ export const Micro = ({ parameters }) => {
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+    <div style={{ display: 'flex', alignItems: 'center', minHeight: '100%' }}>
       <Default parameters={massagedParameters} />
     </div>
   );
@@ -398,7 +398,7 @@ export const MicroLanguageOnly = ({ parameters }) => {
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+    <div style={{ display: 'flex', alignItems: 'center', minHeight: '100%' }}>
       <Default parameters={massagedParameters} />
     </div>
   );
