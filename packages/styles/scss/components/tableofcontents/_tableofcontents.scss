@@ -414,7 +414,6 @@ $hover-transition-timing: 95ms;
   }
 
   @media print {
-
     :host(#{$dds-prefix}-table-of-contents),
     .#{$prefix}--tableofcontents {
       .#{$prefix}--tableofcontents__desktop {
@@ -423,12 +422,12 @@ $hover-transition-timing: 95ms;
       .#{$prefix}--tableofcontents__mobile {
         display: none;
       }
-  
+
       &[toc-layout='horizontal'] {
         .#{$prefix}--tableofcontents__navbar {
           display: none;
         }
-  
+
         .#{$prefix}--toc__print-styles {
           display: block;
         }
