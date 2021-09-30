@@ -196,7 +196,7 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
     firstUpdated() {
       window.requestAnimationFrame(() => {
         const button = this.querySelector('dds-video-player')?.shadowRoot?.querySelector('button');
-        this.transposeAttributes(button)
+        this.transposeAttributes(button);
       });
     }
   }
