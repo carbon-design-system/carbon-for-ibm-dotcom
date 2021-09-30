@@ -26,10 +26,29 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     }
 
     firstUpdated() {
-      const dataAttributes = [].filter.call(this.attributes, (at) => {return /^data-/.test((at as any).name)});
-      const linkNode = this.shadowRoot?.querySelector('a');
+      window.requestAnimationFrame(() => {
+        this.transposeAttributes();
+      });
+    }
+
+    /**
+     * Function to transpose any data-* attributes to the anchor tag in the shadow dom.
+     * 
+     * @param linkNode optional argument to pass in custom element to target instead of an anchor link
+     */
+    transposeAttributes(linkNode?) {
+      this.querySelectorAll('*').forEach( e => {
+        const anchor = e.shadowRoot?.querySelector('a');
+        if(anchor) {
+          linkNode = anchor;
+        }
+      })
+      linkNode = linkNode ? linkNode : this.shadowRoot?.querySelector('a');
+      const dataAttributes = [].filter.call(this.attributes, (at) => /^data-/.test((at as any).name)  && (at as any).name !== 'data-autoid');
       dataAttributes.forEach( (e) => {
-        if(linkNode) linkNode?.setAttribute((e as any).name, (e as any).value);
+        if(linkNode) {
+          linkNode?.setAttribute((e as any).name, (e as any).value);
+        } 
       })
     }
 
