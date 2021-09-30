@@ -41,20 +41,6 @@ jobs:
           cf-app: ibmdotcom-react-canary
           cf-manifest: manifest-canary.yml
           deploy-dir: packages/react
-      - name: Set env vars for e2e percy snapshots
-        uses: ./.github/actions/set-dotenv
-        with:
-          env-file: packages/tests-e2e/.env
-        env:
-          SELENIUM_HOST: https://ibmdotcom-react-canary.mybluemix.net
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_REACT_E2E }}
-      - name: Create e2e percy snapshots
-        run: yarn test:e2e
-        working-directory: packages/tests-e2e
-      - uses: act10ns/slack@v1
-        with:
-          status: ${{ job.status }}
-        if: failure()
   react-experimental:
     runs-on: ubuntu-20.04
     env:
@@ -366,44 +352,6 @@ jobs:
           cf-app: ibmdotcom-utilities
           cf-manifest: manifest.yml
           deploy-dir: packages/utilities
-      - uses: act10ns/slack@v1
-        with:
-          status: ${{ job.status }}
-        if: failure()
-  carbon-expressive:
-    runs-on: ubuntu-20.04
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-    steps:
-      - uses: actions/checkout@master
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-      - name: Install dependencies
-        run: yarn install --offline
-      - name: Build project
-        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react --ignore @carbon/ibmdotcom-services-store --ignore @carbon/ibmdotcom-web-components build
-      - name: Set env vars
-        uses: ./.github/actions/set-dotenv
-        with:
-          env-file: packages/styles/.env
-        env:
-          KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
-          KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
-      - name: Building Carbon expressive storybook
-        run: yarn build-storybook
-        working-directory: packages/styles
-      - name: Deploying Carbon expressive storybook to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.3.0
-        with:
-          cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-          cf-org: ibm-digital-design
-          cf-space: ibmdotcom-production
-          cf-region: us-south
-          cf-app: carbon-expressive
-          cf-manifest: manifest.yml
-          deploy-dir: packages/styles
       - uses: act10ns/slack@v1
         with:
           status: ${{ job.status }}

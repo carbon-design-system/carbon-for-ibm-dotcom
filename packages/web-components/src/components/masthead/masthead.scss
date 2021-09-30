@@ -271,7 +271,6 @@
 :host(#{$dds-prefix}-top-nav-menu),
 :host(#{$dds-prefix}-megamenu-top-nav-menu),
 :host(#{$dds-prefix}-top-nav-menu-item),
-:host(#{$dds-prefix}-cloud-masthead-profile),
 :host(#{$dds-prefix}-masthead-profile-item) {
   .#{$prefix}--header__menu-arrow {
     fill: $text-01;
@@ -288,11 +287,19 @@
   }
 }
 
+:host(#{$dds-prefix}-megamenu-top-nav-menu) {
+  .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] + .#{$prefix}--header__menu {
+    bottom: auto;
+    height: auto;
+    max-height: calc(100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem));
+  }
+}
+
 :host(#{$dds-prefix}-left-nav) {
   @extend :host(#{$prefix}-side-nav);
 
   display: block;
-  overflow: auto;
+  overflow: hidden;
   margin-top: calc(#{mini-units(6)} + 1px);
   height: calc(100% - #{mini-units(6)} - 1px);
   width: 16rem;
@@ -317,6 +324,28 @@
     visibility: visible;
     /* stylelint-disable-next-line time-min-milliseconds */
     transition: visibility 1ms motion(exit, productive) 0ms, left $duration--fast-02 motion(exit, productive) 1ms;
+  }
+
+  .#{$prefix}--side-nav__wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .#{$prefix}--side-nav__platform-name {
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+
+  .#{$prefix}--side-nav__menu-sections {
+    flex-basis: 100%;
+    flex-shrink: 1;
+    position: relative;
+  }
+
+  ::slotted(#{$dds-prefix}-left-nav-menu-section) {
+    overflow: hidden;
+    height: auto;
   }
 }
 
@@ -383,21 +412,10 @@
 :host(#{$dds-prefix}-left-nav-menu-item) a.#{$prefix}--side-nav__link[role='menuitem'] {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding-left: $carbon--spacing-05;
   height: carbon--mini-units(6);
   width: 100%;
-
-  .#{$prefix}--side-nav__link-text {
-    align-self: end;
-    margin-top: auto;
-  }
-
-  &::after {
-    content: '';
-    width: 100%;
-    margin-top: auto;
-    border-bottom: 1px solid $ui-03;
-  }
 }
 
 :host(#{$dds-prefix}-left-nav-item),
@@ -406,6 +424,26 @@
   .#{$prefix}--side-nav__link:hover {
     background-color: $shell-side-nav-bg-04;
     color: $ibm-color__gray-100;
+  }
+}
+
+:host(#{$dds-prefix}-left-nav-menu),
+:host(#{$dds-prefix}-left-nav-menu-item),
+:host(#{$dds-prefix}-left-nav-menu-section) {
+  .#{$prefix}--side-nav__link,
+  .#{$prefix}--side-nav__submenu,
+  a.#{$prefix}--side-nav__link[role='menuitem'],
+  .#{$prefix}--side-nav__submenu .#{$prefix}--side-nav__submenu-content {
+    height: auto;
+    min-height: carbon--mini-units(6);
+  }
+
+  .#{$prefix}--side-nav__submenu-title,
+  a.#{$prefix}--side-nav__link > .#{$prefix}--side-nav__link-text,
+  button.#{$prefix}--side-nav__link > .#{$prefix}--side-nav__link-text {
+    height: auto;
+    white-space: normal;
+    padding: 0.8rem 0;
   }
 }
 

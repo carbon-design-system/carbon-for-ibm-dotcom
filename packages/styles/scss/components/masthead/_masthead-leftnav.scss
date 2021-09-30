@@ -85,6 +85,7 @@
     .#{$prefix}--side-nav {
       left: -100vw;
       visibility: hidden;
+      transform: translateZ(0.0001px);
       /* stylelint-disable-next-line  time-min-milliseconds */
       transition: visibility 1ms motion(exit, productive) $duration--fast-02,
         left $duration--fast-02 motion(exit, productive) 1ms;
@@ -115,7 +116,8 @@
     }
 
     .#{$prefix}--side-nav__item {
-      height: $container-04;
+      height: auto;
+      min-height: $container-04;
 
       .#{$prefix}--side-nav__submenu {
         height: 100%;
@@ -142,6 +144,7 @@
       overflow-y: auto;
       left: 0;
       visibility: visible;
+      transform: translateZ(0.0001px);
       /* stylelint-disable-next-line time-min-milliseconds */
       transition: visibility 1ms motion(exit, productive) 0ms,
         left $duration--fast-02 motion(exit, productive) 1ms;
@@ -170,6 +173,7 @@
     left: -100%;
     background-color: $ui-background;
     padding-bottom: $spacing-09;
+    transform: translateZ(0.0001px);
     transition: left $duration--moderate-01 motion(exit, productive);
 
     a {
@@ -189,15 +193,17 @@
 
       display: flex;
       color: $text-01;
-      padding: 0 $carbon--spacing-05;
-      height: 3rem;
+      padding: 0.8rem $carbon--spacing-05;
+      height: auto;
+      min-height: 3rem;
       border-bottom: 1px solid $ui-04;
       align-items: center;
     }
 
     .#{$prefix}--side-nav__item
       .#{$prefix}--masthead__side-nav--submemu-section-title {
-      height: 3rem;
+      height: auto;
+      min-height: 3rem;
 
       span {
         @include carbon--type-style(productive-heading-02);
@@ -212,6 +218,8 @@
       flex: 1;
       justify-content: flex-end;
       align-items: center;
+      align-self: flex-start;
+      margin-top: rem(2px);
     }
   }
 
@@ -225,8 +233,12 @@
         .#{$prefix}--side-nav__link-text {
           @include carbon--type-style(body-short-02);
 
+          display: flex;
+          align-items: center;
           color: $text-02;
           width: 100%;
+          height: 100%;
+          border-bottom: 1px solid $ui-03;
           text-overflow: ellipsis;
         }
       }
@@ -242,6 +254,7 @@
     }
 
     &.#{$prefix}--side-nav__link--current {
+      background-color: $ui-background;
       > {
         .#{$prefix}--side-nav__link-text {
           color: $text-01;
@@ -332,7 +345,8 @@
 
     .#{$prefix}--side-nav__submenu-content {
       width: 100%;
-      height: rem(48px);
+      height: auto;
+      min-height: rem(48px);
       display: flex;
       border-bottom: 1px solid $ui-03;
     }
@@ -346,7 +360,7 @@
 
     &[aria-haspopup='true'] {
       height: $container-04;
-      &.bx--side-nav__submenu-platform {
+      &.#{$prefix}--side-nav__submenu-platform {
         border-top: 1px solid $ui-03;
         border-bottom: 1px solid $ui-04;
         text-decoration: none;
@@ -365,10 +379,21 @@
     }
   }
 
+  .#{$prefix}--side-nav__submenu-title,
+  a.#{$prefix}--side-nav__link > .#{$prefix}--side-nav__link-text,
+  button.#{$prefix}--side-nav__link > .#{$prefix}--side-nav__link-text {
+    text-overflow: initial;
+    white-space: normal;
+    padding: 0.8rem 0;
+  }
+
   .#{$prefix}--masthead__side-nav--submemu-heading,
   :host(#{$dds-prefix}-left-nav-menu-category-heading) {
     @include type-style('body-long-01');
 
+    font-size: 1rem;
+    line-height: 1.5rem;
+    letter-spacing: normal;
     display: block;
     color: $text-02;
     padding: $spacing-02 0;
@@ -405,19 +430,9 @@
     a.#{$prefix}--side-nav__link[role='menuitem'] {
     display: flex;
     padding-left: $carbon--spacing-05;
-    height: carbon--mini-units(6);
+    height: auto;
+    min-height: carbon--mini-units(6);
     width: 100%;
-
-    .#{$prefix}--side-nav__link-text {
-      margin-top: auto;
-    }
-
-    &::after {
-      content: '';
-      width: 100%;
-      margin-top: auto;
-      border-bottom: 1px solid $ui-03;
-    }
   }
 
   .#{$prefix}--masthead__side-nav__last-highlighted,
@@ -432,12 +447,12 @@
   .#{$prefix}--masthead__side-nav__last-highlighted
     .#{$prefix}--side-nav__submenu-content,
   .#{$prefix}--side-nav__menu-item.#{$prefix}--masthead__side-nav__last-highlighted
-    .#{$prefix}--side-nav__link::after,
+    .#{$prefix}--side-nav__link,
   :host(dds-left-nav-menu-section)
     .#{$prefix}--masthead__side-nav--submemu-back
-    .#{$prefix}--side-nav__link::after,
+    .#{$prefix}--side-nav__link,
   :host(#{$dds-prefix}-left-nav-menu-item[last-highlighted])
-    .#{$prefix}--side-nav__link[role='menuitem']::after {
+    .#{$prefix}--side-nav__link[role='menuitem'] {
     border-bottom: none;
   }
 

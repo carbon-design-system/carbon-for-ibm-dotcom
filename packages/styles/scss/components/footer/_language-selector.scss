@@ -25,24 +25,32 @@
       @include select;
       @include text-input;
 
-      margin-top: $spacing-05;
+      margin-top: $spacing-09;
       padding-left: 0;
       padding-right: 0;
       order: 0;
-
-      @include carbon--breakpoint('md') {
+      @include carbon--type-style('body-short-01');
+      @include carbon--breakpoint-down('md') {
         @include carbon--make-col-ready;
-        @include carbon--make-col(4, 4);
       }
-
+      @include carbon--breakpoint('md') {
+        margin-top: 0;
+        @include carbon--make-col(4, 8);
+        @include carbon--make-col-offset(2, 8);
+      }
       .#{$prefix}--language-selector {
         max-width: 100%;
         width: 100%;
-        height: 3rem;
+        height: $spacing-09;
+        margin-right: 0;
+
+        .#{$prefix}--list-box__field {
+          background-color: $ui-03;
+          height: inherit;
+        }
 
         @include carbon--breakpoint('md') {
           min-width: carbon--mini-units(27);
-          max-width: carbon--mini-units(40);
 
           .#{$prefix}--footer--short & {
             float: right;
@@ -52,7 +60,7 @@
         // Expressive styles
         .#{$prefix}--text-input,
         .#{$prefix}--list-box__menu-item__option {
-          @include carbon--type-style('body-long-01');
+          @include carbon--type-style('body-short-01');
         }
       }
 
@@ -72,6 +80,7 @@
 
       @include carbon--breakpoint('lg') {
         @include carbon--make-col(4, 16);
+        @include carbon--make-col-offset(10, 16);
 
         order: 1;
 
@@ -81,8 +90,6 @@
       }
 
       @include carbon--breakpoint('max') {
-        @include carbon--make-col(3, 16);
-
         .#{$prefix}--footer--short & {
           @include carbon--make-col-offset(11, 16);
         }
@@ -111,6 +118,9 @@
     // <ComboBox /> for desktop
     .#{$prefix}--form-item {
       display: block;
+      select {
+        background-color: $ui-03;
+      }
 
       @include carbon--breakpoint('lg') {
         display: none;

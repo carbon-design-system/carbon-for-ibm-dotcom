@@ -3,6 +3,104 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.10.0-rc.2...@carbon/ibmdotcom-web-components@1.10.0) (2021-09-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.10.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.10.0-rc.1...@carbon/ibmdotcom-web-components@1.10.0-rc.2) (2021-09-24)
+
+
+### Bug Fixes
+
+* **cloud-masthead:** set masthead position to fixed on menu open ([#7247](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7247)) ([227087f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/227087f))
+
+
+
+
+
+# [1.10.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.10.0-rc.0...@carbon/ibmdotcom-web-components@1.10.0-rc.1) (2021-09-22)
+
+
+### Bug Fixes
+
+* **left-nav:** calculate offsetTop to set top of left-nav ([#7215](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7215)) ([37ca44d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/37ca44d)), closes [#7211](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7211)
+
+
+
+
+
+# [1.10.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.9.0...@carbon/ibmdotcom-web-components@1.10.0-rc.0) (2021-09-17)
+
+
+### Bug Fixes
+
+* **card-section-simple:** aligning component in storybook ([#7062](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7062)) ([7f6451e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/7f6451e)), closes [#5857](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5857)
+* **cloud-masthead:** ensure that true is passed to the has-contact attribute ([#7107](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7107)) ([52bce53](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/52bce53))
+* **content-group-pictogram:** icon size fix and alignment ([#7086](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7086)) ([3321d9e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/3321d9e))
+* **cta-block:** clean up spacing ([#7157](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7157)) ([cb235c7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/cb235c7)), closes [#5779](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5779)
+* **feature-card:** resolve styling issues ([#7149](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7149)) ([99775d1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/99775d1)), closes [#6424](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6424)
+* **feature-card:** update stable selector ([#7146](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7146)) ([28fca6b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/28fca6b)), closes [#6417](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6417) [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/react/src/components/FeatureCard/FeatureCard.js#L39-L42](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/L39-L42)
+* **feature-card:** updating color tokens ([#7118](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7118)) ([60eb023](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/60eb023)), closes [#6350](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6350)
+* **footer:** expressive sunset cleanup ([#7103](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7103)) ([4d54b7b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/4d54b7b)), closes [#7094](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7094)
+* **footer:** update footer a11y labels ([#7042](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7042)) ([adcef7e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/adcef7e)), closes [#6025](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6025)
+* **Logo-grid:** changed the card heading style to expressive ([#7045](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7045)) ([56978ee](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/56978ee)), closes [#6211](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6211)
+* **masthead:** expressive sunset cleanup ([#7100](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7100)) ([ac46dc5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/ac46dc5)), closes [#7087](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7087)
+* **masthead:** handle overflow tabbing ([#7085](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7085)) ([8641ad2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/8641ad2)), closes [#5894](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5894)
+* **masthead:** remove aria-selected from menu items ([#7030](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7030)) ([dacbc19](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/dacbc19)), closes [#6888](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6888)
+* **masthead:** Wrap menu content when longer than the mobile or medium breakpoint ([#7126](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7126)) ([a6762e7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/a6762e7)), closes [#3518](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/3518) [#4003](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4003)
+* **search-with-typeahead:** Prevent focusOut on button click in safari ([#7069](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7069)) ([ef6b9b7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/ef6b9b7)), closes [#5920](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5920)
+* **video-player:** set tabindex of 0 to dds-video-player ([#7105](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7105)) ([9cb6aef](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/9cb6aef))
+
+
+### Features
+
+* **content-block-simple:** add react wrapper ([#7095](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7095)) ([e76240e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/e76240e))
+* **content-group-banner:** create react wrapper ([#7115](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7115)) ([80f37b6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/80f37b6)), closes [#5372](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5372)
+* **CTA:** enabling custom video title ([#6983](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6983)) ([37473d7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/37473d7)), closes [#6868](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6868) [#7033](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7033)
+* **expressive-theme:** sunset of the expressive theme ([#7012](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7012)) ([265f563](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/265f563))
+* **leadspace:** add short variation ([#7026](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7026)) ([a29c1af](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/a29c1af)), closes [#6929](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6929)
+* **lightbox-media-viewer:** title & description override ([#7083](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7083)) ([4cf9bbc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/4cf9bbc)), closes [#6878](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6878)
+* **link-list-section:** create react wrapper ([#7162](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7162)) ([b19a5e6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/b19a5e6)), closes [#6732](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6732)
+* **masthead:** Add a logic that highlights the current and parent menu items within the Masthead dropdown + Mega Menu based on the URL ([#6937](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6937)) ([24c9624](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/24c9624)), closes [#6638](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6638)
+* **table-of-contents:** introducing react wrapper ([#6998](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6998)) ([ff8dfbe](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/ff8dfbe)), closes [#5077](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5077)
+
+
+
+## 1.23.3 (2021-09-01)
+
+
+### Bug Fixes
+
+* **table-of-contents:** prevent extra space above Table of Contents ([#6981](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6981)) ([3e47c0a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/3e47c0a)), closes [#5577](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5577)
+
+
+### Features
+
+* **image:** support optional image borders ([#7035](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7035)) ([f5817f8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/f5817f8)), closes [#6528](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6528)
+
+
+
+## 1.23.3-rc.0 (2021-09-01)
+
+
+### Bug Fixes
+
+* **cloud-masthead:** adjust the cookie to PROD ID & overlapping issue on v18 L1 Nav ([#7037](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7037)) ([8f6a4d0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/8f6a4d0))
+* **cloud-masthead:** set unique id for megamenu tabs instead of using title ([#7024](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7024)) ([9008a53](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/9008a53)), closes [#6975](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6975)
+
+
+### Features
+
+* **video-player-composite:** support image and caption overrides ([#7025](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7025)) ([d2850a7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/d2850a7)), closes [#6195](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6195)
+
+
+
+
+
 # [1.9.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.9.0-rc.3...@carbon/ibmdotcom-web-components@1.9.0) (2021-09-08)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components

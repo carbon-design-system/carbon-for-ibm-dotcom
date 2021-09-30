@@ -37,6 +37,7 @@ $fcb-breakpoint-up--lg: map-get(
   .#{$prefix}--card__heading,
   ::slotted(#{$dds-prefix}-card-heading) {
     margin-bottom: $layout-03;
+    color: $inverse-01;
   }
 
   &:focus-within {
@@ -87,11 +88,13 @@ $fcb-breakpoint-up--lg: map-get(
     &:hover {
       ::slotted([slot='image']),
       .#{$prefix}--image {
-        filter: brightness(80%);
+        &::before {
+          opacity: 0.08;
+        }
       }
 
       .#{$prefix}--card__content {
-        background-color: $hover-ui;
+        background-color: $inverse-hover-ui;
       }
     }
 
@@ -102,7 +105,7 @@ $fcb-breakpoint-up--lg: map-get(
         height: 100%;
         padding: carbon--mini-units(2);
         justify-content: space-between;
-        background-color: $ui-01;
+        background-color: $inverse-02;
       }
 
       #{$prefix}--card__heading {
@@ -113,8 +116,7 @@ $fcb-breakpoint-up--lg: map-get(
         padding-bottom: $layout-03;
       }
 
-      #{$prefix}--card__footer {
-        padding: carbon--mini-units(2);
+      .#{$prefix}--card__footer {
         padding-top: 0;
         margin-top: carbon--mini-units(-4);
       }
@@ -137,21 +139,25 @@ $fcb-breakpoint-up--lg: map-get(
 
     .#{$prefix}--card__heading {
       margin-bottom: $layout-03;
+      color: $inverse-01;
     }
 
     .#{$prefix}--card__content {
+      background-color: $inverse-02;
+      transition: background-color $duration--moderate-01
+        motion(standard, productive);
+
       @include carbon--breakpoint('sm') {
         position: relative;
       }
+
       @include carbon--breakpoint(400px) {
         position: static;
       }
     }
 
     .#{$prefix}--card__wrapper {
-      @include carbon--theme($carbon--theme--g90, true);
-
-      background-color: $ui-01;
+      background-color: $inverse-02;
       width: 100%;
       height: aspect-ratio(2, 1);
 
@@ -177,6 +183,19 @@ $fcb-breakpoint-up--lg: map-get(
         width: 50%;
         height: 100%;
       }
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        z-index: 1;
+        background-color: $inverse-01;
+        transition: opacity $duration--moderate-01 motion(standard, productive);
+      }
     }
 
     // footer
@@ -188,6 +207,8 @@ $fcb-breakpoint-up--lg: map-get(
       }
 
       svg {
+        fill: $inverse-link;
+
         @include carbon--breakpoint('sm') {
           width: carbon--rem(20px);
           height: carbon--rem(20px);
@@ -204,6 +225,7 @@ $fcb-breakpoint-up--lg: map-get(
         }
       }
     }
+
     ::slotted(svg[slot='footer']) {
       margin-top: auto;
       margin-left: auto;
@@ -238,7 +260,7 @@ $fcb-breakpoint-up--lg: map-get(
       }
 
       .#{$prefix}--card__wrapper {
-        background: $hover-ui;
+        background-color: $inverse-hover-ui;
       }
     }
 
@@ -275,8 +297,6 @@ $fcb-breakpoint-up--lg: map-get(
     }
 
     .#{$prefix}--card__wrapper {
-      @include carbon--theme($carbon--theme--g90, true);
-
       &::before {
         padding-top: 0;
         @include carbon--breakpoint('md') {
@@ -284,7 +304,7 @@ $fcb-breakpoint-up--lg: map-get(
         }
       }
 
-      background-color: $ui-01;
+      background-color: $inverse-02;
       min-height: 50%;
       height: auto;
       padding: $spacing-07 $spacing-05;
@@ -303,6 +323,7 @@ $fcb-breakpoint-up--lg: map-get(
       ::slotted(#{$dds-prefix}-card-eyebrow),
       ::slotted(#{$dds-prefix}-card-heading) {
         width: 100%;
+        color: $inverse-01;
         max-width: carbon--rem(480px);
         @include carbon--breakpoint('md') {
           width: 90%;
@@ -316,13 +337,14 @@ $fcb-breakpoint-up--lg: map-get(
       .#{$prefix}--card__eyebrow,
       ::slotted(#{$dds-prefix}-card-eyebrow) {
         margin: 0 0 $spacing-05 0;
+        color: $inverse-01;
       }
 
       .#{$prefix}--card__heading,
       ::slotted(#{$dds-prefix}-card-heading) {
-        @include carbon--type-style('expressive-heading-04', true);
-
+        color: $inverse-01;
         margin-bottom: $spacing-07;
+        @include carbon--type-style('expressive-heading-04', true);
       }
 
       .#{$prefix}--card__copy {
@@ -377,6 +399,7 @@ $fcb-breakpoint-up--lg: map-get(
     .#{$prefix}--card__cta:visited {
     margin-top: auto;
     float: none;
+    fill: $inverse-link;
 
     @include carbon--breakpoint('sm') {
       width: carbon--rem(20px);

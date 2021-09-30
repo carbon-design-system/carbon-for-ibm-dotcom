@@ -101,6 +101,12 @@ class DDSTextCTA extends VideoCTAMixin(CTAMixin(DDSLinkWithIcon)) {
   videoName?: string;
 
   /**
+   * The video description.
+   */
+  @property({ attribute: 'video-description' })
+  videoDescription?: string;
+
+  /**
    * The video thumbnail URL.
    * Text CTA does not support video thumbnail, and this property should never be set.
    */
