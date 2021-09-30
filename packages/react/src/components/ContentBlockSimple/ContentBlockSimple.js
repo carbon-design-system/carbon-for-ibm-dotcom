@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ContentBlock from '../../internal/components/ContentBlock/ContentBlock';
+import ContentBlock from '../ContentBlock/ContentBlock';
 import ContentItem from '../../internal/components/ContentItem/ContentItem';
 import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
