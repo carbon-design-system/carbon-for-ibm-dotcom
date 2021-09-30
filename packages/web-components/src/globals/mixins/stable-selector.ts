@@ -23,9 +23,7 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       if (stableSelector) {
         this.dataset.autoid = stableSelector;
       }
-    }
-
-    firstUpdated() {
+      
       window.requestAnimationFrame(() => {
         this.transposeAttributes();
       });
