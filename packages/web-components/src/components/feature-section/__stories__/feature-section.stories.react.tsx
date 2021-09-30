@@ -18,19 +18,18 @@ import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-r
 import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
 import DDSContentItemParagraph from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-paragraph';
 import DDSFeatureSection from '@carbon/ibmdotcom-web-components/es/components-react/feature-section/feature-section';
+// eslint-disable-next-line max-len
 import DDSFeatureSectionCardLink from '@carbon/ibmdotcom-web-components/es/components-react/feature-section/feature-section-card-link';
 import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 
-
-import imgXlg1x1 from '../../../../../storybook-images/assets/1584/fpo--1x1--1584x1584--002.jpg';
-import imgLg1x1 from '../../../../../storybook-images/assets/1312/fpo--1x1--1312x1312--002.jpg';
+import imgXlg4x3 from '../../../../../storybook-images/assets/1584/fpo--4x3--1312x984--002.jpg';
+import imgLg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--002.jpg';
 import imgMd4x3 from '../../../../../storybook-images/assets/960/fpo--4x3--960x720--002.jpg';
 import imgSm1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 import imgXs1x1 from '../../../../../storybook-images/assets/320/fpo--1x1--320x320--002.jpg';
 import { MEDIA_ALIGNMENT } from '../defs';
 import { CTA_TYPE } from '../../cta/defs';
-
 
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.react.mdx';
@@ -47,13 +46,14 @@ const types = {
 
 export const Default = ({ parameters }) => {
   const { eyebrow, heading, copy, href, ctaType, mediaAlign, defaultSrc } = parameters?.props?.FeatureSection ?? {};
-  return <DDSFeatureSection media-alignment={mediaAlign}>
+  return (
+    <DDSFeatureSection media-alignment={mediaAlign}>
       <DDSImage slot="image" default-src={defaultSrc}>
-        <DDSImageItem media="(min-width: 1312px)" srcset={imgXlg1x1}></DDSImageItem>
-        <DDSImageItem media="(min-width: 672px)" srcset={imgLg1x1}></DDSImageItem>
-        <DDSImageItem media="(min-width: 320px)" srcset={imgMd4x3}></DDSImageItem>
+        <DDSImageItem media="(min-width: 1584px)" srcset={imgXlg4x3}></DDSImageItem>
+        <DDSImageItem media="(min-width: 1056px)" srcset={imgLg4x3}></DDSImageItem>
+        <DDSImageItem media="(min-width: 672px)" srcset={imgMd4x3}></DDSImageItem>
         <DDSImageItem media="(min-width: 320px)" srcset={imgSm1x1}></DDSImageItem>
-        <DDSImageItem media="(min-width: 320px)" srcset={imgXs1x1}></DDSImageItem>
+        <DDSImageItem media="(min-width: 0px)" srcset={imgXs1x1}></DDSImageItem>
       </DDSImage>
       <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow>
       <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
@@ -63,13 +63,14 @@ export const Default = ({ parameters }) => {
         <DDSCardLinkHeading>Try a free virtual business framing session with IBM Garage</DDSCardLinkHeading>
         <DDSCardCTAFooter color-scheme="inverse"> </DDSCardCTAFooter>
       </DDSFeatureSectionCardLink>
-    </DDSFeatureSection>;
+    </DDSFeatureSection>
+  );
 };
 
 Default.story = {
   parameters: {
     knobs: {
-      FeatureSection: ({groupId}) => ({
+      FeatureSection: ({ groupId }) => ({
         mediaAlign: select('Media Alignment', mediaAlignment, MEDIA_ALIGNMENT.RIGHT, groupId),
         eyebrow: textNullable('Card Eyebrow (optional)(eyebrow):', '5 min activity', groupId),
         heading: textNullable('Card Heading (required)(heading):', 'Ready when you are', groupId),
@@ -89,7 +90,7 @@ Default.story = {
 };
 
 export default {
-  title: 'Components/Feature Section',
+  title: 'Components/Feature section',
   decorators: [
     story => {
       return <>{story()}</>;
