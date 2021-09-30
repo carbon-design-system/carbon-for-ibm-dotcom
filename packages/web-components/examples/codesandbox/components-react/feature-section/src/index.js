@@ -21,22 +21,34 @@ import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image
 import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 import './index.css';
 
-const App = () => (<DDSFeatureSection media-alignment={'left'}>
-<DDSImage slot="image" default-src={'https://fpoimg.com/1584x1584?text=1:1&bg_color=ee5396&text_color=161616'}>
-	<DDSImageItem media="(min-width: 1312px)" srcset={'https://fpoimg.com/1584x1584?text=1:1&bg_color=ee5396&text_color=161616'}></DDSImageItem>
-	<DDSImageItem media="(min-width: 672px)" srcset={'https://fpoimg.com/1584x1584?text=1:1&bg_color=ee5396&text_color=161616'}></DDSImageItem>
-	<DDSImageItem media="(min-width: 320px)" srcset={'https://fpoimg.com/960x720?text=4:3&bg_color=ee5396&text_color=161616'}></DDSImageItem>
-	<DDSImageItem media="(min-width: 320px)" srcset={'https://fpoimg.com/720x720?text=1:1&bg_color=ee5396&text_color=161616'}></DDSImageItem>
-	<DDSImageItem media="(min-width: 320px)" srcset={'https://fpoimg.com/320x320?text=1:1&bg_color=ee5396&text_color=161616'}></DDSImageItem>
-</DDSImage>
-<DDSCardEyebrow>5 min activity</DDSCardEyebrow>
-<DDSContentBlockHeading>Ready when you are</DDSContentBlockHeading>
-<DDSContentItemParagraph slot="copy">Copy example</DDSContentItemParagraph>
+const App = () => (
+  <DDSFeatureSection media-alignment={'left'}>
+    <DDSImage slot="image" default-src={'https://fpoimg.com/1584x1584?text=1:1&bg_color=ee5396&text_color=161616'}>
+      <DDSImageItem
+        media="(min-width: 1312px)"
+        srcset={'https://fpoimg.com/1584x1584?text=1:1&bg_color=ee5396&text_color=161616'}></DDSImageItem>
+      <DDSImageItem
+        media="(min-width: 672px)"
+        srcset={'https://fpoimg.com/1584x1584?text=1:1&bg_color=ee5396&text_color=161616'}></DDSImageItem>
+      <DDSImageItem
+        media="(min-width: 320px)"
+        srcset={'https://fpoimg.com/960x720?text=4:3&bg_color=ee5396&text_color=161616'}></DDSImageItem>
+      <DDSImageItem
+        media="(min-width: 320px)"
+        srcset={'https://fpoimg.com/720x720?text=1:1&bg_color=ee5396&text_color=161616'}></DDSImageItem>
+      <DDSImageItem
+        media="(min-width: 320px)"
+        srcset={'https://fpoimg.com/320x320?text=1:1&bg_color=ee5396&text_color=161616'}></DDSImageItem>
+    </DDSImage>
+    <DDSCardEyebrow>5 min activity</DDSCardEyebrow>
+    <DDSContentBlockHeading>Ready when you are</DDSContentBlockHeading>
+    <DDSContentItemParagraph slot="copy">Copy example</DDSContentItemParagraph>
 
-<DDSFeatureSectionCardLink slot="footer" href={'https://example.com'} cta-type={'local'} color-scheme="inverse">
-	<DDSCardLinkHeading>Try a free virtual business framing session with IBM Garage</DDSCardLinkHeading>
-	<DDSCardCTAFooter color-scheme="inverse"> </DDSCardCTAFooter>
-</DDSFeatureSectionCardLink>
-</DDSFeatureSection>);
+    <DDSFeatureSectionCardLink slot="footer" href={'https://example.com'} cta-type={'local'} color-scheme="inverse">
+      <DDSCardLinkHeading>Try a free virtual business framing session with IBM Garage</DDSCardLinkHeading>
+      <DDSCardCTAFooter color-scheme="inverse"> </DDSCardCTAFooter>
+    </DDSFeatureSectionCardLink>
+  </DDSFeatureSection>
+);
 
 render(<App />, document.getElementById('root'));
