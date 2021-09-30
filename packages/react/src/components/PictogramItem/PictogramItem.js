@@ -6,7 +6,7 @@
  */
 
 import classNames from 'classnames';
-import ContentItem from '../../internal/components/ContentItem/ContentItem';
+import ContentItem from '../ContentItem/ContentItem';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
