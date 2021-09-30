@@ -211,7 +211,7 @@ function _buildExamples() {
     const cdnFile = `${_exampleBuild}/components/${example}/dist/cdn.html`;
     const contents = fs.readFileSync(cdnFile, 'utf8');
     const contentsFinal = contents.replace(
-      /https?:.\/1.www.s81c.com\/common\/carbon-for-ibm-dotcom\/tag\/v1\/canary\//g,
+      /https?:.\/1.www.s81c.com\/common\/carbon-for-ibm-dotcom\/tag\/v1\/latest\//g,
       '../cdn/'
     );
     fs.writeFileSync(cdnFile, contentsFinal);
@@ -221,7 +221,7 @@ function _buildExamples() {
     if (fs.existsSync(cdnRtlFile)) {
       const contentsRTL = fs.readFileSync(cdnRtlFile, 'utf8');
       const contentsRTLFinal = contentsRTL.replace(
-        /https?:.\/1.www.s81c.com\/common\/carbon-for-ibm-dotcom\/tag\/v1\/canary\//g,
+        /https?:.\/1.www.s81c.com\/common\/carbon-for-ibm-dotcom\/tag\/v1\/latest\//g,
         '../cdn/'
       );
       fs.writeFileSync(cdnRtlFile, contentsRTLFinal);
