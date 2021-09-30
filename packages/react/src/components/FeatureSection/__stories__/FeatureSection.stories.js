@@ -5,34 +5,33 @@
  * LICENSE file in the root directory of this source tree.
  */
 
- import React from 'react';
- import readme from '../README.stories.mdx';
- 
- export default {
-	 title: 'Components|Feature section',
- 
-	 parameters: {
-		 ...readme.parameters,
-		 percy: {
-			 skip: true,
-		 },
-		 proxy: true,
-	 },
- };
- 
- export const Default = () => {
-	 return (
-		 <p>
-			 This component is maintained in{' '}
-			 <code>@carbon/ibmdotcom-web-components</code> library with a{' '}
-			 <a
-				 className="bx--link"
-				 target="_blank"
-				 href="https://ibmdotcom-web-components-react.mybluemix.net/?path=/story/components-feature-section">
-				 React wrapper
-			 </a>
-			 .
-		 </p>
-	 );
- };
- 
+import React from 'react';
+import readme from '../README.stories.mdx';
+
+export default {
+  title: 'Components|Feature section',
+
+  parameters: {
+    ...readme.parameters,
+    percy: {
+      skip: true,
+    },
+    proxy: true,
+  },
+};
+
+export const Default = () => {
+  return (
+    <p>
+      This component is maintained in{' '}
+      <code>@carbon/ibmdotcom-web-components</code> library with a{' '}
+      <a
+        className="bx--link"
+        target="_blank"
+        href="https://ibmdotcom-web-components-react.mybluemix.net/?path=/story/components-feature-section">
+        React wrapper
+      </a>
+      .
+    </p>
+  );
+};
