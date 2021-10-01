@@ -212,7 +212,7 @@ const MastheadSearch = ({
      */
     const handleClickOutside = event => {
       if (!searchOpenOnload) {
-        let mastheadRef = ref.current?.closest('.bx--masthead');
+        const mastheadRef = ref.current?.closest(`.${prefix}--masthead`);
         if (mastheadRef && !mastheadRef.contains(event.target)) {
           // If a click was detected outside the Search ref but there is a text value in state, don't hide the Search.
           if (state.val.length === 0 && isSearchActive) {
