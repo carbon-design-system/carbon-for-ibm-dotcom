@@ -189,9 +189,9 @@
     "string-replace-loader": "^2.1.0",
     "style-loader": "^2.0.0",
     "temp": "^0.9.0",
-    "terser-webpack-plugin": "^2.3.5",
+    "terser-webpack-plugin": "^4.2.3",
     "through2": "^3.0.0",
-    "webpack": "^4.25.1",
+    "webpack": "^4.46.0",
     "whatwg-fetch": "^2.0.3"
   },
   "resolutions": {

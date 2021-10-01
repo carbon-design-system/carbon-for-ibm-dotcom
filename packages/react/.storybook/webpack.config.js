@@ -60,6 +60,11 @@ module.exports = ({ config, mode }) => {
   config.devtool = useStyleSourceMap ? 'source-map' : '';
   config.optimization = {
     ...config.optimization,
+    splitChunks: {
+      chunks: 'all',
+      minSize: 30 * 1024,
+      maxSize: 1024 * 1024,
+    },
     minimizer: [
       new TerserPlugin({
         sourceMap: useStyleSourceMap,
