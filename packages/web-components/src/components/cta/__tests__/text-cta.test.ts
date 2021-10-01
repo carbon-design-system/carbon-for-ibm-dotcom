@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,10 +13,12 @@ import { CTA_TYPE } from '../defs';
 import '../text-cta';
 
 const template = (props?) => {
-  const { ctaType, videoDuration, videoName, videoThumbnailUrl, formatVideoCaption, formatVideoDuration, children } = props ?? {};
+  const { ctaType, target, videoDuration, videoName, videoThumbnailUrl, formatVideoCaption, formatVideoDuration, children } =
+    props ?? {};
   return html`
     <dds-text-cta
       cta-type="${ifDefined(ctaType)}"
+      target="${ifDefined(target)}"
       video-duration="${ifDefined(videoDuration)}"
       video-name="${ifDefined(videoName)}"
       video-thumbnail-url="${ifDefined(videoThumbnailUrl)}"
@@ -40,6 +42,7 @@ describe('dds-text-cta', function() {
       render(
         template({
           ctaType: CTA_TYPE.VIDEO,
+          target: '_blank',
           videoDuration: 180,
           videoName: 'video-name-foo',
           videoThumbnailUrl: 'https://example.com/video-thumbnail-foo',
