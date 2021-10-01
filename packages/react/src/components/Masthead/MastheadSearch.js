@@ -280,7 +280,7 @@ const MastheadSearch = ({
   function onKeyDown(event) {
     switch (event.key) {
       case 'Enter': {
-        // Disables Enter key if searchNoRirect is true
+        // Disables Enter key if searchNoRedirect is true
         if (rest.searchNoRedirect) {
           onSearchNoRedirect(event, state.val);
           event.preventDefault();
