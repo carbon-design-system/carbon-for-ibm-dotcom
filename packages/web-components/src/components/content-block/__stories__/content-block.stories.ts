@@ -95,7 +95,7 @@ const card2 = html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { heading, copy, showCopy, addChildren, showCTA, border } = parameters?.props?.ContentBlock ?? {};
+  const { heading, copy, showCopy, addChildren, showCTA, border, aside } = parameters?.props?.ContentBlock ?? {};
   return html`
     <dds-content-block complementary-style-scheme="${border ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER : ''}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
@@ -121,10 +121,6 @@ export const Default = ({ parameters }) => {
                   </dds-content-item>
                 `
               )}
-              <dds-card-link-cta slot="footer" cta-type="local" href="https://www.example.com">
-                <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
-                <dds-card-cta-footer></dds-card-cta-footer>
-              </dds-card-link-cta>
             </dds-content-group-simple>
           `
         : ``}
@@ -144,6 +140,25 @@ export const Default = ({ parameters }) => {
             </dds-card-link-cta>
           `
         : ``}
+      ${aside
+        ? html`
+            <dds-link-list type="default" slot="complementary">
+              <dds-link-list-heading>Tutorials</dds-link-list-heading>
+              <dds-link-list-item-card href="https://example.com">
+                <p>Learn more about Kubernetes</p>
+                <dds-card-footer>
+                  ${ArrowRight20({ slot: 'icon' })}
+                </dds-card-footer>
+              </dds-link-list-item-card>
+              <dds-link-list-item-card href="https://example.com">
+                <p>Containerization A Complete Guide</p>
+                <dds-card-footer>
+                  ${ArrowRight20({ slot: 'icon' })}
+                </dds-card-footer>
+              </dds-link-list-item-card>
+            </dds-link-list>
+          `
+        : ``}
     </dds-content-block>
   `;
 };
@@ -152,7 +167,7 @@ export default {
   title: 'Components/Content block',
   decorators: [
     story => html`
-      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-layout">
+      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-layout--with-complementary">
         ${story()}
       </div>
     `,
@@ -170,6 +185,8 @@ export default {
           ' molestie et ipsum. Proin sodales est hendrerit maximus malesuada. Orci varius natoque penatibus et' +
           ' magnis dis parturient montes, nascetur ridiculus mus. Etiam at arcu ligula. Praesent faucibus est ' +
           'ligula, vitae finibus ante aliquet a.',
+
+        aside: boolean('Aside:', false),
         addChildren: optionsKnob(
           'Add children:',
           {

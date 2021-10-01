@@ -11,8 +11,30 @@ import ContentGroupCards from '../../ContentGroupCards/ContentGroupCards';
 import ContentGroupCardsKnobs from '../../ContentGroupCards/__stories__/data/ContentGroupCards.knobs';
 import ContentGroupSimple from '../../ContentGroupSimple/ContentGroupSimple';
 import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
+import { LinkList } from '../../LinkList';
 import React from 'react';
 import readme from '../README.stories.mdx';
+
+const linkListProps = {
+  heading: 'Tutorials',
+  items: [
+    {
+      type: 'local',
+      copy: 'Learn more about Kubernetes',
+      cta: {
+        href: 'https://ibm.com',
+      },
+    },
+    {
+      type: 'local',
+      copy: 'Containerization A Complete Guide',
+      cta: {
+        href: 'https://ibm.com',
+      },
+    },
+  ],
+  totalLinks: 2,
+};
 
 export default {
   title: 'Components|Content block',
@@ -29,6 +51,7 @@ export default {
             'Copy:',
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quam ante, mattis id pellentesque at, molestie et ipsum. Proin sodales est hendrerit maximus malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam at arcu ligula. Praesent faucibus est ligula, vitae finibus ante aliquet a.'
           ),
+          aside: boolean('Aside:', false),
           addChildren: optionsKnob(
             'Add children:',
             {
@@ -48,7 +71,6 @@ export default {
             heading: 'Learn more about natual language processing',
           },
           border: boolean('Border: ', false),
-          items: ContentGroupCardsKnobs.items,
         };
       },
     },
@@ -56,12 +78,16 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { heading, cta, copy, addChildren, showCTA, border, items } =
+  const { heading, cta, copy, addChildren, showCTA, border, aside } =
     parameters?.props?.ContentBlock ?? {};
+  const asideItems = {
+    items: <LinkList style="card" {...linkListProps} />,
+    border: false,
+  };
   return (
     <div className="bx--grid">
       <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story">
+        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story">
           <ContentBlock
             heading={heading}
             copy={copy}
@@ -73,19 +99,22 @@ export const Default = ({ parameters }) => {
                   heading="Natural language processing (NLP)"
                   items={ContentGroupSimpleKnobs.items}
                   copy={ContentGroupSimpleKnobs.copy}
-                  cta={ContentGroupSimpleKnobs.cta}
                 />
               ) : (
                 ``
               ),
               addChildren.includes('Content group cards') ? (
-                <ContentGroupCards heading="Machine learning" items={items} />
+                <ContentGroupCards
+                  heading="Machine learning"
+                  items={ContentGroupCardsKnobs.items}
+                />
               ) : (
                 ``
               ),
             ]}
             cta={showCTA ? cta : ''}
             border={border}
+            aside={aside ? asideItems : ''}
           />
         </div>
       </div>
