@@ -173,7 +173,10 @@
   @media print {
     :host(#{$dds-prefix}-footer),
     .#{$prefix}--footer {
-      display: none;
+      /* stylelint-disable declaration-no-important */
+      // need important since it gets overriden in WC Footer without it
+      display: none !important;
+      /* stylelint-enable declaration-no-important */
     }
   }
 }

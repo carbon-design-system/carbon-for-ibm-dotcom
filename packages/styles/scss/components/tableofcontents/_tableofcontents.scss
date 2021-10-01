@@ -416,6 +416,10 @@ $hover-transition-timing: 95ms;
   @media print {
     :host(#{$dds-prefix}-table-of-contents),
     .#{$prefix}--tableofcontents {
+      .#{$prefix}--tableofcontents__sidebar {
+        position: relative;
+      }
+
       .#{$prefix}--tableofcontents__desktop {
         display: block;
       }
