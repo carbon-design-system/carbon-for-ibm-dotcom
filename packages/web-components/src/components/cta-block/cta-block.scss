@@ -153,7 +153,6 @@
   }
 
   .#{$prefix}--cta-block-item__statitics {
-    font-family: carbon--font-family('mono');
     @include carbon--type-style('display-02', true);
 
     ::slotted(*[slot='statitics']) {
