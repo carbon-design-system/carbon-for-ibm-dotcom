@@ -12,6 +12,6 @@
   "nodeVersion": "system",
   "includeShadowDom": true,
   "testFiles": "**/*.e2e.js",
-  "pageLoadTimeout": 20000,
-  "defaultCommandTimeout": 20000
+  "pageLoadTimeout": 30000,
+  "defaultCommandTimeout": 30000
 }
