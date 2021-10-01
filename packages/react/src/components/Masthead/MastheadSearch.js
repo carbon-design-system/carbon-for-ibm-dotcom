@@ -584,8 +584,8 @@ const MastheadSearch = ({
             {...(rest.multiSection
               ? {
                   multiSection: true,
-                  renderSectionTitle: renderSectionTitle,
-                  getSectionSuggestions: getSectionSuggestions,
+                  renderSectionTitle,
+                  getSectionSuggestions,
                 }
               : {})}
           />
