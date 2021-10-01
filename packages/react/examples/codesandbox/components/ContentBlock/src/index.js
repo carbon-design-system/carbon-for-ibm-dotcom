@@ -10,7 +10,7 @@ import './styles.scss';
 import React from 'react';
 import ReactDom from 'react-dom';
 
-import { ContentBlock } from '@carbon/ibmdotcom-react/es/components/ContentBlockp';
+import { ContentBlock } from '@carbon/ibmdotcom-react/es/components/ContentBlock';
 
 const App = () => (
   <div className="bx--grid">
