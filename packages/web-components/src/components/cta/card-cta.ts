@@ -50,9 +50,9 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
   }
 
   protected _renderImage() {
-    const { ctaType, videoName, videoThumbnailUrl, _hasImage: hasImage } = this;
+    const { ctaType, videoName, videoThumbnailUrl, _hasImage: hasImage, noPoster } = this;
     const thumbnail =
-      hasImage || ctaType !== CTA_TYPE.VIDEO
+      hasImage || ctaType !== CTA_TYPE.VIDEO || noPoster
         ? undefined
         : html`
             <dds-card-cta-image alt="${ifNonNull(videoName)}" default-src="${ifNonNull(videoThumbnailUrl)}">
@@ -97,10 +97,22 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
   videoName?: string;
 
   /**
+   * The custom video description.
+   */
+  @property({ attribute: 'video-description' })
+  videoDescription?: string;
+
+  /**
    * The video thumbnail URL.
    */
   @property({ attribute: 'video-thumbnail-url' })
   videoThumbnailUrl?: string;
+
+  /**
+   * Set `true` if Poster Video Image should not be shown.
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'no-poster' })
+  noPoster = false;
 
   updated(changedProperties) {
     super.updated(changedProperties);
@@ -115,6 +127,7 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
         ctaType,
         videoDuration,
         videoName,
+        videoDescription,
         formatVideoCaption: formatVideoCaptionInEffect,
         formatVideoDuration: formatVideoDurationInEffect,
       } = this;
@@ -124,6 +137,8 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
         (footer as DDSCardCTAFooter).altAriaLabel = videoName || headingText || copyText;
         (footer as DDSCardCTAFooter).ctaType = ctaType;
         (footer as DDSCardCTAFooter).videoDuration = videoDuration;
+        (footer as DDSCardCTAFooter).videoName = videoName;
+        (footer as DDSCardCTAFooter).videoDescription = videoDescription;
         if (formatVideoCaptionInEffect) {
           (footer as DDSCardCTAFooter).formatVideoCaption = formatVideoCaptionInEffect;
         }

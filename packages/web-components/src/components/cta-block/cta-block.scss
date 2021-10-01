@@ -9,13 +9,11 @@
 @import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
 
 :host(#{$dds-prefix}-cta-block) {
-  padding-top: $carbon--layout-04;
   @include cta-block--pattern;
 
+  display: block;
+
   .#{$prefix}--content-layout {
-    @include carbon--breakpoint('md') {
-      padding-left: 0;
-    }
     @include carbon--breakpoint('sm') {
       padding-left: $carbon--layout-01;
     }
@@ -27,13 +25,6 @@
 
   &.#{$prefix}--cta-block__border {
     border-bottom: 1px solid $ui-04;
-  }
-
-  display: block;
-
-  ::slotted([slot='action']) {
-    margin-top: $carbon--layout-01;
-    margin-bottom: $carbon--layout-04;
   }
 
   ::slotted(#{$dds-prefix}-content-block-heading) {
@@ -49,6 +40,7 @@
 
     display: inline-block;
     max-width: 640px;
+    padding-left: 0;
 
     @include carbon--breakpoint('sm') {
       width: 100%;
@@ -57,13 +49,36 @@
     @include carbon--breakpoint('md') {
       width: 90%;
     }
+  }
 
-    padding-left: 0;
+  ::slotted([slot='action']) {
+    margin-bottom: $carbon--layout-03;
+
+    @include carbon--breakpoint('md') {
+      margin-bottom: $carbon--layout-05;
+    }
+  }
+
+  ::slotted(#{$dds-prefix}-button-group) {
+    // Temporary fix – <dds-button-group-item> elements have top margins
+    margin-top: -#{$carbon--layout-03};
+  }
+
+  ::slotted(#{$dds-prefix}-button-group:last-child) {
+    margin-bottom: 0;
+
+    @include carbon--breakpoint('md') {
+      margin-bottom: $carbon--layout-06;
+    }
   }
 
   ::slotted(#{$dds-prefix}-link-list) {
     display: block;
-    margin-top: $carbon--layout-05;
+    padding-bottom: 0;
+
+    @include carbon--breakpoint('md') {
+      margin-bottom: $carbon--layout-03;
+    }
   }
 }
 
@@ -79,17 +94,10 @@
 }
 
 :host(#{$dds-prefix}-cta-block-item-row) {
-  padding-top: $carbon--layout-05;
-  &:first-of-type {
-    padding-top: $carbon--layout-01;
-  }
-
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
-
-  padding-bottom: $carbon--layout-02;
 
   &:not(:first-of-type) {
     @include carbon--breakpoint-down('md') {
@@ -98,7 +106,6 @@
   }
 
   @include carbon--breakpoint('md') {
-    padding-bottom: $carbon--layout-04;
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -116,18 +123,27 @@
 }
 
 :host(#{$dds-prefix}-cta-block-item) {
+  @include carbon--make-col-ready;
+
   width: 100%;
   margin-top: 0;
   margin-bottom: 0;
-  padding-bottom: $carbon--spacing-05;
+  padding-bottom: $carbon--spacing-07;
   position: relative;
   display: flex;
   flex-direction: column;
-  @include carbon--make-col-ready;
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
 
   ::slotted(#{$dds-prefix}-text-cta) {
     margin-left: 0;
     margin-bottom: $carbon--spacing-03;
+  }
+
+  ::slotted(#{$dds-prefix}-text-cta:last-child) {
+    margin-bottom: 0;
   }
 
   ::slotted(svg) {
@@ -137,7 +153,6 @@
   }
 
   .#{$prefix}--cta-block-item__statitics {
-    font-family: carbon--font-family('mono');
     @include carbon--type-style('display-02', true);
 
     ::slotted(*[slot='statitics']) {
@@ -147,5 +162,9 @@
 
   .#{$prefix}--cta-block-item__media {
     margin-bottom: $carbon--layout-03;
+  }
+
+  .#{$prefix}--content-item__cta {
+    margin-top: 0;
   }
 }

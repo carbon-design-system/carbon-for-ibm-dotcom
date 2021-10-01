@@ -40,6 +40,7 @@ addParameters({
       'overview-enable-right-to-left-rtl--page',
       'overview-feature-flags--page',
       'overview-contributing-to-the-web-components-package--page',
+      'overview-breaking-changes--page',
     ]),
     theme: theme,
   },
@@ -50,8 +51,14 @@ addParameters({
 // @ts-ignore
 addDecorator((story, { parameters }) => {
   const result = story();
-  const { hasMainTag } = result as any;
-  const { hasCardGroup, hasCardGroupStandalone, hasGrid, hasVerticalSpacingInComponent, useRawContainer } = parameters;
+  const {
+    hasCardGroup,
+    hasCardGroupStandalone,
+    hasGrid,
+    hasVerticalSpacingInComponent,
+    useRawContainer,
+    hasMainTag,
+  } = parameters;
   const classes = classMap({
     'dds-ce-demo-devenv--container': !useRawContainer,
     'dds-ce-demo-devenv--container--has-card-group': hasCardGroup,

@@ -16,7 +16,6 @@ import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|Footer',
-
   parameters: {
     ...readme.parameters,
     'carbon-theme': { disabled: true },
@@ -105,6 +104,7 @@ export const DefaultWithAdjunctLegalLinks = ({ parameters }) => {
 };
 
 DefaultWithAdjunctLegalLinks.story = {
+  name: 'Default with adjunct legal links',
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {
@@ -135,6 +135,7 @@ export const DefaultLanguageOnly = ({ parameters }) => {
 };
 
 DefaultLanguageOnly.story = {
+  name: 'Default language only',
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {
@@ -173,7 +174,7 @@ export const Short = ({ parameters }) => {
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+    <div style={{ display: 'flex', alignItems: 'center', minHeight: '100%' }}>
       <Default parameters={massagedParameters} />
     </div>
   );
@@ -238,13 +239,14 @@ export const ShortWithAdjunctLegalLinks = ({ parameters }) => {
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+    <div style={{ display: 'flex', alignItems: 'center', minHeight: '100%' }}>
       <Default parameters={massagedParameters} />
     </div>
   );
 };
 
 ShortWithAdjunctLegalLinks.story = {
+  name: 'Short with adjunct legal links',
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {
@@ -293,13 +295,14 @@ export const ShortLanguageOnly = ({ parameters }) => {
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+    <div style={{ display: 'flex', alignItems: 'center', minHeight: '100%' }}>
       <Default parameters={massagedParameters} />
     </div>
   );
 };
 
 ShortLanguageOnly.story = {
+  name: 'Short language only',
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {
@@ -354,7 +357,7 @@ export const Micro = ({ parameters }) => {
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+    <div style={{ display: 'flex', alignItems: 'center', minHeight: '100%' }}>
       <Default parameters={massagedParameters} />
     </div>
   );
@@ -395,13 +398,14 @@ export const MicroLanguageOnly = ({ parameters }) => {
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+    <div style={{ display: 'flex', alignItems: 'center', minHeight: '100%' }}>
       <Default parameters={massagedParameters} />
     </div>
   );
 };
 
 MicroLanguageOnly.story = {
+  name: 'Micro language only',
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {

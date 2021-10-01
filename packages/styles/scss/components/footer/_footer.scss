@@ -36,11 +36,40 @@
   :host(#{$dds-prefix}-footer[size='short']),
   .#{$prefix}--footer--short {
     padding-top: carbon--mini-units(4);
+
+    .#{$prefix}--language-selector__container {
+      margin-top: $spacing-09;
+      @include carbon--breakpoint('md') {
+        margin-top: 0;
+      }
+      @include carbon--breakpoint('max') {
+        @include carbon--make-col-offset(10, 16);
+      }
+    }
   }
 
   :host(#{$dds-prefix}-footer[size='micro']),
   .#{$prefix}--footer--micro {
     padding-top: 0;
+
+    .#{$prefix}--footer__logo-container {
+      display: none;
+    }
+
+    .#{$prefix}--language-selector__container {
+      padding: 0;
+
+      input.bx--text-input[role='combobox'] {
+        border-left: 1px solid $ui-03;
+      }
+    }
+
+    .#{$prefix}--locale-btn__container {
+      flex-basis: auto;
+      button {
+        border: none;
+      }
+    }
 
     .#{$prefix}--legal-nav {
       border-top: 0;
@@ -56,8 +85,7 @@
       feature-flag-enabled('enable-css-custom-properties')
     ) {
       .#{$prefix}--footer__link.#{$prefix}--link {
-        @include carbon--type-style('body-long-02');
-
+        @include carbon--type-style('body-long-01');
         &,
         &:visited {
           color: $text-02;
@@ -117,6 +145,29 @@
     @include carbon--breakpoint('lg') {
       flex-direction: row;
     }
+  }
+
+  .#{$prefix}--footer__logo-container {
+    width: 100%;
+    margin-bottom: $spacing-09;
+    @include carbon--make-container;
+
+    @include carbon--breakpoint('md') {
+      margin-bottom: 0;
+      padding-left: $spacing-05;
+      padding-right: $spacing-05;
+    }
+
+    .#{$prefix}--footer__logo-row {
+      @include carbon--make-row;
+    }
+  }
+
+  .#{$prefix}--footer__locale-button--disabled {
+    @include carbon--make-col(2, 16);
+
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 

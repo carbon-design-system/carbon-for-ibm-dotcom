@@ -1,11 +1,10 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../themes/expressive/components/button';
 @import 'carbon-components/scss/components/button/button';
 
 /// Footer locale button
@@ -20,38 +19,35 @@
       feature-flag-enabled('enable-css-custom-properties')
     ) {
       @include button;
-      @include button-expressive;
       @include carbon--make-col-ready;
+      @include carbon--make-col(4, 4);
 
-      margin-top: carbon--mini-units(2);
-      padding-left: 0;
-      padding-right: 0;
-      order: 0;
+      margin-top: $spacing-09;
 
       .#{$prefix}--locale-btn {
         max-width: 100%;
         width: 100%;
+        @include type-style('body-short-01');
 
         @include carbon--breakpoint('md') {
           min-width: carbon--mini-units(27);
-          max-width: carbon--mini-units(40);
         }
       }
 
       @include carbon--breakpoint('md') {
+        align-self: end;
+        margin-bottom: $spacing-10;
         @include carbon--make-col(4, 8);
+        @include carbon--make-col-offset(2, 8);
 
-        margin-bottom: carbon--mini-units(2);
+        padding-left: 0;
+        padding-right: 0;
+        margin-top: 0;
       }
 
       @include carbon--breakpoint('lg') {
         @include carbon--make-col(4, 16);
-
-        order: 1;
-      }
-
-      @include carbon--breakpoint('max') {
-        @include carbon--make-col(3, 16);
+        @include carbon--make-col-offset(10, 16);
       }
     }
   }
@@ -59,9 +55,10 @@
   :host(#{$dds-prefix}-footer[size='short'])
     ::slotted(#{$dds-prefix}-locale-button),
   .#{$prefix}--footer--short .#{$prefix}--locale-btn__container {
-    margin-top: 0;
+    margin-top: $spacing-09;
 
     @include carbon--breakpoint('md') {
+      margin-top: 0;
       @include carbon--make-col-offset(2, 8);
 
       .#{$prefix}--locale-btn {
@@ -72,9 +69,18 @@
     @include carbon--breakpoint('lg') {
       @include carbon--make-col-offset(10, 16);
     }
+  }
 
-    @include carbon--breakpoint('max') {
-      @include carbon--make-col-offset(11, 16);
+  .#{$prefix}--footer--micro {
+    .#{$prefix}--locale-btn__container {
+      padding: 0;
+      .#{$prefix}--btn--tertiary {
+        &:hover,
+        &:focus {
+          background-color: $hover-ui;
+          color: $text-01;
+        }
+      }
     }
   }
 }

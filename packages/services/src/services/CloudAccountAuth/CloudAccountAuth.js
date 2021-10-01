@@ -13,7 +13,7 @@ import Cookies from 'js-cookie';
  * @type {string}
  * @private
  */
-const _cookieName = 'com.ibm.cloud.iam.LoggedIn.manual';
+const _cookieName = 'com.ibm.cloud.iam.LoggedIn.prod';
 
 class CloudAccountAuthAPI {
   /**
@@ -50,7 +50,7 @@ class CloudAccountAuthAPI {
         },
       })
       .then(response => {
-        return response.ok ? 'authenticated' : 'anonymous';
+        return response.status === 200 ? 'authenticated' : 'anonymous';
       })
       .catch(error => {
         console.error(error);

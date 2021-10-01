@@ -128,6 +128,7 @@ const getCTAKnobs = ({ groupId }) => {
       },
       style: select('CTA style (style):', ctaStyles, ctaStyles.card, groupId),
       type: select('CTA type (type):', ctaTypes, ctaTypes.local, groupId),
+      heading: 'Lorem ipsum dolor',
       copy: 'Lorem ipsum dolor',
     },
   };
@@ -135,7 +136,6 @@ const getCTAKnobs = ({ groupId }) => {
 
 export default {
   title: 'Components|Content block segmented',
-
   parameters: {
     ...readme.parameters,
   },
@@ -169,6 +169,11 @@ Default.story = {
       ContentBlockSegmented: ({ groupId }) => {
         const knobs = getBaseKnobs({ groupId });
         const ctaKnobs = getCTAKnobs({ groupId });
+        if (ctaKnobs.cta.style === 'card') {
+          delete ctaKnobs.cta.copy;
+        } else {
+          delete ctaKnobs.cta.heading;
+        }
 
         return {
           ...knobs,
@@ -264,6 +269,11 @@ WithLinkList.story = {
         );
 
         const ctaKnobs = getCTAKnobs({ groupId });
+        if (ctaKnobs.cta.style === 'card') {
+          delete ctaKnobs.cta.copy;
+        } else {
+          delete ctaKnobs.cta.heading;
+        }
 
         const aside = {
           items: <LinkList style="card" {...linkListProps} />,

@@ -8,7 +8,7 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings';
-import { customElement, html, internalProperty, LitElement, TemplateResult } from 'lit-element';
+import { customElement, html, internalProperty, LitElement, TemplateResult, property } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import { classMap } from 'lit-html/directives/class-map';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -16,6 +16,7 @@ import ChevronRight20 from 'carbon-web-components/es/icons/chevron--right/20.js'
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSTab from './tab';
 import styles from './tabs-extended.scss';
+import { ORIENTATION } from './defs';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -31,13 +32,16 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
    * Child tab components.
    */
   @internalProperty()
-  private _tabItems: Node[] = [];
+  private _tabItems: DDSTab[] = [];
 
   /**
    * Defines the active tab index.
    */
   @internalProperty()
-  private _activeTab: Number = 0;
+  private _activeTab: number = 0;
+
+  @internalProperty()
+  private _isLTR: boolean = true;
 
   /**
    * Handler for @slotChange, creates tabs from dds-tab components.
@@ -45,9 +49,8 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
    * @private
    */
   protected _handleSlotChange(event: Event) {
-    this._tabItems = (event.target as HTMLSlotElement)
-      .assignedNodes({ flatten: true })
-      .filter(node => new DDSTab()?.nodeName === node.nodeName);
+    const slottedNodes = (event.target as HTMLSlotElement).assignedNodes({ flatten: true });
+    this._tabItems = slottedNodes.filter(node => node instanceof DDSTab) as DDSTab[];
     this._tabItems.forEach((tab, index) => {
       this._activeTab = (tab as DDSTab).selected ? index : this._activeTab;
     });
@@ -58,11 +61,87 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     this._setActiveItem(index);
   }
 
-  private _setActiveItem(index) {
+  private _setActiveItem(index: number) {
     this._activeTab = index;
+    const newTabLink = this.shadowRoot?.querySelector(`
+    [role="tablist"] li[role="tab"]:nth-child(${index + 1}) .bx--tabs__nav-link`);
+    if (newTabLink instanceof HTMLElement) {
+      newTabLink.focus();
+    }
+  }
+
+  private _handleTabListKeyDown(event: KeyboardEvent) {
+    const { key } = event;
+    const { _activeTab: activeTab, _tabItems: tabItems, _isLTR: isLTR } = this;
+    switch (key) {
+      case 'ArrowRight':
+        if (isLTR) {
+          this._setActiveItem(this._getNextTab(activeTab));
+        } else {
+          this._setActiveItem(this._getPrevTab(activeTab));
+        }
+        break;
+      case 'ArrowLeft':
+        if (isLTR) {
+          this._setActiveItem(this._getPrevTab(activeTab));
+        } else {
+          this._setActiveItem(this._getNextTab(activeTab));
+        }
+        break;
+      case 'Home':
+        this._setActiveItem(this._getNextTab(-1));
+        break;
+      case 'End':
+        this._setActiveItem(this._getPrevTab(tabItems.length));
+        break;
+      default:
+        break;
+    }
+  }
+
+  private _getNextTab(activeIndex) {
+    let tabItems: DDSTab[];
+
+    if (activeIndex > -1 && activeIndex < this._tabItems.length) {
+      tabItems = this._reorderTabsFrom(activeIndex);
+    } else {
+      tabItems = Array.from(this._tabItems);
+    }
+
+    const queuedItem = tabItems.find(tabItem => !tabItem.disabled);
+
+    return this._tabItems.findIndex(tabItem => tabItem === queuedItem);
+  }
+
+  private _getPrevTab(activeIndex) {
+    let tabItems: DDSTab[];
+
+    if (activeIndex > 0 && activeIndex < this._tabItems.length) {
+      tabItems = this._reorderTabsFrom(activeIndex - 1);
+    } else {
+      tabItems = Array.from(this._tabItems);
+    }
+
+    const queuedItem = tabItems.reverse().find(tabItem => !tabItem.disabled);
+
+    return this._tabItems.findIndex(tabItem => tabItem === queuedItem);
+  }
+
+  private _reorderTabsFrom(activeIndex) {
+    const tabItems = Array.from(this._tabItems);
+
+    tabItems.forEach((_tabItem, i) => {
+      if (i <= activeIndex) {
+        tabItems.push(tabItems.shift() as DDSTab);
+      }
+    });
+
+    return tabItems;
   }
 
   updated() {
+    this._isLTR = window.getComputedStyle(this).direction === 'ltr';
+
     this._tabItems.map((tab, index) => {
       (tab as DDSTab).selected = index === this._activeTab;
       (tab as DDSTab).setIndex(index);
@@ -122,7 +201,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     const { _tabItems: tabs } = this;
     return html`
       <div class="${prefix}--tabs">
-        <ul class="${prefix}--tabs__nav ${prefix}--tabs__nav--hidden" role="tablist">
+        <ul class="${prefix}--tabs__nav ${prefix}--tabs__nav--hidden" role="tablist" @keydown="${this._handleTabListKeyDown}">
           ${tabs.map((tab, index) => {
             const disabled = (tab as DDSTab).disabled && true;
             const active = index === this._activeTab;
@@ -135,7 +214,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
             return html`
               <li class="${classes}" data-target=".tab-${index}-default" role="tab" ?disabled="${disabled}">
                 <a
-                  tabindex="${disabled ? -1 : index + 1}"
+                  tabindex="${active ? '0' : '-1'}"
                   id="tab-link-${index}-default"
                   class="${prefix}--tabs__nav-link"
                   href="javascript:void(0)"
@@ -143,8 +222,9 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
                   aria-controls="tab-panel-${index}-default"
                   aria-selected="${active}"
                   @click="${e => this._handleClick(index, e)}"
-                  ><div><p>${label}</p></div></a
                 >
+                  <div><p>${label}</p></div>
+                </a>
               </li>
             `;
           })}
@@ -153,9 +233,25 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     `;
   }
 
+  /**
+   * Returns a class-name based on the defined Orientation value
+   */
+  protected _getOrientationClass() {
+    return classMap({
+      [`${prefix}--tabs-extended`]: true,
+      [`${prefix}--tabs-extended--${this.orientation}`]: this.orientation,
+    });
+  }
+
+  /**
+   * Orientation (horizontal (default) | vertical)
+   */
+  @property({ attribute: 'orientation', reflect: true })
+  orientation = ORIENTATION.HORIZONTAL;
+
   render() {
     return html`
-      <div class="${prefix}--tabs-extended">
+      <div class="${this._getOrientationClass()}">
         ${this._renderAccordion()} ${this._renderTabs()}
         <div class="${prefix}--tab-content">
           <slot @slotchange="${this._handleSlotChange}"></slot>

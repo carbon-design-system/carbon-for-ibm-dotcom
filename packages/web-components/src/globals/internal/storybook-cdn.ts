@@ -62,12 +62,9 @@ ${_renderScript(components, 'tag/v1/latest')}
 
 // NEXT tag
 ${_renderScript(components, 'tag/v1/next')}
-
-// BETA tag
-${_renderScript(components, 'tag/v1/beta')}
 \`\`\`
 
-> NOTE: The latest/next/beta tags are moving versions. While beneficial to
+> NOTE: The latest/next tags are moving versions. While beneficial to
 > always stay on the most recent version, it is recommended to choose a specific
 > version and properly test your application when upgrading to a newer version.
 
@@ -82,9 +79,6 @@ ${_renderScript(components, 'tag/v1/latest', true)}
 
 // NEXT tag
 ${_renderScript(components, 'tag/v1/next', true)}
-
-// BETA tag
-${_renderScript(components, 'tag/v1/beta', true)}
 \`\`\`
   `;
 };
@@ -111,9 +105,6 @@ ${_renderStyle(components, 'tag/v1/latest')}
 
 // NEXT tag
 ${_renderStyle(components, 'tag/v1/next')}
-
-// BETA tag
-${_renderStyle(components, 'tag/v1/beta')}
 \`\`\`
   `;
 };

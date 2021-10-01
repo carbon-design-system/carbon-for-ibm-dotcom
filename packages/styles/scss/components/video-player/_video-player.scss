@@ -14,7 +14,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 @mixin video-player {
   :host(#{$dds-prefix}-video-player),
   .#{$prefix}--video-player {
-    color: var(--#{$dds-prefix}--video-caption--color, $text-05);
+    color: var(--#{$dds-prefix}--video-caption--color, $text-02);
 
     .#{$prefix}--image__img {
       width: 100%;
@@ -39,18 +39,17 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     }
   }
 
-  .#{$prefix}--video-player .#{$prefix}--video-player__image-overlay:focus {
-    &::before {
-      content: ' ';
-      position: absolute;
-      top: rem(2px);
-      left: rem(2px);
-      right: rem(2px);
-      bottom: rem(2px);
-      z-index: 1;
-      border: 1px solid $inverse-focus-ui;
-      outline: 2px solid $focus;
-    }
+  .#{$prefix}--video-player
+    .#{$prefix}--video-player__image-overlay:focus::before {
+    content: ' ';
+    position: absolute;
+    top: rem(2px);
+    left: rem(2px);
+    right: rem(2px);
+    bottom: rem(2px);
+    z-index: 1;
+    border: 1px solid $inverse-focus-ui;
+    outline: 2px solid $focus;
   }
 
   :host(#{$dds-prefix}-video-player) #{$dds-prefix}-image,
@@ -68,15 +67,12 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       left: 0;
       opacity: 0;
       z-index: 1;
-      background-color: $inverse-02;
-      transition: opacity $transition--base motion(standard, productive);
+      background-color: $ui-05;
+      transition: opacity $duration--moderate-01 motion(standard, productive);
     }
 
-    &:hover,
-    &:focus {
-      &::before {
-        opacity: 0.2;
-      }
+    &:hover::before {
+      opacity: 0.08;
     }
   }
 
@@ -113,7 +109,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
   }
 
   .#{$prefix}--video-player__video-caption {
-    @include carbon--type-style('caption-01');
+    @include carbon--type-style('caption-02');
 
     padding-top: var(--#{$dds-prefix}--video-caption--padding, $spacing-03);
     max-width: 90%;
@@ -129,6 +125,42 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     &:focus {
       outline: 3px solid $focus;
       outline-offset: 1px;
+    }
+
+    &:hover,
+    &:active {
+      svg {
+        circle {
+          opacity: 0.9;
+          fill: $gray-100;
+        }
+
+        path {
+          fill: $icon-03;
+        }
+      }
+    }
+
+    svg {
+      circle,
+      path {
+        transition: fill $duration--moderate-01 motion(standard, productive),
+          opacity $duration--moderate-01 motion(standard, productive);
+      }
+
+      circle {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  :host(#{$dds-prefix}-video-player) .#{$prefix}--video-player__image-overlay,
+  .#{$prefix}--video-player .#{$prefix}--video-player__image-overlay {
+    &:active {
+      #{$dds-prefix}-image::before,
+      .#{$prefix}--image::before {
+        opacity: 0.12;
+      }
     }
   }
 }

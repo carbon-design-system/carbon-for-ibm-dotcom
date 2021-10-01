@@ -6,7 +6,7 @@
 
 ```
 <a
-  class="bx--link bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right"
+  class="bx--link bx--link--lg bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right"
   id="link"
   part="link"
 >
@@ -24,10 +24,11 @@
 
 ```
 <a
-  class="bx--link bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right"
+  class="bx--link bx--link--lg bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right"
   href="#"
   id="link"
   part="link"
+  target="_blank"
 >
   <span>
     <slot>

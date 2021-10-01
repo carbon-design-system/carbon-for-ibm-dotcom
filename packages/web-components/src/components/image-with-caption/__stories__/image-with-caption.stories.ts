@@ -63,7 +63,7 @@ export default {
         defaultSrc: select('Default image (default-src)', images, imgLg2x1, groupId),
         lightbox: boolean('Lightbox (lightbox)', true, groupId),
         copy: textNullable('Copy (copy)', 'Lorem ipsum dolor sit amet', groupId),
-        heading: textNullable('Heading (heading)', 'This is a heading', groupId),
+        heading: textNullable('Heading (heading)', 'This is a caption', groupId),
       }),
     },
   },

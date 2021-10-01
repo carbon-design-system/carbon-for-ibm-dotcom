@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ContentGroup from '../../internal/components/ContentGroup/ContentGroup';
-import ContentItem from '../../internal/components/ContentItem/ContentItem';
+import ContentGroup from '../ContentGroup/ContentGroup';
+import ContentItem from '../ContentItem/ContentItem';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { ImageWithCaption } from '../ImageWithCaption';
 import PropTypes from 'prop-types';
@@ -131,7 +131,7 @@ ContentGroupSimple.propTypes = {
             PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
           ),
         ]),
-        copy: PropTypes.string,
+        heading: PropTypes.string,
         href: PropTypes.string,
         customClassName: PropTypes.string,
       }),
@@ -213,7 +213,7 @@ ContentGroupSimple.propTypes = {
         PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
       ),
     ]),
-    copy: PropTypes.string,
+    heading: PropTypes.string,
     href: PropTypes.string,
     customClassName: PropTypes.string,
   }),

@@ -15,6 +15,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
 import { unsafeSVG } from 'lit-html/directives/unsafe-svg';
 import MastheadLogoAPI from '@carbon/ibmdotcom-services/es/services/MastheadLogo/MastheadLogo';
+import root from 'window-or-global';
 import {
   MastheadL1,
   MastheadLink,
@@ -25,6 +26,7 @@ import {
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { UNAUTHENTICATED_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
+import { DDS_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
 import './masthead';
 import './masthead-logo';
 import './masthead-l1';
@@ -157,11 +159,11 @@ class DDSMastheadComposite extends LitElement {
    *  Render MegaMenu content
    *
    * @param sections menu section data object
+   * @param _parentKey parent menu key (used for the cloud-masthead-composite component)
    */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderMegaMenu(sections) {
+  // eslint-disable-next-line
+  protected _renderMegaMenu(sections, _parentKey) {
     const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
-
     const hasHighlights = highlightedItems.length !== 0;
     return html`
       <dds-megamenu>
@@ -233,21 +235,19 @@ class DDSMastheadComposite extends LitElement {
    * @param menuItems menu items
    * @param heading heading of menu section
    * @param isSubmenu determines whether menu section is a submenu section
-   * @param selectedMenuItem The selected menu item
    * @param showBackButton Determines whether to show back button
    * @param sectionTitle title of menu section
    * @param sectionId id of menu section
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _renderLeftNavMenuSections(menuItems, heading, isSubmenu, selectedMenuItem, showBackButton, sectionTitle, sectionId) {
+  protected _renderLeftNavMenuSections(menuItems, heading, isSubmenu, showBackButton, sectionTitle, sectionId) {
     const items = menuItems.map(elem => {
-      const selected = selectedMenuItem && elem.titleEnglish === selectedMenuItem;
       if (elem.menu) {
         return html`
           <dds-left-nav-menu
             ?last-highlighted=${elem.lastHighlightedItem}
             panel-id=${elem.panelId}
-            ?active="${selected}"
+            ?active="${elem.selected}"
             title="${elem.title}"
             data-autoid="${elem.autoid}"
           >
@@ -258,7 +258,7 @@ class DDSMastheadComposite extends LitElement {
       return html`
         <dds-left-nav-menu-item
           ?last-highlighted=${elem.lastHighlightedItem}
-          ?active="${selected}"
+          ?active="${elem.selected}"
           href="${elem.url}"
           title="${elem.title}"
           data-autoid="${elem.autoid}"
@@ -287,16 +287,66 @@ class DDSMastheadComposite extends LitElement {
   }
 
   /**
+   * checks if menu item's children url match the current url path, if so return the menu item and its children
+   *
+   * @returns {object} selectedItems
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _selectedLeftNavItems() {
+    let matchFound = false;
+    const selectedItems = { level0: '', level1: '', level2: '' };
+
+    return ({
+      menu = [{ url: '', megapanelContent: { quickLinks: { links: [{ url: '' }] } } }],
+      key = '',
+      parentItemUrl = '',
+      currentUrlPath = '',
+    }) => {
+      if (!matchFound) {
+        if (parentItemUrl === currentUrlPath) {
+          selectedItems.level0 = `${key}`;
+          matchFound = true;
+        }
+        // check if child url matches current url path
+        else {
+          for (let i = 0; i < menu?.length; i++) {
+            if (menu[i]?.url === currentUrlPath) {
+              selectedItems.level0 = `${key}`;
+              selectedItems.level1 = `${key}-${i}`;
+              matchFound = true;
+              break;
+            } else {
+              const links = menu[i]?.megapanelContent?.quickLinks?.links;
+              for (let k = 0; k < links?.length; k++) {
+                if (links[k]?.url === currentUrlPath) {
+                  selectedItems.level0 = `${key}`;
+                  selectedItems.level1 = `${key}-${i}`;
+                  selectedItems.level2 = `${key}-${i}-${k}`;
+                  matchFound = true;
+                  break;
+                }
+              }
+            }
+          }
+        }
+        return selectedItems;
+      }
+      return selectedItems;
+    };
+  }
+
+  /**
    * Renders the left nav menus
    *
    * @param menuItems The options.
    * @param selectedMenuItem The selected menu item
    * @param autoid Base autoid to be applied to the menu items
-   *
+   * @param currentUrlPath current url path
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _renderLeftNav(menuItems, selectedMenuItem, autoid) {
+  protected _renderLeftNav(menuItems, selectedMenuItem, autoid, currentUrlPath) {
     const menu: any[] = [];
+    const selectedItemUrl = this._selectedLeftNavItems();
     const level0Items = menuItems.map((elem, i) => {
       if (elem.menuSections) {
         const level1Items: {
@@ -306,6 +356,7 @@ class DDSMastheadComposite extends LitElement {
           lastHighlightedItem: boolean;
           url?: string;
           menu: boolean;
+          selected: boolean;
         }[] = [];
 
         let menuElems = elem.menuSections[0]?.menuItems;
@@ -321,12 +372,16 @@ class DDSMastheadComposite extends LitElement {
             menuElems.push(viewAllLink);
           }
         }
+
+        const selectedItems = selectedItemUrl({ menu: menuElems, key: i, parentItemUrl: elem.url, currentUrlPath });
+
         // render level 1 menu sections
         menuElems?.map((item, k) => {
           const level2Items: {
             title: string;
             url?: string;
             autoid: string;
+            selected: boolean;
           }[] = [];
 
           const lastHighlighted = k + 1 === highlightedItems.length;
@@ -337,10 +392,13 @@ class DDSMastheadComposite extends LitElement {
               title: submenu.title,
               url: submenu.url,
               autoid: `${autoid}--sidenav--nav${i}-list${k}-item${j}`,
+              selected: !selectedMenuItem
+                ? selectedItems?.level2 === `${i}-${k}-${j}`
+                : selectedMenuItem === submenu.titleEnglish,
             });
           });
           if (level2Items.length !== 0) {
-            menu.push(this._renderLeftNavMenuSections(level2Items, null, true, selectedMenuItem, true, item.title, `${i}, ${k}`));
+            menu.push(this._renderLeftNavMenuSections(level2Items, null, true, true, item.title, `${i}, ${k}`));
           }
 
           return level1Items.push({
@@ -349,23 +407,19 @@ class DDSMastheadComposite extends LitElement {
             lastHighlightedItem: lastHighlighted,
             url: item.url,
             panelId: `${i}, ${k}`,
+            selected: !selectedMenuItem ? selectedItems?.level1 === `${i}-${k}` : selectedMenuItem === item.titleEnglish,
             menu: item.megapanelContent?.quickLinks?.links && item.megapanelContent?.quickLinks?.links.length !== 0,
           });
         });
         if (level1Items.length !== 0) {
           menu.push(
-            this._renderLeftNavMenuSections(
-              level1Items,
-              elem.menuSections[0]?.heading,
-              true,
-              selectedMenuItem,
-              true,
-              elem.title,
-              `${i}, -1`
-            )
+            this._renderLeftNavMenuSections(level1Items, elem.menuSections[0]?.heading, true, true, elem.title, `${i}, -1`)
           );
         }
       }
+
+      const selectedItems = selectedItemUrl({ key: i, parentItemUrl: elem.url, currentUrlPath });
+
       return {
         title: elem.title,
         titleEnglish: elem.titleEnglish,
@@ -373,12 +427,44 @@ class DDSMastheadComposite extends LitElement {
         url: elem.url,
         panelId: `${i}, -1`,
         autoid: `${autoid}--sidenav--nav${i}`,
+        selected: !selectedMenuItem ? selectedItems?.level0 === `${i}` : selectedMenuItem === elem.titleEnglish,
       };
     });
 
     return html`
-      ${this._renderLeftNavMenuSections(level0Items, null, false, selectedMenuItem, null, null, '-1, -1')} ${menu}
+      ${this._renderLeftNavMenuSections(level0Items, null, false, null, null, '-1, -1')} ${menu}
     `;
+  }
+
+  /**
+   * checks if there is a child item in the menu section that matches current url and returns true for first valid result
+   *
+   * @returns function that returns true or false
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _childLinkChecker() {
+    let matchFound = false;
+
+    return (sections, currentUrlPath) => {
+      if (!matchFound) {
+        if (sections.length) {
+          const { menuItems } = sections[0];
+
+          for (let i = 0; i < menuItems.length; i++) {
+            if (
+              menuItems[i]?.url === currentUrlPath ||
+              menuItems[i]?.megapanelContent?.quickLinks?.links?.filter(link => link.url === currentUrlPath).length
+            ) {
+              matchFound = true;
+            }
+          }
+        }
+
+        return matchFound;
+      }
+
+      return false;
+    };
   }
 
   /**
@@ -396,6 +482,8 @@ class DDSMastheadComposite extends LitElement {
     target: NAV_ITEMS_RENDER_TARGET;
     hasL1: boolean;
   }) {
+    const currentUrlPath = root.location.href;
+    const hasChildLink = this._childLinkChecker();
     const { navLinks, l1Data } = this;
     let menu: MastheadLink[] | undefined = navLinks;
     const autoid = `${ddsPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
@@ -408,10 +496,17 @@ class DDSMastheadComposite extends LitElement {
         ? undefined
         : menu.map((link, i) => {
             const { menuSections = [], title, titleEnglish, url } = link;
-            const selected = selectedMenuItem && titleEnglish === selectedMenuItem;
+            let selected;
+
+            if (selectedMenuItem) {
+              selected = selectedMenuItem && titleEnglish === selectedMenuItem;
+            } else {
+              selected = hasChildLink(menuSections, currentUrlPath);
+            }
+
             let sections;
             if (link.hasMegapanel) {
-              sections = this._renderMegaMenu(menuSections);
+              sections = this._renderMegaMenu(menuSections, i);
             } else {
               sections = menuSections
                 // eslint-disable-next-line no-use-before-define
@@ -420,6 +515,7 @@ class DDSMastheadComposite extends LitElement {
                   ({ title: menuItemTitle, url: menuItemUrl }, j) =>
                     html`
                       <dds-top-nav-menu-item
+                        ?active="${selectedMenuItem ? selected : menuItemUrl === currentUrlPath}"
                         href="${menuItemUrl}"
                         title="${menuItemTitle}"
                         data-autoid="${autoid}-nav--subnav-col${i}-item${j}"
@@ -430,7 +526,7 @@ class DDSMastheadComposite extends LitElement {
             if (sections.length === 0) {
               return html`
                 <dds-top-nav-item
-                  ?active="${selected}"
+                  ?active="${selectedMenuItem ? selected : url === currentUrlPath}"
                   href="${url}"
                   title="${title}"
                   data-autoid="${autoid}-nav--nav${i}"
@@ -462,7 +558,7 @@ class DDSMastheadComposite extends LitElement {
           });
     }
 
-    return !menu ? undefined : this._renderLeftNav(menu, selectedMenuItem, autoid);
+    return !menu ? undefined : this._renderLeftNav(menu, selectedMenuItem, autoid, currentUrlPath);
   }
 
   /**
@@ -541,6 +637,12 @@ class DDSMastheadComposite extends LitElement {
    */
   @property({ attribute: false })
   currentSearchResults: string[] = [];
+
+  /**
+   * The custom profile login link.
+   */
+  @property({ attribute: 'custom-profile-login' })
+  customProfileLogin?: string;
 
   /**
    * The `aria-label` attribute for the top-level container.
@@ -667,6 +769,7 @@ class DDSMastheadComposite extends LitElement {
       activateSearch,
       authenticatedProfileItems,
       currentSearchResults,
+      customProfileLogin,
       platform,
       platformUrl,
       hasProfile,
@@ -685,7 +788,18 @@ class DDSMastheadComposite extends LitElement {
       l1Data,
     } = this;
     const authenticated = userStatus !== UNAUTHENTICATED_STATUS;
-    const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
+
+    let profileItems;
+    if (DDS_CUSTOM_PROFILE_LOGIN && customProfileLogin && !authenticated) {
+      profileItems = unauthenticatedProfileItems?.map(item => {
+        if (item?.id === 'signin') {
+          return { ...item, url: customProfileLogin };
+        }
+        return item;
+      });
+    } else {
+      profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
+    }
     const formattedLang = language?.toLowerCase().replace(/-(.*)/, m => m.toUpperCase());
     let platformAltUrl = platformUrl;
     if (platformUrl && formattedLang) {

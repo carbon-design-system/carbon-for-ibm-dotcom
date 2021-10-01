@@ -32,10 +32,26 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   private _menuNode!: HTMLElement;
 
   /**
+   * The trigger button.
+   */
+  @query('[part="trigger"]')
+  private _topMenuItem!: HTMLAnchorElement;
+
+  /**
    * scrollbar width.
    */
   @internalProperty()
   private _scrollBarWidth = this.ownerDocument!.defaultView!.innerWidth - this.ownerDocument!.body.offsetWidth;
+
+  /**
+   * Removes inherited _handleBlur method from BXHeaderMenu
+   */
+  private _handleKeydown = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      this.expanded = false;
+      this._topMenuItem.focus();
+    }
+  };
 
   /**
    * The observer for the resize of the viewport.
@@ -75,6 +91,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
+    this.addEventListener('keydown', this._handleKeydown);
   }
 
   disconnectedCallback() {
@@ -85,6 +102,10 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   firstUpdated() {
     this._menuNode.removeAttribute('role');
     this._cleanAndCreateObserverResize({ create: true });
+
+    if (this.hasAttribute('role') && this.getAttribute('role') === 'listitem') {
+      this.removeAttribute('role');
+    }
   }
 
   updated(changedProperties) {
@@ -101,10 +122,11 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         .querySelector('dds-masthead')
         ?.shadowRoot?.querySelector('.bx--masthead__l0');
 
-      // set position of masthead when megamenu is expanded specifically for cloud
+      // determine whether to apply margin-right on expand as HC has extra masthead styling
       const cloudMasthead: HTMLElement | null | undefined = doc
         .querySelector('dds-cloud-masthead-container')
-        ?.querySelector('dds-masthead');
+        ?.querySelector('dds-masthead')
+        ?.shadowRoot?.querySelector('.bx--masthead__l0');
 
       if (this.expanded) {
         doc.body.style.marginRight = `${this._scrollBarWidth}px`;
@@ -112,20 +134,37 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
           (item as DDSMegaMenuOverlay).active = this.expanded;
         });
-        if (masthead) {
-          masthead.style.marginRight = `${this._scrollBarWidth}px`;
-          if (cloudMasthead) {
-            cloudMasthead.style.position = 'fixed';
+        if (cloudMasthead) {
+          if (doc.body.classList.contains('ibm-masthead-sticky') && doc.body.classList.contains('ibm-masthead-sticky-showing')) {
+            cloudMasthead.style.marginRight = `${this._scrollBarWidth}px`;
           }
+        } else if (masthead) {
+          masthead.style.marginRight = `${this._scrollBarWidth}px`;
         }
       } else {
         doc.body.style.marginRight = '0px';
         doc.body.style.overflow = ``;
-        if (masthead) {
-          masthead.style.marginRight = '0px';
-          if (cloudMasthead) {
-            cloudMasthead.style.position = '';
+        if (cloudMasthead) {
+          if (doc.body.classList.contains('ibm-masthead-sticky') && doc.body.classList.contains('ibm-masthead-sticky-showing')) {
+            cloudMasthead.style.marginRight = '0px';
           }
+        } else if (masthead) {
+          masthead.style.marginRight = '0px';
+        }
+
+        /**
+         * Return focus to topMenuItem only when expanded explicitly equals false.
+         * On load, when expanded is undefined, avoid taking control of focus.
+         * This is deliberately in a 0ms timeout to put the check at the end of
+         * the event loop to avoid interrupting the browser's focus handoff.
+         */
+        if (changedProperties.get('expanded') === false) {
+          setTimeout(() => {
+            const { activeElement } = document;
+            if (activeElement === null || activeElement.tagName.toLowerCase() === 'body') {
+              this._topMenuItem.focus();
+            }
+          }, 0);
         }
       }
     }

@@ -17,6 +17,11 @@
   }
 }
 @mixin content-group {
+  :host(#{$dds-prefix}-content-group) ::slotted(:not([slot])) {
+    margin-left: $spacing-05;
+    margin-right: $spacing-05;
+  }
+
   :host(#{$dds-prefix}-content-group),
   :host(#{$dds-prefix}-content-group-simple),
   :host(#{$dds-prefix}-content-group-cards),
@@ -55,13 +60,10 @@
 
   :host(#{$dds-prefix}-content-group-copy),
   .#{$prefix}--content-group__copy {
-    margin-bottom: $layout-04;
-
-    @include carbon--breakpoint(md) {
-      margin-bottom: $layout-05;
-    }
+    margin-bottom: $layout-03;
   }
 
+  :host(#{$dds-prefix}-content-group) ::slotted([slot='footer']),
   .#{$prefix}--content-group__cta {
     margin-top: $carbon--layout-04;
 
@@ -71,11 +73,22 @@
     }
   }
 
+  :host(#{$dds-prefix}-content-group) ::slotted([slot='footer']) {
+    @include carbon--breakpoint('md') {
+      margin-left: -1rem;
+    }
+  }
+
   .#{$prefix}--content-group__cta-row {
     @include carbon--make-row;
 
     // allows for margin collapsing
     display: block;
+
+    // FIXME: CardLink is being used as Card in React, need to separate this
+    .#{$prefix}--card__CTA.#{$prefix}--card-link .#{$prefix}--card__heading {
+      @include carbon--type-style('expressive-heading-02', true);
+    }
   }
 }
 

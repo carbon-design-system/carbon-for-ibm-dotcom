@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -38,7 +38,7 @@ class DDSTopNavItem extends BXHeaderNavItem {
     if (changedProperties.has('active')) {
       const { active, _linkNode: linkNode } = this;
       if (linkNode) {
-        linkNode.setAttribute('aria-selected', String(Boolean(active)));
+        linkNode.setAttribute('data-selected', String(Boolean(active)));
       }
     }
   }

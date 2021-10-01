@@ -12,16 +12,10 @@
 @import 'carbon-web-components/scss/components/tooltip/tooltip';
 @import 'carbon-components/scss/components/accordion/accordion';
 @import 'carbon-components/scss/components/accordion/keyframes';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/tabs';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/accordion';
 
 @mixin tabs-extended {
   :host(#{$dds-prefix}-tabs-extended),
   :host(#{$dds-prefix}-tabs-extended-media) {
-    @include tabs-expressive;
-    @include accordion-expressive;
-
     .#{$prefix}--tabs {
       display: none;
 
@@ -35,26 +29,34 @@
         width: $spacing-13;
         height: auto;
 
+        p {
+          @include carbon--type-style('body-long-01', true);
+        }
+
         &:hover:not(.bx--tabs__nav-item--disabled) {
           box-shadow: none;
         }
-      }
-
-      .#{$prefix}--tabs__nav-link:focus,
-      .#{$prefix}--tabs__nav-link:active {
-        border-bottom: 2px solid $border-interactive;
       }
 
       .#{$prefix}--tabs__nav-item--selected:not(.#{$prefix}--tabs__nav-item--disabled) {
         .#{$prefix}--tabs__nav-link,
         .#{$prefix}--tabs__nav-link:focus,
         .#{$prefix}--tabs__nav-link:active {
-          border-bottom: 2px solid $border-interactive;
-          p {
-            @include type-style('productive-heading-01');
+          border-bottom: carbon--rem(2px) solid $border-interactive;
 
-            color: $text-primary;
+          p {
+            @include type-style('productive-heading-02');
+
+            color: $text-01;
           }
+        }
+      }
+
+      .#{$prefix}--tabs__nav-link:hover {
+        p {
+          @include type-style('body-short-02');
+
+          color: $text-01;
         }
       }
 
@@ -86,6 +88,9 @@
           overflow: hidden;
           height: 100%;
           line-height: 1.375rem;
+          word-break: break-word;
+
+          @include type-style('body-short-02');
         }
         /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
       }
@@ -94,14 +99,68 @@
         display: block;
       }
     }
+
     .#{$prefix}--tab-content {
       @include carbon--type-style('body-long-02', true);
 
       display: none;
+
       @include carbon--breakpoint(lg) {
         display: block;
       }
     }
+
+    // Add "Vertical" orientation styling.
+    .#{$prefix}--tabs-extended--vertical {
+      display: flex;
+      flex-wrap: wrap;
+
+      .#{$prefix}--tabs {
+        @include carbon--breakpoint(lg) {
+          @include carbon--make-col(3, 16);
+        }
+
+        .#{$prefix}--tabs__nav {
+          @include carbon--breakpoint(md) {
+            flex-direction: column;
+          }
+        }
+
+        .#{$prefix}--tabs__nav-link {
+          width: auto;
+        }
+
+        a.#{$prefix}--tabs__nav-link {
+          padding: 0;
+          border-bottom: carbon--rem(2px) solid transparent;
+        }
+
+        .#{$prefix}--tabs__nav-item {
+          width: max-content;
+          max-width: calc(100% - #{$spacing-06});
+          min-height: carbon--rem(26px);
+          margin-top: $spacing-06;
+        }
+      }
+
+      .#{$prefix}--accordion {
+        flex: 0 0 1;
+      }
+
+      .#{$prefix}--tab-content {
+        padding: $spacing-03;
+
+        @include carbon--breakpoint(lg) {
+          @include carbon--make-col(12, 16);
+          @include carbon--make-col-offset(1, 16);
+        }
+      }
+
+      .#{$prefix}--accordion__content {
+        padding-right: 0;
+      }
+    }
+
     .#{$prefix}--accordion {
       display: block;
       @include carbon--breakpoint(lg) {
@@ -117,6 +176,12 @@
     .#{$prefix}--accordion__title {
       max-width: rem(640px);
       margin-right: $spacing-07;
+    }
+
+    .#{$prefix}--accordion__content {
+      p {
+        @include carbon--type-style('body-long-02', true);
+      }
     }
   }
 }

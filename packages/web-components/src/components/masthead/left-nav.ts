@@ -63,6 +63,10 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleRequestMenuButtonFocusWrap = (event: CustomEvent) => {
     const { selectorButtonToggle } = this.constructor as typeof DDSLeftNav;
+    /**
+     * If focus leaves this element, send focus to the menu toggle.
+     * Else if focus leaves the menu toggle, bring it back to this element.
+     */
     if (event.target === this) {
       const toggle = (this.getRootNode() as Document).querySelector(selectorButtonToggle);
       if (toggle) {
@@ -83,6 +87,7 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
           (tabbable as HTMLElement).focus();
         }
       }
+      // wrap focus to last tabbable element focusing out of first tabbable element
       // eslint-disable-next-line no-bitwise
       else if (comparisonResult & PRECEDING) {
         const tabbable = findLast(expandedMenuSection?.querySelectorAll(selectorTabbableForLeftnav), elem =>
@@ -92,21 +97,68 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
           (tabbable as HTMLElement).focus();
         }
       }
+      // wrap focus to first tabbable element focusing out of last tabbable element
       // eslint-disable-next-line no-bitwise
       else if (comparisonResult & FOLLOWING) {
-        let tabbable;
-        if (expandedMenuSection?.hasAttribute('is-submenu')) {
-          tabbable = expandedMenuSection.shadowRoot?.querySelector('button');
-        } else {
-          tabbable =
-            expandedMenuSection &&
-            find(expandedMenuSection.querySelectorAll(selectorTabbableForLeftnav), elem =>
-              Boolean((elem as HTMLElement).offsetParent)
-            );
-        }
+        const tabbable = this.querySelector(selectorTabbableForLeftnav);
         if (tabbable) {
           (tabbable as HTMLElement).focus();
         }
+      }
+    }
+  };
+
+  private _handleClickOut(event: MouseEvent) {
+    const { target } = event;
+    const { selectorButtonToggle } = this.constructor as typeof DDSLeftNav;
+    const toggleButton: HTMLElement | null = (this.getRootNode() as Document).querySelector(selectorButtonToggle);
+
+    if (
+      this.expanded &&
+      target instanceof Element &&
+      target.closest(selectorButtonToggle) === null &&
+      target.closest(this.tagName) === null
+    ) {
+      this.expanded = false;
+      toggleButton?.focus();
+    }
+  }
+
+  @HostListener('keydown')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleKeydown(event: KeyboardEvent) {
+    const { selectorButtonToggle } = this.constructor as typeof DDSLeftNav;
+    const toggleButton: HTMLElement | null = (this.getRootNode() as Document).querySelector(selectorButtonToggle);
+    if (event.key === 'Escape') {
+      this.expanded = false;
+      toggleButton?.focus();
+    }
+  }
+
+  @HostListener('parentRoot:eventToggle')
+  protected _handleContentStateChangeDocument = (event: CustomEvent) => {
+    const { selectorMenuSections } = this.constructor as typeof DDSLeftNav;
+    const { panelId }: { panelId: string } = event.detail;
+
+    const menuSections: DDSLeftNavMenuSection[] = Array.from(this.querySelectorAll(selectorMenuSections));
+    const expandedSection = menuSections.filter(section => section.matches('[expanded]')).shift();
+    const requestedSection = menuSections.filter(section => section.matches(`[section-id="${panelId}"]`)).shift();
+
+    if (expandedSection !== undefined && requestedSection !== undefined && expandedSection !== requestedSection) {
+      const id = panelId.split(', ');
+      requestedSection.expanded = true;
+      requestedSection.ariaHidden = 'false';
+      requestedSection.transition = false;
+
+      expandedSection.expanded = false;
+      expandedSection.ariaHidden = 'true';
+
+      /**
+       * if next menu section expanded is a level 2 menu section and current expanded
+       * menu section is a level 1 menu section, add transition attribute for proper animation
+       */
+      if (id[0] !== '-1' && id[1] !== '-1' && !requestedSection.matches('[section-id*=" -1"]')) {
+        expandedSection.transition = true;
       }
     }
   };
@@ -116,6 +168,11 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
    */
   @property({ reflect: true, attribute: 'usage-mode' })
   usageMode = SIDE_NAV_USAGE_MODE.HEADER_NAV;
+
+  connectedCallback() {
+    super.connectedCallback();
+    document.addEventListener('click', this._handleClickOut.bind(this));
+  }
 
   updated(changedProperties) {
     super.updated(changedProperties);
@@ -133,19 +190,35 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
         (item as DDSLeftNavOverlay).active = this.expanded;
       });
       const { expanded, _startSentinelNode: startSentinelNode, _endSentinelNode: endSentinelNode } = this;
+
+      const masthead: HTMLElement | null | undefined = doc
+        ?.querySelector('dds-cloud-masthead-container')
+        ?.querySelector('dds-masthead');
       if (expanded) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [startSentinelNode, endSentinelNode]);
         doc.body.style.overflow = `hidden`;
+
+        // TODO: remove this logic once masthead can account for banners.
+        // set masthead position to `fixed` when left-nav is open for cloud-mastead
+        if (masthead) {
+          masthead.style.position = 'fixed';
+        }
       } else {
         const { selectorMenuSections, selectorFirstMenuSection } = this.constructor as typeof DDSLeftNav;
         doc.body.style.overflow = `auto`;
+
+        // TODO: remove this logic once masthead can account for banners.
+        // remove set position from mastead when left-nav is closed for cloud-mastead
+        if (masthead) {
+          masthead.style.position = '';
+        }
 
         this.querySelectorAll(selectorMenuSections).forEach(ddsLeftNavMenuSection => {
           (ddsLeftNavMenuSection as DDSLeftNavMenuSection).expanded = false;
           (ddsLeftNavMenuSection as DDSLeftNavMenuSection).transition = false;
         });
 
-        // reset to frist menu section
+        // reset to first menu section
         this.querySelectorAll(selectorFirstMenuSection).forEach(ddsLeftNavMenuSection => {
           (ddsLeftNavMenuSection as DDSLeftNavMenuSection).expanded = true;
         });
@@ -159,9 +232,16 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
 
   render() {
     return html`
-      <a id="start-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
-      <slot></slot>
-      <a id="end-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
+      <div class="${prefix}--side-nav__wrapper">
+        <a id="start-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
+        <div class="${prefix}--side-nav__platform-name">
+          <slot name="platform-id"></slot>
+        </div>
+        <div class="${prefix}--side-nav__menu-sections">
+          <slot></slot>
+        </div>
+        <a id="end-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
+      </div>
     `;
   }
 
@@ -176,7 +256,12 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
    * A selector that will return side nav focusable items.
    */
   static get selectorNavItems() {
-    return `${ddsPrefix}-left-nav-item,${ddsPrefix}-left-nav-menu,${ddsPrefix}-left-nav-menu-item`;
+    return [
+      `${ddsPrefix}-left-nav-item`,
+      `${ddsPrefix}-left-nav-menu`,
+      `${ddsPrefix}-left-nav-menu-item`,
+      `${ddsPrefix}-left-nav-name`,
+    ].join(', ');
   }
 
   /**
@@ -204,9 +289,13 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
    * A selector selecting tabbable nodes.
    */
   static get selectorTabbable() {
-    return [selectorTabbable, `${ddsPrefix}-left-nav-item`, `${ddsPrefix}-left-nav-menu`, `${ddsPrefix}-left-nav-menu-item`].join(
-      ','
-    );
+    return [
+      selectorTabbable,
+      `${ddsPrefix}-left-nav-item`,
+      `${ddsPrefix}-left-nav-menu`,
+      `${ddsPrefix}-left-nav-menu-item`,
+      `${ddsPrefix}-left-nav-name`,
+    ].join(', ');
   }
 
   /**
@@ -218,6 +307,13 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
 
   static get stableSelector() {
     return `${ddsPrefix}--masthead__l0-sidenav`;
+  }
+
+  /**
+   * The name of the custom event fired after this side nav menu is toggled upon a user gesture.
+   */
+  static get eventToggle() {
+    return `${ddsPrefix}-left-nav-menu-toggled`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader

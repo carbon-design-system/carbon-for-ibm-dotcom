@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -78,7 +78,7 @@ class DDSImageWithCaption extends StableSelectorMixin(ModalRenderMixin(FocusMixi
    * The heading.
    */
   @property({ reflect: true })
-  heading = '';
+  heading = 'this is a required caption';
 
   @property({ attribute: 'launch-lightbox-button-assistive-text' })
   launchLightboxButtonAssistiveText = 'launch light box media viewer';
@@ -150,7 +150,7 @@ class DDSImageWithCaption extends StableSelectorMixin(ModalRenderMixin(FocusMixi
     return !lightbox
       ? undefined
       : html`
-          <dds-expressive-modal ?open="${open}" size="full-width">
+          <dds-expressive-modal ?open="${open}" expressive-size="full-width">
             <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
             <dds-lightbox-image-viewer
               alt="${ifNonNull(alt)}"

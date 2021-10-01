@@ -102,6 +102,7 @@ export const defaultWithAdjunctLegalLinks = ({ parameters }) => {
 };
 
 defaultWithAdjunctLegalLinks.story = {
+  name: 'Default with adjunct legal links',
   parameters: {
     knobs: {
       FooterComposite: ({ groupId }) => ({
@@ -125,6 +126,7 @@ export const defaultLanguageOnly = ({ parameters }) => {
 };
 
 defaultLanguageOnly.story = {
+  name: 'Default language only',
   parameters: {
     knobs: {
       FooterComposite: ({ groupId }) => ({
@@ -156,6 +158,7 @@ export const shortWithAdjunctLegalLinks = ({ parameters }) => {
 };
 
 shortWithAdjunctLegalLinks.story = {
+  name: 'Short with adjunct legal links',
   parameters: {
     knobs: {
       FooterComposite: ({ groupId }) => ({
@@ -179,6 +182,7 @@ export const shortLanguageOnly = ({ parameters }) => {
 };
 
 shortLanguageOnly.story = {
+  name: 'Short language only',
   parameters: {
     knobs: {
       FooterComposite: ({ groupId }) => ({
@@ -216,6 +220,7 @@ export const microLanguageOnly = ({ parameters }) => {
 };
 
 microLanguageOnly.story = {
+  name: 'Micro language only',
   parameters: {
     knobs: {
       FooterComposite: ({ groupId }) => ({
@@ -231,6 +236,7 @@ export default {
   parameters: {
     ...readme.parameters,
     useRawContainer: true,
+    hasMainTag: true,
     knobs: {
       FooterComposite: ({ groupId }) => ({
         disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),

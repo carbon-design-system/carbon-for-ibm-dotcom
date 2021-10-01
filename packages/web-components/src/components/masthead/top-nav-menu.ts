@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -38,7 +38,7 @@ class DDSTopNavMenu extends BXHeaderMenu {
     if (changedProperties.has('active')) {
       const { active, _triggerNode: triggerNode } = this;
       if (triggerNode) {
-        triggerNode.setAttribute('aria-selected', String(Boolean(active)));
+        triggerNode.setAttribute('data-selected', String(Boolean(active)));
       }
     }
   }

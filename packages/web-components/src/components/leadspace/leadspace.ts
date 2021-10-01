@@ -69,50 +69,17 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * Returns a class-name based on the size parameter type
-   */
-  protected _getContainerClass() {
-    return classMap({
-      [`${prefix}--leadspace__container--super`]: this.size === LEADSPACE_SIZE.SUPER,
-      [`${prefix}--leadspace__container--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
-      [`${prefix}--leadspace__container`]: this.size === LEADSPACE_SIZE.NONE || this.size === LEADSPACE_SIZE.TALL,
-    });
-  }
-
-  /**
    * Renders Leadspace copy/description
    */
   protected _renderCopy() {
     const { copy } = this;
     return html`
       <div class="${prefix}--leadspace__row">
-        <p data-autoid="${ddsPrefix}--leadspace__desc" class="${this._getCopyType()}">
+        <p data-autoid="${ddsPrefix}--leadspace__desc" class="${prefix}--leadspace__desc">
           <slot>${copy}</slot>
         </p>
       </div>
     `;
-  }
-
-  /**
-   * Returns a class-name based on the size parameter type
-   */
-  protected _getCopyType() {
-    return classMap({
-      [`${prefix}--leadspace__desc--super`]: this.size === LEADSPACE_SIZE.SUPER,
-      [`${prefix}--leadspace__desc--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
-      [`${prefix}--leadspace__desc`]: this.size === LEADSPACE_SIZE.NONE || this.size === LEADSPACE_SIZE.TALL,
-    });
-  }
-
-  /**
-   * Returns a class-name based on the size parameter type
-   */
-  protected _getContentType() {
-    return classMap({
-      [`${prefix}--leadspace--content__container`]: this.size === LEADSPACE_SIZE.NONE || this.size === LEADSPACE_SIZE.TALL,
-      [`${prefix}--leadspace--content__container--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
-      [`${prefix}--leadspace--content__container--super`]: this.size === LEADSPACE_SIZE.SUPER,
-    });
   }
 
   /**
@@ -144,7 +111,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   copy = '';
 
   /**
-   * The gradient style sceheme.
+   * The gradient style scheme.
    */
   @property({ reflect: true, attribute: 'gradient-style-scheme' })
   gradientStyleScheme = LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT;
@@ -162,16 +129,16 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   type = LEADSPACE_TYPE.LEFT;
 
   /**
-   *  Leadspace size (super, tall, or medium)
+   *  Leadspace size (super, tall, medium, or short)
    */
   @property({ reflect: true })
   size = 'tall';
 
   render() {
-    const { gradientStyleScheme, type } = this;
+    const { gradientStyleScheme, type, size } = this;
     return html`
       <section class="${this._getTypeClass()}" part="section">
-        <div class="${this._getContainerClass()}">
+        <div class="${prefix}--leadspace__container">
           <div class="${this._getGradientClass()}">
             ${gradientStyleScheme === LEADSPACE_GRADIENT_STYLE_SCHEME.NONE
               ? undefined
@@ -189,9 +156,9 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
                         type === LEADSPACE_TYPE.CENTERED
                           ? svg`
                           <stop offset="0%" />
-                          <stop offset="27%" />
-                          <stop offset="53%" />
-                          <stop offset="80%" />
+                          <stop offset="54%" />
+                          <stop offset="77%" />
+                          <stop offset="100%" />
                         `
                           : svg`
                           <stop offset="0%" />
@@ -205,15 +172,19 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
                   <rect class="${prefix}--leadspace__gradient__rect" width="100" height="100" />
                 </svg>
               `}
-            <div class="${this._getContentType()}">
+            <div class="${prefix}--leadspace--content__container">
               <div class="${prefix}--leadspace__row">
                 <slot name="navigation" @slotchange="${this._handleSlotChange}"></slot>
                 ${this._renderHeading()}
               </div>
-              <div class="${prefix}--leadspace__content">
-                ${this._renderCopy()}
-                <slot name="action"></slot>
-              </div>
+              ${size !== LEADSPACE_SIZE.SHORT
+                ? html`
+                    <div class="${prefix}--leadspace__content">
+                      ${this._renderCopy()}
+                      <slot name="action"></slot>
+                    </div>
+                  `
+                : ``}
             </div>
           </div>
           <slot name="image"></slot>

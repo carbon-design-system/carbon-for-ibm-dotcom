@@ -5,11 +5,11 @@
   "main": "index.html",
   "scripts": {
     "start": "parcel serve -p 9000 index.html --no-hmr",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html --public-url ./"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-react": "1.7.0",
-    "@carbon/ibmdotcom-styles": "1.7.0",
+    "@carbon/ibmdotcom-react": "latest",
+    "@carbon/ibmdotcom-styles": "latest",
     "@carbon/icons-react": "latest",
     "react": "16.13.0",
     "react-dom": "16.13.0"
@@ -18,10 +18,5 @@
     "@babel/core": "^7.10.0",
     "parcel-bundler": "1.12.3",
     "sass": "^1.26.9"
-  },
-  "sass": {
-    "includePaths": [
-      "./node_modules"
-    ]
-  }
+    }
 }

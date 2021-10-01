@@ -6,8 +6,8 @@
  */
 
 import ContentBlock from '../../internal/components/ContentBlock/ContentBlock';
-import ContentGroup from '../../internal/components/ContentGroup/ContentGroup';
-import ContentItem from '../../internal/components/ContentItem/ContentItem';
+import ContentGroup from '../ContentGroup/ContentGroup';
+import ContentItem from '../ContentItem/ContentItem';
 import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { ImageWithCaption } from '../ImageWithCaption';
@@ -125,7 +125,7 @@ ContentBlockSegmented.propTypes = {
         PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
       ),
     ]),
-    copy: PropTypes.string,
+    heading: PropTypes.string,
     href: PropTypes.string,
     customClassName: PropTypes.string,
   }),
@@ -212,7 +212,7 @@ ContentBlockSegmented.propTypes = {
       cta: PropTypes.shape({
         style: PropTypes.oneOf(['card']),
         type: PropTypes.oneOf(['local']),
-        copy: PropTypes.string,
+        heading: PropTypes.string,
         customClassName: PropTypes.string,
       }),
       video: PropTypes.shape({

@@ -10,7 +10,6 @@ import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|Back to top',
-
   parameters: {
     ...readme.parameters,
     percy: {
@@ -28,7 +27,7 @@ export const Default = () => {
       <a
         className="bx--link"
         target="_blank"
-        href="https://ibmdotcom-web-components-react.mybluemix.net/?path=/story/components-back-to-top--default">
+        href="https://www.ibm.com/standards/carbon/web-components/react/?path=/story/components-back-to-top--default">
         React wrapper
       </a>
       .

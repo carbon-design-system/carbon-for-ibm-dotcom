@@ -10,7 +10,6 @@ import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|Tag group',
-
   parameters: {
     ...readme.parameters,
     percy: {
@@ -28,7 +27,7 @@ export const Default = () => {
       <a
         className="bx--link"
         target="_blank"
-        href="https://ibmdotcom-web-components-react.mybluemix.net/?path=/story/components-tag-group">
+        href="https://www.ibm.com/standards/carbon/web-components/react/?path=/story/components-tag-group">
         React wrapper
       </a>
       .

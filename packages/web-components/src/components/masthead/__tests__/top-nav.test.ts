@@ -77,7 +77,7 @@ describe('dds-top-nav', function() {
       await Promise.resolve();
       (topNav!.shadowRoot!.querySelector('[part="next-button"]') as HTMLElement).click();
       await Promise.resolve();
-      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-175px');
+      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-167px');
     });
 
     it('should support snapping to menu item', async function() {
@@ -90,7 +90,7 @@ describe('dds-top-nav', function() {
       await Promise.resolve();
       (topNav!.shadowRoot!.querySelector('[part="next-button"]') as HTMLElement).click();
       await Promise.resolve();
-      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-100px');
+      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-92px');
     });
 
     it('should cope with change in the hidden state of the go to next page button', async function() {
@@ -104,7 +104,7 @@ describe('dds-top-nav', function() {
       (topNav as any)._currentScrollPosition = 565;
       (topNav!.shadowRoot!.querySelector('[part="next-button"]') as HTMLElement).click();
       await Promise.resolve();
-      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-700px');
+      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-692px');
     });
 
     it('should snap to the right edge at the last page', async function() {
@@ -138,7 +138,7 @@ describe('dds-top-nav', function() {
       (topNav as any)._currentScrollPosition = 350;
       (topNav!.shadowRoot!.querySelector('[part="prev-button"]') as HTMLElement).click();
       await Promise.resolve();
-      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-175px');
+      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-183px');
     });
 
     it('should support snapping to menu item', async function() {
@@ -156,7 +156,7 @@ describe('dds-top-nav', function() {
       (topNav!.shadowRoot!.querySelector('[part="prev-button"]') as HTMLElement).click();
       await Promise.resolve();
       // Given the 4th item should be the right-most, the left position should be `350px - (200px - 80px)`
-      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-230px');
+      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-238px');
     });
 
     it('should cope with change in the hidden state of the go to next page button', async function() {
@@ -170,7 +170,7 @@ describe('dds-top-nav', function() {
       (topNav as any)._currentScrollPosition = 700; // The scrolling position of the last page
       (topNav!.shadowRoot!.querySelector('[part="prev-button"]') as HTMLElement).click();
       await Promise.resolve();
-      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-565px');
+      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-573px');
     });
 
     it('should snap to the left edge at the first page', async function() {
@@ -189,7 +189,7 @@ describe('dds-top-nav', function() {
       (topNav as any)._currentScrollPosition = 110;
       (topNav!.shadowRoot!.querySelector('[part="prev-button"]') as HTMLElement).click();
       await Promise.resolve();
-      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('0px');
+      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-48px');
     });
   });
 

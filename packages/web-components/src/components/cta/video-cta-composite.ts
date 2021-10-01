@@ -57,6 +57,18 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
   private _activeVideoId?: string;
 
   /**
+   * The video custom name.
+   */
+  @internalProperty()
+  private _videoName?: string;
+
+  /**
+   * The video custom description.
+   */
+  @internalProperty()
+  private _videoDescription?: string;
+
+  /**
    * The handle for the listener of `${ddsPrefix}-expressive-modal-closed` event.
    */
   private _hCloseModal: Handle | null = null;
@@ -76,7 +88,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
   @HostListener('eventRequestVideoData')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private async _handleRequestVideoData(event: CustomEvent) {
-    const { href } = event.detail;
+    const { href, videoName: customVideoName, videoDescription } = event.detail;
     (event.target as VideoCTAMixinImpl).videoThumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
       mediaId: href,
       width: '320',
@@ -84,7 +96,10 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
     const videoData = await this._loadVideoData?.(href);
     if (videoData) {
       const { duration, name } = videoData;
-      (event.target as VideoCTAMixinImpl).videoName = name;
+      const videoName = customVideoName || name;
+
+      (event.target as VideoCTAMixinImpl).videoName = videoName;
+      (event.target as VideoCTAMixinImpl).videoDescription = videoDescription;
       (event.target as VideoCTAMixinImpl).videoDuration = duration;
     }
   }
@@ -97,9 +112,11 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
   @HostListener('eventRunAction')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleRunAction(event: CustomEvent) {
-    const { ctaType, href } = event.detail;
+    const { ctaType, href, videoName, videoDescription } = event.detail;
     if (ctaType === CTA_TYPE.VIDEO) {
       this._activeVideoId = href;
+      this._videoName = videoName;
+      this._videoDescription = videoDescription;
     }
   }
 
@@ -122,7 +139,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
    * The video data, keyed by the video ID.
    */
   @property({ attribute: false })
-  videoData?: { [videoId: string]: MediaData };
+  mediaData?: { [videoId: string]: MediaData };
 
   disconnectedCallback() {
     if (this._hCloseModal) {
@@ -151,14 +168,23 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
    * @returns The media viewer lightbox for `type="video"`.
    */
   renderModal() {
-    const { embeddedVideos, videoData, _activeVideoId: activeVideoId, _embedMedia: embedMedia } = this;
+    const {
+      embeddedVideos,
+      mediaData,
+      _videoName: videoName,
+      _activeVideoId: activeVideoId,
+      _embedMedia: embedMedia,
+      _videoDescription: videoDescription,
+    } = this;
     return html`
       <dds-lightbox-video-player-composite
         ?open="${Boolean(activeVideoId)}"
         video-cta-lightbox="true"
+        custom-video-name="${ifNonNull(videoName)}"
+        custom-video-description="${ifNonNull(videoDescription)}"
         video-id="${ifNonNull(activeVideoId)}"
         .embeddedVideos="${ifNonNull(embeddedVideos)}"
-        .videoData="${ifNonNull(videoData)}"
+        .mediaData="${ifNonNull(mediaData)}"
         ._embedMedia="${ifNonNull(embedMedia)}"
       >
       </dds-lightbox-video-player-composite>

@@ -3,6 +3,132 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.25.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.25.0-rc.2...@carbon/ibmdotcom-utilities@1.25.0) (2021-09-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.25.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.25.0-rc.1...@carbon/ibmdotcom-utilities@1.25.0-rc.2) (2021-09-24)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.25.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.25.0-rc.0...@carbon/ibmdotcom-utilities@1.25.0-rc.1) (2021-09-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.25.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.24.0...@carbon/ibmdotcom-utilities@1.25.0-rc.0) (2021-09-17)
+
+
+### Bug Fixes
+
+* **node:** adding default package exports for services/utilities ([#7048](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7048)) ([abd793a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/abd793a))
+
+
+### Features
+
+* **expressive-theme:** sunset of the expressive theme ([#7012](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7012)) ([265f563](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/265f563))
+
+
+
+## 1.23.3 (2021-09-01)
+
+
+
+## 1.23.3-rc.0 (2021-09-01)
+
+
+
+
+
+# [1.24.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.24.0-rc.1...@carbon/ibmdotcom-utilities@1.24.0) (2021-09-08)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.24.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.24.0-rc.0...@carbon/ibmdotcom-utilities@1.24.0-rc.1) (2021-09-02)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.24.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.23.2...@carbon/ibmdotcom-utilities@1.24.0-rc.0) (2021-08-27)
+
+
+### Features
+
+* **plex:** adding optional weights for non-latin dynamic loader ([#6909](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6909)) ([cff0050](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cff0050))
+## [1.23.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.23.3-rc.0...@carbon/ibmdotcom-utilities@1.23.3) (2021-09-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+## [1.23.3-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.23.2...@carbon/ibmdotcom-utilities@1.23.3-rc.0) (2021-09-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+## [1.23.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.23.2-rc.0...@carbon/ibmdotcom-utilities@1.23.2) (2021-08-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+## [1.23.2-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.23.1...@carbon/ibmdotcom-utilities@1.23.2-rc.0) (2021-08-25)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+## [1.23.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.23.1-rc.0...@carbon/ibmdotcom-utilities@1.23.1) (2021-08-19)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+## [1.23.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.23.0...@carbon/ibmdotcom-utilities@1.23.1-rc.0) (2021-08-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.23.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.23.0-rc.0...@carbon/ibmdotcom-utilities@1.23.0) (2021-08-16)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
 # [1.23.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.22.0...@carbon/ibmdotcom-utilities@1.23.0-rc.0) (2021-08-06)
 
 

@@ -12,7 +12,6 @@ import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|Content item horizontal',
-
   parameters: {
     ...readme.parameters,
     knobs: {
@@ -97,4 +96,60 @@ export const Default = ({ parameters }) => {
       </div>
     </div>
   );
+};
+
+export const WithMedia = () => {
+  return (
+    <p>
+      This component is maintained in{' '}
+      <code>@carbon/ibmdotcom-web-components</code> library with a{' '}
+      <a
+        className="bx--link"
+        target="_blank"
+        href="https://www.ibm.com/standards/carbon/web-components/react/?path=/story/components-content-item-horizontal--with-media">
+        React wrapper
+      </a>
+      .
+    </p>
+  );
+};
+
+WithMedia.story = {
+  name: 'With media',
+  parameters: {
+    ...readme.parameters,
+    knobs: { ContentItemHorizontal: () => ({}) },
+    percy: {
+      skip: true,
+    },
+    proxy: true,
+  },
+};
+
+export const WithThumbnail = () => {
+  return (
+    <p>
+      This component is maintained in{' '}
+      <code>@carbon/ibmdotcom-web-components</code> library with a{' '}
+      <a
+        className="bx--link"
+        target="_blank"
+        href="https://www.ibm.com/standards/carbon/web-components/react/?path=/story/components-content-item-horizontal--with-thumbnail">
+        React wrapper
+      </a>
+      .
+    </p>
+  );
+};
+
+WithThumbnail.story = {
+  name: 'With thumbnail',
+  parameters: {
+    ...readme.parameters,
+    knobs: { ContentItemHorizontal: () => ({}) },
+    percy: {
+      skip: true,
+    },
+    proxy: true,
+  },
 };
