@@ -18,6 +18,7 @@ import { loadMediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-
 import { MediaPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI.d';
 import { Constructor } from '../../globals/defs';
 import ConnectMixin from '../../globals/mixins/connect';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSVideoPlayerComposite from './video-player-composite';
 
 const { prefix } = settings;
@@ -76,7 +77,7 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
   /**
    * A mix-in class that sets up and cleans up event listeners defined by `@HostListener` decorator.
    */
-  abstract class DDSVideoPlayerContainerMixinImpl extends Base {
+  abstract class DDSVideoPlayerContainerMixinImpl extends StableSelectorMixin(Base) {
     /**
      * The video player.
      */
@@ -188,6 +189,16 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
       }
       return promiseEmbedVideo;
     };
+
+    /**
+     * Calls the data-* attribute transpose function to target `dds-video-player`'s button element.
+     */
+    firstUpdated() {
+      window.requestAnimationFrame(() => {
+        const button = this.querySelector('dds-video-player')?.shadowRoot?.querySelector('button');
+        this.transposeAttributes(button);
+      });
+    }
   }
 
   return DDSVideoPlayerContainerMixinImpl;
