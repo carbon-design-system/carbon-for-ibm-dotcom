@@ -153,10 +153,12 @@ class TranslationAPI {
     if (sessionTranslation) {
       resolve(sessionTranslation);
     } else {
-      const key = `${lang}-${country}`;
+      const key = country !== 'undefined' ? `${country}-${lang}` : `${lang}`;
+
       if (!_requestsTranslation[key]) {
-        const url = `${_host}${endpoint ||
-          _ddsEndpoint}/${country}${lang}.json`;
+        const url = `${_host}${endpoint || _ddsEndpoint}/${
+          country !== 'undefined' ? `${country}${lang}` : `${lang}`
+        }.json`;
 
         _requestsTranslation[key] = axios
           .get(url, {
@@ -170,7 +172,7 @@ class TranslationAPI {
             data['timestamp'] = Date.now();
             if (typeof sessionStorage !== 'undefined') {
               sessionStorage.setItem(
-                `${sessionKey}-${country}-${lang}`,
+                `${sessionKey}-${key}`,
                 JSON.stringify(data)
               );
             }

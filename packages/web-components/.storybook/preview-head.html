@@ -138,38 +138,41 @@
 <link rel="alternate" hreflang="en-zw" href="iframe.html?id=components-dotcom-shell--default&cc=zw&lc=en" />
 <script>
   window.digitalData = {
-    "page": {
-      "category": {
-        "primaryCategory": ""
+    page: {
+      category: {
+        primaryCategory: '',
       },
-      "pageInfo": {
-        "effectiveDate": "",
-        "expiryDate": "",
-        "language": "en-US",
-        "publishDate": "",
-        "publisher": "",
-        "version": "Carbon for IBM.com",
-        "ibm": {
-          "contentDelivery": "",
-          "contentProducer": "",
-          "country": "US",
-          "industry": "",
-          "owner": "",
-          "siteID": "",
-          "subject": "",
-          "type": ""
-        }
-      }
-    }
+      pageInfo: {
+        effectiveDate: '',
+        expiryDate: '',
+        language: 'en-US',
+        publishDate: '',
+        publisher: '',
+        version: 'Carbon for IBM.com',
+        ibm: {
+          contentDelivery: '',
+          contentProducer: '',
+          country: 'US',
+          industry: '',
+          owner: '',
+          siteID: '',
+          subject: '',
+          type: '',
+        },
+      },
+    },
   };
 
   var params = new URLSearchParams(window.location.search);
 
-  if(params.has('lc') && params.has('cc')) {
-    var currentLang = params.get('lc') + '-' + params.get('cc').toUpperCase();
-    document.getElementsByTagName("html")[0].setAttribute("lang", currentLang);
+  if (params.has('lc')) {
+    var currentLang = params.get('lc');
+    if (params.has('cc')) {
+      currentLang += '-' + params.get('cc').toUpperCase();
+      digitalData.page.pageInfo.ibm.country = params.get('cc').toUpperCase();
+    }
+    document.getElementsByTagName('html')[0].setAttribute('lang', currentLang);
     digitalData.page.pageInfo.language = currentLang;
-    digitalData.page.pageInfo.ibm.country = params.get('cc').toUpperCase();
   }
 </script>
 

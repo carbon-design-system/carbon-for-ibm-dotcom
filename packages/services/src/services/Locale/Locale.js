@@ -112,30 +112,36 @@ const _requestsList = {};
 function _getLocaleFromDDO() {
   const ddoLocal = Object.assign({}, root.digitalData || {});
 
-  if (
-    ddoLocal.page?.pageInfo?.language &&
-    ddoLocal.page?.pageInfo?.ibm?.country
-  ) {
+  if (ddoLocal.page?.pageInfo?.language) {
     const lang = {};
 
-    // Set proper LC for us to use.
-    lang.lc = ddoLocal.page.pageInfo.language.substring(0, 2).toLowerCase();
+    // if DDO language contains both lc & cc (ie. en-US)
+    if (
+      ddoLocal.page?.pageInfo?.language.includes('-') &&
+      ddoLocal.page?.pageInfo?.ibm?.country
+    ) {
+      // Set proper LC for us to use.
+      lang.lc = ddoLocal.page.pageInfo.language.substring(0, 2).toLowerCase();
 
-    lang.cc = ddoLocal.page.pageInfo.ibm.country.toLowerCase().trim();
+      lang.cc = ddoLocal.page.pageInfo.ibm.country.toLowerCase().trim();
 
-    // If there are multiple countries use just the first one for the CC value
-    if (lang.cc.indexOf(',') > -1)
-      lang.cc = lang.cc.substring(0, lang.cc.indexOf(',')).trim();
+      // If there are multiple countries use just the first one for the CC value
+      if (lang.cc.indexOf(',') > -1)
+        lang.cc = lang.cc.substring(0, lang.cc.indexOf(',')).trim();
 
-    // Gb will be uk elsewhere
-    if (lang.cc === 'gb') {
-      lang.cc = 'uk';
+      // Gb will be uk elsewhere
+      if (lang.cc === 'gb') {
+        lang.cc = 'uk';
+      }
+
+      // Map worldwide (ZZ) pages to US
+      if (lang.cc === 'zz') {
+        lang.cc = 'us';
+      }
     }
 
-    // Map worldwide (ZZ) pages to US
-    if (lang.cc === 'zz') {
-      lang.cc = 'us';
-    }
+    // set lc if DDO language contains only the lc
+    lang.lc = ddoLocal.page.pageInfo.language.toLowerCase();
 
     return lang;
   }
@@ -308,21 +314,24 @@ class LocaleAPI {
    * @param {Function} reject rejects the promise
    */
   static fetchList(cc, lc, resolve, reject) {
-    const itemKey = `${_sessionListKey}-${cc}-${lc}`;
+    const key = cc !== 'undefined' ? `${lc}-${cc}` : `${lc}`;
+    const itemKey = `${_sessionListKey}-${key}`;
 
     const sessionList = this.getSessionCache(itemKey);
 
     if (sessionList) {
       resolve(sessionList);
     } else {
-      const key = `${lc}-${cc}`;
       if (!_requestsList[key]) {
-        const url = `${_endpoint}/${cc}${lc}-utf8.json`;
+        const url = `${_endpoint}/${
+          cc !== 'undefined' ? `${cc}${lc}` : `${lc}`
+        }-utf8.json`;
+        console.log('url', url);
         _requestsList[key] = axios.get(url, _axiosConfig).then(response => {
           const { data } = response;
           data['timestamp'] = Date.now();
           sessionStorage.setItem(
-            `${_sessionListKey}-${cc}-${lc}`,
+            `${_sessionListKey}-${key}`,
             JSON.stringify(data)
           );
           return data;
