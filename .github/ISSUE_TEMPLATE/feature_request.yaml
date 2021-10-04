@@ -13,28 +13,44 @@ body:
     id: problem
     attributes:
       label: The problem
-      description: "A clear and concise description of what the problem this new feature is trying to solve. (ex. I'm always frustrated when...)"
+      description: "Provide a clear and concise description of what the problem this new feature is trying to solve. (For example, I find it frustrating when...)"
     validations:
       required: true
   - type: textarea
     id: solution
     attributes:
       label: The solution
-      description: "A clear and concise description of what you want to happen"
+      description: "Provide a clear and concise description of what you would like to happen instead."
+    validations:
+      required: true
+  - type: input
+    id: application
+    attributes:
+      label: Application/website
+      description: "What application/website do you work on?"
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Business priority
+      options:
+        - 'High Priority = pressing release'
+        - 'Medium Priority = upcoming release but is not pressing'
+        - 'Low Priority = release date is not dependent on fix or not upcoming'
     validations:
       required: true
   - type: textarea
+    id: time-frame
+    attributes:
+      label: "What time frame would this ideally be needed by (if applicable)"
+    validations:
+      required: false
+  - type: textarea
     id: user-research
     attributes:
-      label: User research
-  - type: textarea
-    id: user-insights
-    attributes:
-      label: User insights
-  - type: textarea
-    id: user-metrics
-    attributes:
-      label: User metrics
+      label: Examples
+      description: Provide sample content, references, or audits of solutions solving the same problem in other applications/websites.
   - type: checkboxes
     id: terms
     attributes:
