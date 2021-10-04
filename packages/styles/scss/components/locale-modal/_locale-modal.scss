@@ -151,6 +151,10 @@
   }
 }
 
+:host(#{$dds-prefix}-region-item) .#{$prefix}--link {
+  position: relative;
+}
+
 :host(#{$dds-prefix}-region-item) .#{$prefix}--link,
 .#{$prefix}--locale-modal-container
   .#{$prefix}--locale-modal__regions
