@@ -24,6 +24,7 @@
   :host(#{$dds-prefix}-card-in-card),
   :host(#{$dds-prefix}-content-group-cards-item),
   :host(#{$dds-prefix}-content-group-cards-item) .#{$prefix}--card {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;

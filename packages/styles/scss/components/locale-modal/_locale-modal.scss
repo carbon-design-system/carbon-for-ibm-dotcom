@@ -155,7 +155,6 @@
 .#{$prefix}--locale-modal-container
   .#{$prefix}--locale-modal__regions
   .#{$prefix}--card {
-  position: relative;
   min-height: rem(184px);
   outline: 1px solid $ui-02;
   outline-offset: -1px;
