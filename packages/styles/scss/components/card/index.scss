@@ -124,6 +124,7 @@
     }
 
     .#{$prefix}--card.#{$prefix}--tile {
+      position: relative;
       padding: 0;
       transition: $duration--moderate-01 motion(standard, productive);
     }
