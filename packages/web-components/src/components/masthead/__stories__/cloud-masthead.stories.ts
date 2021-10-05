@@ -58,10 +58,14 @@ export const Default = !DDS_CLOUD_MASTHEAD
                 platform="Cloud"
                 .platformUrl="${ifNonNull(platformData.url)}"
                 selected-menu-item="${ifNonNull(selectedMenuItem)}"
+                has-contact="${hasContact
+                  ? html`
+                      true
+                    `
+                  : `false`}"
                 user-status="${ifNonNull(userStatus)}"
                 searchPlaceholder="${ifNonNull(searchPlaceholder)}"
                 .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-                ?has-contact="${hasContact}"
                 ?has-profile="${hasProfile}"
                 ?has-search="${hasSearch}"
                 .navLinks="${navLinks}"
@@ -73,7 +77,11 @@ export const Default = !DDS_CLOUD_MASTHEAD
                 platform="Cloud"
                 .platformUrl="${ifNonNull(urlObject)}"
                 selected-menu-item="${ifNonNull(selectedMenuItem)}"
-                ?has-contact="${hasContact}"
+                has-contact="${hasContact
+                  ? html`
+                      true
+                    `
+                  : `false`}"
                 auth-method="cookie"
                 user-status="${ifNonNull(userStatus)}"
                 searchPlaceholder="${ifNonNull(searchPlaceholder)}"

@@ -64,8 +64,8 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
   /**
    * `true` if Contact us should be shown.
    */
-  @property({ type: Boolean, reflect: true, attribute: 'has-contact' })
-  hasContact = true;
+  @property({ type: String, reflect: true, attribute: 'has-contact' })
+  hasContact = 'true';
 
   /**
    * The profile items for unauthenticated state.
@@ -282,6 +282,8 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         platformAltUrl = platformUrl[formattedLang].url || platformUrl;
       }
     }
+    console.log(hasContact);
+
     return html`
       <dds-left-nav-overlay cloud></dds-left-nav-overlay>
       <dds-left-nav cloud>
@@ -331,13 +333,13 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                       `
                   )}
                 </dds-cloud-masthead-profile>
-                ${hasContact
-                  ? html`
+                ${hasContact === 'false'
+                  ? ''
+                  : html`
                       <dds-cloud-button-cta kind="ghost" data-ibm-contact="contact-link"
                         ><span>${contactUsButton?.title}</span></dds-cloud-button-cta
                       >
-                    `
-                  : undefined}
+                    `}
                 ${ctaButtons?.map(
                   ({ title, url }) =>
                     html`
@@ -348,13 +350,13 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
             `
           : html`
               <dds-cloud-masthead-global-bar>
-                ${hasContact
-                  ? html`
+                ${hasContact === 'false'
+                  ? ''
+                  : html`
                       <dds-cloud-button-cta kind="ghost" data-ibm-contact="contact-link"
                         ><span>${contactUsButton?.title}</span></dds-cloud-button-cta
                       >
-                    `
-                  : undefined}
+                    `}
                 ${profileItems?.map(
                   ({ title, url }) =>
                     html`
