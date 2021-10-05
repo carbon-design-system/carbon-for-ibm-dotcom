@@ -93,7 +93,7 @@ export const WithThumbnail = ({ parameters }) => {
 };
 
 export const WithMedia = ({ parameters }) => {
-  const { align, type, alt, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
+  const { align, type, alt, heading, eyebrow, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
     parameters?.props?.ContentItemHorizontal ?? {};
   return html`
     <dds-content-item-horizontal-media align="${align}">
@@ -107,6 +107,7 @@ export const WithMedia = ({ parameters }) => {
             <dds-content-item-horizontal-media-video video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
           `
         : null}
+      <dds-content-item-horizontal-eyebrow>${eyebrow}</dds-content-item-horizontal-eyebrow>
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       <dds-content-item-horizontal-media-copy>${copy}</dds-content-item-horizontal-media-copy>
       <dds-link-list slot="footer" type="vertical">
@@ -168,10 +169,14 @@ WithMedia.story = {
         type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
         alt: textNullable('Image alt text', 'Image alt text'),
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
+        eyebrow: textNullable('Eyebrow label:', 'Lorem Ipsum'),
         copy:
           'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. ' +
           'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
-          'Phasellus at elit sollicitudin.',
+          'Phasellus at elit sollicitudin.' +
+          '- list item one' +
+          '- list item two' +
+          '- list item three',
         ctaType1: select('CTA 1 type (cta-type):', types, CTA_TYPE.LOCAL),
         ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
         href1: textNullable('CTA 1 href (cta-href):', 'https://www.ibm.com'),
