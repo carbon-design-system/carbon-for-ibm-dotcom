@@ -292,6 +292,7 @@
     bottom: auto;
     height: auto;
     max-height: calc(100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem));
+    min-height: 0;
   }
 }
 
