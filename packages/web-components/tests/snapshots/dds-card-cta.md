@@ -83,7 +83,7 @@
 
 ```
 <a
-  aria-label="video-name-foo - This link plays a video"
+  aria-label="video-name-foo, duration: 3 minutes and 0 seconds - This link plays a video"
   class="bx--card__footer bx--link bx--link--lg bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right dds-ce--card__footer"
   href="#"
   id="link"

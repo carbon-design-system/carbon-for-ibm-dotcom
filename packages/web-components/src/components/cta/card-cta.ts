@@ -134,7 +134,16 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
       const headingText = this.querySelector(`${ddsPrefix}-card-heading`)?.textContent;
       const copyText = this.textContent;
       if (footer) {
-        (footer as DDSCardCTAFooter).altAriaLabel = videoName || headingText || copyText;
+        const ariaSource = videoName || headingText || copyText;
+        let ariaWithDuration;
+        if (videoDuration !== undefined) {
+          const minVal = (videoDuration - (videoDuration % 60)) / 60;
+          const secVal = videoDuration % 60;
+          const minutes = minVal !== 1 ? `${minVal} minutes` : `${minVal} minute`;
+          const seconds = secVal !== 1 ? `${secVal} seconds` : `${secVal} second`;
+          ariaWithDuration = `${ariaSource}, duration: ${minutes} and ${seconds}`;
+        }
+        (footer as DDSCardCTAFooter).altAriaLabel = videoDuration ? ariaWithDuration : ariaSource;
         (footer as DDSCardCTAFooter).ctaType = ctaType;
         (footer as DDSCardCTAFooter).videoDuration = videoDuration;
         (footer as DDSCardCTAFooter).videoName = videoName;
