@@ -35,7 +35,7 @@
   .#{$prefix}--buttongroup-item,
   :host(#{$dds-prefix}-button-group-item),
   :host(#{$dds-prefix}-button-cta) {
-    max-width: carbon--mini-units(38);
+    max-width: carbon--mini-units(40);
     min-width: 0;
 
     .#{$prefix}--btn {
