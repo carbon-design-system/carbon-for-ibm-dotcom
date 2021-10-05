@@ -138,10 +138,10 @@ function _getLocaleFromDDO() {
       if (lang.cc === 'zz') {
         lang.cc = 'us';
       }
+    } else {
+      // set lc if DDO language contains only the lc
+      lang.lc = ddoLocal.page.pageInfo.language.toLowerCase();
     }
-
-    // set lc if DDO language contains only the lc
-    lang.lc = ddoLocal.page.pageInfo.language.toLowerCase();
 
     return lang;
   }
