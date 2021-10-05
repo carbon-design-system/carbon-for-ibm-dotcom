@@ -282,7 +282,6 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         platformAltUrl = platformUrl[formattedLang].url || platformUrl;
       }
     }
-    console.log(hasContact);
 
     return html`
       <dds-left-nav-overlay cloud></dds-left-nav-overlay>

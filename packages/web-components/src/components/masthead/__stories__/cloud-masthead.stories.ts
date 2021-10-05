@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit-element';
-import { boolean, select } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
 import on from 'carbon-components/es/globals/js/misc/on';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
@@ -58,11 +58,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
                 platform="Cloud"
                 .platformUrl="${ifNonNull(platformData.url)}"
                 selected-menu-item="${ifNonNull(selectedMenuItem)}"
-                has-contact="${hasContact
-                  ? html`
-                      true
-                    `
-                  : `false`}"
+                has-contact="${hasContact}"
                 user-status="${ifNonNull(userStatus)}"
                 searchPlaceholder="${ifNonNull(searchPlaceholder)}"
                 .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
@@ -77,11 +73,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
                 platform="Cloud"
                 .platformUrl="${ifNonNull(urlObject)}"
                 selected-menu-item="${ifNonNull(selectedMenuItem)}"
-                has-contact="${hasContact
-                  ? html`
-                      true
-                    `
-                  : `false`}"
+                has-contact="${hasContact}"
                 auth-method="cookie"
                 user-status="${ifNonNull(userStatus)}"
                 searchPlaceholder="${ifNonNull(searchPlaceholder)}"
@@ -123,7 +115,7 @@ export default !DDS_CLOUD_MASTHEAD
               'anonymous',
               groupId
             ),
-            hasContact: boolean('Contact us button visibility (has-contact)', true, groupId),
+            hasContact: select('Contact us button visibility (has-contact)', ['true', 'false'], 'true', groupId),
             selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Docs', groupId),
           }),
         },
