@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -29,7 +29,7 @@ class DDSMasthead extends StableSelectorMixin(LitElement) {
   render() {
     return html`
       <div class="${prefix}--masthead__l0">
-        <header class="${prefix}--header">
+        <div class="${prefix}--header">
           <slot name="brand"></slot>
           <div class="${prefix}--header__search">
             <div class="${prefix}--header__nav-container">
@@ -38,7 +38,7 @@ class DDSMasthead extends StableSelectorMixin(LitElement) {
             <slot name="search"></slot>
           </div>
           <slot name="profile"></slot>
-        </header>
+        </div>
       </div>
       <slot name="masthead-l1"></slot>
     `;
