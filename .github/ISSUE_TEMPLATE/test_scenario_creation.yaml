@@ -6,7 +6,7 @@ body:
   - type: input
     id: component
     attributes:
-      label: Component
+      label: Component and test scenario title
     validations:
       required: true
   - type: textarea
