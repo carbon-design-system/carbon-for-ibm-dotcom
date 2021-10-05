@@ -1,0 +1,20 @@
+name: Test Scenario Creation
+description:
+  Describe the test scenario that will need to be created in e2e tests
+title: '[THE COMPONENT NAME]: Brief description'
+body:
+  - type: input
+    id: component
+    attributes:
+      label: Component
+    validations:
+      required: true
+  - type: textarea
+    id: scenario
+    attributes:
+      label: Test scenario
+      value: "1.
+2.
+3."
+    validations:
+      required: true
