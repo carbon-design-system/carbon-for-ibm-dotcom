@@ -2,6 +2,7 @@ name: Test Scenario Creation
 description:
   Describe the test scenario that will need to be created in e2e tests
 title: '[THE COMPONENT NAME]: Brief description'
+labels: ['dev','test: e2e']
 body:
   - type: input
     id: component
