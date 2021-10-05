@@ -111,6 +111,7 @@ class DDSMastheadProfile extends HostListenerMixin(FocusMixin(StableSelectorMixi
     const { authenticated, expanded, menuLabel, triggerLabel, _handleClick: handleClick } = this;
     return html`
       <a
+        role="button"
         tabindex="0"
         class="${prefix}--header__menu-item ${prefix}--header__menu-title"
         href="javascript:void 0"

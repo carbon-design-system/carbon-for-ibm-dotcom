@@ -11,6 +11,7 @@
   aria-label="User profile"
   class="bx--header__menu-item bx--header__menu-title"
   href="javascript:void 0"
+  role="button"
   tabindex="0"
 >
 </a>
@@ -30,6 +31,7 @@
   aria-label="User profile"
   class="bx--header__menu-item bx--header__menu-title"
   href="javascript:void 0"
+  role="button"
   tabindex="0"
 >
 </a>
