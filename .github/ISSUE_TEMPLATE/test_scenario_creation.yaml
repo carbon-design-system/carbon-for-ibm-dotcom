@@ -14,7 +14,9 @@ body:
     attributes:
       label: Test scenario
       value: "1.
+
 2.
+
 3."
     validations:
       required: true
