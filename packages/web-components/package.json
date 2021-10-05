@@ -93,7 +93,7 @@
     "@carbon/layout": "10.23.0",
     "@carbon/telemetry": "0.0.0-alpha.6",
     "carbon-components": "10.44.0",
-    "carbon-web-components": "1.16.2",
+    "carbon-web-components": "1.17.0",
     "lodash-es": "^4.17.0",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.0",
