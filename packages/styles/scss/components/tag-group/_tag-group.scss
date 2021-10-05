@@ -19,12 +19,12 @@
   }
 
   ::slotted(#{$prefix}-tag) {
-    margin: 0 $spacing-03 $spacing-03 0;
+    margin: $spacing-03 $spacing-03 0 0;
   }
 
   // !important necessary since Carbon React styles override margin without this
   ::slotted(.#{$prefix}--tag) {
     // stylelint-disable-next-line declaration-no-important
-    margin: 0 $spacing-03 $spacing-03 0 !important;
+    margin: $spacing-03 $spacing-03 0 0 !important;
   }
 }
