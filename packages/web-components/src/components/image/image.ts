@@ -70,10 +70,10 @@ class DDSImage extends StableSelectorMixin(LitElement) {
   border = false;
 
   render() {
-    const { alt, defaultSrc, _images: images, _handleSlotChange: handleSlotChange } = this;
+    const { alt, border, defaultSrc, _images: images, _handleSlotChange: handleSlotChange } = this;
     const imgClasses = classMap({
       [`${prefix}--image__img`]: true,
-      [`${prefix}--image__img--border`]: this.hasAttribute('border'),
+      [`${prefix}--image__img--border`]: border,
     });
 
     return html`
