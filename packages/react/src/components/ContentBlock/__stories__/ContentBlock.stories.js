@@ -7,8 +7,6 @@
 
 import { text, boolean, optionsKnob } from '@storybook/addon-knobs';
 import ContentBlock from '../ContentBlock';
-import ContentGroupCards from '../../ContentGroupCards/ContentGroupCards';
-import ContentGroupCardsKnobs from '../../ContentGroupCards/__stories__/data/ContentGroupCards.knobs';
 import ContentGroupSimple from '../../ContentGroupSimple/ContentGroupSimple';
 import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
 import { LinkList } from '../../LinkList';
@@ -56,7 +54,6 @@ export default {
             'Add children:',
             {
               'Content group simple': 'Content group simple',
-              'Content group cards': 'Content group cards',
             },
             '',
             { display: 'multi-select' }
@@ -99,14 +96,6 @@ export const Default = ({ parameters }) => {
                   heading="Natural language processing (NLP)"
                   items={ContentGroupSimpleKnobs.items}
                   copy={ContentGroupSimpleKnobs.copy}
-                />
-              ) : (
-                ``
-              ),
-              addChildren.includes('Content group cards') ? (
-                <ContentGroupCards
-                  heading="Machine learning"
-                  items={ContentGroupCardsKnobs.items}
                 />
               ) : (
                 ``

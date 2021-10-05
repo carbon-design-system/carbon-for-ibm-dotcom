@@ -16,7 +16,6 @@ import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
 import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
 import readme from './README.stories.mdx';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const itemsHeading = 'Lorem ipsum dolor sit amet.';
 
@@ -68,37 +67,15 @@ const image = html`
   </dds-image-with-caption>
 `;
 
-const card1 = html`
-  <dds-content-group-cards-item href="https://www.example.com">
-    <dds-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-    </dds-card-heading>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-    <dds-card-footer icon-placement="left">
-      ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-footer>
-  </dds-content-group-cards-item>
-`;
-
-const card2 = html`
-  <dds-content-group-cards-item href="https://www.example.com">
-    <dds-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-    </dds-card-heading>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-    <dds-card-footer icon-placement="left">
-      ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-footer>
-  </dds-content-group-cards-item>
-`;
-
 export const Default = ({ parameters }) => {
   const { heading, copy, showCopy, addChildren, showCTA, border, aside } = parameters?.props?.ContentBlock ?? {};
   return html`
     <dds-content-block complementary-style-scheme="${border ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER : ''}">
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
+      ${heading
+        ? html`
+            <dds-content-block-heading>What is the latest news in artificial intelligence?</dds-content-block-heading>
+          `
+        : ''}
       ${showCopy
         ? html`
             <dds-content-block-copy>${copy}</dds-content-block-copy>
@@ -122,14 +99,6 @@ export const Default = ({ parameters }) => {
                 `
               )}
             </dds-content-group-simple>
-          `
-        : ``}
-      ${addChildren.includes('Content group cards')
-        ? html`
-            <dds-content-group-cards>
-              <dds-content-group-heading>Machine learning</dds-content-group-heading>
-              ${card1}${card2}${card1}${card2}
-            </dds-content-group-cards>
           `
         : ``}
       ${showCTA
@@ -178,7 +147,7 @@ export default {
     hasVerticalSpacingInComponent: true,
     knobs: {
       ContentBlock: () => ({
-        heading: textNullable('Heading:', 'What is the latest news in artificial intelligence?'),
+        heading: boolean('Heading:', true),
         showCopy: boolean('Copy:', true),
         copy:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quam ante, mattis id pellentesque at,' +
@@ -191,7 +160,6 @@ export default {
           'Add children:',
           {
             'Content group simple': 'Content group simple',
-            'Content group cards': 'Content group cards',
           },
           '',
           { display: 'multi-select' }
