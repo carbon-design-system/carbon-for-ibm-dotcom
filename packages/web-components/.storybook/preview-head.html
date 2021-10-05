@@ -170,6 +170,8 @@
     if (params.has('cc')) {
       currentLang += '-' + params.get('cc').toUpperCase();
       digitalData.page.pageInfo.ibm.country = params.get('cc').toUpperCase();
+    } else {
+      digitalData.page.pageInfo.ibm.country = '';
     }
     document.getElementsByTagName('html')[0].setAttribute('lang', currentLang);
     digitalData.page.pageInfo.language = currentLang;
