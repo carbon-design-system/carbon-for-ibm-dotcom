@@ -149,11 +149,14 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
         ?open="${open}"
       >
         <dds-regions>
-          ${regionList?.map(
-            ({ countryList, name }) => html`
-              <dds-region-item ?invalid="${countryList.length === 0}" name="${name}"></dds-region-item>
-            `
-          )}
+          ${regionList?.map(({ countryList, name }) => {
+            return html`
+              <dds-region-item
+                ?invalid="${countryList.length === 0 || massagedCountryList?.find(({ region }) => region === name) === undefined}"
+                name="${name}"
+              ></dds-region-item>
+            `;
+          })}
         </dds-regions>
         <dds-locale-search
           close-button-assistive-text="${ifNonNull(searchClearText)}"
