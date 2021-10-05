@@ -436,6 +436,10 @@ $hover-transition-timing: 95ms;
           display: block;
         }
       }
+
+      ::slotted(#{$dds-prefix}-image) {
+        width: 25%;
+      }
     }
   }
 }
