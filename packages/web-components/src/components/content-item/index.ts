@@ -11,3 +11,5 @@ import './content-item';
 import './content-item-copy';
 import './content-item-heading';
 import './content-item-paragraph';
+import '../cta/text-cta';
+import '../cta/button-cta';

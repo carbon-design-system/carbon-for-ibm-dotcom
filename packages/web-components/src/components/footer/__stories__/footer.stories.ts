@@ -236,6 +236,7 @@ export default {
   parameters: {
     ...readme.parameters,
     useRawContainer: true,
+    hasMainTag: true,
     knobs: {
       FooterComposite: ({ groupId }) => ({
         disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),

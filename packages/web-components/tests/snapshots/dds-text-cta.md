@@ -28,6 +28,7 @@
   href="#"
   id="link"
   part="link"
+  target="_blank"
 >
   <span>
     <slot>
