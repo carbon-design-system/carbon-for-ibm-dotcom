@@ -84,7 +84,7 @@ const _getLocaleByLangAttr = () => {
   if (root.document?.documentElement?.lang) {
     const lang = root.document.documentElement.lang.toLowerCase();
     if (lang.indexOf('-') === -1) {
-      return _localeDefault;
+      return { lc: lang };
     } else {
       const codes = lang.split('-');
       return { cc: codes[1], lc: codes[0] };
@@ -139,8 +139,8 @@ function _getLocaleFromDDO() {
         lang.cc = 'us';
       }
     } else {
-      // set lc if DDO language contains only the lc
-      lang.lc = ddoLocal.page.pageInfo.language.toLowerCase();
+      // set lc with just the language code
+      lang.lc = ddoLocal.page.pageInfo.language.substring(0, 2).toLowerCase();
     }
 
     return lang;
@@ -326,7 +326,7 @@ class LocaleAPI {
         const url = `${_endpoint}/${
           cc !== 'undefined' ? `${cc}${lc}` : `${lc}`
         }-utf8.json`;
-        console.log('url', url);
+
         _requestsList[key] = axios.get(url, _axiosConfig).then(response => {
           const { data } = response;
           data['timestamp'] = Date.now();
