@@ -9,7 +9,7 @@ import React from 'react';
 import readme from '../README.stories.mdx';
 
 export default {
-  title: 'Components|Seach With Typeahead',
+  title: 'Components|Search With Typeahead',
   parameters: {
     ...readme.parameters,
     percy: {
