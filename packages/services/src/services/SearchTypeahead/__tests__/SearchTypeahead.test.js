@@ -26,7 +26,34 @@ describe('SearchTypeaheadAPI', () => {
     root.digitalData = mockDigitalDataResponse;
   });
 
-  it('should search for ibm.com results', async () => {
+  it('should search for ibm.com results with just lc param', async () => {
+    const query = 'red hat';
+    const endpoint = `${process.env.SEARCH_TYPEAHEAD_API}/search/typeahead/${process.env.SEARCH_TYPEAHEAD_VERSION}`;
+    const fetchUrl = `${endpoint}?lang=${_lc}&query=${encodeURIComponent(
+      query
+    )}`;
+
+    const response = await SearchTypeaheadAPI.getResults(query);
+
+    expect(response).toEqual(responseSuccess.response);
+    expect(mockAxios.get).toHaveBeenCalledWith(fetchUrl, {
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+    });
+  });
+
+  it('should search for ibm.com results with both cc and lc param', async () => {
+    root.digitalData = {
+      page: {
+        pageInfo: {
+          ibm: {
+            country: 'us',
+          },
+        },
+      },
+    };
+
     const query = 'red hat';
     const endpoint = `${process.env.SEARCH_TYPEAHEAD_API}/search/typeahead/${process.env.SEARCH_TYPEAHEAD_VERSION}`;
     const fetchUrl = `${endpoint}?lang=${_lc}&cc=${_cc}&query=${encodeURIComponent(
