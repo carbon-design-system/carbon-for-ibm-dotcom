@@ -380,6 +380,7 @@
   }
 
   .#{$prefix}--card--inverse,
+  .#{$prefix}--card.#{$prefix}--card--inverse,
   :host(#{$dds-prefix}-card)[color-scheme='inverse'],
   :host(#{$dds-prefix}-card-group-item)[color-scheme='inverse']
     .#{$prefix}--card {
@@ -418,8 +419,8 @@
         left: 0;
         bottom: 0;
         right: 0;
-        border: 2px solid $focus;
-        outline: 1px solid #ffffff;
+        border: 2px solid $inverse-focus-ui;
+        outline: 1px solid $inverse-focus-ui;
         outline-offset: -3px;
         pointer-events: none;
       }
