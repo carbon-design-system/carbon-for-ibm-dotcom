@@ -3,9 +3,6 @@ import ExpressiveModal from './ExpressiveModal';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-
-
-
 # Card in Card
 
 > 💡 Check our
@@ -22,20 +19,24 @@ Here's a quick example to get you started.
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
-```
-
-<Description markdown={`${cdnJs({ components: ['card-in-card'] })}`} />
-
+```<Description markdown={`\${cdnJs({ components: ['card-in-card'] })}`} />
 <Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
 ```html
 <dds-card-in-card href="https://example.com">
-  <dds-card-in-card-image slot="image" alt="Image alt text" default-src="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
-    <dds-image-item media="(min-width: 1312px)" srcset="https://fpoimg.com/1312x738?text=16:9&bg_color=ee5396&text_color=161616"> </dds-image-item>
-    <dds-image-item media="(min-width: 672px)" srcset="https://fpoimg.com/960x540?text=16:9&bg_color=ee5396&text_color=161616"> </dds-image-item>
-    <dds-image-item media="(min-width: 320px)" srcset="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616"> </dds-image-item>
+  <dds-card-in-card-image
+    slot="image"
+    alt="Image alt text"
+    default-src="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616"
+  >
+    <dds-image-item media="(min-width: 1312px)" srcset="https://fpoimg.com/1312x738?text=16:9&bg_color=ee5396&text_color=161616">
+    </dds-image-item>
+    <dds-image-item media="(min-width: 672px)" srcset="https://fpoimg.com/960x540?text=16:9&bg_color=ee5396&text_color=161616">
+    </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
+    </dds-image-item>
   </dds-card-in-card-image>
   <dds-card-eyebrow>Label</dds-card-eyebrow>
   <dds-card-heading>Standard Bank Group prepares to embrace Africa’s AI opportunity</dds-card-heading>
@@ -55,6 +56,17 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
     </svg>
   </dds-card-cta-footer>
 </dds-card-in-card>
+```
+
+To render the video variation, make sure to wrap `card-in-card` with `video-cta-container`. The default video title can be overwritten by passing in the `video-name` attribute to `card-in-card`.
+
+```html
+<dds-video-cta-container>
+  <dds-card-in-card video-name="custom card title" href="1_9h94wo6b" cta-type="video">
+    <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
+    <dds-card-cta-footer cta-type="video" href="1_9h94wo6b"></dds-card-cta-footer>
+  </dds-card-in-card>
+</dds-video-cta-container>
 ```
 
 ## Props
