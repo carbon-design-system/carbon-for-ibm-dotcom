@@ -15,6 +15,7 @@ import {
   formatVideoCaption,
   formatVideoDuration,
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
+import root from 'window-or-global';
 import DDSCard from '../card/card';
 import '../card/card-heading';
 import './card-cta-image';
@@ -62,6 +63,17 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
     return html`
       <slot name="image" @slotchange="${this._handleSlotChange}"></slot>${thumbnail}
     `;
+  }
+
+  private static formatTime(number, unit) {
+    const locale = root.document.documentElement.lang || root.navigator.language;
+
+    return new Intl.NumberFormat(locale, {
+      style: 'unit',
+      // @ts-ignore: TS lacking support for standard option
+      unitDisplay: 'long',
+      unit,
+    }).format(number);
   }
 
   /**
@@ -134,16 +146,18 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
       const headingText = this.querySelector(`${ddsPrefix}-card-heading`)?.textContent;
       const copyText = this.textContent;
       if (footer) {
-        const ariaSource = videoName || headingText || copyText;
-        let ariaWithDuration;
+        const ariaTitle = videoName || headingText || copyText;
+        let ariaDuration = '';
         if (videoDuration !== undefined) {
-          const minVal = (videoDuration - (videoDuration % 60)) / 60;
-          const secVal = videoDuration % 60;
-          const minutes = minVal !== 1 ? `${minVal} minutes` : `${minVal} minute`;
-          const seconds = secVal !== 1 ? `${secVal} seconds` : `${secVal} second`;
-          ariaWithDuration = `${ariaSource}, duration: ${minutes} and ${seconds}`;
+          const s = Math.floor(videoDuration % 60);
+          const m = Math.floor((videoDuration / 60) % 60);
+          const h = Math.floor((videoDuration / (60 * 60)) % 24);
+          const seconds = DDSCardCTA.formatTime(s, 'second');
+          const minutes = h || m ? DDSCardCTA.formatTime(m, 'minute') : '';
+          const hours = h ? DDSCardCTA.formatTime(h, 'hour') : '';
+          ariaDuration = `${hours} ${minutes} ${seconds}`.trim();
         }
-        (footer as DDSCardCTAFooter).altAriaLabel = videoDuration ? ariaWithDuration : ariaSource;
+        (footer as DDSCardCTAFooter).altAriaLabel = `${ariaTitle}, ${ariaDuration}`;
         (footer as DDSCardCTAFooter).ctaType = ctaType;
         (footer as DDSCardCTAFooter).videoDuration = videoDuration;
         (footer as DDSCardCTAFooter).videoName = videoName;
