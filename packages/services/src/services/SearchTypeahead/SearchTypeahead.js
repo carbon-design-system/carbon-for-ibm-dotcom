@@ -45,8 +45,7 @@ class SearchTypeaheadAPI {
   static async getResults(query) {
     const lang = await LocaleAPI.getLang();
     const urlQuery = [
-      `lang=${lang.lc}`,
-      `cc=${lang.cc}`,
+      `lang=${lang.lc}${lang.cc ? `&cc=${lang.cc}` : ''}`,
       `query=${encodeURIComponent(query)}`,
     ].join('&');
     const url = `${_endpoint}?${urlQuery}`;
