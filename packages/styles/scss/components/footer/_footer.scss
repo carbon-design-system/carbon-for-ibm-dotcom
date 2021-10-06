@@ -169,6 +169,16 @@
     margin-left: 0;
     margin-right: 0;
   }
+
+  @media print {
+    :host(#{$dds-prefix}-footer),
+    .#{$prefix}--footer {
+      /* stylelint-disable declaration-no-important */
+      // need important since it gets overriden in WC Footer without it
+      display: none !important;
+      /* stylelint-enable declaration-no-important */
+    }
+  }
 }
 
 @include exports('footer') {
