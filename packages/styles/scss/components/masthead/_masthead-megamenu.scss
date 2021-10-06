@@ -31,7 +31,7 @@
   }
 
   :host(#{$dds-prefix}-megamenu-top-nav-menu)
-    .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true']
+    .#{$prefix}--header__menu-title[aria-expanded='true']
     + .#{$prefix}--header__menu,
   .#{$prefix}--header__nav
     .#{$prefix}--masthead__megamenu__l0-nav
@@ -60,7 +60,7 @@
       transition: visibility $transition--expansion $carbon--standard-easing;
     }
 
-    .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='false']
+    .#{$prefix}--header__menu-title[aria-expanded='false']
       + .#{$prefix}--header__menu {
       ::slotted(#{$dds-prefix}-megamenu),
       ::slotted(#{$dds-prefix}-cloud-megamenu),
