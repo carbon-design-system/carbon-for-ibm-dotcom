@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,6 +15,20 @@ import { Constructor } from '../defs';
  */
 const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
   class StableSelectorMixinImpl extends Base {
+    /**
+     * The element that will be targeted for transposition
+     *
+     * @private
+     */
+    linkNode;
+
+    /**
+     * Mutation observer to watch for attribute changes
+     *
+     * @private
+     */
+    _mutationObserver: MutationObserver | null = null;
+
     connectedCallback() {
       // TS seems to miss `HTMLElement.prototype.connectedCallback()` definition
       // @ts-ignore
@@ -24,9 +38,14 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         this.dataset.autoid = stableSelector;
       }
 
+      this._cleanAndCreateMutationObserver({ create: true });
       window.requestAnimationFrame(() => {
-        this.transposeAttributes();
+        if (!this.linkNode) this.transposeAttributes();
       });
+    }
+
+    disconnectedCallback() {
+      this._cleanAndCreateMutationObserver();
     }
 
     /**
@@ -35,25 +54,52 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * @param linkNodeArg optional argument to pass in custom element to target instead of an anchor link
      */
     transposeAttributes(linkNodeArg?) {
-      let linkNode = linkNodeArg;
-      if (!linkNode) {
+      this.linkNode = linkNodeArg;
+      if (!this.linkNode) {
         this.querySelectorAll('*').forEach(e => {
           const anchor = e.shadowRoot?.querySelector('a');
           if (anchor) {
-            linkNode = anchor;
+            this.linkNode = anchor;
           }
         });
       }
-      linkNode = linkNode || this.shadowRoot?.querySelector('a');
+      this.linkNode = this.linkNode || this.shadowRoot?.querySelector('a');
       const dataAttributes = [].filter.call(
         this.attributes,
         at => /^data-/.test((at as any).name) && (at as any).name !== 'data-autoid'
       );
       dataAttributes.forEach(e => {
-        if (linkNode) {
-          linkNode?.setAttribute((e as any).name, (e as any).value);
+        if (this.linkNode) {
+          this.linkNode?.setAttribute((e as any).name, (e as any).value);
         }
       });
+    }
+
+    /**
+     * Cleans-up and creates the mutation observer.
+     *
+     * @param [options] The options.
+     * @param [options.create] `true` to create the new mutation observer.
+     */
+    _cleanAndCreateMutationObserver({ create }: { create?: boolean } = {}) {
+      if (this._mutationObserver) {
+        this._mutationObserver.disconnect();
+        this._mutationObserver = null;
+      }
+
+      if (create) {
+        const element = this;
+        this._mutationObserver = new MutationObserver(mutations => {
+          mutations.forEach(mutation => {
+            if (mutation.type === 'attributes') {
+              if (this.linkNode) {
+                this.transposeAttributes(this.linkNode);
+              }
+            }
+          });
+        });
+        this._mutationObserver?.observe(element, { attributes: true });
+      }
     }
 
     /**
