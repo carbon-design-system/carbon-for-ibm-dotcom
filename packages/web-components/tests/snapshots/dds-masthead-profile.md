@@ -15,10 +15,7 @@
   tabindex="0"
 >
 </a>
-<ul
-  class="bx--header__menu"
-  role="menu"
->
+<ul class="bx--header__menu">
   <slot>
   </slot>
 </ul>
@@ -41,7 +38,6 @@
 <ul
   aria-label="menu-label-foo"
   class="bx--header__menu"
-  role="menu"
 >
   <slot>
   </slot>

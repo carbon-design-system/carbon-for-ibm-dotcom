@@ -122,7 +122,7 @@ class DDSMastheadProfile extends HostListenerMixin(FocusMixin(StableSelectorMixi
       >
         ${authenticated ? UserOnline20() : User20()}
       </a>
-      <ul role="menu" class="${prefix}--header__menu" aria-label="${ifDefined(menuLabel)}">
+      <ul class="${prefix}--header__menu" aria-label="${ifDefined(menuLabel)}">
         <slot></slot>
       </ul>
     `;
