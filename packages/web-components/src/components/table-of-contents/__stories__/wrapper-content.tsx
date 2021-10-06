@@ -10,6 +10,7 @@
 // @ts-nocheck
 import React from 'react';
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
 const content = () => (
   <div className="bx--tableofcontents__contents dds-ce-demo--table-of-contents">
     <a name="8">
@@ -194,5 +195,6 @@ const content = () => (
     </p>
   </div>
 );
+/* eslint-enable jsx-a11y/anchor-is-valid */
 
 export default content;
