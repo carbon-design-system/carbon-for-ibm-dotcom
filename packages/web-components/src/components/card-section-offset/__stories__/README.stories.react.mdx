@@ -17,7 +17,6 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
 import DDSBackgroundMedia from '@carbon/ibmdotcom-web-components/es/components-react/background-media/background-media';
 import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
 import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
@@ -34,19 +33,18 @@ function App() {
     <DDSBackgroundMedia
         gradient-direction="left-to-right"
         mobile-position="top"
-        alt={alt}
-        default-src={defaultSrc}
+        alt={'alt'}
+        default-src={'https://fpoimg.com/1584x891?bg_color=ee5396&text_color=161616'}
       >
       </DDSBackgroundMedia>
-      <DDSContentBlockHeading slot="heading">{heading}</DDSContentBlockHeading>
+      <DDSContentBlockHeading slot="heading">Heading</DDSContentBlockHeading>
       <DDSTextCTA
         slot="action"
         icon-placement="right"
-        cta-type={ctaType}
-        download={download}
-        href={href}
+        cta-type={'local'}
+        href={'https://example.com'}
       >
-        {ctaCopy}
+        Copy
       </DDSTextCTA>
       <DDSCardGroup slot="card-group" cards-per-row="2">
         <DDSCardGroupItem empty></DDSCardGroupItem>

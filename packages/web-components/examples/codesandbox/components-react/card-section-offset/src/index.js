@@ -9,7 +9,6 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
 import DDSBackgroundMedia from '@carbon/ibmdotcom-web-components/es/components-react/background-media/background-media';
 import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
 import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
@@ -26,11 +25,11 @@ const App = () => (
     <DDSBackgroundMedia
       gradient-direction="left-to-right"
       mobile-position="top"
-      alt={alt}
-      default-src={defaultSrc}></DDSBackgroundMedia>
-    <DDSContentBlockHeading slot="heading">{heading}</DDSContentBlockHeading>
-    <DDSTextCTA slot="action" icon-placement="right" cta-type={ctaType} download={download} href={href}>
-      {ctaCopy}
+      alt={'alt'}
+      default-src={'https://fpoimg.com/1584x891?bg_color=ee5396&text_color=161616'}></DDSBackgroundMedia>
+    <DDSContentBlockHeading slot="heading">Heading</DDSContentBlockHeading>
+    <DDSTextCTA slot="action" icon-placement="right" cta-type={'local'} href={'https://example.com'}>
+      Copy
     </DDSTextCTA>
     <DDSCardGroup slot="card-group" cards-per-row="2">
       <DDSCardGroupItem empty></DDSCardGroupItem>
