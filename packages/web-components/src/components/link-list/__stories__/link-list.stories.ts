@@ -76,7 +76,11 @@ export const Default = ({ parameters }) => {
             cta-type="${ifNonNull(ctaType)}"
             download="${ifNonNull(download)}"
           >
-            <p>Learn more about Kubernetes</p>
+            ${ctaType !== CTA_TYPE.VIDEO
+              ? html`
+                  <p>Learn more about Kubernetes</p>
+                `
+              : null}
             <dds-card-cta-footer></dds-card-cta-footer>
           </dds-link-list-item-card-cta>
           <dds-link-list-item-card-cta
@@ -84,7 +88,11 @@ export const Default = ({ parameters }) => {
             cta-type="${ifNonNull(ctaType)}"
             download="${ifNonNull(download)}"
           >
-            <p>Containerization A Complete Guide</p>
+            ${ctaType !== CTA_TYPE.VIDEO
+              ? html`
+                  <p>Containerization A Complete Guide</p>
+                `
+              : null}
             <dds-card-cta-footer></dds-card-cta-footer>
           </dds-link-list-item-card-cta>
         </dds-link-list>
