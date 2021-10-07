@@ -1,5 +1,5 @@
 /**
-* Copyright IBM Corp. 2016, 2020
+* Copyright IBM Corp. 2016, 2021
 *
 * This source code is licensed under the Apache-2.0 license found in the
 * LICENSE file in the root directory of this source tree.
@@ -21,6 +21,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-auto-rows: 1fr;
+    grid-gap: $carbon--layout-01;
 
     @include carbon--breakpoint(lg) {
       display: inline-grid;
@@ -34,13 +35,8 @@
   .#{$prefix}--buttongroup-item,
   :host(#{$dds-prefix}-button-group-item),
   :host(#{$dds-prefix}-button-cta) {
-    margin-top: $carbon--layout-01;
     max-width: carbon--mini-units(40);
     min-width: 0;
-
-    @include carbon--breakpoint(md) {
-      padding-right: $carbon--layout-01;
-    }
 
     .#{$prefix}--btn {
       font-size: 1rem;
