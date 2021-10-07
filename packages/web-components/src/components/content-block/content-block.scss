@@ -22,15 +22,9 @@
 }
 
 :host(#{$dds-prefix}-content-block-heading) {
-  width: calc(100% - #{$spacing-10});
-  margin-right: $spacing-07;
-
   @include carbon--breakpoint(lg) {
     margin-bottom: $carbon--layout-03;
   }
-}
-:host(#{$dds-prefix}-content-block-paragraph) {
-  margin-right: $spacing-07;
 }
 
 // TODO: Consider applying this rule in general
