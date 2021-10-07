@@ -30,9 +30,9 @@
   .#{$prefix}--content-item-horizontal__item--eyebrow,
   .#{$prefix}--content-item-horizontal__item--heading,
   .#{$prefix}--content-item-horizontal__item--copy {
-    @include carbon--breakpoint(md) {
-      max-width: 90%;
-    }
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   :host(#{$dds-prefix}-content-item-horizontal-eyebrow),
@@ -47,7 +47,7 @@
   .#{$prefix}--content-item-horizontal__item--heading {
     display: block;
     color: $text-01;
-    margin-bottom: $carbon--spacing-06;
+    margin-bottom: $carbon--spacing-07;
     @include carbon--type-style('expressive-heading-03', true);
   }
 
@@ -121,6 +121,7 @@
         &:first-of-type {
           grid-column: 1 / span 4;
           text-align: left;
+          margin-inline-end: $carbon--spacing-07;
         }
 
         &:last-of-type {
@@ -131,7 +132,7 @@
             grid-column: 5 / span 6;
           }
           @include carbon--breakpoint(max) {
-            grid-column: 5 / span 7;
+            grid-column: 5 / span 6;
           }
         }
       }
