@@ -15,7 +15,7 @@ import {
   formatVideoCaption,
   formatVideoDuration,
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
-import root from 'window-or-global';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
 import DDSCard from '../card/card';
 import '../card/card-heading';
 import './card-cta-image';
@@ -63,17 +63,6 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
     return html`
       <slot name="image" @slotchange="${this._handleSlotChange}"></slot>${thumbnail}
     `;
-  }
-
-  private static formatTime(number, unit) {
-    const locale = root.document.documentElement.lang || root.navigator.language;
-
-    return new Intl.NumberFormat(locale, {
-      style: 'unit',
-      // @ts-ignore: TS lacking support for standard option
-      unitDisplay: 'long',
-      unit,
-    }).format(number);
   }
 
   /**
@@ -147,15 +136,9 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
       const copyText = this.textContent;
       if (footer) {
         const ariaTitle = videoName || headingText || copyText;
-        let ariaDuration = '';
+        let ariaDuration = 'DURATION';
         if (videoDuration !== undefined) {
-          const s = Math.floor(videoDuration % 60);
-          const m = Math.floor((videoDuration / 60) % 60);
-          const h = Math.floor((videoDuration / (60 * 60)) % 24);
-          const seconds = DDSCardCTA.formatTime(s, 'second');
-          const minutes = h || m ? DDSCardCTA.formatTime(m, 'minute') : '';
-          const hours = h ? DDSCardCTA.formatTime(h, 'hour') : '';
-          ariaDuration = `${hours} ${minutes} ${seconds}`.trim();
+          ariaDuration = KalturaPlayerAPI.getMediaDurationFormatted(videoDuration, false);
         }
         (footer as DDSCardCTAFooter).altAriaLabel = `${ariaTitle}, ${ariaDuration}`;
         (footer as DDSCardCTAFooter).ctaType = ctaType;
