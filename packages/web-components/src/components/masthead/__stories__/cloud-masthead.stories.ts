@@ -45,7 +45,7 @@ const urlObject = {
 export const Default = !DDS_CLOUD_MASTHEAD
   ? undefined
   : ({ parameters }) => {
-      const { hasContact, hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
+      const { hasContact, hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks, redirectPath } =
         parameters?.props?.CloudMastheadComposite ?? {};
       const { useMock } = parameters?.props?.Other ?? {};
       return html`
@@ -59,6 +59,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
                 .platformUrl="${ifNonNull(platformData.url)}"
                 selected-menu-item="${ifNonNull(selectedMenuItem)}"
                 has-contact="${hasContact}"
+                redirect-path="${ifNonNull(redirectPath)}"
                 user-status="${ifNonNull(userStatus)}"
                 searchPlaceholder="${ifNonNull(searchPlaceholder)}"
                 .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
@@ -74,7 +75,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
                 .platformUrl="${ifNonNull(urlObject)}"
                 selected-menu-item="${ifNonNull(selectedMenuItem)}"
                 has-contact="${hasContact}"
-                auth-method="cookie"
+                redirect-path="${ifNonNull(redirectPath)}"
                 user-status="${ifNonNull(userStatus)}"
                 searchPlaceholder="${ifNonNull(searchPlaceholder)}"
                 .navLinks="${navLinks}"
@@ -117,6 +118,7 @@ export default !DDS_CLOUD_MASTHEAD
             ),
             hasContact: select('Contact us button visibility (has-contact)', ['true', 'false'], 'true', groupId),
             selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Docs', groupId),
+            redirectPath: textNullable('redirect path (redirect-path)', '', groupId),
           }),
         },
         props: (() => {
