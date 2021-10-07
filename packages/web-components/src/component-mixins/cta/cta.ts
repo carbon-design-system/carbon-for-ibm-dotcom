@@ -132,9 +132,10 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
           }
         }
         if (changedProperties.has('ctaType') || changedProperties.has('target')) {
-          // If this CTA is of an external link, defaults the target to `_blank`
+          // Default the target to `_blank` if this CTA is an external link and
+          // target is not already set
           const { target } = this;
-          const targetInEffect = target || ctaType !== CTA_TYPE.EXTERNAL ? undefined : '_blank';
+          const targetInEffect = ctaType === CTA_TYPE.EXTERNAL && !target ? '_blank' : target;
           if (!targetInEffect) {
             linkNode.removeAttribute('target');
           } else {
