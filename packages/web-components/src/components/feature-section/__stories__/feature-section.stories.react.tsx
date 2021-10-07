@@ -90,7 +90,7 @@ Default.story = {
 };
 
 export default {
-  title: 'Components/Feature Section',
+  title: 'Components/Feature section',
   decorators: [
     story => {
       return <>{story()}</>;
