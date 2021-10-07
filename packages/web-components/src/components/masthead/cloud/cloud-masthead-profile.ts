@@ -29,7 +29,6 @@ class DDSCloudMastheadProfile extends DDSMastheadProfile {
     const { expanded, menuLabel, triggerLabel, _handleClick: handleClick } = this;
     return html`
       <a
-        role="menuitem"
         tabindex="0"
         class="${prefix}--header__menu-item ${prefix}--header__menu-title"
         href="javascript:void 0"
@@ -40,7 +39,7 @@ class DDSCloudMastheadProfile extends DDSMastheadProfile {
       >
         ${User20()}
       </a>
-      <ul role="menu" class="${prefix}--header__menu" aria-label="${ifDefined(menuLabel)}">
+      <ul class="${prefix}--header__menu" aria-label="${ifDefined(menuLabel)}">
         <slot></slot>
       </ul>
     `;

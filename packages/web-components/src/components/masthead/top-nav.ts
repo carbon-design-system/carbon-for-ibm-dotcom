@@ -370,6 +370,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateIntersectionObserverContainer({ create: true });
+    this.removeAttribute('role');
   }
 
   disconnectedCallback() {
@@ -428,16 +429,11 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                 </div>
                 <div class="${ddsPrefix}-ce--header__nav-content-container">
                   <div class="${prefix}--header__nav-content" style="right: -${currentScrollPosition}px">
-                    <nav part="nav" class="${prefix}--header__nav">
+                    <nav part="nav" aria-label="nav-rtl" class="${prefix}--header__nav">
                       <div class="${prefix}--sub-content-right"></div>
-                      <ul
-                        part="menubar"
-                        role="menubar"
-                        class="${prefix}--header__menu-bar"
-                        aria-label="${ifNonNull(this.menuBarLabel)}"
-                      >
+                      <div part="menubar" class="${prefix}--header__menu-bar" aria-label="${ifNonNull(this.menuBarLabel)}">
                         <slot @keydown="${handleOnKeyDown}"></slot>
-                      </ul>
+                      </div>
                       <div class="${prefix}--sub-content-left"></div>
                     </nav>
                   </div>
@@ -470,16 +466,11 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                 </div>
                 <div class="${ddsPrefix}-ce--header__nav-content-container">
                   <div class="${prefix}--header__nav-content" style="left: -${currentScrollPosition}px">
-                    <nav part="nav" class="${prefix}--header__nav">
+                    <nav part="nav" aria-label="nav-ltr" class="${prefix}--header__nav">
                       <div class="${prefix}--sub-content-left"></div>
-                      <ul
-                        part="menubar"
-                        role="menubar"
-                        class="${prefix}--header__menu-bar"
-                        aria-label="${ifNonNull(this.menuBarLabel)}"
-                      >
+                      <div part="menubar" class="${prefix}--header__menu-bar" aria-label="${ifNonNull(this.menuBarLabel)}">
                         <slot @keydown="${handleOnKeyDown}"></slot>
-                      </ul>
+                      </div>
                       <div class="${prefix}--sub-content-right"></div>
                     </nav>
                   </div>
