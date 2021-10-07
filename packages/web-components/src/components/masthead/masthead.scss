@@ -241,7 +241,7 @@
 :host(#{$dds-prefix}-cloud-masthead-profile) {
   @extend :host(#{$prefix}-header-menu);
 
-  .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
+  .#{$prefix}--header__menu-title[aria-expanded='true'] {
     background-color: $ui-01;
     z-index: 0;
   }
@@ -250,7 +250,7 @@
 :host(#{$dds-prefix}-top-nav-menu),
 :host(#{$dds-prefix}-masthead-profile),
 :host(#{$dds-prefix}-cloud-masthead-profile) {
-  .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] + .#{$prefix}--header__menu {
+  .#{$prefix}--header__menu-title[aria-expanded='true'] + .#{$prefix}--header__menu {
     background-color: $ui-background;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
     bottom: -1px;
@@ -262,7 +262,7 @@
   @extend :host(#{$prefix}-header-menu-item);
   @include masthead-top-nav-menu-item;
 
-  a.#{$prefix}--header__menu-item[role='menuitem'] {
+  a.#{$prefix}--header__menu-item {
     height: 100%;
   }
 }
@@ -278,7 +278,7 @@
     height: 20px;
   }
 
-  a.#{$prefix}--header__menu-item[role='menuitem'] {
+  a.#{$prefix}--header__menu-item {
     @include masthead-top-nav-link;
 
     &:hover {
@@ -288,10 +288,11 @@
 }
 
 :host(#{$dds-prefix}-megamenu-top-nav-menu) {
-  .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] + .#{$prefix}--header__menu {
+  .#{$prefix}--header__menu-title[aria-expanded='true'] + .#{$prefix}--header__menu {
     bottom: auto;
     height: auto;
     max-height: calc(100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem));
+    min-height: 0;
   }
 }
 
@@ -407,9 +408,9 @@
 }
 
 :host(#{$dds-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,
-:host(#{$dds-prefix}-left-nav-menu-item-highlighted) a.#{$prefix}--side-nav__link[role='menuitem'],
+:host(#{$dds-prefix}-left-nav-menu-item-highlighted) a.#{$prefix}--side-nav__link,
 :host(#{$dds-prefix}-left-nav-item) a.#{$prefix}--side-nav__link,
-:host(#{$dds-prefix}-left-nav-menu-item) a.#{$prefix}--side-nav__link[role='menuitem'] {
+:host(#{$dds-prefix}-left-nav-menu-item) a.#{$prefix}--side-nav__link {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -432,7 +433,7 @@
 :host(#{$dds-prefix}-left-nav-menu-section) {
   .#{$prefix}--side-nav__link,
   .#{$prefix}--side-nav__submenu,
-  a.#{$prefix}--side-nav__link[role='menuitem'],
+  a.#{$prefix}--side-nav__link,
   .#{$prefix}--side-nav__submenu .#{$prefix}--side-nav__submenu-content {
     height: auto;
     min-height: carbon--mini-units(6);
