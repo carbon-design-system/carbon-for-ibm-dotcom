@@ -31,7 +31,6 @@ const ContentBlock = ({
   border,
 }) => {
   const classnames = cx(`${prefix}--content-block`, customClassName);
-  const setborder = aside ? false : border;
   const content = (
     <>
       {copy && (
@@ -75,7 +74,7 @@ const ContentBlock = ({
             aside.border
           )
         : content}
-      {setborder ? <HorizontalRule /> : ''}
+      {border ? <HorizontalRule /> : ''}
     </div>
   );
 };
