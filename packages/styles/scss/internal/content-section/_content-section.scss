@@ -16,8 +16,22 @@
 @mixin content-section {
   :host(#{$dds-prefix}-link-list-section),
   .#{$prefix}--content-section {
-    padding-top: $spacing-09;
+    padding-top: $spacing-07;
     padding-bottom: $carbon--layout-05;
+  }
+
+  .#{$prefix}--content-section__children__content-block {
+    @include carbon--breakpoint('lg') {
+      padding-top: $spacing-10;
+    }
+  }
+
+  :host(#{$dds-prefix}-content-section) ::slotted([slot]),
+  .#{$prefix}--content-group,
+  .#{$prefix}--content-item,
+  .#{$prefix}--content-block {
+    margin-top: 0;
+    padding-top: 0;
   }
 
   .#{$prefix}--content-section-layout {
@@ -25,7 +39,6 @@
     grid-template:
       'leading' auto
       'body' auto / 1fr;
-    row-gap: $spacing-03;
 
     @include carbon--breakpoint('lg') {
       grid-template: 'leading body' auto / 1fr 3fr;
@@ -34,15 +47,22 @@
 
   .#{$prefix}--content-section__leading {
     grid-area: leading;
-    padding: $spacing-05;
+    padding: 0 $spacing-05 0 $spacing-05;
   }
 
   .#{$prefix}--content-section__body {
     grid-area: body;
-    // TODO: `display:block` or `display:flex` here causes broken carousel if `<dds-carousel>` is slotted in as the child,
-    // especially if the carousel containts large number of cards.
-    // May need to investigate.
-    display: contents;
+    display: block;
+    margin-top: $spacing-06;
+
+    @include carbon--breakpoint(lg) {
+      margin-top: 0;
+    }
+
+    ::slotted(:not([slot])) {
+      padding-top: 0;
+      margin-top: 0;
+    }
   }
 
   .#{$prefix}--content-section__grid,
@@ -62,21 +82,18 @@
   .#{$prefix}--content-section__left {
     @include carbon--breakpoint(lg) {
       @include carbon--make-col(4, 16);
-
-      padding-top: $spacing-05;
     }
   }
 
   :host(#{$dds-prefix}-content-section-heading),
   .#{$prefix}--content-section__heading {
     margin-top: 0;
-    margin-bottom: $spacing-06;
 
     @include type-style('expressive-heading-02');
   }
 
   :host(#{$dds-prefix}-content-section-copy),
-  .#{$prefix}--content-section__copy {
+  .#{$prefix}--content-section__copy p {
     @include type-style('body-short-02');
 
     color: $text-02;
@@ -91,6 +108,10 @@
 
       margin-top: 0;
     }
+  }
+
+  ::slotted(#{$dds-prefix}-content-item) {
+    padding-left: 1rem;
   }
 
   .#{$prefix}--content-section--g10 {

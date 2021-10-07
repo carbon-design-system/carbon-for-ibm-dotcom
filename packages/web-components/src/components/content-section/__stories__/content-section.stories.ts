@@ -1,0 +1,97 @@
+/**
+ * @license
+ *
+ * Copyright IBM Corp. 2020, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+import { html } from 'lit-element';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { optionsKnob } from '@storybook/addon-knobs';
+import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
+import '../index';
+import readme from './README.stories.mdx';
+import textNullable from '../../../../.storybook/knob-text-nullable';
+
+/* eslint-disable max-len */
+const blockCopy = `Simply: when a technology gives a machine any ability that mimics human thought processes, we call it “artificial intelligence” (or AI).
+
+Human fascination with thinking machines has been with us as long as machines themselves. In every generation, new technologies perform tasks that we previously believed were only possible for humans. Our curiosity drives us to make technology always do more, and better.
+
+And here's an intriguing paradox: over time, as our assumptions shift about what machines can and can't do, we also gradually change our assessment of what counts as “genuine” intelligence. So what we call “artificial intelligence” keeps changing, too.
+
+For example: optical scan of documents (to create a text file out of an image of text) used to be considered artificial intelligence before it became common in our everyday lives. Observers of the history of AI call this phenomenon "the AI effect."
+`;
+
+/* eslint-disable max-len */
+const itemCopy = `This area of NLP takes "real world" text and applies a symbolic system for a machine to interpret its meaning, using formal logic; structures that describe the various relationships between concepts (ontologies); and other semantic tools.`;
+
+export const Default = ({ parameters }) => {
+  const { heading, copy, addChildren } = parameters?.props?.ContentSection ?? {};
+  return html`
+    <dds-content-section>
+      <dds-content-section-heading>${ifNonNull(heading)}</dds-content-section-heading>
+      <dds-content-section-copy>${ifNonNull(copy)}</dds-content-section-copy>
+      ${addChildren.includes('Content block simple')
+        ? html`
+            <dds-content-block-simple>
+              <dds-content-block-heading>What’s the latest news in artificial intelligence?</dds-content-block-heading>
+              <dds-content-block-copy size="sm">${blockCopy}</dds-content-block-copy>
+              <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
+              <dds-text-cta slot="footer" cta-type="jump" href="https://www.ibm.com">Jump to AI ethics and trust</dds-text-cta>
+            </dds-content-block-simple>
+          `
+        : ``}
+      ${addChildren.includes('Content item')
+        ? html`
+            <dds-content-item>
+              <dds-content-item-heading>Natural language understanding</dds-content-item-heading>
+              <dds-image-with-caption
+                slot="media"
+                alt="Alt image text"
+                default-src="${imgLg16x9}"
+                heading="Image caption text"
+              ></dds-image-with-caption>
+              <dds-content-item-copy size="sm">${itemCopy}</dds-content-item-copy>
+              <dds-text-cta slot="footer" cta-type="jump" href="https://www.ibm.com">Jump to AI ethics and trust</dds-text-cta>
+            </dds-content-item>
+          `
+        : ``}
+      <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com">Link action</dds-text-cta>
+    </dds-content-section>
+  `;
+};
+
+export default {
+  title: 'Components/Content section',
+  decorators: [
+    story => html`
+      <dds-video-container class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-section">
+        ${story()}
+      </dds-video-container>
+    `,
+  ],
+  parameters: {
+    ...readme.parameters,
+    hasGrid: true,
+    hasVerticalSpacingInComponent: true,
+    knobs: {
+      escapeHTML: false,
+      ContentSection: () => ({
+        heading: textNullable('Heading:', 'Speech recognition (statistical Artificial Intelligence)'),
+        copy: textNullable('Copy:', "AI features for understanding speech can be trained for a specific speaker's voice."),
+        addChildren: optionsKnob(
+          'Add children:',
+          {
+            'Content block simple': 'Content block simple',
+            'Content item': 'Content item',
+          },
+          '',
+          { display: 'multi-select' }
+        ),
+      }),
+    },
+  },
+};

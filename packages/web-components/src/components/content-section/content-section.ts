@@ -34,6 +34,20 @@ class DDSContentSection extends StableSelectorMixin(LitElement) {
     super.connectedCallback();
   }
 
+  /**
+   * Handles `slotchange` event.
+   *
+   * @param event The event.
+   */
+  protected _handleSlotChange({ target }: Event) {
+    this.shadowRoot
+      ?.querySelector(`.${prefix}--content-section`)
+      ?.classList.toggle(
+        `${prefix}--content-section__children__content-block`,
+        (target as HTMLSlotElement).assignedElements()[0].localName.includes(`${ddsPrefix}-content-block`)
+      );
+  }
+
   render() {
     return html`
       <div class="${prefix}--content-section ${prefix}--content-section-layout">
@@ -43,7 +57,7 @@ class DDSContentSection extends StableSelectorMixin(LitElement) {
           <slot name="footer"></slot>
         </div>
         <div class="${prefix}--content-section__body">
-          <slot></slot>
+          <slot @slotchange=${this._handleSlotChange}></slot>
         </div>
       </div>
     `;
