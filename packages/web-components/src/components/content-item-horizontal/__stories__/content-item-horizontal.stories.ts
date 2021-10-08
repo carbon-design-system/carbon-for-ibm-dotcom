@@ -36,6 +36,17 @@ const mediaType = {
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
 
+const bodyCopy = `Lorem ipsum *dolor* sit amet, [consectetur adipiscing](https://www.ibm.com) elit.
+Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aenean et ultricies est.\n
+- [list item](https://www.ibm.com)
+  - list item 1a
+1. list item 2
+  1. list item 2a
+`;
+
 export const Default = ({ parameters }) => {
   const { eyebrow, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
     parameters?.props?.ContentItemHorizontal ?? {};
@@ -143,10 +154,7 @@ WithThumbnail.story = {
     knobs: {
       ContentItemHorizontal: () => ({
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
-        copy:
-          'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. ' +
-          'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
-          'Phasellus at elit sollicitudin.',
+        copy: bodyCopy,
         alt: textNullable('Image alt text', 'Image alt text'),
         ctaType1: select('CTA 1 type (cta-type):', types, CTA_TYPE.LOCAL),
         ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
@@ -170,13 +178,7 @@ WithMedia.story = {
         alt: textNullable('Image alt text', 'Image alt text'),
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
         eyebrow: textNullable('Eyebrow label:', 'Lorem Ipsum'),
-        copy:
-          'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. ' +
-          'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
-          'Phasellus at elit sollicitudin.' +
-          '- list item one' +
-          '- list item two' +
-          '- list item three',
+        copy: bodyCopy,
         ctaType1: select('CTA 1 type (cta-type):', types, CTA_TYPE.LOCAL),
         ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
         href1: textNullable('CTA 1 href (cta-href):', 'https://www.ibm.com'),
@@ -205,10 +207,7 @@ export default {
       ContentItemHorizontal: () => ({
         eyebrow: textNullable('Eyebrow (eyebrow):', 'Lorem ipsum'),
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
-        copy:
-          'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. ' +
-          'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
-          'Phasellus at elit sollicitudin.',
+        copy: bodyCopy,
         ctaType1: select('CTA 1 type (cta-type)', types, CTA_TYPE.LOCAL),
         ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
         href1: textNullable('CTA 1 href (cta-href):', 'https://www.ibm.com'),
