@@ -62,7 +62,7 @@ $btn-min-width: 26;
 @mixin leadspace {
   ::slotted([slot='action']),
   .#{$prefix}--buttongroup {
-    padding-top: $carbon--layout-01;
+    padding-top: $carbon--layout-03;
   }
 
   :host(#{$dds-prefix}-leadspace),
@@ -215,7 +215,7 @@ $btn-min-width: 26;
 
       ::slotted(#{$dds-prefix}-button-group),
       .#{$prefix}--buttongroup {
-        padding-top: 0;
+        padding-top: $carbon--layout-01;
         padding-bottom: calc(#{$layout-03});
 
         @include carbon--breakpoint('lg') {

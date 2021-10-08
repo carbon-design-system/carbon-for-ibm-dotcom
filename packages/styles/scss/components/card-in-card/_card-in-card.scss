@@ -88,6 +88,10 @@
       @include ratio-base(16, 9, true);
     }
 
+    ::slotted(svg[slot='icon']) {
+      @extend .#{$prefix}--image__icon;
+    }
+
     &::before {
       content: '';
       position: absolute;
