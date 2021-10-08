@@ -77,6 +77,16 @@
     }
   }
 
+  :host(#{$dds-prefix}-card-cta-footer)[cta-type='video'] {
+    .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon span {
+      display: none;
+
+      @include carbon--breakpoint('lg') {
+        display: inline;
+      }
+    }
+  }
+
   .#{$prefix}--link-with-icon,
   :host(#{$dds-prefix}-link-with-icon),
   :host(#{$dds-prefix}-text-cta) {

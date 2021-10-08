@@ -27,6 +27,10 @@
 
     .#{$prefix}--card__footer {
       margin-top: 0;
+
+      svg {
+        margin-right: 0;
+      }
     }
 
     .#{$prefix}--card__wrapper {
@@ -78,6 +82,21 @@
       @include carbon--breakpoint-down('md') {
         align-self: center;
         margin-top: 0;
+      }
+    }
+  }
+
+  :host(#{$dds-prefix}-link-list-item-card-cta)[cta-type='video'],
+  .#{$prefix}--card__video {
+    [slot='heading'],
+    .#{$prefix}--card__heading {
+      color: $link-01;
+      margin-bottom: 0;
+
+      @include carbon--type-style('body-short-02');
+
+      @include carbon--breakpoint('lg') {
+        margin-bottom: $carbon--spacing-05;
       }
     }
   }
@@ -187,6 +206,11 @@
   .#{$prefix}--link-list__list__CTA {
     &.#{$prefix}--link-list__list--video .#{$prefix}--card__footer span {
       color: $link-01;
+      display: none;
+
+      @include carbon--breakpoint('lg') {
+        display: inline;
+      }
     }
   }
 
