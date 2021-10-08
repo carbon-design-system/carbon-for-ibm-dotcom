@@ -366,7 +366,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                   ({ title, url }) =>
                     html`
                       <dds-cloud-button-cta
-                        href="${title === 'Log in' && this.redirectPath
+                        href="${url === 'https://cloud.ibm.com/login' && this.redirectPath
                           ? ifNonNull(`${url}?redirect=${encodeURIComponent(this.redirectPath)}`)
                           : ifNonNull(url)}"
                         kind="ghost"
