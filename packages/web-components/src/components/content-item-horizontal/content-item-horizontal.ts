@@ -31,28 +31,24 @@ class DDSContentItemHorizontal extends DDSContentItem {
 
   render() {
     return html`
-      <div class="${prefix}--content-item-horizontal__row">
-        <div class="${prefix}--content-item-horizontal__col--1">
-          <div class="${prefix}--content-item-horizontal__heading-wrapper">
-            ${this.thumbnail
-              ? ''
-              : html`
-                  <slot name="eyebrow" @slotchange="${this._handleSlotChange}"> </slot>
-                `}
-            <slot name="heading"></slot>
-          </div>
-          <div class="${prefix}--content-item-horizontal__content-wrapper">
-            ${this._renderBody()}${this._renderFooter()}
-          </div>
-        </div>
-        ${!this.thumbnail
+      <div class="${prefix}--content-item-horizontal__heading-wrapper">
+        ${this.thumbnail
           ? ''
           : html`
-              <div class="${prefix}--content-item-horizontal__col--2">
-                <slot name="thumbnail" @slotchange="${this._handleSlotChange}"> </slot>
-              </div>
+              <slot name="eyebrow" @slotchange="${this._handleSlotChange}"> </slot>
             `}
+        <slot name="heading"></slot>
       </div>
+      <div class="${prefix}--content-item-horizontal__content-wrapper">
+        ${this._renderBody()}${this._renderFooter()}
+      </div>
+      ${!this.thumbnail
+        ? ''
+        : html`
+            <div class="${prefix}--content-item-horizontal__col--2">
+              <slot name="thumbnail" @slotchange="${this._handleSlotChange}"> </slot>
+            </div>
+          `}
     `;
   }
 
