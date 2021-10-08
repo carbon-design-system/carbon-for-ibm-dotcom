@@ -70,6 +70,13 @@ class DDSCard extends StableSelectorMixin(BXLink) {
         .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
       this[slotExistencePropertyNames[name] || '_hasCopy'] = hasContent;
     }
+
+    const tagGroup = this.querySelector(`${ddsPrefix}-tag-group`);
+    const bodyCopy = this.querySelector(`p`);
+
+    if (tagGroup && bodyCopy) {
+      (tagGroup as HTMLElement).style.marginTop = `16px`;
+    }
   }
 
   /**
