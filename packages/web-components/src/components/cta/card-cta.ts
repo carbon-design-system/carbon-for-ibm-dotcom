@@ -15,6 +15,7 @@ import {
   formatVideoCaption,
   formatVideoDuration,
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
 import DDSCard from '../card/card';
 import '../card/card-heading';
 import './card-cta-image';
@@ -134,7 +135,12 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
       const headingText = this.querySelector(`${ddsPrefix}-card-heading`)?.textContent;
       const copyText = this.textContent;
       if (footer) {
-        (footer as DDSCardCTAFooter).altAriaLabel = videoName || headingText || copyText;
+        const ariaTitle = videoName || headingText || copyText;
+        let ariaDuration = 'DURATION';
+        if (videoDuration !== undefined) {
+          ariaDuration = KalturaPlayerAPI.getMediaDurationFormatted(videoDuration, false);
+        }
+        (footer as DDSCardCTAFooter).altAriaLabel = `${ariaTitle}, ${ariaDuration}`;
         (footer as DDSCardCTAFooter).ctaType = ctaType;
         (footer as DDSCardCTAFooter).videoDuration = videoDuration;
         (footer as DDSCardCTAFooter).videoName = videoName;

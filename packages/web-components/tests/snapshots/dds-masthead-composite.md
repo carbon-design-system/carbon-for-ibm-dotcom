@@ -45,10 +45,7 @@
 ####   `should render the given nav items to the top`
 
 ```
-<dds-top-nav
-  data-autoid="dds--masthead__l0-nav"
-  role="navigation"
->
+<dds-top-nav data-autoid="dds--masthead__l0-nav">
   <dds-top-nav-item
     data-autoid="dds--masthead__l0-nav--nav0"
     href="https://ibmdotcom-webcomponents.mybluemix.net/foo"
@@ -58,7 +55,6 @@
   <dds-top-nav-menu
     data-autoid="dds--masthead__l0-nav--nav1"
     menu-label="menu-title-foo"
-    role="listitem"
     trigger-content="menu-title-foo"
   >
     <dds-top-nav-menu-item

@@ -11,3 +11,4 @@ import './card';
 import './card-eyebrow';
 import './card-footer';
 import './card-heading';
+import '../tag-group/index';
