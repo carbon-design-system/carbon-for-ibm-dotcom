@@ -16,7 +16,7 @@
 @mixin content-section {
   :host(#{$dds-prefix}-link-list-section),
   .#{$prefix}--content-section {
-    padding-top: $spacing-07;
+    padding-top: $spacing-09;
     padding-bottom: $carbon--layout-05;
   }
 
@@ -58,11 +58,11 @@
     @include carbon--breakpoint(lg) {
       margin-top: 0;
     }
+  }
 
-    ::slotted(:not([slot])) {
-      padding-top: 0;
-      margin-top: 0;
-    }
+  :host(#{$dds-prefix}-content-section) ::slotted(:not([slot])) {
+    padding-top: 0;
+    margin-top: 0;
   }
 
   .#{$prefix}--content-section__grid,
