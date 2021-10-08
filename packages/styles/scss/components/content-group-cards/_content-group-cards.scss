@@ -51,6 +51,11 @@
       outline: none;
     }
   }
+
+  :host(#{$dds-prefix}-content-group-cards-item) {
+    padding: $carbon--grid-gutter--condensed / 2;
+    background: none;
+  }
 }
 @include exports('content-group-cards') {
   @include content-group-cards;
