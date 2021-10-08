@@ -86,7 +86,7 @@ export const WithThumbnail = ({ parameters }) => {
         >
           ${ctaCopy2}
         </dds-link-list-item-cta>
-      </dds-link-list></div>
+      </dds-link-list>
       <dds-image slot="thumbnail" alt="${ifNonNull(alt)}" default-src="${imgMd4x3}"></dds-image>
     </dds-content-item-horizontal>
   `;
