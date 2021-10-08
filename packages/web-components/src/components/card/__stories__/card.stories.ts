@@ -16,6 +16,7 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--003.jpg';
+import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 import { PICTOGRAM_PLACEMENT } from '../defs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -31,6 +32,11 @@ export const Default = ({ parameters }) => {
         : ``}
       <dds-card-eyebrow>Eyebrow</dds-card-eyebrow>
       <dds-card-heading>${heading}</dds-card-heading>
+      ${copy
+        ? html`
+            <p>${copy}</p>
+          `
+        : ``}
       ${tagGroup
         ? html`
             <dds-tag-group>
@@ -43,11 +49,6 @@ export const Default = ({ parameters }) => {
             </dds-tag-group>
           `
         : ''}
-      ${copy
-        ? html`
-            <p>${copy}</p>
-          `
-        : ``}
       <dds-card-footer icon-placement="${iconPlacement}">
         ${footer}${ArrowRight20({ slot: 'icon' })}
       </dds-card-footer>
@@ -72,8 +73,9 @@ Default.story = {
     knobs: {
       Card: ({ groupId }) => ({
         alt: 'Image alt text',
-        defaultSrc: imgLg2x1,
+        defaultSrc: imgXlg4x3,
         tagGroup: boolean('Add tags', false, groupId),
+        image: boolean('Add image', false, groupId),
         heading: textNullable('Card Heading:', 'Lorem ipsum dolor sit amet', groupId),
         copy: textNullable('Card body copy:', '', groupId),
         href: 'https://example.com',
@@ -89,6 +91,11 @@ export const Pictogram = ({ parameters }) => {
   return html`
     <dds-card pictogram-placement="${pictogramPlacement}" href=${ifNonNull(href || undefined)}>
       <dds-card-heading>${heading}</dds-card-heading>
+      ${copy
+        ? html`
+            <p>${copy}</p>
+          `
+        : ``}
       ${tagGroup
         ? html`
             <dds-tag-group>
@@ -101,11 +108,6 @@ export const Pictogram = ({ parameters }) => {
             </dds-tag-group>
           `
         : ''}
-      ${copy
-        ? html`
-            <p>${copy}</p>
-          `
-        : ``}
       <svg
         slot="pictogram"
         focusable="false"
@@ -139,7 +141,6 @@ Pictogram.story = {
         alt: 'Image alt text',
         defaultSrc: imgLg2x1,
         pictogramPlacement: select('Pictogram placement', pictogramPlacements, pictogramPlacements.top, groupId),
-        tagGroup: boolean('Add tags', false, groupId),
         heading: textNullable('Card Heading:', 'Lorem ipsum dolor sit amet', groupId),
         copy: textNullable(
           'Card body copy:',
@@ -169,6 +170,11 @@ export const Static = ({ parameters }) => {
           `
         : ``}
       <dds-card-heading>${heading}</dds-card-heading>
+      ${copy
+        ? html`
+            <p>${copy}</p>
+          `
+        : ``}
       ${tagGroup
         ? html`
             <dds-tag-group>
@@ -181,11 +187,6 @@ export const Static = ({ parameters }) => {
             </dds-tag-group>
           `
         : ''}
-      ${copy
-        ? html`
-            <p>${copy}</p>
-          `
-        : ``}
       <dds-card-footer href="${href}" icon-placement="${iconPlacement}">
         ${footer}${ArrowRight20({ slot: 'icon' })}
       </dds-card-footer>
@@ -199,7 +200,7 @@ Static.story = {
     knobs: {
       Card: ({ groupId }) => ({
         alt: 'Image alt text',
-        defaultSrc: imgLg2x1,
+        defaultSrc: imgXlg4x3,
         outlinedCard: boolean('Outlined card', true, groupId),
         tagGroup: boolean('Add tags', true, groupId),
         image: boolean('Add image', false, groupId),
