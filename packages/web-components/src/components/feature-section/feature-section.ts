@@ -89,4 +89,5 @@ class DDSFeatureSection extends StableSelectorMixin(DDSFeatureCard) {
   }
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSFeatureSection;

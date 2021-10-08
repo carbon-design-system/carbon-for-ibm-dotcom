@@ -97,19 +97,19 @@ where the card is no longer clickable and optional `Tag` elements can also be ad
 ```html
 <dds-card>
   <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
-  <dds-tag-group>
-    <bx-tag>
-      Most popular
-    </bx-tag>
-    <bx-tag type='purple'>
-      Enterprise
-    </bx-tag>
-  </dds-tag-group>
   ${copy
     ? html`
         <p>${copy}</p>
       `
     : ``}
+  <dds-tag-group>
+    <bx-tag>
+      Most popular
+    </bx-tag>
+    <bx-tag type="purple">
+      Enterprise
+    </bx-tag>
+  </dds-tag-group>
   <dds-card-footer href='https://example.com' icon-placement="right">
     Card CTA text
     <svg

@@ -41,13 +41,31 @@ const cardsCol = {
   '4 cards per row': 'dds-ce-demo-devenv--cards-in-row-4',
 };
 
-const cardsDiffLengthPhrase = (index, border) => {
+const cardsDiffLengthPhrase = (index, border, tagGroup, defaultSrc, image) => {
   const defaultCardGroupItem = html`
     <dds-card-group-item href="https://example.com" color-scheme=${border ? 'light' : null}>
+      ${image
+        ? html`
+            <dds-image slot="image" alt="Image Alt Text" default-src="${ifNonNull(defaultSrc)}"></dds-image>
+          `
+        : ``}
+      <dds-card-eyebrow>Topic</dds-card-eyebrow>
       <dds-card-heading>${index < 5 ? phraseArray[index] : 'Lorem ipsum dolor sit amet'}</dds-card-heading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.'
       </p>
+      ${tagGroup
+        ? html`
+            <dds-tag-group>
+              <bx-tag type="cool-gray">
+                Systems w/TPS
+              </bx-tag>
+              <bx-tag type="cool-gray">
+                Virtual
+              </bx-tag>
+            </dds-tag-group>
+          `
+        : ''}
       <dds-card-cta-footer slot="footer">
         ${ArrowRight20({ slot: 'icon' })}
       </dds-card-cta-footer>
@@ -58,14 +76,32 @@ const cardsDiffLengthPhrase = (index, border) => {
   return defaultCardGroupItem;
 };
 
-const longHeadingCardGroupItem = border => {
+const longHeadingCardGroupItem = (border, tagGroup, defaultSrc, image) => {
   return html`
     <dds-card-group-item href="https://example.com" color-scheme=${border ? 'light' : null}>
+      ${image
+        ? html`
+            <dds-image slot="image" alt="Image Alt Text" default-src="${ifNonNull(defaultSrc)}"></dds-image>
+          `
+        : ``}
+      <dds-card-eyebrow>Topic</dds-card-eyebrow>
       <dds-card-heading>Nunc convallis lobortis Nunc convallis lobortis Nunc convallis lobortis</dds-card-heading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
         Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
+      ${tagGroup
+        ? html`
+            <dds-tag-group>
+              <bx-tag type="cool-gray">
+                Systems w/TPS
+              </bx-tag>
+              <bx-tag type="cool-gray">
+                Virtual
+              </bx-tag>
+            </dds-tag-group>
+          `
+        : ''}
       <dds-card-cta-footer slot="footer">
         ${ArrowRight20({ slot: 'icon' })}
       </dds-card-cta-footer>
@@ -116,7 +152,7 @@ const cardGroupItemWithCardLinks = html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { cards, cardsPerRow, offset, optionalBorder } = parameters?.props?.CardGroup ?? {};
+  const { cards, cardsPerRow, offset, optionalBorder, tagGroup, defaultSrc, image } = parameters?.props?.CardGroup ?? {};
   const classes = classMap({
     [cardsPerRow]: cardsPerRow,
   });
@@ -124,9 +160,9 @@ export const Default = ({ parameters }) => {
   if (offset === '1') {
     allCards.push(emptyCard);
   }
-  allCards.push(longHeadingCardGroupItem(optionalBorder));
+  allCards.push(longHeadingCardGroupItem(optionalBorder, tagGroup, defaultSrc, image));
   for (let i = 1; i < cards; i++) {
-    allCards.push(cardsDiffLengthPhrase(i, optionalBorder));
+    allCards.push(cardsDiffLengthPhrase(i, optionalBorder, tagGroup, defaultSrc, image));
   }
   const colCount = cardsPerRow[cardsPerRow.length - 1];
 
@@ -351,6 +387,9 @@ export default {
     hasCardGroupStandalone: true,
     knobs: {
       CardGroup: ({ groupId }) => ({
+        defaultSrc: imgXlg4x3,
+        tagGroup: boolean('Add tags', false, groupId),
+        image: boolean('Add image', false, groupId),
         cards: number('Number of cards', 5, {}, groupId),
         optionalBorder: boolean('Outlined cards:', false, groupId),
         cardsPerRow: select('Number of cards per row (cards-per-row):', cardsCol, cardsCol['3 cards per row (Default)'], groupId),
