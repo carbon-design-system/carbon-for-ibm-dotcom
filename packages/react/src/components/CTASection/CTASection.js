@@ -7,7 +7,7 @@
 
 import React, { useRef, useEffect } from 'react';
 import classNames from 'classnames';
-import ContentBlock from '../../internal/components/ContentBlock/ContentBlock';
+import ContentBlock from '../ContentBlock/ContentBlock';
 import ContentItem from '../ContentItem/ContentItem';
 import { CTA } from '../CTA';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
