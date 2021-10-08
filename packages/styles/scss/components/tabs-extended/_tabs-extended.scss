@@ -184,6 +184,15 @@
       }
     }
   }
+
+  @media print {
+    :host(#{$dds-prefix}-tabs-extended),
+    :host(#{$dds-prefix}-tabs-extended-media) {
+      .#{$prefix}--accordion__content {
+        display: block;
+      }
+    }
+  }
 }
 
 @include exports('tabs-extended') {
