@@ -27,9 +27,9 @@
   }
 
   :host(#{$dds-prefix}-content-section) ::slotted([slot]),
-  .#{$prefix}--content-group,
-  .#{$prefix}--content-item,
-  .#{$prefix}--content-block {
+  .#{$prefix}--content-section .#{$prefix}--content-group,
+  .#{$prefix}--content-section .#{$prefix}--content-item,
+  .#{$prefix}--content-section .#{$prefix}--content-block {
     margin-top: 0;
     padding-top: 0;
   }
