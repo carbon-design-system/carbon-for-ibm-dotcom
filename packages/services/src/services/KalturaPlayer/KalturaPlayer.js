@@ -363,6 +363,34 @@ class KalturaPlayerAPI {
 
     return hours + minutes + ':' + seconds;
   }
+
+  static getMediaDurationFormatted(duration = 0, fromMilliseconds) {
+    let ms = duration;
+    if (!fromMilliseconds) {
+      ms = duration * 1000;
+    }
+
+    const s = Math.floor((ms / 1000) % 60);
+    const m = Math.floor((ms / (1000 * 60)) % 60);
+    const h = Math.floor((ms / (1000 * 60 * 60)) % 24);
+    const seconds = KalturaPlayerAPI.formatTime(s, 'second');
+    const minutes = h || m ? KalturaPlayerAPI.formatTime(m, 'minute') : '';
+    const hours = h ? KalturaPlayerAPI.formatTime(h, 'hour') : '';
+
+    return `${hours} ${minutes} ${seconds}`.trim();
+  }
+
+  static formatTime(number, unit) {
+    const locale =
+      root.document.documentElement.lang || root.navigator.language;
+
+    return new Intl.NumberFormat(locale, {
+      style: 'unit',
+      // @ts-ignore: TS lacking support for standard option
+      unitDisplay: 'long',
+      unit,
+    }).format(number);
+  }
 }
 
 export default KalturaPlayerAPI;

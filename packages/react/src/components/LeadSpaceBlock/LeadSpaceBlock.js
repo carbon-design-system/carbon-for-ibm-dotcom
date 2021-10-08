@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ContentBlock from '../../internal/components/ContentBlock/ContentBlock';
+import ContentBlock from '../ContentBlock/ContentBlock';
 import { CTA } from '../CTA';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { HorizontalRule } from '../HorizontalRule';

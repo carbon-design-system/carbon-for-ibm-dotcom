@@ -37,10 +37,17 @@ describe('LocaleAPI', () => {
 
     root.digitalData = mockDigitalDataResponse;
 
+    Object.defineProperty(window.document.documentElement, 'lang', {
+      value: '',
+      configurable: true,
+    });
+
     LocaleAPI.clearCache();
   });
 
-  it('should fetch the lang from the html attribute', async () => {
+  it('should fetch the lang from the html attribute when there is no ddo defined', async () => {
+    root.digitalData.page = false;
+
     Object.defineProperty(window.document.documentElement, 'lang', {
       value: 'fr-ca',
       configurable: true,
@@ -54,7 +61,7 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should default to en-us from the html attribute if cc and lc are not defined', async () => {
+  it('should default to value from the html lang attribute if cc and lc are not defined', async () => {
     Object.defineProperty(window.document.documentElement, 'lang', {
       value: 'it',
       configurable: true,
@@ -63,21 +70,27 @@ describe('LocaleAPI', () => {
     const lang = await LocaleAPI.getLang();
 
     expect(lang).toEqual({
-      cc: 'us',
-      lc: 'en',
+      lc: 'it',
     });
   });
 
-  it('should default to en-us if lang is not defined', async () => {
+  it('should return only lc when only lc is present in ddo language', async () => {
+    root.digitalData = {
+      page: {
+        pageInfo: {
+          language: 'es',
+        },
+      },
+    };
+
     const lang = await LocaleAPI.getLang();
 
     expect(lang).toEqual({
-      cc: 'us',
-      lc: 'en',
+      lc: 'es',
     });
   });
 
-  it('should default when ddo is undefined', async () => {
+  it('should default when ddo and lang are undefined', async () => {
     root.digitalData = undefined;
     const lang = await LocaleAPI.getLang();
 
@@ -519,7 +532,7 @@ describe('LocaleAPI', () => {
 
     // using very old cached session
     sessionStorageMock.setItem(
-      'dds-countrylist-us-en',
+      'dds-countrylist-en-us',
       JSON.stringify(Object.assign(oldSession, { CACHE: true }))
     );
 
@@ -529,7 +542,7 @@ describe('LocaleAPI', () => {
     });
 
     const newSession = JSON.parse(
-      sessionStorageMock.getItem('dds-countrylist-us-en')
+      sessionStorageMock.getItem('dds-countrylist-en-us')
     );
 
     // fresh cached data would lack this property
