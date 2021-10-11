@@ -86,12 +86,6 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
   userStatus = UNAUTHENTICATED_STATUS;
 
   /**
-   * The path to which a user will be redirected after successful login.
-   */
-  @property({ type: String, reflect: false, attribute: 'redirect-path' })
-  redirectPath? = '';
-
-  /**
    *  Render MegaMenu content
    *
    * @param sections menu section data object
@@ -365,13 +359,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                 ${profileItems?.map(
                   ({ title, url }) =>
                     html`
-                      <dds-cloud-button-cta
-                        href="${url === 'https://cloud.ibm.com/login' && this.redirectPath
-                          ? ifNonNull(`${url}?redirect=${encodeURIComponent(this.redirectPath)}`)
-                          : ifNonNull(url)}"
-                        kind="ghost"
-                        >${title}</dds-cloud-button-cta
-                      >
+                      <dds-cloud-button-cta href="${ifNonNull(url)}" kind="ghost">${title}</dds-cloud-button-cta>
                     `
                 )}
                 ${ctaButtons?.map(

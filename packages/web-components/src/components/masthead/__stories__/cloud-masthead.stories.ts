@@ -45,17 +45,8 @@ const urlObject = {
 export const Default = !DDS_CLOUD_MASTHEAD
   ? undefined
   : ({ parameters }) => {
-      const {
-        hasContact,
-        hasProfile,
-        hasSearch,
-        selectedMenuItem,
-        searchPlaceholder,
-        userStatus,
-        navLinks,
-        redirectPath,
-        authMethod,
-      } = parameters?.props?.CloudMastheadComposite ?? {};
+      const { hasContact, hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
+        parameters?.props?.CloudMastheadComposite ?? {};
       const { useMock } = parameters?.props?.Other ?? {};
       return html`
         <style>
@@ -68,8 +59,6 @@ export const Default = !DDS_CLOUD_MASTHEAD
                 .platformUrl="${ifNonNull(platformData.url)}"
                 selected-menu-item="${ifNonNull(selectedMenuItem)}"
                 has-contact="${hasContact}"
-                auth-method="${authMethod}"
-                redirect-path="${ifNonNull(redirectPath)}"
                 user-status="${ifNonNull(userStatus)}"
                 searchPlaceholder="${ifNonNull(searchPlaceholder)}"
                 .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
@@ -85,8 +74,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
                 .platformUrl="${ifNonNull(urlObject)}"
                 selected-menu-item="${ifNonNull(selectedMenuItem)}"
                 has-contact="${hasContact}"
-                auth-method="${authMethod}"
-                redirect-path="${ifNonNull(redirectPath)}"
+                auth-method="cookie"
                 user-status="${ifNonNull(userStatus)}"
                 searchPlaceholder="${ifNonNull(searchPlaceholder)}"
                 .navLinks="${navLinks}"
@@ -129,8 +117,6 @@ export default !DDS_CLOUD_MASTHEAD
             ),
             hasContact: select('Contact us button visibility (has-contact)', ['true', 'false'], 'true', groupId),
             selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Docs', groupId),
-            redirectPath: textNullable('redirect path (redirect-path)', '', groupId),
-            authMethod: select('auth method (auth-method)', ['cookie', 'api'], 'cookie', groupId),
           }),
         },
         props: (() => {
