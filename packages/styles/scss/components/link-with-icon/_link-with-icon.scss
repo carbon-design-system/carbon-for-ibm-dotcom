@@ -77,7 +77,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-card-cta-footer)[mode='link-list'][cta-type='video'] {
+  :host(#{$dds-prefix}-card-cta-footer)[cta-type='video'] {
     .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon span {
       display: none;
 
