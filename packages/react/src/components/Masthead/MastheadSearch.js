@@ -244,12 +244,19 @@ const MastheadSearch = ({
    * Custom event emitted when search does not redirect to default url
    *
    * @param {event} event The callback event
-   * @param {string} val The new val of the input
+   * @param {object} params Custom event parameters
+   * @param {object} params.suggestion the selected suggestion in `react-autosuggest`
+   * @param {string} params.suggestionValue The new val of the input
+   * @param {string} params.method String describing how the change has occurred (data from `react-autosuggest`)
    */
-  function onSearchNoRedirect(event, val) {
+  function onSearchNoRedirect(event, { suggestion, suggestionValue, method }) {
     const onSearchNoRedirect = new CustomEvent('onSearchNoRedirect', {
       bubbles: true,
-      detail: { value: val },
+      detail: {
+        method,
+        suggestion,
+        value: suggestionValue,
+      },
     });
 
     event.currentTarget.dispatchEvent(onSearchNoRedirect);
@@ -354,7 +361,7 @@ const MastheadSearch = ({
 
     if (isSearchActive && state.val.length) {
       if (rest.searchNoRedirect) {
-        onSearchNoRedirect(event, state.val);
+        onSearchNoRedirect(event, { suggestionValue: state.val });
       } else {
         root.parent.location.href = getRedirect(state.val);
       }
@@ -493,10 +500,14 @@ const MastheadSearch = ({
    * @param {object} event The event object
    * @param {object} params Param object coming from react-autosuggest
    * @param {string} params.suggestionValue Suggestion value
+   * @param {string} params.method Method of selection ("click" or "enter")
    */
-  function onSuggestionSelected(event, { suggestionValue }) {
+  function onSuggestionSelected(
+    event,
+    { suggestion, suggestionValue, method }
+  ) {
     if (rest.searchNoRedirect) {
-      onSearchNoRedirect(event, suggestionValue);
+      onSearchNoRedirect(event, { suggestion, suggestionValue, method });
       event.preventDefault();
     } else {
       root.parent.location.href = getRedirect(suggestionValue);
