@@ -3,43 +3,6 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.26.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.25.0...@carbon/ibmdotcom-react@1.26.0-rc.0) (2021-10-08)
-
-
-### Bug Fixes
-
-* **content-block:** expose story ([#7294](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7294)) ([af8eeb1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/af8eeb1)), closes [#6702](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6702)
-* **content-item:** expose component in storybook ([#7233](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7233)) ([43208ad](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/43208ad)), closes [#6700](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6700)
-* **footer:** react and web components storybooks fixed ([#7259](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7259)) ([7a9ae86](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7a9ae86)), closes [#7201](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7201)
-* **storybook:** added react wrapper link to search with typeahead ([#7320](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7320)) ([48dda3d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/48dda3d))
-* **webpack:** adding splitchunk optimization for react storybook and upgrade terser plugin ([#7298](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7298)) ([f8553fe](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f8553fe))
-
-
-### Features
-
-* **card-section-offset:** created react wrapper ([#7344](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7344)) ([7f4482e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7f4482e)), closes [#6288](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6288)
-* **feature-section:** introducing react wrapper ([#7266](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7266)) ([6996d0d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6996d0d)), closes [#6290](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6290)
-* **Image:** add `border` prop ([#7255](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7255)) ([60942cf](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/60942cf)), closes [#6315](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6315) [#6529](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6529)
-* **services:** translation and locale to handle `lc` only locales ([#7306](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7306)) ([186e06f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/186e06f)), closes [#7168](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7168)
-
-
-
-# 1.25.0 (2021-09-27)
-
-
-### Bug Fixes
-
-* **content-group-horizontal:** deleted story content group horizontal ([#7192](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7192)) ([194e65b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/194e65b))
-
-
-### Features
-
-* **content-group:** expose content-group in storybook ([#7182](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7182)) ([7a30258](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7a30258)), closes [#6701](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6701)
-
-
-
-
-
 # [1.25.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.25.0-rc.2...@carbon/ibmdotcom-react@1.25.0) (2021-09-27)
 
 
