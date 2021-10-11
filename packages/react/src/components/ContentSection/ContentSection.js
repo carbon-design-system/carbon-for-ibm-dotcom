@@ -28,7 +28,11 @@ const ContentSection = ({
   customClassName,
   ...otherProps
 }) => {
-  const firstChild = children[0] ? children[0].type.displayName : '';
+  const firstChild = children
+    ? children[0]
+      ? children[0].type.displayName
+      : ''
+    : '';
   return (
     <section
       className={classNames(`${prefix}--content-section`, customClassName, {
