@@ -12,7 +12,6 @@ import '../index';
 import '../../card-group/index';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { ORIENTATION } from '../defs';
 import readme from './README.stories.mdx';
 
@@ -20,13 +19,6 @@ const orientationType = {
   [`horizontal`]: ORIENTATION.HORIZONTAL,
   [`vertical`]: ORIENTATION.VERTICAL,
 };
-
-const copy = `Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
-  Vivamus sed interdum tortor. Sed id pellentesque diam.
-  In ut quam id mauris finibus efficitur quis ut arcu.
-  Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem.
-  Curabitur pretium elit non blandit lobortis.
-  Donec quis pretium odio, in dignissim sapien.`;
 
 export const Default = ({ parameters }) => {
   const { orientation } = parameters?.props?.TabsExtended ?? {};
@@ -36,27 +28,10 @@ export const Default = ({ parameters }) => {
         label="First tab with long text that wraps multiple lines. Lorem ipsum dolor sit amet consectetur adipiscing elit"
         selected="true"
       >
-        <dds-content-block-media-content>
-          <dds-content-item>
-            <dds-content-item-heading>Content for first tab goes here.</dds-content-item-heading>
-            <dds-content-item-copy>${copy}</dds-content-item-copy>
-          </dds-content-item>
-
-          <dds-card-link-cta slot="footer" href="https://example.com">
-            <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
-            <dds-card-footer>
-              ${ArrowRight20({ slot: 'icon' })}
-            </dds-card-footer>
-          </dds-card-link-cta>
-        </dds-content-block-media-content>
+        <p>Content for first tab goes here.</p>
       </dds-tab>
       <dds-tab label="Second tab">
-        <dds-content-block-media-content>
-          <dds-content-item>
-            <dds-content-item-heading>Content for second tab goes here.</dds-content-item-heading>
-            <dds-content-item-copy>${copy}</dds-content-item-copy>
-          </dds-content-item>
-        </dds-content-block-media-content>
+        <p>Content for second tab goes here.</p>
       </dds-tab>
       <dds-tab label="Third tab">
         <p>Content for third tab goes here.</p>
