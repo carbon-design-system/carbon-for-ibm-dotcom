@@ -44,7 +44,7 @@ class DDSContentSection extends StableSelectorMixin(LitElement) {
       ?.querySelector(`.${prefix}--content-section`)
       ?.classList.toggle(
         `${prefix}--content-section__children__content-block`,
-        (target as HTMLSlotElement).assignedElements()[0].localName.includes(`${ddsPrefix}-content-block`)
+        (target as HTMLSlotElement).assignedElements()[0]?.localName.includes(`${ddsPrefix}-content-block`)
       );
   }
 
