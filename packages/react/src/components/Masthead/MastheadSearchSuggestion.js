@@ -41,7 +41,8 @@ const MastheadSearchSuggestion = ({
         <span
           key={index}
           style={{
-            fontWeight: part.highlight ? 600 : 400, // TODO: switch to final styles
+            // TODO: switch to final styles
+            fontWeight: part.highlight ? 600 : 400,
           }}>
           {part.text.replace(' ', '\u00A0')}
         </span>
