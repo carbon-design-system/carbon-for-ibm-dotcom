@@ -55,7 +55,10 @@ MastheadSearchSuggestion.propTypes = {
   /**
    * The individual object from the data.
    */
-  suggestion: PropTypes.arrayOf(PropTypes.string),
+  suggestion: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.string),
+    PropTypes.object,
+  ]),
 
   /**
    * The query being searched for.
