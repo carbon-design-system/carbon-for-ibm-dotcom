@@ -8,4 +8,5 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/content-section/index.js';
+import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 import './index.scss';
