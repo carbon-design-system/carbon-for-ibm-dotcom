@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { CTA } from '../CTA';
+import { CTA } from '../../../components/CTA';
 import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import { HorizontalRule } from '../HorizontalRule';
-import { Layout } from '../Layout';
+import { HorizontalRule } from '../../../components/HorizontalRule';
+import { Layout } from '../../../components/Layout';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -31,6 +31,7 @@ const ContentBlock = ({
   border,
 }) => {
   const classnames = cx(`${prefix}--content-block`, customClassName);
+  const setborder = aside ? false : border;
   const content = (
     <>
       {copy && (
@@ -74,7 +75,7 @@ const ContentBlock = ({
             aside.border
           )
         : content}
-      {border ? <HorizontalRule /> : ''}
+      {setborder ? <HorizontalRule /> : ''}
     </div>
   );
 };
