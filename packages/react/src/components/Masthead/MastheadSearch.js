@@ -280,27 +280,6 @@ const MastheadSearch = ({
   }
 
   /**
-   * Custom onKeyDown event handlers
-   *
-   * @param {event} event The callback event
-   */
-  function onKeyDown(event) {
-    switch (event.key) {
-      case 'Enter': {
-        // Disables Enter key if searchNoRedirect is true
-        if (rest.searchNoRedirect) {
-          onSearchNoRedirect(event, state.val);
-          event.preventDefault();
-        }
-        // Disable search on enter key if the search field is empty
-        if (!state.val) {
-          event.preventDefault();
-        }
-      }
-    }
-  }
-
-  /**
    * Autosuggest will pass through all these props to the input.
    *
    * @type {{placeholder: string, value: string, onChange: Function, className: string, 'aria-labelledby': string, role: string, 'aria-expanded': string}}
@@ -309,7 +288,6 @@ const MastheadSearch = ({
     placeholder: placeHolderText,
     value: state.val,
     onChange,
-    onKeyDown,
     className: `${prefix}--header__search--input`,
     'aria-label': placeHolderText,
     role: 'combobox',
