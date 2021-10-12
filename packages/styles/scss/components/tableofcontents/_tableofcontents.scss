@@ -413,6 +413,10 @@ $hover-transition-timing: 95ms;
     }
   }
 
+  .#{$prefix}--toc__print-styles {
+    display: none;
+  }
+
   @media print {
     :host(#{$dds-prefix}-table-of-contents),
     .#{$prefix}--tableofcontents {
