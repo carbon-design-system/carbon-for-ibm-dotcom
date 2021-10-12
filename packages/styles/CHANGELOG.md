@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.26.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.26.0-rc.0...@carbon/ibmdotcom-styles@1.26.0-rc.1) (2021-10-12)
+
+
+### Bug Fixes
+
+* **table-of-contents:** add default TOC styles ([#7370](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7370)) ([66a730b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/66a730b)), closes [#7369](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7369)
+
+
+
+
+
 # [1.26.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.25.0...@carbon/ibmdotcom-styles@1.26.0-rc.0) (2021-10-08)
 
 
