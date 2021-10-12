@@ -212,7 +212,7 @@ const MastheadSearch = ({
      */
     const handleClickOutside = event => {
       if (!searchOpenOnload) {
-        let mastheadRef = ref.current?.closest('.bx--masthead');
+        const mastheadRef = ref.current?.closest(`.${prefix}--masthead`);
         if (mastheadRef && !mastheadRef.contains(event.target)) {
           // If a click was detected outside the Search ref but there is a text value in state, don't hide the Search.
           if (state.val.length === 0 && isSearchActive) {
@@ -244,12 +244,19 @@ const MastheadSearch = ({
    * Custom event emitted when search does not redirect to default url
    *
    * @param {event} event The callback event
-   * @param {string} val The new val of the input
+   * @param {object} params Custom event parameters
+   * @param {object} params.suggestion the selected suggestion in `react-autosuggest`
+   * @param {string} params.suggestionValue The new val of the input
+   * @param {string} params.method String describing how the change has occurred (data from `react-autosuggest`)
    */
-  function onSearchNoRedirect(event, val) {
+  function onSearchNoRedirect(event, { suggestion, suggestionValue, method }) {
     const onSearchNoRedirect = new CustomEvent('onSearchNoRedirect', {
       bubbles: true,
-      detail: { value: val },
+      detail: {
+        method,
+        suggestion,
+        value: suggestionValue,
+      },
     });
 
     event.currentTarget.dispatchEvent(onSearchNoRedirect);
@@ -273,27 +280,6 @@ const MastheadSearch = ({
   }
 
   /**
-   * Custom onKeyDown event handlers
-   *
-   * @param {event} event The callback event
-   */
-  function onKeyDown(event) {
-    switch (event.key) {
-      case 'Enter': {
-        // Disables Enter key if searchNoRirect is true
-        if (rest.searchNoRedirect) {
-          onSearchNoRedirect(event, state.val);
-          event.preventDefault();
-        }
-        // Disable search on enter key if the search field is empty
-        if (!state.val) {
-          event.preventDefault();
-        }
-      }
-    }
-  }
-
-  /**
    * Autosuggest will pass through all these props to the input.
    *
    * @type {{placeholder: string, value: string, onChange: Function, className: string, 'aria-labelledby': string, role: string, 'aria-expanded': string}}
@@ -302,7 +288,6 @@ const MastheadSearch = ({
     placeholder: placeHolderText,
     value: state.val,
     onChange,
-    onKeyDown,
     className: `${prefix}--header__search--input`,
     'aria-label': placeHolderText,
     role: 'combobox',
@@ -354,7 +339,7 @@ const MastheadSearch = ({
 
     if (isSearchActive && state.val.length) {
       if (rest.searchNoRedirect) {
-        onSearchNoRedirect(event, state.val);
+        onSearchNoRedirect(event, { suggestionValue: state.val });
       } else {
         root.parent.location.href = getRedirect(state.val);
       }
@@ -493,10 +478,14 @@ const MastheadSearch = ({
    * @param {object} event The event object
    * @param {object} params Param object coming from react-autosuggest
    * @param {string} params.suggestionValue Suggestion value
+   * @param {string} params.method Method of selection ("click" or "enter")
    */
-  function onSuggestionSelected(event, { suggestionValue }) {
+  function onSuggestionSelected(
+    event,
+    { suggestion, suggestionValue, method }
+  ) {
     if (rest.searchNoRedirect) {
-      onSearchNoRedirect(event, suggestionValue);
+      onSearchNoRedirect(event, { suggestion, suggestionValue, method });
       event.preventDefault();
     } else {
       root.parent.location.href = getRedirect(suggestionValue);
@@ -584,8 +573,8 @@ const MastheadSearch = ({
             {...(rest.multiSection
               ? {
                   multiSection: true,
-                  renderSectionTitle: renderSectionTitle,
-                  getSectionSuggestions: getSectionSuggestions,
+                  renderSectionTitle,
+                  getSectionSuggestions,
                 }
               : {})}
           />
