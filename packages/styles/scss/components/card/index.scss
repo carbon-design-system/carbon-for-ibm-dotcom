@@ -402,6 +402,7 @@
       ::slotted(#{$dds-prefix}-image),
       ::slotted(#{$dds-prefix}-card-cta-image),
       .#{$prefix}--card__img,
+      .#{$prefix}--card__image_img,
       .#{$prefix}--image {
         filter: brightness(108%);
       }
@@ -456,9 +457,10 @@
     }
 
     &:hover {
-      .#{$prefix}--card__img,
       ::slotted(#{$dds-prefix}-image),
       ::slotted(#{$dds-prefix}-card-cta-image),
+      .#{$prefix}--card__img,
+      .#{$prefix}--card__image_img,
       .#{$prefix}--image {
         filter: brightness(108%);
       }
