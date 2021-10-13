@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.26.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.26.0-rc.1...@carbon/ibmdotcom-styles@1.26.0-rc.2) (2021-10-13)
+
+
+### Bug Fixes
+
+* **feature-card:** fix hover styles for large variation ([#7377](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7377)) ([35c8aa6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/35c8aa6)), closes [#7375](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7375)
+
+
+
+
+
 # [1.26.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.26.0-rc.0...@carbon/ibmdotcom-styles@1.26.0-rc.1) (2021-10-12)
 
 
