@@ -6,15 +6,6 @@
  */
 
 /**
- * Sets the host to run tests
- *
- * @type {string|string}
- * @private
- */
-const _host =
-  (process && process.env.C4IBM_E2E_STORYBOOK_HOST) || 'http://localhost:8081';
-
-/**
  * Sets the correct path
  *
  * @type {string}
@@ -24,7 +15,7 @@ const _path = '/iframe.html?id=components-locale-modal--default';
 
 describe('LocaleModal | default', () => {
   beforeEach(() => {
-    cy.visit(`${_host}/${_path}`);
+    cy.visit(`/${_path}`);
     cy.viewport(1280, 780);
   });
 
@@ -34,9 +25,9 @@ describe('LocaleModal | default', () => {
     cy.screenshot();
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('LocaleModal | region selected', {
-      widths: [1280],
-    });
+    // cy.percySnapshot('LocaleModal | region selected', {
+    //   widths: [1280],
+    // });
   });
 
   it('should filter locales/languages', () => {
@@ -46,8 +37,8 @@ describe('LocaleModal | default', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('LocaleModal | filter', {
-      widths: [1280],
-    });
+    // cy.percySnapshot('LocaleModal | filter', {
+    //   widths: [1280],
+    // });
   });
 });

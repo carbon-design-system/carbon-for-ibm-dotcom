@@ -6,15 +6,6 @@
  */
 
 /**
- * Sets the host to run tests
- *
- * @type {string|string}
- * @private
- */
-const _host =
-  (process && process.env.C4IBM_E2E_STORYBOOK_HOST) || 'http://localhost:8081';
-
-/**
  * Sets the correct path (default Masthead)
  *
  * @type {string}
@@ -41,7 +32,7 @@ const _pathPlatform = '/iframe.html?id=components-masthead--with-platform';
 
 describe('Masthead | default (desktop)', () => {
   beforeEach(() => {
-    cy.visit(`${_host}/${_pathDefault}`);
+    cy.visit(`/${_pathDefault}`);
     cy.viewport(1280, 780);
   });
 
@@ -50,9 +41,9 @@ describe('Masthead | default (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | mega menu (nav 0)', {
-      widths: [1280],
-    });
+    // cy.percySnapshot('Masthead | mega menu (nav 0)', {
+    //   widths: [1280],
+    // });
   });
 
   it('should load the megamenu - second nav item', () => {
@@ -60,9 +51,9 @@ describe('Masthead | default (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | mega menu (nav 1)', {
-      widths: [1280],
-    });
+    // cy.percySnapshot('Masthead | mega menu (nav 1)', {
+    //   widths: [1280],
+    // });
   });
 
   it('should open the login menu', () => {
@@ -70,15 +61,15 @@ describe('Masthead | default (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | profile menu', {
-      widths: [1280],
-    });
+    // cy.percySnapshot('Masthead | profile menu', {
+    //   widths: [1280],
+    // });
   });
 });
 
 describe('Masthead | default (mobile)', () => {
   beforeEach(() => {
-    cy.visit(`${_host}/${_pathDefault}`);
+    cy.visit(`/${_pathDefault}`);
     cy.viewport(320, 780);
   });
 
@@ -95,15 +86,15 @@ describe('Masthead | default (mobile)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | mobile menu level 2', {
-      widths: [320],
-    });
+    // cy.percySnapshot('Masthead | mobile menu level 2', {
+    //   widths: [320],
+    // });
   });
 });
 
 describe('Masthead | custom (desktop)', () => {
   beforeEach(() => {
-    cy.visit(`${_host}/${_pathCustom}`);
+    cy.visit(`/${_pathCustom}`);
     cy.viewport(1280, 780);
   });
 
@@ -112,15 +103,15 @@ describe('Masthead | custom (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | custom - overflow', {
-      widths: [1280],
-    });
+    // cy.percySnapshot('Masthead | custom - overflow', {
+    //   widths: [1280],
+    // });
   });
 });
 
 describe('Masthead | with platform (desktop)', () => {
   beforeEach(() => {
-    cy.visit(`${_host}/${_pathPlatform}`);
+    cy.visit(`/${_pathPlatform}`);
     cy.viewport(1280, 780);
   });
 
@@ -129,8 +120,8 @@ describe('Masthead | with platform (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | with platform - search', {
-      widths: [1280],
-    });
+    // cy.percySnapshot('Masthead | with platform - search', {
+    //   widths: [1280],
+    // });
   });
 });
