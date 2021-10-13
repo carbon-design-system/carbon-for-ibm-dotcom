@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.26.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.26.0-rc.1...@carbon/ibmdotcom-services@1.26.0-rc.2) (2021-10-13)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+# [1.26.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.26.0-rc.0...@carbon/ibmdotcom-services@1.26.0-rc.1) (2021-10-12)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+# [1.26.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.25.0...@carbon/ibmdotcom-services@1.26.0-rc.0) (2021-10-08)
+
+
+### Bug Fixes
+
+* **card cta:** Add video duration to aria-label if present ([#7323](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7323)) ([4d74912](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4d74912)), closes [#7288](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7288)
+* **cloud-masthead:** API authentication method is not working on Cloud Docs dev application ([#7199](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7199)) ([8b1f200](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8b1f200)), closes [#7181](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7181)
+
+
+### Features
+
+* **services:** translation and locale to handle `lc` only locales ([#7306](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7306)) ([186e06f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/186e06f)), closes [#7168](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7168)
+
+
+
+
+
 # [1.25.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.25.0-rc.2...@carbon/ibmdotcom-services@1.25.0) (2021-09-27)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services

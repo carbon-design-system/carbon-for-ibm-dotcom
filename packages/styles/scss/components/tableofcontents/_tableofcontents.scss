@@ -405,6 +405,40 @@ $hover-transition-timing: 95ms;
       @include themed-items;
     }
   }
+
+  .#{$prefix}--toc__print-styles {
+    display: none;
+  }
+
+  @media print {
+    :host(#{$dds-prefix}-table-of-contents),
+    .#{$prefix}--tableofcontents {
+      .#{$prefix}--tableofcontents__sidebar {
+        position: relative;
+      }
+
+      .#{$prefix}--tableofcontents__desktop {
+        display: block;
+      }
+      .#{$prefix}--tableofcontents__mobile {
+        display: none;
+      }
+
+      &[toc-layout='horizontal'] {
+        .#{$prefix}--tableofcontents__navbar {
+          display: none;
+        }
+
+        .#{$prefix}--toc__print-styles {
+          display: block;
+        }
+      }
+
+      ::slotted(#{$dds-prefix}-image) {
+        width: 25%;
+      }
+    }
+  }
 }
 
 @include exports('tableofcontents') {
