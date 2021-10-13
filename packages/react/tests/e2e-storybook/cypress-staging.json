@@ -4,7 +4,6 @@
   "headless": true,
   "video": false,
   "fixturesFolder": false,
-  "integrationFolder": "src/components",
   "nodeVersion": "system",
   "includeShadowDom": true,
   "testFiles": "**/*.e2e.js",
