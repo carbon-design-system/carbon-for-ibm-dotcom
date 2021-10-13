@@ -75,15 +75,24 @@
 :host(#{$dds-prefix}-legal-nav-cookie-preferences-placeholder) {
   display: list-item;
   outline: none;
+  padding-top: 0;
+
+  &:not(:first-child) {
+    padding-top: $carbon--spacing-03;
+  }
 }
 
 :host(#{$dds-prefix}-footer-nav-group[open]) .#{$prefix}--accordion__content {
   display: block;
+  padding-top: 0;
 }
 
 :host(#{$dds-prefix}-footer-nav-group) {
   .#{$prefix}--accordion__heading {
     border-top: 1px solid $ui-03;
+    padding: 0;
+    align-items: center;
+    min-height: $carbon--spacing-09;
   }
 
   &:last-child {
@@ -157,8 +166,8 @@
   .#{$prefix}--legal-nav__list {
     padding-top: $spacing-03;
     @include carbon--breakpoint-down('md') {
-      padding-top: $spacing-08;
-      padding-bottom: $spacing-08;
+      padding-top: $spacing-09;
+      padding-bottom: $spacing-09;
     }
     @include carbon--breakpoint('lg') {
       @include carbon--make-col-offset(4, 16);
