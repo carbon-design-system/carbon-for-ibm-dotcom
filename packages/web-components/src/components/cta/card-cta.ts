@@ -122,7 +122,8 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
       changedProperties.has('ctaType') ||
       changedProperties.has('formatCaption') ||
       changedProperties.has('formatDuration') ||
-      changedProperties.has('videoDuration')
+      changedProperties.has('videoDuration') ||
+      changedProperties.has('videoName')
     ) {
       const {
         ctaType,
