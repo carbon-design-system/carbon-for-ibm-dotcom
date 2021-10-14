@@ -222,9 +222,10 @@ function _renderLevel1Submenus(
           });
 
           const highlightedClass =
-            highlightedCount !== 0 &&
-            index + 1 === highlightedCount &&
-            `${prefix}--masthead__side-nav__last-highlighted`;
+            (highlightedCount !== 0 &&
+              index + 1 === highlightedCount &&
+              `${prefix}--masthead__side-nav__last-highlighted`) ||
+            null;
 
           if (item.megapanelContent) {
             return (
