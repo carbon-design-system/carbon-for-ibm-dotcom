@@ -53,6 +53,19 @@
           z-index: 1;
         }
       }
+
+      .#{$prefix}--card__video-thumbnail {
+        svg {
+          circle {
+            opacity: 0.9;
+            fill: $gray-100;
+          }
+
+          path {
+            fill: $icon-03;
+          }
+        }
+      }
     }
 
     &:focus-within {
@@ -100,6 +113,15 @@
         background-color: $ui-05;
         opacity: 0;
         transition: $duration--moderate-01 motion(standard, productive);
+      }
+    }
+
+    .#{$prefix}--card__video-thumbnail {
+      svg {
+        circle,
+        path {
+          transition: $duration--moderate-01 motion(standard, productive);
+        }
       }
     }
 
