@@ -46,9 +46,12 @@
       ::slotted(#{$dds-prefix}-card-cta-image),
       .#{$prefix}--card__img,
       .#{$prefix}--card__image_img,
-      .#{$prefix}--image {
-        filter: brightness(92%);
-        text-decoration: underline;
+      .#{$prefix}--image,
+      .#{$prefix}--card__video-thumbnail {
+        &::before {
+          opacity: 0.08;
+          z-index: 1;
+        }
       }
     }
 
@@ -62,7 +65,6 @@
       ::slotted(#{$dds-prefix}-card-cta-image),
       .#{$prefix}--card__img,
       .#{$prefix}--image {
-        position: relative;
         z-index: -1;
       }
     }
@@ -76,8 +78,28 @@
 
       ::slotted(#{$dds-prefix}-image),
       .#{$prefix}--image {
-        position: relative;
         z-index: -1;
+      }
+    }
+
+    ::slotted(#{$dds-prefix}-image),
+    ::slotted(#{$dds-prefix}-card-cta-image),
+    .#{$prefix}--card__img,
+    .#{$prefix}--card__image_img,
+    .#{$prefix}--image,
+    .#{$prefix}--card__video-thumbnail {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: $ui-05;
+        opacity: 0;
+        transition: $duration--moderate-01 motion(standard, productive);
       }
     }
 
