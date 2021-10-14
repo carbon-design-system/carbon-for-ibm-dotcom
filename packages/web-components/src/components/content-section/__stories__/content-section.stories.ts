@@ -8,9 +8,9 @@
  */
 
 import { html } from 'lit-element';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { optionsKnob } from '@storybook/addon-knobs';
-import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 import '../index';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -25,8 +25,31 @@ And here's an intriguing paradox: over time, as our assumptions shift about what
 For example: optical scan of documents (to create a text file out of an image of text) used to be considered artificial intelligence before it became common in our everyday lives. Observers of the history of AI call this phenomenon "the AI effect."
 `;
 
-/* eslint-disable max-len */
-const itemCopy = `This area of NLP takes "real world" text and applies a symbolic system for a machine to interpret its meaning, using formal logic; structures that describe the various relationships between concepts (ontologies); and other semantic tools.`;
+const card1 = html`
+  <dds-content-group-cards-item href="https://www.example.com">
+    <dds-card-heading>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+    </dds-card-heading>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </p>
+    <dds-card-footer icon-placement="left">
+      ${ArrowRight20({ slot: 'icon' })}
+    </dds-card-footer>
+  </dds-content-group-cards-item>
+`;
+
+const card2 = html`
+  <dds-content-group-cards-item href="https://www.example.com">
+    <dds-card-heading>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+    </dds-card-heading>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+    <dds-card-footer icon-placement="left">
+      ${ArrowRight20({ slot: 'icon' })}
+    </dds-card-footer>
+  </dds-content-group-cards-item>
+`;
 
 export const Default = ({ parameters }) => {
   const { heading, copy, addChildren } = parameters?.props?.ContentSection ?? {};
@@ -44,19 +67,15 @@ export const Default = ({ parameters }) => {
             </dds-content-block-simple>
           `
         : ``}
-      ${addChildren.includes('Content item')
+      ${addChildren.includes('Content group cards')
         ? html`
-            <dds-content-item>
-              <dds-content-item-heading>Natural language understanding</dds-content-item-heading>
-              <dds-image-with-caption
-                slot="media"
-                alt="Alt image text"
-                default-src="${imgLg16x9}"
-                heading="Image caption text"
-              ></dds-image-with-caption>
-              <dds-content-item-copy size="sm">${itemCopy}</dds-content-item-copy>
-              <dds-text-cta slot="footer" cta-type="jump" href="https://www.ibm.com">Jump to AI ethics and trust</dds-text-cta>
-            </dds-content-item>
+            <div class="bx--col-lg-10 bx--col-sm-4 bx--no-gutter">
+              <dds-content-group-cards>
+                <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
+                <dds-content-group-copy>Lorem ipsum dolor sit amet.</dds-content-group-copy>
+                ${card1}${card2}${card1}${card2}
+              </dds-content-group-cards>
+            </div>
           `
         : ``}
       <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com">Link action</dds-text-cta>
@@ -86,7 +105,7 @@ export default {
           'Add children:',
           {
             'Content block simple': 'Content block simple',
-            'Content item': 'Content item',
+            'Content group cards': 'Content group cards',
           },
           '',
           { display: 'multi-select' }

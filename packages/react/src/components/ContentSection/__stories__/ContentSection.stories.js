@@ -7,9 +7,9 @@
 
 import { text, optionsKnob } from '@storybook/addon-knobs';
 import ContentBlockSimple from '../../ContentBlockSimple/ContentBlockSimple';
-import ContentItem from '../../ContentItem/ContentItem';
+import ContentGroupCards from '../../ContentGroupCards/ContentGroupCards';
+import ContentGroupCardsKnobs from '../../ContentGroupCards/__stories__/data/ContentGroupCards.knobs';
 import ContentSection from '../ContentSection';
-import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--003.jpg';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
@@ -21,8 +21,6 @@ And here's an intriguing paradox: over time, as our assumptions shift about what
 
 For example: optical scan of documents (to create a text file out of an image of text) used to be considered artificial intelligence before it became common in our everyday lives. Observers of the history of AI call this phenomenon "the AI effect."
 `;
-
-const itemCopy = `This area of NLP takes "real world" text and applies a symbolic system for a machine to interpret its meaning, using formal logic; structures that describe the various relationships between concepts (ontologies); and other semantic tools.`;
 
 const video = {
   videoId: '1_9h94wo6b',
@@ -48,7 +46,7 @@ export default {
             'Add children:',
             {
               'Content block simple': 'Content block simple',
-              'Content item': 'Content item',
+              'Content group cards': 'Content group cards',
             },
             '',
             { display: 'multi-select' }
@@ -90,25 +88,18 @@ export const Default = ({ parameters }) => {
         ) : (
           ''
         ),
-        addChildren.includes('Content item') ? (
-          <ContentItem
-            heading="Natural language understanding"
-            mediaType="image"
-            mediaData={{
-              heading: 'Image caption text',
-              image: {
-                defaultSrc: imgLg16x9,
-                alt: 'Image alt text',
-              },
-            }}
-            copy={itemCopy}
-            cta={{
-              style: 'text',
-              type: 'local',
-              copy: 'Learn more about NLP',
-              href: 'https://www.example.com',
-            }}
-          />
+        addChildren.includes('Content group cards') ? (
+          <div className="bx--grid">
+            <div className="bx--row">
+              <div className="bx--col-lg-10 bx--col-sm-4 bx--no-gutter">
+                <ContentGroupCards
+                  heading={ContentGroupCardsKnobs.heading}
+                  copy={ContentGroupCardsKnobs.copy}
+                  items={ContentGroupCardsKnobs.items}
+                />
+              </div>
+            </div>
+          </div>
         ) : (
           ''
         ),
