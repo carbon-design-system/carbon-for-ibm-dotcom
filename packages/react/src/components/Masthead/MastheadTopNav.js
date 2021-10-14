@@ -65,7 +65,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
 
     return (
       <HeaderMenuItem
-        data-selected={selected ? 'true' : 'false'}
+        data-selected={!!selected}
         href={link.url}
         data-autoid={autoid}
         key={i}>
