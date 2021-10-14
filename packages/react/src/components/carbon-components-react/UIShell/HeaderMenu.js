@@ -303,7 +303,7 @@ class HeaderMenu extends React.Component {
    */
   _renderMenuItem = (item, index) => {
     return React.cloneElement(item, {
-      refs: this.handleItemRef(index),
+      ref: this.handleItemRef(index),
       role: 'none',
     });
   };
