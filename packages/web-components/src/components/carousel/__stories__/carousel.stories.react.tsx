@@ -7,8 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select } from '@storybook/addon-knobs';
-import classnames from 'classnames';
 import React from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
@@ -21,7 +19,11 @@ import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react
 import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
 // @ts-ignore
 import DDSCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel';
-import styles from './carousel.stories.scss';
+// @ts-ignore
+import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+
+import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
+
 import readme from './README.stories.react.mdx';
 
 const hrefDefault = 'https://www.ibm.com/standards/carbon';
@@ -32,34 +34,20 @@ const copyOdd = `
   Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 `;
 
-const cardSizes16 = {
-  '1 for sm, 2 for md, 4 for lg and beyond': '',
-  '1 for sm and md, 2 for lg and beyond': 'dds-ce-demo-devenv--carousel--full-16--large',
-};
-
-const cardSizes8 = {
-  '1 for sm and md, 2 for lg and beyond': '',
-  '1 for all breakpoints': 'dds-ce-demo-devenv--carousel--center-8--large',
-};
-
-const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault } = {}) => (
+const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault, image = undefined } = {}) => (
   <DDSCard href={href}>
     <DDSCardHeading>{heading}</DDSCardHeading>
     {copy}
+    {image ? <DDSImage slot="image" alt="example image" defaultSrc={image} /> : ''}
     <DDSCardFooter>
       <ArrowRight20 slot="icon" />
     </DDSCardFooter>
   </DDSCard>
 );
 
-export const Default = ({ parameters }) => {
-  const { cardSize } = parameters?.props?.Carousel ?? {};
-  const classes = classnames({
-    [cardSize]: cardSize,
-  });
-  // `className` is not supported by our React wrapper
+export const Default = () => {
   return (
-    <DDSCarousel class={classes}>
+    <DDSCarousel>
       <Card />
       <Card copy={copyOdd} />
       <Card />
@@ -69,68 +57,31 @@ export const Default = ({ parameters }) => {
   );
 };
 
-Default.story = {
-  parameters: {
-    gridCarouselClass: 'dds-ce-demo-devenv--simple-grid--carousel--full-16',
-    knobs: {
-      Carousel: ({ groupId }) => ({
-        cardSize: select(
-          'Number of cards per page (--dds--carousel-page-size CSS custom property)',
-          cardSizes16,
-          cardSizes16['1 for sm, 2 for md, 4 for lg and beyond'],
-          groupId
-        ),
-      }),
-    },
-  },
-};
-
-export const Right12Columns = context => Default(context);
-
-Right12Columns.story = {
-  name: 'Right 12 columns',
-  parameters: {
-    gridCarouselClass: 'dds-ce-demo-devenv--simple-grid--carousel--right-12',
-  },
-};
-
-export const Center8Columns = context => Default(context);
-
-Center8Columns.story = {
-  name: 'Center 8 columns',
-  parameters: {
-    gridCarouselClass: 'dds-ce-demo-devenv--simple-grid--carousel--center-8',
-    knobs: {
-      Carousel: ({ groupId }) => ({
-        cardSize: select(
-          'Number of cards per page (--dds--carousel-page-size CSS custom property)',
-          cardSizes8,
-          cardSizes8['1 for sm and md, 2 for lg and beyond'],
-          groupId
-        ),
-      }),
-    },
-  },
+export const CardsWithImages = () => {
+  return (
+    <DDSCarousel>
+      <Card image={imgLg2x1} />
+      <Card copy={copyOdd} image={imgLg2x1} />
+      <Card image={imgLg2x1} />
+      <Card copy={copyOdd} image={imgLg2x1} />
+      <Card image={imgLg2x1} />
+    </DDSCarousel>
+  );
 };
 
 export default {
   title: 'Components/Carousel',
   decorators: [
-    (story, { parameters }) => {
-      const { gridCarouselClass } = parameters;
-      const classes = classnames('dds-ce-demo-devenv--simple-grid', 'dds-ce-demo-devenv--simple-grid--carousel', {
-        [gridCarouselClass]: gridCarouselClass,
-      });
+    story => {
       return (
-        <>
-          <style type="text/css">{styles.cssText}</style>
-          <div className={classes}>{story()}</div>
-        </>
+        <div className="bx--grid">
+          <div className="bx--row">{story()}</div>
+        </div>
       );
     },
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
+    hasStoryPadding: true,
   },
 };

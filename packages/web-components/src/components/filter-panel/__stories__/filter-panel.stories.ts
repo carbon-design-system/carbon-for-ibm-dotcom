@@ -101,12 +101,16 @@ export default {
   decorators: [
     story =>
       html`
-        ${story()}
+        <div class="bx--grid bx--grid--condensed">
+          <div class="bx--row">
+            ${story()}
+          </div>
+        </div>
       `,
   ],
-  hasGrid: true,
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
     knobs: {
       FilterPanel: ({ groupId }) => ({
         heading: text('heading', 'Filter', groupId),

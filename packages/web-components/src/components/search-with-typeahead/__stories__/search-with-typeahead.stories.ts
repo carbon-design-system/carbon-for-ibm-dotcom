@@ -23,5 +23,6 @@ export default {
   title: 'Components/Search with typeahead',
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
   },
 };

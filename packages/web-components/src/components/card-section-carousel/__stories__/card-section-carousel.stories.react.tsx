@@ -29,7 +29,6 @@ import DDSContentSectionHeading from '@carbon/ibmdotcom-web-components/es/compon
 import DDSLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
 // @ts-ignore
 import DDSCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel';
-import styles from './card-section-carousel.stories.scss';
 import readme from './README.stories.react.mdx';
 
 const hrefDefault = 'https://www.ibm.com/standards/carbon';
@@ -76,14 +75,15 @@ export default {
   title: 'Components/Card section carousel',
   decorators: [
     story => (
-      <>
-        <style type="text/css">{styles.cssText}</style>
-        <div className="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-section"> {story()}</div>
-      </>
+      <div className="bx--grid">
+        <div className="bx--row" style={{ marginRight: '-2rem' }}>
+          {story()}
+        </div>
+      </div>
     ),
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
+    hasStoryPadding: true,
   },
 };

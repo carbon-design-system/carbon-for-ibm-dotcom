@@ -35,10 +35,15 @@ export default {
   title: 'Components/Tag link',
   decorators: [
     story => {
-      return <>{story()}</>;
+      return (
+        <div className="bx--grid">
+          <div className="bx--row">{story()}</div>
+        </div>
+      );
     },
   ],
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
   },
 };

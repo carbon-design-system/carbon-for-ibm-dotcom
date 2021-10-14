@@ -11,7 +11,6 @@ import { html } from 'lit-element';
 import { text } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import Download20 from 'carbon-web-components/es/icons/download/20';
-import styles from './leadspace-block.stories.scss';
 
 import '../index';
 import '../../link-list/index';
@@ -95,8 +94,7 @@ export default {
   title: 'Components/Lead space block',
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
+    hasStoryPadding: true,
     knobs: {
       LeadSpaceBlock: ({ groupId }) => ({
         title: text('title (title)', 'Continuous delivery', groupId),
@@ -108,11 +106,12 @@ export default {
     },
     decorators: [
       story => html`
-        <style>
-          ${styles}
-        </style>
-        <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-layout">
-          ${story()}
+        <div class="bx--grid">
+          <div class="bx--row">
+            <div class="bx--col-lg-9">
+              ${story()}
+            </div>
+          </div>
         </div>
       `,
     ],

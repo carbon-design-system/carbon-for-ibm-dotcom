@@ -24,8 +24,18 @@ export const Default = ({ parameters }) => {
 
 export default {
   title: 'Components/Tag link',
+  decorators: [
+    story => html`
+      <div class="bx--grid">
+        <div class="bx--row">
+          ${story()}
+        </div>
+      </div>
+    `,
+  ],
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
     knobs: {
       TagLink: () => ({
         copy: textNullable('Tag Link (copy)', 'Brand: Watson'),
