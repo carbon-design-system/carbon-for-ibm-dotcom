@@ -6,14 +6,6 @@
  */
 
 /**
- * Sets the host to run tests
- *
- * @type {string|string}
- * @private
- */
-const _host = (process && process.env.C4IBM_E2E_STORYBOOK_HOST) || 'http://localhost:8081';
-
-/**
  * Sets the correct path (default Masthead)
  *
  * @type {string}
@@ -39,7 +31,7 @@ const _pathPlatform = '/iframe.html?id=components-masthead--with-platform';
 
 describe('dds-masthead | default (desktop)', () => {
   beforeEach(() => {
-    cy.visit(`${_host}/${_pathDefault}`);
+    cy.visit(`/${_pathDefault}`);
     cy.viewport(1280, 780);
   });
 
@@ -88,7 +80,7 @@ describe('dds-masthead | default (desktop)', () => {
 
 describe('dds-masthead | default (mobile)', () => {
   beforeEach(() => {
-    cy.visit(`${_host}/${_pathDefault}`);
+    cy.visit(`/${_pathDefault}`);
     cy.viewport(320, 780);
   });
 
@@ -120,7 +112,7 @@ describe('dds-masthead | default (mobile)', () => {
 
 describe('dds-masthead | custom (desktop)', () => {
   beforeEach(() => {
-    cy.visit(`${_host}/${_pathCustom}`);
+    cy.visit(`/${_pathCustom}`);
     cy.viewport(1280, 780);
   });
 
@@ -141,7 +133,7 @@ describe('dds-masthead | custom (desktop)', () => {
 
 describe('dds-masthead | with platform (desktop)', () => {
   beforeEach(() => {
-    cy.visit(`${_host}/${_pathPlatform}`);
+    cy.visit(`/${_pathPlatform}`);
     cy.viewport(1280, 780);
   });
 
