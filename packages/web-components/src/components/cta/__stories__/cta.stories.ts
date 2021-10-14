@@ -191,6 +191,8 @@ export const Card = ({ parameters }) => {
       <dds-card-cta-footer
         cta-type="${ifNonNull(ctaType)}"
         download="${ifNonNull(footerDownload)}"
+        video-name="${ifNonNull(customVideoTitle)}"
+        video-description="${ifNonNull(customVideoDescription)}"
         href="${ifNonNull(footerHref)}"
       >
         ${ctaType === 'local' ? footerCopy || ArrowRight20({ slot: 'icon' }) : ''}
@@ -260,6 +262,8 @@ export const CardLink = ({ parameters }) => {
       <dds-card-cta-footer
         cta-type="${ifNonNull(ctaType)}"
         download="${ifNonNull(footerDownload)}"
+        video-name="${ifNonNull(customVideoTitle)}"
+        video-description="${ifNonNull(customVideoDescription)}"
         href="${ifNonNull(footerHref)}"
       >
         ${ctaType === 'local' ? footerCopy || ArrowRight20({ slot: 'icon' }) : ''}
@@ -338,6 +342,8 @@ export const Feature = ({ parameters }) => {
       <dds-feature-cta-footer
         cta-type="${ifNonNull(ctaType)}"
         download="${ifNonNull(footerDownload)}"
+        video-name="${ifNonNull(customVideoTitle)}"
+        video-description="${ifNonNull(customVideoDescription)}"
         href="${ifNonNull(footerHref)}"
       >
         ${footerCopy}
