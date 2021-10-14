@@ -140,10 +140,11 @@
     }
 
     @include carbon--breakpoint('lg') {
-      grid-template:
-        'heading heading .' auto
-        'body body complementary' auto
-        'footer . complementary' auto / 1fr 1fr 25%;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-areas:
+        'heading heading heading heading heading heading heading heading . . . .'
+        'body body body body body body body body . complementary complementary complementary'
+        'footer footer footer footer footer footer footer footer . complementary complementary complementary';
     }
   }
 
