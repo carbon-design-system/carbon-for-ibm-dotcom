@@ -277,7 +277,7 @@ class HeaderMenu extends React.Component {
           onClick={this.handleOnClick}
           onKeyDown={this.handleOnKeyDown}
           role="menuitem"
-          data-selected={selected ? 'true' : 'false'}
+          data-selected={!!selected}
           tabIndex={0}
           ref={this.menuLinkRef}
           {...accessibilityLabel}>
