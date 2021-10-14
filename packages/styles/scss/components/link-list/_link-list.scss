@@ -111,8 +111,7 @@
   }
 
   .#{$prefix}--link-list__list.#{$prefix}--link-list__list--card {
-    // @include hang;
-    margin-left: -1rem;
+    margin-left: -$carbon--spacing-05;
   }
 
   .#{$prefix}--link-list__list--horizontal {
