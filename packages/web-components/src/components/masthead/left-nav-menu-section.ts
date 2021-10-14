@@ -223,7 +223,7 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
         ${showBackBtn
           ? html`
               <li class="${prefix}--side-nav__menu-item ${prefix}--masthead__side-nav--submemu-back" role="none">
-                <button class="${prefix}--side-nav__link" tabindex="-1" role="menuitem" @click="${handleClickBack}">
+                <button class="${prefix}--side-nav__link" tabindex="-1" @click="${handleClickBack}">
                   <span class="${prefix}--side-nav__link-text">${ChevronLeft20()}${backButtonText}</span>
                 </button>
               </li>

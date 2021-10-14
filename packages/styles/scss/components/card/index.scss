@@ -24,6 +24,7 @@
   :host(#{$dds-prefix}-card-in-card),
   :host(#{$dds-prefix}-content-group-cards-item),
   :host(#{$dds-prefix}-content-group-cards-item) .#{$prefix}--card {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -131,7 +132,7 @@
     // styles the React wrapper version of Tag Group within Card
     /* stylelint-disable-next-line selector-type-no-unknown */
     dds-tag-group {
-      margin-bottom: $spacing-05;
+      margin-top: $spacing-05;
     }
   }
 
@@ -194,10 +195,6 @@
         &::after {
           position: relative;
         }
-      }
-
-      ::slotted(#{$dds-prefix}-tag-group) {
-        margin-bottom: $spacing-05;
       }
     }
     &[color-scheme='light'] {
@@ -380,6 +377,7 @@
   }
 
   .#{$prefix}--card--inverse,
+  .#{$prefix}--card.#{$prefix}--card--inverse,
   :host(#{$dds-prefix}-card)[color-scheme='inverse'],
   :host(#{$dds-prefix}-card-group-item)[color-scheme='inverse']
     .#{$prefix}--card {
@@ -418,8 +416,8 @@
         left: 0;
         bottom: 0;
         right: 0;
-        border: 2px solid $focus;
-        outline: 1px solid #ffffff;
+        border: 2px solid $inverse-focus-ui;
+        outline: 1px solid $inverse-focus-ui;
         outline-offset: -3px;
         pointer-events: none;
       }

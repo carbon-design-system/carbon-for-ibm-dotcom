@@ -130,7 +130,7 @@ $search-transition-timing: 95ms;
       }
     }
 
-    a.#{$prefix}--header__menu-item[role='menuitem'] {
+    a.#{$prefix}--header__menu-item {
       &:hover {
         background-color: $hover-ui;
       }
@@ -146,7 +146,7 @@ $search-transition-timing: 95ms;
       }
     }
 
-    a.#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
+    a.#{$prefix}--header__menu-title[aria-expanded='true'] {
       background-color: $ui-03;
       + .#{$prefix}--header__menu {
         li {
