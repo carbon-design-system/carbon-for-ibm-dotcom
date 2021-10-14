@@ -28,9 +28,9 @@ describe('CalloutQuote | default', () => {
       cy.screenshot();
 
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('CalloutQuote | default | g100 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('CalloutQuote | default | g100 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -47,9 +47,9 @@ describe('CalloutQuote | default', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('CalloutQuote | default | g90 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('CalloutQuote | default | g90 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -66,9 +66,9 @@ describe('CalloutQuote | default', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('CalloutQuote | default | g10 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('CalloutQuote | default | g10 theme', {
+        widths: [1280],
+      });
     });
   });
 });

@@ -41,9 +41,9 @@ describe('Masthead | default (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    // cy.percySnapshot('Masthead | mega menu (nav 0)', {
-    //   widths: [1280],
-    // });
+    cy.percySnapshot('Masthead | mega menu (nav 0)', {
+      widths: [1280],
+    });
   });
 
   it('should load the megamenu - second nav item', () => {
@@ -51,9 +51,9 @@ describe('Masthead | default (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    // cy.percySnapshot('Masthead | mega menu (nav 1)', {
-    //   widths: [1280],
-    // });
+    cy.percySnapshot('Masthead | mega menu (nav 1)', {
+      widths: [1280],
+    });
   });
 
   it('should open the login menu', () => {
@@ -61,9 +61,9 @@ describe('Masthead | default (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    // cy.percySnapshot('Masthead | profile menu', {
-    //   widths: [1280],
-    // });
+    cy.percySnapshot('Masthead | profile menu', {
+      widths: [1280],
+    });
   });
 });
 
@@ -86,9 +86,9 @@ describe('Masthead | default (mobile)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    // cy.percySnapshot('Masthead | mobile menu level 2', {
-    //   widths: [320],
-    // });
+    cy.percySnapshot('Masthead | mobile menu level 2', {
+      widths: [320],
+    });
   });
 });
 
@@ -103,9 +103,9 @@ describe('Masthead | custom (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    // cy.percySnapshot('Masthead | custom - overflow', {
-    //   widths: [1280],
-    // });
+    cy.percySnapshot('Masthead | custom - overflow', {
+      widths: [1280],
+    });
   });
 });
 
@@ -120,8 +120,8 @@ describe('Masthead | with platform (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    // cy.percySnapshot('Masthead | with platform - search', {
-    //   widths: [1280],
-    // });
+    cy.percySnapshot('Masthead | with platform - search', {
+      widths: [1280],
+    });
   });
 });

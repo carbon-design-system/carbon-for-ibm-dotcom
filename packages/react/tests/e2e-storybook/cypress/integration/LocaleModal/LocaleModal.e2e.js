@@ -25,9 +25,9 @@ describe('LocaleModal | default', () => {
     cy.screenshot();
 
     // Take a snapshot for visual diffing
-    // cy.percySnapshot('LocaleModal | region selected', {
-    //   widths: [1280],
-    // });
+    cy.percySnapshot('LocaleModal | region selected', {
+      widths: [1280],
+    });
   });
 
   it('should filter locales/languages', () => {
@@ -37,8 +37,8 @@ describe('LocaleModal | default', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    // cy.percySnapshot('LocaleModal | filter', {
-    //   widths: [1280],
-    // });
+    cy.percySnapshot('LocaleModal | filter', {
+      widths: [1280],
+    });
   });
 });

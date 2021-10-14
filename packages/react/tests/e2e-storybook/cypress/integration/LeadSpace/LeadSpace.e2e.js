@@ -87,9 +87,9 @@ describe('LeadSpace | tall', () => {
       cy.screenshot();
 
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | tall | g100 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | tall | g100 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -106,9 +106,9 @@ describe('LeadSpace | tall', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | tall | g90 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | tall | g90 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -125,9 +125,9 @@ describe('LeadSpace | tall', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | tall | g10 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | tall | g10 theme', {
+        widths: [1280],
+      });
     });
   });
 });
@@ -145,9 +145,9 @@ describe('LeadSpace | tall with image', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | tall with image | g100 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | tall with image | g100 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -163,9 +163,9 @@ describe('LeadSpace | tall with image', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | tall with image | g90 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | tall with image | g90 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -181,9 +181,9 @@ describe('LeadSpace | tall with image', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | tall with image | g10 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | tall with image | g10 theme', {
+        widths: [1280],
+      });
     });
   });
 });
@@ -201,9 +201,9 @@ describe('LeadSpace | centered', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | centered | g100 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | centered | g100 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -219,9 +219,9 @@ describe('LeadSpace | centered', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | centered | g90 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | centered | g90 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -237,9 +237,9 @@ describe('LeadSpace | centered', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | centered | g10 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | centered | g10 theme', {
+        widths: [1280],
+      });
     });
   });
 });
@@ -257,9 +257,9 @@ describe('LeadSpace | centered with image', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | centered with image | g100 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | centered with image | g100 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -275,9 +275,9 @@ describe('LeadSpace | centered with image', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | centered with image | g90 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | centered with image | g90 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -293,9 +293,9 @@ describe('LeadSpace | centered with image', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | centered with image | g10 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | centered with image | g10 theme', {
+        widths: [1280],
+      });
     });
   });
 });
@@ -313,9 +313,9 @@ describe('LeadSpace | medium', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | medium | g100 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | medium | g100 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -331,9 +331,9 @@ describe('LeadSpace | medium', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | medium | g90 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | medium | g90 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -349,9 +349,9 @@ describe('LeadSpace | medium', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | medium | g10 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | medium | g10 theme', {
+        widths: [1280],
+      });
     });
   });
 });
@@ -369,9 +369,9 @@ describe('LeadSpace | medium with image', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | medium with image | g100 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | medium with image | g100 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -387,9 +387,9 @@ describe('LeadSpace | medium with image', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | medium with image | g90 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | medium with image | g90 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -405,9 +405,9 @@ describe('LeadSpace | medium with image', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | medium with image | g10 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | medium with image | g10 theme', {
+        widths: [1280],
+      });
     });
   });
 });
@@ -425,9 +425,9 @@ describe('LeadSpace | super', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | super | g100 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | super | g100 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -443,9 +443,9 @@ describe('LeadSpace | super', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | super | g90 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | super | g90 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -461,9 +461,9 @@ describe('LeadSpace | super', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | super | g10 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | super | g10 theme', {
+        widths: [1280],
+      });
     });
   });
 });
@@ -481,9 +481,9 @@ describe('LeadSpace | super with image', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | super with image | g100 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | super with image | g100 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -499,9 +499,9 @@ describe('LeadSpace | super with image', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | super with image | g90 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | super with image | g90 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -517,9 +517,9 @@ describe('LeadSpace | super with image', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('LeadSpace | super with image | g10 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('LeadSpace | super with image | g10 theme', {
+        widths: [1280],
+      });
     });
   });
 });

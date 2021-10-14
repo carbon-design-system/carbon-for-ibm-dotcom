@@ -29,9 +29,9 @@ describe('TableOfContents | manually defined', () => {
       cy.screenshot();
 
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('TableOfContents | manually defined | g100 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('TableOfContents | manually defined | g100 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -48,9 +48,9 @@ describe('TableOfContents | manually defined', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('TableOfContents | manually defined | g90 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('TableOfContents | manually defined | g90 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -67,9 +67,9 @@ describe('TableOfContents | manually defined', () => {
 
       cy.screenshot();
       // Take a snapshot for visual diffing
-      // cy.percySnapshot('TableOfContents | manually defined | g10 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('TableOfContents | manually defined | g10 theme', {
+        widths: [1280],
+      });
     });
   });
 });
