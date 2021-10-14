@@ -148,7 +148,10 @@ const MastheadLeftNav = ({
             data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-productname`}
             href={platform.url}
             aria-haspopup="true"
-            className={`${prefix}--side-nav__submenu ${prefix}--side-nav__submenu-platform`}>
+            className={cx(
+              `${prefix}--side-nav__submenu`,
+              `${prefix}--side-nav__submenu-platform`
+            )}>
             {platform.name}
           </a>
         )}
