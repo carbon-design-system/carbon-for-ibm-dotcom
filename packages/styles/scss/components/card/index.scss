@@ -125,7 +125,7 @@
       }
     }
 
-    &.#{$prefix}--tile {
+    .#{$prefix}--card.#{$prefix}--tile {
       padding: 0;
       transition: $duration--moderate-01 motion(standard, productive);
     }
