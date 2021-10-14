@@ -81,6 +81,7 @@ const MastheadLeftNav = ({
           <SideNavMenu
             autoid={autoid}
             dataTitle={dataTitle}
+            key={link.title}
             title={link.title}
             selected={selected}
             onToggle={() => setMenuState({ ...menuState, level0: i })}
@@ -206,6 +207,7 @@ function _renderLevel1Submenus(
         })}
         id={`panel__(${menu.parentKey},-1)`}
         heading={menu.sections[0]?.heading}
+        key={menu.title}
         title={menu.title}
         navType={navType}
         backButtonText={backButtonText}
@@ -232,6 +234,7 @@ function _renderLevel1Submenus(
               <SideNavMenu
                 autoid={`${menu.autoid}-list${index}`}
                 title={item.title}
+                key={item.title}
                 className={highlightedClass}
                 onToggle={() => setMenuState({ ...menuState, level1: index })}
                 isSideNavExpanded={
@@ -282,6 +285,7 @@ function _renderLevel2Submenus(
         isSubmenu
         className={`${prefix}--side-nav__menu-section-submenu`}
         id={`panel__(${menu.parentKey},${menu.index})`}
+        key={menu.title}
         title={menu.title}
         titleUrl={menu.titleUrl}
         navType={navType}
