@@ -8,9 +8,14 @@ storybook-static
 storybook-static-react
 .vscode
 .env
+templates
+generate.sh
+
+# e2e tests
 tests/e2e/cypress/screenshots
 tests/e2e/cypress/videos
 tests/e2e-storybook/cypress/screenshots
 tests/e2e-storybook/cypress/videos
-templates
-generate.sh
+results/*
+log/*
+
