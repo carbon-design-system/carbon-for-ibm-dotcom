@@ -89,17 +89,6 @@ const LanguageSelector = ({
         titleText={labelText}
         size="xl"
       />
-      <Select
-        defaultValue={selectedItem.id}
-        data-autoid={`${stablePrefix}--language-selector__select`}
-        id={`${prefix}--language-selector`}
-        className={`${prefix}--language-selector`}
-        onChange={evt => _setSelectedItem(evt)}
-        text={selectedItem.text}
-        labelText={labelText}
-        aria-label={labelText}>
-        {renderSelectItems(items)}
-      </Select>
     </div>
   );
 };
