@@ -20,6 +20,7 @@ import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
 
 import readme from './README.stories.mdx';
+import styles from './leadspace-block.stories.scss';
 
 const image = html`
   <dds-image-with-caption
@@ -106,9 +107,12 @@ export default {
     },
     decorators: [
       story => html`
+        <style>
+          ${styles}
+        </style>
         <div class="bx--grid">
           <div class="bx--row">
-            <div class="bx--col-lg-9">
+            <div class="bx--col-lg-9 bx--no-gutter">
               ${story()}
             </div>
           </div>

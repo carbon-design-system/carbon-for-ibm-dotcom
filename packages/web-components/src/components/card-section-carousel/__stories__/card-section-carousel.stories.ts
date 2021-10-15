@@ -11,6 +11,7 @@ import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import '../index';
+import styles from './card-section-carousel.stories.scss';
 import readme from './README.stories.mdx';
 
 const hrefDefault = 'https://www.ibm.com/standards/carbon';
@@ -52,8 +53,11 @@ export default {
   title: 'Components/Card section carousel',
   decorators: [
     story => html`
+      <style>
+        ${styles}
+      </style>
       <div class="bx--grid">
-        <div class="bx--row" style="margin-right: -2rem">
+        <div class="bx--row grid-alignment">
           ${story()}
         </div>
       </div>

@@ -30,6 +30,7 @@ import DDSLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-reac
 // @ts-ignore
 import DDSCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel';
 import readme from './README.stories.react.mdx';
+import styles from './card-section-carousel.stories.scss';
 
 const hrefDefault = 'https://www.ibm.com/standards/carbon';
 const headingDefault = 'Lorem ipsum dolor sit amet';
@@ -75,11 +76,12 @@ export default {
   title: 'Components/Card section carousel',
   decorators: [
     story => (
-      <div className="bx--grid">
-        <div className="bx--row" style={{ marginRight: '-2rem' }}>
-          {story()}
+      <>
+        <style>${styles}</style>
+        <div className="bx--grid">
+          <div className="bx--row grid-alignment">{story()}</div>
         </div>
-      </div>
+      </>
     ),
   ],
   parameters: {

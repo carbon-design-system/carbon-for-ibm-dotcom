@@ -343,7 +343,7 @@ export const Feature = ({ parameters }) => {
 
 Feature.story = {
   parameters: {
-    gridContentClasses: 'bx--col-sm-4 bx--col-lg-8 bx--no-gutter',
+    gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
     knobs: {
       FeatureCTA: ({ groupId }) => {
         const ctaType = select('CTA type:', types, CTA_TYPE.LOCAL, groupId);
@@ -379,7 +379,7 @@ export default {
       return html`
         <div class="bx--grid">
           <div class="bx--row">
-            <div class="${parameters.gridContentClasses} ">
+            <div class="${parameters.gridContentClasses}">
               <dds-video-cta-container>
                 ${story()}
               </dds-video-cta-container>

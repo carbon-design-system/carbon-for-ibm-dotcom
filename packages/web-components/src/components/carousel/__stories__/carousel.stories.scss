@@ -10,15 +10,8 @@
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
 
 /* stylelint-disable-next-line selector-type-no-unknown */
-dds-carousel.dds-ce-demo-devenv--carousel--full-16--large {
-  --dds--carousel--page-size: 1;
-
-  @include carbon--breakpoint(lg) {
-    --dds--carousel--page-size: 2;
+dds-carousel {
+  @include carbon--breakpoint('lg') {
+    --dds--carousel--page-size: 4;
   }
-}
-
-/* stylelint-disable-next-line selector-type-no-unknown */
-dds-carousel.dds-ce-demo-devenv--carousel--center-8--large {
-  --dds--carousel--page-size: 1;
 }
