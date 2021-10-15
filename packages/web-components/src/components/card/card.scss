@@ -116,6 +116,12 @@
   &[color-scheme='inverse'] ::slotted(svg[slot='pictogram']) {
     color: $inverse-link;
   }
+
+  .#{$prefix}--card__copy {
+    display: flex;
+    flex-direction: column;
+    gap: $carbon--spacing-05;
+  }
 }
 
 :host(#{$dds-prefix}-card-footer[href])::after {
