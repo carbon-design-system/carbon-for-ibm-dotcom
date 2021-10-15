@@ -6,14 +6,6 @@
  */
 
 /**
- * Sets the host to run tests
- *
- * @type {string|string}
- * @private
- */
-const _host = (process && process.env.C4IBM_E2E_STORYBOOK_HOST) || 'http://localhost:8081';
-
-/**
  * Sets the correct path
  *
  * @type {string}
@@ -23,7 +15,7 @@ const _path = '/iframe.html?id=components-locale-modal--default';
 
 describe('dds-locale-modal | default', () => {
   beforeEach(() => {
-    cy.visit(`${_host}/${_path}`);
+    cy.visit(`/${_path}`);
     cy.viewport(1280, 780);
   });
 
