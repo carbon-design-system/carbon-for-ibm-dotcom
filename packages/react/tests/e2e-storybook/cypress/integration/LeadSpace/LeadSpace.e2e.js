@@ -6,15 +6,6 @@
  */
 
 /**
- * Sets the host to run tests
- *
- * @type {string|string}
- * @private
- */
-const _host =
-  (process && process.env.C4IBM_E2E_STORYBOOK_HOST) || 'http://localhost:8081';
-
-/**
  * Sets the correct path (Tall)
  *
  * @type {string}
@@ -84,7 +75,7 @@ const _pathSuperWithImage =
 /* eslint-disable cypress/no-unnecessary-waiting */
 describe('LeadSpace | tall', () => {
   it('should load the g100 theme', () => {
-    cy.visit(`${_host}/${_pathTall}&theme=g100`);
+    cy.visit(`/${_pathTall}&theme=g100`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -103,7 +94,7 @@ describe('LeadSpace | tall', () => {
   });
 
   it('should load the g90 theme', () => {
-    cy.visit(`${_host}/${_pathTall}&theme=g90`);
+    cy.visit(`/${_pathTall}&theme=g90`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -122,7 +113,7 @@ describe('LeadSpace | tall', () => {
   });
 
   it('should load the g10 theme', () => {
-    cy.visit(`${_host}/${_pathTall}&theme=g10`);
+    cy.visit(`/${_pathTall}&theme=g10`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -143,7 +134,7 @@ describe('LeadSpace | tall', () => {
 
 describe('LeadSpace | tall with image', () => {
   it('should load the g100 theme', () => {
-    cy.visit(`${_host}/${_pathTallImage}&theme=g100`);
+    cy.visit(`/${_pathTallImage}&theme=g100`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -161,7 +152,7 @@ describe('LeadSpace | tall with image', () => {
   });
 
   it('should load the g90 theme', () => {
-    cy.visit(`${_host}/${_pathTallImage}&theme=g90`);
+    cy.visit(`/${_pathTallImage}&theme=g90`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -179,7 +170,7 @@ describe('LeadSpace | tall with image', () => {
   });
 
   it('should load the g10 theme', () => {
-    cy.visit(`${_host}/${_pathTallImage}&theme=g10`);
+    cy.visit(`/${_pathTallImage}&theme=g10`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -199,7 +190,7 @@ describe('LeadSpace | tall with image', () => {
 
 describe('LeadSpace | centered', () => {
   it('should load the g100 theme', () => {
-    cy.visit(`${_host}/${_pathCentered}&theme=g100`);
+    cy.visit(`/${_pathCentered}&theme=g100`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -217,7 +208,7 @@ describe('LeadSpace | centered', () => {
   });
 
   it('should load the g90 theme', () => {
-    cy.visit(`${_host}/${_pathCentered}&theme=g90`);
+    cy.visit(`/${_pathCentered}&theme=g90`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -235,7 +226,7 @@ describe('LeadSpace | centered', () => {
   });
 
   it('should load the g10 theme', () => {
-    cy.visit(`${_host}/${_pathCentered}&theme=g10`);
+    cy.visit(`/${_pathCentered}&theme=g10`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -255,7 +246,7 @@ describe('LeadSpace | centered', () => {
 
 describe('LeadSpace | centered with image', () => {
   it('should load the g100 theme', () => {
-    cy.visit(`${_host}/${_pathCenteredImage}&theme=g100`);
+    cy.visit(`/${_pathCenteredImage}&theme=g100`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -273,7 +264,7 @@ describe('LeadSpace | centered with image', () => {
   });
 
   it('should load the g90 theme', () => {
-    cy.visit(`${_host}/${_pathCenteredImage}&theme=g90`);
+    cy.visit(`/${_pathCenteredImage}&theme=g90`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -291,7 +282,7 @@ describe('LeadSpace | centered with image', () => {
   });
 
   it('should load the g10 theme', () => {
-    cy.visit(`${_host}/${_pathCenteredImage}&theme=g10`);
+    cy.visit(`/${_pathCenteredImage}&theme=g10`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -311,7 +302,7 @@ describe('LeadSpace | centered with image', () => {
 
 describe('LeadSpace | medium', () => {
   it('should load the g100 theme', () => {
-    cy.visit(`${_host}/${_pathMedium}&theme=g100`);
+    cy.visit(`/${_pathMedium}&theme=g100`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -329,7 +320,7 @@ describe('LeadSpace | medium', () => {
   });
 
   it('should load the g90 theme', () => {
-    cy.visit(`${_host}/${_pathMedium}&theme=g90`);
+    cy.visit(`/${_pathMedium}&theme=g90`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -347,7 +338,7 @@ describe('LeadSpace | medium', () => {
   });
 
   it('should load the g10 theme', () => {
-    cy.visit(`${_host}/${_pathMedium}&theme=g10`);
+    cy.visit(`/${_pathMedium}&theme=g10`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -367,7 +358,7 @@ describe('LeadSpace | medium', () => {
 
 describe('LeadSpace | medium with image', () => {
   it('should load the g100 theme', () => {
-    cy.visit(`${_host}/${_pathMediumWithImage}&theme=g100`);
+    cy.visit(`/${_pathMediumWithImage}&theme=g100`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -385,7 +376,7 @@ describe('LeadSpace | medium with image', () => {
   });
 
   it('should load the g90 theme', () => {
-    cy.visit(`${_host}/${_pathMediumWithImage}&theme=g90`);
+    cy.visit(`/${_pathMediumWithImage}&theme=g90`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -403,7 +394,7 @@ describe('LeadSpace | medium with image', () => {
   });
 
   it('should load the g10 theme', () => {
-    cy.visit(`${_host}/${_pathMediumWithImage}&theme=g10`);
+    cy.visit(`/${_pathMediumWithImage}&theme=g10`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -423,7 +414,7 @@ describe('LeadSpace | medium with image', () => {
 
 describe('LeadSpace | super', () => {
   it('should load the g100 theme', () => {
-    cy.visit(`${_host}/${_pathSuper}&theme=g100`);
+    cy.visit(`/${_pathSuper}&theme=g100`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -441,7 +432,7 @@ describe('LeadSpace | super', () => {
   });
 
   it('should load the g90 theme', () => {
-    cy.visit(`${_host}/${_pathSuper}&theme=g90`);
+    cy.visit(`/${_pathSuper}&theme=g90`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -459,7 +450,7 @@ describe('LeadSpace | super', () => {
   });
 
   it('should load the g10 theme', () => {
-    cy.visit(`${_host}/${_pathSuper}&theme=g10`);
+    cy.visit(`/${_pathSuper}&theme=g10`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -479,7 +470,7 @@ describe('LeadSpace | super', () => {
 
 describe('LeadSpace | super with image', () => {
   it('should load the g100 theme', () => {
-    cy.visit(`${_host}/${_pathSuperWithImage}&theme=g100`);
+    cy.visit(`/${_pathSuperWithImage}&theme=g100`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -497,7 +488,7 @@ describe('LeadSpace | super with image', () => {
   });
 
   it('should load the g90 theme', () => {
-    cy.visit(`${_host}/${_pathSuperWithImage}&theme=g90`);
+    cy.visit(`/${_pathSuperWithImage}&theme=g90`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -515,7 +506,7 @@ describe('LeadSpace | super with image', () => {
   });
 
   it('should load the g10 theme', () => {
-    cy.visit(`${_host}/${_pathSuperWithImage}&theme=g10`);
+    cy.visit(`/${_pathSuperWithImage}&theme=g10`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
