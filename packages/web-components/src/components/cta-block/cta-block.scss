@@ -18,9 +18,6 @@
       padding-left: $carbon--layout-01;
       padding-right: $carbon--layout-01;
     }
-    @include carbon--breakpoint('md') {
-      padding-right: 0;
-    }
     ::slotted([slot]) {
       margin-left: 0;
       margin-right: 0;
