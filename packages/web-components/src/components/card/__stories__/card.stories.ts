@@ -170,6 +170,11 @@ export const Static = ({ parameters }) => {
           `
         : ``}
       <dds-card-heading>${heading}</dds-card-heading>
+      ${copy
+        ? html`
+            <p>${copy}</p>
+          `
+        : ``}
       ${tagGroup
         ? html`
             <dds-tag-group>
@@ -182,11 +187,6 @@ export const Static = ({ parameters }) => {
             </dds-tag-group>
           `
         : ''}
-      ${copy
-        ? html`
-            <p>${copy}</p>
-          `
-        : ``}
       <dds-card-footer href="${href}" icon-placement="${iconPlacement}">
         ${footer}${ArrowRight20({ slot: 'icon' })}
       </dds-card-footer>
