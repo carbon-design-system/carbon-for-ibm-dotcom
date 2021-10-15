@@ -48,7 +48,7 @@ const MastheadL1 = ({ navigationL1, ...rest }) => {
 
     return (
       <HeaderMenuItem
-        data-selected={!!selected}
+        data-selected={`${!!selected}`}
         href={link.url}
         data-autoid={autoid}
         key={index}>
