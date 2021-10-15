@@ -35,11 +35,7 @@ export default {
   title: 'Components/Tag link',
   decorators: [
     story => {
-      return (
-        <div className="bx--grid">
-          <div className="bx--row">{story()}</div>
-        </div>
-      );
+      return <div className="bx--grid">{story()}</div>;
     },
   ],
   parameters: {

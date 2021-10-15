@@ -27,9 +27,7 @@ export default {
   decorators: [
     story => html`
       <div class="bx--grid">
-        <div class="bx--row">
-          ${story()}
-        </div>
+        ${story()}
       </div>
     `,
   ],
