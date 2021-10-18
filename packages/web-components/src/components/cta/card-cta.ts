@@ -8,6 +8,7 @@
  */
 
 import { html, property, customElement } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
@@ -15,6 +16,7 @@ import {
   formatVideoCaption,
   formatVideoDuration,
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
 import DDSCard from '../card/card';
 import '../card/card-heading';
 import './card-cta-image';
@@ -29,6 +31,7 @@ import styles from './cta.scss';
 
 export { CTA_TYPE };
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -55,7 +58,11 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
       hasImage || ctaType !== CTA_TYPE.VIDEO || noPoster
         ? undefined
         : html`
-            <dds-card-cta-image alt="${ifNonNull(videoName)}" default-src="${ifNonNull(videoThumbnailUrl)}">
+            <dds-card-cta-image
+              class="${prefix}--card__video-thumbnail"
+              alt="${ifNonNull(videoName)}"
+              default-src="${ifNonNull(videoThumbnailUrl)}"
+            >
               ${PlayVideo({ slot: 'icon' })}
             </dds-card-cta-image>
           `;
@@ -121,7 +128,8 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
       changedProperties.has('ctaType') ||
       changedProperties.has('formatCaption') ||
       changedProperties.has('formatDuration') ||
-      changedProperties.has('videoDuration')
+      changedProperties.has('videoDuration') ||
+      changedProperties.has('videoName')
     ) {
       const {
         ctaType,
@@ -134,7 +142,12 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
       const headingText = this.querySelector(`${ddsPrefix}-card-heading`)?.textContent;
       const copyText = this.textContent;
       if (footer) {
-        (footer as DDSCardCTAFooter).altAriaLabel = videoName || headingText || copyText;
+        const ariaTitle = videoName || headingText || copyText;
+        let ariaDuration = 'DURATION';
+        if (videoDuration !== undefined) {
+          ariaDuration = KalturaPlayerAPI.getMediaDurationFormatted(videoDuration, false);
+        }
+        (footer as DDSCardCTAFooter).altAriaLabel = `${ariaTitle}, ${ariaDuration}`;
         (footer as DDSCardCTAFooter).ctaType = ctaType;
         (footer as DDSCardCTAFooter).videoDuration = videoDuration;
         (footer as DDSCardCTAFooter).videoName = videoName;

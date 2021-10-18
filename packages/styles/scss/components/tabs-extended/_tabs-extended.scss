@@ -103,6 +103,7 @@
     .#{$prefix}--tab-content {
       @include carbon--type-style('body-long-02', true);
 
+      padding: 0;
       display: none;
 
       @include carbon--breakpoint(lg) {
@@ -148,16 +149,10 @@
       }
 
       .#{$prefix}--tab-content {
-        padding: $spacing-03;
-
         @include carbon--breakpoint(lg) {
           @include carbon--make-col(12, 16);
           @include carbon--make-col-offset(1, 16);
         }
-      }
-
-      .#{$prefix}--accordion__content {
-        padding-right: 0;
       }
     }
 
@@ -181,6 +176,15 @@
     .#{$prefix}--accordion__content {
       p {
         @include carbon--type-style('body-long-02', true);
+      }
+    }
+  }
+
+  @media print {
+    :host(#{$dds-prefix}-tabs-extended),
+    :host(#{$dds-prefix}-tabs-extended-media) {
+      .#{$prefix}--accordion__content {
+        display: block;
       }
     }
   }

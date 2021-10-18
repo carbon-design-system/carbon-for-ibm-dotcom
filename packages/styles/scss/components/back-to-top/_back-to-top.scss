@@ -38,6 +38,12 @@
       }
     }
   }
+
+  @media print {
+    :host(#{$dds-prefix}-back-to-top) {
+      display: none;
+    }
+  }
 }
 
 @include exports('back-to-top') {
