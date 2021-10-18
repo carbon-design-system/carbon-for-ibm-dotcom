@@ -44,7 +44,6 @@
 
     @include carbon--breakpoint('max') {
       padding-top: $carbon--spacing-08;
-      padding-left: $carbon--spacing-03;
     }
 
     .#{$prefix}--content-item__copy p,
@@ -110,8 +109,16 @@
     width: 75%;
 
     @include carbon--breakpoint('md') {
-      width: 50%;
+      width: calc(50% - #{$carbon--spacing-05});
       right: $carbon--spacing-05;
+    }
+
+    @include carbon--breakpoint('lg') {
+      width: calc(50% - #{$spacing-03});
+    }
+
+    @include carbon--breakpoint('max') {
+      width: calc(50% - #{$spacing-04});
     }
 
     .#{$prefix}--card {
