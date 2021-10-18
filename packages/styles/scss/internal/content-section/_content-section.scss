@@ -16,17 +16,19 @@
 @mixin content-section {
   :host(#{$dds-prefix}-link-list-section),
   .#{$prefix}--content-section {
-    padding-top: $spacing-09;
+    padding-top: $spacing-07;
     padding-bottom: $carbon--layout-05;
   }
 
-  .#{$prefix}--content-section__children__content-block {
-    @include carbon--breakpoint('lg') {
-      padding-top: $spacing-10;
+  .#{$prefix}--content-section__with-children {
+    ::slotted([slot='heading']),
+    .#{$prefix}--content-section__heading {
+      @include carbon--breakpoint(lg) {
+        padding-top: $spacing-03;
+      }
     }
   }
-
-  :host(#{$dds-prefix}-content-section) ::slotted([slot]),
+  :host(#{$dds-prefix}-content-section) ::slotted(:not([slot])),
   .#{$prefix}--content-section .#{$prefix}--content-group,
   .#{$prefix}--content-section .#{$prefix}--content-item,
   .#{$prefix}--content-section .#{$prefix}--content-block {
@@ -48,21 +50,16 @@
   .#{$prefix}--content-section__leading {
     grid-area: leading;
     padding: 0 $spacing-05 0 $spacing-05;
+    margin-bottom: $spacing_09;
+
+    @include carbon--breakpoint(lg) {
+      margin-bottom: 0;
+    }
   }
 
   .#{$prefix}--content-section__body {
     grid-area: body;
     display: block;
-    margin-top: $spacing-06;
-
-    @include carbon--breakpoint(lg) {
-      margin-top: 0;
-    }
-  }
-
-  :host(#{$dds-prefix}-content-section) ::slotted(:not([slot])) {
-    padding-top: 0;
-    margin-top: 0;
   }
 
   .#{$prefix}--content-section__grid,
@@ -80,14 +77,19 @@
   }
 
   .#{$prefix}--content-section__left {
+    margin-bottom: $spacing-09;
+
     @include carbon--breakpoint(lg) {
       @include carbon--make-col(4, 16);
+
+      margin-bottom: 0;
     }
   }
 
   :host(#{$dds-prefix}-content-section-heading),
   .#{$prefix}--content-section__heading {
     margin-top: 0;
+    padding-right: 2rem;
 
     @include type-style('expressive-heading-02');
   }
@@ -98,20 +100,18 @@
 
     color: $text-02;
     margin-bottom: $spacing-06;
+    padding-right: 2rem;
+  }
+
+  :host(#{$dds-prefix}-content-section) ::slotted([slot='footer']),
+  .#{$prefix}--content-section__cta {
+    padding-right: 2rem;
   }
 
   .#{$prefix}--content-section__children {
-    margin-top: $spacing-06;
-
     @include carbon--breakpoint(lg) {
       @include carbon--make-col(12, 16);
-
-      margin-top: 0;
     }
-  }
-
-  ::slotted(#{$dds-prefix}-content-item) {
-    padding-left: 1rem;
   }
 
   .#{$prefix}--content-section--g10 {

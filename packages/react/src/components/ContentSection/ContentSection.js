@@ -28,18 +28,11 @@ const ContentSection = ({
   customClassName,
   ...otherProps
 }) => {
-  const firstChild = children
-    ? children[0]
-      ? children[0].type.displayName
-      : ''
-    : '';
   return (
     <section
       className={classNames(`${prefix}--content-section`, customClassName, {
         [`${prefix}--content-section--${theme}`]: theme,
-        [`${prefix}--content-section__children__content-block`]: firstChild.includes(
-          'ContentBlock'
-        ),
+        [`${prefix}--content-section__with-children`]: children.length > 0,
       })}
       data-autoid={
         otherProps.autoid

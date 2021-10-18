@@ -60,6 +60,44 @@ export default {
 export const Default = ({ parameters }) => {
   const { heading, copy, addChildren } =
     parameters?.props?.ContentSection ?? {};
+  const children = [];
+  addChildren
+    ? addChildren.forEach(child => {
+        child === 'Content block simple'
+          ? children.push(
+              <ContentBlockSimple
+                copy={blockCopy}
+                heading="What’s the latest news in artificial intelligence?"
+                cta={{
+                  cta: {
+                    href: 'https://www.ibm.com',
+                  },
+                  style: 'text',
+                  type: 'jump',
+                  copy: 'Jump to AI ethics and trust',
+                }}
+                mediaType="video"
+                mediaData={video}
+              />
+            )
+          : '';
+        child === 'Content group cards'
+          ? children.push(
+              <div className="bx--grid" style={{ padding: '0 1rem' }}>
+                <div className="bx--row">
+                  <div className="bx--col-lg-10 bx--col-sm-4 bx--no-gutter">
+                    <ContentGroupCards
+                      heading={ContentGroupCardsKnobs.heading}
+                      copy={ContentGroupCardsKnobs.copy}
+                      items={ContentGroupCardsKnobs.items}
+                    />
+                  </div>
+                </div>
+              </div>
+            )
+          : '';
+      })
+    : '';
   return (
     <ContentSection
       heading={heading}
@@ -69,41 +107,7 @@ export const Default = ({ parameters }) => {
         type: 'local',
         copy: 'Link action',
       }}
-      children={[
-        addChildren.includes('Content block simple') ? (
-          <ContentBlockSimple
-            copy={blockCopy}
-            heading="What’s the latest news in artificial intelligence?"
-            cta={{
-              cta: {
-                href: 'https://www.ibm.com',
-              },
-              style: 'text',
-              type: 'jump',
-              copy: 'Jump to AI ethics and trust',
-            }}
-            mediaType="video"
-            mediaData={video}
-          />
-        ) : (
-          ''
-        ),
-        addChildren.includes('Content group cards') ? (
-          <div className="bx--grid">
-            <div className="bx--row">
-              <div className="bx--col-lg-10 bx--col-sm-4 bx--no-gutter">
-                <ContentGroupCards
-                  heading={ContentGroupCardsKnobs.heading}
-                  copy={ContentGroupCardsKnobs.copy}
-                  items={ContentGroupCardsKnobs.items}
-                />
-              </div>
-            </div>
-          </div>
-        ) : (
-          ''
-        ),
-      ]}
+      children={children}
     />
   );
 };

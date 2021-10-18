@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, LitElement } from 'lit-element';
+import { customElement, html, internalProperty, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -25,6 +25,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-content-section`)
 class DDSContentSection extends StableSelectorMixin(LitElement) {
   /**
+   * `true` if there is child content.
+   */
+  @internalProperty()
+  protected _hasChildren = false;
+
+  /**
    * Applies section attribute
    */
   connectedCallback() {
@@ -40,17 +46,18 @@ class DDSContentSection extends StableSelectorMixin(LitElement) {
    * @param event The event.
    */
   protected _handleSlotChange({ target }: Event) {
-    this.shadowRoot
-      ?.querySelector(`.${prefix}--content-section`)
-      ?.classList.toggle(
-        `${prefix}--content-section__children__content-block`,
-        (target as HTMLSlotElement).assignedElements()[0]?.localName.includes(`${ddsPrefix}-content-block`)
-      );
+    this._hasChildren = (target as HTMLSlotElement)
+      .assignedNodes()
+      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
   }
 
   render() {
     return html`
-      <div class="${prefix}--content-section ${prefix}--content-section-layout">
+      <div
+        class="${prefix}--content-section ${prefix}--content-section-layout ${this._hasChildren
+          ? `${prefix}--content-section__with-children`
+          : ''}"
+      >
         <div class="${prefix}--content-section__leading">
           <slot name="heading"></slot>
           <slot name="copy"></slot>

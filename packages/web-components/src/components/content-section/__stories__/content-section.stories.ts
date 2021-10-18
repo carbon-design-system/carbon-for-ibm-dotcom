@@ -69,13 +69,11 @@ export const Default = ({ parameters }) => {
         : ``}
       ${addChildren.includes('Content group cards')
         ? html`
-            <div class="bx--col-lg-10 bx--col-sm-4 bx--no-gutter">
-              <dds-content-group-cards>
-                <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
-                <dds-content-group-copy>Lorem ipsum dolor sit amet.</dds-content-group-copy>
-                ${card1}${card2}${card1}${card2}
-              </dds-content-group-cards>
-            </div>
+            <dds-content-group-cards class="bx--col-lg-12 bx--col-sm-4 bx--no-gutter">
+              <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
+              <dds-content-group-copy>Lorem ipsum dolor sit amet.</dds-content-group-copy>
+              ${card1}${card2}${card1}${card2}
+            </dds-content-group-cards>
           `
         : ``}
       <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com">Link action</dds-text-cta>
