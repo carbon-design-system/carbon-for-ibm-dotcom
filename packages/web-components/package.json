@@ -1,6 +1,6 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "1.11.0-rc.2",
+  "version": "1.11.0",
   "description": "Carbon for IBM.com Web Components",
   "license": "Apache-2.0",
   "exports": {
@@ -74,6 +74,8 @@
     "test:e2e:test": "start-server-and-test 'yarn test:e2e:run' 8080 'percy exec --config tests/e2e/.percy.json -- cypress run --config video=false --config-file tests/e2e/cypress.json'",
     "test:e2e:test:no-percy": "start-server-and-test 'yarn test:e2e:run' 8080 'cypress run --config video=false --config-file tests/e2e/cypress.json'",
     "test:e2e:test:no-percy:with-video": "start-server-and-test 'yarn test:e2e:run' 8080 'cypress run --config-file tests/e2e/cypress.json'",
+    "test:e2e-storybook:browserstack:canary": "browserstack-cypress run --cf tests/e2e-storybook/browserstack.json --ccf tests/e2e-storybook/cypress-canary.json --sync",
+    "test:e2e-storybook:browserstack:staging": "browserstack-cypress run --cf tests/e2e-storybook/browserstack.json --ccf tests/e2e-storybook/cypress-staging.json --sync",
     "test:e2e-storybook:run": "http-server -c-1 storybook-static --silent -p 8081",
     "test:e2e-storybook:test": "start-server-and-test 'yarn test:e2e-storybook:run' 8081 'percy exec --config tests/e2e-storybook/.percy.json -- cypress run --config video=false --config-file tests/e2e-storybook/cypress.json'",
     "test:e2e-storybook:test:no-percy": "start-server-and-test 'yarn test:e2e-storybook:run' 8081 'cypress run --config video=false --config-file tests/e2e-storybook/cypress.json'",
@@ -87,9 +89,9 @@
     "prettier": "^1.19.0"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "1.26.0-rc.2",
-    "@carbon/ibmdotcom-styles": "1.26.0-rc.2",
-    "@carbon/ibmdotcom-utilities": "1.26.0-rc.2",
+    "@carbon/ibmdotcom-services": "1.26.0",
+    "@carbon/ibmdotcom-styles": "1.26.0",
+    "@carbon/ibmdotcom-utilities": "1.26.0",
     "@carbon/layout": "10.23.0",
     "@carbon/telemetry": "0.0.0-alpha.6",
     "carbon-components": "10.45.0",
@@ -124,7 +126,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/template": "^7.8.0",
     "@babel/traverse": "^7.8.0",
-    "@carbon/ibmdotcom-services-store": "1.26.0-rc.2",
+    "@carbon/ibmdotcom-services-store": "1.26.0",
     "@carbon/icon-helpers": "10.24.0",
     "@carbon/icons": "10.40.0",
     "@carbon/type": "10.37.0",
@@ -158,6 +160,7 @@
     "babel-loader": "^8.0.0",
     "babel-plugin-istanbul": "^4.1.0",
     "babel-plugin-template-html-minifier": "^4.1.0",
+    "browserstack-cypress-cli": "^1.10.1",
     "cache-loader": "^4.1.0",
     "chalk": "^4.1.1",
     "child-process-promise": "^2.2.0",

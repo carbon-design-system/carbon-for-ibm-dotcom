@@ -79,13 +79,6 @@ $hover-transition-timing: 95ms;
   .#{$prefix}--tableofcontents {
     text-size-adjust: 100%;
 
-    .#{$prefix}--hr {
-      margin-top: $layout-02;
-      margin-bottom: 0;
-
-      @include hang;
-    }
-
     @include themed-items;
   }
 
