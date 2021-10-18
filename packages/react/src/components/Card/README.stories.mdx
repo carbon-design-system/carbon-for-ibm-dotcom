@@ -64,12 +64,23 @@ to ensure the card is no longer clickable. To use it, be sure to pass in the `st
 
 ```javascript
 
+tags = [
+  {
+    copy: 'Most popular',
+  },
+  {
+    copy: 'Enterprise',
+    color: 'purple'
+  },
+]
+
 function App() {
   return (
     <Card 
       heading="Lorem ipsum dolor sit amet" 
       copy="Copy text"
       href="https://example.com"
+      tags={tags}
       static={true}
     />);
 }

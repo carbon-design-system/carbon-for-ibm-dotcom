@@ -133,10 +133,11 @@
     /* stylelint-disable-next-line selector-type-no-unknown */
     dds-tag-group {
       margin-top: $spacing-05;
+      margin-bottom: $spacing-05;
     }
   }
 
-  .#{$prefix}--card.#{$prefix}--card--light {
+  .#{$prefix}--card--light {
     background-color: $ui-02;
   }
 
@@ -144,20 +145,14 @@
     outline: none;
 
     .#{$prefix}--card__footer {
-      align-self: flex-start;
       &:hover {
         text-decoration: underline;
-
-        svg,
-        .#{$prefix}--card__cta__copy {
-          color: $hover-primary-text;
-        }
       }
 
       &:active,
       &:focus {
         align-self: flex-start;
-        outline: 1px solid $focus;
+        outline: auto;
       }
       &::after {
         position: relative;

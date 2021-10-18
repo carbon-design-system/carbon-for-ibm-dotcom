@@ -8,12 +8,14 @@ import React, { useCallback, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import CTALogic from '../CTA/CTALogic';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
 import { Image } from '../Image';
 import Link from '../../internal/vendor/carbon-components-react/components/Link/Link';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml';
 import on from 'carbon-components/es/globals/js/misc/on';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
+import { Tag } from 'carbon-components-react';
 import { Tile } from '../../internal/vendor/carbon-components-react/components/Tile/Tile';
 
 const { stablePrefix } = ddsSettings;
@@ -30,6 +32,7 @@ export const Card = ({
   image,
   eyebrow,
   heading,
+  tags,
   customClassName,
   copy,
   cta,
@@ -83,6 +86,7 @@ export const Card = ({
         <div className={`${prefix}--card__content`}>
           {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
           {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
+          {optionalTagGroup(tags)}
           {optionalContent(copy)}
           {renderFooter(cta, copy, props.disabled, heading, pictogram)}
         </div>
@@ -90,6 +94,27 @@ export const Card = ({
     </Tile>
   );
 };
+
+/**
+ * Card Link optional content
+ *
+ * @param {object} tags object containing copy and color
+ * @returns {object} JSX object
+ */
+function optionalTagGroup(tags) {
+  return !tags ? null : (
+    <DDSTagGroup>
+      {tags &&
+        tags.map(tag => {
+          return (
+            <Tag type={tag.color} {...tag}>
+              {tag.copy}
+            </Tag>
+          );
+        })}
+    </DDSTagGroup>
+  );
+}
 
 /**
  * Card Link optional content
@@ -208,6 +233,25 @@ export const cardPropTypes = {
     alt: PropTypes.string.isRequired,
     longDescription: PropTypes.string,
   }),
+
+  /**
+   * Array of tag objects to render.
+   * Use the following for each items:
+   *
+   * | Name         | Data Type | Description                                                                                                                               |
+   * | ------------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+   * | `copy`       | String    | Button copy                                                                                                                               |
+   * | `color`      | String    | Provide a different color than the default (green) for [Carbon's tag component](https://www.carbondesignsystem.com/components/tag/usage/) |
+   *
+   * Visit the [Tag documentation](https://react.carbondesignsystem.com/?path=/story/components-tag--default)
+   * from Carbon for a full list of available props.
+   */
+  tags: PropTypes.arrayOf(
+    PropTypes.shape({
+      copy: PropTypes.string,
+      color: PropTypes.string,
+    })
+  ),
 
   /**
    * `true` to set a 1px solid border around Card.
