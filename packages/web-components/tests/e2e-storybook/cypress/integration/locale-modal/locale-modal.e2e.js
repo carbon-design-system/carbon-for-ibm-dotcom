@@ -13,6 +13,7 @@
  */
 const _path = '/iframe.html?id=components-locale-modal--default';
 
+/* eslint-disable cypress/no-unnecessary-waiting */
 describe('dds-locale-modal | default', () => {
   beforeEach(() => {
     cy.visit(`/${_path}`);
@@ -38,6 +39,9 @@ describe('dds-locale-modal | default', () => {
       .shadow()
       .find('a')
       .click();
+
+    // Added to see if this will address issues with the input being disabled
+    cy.wait(500);
 
     cy.get('dds-locale-search')
       .shadow()
