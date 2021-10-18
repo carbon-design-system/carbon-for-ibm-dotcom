@@ -144,7 +144,7 @@
     padding-top: $spacing-03;
     margin-left: 0;
     @include carbon--breakpoint-down('md') {
-      padding-top: $spacing-08;
+      padding-top: $spacing-09;
     }
     @include carbon--breakpoint('md') {
       column-count: 2;
@@ -183,8 +183,12 @@
   :host(#{$dds-prefix}-legal-nav-cookie-preferences-placeholder),
   .#{$prefix}--legal-nav__list-item {
     margin-right: carbon--mini-units(4);
-    padding: $spacing-03 0 0 0;
+    padding: $spacing-05 0 0 0;
     @include carbon--type-style('body-long-01');
+
+    &:first-child {
+      padding-top: 0;
+    }
 
     &:last-child {
       margin-right: 0;
