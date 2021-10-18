@@ -90,7 +90,7 @@
 :host(#{$dds-prefix}-footer-nav),
 :host(#{$dds-prefix}-legal-nav) {
   &:not([size='micro']) {
-    margin-top: $carbon--spacing-07;
+    margin-top: $carbon--spacing-09;
   }
 }
 
