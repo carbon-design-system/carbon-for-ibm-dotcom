@@ -25,7 +25,7 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--content-section bx--content-section-layout">
+<div class="bx--content-section bx--content-section-layout bx--content-section__with-children">
   <div class="bx--content-section__leading">
     <slot name="heading">
     </slot>
