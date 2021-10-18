@@ -8,6 +8,7 @@
  */
 
 import { html, property, customElement } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
@@ -30,6 +31,7 @@ import styles from './cta.scss';
 
 export { CTA_TYPE };
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -56,7 +58,11 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
       hasImage || ctaType !== CTA_TYPE.VIDEO || noPoster
         ? undefined
         : html`
-            <dds-card-cta-image alt="${ifNonNull(videoName)}" default-src="${ifNonNull(videoThumbnailUrl)}">
+            <dds-card-cta-image
+              class="${prefix}--card__video-thumbnail"
+              alt="${ifNonNull(videoName)}"
+              default-src="${ifNonNull(videoThumbnailUrl)}"
+            >
               ${PlayVideo({ slot: 'icon' })}
             </dds-card-cta-image>
           `;
