@@ -44,6 +44,10 @@
       @include carbon--breakpoint('md') {
         @include carbon--make-col(6, 8);
       }
+
+      @include carbon--breakpoint('max') {
+        padding-right: $carbon--spacing-11;
+      }
     }
 
     .#{$prefix}--pictogram-item__pictogram,
