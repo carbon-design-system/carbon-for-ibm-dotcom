@@ -59,7 +59,13 @@
 
   .#{$prefix}--content-section__body {
     grid-area: body;
-    display: block;
+
+    @include carbon--breakpoint-down(md) {
+      // TODO: `display:block` or `display:flex` here causes broken carousel if `<dds-carousel>` is slotted in as the child,
+      // especially if the carousel containts large number of cards.
+      // May need to investigate.
+      display: contents;
+    }
   }
 
   .#{$prefix}--content-section__grid,
