@@ -69,6 +69,7 @@ export const Default = ({ parameters }) => {
         type: 'local',
         copy: 'Link action',
       }}
+      childrenCustomClassName={'bx--col-lg-8'}
       children={
         addChildren.length > 0
           ? [
@@ -89,17 +90,11 @@ export const Default = ({ parameters }) => {
                 />
               ),
               addChildren.includes('Content group cards') && (
-                <div className="bx--grid" style={{ padding: '0 1rem' }}>
-                  <div className="bx--row">
-                    <div className="bx--col-lg-10 bx--col-sm-4 bx--no-gutter">
-                      <ContentGroupCards
-                        heading={ContentGroupCardsKnobs.heading}
-                        copy={ContentGroupCardsKnobs.copy}
-                        items={ContentGroupCardsKnobs.items}
-                      />
-                    </div>
-                  </div>
-                </div>
+                <ContentGroupCards
+                  heading={ContentGroupCardsKnobs.heading}
+                  copy={ContentGroupCardsKnobs.copy}
+                  items={ContentGroupCardsKnobs.items}
+                />
               ),
             ]
           : ''

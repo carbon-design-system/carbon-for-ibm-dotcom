@@ -26,6 +26,7 @@ const ContentSection = ({
   children,
   cta,
   customClassName,
+  childrenCustomClassName,
   ...otherProps
 }) => {
   return (
@@ -65,7 +66,8 @@ const ContentSection = ({
               />
             )}
           </div>
-          <div className={`${prefix}--content-section__children`}>
+          <div
+            className={`${prefix}--content-section__children ${childrenCustomClassName}`}>
             {children}
           </div>
         </div>
@@ -118,6 +120,11 @@ ContentSection.propTypes = {
    * Optional class to be applied to the containing node.
    */
   customClassName: PropTypes.string,
+
+  /**
+   * Optional class to be applied to the child node.
+   */
+  childrenCustomClassName: PropTypes.string,
 };
 
 export default ContentSection;

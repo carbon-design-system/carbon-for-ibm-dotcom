@@ -37,18 +37,12 @@
   }
 
   .#{$prefix}--content-section-layout {
-    display: grid;
-    grid-template:
-      'leading' auto
-      'body' auto / 1fr;
-
     @include carbon--breakpoint('lg') {
-      grid-template: 'leading body' auto / 1fr 3fr;
+      display: flex;
     }
   }
 
   .#{$prefix}--content-section__leading {
-    grid-area: leading;
     padding: 0 $spacing-05 0 $spacing-05;
     margin-bottom: $spacing_09;
 
@@ -58,8 +52,6 @@
   }
 
   .#{$prefix}--content-section__body {
-    grid-area: body;
-
     @include carbon--breakpoint-down(md) {
       // TODO: `display:block` or `display:flex` here causes broken carousel if `<dds-carousel>` is slotted in as the child,
       // especially if the carousel containts large number of cards.

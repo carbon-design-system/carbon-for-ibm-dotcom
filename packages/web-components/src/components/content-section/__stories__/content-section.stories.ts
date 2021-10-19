@@ -54,7 +54,7 @@ const card2 = html`
 export const Default = ({ parameters }) => {
   const { heading, copy, addChildren } = parameters?.props?.ContentSection ?? {};
   return html`
-    <dds-content-section>
+    <dds-content-section children-custom-class="bx--col-lg-8 bx--no-gutter">
       <dds-content-section-heading>${ifNonNull(heading)}</dds-content-section-heading>
       <dds-content-section-copy>${ifNonNull(copy)}</dds-content-section-copy>
       ${addChildren.includes('Content block simple')
@@ -69,7 +69,7 @@ export const Default = ({ parameters }) => {
         : ``}
       ${addChildren.includes('Content group cards')
         ? html`
-            <dds-content-group-cards class="bx--col-lg-12 bx--col-sm-4 bx--no-gutter">
+            <dds-content-group-cards>
               <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
               <dds-content-group-copy>Lorem ipsum dolor sit amet.</dds-content-group-copy>
               ${card1}${card2}${card1}${card2}
