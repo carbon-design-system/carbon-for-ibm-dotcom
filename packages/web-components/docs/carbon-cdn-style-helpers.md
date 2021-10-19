@@ -30,8 +30,8 @@ artifacts, these can be included as part of your project.
 
 ## Plex fonts and Carbon reset
 
-The following includes Carbon reset, as well as imports Plex fonts necessary for
-the page. Note, this will import `IBM Plex Sans`, `IBM Plex Serif`, and `IBM Plex Mono`.
+The following includes Carbon reset, as well as imports Plex fonts necessary for 
+the page. Note, this will import `IBM Plex Sans` and `IBM Plex Mono`.
 
 ```html
 // SPECIFIC VERSION

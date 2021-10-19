@@ -276,8 +276,9 @@ class HeaderMenu extends React.Component {
           href="#"
           onClick={this.handleOnClick}
           onKeyDown={this.handleOnKeyDown}
+          ref={this.handleMenuButtonRef}
           role="menuitem"
-          data-selected={`${!!selected}`}
+          data-selected={selected ? 'true' : 'false'}
           tabIndex={0}
           ref={this.menuLinkRef}
           {...accessibilityLabel}>
@@ -303,7 +304,7 @@ class HeaderMenu extends React.Component {
    */
   _renderMenuItem = (item, index) => {
     return React.cloneElement(item, {
-      ref: this.handleItemRef(index),
+      refs: this.handleItemRef(index),
       role: 'none',
     });
   };

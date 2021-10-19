@@ -81,7 +81,6 @@ const MastheadLeftNav = ({
           <SideNavMenu
             autoid={autoid}
             dataTitle={dataTitle}
-            key={link.title}
             title={link.title}
             selected={selected}
             onToggle={() => setMenuState({ ...menuState, level0: i })}
@@ -93,9 +92,7 @@ const MastheadLeftNav = ({
           <SideNavMenuItem
             href={link.url}
             className={
-              (selected &&
-                `${prefix}--masthead__side-nav--submemu--selected`) ||
-              null
+              selected && `${prefix}--masthead__side-nav--submemu--selected`
             }
             data-autoid={autoid}
             key={link.title}
@@ -151,10 +148,7 @@ const MastheadLeftNav = ({
             data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-productname`}
             href={platform.url}
             aria-haspopup="true"
-            className={cx(
-              `${prefix}--side-nav__submenu`,
-              `${prefix}--side-nav__submenu-platform`
-            )}>
+            className={`${prefix}--side-nav__submenu ${prefix}--side-nav__submenu-platform`}>
             {platform.name}
           </a>
         )}
@@ -209,38 +203,35 @@ function _renderLevel1Submenus(
         })}
         id={`panel__(${menu.parentKey},-1)`}
         heading={menu.sections[0]?.heading}
-        key={menu.title}
         title={menu.title}
         navType={navType}
         backButtonText={backButtonText}
         onBackClick={() => setMenuState({ level0: -1, level1: -1 })}
         show={menuState.level0 === menu.parentKey && menuState.level1 === -1}>
-        {sortedMenu.map((item, index) => {
+        {sortedMenu.map((item, k) => {
           submenus.push({
             title: item.title,
             titleUrl: item.url,
-            autoid: `${menu.autoid}-list${index}`,
+            autoid: `${menu.autoid}-list${k}`,
             sections: item.megapanelContent?.quickLinks?.links,
             parentKey: menu.parentKey,
-            index,
+            index: k,
           });
 
           const highlightedClass =
-            (highlightedCount !== 0 &&
-              index + 1 === highlightedCount &&
-              `${prefix}--masthead__side-nav__last-highlighted`) ||
-            null;
+            highlightedCount !== 0 &&
+            k + 1 === highlightedCount &&
+            `${prefix}--masthead__side-nav__last-highlighted`;
 
           if (item.megapanelContent) {
             return (
               <SideNavMenu
-                autoid={`${menu.autoid}-list${index}`}
+                autoid={`${menu.autoid}-list${k}`}
                 title={item.title}
-                key={item.title}
                 className={highlightedClass}
-                onToggle={() => setMenuState({ ...menuState, level1: index })}
+                onToggle={() => setMenuState({ ...menuState, level1: k })}
                 isSideNavExpanded={
-                  i === menuState.level0 && menuState.level1 == index
+                  i === menuState.level0 && menuState.level1 == k
                 }
               />
             );
@@ -250,7 +241,7 @@ function _renderLevel1Submenus(
             <SideNavMenuItem
               href={item.url}
               className={highlightedClass}
-              data-autoid={`${menu.autoid}-list${index}`}
+              data-autoid={`${menu.autoid}-list${k}`}
               key={item.title}
               role="menuitem">
               {item.title}
@@ -287,7 +278,6 @@ function _renderLevel2Submenus(
         isSubmenu
         className={`${prefix}--side-nav__menu-section-submenu`}
         id={`panel__(${menu.parentKey},${menu.index})`}
-        key={menu.title}
         title={menu.title}
         titleUrl={menu.titleUrl}
         navType={navType}

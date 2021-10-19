@@ -3,27 +3,37 @@
     {
       "browser": "chrome",
       "os": "Windows 10",
-      "versions": ["latest"]
+      "versions": [
+        "latest"
+      ]
     },
     {
       "browser": "firefox",
       "os": "Windows 10",
-      "versions": ["latest"]
+      "versions": [
+        "latest"
+      ]
     },
     {
       "browser": "edge",
       "os": "Windows 10",
-      "versions": ["latest"]
+      "versions": [
+        "latest"
+      ]
     },
     {
       "browser": "chrome",
-      "os": "OS X Big Sur",
-      "versions": ["latest"]
+      "os": "OS X Catalina",
+      "versions": [
+        "latest"
+      ]
     },
     {
       "browser": "firefox",
-      "os": "OS X Big Sur",
-      "versions": ["latest"]
+      "os": "OS X Catalina",
+      "versions": [
+        "latest"
+      ]
     }
   ],
   "run_settings": {

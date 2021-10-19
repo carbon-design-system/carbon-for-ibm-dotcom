@@ -44,17 +44,17 @@ const MastheadL1 = ({ navigationL1, ...rest }) => {
           {renderNav(link, rest.navType, autoid)}
         </HeaderMenu>
       );
+    } else {
+      return (
+        <HeaderMenuItem
+          data-selected={selected ? 'true' : 'false'}
+          href={link.url}
+          data-autoid={autoid}
+          key={index}>
+          {link.title}
+        </HeaderMenuItem>
+      );
     }
-
-    return (
-      <HeaderMenuItem
-        data-selected={`${!!selected}`}
-        href={link.url}
-        data-autoid={autoid}
-        key={index}>
-        {link.title}
-      </HeaderMenuItem>
-    );
   });
 
   return (

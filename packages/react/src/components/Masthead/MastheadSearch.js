@@ -588,7 +588,7 @@ const MastheadSearch = ({
           }
           className={`${prefix}--header__search--search`}
           data-autoid={`${stablePrefix}--masthead-${navType}__l0-search`}
-          tabIndex={0}>
+          tabIndex="0">
           <Search20 />
         </HeaderGlobalAction>
         <HeaderGlobalAction

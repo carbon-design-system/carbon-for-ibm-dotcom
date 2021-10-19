@@ -18,8 +18,7 @@ const { prefix } = settings;
 /**
  * Masthead megamenu component.
  */
-const MegaMenu = React.forwardRef(function MegaMenu(props, ref) {
-  const { data, ...rest } = props;
+const MegaMenu = ({ data, ...rest }) => {
   let highlightedItems = [];
   let viewAllLink;
   let menuItems = [];
@@ -35,7 +34,7 @@ const MegaMenu = React.forwardRef(function MegaMenu(props, ref) {
   const heading = data.menuSections[0]?.heading;
 
   return (
-    <NavigationGroup ref={ref}>
+    <NavigationGroup>
       {hasHighlights && (
         <LeftNavigation>
           {heading && (
@@ -95,7 +94,7 @@ const MegaMenu = React.forwardRef(function MegaMenu(props, ref) {
       </RightNavigation>
     </NavigationGroup>
   );
-});
+};
 
 MegaMenu.propTypes = {
   /**

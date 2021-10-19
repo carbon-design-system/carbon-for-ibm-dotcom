@@ -18,6 +18,7 @@ import '../index';
 import '../../link-list/index';
 
 import content from '../../cta-section/__stories__/content';
+import style from './cta-block-stories.scss';
 
 const iconMap = {
   ArrowRight20: ArrowRight20({ slot: 'icon' }),
@@ -192,7 +193,10 @@ export default {
   title: 'Components/CTA block',
   decorators: [
     story => html`
-      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--cta-block">
+      <style>
+        ${style}
+      </style>
+      <div class="dds-ce-demo-devenv--simple-grid">
         ${story()}
       </div>
     `,
