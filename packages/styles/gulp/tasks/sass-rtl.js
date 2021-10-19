@@ -12,7 +12,7 @@ const gulp = require('gulp'),
   cleanCSS = require('gulp-clean-css'),
   rename = require('gulp-rename'),
   rtlcss = require('gulp-rtlcss'),
-  sass = require('gulp-sass'),
+  sass = require('gulp-sass')(require('node-sass')),
   path = require('path');
 
 /**

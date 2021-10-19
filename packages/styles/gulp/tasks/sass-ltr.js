@@ -11,7 +11,7 @@ const gulp = require('gulp'),
   prefix = require('gulp-autoprefixer'),
   cleanCSS = require('gulp-clean-css'),
   rename = require('gulp-rename'),
-  sass = require('gulp-sass'),
+  sass = require('gulp-sass')(require('node-sass')),
   path = require('path');
 
 /**
