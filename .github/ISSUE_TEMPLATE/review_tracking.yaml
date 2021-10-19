@@ -13,11 +13,11 @@ body:
   - type: textarea
     id: pull-requests
     attributes:
-      label: Pull requests reviewed
+      label: Pull request(s) reviewed
       value: "- _{{pull request number/link}}_
 
 - _{{pull request number/link}}_
 
-- _{{pullrequest number/link}}_"
+- _{{pull request number/link}}_"
     validations:
       required: true
