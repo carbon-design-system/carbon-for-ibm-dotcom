@@ -225,7 +225,11 @@
   }
 
   :host(#{$dds-prefix}-content-item-horizontal)[thumbnail]
-    ::slotted([slot='heading']) {
+    .#{$prefix}--content-item__cta {
+    padding-top: $spacing-06;
+  }
+
+  ::slotted([slot='heading']) {
     margin-bottom: $carbon--spacing-07;
     max-width: 100%;
     @include carbon--breakpoint(lg) {
