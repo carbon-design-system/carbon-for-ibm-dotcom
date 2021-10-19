@@ -160,7 +160,7 @@
       color: $text-01;
     }
 
-    .#{$prefix}--card__copy {
+    .#{$prefix}--card__copy:not([hidden]) {
       @include carbon--type-style('body-short-02');
 
       margin-bottom: $carbon--spacing-07;
