@@ -68,6 +68,7 @@ $fcb-breakpoint-up--lg: map-get(
   // all feature cards
   :host(#{$dds-prefix}-feature-card),
   :host(#{$dds-prefix}-feature-cta),
+  .#{$prefix}--feature-card-large,
   .#{$prefix}--feature-card {
     position: relative;
 
