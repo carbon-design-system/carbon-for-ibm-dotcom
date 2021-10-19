@@ -12,7 +12,8 @@
 /* eslint-disable global-require */
 
 const path = require('path');
-const sass = require('node-sass');
+/* eslint-disable import/no-extraneous-dependencies */
+const sass = require('sass');
 const webpack = require('webpack');
 
 function normalizeBrowser(browser) {

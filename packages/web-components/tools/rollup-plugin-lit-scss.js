@@ -11,7 +11,8 @@
 
 const path = require('path');
 const { promisify } = require('util');
-const sass = require('node-sass');
+/* eslint-disable import/no-extraneous-dependencies */
+const sass = require('sass');
 const { createFilter } = require('rollup-pluginutils');
 
 const renderSass = promisify(sass.render);
