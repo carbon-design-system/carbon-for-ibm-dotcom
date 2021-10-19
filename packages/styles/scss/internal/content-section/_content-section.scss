@@ -95,7 +95,6 @@
   :host(#{$dds-prefix}-content-section-heading),
   .#{$prefix}--content-section__heading {
     margin-top: 0;
-    padding-right: 2rem;
 
     @include type-style('expressive-heading-02');
   }
@@ -106,12 +105,17 @@
 
     color: $text-02;
     margin-bottom: $spacing-06;
-    padding-right: 2rem;
   }
 
+  :host(#{$dds-prefix}-content-section-heading),
+  .#{$prefix}--content-section__heading,
+  :host(#{$dds-prefix}-content-section-copy),
+  .#{$prefix}--content-section__copy p,
   :host(#{$dds-prefix}-content-section) ::slotted([slot='footer']),
   .#{$prefix}--content-section__cta {
-    padding-right: 2rem;
+    @include carbon--breakpoint(md) {
+      padding-right: $spacing-07;
+    }
   }
 
   .#{$prefix}--content-section__children {
