@@ -1,0 +1,47 @@
+name: e2e-tests
+
+on: [push, pull_request]
+
+jobs:
+  storybook-react:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        node-version: ['14.x']
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: yarn install --offline
+      - name: Build project
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
+      - name: Build storybook
+        working-directory: packages/react
+        run: yarn build-storybook
+      - name: Run e2e tests
+        working-directory: packages/react
+        run: yarn test:e2e-storybook:test:no-percy
+  storybook-web-components:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        node-version: ['14.x']
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: yarn install --offline
+      - name: Build project
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
+      - name: Build storybook
+        working-directory: packages/web-components
+        run: yarn build-storybook
+      - name: Run e2e tests
+        working-directory: packages/react
+        run: yarn test:e2e-storybook:test:no-percy
