@@ -11,10 +11,14 @@
 // @import '~carbon-components/src/globals/scss/styles.scss'; // SEE THE NOTE ABOVE
 
 // Carbon fonts
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/font-face/mono';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/font-face/sans';
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@import '@carbon/type/scss/font-face/serif';
+@import '@carbon/type/scss/reset';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+@include carbon--font-face-serif();
+@include carbon--type-reset();
 
 @import '@carbon/layout/scss/breakpoint';
 
