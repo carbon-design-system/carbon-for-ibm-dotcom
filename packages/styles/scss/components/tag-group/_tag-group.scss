@@ -15,8 +15,6 @@
 
   ::slotted(#{$dds-prefix}-tag-link) {
     display: flex;
-    padding-right: $spacing-03;
-    padding-bottom: $spacing-03;
   }
 
   ::slotted(.#{$prefix}--tag),
