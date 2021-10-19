@@ -59,12 +59,9 @@
     min-height: 160px;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     @include carbon--breakpoint(md) {
       flex-direction: row;
-    }
-    @include carbon--breakpoint(sm) {
-      flex-direction: column;
     }
 
     :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
@@ -240,7 +237,7 @@
   :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    gap: $spacing-07;
     grid-auto-flow: dense;
 
     @include carbon--breakpoint(md) {
