@@ -67,7 +67,7 @@
       }
     }
 
-    @include carbon--breakpoint-between(42.02rem, 65.98rem) {
+    @include carbon--breakpoint-between('md', 'lg') {
       + .#{$prefix}--header__logo {
         a {
           padding: 0 $carbon--spacing-05;
@@ -331,9 +331,7 @@
   }
 
   .#{$prefix}--side-nav__menu {
-    &[role='menu'] {
-      transform: translateX(100%);
-    }
+    transform: translateX(100%);
   }
 
   .#{$prefix}--side-nav__menu--hasactivechildren {
@@ -424,10 +422,9 @@
     .#{$prefix}--side-nav__link:not([isbackbutton='true']),
   :host(#{$dds-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,
   :host(#{$dds-prefix}-left-nav-menu-item-highlighted)
-    a.#{$prefix}--side-nav__link[role='menuitem'],
+    a.#{$prefix}--side-nav__link,
   :host(#{$dds-prefix}-left-nav-item) a.#{$prefix}--side-nav__link,
-  :host(#{$dds-prefix}-left-nav-menu-item)
-    a.#{$prefix}--side-nav__link[role='menuitem'] {
+  :host(#{$dds-prefix}-left-nav-menu-item) a.#{$prefix}--side-nav__link {
     display: flex;
     padding-left: $carbon--spacing-05;
     height: auto;
@@ -452,7 +449,7 @@
     .#{$prefix}--masthead__side-nav--submemu-back
     .#{$prefix}--side-nav__link,
   :host(#{$dds-prefix}-left-nav-menu-item[last-highlighted])
-    .#{$prefix}--side-nav__link[role='menuitem'] {
+    .#{$prefix}--side-nav__link {
     border-bottom: none;
   }
 

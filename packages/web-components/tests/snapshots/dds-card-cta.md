@@ -42,6 +42,7 @@
   </slot>
   <dds-card-cta-image
     alt="video-name-foo"
+    class="bx--card__video-thumbnail"
     data-autoid="dds--image"
     default-src="https://example.com/video-thumbnail-foo"
   >
@@ -83,16 +84,17 @@
 
 ```
 <a
-  aria-label="video-name-foo - This link plays a video"
+  aria-label=""
   class="bx--card__footer bx--link bx--link--lg bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right dds-ce--card__footer"
-  href="#"
   id="link"
   part="link"
 >
-  <span class="bx--card__cta__copy">
+  <span
+    class="bx--card__cta__copy"
+    hidden=""
+  >
     <slot>
     </slot>
-    undefined-180000
   </span>
   <slot name="icon">
   </slot>

@@ -111,7 +111,7 @@ function convert({ table }) {
 
             if (tableForModule) {
               const names = specifiers.map(
-                specifier => specifier.imported.name
+                specifier => specifier.imported?.name
               );
               const unknownImportNames = names.filter(
                 name => !tableForModule[name]
