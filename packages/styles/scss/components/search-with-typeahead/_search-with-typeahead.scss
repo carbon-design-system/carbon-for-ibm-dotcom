@@ -236,7 +236,10 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
       outline: 2px solid transparent;
       transition: background-color $duration--fast-02
           motion(standard, productive),
-        outline $duration--fast-02 motion(standard, productive);
+        outline $duration--fast-02 motion(standard, productive),
+        top $duration--fast-02 motion(entrance, productive);
+
+      top: 0;
 
       @include carbon--breakpoint('md') {
         height: $spacing-10;
@@ -312,6 +315,53 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
         @include carbon--breakpoint('md') {
           height: $spacing-10;
         }
+      }
+
+      &[large] {
+        @include carbon--breakpoint('md') {
+          height: $spacing-09;
+        }
+
+        form {
+          width: 100%;
+          padding-left: $spacing-09;
+
+          @include carbon--breakpoint('md') {
+            height: $spacing-09;
+          }
+        }
+
+        .#{$prefix}--header__search--input {
+          @include carbon--breakpoint('md') {
+            height: $spacing-09;
+          }
+        }
+
+        .#{$prefix}--header__search--close {
+          @include carbon--breakpoint('md') {
+            height: $spacing-09;
+          }
+        }
+
+        .react-autosuggest__suggestions-container {
+          top: carbon--rem(50px);
+
+          @include carbon--breakpoint('md') {
+            top: carbon--rem(50px);
+          }
+        }
+      }
+    }
+
+    &[sticky-search] {
+      top: carbon--rem(80px);
+    }
+
+    &[theme-sticky] {
+      top: $spacing-09;
+
+      @include carbon--breakpoint-down('md') {
+        top: $spacing-05;
       }
     }
   }

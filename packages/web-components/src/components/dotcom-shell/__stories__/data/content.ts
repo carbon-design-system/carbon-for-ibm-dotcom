@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /**
  * Copyright IBM Corp. 2016, 2021
  *
@@ -298,4 +299,142 @@ const StoryContent = (
   `;
 };
 
-export default StoryContent;
+const StoryContentNoToC = () =>
+  html`
+    <main class="bx--content dds-ce-demo-devenv--ui-shell-content">
+      <div class="bx--grid bx--col-lg-10">
+        <dds-leadspace-with-search adjacent-theme='white-and-g10' scroll-behavior>
+          <dds-leadspace-block-heading slot='heading'>Find a product</dds-leadspace-block-heading>
+          <dds-leadspace-block-content slot='content'>
+            <dds-leadspace-search-block-heading>Innovate like a startup, scale for the enterprise</dds-leadspace-search-block-heading>
+            <dds-leadspace-search-block-copy
+              >Automate your software release process with continuous
+              delivery (CD)—the most critical part of adopting DevOps.
+              Build, test, and deploy code changes quickly, ensuring
+              software is always ready for deployment.
+            </dds-leadspace-search-block-copy>
+          </dds-leadspace-block-content>
+          <dds-search-with-typeahead slot='search' leadspace-search active should-remain-open></dds-search-with-typeahead>
+        </dds-leadspace-with-search>
+
+        <dds-content-block-segmented>
+          <dds-content-block-heading>Pharetra pharetra massa massa ultricies mi quis.</dds-content-block-heading>
+          ${Array.from([1, 2]).map(() => contentBlockSegmentedItems)}
+        </dds-content-block-segmented>
+
+        <dds-feature-card size='large' href="https://example.com">
+          <dds-image slot="image" alt="Image alt text"
+                      default-src="${imgLg1x1}"
+          >
+            </dds-image-item>
+            <dds-image-item
+              media="(min-width: 991px)"
+              srcset="${imgLg1x1}"
+            >
+          </dds-image>
+          <dds-card-eyebrow>scelerisque purus</dds-card-eyebrow>
+          <dds-card-heading>Elementum nibh tellus molestie nunc?</dds-card-heading>
+          <p>Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbu tristique.</p>
+          <dds-feature-card-footer>
+            ${ArrowRight20({ slot: 'icon' })}
+          </dds-feature-card-footer>
+        </dds-feature-card>
+
+        <dds-content-block-segmented>
+          <dds-content-block-heading>Elementum nibh tellus molestie nunc non.
+          </dds-content-block-heading>
+          ${Array.from([1, 2]).map(() => contentBlockSegmentedItemsWithImage)}
+          <dds-card-cta slot="footer" cta-type="local" href="https://example.com">
+            Lorem ipsum dolor
+            <dds-card-cta-footer></dds-card-cta-footer>
+          </dds-card-cta>
+        </dds-content-block-segmented>
+
+        <dds-callout-with-media>
+          <dds-content-block-heading slot="heading">Mauris ultrices eros in cursus</dds-content-block-heading>
+          <dds-callout-with-media-copy size="sm"
+          >Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat.
+            In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in.
+            Vel facilisis volutpat est velit egestas dui.
+          </dds-callout-with-media-copy>
+          <dds-callout-with-media-video video-id="1_9h94wo6b"></dds-callout-with-media-video>
+        </dds-callout-with-media>
+
+        <dds-content-group-horizontal>
+          <dds-content-block-heading>Tincidunt ornare massa</dds-content-block-heading>
+          ${Array.from([1, 2]).map(() => contentItemHorizontal)}
+        </dds-content-group-horizontal>
+
+        <dds-logo-grid ?hide-border="true">
+          <dds-content-block-heading>Lobortis elementum nibh tellus</dds-content-block-heading>
+          ${logosGroup &&
+            logosGroup.map(
+              elem => html`
+                <dds-logo-grid-item default-src="${elem.imgSrc}" alt="${elem.altText}"></dds-logo-grid-item>
+              `
+            )}
+        </dds-logo-grid>
+
+        <dds-content-block-cards>
+          <dds-content-block-heading>Aliquam condimentum interdum</dds-content-block-heading>
+          <dds-card-group>
+            ${Array.from([1, 2, 3]).map(() => cardGroupItems)}
+          </dds-card-group>
+        </dds-content-block-cards>
+
+        <dds-callout-quote>
+          Duis aute irure dolor in reprehenderit
+          <dds-quote-source-heading>
+            Lorem ipsum dolor sit amet
+          </dds-quote-source-heading>
+          <dds-quote-source-copy>
+            consectetur adipiscing elit
+          </dds-quote-source-copy>
+          <dds-quote-source-bottom-copy>
+            IBM Cloud
+          </dds-quote-source-bottom-copy>
+          <dds-callout-link-with-icon slot="footer" href="https://example.com">
+            Link with Icon ${ArrowRight20({ slot: 'icon' })}
+          </dds-callout-link-with-icon>
+        </dds-callout-quote>
+
+        <dds-cta-block no-border>
+          <dds-content-block-heading>Take the next step</dds-content-block-heading>
+          <dds-content-block-copy>Want to discuss your options with a DevOps expert? <br />
+            Contact our sales team to evaluate your needs.</dds-content-block-copy>
+
+          <dds-button-group slot="action">
+            <dds-button-group-item href="https://example.com">
+              Secondary Button ${ArrowRight20({ slot: 'icon' })}
+            </dds-button-group-item>
+            <dds-button-group-item href="https://example.com">
+              Primary button ${ArrowRight20({ slot: 'icon' })}
+            </dds-button-group-item>
+          </dds-button-group>
+
+          <dds-cta-block-item-row no-border>
+            <dds-cta-block-item>
+              <dds-content-item-heading>Get connected</dds-content-item-heading>
+              <dds-content-item-copy
+              >IBM DevOps partners have a wide range of expertise. Find one to build the right solution for
+                you.</dds-content-item-copy
+              >
+              <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">
+                Find a partner
+              </dds-text-cta>
+            </dds-cta-block-item>
+
+            <dds-cta-block-item>
+              <dds-content-item-heading>Learn how</dds-content-item-heading>
+              <dds-content-item-copy>IBM DevOps partners have a wide range of expertise</dds-content-item-copy>
+              <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">
+                Browse tutorials
+              </dds-text-cta>
+            </dds-cta-block-item>
+          </dds-cta-block-item-row>
+        </dds-cta-block>
+      </div>
+    </main>`;
+
+export { StoryContent, StoryContentNoToC };
+/* eslint-enable max-len */
