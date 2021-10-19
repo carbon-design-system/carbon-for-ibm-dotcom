@@ -8,10 +8,18 @@
 //
 
 @import 'carbon-components/scss/globals/scss/css--helpers';
-@import 'carbon-components/scss/globals/scss/css--font-face';
 @import 'carbon-components/scss/globals/grid/grid';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
 @import './simple-grid';
+
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@import '@carbon/type/scss/font-face/serif';
+@import '@carbon/type/scss/reset';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+@include carbon--font-face-serif();
+@include carbon--type-reset();
 
 :root {
   @include carbon--theme($carbon--theme--white, true);
@@ -90,6 +98,7 @@ html {
 .dds-ce-demo-devenv--simple-grid--content-section,
 .dds-ce-demo-devenv--simple-grid--content-block-cards,
 .dds-ce-demo-devenv--simple-grid--logo-grid,
+.dds-ce-demo-devenv--simple-grid--cta-block,
 .dds-ce-demo-devenv--simple-grid--card-in-card,
 .dds-ce-demo-devenv--simple-grid--content-group-banner {
   > * {
@@ -118,6 +127,7 @@ html {
   .dds-ce-demo-devenv--simple-grid--content-section,
   .dds-ce-demo-devenv--simple-grid--content-block-cards,
   .dds-ce-demo-devenv--simple-grid--logo-grid,
+  .dds-ce-demo-devenv--simple-grid--cta-block,
   .dds-ce-demo-devenv--simple-grid--card-in-card {
     > * {
       grid-column: 1 / span 8;
@@ -127,7 +137,8 @@ html {
 
 @include carbon--breakpoint('lg') {
   .dds-ce-demo-devenv--simple-grid--callout > *,
-  .dds-ce-demo-devenv--simple-grid--card-in-card > * {
+  .dds-ce-demo-devenv--simple-grid--card-in-card > *,
+  .dds-ce-demo-devenv--simple-grid--cta-block > * {
     grid-column: 5 / span 12;
   }
 
