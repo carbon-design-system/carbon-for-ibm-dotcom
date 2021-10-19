@@ -237,7 +237,7 @@ const Masthead = ({
                           'li:last-of-type a'
                         );
 
-                      if (e.relatedTarget !== firstMenuItem)
+                      if (e.relatedTarget && e.relatedTarget !== firstMenuItem)
                         return lastMenuItem.focus();
                     }}
                   />
