@@ -64,7 +64,7 @@ class DDSContentSection extends StableSelectorMixin(LitElement) {
           ? `${prefix}--content-section__with-children`
           : ''}"
       >
-        <div class="${prefix}--content-section__leading bx--col-lg-4">
+        <div class="${prefix}--content-section__leading">
           <slot name="heading"></slot>
           <slot name="copy"></slot>
           <slot name="footer"></slot>

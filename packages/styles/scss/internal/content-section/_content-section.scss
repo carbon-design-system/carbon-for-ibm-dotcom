@@ -47,6 +47,8 @@
     margin-bottom: $spacing_09;
 
     @include carbon--breakpoint(lg) {
+      @include carbon--make-col(4, 16);
+
       margin-bottom: 0;
     }
   }

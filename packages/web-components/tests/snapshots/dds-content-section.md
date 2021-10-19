@@ -4,7 +4,7 @@
 
 ```
 <div class="bx--content-section bx--content-section-layout">
-  <div class="bx--col-lg-4 bx--content-section__leading">
+  <div class="bx--content-section__leading">
     <slot name="heading">
     </slot>
     <slot name="copy">
