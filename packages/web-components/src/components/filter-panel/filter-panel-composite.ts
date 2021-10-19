@@ -187,7 +187,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   protected _handleClearSelection = () => {
     this._selectedValues = [];
 
-    // handles clear when clearing from the static filter panel model
+    // handles clear when clearing from the static filter panel modal
     this._contents.forEach(group => {
       group.querySelectorAll('dds-filter-panel-checkbox').forEach(e => {
         e.removeAttribute('checked');
