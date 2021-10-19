@@ -17,12 +17,12 @@
     },
     {
       "browser": "chrome",
-      "os": "OS X Catalina",
+      "os": "OS X Big Sur",
       "versions": ["latest"]
     },
     {
       "browser": "firefox",
-      "os": "OS X Catalina",
+      "os": "OS X Big Sur",
       "versions": ["latest"]
     }
   ],
