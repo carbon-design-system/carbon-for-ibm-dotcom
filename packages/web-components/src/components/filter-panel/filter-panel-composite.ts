@@ -301,7 +301,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </dds-filter-panel-modal>
 
-      <dds-filter-panel>
+      <dds-filter-panel heading="${this._filterButtonTitle}">
         ${this._title.map(e => {
           return html`
             ${unsafeHTML((e as HTMLElement).outerHTML)}

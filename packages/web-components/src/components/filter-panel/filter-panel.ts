@@ -26,15 +26,10 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-filter-panel`)
 class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
-   *
-   * renders filter title slot
+   * Renders the filter heading
    */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderHeading() {
-    return html`
-      <slot name="heading"></slot>
-    `;
-  }
+  @property()
+  heading!: string;
 
   /**
    * Handles `click` event on the `<input>` in the shadow DOM.
@@ -77,7 +72,7 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
     return html`
       <section class="${prefix}--filter-panel__section">
         <div class="${prefix}--heading-clear">
-          <div class="${prefix}--filter__heading">${this._renderHeading()}</div>
+          <div class="${prefix}--filter__heading">${this.heading}</div>
           <button class="${prefix}--clear" @click=${this._handleClear}>
             <div class="${prefix}--clear__container">
               Clear
