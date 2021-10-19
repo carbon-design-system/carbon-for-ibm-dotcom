@@ -214,7 +214,8 @@ class DDSDotcomShellComposite extends LitElement {
       const spaceOffset = this._leadspaceWithSearch?.getAttribute('adjacent-theme') !== '' ? -topSpacing * 2 : topSpacing;
 
       const mastheadTop = Math.min(0, searchContainer!.getBoundingClientRect().top - spaceOffset - this._masthead!.offsetHeight);
-      const containerPadding = window.innerWidth < mediumBreakpoint ? 32 : -16;
+      // eslint-disable-next-line no-nested-ternary
+      const containerPadding = window.innerWidth < gridBreakpoint ? (window.innerWidth < mediumBreakpoint ? 32 : 0) : -16;
       this._masthead!.style.transition = 'none';
 
       // going up

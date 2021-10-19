@@ -261,7 +261,7 @@ const tocContent = html`
   </dds-cta-block>
 `;
 
-const StoryContent = (
+export const StoryContent = (
   config = {
     l1: false,
     leadspace: false,
@@ -299,7 +299,7 @@ const StoryContent = (
   `;
 };
 
-const StoryContentNoToC = () =>
+export const StoryContentNoToC = () =>
   html`
     <main class="bx--content dds-ce-demo-devenv--ui-shell-content">
       <div class="bx--grid bx--col-lg-10">
@@ -436,5 +436,5 @@ const StoryContentNoToC = () =>
       </div>
     </main>`;
 
-export { StoryContent, StoryContentNoToC };
+export default { StoryContent, StoryContentNoToC };
 /* eslint-enable max-len */

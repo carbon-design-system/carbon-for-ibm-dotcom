@@ -358,10 +358,14 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
     }
 
     &[theme-sticky] {
-      top: $spacing-09;
+      top: $spacing-05;
 
-      @include carbon--breakpoint-down('md') {
-        top: $spacing-05;
+      @include carbon--breakpoint('md') {
+        top: $spacing-07;
+      }
+
+      @include carbon--breakpoint('lg') {
+        top: $spacing-09;
       }
     }
   }

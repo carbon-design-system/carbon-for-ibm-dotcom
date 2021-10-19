@@ -288,7 +288,7 @@
         z-index: 2;
         transform: translate(-29%, $spacing-07);
 
-        @include carbon--breakpoint('xlg') {
+        @include carbon--breakpoint('lg') {
           transform: translate(-28%, $spacing-05);
         }
       }
