@@ -42,6 +42,7 @@
   </slot>
   <dds-card-cta-image
     alt="video-name-foo"
+    class="bx--card__video-thumbnail"
     data-autoid="dds--image"
     default-src="https://example.com/video-thumbnail-foo"
   >
