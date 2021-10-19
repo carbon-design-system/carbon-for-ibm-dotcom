@@ -11,6 +11,7 @@ const gulp = require('gulp'),
   prefix = require('gulp-autoprefixer'),
   cleanCSS = require('gulp-clean-css'),
   rename = require('gulp-rename'),
+  // This can be changed to `dart-sass` once Carbon V11 is used require('sass')
   sass = require('gulp-sass')(require('node-sass')),
   path = require('path');
 
