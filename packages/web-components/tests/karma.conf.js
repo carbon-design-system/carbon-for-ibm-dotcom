@@ -13,7 +13,7 @@
 
 const path = require('path');
 /* eslint-disable import/no-extraneous-dependencies */
-const sass = require('sass');
+const sass = require('node-sass');
 const webpack = require('webpack');
 
 function normalizeBrowser(browser) {

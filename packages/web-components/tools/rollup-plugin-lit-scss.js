@@ -12,7 +12,7 @@
 const path = require('path');
 const { promisify } = require('util');
 /* eslint-disable import/no-extraneous-dependencies */
-const sass = require('sass');
+const sass = require('node-sass');
 const { createFilter } = require('rollup-pluginutils');
 
 const renderSass = promisify(sass.render);
