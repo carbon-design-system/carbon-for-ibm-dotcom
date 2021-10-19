@@ -24,6 +24,7 @@
   :host(#{$dds-prefix}-card-in-card),
   :host(#{$dds-prefix}-content-group-cards-item),
   :host(#{$dds-prefix}-content-group-cards-item) .#{$prefix}--card {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -32,6 +33,102 @@
     text-decoration: none;
     padding: 0;
     transition: $duration--moderate-01 motion(standard, productive);
+
+    &:hover {
+      background-color: $hover-ui;
+      text-decoration: none;
+
+      .#{$prefix}--card__wrapper {
+        background-color: $hover-ui;
+      }
+
+      ::slotted(#{$dds-prefix}-image),
+      ::slotted(#{$dds-prefix}-card-cta-image),
+      .#{$prefix}--card__img,
+      .#{$prefix}--card__image_img,
+      .#{$prefix}--image,
+      .#{$prefix}--card__video-thumbnail {
+        &::before {
+          opacity: 0.08;
+          z-index: 1;
+        }
+      }
+
+      .#{$prefix}--card__video-thumbnail {
+        svg {
+          circle {
+            opacity: 0.9;
+            fill: $gray-100;
+          }
+
+          path {
+            fill: $icon-03;
+          }
+        }
+      }
+    }
+
+    &:focus-within {
+      outline: 2px solid $focus;
+      outline-offset: -2px;
+      position: relative;
+      z-index: 2;
+
+      ::slotted(#{$dds-prefix}-image),
+      ::slotted(#{$dds-prefix}-card-cta-image),
+      .#{$prefix}--card__img,
+      .#{$prefix}--image {
+        z-index: -1;
+      }
+    }
+
+    &:focus,
+    &:visited,
+    &:active {
+      position: relative;
+      z-index: 2;
+      text-decoration: none;
+
+      ::slotted(#{$dds-prefix}-image),
+      .#{$prefix}--image {
+        z-index: -1;
+      }
+    }
+
+    ::slotted(#{$dds-prefix}-image),
+    ::slotted(#{$dds-prefix}-card-cta-image),
+    .#{$prefix}--card__img,
+    .#{$prefix}--card__image_img,
+    .#{$prefix}--image,
+    .#{$prefix}--card__video-thumbnail {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: $ui-05;
+        opacity: 0;
+        transition: $duration--moderate-01 motion(standard, productive);
+      }
+    }
+
+    .#{$prefix}--card__video-thumbnail {
+      svg {
+        circle,
+        path {
+          transition: $duration--moderate-01 motion(standard, productive);
+        }
+      }
+    }
+
+    .#{$prefix}--card.#{$prefix}--tile {
+      padding: 0;
+      transition: $duration--moderate-01 motion(standard, productive);
+    }
 
     .#{$prefix}--card__wrapper {
       display: flex;
@@ -69,69 +166,14 @@
       margin-bottom: $carbon--spacing-07;
     }
 
-    &:focus-within {
-      outline: 2px solid $focus;
-      outline-offset: -2px;
-      position: relative;
-      z-index: 2;
-
-      ::slotted(#{$dds-prefix}-image),
-      ::slotted(#{$dds-prefix}-card-cta-image),
-      .#{$prefix}--card__img,
-      .#{$prefix}--image {
-        position: relative;
-        z-index: -1;
-      }
-    }
-
-    .#{$prefix}--card:focus,
-    .#{$prefix}--card:visited,
-    .#{$prefix}--card:active {
-      position: relative;
-      z-index: 2;
-      text-decoration: none;
-
-      ::slotted(#{$dds-prefix}-image),
-      .#{$prefix}--image {
-        position: relative;
-        z-index: -1;
-      }
-    }
-
-    &:hover {
-      background-color: $hover-ui;
-      text-decoration: none;
-
-      .#{$prefix}--card__wrapper {
-        background-color: $hover-ui;
-      }
-    }
-
     .#{$prefix}--card__img {
-      transition: $duration--moderate-01 motion(standard, productive);
-    }
-
-    .#{$prefix}--card:hover {
-      text-decoration: none;
-
-      ::slotted(#{$dds-prefix}-image),
-      ::slotted(#{$dds-prefix}-card-cta-image),
-      .#{$prefix}--card__img,
-      .#{$prefix}--card__image_img,
-      .#{$prefix}--image {
-        filter: brightness(92%);
-      }
-    }
-
-    .#{$prefix}--card.#{$prefix}--tile {
-      padding: 0;
       transition: $duration--moderate-01 motion(standard, productive);
     }
 
     // styles the React wrapper version of Tag Group within Card
     /* stylelint-disable-next-line selector-type-no-unknown */
     dds-tag-group {
-      margin-bottom: $spacing-05;
+      margin-top: $spacing-05;
     }
   }
 
@@ -194,10 +236,6 @@
         &::after {
           position: relative;
         }
-      }
-
-      ::slotted(#{$dds-prefix}-tag-group) {
-        margin-bottom: $spacing-05;
       }
     }
     &[color-scheme='light'] {
@@ -380,12 +418,13 @@
   }
 
   .#{$prefix}--card--inverse,
+  .#{$prefix}--card.#{$prefix}--card--inverse,
   :host(#{$dds-prefix}-card)[color-scheme='inverse'],
   :host(#{$dds-prefix}-card-group-item)[color-scheme='inverse']
     .#{$prefix}--card {
     background-color: $inverse-02;
 
-    .bx--card__wrapper:hover {
+    .#{$prefix}--card__wrapper:hover {
       background-color: $inverse-hover-ui;
     }
 
@@ -404,6 +443,7 @@
       ::slotted(#{$dds-prefix}-image),
       ::slotted(#{$dds-prefix}-card-cta-image),
       .#{$prefix}--card__img,
+      .#{$prefix}--card__image_img,
       .#{$prefix}--image {
         filter: brightness(108%);
       }
@@ -418,8 +458,8 @@
         left: 0;
         bottom: 0;
         right: 0;
-        border: 2px solid $focus;
-        outline: 1px solid #ffffff;
+        border: 2px solid $inverse-focus-ui;
+        outline: 1px solid $inverse-focus-ui;
         outline-offset: -3px;
         pointer-events: none;
       }
@@ -458,9 +498,10 @@
     }
 
     &:hover {
-      .#{$prefix}--card__img,
       ::slotted(#{$dds-prefix}-image),
       ::slotted(#{$dds-prefix}-card-cta-image),
+      .#{$prefix}--card__img,
+      .#{$prefix}--card__image_img,
       .#{$prefix}--image {
         filter: brightness(108%);
       }

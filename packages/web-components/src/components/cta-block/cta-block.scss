@@ -16,6 +16,7 @@
   .#{$prefix}--content-layout {
     @include carbon--breakpoint('sm') {
       padding-left: $carbon--layout-01;
+      padding-right: $carbon--layout-01;
     }
     ::slotted([slot]) {
       margin-left: 0;
@@ -60,8 +61,12 @@
   }
 
   ::slotted(#{$dds-prefix}-button-group) {
-    // Temporary fix – <dds-button-group-item> elements have top margins
-    margin-top: -#{$carbon--layout-03};
+    // <dds-content-block-paragraph> elements have too much bottom margin
+    margin-top: -#{$carbon--layout-01};
+
+    @include carbon--breakpoint('lg') {
+      margin-top: 0;
+    }
   }
 
   ::slotted(#{$dds-prefix}-button-group:last-child) {
