@@ -89,10 +89,16 @@ Default.story = {
 export default {
   title: 'Components/Card in card',
   decorators: [
-    story => <div className="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--card-in-card">{story()}</div>,
+    story => (
+      <div className="bx--grid">
+        <div className="bx--row">
+          <div className="bx--col-lg-12 bx--no-gutter">{story()}</div>
+        </div>
+      </div>
+    ),
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
+    hasStoryPadding: true,
   },
 };

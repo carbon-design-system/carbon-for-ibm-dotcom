@@ -12,15 +12,10 @@ import { text, select } from '@storybook/addon-knobs';
 import '../index';
 import readme from './README.stories.mdx';
 
-import styles from './filter-panel.stories.scss';
-
 export const Default = ({ parameters }) => {
   const { heading, gridKnobs } = parameters?.props?.FilterPanel ?? {};
   return html`
-    <style>
-      ${styles}
-    </style>
-    <div class="grid-alignment ${gridKnobs === '3 columns' ? 'bx--col-lg-3' : 'bx--col-lg-4'}">
+    <div class="${gridKnobs === '3 columns' ? 'bx--col-lg-3' : 'bx--col-lg-4'}">
       <dds-filter-panel-composite>
         <dds-filter-panel-heading slot="heading">${heading}</dds-filter-panel-heading>
         <dds-filter-group>
@@ -101,12 +96,16 @@ export default {
   decorators: [
     story =>
       html`
-        ${story()}
+        <div class="bx--grid bx--grid--condensed">
+          <div class="bx--row">
+            ${story()}
+          </div>
+        </div>
       `,
   ],
-  hasGrid: true,
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
     knobs: {
       FilterPanel: ({ groupId }) => ({
         heading: text('heading', 'Filter', groupId),

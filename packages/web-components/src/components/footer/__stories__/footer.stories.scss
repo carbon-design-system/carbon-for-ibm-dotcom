@@ -7,10 +7,7 @@
 
 /* stylelint-disable-next-line selector-type-no-unknown */
 dds-footer-container {
-  &[size='short'],
-  &[size='micro'] {
-    display: flex;
-    align-items: center;
-    min-height: 100%;
-  }
+  display: flex;
+  align-items: flex-end;
+  min-height: 100vh;
 }
