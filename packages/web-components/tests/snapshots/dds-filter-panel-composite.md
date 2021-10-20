@@ -18,7 +18,10 @@
   <slot>
   </slot>
 </dds-filter-panel-modal>
-<dds-filter-panel data-autoid="dds-filter-panel">
+<dds-filter-panel
+  data-autoid="dds-filter-panel"
+  heading=""
+>
 </dds-filter-panel>
 
 ```
@@ -39,7 +42,10 @@
   <slot>
   </slot>
 </dds-filter-panel-modal>
-<dds-filter-panel data-autoid="dds-filter-panel">
+<dds-filter-panel
+  data-autoid="dds-filter-panel"
+  heading=""
+>
 </dds-filter-panel>
 
 ```
