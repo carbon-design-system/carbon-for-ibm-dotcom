@@ -136,15 +136,18 @@ export default {
   title: 'Components/Content block',
   decorators: [
     story => html`
-      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-layout--with-complementary">
-        ${story()}
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-lg-12 bx--no-gutter">
+            ${story()}
+          </div>
+        </div>
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
+    hasStoryPadding: true,
     knobs: {
       ContentBlock: () => ({
         heading: boolean('Heading:', true),

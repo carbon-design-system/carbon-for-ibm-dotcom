@@ -17,7 +17,6 @@ import { select } from '@storybook/addon-knobs';
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 import readme from './README.stories.mdx';
-import styles from './callout-with-media.stories.scss';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const image = html`
@@ -48,9 +47,7 @@ export default {
   title: 'Components/Callout with media',
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--callout',
+    hasStoryPadding: true,
     knobs: {
       CalloutWithMedia: ({ groupId }) => ({
         mediaType: select('mediaType (optional)', ['image', 'video', 'none'], 'image', groupId),
@@ -62,11 +59,10 @@ export default {
       }),
     },
     decorators: [
-      (story, { parameters }) => html`
-        <style>
-          ${styles}
-        </style>
-            <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
+      story => html`
+        <div class="bx--grid">
+          <div class="bx--row">
+            <div class="bx--col-lg-12 bx--no-gutter">
               ${story()}
             </div>
           </div>

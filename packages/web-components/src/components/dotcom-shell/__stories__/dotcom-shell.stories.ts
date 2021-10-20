@@ -903,7 +903,6 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    useRawContainer: true,
     knobs: {
       escapeHTML: false,
       DotcomShell: ({ groupId }) => ({

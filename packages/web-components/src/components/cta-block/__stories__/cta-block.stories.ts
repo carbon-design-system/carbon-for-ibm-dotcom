@@ -13,6 +13,7 @@ import Launch20 from 'carbon-web-components/es/icons/launch/20';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
+import styles from './cta-block.stories.scss';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
 import '../../link-list/index';
@@ -192,14 +193,19 @@ export default {
   title: 'Components/CTA block',
   decorators: [
     story => html`
-      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--cta-block">
-        ${story()}
+      <style>
+        ${styles}
+      </style>
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-lg-12 bx--no-gutter">
+            ${story()}
+          </div>
+        </div>
       </div>
     `,
   ],
   parameters: {
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
     knobs: {
       CTABlock: ({ groupId }) => ({
         heading: textNullable('Heading (required)', 'Take the next step', groupId),
@@ -208,5 +214,6 @@ export default {
       }),
     },
     ...readme.parameters,
+    hasStoryPadding: true,
   },
 };

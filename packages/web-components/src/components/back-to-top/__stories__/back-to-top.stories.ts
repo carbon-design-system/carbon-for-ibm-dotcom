@@ -30,6 +30,5 @@ export default {
   title: 'Components/Back to top',
   parameters: {
     ...readme.parameters,
-    useRawContainer: true,
   },
 };
