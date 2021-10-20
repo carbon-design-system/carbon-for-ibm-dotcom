@@ -143,14 +143,14 @@ export const WithMedia = ({ parameters }) => {
 
 Default.story = {
   parameters: {
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal',
+    gridContentClasses: 'bx--col-lg-10 bx--no-gutter',
   },
 };
 
 WithThumbnail.story = {
   name: 'With thumbnail',
   parameters: {
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal-thumbnail',
+    gridContentClasses: 'bx--col-lg-12 bx--no-gutter',
     knobs: {
       ContentItemHorizontal: () => ({
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
@@ -170,7 +170,7 @@ WithThumbnail.story = {
 WithMedia.story = {
   name: 'With media',
   parameters: {
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal-media',
+    gridContentClasses: 'bx--col-lg-10',
     knobs: {
       ContentItemHorizontal: () => ({
         align: select('Alignment', mediaAlign, MEDIA_ALIGN.RIGHT),
@@ -194,15 +194,18 @@ export default {
   title: 'Components/Content item horizontal',
   decorators: [
     (story, { parameters }) => html`
-      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
-        ${story()}
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="${parameters.gridContentClasses}">
+            ${story()}
+          </div>
+        </div>
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasVerticalSpacingInComponent: true,
-    hasGrid: true,
+    hasStoryPadding: true,
     knobs: {
       ContentItemHorizontal: () => ({
         eyebrow: textNullable('Eyebrow (eyebrow):', 'Lorem ipsum'),

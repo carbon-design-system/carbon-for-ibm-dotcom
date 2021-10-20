@@ -35,7 +35,6 @@ import DDSLinkListItem from '@carbon/ibmdotcom-web-components/es/components-reac
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 
 import readme from './README.stories.react.mdx';
-import styles from './cta-section.stories.scss';
 import content from './content';
 
 const contentItemTypeMap = {
@@ -247,15 +246,11 @@ export default {
   title: 'Components/CTA section',
   decorators: [
     story => {
-      return (
-        <>
-          <style type="text/css">{styles.cssText}</style>
-          {story()}
-        </>
-      );
+      return <>{story()}</>;
     },
   ],
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
   },
 };

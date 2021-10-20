@@ -11,10 +11,10 @@
 
 const gulp = require('gulp');
 const rename = require('gulp-rename');
-const sass = require('gulp-sass');
+// This can be changed to `dart-sass` once Carbon V11 is used require('sass')
+/* eslint-disable import/no-extraneous-dependencies */
+const sass = require('gulp-sass')(require('node-sass'));
 const config = require('../config');
-
-sass.compiler = require('node-sass');
 
 /**
  * Builds the sass file for the plex font / carbon reset

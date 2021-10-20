@@ -94,9 +94,7 @@ export default {
   title: 'Components/Lead space search',
   parameters: {
     ...readme.parameters,
-    useRawContainer: true,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
+    hasStoryPadding: true,
     knobs: {
       LeadspaceWithSearch: ({ groupId }) => ({
         theme: select(`Adjacent theme`, adjacentThemes, adjacentThemes.Monotheme, groupId),
@@ -106,9 +104,11 @@ export default {
   decorators: [
     story => {
       return (
-        <>
-          <div className="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-layout">{story()}</div>
-        </>
+        <div className="bx--grid">
+          <div className="bx--row">
+            <div className="bx--col-lg-8 bx--offset-lg-4 bx--no-gutter">{story()}</div>
+          </div>
+        </div>
       );
     },
   ],

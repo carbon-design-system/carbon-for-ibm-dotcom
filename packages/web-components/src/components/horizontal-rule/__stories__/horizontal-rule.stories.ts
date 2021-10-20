@@ -60,6 +60,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
     knobs: {
       HorizontalRule: ({ groupId }) => ({
         type: select('Type (type):', types, types.solid, groupId),

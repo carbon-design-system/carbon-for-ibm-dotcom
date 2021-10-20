@@ -128,9 +128,9 @@ export default {
   title: 'Components/Video player',
   decorators: [
     story => html`
-      <div class="bx--grid dds-ce-demo-devenv--grid--stretch" style="marginTop: 1rem">
+      <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+          <div class="bx--col-sm-4 bx--col-lg-8">
             ${story()}
           </div>
         </div>
@@ -139,6 +139,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
     knobs: {
       VideoPlayer: ({ groupId }) => ({
         caption: text('Custom caption (caption):', '', groupId),
@@ -147,8 +148,6 @@ export default {
         videoId: '1_9h94wo6b',
       }),
     },
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
     percy: {
       skip: true,
     },

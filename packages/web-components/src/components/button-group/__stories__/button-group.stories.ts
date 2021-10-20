@@ -32,15 +32,13 @@ const iconOptions = {
 export const Default = ({ parameters }) => {
   const { buttons } = parameters?.props?.ButtonGroup ?? {};
   return html`
-    <div>
-      <dds-button-group>
-        ${buttons.map(
-          elem => html`
-            <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
-          `
-        )}
-      </dds-button-group>
-    </div>
+    <dds-button-group>
+      ${buttons.map(
+        elem => html`
+          <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
+        `
+      )}
+    </dds-button-group>
   `;
 };
 
@@ -48,7 +46,7 @@ export default {
   title: 'Components/Button group',
   decorators: [
     story => html`
-      <div class="bx--grid bx--grid--condensed" style="width: 100%">
+      <div class="bx--grid">
         <div class="bx--row">
           <div class="bx--col-sm-16 bx--col-md-6 bx--col-lg-16">
             ${story()}
@@ -59,6 +57,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
     knobs: {
       ButtonGroup: ({ groupId }) => ({
         buttons: Array.from({
