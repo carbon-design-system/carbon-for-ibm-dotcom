@@ -11,7 +11,8 @@
 
 @mixin footer-nav-group {
   :host(#{$dds-prefix}-footer-nav-group),
-  .#{$prefix}--footer-nav-group {
+  .#{$prefix}--footer-nav-group,
+  .#{$prefix}--footer-nav-group.#{$prefix}--accordion__item {
     @include carbon--theme(
       $carbon--theme--g90,
       feature-flag-enabled('enable-css-custom-properties')
