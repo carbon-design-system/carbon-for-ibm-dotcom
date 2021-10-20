@@ -14,15 +14,15 @@
 @import 'carbon-components/scss/components/form/form';
 @import 'carbon-components/scss/components/text-input/text-input';
 @import 'carbon-components/scss/components/link/link';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
 
-@import '@carbon/ibmdotcom-styles/scss/components/footer/temp-breakpoints';
-@import '@carbon/ibmdotcom-styles/scss/components/footer/footer';
-@import '@carbon/ibmdotcom-styles/scss/components/footer/footer-logo';
-@import '@carbon/ibmdotcom-styles/scss/components/footer/footer-nav';
-@import '@carbon/ibmdotcom-styles/scss/components/footer/footer-nav-group';
-@import '@carbon/ibmdotcom-styles/scss/components/footer/legal-nav';
-@import '@carbon/ibmdotcom-styles/scss/components/footer/locale-button';
+@import '../../../../styles/scss/globals/vars';
+@import '../../../../styles/scss/components/footer/temp-breakpoints';
+@import '../../../../styles/scss/components/footer/footer';
+@import '../../../../styles/scss/components/footer/footer-logo';
+@import '../../../../styles/scss/components/footer/footer-nav';
+@import '../../../../styles/scss/components/footer/footer-nav-group';
+@import '../../../../styles/scss/components/footer/legal-nav';
+@import '../../../../styles/scss/components/footer/locale-button';
 
 :host(#{$dds-prefix}-footer),
 :host(#{$dds-prefix}-legal-nav) {
