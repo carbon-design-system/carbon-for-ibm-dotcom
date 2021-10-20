@@ -85,15 +85,20 @@ export default {
   title: 'Components/Content section',
   decorators: [
     story => html`
-      <dds-video-container class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-section">
-        ${story()}
-      </dds-video-container>
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-lg-16 bx--no-gutter">
+            <dds-video-container>
+              ${story()}
+            </dds-video-container>
+          </div>
+        </div>
+      </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
+    hasStoryPadding: true,
     knobs: {
       escapeHTML: false,
       ContentSection: () => ({
