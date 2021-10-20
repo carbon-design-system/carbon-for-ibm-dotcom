@@ -19,6 +19,7 @@ import HostListener from 'carbon-web-components/es/globals/decorators/host-liste
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
 import 'carbon-web-components/es/components/checkbox/checkbox';
+import DDSFilterGroupItem from './filter-group-item';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -86,6 +87,13 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
       if (e.getAttribute('value') === value) {
         e.toggleAttribute('checked');
         e.closest('dds-filter-group-item')?.setAttribute('open', '');
+      }
+    });
+
+    const filterGroupItems = this.querySelectorAll('dds-filter-group-item');
+    this.shadowRoot?.querySelectorAll('dds-filter-group-item').forEach((filterGroupItem, index) => {
+      if ((filterGroupItem as DDSFilterGroupItem).open) {
+        (filterGroupItems[index] as DDSFilterGroupItem).open = true;
       }
     });
 
