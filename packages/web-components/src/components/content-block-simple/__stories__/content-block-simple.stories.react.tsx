@@ -23,7 +23,6 @@ import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
 import { CTA_STYLE, CTA_TYPE } from '../../cta/defs';
 import readme from './README.stories.react.mdx';
-import styles from './content-block-simple.stories.scss';
 
 const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
   Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
@@ -98,14 +97,16 @@ export default {
   decorators: [
     story => {
       return (
-        <>
-          <style type="text/css">{styles.cssText}</style>
-          {story()}
-        </>
+        <div className="bx--grid">
+          <div className="bx--row">
+            <div className="bx--no-gutter bx--col-lg-12">{story()}</div>
+          </div>
+        </div>
       );
     },
   ],
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
   },
 };

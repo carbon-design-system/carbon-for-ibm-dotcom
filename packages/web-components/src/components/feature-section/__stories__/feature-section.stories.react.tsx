@@ -76,8 +76,8 @@ Default.story = {
         heading: textNullable('Card Heading (required)(heading):', 'Ready when you are', groupId),
         copy: textNullable(
           'Card copy (optional)(copy):',
-          `Were flexible. We can work with you on a wide variety of engagements on a project 
-          or consulting basis. And were technology agnostic. Our experts work with any vendors technology, not just IBMs. 
+          `Were flexible. We can work with you on a wide variety of engagements on a project
+          or consulting basis. And were technology agnostic. Our experts work with any vendors technology, not just IBMs.
           You decide how you want to work and where to focus our expertise.`,
           groupId
         ),
@@ -98,6 +98,6 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
+    hasStoryPadding: true,
   },
 };
