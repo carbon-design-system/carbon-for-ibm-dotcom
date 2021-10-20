@@ -17,7 +17,16 @@
       feature-flag-enabled('enable-css-custom-properties')
     ) {
       padding-left: 0;
-      margin-bottom: 0;
+      display: block;
+
+      &:last-child {
+        margin-bottom: carbon--mini-units(6);
+        border-bottom: 1px solid $ui-03;
+
+        @include carbon--breakpoint('md') {
+          border-bottom: none;
+        }
+      }
 
       .#{$prefix}--accordion__content {
         padding-left: 0;
@@ -33,10 +42,6 @@
 
         &.#{$prefix}--accordion__item {
           border-top: 0 transparent;
-
-          &:last-child {
-            border-bottom: 0;
-          }
         }
 
         .#{$prefix}--accordion__heading {

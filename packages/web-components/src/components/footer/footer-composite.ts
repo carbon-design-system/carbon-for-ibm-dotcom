@@ -38,7 +38,6 @@ import './legal-nav';
 import './legal-nav-item';
 import './legal-nav-cookie-preferences-placeholder';
 import './language-selector-desktop';
-import './language-selector-mobile';
 import 'carbon-web-components/es/components/combo-box/combo-box-item';
 import 'carbon-web-components/es/components/select/select-item';
 
@@ -286,15 +285,6 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
                   `
                 )}
               </dds-language-selector-desktop>
-              <dds-language-selector-mobile value="${selectedLanguage}" placeholder="${selectedLanguage}">
-                ${langList?.map(
-                  language => html`
-                    <bx-select-item label="${ifNonNull(language)}" value="${ifNonNull(language)}"
-                      >${ifNonNull(language)}</bx-select-item
-                    >
-                  `
-                )}
-              </dds-language-selector-mobile>
             `
           : ``}
         <dds-legal-nav size="${ifNonNull(size)}">
@@ -339,20 +329,6 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
                     `
                   )}
                 </dds-language-selector-desktop>
-                <dds-language-selector-mobile
-                  size="${size}"
-                  slot="locale"
-                  value="${selectedLanguage}"
-                  placeholder="${selectedLanguage}"
-                >
-                  ${langList?.map(
-                    language => html`
-                      <bx-select-item label="${ifNonNull(language)}" value="${ifNonNull(language)}"
-                        >${ifNonNull(language)}</bx-select-item
-                      >
-                    `
-                  )}
-                </dds-language-selector-mobile>
               `
             : ``}
         </dds-legal-nav>
