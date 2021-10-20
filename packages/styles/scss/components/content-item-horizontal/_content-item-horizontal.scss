@@ -194,6 +194,10 @@
     }
   }
 
+  :host(#{$dds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])) {
+    max-width: 100%;
+  }
+
   :host(#{$dds-prefix}-content-item-horizontal-eyebrow),
   .#{$prefix}--content-item-horizontal__item--eyebrow {
     color: $text-05;
@@ -262,6 +266,13 @@
   :host(#{$dds-prefix}-content-item-horizontal[thumbnail])
     .#{$prefix}--content-item-horizontal__col--2 {
     max-width: 100%;
+    grid-column: 1 / span 4;
+    @include carbon--breakpoint(md) {
+      grid-column: 6 / span 3;
+    }
+    @include carbon--breakpoint(lg) {
+      grid-column: 10 / span 3;
+    }
   }
 
   .#{$prefix}--content-item-horizontal__heading-wrapper {
