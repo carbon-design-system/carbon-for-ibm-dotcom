@@ -82,7 +82,7 @@ export const Default = ({ parameters }) => {
             ></dds-filter-panel-input-select>
           </dds-filter-group-item>
           <dds-filter-group-item title-text="Deployment types">
-            <dds-filter-panel-checkbox value="On-premisis">On-premisis</dds-filter-panel-checkbox>
+            <dds-filter-panel-checkbox value="On-premises">On-premises</dds-filter-panel-checkbox>
             <dds-filter-panel-checkbox value="SaaS">SaaS</dds-filter-panel-checkbox>
           </dds-filter-group-item>
         </dds-filter-group>

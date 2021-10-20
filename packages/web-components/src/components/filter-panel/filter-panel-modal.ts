@@ -31,17 +31,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-filter-panel-modal`)
 class DDSFilterPanelModal extends HostListenerMixin(StableSelectorMixin(BXModal)) {
   /**
-   *
-   * Renders filter heading.
-   */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderHeading() {
-    return html`
-      <slot name="heading"></slot>
-    `;
-  }
-
-  /**
    * Renders the selected values.
    */
   @property()
