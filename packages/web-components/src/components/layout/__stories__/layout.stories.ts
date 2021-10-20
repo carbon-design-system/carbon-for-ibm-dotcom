@@ -114,6 +114,6 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
+    hasStoryPadding: true,
   },
 };

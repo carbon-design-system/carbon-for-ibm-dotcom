@@ -203,14 +203,14 @@ export default {
   title: 'Components/Scroll animations',
   parameters: {
     ...readme.parameters,
-    useRawContainer: true,
+    hasStoryPadding: true,
     percy: {
       skip: true,
     },
   },
   decorators: [
     story => html`
-      <div class="story--container">
+      <div class="bx--grid" style="padding: 0">
         ${story()}
       </div>
     `,

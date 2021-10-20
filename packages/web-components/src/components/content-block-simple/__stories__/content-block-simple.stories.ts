@@ -73,7 +73,6 @@ const image = html`
 
 export const Default = ({ parameters }) => {
   const { ctaType, ctaStyle, heading, complementaryStyleScheme, onClick } = parameters?.props?.ContentBlockSimple ?? {};
-  // const { copy: ctaCopy, ctaType, href } = parameters?.props?.TextCTA ?? {};
   const ctaCopy = 'Lorem ipsum dolor sit amet';
   const href = 'https://www.example.com';
   return html`
@@ -183,7 +182,7 @@ export const WithVideo = ({ parameters }) => {
 WithVideo.story = {
   name: 'With video',
   parameters: {
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout--with-complementary',
+    gridContentClasses: 'bx--col-lg-12',
   },
 };
 
@@ -236,7 +235,7 @@ export const WithLinkList = ({ parameters }) => {
 WithLinkList.story = {
   name: 'With link list',
   parameters: {
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout--with-complementary',
+    gridContentClasses: 'bx--col-lg-12',
   },
 };
 
@@ -244,16 +243,19 @@ export default {
   title: 'Components/Content block simple',
   decorators: [
     (story, { parameters }) => html`
-      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
-        ${story()}
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--no-gutter ${parameters.gridContentClasses}">
+            ${story()}
+          </div>
+        </div>
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout--with-complementary',
+    gridContentClasses: 'bx--col-lg-9',
+    hasStoryPadding: true,
     knobs: {
       ContentBlockSimple: ({ groupId }) => ({
         heading: textNullable('Heading (required)', 'Curabitur malesuada varius mi eu posuere', groupId),

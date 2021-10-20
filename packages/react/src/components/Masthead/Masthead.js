@@ -220,6 +220,26 @@ const Masthead = ({
                     onClick={onClickSideNavExpand}
                     isActive={isSideNavExpanded}
                     className={headerSearchClasses}
+                    onBlur={e => {
+                      const firstMenuItem =
+                        e.target.parentElement.querySelector(
+                          'li:first-of-type button'
+                        ) ||
+                        e.target.parentElement.querySelector(
+                          'li:first-of-type a'
+                        );
+
+                      const lastMenuItem =
+                        e.target.parentElement.querySelector(
+                          'li:last-of-type button'
+                        ) ||
+                        e.target.parentElement.querySelector(
+                          'li:last-of-type a'
+                        );
+
+                      if (e.relatedTarget && e.relatedTarget !== firstMenuItem)
+                        return lastMenuItem.focus();
+                    }}
                   />
                 )}
 

@@ -174,7 +174,6 @@ export const Default = ({ parameters }) => {
 
 Default.story = {
   parameters: {
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--tabs-extended-media',
     knobs: {
       TabsExtendedWithMedia: () => ({
         sectionHeading: textNullable('Heading', 'Title heading'),
@@ -202,16 +201,19 @@ Default.story = {
 export default {
   title: 'Components/Tabs extended - with media',
   decorators: [
-    (story, { parameters }) => html`
-      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
-        ${story()}
+    story => html`
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-lg-16 bx--no-gutter">
+            ${story()}
+          </div>
+        </div>
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasVerticalSpacingInComponent: true,
-    hasGrid: true,
+    hasStoryPadding: true,
     knobs: {},
   },
 };
