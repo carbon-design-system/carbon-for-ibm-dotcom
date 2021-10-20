@@ -56,14 +56,18 @@ export default {
   title: 'Components/Card in card',
   decorators: [
     story => html`
-      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--card-in-card">
-        ${story()}
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-lg-12 bx--no-gutter">
+            ${story()}
+          </div>
+        </div>
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
+    hasStoryPadding: true,
     knobs: {
       'dds-card-in-card': () => {
         const video = boolean('video', false);
