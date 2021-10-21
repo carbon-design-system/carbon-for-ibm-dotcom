@@ -28,6 +28,7 @@
     margin-top: $carbon--layout-04;
     padding: $spacing-05;
     padding-left: 0;
+    padding-top: 0;
 
     @include carbon--breakpoint('lg') {
       padding-left: $spacing-05;
