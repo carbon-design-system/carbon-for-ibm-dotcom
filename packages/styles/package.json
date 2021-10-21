@@ -27,7 +27,6 @@
     "build": "gulp",
     "build-storybook": "cross-env BABEL_ENV=es build-storybook",
     "ci-check": "yarn build",
-    "postinstall": "carbon-telemetry collect --install",
     "start": "gulp dev",
     "storybook": "start-storybook -p 9000",
     "upgrade-carbon": "yarn upgrade-interactive @carbon/grid @carbon/import-once @carbon/layout @carbon/motion @carbon/themes @carbon/type carbon-components @carbon/icons-react carbon-components-react --latest --exact",
@@ -39,7 +38,6 @@
     "@carbon/import-once": "10.6.0",
     "@carbon/layout": "10.33.0",
     "@carbon/motion": "10.25.0",
-    "@carbon/telemetry": "0.0.0-alpha.6",
     "@carbon/themes": "10.45.0",
     "@carbon/type": "10.37.0",
     "carbon-components": "10.46.0"
