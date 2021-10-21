@@ -44,23 +44,15 @@ addParameters({
 
 addDecorator((story, { parameters }) => {
   const result = story();
-  const { hasMainTag } = result as any;
-  const { hasGrid, hasVerticalSpacingInComponent, useRawContainer } = parameters;
+  const { hasStoryPadding } = parameters;
   const classes = cx({
-    'dds-ce-demo-devenv--container': !useRawContainer,
-    'dds-ce-demo-devenv--container--has-grid': hasGrid,
-    'dds-ce-demo-devenv--container--has-vertical-spacing-in-component': hasVerticalSpacingInComponent,
+    'dds-story-padding': hasStoryPadding,
   });
   return (
     <StrictMode>
       <style>{containerStyles.cssText}</style>
       <BXSkipToContent href="#main-content">Skip to main content</BXSkipToContent>
-      <div
-        id="main-content"
-        data-floating-menu-container
-        data-modal-container
-        role={hasMainTag ? 'none' : 'main'}
-        className={classes}>
+      <div id="main-content" data-floating-menu-container data-modal-container role="main" className={classes}>
         {result}
       </div>
     </StrictMode>

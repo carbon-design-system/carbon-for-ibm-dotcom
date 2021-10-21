@@ -21,6 +21,7 @@ import HostListener from 'carbon-web-components/es/globals/decorators/host-liste
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
 import 'carbon-web-components/es/components/checkbox/checkbox';
+import DDSFilterGroupItem from './filter-group-item';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -88,6 +89,13 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
       if (e.getAttribute('value') === value) {
         e.toggleAttribute('checked');
         e.closest('dds-filter-group-item')?.setAttribute('open', '');
+      }
+    });
+
+    const filterGroupItems = this.querySelectorAll('dds-filter-group-item');
+    this.shadowRoot?.querySelectorAll('dds-filter-group-item').forEach((filterGroupItem, index) => {
+      if ((filterGroupItem as DDSFilterGroupItem).open) {
+        (filterGroupItems[index] as DDSFilterGroupItem).open = true;
       }
     });
 
@@ -189,7 +197,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   protected _handleClearSelection = () => {
     this._selectedValues = [];
 
-    // handles clear when clearing from the static filter panel model
+    // handles clear when clearing from the static filter panel modal
     this._contents.forEach(group => {
       group.querySelectorAll('dds-filter-panel-checkbox').forEach(e => {
         e.removeAttribute('checked');
@@ -303,7 +311,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </dds-filter-panel-modal>
 
-      <dds-filter-panel>
+      <dds-filter-panel heading="${this._filterButtonTitle}">
         ${this._title.map(e => {
           return html`
             ${unsafeHTML((e as HTMLElement).outerHTML)}

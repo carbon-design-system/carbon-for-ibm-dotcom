@@ -72,14 +72,18 @@ export default !DDS_CONTENT_BLOCK_CARD_STATIC
       title: 'Components/Content block card static',
       decorators: [
         story => html`
-          <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--card-group">
-            ${story()}
+          <div class="bx--grid">
+            <div class="bx--row">
+              <div class="bx--col-lg-12 bx--no-gutter">
+                ${story()}
+              </div>
+            </div>
           </div>
         `,
       ],
       parameters: {
         ...readme.parameters,
-        hasGrid: true,
+        hasStoryPadding: true,
         knobs: {
           ContentBlockCards: () => ({
             heading: textNullable('Heading (heading):', 'Ways to buy'),

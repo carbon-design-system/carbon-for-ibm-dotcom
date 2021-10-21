@@ -14,7 +14,9 @@ const path = require('path');
 const { promisify } = require('util');
 const asyncDone = require('async-done');
 const gulp = require('gulp');
-const sass = require('gulp-sass');
+// This can be changed to `dart-sass` once Carbon V11 is used require('sass')
+/* eslint-disable import/no-extraneous-dependencies */
+const sass = require('gulp-sass')(require('node-sass'));
 const postcss = require('gulp-postcss');
 const prettier = require('gulp-prettier');
 const header = require('gulp-header');

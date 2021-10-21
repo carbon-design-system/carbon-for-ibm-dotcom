@@ -75,15 +75,18 @@ export default {
   title: 'Components/Tabs extended',
   decorators: [
     story => html`
-      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--tabs-extended">
-        ${story()}
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-lg-12 bx--no-gutter">
+            ${story()}
+          </div>
+        </div>
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    useRawContainer: true,
-    hasGrid: true,
+    hasStoryPadding: true,
     knobs: {
       TabsExtended: ({ groupId }) => ({
         orientation: select('Orientation (orientation):', orientationType, ORIENTATION.HORIZONTAL, groupId),

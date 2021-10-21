@@ -93,17 +93,20 @@ export default {
   title: 'Components/Content group',
   decorators: [
     story => html`
-      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-layout">
-        <dds-video-cta-container>
-          ${story()}
-        </dds-video-cta-container>
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-lg-12 bx--no-gutter">
+            <dds-video-cta-container>
+              ${story()}
+            </dds-video-cta-container>
+          </div>
+        </div>
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
+    hasStoryPadding: true,
     knobs: {
       ContentGroup: () => ({
         heading: textNullable('Heading:', 'Natural language processing (NLP)'),

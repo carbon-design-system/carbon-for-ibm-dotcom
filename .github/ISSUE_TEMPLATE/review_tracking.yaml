@@ -1,0 +1,26 @@
+name: (C4IBM.com team only) Review tracking
+description:
+  Carbon for IBM.com team members can track their pull request review time here
+title: '[PR Reviews]: Your name - Sprint Number'
+labels: ['housekeeping']
+body:
+  - type: markdown
+    attributes:
+      value: "This issue is to track the pull request reviews performed in a given sprint.
+
+- Assign to yourself, and set the pipeline to `Doing`
+
+- Add the corresponding milestone and storypoints once created.
+
+- If you are a developer, add the `dev` label. For designers, add the `design` label."
+  - type: textarea
+    id: pull-requests
+    attributes:
+      label: Pull request(s) reviewed
+      value: "- _{{pull request number/link}}_
+
+- _{{pull request number/link}}_
+
+- _{{pull request number/link}}_"
+    validations:
+      required: true
