@@ -20,29 +20,6 @@
     padding-bottom: $carbon--layout-05;
   }
 
-  .#{$prefix}--content-section__with-children {
-    ::slotted([slot='heading']),
-    .#{$prefix}--content-section__heading {
-      @include carbon--breakpoint(lg) {
-        padding-top: $spacing-05;
-      }
-    }
-  }
-
-  .#{$prefix}--content-section ::slotted([slot='heading']) {
-    @include carbon--breakpoint-down(lg) {
-      padding-top: 1rem;
-    }
-  }
-
-  :host(#{$dds-prefix}-content-section) ::slotted(:not([slot])),
-  .#{$prefix}--content-section .#{$prefix}--content-group,
-  .#{$prefix}--content-section .#{$prefix}--content-item,
-  .#{$prefix}--content-section .#{$prefix}--content-block {
-    margin-top: 0;
-    padding-top: 0;
-  }
-
   .#{$prefix}--content-section-layout {
     @include carbon--breakpoint('lg') {
       display: flex;
@@ -50,13 +27,10 @@
   }
 
   .#{$prefix}--content-section__leading {
-    padding: 0 $spacing-05 0 $spacing-05;
-    margin-bottom: $spacing_09;
+    padding: $spacing-05;
 
     @include carbon--breakpoint(lg) {
       @include carbon--make-col(4, 16);
-
-      margin-bottom: 0;
     }
   }
 
@@ -84,18 +58,17 @@
   }
 
   .#{$prefix}--content-section__left {
-    margin-bottom: $spacing-09;
-
     @include carbon--breakpoint(lg) {
       @include carbon--make-col(4, 16);
 
-      margin-bottom: 0;
+      padding-top: $spacing-05;
     }
   }
 
   :host(#{$dds-prefix}-content-section-heading),
   .#{$prefix}--content-section__heading {
     margin-top: 0;
+    margin-bottom: $spacing-06;
 
     @include type-style('expressive-heading-02');
   }
@@ -120,8 +93,12 @@
   }
 
   .#{$prefix}--content-section__children {
+    margin-top: $spacing-06;
+
     @include carbon--breakpoint(lg) {
       @include carbon--make-col(12, 16);
+
+      margin-top: 0;
     }
   }
 

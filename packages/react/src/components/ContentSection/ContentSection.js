@@ -33,7 +33,6 @@ const ContentSection = ({
     <section
       className={classNames(`${prefix}--content-section`, customClassName, {
         [`${prefix}--content-section--${theme}`]: theme,
-        [`${prefix}--content-section__with-children`]: children.length > 0,
       })}
       data-autoid={
         otherProps.autoid
