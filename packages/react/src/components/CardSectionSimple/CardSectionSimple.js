@@ -31,9 +31,9 @@ const CardSectionSimple = ({ cards, cta, theme, ...otherProps }) => {
       autoid={`${stablePrefix}--card-group-simple-group`}
       customClassName={classNames(`${prefix}--card-group`, {
         [`${prefix}--card-group--${theme}`]: theme,
-      })}>
-      <CardGroup cards={cardsWithoutImages} cta={cta} />
-    </ContentSection>
+      })}
+      children={[<CardGroup cards={cardsWithoutImages} cta={cta} />]}
+    />
   );
 };
 
