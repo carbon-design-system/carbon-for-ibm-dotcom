@@ -124,7 +124,7 @@ describe('Masthead | with platform (desktop)', () => {
     );
   });
 
-  it('should platform be next to IBM logo', () => {
+  it('should render platform next to IBM logo', () => {
     cy.get('[data-autoid="dds--masthead-eco__l0-ecosystemname"]').then(
       $platform => {
         cy.get('[data-autoid="dds--masthead-eco__l0-logo"]').then($logo => {
