@@ -307,9 +307,9 @@
   @include carbon--breakpoint('lg') {
     @include carbon--make-col(4, 16);
     @include carbon--make-col-offset(10, 16);
+
     order: 1;
     min-width: carbon--mini-units(27);
-    @include carbon--make-col(4, 16);
   }
 }
 
@@ -319,6 +319,7 @@
   border-left: 1px solid $ui-03;
   align-self: flex-end;
   margin-bottom: 0;
+  width: 100%;
 
   .#{$prefix}--dropdown {
     background-color: $ui-background;
