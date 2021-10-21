@@ -260,6 +260,78 @@ describe('dds-masthead | custom (desktop)', () => {
     cy.viewport(1280, 780);
   });
 
+  it('should render 6 custom menu items', () => {
+    cy.get('dds-top-nav > *').should('have.length', 6);
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | Number of custom menu items', {
+    //   widths: [1280],
+    // });
+  });
+
+  it('should load custom menu item with selected state', () => {
+    cy.get('dds-top-nav > *:nth-child(1)').then($menuItem => {
+      expect($menuItem).to.have.attr('active');
+    });
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | custom menu item with selected state', {
+    //   widths: [1280],
+    // });
+  });
+
+  it('should load the megamenu - custom first nav item', () => {
+    cy.get('dds-top-nav > *:nth-child(1)').click();
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | custom nav (nav 0)', {
+    //   widths: [1280],
+    // });
+  });
+
+  it('should load the megamenu - custom second nav item', () => {
+    cy.get('dds-top-nav > *:nth-child(2)').click();
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | custom nav (nav 1)', {
+    //   widths: [1280],
+    // });
+  });
+
+  it('should load regular menu - custom third nav item', () => {
+    cy.get('dds-top-nav > *:nth-child(3)').click();
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | custom nav (nav 2)', {
+    //   widths: [1280],
+    // });
+  });
+
+  it('should load the megamenu - custom fifth nav item', () => {
+    cy.get('dds-top-nav')
+      .shadow()
+      .find('.bx--header__nav-caret-right-container > button')
+      .click();
+    cy.get('dds-top-nav > *:nth-child(5)').click();
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | custom nav (nav 4)', {
+    //   widths: [1280],
+    // });
+  });
+
   it('should scroll the L0 overflow properly', () => {
     cy.get('dds-top-nav')
       .shadow()

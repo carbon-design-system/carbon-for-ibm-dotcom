@@ -44,7 +44,7 @@ describe('Masthead | default (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-masthead | IBM logo', {
+    cy.percySnapshot('Masthead | IBM logo', {
       widths: [1280],
     });
   });
@@ -58,7 +58,7 @@ describe('Masthead | default (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-masthead | menu item with selected state', {
+    cy.percySnapshot('Masthead | menu item with selected state', {
       widths: [1280],
     });
   });
@@ -130,7 +130,7 @@ describe('Masthead | default (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-masthead | megamenu sublinks have urls', {
+    cy.percySnapshot('Masthead | megamenu sublinks have urls', {
       widths: [1280],
     });
   });
@@ -151,7 +151,7 @@ describe('Masthead | default (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-masthead | profile menu has 2 items', {
+    cy.percySnapshot('Masthead | profile menu has 2 items', {
       widths: [1280],
     });
   });
@@ -161,7 +161,7 @@ describe('Masthead | default (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-masthead |  search bar opens', {
+    cy.percySnapshot('Masthead |  search bar opens', {
       widths: [1280],
     });
   });
@@ -178,7 +178,7 @@ describe('Masthead | default (desktop)', () => {
     cy.screenshot();
     // Take a snapshot for visual diffing
     cy.percySnapshot(
-      'dds-masthead |  allow for keywords in search bar and display 10 suggested results',
+      'Masthead |  allow for keywords in search bar and display 10 suggested results',
       {
         widths: [1280],
       }
@@ -217,8 +217,63 @@ describe('Masthead | custom (desktop)', () => {
     cy.viewport(1280, 780);
   });
 
-  it('should scroll the L0 overflow properly', () => {
+  it('should render 5 custom menu items', () => {
+    cy.get('.bx--header__menu-bar > li').should('have.length', 5);
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('Masthead | Number of custom menu items', {
+      widths: [1280],
+    });
+  });
+
+  it('should load custom menu item with selected state', () => {
+    cy.get('[data-autoid="dds--masthead-default__l0-nav0"] a').then(
+      $menuItem => {
+        expect($menuItem).to.have.attr('data-selected', 'true');
+      }
+    );
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('Masthead | custom menu item with selected state', {
+      widths: [1280],
+    });
+  });
+
+  it('should load regular menu - custom first nav item', () => {
     cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').click();
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('Masthead | custom nav (nav 0)', {
+      widths: [1280],
+    });
+  });
+
+  it('should load regular menu - custom second nav item', () => {
+    cy.get('[data-autoid="dds--masthead-default__l0-nav1"]').click();
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('Masthead | custom nav (nav 1)', {
+      widths: [1280],
+    });
+  });
+
+  it('should load regular menu - custom fourth nav item', () => {
+    cy.get('.bx--header__nav-caret-right').click();
+    cy.get('[data-autoid="dds--masthead-default__l0-nav3"]').click();
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('Masthead | custom nav (nav 3)', {
+      widths: [1280],
+    });
+  });
+
+  it('should scroll the L0 overflow properly', () => {
+    cy.get('.bx--header__nav-caret-right').click();
 
     cy.screenshot();
     // Take a snapshot for visual diffing
