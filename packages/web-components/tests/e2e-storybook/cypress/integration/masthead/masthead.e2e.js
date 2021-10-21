@@ -147,7 +147,7 @@ describe('dds-masthead | with platform (desktop)', () => {
       });
   });
 
-  it('should platform be next to IBM logo', () => {
+  it('should render platform next to IBM logo', () => {
     cy.get('dds-masthead > dds-top-nav-name').then($platform => {
       cy.get('dds-masthead > dds-masthead-logo').then($logo => {
         expect($logo[0].getBoundingClientRect().right).to.equal($platform[0].getBoundingClientRect().left);
