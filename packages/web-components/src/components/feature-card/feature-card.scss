@@ -51,8 +51,6 @@
 
 :host(#{$dds-prefix}-feature-card-footer),
 :host(#{$dds-prefix}-feature-cta-footer) {
-  @extend :host(#{$dds-prefix}-card-footer);
-
   display: flex;
   justify-content: flex-start;
 
