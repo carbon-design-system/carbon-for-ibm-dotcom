@@ -44,8 +44,8 @@
   .#{$prefix}--callout-with-media .#{$prefix}--content-block__heading,
   :host(#{$dds-prefix}-callout-with-media) ::slotted([slot='copy']),
   .#{$prefix}--callout-with-media .#{$prefix}--callout-with-media-copy {
-    padding-right: 2rem;
-    max-width: 40rem;
+    padding-right: $spacing-07;
+    max-width: carbon--rem(640px);
     width: auto;
   }
 
