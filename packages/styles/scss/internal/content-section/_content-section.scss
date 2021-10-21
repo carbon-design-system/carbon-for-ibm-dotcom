@@ -24,7 +24,7 @@
     ::slotted([slot='heading']),
     .#{$prefix}--content-section__heading {
       @include carbon--breakpoint(lg) {
-        padding-top: $spacing-03;
+        padding-top: $spacing-05;
       }
     }
   }
