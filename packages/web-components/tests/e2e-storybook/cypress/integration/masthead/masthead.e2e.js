@@ -281,6 +281,24 @@ describe('dds-masthead | with platform (desktop)', () => {
     cy.viewport(1280, 780);
   });
 
+  it('should load platform containing a link', () => {
+    cy.get('dds-masthead > dds-top-nav-name')
+      .shadow()
+      .find('a')
+      .then($link => {
+        const url = $link.prop('href');
+        expect(url).not.to.be.empty;
+      });
+  });
+
+  it('should render platform next to IBM logo', () => {
+    cy.get('dds-masthead > dds-top-nav-name').then($platform => {
+      cy.get('dds-masthead > dds-masthead-logo').then($logo => {
+        expect($logo[0].getBoundingClientRect().right).to.equal($platform[0].getBoundingClientRect().left);
+      });
+    });
+  });
+
   it('should open the search bar with platform', () => {
     cy.get('dds-masthead > dds-search-with-typeahead')
       .shadow()
