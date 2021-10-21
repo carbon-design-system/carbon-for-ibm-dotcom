@@ -61,7 +61,7 @@ const App = () => (
           title="Supply chain management"></DDSFilterPanelInputSelect>
       </DDSFilterGroupItem>
       <DDSFilterGroupItem title-text="Deployment types">
-        <DDSFilterPanelCheckbox value="On-premisis">On-premisis</DDSFilterPanelCheckbox>
+        <DDSFilterPanelCheckbox value="On-premises">On-premises</DDSFilterPanelCheckbox>
         <DDSFilterPanelCheckbox value="SaaS">SaaS</DDSFilterPanelCheckbox>
       </DDSFilterGroupItem>
     </DDSFilterGroup>

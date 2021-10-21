@@ -23,14 +23,12 @@ import DDSFilterPanelInputSelectItem from '@carbon/ibmdotcom-web-components/es/c
 /* eslint-enable max-len */
 
 import readme from './README.stories.react.mdx';
-import styles from './filter-panel.stories.scss';
 
 export const Default = ({ parameters }) => {
   const { heading, gridKnobs } = parameters?.props?.FilterPanel ?? {};
 
   return (
     <>
-      <style type="text/css">{styles.cssText}</style>
       <div className={`grid-alignment ${gridKnobs === '3 columns' ? 'bx--col-lg-3' : 'bx--col-lg-4'}`}>
         <DDSFilterPanelComposite>
           <DDSFilterPanelHeading slot="heading">{heading}</DDSFilterPanelHeading>
@@ -80,7 +78,7 @@ export const Default = ({ parameters }) => {
                 title="Supply chain management"></DDSFilterPanelInputSelect>
             </DDSFilterGroupItem>
             <DDSFilterGroupItem title-text="Deployment types">
-              <DDSFilterPanelCheckbox value="On-premisis">On-premisis</DDSFilterPanelCheckbox>
+              <DDSFilterPanelCheckbox value="On-premises">On-premises</DDSFilterPanelCheckbox>
               <DDSFilterPanelCheckbox value="SaaS">SaaS</DDSFilterPanelCheckbox>
             </DDSFilterGroupItem>
           </DDSFilterGroup>
@@ -93,7 +91,7 @@ export const Default = ({ parameters }) => {
 export default {
   title: 'Components/Filter panel',
   decorators: [story => story()],
-  hasGrid: true,
+  hasStoryPadding: true,
   parameters: {
     ...readme.parameters,
     knobs: {
