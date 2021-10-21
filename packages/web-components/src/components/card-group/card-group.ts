@@ -150,6 +150,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
       }
 
       this._setSameHeight();
+
       this._fillLastRowWithEmptyCards(columns);
       this._borderAdjustments(columns);
     });
@@ -197,20 +198,20 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
 
   private _borderAdjustments = columns => {
     this._childItems.forEach((e, index) => {
-      if (this.gridMode !== 'border') {
+      if (this.gridMode === 'collapsed') {
         if (e.hasAttribute('empty')) {
           e.style.paddingBottom = '0';
           e.style.paddingRight = '0';
-        } else if (this.gridMode === 'collapsed') {
+        } else {
           // first column
           if ((index + 1) % columns === 1) {
             e.style.paddingLeft = '0';
           }
-          const borderColor = getComputedStyle(document.body).getPropertyValue('--cds-ui-background');
           // last column
           if ((index + 1) % columns === 0) {
             e.style.paddingRight = '0';
-            e.style.borderRight = `inset 1px ${borderColor}`;
+            // const borderColor = getComputedStyle(document.body).getPropertyValue('--cds-ui-background');
+            // e.style.borderRight = `inset 1px ${borderColor}`;
           } else {
             e.style.paddingRight = '1px';
             e.style.borderRight = 'none';
@@ -218,7 +219,6 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
           // first row
           if (index < columns) {
             e.style.paddingTop = '0';
-            e.style.borderTop = `inset 1px ${borderColor}`; // TESTE
           }
           // last row
           if (Math.floor(index / columns) === Math.floor((this._childItems.length - 1) / columns)) {
@@ -226,10 +226,8 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
           } else {
             e.style.paddingBottom = '1px';
           }
-        } else {
-          e.removeAttribute('style');
         }
-      } else {
+      } else if (this.gridMode === 'border') {
         if (e.hasAttribute('empty')) {
           e.style.paddingBottom = '1px';
           e.style.paddingRight = '1px';
@@ -258,6 +256,8 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
         if (columns === 1 && index === 1 && this._childItems[0].hasAttribute('empty')) {
           e.style.paddingTop = '1px';
         }
+      } else {
+        e.removeAttribute('style');
       }
     });
   };

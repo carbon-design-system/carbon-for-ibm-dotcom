@@ -128,21 +128,18 @@
   }
 
   // Add a $ui-03 border line color when the grid mode is equal "collapsed".
-  :host(#{$dds-prefix}-card-in-card)[grid-mode='collapsed'],
-  .#{$prefix}--card-in-card--narrow {
-    .#{$prefix}--card__wrapper {
-      &::after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 1px;
-        position: absolute;
-        left: 0;
-        bottom: -1px;
-        pointer-events: none;
-        z-index: 1;
-        background-color: $ui-03;
-      }
+  :host(#{$dds-prefix}-card-in-card)[grid-mode='collapsed'] {
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      pointer-events: none;
+      z-index: 1;
+      background-color: $ui-03;
     }
   }
 }
