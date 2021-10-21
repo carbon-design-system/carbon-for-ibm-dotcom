@@ -115,7 +115,7 @@ describe('Masthead | with platform (desktop)', () => {
     cy.viewport(1280, 780);
   });
 
-  it('should contain link', () => {
+  it('should load platform containing a link', () => {
     cy.get('[data-autoid="dds--masthead-eco__l0-ecosystemname"]').then(
       $link => {
         const url = $link.prop('href');
@@ -124,7 +124,7 @@ describe('Masthead | with platform (desktop)', () => {
     );
   });
 
-  it('should be next to IBM logo', () => {
+  it('should platform be next to IBM logo', () => {
     cy.get('[data-autoid="dds--masthead-eco__l0-ecosystemname"]').then(
       $platform => {
         cy.get('[data-autoid="dds--masthead-eco__l0-logo"]').then($logo => {

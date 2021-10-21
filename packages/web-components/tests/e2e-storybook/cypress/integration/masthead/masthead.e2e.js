@@ -137,7 +137,7 @@ describe('dds-masthead | with platform (desktop)', () => {
     cy.viewport(1280, 780);
   });
 
-  it('should contain link', () => {
+  it('should load platform containing a link', () => {
     cy.get('dds-masthead > dds-top-nav-name')
       .shadow()
       .find('a')
@@ -147,7 +147,7 @@ describe('dds-masthead | with platform (desktop)', () => {
       });
   });
 
-  it('should be next to IBM logo', () => {
+  it('should platform be next to IBM logo', () => {
     cy.get('dds-masthead > dds-top-nav-name').then($platform => {
       cy.get('dds-masthead > dds-masthead-logo').then($logo => {
         expect($logo[0].getBoundingClientRect().right).to.equal($platform[0].getBoundingClientRect().left);
