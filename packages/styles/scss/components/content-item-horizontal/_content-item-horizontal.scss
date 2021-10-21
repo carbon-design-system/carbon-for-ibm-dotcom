@@ -293,10 +293,6 @@
   :host(#{$dds-prefix}-content-item-horizontal-thumbnail-copy)
     ::slotted(#{$dds-prefix}-content-item-paragraph) {
     margin-bottom: $carbon--spacing-07;
-
-    @include carbon--breakpoint(md) {
-      padding-right: rem(32px);
-    }
   }
 
   :host(#{$dds-prefix}-content-item-horizontal) .#{$prefix}--content-item__cta,
