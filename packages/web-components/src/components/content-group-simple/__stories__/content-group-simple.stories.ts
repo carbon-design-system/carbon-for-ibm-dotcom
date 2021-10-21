@@ -135,15 +135,20 @@ export default {
   title: 'Components/Content group simple',
   decorators: [
     story => html`
-      <dds-video-cta-container class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-layout">
-        ${story()}
-      </dds-video-cta-container>
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-lg-12 bx--no-gutter">
+            <dds-video-cta-container>
+              ${story()}
+            </dds-video-cta-container>
+          </div>
+        </div>
+      </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
+    hasStoryPadding: true,
     knobs: {
       ContentGroupSimple: ({ groupId }) => ({
         copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.',

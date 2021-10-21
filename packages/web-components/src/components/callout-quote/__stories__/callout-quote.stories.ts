@@ -50,7 +50,7 @@ export default {
   title: 'Components/Callout quote',
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
+    hasStoryPadding: true,
     knobs: {
       CalloutQuote: ({ groupId }) => ({
         copy: textNullable(
@@ -69,7 +69,7 @@ export default {
       story => html`
         <div class="bx--grid">
           <div class="bx--row">
-            <div class="bx--offset-lg-5 bx--col-lg-11">
+            <div class="bx--col-lg-11">
               ${story()}
             </div>
           </div>

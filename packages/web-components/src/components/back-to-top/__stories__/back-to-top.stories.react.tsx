@@ -31,88 +31,88 @@ import React from 'react';
 import readme from './README.stories.react.mdx';
 import styles from './back-to-top.stories.scss';
 
-const copy = `The popularity of responsive web design has led to a proliferation of single-column, 
-long-page designs both on mobile and desktop. A consequence of these designs has been the 
+const copy = `The popularity of responsive web design has led to a proliferation of single-column,
+long-page designs both on mobile and desktop. A consequence of these designs has been the
 “Back to Top” button, which is a shortcut that allows users to quickly navigate to the top of the page.
 
-Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae. Ambitioni dedisse scripsisse iudicaretur. 
+Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae. Ambitioni dedisse scripsisse iudicaretur.
 Etiam habebis sem dicantur magna mollis euismod.
 
-Praeterea iter est quasdam res quas ex communi. A communi observantia non est recedendum. Nihilne te 
-nocturnum praesidium Palati, nihil urbis vigiliae. Quo usque tandem abutere, Catilina, patientia nostra? 
-Donec sed odio operae, eu vulputate felis rhoncus. Cras mattis iudicium purus sit amet fermentum. Quis 
-aute iure reprehenderit in voluptate velit esse. Fictum, deserunt mollit anim laborum astutumque! 
+Praeterea iter est quasdam res quas ex communi. A communi observantia non est recedendum. Nihilne te
+nocturnum praesidium Palati, nihil urbis vigiliae. Quo usque tandem abutere, Catilina, patientia nostra?
+Donec sed odio operae, eu vulputate felis rhoncus. Cras mattis iudicium purus sit amet fermentum. Quis
+aute iure reprehenderit in voluptate velit esse. Fictum, deserunt mollit anim laborum astutumque!
 Curabitur est gravida et libero vitae dictum. Excepteur sint obcaecat cupiditat non proident culpa.
 
-Qui ipsorum lingua Celtae, nostra Galli appellantur. Pellentesque habitant morbi tristique senectus 
-et netus. Inmensae subtilitatis, obscuris et malesuada fames. Quis aute iure reprehenderit in voluptate 
-velit esse. Hi omnes lingua, institutis, legibus inter se differunt. Excepteur sint obcaecat cupiditat 
-non proident culpa. Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Curabitur est gravida 
-et libero vitae dictum. Curabitur blandit tempus ardua ridiculus sed magna. Vivamus sagittis lacus vel 
-augue laoreet rutrum faucibus. Praeterea iter est quasdam res quas ex communi. Fabio vel iudice vincam, 
-sunt in culpa qui officia. Cum sociis natoque penatibus et magnis dis parturient. Donec sed odio operae, 
+Qui ipsorum lingua Celtae, nostra Galli appellantur. Pellentesque habitant morbi tristique senectus
+et netus. Inmensae subtilitatis, obscuris et malesuada fames. Quis aute iure reprehenderit in voluptate
+velit esse. Hi omnes lingua, institutis, legibus inter se differunt. Excepteur sint obcaecat cupiditat
+non proident culpa. Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Curabitur est gravida
+et libero vitae dictum. Curabitur blandit tempus ardua ridiculus sed magna. Vivamus sagittis lacus vel
+augue laoreet rutrum faucibus. Praeterea iter est quasdam res quas ex communi. Fabio vel iudice vincam,
+sunt in culpa qui officia. Cum sociis natoque penatibus et magnis dis parturient. Donec sed odio operae,
 eu vulputate felis rhoncus. Mercedem aut nummos unde unde extricat, amaras.
 
-Praeterea iter est quasdam res quas ex communi. A communi observantia non est recedendum. Nihilne te 
-nocturnum praesidium Palati, nihil urbis vigiliae. Quo usque tandem abutere, Catilina, patientia nostra? 
-Donec sed odio operae, eu vulputate felis rhoncus. Cras mattis iudicium purus sit amet fermentum. Quis 
-aute iure reprehenderit in voluptate velit esse. Fictum, deserunt mollit anim laborum astutumque! 
+Praeterea iter est quasdam res quas ex communi. A communi observantia non est recedendum. Nihilne te
+nocturnum praesidium Palati, nihil urbis vigiliae. Quo usque tandem abutere, Catilina, patientia nostra?
+Donec sed odio operae, eu vulputate felis rhoncus. Cras mattis iudicium purus sit amet fermentum. Quis
+aute iure reprehenderit in voluptate velit esse. Fictum, deserunt mollit anim laborum astutumque!
 Curabitur est gravida et libero vitae dictum. Excepteur sint obcaecat cupiditat non proident culpa.
 
-Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Magna pars studiorum, prodita quaerimus. 
-Quisque placerat facilisis egestas cillum dolore. At nos hinc posthac, sitientis piros Afros. Cum sociis 
-natoque penatibus et magnis dis parturient. Nec dubitamus multa iter quae et nos invenerat. Plura mihi 
+Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Magna pars studiorum, prodita quaerimus.
+Quisque placerat facilisis egestas cillum dolore. At nos hinc posthac, sitientis piros Afros. Cum sociis
+natoque penatibus et magnis dis parturient. Nec dubitamus multa iter quae et nos invenerat. Plura mihi
 bona sunt, inclinet, amari petere vellent. Phasellus laoreet lorem vel dolor tempus vehicula.
 
-Praeterea iter est quasdam res quas ex communi. A communi observantia non est recedendum. Nihilne te 
-nocturnum praesidium Palati, nihil urbis vigiliae. Quo usque tandem abutere, Catilina, patientia nostra? 
-Donec sed odio operae, eu vulputate felis rhoncus. Cras mattis iudicium purus sit amet fermentum. Quis 
-aute iure reprehenderit in voluptate velit esse. Fictum, deserunt mollit anim laborum astutumque! 
+Praeterea iter est quasdam res quas ex communi. A communi observantia non est recedendum. Nihilne te
+nocturnum praesidium Palati, nihil urbis vigiliae. Quo usque tandem abutere, Catilina, patientia nostra?
+Donec sed odio operae, eu vulputate felis rhoncus. Cras mattis iudicium purus sit amet fermentum. Quis
+aute iure reprehenderit in voluptate velit esse. Fictum, deserunt mollit anim laborum astutumque!
 Curabitur est gravida et libero vitae dictum. Excepteur sint obcaecat cupiditat non proident culpa.
 
-Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Magna pars studiorum, prodita quaerimus. 
-Quisque placerat facilisis egestas cillum dolore. At nos hinc posthac, sitientis piros Afros. Cum sociis 
-natoque penatibus et magnis dis parturient. Nec dubitamus multa iter quae et nos invenerat. Plura mihi 
+Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Magna pars studiorum, prodita quaerimus.
+Quisque placerat facilisis egestas cillum dolore. At nos hinc posthac, sitientis piros Afros. Cum sociis
+natoque penatibus et magnis dis parturient. Nec dubitamus multa iter quae et nos invenerat. Plura mihi
 bona sunt, inclinet, amari petere vellent. Phasellus laoreet lorem vel dolor tempus vehicula.
 
-Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae. Ambitioni dedisse scripsisse iudicaretur. 
+Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae. Ambitioni dedisse scripsisse iudicaretur.
 Etiam habebis sem dicantur magna mollis euismod.
 
-Praeterea iter est quasdam res quas ex communi. A communi observantia non est recedendum. Nihilne te 
-nocturnum praesidium Palati, nihil urbis vigiliae. Quo usque tandem abutere, Catilina, patientia nostra? 
-Donec sed odio operae, eu vulputate felis rhoncus. Cras mattis iudicium purus sit amet fermentum. Quis 
-aute iure reprehenderit in voluptate velit esse. Fictum, deserunt mollit anim laborum astutumque! 
+Praeterea iter est quasdam res quas ex communi. A communi observantia non est recedendum. Nihilne te
+nocturnum praesidium Palati, nihil urbis vigiliae. Quo usque tandem abutere, Catilina, patientia nostra?
+Donec sed odio operae, eu vulputate felis rhoncus. Cras mattis iudicium purus sit amet fermentum. Quis
+aute iure reprehenderit in voluptate velit esse. Fictum, deserunt mollit anim laborum astutumque!
 Curabitur est gravida et libero vitae dictum. Excepteur sint obcaecat cupiditat non proident culpa.
 
-Qui ipsorum lingua Celtae, nostra Galli appellantur. Pellentesque habitant morbi tristique senectus 
-et netus. Inmensae subtilitatis, obscuris et malesuada fames. Quis aute iure reprehenderit in voluptate 
-velit esse. Hi omnes lingua, institutis, legibus inter se differunt. Excepteur sint obcaecat cupiditat 
-non proident culpa. Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Curabitur est gravida 
-et libero vitae dictum. Curabitur blandit tempus ardua ridiculus sed magna. Vivamus sagittis lacus vel 
-augue laoreet rutrum faucibus. Praeterea iter est quasdam res quas ex communi. Fabio vel iudice vincam, 
-sunt in culpa qui officia. Cum sociis natoque penatibus et magnis dis parturient. Donec sed odio operae, 
+Qui ipsorum lingua Celtae, nostra Galli appellantur. Pellentesque habitant morbi tristique senectus
+et netus. Inmensae subtilitatis, obscuris et malesuada fames. Quis aute iure reprehenderit in voluptate
+velit esse. Hi omnes lingua, institutis, legibus inter se differunt. Excepteur sint obcaecat cupiditat
+non proident culpa. Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Curabitur est gravida
+et libero vitae dictum. Curabitur blandit tempus ardua ridiculus sed magna. Vivamus sagittis lacus vel
+augue laoreet rutrum faucibus. Praeterea iter est quasdam res quas ex communi. Fabio vel iudice vincam,
+sunt in culpa qui officia. Cum sociis natoque penatibus et magnis dis parturient. Donec sed odio operae,
 eu vulputate felis rhoncus. Mercedem aut nummos unde unde extricat, amaras.
 
-Praeterea iter est quasdam res quas ex communi. A communi observantia non est recedendum. Nihilne te 
-nocturnum praesidium Palati, nihil urbis vigiliae. Quo usque tandem abutere, Catilina, patientia nostra? 
-Donec sed odio operae, eu vulputate felis rhoncus. Cras mattis iudicium purus sit amet fermentum. Quis 
-aute iure reprehenderit in voluptate velit esse. Fictum, deserunt mollit anim laborum astutumque! 
+Praeterea iter est quasdam res quas ex communi. A communi observantia non est recedendum. Nihilne te
+nocturnum praesidium Palati, nihil urbis vigiliae. Quo usque tandem abutere, Catilina, patientia nostra?
+Donec sed odio operae, eu vulputate felis rhoncus. Cras mattis iudicium purus sit amet fermentum. Quis
+aute iure reprehenderit in voluptate velit esse. Fictum, deserunt mollit anim laborum astutumque!
 Curabitur est gravida et libero vitae dictum. Excepteur sint obcaecat cupiditat non proident culpa.
 
-Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Magna pars studiorum, prodita quaerimus. 
-Quisque placerat facilisis egestas cillum dolore. At nos hinc posthac, sitientis piros Afros. Cum sociis 
-natoque penatibus et magnis dis parturient. Nec dubitamus multa iter quae et nos invenerat. Plura mihi 
+Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Magna pars studiorum, prodita quaerimus.
+Quisque placerat facilisis egestas cillum dolore. At nos hinc posthac, sitientis piros Afros. Cum sociis
+natoque penatibus et magnis dis parturient. Nec dubitamus multa iter quae et nos invenerat. Plura mihi
 bona sunt, inclinet, amari petere vellent. Phasellus laoreet lorem vel dolor tempus vehicula.
 
-Praeterea iter est quasdam res quas ex communi. A communi observantia non est recedendum. Nihilne te 
-nocturnum praesidium Palati, nihil urbis vigiliae. Quo usque tandem abutere, Catilina, patientia nostra? 
-Donec sed odio operae, eu vulputate felis rhoncus. Cras mattis iudicium purus sit amet fermentum. Quis 
-aute iure reprehenderit in voluptate velit esse. Fictum, deserunt mollit anim laborum astutumque! 
+Praeterea iter est quasdam res quas ex communi. A communi observantia non est recedendum. Nihilne te
+nocturnum praesidium Palati, nihil urbis vigiliae. Quo usque tandem abutere, Catilina, patientia nostra?
+Donec sed odio operae, eu vulputate felis rhoncus. Cras mattis iudicium purus sit amet fermentum. Quis
+aute iure reprehenderit in voluptate velit esse. Fictum, deserunt mollit anim laborum astutumque!
 Curabitur est gravida et libero vitae dictum. Excepteur sint obcaecat cupiditat non proident culpa.
 
-Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Magna pars studiorum, prodita quaerimus. 
-Quisque placerat facilisis egestas cillum dolore. At nos hinc posthac, sitientis piros Afros. Cum sociis 
-natoque penatibus et magnis dis parturient. Nec dubitamus multa iter quae et nos invenerat. Plura mihi 
+Morbi odio eros, volutpat ut pharetra vitae, lobortis sed nibh. Magna pars studiorum, prodita quaerimus.
+Quisque placerat facilisis egestas cillum dolore. At nos hinc posthac, sitientis piros Afros. Cum sociis
+natoque penatibus et magnis dis parturient. Nec dubitamus multa iter quae et nos invenerat. Plura mihi
 bona sunt, inclinet, amari petere vellent. Phasellus laoreet lorem vel dolor tempus vehicula.
 `;
 
@@ -213,6 +213,5 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
   },
 };

@@ -44,17 +44,18 @@ export default {
   title: 'Components/Background media',
   decorators: [
     story => html`
-      <div class="bx--grid bx--grid--condensed">
+      <div class="bx--grid">
         <div class="bx--row">
-          ${story()}
+          <div class="bx--col-sm-4 bx--no-gutter">
+            ${story()}
+          </div>
         </div>
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
+    hasStoryPadding: true,
     knobs: {
       'dds-background-media': ({ groupId }) => ({
         gradientDirection: select(

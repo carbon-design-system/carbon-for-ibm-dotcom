@@ -53,6 +53,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
     knobs: {
       TagGroup: ({ groupId }) => ({
         tagType: select('Tag Type:', tagTypeOptions, 'Tag Link', groupId),

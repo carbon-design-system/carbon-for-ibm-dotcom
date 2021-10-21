@@ -80,16 +80,19 @@ export default {
       <style>
         ${styles}
       </style>
-      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
-        ${story()}
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="${parameters.gridContentClasses} bx--no-gutter">
+            ${story()}
+          </div>
+        </div>
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout',
+    gridContentClasses: 'bx--col-lg-8',
+    hasStoryPadding: true,
     knobs: {
       ContentBlockMixed: ({ groupId }) => ({
         heading: textNullable('Heading (heading)', 'Lorem ipsum dolor sit amet', groupId),
@@ -300,7 +303,7 @@ export const WithAsideElements = ({ parameters }) => {
 WithAsideElements.story = {
   name: 'With aside elements',
   parameters: {
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout--with-complementary',
+    gridContentClasses: 'bx--col-lg-12',
     knobs: {
       ContentBlockMixed: ({ groupId }) => ({
         heading: textNullable('Heading (heading)', 'Lorem ipsum dolor sit amet', groupId),
