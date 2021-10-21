@@ -115,6 +115,27 @@ describe('Masthead | with platform (desktop)', () => {
     cy.viewport(1280, 780);
   });
 
+  it('should load platform containing a link', () => {
+    cy.get('[data-autoid="dds--masthead-eco__l0-ecosystemname"]').then(
+      $link => {
+        const url = $link.prop('href');
+        expect(url).not.to.be.empty;
+      }
+    );
+  });
+
+  it('should render platform next to IBM logo', () => {
+    cy.get('[data-autoid="dds--masthead-eco__l0-ecosystemname"]').then(
+      $platform => {
+        cy.get('[data-autoid="dds--masthead-eco__l0-logo"]').then($logo => {
+          expect($logo[0].getBoundingClientRect().right).to.equal(
+            $platform[0].parentElement.getBoundingClientRect().left
+          );
+        });
+      }
+    );
+  });
+
   it('should open the search bar with platform', () => {
     cy.get('[data-autoid="dds--masthead-eco__l0-search"]').click();
 
