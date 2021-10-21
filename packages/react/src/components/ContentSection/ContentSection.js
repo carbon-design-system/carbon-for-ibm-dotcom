@@ -67,7 +67,10 @@ const ContentSection = ({
             )}
           </div>
           <div
-            className={`${prefix}--content-section__children ${childrenCustomClassName}`}>
+            className={classNames(
+              `${prefix}--content-section__children`,
+              childrenCustomClassName
+            )}>
             {children}
           </div>
         </div>

@@ -22,6 +22,12 @@
     @include carbon--breakpoint('sm') {
       padding-left: 0;
     }
+
+    ::slotted([slot='heading']) {
+      @include carbon--breakpoint('sm') {
+        padding-bottom: $spacing-07;
+      }
+    }
   }
 
   .#{$prefix}--content-section__leading {

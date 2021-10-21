@@ -28,6 +28,13 @@
       }
     }
   }
+
+  .#{$prefix}--content-section ::slotted([slot='heading']) {
+    @include carbon--breakpoint-down(lg) {
+      padding-top: 1rem;
+    }
+  }
+
   :host(#{$dds-prefix}-content-section) ::slotted(:not([slot])),
   .#{$prefix}--content-section .#{$prefix}--content-group,
   .#{$prefix}--content-section .#{$prefix}--content-item,
