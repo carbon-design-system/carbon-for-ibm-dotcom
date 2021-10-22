@@ -30,6 +30,14 @@ const _pathCustom =
  */
 const _pathPlatform = '/iframe.html?id=components-masthead--with-platform';
 
+/**
+ * Sets the correct path (Masthead with L1)
+ *
+ * @type {string}
+ * @private
+ */
+const _pathl1 = '/iframe.html?id=components-masthead--with-l-1';
+
 describe('Masthead | default (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
@@ -323,5 +331,104 @@ describe('Masthead | with platform (desktop)', () => {
     cy.percySnapshot('Masthead | with platform - search', {
       widths: [1280],
     });
+  });
+});
+
+describe('Masthead | with L1 (desktop)', () => {
+  beforeEach(() => {
+    cy.visit(`/${_pathl1}`);
+    cy.viewport(1280, 780);
+  });
+
+  it('should render platform below the IBM logo', () => {
+    cy.get('.bx--masthead__l1-name-title').then($platform => {
+      cy.get('[data-autoid="dds--masthead-eco__l0-logo"]').then($logo => {
+        expect($logo[0].getBoundingClientRect().down).to.equal(
+          $platform[0].parentElement.getBoundingClientRect().up
+        );
+      });
+    });
+  });
+
+  it('should render 5 menu items', () => {
+    cy.get('.bx--header__menu-bar > li').should('have.length', 5);
+  });
+
+  it('should load L1 menu item with selected state', () => {
+    cy.get('[data-autoid="dds--masthead-eco__l1-nav0"] a').then($menuItem => {
+      expect($menuItem).to.have.attr('data-selected', 'true');
+    });
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('dds-masthead | menu item with selected state', {
+      widths: [1280],
+    });
+  });
+
+  it('should load L1 menu - first L1 nav item', () => {
+    cy.get('[data-autoid="dds--masthead-eco__l1-nav0"]')
+      .click()
+      .find('a')
+      .then($menuItem => {
+        expect($menuItem).to.have.attr('aria-expanded', 'true');
+      });
+  });
+
+  it('should load L1 menu - second L1 nav item', () => {
+    cy.get('[data-autoid="dds--masthead-eco__l1-nav1"]')
+      .click()
+      .find('a')
+      .then($menuItem => {
+        expect($menuItem).to.have.attr('aria-expanded', 'true');
+      });
+  });
+
+  it('should load third nav L1 item', () => {
+    cy.get('[data-autoid="dds--masthead-eco__l1-nav2"]').then($link => {
+      const url = $link.prop('href');
+      expect(url).not.to.be.empty;
+    });
+  });
+
+  it('should load L1 menu - fourth L1 nav item', () => {
+    cy.get('[data-autoid="dds--masthead-eco__l1-nav3"]')
+      .click()
+      .find('a')
+      .then($menuItem => {
+        expect($menuItem).to.have.attr('aria-expanded', 'true');
+      });
+  });
+
+  it('should load fifth nav L1 item', () => {
+    cy.get('[data-autoid="dds--masthead-eco__l1-nav4"]').then($link => {
+      const url = $link.prop('href');
+      expect(url).not.to.be.empty;
+    });
+  });
+
+  it('should scroll the L1 overflow properly', () => {
+    cy.get('.bx--header__nav-caret-right').click();
+
+    cy.wait(500);
+
+    cy.get('.bx--header__nav-caret-right-container').then($button => {
+      expect($button).to.have.attr('hidden');
+    });
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('Masthead | with L1 - overflow', {
+      widths: [1280],
+    });
+  });
+
+  it('should load platform containing a link', () => {
+    cy.get('.bx--masthead__l1-name-title')
+      .find('a')
+      .then($link => {
+        const url = $link.prop('href');
+        expect(url).not.to.be.empty;
+      });
   });
 });
