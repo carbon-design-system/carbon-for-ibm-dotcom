@@ -112,6 +112,22 @@ export const WithCustomNavigation = ({ parameters }) => {
 
 WithCustomNavigation.story = {
   name: 'With custom navigation',
+  parameters: {
+    knobs: {
+      escapeHTML: false,
+      MastheadComposite: ({ groupId }) => ({
+        platform: select('Platform (platform)', { none: null, platform: platformData.name }, null, groupId),
+        hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
+        hasSearch: boolean('show the search functionality (has-search)', true, groupId),
+        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
+        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Products & Solutions', groupId),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
+        customProfileLogin:
+          DDS_CUSTOM_PROFILE_LOGIN &&
+          textNullable('custom profile login url (customProfileLogin)', 'https://www.example.com/', groupId),
+      }),
+    },
+  },
 };
 
 export const searchOpenOnload = ({ parameters }) => {
