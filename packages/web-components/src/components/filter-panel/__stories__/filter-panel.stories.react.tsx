@@ -91,12 +91,13 @@ export const Default = ({ parameters }) => {
 export default {
   title: 'Components/Filter panel',
   decorators: [
-    story =>
+    story => (
       <div className="bx--grid bx--grid--condensed">
         <div className="bx--row">
           {story()}
         </div>
       </div>
+    )
   ],
   hasStoryPadding: true,
   parameters: {
