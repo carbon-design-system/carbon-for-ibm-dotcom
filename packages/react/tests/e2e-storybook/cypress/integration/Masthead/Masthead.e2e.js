@@ -41,12 +41,6 @@ describe('Masthead | default (desktop)', () => {
       const url = $link.prop('href');
       expect(url).not.to.be.empty;
     });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | IBM logo', {
-      widths: [1280],
-    });
   });
 
   it('should load menu item with selected state', () => {
@@ -65,12 +59,6 @@ describe('Masthead | default (desktop)', () => {
 
   it('should render 4 menu items', () => {
     cy.get('.bx--masthead__megamenu__l0-nav').should('have.length', 4);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | Number of menu items', {
-      widths: [1280],
-    });
   });
 
   it('should load the megamenu - first nav item', () => {
@@ -127,12 +115,6 @@ describe('Masthead | default (desktop)', () => {
       const url = $link.prop('href');
       expect(url).not.to.be.empty;
     });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | megamenu sublinks have urls', {
-      widths: [1280],
-    });
   });
 
   it('should open the login menu', () => {
@@ -148,12 +130,6 @@ describe('Masthead | default (desktop)', () => {
   it('should have 2 menu items under the login menu', () => {
     cy.get('[data-autoid="dds--masthead-default__l0-account"]').click();
     cy.get('.bx--masthead__profile-item').should('have.length', 2);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | profile menu has 2 items', {
-      widths: [1280],
-    });
   });
 
   it('should open the search bar on click', () => {
