@@ -12,6 +12,7 @@
 
 :host(#{$dds-prefix}-filter-panel-modal) {
   @extend :host(#{$prefix}-modal);
+  left: 0;
 
   @include carbon--breakpoint('lg') {
     display: none;
