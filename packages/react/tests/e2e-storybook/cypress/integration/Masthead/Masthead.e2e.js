@@ -219,12 +219,6 @@ describe('Masthead | custom (desktop)', () => {
 
   it('should render 5 custom menu items', () => {
     cy.get('.bx--header__menu-bar > li').should('have.length', 5);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | Number of custom menu items', {
-      widths: [1280],
-    });
   });
 
   it('should load custom menu item with selected state', () => {
@@ -276,12 +270,6 @@ describe('Masthead | custom (desktop)', () => {
       const url = $link.prop('href');
       expect(url).not.to.be.empty;
     });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | custom nav (nav 2)', {
-      widths: [1280],
-    });
   });
 
   it('should load regular menu - custom fourth nav item', () => {
@@ -304,12 +292,6 @@ describe('Masthead | custom (desktop)', () => {
     cy.get('[data-autoid="dds--masthead-default__l0-nav4"]').then($link => {
       const url = $link.prop('href');
       expect(url).not.to.be.empty;
-    });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | custom nav (nav 4)', {
-      widths: [1280],
     });
   });
 

@@ -262,13 +262,6 @@ describe('dds-masthead | custom (desktop)', () => {
 
   it('should render 6 custom menu items', () => {
     cy.get('dds-top-nav > *').should('have.length', 6);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | Number of custom menu items', {
-    //   widths: [1280],
-    // });
   });
 
   it('should load custom menu item with selected state', () => {
@@ -337,13 +330,6 @@ describe('dds-masthead | custom (desktop)', () => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | custom nav (nav 3)', {
-    //   widths: [1280],
-    // });
   });
 
   it('should load the megamenu - custom fifth nav item', () => {
@@ -373,13 +359,6 @@ describe('dds-masthead | custom (desktop)', () => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | custom nav (nav 3)', {
-    //   widths: [1280],
-    // });
   });
 
   it('should scroll the L0 overflow properly', () => {
