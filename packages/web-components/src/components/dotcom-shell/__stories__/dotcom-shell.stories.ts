@@ -957,6 +957,7 @@ WithLeadspaceSearch.story = {
   name: 'With leadspace with search',
   parameters: {
     ...readme.parameters,
+    'carbon-theme': { disabled: true },
   },
 };
 
