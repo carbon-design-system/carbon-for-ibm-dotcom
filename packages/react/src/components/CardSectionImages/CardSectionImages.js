@@ -7,7 +7,7 @@
 
 import { CardGroup } from '../CardGroup';
 import classNames from 'classnames';
-import ContentSection from '../../internal/components/ContentSection/ContentSection';
+import ContentSection from '../ContentSection/ContentSection';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -31,9 +31,9 @@ const CardSectionImages = ({ cards, theme, ...otherProps }) => {
       autoid={`${stablePrefix}--card-group-images-group`}
       customClassName={classNames(`${prefix}--card-group`, {
         [`${prefix}--card-group--${theme}`]: theme,
-      })}>
-      <CardGroup cards={cardsWithImages} />
-    </ContentSection>
+      })}
+      children={[<CardGroup cards={cardsWithImages} />]}
+    />
   );
 };
 
