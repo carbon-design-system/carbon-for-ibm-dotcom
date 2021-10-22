@@ -43,13 +43,6 @@ describe('dds-masthead | default (desktop)', () => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | IBM logo', {
-    //   widths: [1280],
-    // });
   });
 
   it('should load menu item with selected state', () => {
@@ -67,13 +60,6 @@ describe('dds-masthead | default (desktop)', () => {
 
   it('should render 4 menu items', () => {
     cy.get('dds-megamenu-top-nav-menu').should('have.length', 4);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | Number of menu items', {
-    //   widths: [1280],
-    // });
   });
 
   it('should load the megamenu - first nav item', () => {
@@ -152,13 +138,6 @@ describe('dds-masthead | default (desktop)', () => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | megamenu sublinks have urls', {
-    //   widths: [1280],
-    // });
   });
 
   it('should open the login menu', () => {
@@ -177,13 +156,6 @@ describe('dds-masthead | default (desktop)', () => {
 
   it('should have 2 menu items under the login menu', () => {
     cy.get('dds-masthead-profile-item').should('have.length', 2);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | profile menu has 2 items', {
-    //   widths: [1280],
-    // });
   });
 
   it('should open the search bar on click', () => {
