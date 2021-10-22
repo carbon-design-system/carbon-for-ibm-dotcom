@@ -56,10 +56,13 @@
   }
 
   .#{$prefix}--content-item-horizontal__row {
-    @include carbon--make-row;
-
     min-height: 160px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    @include carbon--breakpoint(md) {
+      flex-direction: row;
+    }
 
     :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
       justify-content: space-between;
@@ -102,6 +105,17 @@
     }
 
     &--2 {
+      grid-column: 1 / span 4;
+      padding-left: 0;
+      padding-right: 0;
+      @include carbon--breakpoint(md) {
+        grid-column: 5 / span 4;
+        grid-row: 1 / span 2;
+      }
+      @include carbon--breakpoint(lg) {
+        grid-column: 9 / span 4;
+        grid-row: 1 / span 1;
+      }
       :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
         @include carbon--breakpoint(md) {
           @include carbon--make-col(3, 8);
@@ -161,6 +175,14 @@
     }
   }
 
+  .#{$prefix}--content-item-horizontal__content-wrapper {
+    grid-column: 1 / span 4;
+    @include carbon--breakpoint(lg) {
+      grid-column: 5 / span 4;
+      padding-left: $spacing-04;
+    }
+  }
+
   :host(#{$dds-prefix}-content-item-horizontal) ::slotted([slot='heading']),
   :host(#{$dds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])),
   :host(#{$dds-prefix}-content-item-horizontal-eyebrow),
@@ -170,6 +192,10 @@
     @include carbon--breakpoint(md) {
       max-width: 90%;
     }
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])) {
+    max-width: 100%;
   }
 
   :host(#{$dds-prefix}-content-item-horizontal-eyebrow),
@@ -200,9 +226,59 @@
   }
 
   :host(#{$dds-prefix}-content-item-horizontal)[thumbnail]
-    ::slotted([slot='heading']) {
+    .#{$prefix}--content-item__cta {
+    padding-top: $spacing-06;
+  }
+
+  ::slotted([slot='heading']) {
     margin-bottom: $carbon--spacing-07;
     max-width: 100%;
+    @include carbon--breakpoint(lg) {
+      padding-left: 0;
+    }
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-07;
+    grid-auto-flow: dense;
+
+    @include carbon--breakpoint(md) {
+      grid-template-columns: repeat(8, 1fr);
+    }
+    @include carbon--breakpoint(lg) {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal[thumbnail])
+    .#{$prefix}--content-item-horizontal__heading-wrapper {
+    max-width: 100%;
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal[thumbnail])
+    .#{$prefix}--content-item-horizontal__content-wrapper {
+    max-width: 100%;
+    padding-left: 0;
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal[thumbnail])
+    .#{$prefix}--content-item-horizontal__col--2 {
+    max-width: 100%;
+    grid-column: 1 / span 4;
+    @include carbon--breakpoint(md) {
+      grid-column: 6 / span 3;
+    }
+    @include carbon--breakpoint(lg) {
+      grid-column: 10 / span 3;
+    }
+  }
+
+  .#{$prefix}--content-item-horizontal__heading-wrapper {
+    grid-column: 1 / span 4;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   :host(#{$dds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])),
@@ -217,10 +293,6 @@
   :host(#{$dds-prefix}-content-item-horizontal-thumbnail-copy)
     ::slotted(#{$dds-prefix}-content-item-paragraph) {
     margin-bottom: $carbon--spacing-07;
-
-    @include carbon--breakpoint(md) {
-      padding-right: rem(32px);
-    }
   }
 
   :host(#{$dds-prefix}-content-item-horizontal) .#{$prefix}--content-item__cta,
