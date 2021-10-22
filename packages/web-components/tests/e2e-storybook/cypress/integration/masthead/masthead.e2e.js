@@ -329,6 +329,23 @@ describe('dds-masthead | custom (desktop)', () => {
     // });
   });
 
+  it('should load regular menu - custom fourth nav item', () => {
+    cy.get('dds-top-nav > *:nth-child(4)')
+      .shadow()
+      .find('a')
+      .then($link => {
+        const url = $link.prop('href');
+        expect(url).not.to.be.empty;
+      });
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | custom nav (nav 3)', {
+    //   widths: [1280],
+    // });
+  });
+
   it('should load the megamenu - custom fifth nav item', () => {
     cy.get('dds-top-nav')
       .shadow()
@@ -348,11 +365,30 @@ describe('dds-masthead | custom (desktop)', () => {
     // });
   });
 
+  it('should load regular menu - custom sixth nav item', () => {
+    cy.get('dds-top-nav > *:nth-child(4)')
+      .shadow()
+      .find('a')
+      .then($link => {
+        const url = $link.prop('href');
+        expect(url).not.to.be.empty;
+      });
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | custom nav (nav 3)', {
+    //   widths: [1280],
+    // });
+  });
+
   it('should scroll the L0 overflow properly', () => {
     cy.get('dds-top-nav')
       .shadow()
       .find('.bx--header__nav-caret-right-container > button')
       .click();
+
+    cy.wait(500);
 
     cy.get('dds-top-nav')
       .shadow()

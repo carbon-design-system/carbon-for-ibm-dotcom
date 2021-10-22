@@ -271,6 +271,19 @@ describe('Masthead | custom (desktop)', () => {
     });
   });
 
+  it('should load regular menu - custom third nav item', () => {
+    cy.get('[data-autoid="dds--masthead-default__l0-nav2"]').then($link => {
+      const url = $link.prop('href');
+      expect(url).not.to.be.empty;
+    });
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('Masthead | custom nav (nav 2)', {
+      widths: [1280],
+    });
+  });
+
   it('should load regular menu - custom fourth nav item', () => {
     cy.get('.bx--header__nav-caret-right').click();
     cy.get('[data-autoid="dds--masthead-default__l0-nav3"]')
@@ -283,6 +296,19 @@ describe('Masthead | custom (desktop)', () => {
     cy.screenshot();
     // Take a snapshot for visual diffing
     cy.percySnapshot('Masthead | custom nav (nav 3)', {
+      widths: [1280],
+    });
+  });
+
+  it('should load regular menu - custom fifth nav item', () => {
+    cy.get('[data-autoid="dds--masthead-default__l0-nav4"]').then($link => {
+      const url = $link.prop('href');
+      expect(url).not.to.be.empty;
+    });
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('Masthead | custom nav (nav 4)', {
       widths: [1280],
     });
   });
