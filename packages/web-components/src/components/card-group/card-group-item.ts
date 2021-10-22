@@ -28,6 +28,12 @@ class DDSCardGroupItem extends DDSCardCTA {
   border = false;
 
   /**
+   * `true` if the card group is using collapsed.
+   */
+  @property({ type: Boolean, reflect: true })
+  collapsed = false;
+
+  /**
    * `true` if the card group item is empty.
    */
   @property({ type: Boolean, reflect: true })

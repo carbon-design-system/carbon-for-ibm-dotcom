@@ -19,7 +19,8 @@
   #{$dds-prefix}-card-group-item[empty],
   #{$dds-prefix}-card-group-card-link-item[empty] {
     background-color: $ui-background;
-    outline: 1px solid $ui-background;
+    border: 1px solid $ui-background;
+    border-top: 0;
   }
 
   ::slotted(#{$dds-prefix}-card-group-item),
@@ -31,6 +32,10 @@
   ::slotted(#{$dds-prefix}-card-group-card-link-item[empty]) {
     background-color: transparent;
   }
+}
+
+:host(#{$dds-prefix}-card-group)[grid-mode='collapsed'] {
+  column-gap: 1px;
 }
 
 :host(#{$dds-prefix}-card-group)[grid-mode='border'] {
@@ -52,6 +57,11 @@
 :host(#{$dds-prefix}-card-group-card-link-item) {
   padding-bottom: 1px;
   padding-right: 1px;
+
+  &[collapsed] {
+    padding-bottom: 0;
+    padding-right: 0;
+  }
 
   &:hover {
     background: none;

@@ -198,35 +198,10 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
 
   private _borderAdjustments = columns => {
     this._childItems.forEach((e, index) => {
-      if (this.gridMode === 'collapsed') {
-        if (e.hasAttribute('empty')) {
-          e.style.paddingBottom = '0';
-          e.style.paddingRight = '0';
-        } else {
-          // first column
-          if ((index + 1) % columns === 1) {
-            e.style.paddingLeft = '0';
-          }
-          // last column
-          if ((index + 1) % columns === 0) {
-            e.style.paddingRight = '0';
-            // const borderColor = getComputedStyle(document.body).getPropertyValue('--cds-ui-background');
-            // e.style.borderRight = `inset 1px ${borderColor}`;
-          } else {
-            e.style.paddingRight = '1px';
-            e.style.borderRight = 'none';
-          }
-          // first row
-          if (index < columns) {
-            e.style.paddingTop = '0';
-          }
-          // last row
-          if (Math.floor(index / columns) === Math.floor((this._childItems.length - 1) / columns)) {
-            e.style.paddingBottom = '0';
-          } else {
-            e.style.paddingBottom = '1px';
-          }
-        }
+      if (this.gridMode === 'narrow') {
+        e.removeAttribute('style');
+        e.toggleAttribute('collapsed', false);
+        e.toggleAttribute('border', false);
       } else if (this.gridMode === 'border') {
         if (e.hasAttribute('empty')) {
           e.style.paddingBottom = '1px';
@@ -257,7 +232,43 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
           e.style.paddingTop = '1px';
         }
       } else {
-        e.removeAttribute('style');
+        // eslint-disable-next-line no-lonely-if
+        if (e.hasAttribute('empty')) {
+          e.style.paddingBottom = '0';
+          e.style.paddingRight = '0';
+        } else {
+          const borderColor = getComputedStyle(document.body).getPropertyValue('--cds-ui-03');
+          // first column
+          if ((index + 1) % columns === 1) {
+            e.style.paddingLeft = '0';
+          }
+          // last column
+          if ((index + 1) % columns === 0) {
+            e.style.paddingRight = '0';
+          } else {
+            // e.style.paddingRight = '1px';
+            e.style.boxShadow = `1px 0 0 ${borderColor}`;
+          }
+          // last card
+          if (index === this._childItems.length - 1) {
+            e.style.boxShadow = 'none';
+          }
+          // first row
+          if (index < columns) {
+            e.style.paddingTop = '0';
+          }
+          // last row
+          if (Math.floor(index / columns) === Math.floor((this._childItems.length - 1) / columns)) {
+            e.style.borderBottom = 'none';
+          } else if (!this._childItems?.[index + 3]) {
+            e.style.borderBottom = 'none';
+          } else {
+            e.style.borderBottom = `1px solid ${borderColor}`;
+          }
+          if (this.gridMode === 'collapsed') {
+            e.toggleAttribute('collapsed', this.gridMode === 'collapsed');
+          }
+        }
       }
     });
   };
