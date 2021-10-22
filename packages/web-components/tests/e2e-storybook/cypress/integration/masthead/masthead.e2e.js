@@ -29,6 +29,14 @@ const _pathCustom = '/iframe.html?id=components-masthead--with-custom-navigation
  */
 const _pathPlatform = '/iframe.html?id=components-masthead--with-platform';
 
+/**
+ * Sets the correct path (Masthead with L1)
+ *
+ * @type {string}
+ * @private
+ */
+const _pathl1 = '/iframe.html?id=components-masthead--with-l-1';
+
 describe('dds-masthead | default (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
@@ -391,6 +399,122 @@ describe('dds-masthead | with platform (desktop)', () => {
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
     // cy.percySnapshot('dds-masthead | with platform - search', {
+    //   widths: [1280],
+    // });
+  });
+});
+
+describe('dds-masthead | with L1 (desktop)', () => {
+  beforeEach(() => {
+    cy.visit(`/${_pathl1}`);
+    cy.viewport(1280, 780);
+  });
+
+  it('should render platform below the IBM logo', () => {
+    cy.get('dds-masthead-l1-name').then($platform => {
+      cy.get('dds-masthead-logo').then($logo => {
+        expect($logo[0].getBoundingClientRect().down).to.equal($platform[0].getBoundingClientRect().up);
+      });
+    });
+  });
+
+  it('should render and have url for L1 platform', () => {
+    cy.get('dds-masthead-l1-name')
+      .shadow()
+      .find('a')
+      .then($link => {
+        const url = $link.prop('href');
+        expect(url).not.to.be.empty;
+      });
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | IBM logo', {
+    //   widths: [1280],
+    // });
+  });
+
+  it('should load l1 menu item with selected state', () => {
+    cy.get('dds-top-nav-l1 > *:nth-child(1)').then($menuItem => {
+      expect($menuItem).to.have.attr('active');
+    });
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | custom menu item with selected state', {
+    //   widths: [1280],
+    // });
+  });
+
+  it('should render 5 menu items', () => {
+    cy.get('dds-top-nav-l1 > * ').should('have.length', 5);
+  });
+
+  it('should load the l1 - first nav item', () => {
+    cy.get('dds-top-nav-l1 > *:nth-child(1)')
+      .click()
+      .then($menuItem => {
+        expect($menuItem).to.have.attr('expanded');
+      });
+  });
+
+  it('should load the l1 - second nav item', () => {
+    cy.get('dds-top-nav-l1 > *:nth-child(2)')
+      .click()
+      .then($menuItem => {
+        expect($menuItem).to.have.attr('expanded');
+      });
+  });
+
+  it('should load and have url for third l1 item', () => {
+    cy.get('dds-top-nav-l1 > *:nth-child(3)')
+      .shadow()
+      .find('a')
+      .then($link => {
+        const url = $link.prop('href');
+        expect(url).not.to.be.empty;
+      });
+  });
+
+  it('should load the l1 - fourth nav item', () => {
+    cy.get('dds-top-nav-l1 > *:nth-child(4)')
+      .click()
+      .then($menuItem => {
+        expect($menuItem).to.have.attr('expanded');
+      });
+  });
+
+  it('should load and have url for fifth l1 item', () => {
+    cy.get('dds-top-nav-l1 > *:nth-child(5)')
+      .shadow()
+      .find('a')
+      .then($link => {
+        const url = $link.prop('href');
+        expect(url).not.to.be.empty;
+      });
+  });
+
+  it('should scroll the l1 overflow properly', () => {
+    cy.get('dds-top-nav-l1')
+      .shadow()
+      .find('.bx--header__nav-caret-right-container > button')
+      .click();
+
+    cy.wait(500);
+
+    cy.get('dds-top-nav-l1')
+      .shadow()
+      .find('.bx--header__nav-caret-right-container')
+      .then($button => {
+        expect($button).to.have.class('dds-ce--header__nav-caret-container--hidden');
+      });
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | custom - overflow', {
     //   widths: [1280],
     // });
   });
