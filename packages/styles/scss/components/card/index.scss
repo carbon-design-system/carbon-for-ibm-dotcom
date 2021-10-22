@@ -312,12 +312,11 @@
 
   :host(#{$dds-prefix}-card-footer) {
     .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon {
-      display: block;
+      display: flex;
 
       svg,
       ::slotted(svg[slot='icon']) {
-        display: inline;
-        transform: translate(-4px, 6px);
+        display: block;
       }
     }
   }
