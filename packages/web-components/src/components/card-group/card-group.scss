@@ -55,11 +55,10 @@
 
 :host(#{$dds-prefix}-card-group-item),
 :host(#{$dds-prefix}-card-group-card-link-item) {
-  padding-bottom: 1px;
+  padding-bottom: 0;
   padding-right: 1px;
 
   &[collapsed] {
-    padding-bottom: 0;
     padding-right: 0;
   }
 

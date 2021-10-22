@@ -251,6 +251,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
           }
           // last card
           if (index === this._childItems.length - 1) {
+            e.style.paddingRight = '0';
             e.style.boxShadow = 'none';
           }
           // first row
