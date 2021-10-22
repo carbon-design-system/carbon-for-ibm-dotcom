@@ -243,7 +243,6 @@ class DDSDotcomShellComposite extends LitElement {
           this._leadspaceSearchBar.removeAttribute('theme-sticky');
 
           searchContainer.style.transition = 'top 1s cubic-bezier(0, 0, 0.38, 0.9)';
-          //searchContainer.style.position = '';
           searchContainer.style.top = `${-this._leadspaceSearchContainerY}px`;
         } else {
           searchContainer.style.transition = 'none';
