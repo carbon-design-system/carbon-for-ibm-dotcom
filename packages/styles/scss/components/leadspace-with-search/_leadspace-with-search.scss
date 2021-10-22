@@ -292,6 +292,14 @@
           transform: translate(-28%, $spacing-05);
         }
       }
+
+      &[scroll-behavior]:not([adjacent-theme]) {
+        .#{$prefix}--search-container {
+          &::before {
+            border-bottom: 1px solid $ui-03;
+          }
+        }
+      }
     }
   }
 

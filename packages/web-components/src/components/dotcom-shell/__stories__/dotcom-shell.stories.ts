@@ -905,9 +905,6 @@ export const WithLeadspaceSearch = ({ parameters }) => {
   } = parameters?.props?.DotcomShell ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
-    <style>
-      ${mastheadStyles}
-    </style>
     ${useMock
       ? html`
           <dds-dotcom-shell-composite

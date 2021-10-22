@@ -213,7 +213,9 @@ class DDSDotcomShellComposite extends LitElement {
       const containerPosition = searchContainer!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY;
       const spaceOffset = this._leadspaceWithSearch?.getAttribute('adjacent-theme') !== '' ? -topSpacing * 2 : topSpacing;
 
-      const mastheadTop = Math.min(0, searchContainer!.getBoundingClientRect().top - spaceOffset - this._masthead!.offsetHeight);
+
+      const mobileMastheadOffset = window.innerWidth < mediumBreakpoint ? -topSpacing : 0;
+      const mastheadTop = Math.min(0, searchContainer!.getBoundingClientRect().top - spaceOffset - this._masthead!.offsetHeight + mobileMastheadOffset);
       // eslint-disable-next-line no-nested-ternary
       const containerPadding = window.innerWidth < gridBreakpoint ? (window.innerWidth < mediumBreakpoint ? 32 : 0) : -16;
       this._masthead!.style.transition = 'none';
@@ -230,20 +232,26 @@ class DDSDotcomShellComposite extends LitElement {
         );
 
         this._masthead!.style.top = `${mastheadPositionOnScrollUp}px`;
-        searchContainer.style.top = `${searchContainerPositionOnScrollUp}px`;
 
         // restore components to original position
-        if (this._leadspaceSearchContainerY + distanceToBottom >= window.scrollY) {
+        if (this._leadspaceSearchContainerY + distanceToBottom + 48 >= window.scrollY) {
           this._leadspaceSearchBar.removeAttribute('sticky-search');
           this._leadspaceWithSearch?.removeAttribute('sticky-search');
           this._leadspaceSearchBar.removeAttribute('large');
           this._leadspaceSearchBar.removeAttribute('theme-sticky');
-          searchContainer.style.top = `${outOfScreenY}px`;
+
+          searchContainer.style.transition = 'top 1s cubic-bezier(0, 0, 0.38, 0.9)';
+          //searchContainer.style.position = '';
+          searchContainer.style.top = `${-this._leadspaceSearchContainerY}px`;
+        } else {
+          searchContainer.style.transition = 'none';
+          searchContainer.style.top = `${searchContainerPositionOnScrollUp}px`;
         }
 
         // going down
       } else {
         searchContainer.style.position = `sticky`;
+        searchContainer.style.transition = 'none';
 
         // account for different spacing
         if (
@@ -583,7 +591,11 @@ class DDSDotcomShellComposite extends LitElement {
     if (!this._leadspaceSearchBar) {
       this._leadspaceWithSearch = this.ownerDocument!.querySelector(`${ddsPrefix}-leadspace-with-search`) as HTMLElement;
       this._leadspaceSearchBar = this._leadspaceWithSearch?.querySelector('dds-search-with-typeahead') as HTMLElement;
+    
+    } else if(this._leadspaceSearchBar) {
+      this._leadspaceSearchBar.setAttribute('placeholder', this.searchPlaceholder!);
     }
+
 
     if (!this._localeModal) {
       this._localeModal = this.ownerDocument.querySelector('dds-locale-modal') as HTMLElement;

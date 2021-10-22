@@ -301,8 +301,8 @@ export const StoryContent = (
 
 export const StoryContentNoToC = () =>
   html`
-    <main class="bx--content dds-ce-demo-devenv--ui-shell-content">
-      <div class="bx--grid bx--col-lg-10">
+    <main class="dds-ce-demo-devenv--ui-shell-content">
+      <div class="bx--grid bx--col-lg-8">
         <dds-leadspace-with-search adjacent-theme='white-and-g10' scroll-behavior>
           <dds-leadspace-block-heading slot='heading'>Find a product</dds-leadspace-block-heading>
           <dds-leadspace-block-content slot='content'>
