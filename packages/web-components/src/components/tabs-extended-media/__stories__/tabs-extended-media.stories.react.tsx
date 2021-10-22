@@ -176,13 +176,16 @@ export default {
   decorators: [
     story => {
       return (
-        <div className="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--tabs-extended-media">{story()}</div>
+        <div className="bx--grid">
+          <div className="bx--row">
+            <div className="bx--col-lg-16 bx--no-gutter">{story()}</div>
+          </div>
+        </div>
       );
     },
   ],
   parameters: {
     ...readme.parameters,
-    hasVerticalSpacingInComponent: true,
-    hasGrid: true,
+    hasStoryPadding: true,
   },
 };

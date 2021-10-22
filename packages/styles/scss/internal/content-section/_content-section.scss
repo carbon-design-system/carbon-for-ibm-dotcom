@@ -21,28 +21,26 @@
   }
 
   .#{$prefix}--content-section-layout {
-    display: grid;
-    grid-template:
-      'leading' auto
-      'body' auto / 1fr;
-    row-gap: $spacing-03;
-
     @include carbon--breakpoint('lg') {
-      grid-template: 'leading body' auto / 1fr 3fr;
+      display: flex;
     }
   }
 
   .#{$prefix}--content-section__leading {
-    grid-area: leading;
     padding: $spacing-05;
+
+    @include carbon--breakpoint(lg) {
+      @include carbon--make-col(4, 16);
+    }
   }
 
   .#{$prefix}--content-section__body {
-    grid-area: body;
-    // TODO: `display:block` or `display:flex` here causes broken carousel if `<dds-carousel>` is slotted in as the child,
-    // especially if the carousel containts large number of cards.
-    // May need to investigate.
-    display: contents;
+    @include carbon--breakpoint-down(md) {
+      // TODO: `display:block` or `display:flex` here causes broken carousel if `<dds-carousel>` is slotted in as the child,
+      // especially if the carousel containts large number of cards.
+      // May need to investigate.
+      display: contents;
+    }
   }
 
   .#{$prefix}--content-section__grid,
@@ -76,11 +74,22 @@
   }
 
   :host(#{$dds-prefix}-content-section-copy),
-  .#{$prefix}--content-section__copy {
+  .#{$prefix}--content-section__copy p {
     @include type-style('body-short-02');
 
     color: $text-02;
     margin-bottom: $spacing-06;
+  }
+
+  :host(#{$dds-prefix}-content-section-heading),
+  .#{$prefix}--content-section__heading,
+  :host(#{$dds-prefix}-content-section-copy),
+  .#{$prefix}--content-section__copy p,
+  :host(#{$dds-prefix}-content-section) ::slotted([slot='footer']),
+  .#{$prefix}--content-section__cta {
+    @include carbon--breakpoint(md) {
+      padding-right: $spacing-07;
+    }
   }
 
   .#{$prefix}--content-section__children {

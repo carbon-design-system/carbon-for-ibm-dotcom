@@ -75,12 +75,15 @@ export default {
       return (
         <>
           <style type="text/css">{styles.cssText}</style>
-          {story()}
+          <div className="bx--grid" style={{ padding: '0' }}>
+            {story()}
+          </div>
         </>
       );
     },
   ],
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
   },
 };

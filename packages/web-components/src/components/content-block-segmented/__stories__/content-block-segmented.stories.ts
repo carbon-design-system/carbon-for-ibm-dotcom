@@ -170,7 +170,7 @@ export const withLinkList = ({ parameters }) => {
 withLinkList.story = {
   name: 'With link list',
   parameters: {
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout--with-complementary',
+    gridContentClasses: 'bx--col-lg-12',
     knobs: {
       ContentBlockSegmented: () => ({
         blockHeading: textNullable('Heading (required)', 'Lorem ipsum dolor sit amet.'),
@@ -198,16 +198,19 @@ export default {
   title: 'Components/Content block segmented',
   decorators: [
     (story, { parameters }) => html`
-      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
-        ${story()}
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--no-gutter ${parameters.gridContentClasses}">
+            ${story()}
+          </div>
+        </div>
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout',
+    gridContentClasses: 'bx--col-lg-8',
+    hasStoryPadding: true,
     knobs: {
       ContentBlockSegmented: () => ({
         heading: textNullable('Heading (required)', 'Lorem ipsum dolor sit amet.'),

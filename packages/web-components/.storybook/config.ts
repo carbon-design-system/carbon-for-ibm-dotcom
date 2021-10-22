@@ -51,34 +51,16 @@ addParameters({
 // @ts-ignore
 addDecorator((story, { parameters }) => {
   const result = story();
-  const {
-    hasCardGroup,
-    hasCardGroupStandalone,
-    hasGrid,
-    hasVerticalSpacingInComponent,
-    useRawContainer,
-    hasMainTag,
-  } = parameters;
+  const { hasStoryPadding } = parameters;
   const classes = classMap({
-    'dds-ce-demo-devenv--container': !useRawContainer,
-    'dds-ce-demo-devenv--container--has-card-group': hasCardGroup,
-    'dds-ce-demo-devenv--container--has-card-group-standalone': hasCardGroupStandalone,
-    'dds-ce-demo-devenv--container--has-grid': hasGrid,
-    'dds-ce-demo-devenv--container--has-vertical-spacing-in-component': hasVerticalSpacingInComponent,
+    'dds-story-padding': hasStoryPadding,
   });
   return html`
     <style>
       ${containerStyles}
     </style>
     <bx-skip-to-content href="#main-content">Skip to main content</bx-skip-to-content>
-    <div
-      id="main-content"
-      name="main-content"
-      data-floating-menu-container
-      data-modal-container
-      role="${hasMainTag ? 'none' : 'main'}"
-      class="${classes}"
-    >
+    <div id="main-content" name="main-content" data-floating-menu-container data-modal-container role="main" class="${classes}">
       ${result}
     </div>
   `;

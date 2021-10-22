@@ -7,12 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-.cta-button-group-container {
-  padding-left: 2rem;
-  align-items: stretch;
-}
-
-.cta-feature-grid {
-  padding-left: 1rem;
-  margin-left: 0;
-}
+import '@carbon/ibmdotcom-web-components/es/components/content-section/index.js';
+import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
+import './index.scss';
