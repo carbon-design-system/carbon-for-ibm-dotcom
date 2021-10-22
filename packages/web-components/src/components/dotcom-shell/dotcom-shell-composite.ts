@@ -213,9 +213,11 @@ class DDSDotcomShellComposite extends LitElement {
       const containerPosition = searchContainer!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY;
       const spaceOffset = this._leadspaceWithSearch?.getAttribute('adjacent-theme') !== '' ? -topSpacing * 2 : topSpacing;
 
-
       const mobileMastheadOffset = window.innerWidth < mediumBreakpoint ? -topSpacing : 0;
-      const mastheadTop = Math.min(0, searchContainer!.getBoundingClientRect().top - spaceOffset - this._masthead!.offsetHeight + mobileMastheadOffset);
+      const mastheadTop = Math.min(
+        0,
+        searchContainer!.getBoundingClientRect().top - spaceOffset - this._masthead!.offsetHeight + mobileMastheadOffset
+      );
       // eslint-disable-next-line no-nested-ternary
       const containerPadding = window.innerWidth < gridBreakpoint ? (window.innerWidth < mediumBreakpoint ? 32 : 0) : -16;
       this._masthead!.style.transition = 'none';
@@ -591,11 +593,9 @@ class DDSDotcomShellComposite extends LitElement {
     if (!this._leadspaceSearchBar) {
       this._leadspaceWithSearch = this.ownerDocument!.querySelector(`${ddsPrefix}-leadspace-with-search`) as HTMLElement;
       this._leadspaceSearchBar = this._leadspaceWithSearch?.querySelector('dds-search-with-typeahead') as HTMLElement;
-    
-    } else if(this._leadspaceSearchBar) {
+    } else if (this._leadspaceSearchBar) {
       this._leadspaceSearchBar.setAttribute('placeholder', this.searchPlaceholder!);
     }
-
 
     if (!this._localeModal) {
       this._localeModal = this.ownerDocument.querySelector('dds-locale-modal') as HTMLElement;
