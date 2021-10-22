@@ -184,7 +184,15 @@ describe('dds-masthead | with L1 (desktop)', () => {
     cy.viewport(1280, 780);
   });
 
-  it('should have url for L1 platform', () => {
+  it('should render platform below the IBM logo', () => {
+    cy.get('dds-masthead-l1-name').then($platform => {
+      cy.get('dds-masthead-logo').then($logo => {
+        expect($logo[0].getBoundingClientRect().down).to.equal($platform[0].getBoundingClientRect().up);
+      });
+    });
+  });
+
+  it('should render and have url for L1 platform', () => {
     cy.get('dds-masthead-l1-name')
       .shadow()
       .find('a')
@@ -216,13 +224,6 @@ describe('dds-masthead | with L1 (desktop)', () => {
 
   it('should render 5 menu items', () => {
     cy.get('dds-top-nav-l1 > * ').should('have.length', 5);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | Number of menu items', {
-    //   widths: [1280],
-    // });
   });
 
   it('should load the l1 - first nav item', () => {
@@ -231,13 +232,6 @@ describe('dds-masthead | with L1 (desktop)', () => {
       .then($menuItem => {
         expect($menuItem).to.have.attr('expanded');
       });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | mega menu (nav 3)', {
-    //   widths: [1280],
-    // });
   });
 
   it('should load the l1 - second nav item', () => {
@@ -246,16 +240,9 @@ describe('dds-masthead | with L1 (desktop)', () => {
       .then($menuItem => {
         expect($menuItem).to.have.attr('expanded');
       });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | mega menu (nav 3)', {
-    //   widths: [1280],
-    // });
   });
 
-  it('should have url for third l1 item', () => {
+  it('should load and have url for third l1 item', () => {
     cy.get('dds-top-nav-l1 > *:nth-child(3)')
       .shadow()
       .find('a')
@@ -263,13 +250,6 @@ describe('dds-masthead | with L1 (desktop)', () => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | IBM logo', {
-    //   widths: [1280],
-    // });
   });
 
   it('should load the l1 - fourth nav item', () => {
@@ -278,16 +258,9 @@ describe('dds-masthead | with L1 (desktop)', () => {
       .then($menuItem => {
         expect($menuItem).to.have.attr('expanded');
       });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | mega menu (nav 3)', {
-    //   widths: [1280],
-    // });
   });
 
-  it('should have url for fifth l1 item', () => {
+  it('should load and have url for fifth l1 item', () => {
     cy.get('dds-top-nav-l1 > *:nth-child(5)')
       .shadow()
       .find('a')
@@ -295,20 +268,15 @@ describe('dds-masthead | with L1 (desktop)', () => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | IBM logo', {
-    //   widths: [1280],
-    // });
   });
 
-  it('should scroll the L1 overflow properly', () => {
+  it('should scroll the l1 overflow properly', () => {
     cy.get('dds-top-nav-l1')
       .shadow()
       .find('.bx--header__nav-caret-right-container > button')
       .click();
+
+    cy.wait(500);
 
     cy.get('dds-top-nav-l1')
       .shadow()
