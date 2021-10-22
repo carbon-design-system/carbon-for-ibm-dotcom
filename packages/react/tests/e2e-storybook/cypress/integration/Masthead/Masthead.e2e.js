@@ -242,7 +242,12 @@ describe('Masthead | custom (desktop)', () => {
   });
 
   it('should load regular menu - custom first nav item', () => {
-    cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').click();
+    cy.get('[data-autoid="dds--masthead-default__l0-nav0"]')
+      .click()
+      .find('a')
+      .then($menuItem => {
+        expect($menuItem).to.have.attr('aria-expanded', 'true');
+      });
 
     cy.screenshot();
     // Take a snapshot for visual diffing
@@ -252,7 +257,12 @@ describe('Masthead | custom (desktop)', () => {
   });
 
   it('should load regular menu - custom second nav item', () => {
-    cy.get('[data-autoid="dds--masthead-default__l0-nav1"]').click();
+    cy.get('[data-autoid="dds--masthead-default__l0-nav1"]')
+      .click()
+      .find('a')
+      .then($menuItem => {
+        expect($menuItem).to.have.attr('aria-expanded', 'true');
+      });
 
     cy.screenshot();
     // Take a snapshot for visual diffing
@@ -263,7 +273,12 @@ describe('Masthead | custom (desktop)', () => {
 
   it('should load regular menu - custom fourth nav item', () => {
     cy.get('.bx--header__nav-caret-right').click();
-    cy.get('[data-autoid="dds--masthead-default__l0-nav3"]').click();
+    cy.get('[data-autoid="dds--masthead-default__l0-nav3"]')
+      .click()
+      .find('a')
+      .then($menuItem => {
+        expect($menuItem).to.have.attr('aria-expanded', 'true');
+      });
 
     cy.screenshot();
     // Take a snapshot for visual diffing
@@ -274,6 +289,12 @@ describe('Masthead | custom (desktop)', () => {
 
   it('should scroll the L0 overflow properly', () => {
     cy.get('.bx--header__nav-caret-right').click();
+
+    cy.wait(500);
+
+    cy.get('.bx--header__nav-caret-right-container').then($button => {
+      expect($button).to.have.attr('hidden');
+    });
 
     cy.screenshot();
     // Take a snapshot for visual diffing

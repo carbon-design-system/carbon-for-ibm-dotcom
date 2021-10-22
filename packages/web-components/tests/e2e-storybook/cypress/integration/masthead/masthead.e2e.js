@@ -285,7 +285,11 @@ describe('dds-masthead | custom (desktop)', () => {
   });
 
   it('should load the megamenu - custom first nav item', () => {
-    cy.get('dds-top-nav > *:nth-child(1)').click();
+    cy.get('dds-top-nav > *:nth-child(1)')
+      .click()
+      .then($menuItem => {
+        expect($menuItem).to.have.attr('expanded');
+      });
 
     cy.screenshot();
     // Take a snapshot for visual diffing
@@ -296,7 +300,11 @@ describe('dds-masthead | custom (desktop)', () => {
   });
 
   it('should load the megamenu - custom second nav item', () => {
-    cy.get('dds-top-nav > *:nth-child(2)').click();
+    cy.get('dds-top-nav > *:nth-child(2)')
+      .click()
+      .then($menuItem => {
+        expect($menuItem).to.have.attr('expanded');
+      });
 
     cy.screenshot();
     // Take a snapshot for visual diffing
@@ -307,7 +315,11 @@ describe('dds-masthead | custom (desktop)', () => {
   });
 
   it('should load regular menu - custom third nav item', () => {
-    cy.get('dds-top-nav > *:nth-child(3)').click();
+    cy.get('dds-top-nav > *:nth-child(3)')
+      .click()
+      .then($menuItem => {
+        expect($menuItem).to.have.attr('expanded');
+      });
 
     cy.screenshot();
     // Take a snapshot for visual diffing
@@ -322,7 +334,11 @@ describe('dds-masthead | custom (desktop)', () => {
       .shadow()
       .find('.bx--header__nav-caret-right-container > button')
       .click();
-    cy.get('dds-top-nav > *:nth-child(5)').click();
+    cy.get('dds-top-nav > *:nth-child(5)')
+      .click()
+      .then($menuItem => {
+        expect($menuItem).to.have.attr('expanded');
+      });
 
     cy.screenshot();
     // Take a snapshot for visual diffing
@@ -337,6 +353,13 @@ describe('dds-masthead | custom (desktop)', () => {
       .shadow()
       .find('.bx--header__nav-caret-right-container > button')
       .click();
+
+    cy.get('dds-top-nav')
+      .shadow()
+      .find('.bx--header__nav-caret-right-container')
+      .then($button => {
+        expect($button).to.have.class('dds-ce--header__nav-caret-container--hidden');
+      });
 
     cy.screenshot();
     // Take a snapshot for visual diffing
