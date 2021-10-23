@@ -51,7 +51,7 @@ import '../../callout-with-media/callout-with-media';
 import '../../callout-with-media/callout-with-media-copy';
 import '../../callout-with-media/callout-with-media-video';
 import readme from './README.stories.mdx';
-import StoryContent from './data/content';
+import { StoryContent, StoryContentNoToC } from './data/content';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { TOC_TYPES } from '../../table-of-contents/defs';
 
@@ -883,6 +883,81 @@ WithHorizontalTOC.story = {
     percy: {
       skip: true,
     },
+  },
+};
+
+export const WithLeadspaceSearch = ({ parameters }) => {
+  const {
+    platform,
+    hasProfile,
+    userStatus,
+    navLinks,
+    hasSearch,
+    searchPlaceholder,
+    selectedMenuItem,
+    langDisplay,
+    language,
+    footerSize,
+    legalLinks,
+    links: footerLinks,
+    localeList,
+    disableLocaleButton,
+  } = parameters?.props?.DotcomShell ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
+  return html`
+    ${useMock
+      ? html`
+          <dds-dotcom-shell-composite
+            platform="${ifNonNull(platform)}"
+            platform-url="${ifNonNull(platformData.url)}"
+            language="${ifNonNull(language)}"
+            lang-display="${ifNonNull(langDisplay)}"
+            footer-size="${ifNonNull(footerSize)}"
+            user-status="${ifNonNull(userStatus)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .legalLinks="${ifNonNull(legalLinks)}"
+            .localeList="${ifNonNull(localeList)}"
+            .footerLinks="${ifNonNull(footerLinks)}"
+            .navLinks="${navLinks}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+            ?disable-locale-button="${disableLocaleButton}"
+          >
+            ${StoryContentNoToC()}
+          </dds-dotcom-shell-composite>
+        `
+      : html`
+          <dds-dotcom-shell-container
+            platform="${ifNonNull(platform)}"
+            platform-url="${ifNonNull(platformData.url)}"
+            language="${ifNonNull(language)}"
+            lang-display="${ifNonNull(langDisplay)}"
+            footer-size="${ifNonNull(footerSize)}"
+            user-status="${ifNonNull(userStatus)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            .legalLinks="${ifNonNull(legalLinks)}"
+            .localeList="${ifNonNull(localeList)}"
+            .footerLinks="${ifNonNull(footerLinks)}"
+            .navLinks="${navLinks}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            ?disable-locale-button="${disableLocaleButton}"
+          >
+            ${StoryContentNoToC()}
+          </dds-dotcom-shell-container>
+        `}
+  `;
+};
+
+WithLeadspaceSearch.story = {
+  name: 'With leadspace with search',
+  parameters: {
+    ...readme.parameters,
+    'carbon-theme': { disabled: true },
   },
 };
 
