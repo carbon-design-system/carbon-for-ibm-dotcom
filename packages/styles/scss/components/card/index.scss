@@ -369,6 +369,10 @@
       min-width: 20px;
       margin-left: 0;
     }
+
+    @include carbon--breakpoint('md') {
+      padding-right: $carbon--spacing-07;
+    }
   }
 
   :host(#{$dds-prefix}-feature-cta-footer) a {
