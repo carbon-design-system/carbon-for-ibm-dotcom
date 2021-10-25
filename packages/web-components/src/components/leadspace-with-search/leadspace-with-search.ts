@@ -33,6 +33,18 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   protected _hasImage = false;
 
   /**
+   * sets the heading for sticky search
+   */
+  @property()
+  protected _heading: string = '';
+
+  /**
+   * `true` if there is an image.
+   */
+  @property({ attribute: 'scroll-behavior', reflect: true, type: Boolean })
+  protected _scrollBehavior = false;
+
+  /**
    * The adjacent theme.
    *
    * Color scheme options are:
@@ -43,6 +55,15 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
    */
   @property({ attribute: 'adjacent-theme', reflect: true })
   theme = ADJACENT_THEMES.MONOTHEME;
+
+  /**
+   * Handles `slotchange` event.
+   *
+   * @param event The event.
+   */
+  protected _handleHeadingSlotChange({ target }: Event) {
+    this._heading = ((target as HTMLSlotElement).assignedNodes()[0] as HTMLElement).innerText;
+  }
 
   /**
    * Handles `slotchange` event.
@@ -68,13 +89,14 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   render() {
     return html`
       <div class="${prefix}--content-layout">
-        <slot name="heading"></slot>
+        <slot name="heading" @slotchange=${this._handleHeadingSlotChange}></slot>
         <div class="${prefix}--content-layout__body">
           <slot name="content"></slot>
         </div>
       </div>
       <div class="${this._getSearchClass()}">
         <slot name="search"></slot>
+        <div class="${prefix}--sticky-header">${this._heading}</div>
       </div>
       <slot name="hr"></slot>
       <slot @slotchange=${this._handleImageSlotChange} name="image"></slot>
