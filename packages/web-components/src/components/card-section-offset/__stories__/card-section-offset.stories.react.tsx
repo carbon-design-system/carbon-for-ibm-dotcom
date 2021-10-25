@@ -61,7 +61,6 @@ const defaultCardGroupItem = (
 
 export const Default = ({ parameters }) => {
   const { heading, cards, ctaType, ctaCopy, download, href, alt, defaultSrc } = parameters?.props?.CardSectionOffset ?? {};
-  console.log(defaultSrc);
   return (
     <DDSCardSectionOffset>
       <DDSBackgroundMedia

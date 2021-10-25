@@ -12,7 +12,7 @@ import fadeStyles from '@carbon/ibmdotcom-styles/scss/components/scroll-into-vie
 import fadeOptions from './scroll-animations.stories.scss';
 import '../scroll-animations';
 import readme from './README.stories.mdx';
-import StoryContent from '../../dotcom-shell/__stories__/data/content';
+import { StoryContent } from '../../dotcom-shell/__stories__/data/content';
 
 const selectorTargets = `dds-content-block-heading,
    dds-content-block-copy,
