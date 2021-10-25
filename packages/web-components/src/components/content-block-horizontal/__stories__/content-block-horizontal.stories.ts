@@ -47,15 +47,18 @@ export default {
   title: 'Components/Content block horizontal',
   decorators: [
     story => html`
-      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-block-horizontal">
-        ${story()}
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-lg-12 bx--no-gutter">
+            ${story()}
+          </div>
+        </div>
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasVerticalSpacingInComponent: true,
-    hasGrid: true,
+    hasStoryPadding: true,
     knobs: {
       ContentBlockHorizontal: () => ({
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),

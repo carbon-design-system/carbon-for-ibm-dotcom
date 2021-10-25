@@ -66,8 +66,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
+    hasStoryPadding: true,
     knobs: {
       CardSectionSimple: ({ groupId }) => ({
         heading: textNullable('Heading (required)', 'Aliquam condimentum interdum', groupId),

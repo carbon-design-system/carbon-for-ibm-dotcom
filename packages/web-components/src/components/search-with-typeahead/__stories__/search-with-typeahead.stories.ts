@@ -10,6 +10,7 @@
 import { html } from 'lit-element';
 import '../index';
 import readme from './README.stories.mdx';
+import styles from '../../carousel/__stories__/carousel.stories.scss';
 
 export const Default = () => html`
   <dds-search-with-typeahead> </dds-search-with-typeahead>
@@ -21,7 +22,22 @@ export const Alternate = () => html`
 
 export default {
   title: 'Components/Search with typeahead',
+  decorators: [
+    story => {
+      return html`
+        <style>
+          ${styles}
+        </style>
+        <div class="bx--grid">
+          <div class="bx--row">
+            ${story()}
+          </div>
+        </div>
+      `;
+    },
+  ],
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
   },
 };

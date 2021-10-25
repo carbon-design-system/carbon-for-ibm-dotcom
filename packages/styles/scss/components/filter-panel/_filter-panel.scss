@@ -13,6 +13,8 @@
 
 @mixin filter-panel {
   .#{$prefix}--filter__heading {
+    @include carbon--type-style('heading-01');
+
     padding: $spacing-05;
   }
 
