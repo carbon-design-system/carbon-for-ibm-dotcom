@@ -29,7 +29,9 @@ export const Default = ({ parameters }) => {
 
   return (
     <>
-      <div className={`grid-alignment ${gridKnobs === '3 columns' ? 'bx--col-lg-3' : 'bx--col-lg-4'}`} style={{paddingRight: '1rem'}}>
+      <div 
+        className={`grid-alignment ${gridKnobs === '3 columns' ? 'bx--col-lg-3' : 'bx--col-lg-4'}`} 
+        style={{paddingRight: '1rem'}}>
         <DDSFilterPanelComposite>
           <DDSFilterPanelHeading slot="heading">{heading}</DDSFilterPanelHeading>
           <DDSFilterGroup>
