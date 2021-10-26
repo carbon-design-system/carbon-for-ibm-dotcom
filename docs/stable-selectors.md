@@ -70,7 +70,7 @@ function() { var el = {{Find closest}}({{Click Element}}, '[data-autoid^="masthe
 ```
 
 ### e2e/unit tests
-This is an example of writing an e2e test (in this case, [Cypress](https://cypress.io)), but can be applied to any forms of e2e (and functional unit) tests:
+This is an example of writing an e2e test (in this case, [Cypress](https://cypress.io)), but can be applied to any e2e (and functional unit) tests regardless of testing framework:
 
 ```javascript
 it('should load the megamenu - first nav item', () => {
