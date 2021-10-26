@@ -249,7 +249,7 @@ export const withLinkList = ({ parameters }) => {
 withLinkList.story = {
   name: 'With link list',
   parameters: {
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout--with-complementary',
+    gridContentClasses: 'bx--col-lg-12',
     knobs: {
       ContentBlockMedia: () => ({
         blockHeading: textNullable('Heading (required)', 'Curabitur malesuada varius mi eu posuere'),
@@ -271,16 +271,19 @@ export default {
   title: 'Components/Content block media',
   decorators: [
     (story, { parameters }) => html`
-      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
-        ${story()}
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="${parameters.gridContentClasses} bx--no-gutter">
+            ${story()}
+          </div>
+        </div>
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout',
+    gridContentClasses: 'bx--col-lg-8',
+    hasStoryPadding: true,
     knobs: {
       ContentBlockMedia: () => ({
         blockHeading: textNullable('Heading (required)', 'Curabitur malesuada varius mi eu posuere'),

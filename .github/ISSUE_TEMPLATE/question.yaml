@@ -3,7 +3,7 @@ description:
   Usage question or discussion about Carbon for IBM.com.
 title: '[YOUR TITLE]: Brief description'
 assignees:
-  - jeffchew,ljcarot,shixiedesign,RobertaJHahn,oliviaflory,kennylam,emyarod
+  - jeffchew,ljcarot,shixiedesign,RobertaJHahn,DragosRistici,ariellalgilmore,IgnacioBecerra
 labels: ['question']
 body:
   - type: markdown

@@ -47,10 +47,17 @@ export default {
   title: 'Components/Tag group',
   decorators: [
     story => {
-      return <>{story()}</>;
+      return (
+        <div className="bx--grid">
+          <div className="bx--row">
+            <div className="bx--col-sm-16 bx--col-md-6">{story()}</div>
+          </div>
+        </div>
+      );
     },
   ],
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
   },
 };

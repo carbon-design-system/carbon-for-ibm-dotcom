@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, LitElement } from 'lit-element';
+import { customElement, html, LitElement, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -24,6 +24,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-section`)
 class DDSContentSection extends StableSelectorMixin(LitElement) {
+  /**
+   * An optional custom class for children.
+   */
+  @property({ attribute: 'children-custom-class', reflect: true })
+  childrenCustomClass = '';
+
   /**
    * Applies section attribute
    */
@@ -42,7 +48,7 @@ class DDSContentSection extends StableSelectorMixin(LitElement) {
           <slot name="copy"></slot>
           <slot name="footer"></slot>
         </div>
-        <div class="${prefix}--content-section__body">
+        <div class="${prefix}--content-section__body ${this.childrenCustomClass}">
           <slot></slot>
         </div>
       </div>

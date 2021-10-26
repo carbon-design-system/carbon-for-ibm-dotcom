@@ -9,19 +9,8 @@
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/globals/imports';
 
-.dds-ce-demo-devenv--container {
-  padding: 0;
-  display: block;
-}
-.grid-alignment {
-  @include carbon--breakpoint-down('lg') {
-    padding: 0;
-    margin: 0;
+.bx--no-gutter {
+  @include carbon--breakpoint-down('md') {
+    padding-right: 1rem;
   }
-}
-.#{$prefix}--col-lg-4 {
-  padding-right: $spacing-03;
-}
-.#{$prefix}--col-lg-3 {
-  padding-right: $spacing-03;
 }
