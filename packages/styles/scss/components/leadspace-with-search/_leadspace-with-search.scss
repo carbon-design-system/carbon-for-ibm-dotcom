@@ -103,9 +103,19 @@
       }
     }
 
+    #{$dds-prefix}-background-media {
+      display: block;
+
+      @include carbon--breakpoint('md') {
+        display: none;
+      }
+    }
+
     ::slotted([slot='image']) {
+      display: none;
       @include carbon--breakpoint('md') {
         position: absolute;
+        display: block;
         height: 100%;
         margin: 0 calc(50% - 50vw);
         width: 100vw;
