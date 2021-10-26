@@ -92,6 +92,7 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
         <slot name="heading" @slotchange=${this._handleHeadingSlotChange}></slot>
         <div class="${prefix}--content-layout__body">
           <slot name="content"></slot>
+          <slot @slotchange=${this._handleImageSlotChange} name="image"></slot>
         </div>
       </div>
       <div class="${this._getSearchClass()}">
@@ -99,7 +100,6 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
         <div class="${prefix}--sticky-header">${this._heading}</div>
       </div>
       <slot name="hr"></slot>
-      <slot @slotchange=${this._handleImageSlotChange} name="image"></slot>
     `;
   }
 

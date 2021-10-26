@@ -88,7 +88,6 @@
 
   :host(#{$dds-prefix}-leadspace-with-search) {
     position: relative;
-    display: grid;
 
     &[has-image] {
       @include carbon--breakpoint-down('lg') {
