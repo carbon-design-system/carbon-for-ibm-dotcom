@@ -44,7 +44,12 @@ const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault
   </dds-card>
 `;
 
-const CardWithLongHeading = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault, image = undefined } = {}) => html`
+const CardWithLongHeading = ({
+  copy = copyDefault,
+  heading = headingDefault,
+  href = hrefDefault,
+  image = undefined,
+} = {}) => html`
   <dds-card href="${ifNonNull(href)}">
     <dds-card-heading>${heading} ${heading}</dds-card-heading>
     ${copy}
@@ -58,7 +63,6 @@ const CardWithLongHeading = ({ copy = copyDefault, heading = headingDefault, hre
     </dds-card-footer>
   </dds-card>
 `;
-
 
 export const Default = ({ parameters }) => {
   const { cardSize } = parameters?.props?.Carousel ?? {};

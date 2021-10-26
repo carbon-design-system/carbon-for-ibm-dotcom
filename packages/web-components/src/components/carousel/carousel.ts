@@ -58,32 +58,32 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * Array to hold the card-heading elements within child items.
    */
-   private _childItems: any[] = [];
+  private _childItems: any[] = [];
 
-   /**
-    * Array to hold the card-heading elements within child items.
-    */
-   private _childItemHeadings: any[] = [];
- 
-   /**
-    * Array to hold the card-eyebrow elements within child items.
-    */
-   private _childItemEyebrows: any[] = [];
- 
-   /**
-    * Array to hold the tag-group elements within child items.
-    */
-   private _childItemTagGroup: any[] = [];
- 
-   /**
-    * Array to hold the paragraph elements within child items.
-    */
-   private _childItemParagraphs: any[] = [];
- 
-   /**
-    * Array to hold the card-cta-footer elements within child items.
-    */
-   private _childItemFooters: any[] = [];  
+  /**
+   * Array to hold the card-heading elements within child items.
+   */
+  private _childItemHeadings: any[] = [];
+
+  /**
+   * Array to hold the card-eyebrow elements within child items.
+   */
+  private _childItemEyebrows: any[] = [];
+
+  /**
+   * Array to hold the tag-group elements within child items.
+   */
+  private _childItemTagGroup: any[] = [];
+
+  /**
+   * Array to hold the paragraph elements within child items.
+   */
+  private _childItemParagraphs: any[] = [];
+
+  /**
+   * Array to hold the card-cta-footer elements within child items.
+   */
+  private _childItemFooters: any[] = [];
 
   /**
    * The observer for the resize of the scroll container.
@@ -267,12 +267,12 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     this._updateGap();
 
     this._childItems = (event.target as HTMLSlotElement)
-    .assignedNodes()
-    .filter(elem =>
-      (elem as HTMLElement).matches !== undefined
-        ? (elem as HTMLElement).matches((this.constructor as typeof DDSCarousel).selectorItem)
-        : false
-    );
+      .assignedNodes()
+      .filter(elem =>
+        (elem as HTMLElement).matches !== undefined
+          ? (elem as HTMLElement).matches((this.constructor as typeof DDSCarousel).selectorItem)
+          : false
+      );
 
     // retrieve item heading, eyebrows, and footers to set same height
     if (this._childItems) {
@@ -294,7 +294,6 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         );
       });
     }
-      
   }
 
   /**
@@ -367,7 +366,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         e.style.marginBottom = `${tagGroupHeight + headingBottomMargin}px`;
       }
     });
-  };  
+  };
 
   /**
    * Calculates the width between cards.
@@ -515,23 +514,23 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * A selector that will return the card item's eyebrow
    */
-   static get selectorItemEyebrow() {
+  static get selectorItemEyebrow() {
     return `${ddsPrefix}-card-eyebrow`;
-  }  
+  }
 
   /**
    * A selector that will return the card item's tag group
    */
-   static get selectorItemTagGroup() {
+  static get selectorItemTagGroup() {
     return `${ddsPrefix}-tag-group`;
-  }  
+  }
 
   /**
    * A selector that will return the card item's tag group
    */
-   static get selectorItemParagraph() {
+  static get selectorItemParagraph() {
     return `p`;
-  }  
+  }
 
   /**
    * A selector that will return the card item's heading
@@ -543,9 +542,9 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * A selector that will return the card item's footer
    */
-   static get selectorItemFooter() {
+  static get selectorItemFooter() {
     return `${ddsPrefix}-card-cta-footer`;
-  }  
+  }
 
   static get stableSelector() {
     return `${ddsPrefix}--carousel`;
