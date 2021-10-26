@@ -77,7 +77,7 @@ export default {
   decorators: [
     story => (
       <>
-        <style>${styles}</style>
+        <style type="text/css">{styles.cssText}</style>
         <div className="bx--grid">
           <div className="bx--row grid-alignment">{story()}</div>
         </div>
