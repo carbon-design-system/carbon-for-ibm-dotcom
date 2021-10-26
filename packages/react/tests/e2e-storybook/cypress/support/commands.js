@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import 'cypress-localstorage-commands';
 import countrylist from './data/countrylist.json';
 import translation from './data/translation.json';
 
