@@ -11,6 +11,7 @@ import { ifDefined } from 'lit-html/directives/if-defined';
 import { html, property, internalProperty, query, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import CaretLeft20 from 'carbon-web-components/es/icons/caret--left/20.js';
 import CaretRight20 from 'carbon-web-components/es/icons/caret--right/20.js';
@@ -25,6 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 const MAX_GESTURE_DURATION = 300; // max time allowed to do swipe
 const MIN_DISTANCE_TRAVELLED = 75; // min distance traveled to be considered swipe
+const headingBottomMargin = 64; // tag constants used for same height calculations
 
 /**
  * Carousel.
@@ -52,6 +54,36 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    */
   @internalProperty()
   private _gap = 0;
+
+  /**
+   * Array to hold the card-heading elements within child items.
+   */
+   private _childItems: any[] = [];
+
+   /**
+    * Array to hold the card-heading elements within child items.
+    */
+   private _childItemHeadings: any[] = [];
+ 
+   /**
+    * Array to hold the card-eyebrow elements within child items.
+    */
+   private _childItemEyebrows: any[] = [];
+ 
+   /**
+    * Array to hold the tag-group elements within child items.
+    */
+   private _childItemTagGroup: any[] = [];
+ 
+   /**
+    * Array to hold the paragraph elements within child items.
+    */
+   private _childItemParagraphs: any[] = [];
+ 
+   /**
+    * Array to hold the card-cta-footer elements within child items.
+    */
+   private _childItemFooters: any[] = [];  
 
   /**
    * The observer for the resize of the scroll container.
@@ -233,6 +265,36 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
       this._total = slot.assignedNodes().filter(node => node.nodeType === Node.ELEMENT_NODE).length;
     }
     this._updateGap();
+
+    this._childItems = (event.target as HTMLSlotElement)
+    .assignedNodes()
+    .filter(elem =>
+      (elem as HTMLElement).matches !== undefined
+        ? (elem as HTMLElement).matches((this.constructor as typeof DDSCarousel).selectorItem)
+        : false
+    );
+
+    // retrieve item heading, eyebrows, and footers to set same height
+    if (this._childItems) {
+      this._childItems.forEach(e => {
+        this._childItemEyebrows.push(
+          (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemEyebrow)
+        );
+        this._childItemParagraphs.push(
+          (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemParagraph)
+        );
+        this._childItemTagGroup.push(
+          (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemTagGroup)
+        );
+        this._childItemHeadings.push(
+          (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemHeading)
+        );
+        this._childItemFooters.push(
+          (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemFooter)
+        );
+      });
+    }
+      
   }
 
   /**
@@ -253,6 +315,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     const { _contentsNode: contentsNode } = this;
     const { defaultView: w } = this.ownerDocument!;
     this._pageSizeAuto = Number(w!.getComputedStyle(contentsNode!).getPropertyValue(customPropertyPageSize));
+    this._setSameHeight();
   };
 
   /**
@@ -265,6 +328,46 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     const pagesSince = Math.ceil((total - start) / pageSize);
     return formatStatus({ currentPage: Math.ceil(start / pageSize) + 1, pages: pagesBefore + pagesSince });
   }
+
+  private _setSameHeight = () => {
+    // check if items are not null before using sameHeight
+
+    sameHeight(
+      this._childItemEyebrows.filter(item => item !== null),
+      'md'
+    );
+    sameHeight(
+      this._childItemHeadings.filter(item => item !== null),
+      'md'
+    );
+    sameHeight(
+      this._childItemParagraphs.filter(item => item !== null),
+      'md'
+    );
+    sameHeight(
+      this._childItemFooters.filter(item => item !== null),
+      'md'
+    );
+
+    let tagGroupHeight: number = 0;
+
+    // get tallest height of tag groups
+    this._childItemTagGroup.forEach(item => {
+      if (item) {
+        const groupHeight = (item as HTMLElement).offsetHeight;
+        if (groupHeight > tagGroupHeight) {
+          tagGroupHeight = groupHeight;
+        }
+      }
+    });
+
+    this._childItemHeadings.forEach(e => {
+      // add tag group height to heading to the cards lacking tag group
+      if (e && !e.nextElementSibling.matches((this.constructor as typeof DDSCarousel).selectorItemTagGroup)) {
+        e.style.marginBottom = `${tagGroupHeight + headingBottomMargin}px`;
+      }
+    });
+  };  
 
   /**
    * Calculates the width between cards.
@@ -401,6 +504,48 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   static get customPropertyPageSize() {
     return `--${ddsPrefix}--carousel--page-size`;
   }
+
+  /**
+   * The selector for the card component
+   */
+  static get selectorItem() {
+    return `${ddsPrefix}-card`;
+  }
+
+  /**
+   * A selector that will return the card item's eyebrow
+   */
+   static get selectorItemEyebrow() {
+    return `${ddsPrefix}-card-eyebrow`;
+  }  
+
+  /**
+   * A selector that will return the card item's tag group
+   */
+   static get selectorItemTagGroup() {
+    return `${ddsPrefix}-tag-group`;
+  }  
+
+  /**
+   * A selector that will return the card item's tag group
+   */
+   static get selectorItemParagraph() {
+    return `p`;
+  }  
+
+  /**
+   * A selector that will return the card item's heading
+   */
+  static get selectorItemHeading() {
+    return `${ddsPrefix}-card-heading`;
+  }
+
+  /**
+   * A selector that will return the card item's footer
+   */
+   static get selectorItemFooter() {
+    return `${ddsPrefix}-card-cta-footer`;
+  }  
 
   static get stableSelector() {
     return `${ddsPrefix}--carousel`;
