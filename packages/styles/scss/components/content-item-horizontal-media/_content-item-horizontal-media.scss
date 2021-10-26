@@ -95,22 +95,23 @@
       grid-template-columns: repeat(10, 1fr);
     }
 
+    .#{$prefix}--content-item-horizontal__col {
+      grid-column: 1 / span 4;
+
+      &:last-of-type {
+        margin-top: 1rem;
+
+        @include carbon--breakpoint(lg) {
+          margin-top: 0;
+        }
+      }
+    }
+
     &.#{$prefix}--content-item-horizontal-media__align-left {
       .#{$prefix}--content-item-horizontal__col {
-        &:first-of-type {
-          grid-column: 1 / span 4;
-
+        &:last-of-type {
           @include carbon--breakpoint(lg) {
             grid-column: 5 / span 6;
-          }
-        }
-
-        &:last-of-type {
-          grid-column: 1 / span 4;
-          margin-top: 1rem;
-
-          @include carbon--breakpoint(lg) {
-            margin-top: 0;
           }
         }
       }
@@ -119,18 +120,15 @@
     &.#{$prefix}--content-item-horizontal-media__align-right {
       .#{$prefix}--content-item-horizontal__col {
         &:first-of-type {
-          grid-column: 1 / span 4;
           text-align: left;
           margin-inline-end: $carbon--spacing-07;
         }
 
         &:last-of-type {
-          grid-column: 1 / span 4;
-          margin-top: 1rem;
           @include carbon--breakpoint(lg) {
-            margin-top: 0;
             grid-column: 5 / span 6;
           }
+
           @include carbon--breakpoint(max) {
             grid-column: 5 / span 6;
           }
