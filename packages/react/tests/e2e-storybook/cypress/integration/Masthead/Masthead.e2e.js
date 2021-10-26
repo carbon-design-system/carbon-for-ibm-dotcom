@@ -39,6 +39,10 @@ const _pathPlatform = '/iframe.html?id=components-masthead--with-platform';
 const _pathl1 = '/iframe.html?id=components-masthead--with-l-1';
 
 describe('Masthead | default (desktop)', () => {
+  before(() => {
+    cy.setTranslations();
+  });
+
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
     cy.viewport(1280, 780);
@@ -171,6 +175,10 @@ describe('Masthead | default (desktop)', () => {
 });
 
 describe('Masthead | default (mobile)', () => {
+  before(() => {
+    cy.setTranslations();
+  });
+
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
     cy.viewport(320, 780);
@@ -196,6 +204,10 @@ describe('Masthead | default (mobile)', () => {
 });
 
 describe('Masthead | custom (desktop)', () => {
+  before(() => {
+    cy.setTranslations();
+  });
+
   beforeEach(() => {
     cy.visit(`/${_pathCustom}`);
     cy.viewport(1280, 780);
@@ -312,6 +324,10 @@ describe('Masthead | custom (desktop)', () => {
 });
 
 describe('Masthead | with platform (desktop)', () => {
+  before(() => {
+    cy.setTranslations();
+  });
+
   beforeEach(() => {
     cy.visit(`/${_pathPlatform}`);
     cy.viewport(1280, 780);
@@ -350,6 +366,10 @@ describe('Masthead | with platform (desktop)', () => {
 });
 
 describe('Masthead | with L1 (desktop)', () => {
+  before(() => {
+    cy.setTranslations();
+  });
+
   beforeEach(() => {
     cy.visit(`/${_pathl1}`);
     cy.viewport(1280, 780);

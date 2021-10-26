@@ -15,6 +15,10 @@ const _path = '/iframe.html?id=components-locale-modal--default';
 
 /* eslint-disable cypress/no-unnecessary-waiting */
 describe('dds-locale-modal | default', () => {
+  before(() => {
+    cy.setTranslations();
+  });
+
   beforeEach(() => {
     cy.visit(`/${_path}`);
     cy.viewport(1280, 780);
