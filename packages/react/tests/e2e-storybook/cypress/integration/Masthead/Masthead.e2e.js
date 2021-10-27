@@ -455,9 +455,12 @@ describe('dds-masthead | search open onload (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | load search field open by default', {
-      widths: [1280],
-    });
+    cy.percySnapshot(
+      'Masthead | Search open onload | load search field open by default',
+      {
+        widths: [1280],
+      }
+    );
   });
 
   it('should have typable search field', () => {
@@ -476,9 +479,12 @@ describe('dds-masthead | search open onload (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | display 10 auto suggest results', {
-      widths: [1280],
-    });
+    cy.percySnapshot(
+      'Masthead | Search open onload | display 10 auto suggest results',
+      {
+        widths: [1280],
+      }
+    );
   });
 
   it('should not display menu options while search field is open', () => {
