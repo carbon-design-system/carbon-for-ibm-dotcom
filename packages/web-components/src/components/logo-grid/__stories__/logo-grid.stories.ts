@@ -52,7 +52,7 @@ export default {
     story => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2">
+          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12">
             ${story()}
           </div>
         </div>
@@ -61,7 +61,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    useRawContainer: true,
+    hasStoryPadding: true,
     knobs: {
       LogoGrid: ({ groupId }) => ({
         heading: textNullable('Heading (heading)', 'Our customers', groupId),

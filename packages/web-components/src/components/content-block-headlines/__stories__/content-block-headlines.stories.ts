@@ -45,11 +45,17 @@ export const Default = !DDS_CONTENT_BLOCK_HEADLINES
   : ({ parameters }) => {
       const { heading, copy } = parameters?.props?.ContentBlockHeadlines ?? {};
       return html`
-        <dds-content-block-headlines>
-          <dds-content-block-heading>${heading}</dds-content-block-heading>
-          <dds-content-block-copy>${copy}</dds-content-block-copy>
-          ${contentItemRow1} ${contentItemRow1} ${contentItemRow2} ${contentItemRow1}
-        </dds-content-block-headlines>
+        <div class="bx--grid">
+          <div class="bx--row">
+            <div class="bx--col-lg-12 bx--no-gutter">
+              <dds-content-block-headlines>
+                <dds-content-block-heading>${heading}</dds-content-block-heading>
+                <dds-content-block-copy>${copy}</dds-content-block-copy>
+                ${contentItemRow1} ${contentItemRow1} ${contentItemRow2} ${contentItemRow1}
+              </dds-content-block-headlines>
+            </div>
+          </div>
+        </div>
       `;
     };
 
@@ -59,7 +65,7 @@ export default !DDS_CONTENT_BLOCK_HEADLINES
       title: 'Components/Content block headlines',
       parameters: {
         ...readme.parameters,
-        hasGrid: true,
+        hasStoryPadding: true,
         knobs: {
           ContentBlockHeadlines: () => ({
             heading: textNullable('Heading (required)', 'Aliquam condimentum'),

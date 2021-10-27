@@ -55,8 +55,21 @@ export const Default = ({ parameters }) => {
 
 export default {
   title: 'Components/Image with caption',
+  decorators: [
+    story =>
+      html`
+        <div class="bx--grid">
+          <div class="bx--row">
+            <div class="bx--col-sm-4 bx--col-lg-8">
+              ${story()}
+            </div>
+          </div>
+        </div>
+      `,
+  ],
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
     knobs: {
       'dds-image-with-caption': ({ groupId }) => ({
         alt: textNullable('Alt text (alt)', 'Image alt text', groupId),

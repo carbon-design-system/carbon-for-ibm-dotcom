@@ -55,6 +55,7 @@ export default {
   title: 'Components/Pictogram item',
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
     knobs: {
       PictogramItem: ({ groupId }) => ({
         heading: textNullable('Heading (heading):', 'Lorem ipsum dolor sit', groupId),
@@ -66,7 +67,6 @@ export default {
         linkCopy: textNullable('Link with Icon copy:', 'Lorem ipsum dolor', groupId),
       }),
     },
-    hasGrid: true,
   },
   decorators: [
     story => html`
@@ -75,7 +75,7 @@ export default {
       </style>
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-9 bx--offset-lg-3">
+          <div class="bx--col-sm-4 bx--col-lg-8 bx--no-gutter">
             ${story()}
           </div>
         </div>

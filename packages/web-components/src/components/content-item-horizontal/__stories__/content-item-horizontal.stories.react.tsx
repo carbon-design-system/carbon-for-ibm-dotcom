@@ -8,7 +8,6 @@
  */
 import React from 'react';
 import { select } from '@storybook/addon-knobs';
-import classnames from 'classnames';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 /* eslint-disable max-len */
@@ -86,7 +85,7 @@ export const Default = ({ parameters }) => {
 
 Default.story = {
   parameters: {
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal',
+    gridContentClasses: 'bx--col-lg-10 bx--no-gutter',
     knobs: {
       ContentItemHorizontal: () => ({
         eyebrow: textNullable('Eyebrow (eyebrow):', 'Lorem ipsum'),
@@ -129,7 +128,7 @@ export const withThumbnail = ({ parameters }) => {
 withThumbnail.story = {
   name: 'With thumbnail',
   parameters: {
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal-thumbnail',
+    gridContentClasses: 'bx--col-lg-12 bx--no-gutter',
     knobs: {
       ContentItemHorizontal: () => ({
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
@@ -177,7 +176,7 @@ export const withMedia = ({ parameters }) => {
 withMedia.story = {
   name: 'With media',
   parameters: {
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal-media',
+    gridContentClasses: 'bx--col-lg-10',
     knobs: {
       ContentItemHorizontal: () => ({
         align: select('Alignment', mediaAlign, MEDIA_ALIGN.RIGHT),
@@ -203,13 +202,17 @@ export default {
   title: 'Components/Content item horizontal',
   decorators: [
     (story, { parameters }) => {
-      const classes = classnames('dds-ce-demo-devenv--simple-grid', parameters.gridContentClasses);
-      return <div className={classes}>{story()}</div>;
+      return (
+        <div className="bx--grid">
+          <div className="bx--row">
+            <div className={parameters.gridContentClasses}>{story()}</div>
+          </div>
+        </div>
+      );
     },
   ],
   parameters: {
     ...readme.parameters,
-    hasVerticalSpacingInComponent: true,
-    hasGrid: true,
+    hasStoryPadding: true,
   },
 };

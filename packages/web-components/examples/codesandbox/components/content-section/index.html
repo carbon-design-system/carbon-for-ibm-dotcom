@@ -1,0 +1,36 @@
+<!--
+@license
+Copyright IBM Corp. 2020
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+  <head>
+    <title>@carbon/ibmdotcom-web-components example</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" />
+    <style>
+      /* Suppress custom element until styles are loaded */
+      dds-content-section:not(:defined) {
+        display: none;
+      }
+    </style>
+    <script src="src/index.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-lg-12 bx--col-sm-4 bx--offset-lg-4">
+            <dds-content-section>
+              <dds-content-section-heading>Content section heading</dds-content-section-heading>
+              <dds-content-section-copy>Copy text</dds-content-section-copy>
+              <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com">Link action</dds-text-cta>
+            </dds-content-section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

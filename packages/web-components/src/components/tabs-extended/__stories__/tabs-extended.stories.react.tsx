@@ -61,12 +61,17 @@ export default {
   title: 'Components/Tabs extended',
   decorators: [
     story => {
-      return <div className="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--tabs-extended">{story()}</div>;
+      return (
+        <div className="bx--grid">
+          <div className="bx--row">
+            <div className="bx--col-lg-12 bx--no-gutter">{story()}</div>
+          </div>
+        </div>
+      );
     },
   ],
   parameters: {
     ...readme.parameters,
-    useRawContainer: true,
-    hasGrid: true,
+    hasStoryPadding: true,
   },
 };

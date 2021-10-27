@@ -56,13 +56,15 @@ export default {
       <style>
         ${styles}
       </style>
-      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-section">
-        ${story()}
+      <div class="bx--grid">
+        <div class="bx--row grid-alignment">
+          ${story()}
+        </div>
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
+    hasStoryPadding: true,
   },
 };

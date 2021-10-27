@@ -33,7 +33,9 @@ describe('LocaleModal | default', () => {
   it('should filter locales/languages', () => {
     cy.get('[data-region="am"]').click();
 
-    cy.get('[data-autoid="dds--locale-modal__filter"]').type('ca');
+    cy.get('[data-autoid="dds--locale-modal__filter"]').type('ca', {
+      force: true,
+    });
 
     cy.screenshot();
     // Take a snapshot for visual diffing

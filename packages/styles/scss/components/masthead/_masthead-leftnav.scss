@@ -67,7 +67,7 @@
       }
     }
 
-    @include carbon--breakpoint-between(42.02rem, 65.98rem) {
+    @include carbon--breakpoint-between('md', 'lg') {
       + .#{$prefix}--header__logo {
         a {
           padding: 0 $carbon--spacing-05;
