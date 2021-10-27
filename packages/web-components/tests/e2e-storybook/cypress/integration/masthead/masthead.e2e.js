@@ -539,6 +539,13 @@ describe('dds-masthead | search open onload (desktop)', () => {
       .shadow()
       .find('input[type="text"]')
       .should('be.visible');
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | search open onload', {
+    //   widths: [1280],
+    // });
   });
 
   it('should have typable search field', () => {
@@ -556,9 +563,16 @@ describe('dds-masthead | search open onload (desktop)', () => {
       .type('test')
       .get('dds-search-with-typeahead-item')
       .should('have.length', 10);
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | search open onload', {
+    //   widths: [1280],
+    // });
   });
 
-  it('should render 6 custom menu items', () => {
+  it('should not display menu options while search field is open', () => {
     cy.get('dds-top-nav').should('have.attr', 'hidenav');
   });
 });
