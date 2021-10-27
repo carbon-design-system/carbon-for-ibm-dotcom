@@ -40,8 +40,8 @@ const _pathl1 = '/iframe.html?id=components-masthead--with-l-1';
 
 describe('Masthead | default (desktop)', () => {
   beforeEach(() => {
-    cy.setTranslations();
-    cy.visit(`/${_pathDefault}`);
+    cy.mockMastheadFooterData();
+    cy.visit(_pathDefault);
     cy.viewport(1280, 780);
   });
 
@@ -173,8 +173,8 @@ describe('Masthead | default (desktop)', () => {
 
 describe('Masthead | default (mobile)', () => {
   beforeEach(() => {
-    cy.setTranslations();
-    cy.visit(`/${_pathDefault}`);
+    cy.mockMastheadFooterData();
+    cy.visit(_pathDefault);
     cy.viewport(320, 780);
   });
 
@@ -199,8 +199,8 @@ describe('Masthead | default (mobile)', () => {
 
 describe('Masthead | custom (desktop)', () => {
   beforeEach(() => {
-    cy.setTranslations();
-    cy.visit(`/${_pathCustom}`);
+    cy.mockMastheadFooterData();
+    cy.visit(_pathCustom);
     cy.viewport(1280, 780);
   });
 
@@ -316,8 +316,8 @@ describe('Masthead | custom (desktop)', () => {
 
 describe('Masthead | with platform (desktop)', () => {
   beforeEach(() => {
-    cy.setTranslations();
-    cy.visit(`/${_pathPlatform}`);
+    cy.mockMastheadFooterData();
+    cy.visit(_pathPlatform);
     cy.viewport(1280, 780);
   });
 
@@ -355,8 +355,8 @@ describe('Masthead | with platform (desktop)', () => {
 
 describe('Masthead | with L1 (desktop)', () => {
   beforeEach(() => {
-    cy.setTranslations();
-    cy.visit(`/${_pathl1}`);
+    cy.mockMastheadFooterData();
+    cy.visit(_pathl1);
     cy.viewport(1280, 780);
   });
 

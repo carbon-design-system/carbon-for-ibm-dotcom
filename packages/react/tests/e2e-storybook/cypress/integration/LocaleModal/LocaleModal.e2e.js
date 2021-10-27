@@ -15,7 +15,7 @@ const _path = '/iframe.html?id=components-locale-modal--default';
 
 describe('LocaleModal | default', () => {
   beforeEach(() => {
-    cy.setTranslations();
+    cy.mockMastheadFooterData();
     cy.visit(`/${_path}`);
     cy.viewport(1280, 780);
   });
