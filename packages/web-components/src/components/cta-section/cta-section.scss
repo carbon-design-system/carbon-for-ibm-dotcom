@@ -25,23 +25,24 @@
   }
 
   .#{$prefix}--content-section__leading {
-    margin-top: $carbon--layout-04;
-    padding: $spacing-05;
-    padding-left: 0;
+    padding-bottom: 0;
+    @include carbon--breakpoint('md') {
+      margin-top: $carbon--layout-04;
+      padding: $spacing-05;
+      margin-bottom: $carbon--layout-01;
+    }
 
     @include carbon--breakpoint('lg') {
       padding-left: $spacing-05;
-    }
-
-    padding-bottom: 0;
-    margin-bottom: $carbon--layout-01;
-
-    @include carbon--breakpoint('lg') {
       margin-bottom: $carbon--layout-04;
     }
   }
 
   ::slotted(#{$dds-prefix}-cta-block) {
-    padding-top: $carbon--layout-04;
+    padding-top: 0;
+
+    @include carbon--breakpoint('md') {
+      padding-top: $carbon--layout-04;
+    }
   }
 }
