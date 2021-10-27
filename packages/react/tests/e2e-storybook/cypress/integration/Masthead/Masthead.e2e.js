@@ -289,9 +289,24 @@ describe('Masthead | custom (desktop)', () => {
   });
 
   it('should scroll the L0 overflow properly', () => {
-    cy.get('.bx--header__nav-caret-right').click();
+    cy.document().then($document => {
+      $document.querySelector('head').insertAdjacentHTML(
+        'beforeend',
+        `
+      <style>
+        /* Disable CSS transitions. */
+        * { -webkit-transition: none !important; -moz-transition: none !important; -o-transition: none !important; transition: none !important; }
+        /* Disable CSS animations. */
+        * { -webkit-animation: none !important; -moz-animation: none !important; -o-animation: none !important; animation: none !important; }
+        /* Reset values on non-opaque/offscreen framer-motion components. */
+        *[style*="opacity"] { opacity: 1 !important; }
+        *[style*="transform"] { transform: none !important; }
+      </style>
+    `
+      );
+    });
 
-    cy.wait(500);
+    cy.get('.bx--header__nav-caret-right').click();
 
     cy.get('.bx--header__nav-caret-right-container').then($button => {
       expect($button).to.have.attr('hidden');
