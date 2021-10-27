@@ -1,7 +1,7 @@
 {
   "baseUrl": "http://localhost:8080",
   "browser": "chrome",
-  "blockHosts": ["https://1.www.s81c.com/"],
+  "blockHosts": ["1.www.s81c.com"],
   "headless": true,
   "fixturesFolder": "tests/e2e/cypress/fixtures",
   "fileServerFolder": "tests/e2e/dist",

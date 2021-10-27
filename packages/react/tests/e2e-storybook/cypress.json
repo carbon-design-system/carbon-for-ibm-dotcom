@@ -1,7 +1,7 @@
 {
   "baseUrl": "http://localhost:8082",
   "browser": "chrome",
-  "blockHosts": ["https://1.www.s81c.com/"],
+  "blockHosts": ["1.www.s81c.com"],
   "headless": true,
   "fixturesFolder": "tests/e2e-storybook/cypress/fixtures",
   "fileServerFolder": "storybook-static",
