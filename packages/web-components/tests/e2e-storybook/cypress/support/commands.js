@@ -13,7 +13,7 @@ import translation from './data/translation.json';
  */
 Cypress.Commands.add('setTranslations', () => {
   cy.window().then(() => {
-    sessionStorage.setItem('dds-countrylist-us-en', countrylist);
-    sessionStorage.setItem('dds-translation-us-en', translation);
+    sessionStorage.setItem('dds-countrylist-us-en', JSON.stringify(countrylist));
+    sessionStorage.setItem('dds-translation-us-en', JSON.stringify(translation));
   });
 });
