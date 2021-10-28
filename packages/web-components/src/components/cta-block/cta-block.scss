@@ -110,8 +110,26 @@
     }
   }
 
+  ::slotted(#{$dds-prefix}-cta-block-item) {
+    border-bottom: 1px solid $gray-20;
+    margin-top: $spacing-07;
+
+    @include carbon--breakpoint('md') {
+      border: 0;
+      margin-top: 0;
+    }
+  }
+
+  ::slotted(#{$dds-prefix}-cta-block-item:last-of-type) {
+    border: 0;
+  }
+
   @include carbon--breakpoint('md') {
     grid-template-columns: repeat(2, 1fr);
+
+    ::slotted(#{$dds-prefix}-cta-block-item:first-of-type) {
+      margin-top: 0;
+    }
   }
 
   @include carbon--breakpoint('lg') {
