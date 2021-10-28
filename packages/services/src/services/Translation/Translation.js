@@ -156,9 +156,20 @@ class TranslationAPI {
       const key = country !== 'undefined' ? `${country}-${lang}` : `${lang}`;
 
       if (!_requestsTranslation[key]) {
-        const url = `${_host}${endpoint || _ddsEndpoint}/${
-          country !== 'undefined' ? `${country}${lang}` : `${lang}`
-        }.json`;
+        let url;
+        //eslint-disable-next-line
+        const regex = /((http(s?))\:\/\/)/g;
+
+        // Check to see if the string from the endpoint variable contains https/http or not.
+        if (regex.test(endpoint)) {
+          url = `${endpoint || _ddsEndpoint}/${
+            country !== 'undefined' ? `${country}${lang}` : `${lang}`
+          }.json`;
+        } else {
+          url = `${_host}${endpoint || _ddsEndpoint}/${
+            country !== 'undefined' ? `${country}${lang}` : `${lang}`
+          }.json`;
+        }
 
         _requestsTranslation[key] = axios
           .get(url, {
