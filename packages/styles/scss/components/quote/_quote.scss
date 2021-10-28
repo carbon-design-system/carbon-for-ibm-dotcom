@@ -21,7 +21,6 @@
 
     .#{$prefix}--link-with-icon__container {
       padding-left: 1rem;
-      max-width: 80%;
     }
   }
 
@@ -82,17 +81,19 @@
 
   .#{$prefix}--quote__source {
     @include carbon--make-col-ready;
-
-    @include carbon--breakpoint-down('md') {
+    @include carbon--breakpoint('md') {
       padding-bottom: $spacing-05;
+      padding-right: 2rem;
     }
 
-    max-width: 80%;
+    padding-right: 0;
     padding-bottom: $carbon--layout-04;
   }
 
   :host(#{$dds-prefix}-quote-source-heading),
   .#{$prefix}--quote__source-heading {
+    max-width: 640px;
+    padding-right: 2rem;
     padding-left: 1rem;
     @include carbon--type-style(expressive-heading-02, true);
   }
@@ -130,6 +131,7 @@
 
     ::slotted(#{$dds-prefix}-link-with-icon) {
       margin-left: 1rem;
+      max-width: 640px;
     }
   }
 
