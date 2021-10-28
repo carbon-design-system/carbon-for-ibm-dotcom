@@ -30,10 +30,12 @@ const MastheadL1 = ({ navigationL1, ...rest }) => {
   const childLinkChecker = rest.hasCurrentUrl();
 
   const mastheadL1Links = navigationL1.map((link, index) => {
+    const selectedUrlItem =
+      childLinkChecker && childLinkChecker(link, root.location.href);
     const autoid = `${stablePrefix}--masthead-${rest.navType}__l1-nav${index}`;
     const selected = rest.selectedMenuItem
       ? link.titleEnglish === rest.selectedMenuItem
-      : childLinkChecker(link, root.location.href);
+      : selectedUrlItem;
     if (link.hasMenu || link.hasMegapanel) {
       return (
         <HeaderMenu

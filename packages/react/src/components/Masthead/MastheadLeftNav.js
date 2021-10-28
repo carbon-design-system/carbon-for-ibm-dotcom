@@ -333,6 +333,12 @@ function _renderLevel1Submenus(
               className={highlightedClass}
               data-autoid={`${menu.autoid}-list${index}`}
               key={item.title}
+              className={
+                (!selectedMenuItem &&
+                  selectedItems?.level1 === `${menu.parentKey}-${index}` &&
+                  `${prefix}--masthead__side-nav--submemu--selected`) ||
+                null
+              }
               role="menuitem">
               {item.title}
             </SideNavMenuItem>
