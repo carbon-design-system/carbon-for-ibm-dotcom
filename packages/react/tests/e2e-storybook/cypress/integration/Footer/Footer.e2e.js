@@ -39,10 +39,12 @@ describe('dds-footer | Short language only (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Short language only (desktop language selector)', {
-    //   widths: [1280],
-    // });
+    cy.percySnapshot(
+      'dds-footer | Short language only (desktop language selector)',
+      {
+        widths: [1280],
+      }
+    );
   });
 
   it('should be able to select a language from combo box', () => {
@@ -58,11 +60,12 @@ describe('dds-footer | Short language only (desktop)', () => {
     );
 
     cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Short language only (desktop language selector)', {
-    //   widths: [1280],
-    // });
+    cy.percySnapshot(
+      'dds-footer | Short language only (desktop language selector)',
+      {
+        widths: [1280],
+      }
+    );
   });
 });
 
@@ -85,10 +88,11 @@ describe('dds-footer | Short language only (mobile)', () => {
     languageSelector.should('have.value', 'ar');
 
     cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Short language only (desktop language selector)', {
-    //   widths: [320],
-    // });
+    cy.percySnapshot(
+      'dds-footer | Short language only (desktop language selector)',
+      {
+        widths: [320],
+      }
+    );
   });
 });
