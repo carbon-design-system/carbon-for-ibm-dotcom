@@ -1,4 +1,4 @@
-name: Test Scenario Creation
+name: (C4IBM.com team only) Test Scenario Creation
 description:
   Describe the test scenario that will need to be created in e2e tests
 title: '[Test Scenario]: Component and test scenario title'

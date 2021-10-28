@@ -10,6 +10,13 @@
 
 :host(#{$dds-prefix}-card-footer),
 :host(#{$dds-prefix}-card-cta-footer) {
+  align-self: flex-start;
+  max-width: 90%;
+
+  @include carbon--breakpoint('md') {
+    max-width: calc(100% - #{$layout-03});
+  }
+
   .#{$dds-prefix}-ce--card__footer--static {
     color: $link-01;
   }
@@ -115,6 +122,12 @@
 
   &[color-scheme='inverse'] ::slotted(svg[slot='pictogram']) {
     color: $inverse-link;
+  }
+
+  .#{$prefix}--card__copy {
+    display: flex;
+    flex-direction: column;
+    gap: $carbon--spacing-05;
   }
 }
 

@@ -11,7 +11,6 @@ import { html } from 'lit-element';
 import { text } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import Download20 from 'carbon-web-components/es/icons/download/20';
-import styles from './leadspace-block.stories.scss';
 
 import '../index';
 import '../../link-list/index';
@@ -21,6 +20,7 @@ import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
 
 import readme from './README.stories.mdx';
+import styles from './leadspace-block.stories.scss';
 
 const image = html`
   <dds-image-with-caption
@@ -95,8 +95,7 @@ export default {
   title: 'Components/Lead space block',
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
+    hasStoryPadding: true,
     knobs: {
       LeadSpaceBlock: ({ groupId }) => ({
         title: text('title (title)', 'Continuous delivery', groupId),
@@ -111,8 +110,12 @@ export default {
         <style>
           ${styles}
         </style>
-        <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-layout">
-          ${story()}
+        <div class="bx--grid">
+          <div class="bx--row">
+            <div class="bx--col-lg-9 bx--no-gutter">
+              ${story()}
+            </div>
+          </div>
         </div>
       `,
     ],

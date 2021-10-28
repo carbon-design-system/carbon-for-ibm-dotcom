@@ -13,6 +13,7 @@
  */
 const _path = '/iframe.html?id=components-locale-modal--default';
 
+/* eslint-disable cypress/no-unnecessary-waiting */
 describe('dds-locale-modal | default', () => {
   beforeEach(() => {
     cy.visit(`/${_path}`);
@@ -42,7 +43,7 @@ describe('dds-locale-modal | default', () => {
     cy.get('dds-locale-search')
       .shadow()
       .find('.bx--search-input')
-      .type('ca');
+      .type('ca', { force: true });
 
     cy.screenshot();
     // Take a snapshot for visual diffing

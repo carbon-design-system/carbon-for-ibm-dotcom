@@ -20,8 +20,6 @@ import '../../lightbox-media-viewer/lightbox-video-player-container';
 
 import content from './content';
 
-import styles from './cta-section.stories.scss';
-
 const contentItemTypeMap = {
   text: ({ heading, copy, links }) => html`
     <dds-cta-block-item>
@@ -231,9 +229,6 @@ export default {
   title: 'Components/CTA section',
   decorators: [
     story => html`
-      <style>
-        ${styles}
-      </style>
       ${story()}
     `,
   ],
@@ -246,5 +241,6 @@ export default {
       }),
     },
     ...readme.parameters,
+    hasStoryPadding: true,
   },
 };

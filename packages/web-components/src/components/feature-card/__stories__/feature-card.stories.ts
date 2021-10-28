@@ -23,7 +23,6 @@ import imgXlg2x1 from '../../../../../storybook-images/assets/1312/fpo--2x1--131
 
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import styles from './feature-card.stories.scss';
 
 export const Medium = ({ parameters }) => {
   const { heading, href } = parameters?.props?.['dds-feature-card'] ?? {};
@@ -61,15 +60,14 @@ export const Large = ({ parameters }) => {
 
 Large.story = {
   parameters: {
-    storyGrid: 'bx--col-lg-12 bx--offset-lg-2',
-    useRawContainer: true,
+    storyGrid: 'bx--col-lg-12',
     knobs: {
       'dds-feature-card': ({ groupId }) => ({
         eyebrow: textNullable('Card Eyebrow (required) (eyebrow):', 'This is an eyebrow', groupId),
         heading: textNullable('Card Heading (heading):', 'Explore AI use cases in all industries', groupId),
         copy: textNullable(
           'Card copy (copy):',
-          `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+          `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
           dolore magna aliqua.`,
           groupId
         ),
@@ -83,9 +81,6 @@ export default {
   title: 'Components/Feature card',
   decorators: [
     (story, { parameters }) => html`
-      <style>
-        ${styles}
-      </style>
       <div class="bx--grid">
         <div class="bx--row">
           <div class="bx--col-sm-4 ${parameters.storyGrid}">
@@ -97,9 +92,8 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    storyGrid: 'bx--col-lg-8 bx--offset-lg-4',
-    useRawContainer: true,
-    hasGrid: true,
+    storyGrid: 'bx--col-lg-8 bx--no-gutter"',
+    hasStoryPadding: true,
     knobs: {
       'dds-feature-card': () => ({
         heading: textNullable('Card Heading (heading):', 'Explore AI use cases in all industries'),
