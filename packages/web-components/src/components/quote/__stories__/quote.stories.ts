@@ -57,7 +57,7 @@ export default {
     story => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--offset-lg-5 bx--col-lg-10">
+          <div class="bx--col-lg-10">
             ${story()}
           </div>
         </div>
@@ -66,7 +66,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
+    hasStoryPadding: true,
     knobs: {
       Quote: ({ groupId }) => ({
         copy: textNullable(

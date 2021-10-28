@@ -40,19 +40,14 @@ export default {
   title: 'Components/Card section images',
   decorators: [
     story => html`
-      <div class="bx--grid bx--content-group-story dds-ce-demo-devenv--grid--stretch">
-        <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class="bx--col-sm-4">
-            ${story()}
-          </div>
-        </div>
+      <div class="bx--grid bx--row">
+        ${story()}
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
+    hasStoryPadding: true,
     knobs: {
       CardSectionImages: ({ groupId }) => ({
         heading: textNullable('Heading (required)', 'Aliquam condimentum interdum', groupId),

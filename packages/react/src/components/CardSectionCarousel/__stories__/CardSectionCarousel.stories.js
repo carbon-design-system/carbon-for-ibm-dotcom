@@ -16,7 +16,6 @@ export default {
       skip: true,
     },
     proxy: true,
-    useRawContainer: true,
   },
 };
 

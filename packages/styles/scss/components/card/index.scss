@@ -160,7 +160,7 @@
       color: $text-01;
     }
 
-    .#{$prefix}--card__copy {
+    .#{$prefix}--card__copy:not([hidden]) {
       @include carbon--type-style('body-short-02');
 
       margin-bottom: $carbon--spacing-07;
@@ -273,6 +273,7 @@
 
   :host(#{$dds-prefix}-card-eyebrow),
   .#{$prefix}--card__eyebrow {
+    @include content-width;
     @include carbon--type-style('label-02');
 
     margin-bottom: $carbon--spacing-03;
@@ -354,12 +355,14 @@
     }
 
     .#{$prefix}--card__cta__copy {
+      max-width: calc(100% - 20px - #{$carbon--spacing-03});
       margin-right: $carbon--spacing-03;
       color: $link-01;
       @include carbon--type-style('body-short-02');
     }
 
     .#{$prefix}--card__footer__copy {
+      max-width: calc(100% - 20px);
       margin-bottom: -$carbon--spacing-01;
     }
 

@@ -14,7 +14,6 @@ import '../card-cta-footer';
 import '../feature-cta';
 import '../feature-cta-footer';
 import '../text-cta';
-import { classMap } from 'lit-html/directives/class-map';
 import { html } from 'lit-element';
 import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
@@ -28,7 +27,6 @@ import { CTA_TYPE } from '../defs';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import styles from './cta.stories.scss';
 
 const hrefsForType = {
   [CTA_TYPE.REGULAR]: 'https://www.example.com',
@@ -82,6 +80,7 @@ export const Text = ({ parameters }) => {
 
 Text.story = {
   parameters: {
+    gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
     knobs: {
       TextCTA: ({ groupId }) => {
         const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL, groupId);
@@ -114,29 +113,24 @@ Text.story = {
 export const Button = ({ parameters }) => {
   const { copy, ctaType, download, href, customVideoTitle, customVideoDescription } = parameters?.props?.ButtonCTA ?? {};
   return html`
-    <style>
-      ${styles}
-    </style>
-    <div class="cta-button-group-container">
-      <dds-button-group>
-        <dds-button-cta
-          cta-type="${ifNonNull(ctaType)}"
-          video-name="${ifNonNull(customVideoTitle)}"
-          video-description="${ifNonNull(customVideoDescription)}"
-          download="${ifNonNull(download)}"
-          href="${href}"
-        >
-          ${copy}
-        </dds-button-cta>
-        <dds-button-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${href}">${copy}</dds-button-cta>
-      </dds-button-group>
-    </div>
+    <dds-button-group>
+      <dds-button-cta
+        cta-type="${ifNonNull(ctaType)}"
+        video-name="${ifNonNull(customVideoTitle)}"
+        video-description="${ifNonNull(customVideoDescription)}"
+        download="${ifNonNull(download)}"
+        href="${href}"
+      >
+        ${copy}
+      </dds-button-cta>
+      <dds-button-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${href}">${copy}</dds-button-cta>
+    </dds-button-group>
   `;
 };
 
 Button.story = {
   parameters: {
-    hasGrid: true,
+    gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
     knobs: {
       ButtonCTA: ({ groupId }) => {
         const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL, groupId);
@@ -207,8 +201,7 @@ export const Card = ({ parameters }) => {
 
 Card.story = {
   parameters: {
-    hasGrid: true,
-    hasCardGrid: true,
+    gridContentClasses: 'bx--col-sm-4 bx--col-lg-4 bx--no-gutter',
     knobs: {
       CardCTA: ({ groupId }) => {
         const { ctaType } = Text.story.parameters.knobs.TextCTA({ groupId: groupId.replace(/Footer$/, '') });
@@ -279,8 +272,7 @@ export const CardLink = ({ parameters }) => {
 CardLink.story = {
   name: 'Card link',
   parameters: {
-    hasGrid: true,
-    hasCardGrid: true,
+    gridContentClasses: 'bx--col-sm-4 bx--col-lg-4 bx--no-gutter',
     knobs: {
       CardCTA: ({ groupId }) => {
         const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL, groupId);
@@ -327,9 +319,6 @@ export const Feature = ({ parameters }) => {
   const { heading, ctaType, download, href, customVideoTitle, customVideoDescription } = parameters?.props?.FeatureCTA ?? {};
   const { copy: footerCopy, download: footerDownload, href: footerHref } = parameters?.props?.FeatureCTAFooter ?? {};
   return html`
-    <style>
-      ${styles}
-    </style>
     <dds-feature-cta
       cta-type="${ifNonNull(ctaType)}"
       video-name="${ifNonNull(customVideoTitle)}"
@@ -354,9 +343,7 @@ export const Feature = ({ parameters }) => {
 
 Feature.story = {
   parameters: {
-    hasFeatureCard: true,
-    hasGrid: true,
-    useRawContainer: true,
+    gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
     knobs: {
       FeatureCTA: ({ groupId }) => {
         const ctaType = select('CTA type:', types, CTA_TYPE.LOCAL, groupId);
@@ -389,31 +376,21 @@ export default {
   title: 'Components/CTA',
   decorators: [
     (story, { parameters }) => {
-      const { hasGrid, hasCardGrid, hasFeatureCard } = parameters;
-      const classes = classMap({
-        'dds-ce-demo-devenv--simple-grid': hasGrid && hasCardGrid,
-        'dds-ce-demo-devenv--simple-grid--card': hasGrid,
-      });
-      return !hasFeatureCard
-        ? html`
-            <dds-video-cta-container class="${classes}">
-              ${story()}
-            </dds-video-cta-container>
-          `
-        : html`
-            <div class="bx--grid cta-feature-grid">
-              <div class="bx--row">
-                <div class="bx--col-sm-4 bx--col-lg-8">
-                  <dds-video-cta-container class="${classes}">
-                    ${story()}
-                  </dds-video-cta-container>
-                </div>
-              </div>
+      return html`
+        <div class="bx--grid">
+          <div class="bx--row">
+            <div class="${parameters.gridContentClasses}">
+              <dds-video-cta-container>
+                ${story()}
+              </dds-video-cta-container>
             </div>
-          `;
+          </div>
+        </div>
+      `;
     },
   ],
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
   },
 };
