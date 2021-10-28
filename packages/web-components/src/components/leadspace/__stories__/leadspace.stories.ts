@@ -355,16 +355,15 @@ export default {
   title: 'Components/Lead space',
   decorators: [
     story => html`
-      <div class="bx--grid bx--no-gutter dds-ce-demo-devenv--grid--stretch">
+      <div class="bx--grid bx--no-gutter">
         ${story()}
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
     'carbon-theme': { preventReload: true },
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
     knobs: {
       LeadSpace: ({ groupId }) => ({
         navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2], groupId),

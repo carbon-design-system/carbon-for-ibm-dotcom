@@ -30,7 +30,12 @@ import styles from './dotcom-shell-composite.scss';
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+const distanceToBottom = 80;
 const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
+const mediumBreakpoint = parseFloat(breakpoints.md.width) * baseFontSize;
+const outOfScreenY = -49;
+const stickyThemeSpacing = 40;
+const topSpacing = 16;
 
 /**
  * Component that rendres dotcom shell from links, etc. data.
@@ -49,6 +54,21 @@ class DDSDotcomShellComposite extends LitElement {
    * The render target of the footer contents.
    */
   private _footerRenderRoot: Element | null = null;
+
+  /**
+   * The leadspace with search component
+   */
+  private _leadspaceWithSearch?: HTMLElement;
+
+  /**
+   * The search with typeahead component in the leadspace
+   */
+  private _leadspaceSearchBar?: HTMLElement;
+
+  /**
+   * The initial container Y value.
+   */
+  private _leadspaceSearchContainerY?: any;
 
   /**
    * The Locale Modal element
@@ -176,6 +196,114 @@ class DDSDotcomShellComposite extends LitElement {
         Math.abs(window.scrollY)
       )}px`;
     }
+
+    if (
+      this._leadspaceSearchBar &&
+      this._leadspaceWithSearch?.hasAttribute('scroll-behavior') &&
+      !this._tableOfContentsInnerBar &&
+      !this._localeModal?.hasAttribute('open')
+    ) {
+      const searchContainer = this._leadspaceWithSearch?.shadowRoot!.querySelector(`.${prefix}--search-container`) as HTMLElement;
+
+      // get starting search container's position in page
+      if (!this._leadspaceSearchContainerY) {
+        this._leadspaceSearchContainerY = this._leadspaceSearchBar?.getBoundingClientRect().y + window.scrollY;
+      }
+
+      const containerPosition = searchContainer!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY;
+      const spaceOffset = this._leadspaceWithSearch?.getAttribute('adjacent-theme') !== '' ? -topSpacing * 2 : topSpacing;
+
+      const mobileMastheadOffset = window.innerWidth < mediumBreakpoint ? -topSpacing : 0;
+      const mastheadTop = Math.min(
+        0,
+        searchContainer!.getBoundingClientRect().top - spaceOffset - this._masthead!.offsetHeight + mobileMastheadOffset
+      );
+      // eslint-disable-next-line no-nested-ternary
+      const containerPadding = window.innerWidth < gridBreakpoint ? (window.innerWidth < mediumBreakpoint ? 32 : 0) : -16;
+      this._masthead!.style.transition = 'none';
+
+      // going up
+      if (window.scrollY < this._lastScrollPosition) {
+        const mastheadPositionOnScrollUp = Math.min(
+          this._masthead!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY,
+          0
+        );
+        const searchContainerPositionOnScrollUp = Math.min(
+          searchContainer!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY,
+          -topSpacing + containerPadding
+        );
+
+        this._masthead!.style.top = `${mastheadPositionOnScrollUp}px`;
+
+        // restore components to original position
+        if (this._leadspaceSearchContainerY + distanceToBottom + 48 >= window.scrollY) {
+          this._leadspaceSearchBar.removeAttribute('sticky-search');
+          this._leadspaceWithSearch?.removeAttribute('sticky-search');
+          this._leadspaceSearchBar.removeAttribute('large');
+          this._leadspaceSearchBar.removeAttribute('theme-sticky');
+
+          searchContainer.style.transition = 'top 1s cubic-bezier(0, 0, 0.38, 0.9)';
+          searchContainer.style.top = `${-this._leadspaceSearchContainerY}px`;
+        } else {
+          searchContainer.style.transition = 'none';
+          searchContainer.style.top = `${searchContainerPositionOnScrollUp}px`;
+        }
+
+        // going down
+      } else {
+        searchContainer.style.position = `sticky`;
+        searchContainer.style.transition = 'none';
+
+        // account for different spacing
+        if (
+          this._leadspaceWithSearch?.getAttribute('adjacent-theme') !== '' &&
+          !this._leadspaceSearchBar.hasAttribute('theme-sticky')
+        ) {
+          searchContainer.style.top = `${Math.max(
+            containerPosition,
+            Math.min(0, -this._leadspaceSearchBar.getBoundingClientRect().height - topSpacing - stickyThemeSpacing)
+          )}px`;
+        } else {
+          searchContainer.style.top = `${Math.max(
+            containerPosition,
+            Math.min(0, -this._leadspaceSearchBar.getBoundingClientRect().height - topSpacing + containerPadding)
+          )}px`;
+        }
+
+        // activate sticky search
+        if (this._leadspaceSearchContainerY + distanceToBottom + topSpacing <= window.scrollY) {
+          searchContainer.style.transition = 'top 110ms cubic-bezier(0, 0, 0.38, 0.9);';
+
+          if (this._leadspaceWithSearch?.getAttribute('adjacent-theme') !== '') {
+            this._leadspaceSearchBar.setAttribute('theme-sticky', '');
+            this._leadspaceWithSearch?.setAttribute('sticky-search', '');
+          } else {
+            this._leadspaceSearchBar.setAttribute('sticky-search', '');
+            this._leadspaceWithSearch?.setAttribute('sticky-search', '');
+          }
+          this._leadspaceSearchBar.setAttribute('large', '');
+        }
+
+        if (!this._leadspaceSearchBar.hasAttribute('sticky-search') && !this._leadspaceSearchBar.hasAttribute('theme-sticky')) {
+          this._masthead!.style.top = `${mastheadTop}px`;
+        } else if (
+          this._leadspaceSearchBar.hasAttribute('sticky-search') ||
+          this._leadspaceSearchBar.hasAttribute('theme-sticky')
+        ) {
+          // have masthead go up until it's right above the search container
+          if (this._masthead!.getBoundingClientRect().top > outOfScreenY) {
+            const mastheadPositionOnScrollDown =
+              this._masthead!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY;
+            this._masthead!.style.top = `${mastheadPositionOnScrollDown}px`;
+
+            // make sure masthead stays right above the search container when scrolling down
+          } else {
+            this._masthead!.style.top = `${outOfScreenY}px`;
+          }
+        }
+      }
+    }
+    this._lastScrollPosition = window.scrollY;
   };
 
   connectedCallback() {
@@ -459,6 +587,13 @@ class DDSDotcomShellComposite extends LitElement {
         this._tableOfContentsInnerBar = toc?.shadowRoot?.querySelector(`.${prefix}--tableofcontents__sidebar`) as HTMLElement;
       }
       this._masthead = document.querySelector(`${ddsPrefix}-masthead`) as HTMLElement;
+    }
+
+    if (!this._leadspaceSearchBar) {
+      this._leadspaceWithSearch = this.ownerDocument!.querySelector(`${ddsPrefix}-leadspace-with-search`) as HTMLElement;
+      this._leadspaceSearchBar = this._leadspaceWithSearch?.querySelector('dds-search-with-typeahead') as HTMLElement;
+    } else if (this._leadspaceSearchBar) {
+      this._leadspaceSearchBar.setAttribute('placeholder', this.searchPlaceholder!);
     }
 
     if (!this._localeModal) {

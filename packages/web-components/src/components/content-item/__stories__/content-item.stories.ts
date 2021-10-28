@@ -59,9 +59,9 @@ export default {
   title: 'Components/Content item',
   decorators: [
     story => html`
-      <div class="bx--grid" style="width: 100%">
+      <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-4">
+          <div class="bx--col-sm-4 bx--col-lg-10">
             <dds-video-container>
               ${story()}
             </dds-video-container>
@@ -72,8 +72,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
+    hasStoryPadding: true,
     knobs: {
       ContentItem: () => ({
         heading: textNullable('Heading:', 'Natural language understanding'),

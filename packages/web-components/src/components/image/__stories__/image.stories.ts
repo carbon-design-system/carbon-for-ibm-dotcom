@@ -55,7 +55,7 @@ export default {
       html`
         <div class="bx--grid">
           <div class="bx--row">
-            <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+            <div class="bx--col-sm-4 bx--col-lg-8">
               ${story()}
             </div>
           </div>
@@ -64,6 +64,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
     knobs: {
       'dds-image': ({ groupId }) => ({
         alt: textNullable('Alt text', 'Image alt text', groupId),
