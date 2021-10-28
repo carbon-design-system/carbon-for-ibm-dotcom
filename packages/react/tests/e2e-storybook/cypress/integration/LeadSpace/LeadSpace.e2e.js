@@ -75,7 +75,7 @@ const _pathSuperWithImage =
 /* eslint-disable cypress/no-unnecessary-waiting */
 describe('LeadSpace | tall', () => {
   it('should load title and copy - both left aligned', () => {
-    cy.visit(`/${_pathTall}`);
+    cy.visit(_pathTall);
     cy.viewport(1280, 780);
 
     cy.get('.bx--leadspace__title').then($title => {
@@ -89,7 +89,7 @@ describe('LeadSpace | tall', () => {
 
   it('should render 3 buttons with different icons (arrow right, left, and PDF)', () => {
     cy.visit(
-      `/${_pathTall}&knob-Number%20of%20buttons_LeadSpace=3&knob-Button%20Icon%201%20(renderIcon)_LeadSpace=ArrowRight20&knob-Button%20Icon%202%20(renderIcon)_LeadSpace=ArrowDown20&knob-Button%20Icon%203%20(renderIcon)_LeadSpace=Pdf20`
+      `${_pathTall}&knob-Number%20of%20buttons_LeadSpace=3&knob-Button%20Icon%201%20(renderIcon)_LeadSpace=ArrowRight20&knob-Button%20Icon%202%20(renderIcon)_LeadSpace=ArrowDown20&knob-Button%20Icon%203%20(renderIcon)_LeadSpace=Pdf20`
     );
     cy.viewport(1280, 780);
 
@@ -122,14 +122,14 @@ describe('LeadSpace | tall', () => {
   });
 
   it('should load two buttons by default', () => {
-    cy.visit(`/${_pathTall}`);
+    cy.visit(_pathTall);
     cy.viewport(1280, 780);
 
     cy.get('[data-autoid="dds--button-group"] li').should('have.length', 2);
   });
 
   it('should load more than 2 buttons when customized and should all have links', () => {
-    cy.visit(`/${_pathTall}&knob-Number%20of%20buttons_LeadSpace=3`);
+    cy.visit(`${_pathTall}&knob-Number%20of%20buttons_LeadSpace=3`);
     cy.viewport(1280, 780);
 
     cy.get('[data-autoid="dds--button-group"] li').should('have.length', 3);
@@ -141,14 +141,14 @@ describe('LeadSpace | tall', () => {
   });
 
   it('should load without a background image', () => {
-    cy.visit(`/${_pathTall}`);
+    cy.visit(_pathTall);
     cy.viewport(1280, 780);
 
     cy.get('.bx--image').should('not.exist');
   });
 
   it('should load the g100 theme', () => {
-    cy.visit(`/${_pathTall}&theme=g100`);
+    cy.visit(`${_pathTall}&theme=g100`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
@@ -186,7 +186,7 @@ describe('LeadSpace | tall', () => {
   });
 
   it('should load the g10 theme', () => {
-    cy.visit(`/${_pathTall}&theme=g10`);
+    cy.visit(`${_pathTall}&theme=g10`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
