@@ -1,0 +1,52 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+
+# Card
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/card)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/card)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+
+function App() {
+  return (
+    <DDSCard href="https://example.com">
+      <DDSCardEyebrow>Eyebrow text</DDSCardEyebrow>
+      <DDSCardHeading>Lorem ipsum dolor sit amet</DDSCardHeading>
+      <DDSCardFooter>
+       Card CTA text<ArrowRight20 slot="icon" />
+      </DDSCardFooter>
+    </DDSCard>
+  );
+}
+```
+
+## Props
+
+<Props of={PropTypesRef} />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector | Compatibility selector           | Description |
+| ----------------------- | -------------------------------- | ----------- |
+| `<dds-card>`            | `data-autoid="dds--card"`        | Component   |
+| `<dds-card-eyebrow>`    | `data-autoid="dds--card-eyebrow"`| Component   |
+| `<dds-card-heading>`    | `data-autoid="dds--card-heading"`| Component   |
+| `<dds-card-footer>`     | `data-autoid="dds--card-footer"` | Component   |
