@@ -113,15 +113,18 @@ export default {
   decorators: [
     story => {
       return (
-        <DDSVideoCTAContainer class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-group-banner">
-          {story()}
-        </DDSVideoCTAContainer>
+        <div className="bx--grid">
+          <div className="bx--row">
+            <div className="bx--col-md-6 bx--col-lg-12 bx--no-gutter">
+              <DDSVideoCTAContainer>{story()}</DDSVideoCTAContainer>
+            </div>
+          </div>
+        </div>
       );
     },
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
+    hasStoryPadding: true,
   },
 };

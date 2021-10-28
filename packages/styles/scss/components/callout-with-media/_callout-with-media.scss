@@ -40,6 +40,15 @@
     color: $inverse-01;
   }
 
+  :host(#{$dds-prefix}-callout-with-media) ::slotted([slot='heading']),
+  .#{$prefix}--callout-with-media .#{$prefix}--content-block__heading,
+  :host(#{$dds-prefix}-callout-with-media) ::slotted([slot='copy']),
+  .#{$prefix}--callout-with-media .#{$prefix}--callout-with-media-copy {
+    padding-right: $spacing-07;
+    max-width: carbon--rem(640px);
+    width: auto;
+  }
+
   .#{$prefix}--callout-with-media .#{$prefix}--callout__content {
     padding-top: 0;
   }

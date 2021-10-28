@@ -71,41 +71,28 @@ export const CardsWithImages = ({ parameters }) => {
   `;
 };
 
-Default.story = {
-  parameters: {
-    gridCarouselClass: 'dds-ce-demo-devenv--simple-grid--carousel--full-16',
-  },
-};
-
 CardsWithImages.story = {
   name: 'Cards with images',
-  parameters: {
-    gridCarouselClass: 'dds-ce-demo-devenv--simple-grid--carousel--full-16',
-  },
 };
 
 export default {
   title: 'Components/Carousel',
   decorators: [
-    (story, { parameters }) => {
-      const { gridCarouselClass } = parameters;
-      const classes = classMap({
-        'dds-ce-demo-devenv--simple-grid': true,
-        'dds-ce-demo-devenv--simple-grid--carousel': true,
-        [gridCarouselClass]: gridCarouselClass,
-      });
+    story => {
       return html`
         <style>
           ${styles}
         </style>
-        <div class="${classes}">
-          ${story()}
+        <div class="bx--grid">
+          <div class="bx--row">
+            ${story()}
+          </div>
         </div>
       `;
     },
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
+    hasStoryPadding: true,
   },
 };

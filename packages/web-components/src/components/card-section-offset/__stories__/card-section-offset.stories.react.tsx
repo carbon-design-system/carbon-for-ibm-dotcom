@@ -61,7 +61,6 @@ const defaultCardGroupItem = (
 
 export const Default = ({ parameters }) => {
   const { heading, cards, ctaType, ctaCopy, download, href, alt, defaultSrc } = parameters?.props?.CardSectionOffset ?? {};
-  console.log(defaultSrc);
   return (
     <DDSCardSectionOffset>
       <DDSBackgroundMedia
@@ -94,8 +93,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
+    hasStoryPadding: true,
     knobs: {
       CardSectionOffset: ({ groupId }) => {
         const ctaType = select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId);

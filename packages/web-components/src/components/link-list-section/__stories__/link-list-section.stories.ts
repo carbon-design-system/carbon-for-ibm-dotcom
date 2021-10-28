@@ -46,7 +46,7 @@ export default {
   title: 'Components/Link list section',
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
+    hasStoryPadding: true,
     knobs: {
       LinkListSection: ({ groupId }) => {
         const heading = textNullable('Link list section heading:', 'Lorem ipsum dolor sit amet', groupId);

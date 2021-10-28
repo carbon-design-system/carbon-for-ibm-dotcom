@@ -8,10 +8,17 @@
 //
 
 @import 'carbon-components/scss/globals/scss/css--helpers';
-@import 'carbon-components/scss/globals/scss/css--font-face';
 @import 'carbon-components/scss/globals/grid/grid';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
-@import './simple-grid';
+
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@import '@carbon/type/scss/font-face/serif';
+@import '@carbon/type/scss/reset';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+@include carbon--font-face-serif();
+@include carbon--type-reset();
 
 :root {
   @include carbon--theme($carbon--theme--white, true);
@@ -29,15 +36,6 @@
 
 :root[storybook-carbon-theme='g100'] {
   @include carbon--theme($carbon--theme--g100, true);
-}
-
-html,
-body,
-#root,
-#root-inner,
-[name='main-content'] {
-  position: relative;
-  height: 100%;
 }
 
 body {
@@ -68,194 +66,7 @@ html {
   }
 }
 
-.dds-ce-demo-devenv--container {
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-
-.dds-ce-demo-devenv--simple-grid--callout,
-.dds-ce-demo-devenv--simple-grid--card,
-.dds-ce-demo-devenv--simple-grid--card-group,
-.dds-ce-demo-devenv--simple-grid--content-horizontal,
-.dds-ce-demo-devenv--simple-grid--content-horizontal-media,
-.dds-ce-demo-devenv--simple-grid--content-horizontal-thumbnail,
-.dds-ce-demo-devenv--simple-grid--tabs-extended,
-.dds-ce-demo-devenv--simple-grid--content-layout,
-.dds-ce-demo-devenv--simple-grid--content-layout--with-complementary,
-.dds-ce-demo-devenv--simple-grid--content-block-horizontal,
-.dds-ce-demo-devenv--simple-grid--content-block-headlines,
-.dds-ce-demo-devenv--simple-grid--content-section,
-.dds-ce-demo-devenv--simple-grid--content-block-cards,
-.dds-ce-demo-devenv--simple-grid--logo-grid,
-.dds-ce-demo-devenv--simple-grid--card-in-card,
-.dds-ce-demo-devenv--simple-grid--content-group-banner {
-  > * {
-    grid-column: 1 / span 4;
-  }
-}
-
-@include carbon--breakpoint('md') {
-  .dds-ce-demo-devenv--simple-grid--card > * {
-    grid-column: 1 / span 3;
-  }
-  .dds-ce-demo-devenv--simple-grid--content-group-banner {
-    > * {
-      grid-column: 1 / span 6;
-    }
-  }
-  .dds-ce-demo-devenv--simple-grid--callout,
-  .dds-ce-demo-devenv--simple-grid--card-group,
-  .dds-ce-demo-devenv--simple-grid--content-horizontal,
-  .dds-ce-demo-devenv--simple-grid--content-horizontal-media,
-  .dds-ce-demo-devenv--simple-grid--content-horizontal-thumbnail,
-  .dds-ce-demo-devenv--simple-grid--tabs-extended,
-  .dds-ce-demo-devenv--simple-grid--content-layout,
-  .dds-ce-demo-devenv--simple-grid--content-layout--with-complementary,
-  .dds-ce-demo-devenv--simple-grid--content-block-horizontal,
-  .dds-ce-demo-devenv--simple-grid--content-section,
-  .dds-ce-demo-devenv--simple-grid--content-block-cards,
-  .dds-ce-demo-devenv--simple-grid--logo-grid,
-  .dds-ce-demo-devenv--simple-grid--card-in-card {
-    > * {
-      grid-column: 1 / span 8;
-    }
-  }
-}
-
-@include carbon--breakpoint('lg') {
-  .dds-ce-demo-devenv--simple-grid--callout > *,
-  .dds-ce-demo-devenv--simple-grid--card-in-card > * {
-    grid-column: 5 / span 12;
-  }
-
-  .dds-ce-demo-devenv--simple-grid--card > * {
-    grid-column: 1 / span 6;
-  }
-
-  .dds-ce-demo-devenv--simple-grid--content-horizontal {
-    > * {
-      grid-column: 5 / span 10;
-    }
-  }
-
-  .dds-ce-demo-devenv--simple-grid--content-block-horizontal {
-    > * {
-      grid-column: 5 / span 12;
-    }
-  }
-
-  .dds-ce-demo-devenv--simple-grid--logo-grid {
-    > * {
-      grid-column: 4 / span 10;
-    }
-  }
-
-  .dds-ce-demo-devenv--simple-grid--content-horizontal-media {
-    > * {
-      grid-column: 5 / span 10;
-    }
-  }
-
-  .dds-ce-demo-devenv--simple-grid--content-horizontal-thumbnail {
-    > * {
-      grid-column: 5 / span 12;
-    }
-  }
-
-  .dds-ce-demo-devenv--simple-grid--tabs-extended {
-    padding-left: $spacing-07;
-    padding-right: $spacing-07;
-
-    > * {
-      grid-column: 1 / span 16;
-    }
-  }
-
-  .dds-ce-demo-devenv--simple-grid--content-layout {
-    > * {
-      grid-column: 5 / span 8;
-    }
-  }
-
-  .dds-ce-demo-devenv--simple-grid--content-section > * {
-    grid-column: 1 / span 16;
-  }
-
-  .dds-ce-demo-devenv--simple-grid--card-group > * {
-    grid-column: 3 / span 12;
-  }
-
-  .dds-ce-demo-devenv--simple-grid--content-layout--with-complementary,
-  .dds-ce-demo-devenv--simple-grid--content-block-headlines,
-  .dds-ce-demo-devenv--simple-grid--content-block-cards,
-  .dds-ce-demo-devenv--simple-grid--content-group-banner {
-    > * {
-      grid-column: 5 / span 12;
-    }
-  }
-}
-
-@include carbon--breakpoint('xlg') {
-  .dds-ce-demo-devenv--simple-grid--card > * {
-    grid-column: 1 / span 4;
-  }
-}
-
-@include carbon--breakpoint('max') {
-  .dds-ce-demo-devenv--simple-grid--tabs-extended {
-    padding-left: $spacing-08;
-    padding-right: $spacing-08;
-  }
-}
-
-.dds-ce-demo-devenv--container--has-card-group,
-.dds-ce-demo-devenv--container--has-card-group-standalone {
-  padding: 0;
-
-  @include carbon--breakpoint('md') {
-    margin-left: calc(#{$carbon--grid-gutter} / 2);
-    margin-right: calc(#{$carbon--grid-gutter} / 2);
-  }
-
-  @include carbon--breakpoint('lg') {
-    margin-left: 12.5%;
-    margin-right: 12.5%;
-  }
-}
-
-.dds-ce-demo-devenv--container--has-card-group-standalone {
-  padding-top: calc(#{$carbon--grid-gutter} / 2);
-}
-
-.dds-ce-demo-devenv--container--has-grid {
-  padding: 1rem 0;
-  align-items: stretch;
-}
-
-.dds-ce-demo-devenv--container--has-vertical-spacing-in-component {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-// stylelint-disable-next-line selector-type-no-unknown
-dds-video-cta-container.bx--grid {
-  display: block;
-}
-
-// For cards/videos, we want to ensure the card/video takes up the entire width of the grid column.
-// Also, feature card and video has `position:absolute` in `<a>` that contains its contents.
-// `margin-left: auto`/`margin-right: auto` in `.bx--grid`
-// (as well as `flex-direction: column; align-items: center` in `.dds-ce-demo-devenv--container`)
-// seems to be hostile to such styling strategy
-.dds-ce-demo-devenv--grid--stretch {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.dds-ce-demo-devenv--grid-row {
-  flex-direction: column;
-  align-items: center;
+.dds-story-padding {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
