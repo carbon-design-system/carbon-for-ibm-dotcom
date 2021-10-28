@@ -15,7 +15,7 @@ import readme from './README.stories.mdx';
 export const Default = ({ parameters }) => {
   const { heading, gridKnobs } = parameters?.props?.FilterPanel ?? {};
   return html`
-    <div class="${gridKnobs === '3 columns' ? 'bx--col-lg-3' : 'bx--col-lg-4'}">
+    <div class="${gridKnobs === '3 columns' ? 'bx--col-lg-3' : 'bx--col-lg-4'}" style="padding-right: 1rem;">
       <dds-filter-panel-composite>
         <dds-filter-panel-heading slot="heading">${heading}</dds-filter-panel-heading>
         <dds-filter-group>
