@@ -333,19 +333,19 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
     sameHeight(
       this._childItemEyebrows.filter(item => item !== null),
-      'md'
+      'sm'
     );
     sameHeight(
       this._childItemHeadings.filter(item => item !== null),
-      'md'
+      'sm'
     );
     sameHeight(
       this._childItemParagraphs.filter(item => item !== null),
-      'md'
+      'sm'
     );
     sameHeight(
       this._childItemFooters.filter(item => item !== null),
-      'md'
+      'sm'
     );
 
     let tagGroupHeight: number = 0;
