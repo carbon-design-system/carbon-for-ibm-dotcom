@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, customElement, LitElement, internalProperty } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -22,6 +22,7 @@ import { VIDEO_PLAYER_CONTENT_STATE, VIDEO_PLAYER_PLAYING_MODE } from './defs';
 import '../image/image';
 import styles from './video-player.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import DDSVideoPlayerContainer from './video-player-container';
 
 export { VIDEO_PLAYER_CONTENT_STATE };
 export { VIDEO_PLAYER_PLAYING_MODE };
@@ -70,8 +71,8 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
    * @returns The video content.
    */
   private _renderContent() {
-    const { contentState, name, thumbnailUrl } = this;
-    return contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL
+    const { contentState, name, thumbnailUrl, backgroundMode } = this;
+    return contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL && !backgroundMode
       ? html`
           <div class="${prefix}--video-player__video">
             <button class="${prefix}--video-player__image-overlay" @click="${this._handleClickOverlay}">
@@ -123,6 +124,12 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
    */
   @property()
   name = '';
+
+  /**
+   * `true` to autoplay, mute video, and hide UI
+   */
+  @internalProperty()
+  backgroundMode: boolean = false;
 
   /**
    * Custom video description. This property should only be set when using `playing-mode="lightbox"`
@@ -181,7 +188,12 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
   }
 
   updated(changedProperties) {
-    if (changedProperties.has('duration') || changedProperties.has('formatCaption') || changedProperties.has('name')) {
+    if (
+      changedProperties.has('duration') ||
+      changedProperties.has('formatCaption') ||
+      changedProperties.has('name') ||
+      changedProperties.has('backgroundMode')
+    ) {
       const { duration, formatCaption, formatDuration, name } = this;
       const caption = formatCaption({ duration: formatDuration({ duration: !duration ? duration : duration * 1000 }), name });
       if (caption) {
@@ -192,6 +204,8 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
 
   firstUpdated() {
     this.tabIndex = 0;
+
+    this.backgroundMode = (this.parentElement as DDSVideoPlayerContainer).backgroundMode;
   }
 
   /**

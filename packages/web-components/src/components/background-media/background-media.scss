@@ -11,4 +11,9 @@
 :host(#{$dds-prefix}-background-media) {
   display: block;
   outline: none;
+  position: relative;
+
+  .#{$prefix}--background-media--gradient {
+    z-index: 1;
+  }
 }

@@ -25,17 +25,23 @@ const gradientDirections = {
 export const Default = ({ parameters }) => {
   const { alt, gradientDirection } = parameters?.props?.['dds-background-media'] ?? {};
   return html`
-    <dds-background-media
-      gradient-direction="${ifNonNull(gradientDirection)}"
-      mobile-position="bottom"
-      alt="${ifNonNull(alt)}"
-      default-src="${imgMax}"
-    >
-      <dds-image-item media="(min-width: 1584px)" srcset="${imgMax}"> </dds-image-item>
-      <dds-image-item media="(min-width: 1312px)" srcset="${imgLg16x9}"> </dds-image-item>
-      <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
-      <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}"> </dds-image-item>
-      <dds-image-item media="(min-width: 0px)" srcset="${imgSm4x3}"> </dds-image-item>
+    <dds-background-media gradient-direction="${ifNonNull(gradientDirection)}" mobile-position="bottom">
+      <dds-image alt="${ifNonNull(alt)}" default-src="${imgMax}">
+        <dds-image-item media="(min-width: 1584px)" srcset="${imgMax}"> </dds-image-item>
+        <dds-image-item media="(min-width: 1312px)" srcset="${imgLg16x9}"> </dds-image-item>
+        <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
+        <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}"> </dds-image-item>
+        <dds-image-item media="(min-width: 0px)" srcset="${imgSm4x3}"> </dds-image-item>
+      </dds-image>
+    </dds-background-media>
+  `;
+};
+
+export const WithVideo = ({ parameters }) => {
+  const { gradientDirection } = parameters?.props?.['dds-background-media'] ?? {};
+  return html`
+    <dds-background-media gradient-direction="${ifNonNull(gradientDirection)}" mobile-position="bottom">
+      <dds-video-player-container playing-mode="inline" video-id="1_9h94wo6b" background-mode="true"></dds-video-player-container>
     </dds-background-media>
   `;
 };

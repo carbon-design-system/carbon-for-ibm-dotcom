@@ -148,7 +148,7 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
      * @private
      */
     // Not using TypeScript `private` due to: microsoft/TypeScript#17744
-    async _embedVideoImpl(videoId: string) {
+    async _embedVideoImpl(videoId: string, backgroundMode = false) {
       const { ownerDocument: doc } = this;
       // Given Kaltura replaces the `<div>` here with `<iframe>` with the video player,
       // rendering this `<div>` in `renderLightDOM()` will cause the video player being clobbered
@@ -163,7 +163,23 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
         throw new TypeError('Cannot find the video player component to put the video content into.');
       }
       videoPlayer.appendChild(div);
-      const embedVideoHandle = await KalturaPlayerAPI.embedMedia(videoId, playerId);
+
+      let additionalPlayerOptions = {};
+
+      if (backgroundMode) {
+        additionalPlayerOptions = {
+          'topBarContainer.plugin': false,
+          'controlBarContainer.plugin': false,
+          'largePlayBtn.plugin': false,
+          'loadingSpinner.plugin': false,
+          'unMuteOverlayButton.plugin': false,
+          'EmbedPlayer.DisableVideoTagSupport': false,
+          loop: true,
+          autoMute: true,
+          autoPlay: true,
+        };
+      }
+      const embedVideoHandle = await KalturaPlayerAPI.embedMedia(videoId, playerId, additionalPlayerOptions);
       doc!.getElementById(playerId)!.dataset.videoId = videoId;
       return embedVideoHandle.kWidget();
     }
@@ -174,13 +190,16 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
      * @param videoId The video ID.
      * @internal
      */
-    _embedMedia = async (videoId: string) => {
+    _embedMedia = async (videoId: string, backgroundMode = false) => {
       const { _requestsEmbedVideo: requestsEmbedVideo } = this;
       const requestEmbedVideo = requestsEmbedVideo[videoId];
+
       if (requestEmbedVideo) {
         return requestEmbedVideo;
       }
-      const promiseEmbedVideo = this._embedVideoImpl(videoId);
+
+      const promiseEmbedVideo = this._embedVideoImpl(videoId, backgroundMode);
+
       this._setRequestEmbedVideoInProgress(videoId, promiseEmbedVideo);
       try {
         this._setEmbeddedVideo(videoId, await promiseEmbedVideo);

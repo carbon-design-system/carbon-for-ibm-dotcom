@@ -42,7 +42,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    *
    * @internal
    */
-  _embedMedia?: (videoId: string) => Promise<any>;
+  _embedMedia?: (videoId: string, backgroundMode: boolean) => Promise<any>;
 
   /**
    * Activate the DOM nodes for the embedded video of the given video ID, and deactivates others.
@@ -74,7 +74,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   protected _handleContentStateChange(event: CustomEvent) {
     const { contentState, playingMode, videoId } = event.detail;
     if (contentState === VIDEO_PLAYER_CONTENT_STATE.VIDEO && playingMode === VIDEO_PLAYER_PLAYING_MODE.INLINE && videoId) {
-      this._embedMedia?.(videoId);
+      this._embedMedia?.(videoId, this.backgroundMode);
     }
   }
 
@@ -123,6 +123,12 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   hideCaption = false;
 
   /**
+   * `true` to autoplay, mute, and hide player UI.
+   */
+  @property({ type: Boolean, attribute: 'background-mode' })
+  backgroundMode = false;
+
+  /**
    * The video data, keyed by the video ID.
    */
   @property({ attribute: false })
@@ -158,14 +164,22 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   @property({ type: Number, attribute: 'video-thumbnail-width' })
   videoThumbnailWidth = 655;
 
+  connectedCallback() {
+    super.connectedCallback();
+
+    if (this.backgroundMode) {
+      this.hideCaption = true;
+    }
+  }
+
   updated(changedProperties) {
     if (changedProperties.has('videoId')) {
-      const { autoPlay, videoId } = this;
+      const { autoPlay, videoId, backgroundMode } = this;
       this._activateEmbeddedVideo(videoId);
       if (videoId) {
         this._loadVideoData?.(videoId);
-        if (autoPlay) {
-          this._embedMedia?.(videoId);
+        if (autoPlay || backgroundMode) {
+          this._embedMedia?.(videoId, backgroundMode);
         }
       }
     }
