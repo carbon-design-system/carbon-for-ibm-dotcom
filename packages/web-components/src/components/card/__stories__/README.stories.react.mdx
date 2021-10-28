@@ -36,6 +36,68 @@ function App() {
 }
 ```
 
+## Card with pictogram
+
+You can browse the [Carbon Pictogram library](https://www.carbondesignsystem.com/guidelines/pictograms/library/) to find a pictogram that fits your design.
+You can also check out the repo [here](https://github.com/carbon-design-system/carbon/tree/main/packages/pictograms)
+
+```javascript
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import Desktop from '@carbon/pictograms-react/lib/desktop/index.js';
+
+function App() {
+  return (
+    <DDSCard pictogramPlacement="top" href="https://example.com">
+      <DDSCardHeading>Lorem ipsum dolor sit amet</DDSCardHeading>
+      <p>copy text</p>
+      <Desktop slot="pictogram" />
+    </DDSCard>
+  );
+}
+```
+
+## Card - static
+
+When there is no URL being passed to the `DDSCard`'s href attribute, the static variation will be rendered,
+where the card is no longer clickable and optional `Tag` elements can also be added.
+
+```javascript
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
+import { Tag } from 'carbon-components-react';
+
+function App() {
+  return (
+    <DDSCard colorScheme='light' border>
+      <DDSCardEyebrow>Eyebrow text</DDSCardEyebrow>
+      <DDSCardHeading>Heading text</DDSCardHeading>
+      <DDSTagGroup>
+        <Tag>Most popular</Tag>
+        <Tag type="purple">Enterprise</Tag>
+      </DDSTagGroup>
+      <DDSCardFooter href="https://example.com">
+        Card CTA text
+        <ArrowRight20 slot="icon" />
+      </DDSCardFooter>
+    </DDSCard>
+  );
+}
+```
+
+## Light theme
+
+An optional light theme is available under `color-scheme`.
+
+```javascript
+<DDSCard colorScheme='light'>
+```
+
 ## Props
 
 <Props of={PropTypesRef} />
