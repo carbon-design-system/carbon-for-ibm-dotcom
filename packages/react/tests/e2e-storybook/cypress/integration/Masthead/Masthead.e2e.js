@@ -38,9 +38,19 @@ const _pathPlatform = '/iframe.html?id=components-masthead--with-platform';
  */
 const _pathl1 = '/iframe.html?id=components-masthead--with-l-1';
 
+/**
+ * Sets the correct path (Masthead search open onload)
+ *
+ * @type {string}
+ * @private
+ */
+const _pathSearchOpenOnload =
+  '/iframe.html?id=components-masthead--search-open-onload';
+
 describe('Masthead | default (desktop)', () => {
   beforeEach(() => {
-    cy.visit(`/${_pathDefault}`);
+    cy.mockMastheadFooterData();
+    cy.visit(_pathDefault);
     cy.viewport(1280, 780);
   });
 
@@ -172,7 +182,8 @@ describe('Masthead | default (desktop)', () => {
 
 describe('Masthead | default (mobile)', () => {
   beforeEach(() => {
-    cy.visit(`/${_pathDefault}`);
+    cy.mockMastheadFooterData();
+    cy.visit(_pathDefault);
     cy.viewport(320, 780);
   });
 
@@ -197,7 +208,8 @@ describe('Masthead | default (mobile)', () => {
 
 describe('Masthead | custom (desktop)', () => {
   beforeEach(() => {
-    cy.visit(`/${_pathCustom}`);
+    cy.mockMastheadFooterData();
+    cy.visit(_pathCustom);
     cy.viewport(1280, 780);
   });
 
@@ -313,7 +325,8 @@ describe('Masthead | custom (desktop)', () => {
 
 describe('Masthead | with platform (desktop)', () => {
   beforeEach(() => {
-    cy.visit(`/${_pathPlatform}`);
+    cy.mockMastheadFooterData();
+    cy.visit(_pathPlatform);
     cy.viewport(1280, 780);
   });
 
@@ -351,7 +364,8 @@ describe('Masthead | with platform (desktop)', () => {
 
 describe('Masthead | with L1 (desktop)', () => {
   beforeEach(() => {
-    cy.visit(`/${_pathl1}`);
+    cy.mockMastheadFooterData();
+    cy.visit(_pathl1);
     cy.viewport(1280, 780);
   });
 
@@ -445,5 +459,55 @@ describe('Masthead | with L1 (desktop)', () => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
+  });
+});
+
+describe('dds-masthead | search open onload (desktop)', () => {
+  beforeEach(() => {
+    cy.visit(`/${_pathSearchOpenOnload}`);
+    cy.viewport(1280, 780);
+  });
+
+  it('should load search field open by default', () => {
+    cy.get('[data-autoid="dds--masthead__search"]')
+      .find('input[data-autoid="dds--header__search--input"]')
+      .should('be.visible');
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot(
+      'Masthead | Search open onload | load search field open by default',
+      {
+        widths: [1280],
+      }
+    );
+  });
+
+  it('should have typable search field', () => {
+    cy.get('[data-autoid="dds--masthead__search"]')
+      .find('input[data-autoid="dds--header__search--input"]')
+      .type('test')
+      .should('have.value', 'test');
+  });
+
+  it('should display 10 auto suggest results', () => {
+    cy.get('[data-autoid="dds--masthead__search"]')
+      .find('input[data-autoid="dds--header__search--input"]')
+      .type('test')
+      .get('.react-autosuggest__suggestions-list li')
+      .should('have.length', 10);
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot(
+      'Masthead | Search open onload | display 10 auto suggest results',
+      {
+        widths: [1280],
+      }
+    );
+  });
+
+  it('should not display menu options while search field is open', () => {
+    cy.get('.bx--header__nav-container').should('have.css', 'display', 'none');
   });
 });
