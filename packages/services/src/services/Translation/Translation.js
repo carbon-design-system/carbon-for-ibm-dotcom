@@ -156,20 +156,14 @@ class TranslationAPI {
       const key = country !== 'undefined' ? `${country}-${lang}` : `${lang}`;
 
       if (!_requestsTranslation[key]) {
-        let url;
-        //eslint-disable-next-line
-        const regex = /((http(s?))\:\/\/)/g;
+        const regex = /((http(s?)):\/\/)/g;
 
         // Check to see if the string from the endpoint variable contains https/http or not.
-        if (regex.test(endpoint)) {
-          url = `${endpoint || _ddsEndpoint}/${
-            country !== 'undefined' ? `${country}${lang}` : `${lang}`
-          }.json`;
-        } else {
-          url = `${_host}${endpoint || _ddsEndpoint}/${
-            country !== 'undefined' ? `${country}${lang}` : `${lang}`
-          }.json`;
-        }
+        const urlEndpoint = endpoint || _ddsEndpoint;
+        const locationParam =
+          country !== 'undefined' ? `${country}${lang}` : `${lang}`;
+        const host = regex.test(endpoint) ? '' : _host;
+        const url = `${host}${urlEndpoint}/${locationParam}.json`;
 
         _requestsTranslation[key] = axios
           .get(url, {
