@@ -194,8 +194,9 @@ const carbonComponentsReactVendorSrc = async () => {
     gulp
       .src([
         `${carbonComponentsReactESSrcDir}/**/*`,
-        '!**/*-{test,story}.js',
-        '!**/stories/*',
+        `!${carbonComponentsReactESSrcDir}/**/*-{test,story}.js`,
+        `!${carbonComponentsReactESSrcDir}/**/*.stories.js`,
+        `!${carbonComponentsReactESSrcDir}/**/stories/*`,
       ])
       .pipe(convert({ table }))
       .pipe(gulp.dest(carbonComponentsReactVendorSrcDir))
@@ -211,8 +212,9 @@ const carbonComponentsReactVendorESDst = async () => {
     gulp
       .src([
         `${carbonComponentsReactESSrcDir}/**/*`,
-        '!**/*-{test,story}.js',
-        '!**/stories/*',
+        `!${carbonComponentsReactESSrcDir}/**/*-{test,story}.js`,
+        `!${carbonComponentsReactESSrcDir}/**/*.stories.js`,
+        `!${carbonComponentsReactESSrcDir}/**/stories/*`,
       ])
       .pipe(convert({ table }))
       .pipe(gulp.dest(carbonComponentsReactVendorESDstDir))
@@ -226,8 +228,9 @@ const carbonComponentsReactVendorCJSDst = () =>
   gulp
     .src([
       `${carbonComponentsReactCJSSrcDir}/**/*`,
-      '!**/*-{test,story}.js',
-      '!**/stories/*',
+      `!${carbonComponentsReactESSrcDir}/**/*-{test,story}.js`,
+      `!${carbonComponentsReactESSrcDir}/**/*.stories.js`,
+      `!${carbonComponentsReactESSrcDir}/**/stories/*`,
     ])
     .pipe(gulp.dest(carbonComponentsReactVendorCJSDstDir));
 
