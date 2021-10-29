@@ -14,15 +14,15 @@
 @import 'carbon-components/scss/components/form/form';
 @import 'carbon-components/scss/components/text-input/text-input';
 @import 'carbon-components/scss/components/link/link';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
 
-@import '@carbon/ibmdotcom-styles/scss/components/footer/temp-breakpoints';
-@import '@carbon/ibmdotcom-styles/scss/components/footer/footer';
-@import '@carbon/ibmdotcom-styles/scss/components/footer/footer-logo';
-@import '@carbon/ibmdotcom-styles/scss/components/footer/footer-nav';
-@import '@carbon/ibmdotcom-styles/scss/components/footer/footer-nav-group';
-@import '@carbon/ibmdotcom-styles/scss/components/footer/legal-nav';
-@import '@carbon/ibmdotcom-styles/scss/components/footer/locale-button';
+@import '../../../../styles/scss/globals/vars';
+@import '../../../../styles/scss/components/footer/temp-breakpoints';
+@import '../../../../styles/scss/components/footer/footer';
+@import '../../../../styles/scss/components/footer/footer-logo';
+@import '../../../../styles/scss/components/footer/footer-nav';
+@import '../../../../styles/scss/components/footer/footer-nav-group';
+@import '../../../../styles/scss/components/footer/legal-nav';
+@import '../../../../styles/scss/components/footer/locale-button';
 
 :host(#{$dds-prefix}-footer),
 :host(#{$dds-prefix}-legal-nav) {
@@ -79,17 +79,15 @@
 
 :host(#{$dds-prefix}-footer-nav-group[open]) .#{$prefix}--accordion__content {
   display: block;
+  padding-top: 0;
 }
 
 :host(#{$dds-prefix}-footer-nav-group) {
   .#{$prefix}--accordion__heading {
     border-top: 1px solid $ui-03;
-  }
-
-  &:last-child {
-    .#{$prefix}--accordion__heading {
-      border-bottom: 1px solid $ui-03;
-    }
+    padding: 0;
+    align-items: center;
+    min-height: $carbon--spacing-09;
   }
 }
 
@@ -102,63 +100,15 @@
   }
 }
 
-:host(#{$dds-prefix}-footer) {
-  ::slotted(#{$dds-prefix}-language-selector-mobile) {
-    margin-top: $spacing-09;
-
-    @include carbon--breakpoint('md') {
-      margin-top: 0;
-      @include carbon--make-col(4, 8);
-      @include carbon--make-col-offset(2, 8);
-    }
-
-    @include carbon--breakpoint('lg') {
-      display: none;
-    }
-  }
-
-  ::slotted(#{$dds-prefix}-language-selector-desktop) {
-    @include carbon--breakpoint('lg') {
-      @include carbon--make-col(4, 16);
-      @include carbon--make-col-offset(10, 16);
-    }
-  }
-}
-
-:host(#{$dds-prefix}-footer[size='short']) {
-  ::slotted(#{$dds-prefix}-language-selector-desktop) {
-    margin-top: 0;
-
-    @include carbon--breakpoint('lg') {
-      @include carbon--make-col(4, 16);
-      @include carbon--make-col-offset(10, 16);
-    }
-  }
-
-  ::slotted(#{$dds-prefix}-language-selector-mobile) {
-    display: block;
-    margin-top: $spacing-09;
-
-    @include carbon--breakpoint('md') {
-      margin-top: 0;
-      @include carbon--make-col(4, 8);
-      @include carbon--make-col-offset(2, 8);
-    }
-
-    @include carbon--breakpoint('lg') {
-      display: none;
-    }
-  }
-}
-
 // The style of legal nav deviates from the one of React, so we can make the markup simpler.
 // FIXME: Once the style is stabilized, change the markup of React, too, so we can share the style
 :host(#{$dds-prefix}-legal-nav):not([size='micro']) {
   .#{$prefix}--legal-nav__list {
-    padding-top: $spacing-03;
-    @include carbon--breakpoint-down('md') {
-      padding-top: $spacing-08;
-      padding-bottom: $spacing-08;
+    padding-bottom: 0;
+    padding-top: 0;
+
+    @include carbon--breakpoint('md') {
+      padding-top: carbon--mini-units(1);
     }
     @include carbon--breakpoint('lg') {
       @include carbon--make-col-offset(4, 16);
@@ -193,7 +143,7 @@
     display: flex;
     align-items: center;
     padding: 0;
-    height: 3rem;
+    min-height: 3rem;
   }
 
   .#{$prefix}--adjunct-links__container {
@@ -201,6 +151,7 @@
   }
 
   .#{$prefix}--legal-nav {
+    display: block;
     border-top: 0;
   }
 
@@ -293,51 +244,18 @@
   }
 }
 
-:host(#{$dds-prefix}-language-selector-mobile),
-:host(#{$dds-prefix}-language-selector-desktop) {
+:host(#{$dds-prefix}-language-selector-desktop),
+:host(#{$dds-prefix}-language-selector-mobile) {
   position: relative;
-  height: $carbon--spacing-09;
   outline: none;
+  margin-top: $spacing-09;
+  margin-bottom: $spacing-09;
+  max-height: $carbon--spacing-09;
+  padding: 0 $carbon--spacing-05;
+  @include carbon--make-col(4, 4);
 
   .#{$prefix}--list-box__field {
-    background-color: $ui-03;
-  }
-}
-
-:host(#{$dds-prefix}-language-selector-mobile) {
-  width: 100%;
-  @include carbon--breakpoint-down('md') {
-    padding: 0;
-  }
-
-  .#{$prefix}--select-input {
-    width: 100%;
-    max-width: 100%;
-
-    &__wrapper {
-      margin-top: rem(-16px);
-    }
-  }
-
-  @include carbon--breakpoint('md') {
-    max-width: 20rem;
-    margin-bottom: 2rem;
-  }
-
-  @include carbon--breakpoint('lg') {
-    display: none;
-  }
-}
-
-:host(#{$dds-prefix}-language-selector-desktop) {
-  @include carbon--breakpoint-down('lg') {
-    display: none;
-  }
-
-  @include carbon--breakpoint('lg') {
-    order: 1;
-    min-width: carbon--mini-units(27);
-    @include carbon--make-col(4, 16);
+    background-color: $ui-01;
   }
 
   .#{$prefix}--combo-box {
@@ -354,36 +272,36 @@
   .#{$prefix}--text-input {
     @include carbon--type-style('body-short-01');
   }
-}
-
-:host(#{$dds-prefix}-language-selector-mobile[size='micro']) {
-  align-self: flex-end;
-  margin-bottom: 0;
-
-  @include carbon--breakpoint('sm') {
-    .#{$prefix}--select-input__wrapper {
-      height: 100%;
-    }
-
-    .#{$prefix}--select-input {
-      height: 100%;
-      background-color: $ui-background;
-      border-bottom: none;
-
-      &:hover {
-        background-color: $hover-ui;
-      }
-    }
-  }
 
   @include carbon--breakpoint('md') {
-    max-width: 50%;
-    border-left: 1px solid $ui-03;
+    margin-top: 0;
+    padding: 0;
+    @include carbon--make-col(4, 8);
+    @include carbon--make-col-offset(2, 8);
+  }
+
+  @include carbon--breakpoint('lg') {
+    @include carbon--make-col(4, 16);
+    @include carbon--make-col-offset(10, 16);
+
+    order: 1;
+    min-width: carbon--mini-units(27);
   }
 }
+
+:host(#{$dds-prefix}-language-selector-desktop) {
+  @include carbon--breakpoint-down('lg') {
+    display: none;
+  }
+}
+
 :host(#{$dds-prefix}-language-selector-desktop[size='micro']) {
   margin: 0;
+  padding: 0;
   border-left: 1px solid $ui-03;
+  align-self: flex-end;
+  margin-bottom: 0;
+  width: 100%;
 
   .#{$prefix}--dropdown {
     background-color: $ui-background;
@@ -407,5 +325,61 @@
   .#{$prefix}--dropdown,
   .#{$prefix}--text-input {
     border-bottom: none;
+  }
+
+  @include carbon--breakpoint('sm') {
+    .#{$prefix}--select-input__wrapper {
+      height: 100%;
+    }
+
+    .#{$prefix}--select-input {
+      height: 100%;
+      background-color: $ui-background;
+      border-bottom: none;
+
+      &:hover {
+        background-color: $hover-ui;
+      }
+    }
+  }
+
+  @include carbon--breakpoint('md') {
+    max-width: 50%;
+    border-left: 1px solid $ui-03;
+  }
+}
+
+:host(#{$dds-prefix}-language-selector-mobile[size='micro']) {
+  align-self: flex-end;
+  border-left: 1px solid $ui-03;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  .#{$prefix}--select-input {
+    height: 100%;
+    background-color: $ui-background;
+    border-bottom: none;
+    width: 100%;
+    max-width: 100%;
+
+    &:hover {
+      background-color: $hover-ui;
+    }
+  }
+
+  @include carbon--breakpoint('md') {
+    max-width: 50%;
+  }
+}
+
+:host(#{$dds-prefix}-language-selector-mobile) {
+  .#{$prefix}--select-input__wrapper {
+    height: $carbon--spacing-09;
+    margin-top: -#{$carbon--spacing-05};
+  }
+
+  @include carbon--breakpoint('lg') {
+    display: none;
   }
 }
