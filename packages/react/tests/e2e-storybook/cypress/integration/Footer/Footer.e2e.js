@@ -19,7 +19,7 @@ const { prefix } = settings;
 const _pathShortLanguageOnly =
   '/iframe.html?id=components-footer--short-language-only';
 
-describe('dds-footer | Short language only (desktop)', () => {
+describe('Footer | Short language only (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathShortLanguageOnly}`);
     cy.viewport(1280, 780);
@@ -40,7 +40,7 @@ describe('dds-footer | Short language only (desktop)', () => {
     cy.screenshot();
     // Take a snapshot for visual diffing
     cy.percySnapshot(
-      'dds-footer | Short language only (desktop language selector)',
+      'Footer | Short language only (desktop language selector)',
       {
         widths: [1280],
       }
@@ -61,7 +61,7 @@ describe('dds-footer | Short language only (desktop)', () => {
 
     cy.screenshot();
     cy.percySnapshot(
-      'dds-footer | Short language only (desktop language selector)',
+      'Footer | Short language only (desktop language selector)',
       {
         widths: [1280],
       }
@@ -69,7 +69,7 @@ describe('dds-footer | Short language only (desktop)', () => {
   });
 });
 
-describe('dds-footer | Short language only (mobile)', () => {
+describe('Footer | Short language only (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathShortLanguageOnly}`);
     cy.viewport(320, 780);
@@ -89,7 +89,7 @@ describe('dds-footer | Short language only (mobile)', () => {
 
     cy.screenshot();
     cy.percySnapshot(
-      'dds-footer | Short language only (desktop language selector)',
+      'Footer | Short language only (desktop language selector)',
       {
         widths: [320],
       }
