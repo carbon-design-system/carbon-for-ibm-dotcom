@@ -112,6 +112,25 @@
       }
     }
 
+    // Toggle views depending on breakpoint
+    // <Select /> for mobile/tablet
+    // <ComboBox /> for desktop
+    .#{$prefix}--form-item {
+      display: block;
+
+      @include carbon--breakpoint('lg') {
+        display: none;
+      }
+    }
+
+    .#{$prefix}--list-box__wrapper {
+      display: none;
+
+      @include carbon--breakpoint('lg') {
+        display: block;
+      }
+    }
+
     .#{$prefix}--label {
       height: 0;
       padding: 0;

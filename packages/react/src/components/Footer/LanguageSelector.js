@@ -9,6 +9,8 @@ import ComboBox from '../../internal/vendor/carbon-components-react/components/C
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
+import Select from '../../internal/vendor/carbon-components-react/components/Select/Select';
+import SelectItem from '../../internal/vendor/carbon-components-react/components/SelectItem/SelectItem';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -87,9 +89,37 @@ const LanguageSelector = ({
         titleText={labelText}
         size="xl"
       />
+      <Select
+        defaultValue={selectedItem.id}
+        data-autoid={`${stablePrefix}--language-selector__select`}
+        id={`${prefix}--language-selector`}
+        className={`${prefix}--language-selector`}
+        onChange={evt => _setSelectedItem(evt)}
+        text={selectedItem.text}
+        labelText={labelText}
+        aria-label={labelText}>
+        {renderSelectItems(items)}
+      </Select>
     </div>
   );
 };
+
+/**
+ * Iterate through and render a list of select items
+ *
+ * @param {Array} items A list of items to be rendered
+ * @returns {object} JSX object
+ */
+
+function renderSelectItems(items) {
+  const selectItems = [];
+  items.map((item, index) => {
+    selectItems.push(
+      <SelectItem value={item.id} text={item.text} key={index} />
+    );
+  });
+  return selectItems;
+}
 
 LanguageSelector.propTypes = {
   /**
