@@ -32,7 +32,7 @@
 
   .#{$prefix}--legal-nav__list {
     width: 100%;
-    padding: 0 0 $spacing-09 $carbon--spacing-05;
+    padding-left: $carbon--spacing-05;
 
     @include carbon--breakpoint('md') {
       border-top: 1px solid $ui-03;
@@ -141,12 +141,11 @@
   }
 
   .#{$prefix}--legal-nav__holder {
-    padding-top: $spacing-03;
+    padding-top: 0;
     margin-left: 0;
-    @include carbon--breakpoint-down('md') {
-      padding-top: $spacing-08;
-    }
+
     @include carbon--breakpoint('md') {
+      padding-top: $spacing-03;
       column-count: 2;
     }
 
@@ -157,7 +156,8 @@
 
   .#{$prefix}--adjunct-links__holder {
     margin-left: 0;
-    padding: 0 $carbon--layout-04 $carbon--spacing-09 $carbon--spacing-05;
+    margin-top: $carbon--spacing-09;
+    padding: 0 $carbon--layout-04 0 $carbon--spacing-05;
     width: 100%;
 
     @include carbon--breakpoint('md') {
@@ -183,8 +183,18 @@
   :host(#{$dds-prefix}-legal-nav-cookie-preferences-placeholder),
   .#{$prefix}--legal-nav__list-item {
     margin-right: carbon--mini-units(4);
-    padding: $spacing-03 0 0 0;
+    padding: carbon--mini-units(2) 0 0 0;
     @include carbon--type-style('body-long-01');
+
+    @include carbon--breakpoint('md') {
+      padding: carbon--mini-units(1) 0 0 0;
+    }
+
+    @include carbon--breakpoint-down('md') {
+      &:first-child {
+        padding-top: 0;
+      }
+    }
 
     &:last-child {
       margin-right: 0;
