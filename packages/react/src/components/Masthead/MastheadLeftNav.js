@@ -215,7 +215,8 @@ const MastheadLeftNav = ({
       aria-label="Side navigation"
       expanded={isSideNavExpanded}
       isPersistent={false}
-      ref={sideNavRef}>
+      ref={sideNavRef}
+      onOverlayClick={rest.onOverlayClick}>
       <nav
         data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0`}>
         {platform && (
