@@ -954,7 +954,7 @@ export const WithLeadspaceSearch = ({ parameters }) => {
 };
 
 WithLeadspaceSearch.story = {
-  name: 'With leadspace with search',
+  name: 'With Lead space search',
   parameters: {
     ...readme.parameters,
     'carbon-theme': { disabled: true },
