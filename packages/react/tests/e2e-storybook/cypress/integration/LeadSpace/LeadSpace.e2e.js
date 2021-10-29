@@ -170,18 +170,13 @@ describe('LeadSpace | tall', () => {
     cy.visit(`/${_pathTall}&theme=g90`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g90'
-      );
-      cy.wait(500);
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | tall | g90 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | tall | g90 theme', {
+      widths: [1280],
     });
   });
 
@@ -189,18 +184,13 @@ describe('LeadSpace | tall', () => {
     cy.visit(`${_pathTall}&theme=g10`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g10'
-      );
-      cy.wait(500);
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | tall | g10 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | tall | g10 theme', {
+      widths: [1280],
     });
   });
 });
@@ -223,17 +213,13 @@ describe('LeadSpace | tall with image', () => {
     cy.visit(`/${_pathTallImage}&theme=g100`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g100'
-      );
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | tall with image | g100 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | tall with image | g100 theme', {
+      widths: [1280],
     });
   });
 
@@ -241,17 +227,13 @@ describe('LeadSpace | tall with image', () => {
     cy.visit(`/${_pathTallImage}&theme=g90`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g90'
-      );
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | tall with image | g90 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | tall with image | g90 theme', {
+      widths: [1280],
     });
   });
 
@@ -259,17 +241,13 @@ describe('LeadSpace | tall with image', () => {
     cy.visit(`/${_pathTallImage}&theme=g10`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g10'
-      );
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | tall with image | g10 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | tall with image | g10 theme', {
+      widths: [1280],
     });
   });
 });
@@ -279,17 +257,13 @@ describe('LeadSpace | centered', () => {
     cy.visit(`/${_pathCentered}&theme=g100`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g100'
-      );
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | centered | g100 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | centered | g100 theme', {
+      widths: [1280],
     });
   });
 
@@ -297,17 +271,13 @@ describe('LeadSpace | centered', () => {
     cy.visit(`/${_pathCentered}&theme=g90`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g90'
-      );
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | centered | g90 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | centered | g90 theme', {
+      widths: [1280],
     });
   });
 
@@ -315,17 +285,12 @@ describe('LeadSpace | centered', () => {
     cy.visit(`/${_pathCentered}&theme=g10`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g10'
-      );
-
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | centered | g10 theme', {
-        widths: [1280],
-      });
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | centered | g10 theme', {
+      widths: [1280],
     });
   });
 });
@@ -335,17 +300,13 @@ describe('LeadSpace | centered with image', () => {
     cy.visit(`/${_pathCenteredImage}&theme=g100`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g100'
-      );
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | centered with image | g100 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | centered with image | g100 theme', {
+      widths: [1280],
     });
   });
 
@@ -353,17 +314,12 @@ describe('LeadSpace | centered with image', () => {
     cy.visit(`/${_pathCenteredImage}&theme=g90`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g90'
-      );
-
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | centered with image | g90 theme', {
-        widths: [1280],
-      });
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | centered with image | g90 theme', {
+      widths: [1280],
     });
   });
 
@@ -371,17 +327,13 @@ describe('LeadSpace | centered with image', () => {
     cy.visit(`/${_pathCenteredImage}&theme=g10`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g10'
-      );
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | centered with image | g10 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | centered with image | g10 theme', {
+      widths: [1280],
     });
   });
 });
@@ -391,17 +343,13 @@ describe('LeadSpace | medium', () => {
     cy.visit(`/${_pathMedium}&theme=g100`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g100'
-      );
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | medium | g100 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | medium | g100 theme', {
+      widths: [1280],
     });
   });
 
@@ -409,17 +357,13 @@ describe('LeadSpace | medium', () => {
     cy.visit(`/${_pathMedium}&theme=g90`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g90'
-      );
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | medium | g90 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | medium | g90 theme', {
+      widths: [1280],
     });
   });
 
@@ -427,17 +371,13 @@ describe('LeadSpace | medium', () => {
     cy.visit(`/${_pathMedium}&theme=g10`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g10'
-      );
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | medium | g10 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | medium | g10 theme', {
+      widths: [1280],
     });
   });
 });
@@ -447,17 +387,13 @@ describe('LeadSpace | medium with image', () => {
     cy.visit(`/${_pathMediumWithImage}&theme=g100`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g100'
-      );
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | medium with image | g100 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | medium with image | g100 theme', {
+      widths: [1280],
     });
   });
 
@@ -465,17 +401,13 @@ describe('LeadSpace | medium with image', () => {
     cy.visit(`/${_pathMediumWithImage}&theme=g90`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g90'
-      );
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | medium with image | g90 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | medium with image | g90 theme', {
+      widths: [1280],
     });
   });
 
@@ -483,17 +415,13 @@ describe('LeadSpace | medium with image', () => {
     cy.visit(`/${_pathMediumWithImage}&theme=g10`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g10'
-      );
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | medium with image | g10 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | medium with image | g10 theme', {
+      widths: [1280],
     });
   });
 });
@@ -503,17 +431,13 @@ describe('LeadSpace | super', () => {
     cy.visit(`/${_pathSuper}&theme=g100`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g100'
-      );
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | super | g100 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | super | g100 theme', {
+      widths: [1280],
     });
   });
 
@@ -521,17 +445,13 @@ describe('LeadSpace | super', () => {
     cy.visit(`/${_pathSuper}&theme=g90`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g90'
-      );
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | super | g90 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | super | g90 theme', {
+      widths: [1280],
     });
   });
 
@@ -539,17 +459,13 @@ describe('LeadSpace | super', () => {
     cy.visit(`/${_pathSuper}&theme=g10`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g10'
-      );
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | super | g10 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | super | g10 theme', {
+      widths: [1280],
     });
   });
 });
@@ -559,17 +475,13 @@ describe('LeadSpace | super with image', () => {
     cy.visit(`/${_pathSuperWithImage}&theme=g100`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g100'
-      );
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | super with image | g100 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | super with image | g100 theme', {
+      widths: [1280],
     });
   });
 
@@ -577,17 +489,13 @@ describe('LeadSpace | super with image', () => {
     cy.visit(`/${_pathSuperWithImage}&theme=g90`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g90'
-      );
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | super with image | g90 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | super with image | g90 theme', {
+      widths: [1280],
     });
   });
 
@@ -595,17 +503,13 @@ describe('LeadSpace | super with image', () => {
     cy.visit(`/${_pathSuperWithImage}&theme=g10`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g10'
-      );
+    cy.get('[data-autoid="dds--leadspace"]');
+    cy.wait(500);
 
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | super with image | g10 theme', {
-        widths: [1280],
-      });
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('LeadSpace | super with image | g10 theme', {
+      widths: [1280],
     });
   });
 });

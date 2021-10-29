@@ -20,7 +20,7 @@ describe('CalloutQuote | default', () => {
     cy.viewport(1280, 780);
 
     cy.get('[data-autoid="dds--callout-quote"]');
-    cy.wait(800);
+    cy.wait(500);
     cy.screenshot();
 
     // Take a snapshot for visual diffing
@@ -34,7 +34,7 @@ describe('CalloutQuote | default', () => {
     cy.viewport(1280, 780);
 
     cy.get('[data-autoid="dds--callout-quote"]');
-    cy.wait(800);
+    cy.wait(500);
     cy.screenshot();
     // Take a snapshot for visual diffing
     cy.percySnapshot('CalloutQuote | default | g90 theme', {
@@ -47,7 +47,7 @@ describe('CalloutQuote | default', () => {
     cy.viewport(1280, 780);
 
     cy.get('[data-autoid="dds--callout-quote"]');
-    cy.wait(800);
+    cy.wait(500);
     cy.screenshot();
     // Take a snapshot for visual diffing
     cy.percySnapshot('CalloutQuote | default | g10 theme', {
