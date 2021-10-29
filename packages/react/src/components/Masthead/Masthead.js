@@ -195,6 +195,39 @@ const Masthead = ({
     navType = 'eco';
   }
 
+  /**
+   * checks if there is a child item in the menu section that matches current url and returns true for first valid result
+   *
+   * @returns {boolean} function that returns true or false
+   */
+  // eslint-disable-next-line class-methods-use-this
+  const _hasCurrentUrl = () => {
+    let matchFound = false;
+
+    return (sections, currentUrlPath) => {
+      if (!matchFound) {
+        if (sections.url === currentUrlPath) {
+          matchFound = true;
+        } else if (sections?.menuSections[0]) {
+          const { menuItems } = sections?.menuSections[0];
+
+          for (let i = 0; i < menuItems.length; i++) {
+            if (
+              menuItems[i]?.url === currentUrlPath ||
+              menuItems[i]?.megapanelContent?.quickLinks?.links?.filter(
+                link => link.url === currentUrlPath
+              ).length
+            ) {
+              matchFound = true;
+            }
+          }
+        }
+        return matchFound;
+      }
+      return false;
+    };
+  };
+
   return (
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => {
@@ -221,23 +254,31 @@ const Masthead = ({
                     isActive={isSideNavExpanded}
                     className={headerSearchClasses}
                     onBlur={e => {
+                      const platform = e.target.parentElement.querySelector(
+                        `nav .${prefix}--side-nav__submenu-platform`
+                      );
+
                       const firstMenuItem =
                         e.target.parentElement.querySelector(
-                          'li:first-of-type button'
+                          `.${prefix}--side-nav__menu-section--expanded li:first-of-type button`
                         ) ||
                         e.target.parentElement.querySelector(
-                          'li:first-of-type a'
+                          `.${prefix}--side-nav__menu-section--expanded li:first-of-type a`
                         );
 
                       const lastMenuItem =
                         e.target.parentElement.querySelector(
-                          'li:last-of-type button'
+                          `.${prefix}--side-nav__menu-section--expanded li:last-of-type button`
                         ) ||
                         e.target.parentElement.querySelector(
-                          'li:last-of-type a'
+                          `.${prefix}--side-nav__menu-section--expanded li:last-of-type a`
                         );
 
-                      if (e.relatedTarget && e.relatedTarget !== firstMenuItem)
+                      if (
+                        e.relatedTarget &&
+                        e.relatedTarget !== firstMenuItem &&
+                        e.relatedTarget !== platform
+                      )
                         return lastMenuItem.focus();
                     }}
                   />
@@ -270,6 +311,7 @@ const Masthead = ({
                       platform={platform}
                       navigation={mastheadData}
                       navType={navType}
+                      hasCurrentUrl={_hasCurrentUrl}
                       selectedMenuItem={selectedMenuItem}
                     />
                   )}
@@ -328,6 +370,7 @@ const Masthead = ({
                   platform={platform}
                   isShort={isMastheadSticky}
                   navType={navType}
+                  hasCurrentUrl={_hasCurrentUrl}
                   selectedMenuItem={selectedMenuItem}
                 />
               </div>
