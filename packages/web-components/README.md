@@ -39,17 +39,33 @@ To install `@carbon/ibmdotcom-web-components` in your project, you will need to 
 following command using [npm](https://www.npmjs.com/):
 
 ```bash
-npm install -S @carbon/ibmdotcom-web-components lit-html lit-element
+npm install -S @carbon/ibmdotcom-web-components
 ```
 
 If you prefer [Yarn](https://yarnpkg.com/en/), use the following command
 instead:
 
 ```bash
-yarn add @carbon/ibmdotcom-web-components lit-html lit-element
+yarn add @carbon/ibmdotcom-web-components
 ```
 
-`@carbon/ibmdotcom-web-components` uses [`lit-html`](https://lit-html.polymer-project.org) for reactive templating on top of raw Web Components standard and [`lit-element`](https://lit-element.polymer-project.org) for reactive properties/attributes on top of `lit-html`. `@carbon/ibmdotcom-web-components` makes them `peerDependencies` to provide a better flexibility in version choices of those libraries.
+> NOTE: Lit dependencies will be managed by Carbon for IBM.com starting in
+> `v1.13.0`. For earlier versions, Lit dependencies will have to be installed
+> separately:
+>
+> npm:
+>
+> ```bash
+> npm install -S lit-html lit-element
+> ```
+>
+> Yarn:
+>
+> ```bash
+> yarn add lit-html lit-element
+> ```
+
+`@carbon/ibmdotcom-web-components` uses [`lit-html`](https://lit-html.polymer-project.org) for reactive templating on top of raw Web Components standard and [`lit-element`](https://lit-element.polymer-project.org) for reactive properties/attributes on top of `lit-html`.
 
 ## Usage Examples
 
