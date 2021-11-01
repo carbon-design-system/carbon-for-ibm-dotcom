@@ -15,7 +15,7 @@ const { prefix } = settings;
  * @type {string}
  * @private
  */
- const _pathDefault = '/iframe.html?id=components-footer--default';
+const _pathDefault = '/iframe.html?id=components-footer--default';
 
 /**
  * Sets the correct path (Short language only)
@@ -40,18 +40,14 @@ describe('dds-dds-footer | default (desktop)', () => {
   });
 
   it('should load locale modal', () => {
-    const localeButton = cy.get(
-      `[data-autoid="dds--locale-btn"]`
-    );
+    const localeButton = cy.get(`[data-autoid="dds--locale-btn"]`);
     localeButton.click();
 
     cy.screenshot();
   });
 
   it('should load the Americas region with its languages and locations', () => {
-    const localeButton = cy.get(
-      `[data-autoid="dds--locale-btn"]`
-    );
+    const localeButton = cy.get(`[data-autoid="dds--locale-btn"]`);
     localeButton.click();
 
     cy.get('dds-region-item[name="Americas"]').click();
@@ -67,19 +63,21 @@ describe('dds-dds-footer | default (desktop)', () => {
   });
 
   it('should be able to search with keywords for locations and languages', () => {
-    const localeButton = cy.get(
-      `[data-autoid="dds--locale-btn"]`
-    );
+    const localeButton = cy.get(`[data-autoid="dds--locale-btn"]`);
     localeButton.click();
 
     cy.get('[name="Americas"]').click();
 
-    cy.get('dds-locale-search').shadow()
-    .find('.bx--search-input').type('ca', {
-      force: true,
-    });
+    cy.get('dds-locale-search')
+      .shadow()
+      .find('.bx--search-input')
+      .type('ca', {
+        force: true,
+      });
 
-    cy.get('dds-locale-item:not([hidden])').invoke('attr', 'country').should('eq', 'Canada');
+    cy.get('dds-locale-item:not([hidden])')
+      .invoke('attr', 'country')
+      .should('eq', 'Canada');
 
     cy.screenshot();
 
@@ -92,13 +90,13 @@ describe('dds-dds-footer | default (desktop)', () => {
   it('should load all the 38 interactable navigation links', () => {
     cy.get(`dds-footer-nav-item`).should('have.length', 38);
 
-  cy.get('dds-footer-nav-item')
-    .shadow()
-    .find('a')
-    .each($link => {
-      const url = $link.prop('href');
-      expect(url).not.to.be.empty;
-    });
+    cy.get('dds-footer-nav-item')
+      .shadow()
+      .find('a')
+      .each($link => {
+        const url = $link.prop('href');
+        expect(url).not.to.be.empty;
+      });
 
     cy.screenshot();
   });
@@ -107,14 +105,13 @@ describe('dds-dds-footer | default (desktop)', () => {
     cy.get(`dds-legal-nav-item`).should('have.length', 4);
 
     cy.get('dds-legal-nav-item')
-    .shadow()
-    .find('a')
-    .each($link => {
-      const url = $link.prop('href');
-      expect(url).not.to.be.empty;
-    });
+      .shadow()
+      .find('a')
+      .each($link => {
+        const url = $link.prop('href');
+        expect(url).not.to.be.empty;
+      });
   });
-
 });
 
 describe('dds-footer | Short language only (desktop)', () => {
