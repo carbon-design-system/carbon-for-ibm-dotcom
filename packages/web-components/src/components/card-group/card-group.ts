@@ -127,7 +127,9 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
       const { customPropertyCardsPerRow } = this.constructor as typeof DDSCardGroup;
       this.style.setProperty(customPropertyCardsPerRow, String(this.cardsPerRow));
 
-      this._resizeHandler();
+      if (this.gridMode !== GRID_MODE.NARROW) {
+        this._resizeHandler();
+      }
     }
   }
 
@@ -150,8 +152,10 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
       }
 
       this._setSameHeight();
-      this._fillLastRowWithEmptyCards(columns);
-      this._borderAdjustments(columns);
+      if (this.gridMode !== GRID_MODE.NARROW) {
+        this._fillLastRowWithEmptyCards(columns);
+        this._borderAdjustments(columns);
+      }
     });
   };
 
@@ -201,15 +205,15 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
         if (e.hasAttribute('empty')) {
           e.style.paddingBottom = '0';
           e.style.paddingRight = '0';
-        } else if (this.gridMode === 'collapsed') {
+        } else {
           // first column
           if ((index + 1) % columns === 1) {
             e.style.paddingLeft = '0';
           }
-          const borderColor = getComputedStyle(document.body).getPropertyValue('--cds-ui-background');
           // last column
           if ((index + 1) % columns === 0) {
             e.style.paddingRight = '0';
+            const borderColor = getComputedStyle(document.body).getPropertyValue('--cds-ui-background');
             e.style.borderRight = `inset 1px ${borderColor}`;
           } else {
             e.style.paddingRight = '1px';
@@ -218,7 +222,6 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
           // first row
           if (index < columns) {
             e.style.paddingTop = '0';
-            e.style.borderTop = `inset 1px ${borderColor}`; // TESTE
           }
           // last row
           if (Math.floor(index / columns) === Math.floor((this._childItems.length - 1) / columns)) {
@@ -226,8 +229,6 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
           } else {
             e.style.paddingBottom = '1px';
           }
-        } else {
-          e.removeAttribute('style');
         }
       } else {
         if (e.hasAttribute('empty')) {
