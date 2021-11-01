@@ -294,6 +294,7 @@ const Masthead = ({
                     isSideNavExpanded={isSideNavExpanded}
                     navType={navType}
                     selectedMenuItem={selectedMenuItem}
+                    onOverlayClick={onClickSideNavExpand}
                   />
                 )}
 
