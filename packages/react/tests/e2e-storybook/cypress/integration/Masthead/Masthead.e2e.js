@@ -311,6 +311,9 @@ describe('Masthead | custom (desktop)', () => {
 
     cy.get('.bx--header__nav-caret-right').click();
 
+    // TODO: find a better way to handle the slide animation
+    cy.wait(800);
+
     cy.get('.bx--header__nav-caret-right-container').then($button => {
       expect($button).to.have.attr('hidden');
     });

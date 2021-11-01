@@ -375,6 +375,9 @@ describe('dds-masthead | custom (desktop)', () => {
       .find('.bx--header__nav-caret-right-container > button')
       .click();
 
+    // TODO: find a better way to handle the slide animation
+    cy.wait(800);
+
     cy.get('dds-top-nav')
       .shadow()
       .find('.bx--header__nav-caret-right-container')
