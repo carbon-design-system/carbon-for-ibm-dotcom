@@ -23,9 +23,17 @@ const _pathDefault = '/iframe.html?id=components-footer--default';
  * @type {string}
  * @private
  */
-
 const _pathShortLanguageOnly =
   '/iframe.html?id=components-footer--short-language-only';
+
+/**
+ * Sets the correct path (Micro language only)
+ *
+ * @type {string}
+ * @private
+ */
+const _pathMicroLanguageOnly =
+  '/iframe.html?id=components-footer--micro-language-only';
 
 describe('Footer | default (desktop)', () => {
   beforeEach(() => {
@@ -235,6 +243,46 @@ describe('Footer | Short language only (desktop)', () => {
   });
 });
 
+describe('Footer | Micro language only (desktop)', () => {
+  beforeEach(() => {
+    cy.visit(`/${_pathMicroLanguageOnly}`);
+    cy.viewport(1280, 780);
+  });
+
+  it('should load language selector dropdown', () => {
+    cy.get(`[data-autoid="dds--language-selector"]`).click();
+
+    cy.screenshot();
+    cy.percySnapshot(
+      'Footer | Micro language only (desktop language selector)',
+      {
+        widths: [1280],
+      }
+    );
+  });
+
+  it('should be able to select a language from combo box', () => {
+    cy.get(`[data-autoid="dds--language-selector"]`).click();
+    cy.get(`[data-autoid="dds--footer"]`)
+      .find(
+        `.${prefix}--list-box__menu > .${prefix}--list-box__menu-item:nth-of-type(1) .${prefix}--list-box__menu-item__option`
+      )
+      .click();
+    cy.get(`[data-autoid="dds--language-selector"]`).should(
+      'have.value',
+      'Arabic / عربية'
+    );
+
+    cy.screenshot();
+    cy.percySnapshot(
+      'Footer | Micro language only (desktop language selector)',
+      {
+        widths: [1280],
+      }
+    );
+  });
+});
+
 describe('Footer | Short language only (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathShortLanguageOnly}`);
@@ -256,6 +304,34 @@ describe('Footer | Short language only (mobile)', () => {
     cy.screenshot();
     cy.percySnapshot(
       'Footer | Short language only (desktop language selector)',
+      {
+        widths: [320],
+      }
+    );
+  });
+});
+
+describe('Footer | Micro language only (mobile)', () => {
+  beforeEach(() => {
+    cy.visit(`/${_pathMicroLanguageOnly}`);
+    cy.viewport(320, 780);
+  });
+
+  it('should load language selector and be interactive', () => {
+    cy.get('[data-autoid="dds--language-selector__select"]').should(
+      'have.length',
+      1
+    );
+
+    const languageSelector = cy.get(
+      '[data-autoid="dds--language-selector__select"]'
+    );
+    languageSelector.select('Arabic / عربية');
+    languageSelector.should('have.value', 'ar');
+
+    cy.screenshot();
+    cy.percySnapshot(
+      'Footer | Micro language only (desktop language selector)',
       {
         widths: [320],
       }

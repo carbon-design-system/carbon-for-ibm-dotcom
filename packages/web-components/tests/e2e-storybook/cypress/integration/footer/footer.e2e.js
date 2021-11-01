@@ -23,8 +23,15 @@ const _pathDefault = '/iframe.html?id=components-footer--default';
  * @type {string}
  * @private
  */
-
 const _pathShortLanguageOnly = '/iframe.html?id=components-footer--short-language-only';
+
+/**
+ * Sets the correct path (Micro language only)
+ *
+ * @type {string}
+ * @private
+ */
+const _pathMicroLanguageOnly = '/iframe.html?id=components-footer--micro-language-only';
 
 describe('dds-dds-footer | default (desktop)', () => {
   beforeEach(() => {
@@ -240,6 +247,32 @@ describe('dds-footer | Short language only (desktop)', () => {
   });
 });
 
+describe('dds-footer | Micro language only (desktop)', () => {
+  beforeEach(() => {
+    cy.visit(`/${_pathMicroLanguageOnly}`);
+    cy.viewport(1280, 780);
+  });
+
+  it('should load language selector dropdown and be interactive', () => {
+    cy.get('dds-language-selector-desktop').should('have.length', 1);
+    cy.get('dds-language-selector-desktop')
+      .shadow()
+      .find(`div.${prefix}--dropdown`)
+      .click();
+    cy.get('dds-language-selector-desktop')
+      .find(`${prefix}-combo-box-item[value="Arabic / عربية"]`)
+      .click();
+    cy.get('dds-language-selector-desktop').should('have.value', 'Arabic / عربية');
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-footer | Micro language only (desktop language selector)', {
+    //   widths: [1280],
+    // });
+  });
+});
+
 describe('dds-footer | Short language only (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathShortLanguageOnly}`);
@@ -260,6 +293,31 @@ describe('dds-footer | Short language only (mobile)', () => {
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
     // cy.percySnapshot('dds-footer | Short language only (desktop language selector)', {
+    //   widths: [320],
+    // });
+  });
+});
+
+describe('dds-footer | Micro language only (mobile)', () => {
+  beforeEach(() => {
+    cy.visit(`/${_pathMicroLanguageOnly}`);
+    cy.viewport(320, 780);
+  });
+
+  it('should load language selector dropdown and be interactive', () => {
+    cy.get('dds-language-selector-mobile').should('have.length', 1);
+    cy.get('dds-language-selector-mobile')
+      .shadow()
+      .find(`select.${prefix}--select-input`)
+      .select('Arabic / عربية');
+    cy.get('dds-language-selector-mobile')
+      .shadow()
+      .find(`select.${prefix}--select-input`)
+      .should('have.value', 'Arabic / عربية');
+
+    // Take a snapshot for visual diffing
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-footer | Micro language only (desktop language selector)', {
     //   widths: [320],
     // });
   });
