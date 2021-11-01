@@ -215,11 +215,12 @@ const MastheadLeftNav = ({
       aria-label="Side navigation"
       expanded={isSideNavExpanded}
       isPersistent={false}
-      ref={sideNavRef}>
+      ref={sideNavRef}
+      onOverlayClick={rest.onOverlayClick}>
       <nav
         data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0`}>
         {platform && (
-          <a // eslint-disable-line jsx-a11y/role-supports-aria-props
+          <a
             data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-productname`}
             href={platform.url}
             aria-haspopup="true"
