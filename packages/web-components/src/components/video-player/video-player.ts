@@ -88,6 +88,24 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
   }
 
   /**
+   * userInitiatedTogglePlaybackState
+   */
+  public userInitiatedTogglePlaybackState() {
+    const { videoId } = this;
+    const { eventPlaybackStateChange } = this.constructor as typeof DDSVideoPlayer;
+    this.dispatchEvent(
+      new CustomEvent(eventPlaybackStateChange, {
+        bubbles: true,
+        composed: true,
+        detail: {
+          videoId,
+          playingMode: this.playingMode,
+        },
+      })
+    );
+  }
+
+  /**
    * The video player's content state.
    */
   @property({ reflect: true, attribute: 'content-state' })
@@ -213,6 +231,13 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
    */
   static get eventContentStateChange() {
     return `${ddsPrefix}-video-player-content-state-changed`;
+  }
+
+  /**
+   * The name of the custom event fired requesting playback state change.
+   */
+  static get eventPlaybackStateChange() {
+    return `${ddsPrefix}-video-player-playback-state-changed`;
   }
 
   static get stableSelector() {

@@ -78,6 +78,20 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
     }
   }
 
+  @HostListener('eventPlaybackStateChange')
+  protected _handlePlaybackStateChange(event: CustomEvent) {
+    const { videoId } = event.detail;
+    const { embeddedVideos = {} } = this;
+
+    if (this.isPlaying) {
+      embeddedVideos[videoId].sendNotification('doPause');
+      this.isPlaying = false;
+    } else {
+      embeddedVideos[videoId].sendNotification('doPlay');
+      this.isPlaying = true;
+    }
+  }
+
   /**
    * `true` to autoplay the videos.
    */
@@ -147,6 +161,12 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   aspectRatio?: '';
 
   /**
+   * The current playback state
+   */
+  @property()
+  isPlaying = false;
+
+  /**
    * The video player's mode showing Inline or Lightbox.
    */
   @property({ reflect: true, attribute: 'playing-mode' })
@@ -169,6 +189,10 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
 
     if (this.backgroundMode) {
       this.hideCaption = true;
+    }
+
+    if (this.autoPlay || this.backgroundMode) {
+      this.isPlaying = true;
     }
   }
 
@@ -242,6 +266,13 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    */
   static get eventContentStateChange() {
     return `${ddsPrefix}-video-player-content-state-changed`;
+  }
+
+  /**
+   * The name of the custom event fired requesting playback state change.
+   */
+  static get eventPlaybackStateChange() {
+    return `${ddsPrefix}-video-player-playback-state-changed`;
   }
 }
 

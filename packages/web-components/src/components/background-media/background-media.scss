@@ -16,4 +16,12 @@
   .#{$prefix}--background-media--gradient {
     z-index: 1;
   }
+
+  .#{$prefix}--video-player__controls {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 2;
+    cursor: pointer;
+  }
 }

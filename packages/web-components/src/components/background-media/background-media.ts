@@ -7,13 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, customElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './background-media.scss';
 import { GRADIENT_DIRECTION, MOBILE_POSITION } from './defs';
-import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import DDSImage from '../image/image';
+import DDSVideoPlayer from '../video-player/video-player';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -25,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 
 @customElement(`${ddsPrefix}-background-media`)
-class DDSBackgroundMedia extends StableSelectorMixin(LitElement) {
+class DDSBackgroundMedia extends DDSImage {
   /**
    * Returns a class-name based on the Gradient Direction type
    */
@@ -59,6 +60,46 @@ class DDSBackgroundMedia extends StableSelectorMixin(LitElement) {
   mobilePosition = MOBILE_POSITION.BOTTOM;
 
   /**
+   * Set to true in _handleBackgroundMedia if all children are `dds-image-item`
+   */
+  @property()
+  containsOnlyImages = false;
+
+  /**
+   * Set to true in _handleBackgroundMedia if any children are `dds-video-player-container`
+   */
+  @property()
+  videoId: String | null = null;
+
+  @property()
+  videoPlayer: DDSVideoPlayer | null = null;
+
+  /**
+   * Conditionally runs super.render() if all children are `dds-image-item`
+   */
+  private _handleBackgroundMedia(event: Event) {
+    const assignedElements = (event.target as HTMLSlotElement)?.assignedElements();
+    const assignedImages = assignedElements.filter(el => el.tagName === `${ddsPrefix}-image-item`.toUpperCase());
+    const assignedVideos = assignedElements.filter(el => el.tagName === `${ddsPrefix}-video-player-container`.toUpperCase());
+
+    if (assignedElements.length === assignedImages.length && assignedImages.length > 0) {
+      this.containsOnlyImages = true;
+    }
+
+    if (assignedVideos.length) {
+      const [video] = assignedVideos;
+      this.videoId = video.getAttribute('video-id');
+      this.videoPlayer = video.querySelector(`${ddsPrefix}-video-player`);
+    }
+  }
+
+  toggleVideoState() {
+    this.videoPlayer?.userInitiatedTogglePlaybackState();
+
+    // TODO: Implement aria-pressed, visual changes for button state
+  }
+
+  /**
    * Append the dds-background-media to the parent element where this component is being used.
    */
   updated() {
@@ -67,11 +108,19 @@ class DDSBackgroundMedia extends StableSelectorMixin(LitElement) {
     }
   }
 
+  renderVideoControls() {
+    return html`
+      <button @click=${this.toggleVideoState} class="${prefix}--video-player__controls">Play/Pause</button>
+    `;
+  }
+
   render() {
     return html`
       <div class="${this._getMobilePositionClass()}">
         <div class="${this._getGradientClass()}"></div>
-        <slot></slot>
+        ${this.containsOnlyImages ? super.render() : ''}
+        <slot @slotchange="${this._handleBackgroundMedia}"></slot>
+        ${this.videoId ? this.renderVideoControls() : ''}
       </div>
     `;
   }
