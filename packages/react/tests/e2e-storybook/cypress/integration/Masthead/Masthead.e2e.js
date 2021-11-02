@@ -225,9 +225,7 @@ describe('Masthead | custom (desktop)', () => {
     );
 
     cy.waitUntil(() =>
-      cy
-        .get('.bx--header__nav-caret-right-container')
-        .then($elem => $elem.is(':visible'))
+      cy.get('.bx--header__nav-caret-right').then($elem => $elem.is(':visible'))
     );
 
     cy.screenshot();
@@ -382,9 +380,7 @@ describe('Masthead | with L1 (desktop)', () => {
     });
 
     cy.waitUntil(() =>
-      cy
-        .get('.bx--header__nav-caret-right-container')
-        .then($elem => $elem.is(':visible'))
+      cy.get('.bx--header__nav-caret-right').then($elem => $elem.is(':visible'))
     );
 
     cy.screenshot();
