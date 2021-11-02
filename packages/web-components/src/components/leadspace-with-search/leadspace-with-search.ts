@@ -9,6 +9,7 @@
 
 import { customElement, property, html, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import '../horizontal-rule/horizontal-rule';
@@ -27,10 +28,28 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-leadspace-with-search`)
 class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   /**
+   *
+   */
+  @property()
+  _contents: any[] = [];
+
+  /**
    * `true` if there is an image.
    */
   @property({ attribute: 'has-image', reflect: true, type: Boolean })
   protected _hasImage = false;
+
+  /**
+   * sets the heading for sticky search
+   */
+  @property()
+  protected _heading: string = '';
+
+  /**
+   * `true` if there is an image.
+   */
+  @property({ attribute: 'scroll-behavior', reflect: true, type: Boolean })
+  protected _scrollBehavior = false;
 
   /**
    * The adjacent theme.
@@ -49,10 +68,23 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
    *
    * @param event The event.
    */
+  protected _handleHeadingSlotChange({ target }: Event) {
+    this._heading = ((target as HTMLSlotElement).assignedNodes()[0] as HTMLElement).innerText;
+  }
+
+  /**
+   * Handles `slotchange` event.
+   *
+   * @param event The event.
+   */
   protected _handleImageSlotChange({ target }: Event) {
     this._hasImage = (target as HTMLSlotElement)
       .assignedNodes()
       .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+
+    this._contents = (target as HTMLSlotElement)
+      .assignedNodes()
+      .filter(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
   }
 
   /**
@@ -68,16 +100,22 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   render() {
     return html`
       <div class="${prefix}--content-layout">
-        <slot name="heading"></slot>
+        <slot name="heading" @slotchange=${this._handleHeadingSlotChange}></slot>
         <div class="${prefix}--content-layout__body">
           <slot name="content"></slot>
+          <slot @slotchange=${this._handleImageSlotChange} name="image"></slot>
         </div>
       </div>
       <div class="${this._getSearchClass()}">
         <slot name="search"></slot>
+        <div class="${prefix}--sticky-header">${this._heading}</div>
       </div>
       <slot name="hr"></slot>
-      <slot @slotchange=${this._handleImageSlotChange} name="image"></slot>
+      ${this._contents.map(e => {
+        return html`
+          ${unsafeHTML((e as HTMLElement).outerHTML)}
+        `;
+      })}
     `;
   }
 

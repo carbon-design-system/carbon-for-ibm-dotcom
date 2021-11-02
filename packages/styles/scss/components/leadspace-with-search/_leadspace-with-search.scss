@@ -103,9 +103,19 @@
       }
     }
 
+    #{$dds-prefix}-background-media {
+      display: block;
+
+      @include carbon--breakpoint('md') {
+        display: none;
+      }
+    }
+
     ::slotted([slot='image']) {
+      display: none;
       @include carbon--breakpoint('md') {
         position: absolute;
+        display: block;
         height: 100%;
         margin: 0 calc(50% - 50vw);
         width: 100vw;
@@ -174,6 +184,7 @@
       position: relative;
       display: grid;
       padding-bottom: $spacing-10;
+      z-index: 1;
 
       @include carbon--breakpoint-down('md') {
         margin: 0 $spacing-05;
@@ -201,6 +212,23 @@
 
       &-g100 {
         @include carbon--theme($carbon--theme--g100, true);
+      }
+
+      .#{$prefix}--sticky-header {
+        @include carbon--type-style('expressive-heading-01');
+
+        opacity: 0;
+        transition: all $duration--fast-02 motion(entrance, productive);
+
+        transform: translate(-29%, calc(#{$spacing-12} * -1));
+
+        @include carbon--breakpoint-down('lg') {
+          display: none;
+        }
+
+        @include carbon--breakpoint('xlg') {
+          transform: translate(-28%, calc(#{$spacing-12} * -1));
+        }
       }
 
       &::before {
@@ -261,6 +289,26 @@
 
       .#{$prefix}--search-container {
         @include carbon--theme($carbon--theme--g90, true);
+      }
+    }
+
+    &[sticky-search] {
+      .#{$prefix}--search-container > .#{$prefix}--sticky-header {
+        opacity: 1;
+        z-index: 2;
+        transform: translate(-29%, $spacing-07);
+
+        @include carbon--breakpoint('lg') {
+          transform: translate(-28%, $spacing-05);
+        }
+      }
+
+      &[scroll-behavior]:not([adjacent-theme]) {
+        .#{$prefix}--search-container {
+          &::before {
+            border-bottom: 1px solid $ui-03;
+          }
+        }
       }
     }
   }

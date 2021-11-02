@@ -16,6 +16,7 @@ const _path = '/iframe.html?id=components-locale-modal--default';
 /* eslint-disable cypress/no-unnecessary-waiting */
 describe('dds-locale-modal | default', () => {
   beforeEach(() => {
+    cy.mockMastheadFooterData();
     cy.visit(`/${_path}`);
     cy.viewport(1280, 780);
   });
@@ -40,13 +41,10 @@ describe('dds-locale-modal | default', () => {
       .find('a')
       .click();
 
-    // Added to see if this will address issues with the input being disabled
-    cy.wait(500);
-
     cy.get('dds-locale-search')
       .shadow()
       .find('.bx--search-input')
-      .type('ca');
+      .type('ca', { force: true });
 
     cy.screenshot();
     // Take a snapshot for visual diffing

@@ -16,7 +16,18 @@
     position: relative;
     padding-left: $carbon--spacing-05;
     padding-right: $carbon--spacing-05;
+    outline: none;
 
+    &:hover {
+      ::slotted([slot='image']),
+      .#{$prefix}--image {
+        &::before {
+          opacity: 0;
+        }
+      }
+    }
+
+    &:active,
     &:focus-within {
       outline: none;
 

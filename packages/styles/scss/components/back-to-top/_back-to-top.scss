@@ -17,6 +17,7 @@
     padding-right: $carbon--spacing-05;
     outline: none;
     height: 0;
+    z-index: 9999;
 
     .#{$prefix}--back-to-top__btn {
       position: relative;

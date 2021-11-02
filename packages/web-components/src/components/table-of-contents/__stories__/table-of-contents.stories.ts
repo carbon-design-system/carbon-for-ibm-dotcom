@@ -75,10 +75,13 @@ export default {
       <style>
         ${styles}
       </style>
-      ${story()}
+      <div class="bx--grid" style="padding: 0">
+        ${story()}
+      </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
   },
 };

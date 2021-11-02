@@ -15,6 +15,7 @@ const _path = '/iframe.html?id=components-locale-modal--default';
 
 describe('LocaleModal | default', () => {
   beforeEach(() => {
+    cy.mockMastheadFooterData();
     cy.visit(`/${_path}`);
     cy.viewport(1280, 780);
   });
@@ -33,7 +34,9 @@ describe('LocaleModal | default', () => {
   it('should filter locales/languages', () => {
     cy.get('[data-region="am"]').click();
 
-    cy.get('[data-autoid="dds--locale-modal__filter"]').type('ca');
+    cy.get('[data-autoid="dds--locale-modal__filter"]').type('ca', {
+      force: true,
+    });
 
     cy.screenshot();
     // Take a snapshot for visual diffing

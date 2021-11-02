@@ -44,6 +44,26 @@ const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault
   </dds-card>
 `;
 
+const CardWithLongHeading = ({
+  copy = copyDefault,
+  heading = headingDefault,
+  href = hrefDefault,
+  image = undefined,
+} = {}) => html`
+  <dds-card href="${ifNonNull(href)}">
+    <dds-card-heading>${heading} ${heading}</dds-card-heading>
+    ${copy}
+    ${image
+      ? html`
+          <dds-image slot="image" alt="example image" default-src="${image}"></dds-image>
+        `
+      : null}
+    <dds-card-footer>
+      ${ArrowRight20({ slot: 'icon' })}
+    </dds-card-footer>
+  </dds-card>
+`;
+
 export const Default = ({ parameters }) => {
   const { cardSize } = parameters?.props?.Carousel ?? {};
   const classes = classMap({
@@ -51,7 +71,7 @@ export const Default = ({ parameters }) => {
   });
   return html`
     <dds-carousel class="${classes}">
-      ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({ copy: copyOdd })}${Card()}
+      ${Card()}${Card({ copy: copyOdd })}${CardWithLongHeading()}${Card({ copy: copyOdd })}${Card()}
     </dds-carousel>
   `;
 };
@@ -71,41 +91,28 @@ export const CardsWithImages = ({ parameters }) => {
   `;
 };
 
-Default.story = {
-  parameters: {
-    gridCarouselClass: 'dds-ce-demo-devenv--simple-grid--carousel--full-16',
-  },
-};
-
 CardsWithImages.story = {
   name: 'Cards with images',
-  parameters: {
-    gridCarouselClass: 'dds-ce-demo-devenv--simple-grid--carousel--full-16',
-  },
 };
 
 export default {
   title: 'Components/Carousel',
   decorators: [
-    (story, { parameters }) => {
-      const { gridCarouselClass } = parameters;
-      const classes = classMap({
-        'dds-ce-demo-devenv--simple-grid': true,
-        'dds-ce-demo-devenv--simple-grid--carousel': true,
-        [gridCarouselClass]: gridCarouselClass,
-      });
+    story => {
       return html`
         <style>
           ${styles}
         </style>
-        <div class="${classes}">
-          ${story()}
+        <div class="bx--grid">
+          <div class="bx--row">
+            ${story()}
+          </div>
         </div>
       `;
     },
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
+    hasStoryPadding: true,
   },
 };

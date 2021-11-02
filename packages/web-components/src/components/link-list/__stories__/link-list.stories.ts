@@ -265,15 +265,15 @@ export default {
   title: 'Components/Link list',
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
+    hasStoryPadding: true,
   },
   decorators: [
     (story, { parameters }) => {
       const { colLgClass } = parameters;
       return html`
-        <dds-video-cta-container class="bx--grid dds-ce-demo-devenv--grid--stretch">
+        <dds-video-cta-container class="bx--grid">
           <div class="bx--row">
-            <div class="bx--col-sm-4 ${colLgClass} bx--offset-lg-4">
+            <div class="bx--col-sm-4 ${colLgClass}">
               ${story()}
             </div>
           </div>
