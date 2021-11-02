@@ -213,12 +213,9 @@ describe('Footer | Short language only (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot(
-      'Footer | Short language only (desktop language selector)',
-      {
-        widths: [1280],
-      }
-    );
+    cy.percySnapshot('Footer | Short language only | desktop dropdown', {
+      widths: [1280],
+    });
   });
 
   it('should be able to select a language from combo box', () => {
@@ -234,12 +231,9 @@ describe('Footer | Short language only (desktop)', () => {
     );
 
     cy.screenshot();
-    cy.percySnapshot(
-      'Footer | Short language only (desktop language selector)',
-      {
-        widths: [1280],
-      }
-    );
+    cy.percySnapshot('Footer | Short language only | desktop combo box', {
+      widths: [1280],
+    });
   });
 });
 
@@ -253,12 +247,9 @@ describe('Footer | Micro language only (desktop)', () => {
     cy.get(`[data-autoid="dds--language-selector"]`).click();
 
     cy.screenshot();
-    cy.percySnapshot(
-      'Footer | Micro language only (desktop language selector)',
-      {
-        widths: [1280],
-      }
-    );
+    cy.percySnapshot('Footer | Micro language only | desktop dropdown', {
+      widths: [1280],
+    });
   });
 
   it('should be able to select a language from combo box', () => {
@@ -274,12 +265,9 @@ describe('Footer | Micro language only (desktop)', () => {
     );
 
     cy.screenshot();
-    cy.percySnapshot(
-      'Footer | Micro language only (desktop language selector)',
-      {
-        widths: [1280],
-      }
-    );
+    cy.percySnapshot('Footer | Micro language only | desktop combobox', {
+      widths: [1280],
+    });
   });
 });
 
@@ -302,12 +290,9 @@ describe('Footer | Short language only (mobile)', () => {
     languageSelector.should('have.value', 'ar');
 
     cy.screenshot();
-    cy.percySnapshot(
-      'Footer | Short language only (desktop language selector)',
-      {
-        widths: [320],
-      }
-    );
+    cy.percySnapshot('Footer | Short language only | desktop interactive', {
+      widths: [320],
+    });
   });
 });
 
@@ -330,11 +315,8 @@ describe('Footer | Micro language only (mobile)', () => {
     languageSelector.should('have.value', 'ar');
 
     cy.screenshot();
-    cy.percySnapshot(
-      'Footer | Micro language only (desktop language selector)',
-      {
-        widths: [320],
-      }
-    );
+    cy.percySnapshot('Footer | Micro language only | mobile interactive', {
+      widths: [320],
+    });
   });
 });
