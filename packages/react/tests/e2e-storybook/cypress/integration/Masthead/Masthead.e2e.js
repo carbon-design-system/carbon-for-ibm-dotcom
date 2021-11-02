@@ -293,11 +293,13 @@ describe('Masthead | custom (desktop)', () => {
 
   it('should scroll the L0 overflow properly', () => {
     cy.get('.bx--header__nav-caret-right').click();
-
-    cy.get('.bx--header__nav-caret-right-container').then(() => {
-      cy.get('.bx--header__nav-caret-left-container').then($button => {
-        expect($button).not.to.have.attr('hidden');
-      });
+    cy.waitUntil(() =>
+      cy
+        .get('.bx--header__nav-caret-right-container')
+        .then($elem => !$elem.is(':visible'))
+    );
+    cy.get('.bx--header__nav-caret-left-container').then($button => {
+      expect($button).not.to.have.attr('hidden');
     });
 
     cy.screenshot();
@@ -423,11 +425,13 @@ describe('Masthead | with L1 (desktop)', () => {
 
   it('should scroll the L1 overflow properly', () => {
     cy.get('.bx--header__nav-caret-right').click();
-
-    cy.get('.bx--header__nav-caret-right-container').then(() => {
-      cy.get('.bx--header__nav-caret-left-container').then($button => {
-        expect($button).not.to.have.attr('hidden');
-      });
+    cy.waitUntil(() =>
+      cy
+        .get('.bx--header__nav-caret-right-container')
+        .then($elem => !$elem.is(':visible'))
+    );
+    cy.get('.bx--header__nav-caret-left-container').then($button => {
+      expect($button).not.to.have.attr('hidden');
     });
 
     cy.screenshot();
