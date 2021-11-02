@@ -33,7 +33,7 @@ const _pathShortLanguageOnly = '/iframe.html?id=components-footer--short-languag
  */
 const _pathMicroLanguageOnly = '/iframe.html?id=components-footer--micro-language-only';
 
-describe('dds-dds-footer | default (desktop)', () => {
+describe('dds-footer | default (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
     cy.viewport(1280, 780);
