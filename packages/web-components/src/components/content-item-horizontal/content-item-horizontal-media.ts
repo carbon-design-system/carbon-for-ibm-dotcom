@@ -10,6 +10,7 @@
 import { customElement, html, internalProperty, property, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { baseFontSize, breakpoints } from '@carbon/layout';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import DDSContentItem from '../content-item/content-item';
@@ -20,9 +21,7 @@ import { MEDIA_ALIGN } from './defs';
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-// The "lg" Carbon breakpoint.
-// @TODO See if this can be pulled from a Carbon package.
-const breakpoint: number = 1056;
+const breakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
 /**
  * A component to present content in a horizontal orientation with media.
