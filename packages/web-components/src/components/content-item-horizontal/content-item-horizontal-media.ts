@@ -85,16 +85,6 @@ class DDSContentItemHorizontalMedia extends HostListenerMixin(DDSContentItem) {
         `;
   }
 
-  /* eslint-disable class-methods-use-this */
-  shouldUpdate(changedProperties) {
-    // Don't lose track of footer content if it was ever present.
-    if (changedProperties.has('_hasFooter') && changedProperties.get('_hasFooter') === true && changedProperties.size === 1) {
-      return false;
-    }
-    return true;
-  }
-  /* eslint-enable class-methods-use-this */
-
   render() {
     return html`
       <div class="${prefix}--content-item-horizontal__row ${prefix}--content-item-horizontal-media__align-${this.align}">
