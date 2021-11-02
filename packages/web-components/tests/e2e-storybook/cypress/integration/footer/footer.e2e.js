@@ -121,7 +121,7 @@ describe('dds-footer | default (desktop)', () => {
   });
 });
 
-describe('dds-dds-footer | default (mobile)', () => {
+describe('dds-footer | default (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
     cy.viewport(320, 780);
