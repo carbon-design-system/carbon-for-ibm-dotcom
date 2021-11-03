@@ -224,6 +224,10 @@ describe('Masthead | custom (desktop)', () => {
       }
     );
 
+    cy.waitUntil(() =>
+      cy.get('.bx--header__nav-caret-right').then($elem => $elem.is(':visible'))
+    );
+
     cy.screenshot();
     // Take a snapshot for visual diffing
     cy.percySnapshot('Masthead | custom menu item with selected state', {
@@ -375,9 +379,13 @@ describe('Masthead | with L1 (desktop)', () => {
       expect($menuItem).to.have.attr('data-selected', 'true');
     });
 
+    cy.waitUntil(() =>
+      cy.get('.bx--header__nav-caret-right').then($elem => $elem.is(':visible'))
+    );
+
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-masthead | menu item with selected state', {
+    cy.percySnapshot('Masthead | L1 menu item with selected state', {
       widths: [1280],
     });
   });

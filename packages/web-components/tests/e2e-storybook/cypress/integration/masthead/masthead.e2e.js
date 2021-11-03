@@ -459,7 +459,7 @@ describe('dds-masthead | with L1 (desktop)', () => {
     cy.screenshot();
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | custom menu item with selected state', {
+    // cy.percySnapshot('dds-masthead | l1 menu item with selected state', {
     //   widths: [1280],
     // });
   });
