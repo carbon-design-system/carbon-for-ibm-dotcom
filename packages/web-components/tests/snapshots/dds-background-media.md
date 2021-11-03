@@ -8,8 +8,13 @@
 <div class="bx--background-media--mobile-position bx--background-media--mobile-position--bottom">
   <div class="bx--background-media--gradient bx--background-media--gradient--left-to-right">
   </div>
-  <slot>
-  </slot>
+  <div
+    class="background-media"
+    style="opacity:1"
+  >
+    <slot>
+    </slot>
+  </div>
 </div>
 
 ```
@@ -20,8 +25,13 @@
 <div class="bx--background-media--mobile-position bx--background-media--mobile-position--bottom">
   <div class="bx--background-media--gradient bx--background-media--gradient--left-to-right">
   </div>
-  <slot>
-  </slot>
+  <div
+    class="background-media"
+    style="opacity:1"
+  >
+    <slot>
+    </slot>
+  </div>
 </div>
 
 ```

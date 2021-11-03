@@ -12,5 +12,6 @@
 .#{$prefix}--video-player__controls[hasTooltip] {
   @include tooltip--trigger('definition', top);
   @include tooltip--placement('definition', 'top', 'end');
+
   position: absolute;
 }
