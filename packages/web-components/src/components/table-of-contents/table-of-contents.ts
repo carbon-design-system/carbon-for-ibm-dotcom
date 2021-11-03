@@ -659,7 +659,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
             : ``}
           <div
             class="${ddsPrefix}-ce--table-of-contents__items-container"
-            style="position: sticky; top: ${stickyOffset && this.layout !== 'horizontal' ? `${stickyOffset}px` : 0}"
+            style="position: sticky; top: ${stickyOffset && this.layout !== TOC_TYPES.HORIZONTAL ? `${stickyOffset}px` : 0}"
           >
             <div class="${prefix}--tableofcontents__desktop-container">
               <div
