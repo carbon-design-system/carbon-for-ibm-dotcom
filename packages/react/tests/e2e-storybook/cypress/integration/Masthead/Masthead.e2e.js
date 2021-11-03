@@ -224,6 +224,10 @@ describe('Masthead | custom (desktop)', () => {
       }
     );
 
+    cy.waitUntil(() =>
+      cy.get('.bx--header__nav-caret-right').then($elem => $elem.is(':visible'))
+    );
+
     cy.screenshot();
     // Take a snapshot for visual diffing
     cy.percySnapshot('Masthead | custom menu item with selected state', {
@@ -292,27 +296,14 @@ describe('Masthead | custom (desktop)', () => {
   });
 
   it('should scroll the L0 overflow properly', () => {
-    cy.document().then($document => {
-      $document.querySelector('head').insertAdjacentHTML(
-        'beforeend',
-        `
-      <style>
-        /* Disable CSS transitions. */
-        * { -webkit-transition: none !important; -moz-transition: none !important; -o-transition: none !important; transition: none !important; }
-        /* Disable CSS animations. */
-        * { -webkit-animation: none !important; -moz-animation: none !important; -o-animation: none !important; animation: none !important; }
-        /* Reset values on non-opaque/offscreen framer-motion components. */
-        *[style*="opacity"] { opacity: 1 !important; }
-        *[style*="transform"] { transform: none !important; }
-      </style>
-    `
-      );
-    });
-
     cy.get('.bx--header__nav-caret-right').click();
-
-    cy.get('.bx--header__nav-caret-right-container').then($button => {
-      expect($button).to.have.attr('hidden');
+    cy.waitUntil(() =>
+      cy
+        .get('.bx--header__nav-caret-right-container')
+        .then($elem => !$elem.is(':visible'))
+    );
+    cy.get('.bx--header__nav-caret-left-container').then($button => {
+      expect($button).not.to.have.attr('hidden');
     });
 
     cy.screenshot();
@@ -388,9 +379,13 @@ describe('Masthead | with L1 (desktop)', () => {
       expect($menuItem).to.have.attr('data-selected', 'true');
     });
 
+    cy.waitUntil(() =>
+      cy.get('.bx--header__nav-caret-right').then($elem => $elem.is(':visible'))
+    );
+
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-masthead | menu item with selected state', {
+    cy.percySnapshot('Masthead | L1 menu item with selected state', {
       widths: [1280],
     });
   });
@@ -438,11 +433,13 @@ describe('Masthead | with L1 (desktop)', () => {
 
   it('should scroll the L1 overflow properly', () => {
     cy.get('.bx--header__nav-caret-right').click();
-
-    cy.wait(500);
-
-    cy.get('.bx--header__nav-caret-right-container').then($button => {
-      expect($button).to.have.attr('hidden');
+    cy.waitUntil(() =>
+      cy
+        .get('.bx--header__nav-caret-right-container')
+        .then($elem => !$elem.is(':visible'))
+    );
+    cy.get('.bx--header__nav-caret-left-container').then($button => {
+      expect($button).not.to.have.attr('hidden');
     });
 
     cy.screenshot();

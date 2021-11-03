@@ -5,6 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import 'cypress-wait-until';
+
 /**
  * Mocks the Masthead/Footer data
  */

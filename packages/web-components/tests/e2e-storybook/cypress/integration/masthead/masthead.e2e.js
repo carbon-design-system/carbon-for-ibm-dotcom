@@ -353,23 +353,6 @@ describe('dds-masthead | custom (desktop)', () => {
   });
 
   it('should scroll the L0 overflow properly', () => {
-    cy.document().then($document => {
-      $document.querySelector('head').insertAdjacentHTML(
-        'beforeend',
-        `
-      <style>
-        /* Disable CSS transitions. */
-        * { -webkit-transition: none !important; -moz-transition: none !important; -o-transition: none !important; transition: none !important; }
-        /* Disable CSS animations. */
-        * { -webkit-animation: none !important; -moz-animation: none !important; -o-animation: none !important; animation: none !important; }
-        /* Reset values on non-opaque/offscreen framer-motion components. */
-        *[style*="opacity"] { opacity: 1 !important; }
-        *[style*="transform"] { transform: none !important; }
-      </style>
-    `
-      );
-    });
-
     cy.get('dds-top-nav')
       .shadow()
       .find('.bx--header__nav-caret-right-container > button')
@@ -377,9 +360,14 @@ describe('dds-masthead | custom (desktop)', () => {
 
     cy.get('dds-top-nav')
       .shadow()
-      .find('.bx--header__nav-caret-right-container')
-      .then($button => {
-        expect($button).to.have.class('dds-ce--header__nav-caret-container--hidden');
+      .find('.bx--header__nav-caret-right-container.dds-ce--header__nav-caret-container--hidden')
+      .then(() => {
+        cy.get('dds-top-nav')
+          .shadow()
+          .find('.bx--header__nav-caret-left-container')
+          .then($button => {
+            expect($button).not.to.have.class('dds-ce--header__nav-caret-container--hidden');
+          });
       });
 
     cy.screenshot();
@@ -471,7 +459,7 @@ describe('dds-masthead | with L1 (desktop)', () => {
     cy.screenshot();
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | custom menu item with selected state', {
+    // cy.percySnapshot('dds-masthead | l1 menu item with selected state', {
     //   widths: [1280],
     // });
   });
@@ -530,13 +518,16 @@ describe('dds-masthead | with L1 (desktop)', () => {
       .find('.bx--header__nav-caret-right-container > button')
       .click();
 
-    cy.wait(500);
-
     cy.get('dds-top-nav-l1')
       .shadow()
-      .find('.bx--header__nav-caret-right-container')
+      .find('.bx--header__nav-caret-right-container.dds-ce--header__nav-caret-container--hidden')
       .then($button => {
-        expect($button).to.have.class('dds-ce--header__nav-caret-container--hidden');
+        cy.get('dds-top-nav-l1')
+          .shadow()
+          .find('.bx--header__nav-caret-left-container')
+          .then($button => {
+            expect($button).not.to.have.class('dds-ce--header__nav-caret-container--hidden');
+          });
       });
 
     cy.screenshot();
