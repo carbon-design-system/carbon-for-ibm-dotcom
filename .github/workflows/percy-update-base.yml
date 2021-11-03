@@ -15,9 +15,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
       - name: Install dependencies
         run: yarn install
       - name: Install xvfb
@@ -43,9 +44,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
       - name: Install dependencies
         run: yarn install
       - name: Install xvfb
@@ -69,9 +71,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
       - name: Install dependencies
         run: yarn install
       - name: Install xvfb
