@@ -5,10 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import settings from 'carbon-components/es/globals/js/settings';
-
-const { prefix } = settings;
-
 /**
  * Sets the correct path (default Footer)
  *
@@ -222,7 +218,7 @@ describe('Footer | Short language only (desktop)', () => {
     cy.get(`[data-autoid="dds--language-selector"]`).click();
     cy.get(`[data-autoid="dds--footer"]`)
       .find(
-        `.${prefix}--list-box__menu > .${prefix}--list-box__menu-item:nth-of-type(1) .${prefix}--list-box__menu-item__option`
+        `.bx--list-box__menu > .bx--list-box__menu-item:nth-of-type(1) .bx--list-box__menu-item__option`
       )
       .click();
     cy.get(`[data-autoid="dds--language-selector"]`).should(
@@ -256,7 +252,7 @@ describe('Footer | Micro language only (desktop)', () => {
     cy.get(`[data-autoid="dds--language-selector"]`).click();
     cy.get(`[data-autoid="dds--footer"]`)
       .find(
-        `.${prefix}--list-box__menu > .${prefix}--list-box__menu-item:nth-of-type(1) .${prefix}--list-box__menu-item__option`
+        `.bx--list-box__menu > .bx--list-box__menu-item:nth-of-type(1) .bx--list-box__menu-item__option`
       )
       .click();
     cy.get(`[data-autoid="dds--language-selector"]`).should(
