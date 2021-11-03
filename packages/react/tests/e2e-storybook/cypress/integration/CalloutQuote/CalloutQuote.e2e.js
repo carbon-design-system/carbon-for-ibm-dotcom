@@ -19,8 +19,12 @@ describe('CalloutQuote | default', () => {
     cy.visit(`${_path}&theme=g100`);
     cy.viewport(1280, 780);
 
-    cy.get('[data-autoid="dds--callout-quote"]');
-    cy.wait(500);
+    cy.waitUntil(() =>
+      cy
+        .get('[data-autoid="dds--callout-quote"] .bx--quote__copy')
+        .then($copy => $copy.text().trim() !== '')
+    );
+
     cy.screenshot();
 
     // Take a snapshot for visual diffing
@@ -33,8 +37,12 @@ describe('CalloutQuote | default', () => {
     cy.visit(`${_path}&theme=g90`);
     cy.viewport(1280, 780);
 
-    cy.get('[data-autoid="dds--callout-quote"]');
-    cy.wait(500);
+    cy.waitUntil(() =>
+      cy
+        .get('[data-autoid="dds--callout-quote"] .bx--quote__copy')
+        .then($copy => $copy.text().trim() !== '')
+    );
+
     cy.screenshot();
     // Take a snapshot for visual diffing
     cy.percySnapshot('CalloutQuote | default | g90 theme', {
@@ -46,8 +54,12 @@ describe('CalloutQuote | default', () => {
     cy.visit(`${_path}&theme=g10`);
     cy.viewport(1280, 780);
 
-    cy.get('[data-autoid="dds--callout-quote"]');
-    cy.wait(500);
+    cy.waitUntil(() =>
+      cy
+        .get('[data-autoid="dds--callout-quote"] .bx--quote__copy')
+        .then($copy => $copy.text().trim() !== '')
+    );
+
     cy.screenshot();
     // Take a snapshot for visual diffing
     cy.percySnapshot('CalloutQuote | default | g10 theme', {
