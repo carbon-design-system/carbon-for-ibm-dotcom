@@ -7,21 +7,10 @@
 
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/components/background-media/background-media';
+@import 'carbon-web-components/scss/components/tooltip/tooltip';
 
-:host(#{$dds-prefix}-background-media) {
-  display: block;
-  outline: none;
-  position: relative;
-
-  .#{$prefix}--background-media--gradient {
-    z-index: 1;
-  }
-
-  .#{$prefix}--video-player__controls {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
-    z-index: 2;
-    cursor: pointer;
-  }
+.#{$prefix}--video-player__controls[hasTooltip] {
+  @include tooltip--trigger('definition', top);
+  @include tooltip--placement('definition', 'top', 'end');
+  position: absolute;
 }
