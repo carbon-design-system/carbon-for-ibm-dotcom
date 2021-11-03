@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -32,8 +32,16 @@ const placementTypes = {
 
 export default {
   title: 'Components/Link with icon',
+  decorators: [
+    story => html`
+      <div class="bx--grid">
+        ${story()}
+      </div>
+    `,
+  ],
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
     knobs: {
       LinkWithIcon: ({ groupId }) => ({
         children: textNullable('Link text (unnamed slot)', 'Link text', groupId),

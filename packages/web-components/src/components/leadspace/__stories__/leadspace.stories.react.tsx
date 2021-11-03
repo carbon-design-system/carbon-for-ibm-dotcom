@@ -396,11 +396,11 @@ export default {
   title: 'Components/Leadspace',
   decorators: [
     story => {
-      return story();
+      return <div className="bx--grid bx--no-gutter">{story()}</div>;
     },
   ],
   parameters: {
     ...readme.parameters,
-    useRawContainer: true,
+    hasStoryPadding: true,
   },
 };
