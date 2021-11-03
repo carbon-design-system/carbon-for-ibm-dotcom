@@ -49,7 +49,8 @@ const _pathSearchOpenOnload =
 
 describe('Masthead | default (desktop)', () => {
   beforeEach(() => {
-    cy.visit(`/${_pathDefault}`);
+    cy.mockMastheadFooterData();
+    cy.visit(_pathDefault);
     cy.viewport(1280, 780);
   });
 
@@ -181,7 +182,8 @@ describe('Masthead | default (desktop)', () => {
 
 describe('Masthead | default (mobile)', () => {
   beforeEach(() => {
-    cy.visit(`/${_pathDefault}`);
+    cy.mockMastheadFooterData();
+    cy.visit(_pathDefault);
     cy.viewport(320, 780);
   });
 
@@ -206,7 +208,8 @@ describe('Masthead | default (mobile)', () => {
 
 describe('Masthead | custom (desktop)', () => {
   beforeEach(() => {
-    cy.visit(`/${_pathCustom}`);
+    cy.mockMastheadFooterData();
+    cy.visit(_pathCustom);
     cy.viewport(1280, 780);
   });
 
@@ -219,6 +222,10 @@ describe('Masthead | custom (desktop)', () => {
       $menuItem => {
         expect($menuItem).to.have.attr('data-selected', 'true');
       }
+    );
+
+    cy.waitUntil(() =>
+      cy.get('.bx--header__nav-caret-right').then($elem => $elem.is(':visible'))
     );
 
     cy.screenshot();
@@ -289,27 +296,14 @@ describe('Masthead | custom (desktop)', () => {
   });
 
   it('should scroll the L0 overflow properly', () => {
-    cy.document().then($document => {
-      $document.querySelector('head').insertAdjacentHTML(
-        'beforeend',
-        `
-      <style>
-        /* Disable CSS transitions. */
-        * { -webkit-transition: none !important; -moz-transition: none !important; -o-transition: none !important; transition: none !important; }
-        /* Disable CSS animations. */
-        * { -webkit-animation: none !important; -moz-animation: none !important; -o-animation: none !important; animation: none !important; }
-        /* Reset values on non-opaque/offscreen framer-motion components. */
-        *[style*="opacity"] { opacity: 1 !important; }
-        *[style*="transform"] { transform: none !important; }
-      </style>
-    `
-      );
-    });
-
     cy.get('.bx--header__nav-caret-right').click();
-
-    cy.get('.bx--header__nav-caret-right-container').then($button => {
-      expect($button).to.have.attr('hidden');
+    cy.waitUntil(() =>
+      cy
+        .get('.bx--header__nav-caret-right-container')
+        .then($elem => !$elem.is(':visible'))
+    );
+    cy.get('.bx--header__nav-caret-left-container').then($button => {
+      expect($button).not.to.have.attr('hidden');
     });
 
     cy.screenshot();
@@ -322,7 +316,8 @@ describe('Masthead | custom (desktop)', () => {
 
 describe('Masthead | with platform (desktop)', () => {
   beforeEach(() => {
-    cy.visit(`/${_pathPlatform}`);
+    cy.mockMastheadFooterData();
+    cy.visit(_pathPlatform);
     cy.viewport(1280, 780);
   });
 
@@ -360,7 +355,8 @@ describe('Masthead | with platform (desktop)', () => {
 
 describe('Masthead | with L1 (desktop)', () => {
   beforeEach(() => {
-    cy.visit(`/${_pathl1}`);
+    cy.mockMastheadFooterData();
+    cy.visit(_pathl1);
     cy.viewport(1280, 780);
   });
 
@@ -383,9 +379,13 @@ describe('Masthead | with L1 (desktop)', () => {
       expect($menuItem).to.have.attr('data-selected', 'true');
     });
 
+    cy.waitUntil(() =>
+      cy.get('.bx--header__nav-caret-right').then($elem => $elem.is(':visible'))
+    );
+
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-masthead | menu item with selected state', {
+    cy.percySnapshot('Masthead | L1 menu item with selected state', {
       widths: [1280],
     });
   });
@@ -433,11 +433,13 @@ describe('Masthead | with L1 (desktop)', () => {
 
   it('should scroll the L1 overflow properly', () => {
     cy.get('.bx--header__nav-caret-right').click();
-
-    cy.wait(500);
-
-    cy.get('.bx--header__nav-caret-right-container').then($button => {
-      expect($button).to.have.attr('hidden');
+    cy.waitUntil(() =>
+      cy
+        .get('.bx--header__nav-caret-right-container')
+        .then($elem => !$elem.is(':visible'))
+    );
+    cy.get('.bx--header__nav-caret-left-container').then($button => {
+      expect($button).not.to.have.attr('hidden');
     });
 
     cy.screenshot();
