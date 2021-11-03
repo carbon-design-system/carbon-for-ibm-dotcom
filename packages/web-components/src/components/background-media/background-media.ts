@@ -11,13 +11,25 @@ import { html, property, customElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { getAttributes, toSVG } from '@carbon/icon-helpers';
+import pauseIcon32 from '@carbon/icons/es/pause--outline--filled/32';
+import playIcon32 from '@carbon/icons/es/play--filled/32';
 import styles from './background-media.scss';
 import { GRADIENT_DIRECTION, MOBILE_POSITION } from './defs';
 import DDSImage from '../image/image';
 import DDSVideoPlayer from '../video-player/video-player';
+import DDSVideoPlayerContainer from '../video-player/video-player-container';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
+const playIcon = toSVG({
+  ...playIcon32,
+  attrs: getAttributes(playIcon32.attrs),
+});
+const pauseIcon = toSVG({
+  ...pauseIcon32,
+  attrs: getAttributes(pauseIcon32.attrs),
+});
 
 /**
  * Background media.
@@ -74,6 +86,12 @@ class DDSBackgroundMedia extends DDSImage {
   @property()
   videoPlayer: DDSVideoPlayer | null = null;
 
+  @property()
+  videoIsPlaying: Boolean = false;
+
+  @property({ attribute: 'opacity', reflect: true })
+  backgroundOpacity: number = 100;
+
   /**
    * Conditionally runs super.render() if all children are `dds-image-item`
    */
@@ -90,13 +108,13 @@ class DDSBackgroundMedia extends DDSImage {
       const [video] = assignedVideos;
       this.videoId = video.getAttribute('video-id');
       this.videoPlayer = video.querySelector(`${ddsPrefix}-video-player`);
+      this.videoIsPlaying = (video as DDSVideoPlayerContainer).isPlaying;
     }
   }
 
   toggleVideoState() {
     this.videoPlayer?.userInitiatedTogglePlaybackState();
-
-    // TODO: Implement aria-pressed, visual changes for button state
+    this.videoIsPlaying = !this.videoIsPlaying;
   }
 
   /**
@@ -109,17 +127,36 @@ class DDSBackgroundMedia extends DDSImage {
   }
 
   renderVideoControls() {
+    const { toggleVideoState, videoIsPlaying } = this;
+
     return html`
-      <button @click=${this.toggleVideoState} class="${prefix}--video-player__controls">Play/Pause</button>
+      <button
+        @click=${toggleVideoState}
+        class="${prefix}--video-player__controls"
+        aria-pressed="${!videoIsPlaying}"
+        aria-label="${videoIsPlaying ? 'Pause the video' : 'Play the video'}"
+        hasTooltip
+      >
+        ${videoIsPlaying ? pauseIcon : playIcon}
+      </button>
     `;
+  }
+
+  _getMediaOpacity() {
+    if (this.backgroundOpacity <= 100 && this.backgroundOpacity >= 0) {
+      return `opacity:${this.backgroundOpacity / 100}`;
+    }
+    return '';
   }
 
   render() {
     return html`
       <div class="${this._getMobilePositionClass()}">
         <div class="${this._getGradientClass()}"></div>
-        ${this.containsOnlyImages ? super.render() : ''}
-        <slot @slotchange="${this._handleBackgroundMedia}"></slot>
+        <div class="background-media" style="${this._getMediaOpacity()}">
+          ${this.containsOnlyImages ? super.render() : ''}
+          <slot @slotchange="${this._handleBackgroundMedia}"></slot>
+        </div>
         ${this.videoId ? this.renderVideoControls() : ''}
       </div>
     `;

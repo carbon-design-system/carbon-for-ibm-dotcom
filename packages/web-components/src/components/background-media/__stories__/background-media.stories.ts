@@ -10,7 +10,7 @@
 import '../index';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { text, select } from '@storybook/addon-knobs';
+import { text, select, number } from '@storybook/addon-knobs';
 import imgMax from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import imgLg16x9 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
 import imgSm4x3 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--4x3--480x360--005.jpg';
@@ -23,13 +23,14 @@ const gradientDirections = {
 };
 
 export const Default = ({ parameters }) => {
-  const { alt, gradientDirection } = parameters?.props?.['dds-background-media'] ?? {};
+  const { alt, gradientDirection, backgroundOpacity } = parameters?.props?.['dds-background-media'] ?? {};
   return html`
     <dds-background-media
       gradient-direction="${ifNonNull(gradientDirection)}"
       mobile-position="bottom"
       alt="${ifNonNull(alt)}"
       default-src="${imgMax}"
+      opacity="${ifNonNull(backgroundOpacity)}"
     >
       <dds-image-item media="(min-width: 1584px)" srcset="${imgMax}"> </dds-image-item>
       <dds-image-item media="(min-width: 1312px)" srcset="${imgLg16x9}"> </dds-image-item>
@@ -41,9 +42,13 @@ export const Default = ({ parameters }) => {
 };
 
 export const WithVideo = ({ parameters }) => {
-  const { gradientDirection } = parameters?.props?.['dds-background-media'] ?? {};
+  const { gradientDirection, backgroundOpacity } = parameters?.props?.['dds-background-media'] ?? {};
   return html`
-    <dds-background-media gradient-direction="${ifNonNull(gradientDirection)}" mobile-position="bottom">
+    <dds-background-media
+      gradient-direction="${ifNonNull(gradientDirection)}"
+      mobile-position="bottom"
+      opacity="${ifNonNull(backgroundOpacity)}"
+    >
       <dds-video-player-container playing-mode="inline" video-id="1_9h94wo6b" background-mode="true"></dds-video-player-container>
     </dds-background-media>
   `;
@@ -75,6 +80,7 @@ export default {
         ),
         alt: text('Image alt text (alt):', 'Image alt text', groupId),
         defaultSrc: text('Default image (default-src)', imgMax, groupId),
+        backgroundOpacity: number('Background Opacity', 100, { range: true, min: 0, max: 100 }, groupId),
       }),
     },
   },

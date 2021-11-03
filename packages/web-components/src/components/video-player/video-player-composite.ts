@@ -45,6 +45,18 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   _embedMedia?: (videoId: string, backgroundMode: boolean) => Promise<any>;
 
   /**
+   * The placeholder for `_setAutoplayPreference()` Redux action that may be mixed in.
+   */
+  // @ts-ignore
+  _setAutoplayPreference: (preference: boolean) => void;
+
+  /**
+   * The placeholder for `_getAutoplayPreference()` Redux action that may be mixed in.
+   */
+  // @ts-ignore
+  _getAutoplayPreference: () => null | boolean;
+
+  /**
    * Activate the DOM nodes for the embedded video of the given video ID, and deactivates others.
    *
    * @param videoId The video ID to activate.
@@ -90,6 +102,8 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
       embeddedVideos[videoId].sendNotification('doPlay');
       this.isPlaying = true;
     }
+
+    this._setAutoplayPreference(this.isPlaying);
   }
 
   /**
@@ -192,7 +206,12 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
     }
 
     if (this.autoPlay || this.backgroundMode) {
-      this.isPlaying = true;
+      const storedPreference = this._getAutoplayPreference();
+      if (storedPreference === null) {
+        this.isPlaying = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      } else {
+        this.isPlaying = storedPreference;
+      }
     }
   }
 
