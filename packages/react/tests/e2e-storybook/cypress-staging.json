@@ -2,7 +2,6 @@
   "baseUrl": "https://ibmdotcom-react-staging.mybluemix.net/",
   "browser": "chrome",
   "headless": true,
-  "video": false,
   "nodeVersion": "system",
   "includeShadowDom": true,
   "testFiles": "**/*.e2e.js",
