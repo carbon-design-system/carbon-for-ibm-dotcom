@@ -75,11 +75,11 @@
   }
 
   .#{$prefix}--layout-2-3 {
-    @include dds--make-col(2, 3);
+    @include dds--make-col(8, 12);
   }
 
   .#{$prefix}--layout-1-3 {
-    @include dds--make-col(1, 3);
+    @include dds--make-col(3, 12);
   }
 }
 
