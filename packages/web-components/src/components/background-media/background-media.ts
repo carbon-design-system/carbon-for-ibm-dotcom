@@ -11,9 +11,8 @@ import { html, property, customElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { getAttributes, toSVG } from '@carbon/icon-helpers';
-import pauseIcon32 from '@carbon/icons/es/pause--outline--filled/32';
-import playIcon32 from '@carbon/icons/es/play--filled/32';
+import pauseIcon from 'carbon-web-components/es/icons/pause--outline--filled/32.js';
+import playIcon from 'carbon-web-components/es/icons/play--filled/32.js';
 import styles from './background-media.scss';
 import { GRADIENT_DIRECTION, MOBILE_POSITION } from './defs';
 import DDSImage from '../image/image';
@@ -22,14 +21,6 @@ import DDSVideoPlayerContainer from '../video-player/video-player-container';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-const playIcon = toSVG({
-  ...playIcon32,
-  attrs: getAttributes(playIcon32.attrs),
-});
-const pauseIcon = toSVG({
-  ...pauseIcon32,
-  attrs: getAttributes(pauseIcon32.attrs),
-});
 
 /**
  * Background media.
@@ -137,7 +128,7 @@ class DDSBackgroundMedia extends DDSImage {
         aria-label="${videoIsPlaying ? 'Pause the video' : 'Play the video'}"
         hasTooltip
       >
-        ${videoIsPlaying ? pauseIcon : playIcon}
+        ${videoIsPlaying ? pauseIcon() : playIcon()}
       </button>
     `;
   }
