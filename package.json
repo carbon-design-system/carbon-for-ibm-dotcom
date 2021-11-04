@@ -88,7 +88,6 @@
   },
   "resolutions": {
     "kind-of": ">=6.0.3",
-    "lit-html": "^1.4.0",
     "minimist": ">=1.2.2",
     "node-notifier": ">=8.0.1"
   }
