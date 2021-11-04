@@ -45,6 +45,7 @@ class DDSBackgroundMedia extends DDSImage {
    */
   protected _getMobilePositionClass() {
     return classMap({
+      [`${prefix}--background-media--container`]: true,
       [`${prefix}--background-media--mobile-position`]: true,
       [`${prefix}--background-media--mobile-position--${this.mobilePosition}`]: this.mobilePosition,
     });
@@ -144,12 +145,12 @@ class DDSBackgroundMedia extends DDSImage {
     return html`
       <div class="${this._getMobilePositionClass()}">
         <div class="${this._getGradientClass()}"></div>
-        <div class="background-media" style="${this._getMediaOpacity()}">
+        <div class="${prefix}--background-media--item" style="${this._getMediaOpacity()}">
           ${this.containsOnlyImages ? super.render() : ''}
           <slot @slotchange="${this._handleBackgroundMedia}"></slot>
         </div>
-        ${this.videoId ? this.renderVideoControls() : ''}
       </div>
+      ${this.videoId ? this.renderVideoControls() : this.renderVideoControls()}
     `;
   }
 
