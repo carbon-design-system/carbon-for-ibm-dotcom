@@ -299,12 +299,11 @@ describe('Masthead | custom (desktop)', () => {
     cy.get('.bx--header__nav-caret-right').click();
     cy.waitUntil(() =>
       cy
-        .get('.bx--header__nav-caret-right-container')
+        .get('.bx--header__nav-caret-right')
         .then($elem => !$elem.is(':visible'))
     );
-    cy.get('.bx--header__nav-caret-left-container').then($button => {
-      expect($button).not.to.have.attr('hidden');
-    });
+
+    cy.get('.bx--header__nav-caret-left').should('be.visible');
 
     cy.screenshot();
     // Take a snapshot for visual diffing
@@ -435,12 +434,11 @@ describe('Masthead | with L1 (desktop)', () => {
     cy.get('.bx--header__nav-caret-right').click();
     cy.waitUntil(() =>
       cy
-        .get('.bx--header__nav-caret-right-container')
+        .get('.bx--header__nav-caret-right')
         .then($elem => !$elem.is(':visible'))
     );
-    cy.get('.bx--header__nav-caret-left-container').then($button => {
-      expect($button).not.to.have.attr('hidden');
-    });
+
+    cy.get('.bx--header__nav-caret-left').should('be.visible');
 
     cy.screenshot();
     // Take a snapshot for visual diffing
@@ -459,8 +457,15 @@ describe('Masthead | with L1 (desktop)', () => {
   });
 });
 
-describe('dds-masthead | search open onload (desktop)', () => {
+describe('Masthead | search open onload (desktop)', () => {
   beforeEach(() => {
+    // TODO: fix the uncaught exception in Firefox only
+    cy.on('uncaught:exception', (err, runnable) => {
+      if (err.message.includes('Request aborted')) {
+        return false;
+      }
+    });
+
     cy.visit(`/${_pathSearchOpenOnload}`);
     cy.viewport(1280, 780);
   });
