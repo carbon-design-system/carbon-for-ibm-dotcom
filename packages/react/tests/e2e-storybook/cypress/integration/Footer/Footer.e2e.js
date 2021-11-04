@@ -129,7 +129,7 @@ describe('Footer | Short (desktop)', () => {
   });
 
   it('should display clickable IBM logo', () => {
-    cy.get('a.bx--footer-logo__link').then($link => {
+    cy.get('a[data-autoid="dds--footer-logo__link"]').then($link => {
       const url = $link.prop('href');
       expect(url).not.to.be.empty;
     });
@@ -148,7 +148,10 @@ describe('Footer | Short (desktop)', () => {
 
     cy.get('div[data-autoid="dds--locale-modal"]').should('have.attr', 'open');
 
-    cy.get('.bx--locale-modal [data-region]').should('have.length', 4);
+    cy.get('[data-autoid="dds--locale-modal"] [data-region]').should(
+      'have.length',
+      4
+    );
 
     cy.screenshot();
 
@@ -165,17 +168,19 @@ describe('Footer | Short (desktop)', () => {
 
     cy.wait(500);
 
-    cy.get('.bx--locale-modal [data-region="mea"]')
+    cy.get(
+      '[data-autoid="dds--locale-modal"] [data-autoid="dds--card"][data-region="mea"]'
+    )
       .find('a')
       .click();
 
     cy.wait(500);
 
-    cy.get('.bx--locale-modal__filter')
-      .find('.bx--locale-modal__list li a')
+    cy.get('[data-autoid="dds--locale-modal"]')
+      .find('ul li a[href][data-region]')
       .each($locale => {
         if (!$locale.attr('data-region') === 'mea') {
-          $locale.should('have.class', 'bx--locale-modal__locales-hidden');
+          $locale.should('have.css', 'display', 'none');
         }
       });
 
@@ -194,13 +199,15 @@ describe('Footer | Short (desktop)', () => {
 
     cy.wait(500);
 
-    cy.get('.bx--locale-modal [data-region="am"]')
+    cy.get(
+      '[data-autoid="dds--locale-modal"] [data-autoid="dds--card"][data-region="am"]'
+    )
       .find('a')
       .click();
 
     cy.wait(500);
 
-    cy.get('.bx--locale-modal__search input')
+    cy.get('input[data-autoid="dds--locale-modal__filter"]')
       .type('gen')
       .get(
         '.bx--locale-modal__list li a:not(.bx--locale-modal__locales-hidden)'
@@ -227,11 +234,13 @@ describe('Footer | Short (desktop)', () => {
 
   it('should load footer legal navigation with clickable links', () => {
     cy.get('[data-autoid="dds--footer-legal-nav"]')
-      .find('.bx--legal-nav__list-item a')
+      .find('li a')
       .each($link => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
+
+    cy.screenshot();
 
     cy.percySnapshot(
       'Footer | Short | load footer legal navigation with clickable links',
@@ -406,7 +415,7 @@ describe('Footer | Short (mobile)', () => {
   });
 
   it('should display clickable IBM logo', () => {
-    cy.get('a.bx--footer-logo__link').then($link => {
+    cy.get('a[data-autoid="dds--footer-logo__link"]').then($link => {
       const url = $link.prop('href');
       expect(url).not.to.be.empty;
     });
@@ -425,7 +434,10 @@ describe('Footer | Short (mobile)', () => {
 
     cy.get('div[data-autoid="dds--locale-modal"]').should('have.attr', 'open');
 
-    cy.get('.bx--locale-modal [data-region]').should('have.length', 4);
+    cy.get('[data-autoid="dds--locale-modal"] [data-region]').should(
+      'have.length',
+      4
+    );
 
     cy.screenshot();
 
@@ -442,17 +454,19 @@ describe('Footer | Short (mobile)', () => {
 
     cy.wait(500);
 
-    cy.get('.bx--locale-modal [data-region="mea"]')
+    cy.get(
+      '[data-autoid="dds--locale-modal"] [data-autoid="dds--card"][data-region="mea"]'
+    )
       .find('a')
       .click();
 
     cy.wait(500);
 
-    cy.get('.bx--locale-modal__filter')
-      .find('.bx--locale-modal__list li a')
+    cy.get('[data-autoid="dds--locale-modal"]')
+      .find('ul li a[href][data-region]')
       .each($locale => {
         if (!$locale.attr('data-region') === 'mea') {
-          $locale.should('have.class', 'bx--locale-modal__locales-hidden');
+          $locale.should('have.css', 'display', 'none');
         }
       });
 
@@ -471,13 +485,15 @@ describe('Footer | Short (mobile)', () => {
 
     cy.wait(500);
 
-    cy.get('.bx--locale-modal [data-region="am"]')
+    cy.get(
+      '[data-autoid="dds--locale-modal"] [data-autoid="dds--card"][data-region="am"]'
+    )
       .find('a')
       .click();
 
     cy.wait(500);
 
-    cy.get('.bx--locale-modal__search input')
+    cy.get('input[data-autoid="dds--locale-modal__filter"]')
       .type('gen')
       .get(
         '.bx--locale-modal__list li a:not(.bx--locale-modal__locales-hidden)'
@@ -504,7 +520,7 @@ describe('Footer | Short (mobile)', () => {
 
   it('should load footer legal navigation with clickable links', () => {
     cy.get('[data-autoid="dds--footer-legal-nav"]')
-      .find('.bx--legal-nav__list-item a')
+      .find('li a')
       .each($link => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
