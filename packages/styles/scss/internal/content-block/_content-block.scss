@@ -43,8 +43,6 @@
 
     @include carbon--breakpoint('lg') {
       .#{$prefix}--link-list {
-        margin-right: -$carbon--spacing-05;
-
         &:first-of-type {
           padding-top: 0;
         }
@@ -140,10 +138,11 @@
     }
 
     @include carbon--breakpoint('lg') {
-      grid-template:
-        'heading heading .' auto
-        'body body complementary' auto
-        'footer . complementary' auto / 1fr 1fr 1fr;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-areas:
+        'heading heading heading heading heading heading heading heading . . . .'
+        'body body body body body body body body . complementary complementary complementary'
+        'footer footer footer footer footer footer footer footer . complementary complementary complementary';
     }
   }
 
