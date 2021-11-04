@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.12.0-rc.0...@carbon/ibmdotcom-web-components@1.12.0-rc.1) (2021-11-03)
+
+
+### Bug Fixes
+
+* **search-with-typeahead:** fixed mobile focus bug ([#7589](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7589)) ([7a59aea](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/7a59aea)), closes [#7587](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/7587) [#6321](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6321)
+
+
+
+
+
 # [1.12.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.11.0...@carbon/ibmdotcom-web-components@1.12.0-rc.0) (2021-10-29)
 
 
