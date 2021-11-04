@@ -180,7 +180,7 @@ describe('Footer | Short (desktop)', () => {
       .find('ul li a[href][data-region]')
       .each($locale => {
         if (!$locale.attr('data-region') === 'mea') {
-          $locale.should('have.css', 'display', 'none');
+          $locale.should('not.be.visible');
         }
       });
 
@@ -466,7 +466,7 @@ describe('Footer | Short (mobile)', () => {
       .find('ul li a[href][data-region]')
       .each($locale => {
         if (!$locale.attr('data-region') === 'mea') {
-          $locale.should('have.css', 'display', 'none');
+          $locale.should('not.be.visible');
         }
       });
 
