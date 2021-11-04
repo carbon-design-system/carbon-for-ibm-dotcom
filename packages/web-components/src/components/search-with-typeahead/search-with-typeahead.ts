@@ -249,6 +249,17 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   protected _handleFocusOut(event: FocusEvent) {
     super._handleFocusOut(event);
+    const logo = document.querySelector('dds-masthead-logo');
+    const profile = document.querySelector('dds-masthead-global-bar');
+
+    const focusedOnMasthead = event.relatedTarget ? event.relatedTarget === logo && event.relatedTarget === profile : true;
+    if (
+      focusedOnMasthead &&
+      !(event.currentTarget as HTMLElement).contains(event.relatedTarget as HTMLElement) &&
+      !this.searchOpenOnload
+    ) {
+      this._handleUserInitiatedToggleActiveState(false, false);
+    }
   }
 
   /**
