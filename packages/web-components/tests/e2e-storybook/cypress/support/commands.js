@@ -5,6 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import 'cypress-wait-until';
+
 /**
  * Mocks the Masthead/Footer data
  */
@@ -16,4 +18,7 @@ Cypress.Commands.add('mockMastheadFooterData', () => {
     fixture: 'translation.json',
   });
   cy.intercept('https://login.ibm.com/v1/mgmt/idaas/user/status/', { fixture: 'status.json' });
+  cy.intercept('https://www-api.ibm.com/search/typeahead/v1?*', {
+    fixture: 'typeahead.json',
+  });
 });
