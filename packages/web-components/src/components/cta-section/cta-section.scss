@@ -26,10 +26,10 @@
 
   .#{$prefix}--content-section__leading {
     padding-bottom: 0;
+
     @include carbon--breakpoint('md') {
       margin-top: $carbon--layout-04;
       padding: $spacing-05;
-      margin-bottom: $carbon--layout-01;
     }
 
     @include carbon--breakpoint('lg') {
@@ -38,11 +38,11 @@
     }
   }
 
+  ::slotted(#{$dds-prefix}-content-section-heading) {
+    margin-bottom: $spacing-07;
+  }
+
   ::slotted(#{$dds-prefix}-cta-block) {
     padding-top: 0;
-
-    @include carbon--breakpoint('md') {
-      padding-top: $carbon--layout-04;
-    }
   }
 }
