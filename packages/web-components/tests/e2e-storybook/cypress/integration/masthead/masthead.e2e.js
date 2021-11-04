@@ -37,8 +37,17 @@ const _pathPlatform = '/iframe.html?id=components-masthead--with-platform';
  */
 const _pathl1 = '/iframe.html?id=components-masthead--with-l-1';
 
+/**
+ * Sets the correct path (Masthead search open onload)
+ *
+ * @type {string}
+ * @private
+ */
+const _pathSearchOpenOnload = '/iframe.html?id=components-masthead--search-open-onload';
+
 describe('dds-masthead | default (desktop)', () => {
   beforeEach(() => {
+    cy.mockMastheadFooterData();
     cy.visit(`/${_pathDefault}`);
     cy.viewport(1280, 780);
   });
@@ -204,6 +213,7 @@ describe('dds-masthead | default (desktop)', () => {
 
 describe('dds-masthead | default (mobile)', () => {
   beforeEach(() => {
+    cy.mockMastheadFooterData();
     cy.visit(`/${_pathDefault}`);
     cy.viewport(320, 780);
   });
@@ -236,6 +246,7 @@ describe('dds-masthead | default (mobile)', () => {
 
 describe('dds-masthead | custom (desktop)', () => {
   beforeEach(() => {
+    cy.mockMastheadFooterData();
     cy.visit(`/${_pathCustom}`);
     cy.viewport(1280, 780);
   });
@@ -342,23 +353,6 @@ describe('dds-masthead | custom (desktop)', () => {
   });
 
   it('should scroll the L0 overflow properly', () => {
-    cy.document().then($document => {
-      $document.querySelector('head').insertAdjacentHTML(
-        'beforeend',
-        `
-      <style>
-        /* Disable CSS transitions. */
-        * { -webkit-transition: none !important; -moz-transition: none !important; -o-transition: none !important; transition: none !important; }
-        /* Disable CSS animations. */
-        * { -webkit-animation: none !important; -moz-animation: none !important; -o-animation: none !important; animation: none !important; }
-        /* Reset values on non-opaque/offscreen framer-motion components. */
-        *[style*="opacity"] { opacity: 1 !important; }
-        *[style*="transform"] { transform: none !important; }
-      </style>
-    `
-      );
-    });
-
     cy.get('dds-top-nav')
       .shadow()
       .find('.bx--header__nav-caret-right-container > button')
@@ -366,9 +360,14 @@ describe('dds-masthead | custom (desktop)', () => {
 
     cy.get('dds-top-nav')
       .shadow()
-      .find('.bx--header__nav-caret-right-container')
-      .then($button => {
-        expect($button).to.have.class('dds-ce--header__nav-caret-container--hidden');
+      .find('.bx--header__nav-caret-right-container.dds-ce--header__nav-caret-container--hidden')
+      .then(() => {
+        cy.get('dds-top-nav')
+          .shadow()
+          .find('.bx--header__nav-caret-left-container')
+          .then($button => {
+            expect($button).not.to.have.class('dds-ce--header__nav-caret-container--hidden');
+          });
       });
 
     cy.screenshot();
@@ -382,6 +381,7 @@ describe('dds-masthead | custom (desktop)', () => {
 
 describe('dds-masthead | with platform (desktop)', () => {
   beforeEach(() => {
+    cy.mockMastheadFooterData();
     cy.visit(`/${_pathPlatform}`);
     cy.viewport(1280, 780);
   });
@@ -421,6 +421,7 @@ describe('dds-masthead | with platform (desktop)', () => {
 
 describe('dds-masthead | with L1 (desktop)', () => {
   beforeEach(() => {
+    cy.mockMastheadFooterData();
     cy.visit(`/${_pathl1}`);
     cy.viewport(1280, 780);
   });
@@ -458,7 +459,7 @@ describe('dds-masthead | with L1 (desktop)', () => {
     cy.screenshot();
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | custom menu item with selected state', {
+    // cy.percySnapshot('dds-masthead | l1 menu item with selected state', {
     //   widths: [1280],
     // });
   });
@@ -517,13 +518,16 @@ describe('dds-masthead | with L1 (desktop)', () => {
       .find('.bx--header__nav-caret-right-container > button')
       .click();
 
-    cy.wait(500);
-
     cy.get('dds-top-nav-l1')
       .shadow()
-      .find('.bx--header__nav-caret-right-container')
+      .find('.bx--header__nav-caret-right-container.dds-ce--header__nav-caret-container--hidden')
       .then($button => {
-        expect($button).to.have.class('dds-ce--header__nav-caret-container--hidden');
+        cy.get('dds-top-nav-l1')
+          .shadow()
+          .find('.bx--header__nav-caret-left-container')
+          .then($button => {
+            expect($button).not.to.have.class('dds-ce--header__nav-caret-container--hidden');
+          });
       });
 
     cy.screenshot();
@@ -532,5 +536,61 @@ describe('dds-masthead | with L1 (desktop)', () => {
     // cy.percySnapshot('dds-masthead | custom - overflow', {
     //   widths: [1280],
     // });
+  });
+});
+
+describe('dds-masthead | search open onload (desktop)', () => {
+  beforeEach(() => {
+    // TODO: fix the uncaught exception in Firefox only
+    cy.on('uncaught:exception', (err, runnable) => {
+      if (err.message.includes('Request aborted')) {
+        return false;
+      }
+    });
+
+    cy.visit(`/${_pathSearchOpenOnload}`);
+    cy.viewport(1280, 780);
+  });
+
+  it('should load search field open by default', () => {
+    cy.get('dds-search-with-typeahead')
+      .shadow()
+      .find('input[type="text"]')
+      .should('be.visible');
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | search open onload', {
+    //   widths: [1280],
+    // });
+  });
+
+  it('should have typable search field', () => {
+    cy.get('dds-search-with-typeahead')
+      .shadow()
+      .find('input[type="text"]')
+      .type('test')
+      .should('have.value', 'test');
+  });
+
+  it('should display 10 auto suggest results', () => {
+    cy.get('dds-search-with-typeahead')
+      .shadow()
+      .find('input[type="text"]')
+      .type('test')
+      .get('dds-search-with-typeahead-item')
+      .should('have.length', 10);
+
+    cy.screenshot();
+    // Take a snapshot for visual diffing
+    // TODO: click states currently not working in percy for web components
+    // cy.percySnapshot('dds-masthead | search open onload', {
+    //   widths: [1280],
+    // });
+  });
+
+  it('should not display menu options while search field is open', () => {
+    cy.get('dds-top-nav').should('have.attr', 'hidenav');
   });
 });

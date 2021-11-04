@@ -17,9 +17,11 @@
     display: flex;
   }
 
+  // !important necessary for React wrappers since Carbon React styles override margin without this
   ::slotted(.#{$prefix}--tag),
   ::slotted(#{$prefix}-filter-tag),
   ::slotted(#{$prefix}-tag) {
-    margin: 0;
+    // stylelint-disable-next-line declaration-no-important
+    margin: 0 !important;
   }
 }
