@@ -5,10 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import settings from 'carbon-components/es/globals/js/settings';
-
-const { prefix } = settings;
-
 /**
  * Sets the correct path (default Footer)
  *
@@ -231,10 +227,10 @@ describe('dds-footer | Short language only (desktop)', () => {
     cy.get('dds-language-selector-desktop').should('have.length', 1);
     cy.get('dds-language-selector-desktop')
       .shadow()
-      .find(`div.${prefix}--dropdown`)
+      .find(`div.bx--dropdown`)
       .click();
     cy.get('dds-language-selector-desktop')
-      .find(`${prefix}-combo-box-item[value="Arabic / عربية"]`)
+      .find(`bx-combo-box-item[value="Arabic / عربية"]`)
       .click();
     cy.get('dds-language-selector-desktop').should('have.value', 'Arabic / عربية');
 
@@ -257,10 +253,10 @@ describe('dds-footer | Micro language only (desktop)', () => {
     cy.get('dds-language-selector-desktop').should('have.length', 1);
     cy.get('dds-language-selector-desktop')
       .shadow()
-      .find(`div.${prefix}--dropdown`)
+      .find(`div.bx--dropdown`)
       .click();
     cy.get('dds-language-selector-desktop')
-      .find(`${prefix}-combo-box-item[value="Arabic / عربية"]`)
+      .find(`bx-combo-box-item[value="Arabic / عربية"]`)
       .click();
     cy.get('dds-language-selector-desktop').should('have.value', 'Arabic / عربية');
 
@@ -283,11 +279,11 @@ describe('dds-footer | Short language only (mobile)', () => {
     cy.get('dds-language-selector-mobile').should('have.length', 1);
     cy.get('dds-language-selector-mobile')
       .shadow()
-      .find(`select.${prefix}--select-input`)
+      .find(`select.bx--select-input`)
       .select('Arabic / عربية');
     cy.get('dds-language-selector-mobile')
       .shadow()
-      .find(`select.${prefix}--select-input`)
+      .find(`select.bx--select-input`)
       .should('have.value', 'Arabic / عربية');
 
     // Take a snapshot for visual diffing
@@ -308,11 +304,11 @@ describe('dds-footer | Micro language only (mobile)', () => {
     cy.get('dds-language-selector-mobile').should('have.length', 1);
     cy.get('dds-language-selector-mobile')
       .shadow()
-      .find(`select.${prefix}--select-input`)
+      .find(`select.bx--select-input`)
       .select('Arabic / عربية');
     cy.get('dds-language-selector-mobile')
       .shadow()
-      .find(`select.${prefix}--select-input`)
+      .find(`select.bx--select-input`)
       .should('have.value', 'Arabic / عربية');
 
     // Take a snapshot for visual diffing
