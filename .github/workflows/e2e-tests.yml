@@ -3,7 +3,7 @@ name: e2e-tests
 on: [push, pull_request]
 
 concurrency:
-  group: ${{ github.ref }}
+  group: e2e-tests-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:

@@ -3,7 +3,7 @@ name: dependabot-yarn-mirror
 on: [pull_request]
 
 concurrency:
-  group: ${{ github.ref }}
+  group: dependabot-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:

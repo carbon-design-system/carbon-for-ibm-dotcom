@@ -7,7 +7,7 @@ on:
       - release/*
 
 concurrency:
-  group: ${{ github.ref }}
+  group: percy-update-base-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:

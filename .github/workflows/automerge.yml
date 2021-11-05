@@ -5,7 +5,7 @@ on:
       - 'release/*'
 
 concurrency:
-  group: ${{ github.ref }}
+  group: automerge-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:

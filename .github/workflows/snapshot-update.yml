@@ -8,7 +8,7 @@ on:
       - chore/carbon-upgrade-*
 
 concurrency:
-  group: ${{ github.ref }}
+  group: snapshot-update-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:

@@ -5,7 +5,7 @@ on:
     - cron: '0 1 * * 1-5'
 
 concurrency:
-  group: ${{ github.ref }}
+  group: publish-nightly-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:

@@ -3,7 +3,7 @@ name: ci-check
 on: [push, pull_request]
 
 concurrency:
-  group: ${{ github.ref }}
+  group: ci-check-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:

@@ -6,7 +6,7 @@ on:
       - release/*
 
 concurrency:
-  group: ${{ github.ref }}
+  group: deploy-staging-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
