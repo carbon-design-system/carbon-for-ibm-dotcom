@@ -19,7 +19,7 @@ jobs:
           path-to-signatures: 'cla.json'
           path-to-document: 'https://github.com/carbon-design-system/carbon-for-ibm-dotcom-cla/blob/master/CLA.md'
           branch: 'main'
-          allowlist: ibmdotcom-bot,dependabot,kodiakhq
+          allowlist: ibmdotcom-bot,dependabot,kodiakhq[bot]
           remote-organization-name: carbon-design-system
           remote-repository-name: carbon-for-ibm-dotcom-cla
           create-file-commit-message: 'chore(cla): creating file for storing CLA signatures'
