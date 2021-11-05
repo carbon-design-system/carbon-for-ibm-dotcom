@@ -24,8 +24,8 @@ jobs:
           remote-repository-name: carbon-for-ibm-dotcom-cla
           create-file-commit-message: 'chore(cla): creating file for storing CLA signatures'
           signed-commit-message: 'chore(cla): $contributorName has signed the CLA in #$pullRequestNo'
-          custom-notsigned-prcomment: 'Thank you for your contribution! Please review and sign our [Contributor License Agreement](https://github.com/carbon-design-system/carbon-for-ibm-dotcom-cla/blob/master/CLA.md) before we can review and merge your pull request.'
-          custom-pr-sign-comment: 'The signature to be committed in order to sign the CLA'
+          custom-notsigned-prcomment: 'Thank you for your contribution! Please review and sign our [Contributor License Agreement](https://github.com/carbon-design-system/carbon-for-ibm-dotcom-cla/blob/master/CLA.md) before we can review and merge your pull request. To sign, enter a comment in this pull request with the following message:'
+          custom-pr-sign-comment: 'I have read the CLA Document and I hereby sign the CLA'
           custom-allsigned-prcomment: 'All Contributors have signed the CLA.'
           lock-pullrequest-aftermerge: false
 
