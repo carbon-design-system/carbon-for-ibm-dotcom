@@ -1,5 +1,15 @@
 # Breaking changes
 
+## v1.13.0
+
+### Dependency updates
+
+- Starting in `v1.13.0`, `Carbon for IBM.com Web Components` will include 
+  `lit-html` and `lit-element` as `dependencies` rather than 
+  `peerDependencies`. This means that installing on applications will no longer 
+  be required and can be safely removed from the project setup for using 
+  `Carbon for IBM.com`. 
+
 ## v1.11.0
 
 ### Deprecation warning
