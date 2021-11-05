@@ -22,4 +22,7 @@ Cypress.Commands.add('mockMastheadFooterData', () => {
   cy.intercept('https://login.ibm.com/v1/mgmt/idaas/user/status/', {
     fixture: 'status.json',
   });
+  cy.intercept('https://www-api.ibm.com/search/typeahead/v1?*', {
+    fixture: 'typeahead.json',
+  });
 });
