@@ -5,6 +5,10 @@ on:
     branches:
       - release/*
 
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   react:
     runs-on: ubuntu-20.04
