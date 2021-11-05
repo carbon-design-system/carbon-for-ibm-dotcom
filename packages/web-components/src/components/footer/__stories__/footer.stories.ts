@@ -122,7 +122,7 @@ export const defaultLanguageOnly = ({ parameters }) => {
     selectedLanguage: 'English',
     adjunctLinks: [],
   };
-  return base({ parameters });
+  return html`<div class="default-language-only">${base({ parameters })}</div>`;
 };
 
 defaultLanguageOnly.story = {

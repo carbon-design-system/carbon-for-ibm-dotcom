@@ -7,6 +7,7 @@
 
 import { boolean, object } from '@storybook/addon-knobs';
 import { Footer } from '../';
+import './footer.stories.scss';
 import footerMenu from '../__data__/footer-menu.json';
 import footerThin from '../__data__/footer-thin.json';
 import inPercy from '@percy-io/in-percy';
@@ -131,7 +132,7 @@ export const DefaultLanguageOnly = ({ parameters }) => {
     },
   };
 
-  return <Default parameters={massagedParameters} />;
+  return <div className="default-language-only"><Default parameters={massagedParameters} /></div>;
 };
 
 DefaultLanguageOnly.story = {
