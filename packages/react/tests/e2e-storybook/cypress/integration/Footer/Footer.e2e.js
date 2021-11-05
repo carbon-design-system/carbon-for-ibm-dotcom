@@ -19,7 +19,8 @@ const _pathDefault = '/iframe.html?id=components-footer--default';
  * @type {string}
  * @private
  */
-const _pathDefaultLanguageOnly = '/iframe.html?id=components-footer--default-language-only';
+const _pathDefaultLanguageOnly =
+  '/iframe.html?id=components-footer--default-language-only';
 
 /**
  * Sets the correct path (Short language only)
@@ -36,8 +37,7 @@ const _pathShortLanguageOnly =
  * @type {string}
  * @private
  */
-const _pathMicro =
-  '/iframe.html?id=components-footer--micro';
+const _pathMicro = '/iframe.html?id=components-footer--micro';
 
 /**
  * Sets the correct path (Micro language only)
@@ -318,7 +318,7 @@ describe('Footer | Micro (desktop)', () => {
   });
 
   it('should load locale modal with 4 geos ', () => {
-    cy.get(`[data-autoid="dds--locale-btn"]`).click()
+    cy.get(`[data-autoid="dds--locale-btn"]`).click();
 
     cy.get('div[data-autoid="dds--locale-modal"]').should('have.attr', 'open');
 
@@ -328,7 +328,7 @@ describe('Footer | Micro (desktop)', () => {
   });
 
   it('should load the Asia Pacific region with its languages and locations', () => {
-    cy.get(`[data-autoid="dds--locale-btn"]`).click()
+    cy.get(`[data-autoid="dds--locale-btn"]`).click();
     cy.get('[data-region="ap"]').click();
 
     cy.get('.bx--locale-modal__locales').should('have.length', 19);
@@ -459,7 +459,7 @@ describe('Footer | Micro (mobile)', () => {
   });
 
   it('should load locale modal with 4 geos ', () => {
-    cy.get(`[data-autoid="dds--locale-btn"]`).click()
+    cy.get(`[data-autoid="dds--locale-btn"]`).click();
 
     cy.get('div[data-autoid="dds--locale-modal"]').should('have.attr', 'open');
 
@@ -469,7 +469,7 @@ describe('Footer | Micro (mobile)', () => {
   });
 
   it('should load the Asia Pacific region with its languages and locations', () => {
-    cy.get(`[data-autoid="dds--locale-btn"]`).click()
+    cy.get(`[data-autoid="dds--locale-btn"]`).click();
     cy.get('[data-region="ap"]').click();
 
     cy.get('.bx--locale-modal__locales').should('have.length', 19);

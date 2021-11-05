@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import './footer.stories.scss';
 import { boolean, object } from '@storybook/addon-knobs';
 import { Footer } from '../';
-import './footer.stories.scss';
 import footerMenu from '../__data__/footer-menu.json';
 import footerThin from '../__data__/footer-thin.json';
 import inPercy from '@percy-io/in-percy';
@@ -132,7 +132,11 @@ export const DefaultLanguageOnly = ({ parameters }) => {
     },
   };
 
-  return <div className="default-language-only"><Default parameters={massagedParameters} /></div>;
+  return (
+    <div className="default-language-only">
+      <Default parameters={massagedParameters} />
+    </div>
+  );
 };
 
 DefaultLanguageOnly.story = {

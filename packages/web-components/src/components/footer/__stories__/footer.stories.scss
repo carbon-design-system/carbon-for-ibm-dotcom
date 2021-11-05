@@ -15,7 +15,7 @@ dds-footer-container {
 }
 
 .default-language-only {
-  @include carbon--breakpoint(lg){
+  @include carbon--breakpoint(lg) {
     padding-top: 15rem;
   }
 }
