@@ -7,6 +7,10 @@ on:
       - release/*
       - chore/carbon-upgrade-*
 
+concurrency:
+  group: snapshot-update-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   react:
     runs-on: ubuntu-20.04
