@@ -67,7 +67,6 @@ process.env.BABEL_ENV = 'es';
 module.exports = {
   input: 'src/index.js',
   plugins: [
-    json(),
     nodeResolve({
       browser: true,
       mainFields: ['jsnext', 'module', 'main'],
@@ -83,6 +82,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(env),
     }),
     builtins(),
+    json(),
     ...prodSettings,
   ],
   output: {
