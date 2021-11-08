@@ -4,6 +4,10 @@ on:
     branches:
       - 'release/*'
 
+concurrency:
+  group: automerge-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   automerge:
     runs-on: ubuntu-20.04
