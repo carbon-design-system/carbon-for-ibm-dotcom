@@ -103,7 +103,14 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
-  border-bottom: 1px solid $gray-40;
+
+  @include carbon--breakpoint('md') {
+    padding-bottom: 2rem;
+  }
+
+  @include carbon--breakpoint('lg') {
+    padding-bottom: 6rem;
+  }
 
   ::slotted(#{$dds-prefix}-cta-block-item) {
     margin-top: $spacing-07;
@@ -118,14 +125,10 @@
 
   ::slotted(#{$dds-prefix}-cta-block-item:last-of-type) {
     border: 0;
-    padding-bottom: carbon--rem(64px);
+    padding-bottom: 0;
 
     @include carbon--breakpoint('md') {
-      padding-bottom: carbon--rem(96px);
-    }
-
-    @include carbon--breakpoint('lg') {
-      padding-bottom: carbon--rem(160px);
+      padding-bottom: 2rem;
     }
   }
 
