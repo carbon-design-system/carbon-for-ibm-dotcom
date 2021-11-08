@@ -6,6 +6,10 @@ on:
       - master
       - release/*
 
+concurrency:
+  group: release-preflight-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   react:
     runs-on: ubuntu-20.04
