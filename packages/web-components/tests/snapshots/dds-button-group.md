@@ -24,7 +24,10 @@
     aria-hidden="true"
     class="bx--btn--hidden"
   >
-    (https://example.com)
+    <span>
+      :
+    </span>
+    https://example.com
   </p>
   <slot name="icon">
   </slot>

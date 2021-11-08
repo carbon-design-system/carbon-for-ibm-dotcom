@@ -78,9 +78,14 @@
         @media print {
           display: inline-block;
           visibility: visible;
-          margin: 0 $spacing-03;
           font-weight: 200;
           color: $gray-100;
+
+          span {
+            font-weight: 600;
+            margin-left: calc(-1 * #{$spacing-02});
+            margin-right: $spacing-02;
+          }
         }
       }
     }
