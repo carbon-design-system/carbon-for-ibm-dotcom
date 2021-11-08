@@ -374,6 +374,14 @@
     }
   }
 
+  :host(#{$dds-prefix}-card-footer) a,
+  :host(#{$dds-prefix}-card-cta-footer) a,
+  :host(#{$dds-prefix}-card-in-card-footer) a {
+    @include carbon--breakpoint('md') {
+      padding-right: $carbon--spacing-07;
+    }
+  }
+
   :host(#{$dds-prefix}-feature-cta-footer) a {
     svg,
     ::slotted(svg[slot='icon']) {
