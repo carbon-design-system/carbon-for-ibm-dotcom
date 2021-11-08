@@ -98,6 +98,12 @@ class DDSCardFooter extends DDSLinkWithIcon {
   parentHref?: string;
 
   /**
+   * Positions the icon inline with text when `true`
+   */
+  @property({ type: Boolean })
+  iconInline = true;
+
+  /**
    * The slot in parent `<dds-card>`.
    */
   @property({ reflect: true })
@@ -112,11 +118,15 @@ class DDSCardFooter extends DDSLinkWithIcon {
       this.shadowRoot?.querySelector(`a`)?.removeAttribute('aria-label');
     }
 
-    const { iconPlacement, _staticNode: staticNode, _linkNode: linkNode } = this;
+    const { iconInline, iconPlacement, _staticNode: staticNode, _linkNode: linkNode } = this;
     const targetNode = linkNode ?? staticNode;
     targetNode!.classList.add(`${prefix}--card__footer`);
     targetNode!.classList.add(`${ddsPrefix}-ce--card__footer`);
     targetNode!.classList.toggle(`${prefix}--card__footer__icon-left`, iconPlacement === ICON_PLACEMENT.LEFT);
+
+    if (iconInline && iconPlacement === ICON_PLACEMENT.RIGHT) {
+      targetNode!.classList.add(`${prefix}--link-with-icon--inline-icon`);
+    }
   }
 
   static get stableSelector() {
