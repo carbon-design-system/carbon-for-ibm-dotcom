@@ -6,7 +6,8 @@ on:
     types: [opened,closed,synchronize]
 
 jobs:
-  CLAssistant:
+  DCOssistant:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-latest
     steps:
       - name: "DCO Assistant"
