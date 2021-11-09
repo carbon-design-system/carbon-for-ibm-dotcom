@@ -521,7 +521,7 @@ describe('Footer | default (mobile)', () => {
     });
   });
 });
-    
+
 describe('Footer | Default language only (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefaultLanguageOnly}`);
@@ -563,7 +563,6 @@ describe('Footer | Default language only (mobile)', () => {
     });
   });
 });
-
 
 describe('Footer | Short (mobile)', () => {
   beforeEach(() => {

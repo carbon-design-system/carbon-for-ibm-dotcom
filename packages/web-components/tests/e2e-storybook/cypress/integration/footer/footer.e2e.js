@@ -537,7 +537,7 @@ describe('dds-footer | default (mobile)', () => {
 
     cy.screenshot();
   });
-  
+
   it('should load all 4 interactable legal links', () => {
     cy.get(`dds-legal-nav-item`).should('have.length', 4);
 
