@@ -33,6 +33,10 @@
 
     margin-left: 0;
     padding-left: 0;
+
+    @include carbon--breakpoint('lg') {
+      margin-top: $spacing-09;
+    }
   }
 
   ::slotted(#{$dds-prefix}-content-block-copy) {
@@ -56,7 +60,7 @@
     margin-bottom: $carbon--layout-03;
 
     @include carbon--breakpoint('md') {
-      margin-bottom: 0;
+      margin-bottom: $carbon--layout-05;
     }
   }
 
