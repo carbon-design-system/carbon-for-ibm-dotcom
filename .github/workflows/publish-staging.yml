@@ -5,8 +5,13 @@ on:
     tags:
       - 'v*'
 
+concurrency:
+  group: publish-staging-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   publish:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

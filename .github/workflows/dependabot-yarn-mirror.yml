@@ -2,8 +2,13 @@ name: dependabot-yarn-mirror
 
 on: [pull_request]
 
+concurrency:
+  group: dependabot-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   update-offline-mirror:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     strategy:
       matrix:
