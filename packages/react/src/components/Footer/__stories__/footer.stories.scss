@@ -1,0 +1,14 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+
+.default-language-only {
+  @include carbon--breakpoint(lg) {
+    padding-top: 15rem;
+  }
+}
