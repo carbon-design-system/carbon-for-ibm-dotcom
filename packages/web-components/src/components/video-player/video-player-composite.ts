@@ -42,7 +42,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    *
    * @internal
    */
-  _embedMedia?: (videoId: string, backgroundMode: boolean) => Promise<any>;
+  _embedMedia?: (videoId: string, backgroundMode?: boolean) => Promise<any>;
 
   /**
    * The placeholder for `_setAutoplayPreference()` Redux action that may be mixed in.
