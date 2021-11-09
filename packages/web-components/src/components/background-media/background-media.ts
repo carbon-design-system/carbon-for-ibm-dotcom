@@ -51,6 +51,15 @@ class DDSBackgroundMedia extends DDSImage {
     });
   }
 
+  @property({ attribute: 'opacity', reflect: true })
+  backgroundOpacity: number = 100;
+
+  /**
+   * Set to true in _handleBackgroundMedia if all children are `dds-image-item`
+   */
+  @property()
+  containsOnlyImages = false;
+
   /**
    * Gradient Direction (left-to-right (default) | top-to-bottom)
    */
@@ -64,25 +73,16 @@ class DDSBackgroundMedia extends DDSImage {
   mobilePosition = MOBILE_POSITION.BOTTOM;
 
   /**
-   * Set to true in _handleBackgroundMedia if all children are `dds-image-item`
-   */
-  @property()
-  containsOnlyImages = false;
-
-  /**
    * Set to true in _handleBackgroundMedia if any children are `dds-video-player-container`
    */
   @property()
   videoId: String | null = null;
 
   @property()
-  videoPlayer: DDSVideoPlayer | null = null;
-
-  @property()
   videoIsPlaying: Boolean = false;
 
-  @property({ attribute: 'opacity', reflect: true })
-  backgroundOpacity: number = 100;
+  @property()
+  videoPlayer: DDSVideoPlayer | null = null;
 
   /**
    * Conditionally runs super.render() if all children are `dds-image-item`
@@ -92,7 +92,7 @@ class DDSBackgroundMedia extends DDSImage {
     const assignedImages = assignedElements.filter(el => el.tagName === `${ddsPrefix}-image-item`.toUpperCase());
     const assignedVideos = assignedElements.filter(el => el.tagName === `${ddsPrefix}-video-player-container`.toUpperCase());
 
-    if (assignedElements.length === assignedImages.length && assignedImages.length > 0) {
+    if (assignedElements.length === assignedImages.length && !assignedVideos.length) {
       this.containsOnlyImages = true;
     }
 
@@ -107,15 +107,6 @@ class DDSBackgroundMedia extends DDSImage {
   toggleVideoState() {
     this.videoPlayer?.userInitiatedTogglePlaybackState();
     this.videoIsPlaying = !this.videoIsPlaying;
-  }
-
-  /**
-   * Append the dds-background-media to the parent element where this component is being used.
-   */
-  updated() {
-    if (this.mobilePosition === MOBILE_POSITION.TOP) {
-      this.parentElement?.shadowRoot?.prepend(this);
-    }
   }
 
   renderVideoControls() {
@@ -141,6 +132,15 @@ class DDSBackgroundMedia extends DDSImage {
     return '';
   }
 
+  /**
+   * Append the dds-background-media to the parent element where this component is being used.
+   */
+  updated() {
+    if (this.mobilePosition === MOBILE_POSITION.TOP) {
+      this.parentElement?.shadowRoot?.prepend(this);
+    }
+  }
+
   render() {
     return html`
       <div class="${this._getMobilePositionClass()}">
@@ -150,7 +150,7 @@ class DDSBackgroundMedia extends DDSImage {
           <slot @slotchange="${this._handleBackgroundMedia}"></slot>
         </div>
       </div>
-      ${this.videoId ? this.renderVideoControls() : this.renderVideoControls()}
+      ${this.videoId ? this.renderVideoControls() : ''}
     `;
   }
 
