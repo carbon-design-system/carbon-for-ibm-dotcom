@@ -146,7 +146,7 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
   /**
    * `true` to autoplay, mute video, and hide UI
    */
-  @internalProperty()
+  @property({ attribute: 'background-mode', reflect: true })
   backgroundMode: boolean = false;
 
   /**

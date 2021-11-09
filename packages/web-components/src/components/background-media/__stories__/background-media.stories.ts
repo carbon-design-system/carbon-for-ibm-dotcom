@@ -44,12 +44,28 @@ export const Default = ({ parameters }) => {
 export const WithVideo = ({ parameters }) => {
   const { gradientDirection, backgroundOpacity } = parameters?.props?.['dds-background-media'] ?? {};
   return html`
+    <div style="height: 70vh;">
+      <dds-background-media
+        gradient-direction="${ifNonNull(gradientDirection)}"
+        mobile-position="bottom"
+        opacity="${ifNonNull(backgroundOpacity)}"
+      >
+        <dds-video-player-container playing-mode="inline" video-id="1_9h94wo6b" background-mode="true"></dds-video-player-container>
+      </dds-background-media>
+    </div>
+  `;
+};
+
+export const WithDefaultSource = ({ parameters }) => {
+  const { alt, gradientDirection, backgroundOpacity } = parameters?.props?.['dds-background-media'] ?? {};
+  return html`
     <dds-background-media
       gradient-direction="${ifNonNull(gradientDirection)}"
       mobile-position="bottom"
+      alt="${ifNonNull(alt)}"
+      default-src="${imgMax}"
       opacity="${ifNonNull(backgroundOpacity)}"
     >
-      <dds-video-player-container playing-mode="inline" video-id="1_9h94wo6b" background-mode="true"></dds-video-player-container>
     </dds-background-media>
   `;
 };

@@ -13,6 +13,7 @@
 @mixin background-media {
   :host(#{$dds-prefix}-background-media) {
     position: relative;
+    height: 100%;
     display: block;
     outline: none;
   }
