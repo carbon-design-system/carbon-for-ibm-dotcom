@@ -16,13 +16,6 @@
     </slot>
   </div>
 </div>
-<button
-  aria-label="Play the video"
-  aria-pressed="true"
-  class="bx--video-player__controls"
-  hastooltip=""
->
-</button>
 
 ```
 
@@ -40,13 +33,6 @@
     </slot>
   </div>
 </div>
-<button
-  aria-label="Play the video"
-  aria-pressed="true"
-  class="bx--video-player__controls"
-  hastooltip=""
->
-</button>
 
 ```
 
