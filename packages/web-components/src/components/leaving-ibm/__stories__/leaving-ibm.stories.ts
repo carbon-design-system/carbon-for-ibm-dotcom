@@ -26,7 +26,7 @@ export default {
   parameters: {
     ...readme.parameters,
     percy: {
-      skip: navigator.vendor.match(/apple/i), // skip in percy for Safari
+      skip: navigator.userAgent.indexOf('Safari') !== -1, // skip in percy for Safari
     },
     knobs: {
       'leaving-ibm': ({ groupId }) => ({
