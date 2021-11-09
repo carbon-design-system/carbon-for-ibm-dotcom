@@ -19,6 +19,7 @@ const rtlcss = require('rtlcss');
 const resolve = require('rollup-plugin-node-resolve');
 const babel = require('rollup-plugin-babel');
 const commonjs = require('rollup-plugin-commonjs');
+const json = require('rollup-plugin-json');
 const replace = require('rollup-plugin-replace');
 const { terser } = require('rollup-plugin-terser');
 const multiInput = require('rollup-plugin-multi-input').default;
@@ -145,6 +146,7 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
         ],
         extensions: ['.js', '.ts'],
       }),
+      json(),
       commonjs({
         include: [/node_modules/],
         sourceMap: true,
