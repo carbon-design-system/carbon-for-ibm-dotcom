@@ -223,6 +223,9 @@ withImages.story = {
   name: 'With images',
   parameters: {
     ...readme.parameters,
+    percy: {
+      skip: navigator.vendor.match(/apple/i), // skip in percy for Safari
+    },
     knobs: {
       CardGroup: ({ groupId }) => ({
         cards: Array.from({

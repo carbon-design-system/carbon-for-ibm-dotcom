@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,6 +25,9 @@ export default {
   title: 'Components/Leaving IBM',
   parameters: {
     ...readme.parameters,
+    percy: {
+      skip: navigator.vendor.match(/apple/i), // skip in percy for Safari
+    },
     knobs: {
       'leaving-ibm': ({ groupId }) => ({
         open: boolean('open (open)', true, groupId),
