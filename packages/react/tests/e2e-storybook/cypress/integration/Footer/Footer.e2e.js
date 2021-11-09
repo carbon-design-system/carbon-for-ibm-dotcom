@@ -23,6 +23,14 @@ const _pathDefaultLanguageOnly =
   '/iframe.html?id=components-footer--default-language-only';
 
 /**
+ * Sets the correct path (Short)
+ *
+ * @type {string}
+ * @private
+ */
+const _pathShort = '/iframe.html?id=components-footer--short';
+
+/**
  * Sets the correct path (Short language only)
  *
  * @type {string}
@@ -52,85 +60,6 @@ describe('Footer | default (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
     cy.viewport(1280, 780);
-  });
-
-  it('should have interactable url for IBM logo', () => {
-    cy.get('[data-autoid="dds--footer-logo__link"]').then($link => {
-      const url = $link.prop('href');
-      expect(url).not.to.be.empty;
-    });
-  });
-
-  it('should load locale modal', () => {
-    const localeButton = cy.get(`[data-autoid="dds--locale-btn"]`);
-    localeButton.click();
-
-    cy.screenshot();
-  });
-
-  it('should load the Americas region with its languages and locations', () => {
-    const localeButton = cy.get(`[data-autoid="dds--locale-btn"]`);
-    localeButton.click();
-
-    cy.get('[data-region="am"]').click();
-
-    cy.get('.bx--locale-modal__locales').should('have.length', 35);
-
-    cy.screenshot();
-
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Footer | Americas region selected', {
-      widths: [1280],
-    });
-  });
-
-  it('should be able to search with keywords for locations and languages', () => {
-    const localeButton = cy.get(`[data-autoid="dds--locale-btn"]`);
-    localeButton.click();
-
-    cy.get('[data-region="am"]').click();
-    cy.get('[data-autoid="dds--locale-modal__filter"]').type('mexico', {
-      force: true,
-    });
-
-    cy.get(
-      '.bx--locale-modal__locales:not(.bx--locale-modal__locales-hidden) > div'
-    )
-      .first()
-      .then(e => {
-        expect(e.text()).to.equal('Mexico');
-      });
-
-    cy.screenshot();
-
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Footer | Mexico locale found', {
-      widths: [1280],
-    });
-  });
-
-  it('should load all the 38 navigation links', () => {
-    cy.get(`[data-autoid="dds--footer-nav-group__link"]`).should(
-      'have.length',
-      38
-    );
-    cy.screenshot();
-  });
-
-  it('should load all 4 interactable legal links', () => {
-    cy.get(`[data-autoid^='dds--footer-legal-nav__']`).should('have.length', 4);
-
-    cy.get(`[data-autoid^='dds--footer-legal-nav__']`).each($link => {
-      const url = $link.prop('href');
-      expect(url).not.to.be.empty;
-    });
-  });
-});
-
-describe('Footer | default (mobile)', () => {
-  beforeEach(() => {
-    cy.visit(`/${_pathDefault}`);
-    cy.viewport(320, 780);
   });
 
   it('should have interactable url for IBM logo', () => {
@@ -267,6 +196,135 @@ describe('Footer | Default language only (desktop)', () => {
   });
 });
 
+describe('Footer | Short (desktop)', () => {
+  beforeEach(() => {
+    cy.visit(`${_pathShort}`);
+    cy.viewport(1280, 780);
+  });
+
+  it('should display clickable IBM logo', () => {
+    cy.get('a[data-autoid="dds--footer-logo__link"]').then($link => {
+      const url = $link.prop('href');
+      expect(url).not.to.be.empty;
+    });
+
+    cy.screenshot();
+
+    cy.percySnapshot('Footer | Short | load clickable IBM logo', {
+      widths: [1280],
+    });
+  });
+
+  it('should open locale modal with 4 geos when clicked on locale button', () => {
+    cy.get('button[data-autoid="dds--locale-btn"]').click();
+
+    cy.wait(500);
+
+    cy.get('div[data-autoid="dds--locale-modal"]').should('have.attr', 'open');
+
+    cy.get('[data-autoid="dds--locale-modal"] [data-region]').should(
+      'have.length',
+      4
+    );
+
+    cy.screenshot();
+
+    cy.percySnapshot(
+      'Footer | Short | open locale modal with 4 geos when clicked on locale button',
+      {
+        widths: [1280],
+      }
+    );
+  });
+
+  it('should display the specific locations and languages of a selected geo', () => {
+    cy.get('button[data-autoid="dds--locale-btn"]').click();
+
+    cy.wait(500);
+
+    cy.get(
+      '[data-autoid="dds--locale-modal"] [data-autoid="dds--card"][data-region="mea"]'
+    )
+      .find('a')
+      .click();
+
+    cy.wait(500);
+
+    cy.get('[data-autoid="dds--locale-modal"]')
+      .find('ul li a[href][data-region]')
+      .each($locale => {
+        if (!$locale.attr('data-region') === 'mea') {
+          $locale.should('not.be.visible');
+        }
+      });
+
+    cy.screenshot();
+
+    cy.percySnapshot(
+      'Footer | Short | display the specific locations and languages of a selected geo',
+      {
+        widths: [1280],
+      }
+    );
+  });
+
+  it('should display interactive search field and with keywords for locations and languages', () => {
+    cy.get('button[data-autoid="dds--locale-btn"]').click();
+
+    cy.wait(500);
+
+    cy.get(
+      '[data-autoid="dds--locale-modal"] [data-autoid="dds--card"][data-region="am"]'
+    )
+      .find('a')
+      .click();
+
+    cy.wait(500);
+
+    cy.get('input[data-autoid="dds--locale-modal__filter"]')
+      .type('gen')
+      .get(
+        '.bx--locale-modal__list li a:not(.bx--locale-modal__locales-hidden)'
+      )
+      .contains('Argentina');
+
+    cy.get('.bx--locale-modal__search input')
+      .clear()
+      .type('por')
+      .get(
+        '.bx--locale-modal__list li a:not(.bx--locale-modal__locales-hidden)'
+      )
+      .contains('Brazil (Brasil)');
+
+    cy.screenshot();
+
+    cy.percySnapshot(
+      'Footer | Short | display interactive search field and with keywords for locations and languages',
+      {
+        widths: [1280],
+      }
+    );
+  });
+
+  it('should load footer legal navigation with clickable links', () => {
+    cy.get('[data-autoid="dds--footer-legal-nav"]')
+      .find('li a')
+      .each($link => {
+        const url = $link.prop('href');
+        expect(url).not.to.be.empty;
+      });
+
+    cy.screenshot();
+
+    cy.percySnapshot(
+      'Footer | Short | load footer legal navigation with clickable links',
+      {
+        widths: [1280],
+      }
+    );
+  });
+});
+
 describe('Footer | Short language only (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathShortLanguageOnly}`);
@@ -385,6 +443,85 @@ describe('Footer | Micro language only (desktop)', () => {
   });
 });
 
+describe('Footer | default (mobile)', () => {
+  beforeEach(() => {
+    cy.visit(`/${_pathDefault}`);
+    cy.viewport(320, 780);
+  });
+
+  it('should have interactable url for IBM logo', () => {
+    cy.get('[data-autoid="dds--footer-logo__link"]').then($link => {
+      const url = $link.prop('href');
+      expect(url).not.to.be.empty;
+    });
+  });
+
+  it('should load locale modal', () => {
+    const localeButton = cy.get(`[data-autoid="dds--locale-btn"]`);
+    localeButton.click();
+
+    cy.screenshot();
+  });
+
+  it('should load the Americas region with its languages and locations', () => {
+    const localeButton = cy.get(`[data-autoid="dds--locale-btn"]`);
+    localeButton.click();
+
+    cy.get('[data-region="am"]').click();
+
+    cy.get('.bx--locale-modal__locales').should('have.length', 35);
+
+    cy.screenshot();
+
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('Footer | Americas region selected', {
+      widths: [1280],
+    });
+  });
+
+  it('should be able to search with keywords for locations and languages', () => {
+    const localeButton = cy.get(`[data-autoid="dds--locale-btn"]`);
+    localeButton.click();
+
+    cy.get('[data-region="am"]').click();
+    cy.get('[data-autoid="dds--locale-modal__filter"]').type('mexico', {
+      force: true,
+    });
+
+    cy.get(
+      '.bx--locale-modal__locales:not(.bx--locale-modal__locales-hidden) > div'
+    )
+      .first()
+      .then(e => {
+        expect(e.text()).to.equal('Mexico');
+      });
+
+    cy.screenshot();
+
+    // Take a snapshot for visual diffing
+    cy.percySnapshot('Footer | Mexico locale found', {
+      widths: [1280],
+    });
+  });
+
+  it('should load all the 38 navigation links', () => {
+    cy.get(`[data-autoid="dds--footer-nav-group__link"]`).should(
+      'have.length',
+      38
+    );
+    cy.screenshot();
+  });
+
+  it('should load all 4 interactable legal links', () => {
+    cy.get(`[data-autoid^='dds--footer-legal-nav__']`).should('have.length', 4);
+
+    cy.get(`[data-autoid^='dds--footer-legal-nav__']`).each($link => {
+      const url = $link.prop('href');
+      expect(url).not.to.be.empty;
+    });
+  });
+});
+    
 describe('Footer | Default language only (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefaultLanguageOnly}`);
@@ -424,6 +561,136 @@ describe('Footer | Default language only (mobile)', () => {
       const url = $link.prop('href');
       expect(url).not.to.be.empty;
     });
+  });
+});
+
+
+describe('Footer | Short (mobile)', () => {
+  beforeEach(() => {
+    cy.visit(`${_pathShort}`);
+    cy.viewport(320, 780);
+  });
+
+  it('should display clickable IBM logo', () => {
+    cy.get('a[data-autoid="dds--footer-logo__link"]').then($link => {
+      const url = $link.prop('href');
+      expect(url).not.to.be.empty;
+    });
+
+    cy.screenshot();
+
+    cy.percySnapshot('Footer | Short | load clickable IBM logo', {
+      widths: [320],
+    });
+  });
+
+  it('should open locale modal with 4 geos when clicked on locale button', () => {
+    cy.get('button[data-autoid="dds--locale-btn"]').click();
+
+    cy.wait(500);
+
+    cy.get('div[data-autoid="dds--locale-modal"]').should('have.attr', 'open');
+
+    cy.get('[data-autoid="dds--locale-modal"] [data-region]').should(
+      'have.length',
+      4
+    );
+
+    cy.screenshot();
+
+    cy.percySnapshot(
+      'Footer | Short | open locale modal with 4 geos when clicked on locale button',
+      {
+        widths: [320],
+      }
+    );
+  });
+
+  it('should display the specific locations and languages of a selected geo', () => {
+    cy.get('button[data-autoid="dds--locale-btn"]').click();
+
+    cy.wait(500);
+
+    cy.get(
+      '[data-autoid="dds--locale-modal"] [data-autoid="dds--card"][data-region="mea"]'
+    )
+      .find('a')
+      .click();
+
+    cy.wait(500);
+
+    cy.get('[data-autoid="dds--locale-modal"]')
+      .find('ul li a[href][data-region]')
+      .each($locale => {
+        if (!$locale.attr('data-region') === 'mea') {
+          $locale.should('not.be.visible');
+        }
+      });
+
+    cy.screenshot();
+
+    cy.percySnapshot(
+      'Footer | Short | display the specific locations and languages of a selected geo',
+      {
+        widths: [320],
+      }
+    );
+  });
+
+  it('should display interactive search field and with keywords for locations and languages', () => {
+    cy.get('button[data-autoid="dds--locale-btn"]').click();
+
+    cy.wait(500);
+
+    cy.get(
+      '[data-autoid="dds--locale-modal"] [data-autoid="dds--card"][data-region="am"]'
+    )
+      .find('a')
+      .click();
+
+    cy.wait(500);
+
+    cy.get('input[data-autoid="dds--locale-modal__filter"]')
+      .type('gen')
+      .get(
+        '.bx--locale-modal__list li a:not(.bx--locale-modal__locales-hidden)'
+      )
+      .contains('Argentina');
+
+    cy.get('.bx--locale-modal__search input')
+      .clear()
+      .type('por')
+      .get(
+        '.bx--locale-modal__list li a:not(.bx--locale-modal__locales-hidden)'
+      )
+      .contains('Brazil (Brasil)');
+
+    cy.screenshot();
+
+    cy.percySnapshot(
+      'Footer | Short | display interactive search field and with keywords for locations and languages',
+      {
+        widths: [320],
+      }
+    );
+  });
+
+  it('should load footer legal navigation with clickable links', () => {
+    cy.get('[data-autoid="dds--footer-legal-nav"]')
+      .find('li a')
+      .each($link => {
+        const url = $link.prop('href');
+        expect(url).not.to.be.empty;
+      });
+
+    cy.screenshot();
+
+    cy.percySnapshot(
+      'Footer | Short | load footer legal navigation with clickable links',
+      {
+        widths: [320],
+      }
+    );
   });
 });
 
