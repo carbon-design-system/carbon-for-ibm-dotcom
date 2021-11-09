@@ -6,8 +6,13 @@ on:
       - master
       - release/*
 
+concurrency:
+  group: release-preflight-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  react:
+  preflight:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
