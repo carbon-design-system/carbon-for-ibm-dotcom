@@ -29,6 +29,9 @@ export const Default = () => {
 export default {
   title: 'Components/Back to top',
   parameters: {
+    percy: {
+      waitForTimeout: 800,
+    },
     ...readme.parameters,
   },
 };

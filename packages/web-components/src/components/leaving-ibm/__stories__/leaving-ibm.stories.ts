@@ -26,7 +26,7 @@ export default {
   parameters: {
     ...readme.parameters,
     percy: {
-      skip: navigator.userAgent.indexOf('Safari') !== -1, // skip in percy for Safari
+      waitForTimeout: 800,
     },
     knobs: {
       'leaving-ibm': ({ groupId }) => ({

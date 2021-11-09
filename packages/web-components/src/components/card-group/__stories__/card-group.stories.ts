@@ -224,7 +224,7 @@ withImages.story = {
   parameters: {
     ...readme.parameters,
     percy: {
-      skip: navigator.userAgent.indexOf('Safari') !== -1, // skip in percy for Safari
+      waitForTimeout: 800,
     },
     knobs: {
       CardGroup: ({ groupId }) => ({
