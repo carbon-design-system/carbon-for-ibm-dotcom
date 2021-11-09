@@ -7,8 +7,13 @@ on:
       - release/*
       - chore/carbon-upgrade-*
 
+concurrency:
+  group: snapshot-update-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   react:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     strategy:
       matrix:

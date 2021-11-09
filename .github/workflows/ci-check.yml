@@ -2,6 +2,10 @@ name: ci-check
 
 on: [push, pull_request]
 
+concurrency:
+  group: ci-check-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   check-packages:
     runs-on: ubuntu-20.04
