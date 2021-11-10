@@ -19,7 +19,7 @@ const _pathMedium = '/iframe.html?id=components-feature-card--default';
  * @type {string}
  * @private
  */
- const _pathLarge = '/iframe.html?id=components-feature-card--large';
+const _pathLarge = '/iframe.html?id=components-feature-card--large';
 
 /* eslint-disable cypress/no-unnecessary-waiting */
 describe('Feature Card | medium', () => {
@@ -29,34 +29,31 @@ describe('Feature Card | medium', () => {
   });
 
   it('should check for link', () => {
-    cy.get('.bx--feature-card a.bx--link')
-      .then($link => {
-        const url = $link.prop('href');
-        expect(url).not.to.be.empty;
-      });
+    cy.get('.bx--feature-card a.bx--link').then($link => {
+      const url = $link.prop('href');
+      expect(url).not.to.be.empty;
+    });
 
     cy.screenshot();
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('FeatureCard |has link', {
+    // cy.percySnapshot('FeatureCard | has link', {
     //   widths: [1280],
     // });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
+    cy.get('.bx--feature-card a.bx--link').then($els => {
+      const win = $els[0].ownerDocument.defaultView;
+      const after = win.getComputedStyle($els[0], 'after');
+      const positionValue = after.getPropertyValue('position');
+      const insetValue = after.getPropertyValue('inset');
 
-    cy.get('.bx--feature-card a.bx--link')
-		.then($els => {
-			const win = $els[0].ownerDocument.defaultView;
-			const after = win.getComputedStyle($els[0], 'after');
-			const positionValue = after.getPropertyValue('position');
-			const insetValue = after.getPropertyValue('inset');
+      expect(positionValue).to.eq('absolute');
+      expect(insetValue).to.eq('0px');
+    });
 
-			expect(positionValue).to.eq('absolute')
-			expect(insetValue).to.eq('0px')
-		});
-
-		cy.screenshot();
+    cy.screenshot();
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
     // cy.percySnapshot('FeatureCard |clickable section', {
@@ -64,30 +61,32 @@ describe('Feature Card | medium', () => {
     // });
   });
 
-	it('should have image on the left and content on the right side of the card', () => {
-		
+  it('should have image on the left and content on the right side of the card', () => {
     // TODO: currently React's FeatureCard stories aren't left aligned,
     // update these values when they become as such
 
-		// image takes the left half
-		cy.get('.bx--image').then($image => {
-			expect($image[0].getBoundingClientRect().left).to.equal(344);
-			expect($image[0].getBoundingClientRect().right).to.equal(640);
-		});
+    // image takes the left half
+    cy.get('.bx--image').then($image => {
+      expect($image[0].getBoundingClientRect().left).to.equal(344);
+      expect($image[0].getBoundingClientRect().right).to.equal(640);
+    });
 
-		// image takes the right half
-		cy.get('.bx--card__wrapper').then($content => {
-			expect($content[0].getBoundingClientRect().left).to.equal(640);
-			expect($content[0].getBoundingClientRect().right).to.equal(936);
-		});
+    // image takes the right half
+    cy.get('.bx--card__wrapper').then($content => {
+      expect($content[0].getBoundingClientRect().left).to.equal(640);
+      expect($content[0].getBoundingClientRect().right).to.equal(936);
+    });
   });
 
-	it('should load the g10 theme', () => {
+  it('should load the g10 theme', () => {
     cy.visit(`/${_pathMedium}&theme=g10`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g10');
+      win.document.documentElement.setAttribute(
+        'storybook-carbon-theme',
+        'g10'
+      );
 
       cy.screenshot();
       // Take a snapshot for visual diffing
@@ -98,12 +97,15 @@ describe('Feature Card | medium', () => {
     });
   });
 
-	it('should load the g90 theme', () => {
+  it('should load the g90 theme', () => {
     cy.visit(`/${_pathMedium}&theme=g90`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g90');
+      win.document.documentElement.setAttribute(
+        'storybook-carbon-theme',
+        'g90'
+      );
 
       cy.screenshot();
       // Take a snapshot for visual diffing
@@ -119,7 +121,10 @@ describe('Feature Card | medium', () => {
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g100');
+      win.document.documentElement.setAttribute(
+        'storybook-carbon-theme',
+        'g100'
+      );
 
       cy.screenshot();
       // Take a snapshot for visual diffing
@@ -138,98 +143,36 @@ describe('FeatureCard medium (mobile)', () => {
   });
 
   it('should check for link', () => {
-    cy.get('.bx--feature-card a.bx--link')
-      .then($link => {
-        const url = $link.prop('href');
-        expect(url).not.to.be.empty;
-      });
+    cy.get('.bx--feature-card a.bx--link').then($link => {
+      const url = $link.prop('href');
+      expect(url).not.to.be.empty;
+    });
 
     cy.screenshot();
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('FeatureCard |has link', {
+    // cy.percySnapshot('FeatureCard | has link', {
     //   widths: [1280],
     // });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
-    cy.get('.bx--feature-card a.bx--link')
-		.then($els => {
-			const win = $els[0].ownerDocument.defaultView;
-			const after = win.getComputedStyle($els[0], 'after');
-			const positionValue = after.getPropertyValue('position');
-			const insetValue = after.getPropertyValue('inset');
+    cy.get('.bx--feature-card a.bx--link').then($els => {
+      const win = $els[0].ownerDocument.defaultView;
+      const after = win.getComputedStyle($els[0], 'after');
+      const positionValue = after.getPropertyValue('position');
+      const insetValue = after.getPropertyValue('inset');
 
-			expect(positionValue).to.eq('absolute')
-			expect(insetValue).to.eq('0px')
-		})
-		
-		cy.screenshot();
+      expect(positionValue).to.eq('absolute');
+      expect(insetValue).to.eq('0px');
+    });
+
+    cy.screenshot();
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
     // cy.percySnapshot('FeatureCard |clickable section', {
     //   widths: [1280],
     // });
-  });
-
-	it('should have image on the left and content on the right half of the card', () => {
-		
-		// image takes the left half
-		cy.get('.bx--image').then($image => {
-			expect($image[0].getBoundingClientRect().top).to.equal(20);
-			expect($image[0].getBoundingClientRect().bottom).to.equal(164);
-		});
-
-		// image takes the right half
-		cy.get('.bx--card__wrapper').then($content => {
-			expect($content[0].getBoundingClientRect().top).to.equal(164);
-			expect($content[0].getBoundingClientRect().bottom).to.equal(324);
-		});
-  });
-
-	it('should load the g10 theme', () => {
-    cy.visit(`/${_pathMedium}&theme=g10`);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g10');
-
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('FeatureCard medium | g10 theme', {
-      //   widths: [1280],
-      // });
-    });
-  });
-
-	it('should load the g90 theme', () => {
-    cy.visit(`/${_pathMedium}&theme=g90`);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g90');
-
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('FeatureCard medium | g90 theme', {
-      //   widths: [1280],
-      // });
-    });
-  });
-
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_pathMedium}&theme=g100`);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g100');
-
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('FeatureCard medium | g100 theme', {
-      //   widths: [1280],
-      // });
-    });
   });
 });
 
@@ -240,33 +183,31 @@ describe('FeatureCard | large', () => {
   });
 
   it('should check for link', () => {
-    cy.get('.bx--feature-card-large a.bx--link')
-      .then($link => {
-        const url = $link.prop('href');
-        expect(url).not.to.be.empty;
-      });
+    cy.get('.bx--feature-card-large a.bx--link').then($link => {
+      const url = $link.prop('href');
+      expect(url).not.to.be.empty;
+    });
 
     cy.screenshot();
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('FeatureCard |has link', {
+    // cy.percySnapshot('FeatureCard | has link', {
     //   widths: [1280],
     // });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
-    cy.get('.bx--feature-card-large a.bx--link')
-		.then($els => {
-			const win = $els[0].ownerDocument.defaultView;
-			const after = win.getComputedStyle($els[0], 'after');
-			const positionValue = after.getPropertyValue('position');
-			const insetValue = after.getPropertyValue('inset');
+    cy.get('.bx--feature-card-large a.bx--link').then($els => {
+      const win = $els[0].ownerDocument.defaultView;
+      const after = win.getComputedStyle($els[0], 'after');
+      const positionValue = after.getPropertyValue('position');
+      const insetValue = after.getPropertyValue('inset');
 
-			expect(positionValue).to.eq('absolute')
-			expect(insetValue).to.eq('0px')
-		})
-		
-		cy.screenshot();
+      expect(positionValue).to.eq('absolute');
+      expect(insetValue).to.eq('0px');
+    });
+
+    cy.screenshot();
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
     // cy.percySnapshot('FeatureCard |clickable section', {
@@ -274,36 +215,44 @@ describe('FeatureCard | large', () => {
     // });
   });
 
-	it("should have eyebrow, heading, and copy content", () => {
-		cy.get('.bx--card__eyebrow').invoke('text').should('not.be.empty');
-		cy.get('.bx--card__heading').invoke('text').should('not.be.empty');
-		cy.get('.bx--card__copy').invoke('text').should('not.be.empty');
-	});
-
-	it('should have image on the left and content on the right half of the card', () => {
-
-    // TODO: currently React's FeatureCard stories aren't left aligned,
-    // update these values when they become as suc
-		
-		// image takes the left half
-		cy.get('.bx--image').then($image => {
-			expect($image[0].getBoundingClientRect().left).to.equal(187);
-			expect($image[0].getBoundingClientRect().right).to.equal(700);
-		});
-
-		// image takes the right half
-		cy.get('.bx--card__wrapper').then($content => {
-			expect($content[0].getBoundingClientRect().left).to.equal(700);
-			expect($content[0].getBoundingClientRect().right).to.equal(1213);
-		});
+  it('should have eyebrow, heading, and copy content', () => {
+    cy.get('.bx--card__eyebrow')
+      .invoke('text')
+      .should('not.be.empty');
+    cy.get('.bx--card__heading')
+      .invoke('text')
+      .should('not.be.empty');
+    cy.get('.bx--card__copy')
+      .invoke('text')
+      .should('not.be.empty');
   });
 
-	it('should load the g10 theme', () => {
+  it('should have image on the left and content on the right half of the card', () => {
+    // TODO: currently React's FeatureCard stories aren't left aligned,
+    // update these values when they become as suc
+
+    // image takes the left half
+    cy.get('.bx--image').then($image => {
+      expect($image[0].getBoundingClientRect().left).to.equal(187);
+      expect($image[0].getBoundingClientRect().right).to.equal(700);
+    });
+
+    // image takes the right half
+    cy.get('.bx--card__wrapper').then($content => {
+      expect($content[0].getBoundingClientRect().left).to.equal(700);
+      expect($content[0].getBoundingClientRect().right).to.equal(1213);
+    });
+  });
+
+  it('should load the g10 theme', () => {
     cy.visit(`/${_pathLarge}&theme=g10`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g10');
+      win.document.documentElement.setAttribute(
+        'storybook-carbon-theme',
+        'g10'
+      );
 
       cy.screenshot();
       // Take a snapshot for visual diffing
@@ -314,12 +263,15 @@ describe('FeatureCard | large', () => {
     });
   });
 
-	it('should load the g90 theme', () => {
+  it('should load the g90 theme', () => {
     cy.visit(`/${_pathLarge}&theme=g90`);
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g90');
+      win.document.documentElement.setAttribute(
+        'storybook-carbon-theme',
+        'g90'
+      );
 
       cy.screenshot();
       // Take a snapshot for visual diffing
@@ -335,7 +287,10 @@ describe('FeatureCard | large', () => {
     cy.viewport(1280, 780);
 
     cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g100');
+      win.document.documentElement.setAttribute(
+        'storybook-carbon-theme',
+        'g100'
+      );
 
       cy.screenshot();
       // Take a snapshot for visual diffing
@@ -354,31 +309,29 @@ describe('FeatureCard large (mobile)', () => {
   });
 
   it('should check for link', () => {
-    cy.get('.bx--feature-card-large a.bx--link')
-      .then($link => {
-        const url = $link.prop('href');
-        expect(url).not.to.be.empty;
-      });
+    cy.get('.bx--feature-card-large a.bx--link').then($link => {
+      const url = $link.prop('href');
+      expect(url).not.to.be.empty;
+    });
 
     cy.screenshot();
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('FeatureCard |has link', {
+    // cy.percySnapshot('FeatureCard | has link', {
     //   widths: [1280],
     // });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
-    cy.get('.bx--feature-card-large a.bx--link')
-		.then($els => {
-			const win = $els[0].ownerDocument.defaultView;
-			const after = win.getComputedStyle($els[0], 'after');
-			const positionValue = after.getPropertyValue('position');
-			const insetValue = after.getPropertyValue('inset');
+    cy.get('.bx--feature-card-large a.bx--link').then($els => {
+      const win = $els[0].ownerDocument.defaultView;
+      const after = win.getComputedStyle($els[0], 'after');
+      const positionValue = after.getPropertyValue('position');
+      const insetValue = after.getPropertyValue('inset');
 
-			expect(positionValue).to.eq('absolute')
-			expect(insetValue).to.eq('0px')
-		})
+      expect(positionValue).to.eq('absolute');
+      expect(insetValue).to.eq('0px');
+    });
 
     cy.screenshot();
     // Take a snapshot for visual diffing
@@ -386,80 +339,5 @@ describe('FeatureCard large (mobile)', () => {
     // cy.percySnapshot('FeatureCard |clickable section', {
     //   widths: [1280],
     // });
-  });
-
-	it("should have eyebrow, heading, and copy content", () => {
-		cy.get('.bx--card__eyebrow').invoke('text').should('not.be.empty');
-		cy.get('.bx--card__heading').invoke('text').should('not.be.empty');
-		cy.get('.bx--card__copy').invoke('text').should('not.be.empty');
-	});
-
-	it('should have image on the top and content on the bottom half of the card', () => {
-		
-		// image takes the left half
-		cy.get('.bx--image').then($image => {
-			expect($image[0].getBoundingClientRect().top).to.equal(20);
-			expect($image[0].getBoundingClientRect().bottom).to.equal(340);
-		});
-
-		// image takes the right half
-		cy.get('.bx--card__wrapper').then($content => {
-			expect($content[0].getBoundingClientRect().top).to.equal(340);
-			expect($content[0].getBoundingClientRect().bottom).to.equal(690);
-		});
-  });
-
-	it('should have an arrow icon be left aligned in the content in mobile view', () => {
-		const arrowPath = cy.get('.bx--card__wrapper a.bx--link svg path');
-
-    arrowPath.then($icon => {
-      expect($icon).to.have.attr('d', 'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z');
-			expect($icon[0].getBoundingClientRect().left).to.equal(17);
-    });
-	})
-
-	it('should load the g10 theme', () => {
-    cy.visit(`/${_pathLarge}&theme=g10`);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g10');
-
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('FeatureCard medium | g10 theme', {
-      //   widths: [1280],
-      // });
-    });
-  });
-
-	it('should load the g90 theme', () => {
-    cy.visit(`/${_pathLarge}&theme=g90`);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g90');
-
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('FeatureCard medium | g90 theme', {
-      //   widths: [1280],
-      // });
-    });
-  });
-
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_pathLarge}&theme=g100`);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g100');
-
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('FeatureCard medium | g100 theme', {
-      //   widths: [1280],
-      // });
-    });
   });
 });
