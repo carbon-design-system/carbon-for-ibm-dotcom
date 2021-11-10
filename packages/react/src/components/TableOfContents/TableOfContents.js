@@ -164,11 +164,10 @@ const TableOfContents = ({
    * @param {Array} menuItems array of Items
    * @returns {Array} filtered array of items
    */
-  const validateMenuItems = menuItems => {
-    return menuItems.filter(
-      item => item.title.trim().length > 0 && item.id.trim().length > 0
+  const validateMenuItems = menuItems =>
+    menuItems.filter(
+      item => item?.title?.trim().length && item?.id?.trim().length
     );
-  };
 
   /**
    * Props for TOCDesktop and TOCMobile
