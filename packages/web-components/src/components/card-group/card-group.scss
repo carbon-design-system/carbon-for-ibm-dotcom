@@ -34,7 +34,8 @@
   }
 }
 
-:host(#{$dds-prefix}-card-group)[grid-mode='collapsed'] {
+:host(#{$dds-prefix}-card-group)[grid-mode='collapsed'],
+:host(#{$dds-prefix}-card-group)[grid-mode='null'] {
   column-gap: 1px;
 }
 
@@ -56,7 +57,7 @@
 :host(#{$dds-prefix}-card-group-item),
 :host(#{$dds-prefix}-card-group-card-link-item) {
   padding-bottom: 0;
-  padding-right: 1px;
+  padding-right: 0;
 
   &[collapsed] {
     padding-right: 0;

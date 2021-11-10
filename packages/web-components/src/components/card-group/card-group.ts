@@ -245,6 +245,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
           // last column
           if ((index + 1) % columns === 0) {
             e.style.paddingRight = '0';
+            e.style.boxShadow = `0 0 0 ${borderColor}`;
           } else {
             // e.style.paddingRight = '1px';
             e.style.boxShadow = `1px 0 0 ${borderColor}`;
@@ -261,7 +262,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
           // last row
           if (Math.floor(index / columns) === Math.floor((this._childItems.length - 1) / columns)) {
             e.style.borderBottom = 'none';
-          } else if (!this._childItems?.[index + 3]) {
+          } else if (!this._childItems?.[index + 3] && columns === 3) {
             e.style.borderBottom = 'none';
           } else {
             e.style.borderBottom = `1px solid ${borderColor}`;
