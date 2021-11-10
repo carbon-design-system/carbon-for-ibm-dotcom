@@ -17,6 +17,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{github.event.pull_request.head.ref}}
+          token: ${{secrets.MERGE_ACTION}}
       - uses: fregante/setup-git-user@v1
       - name: Use Node.js
         uses: actions/setup-node@v2
