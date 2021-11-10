@@ -275,7 +275,9 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
             position: elem.getBoundingClientRect().y,
           }))
           .filter((elem, index, arr) =>
-            elem.height === null ? arr[index - 1].position < arr[index - 1].height! : elem.position - 50 > -elem.height
+            elem.height === null
+              ? arr[index - 1].position < arr[index - 1].height!
+              : elem.position - 50 - this.stickyOffset > -elem.height
           );
 
         // Sets last section as active at the end of page in case there is not enough height for it to dynamically activate
