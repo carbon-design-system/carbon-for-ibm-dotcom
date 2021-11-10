@@ -11,7 +11,7 @@
  * @type {string}
  * @private
  */
-const _pathMedium = '/iframe.html?id=components-feature-card--medium';
+const _pathMedium = '/iframe.html?id=components-feature-card--default';
 
 /**
  * Sets the correct path for the large variation
@@ -22,16 +22,14 @@ const _pathMedium = '/iframe.html?id=components-feature-card--medium';
  const _pathLarge = '/iframe.html?id=components-feature-card--large';
 
 /* eslint-disable cypress/no-unnecessary-waiting */
-describe('dds-feature-card | medium', () => {
+describe('Feature Card | medium', () => {
   beforeEach(() => {
     cy.visit(`/${_pathMedium}`);
     cy.viewport(1280, 780);
   });
 
   it('should check for link', () => {
-    cy.get('dds-feature-card > dds-feature-card-footer')
-      .shadow()
-      .find('a.bx--card__footer')
+    cy.get('.bx--feature-card a.bx--link')
       .then($link => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
@@ -40,16 +38,14 @@ describe('dds-feature-card | medium', () => {
     cy.screenshot();
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-feature-card | has link', {
+    // cy.percySnapshot('FeatureCard |has link', {
     //   widths: [1280],
     // });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
 
-		cy.get('dds-feature-card > dds-feature-card-footer')
-		.shadow()
-		.find('a')
+    cy.get('.bx--feature-card a.bx--link')
 		.then($els => {
 			const win = $els[0].ownerDocument.defaultView;
 			const after = win.getComputedStyle($els[0], 'after');
@@ -58,28 +54,31 @@ describe('dds-feature-card | medium', () => {
 
 			expect(positionValue).to.eq('absolute')
 			expect(insetValue).to.eq('0px')
-		})
-		
+		});
+
 		cy.screenshot();
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-feature-card | clickable section', {
+    // cy.percySnapshot('FeatureCard |clickable section', {
     //   widths: [1280],
     // });
   });
 
 	it('should have image on the left and content on the right side of the card', () => {
 		
+    // TODO: currently React's FeatureCard stories aren't left aligned,
+    // update these values when they become as such
+
 		// image takes the left half
-		cy.get('dds-image').then($image => {
-			expect($image[0].getBoundingClientRect().left).to.equal(32);
-			expect($image[0].getBoundingClientRect().right).to.equal(328);
+		cy.get('.bx--image').then($image => {
+			expect($image[0].getBoundingClientRect().left).to.equal(344);
+			expect($image[0].getBoundingClientRect().right).to.equal(640);
 		});
 
 		// image takes the right half
-		cy.get('dds-feature-card').shadow().find('.bx--card__wrapper').then($content => {
-			expect($content[0].getBoundingClientRect().left).to.equal(328);
-			expect($content[0].getBoundingClientRect().right).to.equal(624);
+		cy.get('.bx--card__wrapper').then($content => {
+			expect($content[0].getBoundingClientRect().left).to.equal(640);
+			expect($content[0].getBoundingClientRect().right).to.equal(936);
 		});
   });
 
@@ -93,7 +92,7 @@ describe('dds-feature-card | medium', () => {
       cy.screenshot();
       // Take a snapshot for visual diffing
       // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-feature-card | medium | g10 theme', {
+      // cy.percySnapshot('FeatureCard medium | g10 theme', {
       //   widths: [1280],
       // });
     });
@@ -109,7 +108,7 @@ describe('dds-feature-card | medium', () => {
       cy.screenshot();
       // Take a snapshot for visual diffing
       // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-feature-card | medium | g90 theme', {
+      // cy.percySnapshot('FeatureCard medium | g90 theme', {
       //   widths: [1280],
       // });
     });
@@ -125,23 +124,21 @@ describe('dds-feature-card | medium', () => {
       cy.screenshot();
       // Take a snapshot for visual diffing
       // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-feature-card | medium | g100 theme', {
+      // cy.percySnapshot('FeatureCard medium | g100 theme', {
       //   widths: [1280],
       // });
     });
   });
 });
 
-describe('dds-feature-card | medium (mobile)', () => {
+describe('FeatureCard medium (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathMedium}`);
     cy.viewport(320, 780);
   });
 
   it('should check for link', () => {
-    cy.get('dds-feature-card > dds-feature-card-footer')
-      .shadow()
-      .find('a.bx--card__footer')
+    cy.get('.bx--feature-card a.bx--link')
       .then($link => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
@@ -150,15 +147,13 @@ describe('dds-feature-card | medium (mobile)', () => {
     cy.screenshot();
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-feature-card | has link', {
+    // cy.percySnapshot('FeatureCard |has link', {
     //   widths: [1280],
     // });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
-		cy.get('dds-feature-card > dds-feature-card-footer')
-		.shadow()
-		.find('a')
+    cy.get('.bx--feature-card a.bx--link')
 		.then($els => {
 			const win = $els[0].ownerDocument.defaultView;
 			const after = win.getComputedStyle($els[0], 'after');
@@ -172,7 +167,7 @@ describe('dds-feature-card | medium (mobile)', () => {
 		cy.screenshot();
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-feature-card | clickable section', {
+    // cy.percySnapshot('FeatureCard |clickable section', {
     //   widths: [1280],
     // });
   });
@@ -180,15 +175,15 @@ describe('dds-feature-card | medium (mobile)', () => {
 	it('should have image on the left and content on the right half of the card', () => {
 		
 		// image takes the left half
-		cy.get('dds-image').then($image => {
-			expect($image[0].getBoundingClientRect().top).to.equal(16);
-			expect($image[0].getBoundingClientRect().bottom).to.equal(160);
+		cy.get('.bx--image').then($image => {
+			expect($image[0].getBoundingClientRect().top).to.equal(20);
+			expect($image[0].getBoundingClientRect().bottom).to.equal(164);
 		});
 
 		// image takes the right half
-		cy.get('dds-feature-card').shadow().find('.bx--card__wrapper').then($content => {
-			expect($content[0].getBoundingClientRect().top).to.equal(160);
-			expect($content[0].getBoundingClientRect().bottom).to.equal(320);
+		cy.get('.bx--card__wrapper').then($content => {
+			expect($content[0].getBoundingClientRect().top).to.equal(164);
+			expect($content[0].getBoundingClientRect().bottom).to.equal(324);
 		});
   });
 
@@ -201,7 +196,7 @@ describe('dds-feature-card | medium (mobile)', () => {
       cy.screenshot();
       // Take a snapshot for visual diffing
       // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-feature-card | medium | g10 theme', {
+      // cy.percySnapshot('FeatureCard medium | g10 theme', {
       //   widths: [1280],
       // });
     });
@@ -216,7 +211,7 @@ describe('dds-feature-card | medium (mobile)', () => {
       cy.screenshot();
       // Take a snapshot for visual diffing
       // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-feature-card | medium | g90 theme', {
+      // cy.percySnapshot('FeatureCard medium | g90 theme', {
       //   widths: [1280],
       // });
     });
@@ -231,23 +226,21 @@ describe('dds-feature-card | medium (mobile)', () => {
       cy.screenshot();
       // Take a snapshot for visual diffing
       // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-feature-card | medium | g100 theme', {
+      // cy.percySnapshot('FeatureCard medium | g100 theme', {
       //   widths: [1280],
       // });
     });
   });
 });
 
-describe('dds-feature-card | large', () => {
+describe('FeatureCard | large', () => {
   beforeEach(() => {
     cy.visit(`/${_pathLarge}`);
     cy.viewport(1400, 780);
   });
 
   it('should check for link', () => {
-    cy.get('dds-feature-card > dds-feature-card-footer')
-      .shadow()
-      .find('a.bx--card__footer')
+    cy.get('.bx--feature-card-large a.bx--link')
       .then($link => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
@@ -256,15 +249,13 @@ describe('dds-feature-card | large', () => {
     cy.screenshot();
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-feature-card | has link', {
+    // cy.percySnapshot('FeatureCard |has link', {
     //   widths: [1280],
     // });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
-		cy.get('dds-feature-card > dds-feature-card-footer')
-		.shadow()
-		.find('a')
+    cy.get('.bx--feature-card-large a.bx--link')
 		.then($els => {
 			const win = $els[0].ownerDocument.defaultView;
 			const after = win.getComputedStyle($els[0], 'after');
@@ -278,29 +269,32 @@ describe('dds-feature-card | large', () => {
 		cy.screenshot();
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-feature-card | clickable section', {
+    // cy.percySnapshot('FeatureCard |clickable section', {
     //   widths: [1280],
     // });
   });
 
 	it("should have eyebrow, heading, and copy content", () => {
-		cy.get('dds-card-eyebrow').invoke('text').should('not.be.empty');
-		cy.get('dds-card-heading').invoke('text').should('not.be.empty');
-		cy.get('dds-feature-card > p').invoke('text').should('not.be.empty');
+		cy.get('.bx--card__eyebrow').invoke('text').should('not.be.empty');
+		cy.get('.bx--card__heading').invoke('text').should('not.be.empty');
+		cy.get('.bx--card__copy').invoke('text').should('not.be.empty');
 	});
 
 	it('should have image on the left and content on the right half of the card', () => {
+
+    // TODO: currently React's FeatureCard stories aren't left aligned,
+    // update these values when they become as suc
 		
 		// image takes the left half
-		cy.get('dds-image').then($image => {
-			expect($image[0].getBoundingClientRect().left).to.equal(16);
-			expect($image[0].getBoundingClientRect().right).to.equal(529);
+		cy.get('.bx--image').then($image => {
+			expect($image[0].getBoundingClientRect().left).to.equal(187);
+			expect($image[0].getBoundingClientRect().right).to.equal(700);
 		});
 
 		// image takes the right half
-		cy.get('dds-feature-card').shadow().find('.bx--card__wrapper').then($content => {
-			expect($content[0].getBoundingClientRect().left).to.equal(529);
-			expect($content[0].getBoundingClientRect().right).to.equal(1042);
+		cy.get('.bx--card__wrapper').then($content => {
+			expect($content[0].getBoundingClientRect().left).to.equal(700);
+			expect($content[0].getBoundingClientRect().right).to.equal(1213);
 		});
   });
 
@@ -314,7 +308,7 @@ describe('dds-feature-card | large', () => {
       cy.screenshot();
       // Take a snapshot for visual diffing
       // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-feature-card | medium | g10 theme', {
+      // cy.percySnapshot('FeatureCard medium | g10 theme', {
       //   widths: [1280],
       // });
     });
@@ -330,7 +324,7 @@ describe('dds-feature-card | large', () => {
       cy.screenshot();
       // Take a snapshot for visual diffing
       // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-feature-card | medium | g90 theme', {
+      // cy.percySnapshot('FeatureCard medium | g90 theme', {
       //   widths: [1280],
       // });
     });
@@ -346,23 +340,21 @@ describe('dds-feature-card | large', () => {
       cy.screenshot();
       // Take a snapshot for visual diffing
       // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-feature-card | medium | g100 theme', {
+      // cy.percySnapshot('FeatureCard medium | g100 theme', {
       //   widths: [1280],
       // });
     });
   });
 });
 
-describe('dds-feature-card | large (mobile)', () => {
+describe('FeatureCard large (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathLarge}`);
     cy.viewport(320, 780);
   });
 
   it('should check for link', () => {
-    cy.get('dds-feature-card > dds-feature-card-footer')
-      .shadow()
-      .find('a.bx--card__footer')
+    cy.get('.bx--feature-card-large a.bx--link')
       .then($link => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
@@ -371,15 +363,13 @@ describe('dds-feature-card | large (mobile)', () => {
     cy.screenshot();
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-feature-card | has link', {
+    // cy.percySnapshot('FeatureCard |has link', {
     //   widths: [1280],
     // });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
-		cy.get('dds-feature-card > dds-feature-card-footer')
-		.shadow()
-		.find('a')
+    cy.get('.bx--feature-card-large a.bx--link')
 		.then($els => {
 			const win = $els[0].ownerDocument.defaultView;
 			const after = win.getComputedStyle($els[0], 'after');
@@ -389,38 +379,38 @@ describe('dds-feature-card | large (mobile)', () => {
 			expect(positionValue).to.eq('absolute')
 			expect(insetValue).to.eq('0px')
 		})
-		
-		cy.screenshot();
+
+    cy.screenshot();
     // Take a snapshot for visual diffing
     // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-feature-card | clickable section', {
+    // cy.percySnapshot('FeatureCard |clickable section', {
     //   widths: [1280],
     // });
   });
 
 	it("should have eyebrow, heading, and copy content", () => {
-		cy.get('dds-card-eyebrow').invoke('text').should('not.be.empty');
-		cy.get('dds-card-heading').invoke('text').should('not.be.empty');
-		cy.get('dds-feature-card > p').invoke('text').should('not.be.empty');
+		cy.get('.bx--card__eyebrow').invoke('text').should('not.be.empty');
+		cy.get('.bx--card__heading').invoke('text').should('not.be.empty');
+		cy.get('.bx--card__copy').invoke('text').should('not.be.empty');
 	});
 
 	it('should have image on the top and content on the bottom half of the card', () => {
 		
 		// image takes the left half
-		cy.get('dds-image').then($image => {
-			expect($image[0].getBoundingClientRect().top).to.equal(16);
-			expect($image[0].getBoundingClientRect().bottom).to.equal(176);
+		cy.get('.bx--image').then($image => {
+			expect($image[0].getBoundingClientRect().top).to.equal(20);
+			expect($image[0].getBoundingClientRect().bottom).to.equal(340);
 		});
 
 		// image takes the right half
-		cy.get('dds-feature-card').shadow().find('.bx--card__wrapper').then($content => {
-			expect($content[0].getBoundingClientRect().top).to.equal(176);
-			expect($content[0].getBoundingClientRect().bottom).to.equal(526);
+		cy.get('.bx--card__wrapper').then($content => {
+			expect($content[0].getBoundingClientRect().top).to.equal(340);
+			expect($content[0].getBoundingClientRect().bottom).to.equal(690);
 		});
   });
 
-	it('should have an arrow icon be left aligned in the content ', () => {
-		const arrowPath = cy.get('dds-feature-card > dds-feature-card-footer svg path');
+	it('should have an arrow icon be left aligned in the content in mobile view', () => {
+		const arrowPath = cy.get('.bx--card__wrapper a.bx--link svg path');
 
     arrowPath.then($icon => {
       expect($icon).to.have.attr('d', 'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z');
@@ -437,7 +427,7 @@ describe('dds-feature-card | large (mobile)', () => {
       cy.screenshot();
       // Take a snapshot for visual diffing
       // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-feature-card | medium | g10 theme', {
+      // cy.percySnapshot('FeatureCard medium | g10 theme', {
       //   widths: [1280],
       // });
     });
@@ -452,7 +442,7 @@ describe('dds-feature-card | large (mobile)', () => {
       cy.screenshot();
       // Take a snapshot for visual diffing
       // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-feature-card | medium | g90 theme', {
+      // cy.percySnapshot('FeatureCard medium | g90 theme', {
       //   widths: [1280],
       // });
     });
@@ -467,7 +457,7 @@ describe('dds-feature-card | large (mobile)', () => {
       cy.screenshot();
       // Take a snapshot for visual diffing
       // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-feature-card | medium | g100 theme', {
+      // cy.percySnapshot('FeatureCard medium | g100 theme', {
       //   widths: [1280],
       // });
     });
