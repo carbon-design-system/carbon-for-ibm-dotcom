@@ -50,7 +50,8 @@ export const WithVideo = ({ parameters }) => {
         mobile-position="bottom"
         opacity="${ifNonNull(backgroundOpacity)}"
       >
-        <dds-video-player-container playing-mode="inline" video-id="1_9h94wo6b" background-mode="true"></dds-video-player-container>
+        <dds-video-player-container playing-mode="inline" video-id="1_9h94wo6b" background-mode="true">
+        </dds-video-player-container>
       </dds-background-media>
     </div>
   `;
