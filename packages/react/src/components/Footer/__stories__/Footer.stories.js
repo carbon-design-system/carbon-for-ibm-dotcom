@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import './footer.stories.scss';
 import { boolean, object } from '@storybook/addon-knobs';
 import { Footer } from '../';
 import footerMenu from '../__data__/footer-menu.json';
@@ -131,7 +132,11 @@ export const DefaultLanguageOnly = ({ parameters }) => {
     },
   };
 
-  return <Default parameters={massagedParameters} />;
+  return (
+    <div className="default-language-only">
+      <Default parameters={massagedParameters} />
+    </div>
+  );
 };
 
 DefaultLanguageOnly.story = {
