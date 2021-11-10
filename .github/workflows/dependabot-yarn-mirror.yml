@@ -15,8 +15,6 @@ jobs:
         node-version: ['14.x']
     steps:
       - uses: actions/checkout@v2
-        with:
-          token: ${{secrets.MERGE_ACTION}}
       - uses: fregante/setup-git-user@v1
       - name: Use Node.js
         uses: actions/setup-node@v2
