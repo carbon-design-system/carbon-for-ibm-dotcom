@@ -129,6 +129,44 @@ where the card is no longer clickable and optional `Tag` elements can also be ad
 </dds-card>
 ```
 
+## Card - logo
+
+```html
+<dds-card color-scheme="light" border>
+  <dds-image-logo
+    slot="image"
+    alt="Image logo alt text"
+    default-src="https://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616"
+  ></dds-image-logo>
+  <dds-card-eyebrow>Microsoft</dds-card-eyebrow>
+  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <dds-tag-group>
+    <bx-tag>
+      Most popular
+    </bx-tag>
+    <bx-tag type="purple">
+      Enterprise
+    </bx-tag>
+  </dds-tag-group>
+  <dds-card-footer href='https://example.com' icon-placement="right">
+    Card CTA text
+    <svg
+      slot="icon"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+    >
+      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+    </svg>
+  </dds-card-footer>
+</dds-card>
+```
+
 ## Light theme
 
 An optional light theme is available under `color-scheme`.
