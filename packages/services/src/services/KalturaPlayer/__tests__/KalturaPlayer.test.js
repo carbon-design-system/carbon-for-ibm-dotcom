@@ -102,12 +102,14 @@ const _jsEventListenerList = [
   'playerPaused.ibm',
   'playerPlayed.ibm',
   'playerPlayEnd.ibm',
+  'IbmCtaEvent.ibm',
 ];
 
 describe('KalturaPlayerAPI', () => {
   beforeEach(() => {
     jest.useFakeTimers();
     _jsListenerEvents = [];
+    AnalyticsAPI.videoPlayerStats.mockReset();
   });
 
   afterEach(() => {
@@ -155,6 +157,45 @@ describe('KalturaPlayerAPI', () => {
     KalturaPlayerAPI.fireEvent({ playerState: 1, kdp, videoId });
 
     expect(AnalyticsAPI.videoPlayerStats).toHaveBeenCalled();
+  });
+  it('should execute the media metrics call with custom-metrics-data', () => {
+    const kdp = {
+      evaluate: query => {
+        switch (query) {
+          case '{video.player.currentTime}':
+            return 0;
+          case '{mediaProxy.entry.name}':
+            return 'name';
+          case '{mediaProxy.entry.duration}':
+            return 60;
+          default:
+        }
+      },
+    };
+    const mediaId = '123';
+
+    const customMetricsData = {
+      playerStateLabel: 'test',
+    };
+
+    const expected = {
+      currentTime: 0,
+      customMetricsData,
+      duration: 60,
+      mediaId: '123',
+      playerState: 0,
+      playerType: 'kaltura',
+      title: 'name',
+    };
+
+    KalturaPlayerAPI.fireEvent({
+      playerState: 2,
+      kdp,
+      mediaId,
+      customMetricsData,
+    });
+
+    expect(AnalyticsAPI.videoPlayerStats).toHaveBeenCalledWith(expected);
   });
 
   it('should embed the media player with metrics', async () => {
