@@ -141,6 +141,44 @@ export const WithMedia = ({ parameters }) => {
   `;
 };
 
+export const WithMediaFeatured = ({ parameters }) => {
+  const { type, alt, heading, eyebrow, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
+    parameters?.props?.ContentItemHorizontal ?? {};
+  return html`
+    <dds-content-item-horizontal-media-featured>
+      ${type === MEDIA_TYPE.IMAGE
+        ? html`
+            <dds-image slot="media" alt="${ifNonNull(alt)}" default-src="${imgLg16x9}"></dds-image>
+          `
+        : null}
+      ${type === MEDIA_TYPE.VIDEO
+        ? html`
+            <dds-content-item-horizontal-media-video video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
+          `
+        : null}
+      <dds-content-item-horizontal-eyebrow>${eyebrow}</dds-content-item-horizontal-eyebrow>
+      <dds-content-item-heading>${heading}</dds-content-item-heading>
+      <dds-content-item-horizontal-media-copy>${copy}</dds-content-item-horizontal-media-copy>
+      <dds-link-list slot="footer" type="vertical">
+        <dds-link-list-item-cta
+          icon-placement="${ICON_PLACEMENT.RIGHT}"
+          href="${ifNonNull(href1)}"
+          cta-type="${ifNonNull(ctaType1)}"
+        >
+          ${ctaCopy1}
+        </dds-link-list-item-cta>
+        <dds-link-list-item-cta
+          icon-placement="${ICON_PLACEMENT.RIGHT}"
+          href="${ifNonNull(href2)}"
+          cta-type="${ifNonNull(ctaType2)}"
+        >
+          ${ctaCopy2}
+        </dds-link-list-item-cta>
+      </dds-link-list>
+    </dds-content-item-horizontal-media-featured>
+  `;
+};
+
 Default.story = {
   parameters: {
     gridContentClasses: 'bx--col-lg-10 bx--no-gutter',
@@ -174,6 +212,28 @@ WithMedia.story = {
     knobs: {
       ContentItemHorizontal: () => ({
         align: select('Alignment', mediaAlign, MEDIA_ALIGN.RIGHT),
+        type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
+        alt: textNullable('Image alt text', 'Image alt text'),
+        heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
+        eyebrow: textNullable('Eyebrow label:', 'Lorem Ipsum'),
+        copy: bodyCopy,
+        ctaType1: select('CTA 1 type (cta-type):', types, CTA_TYPE.LOCAL),
+        ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
+        href1: textNullable('CTA 1 href (cta-href):', 'https://www.ibm.com'),
+        ctaType2: select('CTA 2 type (cta-type):', types, CTA_TYPE.EXTERNAL),
+        ctaCopy2: textNullable('CTA 2 copy (cta-copy):', 'Microservices and containers'),
+        href2: textNullable('CTA 2 href (cta-href):', 'https://www.ibm.com'),
+      }),
+    },
+  },
+};
+
+WithMediaFeatured.story = {
+  name: 'With featured media',
+  parameters: {
+    gridContentClasses: 'bx--col-lg-10',
+    knobs: {
+      ContentItemHorizontal: () => ({
         type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
         alt: textNullable('Image alt text', 'Image alt text'),
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
