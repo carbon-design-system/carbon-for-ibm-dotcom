@@ -179,6 +179,8 @@ class KalturaPlayerAPI {
    * @param {string} targetId The targetId the ID where we're putting the placeholder.
    * @param {object} flashvars Determine any extra param or plugin for the player.
    * @param {boolean} useIbmMetrics Whether or not should IBM Metrics events be fired.
+   * @param {Function} customReadyCallback Determine any extra functions that should be executed
+   *  on player readyCallback.
    * @returns {object}  object
    *
    * @example
@@ -194,7 +196,8 @@ class KalturaPlayerAPI {
     mediaId,
     targetId,
     flashvars = {},
-    useIbmMetrics = true
+    useIbmMetrics = true,
+    customReadyCallback = () => {}
   ) {
     const fireEvent = this.fireEvent;
     return await this.checkScript().then(() => {
@@ -255,6 +258,8 @@ class KalturaPlayerAPI {
                 fireEvent({ playerState: 3, kdp, mediaId });
               });
             }
+
+            customReadyCallback(kdp);
 
             resolve(kdp);
           },
