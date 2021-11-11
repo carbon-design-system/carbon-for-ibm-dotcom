@@ -169,7 +169,7 @@ Default.story = {
   },
 };
 
-export const WithAsideElements = ({ parameters }) => {
+export const WithLinkList = ({ parameters }) => {
   const { cta, items, aside } = parameters?.props?.ContentBlockMixed ?? {};
   return (
     <div className="bx--grid">
@@ -188,8 +188,8 @@ export const WithAsideElements = ({ parameters }) => {
   );
 };
 
-WithAsideElements.story = {
-  name: 'With aside elements',
+WithLinkList.story = {
+  name: 'With link list',
   parameters: {
     knobs: {
       ContentBlockMixed: ({ groupId }) => {

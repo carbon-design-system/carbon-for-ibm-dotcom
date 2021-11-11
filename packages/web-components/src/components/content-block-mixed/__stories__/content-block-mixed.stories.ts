@@ -201,7 +201,7 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const WithAsideElements = ({ parameters }) => {
+export const WithLinkList = ({ parameters }) => {
   const { heading, copy: groupCopy, cardsGroupHeading, complementaryStyleScheme, ctaType, linkListHeading } =
     parameters?.props?.ContentBlockMixed ?? {};
   return html`
@@ -300,8 +300,8 @@ export const WithAsideElements = ({ parameters }) => {
   `;
 };
 
-WithAsideElements.story = {
-  name: 'With aside elements',
+WithLinkList.story = {
+  name: 'With link list',
   parameters: {
     gridContentClasses: 'bx--col-lg-12',
     knobs: {
