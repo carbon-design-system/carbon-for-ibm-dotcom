@@ -184,6 +184,33 @@ describe('KalturaPlayerAPI', () => {
     });
   });
 
+  it('should embed the media player with custom events', async () => {
+    const mockedCustomReadyCallback = jest.fn().mockImplementation(kdp => {
+      kdp.addJsListener('customEvent.test', () => {});
+    });
+
+    const videoId = '123';
+    _kWidgetMock();
+    _mockKdp();
+    KalturaPlayerAPI.embedMedia(
+      videoId,
+      '12345',
+      {},
+      false,
+      mockedCustomReadyCallback
+    );
+    await Promise.resolve();
+    _jsEventListenerList.forEach(eventName => {
+      expect(
+        _jsListenerEvents.some(event => event.eventName === eventName)
+      ).toBe(false);
+    });
+    expect(mockedCustomReadyCallback).toHaveBeenCalled();
+    expect(
+      _jsListenerEvents.some(event => event.eventName === 'customEvent.test')
+    ).toBe(true);
+  });
+
   it('should return the media duration as 1:00', async () => {
     _kWidgetMock();
     const duration = 60;
