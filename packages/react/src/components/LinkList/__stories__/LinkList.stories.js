@@ -29,7 +29,8 @@ const items = [
     type: types[0],
     copy: headlines[1],
     cta: {
-      href: 'https://ibm.com',
+      href:
+        'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
     },
   },
   {
