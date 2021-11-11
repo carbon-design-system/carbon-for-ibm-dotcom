@@ -92,6 +92,18 @@ function _mockKdp() {
  */
 let _jsListenerEvents = [];
 
+/**
+ * List of addJsListeners events added to fire IBM Metrics events
+ *
+ * @type {Array}
+ * @private
+ */
+const _jsEventListenerList = [
+  'playerPaused.ibm',
+  'playerPlayed.ibm',
+  'playerPlayEnd.ibm',
+];
+
 describe('KalturaPlayerAPI', () => {
   beforeEach(() => {
     jest.useFakeTimers();
@@ -145,21 +157,31 @@ describe('KalturaPlayerAPI', () => {
     expect(AnalyticsAPI.videoPlayerStats).toHaveBeenCalled();
   });
 
-  it('should embed the media player', async () => {
+  it('should embed the media player with metrics', async () => {
     const videoId = '123';
     _kWidgetMock();
     _mockKdp();
-    KalturaPlayerAPI.embedMedia(videoId, '12345');
+    KalturaPlayerAPI.embedMedia(videoId, '12345', {});
     await Promise.resolve();
-    expect(
-      _jsListenerEvents.some(event => event.eventName === 'playerPaused.ibm')
-    ).toBe(true);
-    expect(
-      _jsListenerEvents.some(event => event.eventName === 'playerPlayed.ibm')
-    ).toBe(true);
-    expect(
-      _jsListenerEvents.some(event => event.eventName === 'playerPlayEnd.ibm')
-    ).toBe(true);
+
+    _jsEventListenerList.forEach(eventName => {
+      expect(
+        _jsListenerEvents.some(event => event.eventName === eventName)
+      ).toBe(true);
+    });
+  });
+
+  it('should embed the media player without metrics', async () => {
+    const videoId = '123';
+    _kWidgetMock();
+    _mockKdp();
+    KalturaPlayerAPI.embedMedia(videoId, '12345', {}, false);
+    await Promise.resolve();
+    _jsEventListenerList.forEach(eventName => {
+      expect(
+        _jsListenerEvents.some(event => event.eventName === eventName)
+      ).toBe(false);
+    });
   });
 
   it('should return the media duration as 1:00', async () => {
