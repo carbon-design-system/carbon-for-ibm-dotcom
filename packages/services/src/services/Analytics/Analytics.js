@@ -213,7 +213,7 @@ class AnalyticsAPI {
    *       currentTime: 1,
    *       duration: 60,
    *       playerState: 1,
-   *       videoId: '1_9h94wo6b',
+   *       mediaId: '1_9h94wo6b',
    *    };
    *
    *    AnalyticsAPI.videoPlayerStats(data);
@@ -267,7 +267,7 @@ class AnalyticsAPI {
       primaryCategory: 'VIDEO',
       eventName: data.title,
       eventCategoryGroup: data.playerType,
-      executionPath: data.videoId,
+      executionPath: data.mediaId,
       execPathReturnCode: playerState,
       eventVidStatus: data.playerState,
       eventVidTimeStamp: currentTime,
