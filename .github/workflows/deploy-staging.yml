@@ -5,8 +5,13 @@ on:
     branches:
       - release/*
 
+concurrency:
+  group: deploy-staging-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   react:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -42,6 +47,7 @@ jobs:
           cf-manifest: manifest-staging.yml
           deploy-dir: packages/react
   react-rtl:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -82,6 +88,7 @@ jobs:
           status: ${{ job.status }}
         if: failure()
   web-components:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -121,6 +128,7 @@ jobs:
           status: ${{ job.status }}
         if: failure()
   web-components-rtl:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
