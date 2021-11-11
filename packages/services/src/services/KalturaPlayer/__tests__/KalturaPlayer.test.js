@@ -279,4 +279,30 @@ describe('KalturaPlayerAPI', () => {
 
     expect(time).toEqual('0:00');
   });
+
+  it('should return the media thumbnail with width and height', () => {
+    const mediaId = 'testid';
+    const width = 100;
+    const height = 100;
+
+    const thumbnailURL = KalturaPlayerAPI.getThumbnailUrl({
+      mediaId,
+      width,
+      height,
+    });
+
+    expect(thumbnailURL.includes('/entry_id/testid')).toBe(true);
+    expect(thumbnailURL.includes('/width/100')).toBe(true);
+    expect(thumbnailURL.includes('/height/100')).toBe(true);
+  });
+
+  it('should return the media thumbnail without width and height', () => {
+    const mediaId = 'testid';
+
+    const thumbnailURL = KalturaPlayerAPI.getThumbnailUrl({ mediaId });
+
+    expect(thumbnailURL.includes('/entry_id/testid')).toBe(true);
+    expect(thumbnailURL.includes('/width/')).toBe(false);
+    expect(thumbnailURL.includes('/height/')).toBe(false);
+  });
 });
