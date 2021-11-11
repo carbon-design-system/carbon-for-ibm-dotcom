@@ -177,7 +177,8 @@ class KalturaPlayerAPI {
    *
    * @param {string} mediaId  The mediaId we're embedding the placeholder for.
    * @param {string} targetId The targetId the ID where we're putting the placeholder.
-   * @param {boolean} flashvars Determine any extra param or plugin for the player.
+   * @param {object} flashvars Determine any extra param or plugin for the player.
+   * @param {boolean} useIbmMetrics Whether or not should IBM Metrics events be fired.
    * @returns {object}  object
    *
    * @example
@@ -189,7 +190,12 @@ class KalturaPlayerAPI {
    *   KalturaPlayerAPI.embedMedia(videoid, elem);
    * }
    */
-  static async embedMedia(mediaId, targetId, flashvars = {}) {
+  static async embedMedia(
+    mediaId,
+    targetId,
+    flashvars = {},
+    useIbmMetrics = true
+  ) {
     const fireEvent = this.fireEvent;
     return await this.checkScript().then(() => {
       const promiseKWidget = new Promise(resolve => {
@@ -234,19 +240,21 @@ class KalturaPlayerAPI {
           },
           // Ready callback is issued for this player:
           readyCallback: function(playerId) {
-            var kdp = document.getElementById(playerId);
+            const kdp = document.getElementById(playerId);
 
-            kdp.addJsListener('playerPaused.ibm', () => {
-              fireEvent({ playerState: 1, kdp, mediaId });
-            });
+            if (useIbmMetrics) {
+              kdp.addJsListener('playerPaused.ibm', () => {
+                fireEvent({ playerState: 1, kdp, mediaId });
+              });
 
-            kdp.addJsListener('playerPlayed.ibm', () => {
-              fireEvent({ playerState: 2, kdp, mediaId });
-            });
+              kdp.addJsListener('playerPlayed.ibm', () => {
+                fireEvent({ playerState: 2, kdp, mediaId });
+              });
 
-            kdp.addJsListener('playerPlayEnd.ibm', () => {
-              fireEvent({ playerState: 3, kdp, mediaId });
-            });
+              kdp.addJsListener('playerPlayEnd.ibm', () => {
+                fireEvent({ playerState: 3, kdp, mediaId });
+              });
+            }
 
             resolve(kdp);
           },
