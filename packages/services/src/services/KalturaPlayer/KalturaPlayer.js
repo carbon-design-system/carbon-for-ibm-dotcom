@@ -236,13 +236,15 @@ class KalturaPlayerAPI {
           readyCallback: function(playerId) {
             var kdp = document.getElementById(playerId);
 
-            kdp.addJsListener('playerPaused', function() {
+            kdp.addJsListener('playerPaused.ibm', () => {
               fireEvent({ playerState: 1, kdp, mediaId });
             });
-            kdp.addJsListener('playerPlayed', function() {
+
+            kdp.addJsListener('playerPlayed.ibm', () => {
               fireEvent({ playerState: 2, kdp, mediaId });
             });
-            kdp.addJsListener('playerPlayEnd', function() {
+
+            kdp.addJsListener('playerPlayEnd.ibm', () => {
               fireEvent({ playerState: 3, kdp, mediaId });
             });
 

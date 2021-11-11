@@ -152,13 +152,13 @@ describe('KalturaPlayerAPI', () => {
     KalturaPlayerAPI.embedMedia(videoId, '12345');
     await Promise.resolve();
     expect(
-      _jsListenerEvents.some(event => event.eventName === 'playerPaused')
+      _jsListenerEvents.some(event => event.eventName === 'playerPaused.ibm')
     ).toBe(true);
     expect(
-      _jsListenerEvents.some(event => event.eventName === 'playerPlayed')
+      _jsListenerEvents.some(event => event.eventName === 'playerPlayed.ibm')
     ).toBe(true);
     expect(
-      _jsListenerEvents.some(event => event.eventName === 'playerPlayEnd')
+      _jsListenerEvents.some(event => event.eventName === 'playerPlayEnd.ibm')
     ).toBe(true);
   });
 
