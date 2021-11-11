@@ -275,6 +275,18 @@ class AnalyticsAPI {
       eventVidPlayed: percentWatched + '%',
     };
 
+    if (data?.customMetricsData?.playerStateLabel) {
+      eventData.playerStateLabel = data.customMetricsData.playerStateLabel;
+    }
+
+    if (data?.customMetricsData?.driverId) {
+      eventData.driverId = data.customMetricsData.driverId;
+    }
+
+    if (data?.customMetricsData?.targetURL) {
+      eventData.targetURL = data.customMetricsData.targetURL;
+    }
+
     try {
       this.registerEvent(eventData);
     } catch (err) {

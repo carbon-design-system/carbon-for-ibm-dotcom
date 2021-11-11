@@ -257,6 +257,16 @@ class KalturaPlayerAPI {
               kdp.addJsListener('playerPlayEnd.ibm', () => {
                 fireEvent({ playerState: 3, kdp, mediaId });
               });
+
+              kdp.addJsListener('IbmCtaEvent.ibm', ctaData => {
+                const customMetricsData = ctaData?.customMetricsData || {};
+                fireEvent({
+                  playerState: 101,
+                  kdp,
+                  mediaId,
+                  customMetricsData,
+                });
+              });
             }
 
             customReadyCallback(kdp);
@@ -292,9 +302,10 @@ class KalturaPlayerAPI {
    * @param {number} param.playerState state detecting different user actions
    * @param {object} param.kdp media object
    * @param {string} param.mediaId id of the media
+   * @param {object} param.customMetricsData any extra parameter for custom events
    *
    */
-  static fireEvent({ playerState, kdp, mediaId }) {
+  static fireEvent({ playerState, kdp, mediaId, customMetricsData = {} }) {
     // If media was played and timestamp is 0, it should be "launched" state.
     var currentTime = Math.round(kdp.evaluate('{video.player.currentTime}'));
 
@@ -309,6 +320,7 @@ class KalturaPlayerAPI {
       duration: kdp.evaluate('{mediaProxy.entry.duration}'),
       playerState: playerState,
       mediaId: mediaId,
+      customMetricsData,
     };
 
     AnalyticsAPI.videoPlayerStats(eventData);
