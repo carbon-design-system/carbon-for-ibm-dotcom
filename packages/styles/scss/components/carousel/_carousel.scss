@@ -99,3 +99,29 @@
     }
   }
 }
+
+@media print {
+  :host(#{$dds-prefix}-carousel),
+  .#{$prefix}--carousel {
+    flex-flow: row wrap;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    width: 100%;
+
+    .#{$prefix}--carousel__scroll-container {
+      margin: 0;
+      overflow: visible;
+    }
+
+    .#{$prefix}--carousel__scroll-contents {
+      flex-wrap: wrap;
+      margin: 0;
+      position: initial;
+    }
+
+    .#{$prefix}--carousel__navigation {
+      display: none;
+    }
+  }
+}
