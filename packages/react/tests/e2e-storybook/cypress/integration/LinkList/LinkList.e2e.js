@@ -88,12 +88,6 @@ describe('LinkList | End of section (desktop)', () => {
         'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z'
       );
     });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LinkList | end of section | local CTA', {
-      widths: [1280],
-    });
   });
 
   it('should use download CTA', () => {
@@ -107,12 +101,6 @@ describe('LinkList | End of section (desktop)', () => {
       expect(d).to.equal(
         'M26 24v4H6V24H4v4H4a2 2 0 002 2H26a2 2 0 002-2h0V24zM26 14L24.59 12.59 17 20.17 17 2 15 2 15 20.17 7.41 12.59 6 14 16 24 26 14z'
       );
-    });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LinkList | end of section | download CTA', {
-      widths: [1280],
     });
   });
 
@@ -130,12 +118,6 @@ describe('LinkList | End of section (desktop)', () => {
         'M26,28H6a2.0027,2.0027,0,0,1-2-2V6A2.0027,2.0027,0,0,1,6,4H16V6H6V26H26V16h2V26A2.0027,2.0027,0,0,1,26,28Z'
       );
     });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LinkList | end of section | external CTA', {
-      widths: [1280],
-    });
   });
 
   it('should use video CTA', () => {
@@ -152,12 +134,6 @@ describe('LinkList | End of section (desktop)', () => {
       );
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LinkList | end of section | video CTA', {
-      widths: [1280],
-    });
-
     cy.get('.bx--link-list__list--video').click();
     cy.get('[data-autoid="dds--lightbox-media-viewer"]').then($el => {
       $el.find('[data-autoid="dds--expressive-modal"]');
@@ -167,9 +143,5 @@ describe('LinkList | End of section (desktop)', () => {
     });
 
     cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LinkList | end of section | open video CTA', {
-      widths: [1280],
-    });
   });
 });
