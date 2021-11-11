@@ -134,7 +134,7 @@ describe('dds-content-item-horizontal', function() {
       render(
         WithFeaturedMediaTemplate({
           children: html`
-            <dds-image slot="media" alt="image" default-src=""></dds-image>
+            <dds-content-item-horizontal-eyebrow>eyebrow-foo</dds-content-item-horizontal-eyebrow>
             <dds-content-item-heading>heading-foo</dds-content-item-heading>
             <dds-content-item-horizontal-media-copy>copy-foo</dds-content-item-horizontal-media-copy>
             <dds-link-list slot="footer" type="vertical">
@@ -142,6 +142,7 @@ describe('dds-content-item-horizontal', function() {
                 cta-copy
               </dds-link-list-item-cta>
             </dds-link-list>
+            <dds-image slot="media" alt="image" default-src=""></dds-image>
           `,
         }),
         document.body
