@@ -14,7 +14,7 @@
 const _pathEndOfSection =
   '/iframe.html?id=components-link-list--end-of-section';
 
-getCssPropertyForRule = (rule, prop, sheets) => {
+const getCssPropertyForRule = (rule, prop, sheets) => {
   var slen = sheets.length;
   for (var i = 0; i < slen; i++) {
     try {
