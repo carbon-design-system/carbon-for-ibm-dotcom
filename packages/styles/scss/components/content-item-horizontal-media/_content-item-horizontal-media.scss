@@ -182,6 +182,10 @@
     ::slotted([slot='media']) {
       grid-column: 1 / span 10;
     }
+    ::slotted(#{$dds-prefix}-image-with-caption) {
+      max-width: none;
+      margin: 0;
+    }
   }
 }
 
