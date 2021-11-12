@@ -246,6 +246,8 @@ class KalturaPlayerAPI {
             const kdp = document.getElementById(playerId);
 
             if (useIbmMetrics) {
+              let startingSeekTime = 0;
+
               kdp.addJsListener('playerPaused.ibm', () => {
                 fireEvent({ playerState: 1, kdp, mediaId });
               });
@@ -256,6 +258,63 @@ class KalturaPlayerAPI {
 
               kdp.addJsListener('playerPlayEnd.ibm', () => {
                 fireEvent({ playerState: 3, kdp, mediaId });
+              });
+
+              kdp.addJsListener('seek.ibm', seekTime => {
+                startingSeekTime = seekTime;
+              });
+
+              kdp.addJsListener('seeked.ibm', seekedTime => {
+                const customMetricsData = {
+                  startingSeekTime,
+                  endingSeekTime: seekedTime,
+                  playerStateLabel: 'seek',
+                };
+                fireEvent({
+                  playerState: 102,
+                  kdp,
+                  mediaId,
+                  customMetricsData,
+                });
+              });
+
+              kdp.addJsListener('firstQuartile.ibm', () => {
+                const customMetricsData = {
+                  playerStateLabel: 'firstQuartile',
+                };
+
+                fireEvent({
+                  playerState: 103,
+                  kdp,
+                  mediaId,
+                  customMetricsData,
+                });
+              });
+
+              kdp.addJsListener('secondQuartile.ibm', () => {
+                const customMetricsData = {
+                  playerStateLabel: 'secondQuartile',
+                };
+
+                fireEvent({
+                  playerState: 103,
+                  kdp,
+                  mediaId,
+                  customMetricsData,
+                });
+              });
+
+              kdp.addJsListener('thirdQuartile.ibm', () => {
+                const customMetricsData = {
+                  playerStateLabel: 'thirdQuartile',
+                };
+
+                fireEvent({
+                  playerState: 103,
+                  kdp,
+                  mediaId,
+                  customMetricsData,
+                });
               });
 
               kdp.addJsListener('IbmCtaEvent.ibm', ctaData => {

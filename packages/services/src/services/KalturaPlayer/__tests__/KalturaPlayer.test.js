@@ -103,6 +103,11 @@ const _jsEventListenerList = [
   'playerPlayed.ibm',
   'playerPlayEnd.ibm',
   'IbmCtaEvent.ibm',
+  'seek.ibm',
+  'seeked.ibm',
+  'firstQuartile.ibm',
+  'secondQuartile.ibm',
+  'thirdQuartile.ibm',
 ];
 
 describe('KalturaPlayerAPI', () => {
