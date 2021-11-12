@@ -28,7 +28,6 @@
     padding-bottom: 0;
 
     @include carbon--breakpoint('md') {
-      margin-top: $carbon--layout-03;
       padding: $spacing-05;
     }
 
