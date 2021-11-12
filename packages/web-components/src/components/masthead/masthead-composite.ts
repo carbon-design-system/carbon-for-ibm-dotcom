@@ -102,7 +102,7 @@ class DDSMastheadComposite extends LitElement {
           : html`
               <dds-masthead-l1-name title="${title}" aria-selected="${!selectedMenuItem}" url="${url}"></dds-masthead-l1-name>
             `}
-        <dds-top-nav-l1
+        <dds-top-nav-l1 selected-menu-item=${selectedMenuItem}
           >${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: true })}</dds-top-nav-l1
         >
       </dds-masthead-l1>
