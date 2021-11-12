@@ -47,14 +47,10 @@ Aenean et ultricies est.\n
   1. list item 2a
 `;
 
-const bodyCopyWithMediaFeatured = `Lorem ipsum *dolor* sit amet, [consectetur
+const bodyCopyWithFeaturedMedia = `Lorem ipsum *dolor* sit amet, [consectetur
   adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris
   iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-  nulla quis, consequat libero.`;
-
-const imageCaptionCopy = `Etiam laoreet tellus at fermentum ultrices. Ut
-  sodales justo quis turpis venenatis, at sodales libero rutrum. Etiam dapibus
-  arcu et porta egestas. Nullam non tortor arcu.`;
+  nulla quis,consequat libero.`;
 
 export const Default = ({ parameters }) => {
   const { eyebrow, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
@@ -161,8 +157,6 @@ export const WithMediaFeatured = ({ parameters }) => {
               alt="Image alt text"
               default-src="${imgLg16x9}"
               heading="Lorem ipsum dolor sit amet"
-              copy="${imageCaptionCopy}"
-              lightbox
             >
             </dds-image-with-caption>
           `
@@ -204,7 +198,7 @@ WithThumbnail.story = {
     knobs: {
       ContentItemHorizontal: () => ({
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
-        copy: textNullable('Body copy:', bodyCopy),
+        copy: bodyCopy,
       }),
     },
   },
@@ -221,7 +215,7 @@ WithMedia.story = {
         alt: textNullable('Image alt text', 'Image alt text'),
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
         eyebrow: textNullable('Eyebrow label:', 'Lorem Ipsum'),
-        copy: textNullable('Body copy:', bodyCopy),
+        copy: bodyCopy,
         ctaType1: select('CTA 1 type (cta-type):', types, CTA_TYPE.LOCAL),
         ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
         href1: textNullable('CTA 1 href (cta-href):', 'https://www.ibm.com'),
@@ -240,9 +234,9 @@ WithMediaFeatured.story = {
     knobs: {
       ContentItemHorizontal: () => ({
         type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
+        eyebrow: textNullable('Eyebrow:', 'Lorem Ipsum'),
         heading: textNullable('Heading:', 'Aliquam condimentum'),
-        eyebrow: textNullable('Eyebrow label:', 'Lorem Ipsum'),
-        copy: textNullable('Body copy:', bodyCopyWithMediaFeatured),
+        copy: bodyCopyWithFeaturedMedia,
         ctaCopy1: textNullable('CTA 1 copy:', 'Learn more'),
         ctaCopy2: textNullable('CTA 2 copy:', 'Microservices and containers'),
       }),
@@ -270,7 +264,7 @@ export default {
       ContentItemHorizontal: () => ({
         eyebrow: textNullable('Eyebrow (eyebrow):', 'Lorem ipsum'),
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
-        copy: textNullable('Body copy:', bodyCopy),
+        copy: bodyCopy,
         ctaType1: select('CTA 1 type (cta-type)', types, CTA_TYPE.LOCAL),
         ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
         href1: textNullable('CTA 1 href (cta-href):', 'https://www.ibm.com'),
