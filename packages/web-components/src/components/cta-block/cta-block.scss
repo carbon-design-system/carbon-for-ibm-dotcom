@@ -104,14 +104,6 @@
   grid-template-columns: 1fr;
   grid-template-rows: auto;
 
-  @include carbon--breakpoint('md') {
-    padding-bottom: 2rem;
-  }
-
-  @include carbon--breakpoint('lg') {
-    padding-bottom: 6rem;
-  }
-
   ::slotted(#{$dds-prefix}-cta-block-item) {
     margin-top: $spacing-07;
     border-bottom: 1px solid $gray-20;
