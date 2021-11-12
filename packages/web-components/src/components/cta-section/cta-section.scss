@@ -28,6 +28,7 @@
     padding-bottom: 0;
 
     @include carbon--breakpoint('md') {
+      margin-top: $carbon--layout-04;
       padding: $spacing-05;
     }
 
@@ -43,5 +44,9 @@
 
   ::slotted(#{$dds-prefix}-cta-block) {
     padding-top: 0;
+
+    @include carbon--breakpoint('md') {
+      padding-top: $carbon--layout-04;
+    }
   }
 }

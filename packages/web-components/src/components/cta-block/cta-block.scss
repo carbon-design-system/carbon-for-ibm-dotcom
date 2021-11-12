@@ -117,7 +117,7 @@
     border-bottom: 1px solid $gray-20;
 
     @include carbon--breakpoint('md') {
-      margin-top: $spacing-09;
+      margin-top: 0;
       padding-bottom: $spacing-09;
       border: 0;
     }
