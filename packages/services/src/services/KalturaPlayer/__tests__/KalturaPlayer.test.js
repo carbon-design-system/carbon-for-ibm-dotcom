@@ -280,6 +280,22 @@ describe('KalturaPlayerAPI', () => {
     expect(time).toEqual('0:00');
   });
 
+  it('should return the media duration as (1:1:10) in miliseconds', async () => {
+    _kWidgetMock();
+    const duration = 3670 * 1000;
+    const time = KalturaPlayerAPI.getMediaDuration(duration, true);
+
+    expect(time).toEqual('(1:1:10)');
+  });
+
+  it('should return the media duration as (0:05) in miliseconds', async () => {
+    _kWidgetMock();
+    const duration = 5 * 1000;
+    const time = KalturaPlayerAPI.getMediaDuration(duration, true);
+
+    expect(time).toEqual('(0:05)');
+  });
+
   it('should return the media thumbnail with width and height', () => {
     const mediaId = 'testid';
     const width = 100;
@@ -304,5 +320,21 @@ describe('KalturaPlayerAPI', () => {
     expect(thumbnailURL.includes('/entry_id/testid')).toBe(true);
     expect(thumbnailURL.includes('/width/')).toBe(false);
     expect(thumbnailURL.includes('/height/')).toBe(false);
+  });
+
+  it('Should return media duration with all parameters - hour, minutes and seconds', () => {
+    const time = 4510 * 1000; // Miliseconds
+    const formatedMediaDuration = KalturaPlayerAPI.getMediaDurationFormatted(
+      time,
+      true
+    );
+
+    expect(formatedMediaDuration).toBe('1 hour 15 minutes 10 seconds');
+  });
+
+  it('Should return media duration with zero seconds', () => {
+    const formatedMediaDuration = KalturaPlayerAPI.getMediaDurationFormatted();
+
+    expect(formatedMediaDuration).toBe('0 seconds');
   });
 });
