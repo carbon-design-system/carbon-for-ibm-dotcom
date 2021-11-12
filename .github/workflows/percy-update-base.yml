@@ -12,6 +12,7 @@ concurrency:
 
 jobs:
   react-storybook:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     strategy:
       matrix:
@@ -40,6 +41,7 @@ jobs:
         run: yarn visual-snapshot
         working-directory: packages/react
   react-storybook-e2e:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     strategy:
       matrix:
@@ -66,6 +68,7 @@ jobs:
         run: yarn build-storybook && yarn test:e2e-storybook:test
         working-directory: packages/react
   web-components:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     strategy:
       matrix:
