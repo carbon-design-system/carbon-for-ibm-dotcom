@@ -275,13 +275,18 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
 
     if (elems) {
       if (pageIsRTL) {
-        const caretLeftNodeWidthAdjustment = isIntersectionLeftTrackerInContent ? caretLeftNode!.offsetWidth: 0;
+        const caretLeftNodeWidthAdjustment = isIntersectionLeftTrackerInContent ? caretLeftNode!.offsetWidth : 0;
         const navRight = navNode!.getBoundingClientRect().right;
-        const firstVisibleElementIndex = onLoad ? elems.findIndex(
-          elem => navRight - elem.getBoundingClientRect().left > interimLeft - caretLeftNode!.offsetWidth - buttonGradientWidth && elem.hasAttribute('active')
-        ) : elems.findIndex(
-          elem => navRight - elem.getBoundingClientRect().left > interimLeft - caretLeftNode!.offsetWidth - buttonGradientWidth
-        );
+        const firstVisibleElementIndex = onLoad
+          ? elems.findIndex(
+              elem =>
+                navRight - elem.getBoundingClientRect().left > interimLeft - caretLeftNode!.offsetWidth - buttonGradientWidth &&
+                elem.hasAttribute('active')
+            )
+          : elems.findIndex(
+              elem =>
+                navRight - elem.getBoundingClientRect().left > interimLeft - caretLeftNode!.offsetWidth - buttonGradientWidth
+            );
         if (firstVisibleElementIndex > 0) {
           const firstVisibleElementLeft = Math.abs(
             elems[firstVisibleElementIndex].getBoundingClientRect().right -
@@ -294,10 +299,11 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
         }
       } else {
         const caretLeftNodeWidthAdjustment = isIntersectionLeftTrackerInContent ? 0 : caretLeftNode!.offsetWidth;
-        const caretRightNodeWidthAdjustment = this._isIntersectionRightTrackerInContent ? caretRightNode!.offsetWidth : 0 ;
+        const caretRightNodeWidthAdjustment = this._isIntersectionRightTrackerInContent ? caretRightNode!.offsetWidth : 0;
         const navLeft = navNode!.getBoundingClientRect().left;
-        const firstVisibleElementIndex = onLoad ? elems.findIndex(elem => elem.getBoundingClientRect().right - navLeft > interimLeft && elem.hasAttribute('active')) 
-        : elems.findIndex(elem => elem.getBoundingClientRect().right - navLeft > interimLeft);
+        const firstVisibleElementIndex = onLoad
+          ? elems.findIndex(elem => elem.getBoundingClientRect().right - navLeft > interimLeft && elem.hasAttribute('active'))
+          : elems.findIndex(elem => elem.getBoundingClientRect().right - navLeft > interimLeft);
         if (firstVisibleElementIndex > 0) {
           const firstVisibleElementLeft =
             elems[firstVisibleElementIndex].getBoundingClientRect().left - navLeft - buttonGradientWidth;
@@ -392,8 +398,8 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   }
 
   firstUpdated(changedProperties) {
-    if(changedProperties.has('selectedMenuItem')) {
-      this._paginateRight({onLoad: true});
+    if (changedProperties.has('selectedMenuItem')) {
+      this._paginateRight({ onLoad: true });
     }
   }
 
