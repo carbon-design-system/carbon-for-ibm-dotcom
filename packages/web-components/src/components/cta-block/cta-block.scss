@@ -110,7 +110,6 @@
 
     @include carbon--breakpoint('md') {
       margin-top: 0;
-      padding-bottom: $spacing-09;
       border: 0;
     }
   }
@@ -118,10 +117,6 @@
   ::slotted(#{$dds-prefix}-cta-block-item:last-of-type) {
     border: 0;
     padding-bottom: 0;
-
-    @include carbon--breakpoint('md') {
-      padding-bottom: 2rem;
-    }
   }
 
   @include carbon--breakpoint('md') {

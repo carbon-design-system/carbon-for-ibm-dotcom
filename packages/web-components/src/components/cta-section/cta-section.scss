@@ -30,6 +30,7 @@
     @include carbon--breakpoint('md') {
       margin-top: $carbon--layout-04;
       padding: $spacing-05;
+      padding-bottom: 0;
     }
 
     @include carbon--breakpoint('lg') {
@@ -40,6 +41,10 @@
 
   ::slotted(#{$dds-prefix}-content-section-heading) {
     margin-bottom: $spacing-07;
+
+    @include carbon--breakpoint('md') {
+      margin-bottom: $spacing-06;
+    }
   }
 
   ::slotted(#{$dds-prefix}-cta-block) {
