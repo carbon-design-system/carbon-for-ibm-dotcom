@@ -8,7 +8,6 @@
  */
 
 import '../../image/image';
-import '../../image/image-logo';
 import '../../tag-group/tag-group';
 import 'carbon-web-components/es/components/tag/tag';
 import '../index';

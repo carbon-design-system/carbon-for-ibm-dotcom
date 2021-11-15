@@ -8,4 +8,3 @@
  */
 
 import './image';
-import './image-logo';

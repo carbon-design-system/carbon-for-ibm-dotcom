@@ -8,8 +8,8 @@
  */
 import { customElement, css } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import DDSImage from './image';
-import styles from './image.scss';
+import DDSImage from '../image/image';
+import styles from '../image/image.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
