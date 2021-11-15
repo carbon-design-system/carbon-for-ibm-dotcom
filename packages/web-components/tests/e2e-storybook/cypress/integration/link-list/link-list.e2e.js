@@ -4,6 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import getCssPropertyForRule from '../../../../utils/get-css-property-for-rule';
 
 /**
  * Sets the correct path
@@ -14,24 +15,6 @@
 const _pathEndOfSection = '/iframe.html?id=components-link-list--end-of-section';
 const getPathEndOfSectionCTA = cta => {
   return `/iframe.html?id=components-link-list--end-of-section&knob-CTA%20type%20(cta-type)_LinkListItem=${cta}`;
-};
-
-const getCssPropertyForRule = (rule, prop, sheets) => {
-  var slen = sheets.length;
-  for (var i = 0; i < slen; i++) {
-    try {
-      var rules = sheets[i].cssRules;
-    } catch (e) {
-      console.warn("Can't read the css rules of: " + sheets[i].href, e);
-      continue;
-    }
-    var rlen = rules.length;
-    for (var j = 0; j < rlen; j++) {
-      if (rules[j].selectorText == rule) {
-        return rules[j].style[prop];
-      }
-    }
-  }
 };
 
 describe('dds-link-list | end of section (desktop)', () => {
