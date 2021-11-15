@@ -94,6 +94,7 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
     const { _handleSlotChange: handleSlotChange } = this;
     return html`
       <slot @slotchange="${handleSlotChange}"></slot>
+      <p class="${prefix}--btn--hidden" aria-hidden="true"><span>:</span> ${this.href}</p>
       <slot name="icon" @slotchange="${handleSlotChange}"></slot>
     `;
   }
