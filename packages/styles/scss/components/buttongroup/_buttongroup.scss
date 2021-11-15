@@ -30,6 +30,10 @@
         1fr
       );
     }
+
+    @media print {
+      display: block;
+    }
   }
 
   .#{$prefix}--buttongroup-item,
@@ -37,6 +41,12 @@
   :host(#{$dds-prefix}-button-cta) {
     max-width: carbon--mini-units(40);
     min-width: 0;
+
+    @media print {
+      max-width: carbon--rem(640px);
+      margin-bottom: $spacing-05;
+      display: block;
+    }
 
     .#{$prefix}--btn {
       font-size: 1rem;
@@ -47,9 +57,36 @@
       transition: all $duration--fast-01 motion(entrance, productive), width 0s,
         height 0s;
 
+      @media print {
+        background: $white-0;
+        border: carbon--rem(1px) solid $gray-100;
+        color: $gray-100;
+        font-weight: 600;
+        display: block;
+        max-width: inherit;
+      }
+
       .#{$prefix}--btn__icon {
         width: auto;
         height: auto;
+      }
+
+      .#{$prefix}--btn--hidden {
+        display: none;
+        visibility: hidden;
+
+        @media print {
+          display: inline-block;
+          visibility: visible;
+          font-weight: 200;
+          color: $gray-100;
+
+          span {
+            font-weight: 600;
+            margin-left: calc(-1 * #{$spacing-02});
+            margin-right: $spacing-02;
+          }
+        }
       }
     }
 
@@ -65,6 +102,10 @@
       top: 50%;
       transform: translateY(-50%);
       flex-shrink: 0;
+
+      @media print {
+        fill: $gray-100;
+      }
     }
   }
 
