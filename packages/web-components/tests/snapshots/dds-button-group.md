@@ -20,6 +20,15 @@
 >
   <slot>
   </slot>
+  <p
+    aria-hidden="true"
+    class="bx--btn--hidden"
+  >
+    <span>
+      :
+    </span>
+    https://example.com
+  </p>
   <slot name="icon">
   </slot>
 </a>
