@@ -23,29 +23,28 @@ export default {
         let showPictogram = DDS_CARD_WITH_PICTOGRAM
           ? boolean('Show pictogram (hides CTA)', false, groupId)
           : null;
-
-        let outlinedCard = boolean('Outlined card', false, groupId);
+        let outlinedCard = boolean('Outlined card:', false, groupId);
         return {
           image:
-            (boolean('image', false, groupId) && {
+            (boolean('Add image:', false, groupId) && {
               defaultSrc: imgLg2x1,
               alt: 'Image alt text',
             }) ||
             undefined,
-          eyebrow: text('Card Eyebrow', 'Eyebrow text', groupId),
-          heading: text('Card Heading', 'Lorem ipsum dolor sit amet', groupId),
-          copy: text('Card body copy', '', groupId),
+          eyebrow: text('Eyebrow:', 'Industry', groupId),
+          heading: text('Heading:', 'Aerospace and defence', groupId),
+          copy: text('Body copy:', '', groupId),
           light: outlinedCard,
           border: outlinedCard,
           cta: {
             href: 'https://example.com',
-            copy: text('CTA copy', 'Card CTA text', groupId),
+            copy: text('CTA:', 'Learn more', groupId),
             icon: {
               src: ArrowRight20,
             },
-            iconPlacement: 'right',
           },
           pictogram: showPictogram && DDS_CARD_WITH_PICTOGRAM ? <Bee /> : null,
+          inverse: boolean('Inverse card:', false, groupId),
         };
       },
     },
@@ -92,33 +91,34 @@ CardStatic.story = {
     ...readme.parameters,
     knobs: {
       Card: ({ groupId }) => {
-        let outlinedCard = boolean('Outlined card', true, groupId);
+        let outlinedCard = boolean('Outlined card:', true, groupId);
+        let cta = boolean('Add CTA:', false, groupId);
         return {
           image:
-            (boolean('image', false, groupId) && {
+            (boolean('Add image:', false, groupId) && {
               defaultSrc: imgLg2x1,
               alt: 'Image alt text',
             }) ||
             undefined,
-          eyebrow: text('Card Eyebrow', 'Eyebrow', groupId),
-          heading: text('Card Heading', 'Lorem ipsum dolor sit amet', groupId),
+          eyebrow: text('Eyebrow:', 'SPSS Statistics', groupId),
+          heading: text('Heading:', 'Free trial', groupId),
           copy: text(
-            'Card body copy',
-            'Ut enim ad minim veniam, quis nostrud exercitation ullamco ' +
-              'laboris nisi ut aliquip ex ea commodo consequat.',
+            'Body copy:',
+            'Enjoy full SPSS Statistics capabilities including all add-ons. All trial registrants are restricted to one free trial per computer per user.',
             groupId
           ),
           light: outlinedCard,
           border: outlinedCard,
           cardStatic: outlinedCard,
-          cta: {
-            href: 'https://example.com',
-            copy: text('CTA copy', 'Card CTA text', groupId),
-            icon: {
-              src: ArrowRight20,
-            },
-            iconPlacement: 'right',
-          },
+          cta: cta
+            ? {
+                href: 'https://example.com',
+                copy: 'Sign up for the trial',
+                icon: {
+                  src: ArrowRight20,
+                },
+              }
+            : '',
         };
       },
     },
