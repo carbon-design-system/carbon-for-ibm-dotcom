@@ -7,8 +7,13 @@ on:
       - release/*
       - chore/carbon-upgrade-*
 
+concurrency:
+  group: snapshot-update-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   react:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     strategy:
       matrix:
@@ -18,9 +23,10 @@ jobs:
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
       - name: Get branch name
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"

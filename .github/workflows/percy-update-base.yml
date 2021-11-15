@@ -6,18 +6,24 @@ on:
       - master
       - release/*
 
+concurrency:
+  group: percy-update-base-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   react-storybook:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     strategy:
       matrix:
         node-version: ['14.x']
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
       - name: Install dependencies
         run: yarn install
       - name: Install xvfb
@@ -36,16 +42,18 @@ jobs:
         run: yarn visual-snapshot
         working-directory: packages/react
   react-storybook-e2e:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     strategy:
       matrix:
         node-version: [ '14.x' ]
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
       - name: Install dependencies
         run: yarn install
       - name: Install xvfb
@@ -62,16 +70,18 @@ jobs:
         run: yarn build-storybook && yarn test:e2e-storybook:test
         working-directory: packages/react
   web-components:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     strategy:
       matrix:
         node-version: ['14.x']
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
       - name: Install dependencies
         run: yarn install
       - name: Install xvfb

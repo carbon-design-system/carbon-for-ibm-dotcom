@@ -95,6 +95,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
     position: absolute;
     top: 0;
     right: 0;
+    display: flex;
 
     .#{$prefix}--header__search--search,
     .#{$prefix}--header__search--close {

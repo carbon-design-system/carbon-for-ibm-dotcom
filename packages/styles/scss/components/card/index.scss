@@ -374,6 +374,14 @@
     }
   }
 
+  :host(#{$dds-prefix}-card-footer) a,
+  :host(#{$dds-prefix}-card-cta-footer) a,
+  :host(#{$dds-prefix}-card-in-card-footer) a {
+    @include carbon--breakpoint('md') {
+      padding-right: $carbon--spacing-07;
+    }
+  }
+
   :host(#{$dds-prefix}-feature-cta-footer) a {
     svg,
     ::slotted(svg[slot='icon']) {
@@ -528,6 +536,42 @@
   :host(#{$dds-prefix}-card-footer[color-scheme='inverse'])
     .#{$prefix}--card__cta__copy {
     color: $inverse-link;
+  }
+
+  @media print {
+    :host(#{$dds-prefix}-card),
+    :host(#{$dds-prefix}-link-list-item-card),
+    :host(#{$dds-prefix}-card-group-item),
+    :host(#{$dds-prefix}-card-cta),
+    :host(#{$dds-prefix}-link-list-item-card-cta),
+    :host(#{$dds-prefix}-card-in-card),
+    :host(#{$dds-prefix}-content-group-cards-item) {
+      border: 1px solid $ui-03;
+
+      .#{$prefix}--card {
+        background-color: $ui-02;
+        border: none;
+      }
+
+      ::slotted(#{$dds-prefix}-image),
+      ::slotted(#{$dds-prefix}-card-cta-image),
+      ::slotted(#{$dds-prefix}-tag-group),
+      .#{$prefix}--image {
+        display: none;
+      }
+    }
+
+    .#{$prefix}--card {
+      background-color: $ui-02;
+      border: 1px solid $ui-03;
+
+      .#{$prefix}--card__img,
+      .#{$prefix}--card__image_img,
+      .#{$prefix}--image,
+      .#{$prefix}--card__video-thumbnail {
+        display: none;
+      }
+    }
   }
 }
 

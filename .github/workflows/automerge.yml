@@ -4,13 +4,18 @@ on:
     branches:
       - 'release/*'
 
+concurrency:
+  group: automerge-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   automerge:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - name: Merge to master
         uses: devmasx/merge-branch@v1.1.0
         with:

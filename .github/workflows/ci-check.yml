@@ -2,6 +2,10 @@ name: ci-check
 
 on: [push, pull_request]
 
+concurrency:
+  group: ci-check-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   check-packages:
     runs-on: ubuntu-20.04
@@ -9,11 +13,12 @@ jobs:
       matrix:
         node-version: ['14.x']
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Use Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
       - name: Install dependencies
         run: yarn install --offline
       - name: Build project
@@ -28,11 +33,12 @@ jobs:
       matrix:
         node-version: ['14.x']
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Use Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
       - name: Install dependencies
         run: yarn install --offline
       - name: Build project
@@ -47,11 +53,12 @@ jobs:
       matrix:
         node-version: ['14.x']
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Use Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
       - name: Install dependencies
         run: yarn install --offline
       - name: Build project
