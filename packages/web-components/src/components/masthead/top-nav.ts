@@ -265,6 +265,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       _contentNode: contentNode,
       _currentScrollPosition: currentScrollPosition,
       _isIntersectionLeftTrackerInContent: isIntersectionLeftTrackerInContent,
+      _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
       _navNode: navNode,
       _pageIsRTL: pageIsRTL,
       _slotNode: slotNode,
@@ -299,7 +300,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
         }
       } else {
         const caretLeftNodeWidthAdjustment = isIntersectionLeftTrackerInContent ? 0 : caretLeftNode!.offsetWidth;
-        const caretRightNodeWidthAdjustment = this._isIntersectionRightTrackerInContent ? caretRightNode!.offsetWidth : 0;
+        const caretRightNodeWidthAdjustment = isIntersectionRightTrackerInContent ? caretRightNode!.offsetWidth : 0;
         const navLeft = navNode!.getBoundingClientRect().left;
         const firstVisibleElementIndex = onLoad
           ? elems.findIndex(elem => elem.getBoundingClientRect().right - navLeft > interimLeft && elem.hasAttribute('active'))
