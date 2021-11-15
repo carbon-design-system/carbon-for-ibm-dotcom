@@ -11,29 +11,6 @@
 @import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
 @import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
 
-// TODO: Apply `.#{$prefix}--grid` to React version, too, so we can merge the style to React version
-:host(#{$dds-prefix}-table-of-contents) {
-  @extend .#{$prefix}--grid;
-
-  display: block;
-  margin: 0;
-}
-
-// TODO: Apply `.#{$prefix}--col-lg-4` to React version, too, so we can merge the style to React version
-.#{$prefix}--tableofcontents__sidebar {
-  @extend .#{$prefix}--col-lg-4;
-}
-
-// TODO: Apply `.#{$prefix}--col-lg-4` to React version, too, so we can merge the style to React version
-.#{$prefix}--tableofcontents__content {
-  @extend .#{$prefix}--col-lg-12;
-}
-
-.#{$dds-prefix}-ce--table-of-contents__container,
-.#{$dds-prefix}-ce--table-of-contents-horizontal__container {
-  @include carbon--make-row();
-}
-
 :host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal']) .#{$prefix}--tableofcontents__navbar {
   @include carbon--breakpoint('lg') {
     &::before {
