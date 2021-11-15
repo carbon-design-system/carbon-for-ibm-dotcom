@@ -35,11 +35,9 @@ describe('Feature Card | medium', () => {
     });
 
     cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('FeatureCard | has link', {
-    //   widths: [1280],
-    // });
+    cy.percySnapshot('FeatureCard | has link', {
+      widths: [1280],
+    });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
@@ -54,11 +52,6 @@ describe('Feature Card | medium', () => {
     });
 
     cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('FeatureCard |clickable section', {
-    //   widths: [1280],
-    // });
   });
 
   it('should have image on the left and content on the right side of the card', () => {
@@ -89,11 +82,9 @@ describe('Feature Card | medium', () => {
       );
 
       cy.screenshot();
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('FeatureCard medium | g10 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('FeatureCard medium | g10 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -108,11 +99,9 @@ describe('Feature Card | medium', () => {
       );
 
       cy.screenshot();
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('FeatureCard medium | g90 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('FeatureCard medium | g90 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -127,11 +116,9 @@ describe('Feature Card | medium', () => {
       );
 
       cy.screenshot();
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('FeatureCard medium | g100 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('FeatureCard medium | g100 theme', {
+        widths: [1280],
+      });
     });
   });
 });
@@ -149,11 +136,9 @@ describe('FeatureCard medium (mobile)', () => {
     });
 
     cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('FeatureCard | has link', {
-    //   widths: [1280],
-    // });
+    cy.percySnapshot('FeatureCard | has link', {
+      widths: [1280],
+    });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
@@ -168,11 +153,6 @@ describe('FeatureCard medium (mobile)', () => {
     });
 
     cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('FeatureCard |clickable section', {
-    //   widths: [1280],
-    // });
   });
 });
 
@@ -189,11 +169,9 @@ describe('FeatureCard | large', () => {
     });
 
     cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('FeatureCard | has link', {
-    //   widths: [1280],
-    // });
+    cy.percySnapshot('FeatureCard | has link', {
+      widths: [1280],
+    });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
@@ -208,11 +186,9 @@ describe('FeatureCard | large', () => {
     });
 
     cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('FeatureCard |clickable section', {
-    //   widths: [1280],
-    // });
+    cy.percySnapshot('FeatureCard | clickable section', {
+      widths: [1280],
+    });
   });
 
   it('should have eyebrow, heading, and copy content', () => {
@@ -229,7 +205,7 @@ describe('FeatureCard | large', () => {
 
   it('should have image on the left and content on the right half of the card', () => {
     // TODO: currently React's FeatureCard stories aren't left aligned,
-    // update these values when they become as suc
+    // update these values when they become as such
 
     // image takes the left half
     cy.get('.bx--image').then($image => {
@@ -255,11 +231,9 @@ describe('FeatureCard | large', () => {
       );
 
       cy.screenshot();
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('FeatureCard medium | g10 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('FeatureCard medium | g10 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -274,11 +248,9 @@ describe('FeatureCard | large', () => {
       );
 
       cy.screenshot();
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('FeatureCard medium | g90 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('FeatureCard medium | g90 theme', {
+        widths: [1280],
+      });
     });
   });
 
@@ -293,11 +265,9 @@ describe('FeatureCard | large', () => {
       );
 
       cy.screenshot();
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('FeatureCard medium | g100 theme', {
-      //   widths: [1280],
-      // });
+      cy.percySnapshot('FeatureCard medium | g100 theme', {
+        widths: [1280],
+      });
     });
   });
 });
@@ -315,11 +285,9 @@ describe('FeatureCard large (mobile)', () => {
     });
 
     cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('FeatureCard | has link', {
-    //   widths: [1280],
-    // });
+    cy.percySnapshot('FeatureCard | has link', {
+      widths: [1280],
+    });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
@@ -334,10 +302,8 @@ describe('FeatureCard large (mobile)', () => {
     });
 
     cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('FeatureCard |clickable section', {
-    //   widths: [1280],
-    // });
+    cy.percySnapshot('FeatureCard |clickable section', {
+      widths: [1280],
+    });
   });
 });
