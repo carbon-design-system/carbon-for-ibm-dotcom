@@ -327,10 +327,15 @@
       ::slotted(#{$dds-prefix}-card-group-card-link-item),
       .#{$prefix}--card {
         background-color: transparent;
+        border: 0 none;
         margin: 0 0.5rem 1rem;
 
         @include carbon--breakpoint('md') {
           width: 23%;
+        }
+
+        &:hover {
+          background-color: transparent;
         }
       }
     }
@@ -350,10 +355,10 @@
       .#{$prefix}--tile {
         background-color: transparent;
         border: 1px solid $gray-20;
-      }
 
-      ::slotted(#{$dds-prefix}-card-cta-footer) {
-        margin-top: 0;
+        &:hover {
+          background-color: transparent;
+        }
       }
     }
   }

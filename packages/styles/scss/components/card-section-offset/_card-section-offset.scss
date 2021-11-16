@@ -71,6 +71,9 @@
       background-color: $white-0;
       flex-wrap: wrap;
 
+      /* stylelint-disable-next-line property-no-unknown */
+      aspect-ratio: auto;
+
       #{$dds-prefix}-background-media {
         display: none;
       }
@@ -88,7 +91,6 @@
 
       ::slotted([slot='card-group']) {
         margin-top: 0;
-        padding-top: 0;
       }
     }
   }

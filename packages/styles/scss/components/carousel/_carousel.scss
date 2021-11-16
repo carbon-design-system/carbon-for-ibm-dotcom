@@ -116,12 +116,27 @@
 
     .#{$prefix}--carousel__scroll-contents {
       flex-wrap: wrap;
+      gap: $spacing-05;
       margin: 0;
       position: initial;
     }
 
     .#{$prefix}--carousel__navigation {
       display: none;
+    }
+
+    ::slotted(:not([name])) {
+      margin: 0;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+
+    .#{$prefix}--tile {
+      &:hover {
+        background-color: transparent;
+      }
     }
   }
 }
