@@ -131,6 +131,70 @@ import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/c
 </dds-content-item-horizontal-media>
 ```
 
+## With Featured Media (image)
+
+### JS (via import)
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/index.js';
+
+// with Image
+import '@carbon/ibmdotcom-web-components/es/components/image/image';
+```
+
+### HTML
+
+```html
+<dds-content-item-horizontal-media-featured>
+  <dds-content-item-horizontal-eyebrow>Lorem ipsum</dds-content-item-horizontal-eyebrow>
+  <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
+  <dds-content-item-horizontal-media-copy>
+    Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.
+  </dds-content-item-horizontal-media-copy>
+  <dds-link-list slot="footer" type="vertical">
+    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
+      Learn more
+    </dds-link-list-item-cta>
+    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
+      Microservices and containers
+    </dds-link-list-item-cta>
+  </dds-link-list>
+  <dds-image slot="media" alt="Alt text" default-src="image.jpg"></dds-image>
+</dds-content-item-horizontal-media-featured>
+```
+
+## With Featured Media (video)
+
+### JS (via import)
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/index.js';
+
+// with Video
+import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal-media-video';
+```
+
+### HTML
+
+```html
+<dds-content-item-horizontal-media-featured>
+  <dds-content-item-horizontal-eyebrow>Lorem ipsum</dds-content-item-horizontal-eyebrow>
+  <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
+  <dds-content-item-horizontal-media-copy>
+    Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.
+  </dds-content-item-horizontal-media-copy>
+  <dds-link-list slot="footer" type="vertical">
+    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
+      Learn more
+    </dds-link-list-item-cta>
+    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
+      Microservices and containers
+    </dds-link-list-item-cta>
+  </dds-link-list>
+  <dds-content-item-horizontal-media-video video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
+</dds-content-item-horizontal-media-featured>
+```
+
 ## Props
 
 <Props of="dds-content-item-horizontal" />

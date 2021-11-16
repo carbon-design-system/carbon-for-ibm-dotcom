@@ -104,10 +104,19 @@
   grid-template-columns: 1fr;
   grid-template-rows: auto;
 
-  &:not(:first-of-type) {
-    @include carbon--breakpoint-down('md') {
-      padding-top: $carbon--layout-03;
+  ::slotted(#{$dds-prefix}-cta-block-item) {
+    margin-top: $spacing-07;
+    border-bottom: 1px solid $gray-20;
+
+    @include carbon--breakpoint('md') {
+      margin-top: 0;
+      border: 0;
     }
+  }
+
+  ::slotted(#{$dds-prefix}-cta-block-item:last-of-type) {
+    border: 0;
+    padding-bottom: 0;
   }
 
   @include carbon--breakpoint('md') {
@@ -116,10 +125,6 @@
 
   @include carbon--breakpoint('lg') {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  &.#{$prefix}--cta-block-item-row__border {
-    border-bottom: 1px solid $ui-03;
   }
 }
 
@@ -137,10 +142,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-
-  &:last-of-type {
-    padding-bottom: 0;
-  }
 
   ::slotted(#{$dds-prefix}-text-cta) {
     margin-left: 0;
