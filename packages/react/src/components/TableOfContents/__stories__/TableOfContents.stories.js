@@ -15,6 +15,33 @@ import readme from '../README.stories.mdx';
 import styles from './TableOfContents.stories.scss';
 import TableOfContents from '../TableOfContents';
 
+export const Default = ({ parameters }) => {
+  const { withHeadingContent } = parameters?.props?.Other ?? {};
+  const headingContent = (
+    <Image
+      sources={sources}
+      defaultSrc={defaultSrc}
+      alt={alt}
+      longDescription={longDescription}
+      style={{
+        height: '200px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    />
+  );
+  return (
+    <>
+      <TableOfContents
+        headingContent={withHeadingContent && headingContent}
+        menuRule={withHeadingContent}>
+        <DataContent />
+      </TableOfContents>
+    </>
+  );
+};
+
 const sources = [
   {
     src: imgLg4x3,
@@ -92,36 +119,6 @@ DynamicItems.story = {
     knobs: {
       TableOfContents: ({ groupId }) => ({
         menuLabel: text('Menu label (menuLabel)', 'Jump to', groupId),
-      }),
-    },
-  },
-};
-
-export const WithHeadingContent = ({ parameters }) => (
-  <ManuallyDefineMenuItems parameters={parameters} />
-);
-
-WithHeadingContent.story = {
-  name: 'With heading content',
-  parameters: {
-    knobs: {
-      TableOfContents: ({ groupId }) => ({
-        menuLabel: text('Menu label (menuLabel)', 'Jump to', groupId),
-        menuRule: boolean('Optional Rule (menuRule)', false, groupId),
-        headingContent: (
-          <Image
-            sources={sources}
-            defaultSrc={defaultSrc}
-            alt={alt}
-            longDescription={longDescription}
-            style={{
-              height: '200px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          />
-        ),
       }),
     },
   },
