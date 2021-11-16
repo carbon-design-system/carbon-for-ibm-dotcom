@@ -126,3 +126,28 @@ WithHeadingContent.story = {
     },
   },
 };
+
+export const Horizontal = () => (
+  <p>
+    This component is maintained in{' '}
+    <code>@carbon/ibmdotcom-web-components</code> library with a{' '}
+    <a
+      className="bx--link"
+      target="_blank"
+      href="https://www.ibm.com/standards/carbon/web-components/react/?path=/story/components-table-of-contents--horizontal">
+      React wrapper
+    </a>
+    .
+  </p>
+);
+
+Horizontal.story = {
+  name: 'Horizontal',
+  parameters: {
+    ...readme.parameters,
+    percy: {
+      skip: true,
+    },
+    proxy: true,
+  },
+};
