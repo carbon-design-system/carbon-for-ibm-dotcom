@@ -38,11 +38,6 @@ describe('dds-feature-card | medium', () => {
       });
 
     cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-feature-card | has link', {
-    //   widths: [1280],
-    // });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
@@ -58,13 +53,6 @@ describe('dds-feature-card | medium', () => {
         expect(positionValue).to.eq('absolute');
         expect(insetValue).to.eq('0px');
       });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-feature-card | clickable section', {
-    //   widths: [1280],
-    // });
   });
 
   it('should have image on the left and content on the right side of the card', () => {
@@ -147,13 +135,7 @@ describe('dds-feature-card | medium (mobile)', () => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
-
     cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-feature-card | has link', {
-    //   widths: [1280],
-    // });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
@@ -169,13 +151,6 @@ describe('dds-feature-card | medium (mobile)', () => {
         expect(positionValue).to.eq('absolute');
         expect(insetValue).to.eq('0px');
       });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-feature-card | clickable section', {
-    //   widths: [1280],
-    // });
   });
 });
 
@@ -193,13 +168,7 @@ describe('dds-feature-card | large', () => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
-
     cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-feature-card | has link', {
-    //   widths: [1280],
-    // });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
@@ -215,13 +184,6 @@ describe('dds-feature-card | large', () => {
         expect(positionValue).to.eq('absolute');
         expect(insetValue).to.eq('0px');
       });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-feature-card | clickable section', {
-    //   widths: [1280],
-    // });
   });
 
   it('should have eyebrow, heading, and copy content', () => {
@@ -318,11 +280,6 @@ describe('dds-feature-card | large (mobile)', () => {
       });
 
     cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-feature-card | has link', {
-    //   widths: [1280],
-    // });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
@@ -338,12 +295,5 @@ describe('dds-feature-card | large (mobile)', () => {
         expect(positionValue).to.eq('absolute');
         expect(insetValue).to.eq('0px');
       });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-feature-card | clickable section', {
-    //   widths: [1280],
-    // });
   });
 });

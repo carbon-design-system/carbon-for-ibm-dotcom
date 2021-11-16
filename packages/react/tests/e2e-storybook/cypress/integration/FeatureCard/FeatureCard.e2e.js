@@ -33,11 +33,7 @@ describe('Feature Card | medium', () => {
       const url = $link.prop('href');
       expect(url).not.to.be.empty;
     });
-
     cy.screenshot();
-    cy.percySnapshot('FeatureCard | has link', {
-      widths: [1280],
-    });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
@@ -50,8 +46,6 @@ describe('Feature Card | medium', () => {
       expect(positionValue).to.eq('absolute');
       expect(insetValue).to.eq('0px');
     });
-
-    cy.screenshot();
   });
 
   it('should have image on the left and content on the right side of the card', () => {
@@ -134,11 +128,7 @@ describe('FeatureCard medium (mobile)', () => {
       const url = $link.prop('href');
       expect(url).not.to.be.empty;
     });
-
     cy.screenshot();
-    cy.percySnapshot('FeatureCard | has link', {
-      widths: [1280],
-    });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
@@ -151,8 +141,6 @@ describe('FeatureCard medium (mobile)', () => {
       expect(positionValue).to.eq('absolute');
       expect(insetValue).to.eq('0px');
     });
-
-    cy.screenshot();
   });
 });
 
@@ -167,11 +155,7 @@ describe('FeatureCard | large', () => {
       const url = $link.prop('href');
       expect(url).not.to.be.empty;
     });
-
     cy.screenshot();
-    cy.percySnapshot('FeatureCard | has link', {
-      widths: [1280],
-    });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
@@ -183,11 +167,6 @@ describe('FeatureCard | large', () => {
 
       expect(positionValue).to.eq('absolute');
       expect(insetValue).to.eq('0px');
-    });
-
-    cy.screenshot();
-    cy.percySnapshot('FeatureCard | clickable section', {
-      widths: [1280],
     });
   });
 
@@ -285,9 +264,6 @@ describe('FeatureCard large (mobile)', () => {
     });
 
     cy.screenshot();
-    cy.percySnapshot('FeatureCard | has link', {
-      widths: [1280],
-    });
   });
 
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
@@ -299,11 +275,6 @@ describe('FeatureCard large (mobile)', () => {
 
       expect(positionValue).to.eq('absolute');
       expect(insetValue).to.eq('0px');
-    });
-
-    cy.screenshot();
-    cy.percySnapshot('FeatureCard |clickable section', {
-      widths: [1280],
     });
   });
 });
