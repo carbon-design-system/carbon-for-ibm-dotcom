@@ -108,25 +108,17 @@
     ::slotted(#{$dds-prefix}-card-group-card-link-item),
     .#{$prefix}--card {
       background-color: transparent;
-      margin: 0 0.5rem 1rem;
     }
   }
 
   :host(#{$dds-prefix}-card-group-item),
   :host(#{$dds-prefix}-card-group-card-link-item) {
-    background-color: transparent;
-
     &[empty] {
       display: none;
 
       @include carbon--breakpoint('md') {
         display: none;
       }
-    }
-
-    .#{$prefix}--tile {
-      background-color: transparent;
-      border: 1px solid $gray-20;
     }
   }
 }

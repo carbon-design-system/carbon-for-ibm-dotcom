@@ -321,22 +321,15 @@
     .#{$prefix}--card-group__row,
     .#{$prefix}--card-group__cards__row {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
 
       ::slotted(#{$dds-prefix}-card-group-item),
       ::slotted(#{$dds-prefix}-card-group-card-link-item),
       .#{$prefix}--card {
         background-color: transparent;
         border: 0 none;
-        margin: 0 0.5rem 1rem;
-
-        @include carbon--breakpoint('md') {
-          width: 23%;
-        }
-
-        &:hover {
-          background-color: transparent;
-        }
+        margin: 0 $spacing-03 $spacing-05;
+        width: 23%;
       }
     }
 
@@ -344,21 +337,9 @@
     :host(#{$dds-prefix}-card-group-card-link-item) {
       background-color: transparent;
 
-      &[empty] {
-        display: none;
-
-        @include carbon--breakpoint('md') {
-          display: none;
-        }
-      }
-
       .#{$prefix}--tile {
         background-color: transparent;
         border: 1px solid $gray-20;
-
-        &:hover {
-          background-color: transparent;
-        }
       }
     }
   }

@@ -103,6 +103,8 @@
 @media print {
   :host(#{$dds-prefix}-carousel),
   .#{$prefix}--carousel {
+    --#{$dds-prefix}--carousel--page-size: 4;
+
     flex-flow: row wrap;
     margin: 0;
     padding: 0;
@@ -127,16 +129,6 @@
 
     ::slotted(:not([name])) {
       margin: 0;
-
-      &:hover {
-        background-color: transparent;
-      }
-    }
-
-    .#{$prefix}--tile {
-      &:hover {
-        background-color: transparent;
-      }
     }
   }
 }
