@@ -10,6 +10,10 @@
   .#{$prefix}--content-block-mixed {
     .#{$prefix}--content-group-pictograms {
       margin-left: -$carbon--spacing-05;
+      .#{$prefix}--pictogram-item__row {
+        width: calc(100% + 16px);
+        max-width: calc(100% + 16px);
+      }
     }
 
     .#{$prefix}--layout-1-3 {
