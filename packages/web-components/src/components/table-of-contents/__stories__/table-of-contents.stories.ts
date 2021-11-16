@@ -22,40 +22,23 @@ import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x7
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--001.jpg';
 import { TOC_TYPES } from '../defs';
 
-export const Default = () => html`
-  <dds-table-of-contents>
-    ${content('bx--tableofcontents__contents')}
-  </dds-table-of-contents>
-`;
-
-export const WithHeadingContent = ({ parameters }) => {
-  const { menuRule } = parameters?.props?.Other ?? {};
+export const Default = ({ parameters }) => {
+  const { withHeadingContent } = parameters?.props?.Other ?? {};
   return html`
     <dds-table-of-contents>
-      <dds-image slot="heading" alt="Alt text" default-src="${imgLg1x1}">
-        <dds-image-item media="(min-width: 1056px)" srcset="${imgXlg16x9}"> </dds-image-item>
-        <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
-        <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
-      </dds-image>
-      ${!menuRule
-        ? nothing
-        : html`
+      ${withHeadingContent
+        ? html`
+            <dds-image slot="heading" alt="Alt text" default-src="${imgLg1x1}">
+              <dds-image-item media="(min-width: 1056px)" srcset="${imgXlg16x9}"> </dds-image-item>
+              <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
+              <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
+            </dds-image>
             <dds-hr slot="menu-rule"></dds-hr>
-          `}
+          `
+        : nothing}
       ${content('bx--tableofcontents__contents')}
     </dds-table-of-contents>
   `;
-};
-
-WithHeadingContent.story = {
-  name: 'With heading content',
-  parameters: {
-    knobs: {
-      Other: () => ({
-        menuRule: boolean('Put a horizontal rule', false),
-      }),
-    },
-  },
 };
 
 export const Horizontal = () => html`
@@ -83,5 +66,10 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
+    knobs: {
+      Other: () => ({
+        withHeadingContent: boolean('With heading content', false),
+      }),
+    },
   },
 };
