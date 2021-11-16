@@ -12,18 +12,16 @@ import React from 'react';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import DDSHorizontalRule from '@carbon/ibmdotcom-web-components/es/components-react/horizontal-rule/horizontal-rule';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 import { boolean } from '@storybook/addon-knobs';
 // @ts-ignore
 import DDSTableOfContents from '@carbon/ibmdotcom-web-components/es/components-react/table-of-contents/table-of-contents';
+import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import DDSLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
+import ArrowLeft20 from '@carbon/icons-react/es/arrow--left/20.js';
 import content from './wrapper-content';
 import readme from './README.stories.react.mdx';
 import styles from './table-of-contents.stories.scss';
-import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--005.jpg';
-import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
-import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
-import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--001.jpg';
+import { ICON_PLACEMENT } from '../../../globals/defs';
 
 export const Default = ({ parameters }) => {
   const { withHeadingContent } = parameters?.props?.Other ?? {};
@@ -32,11 +30,23 @@ export const Default = ({ parameters }) => {
       <DDSTableOfContents>
         {withHeadingContent && (
           <>
-            <DDSImage slot="heading" alt="Alt text" default-src={imgLg1x1}>
-              <DDSImageItem media="(min-width: 1056px)" srcset={imgXlg16x9}></DDSImageItem>
-              <DDSImageItem media="(min-width: 672px)" srcset={imgLg16x9}></DDSImageItem>
-              <DDSImageItem media="(min-width: 400px)" srcset={imgMd16x9}></DDSImageItem>
-            </DDSImage>
+            <DDSLinkList slot="heading" type="vertical">
+              <DDSLinkListItem
+                iconPlacement={ICON_PLACEMENT.LEFT}
+                href="https://github.com/carbon-design-system/carbon-web-components">
+                DevOps <ArrowLeft20 slot="icon" />
+              </DDSLinkListItem>
+              <DDSLinkListItem
+                iconPlacement={ICON_PLACEMENT.LEFT}
+                href="https://github.com/carbon-design-system/carbon-web-components">
+                Automation <ArrowLeft20 slot="icon" />
+              </DDSLinkListItem>
+              <DDSLinkListItem
+                iconPlacement={ICON_PLACEMENT.LEFT}
+                href="https://github.com/carbon-design-system/carbon-web-components">
+                Development <ArrowLeft20 slot="icon" />
+              </DDSLinkListItem>
+            </DDSLinkList>
             <DDSHorizontalRule slot="menu-rule"></DDSHorizontalRule>
           </>
         )}
