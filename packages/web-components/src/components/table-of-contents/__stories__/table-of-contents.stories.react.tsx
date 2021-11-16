@@ -15,6 +15,7 @@ import DDSHorizontalRule from '@carbon/ibmdotcom-web-components/es/components-re
 import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 import { boolean } from '@storybook/addon-knobs';
+// @ts-ignore
 import DDSTableOfContents from '@carbon/ibmdotcom-web-components/es/components-react/table-of-contents/table-of-contents';
 import content from './wrapper-content';
 import readme from './README.stories.react.mdx';
