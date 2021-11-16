@@ -6,9 +6,7 @@
  */
 
 import DataContent from './data/DataContent';
-import Image from '../../Image/Image';
-import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
-import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--004.jpg';
+import LinkList from '../../LinkList/LinkList';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import styles from './TableOfContents.stories.scss';
@@ -16,19 +14,31 @@ import TableOfContents from '../TableOfContents';
 
 export const Default = ({ parameters }) => {
   const { withHeadingContent } = parameters?.props?.Other ?? {};
+  const headingItems = [
+    {
+      type: 'local',
+      copy: 'DevOps',
+      cta: {
+        href: 'https://github.com/carbon-design-system/carbon-web-components',
+      },
+    },
+    {
+      type: 'local',
+      copy: 'Automation',
+      cta: {
+        href: 'https://github.com/carbon-design-system/carbon-web-components',
+      },
+    },
+    {
+      type: 'local',
+      copy: 'Development',
+      cta: {
+        href: 'https://github.com/carbon-design-system/carbon-web-components',
+      },
+    },
+  ];
   const headingContent = (
-    <Image
-      sources={sources}
-      defaultSrc={defaultSrc}
-      alt={alt}
-      longDescription={longDescription}
-      style={{
-        height: '200px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    />
+    <LinkList style="vertical" iconPlacement="left" items={headingItems} />
   );
   return (
     <>
@@ -40,25 +50,6 @@ export const Default = ({ parameters }) => {
     </>
   );
 };
-
-const sources = [
-  {
-    src: imgLg4x3,
-    breakpoint: 400,
-  },
-  {
-    src: imgLg4x3,
-    breakpoint: 672,
-  },
-  {
-    src: imgLg1x1,
-    breakpoint: 1056,
-  },
-];
-
-const defaultSrc = imgLg1x1;
-const alt = 'Lorem Ipsum';
-const longDescription = 'Lorem Ipsum Dolor';
 
 export default {
   title: 'Components|Table of contents',
