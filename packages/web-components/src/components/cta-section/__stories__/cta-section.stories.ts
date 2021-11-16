@@ -116,23 +116,9 @@ const contentItemTypeOptions = {
 };
 
 const renderItems = (item, count) => {
-  if (count.length < 4) {
-    return html`
-      <dds-cta-block-item-row no-border>
-        ${count.map((_, index) => item({ ...content[index] }))}
-      </dds-cta-block-item-row>
-    `;
-  }
-
-  const itemArray = count;
-  const spliced = itemArray.splice(3);
-
   return html`
     <dds-cta-block-item-row>
-      ${itemArray.map((_, index) => item({ ...content[index] }))}
-    </dds-cta-block-item-row>
-    <dds-cta-block-item-row no-border>
-      ${spliced.map((_, index) => item({ ...content[index] }))}
+      ${count.map((_, index) => item({ ...content[index] }))}
     </dds-cta-block-item-row>
   `;
 };
