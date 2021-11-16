@@ -10,17 +10,16 @@
 import { nothing } from 'lit-html';
 import { html } from 'lit-element';
 import { boolean } from '@storybook/addon-knobs';
+import ArrowLeft20 from 'carbon-web-components/es/icons/arrow--left/20.js';
 import '../table-of-contents';
 import '../../horizontal-rule/horizontal-rule';
 import '../../image/image';
+import '../../link-list/link-list';
 import content from './content';
 import styles from './table-of-contents.stories.scss';
 import readme from './README.stories.mdx';
-import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--005.jpg';
-import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
-import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
-import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--001.jpg';
 import { TOC_TYPES } from '../defs';
+import { ICON_PLACEMENT } from '../../../globals/defs';
 
 export const Default = ({ parameters }) => {
   const { withHeadingContent } = parameters?.props?.Other ?? {};
@@ -28,11 +27,26 @@ export const Default = ({ parameters }) => {
     <dds-table-of-contents>
       ${withHeadingContent
         ? html`
-            <dds-image slot="heading" alt="Alt text" default-src="${imgLg1x1}">
-              <dds-image-item media="(min-width: 1056px)" srcset="${imgXlg16x9}"> </dds-image-item>
-              <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
-              <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
-            </dds-image>
+            <dds-link-list type="vertical" slot="heading">
+              <dds-link-list-item
+                icon-placement="${ICON_PLACEMENT.LEFT}"
+                href="https://github.com/carbon-design-system/carbon-web-components"
+              >
+                DevOps${ArrowLeft20({ slot: 'icon' })}
+              </dds-link-list-item>
+              <dds-link-list-item
+                icon-placement="${ICON_PLACEMENT.LEFT}"
+                href="https://github.com/carbon-design-system/carbon-web-components"
+              >
+                Automation${ArrowLeft20({ slot: 'icon' })}
+              </dds-link-list-item>
+              <dds-link-list-item
+                icon-placement="${ICON_PLACEMENT.LEFT}"
+                href="https://github.com/carbon-design-system/carbon-web-components"
+              >
+                Development${ArrowLeft20({ slot: 'icon' })}
+              </dds-link-list-item>
+            </dds-link-list>
             <dds-hr slot="menu-rule"></dds-hr>
           `
         : nothing}
