@@ -12,19 +12,19 @@ import React from 'react';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import DDSHorizontalRule from '@carbon/ibmdotcom-web-components/es/components-react/horizontal-rule/horizontal-rule';
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, number, text } from '@storybook/addon-knobs';
 // @ts-ignore
 import DDSTableOfContents from '@carbon/ibmdotcom-web-components/es/components-react/table-of-contents/table-of-contents';
 import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import DDSLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
 import ArrowLeft20 from '@carbon/icons-react/es/arrow--left/20.js';
-import content from './wrapper-content';
+import content, { headings, LOREM } from './wrapper-content';
 import readme from './README.stories.react.mdx';
 import styles from './table-of-contents.stories.scss';
 import { ICON_PLACEMENT } from '../../../globals/defs';
 
 export const Default = ({ parameters }) => {
-  const { withHeadingContent } = parameters?.props?.Other ?? {};
+  const { numberOfItems: items, withHeadingContent } = parameters?.props?.Other ?? {};
   return (
     <>
       <DDSTableOfContents>
@@ -50,16 +50,17 @@ export const Default = ({ parameters }) => {
             <DDSHorizontalRule slot="menu-rule"></DDSHorizontalRule>
           </>
         )}
-        {content()}
+        {content({ items })}
       </DDSTableOfContents>
     </>
   );
 };
 
-export const Horizontal = () => {
+export const Horizontal = ({ parameters }) => {
+  const { numberOfItems: items } = parameters?.props?.Other ?? {};
   return (
     <>
-      <DDSTableOfContents layout={'horizontal'}>{content()}</DDSTableOfContents>
+      <DDSTableOfContents layout={'horizontal'}>{content({ items })}</DDSTableOfContents>
     </>
   );
 };
@@ -84,6 +85,12 @@ export default {
     knobs: {
       Other: ({ groupId }) => ({
         withHeadingContent: boolean('With heading content', false, groupId),
+        numberOfItems: Array.from({
+          length: number('Number of items', 5, { min: 4, max: 8 }, groupId),
+        }).map((_, i) => ({
+          heading: text(`Section ${i + 1} heading`, headings[i % headings.length], groupId),
+          copy: text(`Section ${i + 1} copy`, `${LOREM}\n`.repeat(3).trim(), groupId),
+        })),
       }),
     },
   },
