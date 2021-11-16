@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { text, boolean } from '@storybook/addon-knobs';
 import DataContent from './data/DataContent';
 import Image from '../../Image/Image';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
@@ -73,54 +72,6 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-  },
-};
-
-export const ManuallyDefineMenuItems = ({ parameters }) => {
-  const { menuItems, menuLabel, menuRule, headingContent } =
-    parameters?.props?.TableOfContents ?? {};
-  const params = new URLSearchParams(window.location.search);
-  const themeParam = params.has('theme') ? params.get('theme') : null;
-  const theme =
-    themeParam ||
-    document.documentElement.getAttribute('storybook-carbon-theme') ||
-    'white';
-  return (
-    <TableOfContents
-      theme={theme}
-      menuItems={menuItems}
-      menuLabel={menuLabel}
-      menuRule={menuRule}
-      headingContent={headingContent}>
-      <DataContent />
-    </TableOfContents>
-  );
-};
-
-ManuallyDefineMenuItems.story = {
-  name: 'Manually define menu items',
-  parameters: {
-    knobs: {
-      TableOfContents: ({ groupId }) => ({
-        menuLabel: text('Menu label (menuLabel)', 'Jump to', groupId),
-        menuRule: boolean('Optional Rule (menuRule)', false, groupId),
-      }),
-    },
-  },
-};
-
-export const DynamicItems = ({ parameters }) => (
-  <ManuallyDefineMenuItems parameters={parameters} />
-);
-
-DynamicItems.story = {
-  name: 'Dynamic items',
-  parameters: {
-    knobs: {
-      TableOfContents: ({ groupId }) => ({
-        menuLabel: text('Menu label (menuLabel)', 'Jump to', groupId),
-      }),
-    },
   },
 };
 
