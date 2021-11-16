@@ -9,20 +9,20 @@
 
 import { nothing } from 'lit-html';
 import { html } from 'lit-element';
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, number, text } from '@storybook/addon-knobs';
 import ArrowLeft20 from 'carbon-web-components/es/icons/arrow--left/20.js';
 import '../table-of-contents';
 import '../../horizontal-rule/horizontal-rule';
 import '../../image/image';
 import '../../link-list/link-list';
-import content from './content';
+import content, { headings, LOREM } from './content';
 import styles from './table-of-contents.stories.scss';
 import readme from './README.stories.mdx';
 import { TOC_TYPES } from '../defs';
 import { ICON_PLACEMENT } from '../../../globals/defs';
 
 export const Default = ({ parameters }) => {
-  const { withHeadingContent } = parameters?.props?.Other ?? {};
+  const { numberOfItems: items, withHeadingContent } = parameters?.props?.Other ?? {};
   return html`
     <dds-table-of-contents>
       ${withHeadingContent
@@ -50,20 +50,23 @@ export const Default = ({ parameters }) => {
             <dds-hr slot="menu-rule"></dds-hr>
           `
         : nothing}
-      ${content('bx--tableofcontents__contents')}
+      ${content({ contentClass: 'bx--tableofcontents__contents', items })}
     </dds-table-of-contents>
   `;
 };
 
-export const Horizontal = () => html`
-  <dds-table-of-contents toc-layout="${TOC_TYPES.HORIZONTAL}">
-    <div class="bx--row">
-      <div class="bx--col-lg-12">
-        ${content('bx--tableofcontents-horizontal__contents')}
+export const Horizontal = ({ parameters }) => {
+  const { numberOfItems: items } = parameters?.props?.Other ?? {};
+  return html`
+    <dds-table-of-contents toc-layout="${TOC_TYPES.HORIZONTAL}">
+      <div class="bx--row">
+        <div class="bx--col-lg-12">
+          ${content({ contentClass: 'bx--tableofcontents-horizontal__contents', items })}
+        </div>
       </div>
-    </div>
-  </dds-table-of-contents>
-`;
+    </dds-table-of-contents>
+  `;
+};
 
 export default {
   title: 'Components/Table of contents',
@@ -81,8 +84,14 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      Other: () => ({
-        withHeadingContent: boolean('With heading content', false),
+      Other: ({ groupId }) => ({
+        withHeadingContent: boolean('With heading content', false, groupId),
+        numberOfItems: Array.from({
+          length: number('Number of items', 5, { min: 4, max: 8 }, groupId),
+        }).map((_, i) => ({
+          heading: text(`Section ${i + 1} heading`, headings[i % headings.length], groupId),
+          copy: text(`Section ${i + 1} copy`, `${LOREM}\n`.repeat(3).trim(), groupId),
+        })),
       }),
     },
   },
