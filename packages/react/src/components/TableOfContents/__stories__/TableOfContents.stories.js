@@ -5,7 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import DataContent from './data/DataContent';
+import { boolean, number, text } from '@storybook/addon-knobs';
+import DataContent, { headings, LOREM } from './data/DataContent';
 import LinkList from '../../LinkList/LinkList';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -13,7 +14,8 @@ import styles from './TableOfContents.stories.scss';
 import TableOfContents from '../TableOfContents';
 
 export const Default = ({ parameters }) => {
-  const { withHeadingContent } = parameters?.props?.Other ?? {};
+  const { numberOfItems: menuItems, withHeadingContent } =
+    parameters?.props?.Other ?? {};
   const headingItems = [
     {
       type: 'local',
@@ -44,8 +46,8 @@ export const Default = ({ parameters }) => {
     <>
       <TableOfContents
         headingContent={withHeadingContent && headingContent}
-        menuRule={withHeadingContent}>
-        <DataContent />
+        menuRule={!!headingContent}>
+        <DataContent items={menuItems} />
       </TableOfContents>
     </>
   );
@@ -63,6 +65,25 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    knobs: {
+      Other: ({ groupId }) => ({
+        withHeadingContent: boolean('With heading content', false, groupId),
+        numberOfItems: Array.from({
+          length: number('Number of items', 5, { min: 4, max: 8 }, groupId),
+        }).map((_, i) => ({
+          heading: text(
+            `Section ${i + 1} heading`,
+            headings[i % headings.length],
+            groupId
+          ),
+          copy: text(
+            `Section ${i + 1} copy`,
+            `${LOREM}\n`.repeat(3).trim(),
+            groupId
+          ),
+        })),
+      }),
+    },
   },
 };
 
