@@ -25,40 +25,25 @@ import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--001.jpg';
 
-export const Default = () => {
-  return (
-    <>
-      <DDSTableOfContents>{content()}</DDSTableOfContents>
-    </>
-  );
-};
-
-export const WithHeadingContent = ({ parameters }) => {
-  const { menuRule } = parameters?.props?.Other ?? {};
+export const Default = ({ parameters }) => {
+  const { withHeadingContent } = parameters?.props?.Other ?? {};
   return (
     <>
       <DDSTableOfContents>
-        <DDSImage slot="heading" alt="Alt text" default-src={imgLg1x1}>
-          <DDSImageItem media="(min-width: 1056px)" srcset={imgXlg16x9}></DDSImageItem>
-          <DDSImageItem media="(min-width: 672px)" srcset={imgLg16x9}></DDSImageItem>
-          <DDSImageItem media="(min-width: 400px)" srcset={imgMd16x9}></DDSImageItem>
-        </DDSImage>
-        {!menuRule ? null : <DDSHorizontalRule slot="menu-rule"></DDSHorizontalRule>}
+        {withHeadingContent && (
+          <>
+            <DDSImage slot="heading" alt="Alt text" default-src={imgLg1x1}>
+              <DDSImageItem media="(min-width: 1056px)" srcset={imgXlg16x9}></DDSImageItem>
+              <DDSImageItem media="(min-width: 672px)" srcset={imgLg16x9}></DDSImageItem>
+              <DDSImageItem media="(min-width: 400px)" srcset={imgMd16x9}></DDSImageItem>
+            </DDSImage>
+            <DDSHorizontalRule slot="menu-rule"></DDSHorizontalRule>
+          </>
+        )}
         {content()}
       </DDSTableOfContents>
     </>
   );
-};
-
-WithHeadingContent.story = {
-  name: 'With heading content',
-  parameters: {
-    knobs: {
-      Other: () => ({
-        menuRule: boolean('Put a horizontal rule', false),
-      }),
-    },
-  },
 };
 
 export const Horizontal = () => {
@@ -86,5 +71,10 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
+    knobs: {
+      Other: ({ groupId }) => ({
+        withHeadingContent: boolean('With heading content', false, groupId),
+      }),
+    },
   },
 };
