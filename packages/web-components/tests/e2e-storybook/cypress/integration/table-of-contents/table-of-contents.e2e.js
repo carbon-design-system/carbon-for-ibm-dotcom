@@ -6,7 +6,7 @@
  */
 
 /**
- * Sets the correct path (default Footer)
+ * Sets the correct path
  *
  * @type {string}
  * @private
@@ -17,7 +17,20 @@ const _paths = {
   horizontal: 'iframe.html?id=components-table-of-contents--horizontal',
 };
 
+/**
+ * Collection of all tests for dds-table-of-contents
+ *
+ * @property {function} all
+ * @property {function} desktop
+ * @property {function} mobile
+ * @private
+ */
 const _tests = {
+  /**
+   * Collection of tests for use across browser dimensions.
+   *
+   * @function screenshotThemes - Takes a screenshot of the given page in each theme.
+   */
   all: {
     screenshotThemes: () => {
       const themes = ['w', 'g10', 'g90', 'g100'];
@@ -30,6 +43,14 @@ const _tests = {
       });
     },
   },
+  /**
+   * Collection of tests for use on desktop-sized viewports.
+   *
+   * @function checkRender            - Asserts [linkID] === [sectionID]
+   * @function checkLinkFunctionality - Asserts each link scrolls page to proper position
+   * @function checkScrollSpy         - Asserts each link updates onscroll properly
+   * @function checkStickyNav         - Asserts navigation stays within viewport
+   */
   desktop: {
     checkRender: () => {
       const navItemsIds = [];
@@ -84,6 +105,14 @@ const _tests = {
       });
     },
   },
+  /**
+   * Collection of tests for use on mobile-sized viewports.
+   *
+   * @function checkRender            - Asserts [optionID] === [sectionID]
+   * @function checkLinkFunctionality - Asserts each select option scrolls page to proper position
+   * @function checkScrollSpy         - Asserts select nav updates onscroll properly
+   * @function checkStickyNav         - Asserts navigation stays within viewport
+   */
   mobile: {
     checkRender: () => {
       const navItemsIds = [];
