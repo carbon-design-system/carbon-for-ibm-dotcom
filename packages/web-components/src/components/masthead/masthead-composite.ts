@@ -482,7 +482,7 @@ class DDSMastheadComposite extends LitElement {
     target: NAV_ITEMS_RENDER_TARGET;
     hasL1: boolean;
   }) {
-    const currentUrlPath = root.location.href;
+    const currentUrlPath = root.location?.href;
     const hasChildLink = this._childLinkChecker();
     const { navLinks, l1Data } = this;
     let menu: MastheadLink[] | undefined = navLinks;
