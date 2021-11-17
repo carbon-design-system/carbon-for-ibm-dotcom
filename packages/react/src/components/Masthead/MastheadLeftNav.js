@@ -48,7 +48,7 @@ const MastheadLeftNav = ({
       key = '',
       parentItemUrl = '',
     }) => {
-      const currentUrlPath = root.location.href;
+      const currentUrlPath = root.location?.href;
       if (!matchFound) {
         if (parentItemUrl === currentUrlPath) {
           selectedItems.level0 = `${key}`;
