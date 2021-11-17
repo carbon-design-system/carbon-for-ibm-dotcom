@@ -18,20 +18,9 @@ const _paths = {
 };
 
 const _tests = {
-  hook: {
-    pretest: () => {
-      cy.on('uncaught:exception', (e) => {
-        console.error(e.message);
-        return false;
-      });
-    },
-    posttest: () => { cy.removeAllListeners('uncaught:exception') },
-  },
-  all: {
-  },
+  all: {},
   desktop: {
     checkRender: () => {
-      _tests.hook.pretest();
       cy.get('dds-table-of-contents').then(([component]) => {
         const shadowRoot = component.shadowRoot;
         const desktopContainer = shadowRoot.querySelectorAll('.bx--tableofcontents__desktop-container');
@@ -56,7 +45,6 @@ const _tests = {
       });
     },
     checkLinkFunctionality: () => {
-      _tests.hook.pretest();
       cy.get('dds-table-of-contents').then(([component]) => {
         const shadowRoot = component.shadowRoot;
         const links = shadowRoot.querySelectorAll('.bx--tableofcontents__desktop-container a[data-target]');
@@ -65,18 +53,17 @@ const _tests = {
 
         for (const link of links) {
           const section = component.querySelector(`a[name="${link.dataset.target}"]`);
-          cy.get(link).click().wait(1000).then(() => {
-            const sectionScrolledTo = (
-              section.getBoundingClientRect().y === 0 ||
-              window.scrollY === maxScrollVal
-            );
-            expect(sectionScrolledTo).to.be.true;
-          });
+          cy.get(link)
+            .click()
+            .wait(1000)
+            .then(() => {
+              const sectionScrolledTo = section.getBoundingClientRect().y === 0 || window.scrollY === maxScrollVal;
+              expect(sectionScrolledTo).to.be.true;
+            });
         }
       });
     },
     checkScrollSpy: () => {
-      _tests.hook.pretest();
       cy.get('dds-table-of-contents').then(([component]) => {
         const shadowRoot = component.shadowRoot;
         const sections = Array.from(component.querySelectorAll('a[name]'));
@@ -86,7 +73,9 @@ const _tests = {
         for (const section of sections) {
           const isLastSection = sections.indexOf(section) === sections.length - 1;
 
-          const link = shadowRoot.querySelector(`.bx--tableofcontents__desktop-container a[data-target="${section.getAttribute('name')}"]`);
+          const link = shadowRoot.querySelector(
+            `.bx--tableofcontents__desktop-container a[data-target="${section.getAttribute('name')}"]`
+          );
 
           // Links update when section is 50px from top
           if (!isLastSection) {
@@ -96,10 +85,9 @@ const _tests = {
           }
 
           cy.wait(1000).then(() => {
-            const linkIsIndicated = (
+            const linkIsIndicated =
               link.getAttribute('aria-current') === 'location' &&
-              link.parentElement.classList.contains('bx--tableofcontents__desktop__item--active')
-            );
+              link.parentElement.classList.contains('bx--tableofcontents__desktop__item--active');
 
             expect(linkIsIndicated).to.be.true;
           });
@@ -107,8 +95,6 @@ const _tests = {
       });
     },
     checkStickyNav: () => {
-      _tests.hook.pretest();
-
       const positions = ['top', 'center', 'bottom'];
 
       for (const position of positions) {
@@ -116,41 +102,29 @@ const _tests = {
           cy.get('.bx--tableofcontents__desktop-container').then(([sidebar]) => {
             const bounds = sidebar.getBoundingClientRect();
 
-            const sidebarInView = (
-              bounds.top >= 0 &&
-              bounds.bottom <= 720 &&
-              bounds.left >= 0 &&
-              bounds.right <= 1280
-            )
+            const sidebarInView = bounds.top >= 0 && bounds.bottom <= 720 && bounds.left >= 0 && bounds.right <= 1280;
 
             expect(sidebarInView).to.be.true;
-          })
-        })
+          });
+        });
       }
     },
-    screenshotThemes: (done) => {
-      _tests.hook.pretest();
-
+    screenshotThemes: () => {
       const themes = ['w', 'g10', 'g90', 'g100'];
 
       for (const theme of themes) {
-
         cy.get('html')
           .then(([doc]) => doc.setAttribute('storybook-carbon-theme', theme))
           .screenshot(`${Cypress.currentTest.titlePath[0]} [${theme.toUpperCase()}]`, {
-            capture: 'viewport'
-          }).then(() => {
-            if (themes.indexOf(theme) === themes.length - 1) {
-              _tests.hook.posttest();
-            }
+            capture: 'viewport',
           });
+        // Take a snapshot for visual diffing
+        // TODO: click states currently not working in percy for web components
+        // cy.percySnapshot('dds-leadspace | tall | g100 theme', {
+        //   widths: [1280],
+        // });
       }
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-leadspace | tall | g100 theme', {
-      //   widths: [1280],
-      // });
-    }
+    },
   },
   mobile: {},
 };
@@ -193,7 +167,6 @@ describe('dds-table-of-contents | horizontal (desktop)', () => {
   it('should remain visible on page throughout scroll', _tests.desktop.checkStickyNav);
   it('should render correctly in all themes', _tests.desktop.screenshotThemes);
 });
-
 
 // describe('dds-table-of-contents | default (mobile)', () => { });
 // describe('dds-table-of-contents | with heading content (mobile)', () => { });
