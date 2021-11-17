@@ -109,6 +109,12 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   hideNav = false;
 
   /**
+   * The English title of the selected nav item.
+   */
+  @property({ attribute: 'selected-menu-item' })
+  selectedMenuItem!: string;
+
+  /**
    * `true` if left-hand scroll intersection sentinel intersects with the host element.
    * In this condition, the left-hand paginator button should be hidden.
    */
@@ -251,7 +257,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   /**
    * Handles `click` event on the right-hand paginator button.
    */
-  private _paginateRight() {
+  private async _paginateRight({ onLoad }: { onLoad?: boolean } = {}) {
     const {
       _caretLeftNode: caretLeftNode,
       _caretRightNode: caretRightNode,
@@ -259,18 +265,29 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       _contentNode: contentNode,
       _currentScrollPosition: currentScrollPosition,
       _isIntersectionLeftTrackerInContent: isIntersectionLeftTrackerInContent,
+      _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
       _navNode: navNode,
       _pageIsRTL: pageIsRTL,
       _slotNode: slotNode,
     } = this;
     const interimLeft = currentScrollPosition + contentContainerNode!.offsetWidth;
     const elems = slotNode?.assignedElements() as HTMLElement[];
+    await this.updateComplete;
+
     if (elems) {
       if (pageIsRTL) {
+        const caretLeftNodeWidthAdjustment = isIntersectionLeftTrackerInContent ? caretLeftNode!.offsetWidth : 0;
         const navRight = navNode!.getBoundingClientRect().right;
-        const firstVisibleElementIndex = elems.findIndex(
-          elem => navRight - elem.getBoundingClientRect().left > interimLeft - caretLeftNode!.offsetWidth - buttonGradientWidth
-        );
+        const firstVisibleElementIndex = onLoad
+          ? elems.findIndex(
+              elem =>
+                navRight - elem.getBoundingClientRect().left > interimLeft - caretLeftNode!.offsetWidth - buttonGradientWidth &&
+                elem.hasAttribute('active')
+            )
+          : elems.findIndex(
+              elem =>
+                navRight - elem.getBoundingClientRect().left > interimLeft - caretLeftNode!.offsetWidth - buttonGradientWidth
+            );
         if (firstVisibleElementIndex > 0) {
           const firstVisibleElementLeft = Math.abs(
             elems[firstVisibleElementIndex].getBoundingClientRect().right -
@@ -278,13 +295,16 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
               caretLeftNode!.offsetWidth +
               buttonGradientWidth
           );
-          const maxLeft = contentNode!.scrollWidth - contentContainerNode!.offsetWidth;
+          const maxLeft = contentNode!.scrollWidth - contentContainerNode!.offsetWidth + caretLeftNodeWidthAdjustment;
           this._currentScrollPosition = Math.min(firstVisibleElementLeft, maxLeft);
         }
       } else {
-        const caretLeftNodeWidthAdjustment = isIntersectionLeftTrackerInContent ? caretLeftNode!.offsetWidth : 0;
+        const caretLeftNodeWidthAdjustment = isIntersectionLeftTrackerInContent ? 0 : caretLeftNode!.offsetWidth;
+        const caretRightNodeWidthAdjustment = isIntersectionRightTrackerInContent ? caretRightNode!.offsetWidth : 0;
         const navLeft = navNode!.getBoundingClientRect().left;
-        const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().right - navLeft > interimLeft);
+        const firstVisibleElementIndex = onLoad
+          ? elems.findIndex(elem => elem.getBoundingClientRect().right - navLeft > interimLeft && elem.hasAttribute('active'))
+          : elems.findIndex(elem => elem.getBoundingClientRect().right - navLeft > interimLeft);
         if (firstVisibleElementIndex > 0) {
           const firstVisibleElementLeft =
             elems[firstVisibleElementIndex].getBoundingClientRect().left - navLeft - buttonGradientWidth;
@@ -292,7 +312,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
           // if we see the right remainder nav items can be contained in a page
           const maxLeft =
             contentNode!.scrollWidth -
-            (contentContainerNode!.offsetWidth - caretLeftNodeWidthAdjustment + caretRightNode!.offsetWidth);
+            (contentContainerNode!.offsetWidth - caretRightNodeWidthAdjustment + caretLeftNodeWidthAdjustment);
           this._currentScrollPosition = Math.min(firstVisibleElementLeft, maxLeft);
         }
       }
@@ -376,6 +396,12 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   disconnectedCallback() {
     this._cleanAndCreateIntersectionObserverContainer();
     super.disconnectedCallback();
+  }
+
+  firstUpdated(changedProperties) {
+    if (changedProperties.has('selectedMenuItem')) {
+      this._paginateRight({ onLoad: true });
+    }
   }
 
   shouldUpdate(changedProperties) {
