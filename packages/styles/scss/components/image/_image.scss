@@ -41,8 +41,9 @@
 
   // dds-image-logo style.
   :host(#{$dds-prefix}-image-logo) {
-    background-color: $ui-background;
-    padding: $spacing-05 $spacing-05 0 $spacing-05;
+    background-color: $ui-02;
+    margin: $spacing-05 $spacing-05 $spacing-03 $spacing-05;
+    max-width: carbon--rem(160px);
 
     @include ratio-base(2, 1, false);
 

@@ -53,7 +53,7 @@ export const Default = ({ parameters }) => {
         ? html`
             ${tagGroupContent}
           `
-        : ''}
+        : ``}
       <dds-card-footer icon-placement="${iconPlacement}">
         ${footer}${ArrowRight20({ slot: 'icon' })}
       </dds-card-footer>
@@ -104,7 +104,7 @@ export const Pictogram = ({ parameters }) => {
         ? html`
             ${tagGroupContent}
           `
-        : ''}
+        : ``}
       <svg
         slot="pictogram"
         focusable="false"
@@ -176,7 +176,7 @@ export const Static = ({ parameters }) => {
         ? html`
             ${tagGroupContent}
           `
-        : ''}
+        : ``}
       <dds-card-footer href="${href}" icon-placement="${iconPlacement}">
         ${footer}${ArrowRight20({ slot: 'icon' })}
       </dds-card-footer>
@@ -209,13 +209,18 @@ Static.story = {
 };
 
 export const Logo = ({ parameters }) => {
-  const { alt, defaultSrc, eyebrow, href, copy, tagGroup, footer } = parameters?.props?.Card ?? {};
+  const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } = parameters?.props?.Card ?? {};
   return html`
-    <dds-card color-scheme="light" border>
+    <dds-card border logo href=${ifNonNull(href || undefined)}>
       <dds-image-logo slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image-logo>
       ${eyebrow
         ? html`
             <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
+          `
+        : ``}
+      ${heading
+        ? html`
+            <dds-card-heading>${heading}</dds-card-heading>
           `
         : ``}
       ${copy
@@ -227,10 +232,9 @@ export const Logo = ({ parameters }) => {
         ? html`
             ${tagGroupContent}
           `
-        : ''}
-      <dds-card-footer href="${href}" icon-placement="${iconPlacement}">
-        ${footer}${ArrowRight20({ slot: 'icon' })}
-      </dds-card-footer>
+        : ``}
+
+      <dds-card-footer></dds-card-footer>
     </dds-card>
   `;
 };
@@ -244,14 +248,13 @@ Logo.story = {
         defaultSrc: logoMicrosoft2x1,
         tagGroup: boolean('Add tags', true, groupId),
         eyebrow: textNullable('Card Eyebrow:', 'Microsoft', groupId),
-        heading: textNullable('Card Heading:', 'Lorem ipsum dolor sit amet', groupId),
+        heading: textNullable('Card Heading (optional):', '', groupId),
         copy: textNullable(
           'Card body copy:',
           'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
           groupId
         ),
         href: 'https://example.com',
-        footer: textNullable('CTA copy', 'Card CTA text', groupId),
       }),
     },
   },
