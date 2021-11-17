@@ -22,7 +22,7 @@ const { prefix } = settings;
  * loops into the array of elements and returns the values
  *
  * @private
- * @returns {Array} returns elemenrt name and data title
+ * @returns {Array} returns element name and data title
  */
 const _findMenuItems = () => {
   const eles = document.querySelectorAll('a[name]');
