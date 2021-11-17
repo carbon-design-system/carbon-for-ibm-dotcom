@@ -117,7 +117,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   /**
    * Array to hold the card-heading elements within child items.
    */
-   private _childItems: any[] = [];
+  private _childItems: any[] = [];
 
   /**
    * `true` if left-hand scroll intersection sentinel intersects with the host element.
@@ -291,7 +291,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
     await this.updateComplete;
 
     const interimLeft = currentScrollPosition + contentContainerNode!.offsetWidth;
-    const elems = slotNode?.assignedElements() as HTMLElement[] || this._childItems;
+    const elems = (slotNode?.assignedElements() as HTMLElement[]) || this._childItems;
 
     if (elems) {
       if (pageIsRTL) {
