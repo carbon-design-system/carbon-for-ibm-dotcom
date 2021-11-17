@@ -51,6 +51,9 @@ class DDSBackgroundMedia extends DDSImage {
     });
   }
 
+  /**
+   * The opacity of the background image or video. 100 is fully visible, 0 is fully transparent.
+   */
   @property({ attribute: 'opacity', reflect: true })
   backgroundOpacity: number = 100;
 
@@ -73,14 +76,20 @@ class DDSBackgroundMedia extends DDSImage {
   mobilePosition = MOBILE_POSITION.BOTTOM;
 
   /**
-   * Set to true in _handleBackgroundMedia if any children are `dds-video-player-container`
+   * Internal storage of the video ID
    */
   @property()
   videoId: String | null = null;
 
+  /**
+   * Current state of video playback
+   */
   @property()
   videoIsPlaying: Boolean = false;
 
+  /**
+   * Internal storage of the video player comonent
+   */
   @property()
   videoPlayer: DDSVideoPlayer | null = null;
 
