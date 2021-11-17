@@ -115,6 +115,11 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   selectedMenuItem!: string;
 
   /**
+   * Array to hold the card-heading elements within child items.
+   */
+   private _childItems: any[] = [];
+
+  /**
    * `true` if left-hand scroll intersection sentinel intersects with the host element.
    * In this condition, the left-hand paginator button should be hidden.
    */
@@ -169,6 +174,19 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
         this._observerIntersection.observe(intersectionRightSentinelNode);
       }
     }
+  }
+
+  /**
+   * Handles `slotchange` event on the default `<slot>`.
+   */
+
+  private _handleSlotChange(event) {
+    this._childItems = (event.target as HTMLSlotElement)
+      .assignedNodes()
+      .filter(elem =>
+        (elem as HTMLElement).matches !== undefined ? (elem as HTMLElement).matches('dds-megamenu-top-nav-menu') : false
+      );
+    this._paginateRight({ onLoad: true });
   }
 
   /**
@@ -270,9 +288,10 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       _pageIsRTL: pageIsRTL,
       _slotNode: slotNode,
     } = this;
-    const interimLeft = currentScrollPosition + contentContainerNode!.offsetWidth;
-    const elems = slotNode?.assignedElements() as HTMLElement[];
     await this.updateComplete;
+
+    const interimLeft = currentScrollPosition + contentContainerNode!.offsetWidth;
+    const elems = slotNode?.assignedElements() as HTMLElement[] || this._childItems;
 
     if (elems) {
       if (pageIsRTL) {
@@ -422,6 +441,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       _currentScrollPosition: currentScrollPosition,
       _isIntersectionLeftTrackerInContent: isIntersectionLeftTrackerInContent,
       _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
+      _handleSlotChange: handleSlotChange,
       _paginateLeft: paginateLeft,
       _paginateRight: paginateRight,
       _pageIsRTL: pageIsRTL,
@@ -458,7 +478,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                     <nav part="nav" aria-label="nav-rtl" class="${prefix}--header__nav">
                       <div class="${prefix}--sub-content-right"></div>
                       <div part="menubar" class="${prefix}--header__menu-bar" aria-label="${ifNonNull(this.menuBarLabel)}">
-                        <slot @keydown="${handleOnKeyDown}"></slot>
+                        <slot @slotchange=${handleSlotChange} @keydown="${handleOnKeyDown}"></slot>
                       </div>
                       <div class="${prefix}--sub-content-left"></div>
                     </nav>
@@ -495,7 +515,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                     <nav part="nav" aria-label="nav-ltr" class="${prefix}--header__nav">
                       <div class="${prefix}--sub-content-left"></div>
                       <div part="menubar" class="${prefix}--header__menu-bar" aria-label="${ifNonNull(this.menuBarLabel)}">
-                        <slot @keydown="${handleOnKeyDown}"></slot>
+                        <slot @slotchange=${handleSlotChange} @keydown="${handleOnKeyDown}"></slot>
                       </div>
                       <div class="${prefix}--sub-content-right"></div>
                     </nav>
