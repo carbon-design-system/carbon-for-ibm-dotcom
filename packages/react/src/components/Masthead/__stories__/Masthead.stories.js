@@ -141,7 +141,7 @@ export const SearchOpenOnload = ({ parameters }) => (
 );
 
 SearchOpenOnload.story = {
-  name: 'Search open on load',
+  name: 'Search open onload',
   parameters: {
     knobs: { escapeHTML: false, ...Default.story.parameters.knobs },
   },
