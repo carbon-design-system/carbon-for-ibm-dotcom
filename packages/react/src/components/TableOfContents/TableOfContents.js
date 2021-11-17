@@ -55,12 +55,8 @@ const TableOfContents = ({
   const [selectedTitle, setSelectedTitle] = useState('');
 
   useEffect(() => {
-    if (menuItems?.length) {
-      setUseMenuItems([...menuItems]);
-    } else {
-      setUseMenuItems(_findMenuItems());
-    }
-  }, [menuItems]);
+    setUseMenuItems(menuItems?.length ? [...menuItems] : _findMenuItems());
+  }, [children, menuItems]);
 
   useEffect(() => {
     let id = useMenuItems[0] ? useMenuItems[0].id : '';
