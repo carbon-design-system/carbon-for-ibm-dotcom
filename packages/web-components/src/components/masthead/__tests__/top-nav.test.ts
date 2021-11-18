@@ -77,6 +77,7 @@ describe('dds-top-nav', function() {
       await Promise.resolve();
       (topNav!.shadowRoot!.querySelector('[part="next-button"]') as HTMLElement).click();
       await Promise.resolve();
+      await Promise.resolve();
       expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-167px');
     });
 
@@ -89,6 +90,7 @@ describe('dds-top-nav', function() {
       MockIntersectionObserver.run(intersectionRightSentinelNode!, false);
       await Promise.resolve();
       (topNav!.shadowRoot!.querySelector('[part="next-button"]') as HTMLElement).click();
+      await Promise.resolve();
       await Promise.resolve();
       expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-92px');
     });
@@ -104,7 +106,7 @@ describe('dds-top-nav', function() {
       (topNav as any)._currentScrollPosition = 565;
       (topNav!.shadowRoot!.querySelector('[part="next-button"]') as HTMLElement).click();
       await Promise.resolve();
-      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-692px');
+      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-565px');
     });
 
     it('should snap to the right edge at the last page', async function() {
@@ -120,7 +122,7 @@ describe('dds-top-nav', function() {
       (topNav as any)._currentScrollPosition = 690;
       (topNav!.shadowRoot!.querySelector('[part="next-button"]') as HTMLElement).click();
       await Promise.resolve();
-      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-700px');
+      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-690px');
     });
   });
 

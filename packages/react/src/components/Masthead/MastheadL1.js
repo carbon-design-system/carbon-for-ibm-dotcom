@@ -31,7 +31,7 @@ const MastheadL1 = ({ navigationL1, ...rest }) => {
 
   const mastheadL1Links = navigationL1.map((link, index) => {
     const selectedUrlItem =
-      childLinkChecker && childLinkChecker(link, root.location.href);
+      childLinkChecker && childLinkChecker(link, root.location?.href);
     const autoid = `${stablePrefix}--masthead-${rest.navType}__l1-nav${index}`;
     const selected = rest.selectedMenuItem
       ? link.titleEnglish === rest.selectedMenuItem

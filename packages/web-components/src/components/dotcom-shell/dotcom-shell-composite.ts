@@ -26,6 +26,7 @@ import { FOOTER_SIZE } from '../footer/footer';
 import '../footer/footer-composite';
 import './dotcom-shell';
 import styles from './dotcom-shell-composite.scss';
+import DDSTableOfContents from '../table-of-contents/table-of-contents';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -84,6 +85,11 @@ class DDSDotcomShellComposite extends LitElement {
    * The masthead element.
    */
   private _masthead?: HTMLElement;
+
+  /**
+   * The tableOfContents element.
+   */
+  private _tableOfContents?: DDSTableOfContents;
 
   /**
    * The tableOfContents inner navBar or sideBar depending on layout.
@@ -178,10 +184,20 @@ class DDSDotcomShellComposite extends LitElement {
             this._masthead!.style.top = `${mastheadTop}px`;
           }
         } else if (l1Element) {
-          this._masthead!.style.top = `-${Math.min(
-            this._masthead!.offsetHeight - l1Element.offsetHeight,
-            Math.abs(mastheadTop)
-          )}px`;
+          const toc = this._tableOfContents;
+          const stickyOffset = Number(toc?.getAttribute('stickyOffset'));
+          if (window.scrollY < this._lastScrollPosition) {
+            // scrolling up
+            this._masthead!.style.top = '0';
+            toc!.stickyOffset = stickyOffset + l1Element.offsetHeight;
+          } else {
+            // scrolling down
+            this._masthead!.style.top = `-${Math.min(
+              this._masthead!.offsetHeight - l1Element.offsetHeight,
+              Math.abs(mastheadTop)
+            )}px`;
+            toc!.stickyOffset = Math.max(stickyOffset - l1Element.offsetHeight, stickyOffset);
+          }
         } else if (this._tableOfContentsLayout === 'horizontal') {
           this._tableOfContentsInnerBar!.style.top = `${Math.max(Math.min(tocPosition, this._masthead!.offsetHeight), 0)}px`;
           this._masthead!.style.top = `${mastheadTop}px`;
@@ -579,7 +595,8 @@ class DDSDotcomShellComposite extends LitElement {
     super.update(changedProperties);
 
     if (!this._tableOfContentsInnerBar) {
-      const toc = document.querySelector(`${ddsPrefix}-table-of-contents`);
+      this._tableOfContents = document.querySelector(`${ddsPrefix}-table-of-contents`) as DDSTableOfContents;
+      const toc = this._tableOfContents;
       if (toc?.getAttribute('toc-layout') === 'horizontal') {
         this._tableOfContentsInnerBar = toc?.shadowRoot?.querySelector(`.${prefix}--tableofcontents__navbar`) as HTMLElement;
         this._tableOfContentsLayout = 'horizontal';

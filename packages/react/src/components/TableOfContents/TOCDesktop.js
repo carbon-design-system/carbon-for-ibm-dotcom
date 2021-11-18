@@ -58,7 +58,10 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
   const handleOnClick = (e, id) => {
     e.preventDefault();
     const selector = `a[name="${id}"]`;
-    smoothScroll(null, selector);
+    const masthead = e.target.ownerDocument.querySelector(
+      `.${prefix}--masthead`
+    );
+    smoothScroll(null, selector, masthead?.offsetHeight);
     triggerFocus(selector);
   };
 
