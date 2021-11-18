@@ -121,7 +121,7 @@ const TableOfContents = ({
       .filter((elem, index, arr) =>
         elem.height === null
           ? arr[index - 1].position < arr[index - 1].height
-          : elem.position - 50 > -elem.height
+          : elem.position - 50 - stickyOffset > -elem.height
       );
 
     // Sets last section as active at the end of page in case there is not enough height for it to dynamically activate
