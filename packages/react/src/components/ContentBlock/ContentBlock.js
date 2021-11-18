@@ -8,6 +8,7 @@
 import { CTA } from '../CTA';
 import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import { HorizontalRule } from '../HorizontalRule';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -28,11 +29,7 @@ const ContentBlock = ({
   aside,
   border,
 }) => {
-  const classnames = cx(
-    `${prefix}--content-block`,
-    { [`${prefix}--layout--border`]: border },
-    customClassName
-  );
+  const classnames = cx(`${prefix}--content-block`, customClassName);
   const content = (
     <>
       {copy && (
@@ -68,6 +65,7 @@ const ContentBlock = ({
     <div data-autoid={`${stablePrefix}--content-block`} className={classnames}>
       {title}
       {aside && aside.items ? _layoutWrap(content, aside) : content}
+      {border ? <HorizontalRule /> : ''}
     </div>
   );
 };
