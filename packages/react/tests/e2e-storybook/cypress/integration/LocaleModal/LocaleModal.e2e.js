@@ -42,7 +42,7 @@ describe('LocaleModal | default', () => {
     cy.screenshot();
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('Footer | Region selected', {
+    cy.percySnapshot('LocaleModal | Region selected', {
       widths: [1280],
     });
   });
@@ -64,7 +64,7 @@ describe('LocaleModal | default', () => {
     cy.screenshot();
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('Footer | Filtering locales', {
+    cy.percySnapshot('LocaleModal | Filtering locales', {
       widths: [1280],
     });
   });
