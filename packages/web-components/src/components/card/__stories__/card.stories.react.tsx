@@ -26,11 +26,13 @@ import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--131
 import { PICTOGRAM_PLACEMENT } from '../defs';
 
 export const Default = ({ parameters }) => {
-  const { image, href, alt, defaultSrc, heading, eyebrow, tagGroup, copy, inverse, footer, outlinedCard } =
-    parameters?.props?.Card ?? {};
+  const { image, href, alt, defaultSrc, heading, eyebrow, tagGroup, copy, footer, cardStyles } = parameters?.props?.Card ?? {};
   return (
     /* eslint-disable no-nested-ternary */
-    <DDSCard colorScheme={inverse ? 'inverse' : outlinedCard ? 'light' : ''} href={href || undefined}>
+    <DDSCard
+      colorScheme={cardStyles === 'Inverse card' ? 'inverse' : cardStyles === 'Outlined card' ? 'light' : ''}
+      href={href || undefined}
+      border={cardStyles === 'Outlined card'}>
       {image ? <DDSImage slot="image" alt={alt || undefined} defaultSrc={defaultSrc || undefined} /> : ''}
       <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow>
       <DDSCardHeading>{heading}</DDSCardHeading>
@@ -64,8 +66,7 @@ Default.story = {
         tagGroup: boolean('Add tags:', false, groupId),
         href: 'https://example.com',
         footer: textNullable('CTA:', 'Learn more', groupId),
-        outlinedCard: boolean('Outlined card:', false, groupId),
-        inverse: boolean('Inverse card:', false, groupId),
+        cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none', groupId),
       }),
     },
   },
@@ -77,12 +78,13 @@ const pictogramPlacements = {
 };
 
 export const Pictogram = ({ parameters }) => {
-  const { href, heading, copy, tagGroup, pictogramPlacement, outlinedCard, inverse } = parameters?.props?.PictogramCard ?? {};
+  const { href, heading, copy, tagGroup, pictogramPlacement, cardStyles } = parameters?.props?.PictogramCard ?? {};
   return (
     <DDSCard
       pictogramPlacement={pictogramPlacement}
       href={href || undefined}
-      colorScheme={inverse ? 'inverse' : outlinedCard ? 'light' : ''}>
+      colorScheme={cardStyles === 'Inverse card' ? 'inverse' : cardStyles === 'Outlined card' ? 'light' : ''}
+      border={cardStyles === 'Outlined card'}>
       <DDSCardHeading>{heading}</DDSCardHeading>
       {copy ? <p>{copy}</p> : ''}
       {tagGroup ? (
@@ -93,7 +95,7 @@ export const Pictogram = ({ parameters }) => {
       ) : (
         ''
       )}
-      <Desktop slot="pictogram" />
+      <Desktop slot="pictogram" width="48" height="48" />
     </DDSCard>
   );
 };
@@ -106,18 +108,17 @@ Pictogram.story = {
         const copy =
           pictogramPlacement === pictogramPlacements.bottom
             ? textNullable(
-                'Body copy',
+                'Body copy:',
                 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
                 groupId
               )
             : null;
         return {
           pictogramPlacement,
-          heading: textNullable('Heading:', 'Aerospace and defense', groupId),
+          heading: textNullable('Heading:', 'Aerospace and defence', groupId),
           copy,
           href: 'https://example.com',
-          outlinedCard: boolean('Outlined card:', false, groupId),
-          inverse: boolean('Inverse card:', false, groupId),
+          cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none', groupId),
         };
       },
     },
@@ -155,22 +156,33 @@ export const Static = ({ parameters }) => {
 Static.story = {
   parameters: {
     knobs: {
-      StaticCard: ({ groupId }) => ({
-        alt: 'Image alt text',
-        defaultSrc: imgXlg4x3,
-        image: boolean('Add image:', false, groupId),
-        eyebrow: textNullable('Eyebrow:', 'SPSS Statistics', groupId),
-        heading: textNullable('Heading:', 'Free trial', groupId),
-        copy: textNullable(
+      StaticCard: ({ groupId }) => {
+        const image = boolean('Add image:', false, groupId);
+        const eyebrow = textNullable('Eyebrow:', 'SPSS Statistics', groupId);
+        const heading = textNullable('Heading:', 'Free trial', groupId);
+        const copy = textNullable(
           'Body copy:',
           'Enjoy full SPSS Statistics capabilities including all add-ons. ' +
             'All trial registrants are restricted to one free trial per computer per user.',
           groupId
-        ),
-        tagGroup: boolean('Add tags:', false, groupId),
-        cta: boolean('Add CTA:', false, groupId),
-        outlinedCard: boolean('Outlined card:', true, groupId),
-      }),
+        );
+        const tagGroup = boolean('Add tags:', false, groupId);
+        const cta = boolean('Add CTA:', false, groupId);
+        const ctaCopy = cta ? textNullable('CTA copy:', 'Sign up for the trial', groupId) : '';
+        const outlinedCard = boolean('Outlined card:', true, groupId);
+        return {
+          alt: 'Image alt text',
+          defaultSrc: imgXlg4x3,
+          image,
+          eyebrow,
+          heading,
+          copy,
+          tagGroup,
+          cta,
+          ctaCopy,
+          outlinedCard,
+        };
+      },
     },
   },
 };
