@@ -36,7 +36,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
    */
   const mastheadLinks = navigation.map((link, i) => {
     const selectedUrlItem =
-      childLinkChecker && childLinkChecker(link, root.location.href);
+      childLinkChecker && childLinkChecker(link, root.location?.href);
     const autoid = `${stablePrefix}--masthead-${topNavProps.navType}__l0-nav${i}`;
     const selected = topNavProps.selectedMenuItem
       ? link.titleEnglish === topNavProps.selectedMenuItem

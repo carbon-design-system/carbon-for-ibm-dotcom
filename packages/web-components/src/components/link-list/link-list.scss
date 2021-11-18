@@ -45,13 +45,14 @@
   &:hover {
     .#{$prefix}--link {
       text-decoration: none;
-      background: $ui-03;
+      background: $hover-ui;
     }
   }
 
   .#{$prefix}--link {
     // TODO: See if there is a better solution than an internal custom property
     padding: var(--#{$dds-prefix}--link-list-item--anchor-padding, 0);
+    display: flex;
   }
 }
 
