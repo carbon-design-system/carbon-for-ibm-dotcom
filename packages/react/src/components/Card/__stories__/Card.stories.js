@@ -53,7 +53,6 @@ export default {
           light: cardStyles === 'Outlined card',
           border: cardStyles === 'Outlined card',
           cta,
-          cardStyles,
           inverse: cardStyles === 'Inverse card',
           pictogram: showPictogram && DDS_CARD_WITH_PICTOGRAM ? <Bee /> : null,
         };
