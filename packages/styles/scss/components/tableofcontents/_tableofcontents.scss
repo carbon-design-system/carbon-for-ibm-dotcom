@@ -439,6 +439,11 @@ $hover-transition-timing: 95ms;
       }
     }
   }
+
+  .#{$prefix}--tableofcontents .#{$prefix}--link-list {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }
 
 @include exports('tableofcontents') {
