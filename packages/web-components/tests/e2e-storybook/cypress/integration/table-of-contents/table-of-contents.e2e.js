@@ -32,18 +32,9 @@ const _tests = {
    * @function screenshotThemes - Takes a screenshot of the given page in each theme.
    */
   all: {
-    screenshotThemes: () => {
-      const themes = ['w', 'g10', 'g90', 'g100'];
-      cy.wrap(['w', 'g10', 'g90', 'g100']).each(theme => {
-        cy.get('html')
-          .then(doc => doc.attr('storybook-carbon-theme', theme))
-          .screenshot(`${Cypress.currentTest.titlePath[0]} [${theme.toUpperCase()}]`, {
-            capture: 'viewport',
-          });
-        // TODO: Take a snapshot for visual diffing
-        // .percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
-        //   widths: [1280],
-        // });
+    screenshotThemes: width => {
+      cy.carbonScreenshot({
+        capture: 'viewport',
       });
     },
   },

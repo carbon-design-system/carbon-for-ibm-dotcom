@@ -35,17 +35,8 @@ const _tests = {
    */
   all: {
     screenshotThemes: () => {
-      const themes = ['w', 'g10', 'g90', 'g100'];
-      cy.wrap(['w', 'g10', 'g90', 'g100']).each(theme => {
-        cy.get('html')
-          .then(doc => doc.attr('storybook-carbon-theme', theme))
-          .screenshot(
-            `${Cypress.currentTest.titlePath[0]} [${theme.toUpperCase()}]`,
-            { capture: 'viewport' }
-          )
-          .percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
-            widths: [1280],
-          });
+      cy.carbonScreenshot({
+        capture: 'viewport',
       });
     },
   },
