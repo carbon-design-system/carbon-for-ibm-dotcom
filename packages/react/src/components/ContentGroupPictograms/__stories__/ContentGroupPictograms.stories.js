@@ -5,15 +5,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Desktop, Pattern, Touch } from '@carbon/pictograms-react';
 import { select, text, boolean, number } from '@storybook/addon-knobs';
+import { TouchScreen, Pattern, Touch } from '@carbon/pictograms-react';
 import classNames from 'classnames';
 import ContentGroupPictograms from '../ContentGroupPictograms';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
 const pictograms = {
-  Desktop: 'Desktop',
+  TouchScreen: 'TouchScreen',
   Touch: 'Touch',
   Pattern: 'Pattern',
 };
@@ -26,8 +26,8 @@ const pictograms = {
  */
 const selectPictogram = sel => {
   switch (sel) {
-    case 'Desktop':
-      return Desktop;
+    case 'TouchScreen':
+      return TouchScreen;
     case 'Pattern':
       return Pattern;
     case 'Touch':
@@ -46,7 +46,7 @@ const toggleCTA = item => {
     return {
       type: 'local',
       href: 'https://www.example.com',
-      copy: 'Lorem ipsum dolor',
+      copy: 'Lorem ipsum dolor sit amet ',
     };
   } else {
     return null;
@@ -76,18 +76,18 @@ export default {
             ),
             copy: text(
               `Item ${i + 1} Copy (items.copy)`,
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.',
               groupId
             ),
             cta: toggleCTA(
-              boolean(`Item ${i + 1} CTA (items.cta)`, false, groupId)
+              boolean(`Item ${i + 1} CTA (items.cta)`, true, groupId)
             ),
             pictogram: {
               src: selectPictogram(
                 select(
                   `Item ${i + 1} Pictogram (pictogram)`,
                   pictograms,
-                  pictograms.Desktop,
+                  pictograms.TouchScreen,
                   groupId
                 )
               ),
@@ -98,12 +98,12 @@ export default {
         return {
           heading: text(
             'Pattern title (heading)',
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'Lorem ipsum dolor sit amet',
             groupId
           ),
           copy: text(
             'Copy (copy)',
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.',
             groupId
           ),
           items,

@@ -35,6 +35,7 @@ import logoMicrosoft from '../../../../../../storybook-images/assets/logos/logo-
 import logoRabobank from '../../../../../../storybook-images/assets/logos/logo-rabobank.png';
 import logoUsBank from '../../../../../../storybook-images/assets/logos/logo-usbank.png';
 
+import PropTypes from 'prop-types';
 import React from 'react';
 
 /**
@@ -42,9 +43,12 @@ import React from 'react';
  *
  * @returns {*} JSX for Learn template
  */
-const Content = () => (
+const Content = ({ withL1 }) => (
   <>
-    <TableOfContents menuLabel="Jump to" theme="white" stickyOffset="48">
+    <TableOfContents
+      menuLabel="Jump to"
+      theme="white"
+      stickyOffset={withL1 ? '96' : '48'}>
       <a name="section-1" data-title="Lorem ipsum dolor sit amet" />
       <LeadSpaceBlock
         title="Lorem ipsum dolor sit amet"
@@ -425,5 +429,12 @@ const Content = () => (
     </div>
   </>
 );
+
+Content.propTypes = {
+  /**
+   * `true` if content is rendered with an L1 on the page
+   */
+  withL1: PropTypes.bool,
+};
 
 export default Content;
