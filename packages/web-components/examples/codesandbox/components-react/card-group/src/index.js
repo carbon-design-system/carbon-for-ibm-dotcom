@@ -21,79 +21,61 @@ const App = () => (
     <DDSCardGroupItem href="https://example.com">
       <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
-        ultricies est. Mauris iaculis eget dolor nec
-        hendrerit. Phasellus at elit sollicitudin, sodales nulla quis,
-        consequat
-        libero.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+        Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
       <DDSCardCTAFooter slot="footer">
-        <ArrowRight20 slot="icon"/>
+        <ArrowRight20 slot="icon" />
       </DDSCardCTAFooter>
     </DDSCardGroupItem>
     <DDSCardGroupItem href="https://example.com">
       <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
-        ultricies est. Mauris iaculis eget dolor nec
-        hendrerit. Phasellus at elit sollicitudin, sodales nulla quis,
-        consequat
-        libero.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+        Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
       <DDSCardCTAFooter slot="footer">
-        <ArrowRight20 slot="icon"/>
+        <ArrowRight20 slot="icon" />
       </DDSCardCTAFooter>
     </DDSCardGroupItem>
     <DDSCardGroupItem href="https://example.com">
       <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
-        ultricies est. Mauris iaculis eget dolor nec
-        hendrerit. Phasellus at elit sollicitudin, sodales nulla quis,
-        consequat
-        libero.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+        Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
       <DDSCardCTAFooter slot="footer">
-        <ArrowRight20 slot="icon"/>
+        <ArrowRight20 slot="icon" />
       </DDSCardCTAFooter>
     </DDSCardGroupItem>
     <DDSCardGroupItem href="https://example.com">
       <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
-        ultricies est. Mauris iaculis eget dolor nec
-        hendrerit. Phasellus at elit sollicitudin, sodales nulla quis,
-        consequat
-        libero.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+        Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
       <DDSCardCTAFooter slot="footer">
-        <ArrowRight20 slot="icon"/>
+        <ArrowRight20 slot="icon" />
       </DDSCardCTAFooter>
     </DDSCardGroupItem>
     <DDSCardGroupItem href="https://example.com">
       <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
-        ultricies est. Mauris iaculis eget dolor nec
-        hendrerit. Phasellus at elit sollicitudin, sodales nulla quis,
-        consequat
-        libero.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+        Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
       <DDSCardCTAFooter slot="footer">
-        <ArrowRight20 slot="icon"/>
+        <ArrowRight20 slot="icon" />
       </DDSCardCTAFooter>
     </DDSCardGroupItem>
     <DDSCardGroupItem href="https://example.com" colorScheme="inverse">
       <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
-        ultricies est. Mauris iaculis eget dolor nec
-        hendrerit. Phasellus at elit sollicitudin, sodales nulla quis,
-        consequat
-        libero.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+        Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
       <DDSCardCTAFooter slot="footer" colorScheme="inverse">
-        <ArrowRight20 slot="icon"/>
+        <ArrowRight20 slot="icon" />
       </DDSCardCTAFooter>
     </DDSCardGroupItem>
   </DDSCardGroup>
