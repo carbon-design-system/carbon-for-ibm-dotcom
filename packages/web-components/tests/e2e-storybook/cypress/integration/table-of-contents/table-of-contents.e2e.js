@@ -87,9 +87,6 @@ const _tests = {
           .wait(1000) // Give the browser time to execute the event callback.
           .get(`a[data-target="${section.attr('name')}"]`)
           .then(link => {
-            if (link[0].ariaCurrent !== 'location') {
-              debugger;
-            }
             expect(link.attr('aria-current')).to.equal('location');
             expect(link.parent()).to.have.class('bx--tableofcontents__desktop__item--active');
           });
