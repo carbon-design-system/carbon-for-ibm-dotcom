@@ -58,27 +58,19 @@ describe('Card | Static', () => {
   });
 
   it('should render eyebrow content', () => {
-    cy.get(_selectors.eyebrow).then(eyebrow => {
-      expect(eyebrow.text().length).to.be.greaterThan(0);
-    });
+    cy.get(_selectors.eyebrow).should('not.be.empty');
   });
 
   it('should render heading content', () => {
-    cy.get(_selectors.heading).then(heading => {
-      expect(heading.text().length).to.be.greaterThan(0);
-    });
+    cy.get(_selectors.heading).should('not.be.empty');
   });
 
   it('should render footer content', () => {
-    cy.get(_selectors.footer).then(footer => {
-      expect(footer.text().length).to.be.greaterThan(0);
-    });
+    cy.get(_selectors.footer).should('not.be.empty');
   });
 
   it('should render copy', () => {
-    cy.get(_selectors.copy).then(copy => {
-      expect(copy.text().length).to.be.greaterThan(0);
-    });
+    cy.get(_selectors.copy).should('not.be.empty');
   });
 
   it('should not respond to a click ', () => {
@@ -97,11 +89,13 @@ describe('Card | Static', () => {
 
   it('should render correctly in all themes', () => {
     cy.wrap(['w', 'g10', 'g90', 'g100']).each(theme => {
+      const screenshotTitle = `${Cypress.currentTest.titlePath.join(
+        ' | '
+      )} [${theme.toUpperCase()}]`;
       cy.get('html')
         .then(doc => doc.attr('storybook-carbon-theme', theme))
-        .screenshot(
-          `${Cypress.currentTest.titlePath[0]} [${theme.toUpperCase()}]`
-        );
+        .screenshot(screenshotTitle)
+        .percySnapshot(screenshotTitle);
     });
   });
 });
@@ -126,5 +120,7 @@ describe('Card | Static with image', () => {
 
   it('should render an image', () => {
     cy.get(_selectors.image).should('have.length', 1);
+    cy.screenshot();
+    cy.percySnapshot(Cypress.currentTest.titlePath.join(' | '));
   });
 });
