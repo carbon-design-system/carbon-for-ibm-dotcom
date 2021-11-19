@@ -173,7 +173,7 @@ const _tests = {
           });
           // Take a snapshot for visual diffing
           cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
-            widths: [1280],
+            widths: [320],
           });
         });
     },
@@ -197,7 +197,7 @@ const _tests = {
               });
               // Take a snapshot for visual diffing
               cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
-                widths: [1280],
+                widths: [320],
               });
             }
           });
@@ -216,7 +216,7 @@ const _tests = {
               });
               // Take a snapshot for visual diffing
               cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
-                widths: [1280],
+                widths: [320],
               });
             }
           });
@@ -234,7 +234,7 @@ const _tests = {
               });
               // Take a snapshot for visual diffing
               cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
-                widths: [1280],
+                widths: [320],
               });
             }
           });
