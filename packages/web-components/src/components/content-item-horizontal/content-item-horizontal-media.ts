@@ -62,26 +62,23 @@ class DDSContentItemHorizontalMedia extends HostListenerMixin(DDSContentItem) {
   }
 
   /**
-   * @returns The media column content.
-   */
-  protected _renderMediaCol(): TemplateResult | string | void {
-    return html`
-      <div class="${prefix}--content-item-horizontal__col">
-        <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
-      </div>
-    `;
-  }
-
-  /**
    * @returns The component content in the appropriate tabbing order.
    */
   protected _renderContent(): TemplateResult | string | void {
-    return this._isOneColumn || this.align === MEDIA_ALIGN.RIGHT
+    const alignedRight = this._isOneColumn || this.align === MEDIA_ALIGN.RIGHT;
+
+    return alignedRight
       ? html`
-          ${this._renderTextCol()}${this._renderMediaCol()}
+          ${this._renderTextCol()}
+          <div class="${prefix}--content-item-horizontal__col">
+            <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
+          </div>
         `
       : html`
-          ${this._renderMediaCol()}${this._renderTextCol()}
+          <div class="${prefix}--content-item-horizontal__col">
+            <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
+          </div>
+          ${this._renderTextCol()}
         `;
   }
 
