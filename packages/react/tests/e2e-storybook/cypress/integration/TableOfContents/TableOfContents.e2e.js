@@ -41,10 +41,11 @@ const _tests = {
           .then(doc => doc.attr('storybook-carbon-theme', theme))
           .screenshot(
             `${Cypress.currentTest.titlePath[0]} [${theme.toUpperCase()}]`,
-            {
-              capture: 'viewport',
-            }
-          );
+            { capture: 'viewport' }
+          )
+          .percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
+            widths: [1280],
+          });
       });
     },
   },
@@ -71,12 +72,19 @@ const _tests = {
         })
         .then(() => {
           expect(navItemsIds).to.deep.equal(sectionIds);
+          cy.screenshot(`${Cypress.currentTest.titlePath[0]}`, {
+            capture: 'viewport',
+          });
+          // Take a snapshot for visual diffing
+          cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
+            widths: [1280],
+          });
         });
     },
     checkLinkFunctionality: () => {
       const maxScrollVal = document.body.clientHeight - window.innerHeight;
 
-      cy.get('.bx--tableofcontents__desktop__item a').each(link => {
+      cy.get('.bx--tableofcontents__desktop__item a').each((link, i) => {
         cy.get(link)
           .click()
           .get(`a[name="${link.attr('href').replace('#', '')}"]`)
@@ -84,11 +92,20 @@ const _tests = {
             const sectionScrolledTo =
               section.offset().top === 0 || window.scrollY === maxScrollVal;
             expect(sectionScrolledTo).to.be.true;
+            if (i === 1) {
+              cy.screenshot(`${Cypress.currentTest.titlePath[0]}`, {
+                capture: 'viewport',
+              });
+              // Take a snapshot for visual diffing
+              cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
+                widths: [1280],
+              });
+            }
           });
       });
     },
     checkScrollSpy: () => {
-      cy.get('a[name]').each(section => {
+      cy.get('a[name]').each((section, i) => {
         cy.scrollTo(0, section.offset().top)
           .wait(1000) // Give the browser time to execute the event callback.
           .get(`a[href="#${section.attr('name')}"]`)
@@ -97,6 +114,15 @@ const _tests = {
             expect(link.parent()).to.have.class(
               'bx--tableofcontents__desktop__item--active'
             );
+            if (i === 1) {
+              cy.screenshot(`${Cypress.currentTest.titlePath[0]}`, {
+                capture: 'viewport',
+              });
+              // Take a snapshot for visual diffing
+              cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
+                widths: [1280],
+              });
+            }
           });
       });
     },
@@ -106,6 +132,15 @@ const _tests = {
           .get('.bx--tableofcontents__desktop')
           .then(sidebar => {
             expect(sidebar.offset().top).to.be.greaterThan(0);
+            if (pos === 'bottom') {
+              cy.screenshot(`${Cypress.currentTest.titlePath[0]}`, {
+                capture: 'viewport',
+              });
+              // Take a snapshot for visual diffing
+              cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
+                widths: [1280],
+              });
+            }
           });
       });
     },
@@ -133,6 +168,13 @@ const _tests = {
         })
         .then(() => {
           expect(navItemsIds).to.deep.equal(sectionIds);
+          cy.screenshot(`${Cypress.currentTest.titlePath[0]}`, {
+            capture: 'viewport',
+          });
+          // Take a snapshot for visual diffing
+          cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
+            widths: [1280],
+          });
         });
     },
     checkLinkFunctionality: () => {
@@ -140,7 +182,7 @@ const _tests = {
 
       cy.get(
         '.bx--tableofcontents__mobile__select__option:not([disabled])'
-      ).each(option => {
+      ).each((option, i) => {
         cy.get(option)
           .parent()
           .select(option.val())
@@ -149,16 +191,34 @@ const _tests = {
             const sectionScrolledTo =
               section.offset().top === 0 || window.scrollY === maxScrollVal;
             expect(sectionScrolledTo).to.be.true;
+            if (i === 1) {
+              cy.screenshot(`${Cypress.currentTest.titlePath[0]}`, {
+                capture: 'viewport',
+              });
+              // Take a snapshot for visual diffing
+              cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
+                widths: [1280],
+              });
+            }
           });
       });
     },
     checkScrollSpy: () => {
-      cy.get('a[name]').each(section => {
+      cy.get('a[name]').each((section, i) => {
         cy.scrollTo(0, section.offset().top)
           .wait(1000) // Give the browser time to execute the event callback.
           .get('.bx--tableofcontents__mobile__select')
           .then(select => {
             expect(select.val()).to.equal(section.attr('name'));
+            if (i === 1) {
+              cy.screenshot(`${Cypress.currentTest.titlePath[0]}`, {
+                capture: 'viewport',
+              });
+              // Take a snapshot for visual diffing
+              cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
+                widths: [1280],
+              });
+            }
           });
       });
     },
@@ -168,6 +228,15 @@ const _tests = {
           .get('.bx--tableofcontents__mobile')
           .then(mobileNav => {
             expect(mobileNav.offset().top).to.be.greaterThan(-1);
+            if (pos === 'bottom') {
+              cy.screenshot(`${Cypress.currentTest.titlePath[0]}`, {
+                capture: 'viewport',
+              });
+              // Take a snapshot for visual diffing
+              cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
+                widths: [1280],
+              });
+            }
           });
       });
     },
