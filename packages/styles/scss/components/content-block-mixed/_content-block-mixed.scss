@@ -8,6 +8,14 @@
 @mixin content-block-mixed {
   :host(dds-content-block-mixed),
   .#{$prefix}--content-block-mixed {
+    .#{$prefix}--content-group-pictograms {
+      margin-left: -$carbon--spacing-05;
+      .#{$prefix}--pictogram-item__row {
+        width: calc(100% + 16px);
+        max-width: calc(100% + 16px);
+      }
+    }
+
     .#{$prefix}--layout-1-3 {
       @include carbon--breakpoint-down('md') {
         .#{$prefix}--link-list__list.#{$prefix}--link-list__list--card {
