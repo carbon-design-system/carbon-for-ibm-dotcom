@@ -57,7 +57,7 @@ export const Default = ({ parameters }) => {
     <DotcomShell mastheadProps={mastheadProps} footerProps={footerProps}>
       <main id="main-content">
         <div style={{ paddingTop: '6rem' }}>
-          <Content />
+          <Content withL1={!!mastheadProps.mastheadL1Data} />
         </div>
       </main>
     </DotcomShell>
