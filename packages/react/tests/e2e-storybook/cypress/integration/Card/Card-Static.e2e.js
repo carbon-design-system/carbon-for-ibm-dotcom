@@ -92,10 +92,11 @@ describe('Card | Static', () => {
       const screenshotTitle = `${Cypress.currentTest.titlePath.join(
         ' | '
       )} [${theme.toUpperCase()}]`;
-      cy.get('html')
-        .then(doc => doc.attr('storybook-carbon-theme', theme))
-        .screenshot(screenshotTitle)
-        .percySnapshot(screenshotTitle);
+      cy.get('html').then(doc => doc.attr('storybook-carbon-theme', theme));
+      cy.screenshot(screenshotTitle);
+      cy.percySnapshot(screenshotTitle, {
+        widths: [1280],
+      });
     });
   });
 });
@@ -121,6 +122,8 @@ describe('Card | Static with image', () => {
   it('should render an image', () => {
     cy.get(_selectors.image).should('have.length', 1);
     cy.screenshot();
-    cy.percySnapshot(Cypress.currentTest.titlePath.join(' | '));
+    cy.percySnapshot(Cypress.currentTest.titlePath.join(' | '), {
+      widths: [1280],
+    });
   });
 });
