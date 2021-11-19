@@ -240,17 +240,11 @@ export const withCardInCard = ({ parameters }) => {
   const { cards, gridMode } = parameters?.props?.CardGroup ?? {};
   return (
     <>
-      <DDSCardInCard href="https://example.com" gridMode={gridMode || undefined}>
+      <DDSCardInCard href="https://example.com" grid-mode={gridMode || undefined}>
         <DDSCardInCardImage slot="image" alt="Image alt text" defaultSrc={imgSm4x3}>
-          <DDSImageItem media="(min-width: 1312px)" srcset={imgXlg16x9}>
-            {' '}
-          </DDSImageItem>
-          <DDSImageItem media="(min-width: 672px)" srcset={imgMd16x9}>
-            {' '}
-          </DDSImageItem>
-          <DDSImageItem media="(min-width: 320px)" srcset={imgSm4x3}>
-            {' '}
-          </DDSImageItem>
+          <DDSImageItem media="(min-width: 1312px)" srcset={imgXlg16x9} />
+          <DDSImageItem media="(min-width: 672px)" srcset={imgMd16x9} />
+          <DDSImageItem media="(min-width: 320px)" srcset={imgSm4x3} />
         </DDSCardInCardImage>
         <DDSCardEyebrow>Label</DDSCardEyebrow>
         <DDSCardHeading>Standard Bank Group prepares to embrace Africa’s AI opportunity</DDSCardHeading>
@@ -320,15 +314,9 @@ export const withCardInCardAndImageCards = ({ parameters }) => {
     <>
       <DDSCardInCard href="https://example.com" gridMode={gridMode || undefined}>
         <DDSCardInCardImage slot="image" alt="Image alt text" defaultSrc={imgSm4x3}>
-          <DDSImageItem media="(min-width: 1312px)" srcset={imgXlg16x9}>
-            {' '}
-          </DDSImageItem>
-          <DDSImageItem media="(min-width: 672px)" srcset={imgMd16x9}>
-            {' '}
-          </DDSImageItem>
-          <DDSImageItem media="(min-width: 320px)" srcset={imgSm4x3}>
-            {' '}
-          </DDSImageItem>
+          <DDSImageItem media="(min-width: 1312px)" srcset={imgXlg16x9} />
+          <DDSImageItem media="(min-width: 672px)" srcset={imgMd16x9} />
+          <DDSImageItem media="(min-width: 320px)" srcset={imgSm4x3} />
         </DDSCardInCardImage>
         <DDSCardEyebrow>Label</DDSCardEyebrow>
         <DDSCardHeading>Standard Bank Group prepares to embrace Africa’s AI opportunity</DDSCardHeading>
