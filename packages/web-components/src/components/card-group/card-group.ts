@@ -203,33 +203,29 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
         e.toggleAttribute('collapsed', false);
         e.toggleAttribute('border', false);
       } else if (this.gridMode === 'border') {
+        const borderColor = getComputedStyle(document.body).getPropertyValue('--cds-ui-03');
         if (e.hasAttribute('empty')) {
-          e.style.paddingBottom = '1px';
-          e.style.paddingRight = '1px';
+          e.style.borderBottom = '1px';
+          e.style.borderRight = '1px';
         } else {
-          e.style.paddingTop = '0';
+          e.removeAttribute('style');
+          e.style.borderTop = '0';
+          e.style.borderBottom = `1px solid ${borderColor}`;
+          e.style.borderRight = `1px solid ${borderColor}`;
           // first row
           if (index < columns) {
-            e.style.paddingTop = '1px';
-          }
-          // last row
-          if (Math.floor(index / columns) === Math.floor(this._childItems.length / columns)) {
-            e.style.paddingBottom = '1px';
-          }
-          // last column
-          if ((index + 1) % columns === 0) {
-            e.style.paddingRight = '1px';
+            e.style.borderTop = `1px solid ${borderColor}`;
           }
         }
         // if not empty and first column
         if (!e.hasAttribute('empty') && (index + 1) % columns === 1) {
-          e.style.paddingLeft = '1px';
+          e.style.borderLeft = `1px solid ${borderColor}`;
         } else {
-          e.style.paddingLeft = '0';
+          e.style.borderLeft = '0';
         }
         // if one column and first item is empty then set top border for second item
         if (columns === 1 && index === 1 && this._childItems[0].hasAttribute('empty')) {
-          e.style.paddingTop = '1px';
+          e.style.borderTop = `1px solid ${borderColor}`;
         }
       } else {
         // eslint-disable-next-line no-lonely-if
@@ -262,7 +258,11 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
           // last row
           if (Math.floor(index / columns) === Math.floor((this._childItems.length - 1) / columns)) {
             e.style.borderBottom = 'none';
-          } else if (!this._childItems?.[index + 3] && columns === 3) {
+          } else if (
+            (!this._childItems?.[index + 3] && columns === 3) ||
+            (!this._childItems?.[index + 2] && columns === 2) ||
+            (!this._childItems?.[index + 4] && this.cardsPerRow === 4 && columns !== 2)
+          ) {
             e.style.borderBottom = 'none';
           } else {
             e.style.borderBottom = `1px solid ${borderColor}`;
