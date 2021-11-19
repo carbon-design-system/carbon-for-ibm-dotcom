@@ -270,6 +270,10 @@
         background-color: $ui-02;
       }
 
+      .#{$prefix}--card__copy {
+        margin-bottom: $spacing-05;
+      }
+
       &:hover {
         border-color: $ui-04;
 
