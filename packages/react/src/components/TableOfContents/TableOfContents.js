@@ -21,7 +21,7 @@ const { prefix } = settings;
  * loops into the array of elements and returns the values
  *
  * @private
- * @returns {Array} returns elemenrt name and data title
+ * @returns {Array} returns element name and data title
  */
 const _findMenuItems = () => {
   const eles = document.querySelectorAll('a[name]');
@@ -54,12 +54,8 @@ const TableOfContents = ({
   const [selectedTitle, setSelectedTitle] = useState('');
 
   useEffect(() => {
-    if (menuItems?.length) {
-      setUseMenuItems([...menuItems]);
-    } else {
-      setUseMenuItems(_findMenuItems());
-    }
-  }, [menuItems]);
+    setUseMenuItems(menuItems?.length ? [...menuItems] : _findMenuItems());
+  }, [children, menuItems]);
 
   useEffect(() => {
     let id = useMenuItems[0] ? useMenuItems[0].id : '';
