@@ -33,7 +33,7 @@ const _tests = {
    */
   all: {
     screenshotThemes: width => {
-      cy.carbonScreenshot({
+      cy.carbonThemesScreenshot({
         capture: 'viewport',
       });
     },

@@ -26,7 +26,7 @@ Cypress.Commands.add('mockMastheadFooterData', () => {
 /**
  * Cycle through carbon themes and take a screenshot
  */
-Cypress.Commands.add('carbonScreenshot', (screenshotOpts = {}) => {
+Cypress.Commands.add('carbonThemesScreenshot', (screenshotOpts = {}) => {
   const themes = ['white', 'g10', 'g90', 'g100'];
 
   cy.wrap(themes).each(theme => {
