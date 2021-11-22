@@ -89,7 +89,7 @@ describe('dds-card | static', () => {
   });
 
   it('should render correctly in all themes', () => {
-    cy.wrap(['w', 'g10', 'g90', 'g100']).each(theme => {
+    cy.wrap(['white', 'g10', 'g90', 'g100']).each(theme => {
       const screenshotTitle = `${Cypress.currentTest.titlePath.join(' | ')} [${theme.toUpperCase()}]`;
       cy.get('html').then(doc => doc.attr('storybook-carbon-theme', theme));
       cy.screenshot(screenshotTitle);
