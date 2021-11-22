@@ -105,7 +105,7 @@ export default {
           `,
         cardsGroupHeading: textNullable(
           'Cards group heading (heading)',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
           groupId
         ),
         ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId),

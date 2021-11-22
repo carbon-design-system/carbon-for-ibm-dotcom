@@ -27,7 +27,7 @@ const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean 
     nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.`;
 
 const pictogramHeading =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
 
 const pictogramItems = [
   {
