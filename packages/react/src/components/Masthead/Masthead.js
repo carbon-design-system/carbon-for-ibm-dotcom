@@ -148,28 +148,30 @@ const Masthead = ({
     [`${prefix}--masthead__header--search-active`]: isSearchActive,
   });
 
+  const [scrollOffset, setScrollOffset] = useState(root.scrollY);
+
   useEffect(() => {
     /**
      * Sets sticky masthead. If both L0 and L1 are present, L1 will be sticky.
      *
      */
-    const hideTopnavThreshold = 0.25;
     const handleScroll = root.addEventListener('scroll', () => {
       /**
-       * L0 will hide/show only in the top 25% of the viewport.
+       * L0 will hide on scroll down, show on scroll up
        *
        */
       if (mastheadL1Ref.current != null) {
-        setIsMastheadSticky(
-          root.pageYOffset > root.innerHeight * hideTopnavThreshold
-        );
+        const prevOffset = scrollOffset;
+        const currOffset = window.scrollY;
+        setIsMastheadSticky(currOffset > prevOffset);
+        setScrollOffset(currOffset);
       }
     });
 
     return () => {
       root.removeEventListener('scroll', () => handleScroll);
     };
-  }, []);
+  }, [scrollOffset]);
 
   if (navigation) {
     switch (typeof navigation) {
