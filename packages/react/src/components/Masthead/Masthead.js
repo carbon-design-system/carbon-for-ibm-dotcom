@@ -148,7 +148,7 @@ const Masthead = ({
     [`${prefix}--masthead__header--search-active`]: isSearchActive,
   });
 
-  const [scrollOffset, setScrollOffset] = useState(window.scrollY);
+  const [scrollOffset, setScrollOffset] = useState(root.scrollY);
 
   useEffect(() => {
     /**
