@@ -105,6 +105,7 @@
 
     #{$dds-prefix}-background-media {
       display: block;
+      height: auto;
 
       @include carbon--breakpoint('md') {
         display: none;
