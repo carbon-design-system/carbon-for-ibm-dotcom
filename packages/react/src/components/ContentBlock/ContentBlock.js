@@ -9,7 +9,6 @@ import { CTA } from '../CTA';
 import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { HorizontalRule } from '../HorizontalRule';
-import { Layout } from '../Layout';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -65,32 +64,26 @@ const ContentBlock = ({
   return (
     <div data-autoid={`${stablePrefix}--content-block`} className={classnames}>
       {title}
-      {aside && aside.items
-        ? _layoutWrap(
-            <>
-              <div>{content}</div>
-              <aside>{aside.items}</aside>
-            </>,
-            aside.border
-          )
-        : content}
+      {aside && aside.items ? _layoutWrap(content, aside) : content}
       {border ? <HorizontalRule /> : ''}
     </div>
   );
 };
 
 /**
- * wraps content in layout component
+ * lays out the content with aside items in 2-1 format
  *
  * @private
  * @param {Element} content content elements
- * @param {boolean} border set border or not
+ * @param {Element} aside  aside elements
  * @returns {*} jsx cta component
  */
-const _layoutWrap = (content, border) => (
-  <Layout type="2-1" nested={true} border={border}>
-    {content.props.children}
-  </Layout>
+const _layoutWrap = (content, aside) => (
+  <div
+    className={`${prefix}--content-layout ${prefix}--content-layout--with-complementary`}>
+    <div className={`${prefix}--content-layout__body`}>{content}</div>
+    <aside className={`${prefix}--content-layout__aside`}>{aside.items}</aside>
+  </div>
 );
 
 /**
@@ -169,11 +162,9 @@ ContentBlock.propTypes = {
    * | Name     | Data Type | Description                                                |
    * | -------- | --------- | ---------------------------------------------------------- |
    * | `items`  | Element   | Elements/Components to be rendered on the right panel.     |
-   * | `border` | Boolean   | Determines whether bottom border of `ContentBlock` is set. |
    */
   aside: PropTypes.shape({
     items: PropTypes.element,
-    border: PropTypes.bool,
   }),
   /**
    * border for content block.
