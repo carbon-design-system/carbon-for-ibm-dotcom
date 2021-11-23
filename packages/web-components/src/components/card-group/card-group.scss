@@ -98,27 +98,3 @@
     }
   }
 }
-
-// Print styles
-@media print {
-  :host(#{$dds-prefix}-card-group),
-  .#{$prefix}--card-group__row,
-  .#{$prefix}--card-group__cards__row {
-    ::slotted(#{$dds-prefix}-card-group-item),
-    ::slotted(#{$dds-prefix}-card-group-card-link-item),
-    .#{$prefix}--card {
-      background-color: transparent;
-    }
-  }
-
-  :host(#{$dds-prefix}-card-group-item),
-  :host(#{$dds-prefix}-card-group-card-link-item) {
-    &[empty] {
-      display: none;
-
-      @include carbon--breakpoint('md') {
-        display: none;
-      }
-    }
-  }
-}
