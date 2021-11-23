@@ -78,11 +78,22 @@ $hover-transition-timing: 95ms;
   :host(#{$dds-prefix}-table-of-contents),
   .#{$prefix}--tableofcontents {
     text-size-adjust: 100%;
+    @extend .#{$prefix}--grid;
+
+    display: block;
+    margin: 0;
 
     @include themed-items;
   }
 
+  .#{$dds-prefix}-ce--table-of-contents__container,
+  .#{$dds-prefix}-ce--table-of-contents-horizontal__container {
+    @include carbon--make-row();
+  }
+
   .#{$prefix}--tableofcontents__sidebar {
+    @extend .#{$prefix}--col-lg-4;
+
     position: sticky;
     top: 0;
     z-index: 1;
@@ -91,6 +102,10 @@ $hover-transition-timing: 95ms;
       position: inherit;
       top: auto;
     }
+  }
+
+  .#{$prefix}--tableofcontents__content {
+    @extend .#{$prefix}--col-lg-12;
   }
 
   .#{$prefix}--tableofcontents__children__mobile {
