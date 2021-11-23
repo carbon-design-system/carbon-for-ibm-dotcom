@@ -32,7 +32,7 @@ const _tests = {
    * @function screenshotThemes - Takes a screenshot of the given page in each theme.
    */
   all: {
-    screenshotThemes: width => {
+    screenshotThemes: () => {
       cy.carbonThemesScreenshot({
         capture: 'viewport',
       });
