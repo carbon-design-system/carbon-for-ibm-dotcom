@@ -46,7 +46,7 @@ describe('dds-feature-card | medium', () => {
       .find('a')
       .then($els => {
         const win = $els[0].ownerDocument.defaultView;
-        const after = win.getComputedStyle($els[0], 'after');
+        const after = win.getComputedStyle($els[0], ':after');
         const positionValue = after.getPropertyValue('position');
         const insetValue = after.getPropertyValue('inset');
 
@@ -144,7 +144,7 @@ describe('dds-feature-card | medium (mobile)', () => {
       .find('a')
       .then($els => {
         const win = $els[0].ownerDocument.defaultView;
-        const after = win.getComputedStyle($els[0], 'after');
+        const after = win.getComputedStyle($els[0], ':after');
         const positionValue = after.getPropertyValue('position');
         const insetValue = after.getPropertyValue('inset');
 
@@ -177,7 +177,7 @@ describe('dds-feature-card | large', () => {
       .find('a')
       .then($els => {
         const win = $els[0].ownerDocument.defaultView;
-        const after = win.getComputedStyle($els[0], 'after');
+        const after = win.getComputedStyle($els[0], ':after');
         const positionValue = after.getPropertyValue('position');
         const insetValue = after.getPropertyValue('inset');
 
@@ -288,7 +288,7 @@ describe('dds-feature-card | large (mobile)', () => {
       .find('a')
       .then($els => {
         const win = $els[0].ownerDocument.defaultView;
-        const after = win.getComputedStyle($els[0], 'after');
+        const after = win.getComputedStyle($els[0], ':after');
         const positionValue = after.getPropertyValue('position');
         const insetValue = after.getPropertyValue('inset');
 
