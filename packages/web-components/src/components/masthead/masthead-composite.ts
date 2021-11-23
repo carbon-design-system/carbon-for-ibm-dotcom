@@ -747,6 +747,9 @@ class DDSMastheadComposite extends LitElement {
     }
     this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
     this._loadUserStatus?.();
+
+    // This is a temp fix until we figure out why we can't set styles to the :host(dds-masthead-container) in stylesheets
+    this.style.zIndex = '900';
   }
 
   updated(changedProperties) {

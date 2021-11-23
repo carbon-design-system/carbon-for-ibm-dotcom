@@ -3420,7 +3420,7 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.12.1", "@babel/runtime@^7.8.0":
+"@babel/runtime@^7.12.1":
   version "7.12.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
   integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
@@ -3431,6 +3431,13 @@
   version "7.15.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.15.4.tgz#fd17d16bfdf878e6dd02d19753a39fa8a8d9c84a"
   integrity sha512-99catp6bHCaxr4sJ/DbTGgHS4+Rs2RVd2g7iOap6SLGPDknRK9ztKNsE/Fg6QhSeh1FGE5f6gHGQmvvn3I3xhw==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.16.3":
+  version "7.16.3"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.16.3.tgz#b86f0db02a04187a3c17caa77de69840165d42d5"
+  integrity sha512-WBwekcqacdY2e9AF/Q7WLFUWmdJGJTkbjqTjoMDgXkVZ3ZRUvOPsLb5KdwISoQVsbP+DQzVZW4Zhci0DvpbNTQ==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -9886,13 +9893,17 @@ carbon-icons@7.0.7:
   resolved "https://registry.yarnpkg.com/carbon-icons/-/carbon-icons-7.0.7.tgz#ebafe3e9fa25df973796a8eca06d8a7c501cc610"
   integrity sha512-3vgkdXJRgCViCrH3fLUdyAXo0I8wmohO6QETv7vWFx6yc7s+SirWFBSFL38zUx4MHtR8iTxIlLEzkeU6FlFtXg==
 
-carbon-web-components@1.18.0:
-  version "1.18.0"
-  resolved "https://registry.yarnpkg.com/carbon-web-components/-/carbon-web-components-1.18.0.tgz#3a8d0e062eb677feb880636d473f50149f631d8e"
-  integrity sha512-zV6duzjY0geyKaJqKRTG1gdLijycQ9I4avb8JqZxVobFv8IAwAQkan0f4Z/VRIXMqlk9AaNtEHOmcssOEgcfFQ==
+carbon-web-components@1.19.0:
+  version "1.19.0"
+  resolved "https://registry.yarnpkg.com/carbon-web-components/-/carbon-web-components-1.19.0.tgz#2c802aa72e6230b032a2fff901c9f1579006ab02"
+  integrity sha512-jNUVODYBaugZedGiVjjBxohGqpazbIbr49c2VsDGwpb3LJucTG3nuRg0cMaVhFzSNptFvBPoQZzbwCiItpWCEw==
   dependencies:
-    "@babel/runtime" "^7.8.0"
-    lodash-es "^4.17.0"
+    "@babel/runtime" "^7.16.3"
+    carbon-components "10.48.0"
+    flatpickr "4.6.1"
+    lit-element "^2.5.1"
+    lit-html "^1.4.1"
+    lodash-es "^4.17.21"
 
 cardinal@^2.1.1:
   version "2.1.1"
@@ -18584,14 +18595,14 @@ listr@^0.14.2:
     p-map "^2.0.0"
     rxjs "^6.3.3"
 
-lit-element@2.5.1:
+lit-element@2.5.1, lit-element@^2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/lit-element/-/lit-element-2.5.1.tgz#3fa74b121a6cd22902409ae3859b7847d01aa6b6"
   integrity sha512-ogu7PiJTA33bEK0xGu1dmaX5vhcRjBXCFexPja0e7P7jqLhTpNKYRPmE+GmiCaRVAbiQKGkUgkh/i6+bh++dPQ==
   dependencies:
     lit-html "^1.1.1"
 
-lit-html@1.4.1, lit-html@^1.1.1, lit-html@^1.4.0:
+lit-html@1.4.1, lit-html@^1.1.1, lit-html@^1.4.0, lit-html@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-1.4.1.tgz#0c6f3ee4ad4eb610a49831787f0478ad8e9ae5e0"
   integrity sha512-B9btcSgPYb1q4oSOb/PrOT6Z/H+r6xuNzfH4lFli/AWhYwdtrgQkQWBbIc6mdnf6E2IL3gDXdkkqNktpU0OZQA==
@@ -18697,6 +18708,11 @@ lodash-es@^4.17.0:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
   integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
+
+lodash-es@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+  integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 
 lodash._reinterpolate@^3.0.0:
   version "3.0.0"
