@@ -94,7 +94,7 @@ class DDSLeavingIbmComposite extends ModalRenderMixin(LitElement) {
   renderModal() {
     const { open, leavingIbmCopy, leavingIbmButtonLabel, href } = this;
     return html`
-      <dds-leaving-ibm-modal open="${open}">
+      <dds-leaving-ibm-modal ?open="${open}">
         <bx-modal-header>
           <bx-modal-close-button></bx-modal-close-button>
           <dds-leaving-ibm-modal-heading>${leavingIbmCopy?.LEAVING001}</dds-leaving-ibm-modal-heading>
