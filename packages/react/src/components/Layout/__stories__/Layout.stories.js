@@ -97,7 +97,7 @@ export const Default = ({ parameters }) => {
           <div className="bx--layout-1-3">
             <div
               className={cx({
-                [`bx--layout--sticky-desktop`]: stickyLeft,
+                [`bx--layout--sticky`]: stickyLeft,
               })}
               style={{
                 backgroundColor: 'white',
@@ -198,7 +198,7 @@ export const Default = ({ parameters }) => {
               <div className="bx--layout-1-3">
                 <div
                   className={cx({
-                    [`bx--layout--sticky-desktop`]: stickyRight,
+                    [`bx--layout--sticky`]: stickyRight,
                   })}
                   style={{
                     backgroundColor: 'white',

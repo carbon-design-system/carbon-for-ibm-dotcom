@@ -27,7 +27,7 @@
     }
   }
 
-  .#{$prefix}--layout--sticky-desktop {
+  .#{$prefix}--layout--sticky {
     @include carbon--breakpoint('lg') {
       position: sticky;
       top: 0;
@@ -75,11 +75,11 @@
   }
 
   .#{$prefix}--layout-2-3 {
-    @include dds--make-col(8, 12);
+    @include dds--make-col(12, 16);
   }
 
   .#{$prefix}--layout-1-3 {
-    @include dds--make-col(3, 12);
+    @include dds--make-col(4, 16);
   }
 }
 
