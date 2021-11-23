@@ -42,7 +42,19 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    *
    * @internal
    */
-  _embedMedia?: (videoId: string) => Promise<any>;
+  _embedMedia?: (videoId: string, backgroundMode?: boolean) => Promise<any>;
+
+  /**
+   * The placeholder for `_setAutoplayPreference()` Redux action that may be mixed in.
+   */
+  // @ts-ignore
+  _setAutoplayPreference: (preference: boolean) => void;
+
+  /**
+   * The placeholder for `_getAutoplayPreference()` Redux action that may be mixed in.
+   */
+  // @ts-ignore
+  _getAutoplayPreference: () => null | boolean;
 
   /**
    * Activate the DOM nodes for the embedded video of the given video ID, and deactivates others.
@@ -74,8 +86,24 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   protected _handleContentStateChange(event: CustomEvent) {
     const { contentState, playingMode, videoId } = event.detail;
     if (contentState === VIDEO_PLAYER_CONTENT_STATE.VIDEO && playingMode === VIDEO_PLAYER_PLAYING_MODE.INLINE && videoId) {
-      this._embedMedia?.(videoId);
+      this._embedMedia?.(videoId, this.backgroundMode);
     }
+  }
+
+  @HostListener('eventPlaybackStateChange')
+  protected _handlePlaybackStateChange(event: CustomEvent) {
+    const { videoId } = event.detail;
+    const { embeddedVideos = {} } = this;
+
+    if (this.isPlaying) {
+      embeddedVideos[videoId].sendNotification('doPause');
+      this.isPlaying = false;
+    } else {
+      embeddedVideos[videoId].sendNotification('doPlay');
+      this.isPlaying = true;
+    }
+
+    this._setAutoplayPreference(this.isPlaying);
   }
 
   /**
@@ -123,6 +151,12 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   hideCaption = false;
 
   /**
+   * `true` to autoplay, mute, and hide player UI.
+   */
+  @property({ type: Boolean, attribute: 'background-mode' })
+  backgroundMode = false;
+
+  /**
    * The video data, keyed by the video ID.
    */
   @property({ attribute: false })
@@ -139,6 +173,12 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    */
   @property({ attribute: 'aspect-ratio' })
   aspectRatio?: '';
+
+  /**
+   * The current playback state
+   */
+  @property()
+  isPlaying = false;
 
   /**
    * The video player's mode showing Inline or Lightbox.
@@ -158,14 +198,31 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   @property({ type: Number, attribute: 'video-thumbnail-width' })
   videoThumbnailWidth = 655;
 
+  connectedCallback() {
+    super.connectedCallback();
+
+    if (this.backgroundMode) {
+      this.hideCaption = true;
+    }
+
+    if (this.autoPlay || this.backgroundMode) {
+      const storedPreference = this._getAutoplayPreference();
+      if (storedPreference === null) {
+        this.isPlaying = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      } else {
+        this.isPlaying = storedPreference;
+      }
+    }
+  }
+
   updated(changedProperties) {
     if (changedProperties.has('videoId')) {
-      const { autoPlay, videoId } = this;
+      const { autoPlay, videoId, backgroundMode } = this;
       this._activateEmbeddedVideo(videoId);
       if (videoId) {
         this._loadVideoData?.(videoId);
-        if (autoPlay) {
-          this._embedMedia?.(videoId);
+        if (autoPlay || backgroundMode) {
+          this._embedMedia?.(videoId, backgroundMode);
         }
       }
     }
@@ -228,6 +285,13 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    */
   static get eventContentStateChange() {
     return `${ddsPrefix}-video-player-content-state-changed`;
+  }
+
+  /**
+   * The name of the custom event fired requesting playback state change.
+   */
+  static get eventPlaybackStateChange() {
+    return `${ddsPrefix}-video-player-playback-state-changed`;
   }
 }
 
