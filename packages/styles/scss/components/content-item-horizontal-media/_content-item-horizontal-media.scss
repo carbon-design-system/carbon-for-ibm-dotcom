@@ -100,20 +100,18 @@
     }
 
     .#{$prefix}--content-item-horizontal__col {
+      text-align: left;
+      grid-column: 1 / span 4;
+
       &:first-of-type {
-        grid-column: 1 / span 4;
-        text-align: left;
         margin-inline-end: $carbon--spacing-07;
       }
 
       &:last-of-type {
-        grid-column: 1 / span 4;
-        margin-top: 1rem;
+        margin-block-start: $carbon--spacing-05;
+
         @include carbon--breakpoint(lg) {
-          margin-top: 0;
-          grid-column: 5 / span 6;
-        }
-        @include carbon--breakpoint(max) {
+          margin-block-start: 0;
           grid-column: 5 / span 6;
         }
       }
@@ -122,19 +120,14 @@
     &.#{$prefix}--content-item-horizontal-media__align-left {
       .#{$prefix}--content-item-horizontal__col {
         &:first-of-type {
-          grid-column: 1 / span 4;
-
           @include carbon--breakpoint(lg) {
-            grid-column: 5 / span 6;
+            margin-inline-end: 0;
           }
         }
 
         &:last-of-type {
-          grid-column: 1 / span 4;
-          margin-top: 1rem;
-
           @include carbon--breakpoint(lg) {
-            margin-top: 0;
+            margin-inline-end: $carbon--spacing-07;
           }
         }
       }
@@ -144,11 +137,11 @@
   :host(#{$dds-prefix}-content-item-horizontal-media-featured) {
     display: block;
     position: relative;
-    padding-top: $carbon--spacing-07;
-    margin-bottom: $carbon--spacing-07;
+    padding-block-start: $carbon--spacing-07;
+    margin-block-end: $carbon--spacing-07;
 
     @include carbon--breakpoint(md) {
-      margin-bottom: $carbon--spacing-10;
+      margin-block-end: $carbon--spacing-10;
     }
 
     &::before {
@@ -163,17 +156,17 @@
 
     .#{$prefix}--content-item-horizontal__row {
       + .#{$prefix}--content-item-horizontal__row {
-        margin-top: $carbon--spacing-05;
+        margin-block-start: $carbon--spacing-05;
 
         @include carbon--breakpoint(md) {
-          margin-top: $carbon--spacing-07;
+          margin-block-start: $carbon--spacing-07;
         }
       }
 
       .#{$prefix}--content-item-horizontal__col {
         &:last-of-type {
           @include carbon--breakpoint-down(md) {
-            margin-top: 0;
+            margin-block-start: 0;
           }
         }
       }

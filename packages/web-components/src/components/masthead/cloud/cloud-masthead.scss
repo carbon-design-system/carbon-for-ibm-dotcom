@@ -13,7 +13,7 @@
 :host(#{$dds-prefix}-cloud-masthead-container),
 #{$dds-prefix}-cloud-masthead-container {
   position: relative;
-  z-index: 999;
+  z-index: 900;
 }
 
 :host(#{$dds-prefix}-cloud-masthead-global-bar) {
