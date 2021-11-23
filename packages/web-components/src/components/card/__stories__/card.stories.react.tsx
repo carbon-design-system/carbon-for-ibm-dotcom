@@ -23,20 +23,18 @@ import { Tag } from 'carbon-components-react';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.react.mdx';
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
-import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--003.jpg';
 import { PICTOGRAM_PLACEMENT } from '../defs';
 
-const iconPlacement = {
-  left: 'left',
-  right: 'right',
-};
-
 export const Default = ({ parameters }) => {
-  const { inverse, href, image, alt, defaultSrc, heading, copy, tagGroup, footer } = parameters?.props?.Card ?? {};
+  const { image, href, alt, defaultSrc, heading, eyebrow, tagGroup, copy, footer, cardStyles } = parameters?.props?.Card ?? {};
   return (
-    <DDSCard colorScheme={inverse ? 'inverse' : ''} href={href || undefined}>
+    /* eslint-disable no-nested-ternary */
+    <DDSCard
+      colorScheme={cardStyles === 'Inverse card' ? 'inverse' : cardStyles === 'Outlined card' ? 'light' : ''}
+      href={href || undefined}
+      border={cardStyles === 'Outlined card'}>
       {image ? <DDSImage slot="image" alt={alt || undefined} defaultSrc={defaultSrc || undefined} /> : ''}
-      <DDSCardEyebrow>Eyebrow</DDSCardEyebrow>
+      <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow>
       <DDSCardHeading>{heading}</DDSCardHeading>
       {copy ? <p>{copy}</p> : ''}
       {tagGroup ? (
@@ -47,7 +45,7 @@ export const Default = ({ parameters }) => {
       ) : (
         ''
       )}
-      <DDSCardFooter iconPlacement={iconPlacement}>
+      <DDSCardFooter>
         {footer}
         <ArrowRight20 slot="icon" />
       </DDSCardFooter>
@@ -59,15 +57,16 @@ Default.story = {
   parameters: {
     knobs: {
       Card: ({ groupId }) => ({
+        image: boolean('Add image:', false, groupId),
+        eyebrow: textNullable('Eyebrow:', 'Industry', groupId),
+        heading: textNullable('Heading:', 'Aerospace and defence', groupId),
+        copy: textNullable('Body copy:', '', groupId),
         alt: 'Image alt text',
         defaultSrc: imgXlg4x3,
-        tagGroup: boolean('Add tags', false, groupId),
-        image: boolean('Add image', false, groupId),
-        heading: textNullable('Card Heading:', 'Lorem ipsum dolor sit amet', groupId),
-        copy: textNullable('Card body copy:', '', groupId),
+        tagGroup: boolean('Add tags:', false, groupId),
         href: 'https://example.com',
-        footer: 'Card CTA text',
-        iconPlacement: iconPlacement.right,
+        footer: textNullable('CTA:', 'Learn more', groupId),
+        cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none', groupId),
       }),
     },
   },
@@ -79,9 +78,13 @@ const pictogramPlacements = {
 };
 
 export const Pictogram = ({ parameters }) => {
-  const { pictogramPlacement, href, heading, copy, tagGroup } = parameters?.props?.PictogramCard ?? {};
+  const { href, heading, copy, tagGroup, pictogramPlacement, cardStyles } = parameters?.props?.PictogramCard ?? {};
   return (
-    <DDSCard pictogramPlacement={pictogramPlacement} href={href || undefined}>
+    <DDSCard
+      pictogramPlacement={pictogramPlacement}
+      href={href || undefined}
+      colorScheme={cardStyles === 'Inverse card' ? 'inverse' : cardStyles === 'Outlined card' ? 'light' : ''}
+      border={cardStyles === 'Outlined card'}>
       <DDSCardHeading>{heading}</DDSCardHeading>
       {copy ? <p>{copy}</p> : ''}
       {tagGroup ? (
@@ -92,7 +95,7 @@ export const Pictogram = ({ parameters }) => {
       ) : (
         ''
       )}
-      <Desktop slot="pictogram" />
+      <Desktop slot="pictogram" width="48" height="48" />
     </DDSCard>
   );
 };
@@ -100,27 +103,30 @@ export const Pictogram = ({ parameters }) => {
 Pictogram.story = {
   parameters: {
     knobs: {
-      PictogramCard: ({ groupId }) => ({
-        alt: 'Image alt text',
-        defaultSrc: imgLg2x1,
-        pictogramPlacement: select('Pictogram placement', pictogramPlacements, pictogramPlacements.top, groupId),
-        heading: textNullable('Card Heading:', 'Lorem ipsum dolor sit amet', groupId),
-        copy: textNullable(
-          'Card body copy:',
-          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          groupId
-        ),
-        href: 'https://example.com',
-        footer: 'Card CTA text',
-        iconPlacement: iconPlacement.right,
-      }),
+      PictogramCard: ({ groupId }) => {
+        const pictogramPlacement = select('Pictogram position:', pictogramPlacements, pictogramPlacements.top, groupId);
+        const copy =
+          pictogramPlacement === pictogramPlacements.bottom
+            ? textNullable(
+                'Body copy:',
+                'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
+                groupId
+              )
+            : null;
+        return {
+          pictogramPlacement,
+          heading: textNullable('Heading:', 'Aerospace and defence', groupId),
+          copy,
+          href: 'https://example.com',
+          cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none', groupId),
+        };
+      },
     },
   },
 };
 
 export const Static = ({ parameters }) => {
-  const { image, alt, defaultSrc, outlinedCard, eyebrow, heading, href, copy, tagGroup, footer } =
-    parameters?.props?.StaticCard ?? {};
+  const { image, alt, defaultSrc, outlinedCard, eyebrow, heading, copy, tagGroup, cta } = parameters?.props?.StaticCard ?? {};
   return (
     <DDSCard colorScheme={outlinedCard ? 'light' : ''} border={outlinedCard}>
       {image ? <DDSImage slot="image" alt={alt || undefined} defaultSrc={defaultSrc || undefined} /> : ''}
@@ -135,10 +141,14 @@ export const Static = ({ parameters }) => {
       ) : (
         ''
       )}
-      <DDSCardFooter href={href} iconPlacement={iconPlacement}>
-        {footer}
-        <ArrowRight20 slot="icon" />
-      </DDSCardFooter>
+      {cta ? (
+        <DDSCardFooter href="https://www.example.com">
+          Sign up for the trial
+          <ArrowRight20 slot="icon" />
+        </DDSCardFooter>
+      ) : (
+        ''
+      )}
     </DDSCard>
   );
 };
@@ -146,22 +156,33 @@ export const Static = ({ parameters }) => {
 Static.story = {
   parameters: {
     knobs: {
-      StaticCard: ({ groupId }) => ({
-        alt: 'Image alt text',
-        defaultSrc: imgXlg4x3,
-        outlinedCard: boolean('Outlined card', true, groupId),
-        tagGroup: boolean('Add tags', true, groupId),
-        image: boolean('Add image', false, groupId),
-        eyebrow: textNullable('Card Eyebrow:', 'Eyebrow', groupId),
-        heading: textNullable('Card Heading:', 'Lorem ipsum dolor sit amet', groupId),
-        copy: textNullable(
-          'Card body copy:',
-          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      StaticCard: ({ groupId }) => {
+        const image = boolean('Add image:', false, groupId);
+        const eyebrow = textNullable('Eyebrow:', 'SPSS Statistics', groupId);
+        const heading = textNullable('Heading:', 'Free trial', groupId);
+        const copy = textNullable(
+          'Body copy:',
+          'Enjoy full SPSS Statistics capabilities including all add-ons. ' +
+            'All trial registrants are restricted to one free trial per computer per user.',
           groupId
-        ),
-        href: 'https://example.com',
-        footer: textNullable('CTA copy', 'Card CTA text', groupId),
-      }),
+        );
+        const tagGroup = boolean('Add tags:', false, groupId);
+        const cta = boolean('Add CTA:', false, groupId);
+        const ctaCopy = cta ? textNullable('CTA copy:', 'Sign up for the trial', groupId) : '';
+        const outlinedCard = boolean('Outlined card:', true, groupId);
+        return {
+          alt: 'Image alt text',
+          defaultSrc: imgXlg4x3,
+          image,
+          eyebrow,
+          heading,
+          copy,
+          tagGroup,
+          cta,
+          ctaCopy,
+          outlinedCard,
+        };
+      },
     },
   },
 };
