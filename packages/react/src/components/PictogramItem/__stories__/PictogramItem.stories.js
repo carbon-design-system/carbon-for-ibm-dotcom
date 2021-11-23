@@ -41,13 +41,11 @@ export default {
     knobs: {
       PictogramItem: ({ groupId }) => ({
         heading: text('Heading (required)', 'Lorem ipsum dolor sit', groupId),
-
         copy: text(
           'Copy (required)',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
           groupId
         ),
-
         pictogram: {
           src: selectPictogram(
             select(
