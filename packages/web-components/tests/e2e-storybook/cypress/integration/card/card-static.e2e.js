@@ -117,7 +117,7 @@ describe('dds-card | static with outline', () => {
 describe('dds-card | static with tags', () => {
   beforeEach(() => {
     cy.viewport(..._viewportDimensions);
-    cy.visit(`${_path}&knob-Add%20tags_Card=true`);
+    cy.visit(`${_path}&knob-Add%20tags:_Card=true`);
   });
 
   it('should render tags', () => {
@@ -134,7 +134,7 @@ describe('dds-card | static with tags', () => {
 describe('dds-card | static with image', () => {
   beforeEach(() => {
     cy.viewport(..._viewportDimensions);
-    cy.visit(`${_path}&knob-Add%20image_Card=true`);
+    cy.visit(`${_path}&knob-Add%20image:_Card=true`);
   });
 
   it('should render an image', () => {
