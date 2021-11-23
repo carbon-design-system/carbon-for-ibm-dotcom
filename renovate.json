@@ -1,7 +1,10 @@
 {
   "extends": [
     "config:base",
-    ":maintainLockFilesWeekly"
+    ":maintainLockFilesWeekly",
+    ":preserveSemverRanges",
+    "schedule:weekends",
+    ":noUnscheduledUpdates"
   ],
   "rangeStrategy": "replace"
 }
