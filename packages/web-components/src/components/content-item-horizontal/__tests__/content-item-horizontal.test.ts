@@ -36,6 +36,15 @@ const WithMediaTemplate = (props?) => {
   `;
 };
 
+const WithFeaturedMediaTemplate = (props?) => {
+  const { children } = props ?? {};
+  return html`
+    <dds-content-item-horizontal-media-featured>
+      ${children}
+    </dds-content-item-horizontal-media-featured>
+  `;
+};
+
 const WithThumbnailTemplate = (props?) => {
   const { children } = props ?? {};
   return html`
@@ -111,6 +120,35 @@ describe('dds-content-item-horizontal', function() {
       );
       await Promise.resolve();
       expect(document.body.querySelector('dds-content-item-horizontal-media')).toMatchSnapshot({ mode: 'shadow' });
+    });
+  });
+
+  describe('Misc attributes - WithFeaturedMedia', function() {
+    it('should render with minimum attributes', async function() {
+      render(WithFeaturedMediaTemplate(), document.body);
+      await Promise.resolve();
+      expect(document.body.querySelector('dds-content-item-horizontal-media-featured')).toMatchSnapshot({ mode: 'shadow' });
+    });
+
+    it('should render with various attributes', async function() {
+      render(
+        WithFeaturedMediaTemplate({
+          children: html`
+            <dds-content-item-horizontal-eyebrow>eyebrow-foo</dds-content-item-horizontal-eyebrow>
+            <dds-content-item-heading>heading-foo</dds-content-item-heading>
+            <dds-content-item-horizontal-media-copy>copy-foo</dds-content-item-horizontal-media-copy>
+            <dds-link-list slot="footer" type="vertical">
+              <dds-link-list-item-cta icon-placement="right" href="www.ibm.com" cta-type="local">
+                cta-copy
+              </dds-link-list-item-cta>
+            </dds-link-list>
+            <dds-image slot="media" alt="image" default-src=""></dds-image>
+          `,
+        }),
+        document.body
+      );
+      await Promise.resolve();
+      expect(document.body.querySelector('dds-content-item-horizontal-media-featured')).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 
