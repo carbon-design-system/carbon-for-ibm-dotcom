@@ -39,6 +39,14 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     }
   }
 
+  :host(#{$dds-prefix}-video-player[background-mode='true']),
+  .#{$prefix}--video-player[background-mode='true'] {
+    .#{$prefix}--video-player__video-container {
+      height: 100%;
+      padding: 0;
+    }
+  }
+
   .#{$prefix}--video-player
     .#{$prefix}--video-player__image-overlay:focus::before {
     content: ' ';

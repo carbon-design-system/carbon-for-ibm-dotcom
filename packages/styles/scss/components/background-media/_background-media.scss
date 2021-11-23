@@ -13,6 +13,9 @@
 @mixin background-media {
   :host(#{$dds-prefix}-background-media) {
     position: relative;
+    height: 100%;
+    display: block;
+    outline: none;
   }
 
   .#{$prefix}--background-media--mobile-position {
@@ -26,6 +29,7 @@
     right: 0;
     width: 100%;
     height: 100%;
+    z-index: 1;
 
     @include carbon--breakpoint('md') {
       background-image: linear-gradient(
@@ -62,6 +66,22 @@
         rgba(255, 255, 255, 0) 100%
       );
     }
+  }
+
+  .#{$prefix}--video-player__controls {
+    appearance: none;
+    background: $ui-background;
+    border: none;
+    color: $text-01;
+    border-radius: 50%;
+    padding: 0;
+    line-height: 0;
+
+    position: absolute;
+    bottom: $spacing-07;
+    right: $spacing-07;
+    z-index: 2;
+    cursor: pointer;
   }
 }
 
