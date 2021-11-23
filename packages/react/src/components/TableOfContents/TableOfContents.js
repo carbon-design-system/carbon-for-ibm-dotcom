@@ -9,7 +9,6 @@ import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { HorizontalRule } from '../HorizontalRule';
-import Layout from '../Layout/Layout';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
 import TOCDesktop from './TOCDesktop';
@@ -146,15 +145,6 @@ const TableOfContents = ({
   };
 
   /**
-   * Props for the Layout component
-   *
-   * @type {{marginBottom: string, type: string, marginTop: string}}
-   */
-  const layoutProps = {
-    type: '1-3',
-  };
-
-  /**
    * Validate if the Menu Items has Id and Title filled
    *
    * @param {Array} menuItems array of Items
@@ -197,7 +187,7 @@ const TableOfContents = ({
       className={classNames(`${prefix}--tableofcontents`, {
         [`${prefix}--tableofcontents--${theme}`]: theme,
       })}>
-      <Layout {...layoutProps}>
+      <div className={`${stablePrefix}-ce--table-of-contents__container`}>
         <div className={`${prefix}--tableofcontents__sidebar`}>
           {headingContent && (
             <div className={`${prefix}--tableofcontents__desktop__children`}>
@@ -234,7 +224,7 @@ const TableOfContents = ({
             )}
           </div>
         </div>
-      </Layout>
+      </div>
     </section>
   );
 };
