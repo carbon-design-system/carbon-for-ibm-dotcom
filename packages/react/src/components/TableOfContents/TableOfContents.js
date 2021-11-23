@@ -9,7 +9,6 @@ import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { HorizontalRule } from '../HorizontalRule';
-import Layout from '../Layout/Layout';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
 import TOCDesktop from './TOCDesktop';
@@ -22,7 +21,7 @@ const { prefix } = settings;
  * loops into the array of elements and returns the values
  *
  * @private
- * @returns {Array} returns elemenrt name and data title
+ * @returns {Array} returns element name and data title
  */
 const _findMenuItems = () => {
   const eles = document.querySelectorAll('a[name]');
@@ -55,12 +54,8 @@ const TableOfContents = ({
   const [selectedTitle, setSelectedTitle] = useState('');
 
   useEffect(() => {
-    if (menuItems?.length) {
-      setUseMenuItems([...menuItems]);
-    } else {
-      setUseMenuItems(_findMenuItems());
-    }
-  }, [menuItems]);
+    setUseMenuItems(menuItems?.length ? [...menuItems] : _findMenuItems());
+  }, [children, menuItems]);
 
   useEffect(() => {
     let id = useMenuItems[0] ? useMenuItems[0].id : '';
@@ -125,7 +120,7 @@ const TableOfContents = ({
       .filter((elem, index, arr) =>
         elem.height === null
           ? arr[index - 1].position < arr[index - 1].height
-          : elem.position - 50 > -elem.height
+          : elem.position - 50 - stickyOffset > -elem.height
       );
 
     // Sets last section as active at the end of page in case there is not enough height for it to dynamically activate
@@ -150,25 +145,15 @@ const TableOfContents = ({
   };
 
   /**
-   * Props for the Layout component
-   *
-   * @type {{marginBottom: string, type: string, marginTop: string}}
-   */
-  const layoutProps = {
-    type: '1-3',
-  };
-
-  /**
    * Validate if the Menu Items has Id and Title filled
    *
    * @param {Array} menuItems array of Items
    * @returns {Array} filtered array of items
    */
-  const validateMenuItems = menuItems => {
-    return menuItems.filter(
-      item => item.title.trim().length > 0 && item.id.trim().length > 0
+  const validateMenuItems = menuItems =>
+    menuItems.filter(
+      item => item?.title?.trim().length && item?.id?.trim().length
     );
-  };
 
   /**
    * Props for TOCDesktop and TOCMobile
@@ -202,7 +187,7 @@ const TableOfContents = ({
       className={classNames(`${prefix}--tableofcontents`, {
         [`${prefix}--tableofcontents--${theme}`]: theme,
       })}>
-      <Layout {...layoutProps}>
+      <div className={`${stablePrefix}-ce--table-of-contents__container`}>
         <div className={`${prefix}--tableofcontents__sidebar`}>
           {headingContent && (
             <div className={`${prefix}--tableofcontents__desktop__children`}>
@@ -239,7 +224,7 @@ const TableOfContents = ({
             )}
           </div>
         </div>
-      </Layout>
+      </div>
     </section>
   );
 };

@@ -1,0 +1,144 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
+
+# Card Group
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/card-group)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/card-group)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group.js';
+import DDSCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item.js';
+import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading.js';
+import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer.js';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+
+function App() {
+  return (
+  <DDSCardGroup>
+    <DDSCardGroupItem href="https://example.com">
+      <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+        ultricies est. Mauris iaculis eget dolor nec
+        hendrerit. Phasellus at elit sollicitudin, sodales nulla quis,
+        consequat
+        libero.
+      </p>
+      <DDSCardCTAFooter slot="footer">
+        <ArrowRight20 slot="icon"/>
+      </DDSCardCTAFooter>
+    </DDSCardGroupItem>
+    <DDSCardGroupItem href="https://example.com">
+      <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+        ultricies est. Mauris iaculis eget dolor nec
+        hendrerit. Phasellus at elit sollicitudin, sodales nulla quis,
+        consequat
+        libero.
+      </p>
+      <DDSCardCTAFooter slot="footer">
+        <ArrowRight20 slot="icon"/>
+      </DDSCardCTAFooter>
+    </DDSCardGroupItem>
+  </DDSCardGroup>
+  );
+}
+```
+
+### JS (with Card in Card)
+
+```javascript
+import DDSCardInCard from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card.js';
+import DDSCardInCardImage from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card-image.js';
+import DDSCardInCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card-footer.js';
+import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item.js'
+import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group.js';
+import DDSCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item.js';
+import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading.js';
+import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow.js';
+import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer.js';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+
+function App() {
+  return (
+  <DDSCardInCard grid-mode="narrow" href="https://example.com">
+    <DDSCardInCardImage slot="image" alt="Image alt text" defaultSrc="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
+      <DDSImageItem media="(min-width: 1312px)" srcset="https://fpoimg.com/1312x738?text=16:9&bg_color=ee5396&text_color=161616"> </DDSImageItem>
+      <DDSImageItem media="(min-width: 672px)" srcset="https://fpoimg.com/960x540?text=16:9&bg_color=ee5396&text_color=161616"> </DDSImageItem>
+      <DDSImageItem media="(min-width: 320px)" srcset="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616"> </DDSImageItem>
+    </DDSCardInCardImage>
+    <DDSCardEyebrow>Label</DDSCardEyebrow>
+    <DDSCardHeading>Standard Bank Group prepares to embrace Africa’s AI opportunity</DDSCardHeading>
+    <DDSCardCTAFooter>
+      <ArrowRight20 slot="icon"/>
+    </DDSCardCTAFooter>
+  </DDSCardInCard>
+  <DDSCardGroup>
+    <DDSCardGroupItem href="https://example.com">
+      <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+        ultricies est. Mauris iaculis eget dolor nec
+        hendrerit. Phasellus at elit sollicitudin, sodales nulla quis,
+        consequat
+        libero.
+      </p>
+      <DDSCardCTAFooter slot="footer">
+        <ArrowRight20 slot="icon"/>
+      </DDSCardCTAFooter>
+    </DDSCardGroupItem>
+  </DDSCardGroup>
+  );
+}
+```
+
+### JS (with Card Link)
+
+```javascript
+import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group.js';
+import DDSCardGroupCardLinkItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-card-link-item.js';
+import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-link-heading.js';
+import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer.js';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+
+function App() {
+  return (
+  <DDSCardGroup gridMode="narrow">
+    <DDSCardGroupCardLinkItem href="https://example.com" pattern-background>
+      <DDSCardLinkHeading>IBM Developer - Card 01</DDSCardLinkHeading>
+      <p>Learn, code and connect with your community</p>
+      <DDSCardCTAFooter slot="footer">
+        <ArrowRight20 slot="icon"/>
+      </DDSCardCTAFooter>
+    </DDSCardGroupCardLinkItem>
+  </DDSCardGroup>
+  );
+}
+```
+
+## Props
+
+<Props of={PropTypesRef} />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector | Compatibility selector | Description |
+| ----------------------- | ---------------------- | ----------- |
+| `<dds-card-group>`        | N/A                    | Component   |
+| `<dds-card-group-item>`        | N/A                    | Component   |
+
+<Description markdown={contributing} />
