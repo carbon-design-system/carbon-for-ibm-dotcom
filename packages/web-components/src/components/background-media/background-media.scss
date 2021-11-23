@@ -7,8 +7,19 @@
 
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/components/background-media/background-media';
+@import 'carbon-web-components/scss/components/tooltip/tooltip';
 
-:host(#{$dds-prefix}-background-media) {
-  display: block;
-  outline: none;
+.#{$prefix}--video-player__controls[hasTooltip] {
+  @include tooltip--trigger('definition', top);
+  @include tooltip--placement('definition', 'top', 'end');
+
+  position: absolute;
+}
+
+.#{$prefix}--background-media--container {
+  contain: layout;
+}
+
+.#{$prefix}--background-media--item {
+  height: 100%;
 }
