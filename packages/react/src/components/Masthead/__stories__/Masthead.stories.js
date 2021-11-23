@@ -34,7 +34,7 @@ Default.story = {
     knobs: {
       escapeHTML: false,
       Masthead: ({ groupId }) => {
-        const useMockData = boolean('Use mock data', inPercy());
+        const useMockData = inPercy();
 
         // For mocking in integration tests
         // TODO: See if `TranslationAPI.getTranslation()` call can be avoided when we use mock data
@@ -57,12 +57,6 @@ Default.story = {
           navigation: useMockData
             ? mastheadKnobs.navigation.custom
             : mastheadKnobs.navigation.default,
-          platform: select(
-            'platform name (platform)',
-            mastheadKnobs.platform,
-            mastheadKnobs.platform.none,
-            groupId
-          ),
           hasProfile: boolean(
             'show the profile functionality (hasProfile)',
             true,
@@ -115,12 +109,6 @@ WithCustomNavigation.story = {
 
         return {
           navigation: mastheadKnobs.navigation.custom,
-          platform: select(
-            'platform name (platform)',
-            mastheadKnobs.platform,
-            mastheadKnobs.platform.none,
-            groupId
-          ),
           hasProfile: boolean(
             'show the profile functionality (hasProfile)',
             true,
@@ -153,7 +141,7 @@ export const SearchOpenOnload = ({ parameters }) => (
 );
 
 SearchOpenOnload.story = {
-  name: 'Search open on load',
+  name: 'Search open onload',
   parameters: {
     knobs: { escapeHTML: false, ...Default.story.parameters.knobs },
   },
@@ -169,7 +157,7 @@ WithPlatform.story = {
     knobs: {
       escapeHTML: false,
       Masthead: ({ groupId }) => {
-        const useMockData = boolean('Use mock data', inPercy());
+        const useMockData = inPercy();
 
         return {
           navigation: select(
@@ -256,7 +244,7 @@ WithAlternateLogoAndTooltip.story = {
     knobs: {
       escapeHTML: false,
       Masthead: ({ groupId }) => {
-        const useMockData = boolean('Use mock data', inPercy());
+        const useMockData = inPercy();
 
         return {
           navigation: select(
