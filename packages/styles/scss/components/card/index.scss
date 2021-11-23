@@ -340,6 +340,8 @@
   :host(#{$dds-prefix}-feature-card-footer),
   :host(#{$dds-prefix}-feature-cta-footer) {
     margin-top: auto;
+    display: flex;
+    align-items: flex-end;
 
     &:focus-visible {
       outline: none;
