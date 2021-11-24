@@ -1,5 +1,13 @@
 # Breaking changes
 
+## v1.28.0
+
+### Deprecation warning
+
+#### React
+
+- `Layout` has been deprecated to better align with the style mixin and classes used in Web Components. Layout documentation has been updated on how to use the mixin and classes.
+
 ## v1.26.0
 
 ### Deprecation warning
