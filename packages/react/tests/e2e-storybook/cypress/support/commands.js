@@ -37,9 +37,15 @@ Cypress.Commands.add('carbonThemesScreenshot', (screenshotOpts = {}) => {
     cy.get('html')
       .then(doc => doc.attr('storybook-carbon-theme', theme))
       .screenshot(
-        `${Cypress.currentTest.titlePath[0]} [${theme.toUpperCase()}]`,
+        `${Cypress.currentTest.titlePath[0]} | ${
+          Cypress.currentTest.titlePath[1]
+        } | [${theme.toUpperCase()}]`,
         screenshotOpts
       )
-      .percySnapshot(`${Cypress.currentTest.titlePath[0]}`);
+      .percySnapshot(
+        `${Cypress.currentTest.titlePath[0]} | ${
+          Cypress.currentTest.titlePath[1]
+        } | [${theme.toUpperCase()}]`
+      );
   });
 });
