@@ -39,10 +39,7 @@ describe('dds-logo-grid | default', () => {
       expect(equalLogos).to.be.length(0);
     });
 
-    cy.screenshot();
-    cy.percySnapshot('dds-logo-grid | default', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should have clickable CTA card link with heading', () => {
@@ -64,54 +61,13 @@ describe('dds-logo-grid | default', () => {
         expect(insetValue).to.eq('0px');
       });
 
-    cy.screenshot();
-    cy.percySnapshot('dds-logo-grid | With CTA', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
-  it('should load the g10 theme', () => {
-    cy.visit(`/${_defaultPath}&theme=g10`);
+  it('should load correctly in all themes', () => {
+    cy.visit(`/${_defaultPath}`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g10');
-
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('dds-logo-grid | g10 theme', {
-        widths: [1280],
-      });
-    });
-  });
-
-  it('should load the g90 theme', () => {
-    cy.visit(`/${_defaultPath}&theme=g90`);
-    cy.viewport(1280, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g90');
-
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('dds-logo-grid | g90 theme', {
-        widths: [1280],
-      });
-    });
-  });
-
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_defaultPath}&theme=g100`);
-    cy.viewport(1280, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g100');
-
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('dds-logo-grid | g100 theme', {
-        widths: [1280],
-      });
-    });
+    cy.carbonThemesScreenshot();
   });
 });
