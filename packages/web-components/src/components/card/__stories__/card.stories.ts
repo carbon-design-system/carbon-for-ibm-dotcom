@@ -16,9 +16,21 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
+import logoMicrosoft2x1 from '../../../../../storybook-images/assets/logos/logo-microsoft--2x1.png';
 import { PICTOGRAM_PLACEMENT } from '../defs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+
+const tagGroupContent = html`
+  <dds-tag-group>
+    <bx-tag>
+      Most popular
+    </bx-tag>
+    <bx-tag type="purple">
+      Enterprise
+    </bx-tag>
+  </dds-tag-group>
+`;
 
 export const Default = ({ parameters }) => {
   const { image, href, alt, defaultSrc, heading, eyebrow, tagGroup, copy, footer, cardStyles } = parameters?.props?.Card ?? {};
@@ -43,16 +55,9 @@ export const Default = ({ parameters }) => {
         : ``}
       ${tagGroup
         ? html`
-            <dds-tag-group>
-              <bx-tag>
-                Most popular
-              </bx-tag>
-              <bx-tag type="purple">
-                Enterprise
-              </bx-tag>
-            </dds-tag-group>
+            ${tagGroupContent}
           `
-        : ''}
+        : ``}
       <dds-card-footer>
         ${footer}${ArrowRight20({ slot: 'icon' })}
       </dds-card-footer>
@@ -102,16 +107,9 @@ export const Pictogram = ({ parameters }) => {
         : ``}
       ${tagGroup
         ? html`
-            <dds-tag-group>
-              <bx-tag>
-                Most popular
-              </bx-tag>
-              <bx-tag type="purple">
-                Enterprise
-              </bx-tag>
-            </dds-tag-group>
+            ${tagGroupContent}
           `
-        : ''}
+        : ``}
       <svg
         slot="pictogram"
         focusable="false"
@@ -185,16 +183,9 @@ export const Static = ({ parameters }) => {
         : ``}
       ${tagGroup
         ? html`
-            <dds-tag-group>
-              <bx-tag>
-                Most popular
-              </bx-tag>
-              <bx-tag type="purple">
-                Enterprise
-              </bx-tag>
-            </dds-tag-group>
+            ${tagGroupContent}
           `
-        : ''}
+        : ``}
       ${cta
         ? html`
             <dds-card-footer href="https://www.example.com">
@@ -237,6 +228,58 @@ Static.story = {
           outlinedCard,
         };
       },
+    },
+  },
+};
+
+export const Logo = ({ parameters }) => {
+  const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } = parameters?.props?.Card ?? {};
+  return html`
+    <dds-card border logo href=${ifNonNull(href || undefined)}>
+      <dds-image-logo slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image-logo>
+      ${eyebrow
+        ? html`
+            <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
+          `
+        : ``}
+      ${heading
+        ? html`
+            <dds-card-heading>${heading}</dds-card-heading>
+          `
+        : ``}
+      ${copy
+        ? html`
+            <p>${copy}</p>
+          `
+        : ``}
+      ${tagGroup
+        ? html`
+            ${tagGroupContent}
+          `
+        : ``}
+
+      <dds-card-footer></dds-card-footer>
+    </dds-card>
+  `;
+};
+
+Logo.story = {
+  parameters: {
+    ...readme.parameters,
+    knobs: {
+      Card: ({ groupId }) => ({
+        alt: 'Image alt text',
+        defaultSrc: logoMicrosoft2x1,
+        tagGroup: boolean('Add tags', true, groupId),
+        eyebrow: textNullable('Card Eyebrow:', 'Microsoft', groupId),
+        heading: textNullable('Card Heading (optional):', '', groupId),
+        copy: textNullable(
+          'Card body copy:',
+          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          groupId
+        ),
+        href: 'https://example.com',
+      }),
     },
   },
 };
