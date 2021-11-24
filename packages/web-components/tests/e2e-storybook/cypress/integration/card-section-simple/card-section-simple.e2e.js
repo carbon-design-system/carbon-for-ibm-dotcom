@@ -13,16 +13,58 @@
  * @private
  */
 const _paths = {
-  default: 'iframe.html?id=components-table-of-contents--default',
-  withCta: 'iframe.html?id=components-table-of-contents--with-heading-content',
+  default: 'iframe.html?id=components-card-section-simple--default',
+  withCta: 'iframe.html?id=components-card-section-simple--with-cta',
 };
 
 /**
  * Collection of all tests for dds-card-section-simple
  *
+ * @function checkForBlocklink - Asserts a full-sized pseudoelement from the footer link
+ * @function checkForTitlePosition - Asserts left-aligned title (16 || 32)px from left edge
+ * @function checkForCardContent - Asserts that all card child elements are rendered in shadowRoot slots
  * @private
  */
-const _tests = {};
+const _tests = {
+  checkForBlocklink: () => {
+    cy.get('dds-card-group-item > dds-card-cta-footer')
+      .each(footer => {
+        cy.get(footer)
+          .shadow()
+          .find('a')
+          .then($els => {
+            const win = $els[0].ownerDocument.defaultView;
+            const after = win.getComputedStyle($els[0], ':after');
+            const positionValue = after.getPropertyValue('position');
+            const insetValue = after.getPropertyValue('inset');
+
+            expect(positionValue).to.eq('absolute');
+            expect(insetValue).to.eq('0px');
+          });
+      })
+  },
+  checkForTitlePosition: () => {
+    cy.get('dds-content-section-heading')
+      .then(heading => {
+        expect(heading.offset().left == 16 || heading.offset().left == 32).to.be.eq(true);
+        expect(heading.css('textAlign')).to.be.eq('start');
+      })
+  },
+  checkForCardContent: () => {
+    cy.get('dds-card-group-item')
+      .each(card => {
+        card.children().each((_i, child) => {
+          const cardRoot = card[0].shadowRoot;
+          expect(child.assignedSlot.getRootNode()).to.be.eq(cardRoot);
+        });
+      })
+  },
+  checkThemes: () => {
+    cy.carbonThemesScreenshot();
+  }
+};
+
+
 
 describe('dds-card-section-simple | default (desktop)', () => {
   beforeEach(() => {
@@ -30,11 +72,10 @@ describe('dds-card-section-simple | default (desktop)', () => {
     cy.visit(`/${_paths.default}`);
   });
 
-  it('should load card as blocklink', () => {});
-  it('should load left-aligned section title', () => {});
-  it('should load heading, copy, cta on each card', () => {});
-  it('should display cta card in contrasting color', () => {});
-  it('should render correctly in all themes', () => {});
+  it('should load card as blocklink', _tests.checkForBlocklink);
+  it('should load left-aligned section title', _tests.checkForTitlePosition);
+  it('should load heading, copy, cta on each card', _tests.checkForCardContent);
+  it('should render correctly in all themes', _tests.checkThemes);
 });
 
 describe('dds-card-section-simple | with cta (desktop)', () => {
@@ -43,11 +84,10 @@ describe('dds-card-section-simple | with cta (desktop)', () => {
     cy.visit(`/${_paths.default}`);
   });
 
-  it('should load card as blocklink', () => {});
-  it('should load left-aligned section title', () => {});
-  it('should load heading, copy, cta on each card', () => {});
-  it('should display cta card in contrasting color', () => {});
-  it('should render correctly in all themes', () => {});
+  it('should load card as blocklink', _tests.checkForBlocklink);
+  it('should load left-aligned section title', _tests.checkForTitlePosition);
+  it('should load heading, copy, cta on each card', _tests.checkForCardContent);
+  it('should render correctly in all themes', _tests.checkThemes);
 });
 
 describe('dds-card-section-simple | default (mobile)', () => {
@@ -56,11 +96,10 @@ describe('dds-card-section-simple | default (mobile)', () => {
     cy.visit(`/${_paths.default}`);
   });
 
-  it('should load card as blocklink', () => {});
-  it('should load left-aligned section title', () => {});
-  it('should load heading, copy, cta on each card', () => {});
-  it('should display cta card in contrasting color', () => {});
-  it('should render correctly in all themes', () => {});
+  it('should load card as blocklink', _tests.checkForBlocklink);
+  it('should load left-aligned section title', _tests.checkForTitlePosition);
+  it('should load heading, copy, cta on each card', _tests.checkForCardContent);
+  it('should render correctly in all themes', _tests.checkThemes);
 });
 
 describe('dds-card-section-simple | with cta (mobile)', () => {
@@ -69,9 +108,8 @@ describe('dds-card-section-simple | with cta (mobile)', () => {
     cy.visit(`/${_paths.default}`);
   });
 
-  it('should load card as blocklink', () => {});
-  it('should load left-aligned section title', () => {});
-  it('should load heading, copy, cta on each card', () => {});
-  it('should display cta card in contrasting color', () => {});
-  it('should render correctly in all themes', () => {});
+  it('should load card as blocklink', _tests.checkForBlocklink);
+  it('should load left-aligned section title', _tests.checkForTitlePosition);
+  it('should load heading, copy, cta on each card', _tests.checkForCardContent);
+  it('should render correctly in all themes', _tests.checkThemes);
 });
