@@ -76,9 +76,12 @@ describe('Feature Card | medium', () => {
       );
 
       cy.screenshot();
-      cy.percySnapshot('FeatureCard medium | g10 theme', {
-        widths: [1280],
-      });
+      cy.percySnapshot(
+        `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+        {
+          widths: [1280],
+        }
+      );
     });
   });
 
@@ -93,9 +96,12 @@ describe('Feature Card | medium', () => {
       );
 
       cy.screenshot();
-      cy.percySnapshot('FeatureCard medium | g90 theme', {
-        widths: [1280],
-      });
+      cy.percySnapshot(
+        `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+        {
+          widths: [1280],
+        }
+      );
     });
   });
 
@@ -110,9 +116,12 @@ describe('Feature Card | medium', () => {
       );
 
       cy.screenshot();
-      cy.percySnapshot('FeatureCard medium | g100 theme', {
-        widths: [1280],
-      });
+      cy.percySnapshot(
+        `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+        {
+          widths: [1280],
+        }
+      );
     });
   });
 });
@@ -210,9 +219,12 @@ describe('FeatureCard | large', () => {
       );
 
       cy.screenshot();
-      cy.percySnapshot('FeatureCard large | g10 theme', {
-        widths: [1280],
-      });
+      cy.percySnapshot(
+        `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+        {
+          widths: [1280],
+        }
+      );
     });
   });
 
@@ -227,9 +239,12 @@ describe('FeatureCard | large', () => {
       );
 
       cy.screenshot();
-      cy.percySnapshot('FeatureCard large | g90 theme', {
-        widths: [1280],
-      });
+      cy.percySnapshot(
+        `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+        {
+          widths: [1280],
+        }
+      );
     });
   });
 
@@ -244,9 +259,12 @@ describe('FeatureCard | large', () => {
       );
 
       cy.screenshot();
-      cy.percySnapshot('FeatureCard large | g100 theme', {
-        widths: [1280],
-      });
+      cy.percySnapshot(
+        `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+        {
+          widths: [1280],
+        }
+      );
     });
   });
 });
