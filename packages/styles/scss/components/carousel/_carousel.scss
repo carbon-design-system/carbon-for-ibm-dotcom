@@ -99,3 +99,36 @@
     }
   }
 }
+
+@media print {
+  :host(#{$dds-prefix}-carousel),
+  .#{$prefix}--carousel {
+    --#{$dds-prefix}--carousel--page-size: 4;
+
+    flex-flow: row wrap;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    width: 100%;
+
+    .#{$prefix}--carousel__scroll-container {
+      margin: 0;
+      overflow: visible;
+    }
+
+    .#{$prefix}--carousel__scroll-contents {
+      flex-wrap: wrap;
+      gap: $spacing-05;
+      margin: 0;
+      position: initial;
+    }
+
+    .#{$prefix}--carousel__navigation {
+      display: none;
+    }
+
+    ::slotted(:not([name])) {
+      margin: 0;
+    }
+  }
+}
