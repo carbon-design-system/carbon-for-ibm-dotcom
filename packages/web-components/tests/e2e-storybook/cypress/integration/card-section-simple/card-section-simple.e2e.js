@@ -27,44 +27,39 @@ const _paths = {
  */
 const _tests = {
   checkForBlocklink: () => {
-    cy.get('dds-card-group-item > dds-card-cta-footer')
-      .each(footer => {
-        cy.get(footer)
-          .shadow()
-          .find('a')
-          .then($els => {
-            const win = $els[0].ownerDocument.defaultView;
-            const after = win.getComputedStyle($els[0], ':after');
-            const positionValue = after.getPropertyValue('position');
-            const insetValue = after.getPropertyValue('inset');
+    cy.get('dds-card-group-item > dds-card-cta-footer').each(footer => {
+      cy.get(footer)
+        .shadow()
+        .find('a')
+        .then($els => {
+          const win = $els[0].ownerDocument.defaultView;
+          const after = win.getComputedStyle($els[0], ':after');
+          const positionValue = after.getPropertyValue('position');
+          const insetValue = after.getPropertyValue('inset');
 
-            expect(positionValue).to.eq('absolute');
-            expect(insetValue).to.eq('0px');
-          });
-      })
+          expect(positionValue).to.eq('absolute');
+          expect(insetValue).to.eq('0px');
+        });
+    });
   },
   checkForTitlePosition: () => {
-    cy.get('dds-content-section-heading')
-      .then(heading => {
-        expect(heading.offset().left == 16 || heading.offset().left == 32).to.be.eq(true);
-        expect(heading.css('textAlign')).to.be.eq('start');
-      })
+    cy.get('dds-content-section-heading').then(heading => {
+      expect(heading.offset().left == 16 || heading.offset().left == 32).to.be.eq(true);
+      expect(heading.css('textAlign')).to.be.eq('start');
+    });
   },
   checkForCardContent: () => {
-    cy.get('dds-card-group-item')
-      .each(card => {
-        card.children().each((_i, child) => {
-          const cardRoot = card[0].shadowRoot;
-          expect(child.assignedSlot.getRootNode()).to.be.eq(cardRoot);
-        });
-      })
+    cy.get('dds-card-group-item').each(card => {
+      card.children().each((_i, child) => {
+        const cardRoot = card[0].shadowRoot;
+        expect(child.assignedSlot.getRootNode()).to.be.eq(cardRoot);
+      });
+    });
   },
   checkThemes: () => {
     cy.carbonThemesScreenshot();
-  }
+  },
 };
-
-
 
 describe('dds-card-section-simple | default (desktop)', () => {
   beforeEach(() => {
