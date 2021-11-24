@@ -12,11 +12,9 @@
  * @private
  */
 const _paths = {
-  manual_default:
-    'iframe.html?id=components-table-of-contents--manually-define-menu-items',
-  dynamic_default: 'iframe.html?id=components-table-of-contents--dynamic-items',
-  heading_content:
-    'iframe.html?id=components-table-of-contents--with-heading-content',
+  default: 'iframe.html?id=components-table-of-contents--default',
+  heading: 'iframe.html?id=components-table-of-contents--with-heading-content',
+  horizontal: 'iframe.html?id=components-table-of-contents--horizontal',
 };
 
 /**
@@ -53,9 +51,9 @@ const _tests = {
       const navItemsIds = [];
       const sectionIds = [];
 
-      cy.get('.bx--tableofcontents__desktop__item a')
+      cy.get('.bx--tableofcontents__desktop-container .bx--tableofcontents__desktop__item a')
         .each(link => {
-          navItemsIds.push(link.attr('href').replace('#', ''));
+          navItemsIds.push(link.attr('data-target'));
         })
         .get('a[name]')
         .each(section => {
@@ -66,31 +64,30 @@ const _tests = {
           cy.screenshot(`${Cypress.currentTest.titlePath[0]}`, {
             capture: 'viewport',
           });
-          // Take a snapshot for visual diffing
-          cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
-            widths: [1280],
-          });
+          // TODO: Take a snapshot for visual diffing
+          // cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
+          //   widths: [1280],
+          // });
         });
     },
     checkLinkFunctionality: () => {
       const maxScrollVal = document.body.clientHeight - window.innerHeight;
 
-      cy.get('.bx--tableofcontents__desktop__item a').each((link, i) => {
+      cy.get('.bx--tableofcontents__desktop-container .bx--tableofcontents__desktop__item a').each(link => {
         cy.get(link)
           .click()
-          .get(`a[name="${link.attr('href').replace('#', '')}"]`)
-          .then(section => {
-            const sectionScrolledTo =
-              section.offset().top === 0 || window.scrollY === maxScrollVal;
+          .get(`a[name="${link.attr('data-target')}"]`)
+          .then((section, i) => {
+            const sectionScrolledTo = section.offset().top === 0 || window.scrollY === maxScrollVal;
             expect(sectionScrolledTo).to.be.true;
             if (i === 1) {
               cy.screenshot(`${Cypress.currentTest.titlePath[0]}`, {
                 capture: 'viewport',
               });
-              // Take a snapshot for visual diffing
-              cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
-                widths: [1280],
-              });
+              // TODO: Take a snapshot for visual diffing
+              // cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
+              //   widths: [1280],
+              // });
             }
           });
       });
@@ -99,20 +96,18 @@ const _tests = {
       cy.get('a[name]').each((section, i) => {
         cy.scrollTo(0, section.offset().top)
           .wait(1000) // Give the browser time to execute the event callback.
-          .get(`a[href="#${section.attr('name')}"]`)
+          .get(`a[data-target="${section.attr('name')}"]`)
           .then(link => {
             expect(link.attr('aria-current')).to.equal('location');
-            expect(link.parent()).to.have.class(
-              'bx--tableofcontents__desktop__item--active'
-            );
+            expect(link.parent()).to.have.class('bx--tableofcontents__desktop__item--active');
             if (i === 1) {
               cy.screenshot(`${Cypress.currentTest.titlePath[0]}`, {
                 capture: 'viewport',
               });
-              // Take a snapshot for visual diffing
-              cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
-                widths: [1280],
-              });
+              // TODO: Take a snapshot for visual diffing
+              // cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
+              //   widths: [1280],
+              // });
             }
           });
       });
@@ -120,17 +115,17 @@ const _tests = {
     checkStickyNav: () => {
       cy.wrap(['top', 'center', 'bottom']).each(pos => {
         cy.scrollTo(pos)
-          .get('.bx--tableofcontents__desktop')
+          .get('.bx--tableofcontents__desktop-container')
           .then(sidebar => {
             expect(sidebar.offset().top).to.be.greaterThan(0);
             if (pos === 'bottom') {
               cy.screenshot(`${Cypress.currentTest.titlePath[0]}`, {
                 capture: 'viewport',
               });
-              // Take a snapshot for visual diffing
-              cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
-                widths: [1280],
-              });
+              // TODO: Take a snapshot for visual diffing
+              // cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
+              //   widths: [1280],
+              // });
             }
           });
       });
@@ -149,7 +144,7 @@ const _tests = {
       const navItemsIds = [];
       const sectionIds = [];
 
-      cy.get('.bx--tableofcontents__mobile__select__option:not([disabled])')
+      cy.get('.bx--tableofcontents__mobile__select__option')
         .each(option => {
           navItemsIds.push(option.val());
         })
@@ -162,34 +157,31 @@ const _tests = {
           cy.screenshot(`${Cypress.currentTest.titlePath[0]}`, {
             capture: 'viewport',
           });
-          // Take a snapshot for visual diffing
-          cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
-            widths: [320],
-          });
+          // TODO: Take a snapshot for visual diffing
+          // cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
+          //   widths: [320],
+          // });
         });
     },
     checkLinkFunctionality: () => {
       const maxScrollVal = document.body.clientHeight - window.innerHeight;
 
-      cy.get(
-        '.bx--tableofcontents__mobile__select__option:not([disabled])'
-      ).each((option, i) => {
+      cy.get('.bx--tableofcontents__mobile__select__option').each((option, i) => {
         cy.get(option)
           .parent()
           .select(option.val())
           .get(`a[name=${option.val()}]`)
           .then(section => {
-            const sectionScrolledTo =
-              section.offset().top === 0 || window.scrollY === maxScrollVal;
+            const sectionScrolledTo = section.offset().top === 0 || window.scrollY === maxScrollVal;
             expect(sectionScrolledTo).to.be.true;
             if (i === 1) {
               cy.screenshot(`${Cypress.currentTest.titlePath[0]}`, {
                 capture: 'viewport',
               });
-              // Take a snapshot for visual diffing
-              cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
-                widths: [320],
-              });
+              // TODO: Take a snapshot for visual diffing
+              // cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
+              //   widths: [320],
+              // });
             }
           });
       });
@@ -205,10 +197,10 @@ const _tests = {
               cy.screenshot(`${Cypress.currentTest.titlePath[0]}`, {
                 capture: 'viewport',
               });
-              // Take a snapshot for visual diffing
-              cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
-                widths: [320],
-              });
+              // TODO: Take a snapshot for visual diffing
+              // cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
+              //   widths: [320],
+              // });
             }
           });
       });
@@ -218,15 +210,15 @@ const _tests = {
         cy.scrollTo(pos)
           .get('.bx--tableofcontents__mobile')
           .then(mobileNav => {
-            expect(mobileNav.offset().top).to.be.greaterThan(-1);
+            expect(mobileNav.offset().top).to.be.greaterThan(0);
             if (pos === 'bottom') {
               cy.screenshot(`${Cypress.currentTest.titlePath[0]}`, {
                 capture: 'viewport',
               });
-              // Take a snapshot for visual diffing
-              cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
-                widths: [320],
-              });
+              // TODO: Take a snapshot for visual diffing
+              // cy.percySnapshot(`${Cypress.currentTest.titlePath[0]}`, {
+              //   widths: [320],
+              // });
             }
           });
       });
@@ -234,134 +226,80 @@ const _tests = {
   },
 };
 
-describe('TableOfContents | manually defined (desktop)', () => {
+describe('dds-table-of-contents | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
-    cy.visit(`/${_paths.manual_default}`);
+    cy.visit(`/${_paths.default}`);
   });
 
-  it(
-    'should load table of contents sidebar with links',
-    _tests.desktop.checkRender
-  );
-  it(
-    'should navigate content to selected section',
-    _tests.desktop.checkLinkFunctionality
-  );
+  it('should load table of contents sidebar with links', _tests.desktop.checkRender);
+  it('should navigate content to selected section', _tests.desktop.checkLinkFunctionality);
   it('should update current section on scroll', _tests.desktop.checkScrollSpy);
-  it(
-    'should remain visible on page throughout scroll',
-    _tests.desktop.checkStickyNav
-  );
+  it('should remain visible on page throughout scroll', _tests.desktop.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
 });
 
-describe('TableOfContents | dynamically defined (desktop)', () => {
+describe('dds-table-of-contents | with heading content (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
-    cy.visit(`/${_paths.dynamic_default}`);
+    cy.visit(`/${_paths.heading}`);
   });
 
-  it(
-    'should load table of contents sidebar with links',
-    _tests.desktop.checkRender
-  );
-  it(
-    'should navigate content to selected section',
-    _tests.desktop.checkLinkFunctionality
-  );
+  it('should load table of contents sidebar with links', _tests.desktop.checkRender);
+  it('should navigate content to selected section', _tests.desktop.checkLinkFunctionality);
   it('should update current section on scroll', _tests.desktop.checkScrollSpy);
-  it(
-    'should remain visible on page throughout scroll',
-    _tests.desktop.checkStickyNav
-  );
+  it('should remain visible on page throughout scroll', _tests.desktop.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
 });
 
-describe('TableOfContents | with heading content (desktop)', () => {
+describe('dds-table-of-contents | horizontal (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
-    cy.visit(`/${_paths.heading_content}`);
+    cy.visit(`/${_paths.horizontal}`);
   });
 
-  it(
-    'should load table of contents horizontal bar with links',
-    _tests.desktop.checkRender
-  );
-  it(
-    'should navigate content to selected section',
-    _tests.desktop.checkLinkFunctionality
-  );
+  it('should load table of contents horizontal bar with links', _tests.desktop.checkRender);
+  it('should navigate content to selected section', _tests.desktop.checkLinkFunctionality);
   it('should update current section on scroll', _tests.desktop.checkScrollSpy);
-  it(
-    'should remain visible on page throughout scroll',
-    _tests.desktop.checkStickyNav
-  );
+  it('should remain visible on page throughout scroll', _tests.desktop.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
 });
 
-describe('TableOfContents | manually defined (mobile)', () => {
+describe('dds-table-of-contents | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
-    cy.visit(`/${_paths.manual_default}`);
+    cy.visit(`/${_paths.default}`);
   });
 
-  it(
-    'should load table of contents sidebar with links',
-    _tests.mobile.checkRender
-  );
-  it(
-    'should navigate content to selected section',
-    _tests.mobile.checkLinkFunctionality
-  );
+  it('should load table of contents sidebar with links', _tests.mobile.checkRender);
+  it('should navigate content to selected section', _tests.mobile.checkLinkFunctionality);
   it('should update current section on scroll', _tests.mobile.checkScrollSpy);
-  it(
-    'should remain visible on page throughout scroll',
-    _tests.mobile.checkStickyNav
-  );
+  it('should remain visible on page throughout scroll', _tests.mobile.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
 });
 
-describe('TableOfContents | dynamically defined (mobile)', () => {
+describe('dds-table-of-contents | with heading content (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
-    cy.visit(`/${_paths.dynamic_default}`);
+    cy.visit(`/${_paths.heading}`);
   });
 
-  it(
-    'should load table of contents sidebar with links',
-    _tests.mobile.checkRender
-  );
-  it(
-    'should navigate content to selected section',
-    _tests.mobile.checkLinkFunctionality
-  );
+  it('should load table of contents sidebar with links', _tests.mobile.checkRender);
+  it('should navigate content to selected section', _tests.mobile.checkLinkFunctionality);
   it('should update current section on scroll', _tests.mobile.checkScrollSpy);
-  it(
-    'should remain visible on page throughout scroll',
-    _tests.mobile.checkStickyNav
-  );
+  it('should remain visible on page throughout scroll', _tests.mobile.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
 });
 
-describe('TableOfContents | with heading content (mobile)', () => {
+describe('dds-table-of-contents | horizontal (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
-    cy.visit(`/${_paths.heading_content}`);
+    cy.visit(`/${_paths.horizontal}`);
   });
 
-  it(
-    'should load table of contents sidebar with links',
-    _tests.mobile.checkRender
-  );
-  it(
-    'should navigate content to selected section',
-    _tests.mobile.checkLinkFunctionality
-  );
+  it('should load table of contents sidebar with links', _tests.mobile.checkRender);
+  it('should navigate content to selected section', _tests.mobile.checkLinkFunctionality);
   it('should update current section on scroll', _tests.mobile.checkScrollSpy);
-  it(
-    'should remain visible on page throughout scroll',
-    _tests.mobile.checkStickyNav
-  );
+  it('should remain visible on page throughout scroll', _tests.mobile.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
 });
