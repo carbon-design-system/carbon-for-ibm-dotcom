@@ -11,6 +11,7 @@ import pickBy from 'lodash-es/pickBy.js';
 import { html, internalProperty, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import {
@@ -590,6 +591,11 @@ class DDSDotcomShellComposite extends LitElement {
    */
   @property({ attribute: 'user-status' })
   userStatus = UNAUTHENTICATED_STATUS;
+
+  // eslint-disable-next-line class-methods-use-this
+  firstUpdated() {
+    globalInit();
+  }
 
   update(changedProperties) {
     super.update(changedProperties);
