@@ -45,7 +45,10 @@
 ####   `should render the given nav items to the top`
 
 ```
-<dds-top-nav data-autoid="dds--masthead__l0-nav">
+<dds-top-nav
+  data-autoid="dds--masthead__l0-nav"
+  selected-menu-item="undefined"
+>
   <dds-top-nav-item
     data-autoid="dds--masthead__l0-nav--nav0"
     href="https://ibmdotcom-webcomponents.mybluemix.net/foo"

@@ -39,7 +39,7 @@ describe('Feature Card | medium', () => {
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
     cy.get('.bx--feature-card a.bx--link').then($els => {
       const win = $els[0].ownerDocument.defaultView;
-      const after = win.getComputedStyle($els[0], 'after');
+      const after = win.getComputedStyle($els[0], ':after');
       const positionValue = after.getPropertyValue('position');
       const insetValue = after.getPropertyValue('inset');
 
@@ -134,7 +134,7 @@ describe('FeatureCard medium (mobile)', () => {
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
     cy.get('.bx--feature-card a.bx--link').then($els => {
       const win = $els[0].ownerDocument.defaultView;
-      const after = win.getComputedStyle($els[0], 'after');
+      const after = win.getComputedStyle($els[0], ':after');
       const positionValue = after.getPropertyValue('position');
       const insetValue = after.getPropertyValue('inset');
 
@@ -161,7 +161,7 @@ describe('FeatureCard | large', () => {
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
     cy.get('.bx--feature-card-large a.bx--link').then($els => {
       const win = $els[0].ownerDocument.defaultView;
-      const after = win.getComputedStyle($els[0], 'after');
+      const after = win.getComputedStyle($els[0], ':after');
       const positionValue = after.getPropertyValue('position');
       const insetValue = after.getPropertyValue('inset');
 
@@ -269,7 +269,7 @@ describe('FeatureCard large (mobile)', () => {
   it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
     cy.get('.bx--feature-card-large a.bx--link').then($els => {
       const win = $els[0].ownerDocument.defaultView;
-      const after = win.getComputedStyle($els[0], 'after');
+      const after = win.getComputedStyle($els[0], ':after');
       const positionValue = after.getPropertyValue('position');
       const insetValue = after.getPropertyValue('inset');
 
