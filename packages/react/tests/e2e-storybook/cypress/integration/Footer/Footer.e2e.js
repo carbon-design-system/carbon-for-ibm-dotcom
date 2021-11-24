@@ -87,9 +87,12 @@ describe('Footer | default (desktop)', () => {
     cy.screenshot();
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('Footer | Americas region selected', {
-      widths: [1280],
-    });
+    cy.percySnapshot(
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+      {
+        widths: [1280],
+      }
+    );
   });
 
   it('should be able to search with keywords for locations and languages', () => {
@@ -112,9 +115,12 @@ describe('Footer | default (desktop)', () => {
     cy.screenshot();
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('Footer | Mexico locale found', {
-      widths: [1280],
-    });
+    cy.percySnapshot(
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+      {
+        widths: [1280],
+      }
+    );
   });
 
   it('should load all the 38 navigation links', () => {
@@ -155,9 +161,12 @@ describe('Footer | Default language only (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('Footer | Default language only | desktop dropdown', {
-      widths: [1280],
-    });
+    cy.percySnapshot(
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+      {
+        widths: [1280],
+      }
+    );
   });
 
   it('should be able to select a language from combo box', () => {
@@ -173,9 +182,12 @@ describe('Footer | Default language only (desktop)', () => {
     );
 
     cy.screenshot();
-    cy.percySnapshot('Footer | Default language only | desktop combo box', {
-      widths: [1280],
-    });
+    cy.percySnapshot(
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+      {
+        widths: [1280],
+      }
+    );
   });
 
   it('should load all the 38 navigation links', () => {
@@ -210,9 +222,12 @@ describe('Footer | Short (desktop)', () => {
 
     cy.screenshot();
 
-    cy.percySnapshot('Footer | Short | load clickable IBM logo', {
-      widths: [1280],
-    });
+    cy.percySnapshot(
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+      {
+        widths: [1280],
+      }
+    );
   });
 
   it('should open locale modal with 4 geos when clicked on locale button', () => {
@@ -230,7 +245,7 @@ describe('Footer | Short (desktop)', () => {
     cy.screenshot();
 
     cy.percySnapshot(
-      'Footer | Short | open locale modal with 4 geos when clicked on locale button',
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
       {
         widths: [1280],
       }
@@ -261,7 +276,7 @@ describe('Footer | Short (desktop)', () => {
     cy.screenshot();
 
     cy.percySnapshot(
-      'Footer | Short | display the specific locations and languages of a selected geo',
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
       {
         widths: [1280],
       }
@@ -299,7 +314,7 @@ describe('Footer | Short (desktop)', () => {
     cy.screenshot();
 
     cy.percySnapshot(
-      'Footer | Short | display interactive search field and with keywords for locations and languages',
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
       {
         widths: [1280],
       }
@@ -317,7 +332,7 @@ describe('Footer | Short (desktop)', () => {
     cy.screenshot();
 
     cy.percySnapshot(
-      'Footer | Short | load footer legal navigation with clickable links',
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
       {
         widths: [1280],
       }
@@ -345,9 +360,12 @@ describe('Footer | Short language only (desktop)', () => {
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('Footer | Short language only | desktop dropdown', {
-      widths: [1280],
-    });
+    cy.percySnapshot(
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+      {
+        widths: [1280],
+      }
+    );
   });
 
   it('should be able to select a language from combo box', () => {
@@ -363,9 +381,12 @@ describe('Footer | Short language only (desktop)', () => {
     );
 
     cy.screenshot();
-    cy.percySnapshot('Footer | Short language only | desktop combo box', {
-      widths: [1280],
-    });
+    cy.percySnapshot(
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+      {
+        widths: [1280],
+      }
+    );
   });
 });
 
@@ -394,9 +415,12 @@ describe('Footer | Micro (desktop)', () => {
     cy.screenshot();
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('Footer | Micro | Asia Pacific region selected', {
-      widths: [1280],
-    });
+    cy.percySnapshot(
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+      {
+        widths: [1280],
+      }
+    );
   });
 
   it('should load all 4 interactable legal links', () => {
@@ -419,9 +443,12 @@ describe('Footer | Micro language only (desktop)', () => {
     cy.get(`[data-autoid="dds--language-selector"]`).click();
 
     cy.screenshot();
-    cy.percySnapshot('Footer | Micro language only | desktop dropdown', {
-      widths: [1280],
-    });
+    cy.percySnapshot(
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+      {
+        widths: [1280],
+      }
+    );
   });
 
   it('should be able to select a language from combo box', () => {
@@ -437,9 +464,12 @@ describe('Footer | Micro language only (desktop)', () => {
     );
 
     cy.screenshot();
-    cy.percySnapshot('Footer | Micro language only | desktop combobox', {
-      widths: [1280],
-    });
+    cy.percySnapshot(
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+      {
+        widths: [1280],
+      }
+    );
   });
 });
 
@@ -474,9 +504,12 @@ describe('Footer | default (mobile)', () => {
     cy.screenshot();
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('Footer | Americas region selected', {
-      widths: [1280],
-    });
+    cy.percySnapshot(
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+      {
+        widths: [1280],
+      }
+    );
   });
 
   it('should be able to search with keywords for locations and languages', () => {
@@ -499,9 +532,12 @@ describe('Footer | default (mobile)', () => {
     cy.screenshot();
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('Footer | Mexico locale found', {
-      widths: [1280],
-    });
+    cy.percySnapshot(
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+      {
+        widths: [1280],
+      }
+    );
   });
 
   it('should load all the 38 navigation links', () => {
@@ -541,9 +577,12 @@ describe('Footer | Default language only (mobile)', () => {
     languageSelector.should('have.value', 'ar');
 
     cy.screenshot();
-    cy.percySnapshot('Footer | Default language only | desktop interactive', {
-      widths: [320],
-    });
+    cy.percySnapshot(
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+      {
+        widths: [320],
+      }
+    );
   });
 
   it('should load all the 38 navigation links', () => {
@@ -578,9 +617,12 @@ describe('Footer | Short (mobile)', () => {
 
     cy.screenshot();
 
-    cy.percySnapshot('Footer | Short | load clickable IBM logo', {
-      widths: [320],
-    });
+    cy.percySnapshot(
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+      {
+        widths: [320],
+      }
+    );
   });
 
   it('should open locale modal with 4 geos when clicked on locale button', () => {
@@ -598,7 +640,7 @@ describe('Footer | Short (mobile)', () => {
     cy.screenshot();
 
     cy.percySnapshot(
-      'Footer | Short | open locale modal with 4 geos when clicked on locale button',
+      'Footer | Short (mobile) | open locale modal with 4 geos when clicked on locale button',
       {
         widths: [320],
       }
@@ -629,7 +671,7 @@ describe('Footer | Short (mobile)', () => {
     cy.screenshot();
 
     cy.percySnapshot(
-      'Footer | Short | display the specific locations and languages of a selected geo',
+      'Footer | Short (mobile) | display the specific locations and languages of a selected geo',
       {
         widths: [320],
       }
@@ -667,7 +709,7 @@ describe('Footer | Short (mobile)', () => {
     cy.screenshot();
 
     cy.percySnapshot(
-      'Footer | Short | display interactive search field and with keywords for locations and languages',
+      'Footer | Short (mobile) | display interactive search field and with keywords for locations and languages',
       {
         widths: [320],
       }
@@ -685,7 +727,7 @@ describe('Footer | Short (mobile)', () => {
     cy.screenshot();
 
     cy.percySnapshot(
-      'Footer | Short | load footer legal navigation with clickable links',
+      'Footer | Short (mobile) | load footer legal navigation with clickable links',
       {
         widths: [320],
       }
@@ -712,9 +754,12 @@ describe('Footer | Short language only (mobile)', () => {
     languageSelector.should('have.value', 'ar');
 
     cy.screenshot();
-    cy.percySnapshot('Footer | Short language only | desktop interactive', {
-      widths: [320],
-    });
+    cy.percySnapshot(
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+      {
+        widths: [320],
+      }
+    );
   });
 });
 
@@ -743,9 +788,12 @@ describe('Footer | Micro (mobile)', () => {
     cy.screenshot();
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('Footer | Micro | Asia Pacific region selected', {
-      widths: [320],
-    });
+    cy.percySnapshot(
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+      {
+        widths: [320],
+      }
+    );
   });
 
   it('should load all 4 interactable legal links', () => {
@@ -777,8 +825,11 @@ describe('Footer | Micro language only (mobile)', () => {
     languageSelector.should('have.value', 'ar');
 
     cy.screenshot();
-    cy.percySnapshot('Footer | Micro language only | mobile interactive', {
-      widths: [320],
-    });
+    cy.percySnapshot(
+      `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+      {
+        widths: [320],
+      }
+    );
   });
 });
