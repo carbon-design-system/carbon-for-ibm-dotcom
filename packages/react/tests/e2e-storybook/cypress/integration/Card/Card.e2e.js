@@ -96,14 +96,14 @@ const _tests = {
   },
   checkClickableCard: () => {
     it('should check for link', () => {
-      cy.get('.bx--card a.bx--link').then($link => {
+      cy.get(`.${prefix}--card a.${prefix}--link`).then($link => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
     });
 
     it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
-      cy.get('.bx--card a.bx--link').then($els => {
+      cy.get(`.${prefix}--card a.${prefix}--link`).then($els => {
         const win = $els[0].ownerDocument.defaultView;
         const after = win.getComputedStyle($els[0], ':after');
         const positionValue = after.getPropertyValue('position');

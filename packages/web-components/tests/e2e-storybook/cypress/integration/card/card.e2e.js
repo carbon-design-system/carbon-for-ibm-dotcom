@@ -8,8 +8,10 @@
 'use strict';
 
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix } = settings;
 
 /**
  * Defines the component variant path.
@@ -95,9 +97,9 @@ const _tests = {
   },
   checkClickableCard: () => {
     it('should check for link', () => {
-      cy.get('dds-card > dds-card-footer')
+      cy.get(`${ddsPrefix}-card > ${ddsPrefix}-card-footer`)
         .shadow()
-        .find('a.bx--card__footer')
+        .find(`a.${prefix}--card__footer`)
         .then($link => {
           const url = $link.prop('href');
           expect(url).not.to.be.empty;
@@ -105,7 +107,7 @@ const _tests = {
     });
 
     it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
-      cy.get('dds-card > dds-card-footer')
+      cy.get(`${ddsPrefix}-card > ${ddsPrefix}-card-footer`)
         .shadow()
         .find('a')
         .then($els => {
@@ -163,7 +165,7 @@ const _tests = {
     // converted HEX var(--cds-ui-02, #ffffff) to RGB
     cy.get(_selectorBase)
       .shadow()
-      .find('.bx--card__wrapper')
+      .find(`.${prefix}--card__wrapper`)
       .should('have.css', 'background-color')
       .and('equal', 'rgb(255, 255, 255)');
 
