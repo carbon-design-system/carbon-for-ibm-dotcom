@@ -63,17 +63,11 @@ const _tests = {
         })
         .then(() => {
           expect(navItemsIds).to.deep.equal(sectionIds);
-          cy.screenshot(
-            `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+          cy.takeSnapshots(
+            'desktop',
+            {},
             {
               capture: 'viewport',
-            }
-          );
-          // Take a snapshot for visual diffing
-          cy.percySnapshot(
-            `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
-            {
-              widths: [1280],
             }
           );
         });
@@ -90,17 +84,11 @@ const _tests = {
               section.offset().top === 0 || window.scrollY === maxScrollVal;
             expect(sectionScrolledTo).to.be.true;
             if (i === 1) {
-              cy.screenshot(
-                `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+              cy.takeSnapshots(
+                'desktop',
+                {},
                 {
                   capture: 'viewport',
-                }
-              );
-              // Take a snapshot for visual diffing
-              cy.percySnapshot(
-                `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
-                {
-                  widths: [1280],
                 }
               );
             }
@@ -118,17 +106,11 @@ const _tests = {
               'bx--tableofcontents__desktop__item--active'
             );
             if (i === 1) {
-              cy.screenshot(
-                `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+              cy.takeSnapshots(
+                'desktop',
+                {},
                 {
                   capture: 'viewport',
-                }
-              );
-              // Take a snapshot for visual diffing
-              cy.percySnapshot(
-                `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
-                {
-                  widths: [1280],
                 }
               );
             }
@@ -142,17 +124,11 @@ const _tests = {
           .then(sidebar => {
             expect(sidebar.offset().top).to.be.greaterThan(0);
             if (pos === 'bottom') {
-              cy.screenshot(
-                `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+              cy.takeSnapshots(
+                'desktop',
+                {},
                 {
                   capture: 'viewport',
-                }
-              );
-              // Take a snapshot for visual diffing
-              cy.percySnapshot(
-                `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
-                {
-                  widths: [1280],
                 }
               );
             }
@@ -183,17 +159,11 @@ const _tests = {
         })
         .then(() => {
           expect(navItemsIds).to.deep.equal(sectionIds);
-          cy.screenshot(
-            `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+          cy.takeSnapshots(
+            'mobile',
+            {},
             {
               capture: 'viewport',
-            }
-          );
-          // Take a snapshot for visual diffing
-          cy.percySnapshot(
-            `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
-            {
-              widths: [320],
             }
           );
         });
@@ -213,17 +183,11 @@ const _tests = {
               section.offset().top === 0 || window.scrollY === maxScrollVal;
             expect(sectionScrolledTo).to.be.true;
             if (i === 1) {
-              cy.screenshot(
-                `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+              cy.takeSnapshots(
+                'mobile',
+                {},
                 {
                   capture: 'viewport',
-                }
-              );
-              // Take a snapshot for visual diffing
-              cy.percySnapshot(
-                `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
-                {
-                  widths: [320],
                 }
               );
             }
@@ -238,17 +202,11 @@ const _tests = {
           .then(select => {
             expect(select.val()).to.equal(section.attr('name'));
             if (i === 1) {
-              cy.screenshot(
-                `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+              cy.takeSnapshots(
+                'mobile',
+                {},
                 {
                   capture: 'viewport',
-                }
-              );
-              // Take a snapshot for visual diffing
-              cy.percySnapshot(
-                `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
-                {
-                  widths: [320],
                 }
               );
             }
@@ -262,17 +220,11 @@ const _tests = {
           .then(mobileNav => {
             expect(mobileNav.offset().top).to.be.greaterThan(-1);
             if (pos === 'bottom') {
-              cy.screenshot(
-                `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
+              cy.takeSnapshots(
+                'mobile',
+                {},
                 {
                   capture: 'viewport',
-                }
-              );
-              // Take a snapshot for visual diffing
-              cy.percySnapshot(
-                `${Cypress.currentTest.titlePath[0]} | ${Cypress.currentTest.titlePath[1]}`,
-                {
-                  widths: [320],
                 }
               );
             }
