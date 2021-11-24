@@ -290,10 +290,10 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
     } = this;
     await this.updateComplete;
 
-    const interimLeft = currentScrollPosition + contentContainerNode!.offsetWidth;
     const elems = (slotNode?.assignedElements() as HTMLElement[]) || this._childItems;
 
-    if (elems) {
+    if (elems && contentContainerNode) {
+      const interimLeft = currentScrollPosition + contentContainerNode!.offsetWidth;
       if (pageIsRTL) {
         const caretLeftNodeWidthAdjustment = isIntersectionLeftTrackerInContent ? caretLeftNode!.offsetWidth : 0;
         const navRight = navNode!.getBoundingClientRect().right;
