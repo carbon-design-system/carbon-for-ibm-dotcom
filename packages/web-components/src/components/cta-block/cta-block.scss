@@ -143,6 +143,10 @@
   display: flex;
   flex-direction: column;
 
+  @include carbon--breakpoint(md) {
+    padding-bottom: $carbon--spacing-10;
+  }
+
   ::slotted(#{$dds-prefix}-text-cta) {
     margin-left: 0;
     margin-bottom: $carbon--spacing-03;
