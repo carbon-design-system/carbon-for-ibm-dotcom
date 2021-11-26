@@ -314,7 +314,49 @@
       @include themed-items;
     }
   }
+
+  // Print styles
+  @media print {
+    :host(#{$dds-prefix}-card-group),
+    .#{$prefix}--card-group__row,
+    .#{$prefix}--card-group__cards__row {
+      display: flex;
+      flex-wrap: nowrap;
+
+      ::slotted(#{$dds-prefix}-card-group-item),
+      ::slotted(#{$dds-prefix}-card-group-card-link-item),
+      .#{$prefix}--card {
+        /* stylelint-disable declaration-no-important */
+        // need important since it gets overriden in WC Card Group without it
+        background-color: transparent !important;
+        /* stylelint-enable declaration-no-important */
+        border: 0 none;
+        margin: 0 $spacing-03 $spacing-05;
+        width: 23%;
+      }
+    }
+
+    :host(#{$dds-prefix}-card-group-item),
+    :host(#{$dds-prefix}-card-group-card-link-item) {
+      background-color: transparent;
+
+      &[empty] {
+        @include carbon--breakpoint('md') {
+          /* stylelint-disable declaration-no-important */
+          // need important since it gets overriden in WC Card Group without it
+          display: none !important;
+          /* stylelint-enable declaration-no-important */
+        }
+      }
+
+      .#{$prefix}--tile {
+        background-color: transparent;
+        border: 1px solid $gray-20;
+      }
+    }
+  }
 }
+
 @include exports('card-group') {
   @include card-group;
 }

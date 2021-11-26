@@ -263,6 +263,41 @@
     &[border] {
       border: 1px solid $ui-03;
     }
+
+    // Logo card
+    &[logo] {
+      .#{$prefix}--card {
+        background-color: $ui-02;
+      }
+
+      .#{$prefix}--card__copy {
+        margin-bottom: $spacing-05;
+      }
+
+      &:hover {
+        border-color: $ui-04;
+
+        .#{$prefix}--card__wrapper {
+          background-color: $ui-02;
+        }
+      }
+
+      &:active {
+        border-color: $ui-05;
+      }
+
+      ::slotted(#{$dds-prefix}-card-footer) {
+        height: 0;
+      }
+    }
+
+    &[href][logo] {
+      &:hover {
+        .#{$prefix}--card__wrapper {
+          background-color: $ui-02;
+        }
+      }
+    }
   }
 
   :host(#{$dds-prefix}-card-cta),
@@ -305,6 +340,8 @@
   :host(#{$dds-prefix}-feature-card-footer),
   :host(#{$dds-prefix}-feature-cta-footer) {
     margin-top: auto;
+    display: flex;
+    align-items: flex-end;
 
     &:focus-visible {
       outline: none;
