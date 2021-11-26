@@ -141,6 +141,17 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
       };
     }
 
+    _setAutoplayPreference(preference: Boolean) {
+      const updatedValue = preference ? '1' : '0';
+      localStorage.setItem(`${this.prefersAutoplayStorageKey}`, updatedValue);
+    }
+
+    _getAutoplayPreference() {
+      const storedValue = localStorage.getItem(`${this.prefersAutoplayStorageKey}`);
+      const returnValue = storedValue === null ? null : Boolean(parseInt(storedValue, 10));
+      return returnValue;
+    }
+
     /**
      * Sets up and sends the API call for embedding video for the given video ID.
      *
@@ -148,7 +159,7 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
      * @private
      */
     // Not using TypeScript `private` due to: microsoft/TypeScript#17744
-    async _embedVideoImpl(videoId: string) {
+    async _embedVideoImpl(videoId: string, backgroundMode = false) {
       const { ownerDocument: doc } = this;
       // Given Kaltura replaces the `<div>` here with `<iframe>` with the video player,
       // rendering this `<div>` in `renderLightDOM()` will cause the video player being clobbered
@@ -163,7 +174,32 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
         throw new TypeError('Cannot find the video player component to put the video content into.');
       }
       videoPlayer.appendChild(div);
-      const embedVideoHandle = await KalturaPlayerAPI.embedMedia(videoId, playerId);
+
+      let additionalPlayerOptions = {};
+
+      if (backgroundMode) {
+        const storedMotionPreference: boolean | null = this._getAutoplayPreference();
+
+        let autoplayPreference: boolean | undefined;
+
+        if (storedMotionPreference === null) {
+          autoplayPreference = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        } else {
+          autoplayPreference = storedMotionPreference;
+        }
+        additionalPlayerOptions = {
+          'topBarContainer.plugin': false,
+          'controlBarContainer.plugin': false,
+          'largePlayBtn.plugin': false,
+          'loadingSpinner.plugin': false,
+          'unMuteOverlayButton.plugin': false,
+          'EmbedPlayer.DisableVideoTagSupport': false,
+          loop: true,
+          autoMute: true,
+          autoPlay: autoplayPreference,
+        };
+      }
+      const embedVideoHandle = await KalturaPlayerAPI.embedMedia(videoId, playerId, additionalPlayerOptions);
       doc!.getElementById(playerId)!.dataset.videoId = videoId;
       return embedVideoHandle.kWidget();
     }
@@ -174,13 +210,16 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
      * @param videoId The video ID.
      * @internal
      */
-    _embedMedia = async (videoId: string) => {
+    _embedMedia = async (videoId: string, backgroundMode = false) => {
       const { _requestsEmbedVideo: requestsEmbedVideo } = this;
       const requestEmbedVideo = requestsEmbedVideo[videoId];
+
       if (requestEmbedVideo) {
         return requestEmbedVideo;
       }
-      const promiseEmbedVideo = this._embedVideoImpl(videoId);
+
+      const promiseEmbedVideo = this._embedVideoImpl(videoId, backgroundMode);
+
       this._setRequestEmbedVideoInProgress(videoId, promiseEmbedVideo);
       try {
         this._setEmbeddedVideo(videoId, await promiseEmbedVideo);
@@ -199,6 +238,8 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
         this.transposeAttributes(button);
       });
     }
+
+    prefersAutoplayStorageKey: String = `${ddsPrefix}-background-video-prefers-autoplay`;
   }
 
   return DDSVideoPlayerContainerMixinImpl;

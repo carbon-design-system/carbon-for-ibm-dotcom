@@ -181,6 +181,12 @@ class DDSCard extends StableSelectorMixin(BXLink) {
   @property({ attribute: 'pictogram-placement', reflect: true })
   pictogramPlacement = PICTOGRAM_PLACEMENT.TOP;
 
+  /**
+   * Whether or not to apply the logo style.
+   */
+  @property({ type: Boolean, reflect: true })
+  logo = false;
+
   createRenderRoot() {
     return this.attachShadow({
       mode: 'open',

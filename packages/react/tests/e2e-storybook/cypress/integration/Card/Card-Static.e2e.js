@@ -116,7 +116,7 @@ describe('Card | Static with outline', () => {
 describe('Card | Static with image', () => {
   beforeEach(() => {
     cy.viewport(..._viewportDimensions);
-    cy.visit(`${_path}&knob-image_Card=true`);
+    cy.visit(`${_path}&knob-Add%20image:_Card=true`);
   });
 
   it('should render an image', () => {
