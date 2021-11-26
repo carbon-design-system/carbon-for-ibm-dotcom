@@ -13,6 +13,18 @@
 
   display: block;
 
+  @include carbon--breakpoint('md') {
+    padding-bottom: $carbon--layout-03;
+  }
+
+  @include carbon--breakpoint('lg') {
+    padding-bottom: $carbon--layout-06;
+  }
+
+  &.#{$prefix}--cta-block__border {
+    border-bottom: 1px solid $ui-04;
+  }
+
   .#{$prefix}--content-layout {
     @include carbon--breakpoint('sm') {
       padding-left: $carbon--layout-01;
@@ -22,10 +34,6 @@
       margin-left: 0;
       margin-right: 0;
     }
-  }
-
-  &.#{$prefix}--cta-block__border {
-    border-bottom: 1px solid $ui-04;
   }
 
   ::slotted(#{$dds-prefix}-content-block-heading) {
