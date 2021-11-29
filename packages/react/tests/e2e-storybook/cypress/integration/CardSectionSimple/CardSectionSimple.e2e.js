@@ -18,7 +18,7 @@ const _paths = {
 };
 
 /**
- * Collection of all tests for dds-card-section-simple
+ * Collection of all tests for DDSCardSectionSimple
  *
  * @function checkForBlocklink - Asserts a full-sized pseudoelement from the footer link
  * @function checkForTitlePosition - Asserts left-aligned title (16 || 32)px from left edge
@@ -63,7 +63,7 @@ const _tests = {
   },
 };
 
-describe('dds-card-section-simple | default (desktop)', () => {
+describe('DDSCardSectionSimple | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`/${_paths.default}`);
@@ -75,7 +75,7 @@ describe('dds-card-section-simple | default (desktop)', () => {
   it('should render correctly in all themes', _tests.checkThemes);
 });
 
-describe('dds-card-section-simple | with cta (desktop)', () => {
+describe('DDSCardSectionSimple | with cta (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`/${_paths.default}`);
@@ -87,7 +87,7 @@ describe('dds-card-section-simple | with cta (desktop)', () => {
   it('should render correctly in all themes', _tests.checkThemes);
 });
 
-describe('dds-card-section-simple | default (mobile)', () => {
+describe('DDSCardSectionSimple | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(325, 720);
     cy.visit(`/${_paths.default}`);
@@ -99,7 +99,7 @@ describe('dds-card-section-simple | default (mobile)', () => {
   it('should render correctly in all themes', _tests.checkThemes);
 });
 
-describe('dds-card-section-simple | with cta (mobile)', () => {
+describe('DDSCardSectionSimple | with cta (mobile)', () => {
   beforeEach(() => {
     cy.viewport(325, 720);
     cy.visit(`/${_paths.default}`);
