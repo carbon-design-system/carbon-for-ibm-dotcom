@@ -131,10 +131,7 @@ const _tests = {
   },
   checkImageRenders: () => {
     cy.get(_selectors.image).should('have.length', 1);
-    cy.screenshot();
-    cy.percySnapshot(Cypress.currentTest.titlePath.join(' | '), {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   },
   checkOutlineRenders: () => {
     cy.get(_selectorBase).should('have.class', `${prefix}--card--border`);
@@ -149,10 +146,7 @@ const _tests = {
       .should('have.css', 'background-color')
       .and('equal', 'rgb(255, 255, 255)');
 
-    cy.screenshot();
-    cy.percySnapshot(Cypress.currentTest.titlePath.join(' | '), {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   },
   checkInverseRenders: () => {
     cy.get(_selectorBase).should('have.class', `${prefix}--card--inverse`);
@@ -161,10 +155,7 @@ const _tests = {
       .should('have.css', 'background-color')
       .and('equal', 'rgb(57, 57, 57)');
 
-    cy.screenshot();
-    cy.percySnapshot(Cypress.currentTest.titlePath.join(' | '), {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   },
 };
 
