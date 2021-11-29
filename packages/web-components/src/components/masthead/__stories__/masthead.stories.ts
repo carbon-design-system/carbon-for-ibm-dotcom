@@ -408,7 +408,6 @@ export default {
     knobs: {
       escapeHTML: false,
       MastheadComposite: ({ groupId }) => ({
-        platform: select('Platform (platform)', { none: null, platform: platformData.name }, null, groupId),
         hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
         hasSearch: boolean('show the search functionality (has-search)', true, groupId),
         searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
