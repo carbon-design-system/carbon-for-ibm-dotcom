@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.28.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.27.0...@carbon/ibmdotcom-utilities@1.28.0-rc.0) (2021-11-24)
+
+
+### Bug Fixes
+
+* **card-cta-footer:** adjust arrow position inconsistency seen in safari ([#7672](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7672)) ([4aa684b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4aa684b))
+
+
+
+
+
 # [1.27.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.27.0-rc.0...@carbon/ibmdotcom-utilities@1.27.0) (2021-11-10)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities

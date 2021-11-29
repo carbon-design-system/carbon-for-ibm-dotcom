@@ -68,11 +68,7 @@ describe('Masthead | default (desktop)', () => {
       }
     );
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | menu item with selected state', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should render 4 menu items', () => {
@@ -82,41 +78,25 @@ describe('Masthead | default (desktop)', () => {
   it('should load the megamenu - first nav item', () => {
     cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | mega menu (nav 0)', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should load the megamenu - second nav item', () => {
     cy.get('[data-autoid="dds--masthead-default__l0-nav1"]').click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | mega menu (nav 1)', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should load the megamenu - third nav item', () => {
     cy.get('[data-autoid="dds--masthead-default__l0-nav2"]').click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | mega menu (nav 3)', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should load the megamenu - fourth nav item', () => {
     cy.get('[data-autoid="dds--masthead-default__l0-nav3"]').click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | mega menu (nav 4)', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should have urls for the submenu items within the megamenu', () => {
@@ -138,11 +118,7 @@ describe('Masthead | default (desktop)', () => {
   it('should open the login menu', () => {
     cy.get('[data-autoid="dds--masthead-default__l0-account"]').click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | profile menu', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should have 2 menu items under the login menu', () => {
@@ -153,11 +129,7 @@ describe('Masthead | default (desktop)', () => {
   it('should open the search bar on click', () => {
     cy.get('[data-autoid="dds--masthead-default__l0-search"]').click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead |  search bar opens', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should allow keywords in the search bar and display 10 suggested results', () => {
@@ -169,14 +141,7 @@ describe('Masthead | default (desktop)', () => {
 
     cy.get('.react-autosuggest__suggestions-list li').should('have.length', 10);
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot(
-      'Masthead |  allow for keywords in search bar and display 10 suggested results',
-      {
-        widths: [1280],
-      }
-    );
+    cy.takeSnapshots();
   });
 });
 
@@ -190,19 +155,14 @@ describe('Masthead | default (mobile)', () => {
   it('should load the mobile menu', () => {
     cy.get('[data-autoid="dds--masthead-default-sidenav__l0-menu"]').click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | mobile menu', {
-      widths: [320],
-    });
+    cy.takeSnapshots('mobile');
+  });
 
+  it('should load the mobile menu | menu level 2', () => {
+    cy.get('[data-autoid="dds--masthead-default-sidenav__l0-menu"]').click();
     cy.get('[data-autoid="dds--masthead-default-sidenav__l0-nav0"]').click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | mobile menu level 2', {
-      widths: [320],
-    });
+    cy.takeSnapshots('mobile');
   });
 });
 
@@ -228,11 +188,7 @@ describe('Masthead | custom (desktop)', () => {
       cy.get('.bx--header__nav-caret-right').then($elem => $elem.is(':visible'))
     );
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | custom menu item with selected state', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should load regular menu - custom first nav item', () => {
@@ -243,11 +199,7 @@ describe('Masthead | custom (desktop)', () => {
         expect($menuItem).to.have.attr('aria-expanded', 'true');
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | custom nav (nav 0)', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should load regular menu - custom second nav item', () => {
@@ -258,11 +210,7 @@ describe('Masthead | custom (desktop)', () => {
         expect($menuItem).to.have.attr('aria-expanded', 'true');
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | custom nav (nav 1)', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should load regular menu - custom third nav item', () => {
@@ -281,11 +229,7 @@ describe('Masthead | custom (desktop)', () => {
         expect($menuItem).to.have.attr('aria-expanded', 'true');
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | custom nav (nav 3)', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should load regular menu - custom fifth nav item', () => {
@@ -305,11 +249,7 @@ describe('Masthead | custom (desktop)', () => {
 
     cy.get('.bx--header__nav-caret-left').should('be.visible');
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | custom - overflow', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 });
 
@@ -344,11 +284,7 @@ describe('Masthead | with platform (desktop)', () => {
   it('should open the search bar with platform', () => {
     cy.get('[data-autoid="dds--masthead-eco__l0-search"]').click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | with platform - search', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 });
 
@@ -382,11 +318,7 @@ describe('Masthead | with L1 (desktop)', () => {
       cy.get('.bx--header__nav-caret-right').then($elem => $elem.is(':visible'))
     );
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | L1 menu item with selected state', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should load L1 menu - first L1 nav item', () => {
@@ -440,11 +372,7 @@ describe('Masthead | with L1 (desktop)', () => {
 
     cy.get('.bx--header__nav-caret-left').should('be.visible');
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('Masthead | with L1 - overflow', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should load platform containing a link', () => {
@@ -475,14 +403,7 @@ describe('Masthead | search open onload (desktop)', () => {
       .find('input[data-autoid="dds--header__search--input"]')
       .should('be.visible');
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot(
-      'Masthead | Search open onload | load search field open by default',
-      {
-        widths: [1280],
-      }
-    );
+    cy.takeSnapshots();
   });
 
   it('should have typable search field', () => {
@@ -499,14 +420,7 @@ describe('Masthead | search open onload (desktop)', () => {
       .get('.react-autosuggest__suggestions-list li')
       .should('have.length', 10);
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot(
-      'Masthead | Search open onload | display 10 auto suggest results',
-      {
-        widths: [1280],
-      }
-    );
+    cy.takeSnapshots();
   });
 
   it('should not display menu options while search field is open', () => {

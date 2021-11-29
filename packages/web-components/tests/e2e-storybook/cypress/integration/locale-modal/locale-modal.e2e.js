@@ -39,11 +39,7 @@ describe('dds-locale-modal | default', () => {
   it('should load the Americas region', () => {
     cy.get('dds-region-item[name="Americas"]').click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-locale-modal | region selected', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should filter locales/languages', () => {
@@ -60,12 +56,7 @@ describe('dds-locale-modal | default', () => {
       .invoke('attr', 'country')
       .should('eq', 'Canada');
 
-    cy.screenshot();
-
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-locale-modal | Filtering locales', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should be able to go back to the region menu', () => {
@@ -94,10 +85,6 @@ describe('dds-locale-modal | default', () => {
       });
     closeButton.click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-locale-modal | Closing menu', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 });

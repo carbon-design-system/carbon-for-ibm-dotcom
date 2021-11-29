@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.28.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.27.0...@carbon/ibmdotcom-services@1.28.0-rc.0) (2021-11-24)
+
+
+### Features
+
+* **services:** adjust the translation API to accept full endpoint URL protocol ([#7537](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7537)) ([e14ded3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e14ded3)), closes [/github.com/carbon-design-system/carbon-for-ibm-dotcom-web-components-test/blob/master/src/layouts/cloud-base.hbs#L216](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom-web-components-test/blob/master/src/layouts/cloud-base.hbs/issues/L216)
+
+
+
+
+
 # [1.27.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.27.0-rc.0...@carbon/ibmdotcom-services@1.27.0) (2021-11-10)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
