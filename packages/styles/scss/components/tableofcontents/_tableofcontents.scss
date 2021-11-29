@@ -205,6 +205,15 @@ $hover-transition-timing: 95ms;
         display: none;
       }
     }
+
+    > .#{$prefix}--link-list {
+      padding-top: 0;
+      padding-bottom: $spacing-05;
+    }
+
+    hr[data-autoid='#{$dds-prefix}--hr'] {
+      margin-top: 0;
+    }
   }
 
   .#{$prefix}--tableofcontents__contents {
