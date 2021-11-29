@@ -283,7 +283,7 @@ export const withMixedMedia = ({ parameters }) => {
   const colCount = cardsPerRow[cardsPerRow.length - 1];
 
   return html`
-    <dds-video-cta-container class="${classes}">
+    <dds-video-cta-container>
       <dds-card-group cards-per-row="${colCount}" class="${classes}">
         ${cards}
       </dds-card-group>
