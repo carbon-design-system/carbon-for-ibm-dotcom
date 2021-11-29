@@ -105,6 +105,7 @@ Horizontal.story = {
   name: 'Horizontal',
   parameters: {
     ...readme.parameters,
+    knobs: null,
     percy: {
       skip: true,
     },

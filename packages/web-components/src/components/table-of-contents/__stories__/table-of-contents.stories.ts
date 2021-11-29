@@ -68,6 +68,22 @@ export const Horizontal = ({ parameters }) => {
   `;
 };
 
+Horizontal.story = {
+  name: 'Horizontal',
+  parameters: {
+    knobs: {
+      Other: ({ groupId }) => ({
+        numberOfItems: Array.from({
+          length: select('Number of items', [5, 6, 7, 8], 5, groupId),
+        }).map((_, i) => ({
+          heading: text(`Section ${i + 1} heading`, headings[i % headings.length], groupId),
+          copy: text(`Section ${i + 1} copy`, `${LOREM}\n`.repeat(3).trim(), groupId),
+        })),
+      }),
+    },
+  },
+};
+
 export default {
   title: 'Components/Table of contents',
   decorators: [
