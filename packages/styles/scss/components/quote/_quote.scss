@@ -17,6 +17,8 @@
     background: $ui-background;
     padding-bottom: $layout-05;
     display: block;
+    @include carbon--make-row;
+
     @include hang;
 
     .#{$prefix}--link-with-icon__container {
@@ -25,7 +27,18 @@
   }
 
   .#{$prefix}--quote__container {
-    @include carbon--make-row;
+    @include carbon--make-col(4, 4);
+
+    padding-top: $spacing-07;
+
+    @include carbon--breakpoint('md') {
+      @include carbon--make-col(6, 8);
+      @include carbon--make-col-offset(1, 8);
+    }
+    @include carbon--breakpoint('lg') {
+      @include carbon--make-col(10, 12);
+      @include carbon--make-col-offset(1, 12);
+    }
   }
 
   .#{$prefix}--quote__wrapper {
@@ -38,7 +51,7 @@
     @include carbon--font-family('serif');
 
     word-break: break-word;
-    padding: 0 2rem $carbon--layout-03 2rem;
+    padding: 0 2rem $carbon--layout-03 1rem;
 
     @include carbon--breakpoint('md') {
       padding-bottom: $carbon--layout-04;
@@ -52,7 +65,7 @@
 
     @include carbon--breakpoint-down('md') {
       // this value was chosen by visually stay the closest as possible from the quotation text in the small breakpoint
-      left: 1.4rem;
+      left: 0.4rem;
     }
 
     @include carbon--breakpoint('md') {
@@ -61,7 +74,7 @@
 
     position: absolute;
     // this value was chosen by visually stay the closest as possible from the quotation text in the md and above breakpoints
-    left: 0.6rem;
+    left: -0.4rem;
     color: $text-01;
   }
 
@@ -94,19 +107,16 @@
   .#{$prefix}--quote__source-heading {
     max-width: 640px;
     padding-right: 2rem;
-    padding-left: 1rem;
     @include carbon--type-style(expressive-heading-02, true);
   }
 
   :host(#{$dds-prefix}-quote-source-copy),
   .#{$prefix}--quote__source-body {
-    padding-left: 1rem;
     @include carbon--type-style(body-long-02, true);
   }
 
   :host(#{$dds-prefix}-quote-source-bottom-copy),
   .#{$prefix}--quote__source-optional-copy {
-    padding-left: 1rem;
     @include carbon--type-style(body-long-02, true);
   }
 
@@ -130,7 +140,7 @@
     padding-right: 1rem;
 
     ::slotted(#{$dds-prefix}-link-with-icon) {
-      margin-left: 1rem;
+      //margin-left: 1rem;
       max-width: 640px;
     }
   }
