@@ -134,6 +134,14 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   size = 'tall';
 
+  firstUpdated() {
+    Array.from(this.children).forEach(child => {
+      if ((child.tagName === 'DDS-BACKGROUND-MEDIA' || child.tagName === 'DDS-LEADSPACE-IMAGE') && child.slot === '') {
+        child.slot = 'image';
+      }
+    });
+  }
+
   render() {
     const { gradientStyleScheme, type, size } = this;
     return html`

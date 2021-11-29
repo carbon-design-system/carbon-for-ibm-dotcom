@@ -32,6 +32,11 @@
       opacity: 1;
     }
   }
+
+  ::slotted(#{$dds-prefix}-background-media) {
+    position: absolute;
+    inset: 0;
+  }
 }
 
 :host(#{$dds-prefix}-breadcrumb) {
