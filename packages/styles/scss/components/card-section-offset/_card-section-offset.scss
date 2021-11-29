@@ -79,6 +79,37 @@
       }
     }
   }
+
+  // Print styles
+  @media print {
+    .#{$prefix}--card-section-offset__content,
+    :host(#{$dds-prefix}-card-section-offset) {
+      background-color: $white-0;
+      flex-wrap: wrap;
+
+      /* stylelint-disable-next-line property-no-unknown */
+      aspect-ratio: auto;
+
+      #{$dds-prefix}-background-media {
+        display: none;
+      }
+
+      .#{$prefix}--card-section-offset__content {
+        max-width: 640px;
+      }
+
+      ::slotted([slot='heading']) {
+        @include carbon--type-style('expressive-heading-05');
+
+        color: $gray-90;
+        margin-bottom: $carbon--spacing-03;
+      }
+
+      ::slotted([slot='card-group']) {
+        margin-top: 0;
+      }
+    }
+  }
 }
 
 @include exports('card-section-offset') {
