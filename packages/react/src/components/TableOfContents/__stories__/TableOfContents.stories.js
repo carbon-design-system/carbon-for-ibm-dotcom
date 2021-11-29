@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean, number, text } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 import DataContent, { headings, LOREM } from './data/DataContent';
 import LinkList from '../../LinkList/LinkList';
 import React from 'react';
@@ -69,7 +69,7 @@ export default {
       Other: ({ groupId }) => ({
         withHeadingContent: boolean('With heading content', false, groupId),
         numberOfItems: Array.from({
-          length: number('Number of items', 5, { min: 4, max: 8 }, groupId),
+          length: select('Number of items', [5, 6, 7, 8], 5, groupId),
         }).map((_, i) => ({
           heading: text(
             `Section ${i + 1} heading`,

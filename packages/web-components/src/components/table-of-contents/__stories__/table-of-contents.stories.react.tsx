@@ -12,7 +12,7 @@ import React from 'react';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import DDSHorizontalRule from '@carbon/ibmdotcom-web-components/es/components-react/horizontal-rule/horizontal-rule';
-import { boolean, number, text } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 // @ts-ignore
 import DDSTableOfContents from '@carbon/ibmdotcom-web-components/es/components-react/table-of-contents/table-of-contents';
 import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
@@ -86,7 +86,7 @@ export default {
       Other: ({ groupId }) => ({
         withHeadingContent: boolean('With heading content', false, groupId),
         numberOfItems: Array.from({
-          length: number('Number of items', 5, { min: 4, max: 8 }, groupId),
+          length: select('Number of items', [5, 6, 7, 8], 5, groupId),
         }).map((_, i) => ({
           heading: text(`Section ${i + 1} heading`, headings[i % headings.length], groupId),
           copy: text(`Section ${i + 1} copy`, `${LOREM}\n`.repeat(3).trim(), groupId),

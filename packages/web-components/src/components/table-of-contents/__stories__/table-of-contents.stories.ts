@@ -9,7 +9,7 @@
 
 import { nothing } from 'lit-html';
 import { html } from 'lit-element';
-import { boolean, number, text } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 import ArrowLeft20 from 'carbon-web-components/es/icons/arrow--left/20.js';
 import '../table-of-contents';
 import '../../horizontal-rule/horizontal-rule';
@@ -87,7 +87,7 @@ export default {
       Other: ({ groupId }) => ({
         withHeadingContent: boolean('With heading content', false, groupId),
         numberOfItems: Array.from({
-          length: number('Number of items', 5, { min: 4, max: 8 }, groupId),
+          length: select('Number of items', [5, 6, 7, 8], 5, groupId),
         }).map((_, i) => ({
           heading: text(`Section ${i + 1} heading`, headings[i % headings.length], groupId),
           copy: text(`Section ${i + 1} copy`, `${LOREM}\n`.repeat(3).trim(), groupId),
