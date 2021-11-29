@@ -51,7 +51,9 @@ describe('dds-feature-card | medium', () => {
         const insetValue = after.getPropertyValue('inset');
 
         expect(positionValue).to.eq('absolute');
-        expect(insetValue).to.eq('0px');
+        if (Cypress.browser.name !== 'firefox') {
+          expect(insetValue).to.eq('0px');
+        }
       });
   });
 
@@ -108,7 +110,9 @@ describe('dds-feature-card | medium (mobile)', () => {
         const insetValue = after.getPropertyValue('inset');
 
         expect(positionValue).to.eq('absolute');
-        expect(insetValue).to.eq('0px');
+        if (Cypress.browser.name !== 'firefox') {
+          expect(insetValue).to.eq('0px');
+        }
       });
   });
 });
@@ -141,7 +145,9 @@ describe('dds-feature-card | large', () => {
         const insetValue = after.getPropertyValue('inset');
 
         expect(positionValue).to.eq('absolute');
-        expect(insetValue).to.eq('0px');
+        if (Cypress.browser.name !== 'firefox') {
+          expect(insetValue).to.eq('0px');
+        }
       });
   });
 
@@ -211,7 +217,9 @@ describe('dds-feature-card | large (mobile)', () => {
         const insetValue = after.getPropertyValue('inset');
 
         expect(positionValue).to.eq('absolute');
-        expect(insetValue).to.eq('0px');
+        if (Cypress.browser.name !== 'firefox') {
+          expect(insetValue).to.eq('0px');
+        }
       });
   });
 });

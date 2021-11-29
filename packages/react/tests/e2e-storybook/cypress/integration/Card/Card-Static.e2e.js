@@ -7,12 +7,6 @@
 
 'use strict';
 
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import settings from 'carbon-components/es/globals/js/settings';
-
-const { stablePrefix: ddsPrefix } = ddsSettings;
-const { prefix } = settings;
-
 /**
  * Defines the component variant path.
  *
@@ -27,7 +21,7 @@ const _path = '/iframe.html?id=components-card--card-static';
  * @type {string}
  * @private
  */
-const _selectorBase = `[data-autoid="${ddsPrefix}--card"]`;
+const _selectorBase = `[data-autoid="dds--card"]`;
 
 /**
  * Defines the card element selectors.
@@ -36,11 +30,11 @@ const _selectorBase = `[data-autoid="${ddsPrefix}--card"]`;
  * @private
  */
 const _selectors = {
-  eyebrow: `${_selectorBase} .${prefix}--card__eyebrow`,
-  heading: `${_selectorBase} .${prefix}--card__heading`,
-  footer: `${_selectorBase} .${prefix}--card__footer`,
-  image: `${_selectorBase} .${prefix}--image img`,
-  copy: `${_selectorBase} .${prefix}--card__copy`,
+  eyebrow: `${_selectorBase} .bx--card__eyebrow`,
+  heading: `${_selectorBase} .bx--card__heading`,
+  footer: `${_selectorBase} .bx--card__footer`,
+  image: `${_selectorBase} .bx--image img`,
+  copy: `${_selectorBase} .bx--card__copy`,
 };
 
 /**
@@ -99,7 +93,7 @@ describe('Card | Static with outline', () => {
   });
 
   it('should render with a border', () => {
-    cy.get(_selectorBase).should('have.class', `${prefix}--card--border`);
+    cy.get(_selectorBase).should('have.class', `bx--card--border`);
     cy.get(_selectorBase).should('have.css', 'border');
   });
 });
