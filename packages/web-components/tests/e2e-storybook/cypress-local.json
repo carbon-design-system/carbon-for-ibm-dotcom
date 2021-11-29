@@ -1,0 +1,17 @@
+{
+  "baseUrl": "http://localhost:9000",
+  "browser": "chrome",
+  "headless": true,
+  "fixturesFolder": "tests/e2e-storybook/cypress/fixtures",
+  "fileServerFolder": "storybook-static",
+  "screenshotsFolder": "tests/e2e-storybook/cypress/screenshots",
+  "videosFolder": "tests/e2e-storybook/cypress/videos",
+  "integrationFolder": "tests/e2e-storybook/cypress/integration",
+  "supportFile": "tests/e2e-storybook/cypress/support/index.js",
+  "pluginsFile": "tests/e2e-storybook/cypress/plugins/index.js",
+  "nodeVersion": "system",
+  "includeShadowDom": true,
+  "testFiles": "**/*.e2e.js",
+  "pageLoadTimeout": 60000,
+  "defaultCommandTimeout": 60000
+}
