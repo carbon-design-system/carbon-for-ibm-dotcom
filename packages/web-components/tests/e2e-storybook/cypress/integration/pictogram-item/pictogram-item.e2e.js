@@ -20,13 +20,8 @@ describe('dds-pictogram-item | Pictogram item (desktop)', () => {
     cy.get('[data-autoid="dds--pictogram-item"]').should('have.length', 1);
     cy.get('[data-autoid="dds--pictogram-item"] [data-autoid="dds--pictogram-item__pictogram"]').should('have.length', 1);
     cy.get('[data-autoid="dds--pictogram-item"] [data-autoid="dds--content-item__heading"]').should('have.length', 1);
-    cy.screenshot();
 
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-pictogram-item | Pictogram item (desktop)', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should check that the Link with icon is loaded and clickable', () => {
@@ -46,64 +41,14 @@ describe('dds-pictogram-item | Pictogram item (desktop)', () => {
   it('should support customizable pictogram SVGs', () => {
     cy.visit(`/${_pathDefault}&knob-Pictogram%20(required)_PictogramItem=Touch`);
     cy.viewport(1280, 780);
-    cy.screenshot();
 
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot(
-    //   'PictogramItem | Pictogram item w/Touch pictogram (desktop)',
-    //   {
-    //     widths: [1280],
-    //   }
-    // );
+    cy.takeSnapshots();
   });
 
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g100`);
+  it('should load correctly in all themes', () => {
+    cy.visit(`/${_pathDefault}`);
     cy.viewport(1280, 780);
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g100');
-      cy.wait(500);
-      cy.screenshot();
-
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-pictogram-item | Pictogram item (desktop) | g100 theme', {
-      //   widths: [1280],
-      // });
-    });
-  });
-
-  it('should load the g90 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g90`);
-    cy.viewport(1280, 780);
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g90');
-      cy.wait(500);
-      cy.screenshot();
-
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-pictogram-item | Pictogram item (desktop) | g90 theme', {
-      //   widths: [1280],
-      // });
-    });
-  });
-
-  it('should load the g10 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g10`);
-    cy.viewport(1280, 780);
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g10');
-      cy.wait(500);
-      cy.screenshot();
-
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-pictogram-item | Pictogram item (desktop) | g10 theme', {
-      //   widths: [1280],
-      // });
-    });
+    cy.carbonThemesScreenshot();
   });
 });
 
@@ -114,13 +59,8 @@ describe('dds-pictogram-item | Pictogram item (mobile)', () => {
     cy.get('[data-autoid="dds--pictogram-item"]').should('have.length', 1);
     cy.get('[data-autoid="dds--pictogram-item"] [data-autoid="dds--pictogram-item__pictogram"]').should('have.length', 1);
     cy.get('[data-autoid="dds--pictogram-item"] [data-autoid="dds--content-item__heading"]').should('have.length', 1);
-    cy.screenshot();
 
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-pictogram-item | Pictogram item (mobile)', {
-    //   widths: [320],
-    // });
+    cy.takeSnapshots('mobile');
   });
 
   it('should check that the Link with icon is loaded and clickable', () => {
@@ -140,64 +80,19 @@ describe('dds-pictogram-item | Pictogram item (mobile)', () => {
   it('should support customizable pictogram SVGs', () => {
     cy.visit(`/${_pathDefault}&knob-Pictogram%20(required)_PictogramItem=Touch`);
     cy.viewport(320, 780);
-    cy.screenshot();
 
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot(
-    //   'PictogramItem | Pictogram item w/Touch pictogram (mobile)',
-    //   {
-    //     widths: [320],
-    //   }
-    // );
+    cy.takeSnapshots('mobile');
   });
 
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g100`);
-    cy.viewport(320, 780);
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g100');
-      cy.wait(500);
-      cy.screenshot();
-
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-pictogram-item | Pictogram item (mobile) | g100 theme', {
-      //   widths: [320],
-      // });
-    });
-  });
-
-  it('should load the g90 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g90`);
+  it('should load correctly in all themes', () => {
+    cy.visit(`/${_pathDefault}`);
     cy.viewport(320, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g90');
-      cy.wait(500);
-      cy.screenshot();
-
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-pictogram-item | Pictogram item (mobile) | g90 theme', {
-      //   widths: [320],
-      // });
-    });
-  });
-
-  it('should load the g10 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g10`);
-    cy.viewport(320, 780);
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g10');
-      cy.wait(500);
-      cy.screenshot();
-
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-pictogram-item | Pictogram item (mobile) | g10 theme', {
-      //   widths: [320],
-      // });
-    });
+    cy.carbonThemesScreenshot(
+      {},
+      {
+        width: [320],
+      }
+    );
   });
 });
