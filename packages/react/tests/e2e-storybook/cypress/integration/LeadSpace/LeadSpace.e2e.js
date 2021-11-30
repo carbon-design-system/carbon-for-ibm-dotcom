@@ -114,11 +114,7 @@ describe('LeadSpace | tall', () => {
       );
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | tall | 3 buttons with different icons', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should load two buttons by default', () => {
@@ -147,51 +143,11 @@ describe('LeadSpace | tall', () => {
     cy.get('.bx--image').should('not.exist');
   });
 
-  it('should load the g100 theme', () => {
-    cy.visit(`${_pathTall}&theme=g100`);
+  it('should load correctly in all themes', () => {
+    cy.visit(`${_pathTall}`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g100'
-      );
-      cy.wait(500);
-      cy.screenshot();
-
-      // Take a snapshot for visual diffing
-      cy.percySnapshot('LeadSpace | tall | g100 theme', {
-        widths: [1280],
-      });
-    });
-  });
-
-  it('should load the g90 theme', () => {
-    cy.visit(`/${_pathTall}&theme=g90`);
-    cy.viewport(1280, 780);
-
-    cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | tall | g90 theme', {
-      widths: [1280],
-    });
-  });
-
-  it('should load the g10 theme', () => {
-    cy.visit(`${_pathTall}&theme=g10`);
-    cy.viewport(1280, 780);
-
-    cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | tall | g10 theme', {
-      widths: [1280],
-    });
+    cy.carbonThemesScreenshot();
   });
 });
 
@@ -209,46 +165,13 @@ describe('LeadSpace | tall with image', () => {
       });
   });
 
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_pathTallImage}&theme=g100`);
+  it('should load correctly in all themes', () => {
+    cy.visit(`/${_pathTallImage}`);
     cy.viewport(1280, 780);
 
     cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | tall with image | g100 theme', {
-      widths: [1280],
-    });
-  });
-
-  it('should load the g90 theme', () => {
-    cy.visit(`/${_pathTallImage}&theme=g90`);
-    cy.viewport(1280, 780);
-
-    cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | tall with image | g90 theme', {
-      widths: [1280],
-    });
-  });
-
-  it('should load the g10 theme', () => {
-    cy.visit(`/${_pathTallImage}&theme=g10`);
-    cy.viewport(1280, 780);
-
-    cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | tall with image | g10 theme', {
-      widths: [1280],
-    });
+    cy.carbonThemesScreenshot();
   });
 });
 
@@ -309,52 +232,16 @@ describe('LeadSpace | centered', () => {
       );
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | centered | 3 buttons with different icons', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_pathCentered}&theme=g100`);
+  it('should load correctly in all themes', () => {
+    cy.visit(`/${_pathCentered}`);
     cy.viewport(1280, 780);
 
     cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | centered | g100 theme', {
-      widths: [1280],
-    });
-  });
-
-  it('should load the g90 theme', () => {
-    cy.visit(`/${_pathCentered}&theme=g90`);
-    cy.viewport(1280, 780);
-
-    cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | centered | g90 theme', {
-      widths: [1280],
-    });
-  });
-
-  it('should load the g10 theme', () => {
-    cy.visit(`/${_pathCentered}&theme=g10`);
-    cy.viewport(1280, 780);
-
-    cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | centered | g10 theme', {
-      widths: [1280],
-    });
+    cy.carbonThemesScreenshot();
   });
 });
 
@@ -373,141 +260,38 @@ describe('LeadSpace | centered with image', () => {
         expect(imageSrc).not.to.be.empty;
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    cy.percySnapshot('LeadSpace | centered with image | background image', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_pathCenteredImage}&theme=g100`);
+  it('should load correctly in all themes', () => {
+    cy.visit(`/${_pathCenteredImage}`);
     cy.viewport(1280, 780);
 
     cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | centered with image | g100 theme', {
-      widths: [1280],
-    });
-  });
-
-  it('should load the g90 theme', () => {
-    cy.visit(`/${_pathCenteredImage}&theme=g90`);
-    cy.viewport(1280, 780);
-
-    cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | centered with image | g90 theme', {
-      widths: [1280],
-    });
-  });
-
-  it('should load the g10 theme', () => {
-    cy.visit(`/${_pathCenteredImage}&theme=g10`);
-    cy.viewport(1280, 780);
-
-    cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | centered with image | g10 theme', {
-      widths: [1280],
-    });
+    cy.carbonThemesScreenshot();
   });
 });
 
 describe('LeadSpace | medium', () => {
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_pathMedium}&theme=g100`);
+  it('should load correctly in all themes', () => {
+    cy.visit(`/${_pathMedium}`);
     cy.viewport(1280, 780);
 
     cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | medium | g100 theme', {
-      widths: [1280],
-    });
-  });
-
-  it('should load the g90 theme', () => {
-    cy.visit(`/${_pathMedium}&theme=g90`);
-    cy.viewport(1280, 780);
-
-    cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | medium | g90 theme', {
-      widths: [1280],
-    });
-  });
-
-  it('should load the g10 theme', () => {
-    cy.visit(`/${_pathMedium}&theme=g10`);
-    cy.viewport(1280, 780);
-
-    cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | medium | g10 theme', {
-      widths: [1280],
-    });
+    cy.carbonThemesScreenshot();
   });
 });
 
 describe('LeadSpace | medium with image', () => {
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_pathMediumWithImage}&theme=g100`);
+  it('should load correctly in all themes', () => {
+    cy.visit(`/${_pathMediumWithImage}`);
     cy.viewport(1280, 780);
 
     cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | medium with image | g100 theme', {
-      widths: [1280],
-    });
-  });
-
-  it('should load the g90 theme', () => {
-    cy.visit(`/${_pathMediumWithImage}&theme=g90`);
-    cy.viewport(1280, 780);
-
-    cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | medium with image | g90 theme', {
-      widths: [1280],
-    });
-  });
-
-  it('should load the g10 theme', () => {
-    cy.visit(`/${_pathMediumWithImage}&theme=g10`);
-    cy.viewport(1280, 780);
-
-    cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | medium with image | g10 theme', {
-      widths: [1280],
-    });
+    cy.carbonThemesScreenshot();
   });
 });
 
@@ -552,11 +336,7 @@ describe('LeadSpace | super', () => {
       );
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | tall | 3 buttons with different icons', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should load two buttons by default', () => {
@@ -578,46 +358,13 @@ describe('LeadSpace | super', () => {
     });
   });
 
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_pathSuper}&theme=g100`);
+  it('should load correctly in all themes', () => {
+    cy.visit(`/${_pathSuper}`);
     cy.viewport(1280, 780);
 
     cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | super | g100 theme', {
-      widths: [1280],
-    });
-  });
-
-  it('should load the g90 theme', () => {
-    cy.visit(`/${_pathSuper}&theme=g90`);
-    cy.viewport(1280, 780);
-
-    cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | super | g90 theme', {
-      widths: [1280],
-    });
-  });
-
-  it('should load the g10 theme', () => {
-    cy.visit(`/${_pathSuper}&theme=g10`);
-    cy.viewport(1280, 780);
-
-    cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | super | g10 theme', {
-      widths: [1280],
-    });
+    cy.carbonThemesScreenshot();
   });
 });
 
@@ -640,52 +387,15 @@ describe('LeadSpace | super with image', () => {
       expect($ele[0].offsetHeight).to.equal(640);
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | super with image | background image', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_pathSuperWithImage}&theme=g100`);
+  it('should load correctly in all themes', () => {
+    cy.visit(`/${_pathSuperWithImage}`);
     cy.viewport(1280, 780);
 
     cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | super with image | g100 theme', {
-      widths: [1280],
-    });
-  });
-
-  it('should load the g90 theme', () => {
-    cy.visit(`/${_pathSuperWithImage}&theme=g90`);
-    cy.viewport(1280, 780);
-
-    cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | super with image | g90 theme', {
-      widths: [1280],
-    });
-  });
-
-  it('should load the g10 theme', () => {
-    cy.visit(`/${_pathSuperWithImage}&theme=g10`);
-    cy.viewport(1280, 780);
-
-    cy.get('[data-autoid="dds--leadspace"]');
-    cy.wait(500);
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LeadSpace | super with image | g10 theme', {
-      widths: [1280],
-    });
+    cy.carbonThemesScreenshot();
   });
 });

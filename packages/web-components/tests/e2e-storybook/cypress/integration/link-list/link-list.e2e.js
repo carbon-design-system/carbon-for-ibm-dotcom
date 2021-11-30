@@ -77,12 +77,7 @@ describe('dds-link-list | end of section (desktop)', () => {
         expect(d).to.equal('M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z');
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-link-list | end of section | local CTA', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should use jump CTA', () => {
@@ -105,12 +100,7 @@ describe('dds-link-list | end of section (desktop)', () => {
         expect(d).to.equal('M24.59 16.59L17 24.17 17 4 15 4 15 24.17 7.41 16.59 6 18 16 28 26 18 24.59 16.59z');
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-link-list | end of section | jump CTA', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should use external CTA', () => {
@@ -137,12 +127,7 @@ describe('dds-link-list | end of section (desktop)', () => {
         );
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-link-list | end of section | external CTA', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should use download CTA', () => {
@@ -167,12 +152,7 @@ describe('dds-link-list | end of section (desktop)', () => {
         );
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-link-list | end of section | download CTA', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should use video CTA', () => {
@@ -198,12 +178,7 @@ describe('dds-link-list | end of section (desktop)', () => {
         );
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-link-list | end of section | video CTA', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
 
     cy.get('[data-autoid="dds--link-list-item-cta"]')
       .first()
@@ -211,12 +186,5 @@ describe('dds-link-list | end of section (desktop)', () => {
     cy.get('dds-lightbox-video-player-composite').then($el => {
       expect($el).to.have.attr('open');
     });
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-link-list | end of section | opening video CTA', {
-    //   widths: [1280],
-    // });
   });
 });

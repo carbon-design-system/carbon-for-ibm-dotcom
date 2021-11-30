@@ -72,52 +72,11 @@ describe('dds-feature-card | medium', () => {
       });
   });
 
-  it('should load the g10 theme', () => {
-    cy.visit(`/${_pathMedium}&theme=g10`);
+  it('should load correctly in all themes', () => {
+    cy.visit(`/${_pathMedium}`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g10');
-
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-feature-card | medium | g10 theme', {
-      //   widths: [1280],
-      // });
-    });
-  });
-
-  it('should load the g90 theme', () => {
-    cy.visit(`/${_pathMedium}&theme=g90`);
-    cy.viewport(1280, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g90');
-
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-feature-card | medium | g90 theme', {
-      //   widths: [1280],
-      // });
-    });
-  });
-
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_pathMedium}&theme=g100`);
-    cy.viewport(1280, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g100');
-
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-feature-card | medium | g100 theme', {
-      //   widths: [1280],
-      // });
-    });
+    cy.carbonThemesScreenshot();
   });
 });
 
@@ -215,52 +174,11 @@ describe('dds-feature-card | large', () => {
       });
   });
 
-  it('should load the g10 theme', () => {
-    cy.visit(`/${_pathLarge}&theme=g10`);
+  it('should load correctly in all themes', () => {
+    cy.visit(`/${_pathLarge}`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g10');
-
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-feature-card | medium | g10 theme', {
-      //   widths: [1280],
-      // });
-    });
-  });
-
-  it('should load the g90 theme', () => {
-    cy.visit(`/${_pathLarge}&theme=g90`);
-    cy.viewport(1280, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g90');
-
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-feature-card | medium | g90 theme', {
-      //   widths: [1280],
-      // });
-    });
-  });
-
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_pathLarge}&theme=g100`);
-    cy.viewport(1280, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g100');
-
-      cy.screenshot();
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot('dds-feature-card | medium | g100 theme', {
-      //   widths: [1280],
-      // });
-    });
+    cy.carbonThemesScreenshot();
   });
 });
 

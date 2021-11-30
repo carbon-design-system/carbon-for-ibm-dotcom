@@ -81,12 +81,7 @@ describe('dds-footer | default (desktop)', () => {
 
     cy.get(`dds-locale-item[region='Americas']`).should('have.length', 35);
 
-    cy.screenshot();
-
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-footer | Americas region selected', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should be able to search with keywords for locations and languages', () => {
@@ -106,12 +101,7 @@ describe('dds-footer | default (desktop)', () => {
       .invoke('attr', 'country')
       .should('eq', 'Canada');
 
-    cy.screenshot();
-
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-footer | Filtering locales', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should load all the 38 interactable navigation links', () => {
@@ -170,11 +160,7 @@ describe('dds-footer | Default language only (desktop)', () => {
       .click();
     cy.get('dds-language-selector-desktop').should('have.value', 'Arabic / عربية');
 
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Default language only (desktop language selector)', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should load all the 38 interactable navigation links', () => {
@@ -219,12 +205,7 @@ describe('dds-footer | Short (desktop)', () => {
         expect(url).not.to.be.empty;
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Short | load clickable IBM logo', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should open locale modal with 4 geos when clicked on locale button', () => {
@@ -236,12 +217,7 @@ describe('dds-footer | Short (desktop)', () => {
 
     cy.get('dds-regions > dds-region-item').should('have.length', 4);
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Short | open locale modal with 4 geos when clicked on locale button', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should display the specific locations and languages of a selected geo', () => {
@@ -263,12 +239,7 @@ describe('dds-footer | Short (desktop)', () => {
         }
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Short | display the specific locations and languages of a selected geo', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should display interactive search field and with keywords for locations and languages', () => {
@@ -292,12 +263,7 @@ describe('dds-footer | Short (desktop)', () => {
       .get('[country="Guyana"]')
       .should('not.have.attr', 'hidden');
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Short | display interactive search field and with keywords for locations and languages', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should load footer legal navigation with clickable links', () => {
@@ -308,12 +274,7 @@ describe('dds-footer | Short (desktop)', () => {
         expect(url).not.to.be.empty;
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Short | load footer legal navigation with clickable links', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should load all 4 interactable legal links', () => {
@@ -327,12 +288,7 @@ describe('dds-footer | Short (desktop)', () => {
         expect(url).not.to.be.empty;
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Short | load footer legal navigation with clickable links', {
-    //   widths: [320],
-    // });
+    cy.takeSnapshots();
   });
 });
 
@@ -365,12 +321,7 @@ describe('dds-footer | Short language only (desktop)', () => {
       .click();
     cy.get('dds-language-selector-desktop').should('have.value', 'Arabic / عربية');
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Short language only (desktop language selector)', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 });
 
@@ -387,11 +338,7 @@ describe('dds-footer | Micro (desktop)', () => {
     cy.get('dds-locale-modal').should('have.attr', 'open');
     cy.get('dds-regions > dds-region-item').should('have.length', 4);
 
-    cy.screenshot();
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Micro | open locale modal with 4 geos when clicked on locale button', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should load the Asia Pacific region with its languages and locations', () => {
@@ -412,12 +359,7 @@ describe('dds-footer | Micro (desktop)', () => {
         }
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Micro | display the specific locations and languages of a selected geo', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should load all 4 interactable legal links', () => {
@@ -428,12 +370,7 @@ describe('dds-footer | Micro (desktop)', () => {
         expect(url).not.to.be.empty;
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Micro | load footer legal navigation with clickable links', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 });
 
@@ -454,12 +391,7 @@ describe('dds-footer | Micro language only (desktop)', () => {
       .click();
     cy.get('dds-language-selector-desktop').should('have.value', 'Arabic / عربية');
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Micro language only (desktop language selector)', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 });
 
@@ -491,12 +423,7 @@ describe('dds-footer | default (mobile)', () => {
 
     cy.get(`dds-locale-item[region='Americas']`).should('have.length', 35);
 
-    cy.screenshot();
-
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-footer | Americas region selected', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should be able to search with keywords for locations and languages', () => {
@@ -516,12 +443,7 @@ describe('dds-footer | default (mobile)', () => {
       .invoke('attr', 'country')
       .should('eq', 'Canada');
 
-    cy.screenshot();
-
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-footer | Filtering locales', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should load all the 38 interactable navigation links', () => {
@@ -575,11 +497,7 @@ describe('dds-footer | Default language only (mobile)', () => {
       .find(`select.bx--select-input`)
       .should('have.value', 'Arabic / عربية');
 
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Default language only (mobile language selector)', {
-    //   widths: [320],
-    // });
+    cy.takeSnapshots('mobile');
   });
 
   it('should load all the 38 interactable navigation links', () => {
@@ -624,12 +542,7 @@ describe('dds-footer | Short (mobile)', () => {
         expect(url).not.to.be.empty;
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Short | load clickable IBM logo', {
-    //   widths: [320],
-    // });
+    cy.takeSnapshots('mobile');
   });
 
   it('should open locale modal with 4 geos when clicked on locale button', () => {
@@ -641,12 +554,7 @@ describe('dds-footer | Short (mobile)', () => {
 
     cy.get('dds-regions > dds-region-item').should('have.length', 4);
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Short | open locale modal with 4 geos when clicked on locale button', {
-    //   widths: [320],
-    // });
+    cy.takeSnapshots('mobile');
   });
 
   it('should display the specific locations and languages of a selected geo', () => {
@@ -668,12 +576,7 @@ describe('dds-footer | Short (mobile)', () => {
         }
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Short | display the specific locations and languages of a selected geo', {
-    //   widths: [320],
-    // });
+    cy.takeSnapshots('mobile');
   });
 
   it('should display interactive search field and with keywords for locations and languages', () => {
@@ -697,12 +600,7 @@ describe('dds-footer | Short (mobile)', () => {
       .get('[country="Guyana"]')
       .should('not.have.attr', 'hidden');
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Short | display interactive search field and with keywords for locations and languages', {
-    //   widths: [320],
-    // });
+    cy.takeSnapshots('mobile');
   });
 
   it('should load footer legal navigation with clickable links', () => {
@@ -713,12 +611,7 @@ describe('dds-footer | Short (mobile)', () => {
         expect(url).not.to.be.empty;
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Short | load footer legal navigation with clickable links', {
-    //   widths: [320],
-    // });
+    cy.takeSnapshots('mobile');
   });
 });
 
@@ -739,11 +632,7 @@ describe('dds-footer | Short language only (mobile)', () => {
       .find(`select.bx--select-input`)
       .should('have.value', 'Arabic / عربية');
 
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Short language only (desktop language selector)', {
-    //   widths: [320],
-    // });
+    cy.takeSnapshots('mobile');
   });
 });
 
@@ -760,11 +649,7 @@ describe('dds-footer | Micro (mobile)', () => {
     cy.get('dds-locale-modal').should('have.attr', 'open');
     cy.get('dds-regions > dds-region-item').should('have.length', 4);
 
-    cy.screenshot();
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Micro | open locale modal with 4 geos when clicked on locale button', {
-    //   widths: [320],
-    // });
+    cy.takeSnapshots('mobile');
   });
 
   it('should load the Asia Pacific region with its languages and locations', () => {
@@ -785,12 +670,7 @@ describe('dds-footer | Micro (mobile)', () => {
         }
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Micro | display the specific locations and languages of a selected geo', {
-    //   widths: [320],
-    // });
+    cy.takeSnapshots('mobile');
   });
 
   it('should load all 4 interactable legal links', () => {
@@ -801,12 +681,7 @@ describe('dds-footer | Micro (mobile)', () => {
         expect(url).not.to.be.empty;
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Micro | load footer legal navigation with clickable links', {
-    //   widths: [320],
-    // });
+    cy.takeSnapshots('mobile');
   });
 });
 
@@ -827,10 +702,6 @@ describe('dds-footer | Micro language only (mobile)', () => {
       .find(`select.bx--select-input`)
       .should('have.value', 'Arabic / عربية');
 
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-footer | Micro language only (desktop language selector)', {
-    //   widths: [320],
-    // });
+    cy.takeSnapshots('mobile');
   });
 });
