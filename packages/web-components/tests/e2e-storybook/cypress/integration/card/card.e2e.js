@@ -168,12 +168,7 @@ const _tests = {
       .should('have.css', 'background-color')
       .and('equal', 'rgb(57, 57, 57)');
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot(Cypress.currentTest.titlePath.join(' | '), {
-    //  widths: [1280],
-    // });
+    cy.takeSnapshots();
   },
 };
 
