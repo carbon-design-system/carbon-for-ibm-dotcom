@@ -218,16 +218,14 @@ export const withPlatform = ({ parameters }) => {
           ></dds-masthead-composite>
         `
       : html`
-          <dds-masthead-container
+          <dds-masthead-composite
             platform="Platform"
             .platformUrl="${ifNonNull(platformData.url)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-          ></dds-masthead-container>
+          ></dds-masthead-composite>
         `}
   `;
 };
