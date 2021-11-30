@@ -67,77 +67,14 @@ describe('dds-card-section-images | default (desktop)', () => {
         );
       });
 
-    cy.screenshot();
-
-    cy.percySnapshot(
-      'dds-card-section-images | default (desktop) | should load cards content',
-      {
-        widths: [1280],
-      }
-    );
+    cy.takeSnapshots();
   });
 
-  it('should load the g10 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g10`);
+  it('should load correctly in all themes', () => {
+    cy.visit(`/${_pathDefault}`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g10'
-      );
-
-      cy.screenshot();
-
-      cy.percySnapshot(
-        'dds-card-section-images | default (desktop) | g10 theme',
-        {
-          widths: [1280],
-        }
-      );
-    });
-  });
-
-  it('should load the g90 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g90`);
-    cy.viewport(1280, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g90'
-      );
-
-      cy.screenshot();
-
-      cy.percySnapshot(
-        'dds-card-section-images | default (desktop) | g90 theme',
-        {
-          widths: [1280],
-        }
-      );
-    });
-  });
-
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g100`);
-    cy.viewport(1280, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g100'
-      );
-
-      cy.screenshot();
-
-      cy.percySnapshot(
-        'dds-card-section-images | default (desktop) | g100 theme',
-        {
-          widths: [1280],
-        }
-      );
-    });
+    cy.carbonThemesScreenshot();
   });
 });
 
@@ -195,76 +132,18 @@ describe('dds-card-section-images | default (mobile)', () => {
         );
       });
 
-    cy.screenshot();
+    cy.takeSnapshots('mobile');
+  });
 
-    cy.percySnapshot(
-      'dds-card-section-images | default (mobile) | should load cards content',
+  it('should load correctly in all themes', () => {
+    cy.visit(`/${_pathDefault}`);
+    cy.viewport(320, 780);
+
+    cy.carbonThemesScreenshot(
+      {},
       {
         widths: [320],
       }
     );
-  });
-
-  it('should load the g10 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g10`);
-    cy.viewport(320, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g10'
-      );
-
-      cy.screenshot();
-
-      cy.percySnapshot(
-        'dds-card-section-images | default (mobile) | g10 theme',
-        {
-          widths: [320],
-        }
-      );
-    });
-  });
-
-  it('should load the g90 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g90`);
-    cy.viewport(320, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g90'
-      );
-
-      cy.screenshot();
-
-      cy.percySnapshot(
-        'dds-card-section-images | default (mobile) | g90 theme',
-        {
-          widths: [320],
-        }
-      );
-    });
-  });
-
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g100`);
-    cy.viewport(320, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g100'
-      );
-
-      cy.screenshot();
-
-      cy.percySnapshot(
-        'dds-card-section-images | default (mobile) | g100 theme',
-        {
-          widths: [320],
-        }
-      );
-    });
   });
 });
