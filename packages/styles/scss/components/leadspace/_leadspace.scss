@@ -337,10 +337,6 @@ $btn-min-width: 26;
       fill: url(#stops);
     }
 
-    .#{$prefix}--leadspace--centered .#{$prefix}--leadspace__gradient__stops {
-      transform: rotate(90deg) #{'/*rtl:ignore*/'};
-    }
-
     .#{$prefix}--leadspace__gradient__stops stop {
       &:nth-of-type(1) {
         stop-opacity: 1;
