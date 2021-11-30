@@ -15,22 +15,38 @@ import { boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
-import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--003.jpg';
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
+import logoMicrosoft2x1 from '../../../../../storybook-images/assets/logos/logo-microsoft--2x1.png';
 import { PICTOGRAM_PLACEMENT } from '../defs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
+const tagGroupContent = html`
+  <dds-tag-group>
+    <bx-tag>
+      Most popular
+    </bx-tag>
+    <bx-tag type="purple">
+      Enterprise
+    </bx-tag>
+  </dds-tag-group>
+`;
+
 export const Default = ({ parameters }) => {
-  const { image, href, alt, defaultSrc, heading, tagGroup, copy, inverse, footer, iconPlacement } = parameters?.props?.Card ?? {};
+  const { image, href, alt, defaultSrc, heading, eyebrow, tagGroup, copy, footer, cardStyles } = parameters?.props?.Card ?? {};
+  /* eslint-disable no-nested-ternary */
   return html`
-    <dds-card color-scheme=${inverse ? 'inverse' : ''} href=${ifNonNull(href || undefined)}>
+    <dds-card
+      color-scheme=${cardStyles === 'Inverse card' ? 'inverse' : cardStyles === 'Outlined card' ? 'light' : ''}
+      ?border=${cardStyles === 'Outlined card'}
+      href=${ifNonNull(href || undefined)}
+    >
       ${image
         ? html`
             <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
           `
         : ``}
-      <dds-card-eyebrow>Eyebrow</dds-card-eyebrow>
+      <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
       <dds-card-heading>${heading}</dds-card-heading>
       ${copy
         ? html`
@@ -39,26 +55,14 @@ export const Default = ({ parameters }) => {
         : ``}
       ${tagGroup
         ? html`
-            <dds-tag-group>
-              <bx-tag>
-                Most popular
-              </bx-tag>
-              <bx-tag type="purple">
-                Enterprise
-              </bx-tag>
-            </dds-tag-group>
+            ${tagGroupContent}
           `
-        : ''}
-      <dds-card-footer icon-placement="${iconPlacement}">
+        : ``}
+      <dds-card-footer>
         ${footer}${ArrowRight20({ slot: 'icon' })}
       </dds-card-footer>
     </dds-card>
   `;
-};
-
-const iconPlacement = {
-  left: 'left',
-  right: 'right',
 };
 
 const pictogramPlacements = {
@@ -71,24 +75,30 @@ Default.story = {
     ...readme.parameters,
     knobs: {
       Card: ({ groupId }) => ({
+        image: boolean('Add image:', false, groupId),
+        eyebrow: textNullable('Eyebrow:', 'Industry', groupId),
+        heading: textNullable('Heading:', 'Aerospace and defence', groupId),
+        copy: textNullable('Body copy:', '', groupId),
         alt: 'Image alt text',
         defaultSrc: imgXlg4x3,
-        tagGroup: boolean('Add tags', false, groupId),
-        image: boolean('Add image', false, groupId),
-        heading: textNullable('Card Heading:', 'Lorem ipsum dolor sit amet', groupId),
-        copy: textNullable('Card body copy:', '', groupId),
+        tagGroup: boolean('Add tags:', false, groupId),
         href: 'https://example.com',
-        footer: 'Card CTA text',
-        iconPlacement: iconPlacement.right,
+        footer: textNullable('CTA:', 'Learn more', groupId),
+        cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none', groupId),
       }),
     },
   },
 };
 
 export const Pictogram = ({ parameters }) => {
-  const { href, heading, copy, tagGroup, pictogramPlacement } = parameters?.props?.PictogramCard ?? {};
+  const { href, heading, copy, tagGroup, pictogramPlacement, cardStyles } = parameters?.props?.PictogramCard ?? {};
   return html`
-    <dds-card pictogram-placement="${pictogramPlacement}" href=${ifNonNull(href || undefined)}>
+    <dds-card
+      pictogram-placement="${pictogramPlacement}"
+      href=${ifNonNull(href || undefined)}
+      color-scheme=${cardStyles === 'Inverse card' ? 'inverse' : cardStyles === 'Outlined card' ? 'light' : ''}
+      ?border=${cardStyles === 'Outlined card'}
+    >
       <dds-card-heading>${heading}</dds-card-heading>
       ${copy
         ? html`
@@ -97,16 +107,9 @@ export const Pictogram = ({ parameters }) => {
         : ``}
       ${tagGroup
         ? html`
-            <dds-tag-group>
-              <bx-tag>
-                Most popular
-              </bx-tag>
-              <bx-tag type="purple">
-                Enterprise
-              </bx-tag>
-            </dds-tag-group>
+            ${tagGroupContent}
           `
-        : ''}
+        : ``}
       <svg
         slot="pictogram"
         focusable="false"
@@ -136,26 +139,30 @@ Pictogram.story = {
   parameters: {
     ...readme.parameters,
     knobs: {
-      PictogramCard: ({ groupId }) => ({
-        alt: 'Image alt text',
-        defaultSrc: imgLg2x1,
-        pictogramPlacement: select('Pictogram placement', pictogramPlacements, pictogramPlacements.top, groupId),
-        heading: textNullable('Card Heading:', 'Lorem ipsum dolor sit amet', groupId),
-        copy: textNullable(
-          'Card body copy:',
-          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          groupId
-        ),
-        href: 'https://example.com',
-        footer: 'Card CTA text',
-        iconPlacement: iconPlacement.right,
-      }),
+      PictogramCard: ({ groupId }) => {
+        const pictogramPlacement = select('Pictogram position:', pictogramPlacements, pictogramPlacements.top, groupId);
+        const copy =
+          pictogramPlacement === pictogramPlacements.bottom
+            ? textNullable(
+                'Body copy:',
+                'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
+                groupId
+              )
+            : null;
+        return {
+          pictogramPlacement,
+          heading: textNullable('Heading:', 'Aerospace and defence', groupId),
+          copy,
+          href: 'https://example.com',
+          cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none', groupId),
+        };
+      },
     },
   },
 };
 
 export const Static = ({ parameters }) => {
-  const { image, alt, defaultSrc, outlinedCard, eyebrow, heading, href, copy, tagGroup, footer } = parameters?.props?.Card ?? {};
+  const { image, alt, defaultSrc, outlinedCard, eyebrow, heading, copy, tagGroup, cta, ctaCopy } = parameters?.props?.Card ?? {};
   return html`
     <dds-card color-scheme=${outlinedCard ? 'light' : ''} ?border=${outlinedCard}>
       ${image
@@ -176,19 +183,16 @@ export const Static = ({ parameters }) => {
         : ``}
       ${tagGroup
         ? html`
-            <dds-tag-group>
-              <bx-tag>
-                Most popular
-              </bx-tag>
-              <bx-tag type="purple">
-                Enterprise
-              </bx-tag>
-            </dds-tag-group>
+            ${tagGroupContent}
           `
-        : ''}
-      <dds-card-footer href="${href}" icon-placement="${iconPlacement}">
-        ${footer}${ArrowRight20({ slot: 'icon' })}
-      </dds-card-footer>
+        : ``}
+      ${cta
+        ? html`
+            <dds-card-footer href="https://www.example.com">
+              ${ctaCopy}${ArrowRight20({ slot: 'icon' })}
+            </dds-card-footer>
+          `
+        : ``}
     </dds-card>
   `;
 };
@@ -197,21 +201,84 @@ Static.story = {
   parameters: {
     ...readme.parameters,
     knobs: {
+      Card: ({ groupId }) => {
+        const image = boolean('Add image:', false, groupId);
+        const eyebrow = textNullable('Eyebrow:', 'SPSS Statistics', groupId);
+        const heading = textNullable('Heading:', 'Free trial', groupId);
+        const copy = textNullable(
+          'Body copy:',
+          'Enjoy full SPSS Statistics capabilities including all add-ons. ' +
+            'All trial registrants are restricted to one free trial per computer per user.',
+          groupId
+        );
+        const tagGroup = boolean('Add tags:', false, groupId);
+        const cta = boolean('Add CTA:', false, groupId);
+        const ctaCopy = cta ? textNullable('CTA copy:', 'Sign up for the trial', groupId) : '';
+        const outlinedCard = boolean('Outlined card:', true, groupId);
+        return {
+          alt: 'Image alt text',
+          defaultSrc: imgXlg4x3,
+          image,
+          eyebrow,
+          heading,
+          copy,
+          tagGroup,
+          cta,
+          ctaCopy,
+          outlinedCard,
+        };
+      },
+    },
+  },
+};
+
+export const Logo = ({ parameters }) => {
+  const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } = parameters?.props?.Card ?? {};
+  return html`
+    <dds-card border logo href=${ifNonNull(href || undefined)}>
+      <dds-image-logo slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image-logo>
+      ${eyebrow
+        ? html`
+            <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
+          `
+        : ``}
+      ${heading
+        ? html`
+            <dds-card-heading>${heading}</dds-card-heading>
+          `
+        : ``}
+      ${copy
+        ? html`
+            <p>${copy}</p>
+          `
+        : ``}
+      ${tagGroup
+        ? html`
+            ${tagGroupContent}
+          `
+        : ``}
+
+      <dds-card-footer></dds-card-footer>
+    </dds-card>
+  `;
+};
+
+Logo.story = {
+  parameters: {
+    ...readme.parameters,
+    knobs: {
       Card: ({ groupId }) => ({
         alt: 'Image alt text',
-        defaultSrc: imgXlg4x3,
-        outlinedCard: boolean('Outlined card', true, groupId),
+        defaultSrc: logoMicrosoft2x1,
         tagGroup: boolean('Add tags', true, groupId),
-        image: boolean('Add image', false, groupId),
-        eyebrow: textNullable('Card Eyebrow:', 'Eyebrow', groupId),
-        heading: textNullable('Card Heading:', 'Lorem ipsum dolor sit amet', groupId),
+        eyebrow: textNullable('Card Eyebrow:', 'Microsoft', groupId),
+        heading: textNullable('Card Heading (optional):', '', groupId),
         copy: textNullable(
           'Card body copy:',
           'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
           groupId
         ),
         href: 'https://example.com',
-        footer: textNullable('CTA copy', 'Card CTA text', groupId),
       }),
     },
   },

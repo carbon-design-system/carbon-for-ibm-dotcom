@@ -21,16 +21,30 @@
     /* stylelint-disable-next-line property-no-unknown */
     aspect-ratio: 16 / 9;
 
+    #{$dds-prefix}-background-media {
+      height: auto;
+
+      /* stylelint-disable-next-line property-no-unknown */
+      aspect-ratio: 4 / 3;
+    }
+
     @include carbon--breakpoint('md') {
       #{$dds-prefix}-background-media {
         position: absolute;
         height: 100%;
         width: 100%;
+
+        /* stylelint-disable-next-line property-no-unknown */
+        aspect-ratio: auto;
       }
     }
 
     @include carbon--breakpoint('lg') {
       display: flex;
+    }
+
+    ::slotted(:not(#{$dds-prefix}-background-media)) {
+      z-index: 1;
     }
 
     ::slotted([slot='action']) {
@@ -44,6 +58,7 @@
 
     .#{$prefix}--card-section-offset__content {
       position: relative;
+      z-index: 1;
       width: 100%;
       padding: $spacing-07 0 $spacing-10 $spacing-05;
 
@@ -57,9 +72,41 @@
       width: 100%;
       margin-top: auto;
       padding-top: 0;
+      z-index: 1;
 
       @include carbon--breakpoint('lg') {
         padding-top: $spacing-07;
+      }
+    }
+  }
+
+  // Print styles
+  @media print {
+    .#{$prefix}--card-section-offset__content,
+    :host(#{$dds-prefix}-card-section-offset) {
+      background-color: $white-0;
+      flex-wrap: wrap;
+
+      /* stylelint-disable-next-line property-no-unknown */
+      aspect-ratio: auto;
+
+      #{$dds-prefix}-background-media {
+        display: none;
+      }
+
+      .#{$prefix}--card-section-offset__content {
+        max-width: 640px;
+      }
+
+      ::slotted([slot='heading']) {
+        @include carbon--type-style('expressive-heading-05');
+
+        color: $gray-90;
+        margin-bottom: $carbon--spacing-03;
+      }
+
+      ::slotted([slot='card-group']) {
+        margin-top: 0;
       }
     }
   }

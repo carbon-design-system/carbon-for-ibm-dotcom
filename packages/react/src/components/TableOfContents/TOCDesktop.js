@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -58,7 +58,10 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
   const handleOnClick = (e, id) => {
     e.preventDefault();
     const selector = `a[name="${id}"]`;
-    smoothScroll(null, selector);
+    const masthead = e.target.ownerDocument.querySelector(
+      `.${prefix}--masthead`
+    );
+    smoothScroll(null, selector, masthead?.offsetHeight);
     triggerFocus(selector);
   };
 

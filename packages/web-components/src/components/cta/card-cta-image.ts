@@ -27,4 +27,5 @@ class DDSCardCTAImage extends DDSImage {
   }
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSCardCTAImage;

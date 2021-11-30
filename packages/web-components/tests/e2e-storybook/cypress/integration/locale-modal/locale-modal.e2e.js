@@ -21,36 +21,70 @@ describe('dds-locale-modal | default', () => {
     cy.viewport(1280, 780);
   });
 
-  it('should load the Americas region', () => {
-    cy.get('dds-locale-modal > dds-regions > dds-region-item:nth-child(1)')
-      .shadow()
-      .find('a')
-      .click();
+  it('should load with four regions', () => {
+    cy.get('dds-region-item').should('have.length', 4);
+
+    cy.get('dds-region-item[name="Americas"]').should('be.visible');
+    cy.get('dds-region-item[name="Asia Pacific"]').should('be.visible');
+    cy.get('dds-region-item[name="Europe"]').should('be.visible');
+    cy.get('dds-region-item[name="Middle East and Africa"]').should('be.visible');
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-locale-modal | region selected', {
-    //   widths: [1280],
-    // });
+    cy.percySnapshot('dds-locale-modal | all four regions loaded', {
+      widths: [1280],
+    });
+  });
+
+  it('should load the Americas region', () => {
+    cy.get('dds-region-item[name="Americas"]').click();
+
+    cy.takeSnapshots();
   });
 
   it('should filter locales/languages', () => {
-    cy.get('dds-locale-modal > dds-regions > dds-region-item:nth-child(1)')
-      .shadow()
-      .find('a')
-      .click();
+    cy.get('[name="Americas"]').click();
 
     cy.get('dds-locale-search')
       .shadow()
       .find('.bx--search-input')
-      .type('ca', { force: true });
+      .type('ca', {
+        force: true,
+      });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-locale-modal | filter', {
-    //   widths: [1280],
-    // });
+    cy.get('dds-locale-item:not([hidden])')
+      .invoke('attr', 'country')
+      .should('eq', 'Canada');
+
+    cy.takeSnapshots();
+  });
+
+  it('should be able to go back to the region menu', () => {
+    cy.get('[name="Americas"]').click();
+    cy.get('dds-regions').should('not.be.visible');
+    cy.get('dds-locale-modal')
+      .shadow()
+      .find('dds-expressive-modal-heading dds-link-with-icon')
+      .click();
+    cy.get('dds-regions').should('be.visible');
+  });
+
+  it('should have a clickable X icon and is able to close menu', () => {
+    const closeButton = cy
+      .get('dds-locale-modal')
+      .shadow()
+      .find('dds-expressive-modal-close-button');
+    closeButton
+      .shadow()
+      .find('svg path')
+      .then($icon => {
+        expect($icon).to.have.attr(
+          'd',
+          'M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z'
+        );
+      });
+    closeButton.click();
+
+    cy.takeSnapshots();
   });
 });
