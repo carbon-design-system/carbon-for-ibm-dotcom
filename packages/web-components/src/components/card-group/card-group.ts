@@ -203,31 +203,32 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
         e.toggleAttribute('collapsed', false);
         e.toggleAttribute('border', false);
       } else if (this.gridMode === 'border') {
-        const borderColor = getComputedStyle(document.body).getPropertyValue('--cds-ui-03');
+        e.removeAttribute('style');
         if (e.hasAttribute('empty')) {
-          e.style.borderBottom = '1px';
-          e.style.borderRight = '1px';
+          e.style.paddingBottom = '1px';
+          e.style.paddingRight = '1px';
         } else {
           e.removeAttribute('style');
-          e.style.borderTop = '0';
-          e.style.borderBottom = `1px solid ${borderColor}`;
-          e.style.borderRight = `1px solid ${borderColor}`;
+          e.style.paddingTop = '0';
+          e.style.paddingBottom = `1px`;
+          e.style.paddingRight = `1px`;
           // first row
           if (index < columns) {
-            e.style.borderTop = `1px solid ${borderColor}`;
+            e.style.paddingTop = `1px`;
           }
         }
         // if not empty and first column
         if (!e.hasAttribute('empty') && (index + 1) % columns === 1) {
-          e.style.borderLeft = `1px solid ${borderColor}`;
+          e.style.paddingLeft = `1px`;
         } else {
-          e.style.borderLeft = '0';
+          e.style.paddingLeft = '0';
         }
         // if one column and first item is empty then set top border for second item
         if (columns === 1 && index === 1 && this._childItems[0].hasAttribute('empty')) {
-          e.style.borderTop = `1px solid ${borderColor}`;
+          e.style.paddingTop = `1px`;
         }
       } else {
+        e.removeAttribute('style');
         // eslint-disable-next-line no-lonely-if
         if (e.hasAttribute('empty')) {
           e.style.paddingBottom = '0';
