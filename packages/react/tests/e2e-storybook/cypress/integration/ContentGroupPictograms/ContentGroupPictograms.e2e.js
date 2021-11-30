@@ -30,7 +30,7 @@ const _withCTA =
  * @private
  */
 const _withCustomPictograms =
-  '&knob-Number%20of%20PictogramItems_ContentGroupPictograms=3&knob-Item%201%20Pictogram%20(pictogram)_ContentGroupPictograms=Desktop&knob-Item%202%20Pictogram%20(pictogram)_ContentGroupPictograms=Touch&knob-Item%203%20Pictogram%20(pictogram)_ContentGroupPictograms=Pattern';
+  '&knob-Number%20of%20PictogramItems_ContentGroupPictograms=3&knob-Item%201%20Pictogram%20(pictogram)_ContentGroupPictograms=TouchScreen&knob-Item%202%20Pictogram%20(pictogram)_ContentGroupPictograms=Touch&knob-Item%203%20Pictogram%20(pictogram)_ContentGroupPictograms=Pattern';
 
 describe('dds-content-group-pictograms | default (desktop)', () => {
   beforeEach(() => {
@@ -49,14 +49,7 @@ describe('dds-content-group-pictograms | default (desktop)', () => {
         .should('be.visible');
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot(
-      'dds-content-group-pictograms | default (desktop) | should load content group heading and copy before the pictograms',
-      {
-        widths: [1280],
-      }
-    );
+    cy.takeSnapshots();
   });
 
   it('should load pictogram item and content', () => {
@@ -83,14 +76,7 @@ describe('dds-content-group-pictograms | default (desktop)', () => {
       });
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot(
-      'dds-content-group-pictograms | default (desktop) | should load pictogram item and content',
-      {
-        widths: [1280],
-      }
-    );
+    cy.takeSnapshots();
   });
 
   it('should have CTA Link with icon loaded and clickable for each pictogram', () => {
@@ -110,19 +96,10 @@ describe('dds-content-group-pictograms | default (desktop)', () => {
       });
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot(
-      'dds-content-group-pictograms | default (desktop) | should have CTA Link with icon loaded and clickable for each pictogram',
-      {
-        widths: [1280],
-      }
-    );
+    cy.takeSnapshots();
   });
 
   it('should have customizable pictogram SVG', () => {
-    // TODO d. Pictogram item can be customized (desktop, touch, pattern)
-
     cy.visit(`/${_pathDefault}${_withCustomPictograms}`);
     cy.viewport(1280, 780);
 
@@ -131,7 +108,7 @@ describe('dds-content-group-pictograms | default (desktop)', () => {
     ).then($pictogram => {
       expect($pictogram).to.have.attr(
         'd',
-        'M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26	c1.302,0,2.36,1.059,2.36,2.36v17c0,1.302-1.059,2.36-2.36,2.36H16.36v4.279H23V29.36z M1.36,19.36V22c0,0.904,0.736,1.64,1.64,1.64	h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5	V18.64z'
+        'M13.002,30.36c-2.405,0-4.362-2.027-4.362-4.519V15.037c0-0.771,0.609-1.397,1.358-1.397	s1.358,0.626,1.358,1.397l0.003,3.354c0.191-0.105,0.409-0.166,0.641-0.166c0.51,0,0.956,0.291,1.188,0.72	c0.227-0.174,0.509-0.277,0.813-0.277c0.596,0,1.104,0.397,1.286,0.948c0.208-0.133,0.453-0.21,0.715-0.21	c0.749,0,1.358,0.627,1.358,1.397v5.039C17.36,28.333,15.405,30.36,13.002,30.36z M9.998,14.36c-0.352,0-0.638,0.304-0.638,0.677	v10.805c0,2.095,1.634,3.798,3.643,3.798c2.006,0,3.638-1.703,3.638-3.798v-5.039c0-0.373-0.286-0.677-0.638-0.677	s-0.638,0.304-0.638,0.677v1.196c0,0.198-0.161,0.359-0.359,0.36l0,0c-0.198,0-0.359-0.161-0.36-0.359l-0.005-1.935	c0-0.374-0.286-0.678-0.638-0.678c-0.354,0-0.642,0.304-0.642,0.677l0.004,1.934c0,0.199-0.16,0.36-0.359,0.361l0,0	c-0.199,0-0.359-0.161-0.36-0.359l-0.005-2.378v-0.001c0-0.373-0.286-0.676-0.638-0.676s-0.638,0.303-0.638,0.676v2.378	c0,0.199-0.161,0.36-0.36,0.36s-0.36-0.161-0.36-0.36l-0.005-6.961C10.636,14.664,10.35,14.36,9.998,14.36z M31,29.36h-9	c-0.199,0-0.36-0.161-0.36-0.36v-7.64H19v-0.72h6.64v-2.28H19v-0.72h6.64V2.36H1.36v15.28H7v0.721H1.36v2.279H7v0.721H1	c-0.199,0-0.36-0.161-0.36-0.36V2c0-0.199,0.161-0.36,0.36-0.36h25c0.199,0,0.36,0.161,0.36,0.36v10.64H31	c0.199,0,0.36,0.161,0.36,0.36v16C31.36,29.199,31.199,29.36,31,29.36z M22.36,28.64h8.279v-2.28H22.36V28.64z M22.36,25.64h8.279	V13.36H26.36V21c0,0.199-0.161,0.36-0.36,0.36h-3.64V25.64z'
       );
     });
 
@@ -153,77 +130,14 @@ describe('dds-content-group-pictograms | default (desktop)', () => {
       );
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot(
-      'dds-content-group-pictograms | default (desktop) | should have customizable pictogram item',
-      {
-        widths: [1280],
-      }
-    );
+    cy.takeSnapshots();
   });
 
-  it('should load the g10 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g10`);
+  it('should load correctly in all themes', () => {
+    cy.visit(`/${_pathDefault}`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g10'
-      );
-
-      cy.screenshot();
-
-      cy.percySnapshot(
-        'dds-content-group-pictograms | short with image | g10 theme',
-        {
-          widths: [1280],
-        }
-      );
-    });
-  });
-
-  it('should load the g90 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g90`);
-    cy.viewport(1280, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g90'
-      );
-
-      cy.screenshot();
-
-      cy.percySnapshot(
-        'dds-content-group-pictograms | default (desktop) | g90 theme',
-        {
-          widths: [1280],
-        }
-      );
-    });
-  });
-
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g100`);
-    cy.viewport(1280, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g100'
-      );
-
-      cy.screenshot();
-
-      cy.percySnapshot(
-        'dds-content-group-pictograms | default (desktop) | g100 theme',
-        {
-          widths: [1280],
-        }
-      );
-    });
+    cy.carbonThemesScreenshot();
   });
 });
 
@@ -244,14 +158,7 @@ describe('dds-content-group-pictograms | default (mobile)', () => {
         .should('be.visible');
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot(
-      'dds-content-group-pictograms | default (mobile) | should load content group heading and copy before the pictograms',
-      {
-        widths: [320],
-      }
-    );
+    cy.takeSnapshots('mobile');
   });
 
   it('should load pictogram item and content', () => {
@@ -278,14 +185,7 @@ describe('dds-content-group-pictograms | default (mobile)', () => {
       });
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot(
-      'dds-content-group-pictograms | default (mobile) | should load pictogram item and content',
-      {
-        widths: [320],
-      }
-    );
+    cy.takeSnapshots('mobile');
   });
 
   it('should have CTA Link with icon loaded and clickable for each pictogram', () => {
@@ -305,14 +205,7 @@ describe('dds-content-group-pictograms | default (mobile)', () => {
       });
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot(
-      'dds-content-group-pictograms | default (mobile) | should have CTA Link with icon loaded and clickable for each pictogram',
-      {
-        widths: [320],
-      }
-    );
+    cy.takeSnapshots('mobile');
   });
 
   it('should have customizable pictogram SVG', () => {
@@ -326,7 +219,7 @@ describe('dds-content-group-pictograms | default (mobile)', () => {
     ).then($pictogram => {
       expect($pictogram).to.have.attr(
         'd',
-        'M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26	c1.302,0,2.36,1.059,2.36,2.36v17c0,1.302-1.059,2.36-2.36,2.36H16.36v4.279H23V29.36z M1.36,19.36V22c0,0.904,0.736,1.64,1.64,1.64	h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5	V18.64z'
+        'M13.002,30.36c-2.405,0-4.362-2.027-4.362-4.519V15.037c0-0.771,0.609-1.397,1.358-1.397	s1.358,0.626,1.358,1.397l0.003,3.354c0.191-0.105,0.409-0.166,0.641-0.166c0.51,0,0.956,0.291,1.188,0.72	c0.227-0.174,0.509-0.277,0.813-0.277c0.596,0,1.104,0.397,1.286,0.948c0.208-0.133,0.453-0.21,0.715-0.21	c0.749,0,1.358,0.627,1.358,1.397v5.039C17.36,28.333,15.405,30.36,13.002,30.36z M9.998,14.36c-0.352,0-0.638,0.304-0.638,0.677	v10.805c0,2.095,1.634,3.798,3.643,3.798c2.006,0,3.638-1.703,3.638-3.798v-5.039c0-0.373-0.286-0.677-0.638-0.677	s-0.638,0.304-0.638,0.677v1.196c0,0.198-0.161,0.359-0.359,0.36l0,0c-0.198,0-0.359-0.161-0.36-0.359l-0.005-1.935	c0-0.374-0.286-0.678-0.638-0.678c-0.354,0-0.642,0.304-0.642,0.677l0.004,1.934c0,0.199-0.16,0.36-0.359,0.361l0,0	c-0.199,0-0.359-0.161-0.36-0.359l-0.005-2.378v-0.001c0-0.373-0.286-0.676-0.638-0.676s-0.638,0.303-0.638,0.676v2.378	c0,0.199-0.161,0.36-0.36,0.36s-0.36-0.161-0.36-0.36l-0.005-6.961C10.636,14.664,10.35,14.36,9.998,14.36z M31,29.36h-9	c-0.199,0-0.36-0.161-0.36-0.36v-7.64H19v-0.72h6.64v-2.28H19v-0.72h6.64V2.36H1.36v15.28H7v0.721H1.36v2.279H7v0.721H1	c-0.199,0-0.36-0.161-0.36-0.36V2c0-0.199,0.161-0.36,0.36-0.36h25c0.199,0,0.36,0.161,0.36,0.36v10.64H31	c0.199,0,0.36,0.161,0.36,0.36v16C31.36,29.199,31.199,29.36,31,29.36z M22.36,28.64h8.279v-2.28H22.36V28.64z M22.36,25.64h8.279	V13.36H26.36V21c0,0.199-0.161,0.36-0.36,0.36h-3.64V25.64z'
       );
     });
 
@@ -348,76 +241,18 @@ describe('dds-content-group-pictograms | default (mobile)', () => {
       );
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot(
-      'dds-content-group-pictograms | default (mobile) | should have customizable pictogram item',
+    cy.takeSnapshots('mobile');
+  });
+
+  it('should load correctly in all themes', () => {
+    cy.visit(`/${_pathDefault}`);
+    cy.viewport(320, 780);
+
+    cy.carbonThemesScreenshot(
+      {},
       {
         widths: [320],
       }
     );
-  });
-
-  it('should load the g10 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g10`);
-    cy.viewport(320, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g10'
-      );
-
-      cy.screenshot();
-
-      cy.percySnapshot(
-        'dds-content-group-pictograms | short with image | g10 theme',
-        {
-          widths: [320],
-        }
-      );
-    });
-  });
-
-  it('should load the g90 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g90`);
-    cy.viewport(320, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g90'
-      );
-
-      cy.screenshot();
-
-      cy.percySnapshot(
-        'dds-content-group-pictograms | default (mobile) | g90 theme',
-        {
-          widths: [320],
-        }
-      );
-    });
-  });
-
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g100`);
-    cy.viewport(320, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute(
-        'storybook-carbon-theme',
-        'g100'
-      );
-
-      cy.screenshot();
-
-      cy.percySnapshot(
-        'dds-content-group-pictograms | default (mobile) | g100 theme',
-        {
-          widths: [1280],
-        }
-      );
-    });
   });
 });

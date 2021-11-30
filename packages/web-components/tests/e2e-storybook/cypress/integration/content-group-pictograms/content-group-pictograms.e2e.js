@@ -31,12 +31,7 @@ describe('dds-content-group-pictograms | default (desktop)', () => {
     });
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot(
-      'dds-content-group-pictograms | default (desktop) | should load content group heading and copy before the pictograms',
-      {
-        widths: [1280],
-      }
-    );
+    cy.takeSnapshots();
   });
 
   it('should load pictogram item and content', () => {
@@ -52,11 +47,7 @@ describe('dds-content-group-pictograms | default (desktop)', () => {
       });
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-content-group-pictograms | default (desktop) | should load pictogram item and content', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should have CTA Link with icon loaded and clickable for each pictogram', () => {
@@ -72,69 +63,21 @@ describe('dds-content-group-pictograms | default (desktop)', () => {
       });
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot(
-      'dds-content-group-pictograms | default (desktop) | should have CTA Link with icon loaded and clickable for each pictogram',
-      {
-        widths: [1280],
-      }
-    );
+    cy.takeSnapshots();
   });
 
-  it('should have customizable pictogram item', () => {
-    // TODO d. Pictogram item can be customized (desktop, touch, pattern)
+  // it('should have customizable pictogram item', () => {
+  //   // TODO d. Pictogram item can be customized (desktop, touch, pattern)
+  //   // The knob need to be implemented on the storybook
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-content-group-pictograms | default (desktop) | should have customizable pictogram item', {
-      widths: [1280],
-    });
-  });
+  //   cy.takeSnapshots();
+  // });
 
-  it('should load the g10 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g10`);
+  it('should load correctly in all themes', () => {
+    cy.visit(`/${_pathDefault}`);
     cy.viewport(1280, 780);
 
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g10');
-
-      cy.screenshot();
-
-      cy.percySnapshot('dds-content-group-pictograms | short with image | g10 theme', {
-        widths: [1280],
-      });
-    });
-  });
-
-  it('should load the g90 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g90`);
-    cy.viewport(1280, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g90');
-
-      cy.screenshot();
-
-      cy.percySnapshot('dds-content-group-pictograms | default (desktop) | g90 theme', {
-        widths: [1280],
-      });
-    });
-  });
-
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g100`);
-    cy.viewport(1280, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g100');
-
-      cy.screenshot();
-
-      cy.percySnapshot('dds-content-group-pictograms | default (desktop) | g100 theme', {
-        widths: [1280],
-      });
-    });
+    cy.carbonThemesScreenshot();
   });
 });
 
@@ -156,12 +99,7 @@ describe('dds-content-group-pictograms | default (mobile)', () => {
     });
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot(
-      'dds-content-group-pictograms | default (mobile) | should load content group heading and copy before the pictograms',
-      {
-        widths: [1280],
-      }
-    );
+    cy.takeSnapshots('mobile');
   });
 
   it('should load pictogram item and content', () => {
@@ -177,11 +115,7 @@ describe('dds-content-group-pictograms | default (mobile)', () => {
       });
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-content-group-pictograms | default (mobile) | should load pictogram item and content', {
-      widths: [320],
-    });
+    cy.takeSnapshots('mobile');
   });
 
   it('should have CTA Link with icon loaded and clickable for each pictogram', () => {
@@ -197,68 +131,25 @@ describe('dds-content-group-pictograms | default (mobile)', () => {
       });
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot(
-      'dds-content-group-pictograms | default (mobile) | should have CTA Link with icon loaded and clickable for each pictogram',
+    cy.takeSnapshots('mobile');
+  });
+
+  // it('should have customizable pictogram item', () => {
+  //   // TODO d. Pictogram item can be customized (desktop, touch, pattern)
+  //   // The knob need to be implemented on the storybook
+
+  //   cy.takeSnapshots('mobile');
+  // });
+
+  it('should load correctly in all themes', () => {
+    cy.visit(`/${_pathDefault}`);
+    cy.viewport(320, 780);
+
+    cy.carbonThemesScreenshot(
+      {},
       {
         widths: [320],
       }
     );
-  });
-
-  it('should have customizable pictogram item', () => {
-    // TODO d. Pictogram item can be customized (desktop, touch, pattern)
-
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-content-group-pictograms | default (mobile) | should have customizable pictogram item', {
-      widths: [320],
-    });
-  });
-
-  it('should load the g10 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g10`);
-    cy.viewport(320, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g10');
-
-      cy.screenshot();
-
-      cy.percySnapshot('dds-content-group-pictograms | short with image | g10 theme', {
-        widths: [320],
-      });
-    });
-  });
-
-  it('should load the g90 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g90`);
-    cy.viewport(320, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g90');
-
-      cy.screenshot();
-
-      cy.percySnapshot('dds-content-group-pictograms | default (mobile) | g90 theme', {
-        widths: [320],
-      });
-    });
-  });
-
-  it('should load the g100 theme', () => {
-    cy.visit(`/${_pathDefault}&theme=g100`);
-    cy.viewport(320, 780);
-
-    cy.window().then(win => {
-      win.document.documentElement.setAttribute('storybook-carbon-theme', 'g100');
-
-      cy.screenshot();
-
-      cy.percySnapshot('dds-content-group-pictograms | default (mobile) | g100 theme', {
-        widths: [320],
-      });
-    });
   });
 });
