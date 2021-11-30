@@ -219,7 +219,7 @@ export const withPlatform = ({ parameters }) => {
         `
       : html`
           <dds-masthead-container
-            platform="${ifNonNull(platformData.name)}"
+            platform="Platform"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
