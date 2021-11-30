@@ -19,7 +19,7 @@ import styles from './masthead.stories.scss';
 import {
   mastheadLinks as links,
   // customLinks,
-  l1Data,
+  mastheadL1Data,
   logoData,
 } from './links';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
@@ -273,7 +273,7 @@ export const withL1 = ({ parameters }) => {
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .l1Data="${l1Data}"
+            .l1Data="${mastheadL1Data}"
             .navLinks="${navLinks}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           ></dds-masthead-composite>
@@ -284,7 +284,7 @@ export const withL1 = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .l1Data="${l1Data}"
+            .l1Data="${mastheadL1Data}"
             .navLinks="${navLinks}"
           ></dds-masthead-container>
         `}
