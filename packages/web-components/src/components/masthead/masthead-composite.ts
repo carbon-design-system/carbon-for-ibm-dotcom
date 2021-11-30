@@ -861,7 +861,7 @@ class DDSMastheadComposite extends LitElement {
           : html`
               <dds-top-nav-name href="${ifNonNull(platformAltUrl)}">${platform}</dds-top-nav-name>
             `}
-        ${!l1Data &&
+        ${(!l1Data &&
           navLinks &&
           html`
             <dds-top-nav
@@ -871,7 +871,8 @@ class DDSMastheadComposite extends LitElement {
             >
               ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: false })}
             </dds-top-nav>
-          `}
+          `) ||
+          undefined}
         ${!hasSearch
           ? undefined
           : html`
