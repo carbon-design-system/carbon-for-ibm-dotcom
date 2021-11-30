@@ -60,6 +60,11 @@ class DDSCTABlockItem extends StableSelectorMixin(DDSContentItem) {
     const { name } = target as HTMLSlotElement;
     const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
+      .filter(elem =>
+        (elem as HTMLElement).matches !== undefined
+          ? !(elem as HTMLElement).matches((this.constructor as typeof DDSCTABlockItem).selectorButtonGroup)
+          : false
+      )
       .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
     this[slotExistencePropertyNames[name] || '_hasStatistic'] = hasContent;
   }
