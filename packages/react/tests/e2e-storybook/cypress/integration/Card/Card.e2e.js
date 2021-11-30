@@ -129,33 +129,42 @@ const _tests = {
         });
     });
   },
-  checkImageRenders: () => {
-    cy.get(_selectors.image).should('have.length', 1);
-    cy.takeSnapshots();
+  checkImageRenders: path => {
+    it('should render with image', () => {
+      cy.visit(`${path}&knob-Add%20image:_Card=true`);
+      cy.get(_selectors.image).should('have.length', 1);
+      cy.takeSnapshots();
+    });
   },
-  checkOutlineRenders: () => {
-    cy.get(_selectorBase).should('have.class', `${prefix}--card--border`);
-    // converted HEX var(--cds-ui-03, #e0e0e0) to RGB
-    cy.get(_selectorBase)
-      .should('have.css', 'border')
-      .and('equal', '1px solid rgb(224, 224, 224)');
+  checkOutlineRenders: path => {
+    it('should render with outline', () => {
+      cy.visit(path);
+      cy.get(_selectorBase).should('have.class', `${prefix}--card--border`);
+      // converted HEX var(--cds-ui-03, #e0e0e0) to RGB
+      cy.get(_selectorBase)
+        .should('have.css', 'border')
+        .and('equal', '1px solid rgb(224, 224, 224)');
 
-    cy.get(_selectorBase).should('have.class', `${prefix}--card--light`);
-    // converted HEX var(--cds-ui-02, #ffffff) to RGB
-    cy.get(_selectorBase)
-      .should('have.css', 'background-color')
-      .and('equal', 'rgb(255, 255, 255)');
+      cy.get(_selectorBase).should('have.class', `${prefix}--card--light`);
+      // converted HEX var(--cds-ui-02, #ffffff) to RGB
+      cy.get(_selectorBase)
+        .should('have.css', 'background-color')
+        .and('equal', 'rgb(255, 255, 255)');
 
-    cy.takeSnapshots();
+      cy.takeSnapshots();
+    });
   },
-  checkInverseRenders: () => {
-    cy.get(_selectorBase).should('have.class', `${prefix}--card--inverse`);
-    // converted HEX var(--cds-inverse-02, #393939) to RGB
-    cy.get(_selectorBase)
-      .should('have.css', 'background-color')
-      .and('equal', 'rgb(57, 57, 57)');
+  checkInverseRenders: path => {
+    it('should render with inverse', () => {
+      cy.visit(`${path}&knob-Card%20style:_Card=Inverse%20card`);
+      cy.get(_selectorBase).should('have.class', `${prefix}--card--inverse`);
+      // converted HEX var(--cds-inverse-02, #393939) to RGB
+      cy.get(_selectorBase)
+        .should('have.css', 'background-color')
+        .and('equal', 'rgb(57, 57, 57)');
 
-    cy.takeSnapshots();
+      cy.takeSnapshots();
+    });
   },
 };
 
@@ -167,7 +176,11 @@ describe('Card | Default (desktop)', () => {
 
   _tests.checkTextRenders();
   _tests.checkClickableCard();
-
+  _tests.checkImageRenders(_path);
+  _tests.checkOutlineRenders(
+    `${_path}&knob-Card%20style:_Card=Outlined%20card`
+  );
+  _tests.checkInverseRenders(_path);
   it('should render correctly in all themes', _tests.screenshotThemes);
 });
 
@@ -179,51 +192,7 @@ describe('Card | Static (desktop)', () => {
 
   _tests.checkTextRenders();
   _tests.checkNonClickableCard();
-
+  _tests.checkImageRenders(_pathStatic);
+  _tests.checkOutlineRenders(`${_pathStatic}&knob-Outlined%20card_Card=true`);
   it('should render correctly in all themes', _tests.screenshotThemes);
-});
-
-describe('Card | Default with image (desktop)', () => {
-  beforeEach(() => {
-    cy.viewport(1280, 780);
-    cy.visit(`${_path}&knob-Add%20image:_Card=true`);
-  });
-
-  it('should render with image', _tests.checkImageRenders);
-});
-
-describe('Card | Static with image (desktop)', () => {
-  beforeEach(() => {
-    cy.viewport(1280, 780);
-    cy.visit(`${_pathStatic}&knob-Add%20image:_Card=true`);
-  });
-
-  it('should render with image', _tests.checkImageRenders);
-});
-
-describe('Card | Default with outline (desktop)', () => {
-  beforeEach(() => {
-    cy.viewport(1280, 780);
-    cy.visit(`${_path}&knob-Card%20style:_Card=Outlined%20card`);
-  });
-
-  it('should render with outline', _tests.checkOutlineRenders);
-});
-
-describe('Card | Static with outline (desktop)', () => {
-  beforeEach(() => {
-    cy.viewport(1280, 780);
-    cy.visit(`${_pathStatic}&knob-Outlined%20card_Card=true`);
-  });
-
-  it('should render with outline', _tests.checkOutlineRenders);
-});
-
-describe('Card | Default with inverse (desktop)', () => {
-  beforeEach(() => {
-    cy.viewport(1280, 780);
-    cy.visit(`${_path}&knob-Card%20style:_Card=Inverse%20card`);
-  });
-
-  it('should render with outline', _tests.checkInverseRenders);
 });
