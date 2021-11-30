@@ -14,6 +14,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
 
+
 /**
  * Defines the component variant path.
  *
@@ -44,7 +45,7 @@ const _pathStatic = '/iframe.html?id=components-card--static';
  * @type {string}
  * @private
  */
-const _selectorBase = `[data-autoid="${ddsPrefix}--card"]`;
+const _selectorBase = `[data-autoid="dds--card"]`;
 
 /**
  * Defines the card element selectors.
@@ -53,11 +54,11 @@ const _selectorBase = `[data-autoid="${ddsPrefix}--card"]`;
  * @private
  */
 const _selectors = {
-  eyebrow: `${_selectorBase} [data-autoid="${ddsPrefix}--card-eyebrow"]`,
-  heading: `${_selectorBase} [data-autoid="${ddsPrefix}--card-heading"]`,
-  footer: `${_selectorBase} [data-autoid="${ddsPrefix}--card-footer"]`,
-  image: `${_selectorBase} [data-autoid="${ddsPrefix}--image"]`,
-  tagGroup: `${_selectorBase} [data-autoid="${ddsPrefix}--tag-group"]`,
+  eyebrow: `${_selectorBase} [data-autoid="dds--card-eyebrow"]`,
+  heading: `${_selectorBase} [data-autoid="dds--card-heading"]`,
+  footer: `${_selectorBase} [data-autoid="dds--card-footer"]`,
+  image: `${_selectorBase} [data-autoid="dds--image"]`,
+  tagGroup: `${_selectorBase} [data-autoid="dds--tag-group"]`,
   copy: `${_selectorBase} p`,
 };
 
@@ -181,7 +182,6 @@ const _tests = {
         .find(`.${prefix}--card__wrapper`)
         .should('have.css', 'background-color')
         .and('equal', 'rgb(255, 255, 255)');
-
       cy.takeSnapshots();
     });
   },
