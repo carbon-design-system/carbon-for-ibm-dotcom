@@ -89,16 +89,7 @@ describe('dds-card | static', () => {
   });
 
   it('should render correctly in all themes', () => {
-    cy.wrap(['white', 'g10', 'g90', 'g100']).each(theme => {
-      const screenshotTitle = `${Cypress.currentTest.titlePath.join(' | ')} [${theme.toUpperCase()}]`;
-      cy.get('html').then(doc => doc.attr('storybook-carbon-theme', theme));
-      cy.screenshot(screenshotTitle);
-      // Take a snapshot for visual diffing
-      // TODO: click states currently not working in percy for web components
-      // cy.percySnapshot(screenshotTitle, {
-      //  widths: [1280],
-      // });
-    });
+    cy.carbonThemesScreenshot();
   });
 });
 
@@ -122,12 +113,7 @@ describe('dds-card | static with tags', () => {
 
   it('should render tags', () => {
     cy.get(_selectors.tagGroup).should('have.length', 1);
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot(Cypress.currentTest.titlePath.join(' | '), {
-    //  widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 });
 
@@ -142,11 +128,6 @@ describe('dds-card | static with image', () => {
       .shadow()
       .find('img')
       .should('have.length', 1);
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot(Cypress.currentTest.titlePath.join(' | '), {
-    //  widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 });
