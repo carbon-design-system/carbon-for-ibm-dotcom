@@ -6,7 +6,7 @@
  */
 
 /**
- * Sets the correct defaultPath for LogoGrid
+ * Sets the correct defaultPath for LightboxMediaViewer
  *
  * @type {string}
  * @private

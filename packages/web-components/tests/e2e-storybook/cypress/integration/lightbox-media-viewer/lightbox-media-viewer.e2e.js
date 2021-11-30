@@ -6,7 +6,7 @@
  */
 
 /**
- * Sets the correct defaultPath for LogoGrid
+ * Sets the correct defaultPath for dds-lightbox-media-viewer
  *
  * @type {string}
  * @private
