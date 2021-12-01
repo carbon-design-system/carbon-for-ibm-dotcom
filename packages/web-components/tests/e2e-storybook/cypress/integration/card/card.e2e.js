@@ -126,7 +126,9 @@ const _tests = {
             const insetValue = after.getPropertyValue('inset');
 
             expect(positionValue).to.eq('absolute');
-            expect(insetValue).to.eq('0px');
+            if (Cypress.browser.name !== 'firefox') {
+              expect(insetValue).to.eq('0px');
+            }
           });
       });
     }
@@ -165,9 +167,11 @@ const _tests = {
       cy.visit(path);
       cy.get(_selectorBase).should('have.attr', 'border');
       // converted HEX var(--cds-ui-03, #e0e0e0) to RGB
-      cy.get(_selectorBase)
-        .should('have.css', 'border')
-        .and('equal', '1px solid rgb(224, 224, 224)');
+      if (Cypress.browser.name !== 'firefox') {
+        cy.get(_selectorBase)
+          .should('have.css', 'border')
+          .and('equal', '1px solid rgb(224, 224, 224)');
+      }
 
       cy.get(_selectorBase).should('have.attr', 'color-scheme', 'light');
       // converted HEX var(--cds-ui-02, #ffffff) to RGB
