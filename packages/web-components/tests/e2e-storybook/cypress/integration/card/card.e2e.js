@@ -8,11 +8,6 @@
 'use strict';
 
 import getCssPropertyForRule from '../../utils/get-css-property-for-rule';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import settings from 'carbon-components/es/globals/js/settings';
-
-const { stablePrefix: ddsPrefix } = ddsSettings;
-const { prefix } = settings;
 
 /**
  * Defines the component variant path.
@@ -107,13 +102,13 @@ const _tests = {
   checkClickableCard: pictogram => {
     if (pictogram) {
       it('should check for link', () => {
-        cy.get(`${ddsPrefix}-card`).should('have.attr', 'href');
+        cy.get('dds-card').should('have.attr', 'href');
       });
     } else {
       it('should check for link', () => {
-        cy.get(`${ddsPrefix}-card > ${ddsPrefix}-card-footer`)
+        cy.get('dds-card > dds-card-footer')
           .shadow()
-          .find(`a.${prefix}--card__footer`)
+          .find('a.bx--card__footer')
           .then($link => {
             const url = $link.prop('href');
             expect(url).not.to.be.empty;
@@ -121,7 +116,7 @@ const _tests = {
       });
 
       it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
-        cy.get(`${ddsPrefix}-card > ${ddsPrefix}-card-footer`)
+        cy.get('dds-card > dds-card-footer')
           .shadow()
           .find('a')
           .then($els => {
@@ -178,7 +173,7 @@ const _tests = {
       // converted HEX var(--cds-ui-02, #ffffff) to RGB
       cy.get(_selectorBase)
         .shadow()
-        .find(`.${prefix}--card__wrapper`)
+        .find('.bx--card__wrapper')
         .should('have.css', 'background-color')
         .and('equal', 'rgb(255, 255, 255)');
       cy.takeSnapshots();
@@ -199,8 +194,8 @@ const _tests = {
   pictogramPosition: position => {
     if (position === 'top') {
       it('should check for pictogram at the top', () => {
-        cy.get(`${ddsPrefix}-card`).should('have.attr', 'pictogram-placement', 'top');
-        cy.get(`${ddsPrefix}-card svg`).then($content => {
+        cy.get('dds-card').should('have.attr', 'pictogram-placement', 'top');
+        cy.get('dds-card svg').then($content => {
           expect($content[0].getBoundingClientRect().top).to.equal(32);
           expect($content[0].getBoundingClientRect().bottom).to.equal(80);
         });
@@ -209,13 +204,13 @@ const _tests = {
       it('should check for pictogram at the bottom with text showing on hover', () => {
         cy.visit(`/${_pathPictogram}&knob-Pictogram%20position:_PictogramCard=bottom`);
 
-        cy.get(`${ddsPrefix}-card`).should('have.attr', 'pictogram-placement', 'bottom');
-        cy.get(`${ddsPrefix}-card svg`).then($content => {
+        cy.get('dds-card').should('have.attr', 'pictogram-placement', 'bottom');
+        cy.get('dds-card svg').then($content => {
           expect($content[0].getBoundingClientRect().top).to.equal(186);
           expect($content[0].getBoundingClientRect().bottom).to.equal(234);
         });
 
-        cy.get(`${ddsPrefix}-card`).then($el => {
+        cy.get('dds-card').then($el => {
           const sheets = $el[0].shadowRoot.adoptedStyleSheets;
 
           const hover = getCssPropertyForRule(
@@ -225,7 +220,7 @@ const _tests = {
           );
           expect(hover).to.not.equal('none');
         });
-        cy.get(`${ddsPrefix}-card p`).should('not.be.empty');
+        cy.get('dds-card p').should('not.be.empty');
         cy.takeSnapshots();
       });
     }
