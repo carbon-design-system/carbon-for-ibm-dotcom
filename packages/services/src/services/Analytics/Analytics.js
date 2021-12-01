@@ -267,7 +267,7 @@ class AnalyticsAPI {
       primaryCategory: 'VIDEO',
       eventName: data.title,
       eventCategoryGroup: data.playerType,
-      executionPath: data.mediaId,
+      executionPath: data.videoId || data.mediaId,
       execPathReturnCode: playerState,
       eventVidStatus: data.playerState,
       eventVidTimeStamp: currentTime,
