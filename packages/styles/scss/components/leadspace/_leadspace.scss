@@ -226,6 +226,7 @@ $btn-min-width: 26;
       background-position: center top;
 
       ::slotted(#{$dds-prefix}-button-group),
+      ::slotted([slot='action']),
       .#{$prefix}--buttongroup {
         padding-top: $carbon--layout-01;
         padding-bottom: calc(#{$layout-03});
