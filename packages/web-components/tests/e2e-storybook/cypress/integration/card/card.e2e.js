@@ -14,7 +14,6 @@ import settings from 'carbon-components/es/globals/js/settings';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
 
-
 /**
  * Defines the component variant path.
  *
