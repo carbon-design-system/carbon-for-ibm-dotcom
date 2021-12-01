@@ -133,13 +133,13 @@ const _tests = {
   checkOutlineRenders: path => {
     it('should render with outline', () => {
       cy.visit(path);
-      cy.get(_selectorBase).should('have.class', `${prefix}--card--border`);
+      cy.get(_selectorBase).should('have.class', 'bx--card--border');
       // converted HEX var(--cds-ui-03, #e0e0e0) to RGB
       cy.get(_selectorBase)
         .should('have.css', 'border')
         .and('equal', '1px solid rgb(224, 224, 224)');
 
-      cy.get(_selectorBase).should('have.class', `${prefix}--card--light`);
+      cy.get(_selectorBase).should('have.class', 'bx--card--light');
       // converted HEX var(--cds-ui-02, #ffffff) to RGB
       cy.get(_selectorBase)
         .should('have.css', 'background-color')
@@ -151,7 +151,7 @@ const _tests = {
   checkInverseRenders: path => {
     it('should render with inverse', () => {
       cy.visit(`${path}&knob-Card%20style:_Card=Inverse%20card`);
-      cy.get(_selectorBase).should('have.class', `${prefix}--card--inverse`);
+      cy.get(_selectorBase).should('have.class', 'bx--card--inverse');
       // converted HEX var(--cds-inverse-02, #393939) to RGB
       cy.get(_selectorBase)
         .should('have.css', 'background-color')
