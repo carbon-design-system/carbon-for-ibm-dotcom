@@ -52,62 +52,111 @@
     ::slotted(#{$dds-prefix}-card-heading) {
       padding-top: $carbon--spacing-07;
       margin-bottom: 0;
-      flex: 1;
-      display: flex;
-      align-items: flex-end;
+
       @include carbon--breakpoint('md') {
         padding-left: 0;
-      }
-      @include carbon--breakpoint('sm') {
-        padding-left: $carbon--spacing-05;
+        flex: 1;
+        display: flex;
       }
     }
-    ::slotted(#{$dds-prefix}-card-eyebrow) {
-      @include carbon--breakpoint('md') {
-        padding-left: 0;
+  }
+
+  // Card with pictogram placement style.
+  &[pictogram-placement='top'],
+  &[pictogram-placement='bottom'] {
+    &:hover,
+    &:focus {
+      .#{$prefix}--card__motion {
+        ::slotted(#{$dds-prefix}-card-heading) {
+          @include carbon--breakpoint('md') {
+            display: none;
+          }
+        }
+
+        .#{$prefix}--card__copy {
+          /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
+          @include carbon--breakpoint('md') {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+          }
+          /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
+        }
       }
-      @include carbon--breakpoint('sm') {
-        padding-left: $carbon--spacing-05;
+    }
+
+    .#{$prefix}--card__motion {
+      ::slotted(#{$dds-prefix}-card-heading) {
+        padding-top: 0;
+      }
+
+      ::slotted(svg[slot='pictogram']) {
+        margin-left: 0;
+      }
+
+      .#{$prefix}--card__content {
+        position: relative;
+      }
+
+      .#{$prefix}--card__copy {
+        margin-top: $carbon--spacing-07;
+        margin-bottom: 0;
+
+        @include carbon--breakpoint('md') {
+          margin-top: 0;
+          display: none;
+        }
+      }
+    }
+  }
+
+  &[pictogram-placement='top'] {
+    &:hover,
+    &:focus {
+      .#{$prefix}--card__motion {
+        .#{$prefix}--card__copy {
+          @include carbon--breakpoint('md') {
+            margin-top: auto;
+          }
+        }
+      }
+    }
+
+    .#{$prefix}--card__motion {
+      ::slotted(#{$dds-prefix}-card-heading) {
+        align-items: flex-end;
+        margin-bottom: 0;
+        margin-top: auto;
+      }
+
+      ::slotted(svg[slot='pictogram']) {
+        margin-bottom: $carbon--spacing-10;
+
+        @include carbon--breakpoint('md') {
+          position: absolute;
+          top: $carbon--spacing-05;
+          margin-bottom: 0;
+        }
       }
     }
   }
 
   &[pictogram-placement='bottom'] {
-    &:hover,
-    &:focus {
-      ::slotted(svg[slot='pictogram']) {
-        display: none;
-      }
-
-      /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
-      .#{$prefix}--card__copy {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
-        overflow: hidden;
-
-        margin-bottom: 0;
-      }
-      /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
-    }
-
-    .#{$prefix}--card__pictogram {
+    .#{$prefix}--card__motion {
       ::slotted(#{$dds-prefix}-card-heading) {
-        padding-top: 0;
-        padding-bottom: $carbon--spacing-07;
         align-items: flex-start;
       }
-    }
 
-    .#{$prefix}--card__copy {
-      @include carbon--breakpoint('md') {
-        padding-left: 0;
-      }
-      @include carbon--breakpoint('sm') {
-        padding-left: $carbon--spacing-05;
-      }
+      ::slotted(svg[slot='pictogram']) {
+        position: absolute;
+        bottom: $carbon--spacing-05;
+        margin-top: $carbon--spacing-10;
 
-      display: none;
+        @include carbon--breakpoint('md') {
+          margin-top: 0;
+        }
+      }
     }
   }
 

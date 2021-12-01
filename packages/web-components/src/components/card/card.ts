@@ -117,10 +117,14 @@ class DDSCard extends StableSelectorMixin(BXLink) {
    * @returns The inner content.
    */
   protected _renderInner() {
-    const { _handleSlotChange: handleSlotChange, _hasPictogram: hasPictogram } = this;
+    const { _handleSlotChange: handleSlotChange, _hasPictogram: hasPictogram, _hasCopy: hasCopy } = this;
     return html`
       ${this._renderImage()}
-      <div class="${prefix}--card__wrapper ${hasPictogram ? `${prefix}--card__pictogram` : ''}">
+      <div
+        class="${prefix}--card__wrapper ${hasPictogram ? `${prefix}--card__pictogram` : ''} ${hasPictogram && hasCopy
+          ? `${prefix}--card__motion`
+          : ''}"
+      >
         <div class="${prefix}--card__content">
           ${hasPictogram
             ? ''
@@ -148,6 +152,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
               `
             : ''}
           ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP ? this._renderHeading() : null}
+          ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP ? this._renderCopy() : ''}
           <slot name="footer"></slot>
         </div>
       </div>
