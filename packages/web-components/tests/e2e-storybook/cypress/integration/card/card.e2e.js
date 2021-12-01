@@ -7,12 +7,6 @@
 
 'use strict';
 
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import settings from 'carbon-components/es/globals/js/settings';
-
-const { stablePrefix: ddsPrefix } = ddsSettings;
-const { prefix } = settings;
-
 /**
  * Defines the component variant path.
  *
@@ -35,7 +29,7 @@ const _pathStatic = '/iframe.html?id=components-card--static';
  * @type {string}
  * @private
  */
-const _selectorBase = `[data-autoid="${ddsPrefix}--card"]`;
+const _selectorBase = `[data-autoid="dds--card"]`;
 
 /**
  * Defines the card element selectors.
@@ -44,11 +38,11 @@ const _selectorBase = `[data-autoid="${ddsPrefix}--card"]`;
  * @private
  */
 const _selectors = {
-  eyebrow: `${_selectorBase} [data-autoid="${ddsPrefix}--card-eyebrow"]`,
-  heading: `${_selectorBase} [data-autoid="${ddsPrefix}--card-heading"]`,
-  footer: `${_selectorBase} [data-autoid="${ddsPrefix}--card-footer"]`,
-  image: `${_selectorBase} [data-autoid="${ddsPrefix}--image"]`,
-  tagGroup: `${_selectorBase} [data-autoid="${ddsPrefix}--tag-group"]`,
+  eyebrow: `${_selectorBase} [data-autoid="dds--card-eyebrow"]`,
+  heading: `${_selectorBase} [data-autoid="dds--card-heading"]`,
+  footer: `${_selectorBase} [data-autoid="dds--card-footer"]`,
+  image: `${_selectorBase} [data-autoid="dds--image"]`,
+  tagGroup: `${_selectorBase} [data-autoid="dds--tag-group"]`,
   copy: `${_selectorBase} p`,
 };
 
@@ -97,9 +91,9 @@ const _tests = {
   },
   checkClickableCard: () => {
     it('should check for link', () => {
-      cy.get(`${ddsPrefix}-card > ${ddsPrefix}-card-footer`)
+      cy.get(`dds-card > dds-card-footer`)
         .shadow()
-        .find(`a.${prefix}--card__footer`)
+        .find(`a.bx--card__footer`)
         .then($link => {
           const url = $link.prop('href');
           expect(url).not.to.be.empty;
@@ -107,7 +101,7 @@ const _tests = {
     });
 
     it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
-      cy.get(`${ddsPrefix}-card > ${ddsPrefix}-card-footer`)
+      cy.get(`dds-card > dds-card-footer`)
         .shadow()
         .find('a')
         .then($els => {
@@ -155,7 +149,7 @@ const _tests = {
     // converted HEX var(--cds-ui-02, #ffffff) to RGB
     cy.get(_selectorBase)
       .shadow()
-      .find(`.${prefix}--card__wrapper`)
+      .find(`.bx--card__wrapper`)
       .should('have.css', 'background-color')
       .and('equal', 'rgb(255, 255, 255)');
 
