@@ -648,16 +648,12 @@
 
           .#{$prefix}--card__copy {
             @include carbon--breakpoint('md') {
-              /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
-              display: -webkit-box;
-              -webkit-box-orient: vertical;
-              -webkit-line-clamp: 3;
-              /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
+              display: block;
               overflow: hidden;
               visibility: visible;
               opacity: 1;
               transform: translate3d(0, 0, 0);
-              transition-delay: 0s;
+              transition-delay: 0.2s;
             }
           }
         }
@@ -693,8 +689,7 @@
             visibility: hidden;
             opacity: 0;
             transform: translate3d(0, -16px, 0);
-            transition: all $duration--moderate-02 motion(standard, productive)
-              0.2s;
+            transition: all $duration--moderate-02 motion(standard, productive);
           }
         }
       }
@@ -723,9 +718,7 @@
           margin-bottom: $carbon--spacing-10;
 
           @include carbon--breakpoint('md') {
-            position: absolute;
-            top: $carbon--spacing-05;
-            margin-bottom: 0;
+            margin-bottom: $carbon--spacing-07;
           }
         }
       }
@@ -742,14 +735,17 @@
           }
         }
 
-        ::slotted(svg[slot='pictogram']) {
-          position: absolute;
-          bottom: $carbon--spacing-05;
-          margin-top: $carbon--spacing-10;
+        .#{$prefix}--card__copy {
+          margin-bottom: $carbon--spacing-10;
 
           @include carbon--breakpoint('md') {
-            margin-top: 0;
+            margin-bottom: $carbon--spacing-07;
           }
+        }
+
+        ::slotted(svg[slot='pictogram']) {
+          margin-top: auto;
+          align-items: flex-end;
         }
       }
     }
