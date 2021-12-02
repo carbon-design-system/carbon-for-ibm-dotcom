@@ -57,8 +57,12 @@ describe('dds-logo-grid | default', () => {
         const positionValue = after.getPropertyValue('position');
         const insetValue = after.getPropertyValue('inset');
 
-        expect(positionValue).to.eq('absolute');
-        expect(insetValue).to.eq('0px');
+        if (Cypress.browser.name === 'firefox') {
+          expect(positionValue).to.eq('static');
+        } else {
+          expect(positionValue).to.eq('absolute');
+          expect(insetValue).to.eq('0px');
+        }
       });
 
     cy.takeSnapshots();
