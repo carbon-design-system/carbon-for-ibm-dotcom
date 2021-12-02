@@ -217,12 +217,14 @@ const _tests = {
         cy.get('dds-card').then($el => {
           const sheets = $el[0].shadowRoot.adoptedStyleSheets;
 
-          const hover = getCssPropertyForRule(
-            ':host(dds-card[pictogram-placement="bottom"]:hover) .bx--card__copy',
-            'display',
-            sheets
-          );
-          expect(hover).to.not.equal('none');
+          if (sheets) {
+            const hover = getCssPropertyForRule(
+              ':host(dds-card[pictogram-placement="bottom"]:hover) .bx--card__copy',
+              'display',
+              sheets
+            );
+            expect(hover).to.not.equal('none');
+          }
         });
         cy.get('dds-card p').should('not.be.empty');
         cy.takeSnapshots();
