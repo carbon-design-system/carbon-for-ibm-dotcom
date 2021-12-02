@@ -157,40 +157,6 @@ export const Static = ({ parameters }) => {
 
 Static.story = {
   parameters: {
-    knobs: {
-      StaticCard: ({ groupId }) => {
-        const image = boolean('Add image:', false, groupId);
-        const eyebrow = textNullable('Eyebrow:', 'SPSS Statistics', groupId);
-        const heading = textNullable('Heading:', 'Free trial', groupId);
-        const copy = textNullable(
-          'Body copy:',
-          'Enjoy full SPSS Statistics capabilities including all add-ons. ' +
-            'All trial registrants are restricted to one free trial per computer per user.',
-          groupId
-        );
-        const tagGroup = boolean('Add tags:', false, groupId);
-        const cta = boolean('Add CTA:', false, groupId);
-        const ctaCopy = cta ? textNullable('CTA copy:', 'Sign up for the trial', groupId) : '';
-        const outlinedCard = boolean('Outlined card:', true, groupId);
-        return {
-          alt: 'Image alt text',
-          defaultSrc: imgXlg4x3,
-          image,
-          eyebrow,
-          heading,
-          copy,
-          tagGroup,
-          cta,
-          ctaCopy,
-          outlinedCard,
-        };
-      },
-    },
-  },
-};
-
-Static.story = {
-  parameters: {
     ...readme.parameters,
     knobs: {
       Card: ({ groupId }) => {
