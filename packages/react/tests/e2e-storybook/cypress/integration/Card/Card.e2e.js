@@ -7,12 +7,6 @@
 
 'use strict';
 
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import settings from 'carbon-components/es/globals/js/settings';
-
-const { stablePrefix: ddsPrefix } = ddsSettings;
-const { prefix } = settings;
-
 /**
  * Defines the default component variant path.
  *
@@ -35,7 +29,7 @@ const _pathStatic = '/iframe.html?id=components-card--card-static';
  * @type {string}
  * @private
  */
-const _selectorBase = `[data-autoid="${ddsPrefix}--card"]`;
+const _selectorBase = `[data-autoid="dds--card"]`;
 
 /**
  * Defines the card element selectors.
@@ -44,11 +38,11 @@ const _selectorBase = `[data-autoid="${ddsPrefix}--card"]`;
  * @private
  */
 const _selectors = {
-  eyebrow: `${_selectorBase} .${prefix}--card__eyebrow`,
-  heading: `${_selectorBase} .${prefix}--card__heading`,
-  footer: `${_selectorBase} .${prefix}--card__footer`,
-  image: `${_selectorBase} .${prefix}--image img`,
-  copy: `${_selectorBase} .${prefix}--card__copy`,
+  eyebrow: `${_selectorBase} .bx--card__eyebrow`,
+  heading: `${_selectorBase} .bx--card__heading`,
+  footer: `${_selectorBase} .bx--card__footer`,
+  image: `${_selectorBase} .bx--image img`,
+  copy: `${_selectorBase} .bx--card__copy`,
 };
 
 /**
@@ -96,21 +90,23 @@ const _tests = {
   },
   checkClickableCard: () => {
     it('should check for link', () => {
-      cy.get(`.${prefix}--card a.${prefix}--link`).then($link => {
+      cy.get(`.bx--card a.bx--link`).then($link => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
     });
 
     it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
-      cy.get(`.${prefix}--card a.${prefix}--link`).then($els => {
+      cy.get(`.bx--card a.bx--link`).then($els => {
         const win = $els[0].ownerDocument.defaultView;
         const after = win.getComputedStyle($els[0], ':after');
         const positionValue = after.getPropertyValue('position');
         const insetValue = after.getPropertyValue('inset');
 
         expect(positionValue).to.eq('absolute');
-        expect(insetValue).to.eq('0px');
+        if (Cypress.browser.name !== 'firefox') {
+          expect(insetValue).to.eq('0px');
+        }
       });
     });
   },
@@ -129,33 +125,45 @@ const _tests = {
         });
     });
   },
-  checkImageRenders: () => {
-    cy.get(_selectors.image).should('have.length', 1);
-    cy.takeSnapshots();
+  checkImageRenders: path => {
+    it('should render with image', () => {
+      cy.visit(`${path}&knob-Add%20image:_Card=true`);
+      cy.get(_selectors.image).should('have.length', 1);
+      cy.takeSnapshots();
+    });
   },
-  checkOutlineRenders: () => {
-    cy.get(_selectorBase).should('have.class', `${prefix}--card--border`);
-    // converted HEX var(--cds-ui-03, #e0e0e0) to RGB
-    cy.get(_selectorBase)
-      .should('have.css', 'border')
-      .and('equal', '1px solid rgb(224, 224, 224)');
+  checkOutlineRenders: path => {
+    it('should render with outline', () => {
+      cy.visit(path);
+      cy.get(_selectorBase).should('have.class', 'bx--card--border');
+      // converted HEX var(--cds-ui-03, #e0e0e0) to RGB
 
-    cy.get(_selectorBase).should('have.class', `${prefix}--card--light`);
-    // converted HEX var(--cds-ui-02, #ffffff) to RGB
-    cy.get(_selectorBase)
-      .should('have.css', 'background-color')
-      .and('equal', 'rgb(255, 255, 255)');
+      if (Cypress.browser.name !== 'firefox') {
+        cy.get(_selectorBase)
+          .should('have.css', 'border')
+          .and('equal', '1px solid rgb(224, 224, 224)');
+      }
 
-    cy.takeSnapshots();
+      cy.get(_selectorBase).should('have.class', 'bx--card--light');
+      // converted HEX var(--cds-ui-02, #ffffff) to RGB
+      cy.get(_selectorBase)
+        .should('have.css', 'background-color')
+        .and('equal', 'rgb(255, 255, 255)');
+
+      cy.takeSnapshots();
+    });
   },
-  checkInverseRenders: () => {
-    cy.get(_selectorBase).should('have.class', `${prefix}--card--inverse`);
-    // converted HEX var(--cds-inverse-02, #393939) to RGB
-    cy.get(_selectorBase)
-      .should('have.css', 'background-color')
-      .and('equal', 'rgb(57, 57, 57)');
+  checkInverseRenders: path => {
+    it('should render with inverse', () => {
+      cy.visit(`${path}&knob-Card%20style:_Card=Inverse%20card`);
+      cy.get(_selectorBase).should('have.class', 'bx--card--inverse');
+      // converted HEX var(--cds-inverse-02, #393939) to RGB
+      cy.get(_selectorBase)
+        .should('have.css', 'background-color')
+        .and('equal', 'rgb(57, 57, 57)');
 
-    cy.takeSnapshots();
+      cy.takeSnapshots();
+    });
   },
 };
 
@@ -167,7 +175,11 @@ describe('Card | Default (desktop)', () => {
 
   _tests.checkTextRenders();
   _tests.checkClickableCard();
-
+  _tests.checkImageRenders(_path);
+  _tests.checkOutlineRenders(
+    `${_path}&knob-Card%20style:_Card=Outlined%20card`
+  );
+  _tests.checkInverseRenders(_path);
   it('should render correctly in all themes', _tests.screenshotThemes);
 });
 
@@ -179,51 +191,7 @@ describe('Card | Static (desktop)', () => {
 
   _tests.checkTextRenders();
   _tests.checkNonClickableCard();
-
+  _tests.checkImageRenders(_pathStatic);
+  _tests.checkOutlineRenders(`${_pathStatic}&knob-Outlined%20card_Card=true`);
   it('should render correctly in all themes', _tests.screenshotThemes);
-});
-
-describe('Card | Default with image (desktop)', () => {
-  beforeEach(() => {
-    cy.viewport(1280, 780);
-    cy.visit(`${_path}&knob-Add%20image:_Card=true`);
-  });
-
-  it('should render with image', _tests.checkImageRenders);
-});
-
-describe('Card | Static with image (desktop)', () => {
-  beforeEach(() => {
-    cy.viewport(1280, 780);
-    cy.visit(`${_pathStatic}&knob-Add%20image:_Card=true`);
-  });
-
-  it('should render with image', _tests.checkImageRenders);
-});
-
-describe('Card | Default with outline (desktop)', () => {
-  beforeEach(() => {
-    cy.viewport(1280, 780);
-    cy.visit(`${_path}&knob-Card%20style:_Card=Outlined%20card`);
-  });
-
-  it('should render with outline', _tests.checkOutlineRenders);
-});
-
-describe('Card | Static with outline (desktop)', () => {
-  beforeEach(() => {
-    cy.viewport(1280, 780);
-    cy.visit(`${_pathStatic}&knob-Outlined%20card_Card=true`);
-  });
-
-  it('should render with outline', _tests.checkOutlineRenders);
-});
-
-describe('Card | Default with inverse (desktop)', () => {
-  beforeEach(() => {
-    cy.viewport(1280, 780);
-    cy.visit(`${_path}&knob-Card%20style:_Card=Inverse%20card`);
-  });
-
-  it('should render with outline', _tests.checkInverseRenders);
 });
