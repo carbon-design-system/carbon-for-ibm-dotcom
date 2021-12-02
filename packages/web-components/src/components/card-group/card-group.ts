@@ -97,11 +97,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
   private _handleSlotChange(event: Event) {
     this._childItems = (event.target as HTMLSlotElement)
       .assignedNodes()
-      .filter(elem =>
-        (elem as HTMLElement).matches !== undefined
-          ? (elem as HTMLElement).matches((this.constructor as typeof DDSCardGroup).selectorItem)
-          : false
-      );
+      .filter(elem => (elem as HTMLElement).matches?.((this.constructor as typeof DDSCardGroup).selectorItem));
 
     // retrieve item heading, eyebrows, and footers to set same height
     if (this._childItems) {

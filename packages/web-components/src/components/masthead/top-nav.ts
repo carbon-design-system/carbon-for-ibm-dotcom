@@ -183,9 +183,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   private _handleSlotChange(event) {
     this._childItems = (event.target as HTMLSlotElement)
       .assignedNodes()
-      .filter(elem =>
-        (elem as HTMLElement).matches !== undefined ? (elem as HTMLElement).matches('dds-megamenu-top-nav-menu') : false
-      );
+      .filter(elem => (elem as HTMLElement).matches?.('dds-megamenu-top-nav-menu'));
     this._paginateRight({ onLoad: true });
   }
 

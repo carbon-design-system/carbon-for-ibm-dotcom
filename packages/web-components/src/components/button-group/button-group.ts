@@ -30,10 +30,9 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
     const childItems = (event.target as HTMLSlotElement)
       .assignedNodes()
       .filter(elem =>
-        (elem as HTMLElement).matches !== undefined
-          ? (elem as HTMLElement).matches((this.constructor as typeof DDSButtonGroup).selectorItem) ||
-            (elem as HTMLElement).matches((this.constructor as typeof DDSButtonGroup).selectorItemCTA)
-          : false
+        (elem as HTMLElement).matches?.(
+          (this.constructor as typeof DDSButtonGroup).selectorItem || (this.constructor as typeof DDSButtonGroup).selectorItemCTA
+        )
       );
 
     childItems.forEach((elem, index) => {

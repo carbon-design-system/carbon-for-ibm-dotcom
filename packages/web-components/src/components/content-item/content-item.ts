@@ -49,15 +49,15 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
     const content = (target as HTMLSlotElement)
       .assignedNodes()
       .filter(elem =>
-        (elem as HTMLElement).matches !== undefined
-          ? (elem as HTMLElement).matches((this.constructor as typeof DDSContentItem).selectorTextCTA) ||
-            (elem as HTMLElement).matches((this.constructor as typeof DDSContentItem).selectorButtonCTA) ||
-            (elem as HTMLElement).matches((this.constructor as typeof DDSContentItem).selectorButtonGroup) ||
-            (elem as HTMLElement).matches((this.constructor as typeof DDSContentItem).selectorLinkWithIcon) ||
-            (elem as HTMLElement).matches((this.constructor as typeof DDSContentItem).selectorLinkList)
-          : false
+        (elem as HTMLElement).matches?.(
+          (this.constructor as typeof DDSContentItem).selectorTextCTA ||
+            (this.constructor as typeof DDSContentItem).selectorButtonCTA ||
+            (this.constructor as typeof DDSContentItem).selectorButtonGroup ||
+            (this.constructor as typeof DDSContentItem).selectorLinkWithIcon ||
+            (this.constructor as typeof DDSContentItem).selectorLinkList
+        )
       );
-    const hasContent = content.some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+    const hasContent = content?.some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
     this[slotExistencePropertyNames[name] || '_hasCopy'] = hasContent;
   }
 
