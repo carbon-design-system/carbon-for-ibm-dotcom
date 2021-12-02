@@ -89,7 +89,8 @@ const LeadSpace = ({
                 <defs>
                   <linearGradient
                     id="stops"
-                    className={`${prefix}--leadspace__gradient__stops`}>
+                    className={`${prefix}--leadspace__gradient__stops`}
+                    gradientTransform={type === 'centered' ? 'rotate(90)' : ''}>
                     {type === 'centered' ? (
                       <>
                         <stop offset="0%" />
