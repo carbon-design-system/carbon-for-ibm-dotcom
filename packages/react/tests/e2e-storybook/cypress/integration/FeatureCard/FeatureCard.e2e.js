@@ -44,7 +44,9 @@ describe('Feature Card | medium', () => {
       const insetValue = after.getPropertyValue('inset');
 
       expect(positionValue).to.eq('absolute');
-      expect(insetValue).to.eq('0px');
+      if (Cypress.browser.name !== 'firefox') {
+        expect(insetValue).to.eq('0px');
+      }
     });
   });
 
@@ -95,7 +97,9 @@ describe('FeatureCard medium (mobile)', () => {
       const insetValue = after.getPropertyValue('inset');
 
       expect(positionValue).to.eq('absolute');
-      expect(insetValue).to.eq('0px');
+      if (Cypress.browser.name !== 'firefox') {
+        expect(insetValue).to.eq('0px');
+      }
     });
   });
 });
@@ -122,7 +126,9 @@ describe('FeatureCard | large', () => {
       const insetValue = after.getPropertyValue('inset');
 
       expect(positionValue).to.eq('absolute');
-      expect(insetValue).to.eq('0px');
+      if (Cypress.browser.name !== 'firefox') {
+        expect(insetValue).to.eq('0px');
+      }
     });
   });
 
@@ -186,7 +192,9 @@ describe('FeatureCard large (mobile)', () => {
       const insetValue = after.getPropertyValue('inset');
 
       expect(positionValue).to.eq('absolute');
-      expect(insetValue).to.eq('0px');
+      if (Cypress.browser.name !== 'firefox') {
+        expect(insetValue).to.eq('0px');
+      }
     });
   });
 });
