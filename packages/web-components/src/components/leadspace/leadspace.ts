@@ -151,7 +151,9 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
                   xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
                   <defs>
-                    <linearGradient id="stops" class="${prefix}--leadspace__gradient__stops">
+                    <linearGradient id="stops" class="${prefix}--leadspace__gradient__stops" gradientTransform="${
+                  type === LEADSPACE_TYPE.CENTERED ? 'rotate(90)' : ''
+                }">
                       ${
                         type === LEADSPACE_TYPE.CENTERED
                           ? svg`
