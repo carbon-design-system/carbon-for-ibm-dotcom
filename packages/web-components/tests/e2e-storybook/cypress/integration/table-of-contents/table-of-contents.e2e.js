@@ -235,7 +235,7 @@ describe('dds-table-of-contents | default (desktop)', () => {
 
   it('should load table of contents sidebar with links', _tests.desktop.checkRender);
   it('should navigate content to selected section', _tests.desktop.checkLinkFunctionality);
-  xit('should update current section on scroll', _tests.desktop.checkScrollSpy);
+  it('should update current section on scroll', _tests.desktop.checkScrollSpy);
   it('should remain visible on page throughout scroll', _tests.desktop.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
 });
@@ -248,7 +248,7 @@ describe('dds-table-of-contents | with heading content (desktop)', () => {
 
   it('should load table of contents sidebar with links', _tests.desktop.checkRender);
   it('should navigate content to selected section', _tests.desktop.checkLinkFunctionality);
-  xit('should update current section on scroll', _tests.desktop.checkScrollSpy);
+  it('should update current section on scroll', _tests.desktop.checkScrollSpy);
   it('should remain visible on page throughout scroll', _tests.desktop.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
 });
@@ -261,7 +261,7 @@ describe('dds-table-of-contents | horizontal (desktop)', () => {
 
   it('should load table of contents horizontal bar with links', _tests.desktop.checkRender);
   it('should navigate content to selected section', _tests.desktop.checkLinkFunctionality);
-  xit('should update current section on scroll', _tests.desktop.checkScrollSpy);
+  it('should update current section on scroll', _tests.desktop.checkScrollSpy);
   it('should remain visible on page throughout scroll', _tests.desktop.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
 });
@@ -274,7 +274,7 @@ describe('dds-table-of-contents | default (mobile)', () => {
 
   it('should load table of contents sidebar with links', _tests.mobile.checkRender);
   it('should navigate content to selected section', _tests.mobile.checkLinkFunctionality);
-  xit('should update current section on scroll', _tests.mobile.checkScrollSpy);
+  it('should update current section on scroll', _tests.mobile.checkScrollSpy);
   it('should remain visible on page throughout scroll', _tests.mobile.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
 });
@@ -287,7 +287,7 @@ describe('dds-table-of-contents | with heading content (mobile)', () => {
 
   it('should load table of contents sidebar with links', _tests.mobile.checkRender);
   it('should navigate content to selected section', _tests.mobile.checkLinkFunctionality);
-  xit('should update current section on scroll', _tests.mobile.checkScrollSpy);
+  it('should update current section on scroll', _tests.mobile.checkScrollSpy);
   it('should remain visible on page throughout scroll', _tests.mobile.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
 });
@@ -300,7 +300,7 @@ describe('dds-table-of-contents | horizontal (mobile)', () => {
 
   it('should load table of contents sidebar with links', _tests.mobile.checkRender);
   it('should navigate content to selected section', _tests.mobile.checkLinkFunctionality);
-  xit('should update current section on scroll', _tests.mobile.checkScrollSpy);
+  it('should update current section on scroll', _tests.mobile.checkScrollSpy);
   it('should remain visible on page throughout scroll', _tests.mobile.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
 });
