@@ -13,7 +13,6 @@
  */
 const _paths = {
   default: 'iframe.html?id=components-table-of-contents--default',
-  heading: 'iframe.html?id=components-table-of-contents--with-heading-content',
   horizontal: 'iframe.html?id=components-table-of-contents--horizontal',
 };
 
@@ -240,19 +239,6 @@ describe('dds-table-of-contents | default (desktop)', () => {
   it('should render correctly in all themes', _tests.all.screenshotThemes);
 });
 
-describe('dds-table-of-contents | with heading content (desktop)', () => {
-  beforeEach(() => {
-    cy.viewport(1280, 720);
-    cy.visit(`/${_paths.heading}`);
-  });
-
-  it('should load table of contents sidebar with links', _tests.desktop.checkRender);
-  it('should navigate content to selected section', _tests.desktop.checkLinkFunctionality);
-  xit('should update current section on scroll', _tests.desktop.checkScrollSpy);
-  it('should remain visible on page throughout scroll', _tests.desktop.checkStickyNav);
-  it('should render correctly in all themes', _tests.all.screenshotThemes);
-});
-
 describe('dds-table-of-contents | horizontal (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
@@ -270,19 +256,6 @@ describe('dds-table-of-contents | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
     cy.visit(`/${_paths.default}`);
-  });
-
-  it('should load table of contents sidebar with links', _tests.mobile.checkRender);
-  it('should navigate content to selected section', _tests.mobile.checkLinkFunctionality);
-  xit('should update current section on scroll', _tests.mobile.checkScrollSpy);
-  it('should remain visible on page throughout scroll', _tests.mobile.checkStickyNav);
-  it('should render correctly in all themes', _tests.all.screenshotThemes);
-});
-
-describe('dds-table-of-contents | with heading content (mobile)', () => {
-  beforeEach(() => {
-    cy.viewport(320, 720);
-    cy.visit(`/${_paths.heading}`);
   });
 
   it('should load table of contents sidebar with links', _tests.mobile.checkRender);
