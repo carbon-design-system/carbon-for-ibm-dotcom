@@ -260,8 +260,11 @@
       }
     }
 
+    // Outlined/Border card
     &[border] {
-      border: 1px solid $ui-03;
+      .#{$prefix}--card {
+        border: 1px solid $ui-03;
+      }
     }
 
     // Logo card
@@ -506,7 +509,7 @@
         left: 0;
         bottom: 0;
         right: 0;
-        border: 2px solid $inverse-focus-ui;
+        border: 2px solid $focus;
         outline: 1px solid $inverse-focus-ui;
         outline-offset: -3px;
         pointer-events: none;
@@ -633,8 +636,8 @@
       }
     }
 
-    &[pictogram-placement='top'],
-    &[pictogram-placement='bottom'] {
+    &[pictogram-placement='top'] .#{$prefix}--card,
+    &[pictogram-placement='bottom'] .#{$prefix}--card {
       &:hover,
       &:focus {
         .#{$prefix}--card__motion {
@@ -695,7 +698,7 @@
       }
     }
 
-    &[pictogram-placement='top'] {
+    &[pictogram-placement='top'] .#{$prefix}--card {
       .#{$prefix}--card__motion {
         ::slotted(#{$dds-prefix}-card-heading) {
           align-items: flex-end;
@@ -724,7 +727,7 @@
       }
     }
 
-    &[pictogram-placement='bottom'] {
+    &[pictogram-placement='bottom'] .#{$prefix}--card {
       .#{$prefix}--card__motion {
         ::slotted(#{$dds-prefix}-card-heading) {
           align-items: flex-start;
