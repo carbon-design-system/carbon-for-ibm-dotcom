@@ -106,7 +106,7 @@
   :host(#{$dds-prefix}-quote-source-heading),
   .#{$prefix}--quote__source-heading {
     max-width: 640px;
-    padding-right: 2rem;
+    //padding-right: 2rem;
     @include carbon--type-style(expressive-heading-02, true);
   }
 
