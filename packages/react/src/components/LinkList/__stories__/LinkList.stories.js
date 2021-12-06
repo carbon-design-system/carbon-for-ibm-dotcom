@@ -239,7 +239,7 @@ EndOfSection.story = {
     knobs: {
       LinkList: ({ groupId }) => ({
         heading: text('Heading (heading):', 'Tutorials', groupId),
-        items: items,
+        items,
       }),
     },
     propsSet: {

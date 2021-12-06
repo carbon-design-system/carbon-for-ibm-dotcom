@@ -1,6 +1,6 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "1.13.0-rc.0",
+  "version": "1.14.0",
   "description": "Carbon for IBM.com Web Components",
   "license": "Apache-2.0",
   "exports": {
@@ -83,19 +83,19 @@
     "test:e2e-storybook:test:no-percy:with-video": "start-server-and-test 'yarn test:e2e-storybook:run' 8081 'cypress run --config-file tests/e2e-storybook/cypress.json'",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "upgrade-carbon": "yarn upgrade-interactive carbon-components carbon-web-components @carbon/icon-helpers @carbon/icons --latest --exact",
-    "visual-snapshot": "yarn build-storybook && percy-storybook --widths=320,1280",
+    "visual-snapshot": "percy-storybook --widths=320,1280",
     "wca": "web-component-analyzer analyze src --outFile custom-elements.json"
   },
   "resolutions": {
     "prettier": "^1.19.0"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "1.28.0-rc.0",
-    "@carbon/ibmdotcom-styles": "1.28.0-rc.0",
-    "@carbon/ibmdotcom-utilities": "1.28.0-rc.0",
+    "@carbon/ibmdotcom-services": "1.29.0",
+    "@carbon/ibmdotcom-styles": "1.29.0",
+    "@carbon/ibmdotcom-utilities": "1.29.0",
     "@carbon/layout": "10.23.0",
     "@carbon/telemetry": "0.0.0-alpha.6",
-    "carbon-components": "10.48.0",
+    "carbon-components": "10.49.0",
     "carbon-web-components": "1.19.0",
     "lit-element": "2.5.1",
     "lit-html": "1.4.1",
@@ -106,7 +106,7 @@
     "window-or-global": "^1.0.0"
   },
   "optionalDependencies": {
-    "@carbon/icons-react": "10.43.0",
+    "@carbon/icons-react": "10.44.0",
     "lodash.pickby": "^4.6.0",
     "prop-types": "^15.7.0",
     "react": "^16.10.0 || ^17.0.0",
@@ -129,9 +129,9 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/template": "^7.8.0",
     "@babel/traverse": "^7.8.0",
-    "@carbon/ibmdotcom-services-store": "1.28.0-rc.0",
+    "@carbon/ibmdotcom-services-store": "1.29.0",
     "@carbon/icon-helpers": "10.25.0",
-    "@carbon/icons": "10.43.0",
+    "@carbon/icons": "10.44.0",
     "@carbon/type": "10.38.0",
     "@open-wc/semantic-dom-diff": "^0.15.0",
     "@percy-io/in-percy": "^0.1.11",

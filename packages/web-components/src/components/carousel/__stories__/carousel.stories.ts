@@ -122,6 +122,12 @@ CardsWithImages.story = {
 
 CardsWithVideos.story = {
   name: 'Cards with videos',
+  parameters: {
+    ...readme.parameters,
+    percy: {
+      skip: true,
+    },
+  },
 };
 
 export default {
