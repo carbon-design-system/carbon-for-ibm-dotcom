@@ -18,6 +18,10 @@ const getPathEndOfSectionCTA = cta => {
 };
 
 describe('dds-link-list | end of section (desktop)', () => {
+  beforeEach(() => {
+    cy.mockKaltura();
+  });
+
   it('should show correct states of link list item', () => {
     cy.visit(`/${_pathEndOfSection}`);
     cy.viewport(1280, 780);
