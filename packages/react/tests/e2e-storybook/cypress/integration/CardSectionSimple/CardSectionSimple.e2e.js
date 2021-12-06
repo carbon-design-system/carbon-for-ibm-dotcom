@@ -34,7 +34,9 @@ const _tests = {
       const insetValue = after.getPropertyValue('inset');
 
       expect(positionValue).to.eq('absolute');
-      expect(insetValue).to.eq('0px');
+      if (Cypress.browser.name !== 'firefox') {
+        expect(insetValue).to.eq('0px');
+      }
     });
   },
   checkForTitlePosition: () => {

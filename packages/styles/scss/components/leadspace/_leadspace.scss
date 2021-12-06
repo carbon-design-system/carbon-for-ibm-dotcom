@@ -226,6 +226,7 @@ $btn-min-width: 26;
       background-position: center top;
 
       ::slotted(#{$dds-prefix}-button-group),
+      ::slotted([slot='action']),
       .#{$prefix}--buttongroup {
         padding-top: $carbon--layout-01;
         padding-bottom: calc(#{$layout-03});
@@ -335,10 +336,6 @@ $btn-min-width: 26;
 
     .#{$prefix}--leadspace__gradient__rect {
       fill: url(#stops);
-    }
-
-    .#{$prefix}--leadspace--centered .#{$prefix}--leadspace__gradient__stops {
-      transform: rotate(90deg) #{'/*rtl:ignore*/'};
     }
 
     .#{$prefix}--leadspace__gradient__stops stop {
