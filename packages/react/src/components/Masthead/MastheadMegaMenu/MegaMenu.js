@@ -107,6 +107,7 @@ MegaMenu.propTypes = {
     url: PropTypes.string,
     menuSections: PropTypes.arrayOf(
       PropTypes.shape({
+        heading: PropTypes.string,
         menuItems: PropTypes.arrayOf(
           PropTypes.shape({
             highlighted: PropTypes.bool,
