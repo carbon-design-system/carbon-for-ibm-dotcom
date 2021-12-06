@@ -1,0 +1,129 @@
+/**
+ * Copyright IBM Corp. 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * Sets the correct path
+ *
+ * @type String
+ * @private
+ */
+const _path = {
+  default: 'iframe.html?id=components-cta--card',
+  local: 'iframe.html?id=components-cta--card&knob-CTA%20type%20(cta-type)_CardCTA=local',
+  jump: 'iframe.html?id=components-cta--card&knob-CTA%20type%20(cta-type)_CardCTA=jump',
+  external: 'iframe.html?id=components-cta--card&knob-CTA%20type%20(cta-type)_CardCTA=external',
+  download: 'iframe.html?id=components-cta--card&knob-CTA%20type%20(cta-type)_CardCTA=download',
+  video: 'iframe.html?id=components-cta--card&knob-CTA%20type%20(cta-type)_CardCTA=video',
+};
+
+/**
+ * Finds top-most element in document (or given root) at given coordinates
+ * @param {number} x
+ * @param {number} y
+ * @param {document} root
+ * @returns lowercase tagname of element
+ */
+const getTopElement = (x, y, root = window.document) => {
+  return root.elementFromPoint(x, y).tagName.toLowerCase();
+};
+
+/**
+ * Collection of all tests for dds-table-of-contents
+ *
+ * @private
+ */
+const _tests = {
+  checkBlockLink: () => {
+    let box;
+
+    cy.visit(`/${_path.default}`)
+      .get('dds-card-cta')
+      .then(card => {
+        const bcr = card[0].getBoundingClientRect();
+
+        box = {
+          top: bcr.top + 5,
+          right: bcr.right - 5,
+          bottom: bcr.bottom - 5,
+          left: bcr.left + 5,
+          centerX: bcr.left + bcr.width / 2,
+          centerY: bcr.top + bcr.height / 2,
+        };
+      })
+      .get('dds-card-cta-footer')
+      .then(footer => {
+        // Since the link is in the shadowroot, we need to look there
+        const root = footer[0].shadowRoot;
+        expect(getTopElement(box.left, box.top, root)).to.be.eq('a');
+        expect(getTopElement(box.left, box.bottom, root)).to.be.eq('a');
+        expect(getTopElement(box.right, box.top, root)).to.be.eq('a');
+        expect(getTopElement(box.right, box.bottom, root)).to.be.eq('a');
+        expect(getTopElement(box.centerX, box.centerY, root)).to.be.eq('a');
+      });
+  },
+  checkTypeKnob: () => {
+    const types = {
+      local: 'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z',
+      jump: 'M24.59 16.59L17 24.17 17 4 15 4 15 24.17 7.41 16.59 6 18 16 28 26 18 24.59 16.59z',
+      external: 'M26,28H6a2.0027,2.0027,0,0,1-2-2V6A2.0027,2.0027,0,0,1,6,4H16V6H6V26H26V16h2V26A2.0027,2.0027,0,0,1,26,28Z',
+      download:
+        'M26 24v4H6V24H4v4H4a2 2 0 002 2H26a2 2 0 002-2h0V24zM26 14L24.59 12.59 17 20.17 17 2 15 2 15 20.17 7.41 12.59 6 14 16 24 26 14z',
+      video:
+        'M11,23a1,1,0,0,1-1-1V10a1,1,0,0,1,1.4473-.8945l12,6a1,1,0,0,1,0,1.789l-12,6A1.001,1.001,0,0,1,11,23Zm1-11.3821v8.7642L20.7642,16Z',
+    };
+
+    cy.visit(`/${_path.default}`)
+      .get('a.bx--card__footer path')
+      .then(path => {
+        expect(path.attr('d')).to.be.eq(types.local);
+      })
+      .visit(`/${_path.local}`)
+      .get('a.bx--card__footer path')
+      .then(path => {
+        expect(path.attr('d')).to.be.eq(types.local);
+      })
+      .visit(`/${_path.jump}`)
+      .get('a.bx--card__footer path')
+      .then(path => {
+        debugger;
+        expect(path.attr('d')).to.be.eq(types.jump);
+      })
+      .visit(`/${_path.external}`)
+      .get('a.bx--card__footer path')
+      .then(path => {
+        expect(path.attr('d')).to.be.eq(types.external);
+      })
+      .visit(`/${_path.download}`)
+      .get('a.bx--card__footer path')
+      .then(path => {
+        expect(path.attr('d')).to.be.eq(types.download);
+      })
+      .visit(`/${_path.video}`)
+      .get('a.bx--card__footer path')
+      .then(path => {
+        expect(path.attr('d')).to.be.eq(types.video);
+      });
+  },
+};
+
+describe('dds-card-cta | (desktop)', () => {
+  beforeEach(() => {
+    cy.viewport(1280, 720);
+  });
+
+  it('Should load and be fully clickable', _tests.checkBlockLink);
+  it('Should have customizable CTA type', _tests.checkTypeKnob);
+});
+
+describe('dds-card-cta | (mobile)', () => {
+  beforeEach(() => {
+    cy.viewport(325, 720);
+  });
+
+  it('Should load and be fully clickable', _tests.checkBlockLink);
+  it('Should have customizable CTA type', _tests.checkTypeKnob);
+});

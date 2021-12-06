@@ -21,8 +21,8 @@ const _path = 'iframe.html?id=components-cta--feature';
  * @returns lowercase tagname of element
  */
 const getTopElement = (x, y, root = window.document) => {
-  return root.elementFromPoint(x, y).tagName.toLowerCase()
-}
+  return root.elementFromPoint(x, y).tagName.toLowerCase();
+};
 
 /**
  * Collection of all tests for dds-table-of-contents
@@ -35,7 +35,6 @@ const getTopElement = (x, y, root = window.document) => {
  * @private
  */
 const _tests = {
-
   checkBlockLink: () => {
     let box;
 
@@ -48,8 +47,8 @@ const _tests = {
           right: bcr.right - 5,
           bottom: bcr.bottom - 5,
           left: bcr.left + 5,
-          centerX: bcr.left + (bcr.width / 2),
-          centerY: bcr.top + (bcr.height / 2),
+          centerX: bcr.left + bcr.width / 2,
+          centerY: bcr.top + bcr.height / 2,
         };
       })
       .get('dds-feature-cta-footer')
@@ -90,7 +89,7 @@ const _tests = {
 
         // Image & content don't overlap
         expect(imageBox.width + contentBox.width).to.be.eq(cardBox.width);
-      })
+      });
   },
   checkVerticalLayout: () => {
     let cardBox, imageBox, contentBox;
@@ -119,15 +118,15 @@ const _tests = {
 
         // Image & content don't overlap
         expect(imageBox.height + contentBox.height).to.be.eq(cardBox.height);
-      })
+      });
   },
   checkHeadingKnob: () => {
     let defaultText, customTextOutput;
 
-    const customTextInput = "Lorem Ipsum Dolor Sit Amet."
+    const customTextInput = 'Lorem Ipsum Dolor Sit Amet.';
 
     const knobs = new URLSearchParams({
-      "knob-Heading_FeatureCTA": customTextInput
+      'knob-Heading_FeatureCTA': customTextInput,
     });
 
     cy.get('dds-card-heading')
@@ -141,29 +140,29 @@ const _tests = {
 
         expect(customTextInput).to.be.eq(customTextOutput);
         expect(customTextOutput).to.not.eq(defaultText);
-      })
+      });
   },
   checkTypeKnob: () => {
-
     const types = {
       local: 'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z',
       jump: 'M24.59 16.59L17 24.17 17 4 15 4 15 24.17 7.41 16.59 6 18 16 28 26 18 24.59 16.59z',
       external: 'M26,28H6a2.0027,2.0027,0,0,1-2-2V6A2.0027,2.0027,0,0,1,6,4H16V6H6V26H26V16h2V26A2.0027,2.0027,0,0,1,26,28Z',
-      download: 'M26 24v4H6V24H4v4H4a2 2 0 002 2H26a2 2 0 002-2h0V24zM26 14L24.59 12.59 17 20.17 17 2 15 2 15 20.17 7.41 12.59 6 14 16 24 26 14z',
-      video: 'M11,23a1,1,0,0,1-1-1V10a1,1,0,0,1,1.4473-.8945l12,6a1,1,0,0,1,0,1.789l-12,6A1.001,1.001,0,0,1,11,23Zm1-11.3821v8.7642L20.7642,16Z',
-    }
+      download:
+        'M26 24v4H6V24H4v4H4a2 2 0 002 2H26a2 2 0 002-2h0V24zM26 14L24.59 12.59 17 20.17 17 2 15 2 15 20.17 7.41 12.59 6 14 16 24 26 14z',
+      video:
+        'M11,23a1,1,0,0,1-1-1V10a1,1,0,0,1,1.4473-.8945l12,6a1,1,0,0,1,0,1.789l-12,6A1.001,1.001,0,0,1,11,23Zm1-11.3821v8.7642L20.7642,16Z',
+    };
 
-    cy.wrap(Object.entries(types))
-      .each(([type, pathAttr]) => {
-        cy.get('dds-feature-cta-footer')
-          .then(([footer]) => {
-            footer.setAttribute('cta-type', type);
-          })
-          .get('.dds-ce--cta__icon path')
-          .then(([path]) => {
-            expect(path.getAttribute('d')).to.be.eq(pathAttr);
-          })
-      });
+    cy.wrap(Object.entries(types)).each(([type, pathAttr]) => {
+      cy.get('dds-feature-cta-footer')
+        .then(([footer]) => {
+          footer.setAttribute('cta-type', type);
+        })
+        .get('.dds-ce--cta__icon path')
+        .then(([path]) => {
+          expect(path.getAttribute('d')).to.be.eq(pathAttr);
+        });
+    });
   },
 };
 
