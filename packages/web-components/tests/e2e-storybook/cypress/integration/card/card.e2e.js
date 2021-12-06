@@ -169,6 +169,8 @@ const _tests = {
       // converted HEX var(--cds-ui-03, #e0e0e0) to RGB
       if (Cypress.browser.name !== 'firefox') {
         cy.get(_selectorBase)
+          .shadow()
+          .find('.bx--card')
           .should('have.css', 'border')
           .and('equal', '1px solid rgb(224, 224, 224)');
       }
