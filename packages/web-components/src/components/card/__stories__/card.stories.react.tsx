@@ -18,11 +18,13 @@ import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react
 import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
 import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
 import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import DDSImageLogo from '@carbon/ibmdotcom-web-components/es/components-react/card/image-logo';
 import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
 import { Tag } from 'carbon-components-react';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.react.mdx';
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
+import logoMicrosoft2x1 from '../../../../../storybook-images/assets/logos/logo-microsoft--2x1.png';
 import { PICTOGRAM_PLACEMENT } from '../defs';
 
 export const Default = ({ parameters }) => {
@@ -155,8 +157,9 @@ export const Static = ({ parameters }) => {
 
 Static.story = {
   parameters: {
+    ...readme.parameters,
     knobs: {
-      StaticCard: ({ groupId }) => {
+      Card: ({ groupId }) => {
         const image = boolean('Add image:', false, groupId);
         const eyebrow = textNullable('Eyebrow:', 'SPSS Statistics', groupId);
         const heading = textNullable('Heading:', 'Free trial', groupId);
@@ -183,6 +186,48 @@ Static.story = {
           outlinedCard,
         };
       },
+    },
+  },
+};
+
+export const Logo = ({ parameters }) => {
+  const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } = parameters?.props?.Card ?? {};
+  return (
+    <DDSCard border logo href={href || undefined}>
+      <DDSImageLogo slot="image" alt={alt} default-src={defaultSrc}></DDSImageLogo>
+      {eyebrow ? <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow> : ''}
+      {heading ? <DDSCardHeading>{heading}</DDSCardHeading> : ''}
+      {copy ? <p>{copy}</p> : ``}
+      {tagGroup ? (
+        <DDSTagGroup>
+          <Tag>Most popular</Tag>
+          <Tag type="purple">Enterprise</Tag>
+        </DDSTagGroup>
+      ) : (
+        ''
+      )}
+      <DDSCardFooter></DDSCardFooter>
+    </DDSCard>
+  );
+};
+
+Logo.story = {
+  parameters: {
+    ...readme.parameters,
+    knobs: {
+      Card: ({ groupId }) => ({
+        alt: 'Image alt text',
+        defaultSrc: logoMicrosoft2x1,
+        tagGroup: boolean('Add tags', true, groupId),
+        eyebrow: textNullable('Card Eyebrow:', 'Microsoft', groupId),
+        heading: textNullable('Card Heading (optional):', '', groupId),
+        copy: textNullable(
+          'Card body copy:',
+          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          groupId
+        ),
+        href: 'https://example.com',
+      }),
     },
   },
 };

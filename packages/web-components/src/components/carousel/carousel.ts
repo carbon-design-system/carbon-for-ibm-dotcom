@@ -17,7 +17,6 @@ import CaretLeft20 from 'carbon-web-components/es/icons/caret--left/20.js';
 import CaretRight20 from 'carbon-web-components/es/icons/caret--right/20.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
-import DDSCard from '../card/card';
 import styles from './carousel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
@@ -180,31 +179,19 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    */
   @HostListener('shadowRoot:focusin')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleFocus = async ({ target, relatedTarget }: FocusEvent) => {
-    const currentContains = target !== this && this.contains(target as DDSCard);
-    const oldNotContains = target !== this && !this.contains(relatedTarget as DDSCard);
-    const currentCardIndex = Array.from(this.children).indexOf((target as HTMLElement).parentElement!);
-
-    // Confirmed by design team; ensures the carousel remains on the current page when focusing back on the component.
-    // This conforms to the natural flow of the current content on the screen.
-    // The first card on the page should be focused if tabbing from the top,
-    // The last card on the page should be focused if tabbing from the bottom.
-    if (currentContains && oldNotContains) {
-      // focus coming from the top
-      if (currentCardIndex === 0) {
-        (this.children[this.start] as HTMLElement).focus();
-
-        // focus coming from bottom
-      } else if (currentCardIndex === this._total - 1) {
-        (this.children[this.start + this.pageSize - 1] as HTMLElement).focus();
+  private _handleFocus = async ({ target }: FocusEvent) => {
+    const containsCurrent = target !== this && this.contains(target as HTMLElement);
+    let currentItemIndex = 0;
+    Array.from(this.children).forEach((carouselItem, index) => {
+      if (carouselItem.contains(target as HTMLElement)) {
+        currentItemIndex = index;
       }
-      return;
-    }
+    });
 
     // Calculates proper page to display if focus is outside the current page
-    if (currentContains && (currentCardIndex < this.start || currentCardIndex >= this.start + this.pageSize)) {
+    if (containsCurrent && (currentItemIndex < this.start || currentItemIndex >= this.start + this.pageSize)) {
       // The `currentIndex` floored by `pageSize`
-      const nextStart = Math.floor(currentCardIndex / this.pageSize) * this.pageSize;
+      const nextStart = Math.floor(currentItemIndex / this.pageSize) * this.pageSize;
       const pageOffset = this.start % this.pageSize;
 
       // Ensures the page moves by `this.pageSize` in either direction
@@ -362,7 +349,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
     this._childItemHeadings.forEach(e => {
       // add tag group height to heading to the cards lacking tag group
-      if (e && !e.nextElementSibling.matches((this.constructor as typeof DDSCarousel).selectorItemTagGroup)) {
+      if (e && !e.nextElementSibling?.matches((this.constructor as typeof DDSCarousel).selectorItemTagGroup)) {
         e.style.marginBottom = `${tagGroupHeight + headingBottomMargin}px`;
       }
     });
