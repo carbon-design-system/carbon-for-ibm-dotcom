@@ -84,11 +84,11 @@
     }
 
     @include carbon--breakpoint('md') {
-      left: -0.5rem;
+      left: -1.5rem;
     }
 
     @include carbon--breakpoint('lg') {
-      left: -1rem;
+      left: -1.5rem;
     }
   }
 
@@ -131,7 +131,7 @@
     margin-left: -0.25rem;
 
     @include carbon--breakpoint('md') {
-      margin-left: -0.5rem;
+      //margin-left: -0.5rem;
     }
   }
 
