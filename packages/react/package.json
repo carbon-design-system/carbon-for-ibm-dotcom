@@ -43,6 +43,7 @@
     "test:e2e-storybook:test": "start-server-and-test 'yarn test:e2e-storybook:run' 8082 'percy exec --config tests/e2e-storybook/.percy.json -- cypress run --config video=false --config-file tests/e2e-storybook/cypress.json'",
     "test:e2e-storybook:dev": "cypress open --config-file ./tests/e2e-storybook/cypress-local.json",
     "test:e2e-storybook:test:no-percy": "start-server-and-test 'yarn test:e2e-storybook:run' 8082 'cypress run --config video=false --config-file tests/e2e-storybook/cypress.json'",
+    "test:e2e-storybook:test:no-percy:firefox": "start-server-and-test 'yarn test:e2e-storybook:run' 8082 'cypress run --config video=false --config-file tests/e2e-storybook/cypress.json'",
     "test:e2e-storybook:test:no-percy:with-video": "start-server-and-test 'yarn test:e2e-storybook:run' 8082 'cypress run --config-file tests/e2e-storybook/cypress.json'",
     "test:e2e-storybook:browserstack:canary": "browserstack-cypress run --cf tests/e2e-storybook/browserstack.json --ccf tests/e2e-storybook/cypress-canary.json --sync",
     "test:e2e-storybook:browserstack:staging": "browserstack-cypress run --cf tests/e2e-storybook/browserstack.json --ccf tests/e2e-storybook/cypress-staging.json --sync",

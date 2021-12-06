@@ -17,6 +17,7 @@ const _pathEndOfSection =
 
 describe('LinkList | End of section (desktop)', () => {
   beforeEach(() => {
+    cy.mockKaltura();
     cy.visit(`/${_pathEndOfSection}`);
     cy.viewport(1280, 780);
   });
