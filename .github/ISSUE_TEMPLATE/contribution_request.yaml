@@ -3,7 +3,7 @@ description:
   Contribute things large and small — code, design, ideas, and guidance.
 title: '[YOUR TITLE]: Brief description'
 assignees:
-  - jeffchew,ljcarot,shixiedesign,RobertaJHahn,RichKummer,kennylam,BrunnoM7
+  - jeffchew,ljcarot,shixiedesign,RobertaJHahn,JBrandwine,emyarod,IgnacioBecerra
 labels: ['contribution']
 body:
   - type: markdown
