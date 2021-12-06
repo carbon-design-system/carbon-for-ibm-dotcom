@@ -244,7 +244,6 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
             e.style.paddingRight = '0';
             e.style.boxShadow = `0 0 0 ${borderColor}`;
           } else {
-            // e.style.paddingRight = '1px';
             e.style.boxShadow = `1px 0 0 ${borderColor}`;
           }
           // last card
