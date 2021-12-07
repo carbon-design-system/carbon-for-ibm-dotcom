@@ -667,7 +667,13 @@
           padding-top: 0;
 
           @include carbon--breakpoint('md') {
-            display: flex;
+            /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
+            overflow: hidden;
+            max-width: calc(100% - #{$carbon--spacing-10});
             opacity: 1;
             transform: translate3d(0, 0, 0);
             transition: all $duration--moderate-02 motion(standard, productive)
