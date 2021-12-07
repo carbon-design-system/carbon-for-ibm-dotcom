@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { number, select } from '@storybook/addon-knobs';
+import { boolean, number, select } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import Launch20 from 'carbon-web-components/es/icons/launch/20';
 import { html } from 'lit-element';
@@ -70,11 +70,11 @@ const renderItems = (item, count) => {
 };
 
 export const Default = ({ parameters }) => {
-  const { heading, copy, renderIcon } = parameters?.props?.CTABlock ?? {};
+  const { heading, border, copy, renderIcon } = parameters?.props?.CTABlock ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
   return html`
-    <dds-cta-block no-border>
+    <dds-cta-block ?no-border=${!border}>
       <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
       <dds-content-block-copy>${copy}</dds-content-block-copy>
 
@@ -91,12 +91,14 @@ export const Default = ({ parameters }) => {
 };
 
 export const WithContentItems = ({ parameters }) => {
-  const { heading, copy, renderIcon } = parameters?.props?.CTABlock ?? {};
+  const { heading, border, copy, renderIcon } = parameters?.props?.CTABlock ?? {};
   const { contentItemType, contentItemCount } = parameters?.props?.WithContentItems ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
+  console.log('DEBUG:', border);
+
   return html`
-    <dds-cta-block no-border>
+    <dds-cta-block ?no-border=${!border}>
       <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
       <dds-content-block-copy>${ifNonNull(copy)}</dds-content-block-copy>
 
@@ -195,6 +197,7 @@ export default {
     knobs: {
       CTABlock: ({ groupId }) => ({
         heading: textNullable('Heading (required)', 'Take the next step', groupId),
+        border: boolean('Border', false, groupId),
         copy: 'Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.',
         renderIcon: iconMap[select(`Icon`, iconOptions, iconOptions.Default, groupId) ?? 0],
       }),
