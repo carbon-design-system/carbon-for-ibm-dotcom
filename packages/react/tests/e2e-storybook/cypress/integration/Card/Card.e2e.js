@@ -140,8 +140,7 @@ const _tests = {
 
       if (Cypress.browser.name !== 'firefox') {
         cy.get(_selectorBase)
-          .find('.bx--card--border')
-          .should('have.css', 'border')
+          .should('have.css', 'bx--card--border')
           .and('equal', '1px solid rgb(224, 224, 224)');
       }
 
