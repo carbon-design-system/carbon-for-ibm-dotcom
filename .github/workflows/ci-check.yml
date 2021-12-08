@@ -70,6 +70,6 @@ jobs:
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Run a11y compliance tests
-        run: xvfb-run --auto-servernum --error-file=/dev/stderr yarn test:a11y || true
-      - name: Run Karma Accessibility Checker
-        run: yarn karma start
+        run: |
+          xvfb-run --auto-servernum --error-file=/dev/stderr yarn test:a11y || true
+          xvfb-run --auto-servernum --error-file=/dev/stderr yarn test:unit || true
