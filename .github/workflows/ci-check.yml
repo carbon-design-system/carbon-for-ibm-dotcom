@@ -69,7 +69,9 @@ jobs:
         run: yarn build
       - name: Install xvfb
         run: sudo apt-get install xvfb
-      - name: Run a11y compliance tests
-        run: |
-          xvfb-run --auto-servernum --error-file=/dev/stderr yarn test:a11y || true
-          xvfb-run --auto-servernum --error-file=/dev/stderr yarn test:unit || true
+      - name: Run a11y react
+        working-directory: packages/react
+        run: xvfb-run --auto-servernum --error-file=/dev/stderr yarn test:a11y || true
+      - name: Run a11y compliance tests web-components
+        working-directory: packages/web-components
+        run: xvfb-run --auto-servernum --error-file=/dev/stderr yarn test:unit || true
