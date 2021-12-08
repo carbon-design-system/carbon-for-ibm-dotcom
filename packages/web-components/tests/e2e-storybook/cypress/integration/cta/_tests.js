@@ -28,23 +28,57 @@ const _typeIcons = {
  *
  * @param {string} selector - Cypress selector for the component to be tested/
  * @param {Object} paths - Paths to component variations.
+ * @param {string} paths.copy - Path with URL params for Copy knob, not
+ * including the copy text. E.g. "/iframe.html?id=some_component&copy="
+ * @param {string} paths.href - Path with URL params for content link knob, not
+ * including the link. E.g. "/iframe.html?id=some_component&href="
  * @param {string} paths.ctaType - Path with URL params for CTA type knob, not
- * including the type. E.g. "/iframe.html?id=some-component?cta_type=".
+ * including the type. E.g. "/iframe.html?id=some_component&cta_type=".
  * @returns {Array<Function>} - Collection of Cypress test scenarios.
  */
 export default (selector, paths) => [
   () => {
-    it('should render link text', () => {
-      cy.get(selector).should('not.be.empty');
+    it('should render customizable link text', () => {
+      let defaultCopy, customCopyOutput;
+      const customCopyInput = 'Consectetur adipiscing elit.';
+
+      cy.get(selector)
+        .should('not.be.empty')
+        .then(([copy]) => {
+          defaultCopy = copy.innerText;
+        })
+        .visit(`${paths.copy}${customCopyInput}`)
+        .get(selector)
+        .then(([copy]) => {
+          customCopyOutput = copy.innerText.trim();
+
+          expect(customCopyOutput).to.be.eq(customCopyInput);
+          expect(customCopyOutput).to.not.eq(defaultCopy);
+        });
     });
   },
   () => {
-    it('should have a clickable link', () => {
+    it('should have a customizable and clickable link', () => {
+      let defaultHref, customHrefOutput;
+      const customHrefInput = 'https://www.example.com/foo';
+
       cy.get(selector)
         .shadow()
         .find('a')
         .then($link => {
+          defaultHref = $link.prop('href');
+
           expect($link.prop('href')).not.to.be.empty;
+        })
+        .visit(`${paths.href}${customHrefInput}`)
+        .get(selector)
+        .shadow()
+        .find('a')
+        .then($link => {
+          customHrefOutput = $link.prop('href');
+
+          expect(customHrefOutput).to.be.eq(customHrefInput);
+          expect(customHrefOutput).to.not.eq(defaultHref);
         });
     });
   },

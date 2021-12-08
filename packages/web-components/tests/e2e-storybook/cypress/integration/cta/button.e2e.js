@@ -24,6 +24,8 @@ const _path = '/iframe.html?id=components-cta--button';
  * @private
  */
 const _paths = {
+  copy: `${_path}&knob-Copy%20text_ButtonCTA=`,
+  href: `${_path}&knob-Content%20link%20href%20(href)_ButtonCTA=`,
   ctaType: `${_path}&knob-CTA%20type%20(cta-type)_ButtonCTA=`,
 };
 
