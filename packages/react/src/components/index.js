@@ -28,6 +28,7 @@ export * from './ContentGroupPictograms';
 export * from './ContentGroupSimple';
 export * from './ContentItem';
 export * from './ContentItemHorizontal';
+export * from './ContentSection';
 export * from './CTA';
 export * from './CTASection';
 export * from './DotcomShell';
