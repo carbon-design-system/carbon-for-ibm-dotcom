@@ -18,6 +18,10 @@ const getPathEndOfSectionCTA = cta => {
 };
 
 describe('dds-link-list | end of section (desktop)', () => {
+  beforeEach(() => {
+    cy.mockKaltura();
+  });
+
   it('should show correct states of link list item', () => {
     cy.visit(`/${_pathEndOfSection}`);
     cy.viewport(1280, 780);
@@ -25,33 +29,35 @@ describe('dds-link-list | end of section (desktop)', () => {
     cy.get('[data-autoid="dds--link-list-item"]').then($el => {
       const sheets = $el[0].shadowRoot.adoptedStyleSheets;
 
-      const hover = getCssPropertyForRule(
-        ':host(dds-link-list-item[type="end"]:hover) .bx--link, :host(dds-link-list-item-cta[type="end"]:hover) .bx--link',
-        'background',
-        sheets
-      );
-      expect(hover).to.equal('var(--cds-hover-ui, #e5e5e5)');
+      if (sheets) {
+        const hover = getCssPropertyForRule(
+          ':host(dds-link-list-item[type="end"]:hover) .bx--link, :host(dds-link-list-item-cta[type="end"]:hover) .bx--link',
+          'background',
+          sheets
+        );
+        expect(hover).to.equal('var(--cds-hover-ui, #e5e5e5)');
 
-      const focus = getCssPropertyForRule(
-        '.bx--link-with-icon:focus, :host(dds-link-with-icon:focus), :host(dds-text-cta:focus)',
-        'outline',
-        sheets
-      );
-      expect(focus).to.equal('2px solid var(--cds-focus, #0f62fe)');
+        const focus = getCssPropertyForRule(
+          '.bx--link-with-icon:focus, :host(dds-link-with-icon:focus), :host(dds-text-cta:focus)',
+          'outline',
+          sheets
+        );
+        expect(focus).to.equal('2px solid var(--cds-focus, #0f62fe)');
 
-      const activeText = getCssPropertyForRule(
-        '.bx--link-with-icon:active, :host(dds-link-with-icon:active), :host(dds-text-cta:active)',
-        'text-decoration',
-        sheets
-      );
-      expect(activeText).to.equal('none');
+        const activeText = getCssPropertyForRule(
+          '.bx--link-with-icon:active, :host(dds-link-with-icon:active), :host(dds-text-cta:active)',
+          'text-decoration',
+          sheets
+        );
+        expect(activeText).to.equal('none');
 
-      const activeColor = getCssPropertyForRule(
-        '.bx--link:active, .bx--link:active:visited, .bx--link:active:visited:hover',
-        'color',
-        sheets
-      );
-      expect(activeColor).to.equal('var(--cds-text-01, #161616)');
+        const activeColor = getCssPropertyForRule(
+          '.bx--link:active, .bx--link:active:visited, .bx--link:active:visited:hover',
+          'color',
+          sheets
+        );
+        expect(activeColor).to.equal('var(--cds-text-01, #161616)');
+      }
     });
 
     cy.screenshot();

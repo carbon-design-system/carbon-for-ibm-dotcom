@@ -33,16 +33,6 @@ const contentItemTypeMap = {
       )}
     </dds-cta-block-item>
   `,
-  button: ({ heading, copy }) => html`
-    <dds-cta-block-item>
-      <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
-      <dds-button-group slot="footer">
-        <dds-button-cta>Button 1</dds-button-cta>
-        <dds-button-cta>Button 2</dds-button-cta>
-      </dds-button-group>
-    </dds-cta-block-item>
-  `,
   statistics: ({ heading, copy, links }) => html`
     <dds-cta-block-item>
       <span slot="statistics">10%</span>
@@ -109,7 +99,6 @@ const contentItemTypeMap = {
 
 const contentItemTypeOptions = {
   Text: 'text',
-  Button: 'button',
   Statistics: 'statistics',
   Pictogram: 'pictogram',
   Media: 'media',
