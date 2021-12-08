@@ -5,9 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+export * from './AudioPlayer';
 export * from './ButtonGroup';
 export * from './CalloutQuote';
 export * from './CalloutWithMedia';
+export * from './carbon-components-react/UIShell';
 export * from './Card';
 export * from './CardGroup';
 export * from './CardLink';
@@ -50,6 +52,4 @@ export * from './PictogramItem';
 export * from './Quote';
 export * from './ScrollAnimations';
 export * from './TableOfContents';
-export * from './carbon-components-react/UIShell';
 export * from './VideoPlayer';
-export * from './AudioPlayer';
