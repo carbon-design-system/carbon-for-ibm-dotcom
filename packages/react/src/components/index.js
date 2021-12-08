@@ -26,6 +26,7 @@ export * from './ContentGroupCards';
 export * from './ContentGroupHorizontal';
 export * from './ContentGroupPictograms';
 export * from './ContentGroupSimple';
+export * from './ContentItem';
 export * from './ContentItemHorizontal';
 export * from './CTA';
 export * from './CTASection';
