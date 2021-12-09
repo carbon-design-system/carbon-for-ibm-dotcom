@@ -12,11 +12,7 @@
  * @private
  */
 const _paths = {
-  manual_default:
-    'iframe.html?id=components-table-of-contents--manually-define-menu-items',
-  dynamic_default: 'iframe.html?id=components-table-of-contents--dynamic-items',
-  heading_content:
-    'iframe.html?id=components-table-of-contents--with-heading-content',
+  default: 'iframe.html?id=components-table-of-contents--default',
 };
 
 /**
@@ -234,10 +230,10 @@ const _tests = {
   },
 };
 
-describe('TableOfContents | manually defined (desktop)', () => {
+describe('TableOfContents | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
-    cy.visit(`/${_paths.manual_default}`);
+    cy.visit(`/${_paths.default}`);
   });
 
   it(
@@ -256,98 +252,10 @@ describe('TableOfContents | manually defined (desktop)', () => {
   it('should render correctly in all themes', _tests.all.screenshotThemes);
 });
 
-describe('TableOfContents | dynamically defined (desktop)', () => {
-  beforeEach(() => {
-    cy.viewport(1280, 720);
-    cy.visit(`/${_paths.dynamic_default}`);
-  });
-
-  it(
-    'should load table of contents sidebar with links',
-    _tests.desktop.checkRender
-  );
-  it(
-    'should navigate content to selected section',
-    _tests.desktop.checkLinkFunctionality
-  );
-  xit('should update current section on scroll', _tests.desktop.checkScrollSpy);
-  it(
-    'should remain visible on page throughout scroll',
-    _tests.desktop.checkStickyNav
-  );
-  it('should render correctly in all themes', _tests.all.screenshotThemes);
-});
-
-describe('TableOfContents | with heading content (desktop)', () => {
-  beforeEach(() => {
-    cy.viewport(1280, 720);
-    cy.visit(`/${_paths.heading_content}`);
-  });
-
-  it(
-    'should load table of contents horizontal bar with links',
-    _tests.desktop.checkRender
-  );
-  it(
-    'should navigate content to selected section',
-    _tests.desktop.checkLinkFunctionality
-  );
-  xit('should update current section on scroll', _tests.desktop.checkScrollSpy);
-  it(
-    'should remain visible on page throughout scroll',
-    _tests.desktop.checkStickyNav
-  );
-  it('should render correctly in all themes', _tests.all.screenshotThemes);
-});
-
-describe('TableOfContents | manually defined (mobile)', () => {
+describe('TableOfContents | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
-    cy.visit(`/${_paths.manual_default}`);
-  });
-
-  it(
-    'should load table of contents sidebar with links',
-    _tests.mobile.checkRender
-  );
-  it(
-    'should navigate content to selected section',
-    _tests.mobile.checkLinkFunctionality
-  );
-  xit('should update current section on scroll', _tests.mobile.checkScrollSpy);
-  it(
-    'should remain visible on page throughout scroll',
-    _tests.mobile.checkStickyNav
-  );
-  it('should render correctly in all themes', _tests.all.screenshotThemes);
-});
-
-describe('TableOfContents | dynamically defined (mobile)', () => {
-  beforeEach(() => {
-    cy.viewport(320, 720);
-    cy.visit(`/${_paths.dynamic_default}`);
-  });
-
-  it(
-    'should load table of contents sidebar with links',
-    _tests.mobile.checkRender
-  );
-  it(
-    'should navigate content to selected section',
-    _tests.mobile.checkLinkFunctionality
-  );
-  xit('should update current section on scroll', _tests.mobile.checkScrollSpy);
-  it(
-    'should remain visible on page throughout scroll',
-    _tests.mobile.checkStickyNav
-  );
-  it('should render correctly in all themes', _tests.all.screenshotThemes);
-});
-
-describe('TableOfContents | with heading content (mobile)', () => {
-  beforeEach(() => {
-    cy.viewport(320, 720);
-    cy.visit(`/${_paths.heading_content}`);
+    cy.visit(`/${_paths.default}`);
   });
 
   it(

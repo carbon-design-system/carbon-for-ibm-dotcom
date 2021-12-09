@@ -5,34 +5,53 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { text, boolean } from '@storybook/addon-knobs';
-import DataContent from './data/DataContent';
-import Image from '../../Image/Image';
-import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
-import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--004.jpg';
+import { boolean, select, text } from '@storybook/addon-knobs';
+import DataContent, { headings, LOREM } from './data/DataContent';
+import LinkList from '../../LinkList/LinkList';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import styles from './TableOfContents.stories.scss';
 import TableOfContents from '../TableOfContents';
 
-const sources = [
-  {
-    src: imgLg4x3,
-    breakpoint: 400,
-  },
-  {
-    src: imgLg4x3,
-    breakpoint: 672,
-  },
-  {
-    src: imgLg1x1,
-    breakpoint: 1056,
-  },
-];
-
-const defaultSrc = imgLg1x1;
-const alt = 'Lorem Ipsum';
-const longDescription = 'Lorem Ipsum Dolor';
+export const Default = ({ parameters }) => {
+  const { numberOfItems: menuItems, withHeadingContent } =
+    parameters?.props?.Other ?? {};
+  const headingItems = [
+    {
+      type: 'local',
+      copy: 'DevOps',
+      cta: {
+        href: 'https://github.com/carbon-design-system/carbon-web-components',
+      },
+    },
+    {
+      type: 'local',
+      copy: 'Automation',
+      cta: {
+        href: 'https://github.com/carbon-design-system/carbon-web-components',
+      },
+    },
+    {
+      type: 'local',
+      copy: 'Development',
+      cta: {
+        href: 'https://github.com/carbon-design-system/carbon-web-components',
+      },
+    },
+  ];
+  const headingContent = (
+    <LinkList style="vertical" iconPlacement="left" items={headingItems} />
+  );
+  return (
+    <>
+      <TableOfContents
+        headingContent={withHeadingContent && headingContent}
+        menuRule={!!headingContent}>
+        <DataContent items={menuItems} />
+      </TableOfContents>
+    </>
+  );
+};
 
 export default {
   title: 'Components|Table of contents',
@@ -46,83 +65,50 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-  },
-};
-
-export const ManuallyDefineMenuItems = ({ parameters }) => {
-  const { menuItems, menuLabel, menuRule, headingContent } =
-    parameters?.props?.TableOfContents ?? {};
-  const params = new URLSearchParams(window.location.search);
-  const themeParam = params.has('theme') ? params.get('theme') : null;
-  const theme =
-    themeParam ||
-    document.documentElement.getAttribute('storybook-carbon-theme') ||
-    'white';
-  return (
-    <TableOfContents
-      theme={theme}
-      menuItems={menuItems}
-      menuLabel={menuLabel}
-      menuRule={menuRule}
-      headingContent={headingContent}>
-      <DataContent />
-    </TableOfContents>
-  );
-};
-
-ManuallyDefineMenuItems.story = {
-  name: 'Manually define menu items',
-  parameters: {
     knobs: {
-      TableOfContents: ({ groupId }) => ({
-        menuLabel: text('Menu label (menuLabel)', 'Jump to', groupId),
-        menuRule: boolean('Optional Rule (menuRule)', false, groupId),
+      Other: ({ groupId }) => ({
+        withHeadingContent: boolean('With heading content', false, groupId),
+        numberOfItems: Array.from({
+          length: select('Number of items', [5, 6, 7, 8], 5, groupId),
+        }).map((_, i) => ({
+          heading: text(
+            `Section ${i + 1} heading`,
+            headings[i % headings.length],
+            groupId
+          ),
+          copy: text(
+            `Section ${i + 1} copy`,
+            `${LOREM}\n`.repeat(3).trim(),
+            groupId
+          ),
+        })),
       }),
     },
   },
 };
 
-export const DynamicItems = ({ parameters }) => (
-  <ManuallyDefineMenuItems parameters={parameters} />
+export const Horizontal = () => (
+  <p>
+    This component is maintained in{' '}
+    <code>@carbon/ibmdotcom-web-components</code> library with a{' '}
+    <a
+      className="bx--link"
+      target="_blank"
+      href="https://www.ibm.com/standards/carbon/web-components/react/?path=/story/components-table-of-contents--horizontal">
+      React wrapper
+    </a>
+    .
+  </p>
 );
 
-DynamicItems.story = {
-  name: 'Dynamic items',
+Horizontal.story = {
+  name: 'Horizontal',
   parameters: {
-    knobs: {
-      TableOfContents: ({ groupId }) => ({
-        menuLabel: text('Menu label (menuLabel)', 'Jump to', groupId),
-      }),
+    ...readme.parameters,
+    knobs: null,
+    percy: {
+      skip: true,
     },
-  },
-};
-
-export const WithHeadingContent = ({ parameters }) => (
-  <ManuallyDefineMenuItems parameters={parameters} />
-);
-
-WithHeadingContent.story = {
-  name: 'With heading content',
-  parameters: {
-    knobs: {
-      TableOfContents: ({ groupId }) => ({
-        menuLabel: text('Menu label (menuLabel)', 'Jump to', groupId),
-        menuRule: boolean('Optional Rule (menuRule)', false, groupId),
-        headingContent: (
-          <Image
-            sources={sources}
-            defaultSrc={defaultSrc}
-            alt={alt}
-            longDescription={longDescription}
-            style={{
-              height: '200px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          />
-        ),
-      }),
-    },
+    proxy: true,
   },
 };
