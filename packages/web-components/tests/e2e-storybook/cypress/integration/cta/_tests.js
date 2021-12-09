@@ -43,7 +43,7 @@ export default (selector, paths) => [
       const customCopyInput = 'Consectetur adipiscing elit.';
 
       cy.get(selector)
-        .should('not.be.empty')
+        .should('have.length', 1)
         .then(([copy]) => {
           defaultCopy = copy.innerText.trim();
         })
