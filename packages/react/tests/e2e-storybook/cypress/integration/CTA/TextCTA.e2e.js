@@ -52,7 +52,7 @@ const _textTests = [
         )
           .get(_selector)
           .find('a')
-          .then($link => {
+          .should($link => {
             const svgPosition = $link.find('svg')[0].getBoundingClientRect();
             const textPosition = $link.find('span')[0].getBoundingClientRect();
 

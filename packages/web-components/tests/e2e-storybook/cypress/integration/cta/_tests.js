@@ -45,11 +45,11 @@ export default (selector, paths) => [
       cy.get(selector)
         .should('not.be.empty')
         .then(([copy]) => {
-          defaultCopy = copy.innerText;
+          defaultCopy = copy.innerText.trim();
         })
         .visit(`${paths.copy}${customCopyInput}`)
         .get(selector)
-        .then(([copy]) => {
+        .should(([copy]) => {
           customCopyOutput = copy.innerText.trim();
 
           expect(customCopyOutput).to.be.eq(customCopyInput);
@@ -65,7 +65,7 @@ export default (selector, paths) => [
       cy.get(selector)
         .shadow()
         .find('a')
-        .then($link => {
+        .should($link => {
           defaultHref = $link.prop('href');
 
           expect($link.prop('href')).not.to.be.empty;
@@ -74,7 +74,7 @@ export default (selector, paths) => [
         .get(selector)
         .shadow()
         .find('a')
-        .then($link => {
+        .should($link => {
           customHrefOutput = $link.prop('href');
 
           expect(customHrefOutput).to.be.eq(customHrefInput);
@@ -89,7 +89,7 @@ export default (selector, paths) => [
         cy.get(selector)
           .shadow()
           .find('a svg path')
-          .then($path => {
+          .should($path => {
             expect($path.attr('d')).to.be.eq(_typeIcons[type]);
           });
       });

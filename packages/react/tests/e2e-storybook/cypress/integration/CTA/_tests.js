@@ -50,7 +50,7 @@ export default (selector, paths, typeIcons = _typeIcons) => [
     it('should have a clickable link', () => {
       cy.get(selector)
         .find('a')
-        .then($link => {
+        .should($link => {
           expect($link.prop('href')).not.to.be.empty;
         });
     });
@@ -61,7 +61,7 @@ export default (selector, paths, typeIcons = _typeIcons) => [
         cy.visit(`${paths.ctaType}${type}`);
         cy.get(selector)
           .find('a svg path')
-          .then($path => {
+          .should($path => {
             expect($path.attr('d')).to.be.eq(typeIcons[type]);
           });
       });
