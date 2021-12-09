@@ -11,8 +11,9 @@
  * @type {string} Path options
  * @private
  */
-const _path = {
+const _paths = {
   default: 'iframe.html?id=components-card-link--default',
+  types: '',
 };
 
 /**
@@ -36,7 +37,7 @@ const _tests = {
   checkBlockLink: () => {
     let box;
 
-    cy.visit(`/${_path.default}`)
+    cy.visit(`/${_paths.default}`)
       .get('.bx--card-link')
       .then(card => {
         const bcr = card[0].getBoundingClientRect();

@@ -11,7 +11,10 @@
  * @type String
  * @private
  */
-const _path = 'iframe.html?id=components-cta--feature';
+const _paths = {
+  default: 'iframe.html?id=components-cta--feature',
+  types: 'iframe.html?id=components-cta--feature&knob-CTA%20type:_FeatureCTA=',
+};
 
 /**
  * Finds top-most element in document (or given root) at given coordinates
@@ -133,7 +136,7 @@ const _tests = {
       .then(([heading]) => {
         defaultText = heading.innerText;
       })
-      .visit(`/${_path}&${knobs.toString()}`)
+      .visit(`/${_paths.default}&${knobs.toString()}`)
       .get('dds-card-heading')
       .then(([heading]) => {
         customTextOutput = heading.innerText;
@@ -154,11 +157,8 @@ const _tests = {
     };
 
     cy.wrap(Object.entries(types)).each(([type, pathAttr]) => {
-      cy.get('dds-feature-cta-footer')
-        .then(([footer]) => {
-          footer.setAttribute('cta-type', type);
-        })
-        .get('.dds-ce--cta__icon path')
+      cy.visit(`/${_paths.types}${type}`)
+        .get('.bx--card__footer path')
         .then(([path]) => {
           expect(path.getAttribute('d')).to.be.eq(pathAttr);
         });
@@ -169,7 +169,7 @@ const _tests = {
 describe('dds-feature-cta | (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
-    cy.visit(`/${_path}`);
+    cy.visit(`/${_paths.default}`);
   });
 
   it('Should load and be fully clickable', _tests.checkBlockLink);
@@ -181,7 +181,7 @@ describe('dds-feature-cta | (desktop)', () => {
 describe('dds-feature-cta | (mobile)', () => {
   beforeEach(() => {
     cy.viewport(325, 720);
-    cy.visit(`/${_path}`);
+    cy.visit(`/${_paths.default}`);
   });
 
   it('Should load and be fully clickable', _tests.checkBlockLink);

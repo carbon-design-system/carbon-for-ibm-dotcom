@@ -11,13 +11,9 @@
  * @type String
  * @private
  */
-const _path = {
+const _paths = {
   default: 'iframe.html?id=components-cta--card',
-  local: 'iframe.html?id=components-cta--card&knob-CTA%20type%20(cta-type)_CardCTA=local',
-  jump: 'iframe.html?id=components-cta--card&knob-CTA%20type%20(cta-type)_CardCTA=jump',
-  external: 'iframe.html?id=components-cta--card&knob-CTA%20type%20(cta-type)_CardCTA=external',
-  download: 'iframe.html?id=components-cta--card&knob-CTA%20type%20(cta-type)_CardCTA=download',
-  video: 'iframe.html?id=components-cta--card&knob-CTA%20type%20(cta-type)_CardCTA=video',
+  types: 'iframe.html?id=components-cta--card&knob-CTA%20type%20(cta-type)_CardCTA=',
 };
 
 /**
@@ -40,7 +36,7 @@ const _tests = {
   checkBlockLink: () => {
     let box;
 
-    cy.visit(`/${_path.default}`)
+    cy.visit(`/${_paths.default}`)
       .get('dds-card-cta')
       .then(card => {
         const bcr = card[0].getBoundingClientRect();
@@ -76,37 +72,13 @@ const _tests = {
         'M11,23a1,1,0,0,1-1-1V10a1,1,0,0,1,1.4473-.8945l12,6a1,1,0,0,1,0,1.789l-12,6A1.001,1.001,0,0,1,11,23Zm1-11.3821v8.7642L20.7642,16Z',
     };
 
-    cy.visit(`/${_path.default}`)
-      .get('a.bx--card__footer path')
-      .then(path => {
-        expect(path.attr('d')).to.be.eq(types.local);
-      })
-      .visit(`/${_path.local}`)
-      .get('a.bx--card__footer path')
-      .then(path => {
-        expect(path.attr('d')).to.be.eq(types.local);
-      })
-      .visit(`/${_path.jump}`)
-      .get('a.bx--card__footer path')
-      .then(path => {
-        debugger;
-        expect(path.attr('d')).to.be.eq(types.jump);
-      })
-      .visit(`/${_path.external}`)
-      .get('a.bx--card__footer path')
-      .then(path => {
-        expect(path.attr('d')).to.be.eq(types.external);
-      })
-      .visit(`/${_path.download}`)
-      .get('a.bx--card__footer path')
-      .then(path => {
-        expect(path.attr('d')).to.be.eq(types.download);
-      })
-      .visit(`/${_path.video}`)
-      .get('a.bx--card__footer path')
-      .then(path => {
-        expect(path.attr('d')).to.be.eq(types.video);
-      });
+    cy.wrap(Object.entries(types)).each(([type, pathAttr]) => {
+      cy.visit(`/${_paths.types}${type}`)
+        .get('.bx--card__footer path')
+        .then(([path]) => {
+          expect(path.getAttribute('d')).to.be.eq(pathAttr);
+        });
+    });
   },
 };
 
