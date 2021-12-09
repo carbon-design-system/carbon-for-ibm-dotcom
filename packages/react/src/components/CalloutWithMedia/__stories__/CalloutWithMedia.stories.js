@@ -15,7 +15,7 @@ import readme from '../README.stories.mdx';
 
 const mediaDataByType = {
   image: {
-    heading: 'Lorem ipsum dolor sit amett, consectetur adipiscing elit.',
+    heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     image: {
       sources: [
         {
