@@ -93,14 +93,6 @@ $fcb-breakpoint-up--lg: map-get(
       background-color: $inverse-02;
       transition: background-color $duration--moderate-01
         motion(standard, productive);
-
-      @include carbon--breakpoint('sm') {
-        position: relative;
-      }
-
-      @include carbon--breakpoint(400px) {
-        position: static;
-      }
     }
 
     ::slotted([slot='image']),
