@@ -205,7 +205,7 @@
     "gulp-sourcemaps": "^2.6.0",
     "gulp-typescript": "^5.0.0",
     "gzip-size": "^5.0.0",
-    "http-server": "^0.12.3",
+    "http-server": "^0.13.0",
     "istanbul-instrumenter-loader": "^3.0.0",
     "jasmine-core": "^3.0.0",
     "jest": "25.5.4",
