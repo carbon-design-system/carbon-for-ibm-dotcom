@@ -62,6 +62,12 @@ const LocaleModalCountries = ({
     );
 
     /**
+     * Set initial focus on search input when panel loads
+     *
+     */
+    localeFilter?.focus();
+
+    /**
      * Show all links when close button clicked
      *
      */
