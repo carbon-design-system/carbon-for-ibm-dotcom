@@ -141,14 +141,12 @@ Pictogram.story = {
     knobs: {
       PictogramCard: ({ groupId }) => {
         const pictogramPlacement = select('Pictogram position:', pictogramPlacements, pictogramPlacements.top, groupId);
-        const copy =
-          pictogramPlacement === pictogramPlacements.bottom
-            ? textNullable(
-                'Body copy:',
-                'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
-                groupId
-              )
-            : null;
+        const copy = textNullable(
+          'Body copy:',
+          `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+           Ut enim ad minim veniam, quis nostrud exercitation.`,
+          groupId
+        );
         return {
           pictogramPlacement,
           heading: textNullable('Heading:', 'Aerospace and defence', groupId),

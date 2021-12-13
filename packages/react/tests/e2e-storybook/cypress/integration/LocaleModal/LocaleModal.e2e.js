@@ -28,23 +28,14 @@ describe('LocaleModal | default', () => {
     cy.get('[data-region="eu"]').should('be.visible');
     cy.get('[data-region="mea"]').should('be.visible');
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LocaleModale | all four regions loaded', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should load the Americas region', () => {
     cy.get('[data-region="am"]').click();
     cy.get('.bx--locale-modal__locales').should('have.length', 35);
 
-    cy.screenshot();
-
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LocaleModal | Region selected', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should filter locales/languages', () => {
@@ -61,12 +52,7 @@ describe('LocaleModal | default', () => {
         expect(e.text()).to.equal('Mexico');
       });
 
-    cy.screenshot();
-
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LocaleModal | Filtering locales', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 
   it('should be able to go back to the region menu', () => {
@@ -86,10 +72,6 @@ describe('LocaleModal | default', () => {
     });
     closeButton.click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('LocaleModal | Closing menu', {
-      widths: [1280],
-    });
+    cy.takeSnapshots();
   });
 });

@@ -11,6 +11,6 @@
   "pluginsFile": "tests/e2e-storybook/cypress/plugins/index.js",
   "nodeVersion": "system",
   "testFiles": "**/*.e2e.js",
-  "pageLoadTimeout": 40000,
-  "defaultCommandTimeout": 40000
+  "pageLoadTimeout": 60000,
+  "defaultCommandTimeout": 60000
 }

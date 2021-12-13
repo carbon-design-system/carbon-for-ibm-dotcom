@@ -349,7 +349,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
     this._childItemHeadings.forEach(e => {
       // add tag group height to heading to the cards lacking tag group
-      if (e && !e.nextElementSibling.matches((this.constructor as typeof DDSCarousel).selectorItemTagGroup)) {
+      if (e && !e.nextElementSibling?.matches((this.constructor as typeof DDSCarousel).selectorItemTagGroup)) {
         e.style.marginBottom = `${tagGroupHeight + headingBottomMargin}px`;
       }
     });
