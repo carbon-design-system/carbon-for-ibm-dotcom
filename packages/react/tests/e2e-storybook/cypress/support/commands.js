@@ -28,6 +28,15 @@ Cypress.Commands.add('mockMastheadFooterData', () => {
 });
 
 /**
+ * Mocks the Kaltura API
+ */
+Cypress.Commands.add('mockKaltura', () => {
+  cy.intercept('https://cdnapisec.kaltura.com/api_v3/index.php?*', {
+    fixture: 'kaltura.json',
+  });
+});
+
+/**
  * Takes Cypress and Percy snapshots
  */
 Cypress.Commands.add(

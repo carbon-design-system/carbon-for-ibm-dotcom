@@ -10,6 +10,13 @@
 import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container.js';
 import './index.scss';
 
+/**
+ * the `lit-element` package is not required in `package.json`, but is included
+ * in this example for CodeSandbox compatibility
+ *
+ * https://github.com/codesandbox/codesandbox-client/issues/4456
+ */
+
 window.digitalData = {
   page: {
     pageInfo: {

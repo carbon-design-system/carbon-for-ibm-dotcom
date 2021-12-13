@@ -95,7 +95,7 @@ ImageWithCaption.propTypes = {
   /**
    * Caption text.
    */
-  heading: PropTypes.string.isRequired,
+  heading: PropTypes.string,
 
   /**
    * More detailed description of the image.
