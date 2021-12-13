@@ -1,6 +1,6 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "1.14.1-rc.0",
+  "version": "1.14.1",
   "description": "Carbon for IBM.com Web Components",
   "license": "Apache-2.0",
   "exports": {
@@ -91,9 +91,9 @@
     "prettier": "^1.19.0"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "1.29.1-rc.0",
-    "@carbon/ibmdotcom-styles": "1.29.1-rc.0",
-    "@carbon/ibmdotcom-utilities": "1.29.1-rc.0",
+    "@carbon/ibmdotcom-services": "1.29.1",
+    "@carbon/ibmdotcom-styles": "1.29.1",
+    "@carbon/ibmdotcom-utilities": "1.29.1",
     "@carbon/layout": "10.23.0",
     "@carbon/telemetry": "0.0.0-alpha.6",
     "carbon-components": "10.50.0",
@@ -130,7 +130,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/template": "^7.8.0",
     "@babel/traverse": "^7.8.0",
-    "@carbon/ibmdotcom-services-store": "1.29.1-rc.0",
+    "@carbon/ibmdotcom-services-store": "1.29.1",
     "@carbon/icon-helpers": "10.25.0",
     "@carbon/icons": "10.44.0",
     "@carbon/type": "10.39.0",
@@ -190,7 +190,7 @@
     "eslint-restricted-globals": "^0.2.0",
     "event-target-shim": "^5.0.0",
     "file-loader": "^6.2.0",
-    "flatpickr": "4.6.1",
+    "flatpickr": "4.6.9",
     "fs-extra": "^10.0.0",
     "globby": "^10.0.0",
     "gulp": "^4.0.0",
