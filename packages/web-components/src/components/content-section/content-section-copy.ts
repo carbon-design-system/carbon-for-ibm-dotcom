@@ -7,10 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './content-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import DDSMarkdown from '../markdown/markdown';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -20,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-content-section-copy
  */
 @customElement(`${ddsPrefix}-content-section-copy`)
-class DDSContentSectionCopy extends StableSelectorMixin(LitElement) {
+class DDSContentSectionCopy extends StableSelectorMixin(DDSMarkdown) {
   @property({ reflect: true })
   slot = 'copy';
 
