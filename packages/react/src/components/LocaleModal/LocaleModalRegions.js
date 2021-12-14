@@ -36,38 +36,29 @@ const LocaleModalRegions = ({
   returnButtonLabel,
   closeModalLabel,
 }) => {
+  const handleClick = e => {
+    setCurrentRegion(e.currentTarget.getAttribute('aria-label'));
+    setIsFiltering(true);
+    e.preventDefault();
+  };
+
   useEffect(() => {
-    const regionLink = document.querySelectorAll(`.${prefix}--card`);
+    /**
+     * go back to region selection
+     *
+     */
+    const localeBackBtn = document.querySelectorAll(
+      `.${prefix}--locale-modal__back .${prefix}--modal-header__label,
+            .${prefix}--locale-modal__back .${prefix}--modal-close`
+    );
 
-    [...regionLink].forEach(link => {
-      link.addEventListener('click', () => {
-        const searchInput = document.getElementById(
-          `${prefix}--locale-modal__filter`
-        );
-        searchInput.focus();
-
-        setCurrentRegion(link.getElementsByTagName('h3')[0].innerHTML);
-
-        setIsFiltering(true);
-
-        /**
-         * go back to region selection
-         *
-         */
-        const localeBackBtn = document.querySelectorAll(
-          `.${prefix}--locale-modal__back .${prefix}--modal-header__label,
-          .${prefix}--locale-modal__back .${prefix}--modal-close`
-        );
-
-        addLocaleBackBtnListeners(
-          localeBackBtn,
-          returnButtonLabel,
-          setIsFiltering,
-          setClearResults,
-          closeModalLabel
-        );
-      });
-    });
+    addLocaleBackBtnListeners(
+      localeBackBtn,
+      returnButtonLabel,
+      setIsFiltering,
+      setClearResults,
+      closeModalLabel
+    );
   });
 
   return (
@@ -90,12 +81,17 @@ const LocaleModalRegions = ({
                     heading: region.name,
                     cta: {
                       type: 'local',
-                      href: hasCountries ? '#' : null,
+                      href: '#',
                       icon: {
                         src: hasCountries ? ArrowRight20 : Error20,
                       },
-                      handleClick: e => e.preventDefault(),
+                      handleClick: hasCountries
+                        ? e => {
+                            handleClick(e);
+                          }
+                        : null,
                     },
+                    disabled: !hasCountries,
                   }}
                 />
               </div>
