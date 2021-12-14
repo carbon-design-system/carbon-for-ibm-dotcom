@@ -105,18 +105,32 @@
 
   :host(#{$dds-prefix}-quote-source-heading),
   .#{$prefix}--quote__source-heading {
-    max-width: 640px;
+    max-width: 25rem;
     @include carbon--type-style(expressive-heading-02, true);
+
+    @include carbon--breakpoint(md) {
+      max-width: 40rem;
+    }
   }
 
   :host(#{$dds-prefix}-quote-source-copy),
   .#{$prefix}--quote__source-body {
     @include carbon--type-style(body-long-02, true);
+
+    max-width: 25rem;
+    @include carbon--breakpoint(md) {
+      max-width: 40rem;
+    }
   }
 
   :host(#{$dds-prefix}-quote-source-bottom-copy),
   .#{$prefix}--quote__source-optional-copy {
     @include carbon--type-style(body-long-02, true);
+
+    max-width: 25rem;
+    @include carbon--breakpoint(md) {
+      max-width: 40rem;
+    }
   }
 
   .#{$prefix}--quote__inverse {
