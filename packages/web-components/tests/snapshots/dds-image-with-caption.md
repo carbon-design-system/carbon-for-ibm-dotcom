@@ -14,7 +14,6 @@
   </slot>
 </dds-image>
 <p class="bx--image__caption">
-  this is a required caption
 </p>
 
 ```
