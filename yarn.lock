@@ -6658,10 +6658,10 @@ browserify-zlib@^0.2.0:
   dependencies:
     pako "~1.0.5"
 
-browserslist-config-carbon@10.3.0:
-  version "10.3.0"
-  resolved "https://registry.yarnpkg.com/browserslist-config-carbon/-/browserslist-config-carbon-10.3.0.tgz#31dd8952bea9629ad2a65e45ef366744ccb36ed7"
-  integrity sha512-bbSFI2hOYD6kz6qq5Wo3fUsltJgafvOB1AX3f8FpKBocyMW83W0MsBjdgnjoNma+Od8GtP+WYe4zX8WH7+67uQ==
+browserslist-config-carbon@10.6.1:
+  version "10.6.1"
+  resolved "https://registry.yarnpkg.com/browserslist-config-carbon/-/browserslist-config-carbon-10.6.1.tgz#e7964c3611bda48b37d7b7a58e6c1b080574a368"
+  integrity sha512-HniQrwocICXBu7+BMDS8Hd3iqaM7DQCz/r1PJvBwmCKGx13LTpSUCUSn+JjL3PqBNqZpWsG44Tgb1AVKfl+9LA==
 
 browserslist-config-carbon@^10.3.0, browserslist-config-carbon@^10.4.0:
   version "10.4.0"
