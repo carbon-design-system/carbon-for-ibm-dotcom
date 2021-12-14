@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 const _htmlTagRegex = /<.*?>/g;
-const _cleanStringRegex = /\n|\s{2,}|&([a-zA-Z]+);/g;
+const _cleanStringRegex = /\n|\s{2,};/g;
 
 /**
  * Removes any html tags from a string and keeps inner text if any
