@@ -8,7 +8,7 @@
 import { number, boolean, select } from '@storybook/addon-knobs';
 import CardGroup from '../CardGroup';
 import cx from 'classnames';
-import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--001.jpg';
+import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
