@@ -10,6 +10,10 @@
 const fs = require('fs');
 const pkg = require('../../../package.json');
 
+/**
+ * This resets the `version.html` file under /app back to the `{{version}}`
+ * replacement text. This essentially undos the action in `set-version.js`.
+ */
 function replaceVersion() {
   const versionFile = './tests/cdn-build/app/version.html';
 

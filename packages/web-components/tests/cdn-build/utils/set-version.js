@@ -10,6 +10,10 @@
 const fs = require('fs');
 const pkg = require('../../../package.json');
 
+/**
+ * This replaces all instances of the text `{{version}}` in version.html with
+ * the current version of Carbon for IBM.com web components.
+ */
 function replaceVersion() {
   const versionFile = './tests/cdn-build/app/version.html';
 
