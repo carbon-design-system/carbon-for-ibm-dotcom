@@ -106,7 +106,6 @@
   :host(#{$dds-prefix}-quote-source-heading),
   .#{$prefix}--quote__source-heading {
     max-width: 640px;
-    //padding-right: 2rem;
     @include carbon--type-style(expressive-heading-02, true);
   }
 
@@ -129,10 +128,6 @@
 
   .#{$prefix}--quote__mark-closing {
     margin-left: -0.25rem;
-
-    @include carbon--breakpoint('md') {
-      //margin-left: -0.5rem;
-    }
   }
 
   :host(#{$dds-prefix}-quote) .#{$prefix}--quote__footer {
@@ -140,7 +135,6 @@
     padding-right: 1rem;
 
     ::slotted(#{$dds-prefix}-link-with-icon) {
-      //margin-left: 1rem;
       max-width: 640px;
     }
   }
