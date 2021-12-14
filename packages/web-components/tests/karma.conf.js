@@ -152,6 +152,10 @@ module.exports = function setupKarma(config) {
             test: /\.(jpe?g|png|gif)(\?[a-z0-9=.]+)?$/,
             loader: 'url-loader',
           },
+          {
+            test: /\.(jpe?g|png|gif)(\?[a-z0-9=.]+)?$/,
+            loader: 'file-loader',
+          },
         ],
       },
 
@@ -179,6 +183,7 @@ module.exports = function setupKarma(config) {
     },
 
     plugins: [
+      require('karma-accessibility-checker'),
       require('karma-jasmine'),
       require('karma-spec-reporter'),
       require('karma-sourcemap-loader'),

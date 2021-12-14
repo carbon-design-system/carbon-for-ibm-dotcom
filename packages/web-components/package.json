@@ -211,6 +211,7 @@
     "jest": "25.5.4",
     "jest-diff": "25.5.0",
     "karma": "^4.0.0",
+    "karma-accessibility-checker": "^3.0.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-coverage-istanbul-reporter": "^2.0.0",
     "karma-firefox-launcher": "^1.0.0",
