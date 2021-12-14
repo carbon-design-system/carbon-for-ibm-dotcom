@@ -80,7 +80,7 @@ export default {
         showCopy: boolean('Copy:', true),
         copy:
           'This area of NLP takes "real world" text and applies a symbolic ' +
-          'system for a machine to interpret its meaning, using formal logic; structures ' +
+          'a system for a machine to interpret its meaning, using formal logic; structures ' +
           'that describe the various relationships between concepts (ontologies); and other semantic tools.',
         ctaStyle: select('CTA style:', ['text', 'button'], 'text'),
         ctaCopy: textNullable('CTA copy:', 'Learn more about NLP'),
