@@ -7183,16 +7183,6 @@ carbon-components@10.34.0:
     lodash.debounce "^4.0.8"
     warning "^3.0.0"
 
-carbon-components@10.48.0:
-  version "10.48.0"
-  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.48.0.tgz#e1c31b7b5d27cf12299fd86f6c9b8f0546bb6b43"
-  integrity sha512-kz6WlB4sVyOW/fUZLQ+f83cS2AAvcNRXkMi6au1guUHMdoTtIBz62AGKGxq54Xy2hQZK0Ca6aH01NopxOV4wUw==
-  dependencies:
-    "@carbon/telemetry" "0.0.0-alpha.6"
-    flatpickr "4.6.1"
-    lodash.debounce "^4.0.8"
-    warning "^3.0.0"
-
 carbon-components@10.50.0:
   version "10.50.0"
   resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.50.0.tgz#970cf978e9be83aeb53eb3f263014964974360fd"
@@ -7208,13 +7198,13 @@ carbon-icons@7.0.7:
   resolved "https://registry.yarnpkg.com/carbon-icons/-/carbon-icons-7.0.7.tgz#ebafe3e9fa25df973796a8eca06d8a7c501cc610"
   integrity sha512-3vgkdXJRgCViCrH3fLUdyAXo0I8wmohO6QETv7vWFx6yc7s+SirWFBSFL38zUx4MHtR8iTxIlLEzkeU6FlFtXg==
 
-carbon-web-components@1.19.0:
-  version "1.19.0"
-  resolved "https://registry.yarnpkg.com/carbon-web-components/-/carbon-web-components-1.19.0.tgz#2c802aa72e6230b032a2fff901c9f1579006ab02"
-  integrity sha512-jNUVODYBaugZedGiVjjBxohGqpazbIbr49c2VsDGwpb3LJucTG3nuRg0cMaVhFzSNptFvBPoQZzbwCiItpWCEw==
+carbon-web-components@1.20.0:
+  version "1.20.0"
+  resolved "https://registry.yarnpkg.com/carbon-web-components/-/carbon-web-components-1.20.0.tgz#60993a9c95d947bc62236c33df6b1fd3b9f7911d"
+  integrity sha512-5YKYzhLQ7DIlB+YJNOIy56+WYIzilzIc0GZAzv1M3ol/ZbVT7k5B6WH2PK9m/HdCcf3MWETN7kkXo85tRDPmaQ==
   dependencies:
     "@babel/runtime" "^7.16.3"
-    carbon-components "10.48.0"
+    carbon-components "10.50.0"
     flatpickr "4.6.1"
     lit-element "^2.5.1"
     lit-html "^1.4.1"
