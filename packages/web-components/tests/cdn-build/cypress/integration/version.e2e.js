@@ -7,8 +7,13 @@
 
 describe('cdn | version', () => {
   before(() => {
+    cy.exec('node tests/cdn-build/utils/set-version.js');
     cy.mockMastheadFooterData();
     cy.mockKaltura();
+  });
+
+  after(() => {
+    cy.exec('node tests/cdn-build/utils/reset-version.js');
   });
 
   it('should load without any exceptions', () => {

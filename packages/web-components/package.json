@@ -70,7 +70,7 @@
     "test:unit": "gulp test:unit",
     "test:unit:updateSnapshot": "gulp test:unit --update-snapshot",
     "test:cdn-build:run": "http-server -c-1 tests/cdn-build/app --silent",
-    "test:cdn-build:test": "node tests/cdn-build/utils/set-version.js && start-server-and-test 'yarn test:cdn-build:run' 8080 'cypress run --config-file tests/cdn-build/cypress.json'",
+    "test:cdn-build:test": "start-server-and-test 'yarn test:cdn-build:run' 8080 'cypress run --config-file tests/cdn-build/cypress.json'",
     "test:e2e:build": "node ./tests/e2e/build/build-examples.js",
     "test:e2e:run": "http-server -c-1 tests/e2e/dist --silent",
     "test:e2e:test": "start-server-and-test 'yarn test:e2e:run' 8080 'percy exec --config tests/e2e/.percy.json -- cypress run --config video=false --config-file tests/e2e/cypress.json'",
