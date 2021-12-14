@@ -25,8 +25,6 @@ import DDSCTABlockItemRow from '@carbon/ibmdotcom-web-components/es/components-r
 import DDSCTABlockItem from '@carbon/ibmdotcom-web-components/es/components-react/cta-block/cta-block-item';
 import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
 import DDSContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
-import DDSButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
-import DDSButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
 import Desktop from '@carbon/pictograms-react/es/desktop/index.js';
 import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
@@ -47,16 +45,6 @@ const contentItemTypeMap = {
           {elem.copy}
         </DDSTextCTA>
       ))}
-    </DDSCTABlockItem>
-  ),
-  button: ({ heading, copy }) => (
-    <DDSCTABlockItem>
-      <DDSContentItemHeading>{heading}</DDSContentItemHeading>
-      <DDSContentItemCopy>{copy}</DDSContentItemCopy>
-      <DDSButtonGroup slot="footer">
-        <DDSButtonCTA>Button 1</DDSButtonCTA>
-        <DDSButtonCTA>Button 2</DDSButtonCTA>
-      </DDSButtonGroup>
     </DDSCTABlockItem>
   ),
   statistics: ({ heading, copy, links }) => (
@@ -115,7 +103,6 @@ const renderItems = (item, count) => {
 
 const contentItemTypeOptions = {
   Text: 'text',
-  Button: 'button',
   Statistics: 'statistics',
   Pictogram: 'pictogram',
   Media: 'media',

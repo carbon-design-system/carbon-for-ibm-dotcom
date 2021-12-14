@@ -90,6 +90,41 @@ function App() {
 }
 ```
 
+## Card - logo
+If you need to use a Logo image for the Card component, use the Logo variant to ensure the Card 
+properly accomodates to the Logo image.
+
+
+```javascript
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
+import { Tag } from 'carbon-components-react';
+
+function App() {
+  return (
+    <DDSCard border logo href={href || undefined}>
+      <DDSImageLogo slot="image" alt={alt} default-src={defaultSrc}></DDSImageLogo>
+      {eyebrow ? <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow> : ''}
+      {heading ? <DDSCardHeading>{heading}</DDSCardHeading> : ''}
+      {copy ? <p>{copy}</p> : ``}
+      {tagGroup ? (
+        <DDSTagGroup>
+          <Tag>Most popular</Tag>
+          <Tag type="purple">Enterprise</Tag>
+        </DDSTagGroup>
+      ) : (
+        ''
+      )}
+      <DDSCardFooter></DDSCardFooter>
+    </DDSCard>
+  );
+}
+```
+
 ## Light theme
 
 An optional light theme is available under `color-scheme`.
