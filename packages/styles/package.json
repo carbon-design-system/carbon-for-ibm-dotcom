@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-styles",
   "description": "Carbon for IBM.com Styles",
-  "version": "1.28.0",
+  "version": "1.29.1",
   "license": "Apache-2.0",
   "main": "dist/ibm-dotcom-styles.min.css",
   "module": "src/scss",
@@ -35,14 +35,14 @@
   },
   "dependencies": {
     "@carbon/grid": "10.39.0",
-    "@carbon/icons-react": "10.43.0",
+    "@carbon/icons-react": "10.44.0",
     "@carbon/import-once": "10.6.0",
     "@carbon/layout": "10.34.0",
     "@carbon/motion": "10.26.0",
     "@carbon/telemetry": "0.0.0-alpha.6",
-    "@carbon/themes": "10.47.0",
-    "@carbon/type": "10.38.0",
-    "carbon-components": "10.48.0"
+    "@carbon/themes": "10.48.0",
+    "@carbon/type": "10.39.0",
+    "carbon-components": "10.50.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
@@ -62,7 +62,7 @@
     "babel-loader": "^8.0.6",
     "browserslist-config-carbon": "^10.4.0",
     "cache-loader": "^4.1.0",
-    "carbon-components-react": "7.48.0",
+    "carbon-components-react": "7.50.0",
     "css-loader": "^5.2.0",
     "del": "^3.0.0",
     "gulp": "^4.0.2",

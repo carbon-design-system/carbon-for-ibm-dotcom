@@ -6,7 +6,7 @@
  */
 
 import './CTA.stories.scss';
-import { select, text } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 import CTA from '../CTA';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 import React from 'react';
@@ -41,8 +41,9 @@ const miscCTAData = {
       },
     };
   },
-  card({ type, customVideoTitle, customVideoDescription }) {
+  card({ type, customVideoTitle, customVideoDescription, disableImage }) {
     return {
+      disableImage: disableImage,
       heading: type !== 'video' ? copy[0] : '',
       cta: {
         href: urlBy[type],
@@ -295,12 +296,15 @@ Card.story = {
                 groupId
               )
             : null;
+        const disableImage =
+          type === 'video' ? boolean('No Video Poster', false, groupId) : null;
         return {
           type,
           ...miscCTAData['card']({
             type,
             customVideoTitle,
             customVideoDescription,
+            disableImage,
           }),
         };
       },

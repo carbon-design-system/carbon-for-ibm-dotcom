@@ -237,6 +237,25 @@ function AppVideo() {
 }
 ```
 
+For the video variation, there is an optional `disableImage` boolean prop to allow the poster image be turned off.
+
+```javascript
+function AppVideo() {
+  return (
+    <CTA
+      style="card"
+      type="video"
+      copy="Lorem Ipsum"
+      media={{
+        src: '1_9h94wo6b',
+        type: 'video',
+      }}
+      disableImage={true}
+    />
+  );
+}
+```
+
 ##### OPTIONAL 💡
 
 In addition, direct ES module imports can be used to speed up build compilation
