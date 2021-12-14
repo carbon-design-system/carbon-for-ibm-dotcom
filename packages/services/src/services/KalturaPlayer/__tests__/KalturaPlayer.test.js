@@ -92,10 +92,24 @@ function _mockKdp() {
  */
 let _jsListenerEvents = [];
 
+/**
+ * List of addJsListeners events added to fire IBM Metrics events
+ *
+ * @type {Array}
+ * @private
+ */
+const _jsEventListenerList = [
+  'playerPaused.ibm',
+  'playerPlayed.ibm',
+  'playerPlayEnd.ibm',
+  'IbmCtaEvent.ibm',
+];
+
 describe('KalturaPlayerAPI', () => {
   beforeEach(() => {
     jest.useFakeTimers();
     _jsListenerEvents = [];
+    AnalyticsAPI.videoPlayerStats.mockReset();
   });
 
   afterEach(() => {
@@ -144,21 +158,97 @@ describe('KalturaPlayerAPI', () => {
 
     expect(AnalyticsAPI.videoPlayerStats).toHaveBeenCalled();
   });
+  it('should execute the media metrics call with custom-metrics-data', () => {
+    const kdp = {
+      evaluate: query => {
+        switch (query) {
+          case '{video.player.currentTime}':
+            return 0;
+          case '{mediaProxy.entry.name}':
+            return 'name';
+          case '{mediaProxy.entry.duration}':
+            return 60;
+          default:
+        }
+      },
+    };
+    const mediaId = '123';
 
-  it('should embed the media player', async () => {
+    const customMetricsData = {
+      playerStateLabel: 'test',
+    };
+
+    const expected = {
+      currentTime: 0,
+      customMetricsData,
+      duration: 60,
+      mediaId: '123',
+      playerState: 0,
+      playerType: 'kaltura',
+      title: 'name',
+    };
+
+    KalturaPlayerAPI.fireEvent({
+      playerState: 2,
+      kdp,
+      mediaId,
+      customMetricsData,
+    });
+
+    expect(AnalyticsAPI.videoPlayerStats).toHaveBeenCalledWith(expected);
+  });
+
+  it('should embed the media player with metrics', async () => {
     const videoId = '123';
     _kWidgetMock();
     _mockKdp();
-    KalturaPlayerAPI.embedMedia(videoId, '12345');
+    KalturaPlayerAPI.embedMedia(videoId, '12345', {});
     await Promise.resolve();
+
+    _jsEventListenerList.forEach(eventName => {
+      expect(
+        _jsListenerEvents.some(event => event.eventName === eventName)
+      ).toBe(true);
+    });
+  });
+
+  it('should embed the media player without metrics', async () => {
+    const videoId = '123';
+    _kWidgetMock();
+    _mockKdp();
+    KalturaPlayerAPI.embedMedia(videoId, '12345', {}, false);
+    await Promise.resolve();
+    _jsEventListenerList.forEach(eventName => {
+      expect(
+        _jsListenerEvents.some(event => event.eventName === eventName)
+      ).toBe(false);
+    });
+  });
+
+  it('should embed the media player with custom events', async () => {
+    const mockedCustomReadyCallback = jest.fn().mockImplementation(kdp => {
+      kdp.addJsListener('customEvent.test', () => {});
+    });
+
+    const videoId = '123';
+    _kWidgetMock();
+    _mockKdp();
+    KalturaPlayerAPI.embedMedia(
+      videoId,
+      '12345',
+      {},
+      false,
+      mockedCustomReadyCallback
+    );
+    await Promise.resolve();
+    _jsEventListenerList.forEach(eventName => {
+      expect(
+        _jsListenerEvents.some(event => event.eventName === eventName)
+      ).toBe(false);
+    });
+    expect(mockedCustomReadyCallback).toHaveBeenCalled();
     expect(
-      _jsListenerEvents.some(event => event.eventName === 'playerPaused')
-    ).toBe(true);
-    expect(
-      _jsListenerEvents.some(event => event.eventName === 'playerPlayed')
-    ).toBe(true);
-    expect(
-      _jsListenerEvents.some(event => event.eventName === 'playerPlayEnd')
+      _jsListenerEvents.some(event => event.eventName === 'customEvent.test')
     ).toBe(true);
   });
 
@@ -188,5 +278,63 @@ describe('KalturaPlayerAPI', () => {
     const time = KalturaPlayerAPI.getMediaDuration();
 
     expect(time).toEqual('0:00');
+  });
+
+  it('should return the media duration as (1:1:10) in miliseconds', async () => {
+    _kWidgetMock();
+    const duration = 3670 * 1000;
+    const time = KalturaPlayerAPI.getMediaDuration(duration, true);
+
+    expect(time).toEqual('(1:1:10)');
+  });
+
+  it('should return the media duration as (0:05) in miliseconds', async () => {
+    _kWidgetMock();
+    const duration = 5 * 1000;
+    const time = KalturaPlayerAPI.getMediaDuration(duration, true);
+
+    expect(time).toEqual('(0:05)');
+  });
+
+  it('should return the media thumbnail with width and height', () => {
+    const mediaId = 'testid';
+    const width = 100;
+    const height = 100;
+
+    const thumbnailURL = KalturaPlayerAPI.getThumbnailUrl({
+      mediaId,
+      width,
+      height,
+    });
+
+    expect(thumbnailURL.includes('/entry_id/testid')).toBe(true);
+    expect(thumbnailURL.includes('/width/100')).toBe(true);
+    expect(thumbnailURL.includes('/height/100')).toBe(true);
+  });
+
+  it('should return the media thumbnail without width and height', () => {
+    const mediaId = 'testid';
+
+    const thumbnailURL = KalturaPlayerAPI.getThumbnailUrl({ mediaId });
+
+    expect(thumbnailURL.includes('/entry_id/testid')).toBe(true);
+    expect(thumbnailURL.includes('/width/')).toBe(false);
+    expect(thumbnailURL.includes('/height/')).toBe(false);
+  });
+
+  it('Should return media duration with all parameters - hour, minutes and seconds', () => {
+    const time = 4510 * 1000; // Miliseconds
+    const formatedMediaDuration = KalturaPlayerAPI.getMediaDurationFormatted(
+      time,
+      true
+    );
+
+    expect(formatedMediaDuration).toBe('1 hour 15 minutes 10 seconds');
+  });
+
+  it('Should return media duration with zero seconds', () => {
+    const formatedMediaDuration = KalturaPlayerAPI.getMediaDurationFormatted();
+
+    expect(formatedMediaDuration).toBe('0 seconds');
   });
 });
