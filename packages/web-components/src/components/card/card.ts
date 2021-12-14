@@ -244,8 +244,8 @@ class DDSCard extends StableSelectorMixin(BXLink) {
       this.onclick = () => window.open(this.href, '_self');
     }
 
-    if (this._hasCopy) {
-      const copy = this.querySelector('p')?.innerText;
+    const copy = this.querySelector('p')?.innerText;
+    if (this._hasCopy && copy) {
       this.querySelector('p')!.innerHTML = `${markdownToHtml(copy, { bold: false })}`;
     }
   }
