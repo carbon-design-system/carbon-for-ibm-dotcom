@@ -10765,10 +10765,10 @@ fast-safe-stringify@^2.0.4:
   resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-2.0.7.tgz#124aa885899261f68aedb42a7c080de9da608743"
   integrity sha512-Utm6CdzT+6xsDk2m8S6uL8VHxNwI6Jub+e9NYTcAms28T84pTa25GJQV9j0CY0N1rM8hK4x6grpF2BQf+2qwVA==
 
-fast-sass-loader@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/fast-sass-loader/-/fast-sass-loader-2.0.0.tgz#b2a3bb4b3b70d5c55000cee32572711951fac6f9"
-  integrity sha512-q9q59bL8XvforoQw+qpwiLPDWGMZ2MfrwuOjvFKyGvON9uawOaNc7QDHKxjfqRM/gs1htXywQVqxjcTMcHDesw==
+fast-sass-loader@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/fast-sass-loader/-/fast-sass-loader-2.0.1.tgz#9200d744b3ccb0330c12f771a71ad71196de18de"
+  integrity sha512-RGQNKA9d7OiF9dIa65QOabz4guGRZGg4CS2uXvLyWdmy5A6VLK8ZZEQKKlJ54ILmOpdFyaAq8u3Fj3oNkSmdug==
   dependencies:
     async "^2.0.1"
     cli-source-preview "^1.0.0"
