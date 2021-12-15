@@ -26,6 +26,10 @@
         @include carbon--make-col-offset(1, 12);
       }
     }
+
+    .#{$prefix}--content-block__cta-col {
+      max-width: carbon--mini-units(40);
+    }
   }
 }
 

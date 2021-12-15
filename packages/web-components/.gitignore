@@ -12,6 +12,8 @@ templates
 generate.sh
 
 # e2e tests
+tests/cdn-build/cypress/screenshots
+tests/cdn-build/cypress/videos
 tests/e2e/cypress/screenshots
 tests/e2e/cypress/videos
 tests/e2e-storybook/cypress/screenshots
