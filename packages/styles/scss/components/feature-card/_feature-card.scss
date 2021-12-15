@@ -80,7 +80,7 @@ $fcb-breakpoint-up--lg: map-get(
         }
       }
 
-      .#{$prefix}--card__content {
+      .bx--card__wrapper {
         background-color: $inverse-hover-ui;
       }
     }
@@ -90,7 +90,6 @@ $fcb-breakpoint-up--lg: map-get(
     }
 
     .#{$prefix}--card__content {
-      background-color: $inverse-02;
       transition: background-color $duration--moderate-01
         motion(standard, productive);
     }
@@ -133,7 +132,6 @@ $fcb-breakpoint-up--lg: map-get(
         height: 100%;
         padding: carbon--mini-units(2);
         justify-content: space-between;
-        background-color: $inverse-02;
       }
 
       #{$prefix}--card__heading {
@@ -183,6 +181,12 @@ $fcb-breakpoint-up--lg: map-get(
       .#{$prefix}--card__content {
         height: auto;
         min-height: 100%;
+      }
+    }
+
+    &:hover {
+      .#{$prefix}--card__wrapper {
+        background-color: $inverse-hover-ui;
       }
     }
 
