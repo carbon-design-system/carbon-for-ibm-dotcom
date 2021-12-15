@@ -3,7 +3,7 @@ name: snapshot-update
 on:
   push:
     branches:
-      - master
+      - main
       - release/*
       - chore/carbon-upgrade-*
 
