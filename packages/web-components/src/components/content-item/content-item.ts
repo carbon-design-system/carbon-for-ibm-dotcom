@@ -56,7 +56,7 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
             (elem as HTMLElement).matches((this.constructor as typeof DDSContentItem).selectorLinkWithIcon) ||
             (elem as HTMLElement).matches((this.constructor as typeof DDSContentItem).selectorLinkList)
           : false
-        );
+      );
     const hasContent = content?.some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
     this[slotExistencePropertyNames[name] || '_hasCopy'] = hasContent;
   }
