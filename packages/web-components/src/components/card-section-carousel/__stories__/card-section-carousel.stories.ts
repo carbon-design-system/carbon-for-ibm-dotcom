@@ -36,7 +36,8 @@ export const Default = () => {
   return html`
     <dds-card-section-carousel>
       <dds-content-section-heading>Lorem ipsum dolor sit amet</dds-content-section-heading>
-      <dds-content-section-copy>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      <dds-content-section-copy
+        >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       </dds-content-section-copy>
       <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
         Link text ${ArrowRight20({ slot: 'icon' })}
