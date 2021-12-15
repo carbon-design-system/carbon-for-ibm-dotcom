@@ -1,0 +1,32 @@
+name: check-cdn (Checks the CDN packages nightly)
+
+on:
+  schedule:
+    - cron: '0 1 * * 1-5'
+
+concurrency:
+  group: check-cdn-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  cypress:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
+    runs-on: ubuntu-20.04
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install --offline
+      - name: Run Cypress tests over the CDN packages
+        run: yarn test:cdn-build:test
+        working-directory: packages/web-components
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+        if: failure()
