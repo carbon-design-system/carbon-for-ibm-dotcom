@@ -41,6 +41,21 @@
     }
   }
 
+  .#{$prefix}--quote-link__footer {
+    @include carbon--make-col(4, 4);
+
+    padding-top: $spacing-07;
+
+    @include carbon--breakpoint('md') {
+      @include carbon--make-col(6, 8);
+      @include carbon--make-col-offset(1, 8);
+    }
+    @include carbon--breakpoint('lg') {
+      @include carbon--make-col(10, 12);
+      @include carbon--make-col-offset(1, 12);
+    }
+  }
+
   .#{$prefix}--quote__wrapper {
     position: relative;
   }
@@ -105,11 +120,11 @@
 
   :host(#{$dds-prefix}-quote-source-heading),
   .#{$prefix}--quote__source-heading {
-    //max-width: 25rem;
+    max-width: 25rem;
     @include carbon--type-style(expressive-heading-02, true);
 
     @include carbon--breakpoint(md) {
-      //max-width: 40rem;
+      max-width: 40rem;
     }
   }
 
@@ -117,9 +132,9 @@
   .#{$prefix}--quote__source-body {
     @include carbon--type-style(body-long-02, true);
 
-    //max-width: 25rem;
+    max-width: 25rem;
     @include carbon--breakpoint(md) {
-      //max-width: 40rem;
+      max-width: 40rem;
     }
   }
 
@@ -127,9 +142,9 @@
   .#{$prefix}--quote__source-optional-copy {
     @include carbon--type-style(body-long-02, true);
 
-    //max-width: 25rem;
+    max-width: 25rem;
     @include carbon--breakpoint(md) {
-      //max-width: 40rem;
+      max-width: 40rem;
     }
   }
 
