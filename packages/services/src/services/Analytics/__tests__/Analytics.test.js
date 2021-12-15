@@ -253,6 +253,33 @@ describe('AnalyticsAPI', function() {
       );
     });
 
+    it('should set cta-clicks', function() {
+      this.testData.playerState = 101;
+      this.testData.mediaId = this.testData.videoId;
+      this.testData.customMetricsData = {
+        playerStateLabel: 'cta-clk',
+        driverId: this.testData.videoId,
+        targetURL: 'https://www.ibm.com/test/',
+      };
+      delete this.testData.videoId;
+
+      AnalyticsAPI.videoPlayerStats(this.testData);
+
+      expect(this.registerEvent).toHaveBeenCalledTimes(1);
+      expect(this.registerEvent.mock.calls[0][0].execPathReturnCode).toEqual(
+        ''
+      );
+      expect(this.registerEvent.mock.calls[0][0].playerStateLabel).toEqual(
+        'cta-clk'
+      );
+      expect(this.registerEvent.mock.calls[0][0].driverId).toEqual(
+        this.testData.mediaId
+      );
+      expect(this.registerEvent.mock.calls[0][0].targetURL).toEqual(
+        'https://www.ibm.com/test/'
+      );
+    });
+
     it('should set empty state', function() {
       this.testData.playerState = 4;
       AnalyticsAPI.videoPlayerStats(this.testData);
