@@ -2,9 +2,9 @@ name: e2e-tests
 
 on:
   push:
-    branches: [ master, release/* ]
+    branches: [ main, release/* ]
   pull_request:
-    branches: [ master, release/* ]
+    branches: [ main, release/* ]
 
 concurrency:
   group: e2e-tests-${{ github.ref }}
