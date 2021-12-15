@@ -61,6 +61,7 @@ const _tests = {
     });
   },
   checkThemes: () => {
+    cy.wait(2000); // wait for sameHeight to execute
     cy.carbonThemesScreenshot();
   },
 };

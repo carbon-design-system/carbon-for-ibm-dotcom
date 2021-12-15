@@ -80,6 +80,7 @@ const _tests = {
               section.offset().top === 0 || window.scrollY === maxScrollVal;
             expect(sectionScrolledTo).to.be.true;
             if (i === 1) {
+              cy.wait(2000);
               cy.takeSnapshots(
                 'desktop',
                 {},
@@ -179,6 +180,7 @@ const _tests = {
               section.offset().top === 0 || window.scrollY === maxScrollVal;
             expect(sectionScrolledTo).to.be.true;
             if (i === 1) {
+              cy.wait(2000);
               cy.takeSnapshots(
                 'mobile',
                 {},

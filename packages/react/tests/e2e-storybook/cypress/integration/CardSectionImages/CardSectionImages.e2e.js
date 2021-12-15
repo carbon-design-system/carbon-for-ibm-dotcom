@@ -67,12 +67,16 @@ describe('dds-card-section-images | default (desktop)', () => {
         );
       });
 
+    cy.wait(2000); // wait for sameHeight to execute
+
     cy.takeSnapshots();
   });
 
   it('should load correctly in all themes', () => {
     cy.visit(`/${_pathDefault}`);
     cy.viewport(1280, 780);
+
+    cy.wait(2000); // wait for sameHeight to execute
 
     cy.carbonThemesScreenshot();
   });
