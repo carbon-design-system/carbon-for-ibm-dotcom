@@ -140,10 +140,10 @@ module.exports = {
       },
     },
     {
-      files: ['tests/e2e/**/*.e2e.js', 'tests/e2e/**/*.cdn.e2e.js', 'src/components/**/*.e2e.js'],
+      files: ['tests/e2e/**/*.e2e.js', 'tests/e2e/**/*.cdn.e2e.js', 'src/components/**/*.e2e.js', 'tests/cdn-build/**/*.js'],
       extends: ['plugin:cypress/recommended'],
       parserOptions: {
-        sourceType: 'script',
+        sourceType: 'module',
       },
     },
   ],

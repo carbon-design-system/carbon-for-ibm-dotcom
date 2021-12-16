@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.29.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.29.1-rc.0...@carbon/ibmdotcom-styles@1.29.1) (2021-12-13)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+## [1.29.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.29.0...@carbon/ibmdotcom-styles@1.29.1-rc.0) (2021-12-09)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.29.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.28.0-rc.0...@carbon/ibmdotcom-styles@1.29.0) (2021-12-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.28.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.28.0-rc.0...@carbon/ibmdotcom-styles@1.28.0) (2021-12-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
 # [1.28.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.27.0...@carbon/ibmdotcom-styles@1.28.0-rc.0) (2021-11-24)
 
 
@@ -209,7 +241,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **card-in-card-5984:** default to using Card component headline styling ([#6843](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6843)) ([05ba37b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/05ba37b)), closes [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/scss/components/card/index.scss#L416](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/scss/components/card/index.scss/issues/L416) [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/scss/components/card/index.scss#L416](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/scss/components/card/index.scss/issues/L416)
+* **card-in-card-5984:** default to using Card component headline styling ([#6843](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6843)) ([05ba37b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/05ba37b)), closes [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/styles/scss/components/card/index.scss#L416](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/styles/scss/components/card/index.scss/issues/L416) [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/styles/scss/components/card/index.scss#L416](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/styles/scss/components/card/index.scss/issues/L416)
 * **content-group-banner-6794:** fix before pseudo-element bug on safari ([#6865](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6865)) ([f83177d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f83177d))
 * **cta-block:** adjust header padding values to spec ([#6907](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6907)) ([71db2c3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/71db2c3)), closes [#6904](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6904)
 * **search:** update search placeholder color ([#6991](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6991)) ([7bb165f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7bb165f)), closes [#6989](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6989)

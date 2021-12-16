@@ -3,7 +3,7 @@ name: percy-update-base
 on:
   push:
     branches:
-      - master
+      - main
       - release/*
 
 concurrency:
@@ -38,8 +38,8 @@ jobs:
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_REACT }}
-      - name: Run percy-storybook
-        run: yarn visual-snapshot
+      - name: Run percy storybook
+        run: yarn build-storybook && yarn visual-snapshot
         working-directory: packages/react
   react-storybook-e2e:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
@@ -96,6 +96,6 @@ jobs:
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WEBCOMPONENTS }}
-      - name: Run percy-storybook
-        run: yarn build-storybook && yarn percy-storybook --widths=320,1280
+      - name: Run percy storybook
+        run: yarn build-storybook && yarn visual-snapshot
         working-directory: packages/web-components

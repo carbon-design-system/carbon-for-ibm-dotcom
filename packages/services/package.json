@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-services",
   "description": "Carbon for IBM.com Services",
-  "version": "1.28.0-rc.0",
+  "version": "1.29.1",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.0",
-    "@carbon/ibmdotcom-utilities": "1.28.0-rc.0",
+    "@carbon/ibmdotcom-utilities": "1.29.1",
     "@carbon/telemetry": "0.0.0-alpha.6",
     "axios": "^0.21.1",
     "window-or-global": "^1.0.1"
@@ -62,7 +62,7 @@
     "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
     "@babel/plugin-syntax-import-meta": "^7.2.0",
     "@babel/plugin-transform-object-assign": "^7.2.0",
-    "@babel/plugin-transform-runtime": "7.5.5",
+    "@babel/plugin-transform-runtime": "7.16.4",
     "@babel/preset-env": "^7.4.3",
     "@rollup/plugin-node-resolve": "^8.4.0",
     "all-contributors-cli": "^5.2.1",
@@ -72,7 +72,7 @@
     "babel-plugin-dev-expression": "^0.2.1",
     "babel-plugin-transform-inline-environment-variables": "^0.4.0",
     "babel-polyfill": "^6.26.0",
-    "browserslist-config-carbon": "10.3.0",
+    "browserslist-config-carbon": "10.6.1",
     "chalk": "^2.3.0",
     "cli-table": "^0.3.0",
     "core-js": "^3.1.3",
@@ -97,7 +97,7 @@
   "sideEffects": false,
   "bundleSizeThreshold": 120000,
   "release": {
-    "branch": "master"
+    "branch": "main"
   },
   "gitHead": "37ae2adac6241513f4d1974505a207705e9e2784"
 }
