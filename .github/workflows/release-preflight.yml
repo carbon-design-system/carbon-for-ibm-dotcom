@@ -3,7 +3,7 @@ name: release-preflight
 on:
   push:
     branches:
-      - master
+      - main
       - release/*
 
 concurrency:

@@ -161,6 +161,7 @@ Button.story = {
 
 export const Card = ({ parameters }) => {
   const {
+    heading,
     copy,
     footerCopy,
     ctaType,
@@ -181,6 +182,7 @@ export const Card = ({ parameters }) => {
       href="${ifNonNull(href)}"
       ?no-poster=${noPoster}
     >
+      <dds-card-heading>${ctaType !== 'video' ? heading : ''}</dds-card-heading>
       ${ctaType !== 'video' ? copy : ''}
       <dds-card-cta-footer
         cta-type="${ifNonNull(ctaType)}"
@@ -206,8 +208,13 @@ Card.story = {
       CardCTA: ({ groupId }) => {
         const { ctaType } = Text.story.parameters.knobs.TextCTA({ groupId: groupId.replace(/Footer$/, '') });
         const noPoster = ctaType === CTA_TYPE.VIDEO ? boolean('No Video Poster', false, groupId) : null;
+        const heading =
+          ctaType === CTA_TYPE.VIDEO
+            ? null
+            : textNullable('Heading (heading):', 'Explore AI use cases in all industries', groupId);
         return {
           ...Text.story.parameters.knobs.TextCTA({ groupId }),
+          heading,
           footerCopy: textNullable('Footer copy text', '', groupId),
           footerHref: textNullable(
             footerKnobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
