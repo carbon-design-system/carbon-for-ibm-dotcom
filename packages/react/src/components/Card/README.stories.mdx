@@ -9,10 +9,10 @@ import { Card } from './Card';
 > while presenting content in a concise and readable style.
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/react/examples/codesandbox/components/Card)
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/react/examples/codesandbox/components/Card)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/react/examples/codesandbox/components/Card)
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/react/examples/codesandbox/components/Card)
 
 ## Getting started
 
@@ -31,7 +31,7 @@ Here's a quick example to get you started.
 
 > 💡 Only import fonts once per usage. Don't forget to import the Card styles
 > from
-> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles).
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/styles).
 
 ##### JS
 
@@ -43,10 +43,10 @@ import 'yourapplication.scss';
 
 function App() {
   return (
-    <Card 
-      heading="Lorem ipsum dolor sit amet" 
+    <Card
+      heading="Lorem ipsum dolor sit amet"
       copy="Copy text"
-      href="https://example.com" 
+      href="https://example.com"
     />);
 }
 
@@ -66,8 +66,8 @@ to ensure the card is no longer clickable. To use it, be sure to pass in the `st
 
 function App() {
   return (
-    <Card 
-      heading="Lorem ipsum dolor sit amet" 
+    <Card
+      heading="Lorem ipsum dolor sit amet"
       copy="Copy text"
       href="https://example.com"
       static={true}
@@ -79,13 +79,13 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Light theme
 
-An optional light theme is available by passing in the `light` boolean attribute. 
+An optional light theme is available by passing in the `light` boolean attribute.
 
 ```javascript
 function App() {
   return (
-    <Card 
-      heading="Lorem ipsum dolor sit amet" 
+    <Card
+      heading="Lorem ipsum dolor sit amet"
       copy="Copy text"
       href="https://example.com"
       light={true}
@@ -96,14 +96,14 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
 Add the following line in your `.env` file at the root of your project.
-[See more details](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/styles#usage).
+[See more details](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/styles#usage).
 
 ```
   SASS_PATH=node_modules:src
 ```
 
 > 💡 Don't forget to import the card link styles from
-> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles).
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/styles).
 
 ##### OPTIONAL 💡
 
