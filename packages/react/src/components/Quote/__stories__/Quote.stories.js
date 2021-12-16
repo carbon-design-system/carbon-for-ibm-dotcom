@@ -78,7 +78,7 @@ export const Default = ({ parameters }) => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
-        <div className="bx--offset-lg-4 bx--col-lg-12">
+        <div className="bx--offset-lg-4 bx--col-lg-10">
           <Quote
             markType={markType}
             copy={copy}
