@@ -110,7 +110,9 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
    * Handles `click` event on the close button.
    */
   private async _handleClickCloseButton() {
-    this._closeButtonNode?.classList.add(`${prefix}--header__search--hide`);
+    if (this.leadspaceSearch) {
+      this._closeButtonNode?.classList.add(`${prefix}--header__search--hide`);
+    }
     this._handleUserInitiatedToggleActiveState(false);
   }
 

@@ -9,6 +9,7 @@ import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import HeaderSideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderSideNavItems';
 import PropTypes from 'prop-types';
+import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 import SideNav from '../../internal/vendor/carbon-components-react/components/UIShell/SideNav';
 import SideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/SideNavItems';
@@ -29,6 +30,60 @@ const MastheadLeftNav = ({
   platform,
   ...rest
 }) => {
+  /**
+   * checks if menu item's children url match the current url path, if so return the menu item and its children
+   * will set the selected state for entire hierarchy of menu items
+   *
+   * @returns {object} selectedItems
+   */
+  // eslint-disable-next-line class-methods-use-this
+  const _selectedLeftNavItems = () => {
+    let matchFound = false;
+    const selectedItems = { level0: '', level1: '', level2: '' };
+
+    return ({
+      menu = [
+        { url: '', megapanelContent: { quickLinks: { links: [{ url: '' }] } } },
+      ],
+      key = '',
+      parentItemUrl = '',
+    }) => {
+      const currentUrlPath = root.location?.href;
+      if (!matchFound) {
+        if (parentItemUrl === currentUrlPath) {
+          selectedItems.level0 = `${key}`;
+          matchFound = true;
+        }
+        // check if child url matches current url path
+        else {
+          for (let i = 0; i < menu?.length; i++) {
+            if (menu[i]?.url === currentUrlPath) {
+              selectedItems.level0 = `${key}`;
+              selectedItems.level1 = `${key}-${i}`;
+              matchFound = true;
+              break;
+            } else {
+              const links = menu[i]?.megapanelContent?.quickLinks?.links;
+              for (let k = 0; k < links?.length; k++) {
+                if (links[k]?.url === currentUrlPath) {
+                  selectedItems.level0 = `${key}`;
+                  selectedItems.level1 = `${key}-${i}`;
+                  selectedItems.level2 = `${key}-${i}-${k}`;
+                  matchFound = true;
+                  break;
+                }
+              }
+            }
+          }
+        }
+        return selectedItems;
+      }
+      return selectedItems;
+    };
+  };
+
+  const selectedUrlCheck = _selectedLeftNavItems();
+
   /**
    * Keep track of which menu section is visible/expanded and ties current visible panel
    * back to its parent menu panel
@@ -55,9 +110,9 @@ const MastheadLeftNav = ({
   const level1Items = [];
 
   const sideNav = () => {
-    navigation.map((link, i) => {
-      const selected = rest.selectedMenuItem === link.titleEnglish;
+    let selectedItems;
 
+    navigation.map((link, i) => {
       const dataTitle = link.titleEnglish
         ? link.titleEnglish
             .replace(/[^-a-zA-Z0-9_ ]/g, '')
@@ -68,6 +123,13 @@ const MastheadLeftNav = ({
       const autoid = `${stablePrefix}--masthead-${rest.navType}-sidenav__${
         rest.hasL1Data ? 'l1' : 'l0'
       }-nav${i}`;
+
+      const menuItems = link.menuSections[0]?.menuItems;
+      selectedItems = selectedUrlCheck({
+        menu: menuItems,
+        key: i,
+        parentItemUrl: link.url,
+      });
 
       if (link.hasMenu || link.hasMegaPanel || link.menuSections.length !== 0) {
         level1Items.push({
@@ -83,7 +145,11 @@ const MastheadLeftNav = ({
             dataTitle={dataTitle}
             key={link.title}
             title={link.title}
-            selected={selected}
+            selected={
+              !rest.selectedMenuItem
+                ? selectedItems?.level0 === `${i}`
+                : rest.selectedMenuItem === link.titleEnglish
+            }
             onToggle={() => setMenuState({ ...menuState, level0: i })}
             isSideNavExpanded={i === menuState.level0 && menuState.level1 == -1}
           />
@@ -93,7 +159,9 @@ const MastheadLeftNav = ({
           <SideNavMenuItem
             href={link.url}
             className={
-              (selected &&
+              ((!rest.selectedMenuItem
+                ? selectedItems?.level0 === `${i}`
+                : rest.selectedMenuItem === link.titleEnglish) &&
                 `${prefix}--masthead__side-nav--submemu--selected`) ||
               null
             }
@@ -111,7 +179,9 @@ const MastheadLeftNav = ({
       backButtonText,
       setMenuState,
       menuState,
-      rest.navType
+      rest.navType,
+      rest.selectedMenuItem,
+      selectedItems
     );
 
     const level2Submenus = _renderLevel2Submenus(
@@ -119,7 +189,9 @@ const MastheadLeftNav = ({
       backButtonText,
       setMenuState,
       menuState,
-      rest.navType
+      rest.navType,
+      rest.selectedMenuItem,
+      selectedItems
     );
 
     return (
@@ -143,11 +215,12 @@ const MastheadLeftNav = ({
       aria-label="Side navigation"
       expanded={isSideNavExpanded}
       isPersistent={false}
-      ref={sideNavRef}>
+      ref={sideNavRef}
+      onOverlayClick={rest.onOverlayClick}>
       <nav
         data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0`}>
         {platform && (
-          <a // eslint-disable-line jsx-a11y/role-supports-aria-props
+          <a
             data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-productname`}
             href={platform.url}
             aria-haspopup="true"
@@ -169,11 +242,14 @@ const MastheadLeftNav = ({
 /**
  * Loops through and renders a list of links for the side nav
  *
- *  @param {Array} menuItems menu items
+ * @param {Array} menuItems menu items
  * @param {string} backButtonText back button text
  * @param {Function} setMenuState setState func
  * @param {object} menuState currrent menu that is visible
  * @param {string} navType navigation type
+ * @param {string} selectedMenuItem inputted selected menu item
+ * @param {object} selectedItems selected menu items based on url
+ *
  * @returns {object} JSX object
  */
 function _renderLevel1Submenus(
@@ -181,7 +257,9 @@ function _renderLevel1Submenus(
   backButtonText,
   setMenuState,
   menuState,
-  navType
+  navType,
+  selectedMenuItem,
+  selectedItems
 ) {
   // gather submenu items for next level
   const submenus = [];
@@ -237,6 +315,10 @@ function _renderLevel1Submenus(
                 autoid={`${menu.autoid}-list${index}`}
                 title={item.title}
                 key={item.title}
+                selected={
+                  !selectedMenuItem &&
+                  selectedItems?.level1 === `${menu.parentKey}-${index}`
+                }
                 className={highlightedClass}
                 onToggle={() => setMenuState({ ...menuState, level1: index })}
                 isSideNavExpanded={
@@ -252,6 +334,12 @@ function _renderLevel1Submenus(
               className={highlightedClass}
               data-autoid={`${menu.autoid}-list${index}`}
               key={item.title}
+              className={
+                (!selectedMenuItem &&
+                  selectedItems?.level1 === `${menu.parentKey}-${index}` &&
+                  `${prefix}--masthead__side-nav--submemu--selected`) ||
+                null
+              }
               role="menuitem">
               {item.title}
             </SideNavMenuItem>
@@ -267,11 +355,14 @@ function _renderLevel1Submenus(
 /**
  * Loops through and renders a list of links for the side nav
  *
- *  @param {Array} menuItems menu items
+ * @param {Array} menuItems menu items
  * @param {string} backButtonText back button text
  * @param {Function} setMenuState setState func
  * @param {object} menuState currrent menu that is visible
  * @param {string} navType navigation type
+ * @param {string} selectedMenuItem inputted selected menu item
+ * @param {object} selectedItems selected menu items based on url
+ *
  * @returns {object} JSX object
  */
 function _renderLevel2Submenus(
@@ -279,7 +370,9 @@ function _renderLevel2Submenus(
   backButtonText,
   setMenuState,
   menuState,
-  navType
+  navType,
+  selectedMenuItem,
+  selectedItems
 ) {
   const sideNavMenuSections = menuItems.map(menu => {
     return (
@@ -302,6 +395,13 @@ function _renderLevel2Submenus(
               href={item.url}
               data-autoid={`${menu.autoid}-item${k}`}
               key={item.title}
+              className={
+                (!selectedMenuItem &&
+                  selectedItems?.level2 ===
+                    `${menu.parentKey}-${menu.index}-${k}` &&
+                  `${prefix}--masthead__side-nav--submemu--selected`) ||
+                null
+              }
               role="menuitem">
               {item.title}
             </SideNavMenuItem>

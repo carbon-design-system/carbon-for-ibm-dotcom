@@ -43,8 +43,6 @@
 
     @include carbon--breakpoint('lg') {
       .#{$prefix}--link-list {
-        margin-right: -$carbon--spacing-05;
-
         &:first-of-type {
           padding-top: 0;
         }
@@ -90,6 +88,7 @@
       margin-right: 0;
     }
 
+    &__aside,
     ::slotted([slot='complementary']) {
       grid-area: complementary;
       margin-top: $layout-05;
@@ -140,10 +139,11 @@
     }
 
     @include carbon--breakpoint('lg') {
-      grid-template:
-        'heading heading .' auto
-        'body body complementary' auto
-        'footer . complementary' auto / 1fr 1fr 1fr;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-areas:
+        'heading heading heading heading heading heading heading heading . . . .'
+        'body body body body body body body body . complementary complementary complementary'
+        'footer footer footer footer footer footer footer footer . complementary complementary complementary';
     }
   }
 
@@ -201,7 +201,7 @@
 
   :host(#{$dds-prefix}-content-block-paragraph),
   .#{$prefix}--content-block__copy p {
-    @include carbon--type-style('expressive-paragraph-01', true);
+    @include carbon--type-style('expressive-heading-03');
 
     margin-bottom: $carbon--spacing-07;
   }

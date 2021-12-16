@@ -9,200 +9,47 @@
 
 import { html } from 'lit-element';
 
-const content = contentClass => html`
+export const headings = [
+  'Forward thinkers',
+  'Innovation and transformation',
+  'Client success stories',
+  'Iconic moments in IBM history',
+  'Trust and responsibility',
+  'Connect with IBM',
+];
+
+// eslint-disable-next-line max-len
+export const LOREM = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
+nisl.`;
+
+const generateCopySections = n =>
+  [...Array(n)].map(
+    () =>
+      html`
+        <p>${LOREM}</p>
+      `
+  );
+
+const content = ({ contentClass, items }) => html`
   <div class="${contentClass} dds-ce-demo--table-of-contents">
-    <a name="8">
-      <h3>
-        Forward thinkers
-      </h3>
-    </a>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia
-      elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien
-      volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis.
-      Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in
-      faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non
-      vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
-      nisl.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia
-      elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien
-      volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis.
-      Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in
-      faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non
-      vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
-      nisl.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia
-      elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien
-      volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis.
-      Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in
-      faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non
-      vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
-      nisl.
-    </p>
-    <a name="7">
-      <h3>
-        Innovation and transformation
-      </h3>
-    </a>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia
-      elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien
-      volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis.
-      Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in
-      faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non
-      vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
-      nisl.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia
-      elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien
-      volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis.
-      Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in
-      faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non
-      vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
-      nisl.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia
-      elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien
-      volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis.
-      Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in
-      faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non
-      vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
-      nisl.
-    </p>
-    <a name="2">
-      <h3>
-        Client success stories
-      </h3>
-    </a>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia
-      elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien
-      volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis.
-      Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in
-      faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non
-      vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
-      nisl.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia
-      elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien
-      volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis.
-      Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in
-      faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non
-      vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
-      nisl.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia
-      elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien
-      volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis.
-      Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in
-      faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non
-      vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
-      nisl.
-    </p>
-    <a name="3">
-      <h3>
-        Iconic moments in IBM history
-      </h3>
-    </a>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia
-      elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien
-      volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis.
-      Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in
-      faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non
-      vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
-      nisl.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia
-      elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien
-      volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis.
-      Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in
-      faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non
-      vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
-      nisl.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia
-      elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien
-      volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis.
-      Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in
-      faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non
-      vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
-      nisl.
-    </p>
-    <a name="14">
-      <h3>
-        Trust and responsibility
-      </h3>
-    </a>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia
-      elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien
-      volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis.
-      Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in
-      faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non
-      vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
-      nisl.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia
-      elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien
-      volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis.
-      Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in
-      faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non
-      vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
-      nisl.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia
-      elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien
-      volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis.
-      Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in
-      faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non
-      vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
-      nisl.
-    </p>
-    <a name="15">
-      <h3>
-        Connect with IBM
-      </h3>
-    </a>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia
-      elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien
-      volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis.
-      Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in
-      faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non
-      vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
-      nisl.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia
-      elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien
-      volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis.
-      Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in
-      faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non
-      vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
-      nisl.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia
-      elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien
-      volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis.
-      Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in
-      faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non
-      vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
-      nisl.
-    </p>
+    ${items.map(
+      ({ heading, copy }, i) =>
+        html`
+          <a name="${i}">
+            <h3>
+              ${heading}
+            </h3>
+          </a>
+          ${copy
+            ? copy.split('\n').map(
+                section =>
+                  html`
+                    <p>${section}</p>
+                  `
+              )
+            : generateCopySections(3)}
+        `
+    )}
   </div>
 `;
 

@@ -2,11 +2,9 @@
   "baseUrl": "https://ibmdotcom-web-components-staging.mybluemix.net",
   "browser": "chrome",
   "headless": true,
-  "video": false,
-  "fixturesFolder": false,
   "nodeVersion": "system",
   "includeShadowDom": true,
   "testFiles": "**/*.e2e.js",
-  "pageLoadTimeout": 60000,
-  "defaultCommandTimeout": 60000
+  "pageLoadTimeout": 80000,
+  "defaultCommandTimeout": 80000
 }

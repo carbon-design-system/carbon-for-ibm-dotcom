@@ -2,11 +2,9 @@
   "baseUrl": "https://ibmdotcom-react-canary.mybluemix.net",
   "browser": "chrome",
   "headless": true,
-  "video": false,
-  "fixturesFolder": false,
   "nodeVersion": "system",
   "includeShadowDom": true,
   "testFiles": "**/*.e2e.js",
-  "pageLoadTimeout": 50000,
-  "defaultCommandTimeout": 50000
+  "pageLoadTimeout": 80000,
+  "defaultCommandTimeout": 80000
 }

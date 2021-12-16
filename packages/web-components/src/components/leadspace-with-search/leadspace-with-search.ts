@@ -9,6 +9,7 @@
 
 import { customElement, property, html, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import '../horizontal-rule/horizontal-rule';
@@ -26,6 +27,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-leadspace-with-search`)
 class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
+  /**
+   *
+   */
+  @property()
+  _contents: any[] = [];
+
   /**
    * `true` if there is an image.
    */
@@ -74,6 +81,10 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
     this._hasImage = (target as HTMLSlotElement)
       .assignedNodes()
       .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+
+    this._contents = (target as HTMLSlotElement)
+      .assignedNodes()
+      .filter(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
   }
 
   /**
@@ -92,6 +103,7 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
         <slot name="heading" @slotchange=${this._handleHeadingSlotChange}></slot>
         <div class="${prefix}--content-layout__body">
           <slot name="content"></slot>
+          <slot @slotchange=${this._handleImageSlotChange} name="image"></slot>
         </div>
       </div>
       <div class="${this._getSearchClass()}">
@@ -99,7 +111,11 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
         <div class="${prefix}--sticky-header">${this._heading}</div>
       </div>
       <slot name="hr"></slot>
-      <slot @slotchange=${this._handleImageSlotChange} name="image"></slot>
+      ${this._contents.map(e => {
+        return html`
+          ${unsafeHTML((e as HTMLElement).outerHTML)}
+        `;
+      })}
     `;
   }
 

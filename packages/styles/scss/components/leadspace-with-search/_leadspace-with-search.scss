@@ -88,7 +88,6 @@
 
   :host(#{$dds-prefix}-leadspace-with-search) {
     position: relative;
-    display: grid;
 
     &[has-image] {
       @include carbon--breakpoint-down('lg') {
@@ -104,9 +103,20 @@
       }
     }
 
+    #{$dds-prefix}-background-media {
+      display: block;
+      height: auto;
+
+      @include carbon--breakpoint('md') {
+        display: none;
+      }
+    }
+
     ::slotted([slot='image']) {
+      display: none;
       @include carbon--breakpoint('md') {
         position: absolute;
+        display: block;
         height: 100%;
         margin: 0 calc(50% - 50vw);
         width: 100vw;

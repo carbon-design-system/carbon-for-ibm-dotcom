@@ -148,28 +148,30 @@ const Masthead = ({
     [`${prefix}--masthead__header--search-active`]: isSearchActive,
   });
 
+  const [scrollOffset, setScrollOffset] = useState(root.scrollY);
+
   useEffect(() => {
     /**
      * Sets sticky masthead. If both L0 and L1 are present, L1 will be sticky.
      *
      */
-    const hideTopnavThreshold = 0.25;
     const handleScroll = root.addEventListener('scroll', () => {
       /**
-       * L0 will hide/show only in the top 25% of the viewport.
+       * L0 will hide on scroll down, show on scroll up
        *
        */
       if (mastheadL1Ref.current != null) {
-        setIsMastheadSticky(
-          root.pageYOffset > root.innerHeight * hideTopnavThreshold
-        );
+        const prevOffset = scrollOffset;
+        const currOffset = window.scrollY;
+        setIsMastheadSticky(currOffset > prevOffset);
+        setScrollOffset(currOffset);
       }
     });
 
     return () => {
       root.removeEventListener('scroll', () => handleScroll);
     };
-  }, []);
+  }, [scrollOffset]);
 
   if (navigation) {
     switch (typeof navigation) {
@@ -194,6 +196,39 @@ const Masthead = ({
   } else if (platform) {
     navType = 'eco';
   }
+
+  /**
+   * checks if there is a child item in the menu section that matches current url and returns true for first valid result
+   *
+   * @returns {boolean} function that returns true or false
+   */
+  // eslint-disable-next-line class-methods-use-this
+  const _hasCurrentUrl = () => {
+    let matchFound = false;
+
+    return (sections, currentUrlPath) => {
+      if (!matchFound) {
+        if (sections.url === currentUrlPath) {
+          matchFound = true;
+        } else if (sections?.menuSections[0]) {
+          const { menuItems } = sections?.menuSections[0];
+
+          for (let i = 0; i < menuItems.length; i++) {
+            if (
+              menuItems[i]?.url === currentUrlPath ||
+              menuItems[i]?.megapanelContent?.quickLinks?.links?.filter(
+                link => link.url === currentUrlPath
+              ).length
+            ) {
+              matchFound = true;
+            }
+          }
+        }
+        return matchFound;
+      }
+      return false;
+    };
+  };
 
   return (
     <HeaderContainer
@@ -221,23 +256,31 @@ const Masthead = ({
                     isActive={isSideNavExpanded}
                     className={headerSearchClasses}
                     onBlur={e => {
+                      const platform = e.target.parentElement.querySelector(
+                        `nav .${prefix}--side-nav__submenu-platform`
+                      );
+
                       const firstMenuItem =
                         e.target.parentElement.querySelector(
-                          'li:first-of-type button'
+                          `.${prefix}--side-nav__menu-section--expanded li:first-of-type button`
                         ) ||
                         e.target.parentElement.querySelector(
-                          'li:first-of-type a'
+                          `.${prefix}--side-nav__menu-section--expanded li:first-of-type a`
                         );
 
                       const lastMenuItem =
                         e.target.parentElement.querySelector(
-                          'li:last-of-type button'
+                          `.${prefix}--side-nav__menu-section--expanded li:last-of-type button`
                         ) ||
                         e.target.parentElement.querySelector(
-                          'li:last-of-type a'
+                          `.${prefix}--side-nav__menu-section--expanded li:last-of-type a`
                         );
 
-                      if (e.relatedTarget && e.relatedTarget !== firstMenuItem)
+                      if (
+                        e.relatedTarget &&
+                        e.relatedTarget !== firstMenuItem &&
+                        e.relatedTarget !== platform
+                      )
                         return lastMenuItem.focus();
                     }}
                   />
@@ -253,6 +296,7 @@ const Masthead = ({
                     isSideNavExpanded={isSideNavExpanded}
                     navType={navType}
                     selectedMenuItem={selectedMenuItem}
+                    onOverlayClick={onClickSideNavExpand}
                   />
                 )}
 
@@ -270,6 +314,7 @@ const Masthead = ({
                       platform={platform}
                       navigation={mastheadData}
                       navType={navType}
+                      hasCurrentUrl={_hasCurrentUrl}
                       selectedMenuItem={selectedMenuItem}
                     />
                   )}
@@ -328,6 +373,7 @@ const Masthead = ({
                   platform={platform}
                   isShort={isMastheadSticky}
                   navType={navType}
+                  hasCurrentUrl={_hasCurrentUrl}
                   selectedMenuItem={selectedMenuItem}
                 />
               </div>

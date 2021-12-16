@@ -13,6 +13,7 @@
   :host(#{$dds-prefix}-footer),
   .#{$prefix}--footer {
     width: 100%;
+    padding-block: $carbon--spacing-09;
 
     @include carbon--theme(
       $carbon--theme--g90,
@@ -35,7 +36,7 @@
 
   :host(#{$dds-prefix}-footer[size='short']),
   .#{$prefix}--footer--short {
-    padding-top: carbon--mini-units(4);
+    padding-block: carbon--mini-units(4);
 
     .#{$prefix}--language-selector__container {
       margin-top: $spacing-09;
@@ -51,6 +52,7 @@
   :host(#{$dds-prefix}-footer[size='micro']),
   .#{$prefix}--footer--micro {
     padding-top: 0;
+    padding-bottom: 0;
 
     .#{$prefix}--footer__logo-container {
       display: none;
@@ -58,10 +60,6 @@
 
     .#{$prefix}--language-selector__container {
       padding: 0;
-
-      input.bx--text-input[role='combobox'] {
-        border-left: 1px solid $ui-03;
-      }
     }
 
     .#{$prefix}--locale-btn__container {
@@ -149,7 +147,6 @@
 
   .#{$prefix}--footer__logo-container {
     width: 100%;
-    margin-bottom: $spacing-09;
     @include carbon--make-container;
 
     @include carbon--breakpoint('md') {

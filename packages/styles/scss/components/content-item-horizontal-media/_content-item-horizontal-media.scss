@@ -22,7 +22,8 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal-media)
+  :host(#{$dds-prefix}-content-item-horizontal-media),
+  :host(#{$dds-prefix}-content-item-horizontal-media-featured)
     ::slotted([slot='heading']),
   :host(#{$dds-prefix}-content-item-horizontal-media-copy)
     ::slotted(:not([slot])),
@@ -44,6 +45,8 @@
 
   :host(#{$dds-prefix}-content-item-horizontal-media)
     ::slotted([slot='heading']),
+  :host(#{$dds-prefix}-content-item-horizontal-media-featured)
+    ::slotted([slot='heading']),
   .#{$prefix}--content-item-horizontal__item--heading {
     display: block;
     color: $text-01;
@@ -61,11 +64,12 @@
 
   :host(#{$dds-prefix}-content-item-horizontal-media-video) {
     position: relative;
-    top: -1rem;
     text-align: left;
   }
 
   :host(#{$dds-prefix}-content-item-horizontal-media)
+    .#{$prefix}--content-item__cta,
+  :host(#{$dds-prefix}-content-item-horizontal-media-featured)
     .#{$prefix}--content-item__cta,
   .#{$prefix}--content-item-horizontal__item--cta {
     margin-top: auto;
@@ -95,47 +99,85 @@
       grid-template-columns: repeat(10, 1fr);
     }
 
+    .#{$prefix}--content-item-horizontal__col {
+      text-align: left;
+      grid-column: 1 / span 4;
+
+      &:first-of-type {
+        margin-inline-end: $carbon--spacing-07;
+      }
+
+      &:last-of-type {
+        margin-block-start: $carbon--spacing-05;
+
+        @include carbon--breakpoint(lg) {
+          margin-block-start: 0;
+          grid-column: 5 / span 6;
+        }
+      }
+    }
+
     &.#{$prefix}--content-item-horizontal-media__align-left {
       .#{$prefix}--content-item-horizontal__col {
         &:first-of-type {
-          grid-column: 1 / span 4;
-
           @include carbon--breakpoint(lg) {
-            grid-column: 5 / span 6;
+            margin-inline-end: 0;
           }
         }
 
         &:last-of-type {
-          grid-column: 1 / span 4;
-          margin-top: 1rem;
-
           @include carbon--breakpoint(lg) {
-            margin-top: 0;
+            margin-inline-end: $carbon--spacing-07;
+          }
+        }
+      }
+    }
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal-media-featured) {
+    display: block;
+    position: relative;
+    padding-block-start: $carbon--spacing-07;
+    margin-block-end: $carbon--spacing-07;
+
+    @include carbon--breakpoint(md) {
+      margin-block-end: $carbon--spacing-10;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: $carbon--spacing-05 * -1;
+      right: $carbon--spacing-05 * -1;
+      height: 1px;
+      background-color: $ui-03;
+    }
+
+    .#{$prefix}--content-item-horizontal__row {
+      + .#{$prefix}--content-item-horizontal__row {
+        margin-block-start: $carbon--spacing-05;
+
+        @include carbon--breakpoint(md) {
+          margin-block-start: $carbon--spacing-07;
+        }
+      }
+
+      .#{$prefix}--content-item-horizontal__col {
+        &:last-of-type {
+          @include carbon--breakpoint-down(md) {
+            margin-block-start: 0;
           }
         }
       }
     }
 
-    &.#{$prefix}--content-item-horizontal-media__align-right {
-      .#{$prefix}--content-item-horizontal__col {
-        &:first-of-type {
-          grid-column: 1 / span 4;
-          text-align: left;
-          margin-inline-end: $carbon--spacing-07;
-        }
-
-        &:last-of-type {
-          grid-column: 1 / span 4;
-          margin-top: 1rem;
-          @include carbon--breakpoint(lg) {
-            margin-top: 0;
-            grid-column: 5 / span 6;
-          }
-          @include carbon--breakpoint(max) {
-            grid-column: 5 / span 6;
-          }
-        }
-      }
+    ::slotted([slot='media']) {
+      grid-column: 1 / span 10;
+    }
+    ::slotted(#{$dds-prefix}-image-with-caption) {
+      max-width: none;
+      margin: 0;
     }
   }
 }

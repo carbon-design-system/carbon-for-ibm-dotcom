@@ -27,16 +27,20 @@ const { prefix } = settings;
 const MastheadTopNav = ({ navigation, ...topNavProps }) => {
   const [overlay, setOverlay] = useState(false);
 
+  const childLinkChecker = topNavProps.hasCurrentUrl();
+
   /**
    * Top masthead navigation
    *
    * @returns {*} Top masthead navigation
    */
   const mastheadLinks = navigation.map((link, i) => {
-    const subMenuSelected = _hasCurrentUrl(link, root.location.href);
+    const selectedUrlItem =
+      childLinkChecker && childLinkChecker(link, root.location?.href);
     const autoid = `${stablePrefix}--masthead-${topNavProps.navType}__l0-nav${i}`;
-    const selected =
-      link.titleEnglish === topNavProps.selectedMenuItem || subMenuSelected;
+    const selected = topNavProps.selectedMenuItem
+      ? link.titleEnglish === topNavProps.selectedMenuItem
+      : selectedUrlItem;
     const dataTitle = link.titleEnglish
       ? link.titleEnglish
           .replace(/[^-a-zA-Z0-9_ ]/g, '')
@@ -128,30 +132,6 @@ function renderNav(link, autoid) {
   }
   return navItems;
 }
-
-/**
- * Checks if the current url exists in the list of links
- *
- * @param {object} obj The navigation list to search
- * @param {string} target The URL to search for
- * @private
- * @returns {boolean} Whether or not the URL is found in the navigation list
- */
-const _hasCurrentUrl = (obj, target) => {
-  const findUrl = obj => {
-    /* eslint-disable no-unused-vars */
-    for (const [key, val] of Object.entries(obj)) {
-      if (val === target) {
-        return true;
-      }
-      if (typeof val === 'object') {
-        const nextObj = findUrl(val);
-        if (nextObj) return nextObj;
-      }
-    }
-  };
-  return findUrl(obj);
-};
 
 MastheadTopNav.propTypes = {
   /**

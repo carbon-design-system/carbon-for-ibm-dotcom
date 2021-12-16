@@ -14,6 +14,7 @@ import HeaderNavigation from '../../internal/vendor/carbon-components-react/comp
 import MegaMenu from './MastheadMegaMenu/MegaMenu';
 import PropTypes from 'prop-types';
 import React from 'react';
+import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -26,10 +27,15 @@ const MastheadL1 = ({ navigationL1, ...rest }) => {
   const className = cx({
     [`${prefix}--masthead__l1`]: true,
   });
+  const childLinkChecker = rest.hasCurrentUrl();
 
   const mastheadL1Links = navigationL1.map((link, index) => {
+    const selectedUrlItem =
+      childLinkChecker && childLinkChecker(link, root.location?.href);
     const autoid = `${stablePrefix}--masthead-${rest.navType}__l1-nav${index}`;
-    const selected = link.titleEnglish === rest.selectedMenuItem;
+    const selected = rest.selectedMenuItem
+      ? link.titleEnglish === rest.selectedMenuItem
+      : selectedUrlItem;
     if (link.hasMenu || link.hasMegapanel) {
       return (
         <HeaderMenu

@@ -78,7 +78,7 @@ class DDSImageWithCaption extends StableSelectorMixin(ModalRenderMixin(FocusMixi
    * The heading.
    */
   @property({ reflect: true })
-  heading = 'this is a required caption';
+  heading = '';
 
   @property({ attribute: 'launch-lightbox-button-assistive-text' })
   launchLightboxButtonAssistiveText = 'launch light box media viewer';

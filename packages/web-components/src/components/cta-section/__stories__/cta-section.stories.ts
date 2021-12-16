@@ -33,16 +33,6 @@ const contentItemTypeMap = {
       )}
     </dds-cta-block-item>
   `,
-  button: ({ heading, copy }) => html`
-    <dds-cta-block-item>
-      <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
-      <dds-button-group slot="footer">
-        <dds-button-cta>Button 1</dds-button-cta>
-        <dds-button-cta>Button 2</dds-button-cta>
-      </dds-button-group>
-    </dds-cta-block-item>
-  `,
   statistics: ({ heading, copy, links }) => html`
     <dds-cta-block-item>
       <span slot="statistics">10%</span>
@@ -109,30 +99,15 @@ const contentItemTypeMap = {
 
 const contentItemTypeOptions = {
   Text: 'text',
-  Button: 'button',
   Statistics: 'statistics',
   Pictogram: 'pictogram',
   Media: 'media',
 };
 
 const renderItems = (item, count) => {
-  if (count.length < 4) {
-    return html`
-      <dds-cta-block-item-row no-border>
-        ${count.map((_, index) => item({ ...content[index] }))}
-      </dds-cta-block-item-row>
-    `;
-  }
-
-  const itemArray = count;
-  const spliced = itemArray.splice(3);
-
   return html`
     <dds-cta-block-item-row>
-      ${itemArray.map((_, index) => item({ ...content[index] }))}
-    </dds-cta-block-item-row>
-    <dds-cta-block-item-row no-border>
-      ${spliced.map((_, index) => item({ ...content[index] }))}
+      ${count.map((_, index) => item({ ...content[index] }))}
     </dds-cta-block-item-row>
   `;
 };

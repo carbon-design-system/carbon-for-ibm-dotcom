@@ -37,8 +37,17 @@ const _pathPlatform = '/iframe.html?id=components-masthead--with-platform';
  */
 const _pathl1 = '/iframe.html?id=components-masthead--with-l-1';
 
+/**
+ * Sets the correct path (Masthead search open onload)
+ *
+ * @type {string}
+ * @private
+ */
+const _pathSearchOpenOnload = '/iframe.html?id=components-masthead--search-open-onload';
+
 describe('dds-masthead | default (desktop)', () => {
   beforeEach(() => {
+    cy.mockMastheadFooterData();
     cy.visit(`/${_pathDefault}`);
     cy.viewport(1280, 780);
   });
@@ -58,12 +67,7 @@ describe('dds-masthead | default (desktop)', () => {
       expect($menuItem).to.have.attr('active');
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | menu item with selected state', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should render 4 menu items', () => {
@@ -76,12 +80,7 @@ describe('dds-masthead | default (desktop)', () => {
       .find('a')
       .click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | mega menu (nav 0)', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should load the megamenu - second nav item', () => {
@@ -90,12 +89,7 @@ describe('dds-masthead | default (desktop)', () => {
       .find('a')
       .click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | mega menu (nav 2)', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should load the megamenu - third nav item', () => {
@@ -104,12 +98,7 @@ describe('dds-masthead | default (desktop)', () => {
       .find('a')
       .click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | mega menu (nav 3)', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should load the megamenu - fourth nav item', () => {
@@ -118,12 +107,7 @@ describe('dds-masthead | default (desktop)', () => {
       .find('a')
       .click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | mega menu (nav 4)', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should have urls for the submenu items within the megamenu', () => {
@@ -154,12 +138,7 @@ describe('dds-masthead | default (desktop)', () => {
       .find('a')
       .click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | profile menu', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should have 2 menu items under the login menu', () => {
@@ -172,12 +151,7 @@ describe('dds-masthead | default (desktop)', () => {
       .find('.bx--header__search--search')
       .click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead |  search bar opens', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should allow keywords in the search bar and display 10 suggested results', () => {
@@ -193,17 +167,13 @@ describe('dds-masthead | default (desktop)', () => {
 
     cy.get('dds-search-with-typeahead-item').should('have.length', 10);
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead |  allow for keywords in search bar and display 10 suggested results', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 });
 
 describe('dds-masthead | default (mobile)', () => {
   beforeEach(() => {
+    cy.mockMastheadFooterData();
     cy.visit(`/${_pathDefault}`);
     cy.viewport(320, 780);
   });
@@ -214,28 +184,27 @@ describe('dds-masthead | default (mobile)', () => {
       .find('button')
       .click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-masthead | mobile menu', {
-      widths: [320],
-    });
+    cy.takeSnapshots('mobile');
+  });
+
+  it('should load the mobile menu | level 2', () => {
+    cy.get('dds-masthead-menu-button')
+      .shadow()
+      .find('button')
+      .click();
 
     cy.get('dds-left-nav-menu-section:nth-child(1) > dds-left-nav-menu:nth-child(1)')
       .shadow()
       .find('button')
       .click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | mobile menu level 2', {
-    //   widths: [320],
-    // });
+    cy.takeSnapshots('mobile');
   });
 });
 
 describe('dds-masthead | custom (desktop)', () => {
   beforeEach(() => {
+    cy.mockMastheadFooterData();
     cy.visit(`/${_pathCustom}`);
     cy.viewport(1280, 780);
   });
@@ -249,12 +218,7 @@ describe('dds-masthead | custom (desktop)', () => {
       expect($menuItem).to.have.attr('active');
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | custom menu item with selected state', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should load the megamenu - custom first nav item', () => {
@@ -264,12 +228,7 @@ describe('dds-masthead | custom (desktop)', () => {
         expect($menuItem).to.have.attr('expanded');
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | custom nav (nav 0)', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should load the megamenu - custom second nav item', () => {
@@ -279,12 +238,7 @@ describe('dds-masthead | custom (desktop)', () => {
         expect($menuItem).to.have.attr('expanded');
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | custom nav (nav 1)', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should load regular menu - custom third nav item', () => {
@@ -294,12 +248,7 @@ describe('dds-masthead | custom (desktop)', () => {
         expect($menuItem).to.have.attr('expanded');
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | custom nav (nav 2)', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should load regular menu - custom fourth nav item', () => {
@@ -323,12 +272,7 @@ describe('dds-masthead | custom (desktop)', () => {
         expect($menuItem).to.have.attr('expanded');
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | custom nav (nav 4)', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should load regular menu - custom sixth nav item', () => {
@@ -342,23 +286,6 @@ describe('dds-masthead | custom (desktop)', () => {
   });
 
   it('should scroll the L0 overflow properly', () => {
-    cy.document().then($document => {
-      $document.querySelector('head').insertAdjacentHTML(
-        'beforeend',
-        `
-      <style>
-        /* Disable CSS transitions. */
-        * { -webkit-transition: none !important; -moz-transition: none !important; -o-transition: none !important; transition: none !important; }
-        /* Disable CSS animations. */
-        * { -webkit-animation: none !important; -moz-animation: none !important; -o-animation: none !important; animation: none !important; }
-        /* Reset values on non-opaque/offscreen framer-motion components. */
-        *[style*="opacity"] { opacity: 1 !important; }
-        *[style*="transform"] { transform: none !important; }
-      </style>
-    `
-      );
-    });
-
     cy.get('dds-top-nav')
       .shadow()
       .find('.bx--header__nav-caret-right-container > button')
@@ -366,22 +293,23 @@ describe('dds-masthead | custom (desktop)', () => {
 
     cy.get('dds-top-nav')
       .shadow()
-      .find('.bx--header__nav-caret-right-container')
-      .then($button => {
-        expect($button).to.have.class('dds-ce--header__nav-caret-container--hidden');
+      .find('.bx--header__nav-caret-right-container.dds-ce--header__nav-caret-container--hidden')
+      .then(() => {
+        cy.get('dds-top-nav')
+          .shadow()
+          .find('.bx--header__nav-caret-left-container')
+          .then($button => {
+            expect($button).not.to.have.class('dds-ce--header__nav-caret-container--hidden');
+          });
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | custom - overflow', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 });
 
 describe('dds-masthead | with platform (desktop)', () => {
   beforeEach(() => {
+    cy.mockMastheadFooterData();
     cy.visit(`/${_pathPlatform}`);
     cy.viewport(1280, 780);
   });
@@ -410,17 +338,13 @@ describe('dds-masthead | with platform (desktop)', () => {
       .find('.bx--header__search--search')
       .click();
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | with platform - search', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 });
 
 describe('dds-masthead | with L1 (desktop)', () => {
   beforeEach(() => {
+    cy.mockMastheadFooterData();
     cy.visit(`/${_pathl1}`);
     cy.viewport(1280, 780);
   });
@@ -442,12 +366,7 @@ describe('dds-masthead | with L1 (desktop)', () => {
         expect(url).not.to.be.empty;
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | IBM logo', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should load l1 menu item with selected state', () => {
@@ -455,12 +374,7 @@ describe('dds-masthead | with L1 (desktop)', () => {
       expect($menuItem).to.have.attr('active');
     });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | custom menu item with selected state', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
   });
 
   it('should render 5 menu items', () => {
@@ -517,20 +431,64 @@ describe('dds-masthead | with L1 (desktop)', () => {
       .find('.bx--header__nav-caret-right-container > button')
       .click();
 
-    cy.wait(500);
-
     cy.get('dds-top-nav-l1')
       .shadow()
-      .find('.bx--header__nav-caret-right-container')
+      .find('.bx--header__nav-caret-right-container.dds-ce--header__nav-caret-container--hidden')
       .then($button => {
-        expect($button).to.have.class('dds-ce--header__nav-caret-container--hidden');
+        cy.get('dds-top-nav-l1')
+          .shadow()
+          .find('.bx--header__nav-caret-left-container')
+          .then($button => {
+            expect($button).not.to.have.class('dds-ce--header__nav-caret-container--hidden');
+          });
       });
 
-    cy.screenshot();
-    // Take a snapshot for visual diffing
-    // TODO: click states currently not working in percy for web components
-    // cy.percySnapshot('dds-masthead | custom - overflow', {
-    //   widths: [1280],
-    // });
+    cy.takeSnapshots();
+  });
+});
+
+describe('dds-masthead | search open onload (desktop)', () => {
+  beforeEach(() => {
+    // TODO: fix the uncaught exception in Firefox only
+    cy.on('uncaught:exception', (err, runnable) => {
+      if (err.message.includes('Request aborted')) {
+        return false;
+      }
+    });
+
+    cy.visit(`/${_pathSearchOpenOnload}`);
+    cy.viewport(1280, 780);
+  });
+
+  it('should load search field open by default', () => {
+    cy.get('dds-search-with-typeahead')
+      .shadow()
+      .find('input[type="text"]')
+      .should('be.visible');
+
+    cy.takeSnapshots();
+  });
+
+  it('should have typable search field', () => {
+    cy.get('dds-search-with-typeahead')
+      .shadow()
+      .find('input[type="text"]')
+      .type('test')
+      .should('have.value', 'test');
+  });
+
+  it('should display 10 auto suggest results', () => {
+    cy.get('dds-search-with-typeahead')
+      .shadow()
+      .find('input[type="text"]')
+      .type('test')
+      .get('dds-search-with-typeahead-item')
+      .should('have.length', 10);
+
+    cy.takeSnapshots();
+  });
+
+  it('should not display menu options while search field is open', () => {
+    cy.get('dds-top-nav').should('have.attr', 'hidenav');
   });
 });

@@ -34,7 +34,7 @@ const LocaleButton = ({ displayLang, aria }) => {
         {displayLang}
       </Button>
 
-      {isOpen && <LocaleModal isOpen={isOpen} setIsOpen={setIsOpen} />}
+      <LocaleModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 

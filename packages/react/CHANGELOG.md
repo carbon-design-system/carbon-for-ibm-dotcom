@@ -3,6 +3,110 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.29.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.29.1-rc.0...@carbon/ibmdotcom-react@1.29.1) (2021-12-13)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+## [1.29.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.29.0...@carbon/ibmdotcom-react@1.29.1-rc.0) (2021-12-09)
+
+
+
+# 1.29.0 (2021-12-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.29.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.28.0-rc.0...@carbon/ibmdotcom-react@1.29.0) (2021-12-01)
+
+
+
+# 1.28.0-rc.0 (2021-11-24)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.28.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.28.0-rc.0...@carbon/ibmdotcom-react@1.28.0) (2021-12-01)
+
+
+
+# 1.28.0-rc.0 (2021-11-24)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.28.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.27.0...@carbon/ibmdotcom-react@1.28.0-rc.0) (2021-11-24)
+
+
+### Bug Fixes
+
+* **browserstack:** add `cypress-wait-until` for browserstack automate ([#7586](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7586)) ([b351f4f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b351f4f))
+* **browserstack:** various browserstack e2e test fixes ([#7592](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7592)) ([b9cb7f9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b9cb7f9))
+* **card:** update storybook knobs ([#7665](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7665)) ([88ff4d3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/88ff4d3)), closes [#5651](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5651)
+* **content-item-horizontal:** use accessible focus order ([#7528](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7528)) ([07da36c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/07da36c))
+* **masthead:** clean up storybook demos ([#7664](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7664)) ([1292f82](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1292f82)), closes [#6409](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6409)
+* **masthead:** display L0 nav with L1 when scrolling up ([#7591](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7591)) ([a5bb87e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a5bb87e))
+* **Masthead:** add optional chaining to root.location to remove error in NextJS when rendering server-side ([#7681](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7681)) ([845cf31](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/845cf31)), closes [#7678](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7678)
+* **Masthead:** collapse left nav on overlay click ([#7545](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7545)) ([533a549](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/533a549)), closes [#7190](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7190)
+* **Masthead:** use `window` or `global` object ([#7708](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7708)) ([699b93b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/699b93b)), closes [#7707](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7707) [#6391](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6391)
+* **TableOfContents:** sync props and state for dynamically added items ([#7687](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7687)) ([a04b670](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a04b670)), closes [#7676](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7676) [#7676](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7676)
+
+
+### Features
+
+* **Layout:** remove Layout component and switch to style mixins ([#7656](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7656)) ([7d2aba1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7d2aba1)), closes [#7327](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7327)
+
+
+
+
+
+# [1.27.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.27.0-rc.0...@carbon/ibmdotcom-react@1.27.0) (2021-11-10)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.27.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.26.0...@carbon/ibmdotcom-react@1.27.0-rc.0) (2021-10-29)
+
+
+### Bug Fixes
+
+* **browserstack:** update cypress configs for browserstack ([#7543](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7543)) ([6ff8ac1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6ff8ac1))
+* **content-section:** expose content section ([#7351](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7351)) ([42c64f5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/42c64f5)), closes [#6699](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6699)
+* **footer:** address different style issues ([#7392](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7392)) ([cad1915](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cad1915)), closes [#7189](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7189)
+* **gulp:** adjustment to react vendor builds ([#7396](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7396)) ([259bae3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/259bae3))
+* **locale-modal:** fix to properly type in locale modal e2e tests ([#7477](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7477)) ([cc8e573](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cc8e573))
+* **masthead:** ensure reverse tabbing works in megamenu ([#7368](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7368)) ([ebe397a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ebe397a)), closes [#6624](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6624)
+* **Masthead:** resolve React and PropTypes warnings ([#7401](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7401)) ([3d3961e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3d3961e)), closes [#7224](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7224) [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/react/src/components/carbon-components-react/UIShell/HeaderMenu.js#L305-L309](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/react/src/components/carbon-components-react/UIShell/HeaderMenu.js/issues/L305-L309)
+* **Masthead:** set selected state for L1 menu items and mobile ([#7530](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7530)) ([0ffc894](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0ffc894)), closes [#7312](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7312)
+* **masthead-e2e:** update overflow test ([#7511](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7511)) ([25fddcd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/25fddcd))
+* **MastheadSearch:** allow search event handlers to determine method of change ([#7365](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7365)) ([773774e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/773774e)), closes [#7081](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7081)
+* **quote:** Load Plex Serif font into Storybook previews ([#7437](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7437)) ([4a5bf3e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4a5bf3e))
+
+
+### Features
+
+* **filter-panel:** introducing react wrapper ([#7470](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7470)) ([b828912](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b828912)), closes [#6644](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6644)
+* **storybook:** position elements to top left ([#7397](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7397)) ([c6e8e22](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c6e8e22)), closes [#6515](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6515)
+
+
+
+
+
 # [1.26.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.26.0-rc.2...@carbon/ibmdotcom-react@1.26.0) (2021-10-18)
 
 

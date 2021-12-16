@@ -22,7 +22,7 @@
       @include carbon--make-col-ready;
       @include carbon--make-col(4, 4);
 
-      margin-top: $spacing-09;
+      margin: $spacing-09 0;
 
       .#{$prefix}--locale-btn {
         max-width: 100%;

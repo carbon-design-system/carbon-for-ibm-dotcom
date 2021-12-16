@@ -39,7 +39,9 @@ class DDSMastheadGlobalBar extends FocusMixin(HostListenerMixin(StableSelectorMi
   @HostListener('parentRoot:eventToggleSearch')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleSearchToggle = (event: Event) => {
-    this._hasSearchActive = (event as CustomEvent).detail.active;
+    if ((event as CustomEvent).detail.active !== undefined) {
+      this._hasSearchActive = (event as CustomEvent).detail.active;
+    }
   };
 
   /**

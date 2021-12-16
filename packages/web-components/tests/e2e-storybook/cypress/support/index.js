@@ -10,8 +10,8 @@ import serializeDOM from '@percy/dom';
 
 import './commands';
 
-// Workaround, @percy/cypress was not properly loading in PercyDOM
 if (window) {
+  // Workaround, @percy/cypress was not properly loading in PercyDOM
   window.PercyDOM = {
     serialize: serializeDOM,
   };

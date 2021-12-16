@@ -13,12 +13,16 @@ name: "CodeQL"
 
 on:
   push:
-    branches: [ master, release/* ]
+    branches: [ main, release/* ]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ master ]
+    branches: [ main ]
   schedule:
     - cron: '35 16 * * 1'
+
+concurrency:
+  group: codeql-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   analyze:

@@ -3,6 +3,104 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.29.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.29.1-rc.0...@carbon/ibmdotcom-styles@1.29.1) (2021-12-13)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+## [1.29.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.29.0...@carbon/ibmdotcom-styles@1.29.1-rc.0) (2021-12-09)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.29.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.28.0-rc.0...@carbon/ibmdotcom-styles@1.29.0) (2021-12-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.28.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.28.0-rc.0...@carbon/ibmdotcom-styles@1.28.0) (2021-12-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.28.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.27.0...@carbon/ibmdotcom-styles@1.28.0-rc.0) (2021-11-24)
+
+
+### Bug Fixes
+
+* **card:** added text wrapping to cta text ([#7451](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7451)) ([5cf7ef3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5cf7ef3)), closes [#6935](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6935)
+* **card-cta-footer:** adjust arrow position inconsistency seen in safari ([#7672](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7672)) ([4aa684b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4aa684b))
+* **content-block:** aside element take 3 columns only ([#7160](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7160)) ([e8fe2e9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e8fe2e9)), closes [#6081](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6081)
+* **content-item-horizontal:** use accessible focus order ([#7528](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7528)) ([07da36c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/07da36c))
+* **masthead:** display L0 nav with L1 when scrolling up ([#7591](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7591)) ([a5bb87e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a5bb87e))
+* **search-with-typeahead:** remove gap between search action buttons ([#7531](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7531)) ([cccde8f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cccde8f))
+* **table-of-contents:** bump navbar z-index ([#7548](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7548)) ([ec08864](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ec08864)), closes [#5476](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5476) [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/6ff8ac10534f2e89c40e4f2c301da481f9d76d00/packages/styles/scss/components/video-player/_video-player.scss#L69](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/6ff8ac10534f2e89c40e4f2c301da481f9d76d00/packages/styles/scss/components/video-player/_video-player.scss/issues/L69) [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/6ff8ac10534f2e89c40e4f2c301da481f9d76d00/packages/styles/scss/components/feature-card/_feature-card.scss#L119](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/6ff8ac10534f2e89c40e4f2c301da481f9d76d00/packages/styles/scss/components/feature-card/_feature-card.scss/issues/L119)
+
+
+### Features
+
+* **background-media:** add support for background videos ([#7533](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7533)) ([129e382](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/129e382)), closes [#7500](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7500)
+* **card:** add logo variant ([#7647](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7647)) ([e0b60f3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e0b60f3))
+* **card:** add print styles ([#7593](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7593)) ([739c1d3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/739c1d3))
+* **card:** create react wrapper story and codesandbox ([#7538](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7538)) ([8aa629b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8aa629b)), closes [#7295](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7295)
+* **carousel-card-section-offset:** add print styles to Carousel and Card Section Offset ([#7649](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7649)) ([aa44e88](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/aa44e88))
+* **content-item-horizontal:** create featured media variant ([#7650](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7650)) ([9a274ac](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9a274ac))
+* **Layout:** remove Layout component and switch to style mixins ([#7656](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7656)) ([7d2aba1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7d2aba1)), closes [#7327](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7327)
+* **leadspace & button group:** add print friendly styles ([#7608](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7608)) ([8d0eea3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8d0eea3))
+
+
+
+
+
+# [1.27.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.27.0-rc.0...@carbon/ibmdotcom-styles@1.27.0) (2021-11-10)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.27.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.26.0...@carbon/ibmdotcom-styles@1.27.0-rc.0) (2021-10-29)
+
+
+### Bug Fixes
+
+* **back-to-top:** set z-index value ([#7465](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7465)) ([d746d72](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d746d72)), closes [#6678](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6678)
+* **callout-with-media:** text width update ([#7459](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7459)) ([b221367](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b221367)), closes [#5442](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5442)
+* **card:** Update card styling & layout ([#7463](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7463)) ([a420912](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a420912)), closes [#6229](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6229) [#6255](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6255)
+* **card-cta:** apply hover effect to video thumbnail ([#7380](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7380)) ([b22689c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b22689c))
+* **content-item-horizontal:** fixed grid issues ([#7361](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7361)) ([15b89af](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/15b89af))
+* **content-section:** expose content section ([#7351](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7351)) ([42c64f5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/42c64f5)), closes [#6699](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6699)
+* **feature-section:** adjust grid alignment issues on certain breakpoints ([#7378](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7378)) ([e242c72](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e242c72))
+* **feature-section:** hover and active image styles ([#7506](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7506)) ([fbc5bc1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/fbc5bc1))
+* **filter-panel:** prevent accordion state resetting on input selection ([#7452](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7452)) ([0a41071](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0a41071)), closes [#6677](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6677) [#7441](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7441) [#6677](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6677)
+* **footer:** address different style issues ([#7392](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7392)) ([cad1915](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cad1915)), closes [#7189](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7189)
+* **leadspace with search:** sticky behavior not working ([#7517](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7517)) ([9884ac0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9884ac0))
+* **styles:** revert - temporarily hard-code breakpoint values ([#6557](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6557)) ([#7418](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7418)) ([e4230c6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e4230c6)), closes [#6558](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6558)
+* **toc:** removing wrong spacing for horizontal rule ([#7387](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7387)) ([01716e2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/01716e2)), closes [#6574](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6574)
+
+
+### Features
+
+* **leadspace-with-search:** added sticky scroll functionality ([#7421](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7421)) ([d79ffdd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d79ffdd)), closes [#6820](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6820)
+* **storybook:** position elements to top left ([#7397](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7397)) ([c6e8e22](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c6e8e22)), closes [#6515](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6515)
+
+
+
+
+
 # [1.26.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.26.0-rc.2...@carbon/ibmdotcom-styles@1.26.0) (2021-10-18)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
@@ -143,7 +241,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **card-in-card-5984:** default to using Card component headline styling ([#6843](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6843)) ([05ba37b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/05ba37b)), closes [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/scss/components/card/index.scss#L416](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/scss/components/card/index.scss/issues/L416) [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/scss/components/card/index.scss#L416](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/scss/components/card/index.scss/issues/L416)
+* **card-in-card-5984:** default to using Card component headline styling ([#6843](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6843)) ([05ba37b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/05ba37b)), closes [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/styles/scss/components/card/index.scss#L416](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/styles/scss/components/card/index.scss/issues/L416) [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/styles/scss/components/card/index.scss#L416](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/styles/scss/components/card/index.scss/issues/L416)
 * **content-group-banner-6794:** fix before pseudo-element bug on safari ([#6865](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6865)) ([f83177d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f83177d))
 * **cta-block:** adjust header padding values to spec ([#6907](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6907)) ([71db2c3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/71db2c3)), closes [#6904](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6904)
 * **search:** update search placeholder color ([#6991](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6991)) ([7bb165f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7bb165f)), closes [#6989](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6989)

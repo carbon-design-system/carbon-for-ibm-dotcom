@@ -78,11 +78,22 @@ $hover-transition-timing: 95ms;
   :host(#{$dds-prefix}-table-of-contents),
   .#{$prefix}--tableofcontents {
     text-size-adjust: 100%;
+    @extend .#{$prefix}--grid;
+
+    display: block;
+    margin: 0;
 
     @include themed-items;
   }
 
+  .#{$dds-prefix}-ce--table-of-contents__container,
+  .#{$dds-prefix}-ce--table-of-contents-horizontal__container {
+    @include carbon--make-row();
+  }
+
   .#{$prefix}--tableofcontents__sidebar {
+    @extend .#{$prefix}--col-lg-4;
+
     position: sticky;
     top: 0;
     z-index: 1;
@@ -91,6 +102,10 @@ $hover-transition-timing: 95ms;
       position: inherit;
       top: auto;
     }
+  }
+
+  .#{$prefix}--tableofcontents__content {
+    @extend .#{$prefix}--col-lg-12;
   }
 
   .#{$prefix}--tableofcontents__children__mobile {
@@ -190,6 +205,15 @@ $hover-transition-timing: 95ms;
         display: none;
       }
     }
+
+    > .#{$prefix}--link-list {
+      padding-top: 0;
+      padding-bottom: $spacing-05;
+    }
+
+    hr[data-autoid='#{$dds-prefix}--hr'] {
+      margin-top: 0;
+    }
   }
 
   .#{$prefix}--tableofcontents__contents {
@@ -226,7 +250,7 @@ $hover-transition-timing: 95ms;
   }
 
   .#{$prefix}--tableofcontents__navbar {
-    z-index: 1;
+    z-index: 10;
     position: sticky;
     top: 0;
     width: 100%;

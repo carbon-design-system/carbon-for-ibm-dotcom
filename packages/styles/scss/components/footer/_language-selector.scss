@@ -25,7 +25,7 @@
       @include select;
       @include text-input;
 
-      margin-top: $spacing-09;
+      margin: $spacing-09 0;
       padding-left: 0;
       padding-right: 0;
       order: 0;
@@ -45,7 +45,6 @@
         margin-right: 0;
 
         .#{$prefix}--list-box__field {
-          background-color: $ui-03;
           height: inherit;
         }
 
@@ -118,9 +117,6 @@
     // <ComboBox /> for desktop
     .#{$prefix}--form-item {
       display: block;
-      select {
-        background-color: $ui-03;
-      }
 
       @include carbon--breakpoint('lg') {
         display: none;
