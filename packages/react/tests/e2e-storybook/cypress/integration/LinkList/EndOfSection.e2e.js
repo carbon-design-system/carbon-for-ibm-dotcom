@@ -112,7 +112,7 @@ describe('LinkList | default (desktop)', () => {
   beforeEach(() => {
     cy.mockKaltura();
     cy.viewport(1280, 780);
-    cy.visit(`/${_path}`);
+    cy.visit(`/${_path}`).wait(1000);
   });
 
   it('should load items with text and link', _tests.checkComponentLoad);
@@ -125,7 +125,7 @@ describe('LinkList | default (mobile)', () => {
   beforeEach(() => {
     cy.mockKaltura();
     cy.viewport(325, 780);
-    cy.visit(`/${_path}`);
+    cy.visit(`/${_path}`).wait(1000);
   });
 
   it('should load items with text and link', _tests.checkComponentLoad);
