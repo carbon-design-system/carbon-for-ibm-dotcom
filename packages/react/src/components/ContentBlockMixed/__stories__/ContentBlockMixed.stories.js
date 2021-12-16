@@ -27,7 +27,7 @@ const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean 
     nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.`;
 
 const pictogramHeading =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
 
 const pictogramItems = [
   {
@@ -169,7 +169,7 @@ Default.story = {
   },
 };
 
-export const WithAsideElements = ({ parameters }) => {
+export const WithLinkList = ({ parameters }) => {
   const { cta, items, aside } = parameters?.props?.ContentBlockMixed ?? {};
   return (
     <div className="bx--grid">
@@ -188,8 +188,8 @@ export const WithAsideElements = ({ parameters }) => {
   );
 };
 
-WithAsideElements.story = {
-  name: 'With aside elements',
+WithLinkList.story = {
+  name: 'With link list',
   parameters: {
     knobs: {
       ContentBlockMixed: ({ groupId }) => {

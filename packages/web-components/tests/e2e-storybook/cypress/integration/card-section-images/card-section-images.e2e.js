@@ -93,7 +93,7 @@ describe('dds-card-section-images | default (mobile)', () => {
       });
 
     cy.get('dds-card-group-item > dds-image').each($img => {
-      expect($img).to.be.visible;
+      cy.wrap($img).should('be.visible');
     });
 
     cy.get('dds-card-group-item > dds-card-eyebrow').each($eyebrow => {

@@ -177,7 +177,10 @@ class KalturaPlayerAPI {
    *
    * @param {string} mediaId  The mediaId we're embedding the placeholder for.
    * @param {string} targetId The targetId the ID where we're putting the placeholder.
-   * @param {boolean} flashvars Determine any extra param or plugin for the player.
+   * @param {object} flashvars Determine any extra param or plugin for the player.
+   * @param {boolean} useIbmMetrics Whether or not should IBM Metrics events be fired.
+   * @param {Function} customReadyCallback Determine any extra functions that should be executed
+   *  on player readyCallback.
    * @returns {object}  object
    *
    * @example
@@ -189,7 +192,13 @@ class KalturaPlayerAPI {
    *   KalturaPlayerAPI.embedMedia(videoid, elem);
    * }
    */
-  static async embedMedia(mediaId, targetId, flashvars = {}) {
+  static async embedMedia(
+    mediaId,
+    targetId,
+    flashvars = {},
+    useIbmMetrics = true,
+    customReadyCallback = () => {}
+  ) {
     const fireEvent = this.fireEvent;
     return await this.checkScript().then(() => {
       const promiseKWidget = new Promise(resolve => {
@@ -234,17 +243,33 @@ class KalturaPlayerAPI {
           },
           // Ready callback is issued for this player:
           readyCallback: function(playerId) {
-            var kdp = document.getElementById(playerId);
+            const kdp = document.getElementById(playerId);
 
-            kdp.addJsListener('playerPaused', function() {
-              fireEvent({ playerState: 1, kdp, mediaId });
-            });
-            kdp.addJsListener('playerPlayed', function() {
-              fireEvent({ playerState: 2, kdp, mediaId });
-            });
-            kdp.addJsListener('playerPlayEnd', function() {
-              fireEvent({ playerState: 3, kdp, mediaId });
-            });
+            if (useIbmMetrics) {
+              kdp.addJsListener('playerPaused.ibm', () => {
+                fireEvent({ playerState: 1, kdp, mediaId });
+              });
+
+              kdp.addJsListener('playerPlayed.ibm', () => {
+                fireEvent({ playerState: 2, kdp, mediaId });
+              });
+
+              kdp.addJsListener('playerPlayEnd.ibm', () => {
+                fireEvent({ playerState: 3, kdp, mediaId });
+              });
+
+              kdp.addJsListener('IbmCtaEvent.ibm', ctaData => {
+                const customMetricsData = ctaData?.customMetricsData || {};
+                fireEvent({
+                  playerState: 101,
+                  kdp,
+                  mediaId,
+                  customMetricsData,
+                });
+              });
+            }
+
+            customReadyCallback(kdp);
 
             resolve(kdp);
           },
@@ -277,9 +302,10 @@ class KalturaPlayerAPI {
    * @param {number} param.playerState state detecting different user actions
    * @param {object} param.kdp media object
    * @param {string} param.mediaId id of the media
+   * @param {object} param.customMetricsData any extra parameter for custom events
    *
    */
-  static fireEvent({ playerState, kdp, mediaId }) {
+  static fireEvent({ playerState, kdp, mediaId, customMetricsData = {} }) {
     // If media was played and timestamp is 0, it should be "launched" state.
     var currentTime = Math.round(kdp.evaluate('{video.player.currentTime}'));
 
@@ -294,6 +320,7 @@ class KalturaPlayerAPI {
       duration: kdp.evaluate('{mediaProxy.entry.duration}'),
       playerState: playerState,
       mediaId: mediaId,
+      customMetricsData,
     };
 
     AnalyticsAPI.videoPlayerStats(eventData);
