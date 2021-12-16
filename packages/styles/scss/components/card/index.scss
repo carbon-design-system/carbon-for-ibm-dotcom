@@ -216,6 +216,15 @@
   }
 
   // static card
+  :host(#{$dds-prefix}-card) {
+    // Outlined/Border card
+    &[border] {
+      .#{$prefix}--card {
+        border: 1px solid $ui-03;
+      }
+    }
+  }
+
   :host(#{$dds-prefix}-card),
   :host(#{$dds-prefix}-card-group-item) {
     &:not([href]) {
@@ -257,13 +266,6 @@
         a:active {
           outline: none;
         }
-      }
-    }
-
-    // Outlined/Border card
-    &[border] {
-      .#{$prefix}--card {
-        border: 1px solid $ui-03;
       }
     }
 
