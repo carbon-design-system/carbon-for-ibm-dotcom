@@ -28,12 +28,9 @@ describe('dds-card-section-images | default (desktop)', () => {
         expect(url).not.to.be.empty;
       });
 
-    cy.get('dds-card-group-item:nth-child(1) > dds-image')
-      .shadow()
-      .find('img')
-      .then($img => {
-        expect($img).to.be.visible;
-      });
+    cy.get('dds-card-group-item > dds-image').each($img => {
+      cy.wrap($img).should('be.visible');
+    });
 
     cy.get('dds-card-group-item > dds-card-eyebrow').each($eyebrow => {
       expect($eyebrow).to.be.visible;
