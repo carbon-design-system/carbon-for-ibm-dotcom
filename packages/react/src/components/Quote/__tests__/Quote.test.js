@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -37,7 +37,7 @@ describe('Quotes', () => {
     expect(quote.find('.bx--quote__mark')).toHaveLength(1);
     expect(quote.find('.bx--quote__copy')).toHaveLength(1);
     expect(quote.find('.bx--quote__source')).toHaveLength(1);
-    expect(quote.find('.bx--quote__footer')).toHaveLength(1);
+    expect(quote.find('.bx--quote-link__footer')).toHaveLength(1);
 
     const doubleCurved = shallow(
       <Quote
@@ -92,6 +92,6 @@ describe('Quotes', () => {
     expect(noSource.find('.bx--quote__inverse')).toHaveLength(0);
 
     const noCTA = shallow(<Quote copy="Lorem ipsum dolor" inverse={false} />);
-    expect(noCTA.find('.bx--quote__footer')).toHaveLength(0);
+    expect(noCTA.find('.bx--quote-link__footer')).toHaveLength(0);
   });
 });
