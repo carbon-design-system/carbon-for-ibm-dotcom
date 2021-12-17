@@ -49,6 +49,8 @@ class DDSBackgroundMedia extends DDSImage {
       [`${prefix}--background-media--container`]: true,
       [`${prefix}--background-media--mobile-position`]: true,
       [`${prefix}--background-media--mobile-position--${this.mobilePosition}`]: this.mobilePosition,
+      [`${prefix}--background-media--image`]: this.videoPlayer === null,
+      [`${prefix}--background-media--video`]: this.videoPlayer !== null,
     });
   }
 

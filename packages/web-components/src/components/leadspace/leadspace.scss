@@ -34,8 +34,13 @@
   }
 
   ::slotted(#{$dds-prefix}-background-media) {
-    position: absolute;
-    inset: 0;
+    height: auto;
+
+    @include carbon--breakpoint(md) {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+    }
   }
 }
 
