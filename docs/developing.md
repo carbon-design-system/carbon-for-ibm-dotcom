@@ -12,7 +12,7 @@
 - [Submitting a Pull Request](#submitting-a-pull-request)
 - [FAQ](#faq)
     - [CI checks are failing saying that it cannot find a dependency in offline mode](#ci-checks-are-failing-saying-that-it-cannot-find-a-dependency-in-offline-mode)
-    - [Yarn/Gulp tasks are failing after rebasing or getting new `master`](#yarngulp-tasks-are-failing-after-rebasing-or-getting-new-master)
+    - [Yarn/Gulp tasks are failing after rebasing or getting new `main`](#yarngulp-tasks-are-failing-after-rebasing-or-getting-new-main)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <!-- prettier-ignore-end -->
@@ -89,7 +89,7 @@ yarn build
 
 Afterwards, you should be good to go! For more information about how we handle
 dependencies, definitely take a look at our write-up
-[here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/dependencies.md).
+[here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/docs/dependencies.md).
 
 ## Common tasks
 
@@ -123,17 +123,17 @@ https://yarnpkg.com/lang/en/docs/cli/link/
 
 ## Submitting a Pull Request
 
-1. Pull the latest master branch from `upstream`:
+1. Pull the latest main branch from `upstream`:
 
    ```
-   $ git pull upstream master
+   $ git pull upstream main
    ```
 
 2. Always work and submit pull requests from a branch. _Do not submit pull
-   requests from the `master` branch of your fork_.
+   requests from the `main` branch of your fork_.
 
    ```
-   $ git checkout -b { YOUR_BRANCH_NAME } master
+   $ git checkout -b { YOUR_BRANCH_NAME } main
    ```
 
 3. Create your patch or feature.
@@ -208,7 +208,7 @@ A shortcut task available from the root also runs the above commands:
 yarn reset
 ```
 
-#### Yarn/Gulp tasks are failing after rebasing or getting new `master`
+#### Yarn/Gulp tasks are failing after rebasing or getting new `main`
 
 It is possible that a newly introduced package is added to this monorepo, but `packages/newpackage` is not linked in `node_modules`. While a `yarn reset` may resolve this, another possible way is to run:
 

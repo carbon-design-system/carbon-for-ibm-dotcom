@@ -14,7 +14,7 @@ export default create({
   base: 'light',
   brandTitle: `Carbon for IBM.com React v${packageJson.version}`,
   brandUrl:
-    'https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/react',
+    'https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/react',
   fontBase: '"IBM Plex Sans", "Helvetica Neue", Arial, sans-serif',
   fontCode:
     '"IBM Plex Mono", Menlo, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", Courier, monospace',
