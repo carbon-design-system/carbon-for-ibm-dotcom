@@ -80,7 +80,7 @@ $fcb-breakpoint-up--lg: map-get(
         }
       }
 
-      .bx--card__wrapper {
+      .#{$prefix}--card__wrapper {
         background-color: $inverse-hover-ui;
       }
     }
