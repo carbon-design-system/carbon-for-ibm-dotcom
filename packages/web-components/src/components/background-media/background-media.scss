@@ -9,14 +9,12 @@
 @import '@carbon/ibmdotcom-styles/scss/components/background-media/background-media';
 @import 'carbon-web-components/scss/components/tooltip/tooltip';
 
-/* stylelint-disable */
 .#{$prefix}--background-media--video {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 9; /* stylelint-disable-line property-no-unknown */
   @include carbon--breakpoint(md) {
-    aspect-ratio: auto;
+    aspect-ratio: auto; /* stylelint-disable-line property-no-unknown */
   }
 }
-/* stylelint-enable */
 
 .#{$prefix}--video-player__controls[hasTooltip] {
   @include tooltip--trigger('definition', top);
