@@ -19,9 +19,7 @@ Here's a quick example to get you started.
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
-```
-
-<Description markdown={`${cdnJs({ components: ['card-in-card'] })}`} />
+```<Description markdown={`\\\${cdnJs({ components: ['card-in-card'] })}`} />
 <Description markdown={`${cdnCss()}`} />
 
 ### HTML
@@ -60,7 +58,10 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
 </dds-card-in-card>
 ```
 
-To render the video variation, make sure to wrap `card-in-card` with `video-cta-container`. The default video title can be overwritten by passing in the `video-name` attribute to `card-in-card`.
+To render the video variation, make sure to wrap `card-in-card` with `video-cta-container`. However, if parent component (ie. `Card group`)
+already is wrapped in `video-cta-container`, there is no need to wrap the `card-in-card`.
+
+NOTE: The default video title can be overwritten by passing in the `video-name` attribute to `card-in-card`.
 
 ```html
 <dds-video-cta-container>

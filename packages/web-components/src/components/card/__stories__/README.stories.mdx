@@ -17,12 +17,11 @@ Here's a quick example to get you started.
 
 ### JS (via import)
 
-```javascript
+````javascript
 import '@carbon/ibmdotcom-web-components/es/components/card/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['card'] })}`} />
-
+<Description markdown={`\${cdnJs({ components: ['card'] })}`} />
 <Description markdown={`${cdnCss()}`} />
 
 ### HTML
@@ -48,7 +47,7 @@ import '@carbon/ibmdotcom-web-components/es/components/card/index.js';
     </svg>
   </dds-card-footer>
 </dds-card>
-```
+````
 
 ## Card with pictogram
 
@@ -56,10 +55,7 @@ You can browse the [Carbon Pictogram library](https://www.carbondesignsystem.com
 You can also check out the repo [here](https://github.com/carbon-design-system/carbon/tree/main/packages/pictograms)
 
 ```html
-<dds-card
-  pictogram-placement="${pictogramPlacement}"
-  href="https://example.com"
->
+<dds-card pictogram-placement="${pictogramPlacement}" href="https://example.com">
   <dds-card-eyebrow>Eyebrow text</dds-card-eyebrow>
   <dds-card-heading>Lorem ipsum dolor</dds-card-heading>
   <p>Copy to be shown on hover if the pictogram placement is bottom</p>
@@ -83,8 +79,7 @@ You can also check out the repo [here](https://github.com/carbon-design-system/c
       stroke-miterlimit="10"
       stroke-width=".72"
       d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
-    >
-    </path>
+    ></path>
   </svg>
 </dds-card>
 ```
@@ -97,11 +92,9 @@ where the card is no longer clickable and optional `Tag` elements can also be ad
 ```html
 <dds-card>
   <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
-  ${copy
-    ? html`
-        <p>${copy}</p>
-      `
-    : ``}
+  ${copy ? html`
+  <p>${copy}</p>
+  ` : ``}
   <dds-tag-group>
     <bx-tag>
       Most popular
@@ -110,7 +103,7 @@ where the card is no longer clickable and optional `Tag` elements can also be ad
       Enterprise
     </bx-tag>
   </dds-tag-group>
-  <dds-card-footer href='https://example.com' icon-placement="right">
+  <dds-card-footer href="https://example.com" icon-placement="right">
     Card CTA text
     <svg
       slot="icon"
@@ -151,7 +144,7 @@ properly accomodates to the Logo image.
       Enterprise
     </bx-tag>
   </dds-tag-group>
-  <dds-card-footer href='https://example.com'></dds-card-footer>
+  <dds-card-footer href="https://example.com"></dds-card-footer>
 </dds-card>
 ```
 
@@ -160,7 +153,46 @@ properly accomodates to the Logo image.
 An optional light theme is available under `color-scheme`.
 
 ```html
-<dds-card color-scheme='light'>
+<dds-card color-scheme="light"></dds-card>
+```
+
+## Card with image
+
+To add image to the `dds-card`, import the `image` component and place `dds-image` within `dds-card`:
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/image/index.js';
+```
+
+```html
+<dds-card>
+  <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
+  <dds-image slot="image" alt="alt text" default-src="../image.png"></dds-image>
+  <dds-tag-group>
+    <bx-tag>
+      Most popular
+    </bx-tag>
+    <bx-tag type="purple">
+      Enterprise
+    </bx-tag>
+  </dds-tag-group>
+  <dds-card-footer href="https://example.com" icon-placement="right">
+    Card CTA text
+    <svg
+      slot="icon"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+    >
+      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+    </svg>
+  </dds-card-footer>
+</dds-card>
 ```
 
 ## Props

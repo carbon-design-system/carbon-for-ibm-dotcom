@@ -3,9 +3,6 @@ import ExpressiveModal from './ExpressiveModal';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-
-
-
 # Card Group
 
 > 💡 Check our
@@ -28,7 +25,6 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
 ```
 
 <Description markdown={`${cdnJs({ components: ['card-group'] })}`} />
-
 <Description markdown={`${cdnCss()}`} />
 
 ### HTML
@@ -42,7 +38,17 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
       Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
     </p>
     <dds-card-cta-footer slot="footer">
-      <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
+      <svg
+        slot="icon"
+        focusable="false"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        aria-hidden="true"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+      >
         <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
       </svg>
     </dds-card-cta-footer>
@@ -50,7 +56,17 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
   <dds-card-group-item href="https://example.com" color-scheme="inverse">
     <dds-card-heading>Top level card link</dds-card-heading>
     <dds-card-cta-footer slot="footer" color-scheme="inverse">
-      <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
+      <svg
+        slot="icon"
+        focusable="false"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        aria-hidden="true"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+      >
         <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
       </svg>
     </dds-card-cta-footer>
@@ -62,10 +78,17 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
 
 ```html
 <dds-card-in-card grid-mode="narrow" href="https://example.com">
-  <dds-card-in-card-image slot="image" alt="Image alt text" default-src="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
-    <dds-image-item media="(min-width: 1312px)" srcset="https://fpoimg.com/1312x738?text=16:9&bg_color=ee5396&text_color=161616"> </dds-image-item>
-    <dds-image-item media="(min-width: 672px)" srcset="https://fpoimg.com/960x540?text=16:9&bg_color=ee5396&text_color=161616"> </dds-image-item>
-    <dds-image-item media="(min-width: 320px)" srcset="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616"> </dds-image-item>
+  <dds-card-in-card-image
+    slot="image"
+    alt="Image alt text"
+    default-src="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616"
+  >
+    <dds-image-item media="(min-width: 1312px)" srcset="https://fpoimg.com/1312x738?text=16:9&bg_color=ee5396&text_color=161616">
+    </dds-image-item>
+    <dds-image-item media="(min-width: 672px)" srcset="https://fpoimg.com/960x540?text=16:9&bg_color=ee5396&text_color=161616">
+    </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
+    </dds-image-item>
   </dds-card-in-card-image>
   <dds-card-eyebrow>Label</dds-card-eyebrow>
   <dds-card-heading>Standard Bank Group prepares to embrace Africa’s AI opportunity</dds-card-heading>
@@ -94,7 +117,17 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
       Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
     </p>
     <dds-card-cta-footer slot="footer">
-      <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
+      <svg
+        slot="icon"
+        focusable="false"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        aria-hidden="true"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+      >
         <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
       </svg>
     </dds-card-cta-footer>
@@ -110,7 +143,17 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
     <dds-card-link-heading>IBM Developer - Card 01</dds-card-link-heading>
     <p>Learn, code and connect with your community</p>
     <dds-card-cta-footer slot="footer">
-      <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
+      <svg
+        slot="icon"
+        focusable="false"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        aria-hidden="true"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+      >
         <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
       </svg>
     </dds-card-cta-footer>
@@ -120,7 +163,17 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
     <dds-card-link-heading>IBM Developer - Card 02</dds-card-link-heading>
     <p>Learn, code and connect with your community</p>
     <dds-card-cta-footer slot="footer">
-      <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
+      <svg
+        slot="icon"
+        focusable="false"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        aria-hidden="true"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+      >
         <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
       </svg>
     </dds-card-cta-footer>
@@ -130,7 +183,17 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
     <dds-card-link-heading>IBM Developer - Card 03</dds-card-link-heading>
     <p>Learn, code and connect with your community</p>
     <dds-card-cta-footer slot="footer">
-      <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
+      <svg
+        slot="icon"
+        focusable="false"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        aria-hidden="true"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+      >
         <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
       </svg>
     </dds-card-cta-footer>
@@ -138,12 +201,32 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
 </dds-card-group>
 ```
 
+### HTML (with Mixed Media)
+
+In order to have video components, make sure to import `video-cta-container` and place `dds-card-group` within.
+
+To set the `dds-card-in-card` to play video, see more details [here](https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-card-in-card--default).
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/cta/video-cta-container.js';
+```
+
+```html
+<dds-video-cta-container>
+  <dds-card-group>
+    <dds-card-group-item cta-type="video" href="1_9h94wo6b">
+      <dds-card-eyebrow>Topic</dds-card-eyebrow>
+      <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b"> </dds-card-cta-footer>
+    </dds-card-group-item>
+  </dds-card-group>
+</dds-video-cta-container>
+```
+
 ## Props
 
 ### `<dds-card-group>`
 
 <Props of="dds-card-group" />
-
 
 ### `<dds-card-group-item>`
 
@@ -153,9 +236,9 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
 
 See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector | Compatibility selector                 | Description |
-| ----------------------- | -------------------------------------- | ----------- |
-| `<dds-card-group>`      | `data-autoid="dds--card-group"`        | Component   |
-| `<dds-card-group-item>` | `data-autoid="dds--card-group-item"`   | Component   |
+| Web Components selector | Compatibility selector               | Description |
+| ----------------------- | ------------------------------------ | ----------- |
+| `<dds-card-group>`      | `data-autoid="dds--card-group"`      | Component   |
+| `<dds-card-group-item>` | `data-autoid="dds--card-group-item"` | Component   |
 
 <Description markdown={contributing} />
