@@ -3,10 +3,6 @@ import Image from '../Image';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-
-
-
-
 # Image
 
 > The image component is used to embed images within content and can display a
@@ -30,7 +26,6 @@ import '@carbon/ibmdotcom-web-components/es/components/image/index.js';
 ```
 
 <Description markdown={`${cdnJs({ components: ['image'] })}`} />
-
 <Description markdown={`${cdnCss()}`} />
 
 ### HTML
@@ -38,16 +33,16 @@ import '@carbon/ibmdotcom-web-components/es/components/image/index.js';
 ```html
 // Example without media queries
 <dds-image alt="Image alt text">
-  <dds-image-item href="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"> </dds-image-item>
+  <dds-image-item srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"> </dds-image-item>
 </dds-image>
 
 // Example with media queries
 <dds-image alt="Image alt text">
-  <dds-image-item media="(min-wiidth:672px)" href="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+  <dds-image-item media="(min-wiidth:672px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
   </dds-image-item>
-  <dds-image-item media="(min-wiidth:400px)" href="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+  <dds-image-item media="(min-wiidth:400px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
   </dds-image-item>
-  <dds-image-item media="(min-wiidth:320px)" href="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+  <dds-image-item media="(min-wiidth:320px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
   </dds-image-item>
 </dds-image>
 ```
