@@ -30,7 +30,7 @@ View available services [here](https://ibmdotcom-services.mybluemix.net/).
 
 - See our documentation site [here](https://www.ibm.com/standards/carbon) for
   full how-to docs and guidelines
-- [Contributing](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/.github/CONTRIBUTING.md):
+- [Contributing](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/.github/CONTRIBUTING.md):
   Guidelines for making contributions to this repo.
 
 ## 🙌 Contributing
@@ -38,9 +38,9 @@ View available services [here](https://ibmdotcom-services.mybluemix.net/).
 We're always looking for contributors to help us fix bugs, build new features,
 or help us improve the project documentation. If you're interested, definitely
 check out our
-[Contributing Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/.github/CONTRIBUTING.md)
+[Contributing Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/.github/CONTRIBUTING.md)
 and our
-[Developer Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/developing.md)!
+[Developer Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/docs/developing.md)!
 👀
 
 ## 📝 License
