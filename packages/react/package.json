@@ -142,7 +142,7 @@
     "glob": "^7.1.0",
     "gulp": "^4.0.0",
     "gzip-size": "^5.0.0",
-    "http-server": "^0.12.3",
+    "http-server": "^0.13.0",
     "jasmine-core": "^3.0.0",
     "jest": "25.5.4",
     "jest-circus": "25.5.4",
@@ -203,7 +203,7 @@
   "sideEffects": false,
   "bundleSizeThreshold": 300000,
   "release": {
-    "branch": "master"
+    "branch": "main"
   },
   "gitHead": "37ae2adac6241513f4d1974505a207705e9e2784"
 }

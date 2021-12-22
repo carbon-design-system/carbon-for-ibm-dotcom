@@ -119,6 +119,6 @@ export const cdnCss = () => {
 There are optional CDN artifacts available that can assist with global Carbon
 styles in lieu of including into your specific application bundle.
 
-[Click here to learn more](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/web-components/docs/carbon-cdn-style-helpers.md)\n\n
+[Click here to learn more](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/docs/carbon-cdn-style-helpers.md)\n\n
   `;
 };

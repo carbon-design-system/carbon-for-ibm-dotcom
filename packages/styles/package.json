@@ -86,7 +86,7 @@
   "sideEffects": false,
   "bundleSizeThreshold": 120000,
   "release": {
-    "branch": "master"
+    "branch": "main"
   },
   "gitHead": "37ae2adac6241513f4d1974505a207705e9e2784"
 }
