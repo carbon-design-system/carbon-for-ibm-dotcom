@@ -4,12 +4,12 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import React, { useCallback, useState } from 'react';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { Image } from '../Image';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
 import PlayIcon from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import PropTypes from 'prop-types';
-import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -26,6 +26,14 @@ const VideoImageOverlay = ({
   thumbnail,
   ...rest
 }) => {
+  const [thumbnailSize, setThumbnailSize] = useState(3);
+
+  const refImage = useCallback(node => {
+    if (node && node.parentElement) {
+      setThumbnailSize(node.parentElement.offsetWidth);
+    }
+  }, []);
+
   const handleClick = event => {
     const { onClick } = rest;
     onClick && onClick(event);
@@ -39,7 +47,7 @@ const VideoImageOverlay = ({
     thumbnail ||
     KalturaPlayerAPI.getThumbnailUrl({
       mediaId: videoId,
-      width: '655',
+      width: thumbnailSize,
     });
 
   return (
@@ -47,7 +55,12 @@ const VideoImageOverlay = ({
       className={`${prefix}--video-player__image-overlay`}
       data-autoid={`${stablePrefix}--video-player__image-overlay`}
       onClick={handleClick}>
-      <Image defaultSrc={imageSrc} alt={videoData.name} icon={PlayIcon} />
+      <Image
+        refImage={refImage}
+        defaultSrc={imageSrc}
+        alt={videoData.name}
+        icon={PlayIcon}
+      />
     </button>
   );
 };
