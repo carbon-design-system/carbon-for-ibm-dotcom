@@ -5,6 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import getCssPropertyForRule from '../../utils/get-css-property-for-rule';
+
 /**
  * Sets the correct path
  *
@@ -81,6 +83,20 @@ const _tests = {
         });
     });
   },
+  checkHoverStyles: () => {
+    cy.get('.bx--card-link').then(([card]) => {
+      const sheets = card.ownerDocument.styleSheets;
+
+      if (sheets) {
+        const hover = getCssPropertyForRule(
+          '.bx--card:hover, :host(dds-card):hover, :host(dds-link-list-item-card):hover, :host(dds-card-group-item):hover, :host(dds-card-group-item) .bx--card:hover, :host(dds-card-cta):hover, :host(dds-link-list-item-card-cta):hover, :host(dds-card-in-card):hover, :host(dds-content-group-cards-item):hover, :host(dds-content-group-cards-item) .bx--card:hover',
+          'background-color',
+          sheets
+        );
+        expect(hover).to.be.eq('var(--cds-hover-ui, #e5e5e5)');
+      }
+    });
+  },
 };
 
 describe('dds-card-cta | (desktop)', () => {
@@ -89,6 +105,7 @@ describe('dds-card-cta | (desktop)', () => {
   });
 
   it('Should load and be fully clickable', _tests.checkBlockLink);
+  it('Should have hover-state styling', _tests.checkHoverStyles);
 });
 
 describe('dds-card-cta | (mobile)', () => {
@@ -97,4 +114,5 @@ describe('dds-card-cta | (mobile)', () => {
   });
 
   it('Should load and be fully clickable', _tests.checkBlockLink);
+  it('Should have hover-state styling', _tests.checkHoverStyles);
 });
