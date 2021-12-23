@@ -95,12 +95,13 @@ class DDSMastheadComposite extends LitElement {
   protected _renderL1({ selectedMenuItem }: { selectedMenuItem?: string } = {}) {
     if (!this.l1Data) return undefined;
     const { url, title } = this.l1Data;
+    const isSelected = !this._hasAutoSelectedItems && !selectedMenuItem;
     return html`
       <dds-masthead-l1 slot="masthead-l1">
         ${!title
           ? undefined
           : html`
-              <dds-masthead-l1-name title="${title}" aria-selected="${!selectedMenuItem}" url="${url}"></dds-masthead-l1-name>
+              <dds-masthead-l1-name title="${title}" aria-selected="${isSelected}" url="${url}"></dds-masthead-l1-name>
             `}
         <dds-top-nav-l1 selected-menu-item=${selectedMenuItem}
           >${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: true })}</dds-top-nav-l1
@@ -329,6 +330,7 @@ class DDSMastheadComposite extends LitElement {
             }
           }
         }
+        this._hasAutoSelectedItems = matchFound;
         return selectedItems;
       }
       return selectedItems;
@@ -560,6 +562,13 @@ class DDSMastheadComposite extends LitElement {
 
     return !menu ? undefined : this._renderLeftNav(menu, selectedMenuItem, autoid, currentUrlPath);
   }
+
+  /**
+   * Whether or not a nav item has automatically been designated as "selected".
+   *
+   * @internal
+   */
+  _hasAutoSelectedItems = false;
 
   /**
    * The placeholder for `loadTranslation()` Redux action that will be mixed in.
