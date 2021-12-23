@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, customElement, html } from 'lit-element';
+import { css, customElement, html, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSContentGroup from '../content-group/content-group';
 import '../horizontal-rule/horizontal-rule';
@@ -22,10 +22,17 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-block-horizontal`)
 class DDSContentBlockHorizontal extends DDSContentGroup {
+  @property({ type: Boolean, reflect: true })
+  border: Boolean = true;
+
   render() {
     return html`
       ${super.render()}
-      <dds-hr></dds-hr>
+      ${this.border
+        ? html`
+            <dds-hr></dds-hr>
+          `
+        : ''}
     `;
   }
 
