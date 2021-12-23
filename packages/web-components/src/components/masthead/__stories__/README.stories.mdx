@@ -11,16 +11,16 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 > profile services for IBM.com.
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/masthead)
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/masthead)
 > example implementation.
 
 ### Masthead (L0):
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/masthead)
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/masthead)
 
 ### Masthead (L1):
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/masthead-l1)
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/masthead-l1)
 
 ## Getting Started
 ##### Note: Masthead uses the Carbon White theme by design. Using other themes will not change the Masthead color scheme.
@@ -111,6 +111,17 @@ To set a custom endpoint for the translation service to fetch from, set either t
 <dds-masthead-container data-endpoint="/custom-endpoint"></dds-masthead-container>
 ```
 
+#### Setting the active menu item
+The active menu item receives a unique style treatment to indicate where the current page is within the navigation hierarchy.
+
+##### Manually
+Manually set the active item by using the `selected-menu-item` property. See [the Props table](#props).
+
+##### Automatically
+The first menu item whose `href` value matches the browser window's current URL will automatically be marked active if the `selected-menu-item` property has not been set.
+
+If no other menu items are marked active and the optional `platformUrl` property has been set, the platform link will be marked active.
+
 ## Props
 
 ### `<dds-masthead-container>`/`<dds-masthead-composite>`
@@ -125,7 +136,7 @@ For Cloud-specific version of masthead-container, `<dds-cloud-masthead-container
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector                                                                   | Compatibility selector                                                   | Description |
 | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------- |

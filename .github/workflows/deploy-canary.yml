@@ -3,7 +3,7 @@ name: deploy-canary (Deploy storybook environments to IBM Cloud)
 on:
   push:
     branches:
-      - master
+      - main
 
 concurrency:
   group: deploy-canary-${{ github.ref }}
