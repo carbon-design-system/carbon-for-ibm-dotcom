@@ -111,6 +111,17 @@ To set a custom endpoint for the translation service to fetch from, set either t
 <dds-masthead-container data-endpoint="/custom-endpoint"></dds-masthead-container>
 ```
 
+#### Setting the active menu item
+The active menu item receives a unique style treatment to indicate where the current page is within the navigation hierarchy.
+
+##### Manually
+Manually set the active item by using the `selected-menu-item` property. See [the Props table](#props).
+
+##### Automatically
+The first menu item whose `href` value matches the browser window's current URL will automatically be marked active if the `selected-menu-item` property has not been set.
+
+If no other menu items are marked active and the optional `platformUrl` property has been set, the platform link will be marked active.
+
 ## Props
 
 ### `<dds-masthead-container>`/`<dds-masthead-composite>`
