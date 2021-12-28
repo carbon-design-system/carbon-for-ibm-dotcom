@@ -43,6 +43,29 @@ function App() {
 }
 ```
 
+To render the video variation, make sure to wrap `DDSCardInCard` with `DDSVideoCTAContainer`. However, if parent component (ie. `Card group`)
+already is wrapped in `DDSVideoCTAContainer`, there is no need to wrap the `DDSCardInCard`.
+
+NOTE: The default video title can be overwritten by passing in the `video-name` attribute to `DDSCardInCard`.
+
+```javascript
+import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
+import DDSCardInCard from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card';
+import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+
+function App() {
+  return (
+    <DDSVideoCTAContainer>
+      <DDSCardInCard href="1_9h94wo6b" cta-type="video">
+        <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow>
+        <DDSCardCTAFooter cta-type="video" href="1_9h94wo6b"></DDSCardCTAFooter>
+      </DDSCardInCard>
+    </DDSVideoCTAContainer>
+  );
+}
+```
+
 ## Props
 
 <Props of={PropTypesRef} />
