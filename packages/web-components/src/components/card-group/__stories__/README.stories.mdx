@@ -31,44 +31,18 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
 
 ```html
 <dds-card-group>
-  <dds-card-group-item href="https://example.com">
+  <dds-card-group-item cta-type="local" href="https://example.com">
     <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
       Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
     </p>
     <dds-card-cta-footer slot="footer">
-      <svg
-        slot="icon"
-        focusable="false"
-        preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        aria-hidden="true"
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-      >
-        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-      </svg>
     </dds-card-cta-footer>
   </dds-card-group-item>
-  <dds-card-group-item href="https://example.com" color-scheme="inverse">
+  <dds-card-group-item cta-type="local" href="https://example.com" color-scheme="inverse">
     <dds-card-heading>Top level card link</dds-card-heading>
     <dds-card-cta-footer slot="footer" color-scheme="inverse">
-      <svg
-        slot="icon"
-        focusable="false"
-        preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        aria-hidden="true"
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-      >
-        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-      </svg>
     </dds-card-cta-footer>
   </dds-card-group-item>
 </dds-card-group>
@@ -110,26 +84,13 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
 </dds-card-in-card>
 
 <dds-card-group grid-mode="narrow">
-  <dds-card-group-item href="https://example.com">
+  <dds-card-group-item cta-type="local" href="https://example.com">
     <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
       Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
     </p>
     <dds-card-cta-footer slot="footer">
-      <svg
-        slot="icon"
-        focusable="false"
-        preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        aria-hidden="true"
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-      >
-        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-      </svg>
     </dds-card-cta-footer>
   </dds-card-group-item>
 </dds-card-group>
@@ -139,64 +100,22 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
 
 ```html
 <dds-card-group grid-mode="narrow">
-  <dds-card-group-card-link-item href="https://example.com" pattern-background>
+  <dds-card-group-card-link-item cta-type="local" href="https://example.com" pattern-background>
     <dds-card-link-heading>IBM Developer - Card 01</dds-card-link-heading>
     <p>Learn, code and connect with your community</p>
-    <dds-card-cta-footer slot="footer">
-      <svg
-        slot="icon"
-        focusable="false"
-        preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        aria-hidden="true"
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-      >
-        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-      </svg>
-    </dds-card-cta-footer>
+    <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
   </dds-card-group-card-link-item>
 
-  <dds-card-group-card-link-item href="https://example.com" pattern-background>
+  <dds-card-group-card-link-item cta-type="local" href="https://example.com" pattern-background>
     <dds-card-link-heading>IBM Developer - Card 02</dds-card-link-heading>
     <p>Learn, code and connect with your community</p>
-    <dds-card-cta-footer slot="footer">
-      <svg
-        slot="icon"
-        focusable="false"
-        preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        aria-hidden="true"
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-      >
-        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-      </svg>
-    </dds-card-cta-footer>
+    <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
   </dds-card-group-card-link-item>
 
-  <dds-card-group-card-link-item href="https://example.com" pattern-background>
+  <dds-card-group-card-link-item cta-type="local" href="https://example.com" pattern-background>
     <dds-card-link-heading>IBM Developer - Card 03</dds-card-link-heading>
     <p>Learn, code and connect with your community</p>
-    <dds-card-cta-footer slot="footer">
-      <svg
-        slot="icon"
-        focusable="false"
-        preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        aria-hidden="true"
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-      >
-        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-      </svg>
-    </dds-card-cta-footer>
+    <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
   </dds-card-group-card-link-item>
 </dds-card-group>
 ```

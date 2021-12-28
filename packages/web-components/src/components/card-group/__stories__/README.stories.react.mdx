@@ -21,30 +21,25 @@ import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/c
 import DDSCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item.js';
 import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading.js';
 import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer.js';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 
 function App() {
   return (
     <DDSCardGroup>
-      <DDSCardGroupItem href="https://example.com">
+      <DDSCardGroupItem cta-type="local" href="https://example.com">
         <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
           hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
         </p>
-        <DDSCardCTAFooter slot="footer">
-          <ArrowRight20 slot="icon" />
-        </DDSCardCTAFooter>
+        <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
       </DDSCardGroupItem>
-      <DDSCardGroupItem href="https://example.com">
+      <DDSCardGroupItem cta-type="local" href="https://example.com">
         <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
           hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
         </p>
-        <DDSCardCTAFooter slot="footer">
-          <ArrowRight20 slot="icon" />
-        </DDSCardCTAFooter>
+        <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
       </DDSCardGroupItem>
     </DDSCardGroup>
   );
@@ -80,7 +75,7 @@ function App() {
     </DDSCardCTAFooter>
   </DDSCardInCard>
   <DDSCardGroup>
-    <DDSCardGroupItem href="https://example.com">
+    <DDSCardGroupItem cta-type="local" href="https://example.com">
       <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
@@ -89,9 +84,7 @@ function App() {
         consequat
         libero.
       </p>
-      <DDSCardCTAFooter slot="footer">
-        <ArrowRight20 slot="icon"/>
-      </DDSCardCTAFooter>
+      <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
     </DDSCardGroupItem>
   </DDSCardGroup>
   );
@@ -105,17 +98,14 @@ import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/c
 import DDSCardGroupCardLinkItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-card-link-item.js';
 import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-link-heading.js';
 import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer.js';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 
 function App() {
   return (
     <DDSCardGroup gridMode="narrow">
-      <DDSCardGroupCardLinkItem href="https://example.com" pattern-background>
+      <DDSCardGroupCardLinkItem cta-type="local" href="https://example.com" pattern-background>
         <DDSCardLinkHeading>IBM Developer - Card 01</DDSCardLinkHeading>
         <p>Learn, code and connect with your community</p>
-        <DDSCardCTAFooter slot="footer">
-          <ArrowRight20 slot="icon" />
-        </DDSCardCTAFooter>
+        <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
       </DDSCardGroupCardLinkItem>
     </DDSCardGroup>
   );
@@ -134,7 +124,6 @@ import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/c
 import DDSCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item.js';
 import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-link-heading.js';
 import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer.js';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 
 function App() {
   return (
