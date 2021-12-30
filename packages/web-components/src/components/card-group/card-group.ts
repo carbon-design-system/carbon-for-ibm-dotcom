@@ -150,8 +150,9 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
         default:
           columns = this.cardsPerRow;
       }
-
-      this._setSameHeight();
+      if (!this.pictograms) {
+        this._setSameHeight();
+      }
       if (this.gridMode !== GRID_MODE.NARROW) {
         this._fillLastRowWithEmptyCards(columns);
         this._borderAdjustments(columns);
@@ -309,6 +310,13 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
    */
   @property({ attribute: 'grid-mode', reflect: true })
   gridMode = GRID_MODE.COLLAPSED;
+
+  /**
+   * If using cards with pictogram.
+   */
+  // necessary to avoid using sameHeight utility
+  @property({ type: Boolean, reflect: true })
+  pictograms = false;
 
   connectedCallback() {
     super.connectedCallback();
