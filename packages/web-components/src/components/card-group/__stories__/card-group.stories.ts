@@ -120,13 +120,12 @@ const longHeadingCardGroupItem = (tagGroup, media, gridMode, cardType) => {
   `;
 };
 
-const pictogramCard = (gridMode, media) => html`
+const pictogramCard = gridMode => html`
   <dds-card-group-item
     href="https://example.com"
     pictogram-placement="top"
     color-scheme=${gridMode === 'border' ? 'light' : null}
   >
-    ${media ? imageContent : ''}
     <dds-card-heading>Aerospace and defence</dds-card-heading>
     <p>
       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim
@@ -189,7 +188,7 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
         `;
   }
   return html`
-    <dds-card-group-item cta-type="local" href="https://example.com">
+    <dds-card-group-item cta-type="local" href="https://example.com" color-scheme=${gridMode === 'border' ? 'light' : null}>
       <dds-card-eyebrow>Label</dds-card-eyebrow>
       <dds-card-heading>The United Nations Environment Program works with IBM to reduce marine litter</dds-card-heading>
       ${tagGroup ? tagGroupContent : ''}
@@ -230,7 +229,7 @@ export const Default = ({ parameters }) => {
 
   if (cardType === 'Card - pictogram') {
     for (let i = 0; i < cards; i++) {
-      allCards.push(pictogramCard(gridMode, media));
+      allCards.push(pictogramCard(gridMode));
     }
   }
 
@@ -300,6 +299,7 @@ withCardInCard.story = {
   name: 'With card in card',
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
     knobs: {
       CardGroup: ({ groupId }) => ({
         media: boolean('Add media:', false, groupId),
@@ -349,7 +349,7 @@ export default {
             ? ''
             : select('Grid mode:', gridModes, gridModes['Collapsed (1px)'], groupId);
         const offset = select('Offset:', ['0', '1'], '0', groupId);
-        const cta = media ? boolean('Add CTA card:', false, groupId) : '';
+        const cta = media ? '' : boolean('Add CTA card:', false, groupId);
         return {
           cardType,
           media,
