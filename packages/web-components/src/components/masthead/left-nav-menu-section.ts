@@ -13,9 +13,11 @@ import HostListener from 'carbon-web-components/es/globals/decorators/host-liste
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ChevronLeft20 from 'carbon-web-components/es/icons/chevron--left/20.js';
+import ChevronDown20 from 'carbon-web-components/es/icons/chevron--down/20.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
 import { forEach } from '../../globals/internal/collection-helpers';
+import './left-nav-item';
 import styles from './masthead.scss';
 import DDSLeftNav from './left-nav';
 
@@ -80,6 +82,12 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
    */
   @property()
   title = '';
+
+  /**
+   * The title url.
+   */
+  @property()
+  titleUrl = '';
 
   /**
    * Handler for the `click` event on the back button.
@@ -217,7 +225,7 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   }
 
   render() {
-    const { backButtonText, title, _handleClickBack: handleClickBack, showBackBtn } = this;
+    const { backButtonText, title, titleUrl, _handleClickBack: handleClickBack, showBackBtn } = this;
     return html`
       <ul>
         ${showBackBtn
@@ -229,9 +237,19 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
               </li>
             `
           : undefined}
-        ${title
+        ${title && !titleUrl
           ? html`
               <li class="${prefix}--masthead__side-nav--submemu-title">${title}</li>
+            `
+          : undefined}
+        ${title && titleUrl
+          ? html`
+              <a class="${prefix}--masthead__side-nav--submemu-title" href=${titleUrl}>
+                <span>${title}</span>
+                <div class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron">
+                  ${ChevronDown20()}
+                </div>
+              </a>
             `
           : undefined}
         <slot></slot>

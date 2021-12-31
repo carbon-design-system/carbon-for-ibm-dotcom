@@ -198,18 +198,28 @@
       min-height: 3rem;
       border-bottom: 1px solid $ui-04;
       align-items: center;
+      text-decoration: none;
+
+      &:focus {
+        outline: 2px solid $focus;
+        outline-offset: -2px;
+      }
     }
 
     .#{$prefix}--side-nav__item
       .#{$prefix}--masthead__side-nav--submemu-section-title {
       height: auto;
       min-height: 3rem;
+      padding: 0;
 
       span {
         @include carbon--type-style(productive-heading-02);
 
         display: flex;
         width: 100%;
+        padding: 0.8rem 1rem;
+        color: $text-01;
+        border-bottom: 1px solid $ui-04;
       }
     }
 
@@ -291,6 +301,7 @@
 
         color: $link-01;
         display: flex;
+        border-bottom: none;
         align-items: center;
       }
 
@@ -447,7 +458,8 @@
     .#{$prefix}--side-nav__link,
   :host(dds-left-nav-menu-section)
     .#{$prefix}--masthead__side-nav--submemu-back
-    .#{$prefix}--side-nav__link,
+    .#{$prefix}--side-nav__link
+    .#{$prefix}--side-nav__link-text,
   :host(#{$dds-prefix}-left-nav-menu-item[last-highlighted])
     .#{$prefix}--side-nav__link {
     border-bottom: none;
