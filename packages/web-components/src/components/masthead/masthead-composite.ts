@@ -416,7 +416,6 @@ class DDSMastheadComposite extends LitElement {
           });
         });
 
-        console.log('elemLevel1', elem);
         if (level1Items.length !== 0) {
           menu.push(
             this._renderLeftNavMenuSections(
