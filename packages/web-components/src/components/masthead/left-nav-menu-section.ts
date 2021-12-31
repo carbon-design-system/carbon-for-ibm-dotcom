@@ -17,7 +17,6 @@ import ChevronDown20 from 'carbon-web-components/es/icons/chevron--down/20.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
 import { forEach } from '../../globals/internal/collection-helpers';
-import './left-nav-item';
 import styles from './masthead.scss';
 import DDSLeftNav from './left-nav';
 
