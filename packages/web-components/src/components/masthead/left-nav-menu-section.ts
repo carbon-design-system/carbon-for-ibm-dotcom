@@ -13,7 +13,7 @@ import HostListener from 'carbon-web-components/es/globals/decorators/host-liste
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ChevronLeft20 from 'carbon-web-components/es/icons/chevron--left/20.js';
-import ChevronDown20 from 'carbon-web-components/es/icons/chevron--down/20.js';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
 import { forEach } from '../../globals/internal/collection-helpers';
@@ -245,8 +245,8 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
           ? html`
               <a class="${prefix}--masthead__side-nav--submemu-title" href=${titleUrl}>
                 <span>${title}</span>
-                <div class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron">
-                  ${ChevronDown20()}
+                <div class="${prefix}--masthead__side-nav--submemu-section-title__icon">
+                  ${ArrowRight20()}
                 </div>
               </a>
             `
