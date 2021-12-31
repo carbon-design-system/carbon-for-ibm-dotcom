@@ -400,7 +400,7 @@ class DDSMastheadComposite extends LitElement {
                 : selectedMenuItem === submenu.titleEnglish,
             });
           });
-          console.log('elemLevel2', item);
+
           if (level2Items.length !== 0) {
             menu.push(this._renderLeftNavMenuSections(level2Items, null, true, true, item.title, item.url, `${i}, ${k}`));
           }
