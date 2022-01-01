@@ -51,7 +51,7 @@
     "@babel/plugin-transform-runtime": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
-    "@percy/storybook": "^3.3.0",
+    "@percy/storybook": "^4.0.0",
     "@storybook/addon-a11y": "^5.3.0",
     "@storybook/addon-actions": "^5.3.0",
     "@storybook/addon-info": "^5.3.0",
