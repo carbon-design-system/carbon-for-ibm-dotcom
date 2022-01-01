@@ -53,7 +53,7 @@
     "carbon-components": "10.50.0",
     "isomorphic-dompurify": "0.4.0",
     "js-cookie": "^2.2.1",
-    "marked": "1.1.0",
+    "marked": "1.2.9",
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {
