@@ -55,7 +55,7 @@ const cardsCol = {
 
 const cardsDiffLengthPhrase = (index, border, tagGroup, defaultSrc, image) => {
   const defaultCardGroupItem = (
-    <DDSCardGroupItem href="https://example.com" color-scheme={border ? 'light' : null}>
+    <DDSCardGroupItem cta-type="local" href="https://example.com" color-scheme={border ? 'light' : null}>
       {image ? <DDSImage slot="image" alt="Image Alt text" defaultSrc={defaultSrc || undefined} /> : ''}
       <DDSCardEyebrow>Topic</DDSCardEyebrow>
       <DDSCardHeading>{index < 5 ? phraseArray[index] : 'Lorem ipsum dolor sit amet'}</DDSCardHeading>
@@ -68,9 +68,7 @@ const cardsDiffLengthPhrase = (index, border, tagGroup, defaultSrc, image) => {
       ) : (
         ''
       )}
-      <DDSCardCTAFooter slot="footer">
-        <ArrowRight20 slot="icon" />
-      </DDSCardCTAFooter>
+      <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
     </DDSCardGroupItem>
   );
   count = count > 3 ? 0 : count + 1;
@@ -79,7 +77,7 @@ const cardsDiffLengthPhrase = (index, border, tagGroup, defaultSrc, image) => {
 
 const longHeadingCardGroupItem = (border, tagGroup, defaultSrc, image) => {
   return (
-    <DDSCardGroupItem href="https://example.com" color-scheme={border ? 'light' : null}>
+    <DDSCardGroupItem cta-type="local" href="https://example.com" color-scheme={border ? 'light' : null}>
       {image ? <DDSImage slot="image" alt="Image Alt text" defaultSrc={defaultSrc || undefined} /> : ''}
       <DDSCardEyebrow>Topic</DDSCardEyebrow>
       <DDSCardHeading>Nunc convallis lobortis Nunc convallis lobortis Nunc convallis lobortis</DDSCardHeading>
@@ -95,9 +93,7 @@ const longHeadingCardGroupItem = (border, tagGroup, defaultSrc, image) => {
       ) : (
         ''
       )}
-      <DDSCardCTAFooter slot="footer">
-        <ArrowRight20 slot="icon" />
-      </DDSCardCTAFooter>
+      <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
     </DDSCardGroupItem>
   );
 };
@@ -105,13 +101,11 @@ const longHeadingCardGroupItem = (border, tagGroup, defaultSrc, image) => {
 const emptyCard = <DDSCardGroupItem empty></DDSCardGroupItem>;
 
 const cardGroupItemWithImages = (
-  <DDSCardGroupItem href="https://example.com">
+  <DDSCardGroupItem cta-type="local" href="https://example.com">
     <DDSCardCTAImage slot="image" alt="Image alt text" defaultSrc={imgXlg4x3} />
     <DDSCardEyebrow>Topic</DDSCardEyebrow>
     <DDSCardHeading>Natural Language Processing.</DDSCardHeading>
-    <DDSCardCTAFooter slot="footer">
-      <ArrowRight20 slot="icon" />
-    </DDSCardCTAFooter>
+    <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
   </DDSCardGroupItem>
 );
 
@@ -123,22 +117,18 @@ const cardGroupItemWithVideos = (
 );
 
 const cardGroupItemWithCTAs = (
-  <DDSCardGroupItem href="https://example.com">
+  <DDSCardGroupItem cta-type="local" href="https://example.com">
     <DDSCardEyebrow>Label</DDSCardEyebrow>
     <DDSCardHeading>The United Nations Environment Program works with IBM to reduce marine litter</DDSCardHeading>
-    <DDSCardCTAFooter slot="footer">
-      <ArrowRight20 slot="icon" />
-    </DDSCardCTAFooter>
+    <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
   </DDSCardGroupItem>
 );
 
 const cardGroupItemWithCardLinks = (
-  <DDSCardGroupCardLinkItem href="https://example.com" pattern-background>
+  <DDSCardGroupCardLinkItem cta-type="local" href="https://example.com" pattern-background>
     <DDSCardLinkHeading>IBM Developer</DDSCardLinkHeading>
     <p>Learn, code and connect with your community</p>
-    <DDSCardCTAFooter slot="footer">
-      <ArrowRight20 slot="icon" />
-    </DDSCardCTAFooter>
+    <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
   </DDSCardGroupCardLinkItem>
 );
 
@@ -186,11 +176,9 @@ export const withCTA = ({ parameters }) => {
   return (
     <DDSCardGroup cardsPerRow={colCount} class={cardsPerRow} border>
       {cards}
-      <DDSCardGroupItem href="https://example.com" colorScheme="inverse">
+      <DDSCardGroupItem cta-type="local" href="https://example.com" colorScheme="inverse">
         <DDSCardHeading>Top level card link</DDSCardHeading>
-        <DDSCardCTAFooter slot="footer" colorScheme="inverse">
-          <ArrowRight20 slot="icon" />
-        </DDSCardCTAFooter>
+        <DDSCardCTAFooter slot="footer" colorScheme="inverse"></DDSCardCTAFooter>
       </DDSCardGroupItem>
     </DDSCardGroup>
   );

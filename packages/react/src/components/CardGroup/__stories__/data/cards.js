@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import imgXlg16x9 from '../../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
-import imgXlg1x1 from '../../../../../../storybook-images/assets/1312/fpo--1x1--1312x1312--001.jpg';
-import imgXlg2x1 from '../../../../../../storybook-images/assets/1312/fpo--2x1--1312x656--003.jpg';
+import imgXlg16x9 from '../../../../../../storybook-images/assets/1312/fpo--3x2--874--004.jpg';
+import imgXlg1x1 from '../../../../../../storybook-images/assets/1312/fpo--3x2--874--004.jpg';
+import imgXlg2x1 from '../../../../../../storybook-images/assets/1312/fpo--3x2--874--004.jpg';
 import imgXlg3x2 from '../../../../../../storybook-images/assets/1312/fpo--3x2--874--004.jpg';
-import imgXlg4x3 from '../../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--002.jpg';
+import imgXlg4x3 from '../../../../../../storybook-images/assets/1312/fpo--3x2--874--004.jpg';
 
 const cards = {
   Simple: [

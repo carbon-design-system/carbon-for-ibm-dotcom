@@ -12,5 +12,5 @@ import packageJson from '../../package.json';
 
 export default create({
   brandTitle: `Carbon for IBM.com Web Components with React v${packageJson.version}`,
-  brandUrl: 'https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components',
+  brandUrl: 'https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components',
 });
