@@ -46,6 +46,11 @@ const gridModes = {
   [`Outlined cards (1px border)`]: GRID_MODE.BORDER,
 };
 
+const setGridMode = {
+  'Card static': 'border',
+  'Card link': 'narrow'
+};
+
 const tagGroupContent = html`
   <dds-tag-group>
     <bx-tag type="cool-gray">
@@ -92,8 +97,7 @@ const cardsDiffLengthPhrase = (index, tagGroup, media, gridMode, cardType) => {
   `;
 
   count = count > 3 ? 0 : count + 1;
-  // eslint-disable-next-line no-nested-ternary
-  return media ? (index % 2 === 0 ? defaultCardGroupItem : videoCardGroupItem) : defaultCardGroupItem;
+  return media && index % 2 ? videoCardGroupItem : defaultCardGroupItem;
 };
 
 const longHeadingCardGroupItem = (tagGroup, media, gridMode, cardType) => {
@@ -257,12 +261,12 @@ export const Default = ({ parameters }) => {
   }
 
   const colCount = cardsPerRow[cardsPerRow.length - 1];
-  /* eslint-disable no-nested-ternary */
+
   return html`
     <dds-card-group
       cards-per-row="${colCount}"
       class="${classes}"
-      grid-mode="${cardType === 'Card static' ? 'border' : cardType === 'Card link' ? 'narrow' : gridMode}"
+      gridMode=${setGridMode[cardType] || gridMode}
       ?pictograms=${cardType === 'Card - pictogram'}
     >
       ${allCards}

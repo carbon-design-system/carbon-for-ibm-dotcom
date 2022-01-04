@@ -58,6 +58,11 @@ const gridModes = {
   [`Outlined cards (1px border)`]: GRID_MODE.BORDER,
 };
 
+const setGridMode = {
+  'Card static': 'border',
+  'Card link': 'narrow'
+};
+
 const tagGroupContent = (
   <DDSTagGroup>
     <Tag type="cool-gray">Systems w/TPS</Tag>
@@ -215,12 +220,11 @@ export const Default = ({ parameters }) => {
 
   const colCount = cardsPerRow[cardsPerRow.length - 1];
 
-  /* eslint-disable no-nested-ternary */
   return (
     <DDSCardGroup
       cardsPerRow={colCount}
       class={cardsPerRow}
-      gridMode={cardType === 'Card static' ? 'border' : cardType === 'Card link' ? 'narrow' : gridMode}
+      gridMode={setGridMode[cardType] || gridMode}
       pictograms={cardType === 'Card - pictogram'}>
       {allCards}
     </DDSCardGroup>
