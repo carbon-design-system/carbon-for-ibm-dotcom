@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,6 +14,13 @@
 const _defaultPath = '/iframe.html?id=components-lightbox-media-viewer--default';
 const _embeddedVideoPlayerPath = '/iframe.html?id=components-lightbox-media-viewer--embedded-video-player';
 
+const _tests = {
+  checkMediaMetadata() {
+    cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]').should('not.be.empty');
+    cy.get('[data-autoid="dds--lightbox-media-viewer__content__desc"]').should('not.be.empty');
+  },
+};
+
 describe('dds-lightbox-media-viewer | default', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
@@ -25,8 +32,7 @@ describe('dds-lightbox-media-viewer | default', () => {
     cy.get('dds-lightbox-image-viewer')
       .should('have.attr', 'default-src')
       .should('not.be.empty');
-    cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]').should('not.be.empty');
-    cy.get('[data-autoid="dds--lightbox-media-viewer__content__desc"]').should('not.be.empty');
+    _tests.checkMediaMetadata();
 
     cy.takeSnapshots();
   });
@@ -96,8 +102,7 @@ describe('dds-lightbox-media-viewer | embedded video player', () => {
     cy.get('dds-lightbox-video-player')
       .find('.bx--video-player__video')
       .should('not.be.empty');
-    cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]').should('not.be.empty');
-    cy.get('[data-autoid="dds--lightbox-media-viewer__content__desc"]').should('not.be.empty');
+    _tests.checkMediaMetadata();
     cy.takeSnapshots();
   });
 
