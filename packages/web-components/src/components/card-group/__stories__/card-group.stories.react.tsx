@@ -91,8 +91,7 @@ const cardsDiffLengthPhrase = (index, tagGroup, media, gridMode, cardType) => {
   );
 
   count = count > 3 ? 0 : count + 1;
-  // eslint-disable-next-line no-nested-ternary
-  return media ? (index % 2 === 0 ? defaultCardGroupItem : videoCardGroupItem) : defaultCardGroupItem;
+  return media && index % 2 ? videoCardGroupItem : defaultCardGroupItem;
 };
 
 const longHeadingCardGroupItem = (tagGroup, media, gridMode, cardType) => {
