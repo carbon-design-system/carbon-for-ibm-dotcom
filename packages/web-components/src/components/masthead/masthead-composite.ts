@@ -51,7 +51,6 @@ import './top-nav-menu';
 import './top-nav-menu-item';
 import './left-nav';
 import './left-nav-name';
-import './left-nav-item';
 import './left-nav-menu';
 import './left-nav-menu-section';
 import './left-nav-menu-item';
@@ -238,10 +237,11 @@ class DDSMastheadComposite extends LitElement {
    * @param isSubmenu determines whether menu section is a submenu section
    * @param showBackButton Determines whether to show back button
    * @param sectionTitle title of menu section
+   * @param sectionUrl section title url of menu section
    * @param sectionId id of menu section
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _renderLeftNavMenuSections(menuItems, heading, isSubmenu, showBackButton, sectionTitle, sectionId) {
+  protected _renderLeftNavMenuSections(menuItems, heading, isSubmenu, showBackButton, sectionTitle, sectionUrl, sectionId) {
     const items = menuItems.map(elem => {
       if (elem.menu) {
         return html`
@@ -280,6 +280,7 @@ class DDSMastheadComposite extends LitElement {
         section-id="${sectionId}"
         ?is-submenu=${ifNonNull(isSubmenu)}
         title=${ifNonNull(sectionTitle)}
+        titleUrl=${ifNonNull(sectionUrl)}
         show-back-button=${ifNonNull(showBackButton)}
       >
         ${items}
@@ -399,8 +400,9 @@ class DDSMastheadComposite extends LitElement {
                 : selectedMenuItem === submenu.titleEnglish,
             });
           });
+
           if (level2Items.length !== 0) {
-            menu.push(this._renderLeftNavMenuSections(level2Items, null, true, true, item.title, `${i}, ${k}`));
+            menu.push(this._renderLeftNavMenuSections(level2Items, null, true, true, item.title, item.url, `${i}, ${k}`));
           }
 
           return level1Items.push({
@@ -413,9 +415,18 @@ class DDSMastheadComposite extends LitElement {
             menu: item.megapanelContent?.quickLinks?.links && item.megapanelContent?.quickLinks?.links.length !== 0,
           });
         });
+
         if (level1Items.length !== 0) {
           menu.push(
-            this._renderLeftNavMenuSections(level1Items, elem.menuSections[0]?.heading, true, true, elem.title, `${i}, -1`)
+            this._renderLeftNavMenuSections(
+              level1Items,
+              elem.menuSections[0]?.heading,
+              true,
+              true,
+              elem.title,
+              elem.url,
+              `${i}, -1`
+            )
           );
         }
       }
@@ -434,7 +445,7 @@ class DDSMastheadComposite extends LitElement {
     });
 
     return html`
-      ${this._renderLeftNavMenuSections(level0Items, null, false, null, null, '-1, -1')} ${menu}
+      ${this._renderLeftNavMenuSections(level0Items, null, false, null, null, null, '-1, -1')} ${menu}
     `;
   }
 
