@@ -300,7 +300,7 @@ withCardInCard.story = {
         media: boolean('Add media:', false, groupId),
         tagGroup: boolean('Add tags:', false, groupId),
         gridMode: select('Grid mode:', gridModes, GRID_MODE.NARROW, groupId),
-        cards: number('Number of cards', 3, { min: 2, max: 6 }, groupId),
+        cards: number('Number of cards', 5, { min: 2, max: 6 }, groupId),
       }),
     },
   },
