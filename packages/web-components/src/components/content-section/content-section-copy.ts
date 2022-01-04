@@ -31,6 +31,10 @@ class DDSContentSectionCopy extends StableSelectorMixin(DDSMarkdown) {
     `;
   }
 
+  firstUpdated() {
+    this.querySelector('p')?.setAttribute('style', 'all:unset;');
+  }
+
   static get stableSelector() {
     return `${ddsPrefix}--content-section-copy`;
   }
