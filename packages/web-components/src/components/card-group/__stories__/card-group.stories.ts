@@ -48,7 +48,7 @@ const gridModes = {
 
 const setGridMode = {
   'Card static': 'border',
-  'Card link': 'narrow'
+  'Card link': 'narrow',
 };
 
 const tagGroupContent = html`
