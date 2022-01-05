@@ -190,6 +190,7 @@ $btn-min-width: 26;
     @include carbon--breakpoint(lg) {
       width: 100vw;
       overflow-x: hidden;
+      position: relative;
       left: 50%;
       right: 50%;
       margin-left: -50vw;
