@@ -43,7 +43,7 @@ module.exports = function setupKarma(config) {
 
     browsers: (browsers.length > 0 ? browsers : ['ChromeHeadless']).map(normalizeBrowser),
 
-    frameworks: ['jasmine', 'snapshot'],
+    frameworks: ['jasmine', 'snapshot', 'aChecker'],
 
     client: {
       jasmine: {
@@ -52,6 +52,7 @@ module.exports = function setupKarma(config) {
     },
 
     files: [
+      'tests/utils/achecker-compliance.js',
       'tests/a11y/karma-setup-context.js',
       'src/polyfills/index.ts',
       'tests/utils/snapshot.js',
@@ -199,7 +200,7 @@ module.exports = function setupKarma(config) {
       require('karma-ie-launcher'),
     ],
 
-    reporters: ['spec', ...(!collectCoverage ? [] : ['coverage-istanbul'])],
+    reporters: ['spec', ...(!collectCoverage ? [] : ['coverage-istanbul']), 'aChecker'],
 
     coverageIstanbulReporter: {
       reports: ['html', 'text'],
