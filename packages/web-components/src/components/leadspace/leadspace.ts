@@ -38,11 +38,10 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   private _handleSlotChange(event: Event) {
     const childItems = (event.target as HTMLSlotElement).assignedNodes();
 
-    childItems.filter(elem =>
-      (elem as HTMLElement).matches !== undefined
-        ? (elem as HTMLElement).matches((this.constructor as typeof DDSLeadSpace).tagGroupSelector) ||
-          (elem as HTMLElement).matches((this.constructor as typeof DDSLeadSpace).breadcrumbSelector)
-        : false
+    childItems.filter(
+      elem =>
+        (elem as HTMLElement).matches?.((this.constructor as typeof DDSLeadSpace).tagGroupSelector) ||
+        (this.constructor as typeof DDSLeadSpace).breadcrumbSelector
     );
   }
 

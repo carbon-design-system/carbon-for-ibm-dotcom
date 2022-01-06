@@ -107,12 +107,7 @@ class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
 
     const childItems = (target as HTMLSlotElement)
       .assignedNodes()
-      .filter(elem =>
-        (elem as HTMLElement).matches !== undefined
-          ? (elem as HTMLElement).matches((this.constructor as typeof DDSCTABlockItemRow).selectorItem)
-          : false
-      );
-
+      .filter(elem => (elem as HTMLElement).matches?.((this.constructor as typeof DDSCTABlockItemRow).selectorItem));
     // retrieves all cta-section-item headings
     if (childItems) {
       childItems.forEach(e => {
