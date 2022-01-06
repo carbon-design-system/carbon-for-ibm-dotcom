@@ -32,15 +32,11 @@ class DDSTagGroup extends StableSelectorMixin(LitElement) {
     const childItems = (event.target as HTMLSlotElement).assignedNodes();
 
     const carbonTags = childItems.filter(elem =>
-      (elem as HTMLElement).matches !== undefined
-        ? (elem as HTMLElement).matches((this.constructor as typeof DDSTagGroup).selectorTag)
-        : false
+      (elem as HTMLElement).matches?.((this.constructor as typeof DDSTagGroup).selectorTag)
     );
 
     const carbonReactTags = childItems.filter(elem =>
-      (elem as HTMLElement).matches !== undefined
-        ? (elem as HTMLElement).classList.contains((this.constructor as typeof DDSTagGroup).selectorReactTag)
-        : false
+      (elem as HTMLElement).classList?.contains?.((this.constructor as typeof DDSTagGroup).selectorReactTag)
     );
 
     // Handle color setting differently depending on Carbon WC or Carbon React
@@ -51,7 +47,7 @@ class DDSTagGroup extends StableSelectorMixin(LitElement) {
     });
     carbonReactTags.forEach(elem => {
       if (!(elem as HTMLElement).className.split(' ').some(c => /^bx--tag--/.test(c))) {
-        (elem as HTMLElement).classList.add(`${prefix}--tag--green`);
+        (elem as HTMLElement).classList?.add(`${prefix}--tag--green`);
       }
     });
   }
