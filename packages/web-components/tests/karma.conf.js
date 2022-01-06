@@ -51,9 +51,12 @@ module.exports = function setupKarma(config) {
       },
     },
 
-    files: ['src/polyfills/index.ts', 'tests/utils/snapshot.js', 'tests/snapshots/**/*.md'].concat(
-      specs.length > 0 ? specs : ['tests/karma-test-shim.js']
-    ),
+    files: [
+      'tests/a11y/karma-setup-context.js',
+      'src/polyfills/index.ts',
+      'tests/utils/snapshot.js',
+      'tests/snapshots/**/*.md',
+    ].concat(specs.length > 0 ? specs : ['tests/karma-test-shim.js']),
 
     preprocessors: {
       'src/**/*.[jt]s': ['webpack', 'sourcemap'], // For generatoring coverage report for untested files
