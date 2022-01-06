@@ -43,7 +43,7 @@ const cardsCol = {
 
 const cardsDiffLengthPhrase = (index, border, tagGroup, defaultSrc, image) => {
   const defaultCardGroupItem = html`
-    <dds-card-group-item href="https://example.com" color-scheme=${border ? 'light' : null}>
+    <dds-card-group-item cta-type="local" href="https://example.com" color-scheme=${border ? 'light' : null}>
       ${image
         ? html`
             <dds-image slot="image" alt="Image Alt Text" default-src="${ifNonNull(defaultSrc)}"></dds-image>
@@ -66,9 +66,7 @@ const cardsDiffLengthPhrase = (index, border, tagGroup, defaultSrc, image) => {
             </dds-tag-group>
           `
         : ''}
-      <dds-card-cta-footer slot="footer">
-        ${ArrowRight20({ slot: 'icon' })}
-      </dds-card-cta-footer>
+      <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
     </dds-card-group-item>
   `;
 
@@ -78,7 +76,7 @@ const cardsDiffLengthPhrase = (index, border, tagGroup, defaultSrc, image) => {
 
 const longHeadingCardGroupItem = (border, tagGroup, defaultSrc, image) => {
   return html`
-    <dds-card-group-item href="https://example.com" color-scheme=${border ? 'light' : null}>
+    <dds-card-group-item cta-type="local" href="https://example.com" color-scheme=${border ? 'light' : null}>
       ${image
         ? html`
             <dds-image slot="image" alt="Image Alt Text" default-src="${ifNonNull(defaultSrc)}"></dds-image>
@@ -102,9 +100,7 @@ const longHeadingCardGroupItem = (border, tagGroup, defaultSrc, image) => {
             </dds-tag-group>
           `
         : ''}
-      <dds-card-cta-footer slot="footer">
-        ${ArrowRight20({ slot: 'icon' })}
-      </dds-card-cta-footer>
+      <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
     </dds-card-group-item>
   `;
 };
@@ -114,13 +110,11 @@ const emptyCard = html`
 `;
 
 const cardGroupItemWithImages = html`
-  <dds-card-group-item href="https://example.com">
+  <dds-card-group-item cta-type="local" href="https://example.com">
     <dds-card-cta-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-card-cta-image>
     <dds-card-eyebrow>Topic</dds-card-eyebrow>
     <dds-card-heading>Natural Language Processing.</dds-card-heading>
-    <dds-card-cta-footer slot="footer">
-      ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-cta-footer>
+    <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
   </dds-card-group-item>
 `;
 
@@ -132,22 +126,18 @@ const cardGroupItemWithVideos = html`
 `;
 
 const cardGroupItemWithCTAs = html`
-  <dds-card-group-item href="https://example.com">
+  <dds-card-group-item cta-type="local" href="https://example.com">
     <dds-card-eyebrow>Label</dds-card-eyebrow>
     <dds-card-heading>The United Nations Environment Program works with IBM to reduce marine litter</dds-card-heading>
-    <dds-card-cta-footer slot="footer">
-      ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-cta-footer>
+    <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
   </dds-card-group-item>
 `;
 
 const cardGroupItemWithCardLinks = html`
-  <dds-card-group-card-link-item href="https://example.com" pattern-background>
+  <dds-card-group-card-link-item cta-type="local" href="https://example.com" pattern-background>
     <dds-card-link-heading>IBM Developer</dds-card-link-heading>
     <p>Learn, code and connect with your community</p>
-    <dds-card-cta-footer slot="footer">
-      ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-cta-footer>
+    <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
   </dds-card-group-card-link-item>
 `;
 
@@ -183,11 +173,9 @@ export const withCTA = ({ parameters }) => {
   return html`
     <dds-card-group cards-per-row="${colCount}" class="${classes}" border>
       ${cards}
-      <dds-card-group-item href="https://example.com" color-scheme="inverse">
+      <dds-card-group-item cta-type="local" href="https://example.com" color-scheme="inverse">
         <dds-card-heading>Top level card link</dds-card-heading>
-        <dds-card-cta-footer slot="footer" color-scheme="inverse">
-          ${ArrowRight20({ slot: 'icon' })}
-        </dds-card-cta-footer>
+        <dds-card-cta-footer slot="footer" color-scheme="inverse"> </dds-card-cta-footer>
       </dds-card-group-item>
     </dds-card-group>
   `;
