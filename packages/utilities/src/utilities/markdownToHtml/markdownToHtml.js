@@ -11,7 +11,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 const { prefix } = settings;
 
 const _htmlTagRegex = /<.*?>/g;
-const _cleanStringRegex = /\n|\s{2,}|&([a-zA-Z]+);/g;
+const _cleanStringRegex = /\n|\s{2,}|&;/g;
 
 /**
  * Removes any html tags from a string and keeps inner text if any
