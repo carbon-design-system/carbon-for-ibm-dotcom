@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -188,10 +188,19 @@ $btn-min-width: 26;
     }
 
     @include carbon--breakpoint(lg) {
+      width: 100vw;
+      overflow-x: hidden;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+
       .#{$prefix}--leadspace__section {
         margin-right: auto;
         margin-left: auto;
         position: relative;
+        max-width: 99rem;
       }
 
       .#{$prefix}--leadspace__container {
