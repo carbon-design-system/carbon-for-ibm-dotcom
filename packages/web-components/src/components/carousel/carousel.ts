@@ -255,11 +255,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
     this._childItems = (event.target as HTMLSlotElement)
       .assignedNodes()
-      .filter(elem =>
-        (elem as HTMLElement).matches !== undefined
-          ? (elem as HTMLElement).matches((this.constructor as typeof DDSCarousel).selectorItem)
-          : false
-      );
+      .filter(elem => (elem as HTMLElement).matches?.((this.constructor as typeof DDSCarousel).selectorItem));
 
     // retrieve item heading, eyebrows, and footers to set same height
     if (this._childItems) {
