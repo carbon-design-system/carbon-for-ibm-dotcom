@@ -11,6 +11,7 @@ import { html, property, internalProperty, customElement, TemplateResult, query 
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXLink from 'carbon-web-components/es/components/link/link';
+import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml.js';
 import { BASIC_COLOR_SCHEME } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSCardFooter from './card-footer';
@@ -241,6 +242,12 @@ class DDSCard extends StableSelectorMixin(BXLink) {
 
     if (this._hasPictogram) {
       this.onclick = () => window.open(this.href, '_self');
+    }
+
+    const copyElement = this.querySelector('p');
+    if (this._hasCopy && copyElement?.innerText) {
+      copyElement.innerHTML = `${markdownToHtml(copyElement?.innerText, { bold: false })}`;
+      copyElement.firstElementChild?.setAttribute('style', 'all:unset;');
     }
   }
 
