@@ -23,6 +23,7 @@ const gradientDirections = {
 };
 
 export const Default = ({ parameters }) => {
+  console.log("fdsa", parameters);
   const { alt, gradientDirection, backgroundOpacity } = parameters?.props?.['dds-background-media'] ?? {};
   return html`
     <dds-background-media

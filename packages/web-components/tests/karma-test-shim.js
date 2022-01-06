@@ -10,16 +10,18 @@
 'use strict';
 
 // For generating coverage report for untested files
+import ReactDOM from "react-dom";
+
 const { default: merge } = require('lodash-es/merge');
 // const ReactDOM = require('react-dom');
 // const React = require('react');
 import { html, render } from 'lit-html';
 
-const srcContext = require.context('../src/components', true, /^(?!.*story(-(angular|react|vue))?).*\.ts$/);
-srcContext.keys().forEach(srcContext);
-
-const specContext = require.context('../src/components', true, /\.test\.ts$/);
-specContext.keys().forEach(specContext);
+// const srcContext = require.context('../src/components', true, /^(?!.*story(-(angular|react|vue))?).*\.ts$/);
+// srcContext.keys().forEach(srcContext);
+//
+// const specContext = require.context('../src/components', true, /\.test\.ts$/);
+// specContext.keys().forEach(specContext);
 
 const srcContext2 = require.context('../src/components', true, /\.stories\.ts$/);
 
@@ -36,53 +38,11 @@ describe('Test a11y compliance', function() {
           ?.disabled
     )
     .forEach(storyModule => {
-      const { title: groupTitle } = storyModule.default ?? {};
-
-      Object.keys(storyModule)
-        .filter(name => {
-          const Story = storyModule[name];
-          return (
-            typeof Story === 'function' &&
-            !Story.story?.parameters?.['karma-accessibility-checker']?.disabled
-          );
-        })
-        .forEach(name => {
-          const Story = storyModule[name];
-          const { parameters, title = name } = Story.story ?? {};
-          const propsSet = merge(
-            {},
-            storyModule.default?.parameters?.propsSet,
-            parameters?.propsSet
-          );
-          if(storyModule.default?.decorators){
-            console.log( storyModule.default);
-          }
+      console.log("parameters",storyModule.default?.parameters,storyModule.default?.parameters.knobs)
+      console.log("stories", storyModule.Default(storyModule.default?.parameters), storyModule.default)
+      const {title: groupTitle} = storyModule.default ?? {};
+      console.log(groupTitle)
 
 
-          const keys = Object.keys(propsSet);
-          if(storyModule.default) {
-            if (keys.length > 0) {
-              keys.forEach(itemTitle => {
-                const combinedTitle =
-                  itemTitle === 'default'
-                    ? `${groupTitle}|${title}`
-                    : `${groupTitle}|${title}|${itemTitle}`;
-                it(`Should have a11y-compliant ${combinedTitle}`, async function() {
-                  render(storyModule.default, container);
-                  await expectAsync(container).toBeACheckerCompliant();
-                }, 30000);
-              });
-            } else {
-              it(`Should have a11y-compliant ${groupTitle}|${title}`, async function() {
-                render(storyModule.default, container);
-                await expectAsync(container).toBeACheckerCompliant();
-              }, 30000);
-            }
-          }
-        });
     });
-
-  afterEach(function() {
-    render(undefined, container);
-  });
 });
