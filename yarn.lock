@@ -15959,11 +15959,6 @@ markdown-to-jsx@^6.11.4:
     prop-types "^15.6.2"
     unquote "^1.1.0"
 
-marked@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-1.1.0.tgz#62504ad4d11550c942935ccc5e39d64e5a4c4e50"
-  integrity sha512-EkE7RW6KcXfMHy2PA7Jg0YJE1l8UPEZE8k45tylzmZM30/r1M1MUXWQfJlrSbsTeh7m/XTwHbWUENvAJZpp1YA==
-
 marked@^0.3.12:
   version "0.3.19"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.3.19.tgz#5d47f709c4c9fc3c216b6d46127280f40b39d790"
@@ -15973,6 +15968,11 @@ marked@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.7.0.tgz#b64201f051d271b1edc10a04d1ae9b74bb8e5c0e"
   integrity sha512-c+yYdCZJQrsRjTPhUx7VKkApw9bwDkNbHUKo1ovgcfDjb2kc8rLuRbIFyXL5WOEUwzSSKo3IXpph2K6DqB/KZg==
+
+marked@^1.2.9:
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-1.2.9.tgz#53786f8b05d4c01a2a5a76b7d1ec9943d29d72dc"
+  integrity sha512-H8lIX2SvyitGX+TRdtS06m1jHMijKN/XjfH6Ooii9fvxMlh8QdqBfBDkGUpMWH2kQNrtixjzYUa3SH8ROTgRRw==
 
 marked@^2.0.0:
   version "2.0.0"
