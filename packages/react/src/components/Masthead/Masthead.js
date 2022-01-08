@@ -151,6 +151,10 @@ const Masthead = ({
   const [scrollOffset, setScrollOffset] = useState(root.scrollY);
 
   useEffect(() => {
+
+    const tableOfContents = document.querySelector('.bx--tableofcontents__sidebar');
+    let lastScrollPosition = 0;
+
     /**
      * Sets sticky masthead. If both L0 and L1 are present, L1 will be sticky.
      *
@@ -165,6 +169,28 @@ const Masthead = ({
         const currOffset = window.scrollY;
         setIsMastheadSticky(currOffset > prevOffset);
         setScrollOffset(currOffset);
+
+      /**
+       * L0 will hide on scroll down, show up on scroll up when mobile ToC is present
+       */
+      } else if( tableOfContents != null && stickyRef.current !== null) {
+
+        const tocBoundingClient = tableOfContents.getBoundingClientRect();
+        stickyRef.current.style.transition = `none`;
+
+        const mastheadTop = Math.round(Math.min(0, tocBoundingClient.top - stickyRef.current.offsetHeight));
+        const tocPosition = tocBoundingClient.top + lastScrollPosition - window.scrollY;
+        tableOfContents.style.top = `${Math.max(Math.min(tocPosition, stickyRef.current.offsetHeight), 0)}px`;
+
+        if (tableOfContents.style.top === '0px') {
+          stickyRef.current.style.top = `-${stickyRef.current.offsetHeight}px`;
+        } else if (tableOfContents.style.top === `${stickyRef.current.offsetHeight}px`) {
+          stickyRef.current.style.top = '0';
+        } else {
+          stickyRef.current.style.top = `${mastheadTop}px`;
+        }
+
+        lastScrollPosition = window.scrollY;
       }
     });
 
