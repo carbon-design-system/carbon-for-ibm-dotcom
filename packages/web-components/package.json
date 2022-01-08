@@ -168,7 +168,7 @@
     "babel-plugin-template-html-minifier": "^4.1.0",
     "browserstack-cypress-cli": "^1.10.1",
     "cache-loader": "^4.1.0",
-    "chalk": "^4.1.1",
+    "chalk": "^5.0.0",
     "child-process-promise": "^2.2.0",
     "classnames": "^2.2.0",
     "cli-table": "^0.3.0",
