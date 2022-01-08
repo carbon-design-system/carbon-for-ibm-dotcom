@@ -6,11 +6,11 @@
  */
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { baseFontSize, breakpoints } from '@carbon/layout';
 import cx from 'classnames';
 import { DDS_CUSTOM_PROFILE_LOGIN } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
-import { baseFontSize, breakpoints } from '@carbon/layout';
 import Header from '../../internal/vendor/carbon-components-react/components/UIShell/Header';
 import HeaderContainer from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderContainer';
 import HeaderGlobalBar from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderGlobalBar';
