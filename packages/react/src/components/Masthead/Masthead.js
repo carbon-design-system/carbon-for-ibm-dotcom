@@ -10,6 +10,7 @@ import cx from 'classnames';
 import { DDS_CUSTOM_PROFILE_LOGIN } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
+import { baseFontSize, breakpoints } from '@carbon/layout';
 import Header from '../../internal/vendor/carbon-components-react/components/UIShell/Header';
 import HeaderContainer from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderContainer';
 import HeaderGlobalBar from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderGlobalBar';
@@ -31,6 +32,8 @@ import UserOnline20 from '@carbon/icons-react/es/user--online/20';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
+
+const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
 /**
  * MastHead component
@@ -174,7 +177,11 @@ const Masthead = ({
         /**
          * L0 will hide on scroll down, show up on scroll up when mobile ToC is present
          */
-      } else if (tableOfContents != null && stickyRef.current !== null) {
+      } else if (
+        tableOfContents != null &&
+        stickyRef.current !== null &&
+        window.innerWidth < gridBreakpoint
+      ) {
         const tocBoundingClient = tableOfContents.getBoundingClientRect();
         stickyRef.current.style.transition = `none`;
 
