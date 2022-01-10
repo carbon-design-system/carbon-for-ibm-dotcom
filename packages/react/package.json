@@ -51,7 +51,7 @@
     "test:unit:updateSnapshot": "jest -u",
     "test:a11y": "gulp test:a11y",
     "test-ssr": "yarn build && node ssr-tests/*.js",
-    "visual-snapshot": "percy storybook"
+    "visual-snapshot": "percy storybook ./storybook-static"
   },
   "peerDependencies": {
     "react": "16.14.0",
