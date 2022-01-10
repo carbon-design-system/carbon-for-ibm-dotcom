@@ -147,12 +147,15 @@ module.exports = {
       },
     },
     {
-      files: ['tests/a11y/**/*.js'],
+      files: ['tests/a11y/**/*.js', 'tests/utils/**/*.js'],
       parserOptions: {
         sourceType: 'module',
       },
       rules: {
         'import/no-unresolved': 0,
+      },
+      globals: {
+        aChecker: true,
       },
     },
   ],
