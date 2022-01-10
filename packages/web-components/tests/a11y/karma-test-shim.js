@@ -1,17 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-'use strict';
+import { render } from 'lit-html';
 
 // For generating coverage report for untested files
 const { default: merge } = require('lodash-es/merge');
-import { render } from 'lit-html';
 
 // const specContext = require.context('../../src/components', true, /\.test\.ts$/);
 // specContext.keys().forEach(specContext);
@@ -20,7 +19,7 @@ const specContext = require.context('../../src/components', true, /\.stories\.ts
 
 const storyModules = specContext.keys().map(specContext);
 
-describe('Test a11y compliance', function() {
+describe('Test a11y compliance', () => {
   const container = document.getElementById('html-fragment-container');
 
   storyModules
@@ -42,20 +41,20 @@ describe('Test a11y compliance', function() {
           if (keys.length > 0) {
             keys.forEach(itemTitle => {
               const combinedTitle = itemTitle === 'default' ? `${groupTitle}|${title}` : `${groupTitle}|${title}|${itemTitle}`;
-              it(`Should have a11y-compliant ${combinedTitle}`, async function() {
+              it(`Should have a11y-compliant ${combinedTitle}`, async () => {
                 render(Story({ parameters: { props: propsSet?.default } }), container);
                 await expectAsync(container).toBeACheckerCompliant();
               }, 30000);
             });
           } else {
-            it(`Should have a11y-compliant ${groupTitle}|${title}`, async function() {
+            it(`Should have a11y-compliant ${groupTitle}|${title}`, async () => {
               render(Story(), container);
             }, 30000);
           }
         });
     });
 
-  afterEach(function() {
+  afterEach(() => {
     render(undefined, container);
   });
 });
