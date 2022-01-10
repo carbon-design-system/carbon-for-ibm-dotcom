@@ -270,17 +270,21 @@ describe('dds-masthead | with L1 (desktop)', () => {
 
   it('should load the l1 - first nav item', () => {
     cy.get('dds-top-nav-l1 > *:nth-child(1)')
-      .click()
-      .then($menuItem => {
-        expect($menuItem).to.have.attr('expanded');
+      .shadow()
+      .find('a')
+      .then($link => {
+        const url = $link.prop('href');
+        expect(url).not.to.be.empty;
       });
   });
 
   it('should load the l1 - second nav item', () => {
     cy.get('dds-top-nav-l1 > *:nth-child(2)')
-      .click()
-      .then($menuItem => {
-        expect($menuItem).to.have.attr('expanded');
+      .shadow()
+      .find('a')
+      .then($link => {
+        const url = $link.prop('href');
+        expect(url).not.to.be.empty;
       });
   });
 
@@ -304,33 +308,10 @@ describe('dds-masthead | with L1 (desktop)', () => {
 
   it('should load and have url for fifth l1 item', () => {
     cy.get('dds-top-nav-l1 > *:nth-child(5)')
-      .shadow()
-      .find('a')
-      .then($link => {
-        const url = $link.prop('href');
-        expect(url).not.to.be.empty;
+      .click()
+      .then($menuItem => {
+        expect($menuItem).to.have.attr('expanded');
       });
-  });
-
-  it('should scroll the l1 overflow properly', () => {
-    cy.get('dds-top-nav-l1')
-      .shadow()
-      .find('.bx--header__nav-caret-right-container > button')
-      .click();
-
-    cy.get('dds-top-nav-l1')
-      .shadow()
-      .find('.bx--header__nav-caret-right-container.dds-ce--header__nav-caret-container--hidden')
-      .then($button => {
-        cy.get('dds-top-nav-l1')
-          .shadow()
-          .find('.bx--header__nav-caret-left-container')
-          .then($button => {
-            expect($button).not.to.have.class('dds-ce--header__nav-caret-container--hidden');
-          });
-      });
-
-    cy.takeSnapshots();
   });
 });
 
