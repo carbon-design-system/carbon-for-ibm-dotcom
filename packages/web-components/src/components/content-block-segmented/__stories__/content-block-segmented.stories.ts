@@ -191,6 +191,24 @@ withLinkList.story = {
         ),
       }),
     },
+    propsSet: {
+      default: {
+        ContentBlockSegmented: {
+          blockHeading: 'Lorem ipsum dolor sit amet.',
+          heading: 'Tutorials',
+          totalLinks: 2,
+          copy:
+            'Lorem ipsum dolor sit amet, consectetur ' +
+            'adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
+            'Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. ' +
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.' +
+            ' Mauris iaculis eget dolor nec hendrerit.',
+          ctaStyle: null,
+          ctaType: CTA_TYPE.LOCAL,
+          complementaryStyleScheme: 'with-border',
+        },
+      },
+    },
   },
 };
 
@@ -228,6 +246,21 @@ export default {
           complementaryStyleSchemes['With border']
         ),
       }),
+    },
+    propsSet: {
+      default: {
+        ContentBlockSegmented: {
+          heading: 'Lorem ipsum dolor sit amet.',
+          copy:
+            'Lorem ipsum dolor sit amet, consectetur ' +
+            'adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
+            'Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. ' +
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.' +
+            ' Mauris iaculis eget dolor nec hendrerit.',
+          ctaStyle: null,
+          ctaType: CTA_TYPE.LOCAL,
+        },
+      },
     },
   },
 };

@@ -43,7 +43,7 @@ module.exports = function setupKarma(config) {
 
     browsers: (browsers.length > 0 ? browsers : ['ChromeHeadless']).map(normalizeBrowser),
 
-    frameworks: ['jasmine', 'snapshot'],
+    frameworks: ['jasmine', 'snapshot', 'aChecker'],
 
     client: {
       jasmine: {
@@ -51,13 +51,17 @@ module.exports = function setupKarma(config) {
       },
     },
 
-    files: ['src/polyfills/index.ts', 'tests/utils/snapshot.js', 'tests/snapshots/**/*.md'].concat(
-      specs.length > 0 ? specs : ['tests/karma-test-shim.js']
-    ),
+    files: [
+      'tests/utils/achecker-compliance.js',
+      'tests/a11y/karma-setup-context.js',
+      'src/polyfills/index.ts',
+      'tests/utils/snapshot.js',
+      'tests/snapshots/**/*.md',
+    ].concat(specs.length > 0 ? specs : ['tests/a11y/karma-test-shim.js']),
 
     preprocessors: {
-      'src/**/*.[jt]s': ['webpack', 'sourcemap'], // For generatoring coverage report for untested files
-      'tests/karma-test-shim.js': ['webpack', 'sourcemap'],
+      'src/**/*.[jt]s': ['webpack', 'sourcemap'], // For generating coverage report for untested files
+      'tests/a11y/**/*.js': ['webpack', 'sourcemap'],
       'tests/utils/**/*.js': ['webpack', 'sourcemap'],
       'tests/snapshots/**/*.md': ['snapshot'],
     },
@@ -152,6 +156,10 @@ module.exports = function setupKarma(config) {
             test: /\.(jpe?g|png|gif)(\?[a-z0-9=.]+)?$/,
             loader: 'url-loader',
           },
+          {
+            test: /\.(jpe?g|png|gif)(\?[a-z0-9=.]+)?$/,
+            loader: 'file-loader',
+          },
         ],
       },
 
@@ -179,6 +187,7 @@ module.exports = function setupKarma(config) {
     },
 
     plugins: [
+      require('karma-accessibility-checker'),
       require('karma-jasmine'),
       require('karma-spec-reporter'),
       require('karma-sourcemap-loader'),
@@ -191,7 +200,7 @@ module.exports = function setupKarma(config) {
       require('karma-ie-launcher'),
     ],
 
-    reporters: ['spec', ...(!collectCoverage ? [] : ['coverage-istanbul'])],
+    reporters: ['spec', ...(!collectCoverage ? [] : ['coverage-istanbul']), 'aChecker'],
 
     coverageIstanbulReporter: {
       reports: ['html', 'text'],

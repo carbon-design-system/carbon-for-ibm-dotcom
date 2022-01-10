@@ -269,5 +269,15 @@ export default {
         ),
       }),
     },
+    propsSet: {
+      default: {
+        ContentBlockSimple: {
+          heading: 'Curabitur malesuada varius mi eu posuere',
+          ctaStyle: 'text',
+          ctaType: 'local',
+          complementaryStyleSchemes: 'with-border',
+        },
+      },
+    },
   },
 };

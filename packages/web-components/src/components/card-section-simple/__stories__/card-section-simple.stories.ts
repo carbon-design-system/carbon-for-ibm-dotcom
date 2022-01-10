@@ -75,5 +75,13 @@ export default {
         }).map(() => defaultCardGroupItem),
       }),
     },
+    propsSet: {
+      default: {
+        CardSectionSimple: {
+          heading: 'Aliquam condimentum interdum',
+          cards: [defaultCardGroupItem, defaultCardGroupItem, defaultCardGroupItem, defaultCardGroupItem, defaultCardGroupItem],
+        },
+      },
+    },
   },
 };

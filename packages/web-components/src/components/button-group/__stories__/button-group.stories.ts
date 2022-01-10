@@ -69,5 +69,21 @@ export default {
         })),
       }),
     },
+    propsSet: {
+      default: {
+        ButtonGroup: {
+          buttons: [
+            {
+              href: 'https://example.com',
+              copy: 'Lorem Ipsum',
+            },
+            {
+              href: 'https://example.com',
+              copy: 'Lorem Ipsum',
+            },
+          ],
+        },
+      },
+    },
   },
 };

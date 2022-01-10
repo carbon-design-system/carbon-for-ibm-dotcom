@@ -117,5 +117,19 @@ export default {
         };
       },
     },
+    propsSet: {
+      default: {
+        CardSectionOffset: {
+          heading: 'Aliquam condimentum interdum',
+          ctaCopy: 'Lorem ipsum dolor sit amet',
+          ctaType: 'local',
+          download: undefined,
+          href: 'https://www.example.com',
+          cards: [defaultCardGroupItem, defaultCardGroupItem, defaultCardGroupItem],
+          alt: 'Image alt text',
+          defaultSrc: image,
+        },
+      },
+    },
   },
 };

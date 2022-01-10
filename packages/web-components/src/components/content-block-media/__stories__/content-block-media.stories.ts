@@ -264,6 +264,18 @@ withLinkList.story = {
         ),
       }),
     },
+    propsSet: {
+      default: {
+        ContentBlockMedia: {
+          blockHeading: 'Curabitur malesuada varius mi eu posuere',
+          simpleGroupHeading: 'Lorem ipsum dolor sit amet',
+          featureCard: 'CTA',
+          linkListHeading: 'Tutorials',
+          totalLinks: '2',
+          complementaryStyleSchemes: 'with-border',
+        },
+      },
+    },
   },
 };
 
@@ -295,6 +307,16 @@ export default {
           complementaryStyleSchemes['With border']
         ),
       }),
+    },
+    propsSet: {
+      default: {
+        ContentBlockMedia: {
+          blockHeading: 'Curabitur malesuada varius mi eu posuere',
+          simpleGroupHeading: 'Lorem ipsum dolor sit amet',
+          featureCard: 'CTA',
+          complementaryStyleScheme: 'with-border',
+        },
+      },
     },
   },
 };

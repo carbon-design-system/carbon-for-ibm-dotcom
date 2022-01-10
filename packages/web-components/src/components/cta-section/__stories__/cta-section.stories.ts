@@ -157,6 +157,14 @@ WithContentItems.story = {
         }),
       }),
     },
+    propsSet: {
+      default: {
+        WithContentItems: {
+          contentItemType: contentItemTypeOptions.Text,
+          contentItemCount: Array(3),
+        },
+      },
+    },
   },
 };
 
@@ -198,6 +206,17 @@ export const WithLinkList = ({ parameters }) => {
 
 WithLinkList.story = {
   name: 'With link list',
+  parameters: {
+    propsSet: {
+      default: {
+        CTASection: {
+          heading: 'Optional title heading-05 color text-01',
+          copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
+          boolean: false,
+        },
+      },
+    },
+  },
 };
 
 export default {
@@ -214,6 +233,15 @@ export default {
         copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
         border: boolean('CTA Block border', false, groupId),
       }),
+    },
+    propsSet: {
+      default: {
+        CTASection: {
+          heading: 'Optional title heading-05 color text-01',
+          copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
+          boolean: false,
+        },
+      },
     },
     ...readme.parameters,
     hasStoryPadding: true,

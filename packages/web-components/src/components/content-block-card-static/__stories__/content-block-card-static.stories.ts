@@ -97,5 +97,18 @@ export default !DDS_CONTENT_BLOCK_CARD_STATIC
             ),
           }),
         },
+        propsSet: {
+          default: {
+            ContentBlockCards: {
+              heading: 'Ways to buy',
+              ctaCopy: 'Lorem ipsum dolor sit ametttt',
+              href: 'https://example.com',
+              itemHeading: 'Lorem ipsum dolor si amett',
+              itemCopy:
+                'Contact us for a customized quote, discounted pricing, and financing options ' +
+                '- or get started with a free trial today',
+            },
+          },
+        },
       },
     };

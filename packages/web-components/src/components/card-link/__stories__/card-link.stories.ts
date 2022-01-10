@@ -57,5 +57,15 @@ export default {
         copy: textNullable('Card copy (copy):', '', groupId),
       }),
     },
+    propsSet: {
+      default: {
+        CardLink: {
+          disabled: false,
+          href: 'https://example.com',
+          heading: 'Explore AI use cases in all industries',
+          copy: '',
+        },
+      },
+    },
   },
 };

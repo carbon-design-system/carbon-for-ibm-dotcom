@@ -160,6 +160,20 @@ export const Default = ({ parameters }) => {
 
 export default {
   title: 'Components/Pictogram item',
+  decorators: [
+    story => html`
+      <style>
+        ${styles}
+      </style>
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-sm-4 bx--col-lg-8 bx--no-gutter">
+            ${story()}
+          </div>
+        </div>
+      </div>
+    `,
+  ],
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
@@ -178,19 +192,22 @@ export default {
         },
       }),
     },
+    propsSet: {
+      default: {
+        PictogramItem: {
+          heading: 'Lorem ipsum dolor sit',
+          copy:
+            'Lorem ipsum dolor sit amet, ' +
+            'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
+            'Ut enim ad minim veniam\n',
+          href: 'https://example.com',
+          linkCopy: 'Lorem ipsum dolor',
+          pictogram: {
+            src: pictograms.Desktop,
+            'aria-label': 'Pictogram description',
+          },
+        },
+      },
+    },
   },
-  decorators: [
-    story => html`
-      <style>
-        ${styles}
-      </style>
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--no-gutter">
-            ${story()}
-          </div>
-        </div>
-      </div>
-    `,
-  ],
 };
