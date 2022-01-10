@@ -8,14 +8,13 @@
  */
 
 import { boolean, number, select } from '@storybook/addon-knobs';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import Desktop from '@carbon/pictograms-react/lib/desktop/index.js';
 import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
 import DDSCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 import DDSCardCTAImage from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-image';
 import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
@@ -48,83 +47,89 @@ const phraseArray = [
 ];
 
 const cardsCol = {
-  '3 cards per row (Default)': 'dds-ce-demo-devenv--cards-in-row-3',
   '2 cards per row': 'dds-ce-demo-devenv--cards-in-row-2',
+  '3 cards per row (default)': 'dds-ce-demo-devenv--cards-in-row-3',
   '4 cards per row': 'dds-ce-demo-devenv--cards-in-row-4',
 };
 
-const cardsDiffLengthPhrase = (index, border, tagGroup, defaultSrc, image) => {
+const gridModes = {
+  [`Collapsed (1px)`]: GRID_MODE.COLLAPSED,
+  [`Narrow (16px)`]: GRID_MODE.NARROW,
+  [`Outlined cards (1px border)`]: GRID_MODE.BORDER,
+};
+
+const setGridMode = {
+  'Card static': 'border',
+  'Card link': 'narrow',
+};
+
+const tagGroupContent = (
+  <DDSTagGroup>
+    <Tag type="cool-gray">Systems w/TPS</Tag>
+    <Tag type="cool-gray">Virtual</Tag>
+  </DDSTagGroup>
+);
+
+const imageContent = <DDSCardCTAImage slot="image" alt="Image alt text" defaultSrc={imgXlg4x3} />;
+
+const cardsDiffLengthPhrase = (index, tagGroup, media, gridMode, cardType) => {
   const defaultCardGroupItem = (
-    <DDSCardGroupItem cta-type="local" href="https://example.com" color-scheme={border ? 'light' : null}>
-      {image ? <DDSImage slot="image" alt="Image Alt text" defaultSrc={defaultSrc || undefined} /> : ''}
+    <DDSCardGroupItem
+      cta-type={cardType === 'Card static' ? '' : 'local'}
+      href={cardType === 'Card static' ? '' : 'https://example.com'}
+      colorScheme={cardType === 'Card static' || gridMode === 'border' ? 'light' : null}>
+      {media ? imageContent : ''}
       <DDSCardEyebrow>Topic</DDSCardEyebrow>
       <DDSCardHeading>{index < 5 ? phraseArray[index] : 'Lorem ipsum dolor sit amet'}</DDSCardHeading>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.'</p>
-      {tagGroup ? (
-        <DDSTagGroup>
-          <Tag type="cool-gray">Systems w/TPS</Tag>
-          <Tag type="cool-gray">Virtual</Tag>
-        </DDSTagGroup>
-      ) : (
-        ''
-      )}
-      <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
+      {tagGroup ? tagGroupContent : ''}
+      {cardType === 'Card static' ? '' : <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>}
     </DDSCardGroupItem>
   );
+
+  const videoCardGroupItem = (
+    <DDSCardGroupItem cta-type="video" href="1_9h94wo6b" color-scheme={gridMode === 'border' ? 'light' : null}>
+      <DDSCardEyebrow>Topic</DDSCardEyebrow>
+      {tagGroup ? tagGroupContent : ''}
+      <DDSCardCTAFooter cta-type="video" href="1_9h94wo6b" slot="footer"></DDSCardCTAFooter>
+    </DDSCardGroupItem>
+  );
+
   count = count > 3 ? 0 : count + 1;
-  return defaultCardGroupItem;
+  return media && index % 2 ? videoCardGroupItem : defaultCardGroupItem;
 };
 
-const longHeadingCardGroupItem = (border, tagGroup, defaultSrc, image) => {
+const longHeadingCardGroupItem = (tagGroup, media, gridMode, cardType) => {
   return (
-    <DDSCardGroupItem cta-type="local" href="https://example.com" color-scheme={border ? 'light' : null}>
-      {image ? <DDSImage slot="image" alt="Image Alt text" defaultSrc={defaultSrc || undefined} /> : ''}
+    <DDSCardGroupItem
+      cta-type={cardType === 'Card static' ? '' : 'local'}
+      href={cardType === 'Card static' ? '' : 'https://example.com'}
+      colorScheme={cardType === 'Card static' || gridMode === 'border' ? 'light' : null}>
+      {media ? imageContent : ''}
       <DDSCardEyebrow>Topic</DDSCardEyebrow>
       <DDSCardHeading>Nunc convallis lobortis Nunc convallis lobortis Nunc convallis lobortis</DDSCardHeading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
         Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-      {tagGroup ? (
-        <DDSTagGroup>
-          <Tag type="cool-gray">Systems w/TPS</Tag>
-          <Tag type="cool-gray">Virtual</Tag>
-        </DDSTagGroup>
-      ) : (
-        ''
-      )}
-      <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
+      {tagGroup ? tagGroupContent : ''}
+      {cardType === 'Card static' ? '' : <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>}
     </DDSCardGroupItem>
   );
 };
 
-const emptyCard = <DDSCardGroupItem empty></DDSCardGroupItem>;
-
-const cardGroupItemWithImages = (
-  <DDSCardGroupItem cta-type="local" href="https://example.com">
-    <DDSCardCTAImage slot="image" alt="Image alt text" defaultSrc={imgXlg4x3} />
-    <DDSCardEyebrow>Topic</DDSCardEyebrow>
-    <DDSCardHeading>Natural Language Processing.</DDSCardHeading>
-    <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
+const pictogramCard = gridMode => (
+  <DDSCardGroupItem href="https://example.com" pictogramPlacement="top" colorScheme={gridMode === 'border' ? 'light' : null}>
+    <DDSCardHeading>Aerospace and defence</DDSCardHeading>
+    <p>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim
+      veniam, quis nostrud exercitation.
+    </p>
+    <Desktop slot="pictogram" width="48" height="48" />
   </DDSCardGroupItem>
 );
 
-const cardGroupItemWithVideos = (
-  <DDSCardGroupItem cta-type="video" href="1_9h94wo6b">
-    <DDSCardEyebrow>Topic</DDSCardEyebrow>
-    <DDSCardCTAFooter cta-type="video" href="1_9h94wo6b" slot="footer"></DDSCardCTAFooter>
-  </DDSCardGroupItem>
-);
-
-const cardGroupItemWithCTAs = (
-  <DDSCardGroupItem cta-type="local" href="https://example.com">
-    <DDSCardEyebrow>Label</DDSCardEyebrow>
-    <DDSCardHeading>The United Nations Environment Program works with IBM to reduce marine litter</DDSCardHeading>
-    <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
-  </DDSCardGroupItem>
-);
-
-const cardGroupItemWithCardLinks = (
+const cardLink = (
   <DDSCardGroupCardLinkItem cta-type="local" href="https://example.com" pattern-background>
     <DDSCardLinkHeading>IBM Developer</DDSCardLinkHeading>
     <p>Learn, code and connect with your community</p>
@@ -132,21 +137,95 @@ const cardGroupItemWithCardLinks = (
   </DDSCardGroupCardLinkItem>
 );
 
+const emptyCard = <DDSCardGroupItem empty></DDSCardGroupItem>;
+
+const cardInCardItems = (i, tagGroup, media, gridMode) => {
+  if (media) {
+    return i % 2 === 0 ? (
+      <DDSCardGroupItem cta-type="local" href="https://example.com" colorScheme={gridMode === 'border' ? 'light' : null}>
+        {imageContent}
+        <DDSCardEyebrow>Label</DDSCardEyebrow>
+        <DDSCardHeading>The United Nations Environment Program works with IBM to reduce marine litter</DDSCardHeading>
+        {tagGroup ? tagGroupContent : ''}
+        <DDSCardCTAFooter slot="footer" />
+      </DDSCardGroupItem>
+    ) : (
+      <DDSCardGroupItem cta-type="video" href="1_9h94wo6b" colorScheme={gridMode === 'border' ? 'light' : null}>
+        <DDSCardEyebrow>Topic</DDSCardEyebrow>
+        {tagGroup ? tagGroupContent : ''}
+        <DDSCardCTAFooter cta-type="video" slot="footer" href="1_9h94wo6b" />
+      </DDSCardGroupItem>
+    );
+  }
+  return (
+    <DDSCardGroupItem cta-type="local" href="https://example.com" colorScheme={gridMode === 'border' ? 'light' : null}>
+      <DDSCardEyebrow>Label</DDSCardEyebrow>
+      <DDSCardHeading>The United Nations Environment Program works with IBM to reduce marine litter</DDSCardHeading>
+      {tagGroup ? tagGroupContent : ''}
+      <DDSCardCTAFooter slot="footer" />
+    </DDSCardGroupItem>
+  );
+};
+
 export const Default = ({ parameters }) => {
-  const { cards, cardsPerRow, offset, optionalBorder, tagGroup, defaultSrc, image } = parameters?.props?.CardGroup ?? {};
+  const { cards, cardType, media, tagGroup, cardsPerRow, gridMode, offset, cta } = parameters?.props?.CardGroup ?? {};
 
   const allCards: object[] = [];
+
   if (offset === '1') {
     allCards.push(emptyCard);
   }
-  allCards.push(longHeadingCardGroupItem(optionalBorder, tagGroup, defaultSrc, image));
-  for (let i = 1; i < cards; i++) {
-    allCards.push(cardsDiffLengthPhrase(i, optionalBorder, tagGroup, defaultSrc, image));
+
+  if (cardType === 'Card - default') {
+    allCards.push(longHeadingCardGroupItem(tagGroup, media, gridMode, cardType));
+    for (let i = 1; i < cards; i++) {
+      allCards.push(cardsDiffLengthPhrase(i, tagGroup, media, gridMode, cardType));
+    }
+    if (cta) {
+      allCards.push(
+        <DDSCardGroupItem cta-type="local" href="https://example.com" colorScheme="inverse">
+          <DDSCardHeading>Top level card link</DDSCardHeading>
+          <DDSCardCTAFooter slot="footer" color-scheme="inverse"></DDSCardCTAFooter>
+        </DDSCardGroupItem>
+      );
+    }
   }
+
+  if (cardType === 'Card - pictogram') {
+    for (let i = 0; i < cards; i++) {
+      allCards.push(pictogramCard(gridMode));
+    }
+  }
+
+  if (cardType === 'Card static') {
+    allCards.push(longHeadingCardGroupItem(tagGroup, media, gridMode, cardType));
+    for (let i = 1; i < cards; i++) {
+      allCards.push(cardsDiffLengthPhrase(i, tagGroup, media, gridMode, cardType));
+    }
+    if (cta) {
+      allCards.push(
+        <DDSCardGroupItem cta-type="local" href="https://example.com" colorScheme="inverse">
+          <DDSCardHeading>Top level card link</DDSCardHeading>
+          <DDSCardCTAFooter slot="footer" colorScheme="inverse" />
+        </DDSCardGroupItem>
+      );
+    }
+  }
+
+  if (cardType === 'Card link') {
+    for (let i = 0; i < cards; i++) {
+      allCards.push(cardLink);
+    }
+  }
+
   const colCount = cardsPerRow[cardsPerRow.length - 1];
 
   return (
-    <DDSCardGroup cardsPerRow={colCount} class={cardsPerRow} gridMode={optionalBorder ? 'border' : undefined}>
+    <DDSCardGroup
+      cardsPerRow={colCount}
+      class={cardsPerRow}
+      gridMode={setGridMode[cardType] || gridMode}
+      pictograms={cardType === 'Card - pictogram'}>
       {allCards}
     </DDSCardGroup>
   );
@@ -156,76 +235,44 @@ Default.story = {
   parameters: {
     hasStoryPadding: true,
     knobs: {
-      CardGroup: ({ groupId }) => ({
-        defaultSrc: imgXlg4x3,
-        tagGroup: boolean('Add tags', false, groupId),
-        image: boolean('Add image', false, groupId),
-        cards: number('Number of cards', 5, {}, groupId),
-        optionalBorder: boolean('Outlined cards:', false, groupId),
-        cardsPerRow: select('Number of cards per row (cards-per-row):', cardsCol, cardsCol['3 cards per row (Default)'], groupId),
-        offset: select('Offset', ['0', '1'], '0', groupId),
-      }),
-    },
-  },
-};
-
-export const withCTA = ({ parameters }) => {
-  const { cards, cardsPerRow } = parameters?.props?.CardGroup ?? {};
-  const colCount = cardsPerRow[cardsPerRow.length - 1];
-
-  return (
-    <DDSCardGroup cardsPerRow={colCount} class={cardsPerRow} border>
-      {cards}
-      <DDSCardGroupItem cta-type="local" href="https://example.com" colorScheme="inverse">
-        <DDSCardHeading>Top level card link</DDSCardHeading>
-        <DDSCardCTAFooter slot="footer" colorScheme="inverse"></DDSCardCTAFooter>
-      </DDSCardGroupItem>
-    </DDSCardGroup>
-  );
-};
-
-withCTA.story = {
-  parameters: {
-    ...readme.parameters,
-    knobs: {
-      CardGroup: ({ groupId }) => ({
-        cards: Array.from({
-          length: number('Number of cards', 5, {}, groupId),
-        }).map(() => cardGroupItemWithCTAs),
-        cardsPerRow: select('Number of cards per row (cards-per-row):', cardsCol, cardsCol['3 cards per row (Default)'], groupId),
-      }),
-    },
-  },
-};
-
-export const withImages = ({ parameters }) => {
-  const { cards, cardsPerRow } = parameters?.props?.CardGroup ?? {};
-  const colCount = cardsPerRow[cardsPerRow.length - 1];
-
-  return (
-    <DDSCardGroup cardsPerRow={colCount} class={cardsPerRow}>
-      {cards}
-    </DDSCardGroup>
-  );
-};
-
-withImages.story = {
-  name: 'With images',
-  parameters: {
-    ...readme.parameters,
-    knobs: {
-      CardGroup: ({ groupId }) => ({
-        cards: Array.from({
-          length: number('Number of cards', 5, {}, groupId),
-        }).map(() => cardGroupItemWithImages),
-        cardsPerRow: select('Number of cards per row (cards-per-row):', cardsCol, cardsCol['3 cards per row (Default)'], groupId),
-      }),
+      CardGroup: ({ groupId }) => {
+        const cardType = select(
+          'Card type:',
+          ['Card - default', 'Card - pictogram', 'Card static', 'Card link'],
+          'Card - default',
+          groupId
+        );
+        const media = cardType === 'Card - default' || cardType === 'Card static' ? boolean('Add media:', false, groupId) : '';
+        const tagGroup = cardType === 'Card - default' || cardType === 'Card static' ? boolean('Add tags:', false, groupId) : '';
+        const cards = number('Number of cards:', 5, { min: 2, max: 6 }, groupId);
+        const cardsPerRow = select('Cards per row:', cardsCol, cardsCol['3 cards per row (default)'], groupId);
+        const gridMode =
+          cardType === 'Card static' || cardType === 'Card link'
+            ? ''
+            : select('Grid mode:', gridModes, gridModes['Collapsed (1px)'], groupId);
+        const offset = select('Offset:', ['0', '1'], '0', groupId);
+        const cta = media ? '' : boolean('Add CTA card:', false, groupId);
+        return {
+          cardType,
+          media,
+          tagGroup,
+          cards,
+          cardsPerRow,
+          gridMode,
+          offset,
+          cta,
+        };
+      },
     },
   },
 };
 
 export const withCardInCard = ({ parameters }) => {
-  const { cards, gridMode } = parameters?.props?.CardGroup ?? {};
+  const { cards, tagGroup, media, gridMode } = parameters?.props?.CardGroup ?? {};
+  const allCards: object[] = [];
+  for (let i = 0; i < cards; i++) {
+    allCards.push(cardInCardItems(i, tagGroup, media, gridMode));
+  }
   return (
     <>
       <DDSCardInCard href="https://example.com" grid-mode={gridMode || undefined}>
@@ -236,117 +283,24 @@ export const withCardInCard = ({ parameters }) => {
         </DDSCardInCardImage>
         <DDSCardEyebrow>Label</DDSCardEyebrow>
         <DDSCardHeading>Standard Bank Group prepares to embrace Africa’s AI opportunity</DDSCardHeading>
-        <DDSCardCTAFooter>
-          <ArrowRight20 slot="icon" />
-        </DDSCardCTAFooter>
+        <DDSCardCTAFooter></DDSCardCTAFooter>
       </DDSCardInCard>
-      <DDSCardGroup gridMode={gridMode || undefined}>{cards}</DDSCardGroup>
+      <DDSCardGroup gridMode={gridMode || undefined}>{allCards}</DDSCardGroup>
     </>
   );
-};
-
-const gridModes = {
-  [`Collapsed (1px)`]: GRID_MODE.COLLAPSED,
-  [`Narrow (16px)`]: GRID_MODE.NARROW,
 };
 
 withCardInCard.story = {
   name: 'With card in card',
   parameters: {
     ...readme.parameters,
+    hasStoryPadding: true,
     knobs: {
       CardGroup: ({ groupId }) => ({
+        media: boolean('Add media:', false, groupId),
+        tagGroup: boolean('Add tags:', false, groupId),
         gridMode: select('Grid mode:', gridModes, GRID_MODE.NARROW, groupId),
-        cards: Array.from({
-          length: number('Number of cards', 3, {}, groupId),
-        }).map(() => cardGroupItemWithCTAs),
-      }),
-    },
-  },
-};
-
-export const withMixedMedia = ({ parameters }) => {
-  const { cards, cardsPerRow } = parameters?.props?.CardGroup ?? {};
-  const colCount = cardsPerRow[cardsPerRow.length - 1];
-
-  return (
-    <DDSVideoCTAContainer>
-      <DDSCardGroup cardsPerRow={colCount} class={cardsPerRow}>
-        {cards}
-      </DDSCardGroup>
-    </DDSVideoCTAContainer>
-  );
-};
-
-withMixedMedia.story = {
-  name: 'With mixed media',
-  parameters: {
-    ...readme.parameters,
-    percy: {
-      skip: true,
-    },
-    knobs: {
-      CardGroup: ({ groupId }) => ({
-        cards: Array.from({
-          length: number('Number of cards', 5, {}, groupId),
-        }).map((_, index) => (index % 2 ? cardGroupItemWithImages : cardGroupItemWithVideos)),
-        cardsPerRow: select('Number of cards per row (cards-per-row):', cardsCol, cardsCol['3 cards per row (Default)'], groupId),
-      }),
-    },
-  },
-};
-
-export const withCardInCardAndImageCards = ({ parameters }) => {
-  const { cards, gridMode } = parameters?.props?.CardGroup ?? {};
-  return (
-    <>
-      <DDSCardInCard href="https://example.com" gridMode={gridMode || undefined}>
-        <DDSCardInCardImage slot="image" alt="Image alt text" defaultSrc={imgSm4x3}>
-          <DDSImageItem media="(min-width: 1312px)" srcset={imgXlg16x9} />
-          <DDSImageItem media="(min-width: 672px)" srcset={imgMd16x9} />
-          <DDSImageItem media="(min-width: 320px)" srcset={imgSm4x3} />
-        </DDSCardInCardImage>
-        <DDSCardEyebrow>Label</DDSCardEyebrow>
-        <DDSCardHeading>Standard Bank Group prepares to embrace Africa’s AI opportunity</DDSCardHeading>
-        <DDSCardCTAFooter>
-          <ArrowRight20 slot="icon" />
-        </DDSCardCTAFooter>
-      </DDSCardInCard>
-      <DDSCardGroup gridMode={gridMode || undefined}>{cards}</DDSCardGroup>
-    </>
-  );
-};
-
-withCardInCardAndImageCards.story = {
-  name: 'With card in card and image cards',
-  parameters: {
-    ...readme.parameters,
-    knobs: {
-      CardGroup: ({ groupId }) => ({
-        gridMode: select('Grid mode:', gridModes, GRID_MODE.NARROW, groupId),
-        cards: Array.from({
-          length: number('Number of cards', 3, {}, groupId),
-        }).map(() => cardGroupItemWithImages),
-      }),
-    },
-  },
-};
-
-export const withCardLinks = ({ parameters }) => {
-  const { cards } = parameters?.props?.CardGroup ?? {};
-
-  return <DDSCardGroup gridMode="narrow">{cards}</DDSCardGroup>;
-};
-
-withCardLinks.story = {
-  name: 'With card links',
-  parameters: {
-    ...readme.parameters,
-    knobs: {
-      CardGroup: ({ groupId }) => ({
-        cards: Array.from({
-          length: number('Number of cards', 8, {}, groupId),
-        }).map(() => cardGroupItemWithCardLinks),
+        cards: number('Number of cards', 5, { min: 2, max: 6 }, groupId),
       }),
     },
   },
@@ -361,7 +315,9 @@ export default {
           <style type="text/css">{styles.cssText}</style>
           <div className="bx--grid">
             <div className="bx--row">
-              <div className="bx--col-lg-12 bx--no-gutter">{story()}</div>
+              <div className="bx--col-lg-12 bx--no-gutter">
+                <DDSVideoCTAContainer>{story()}</DDSVideoCTAContainer>
+              </div>
             </div>
           </div>
         </>
