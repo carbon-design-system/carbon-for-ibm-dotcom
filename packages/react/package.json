@@ -110,7 +110,7 @@
     "acorn-jsx": "^5.2.0",
     "acorn-jsx-walk": "^2.0.0",
     "acorn-walk": "^7.1.0",
-    "all-contributors-cli": "^5.2.1",
+    "all-contributors-cli": "^6.0.0",
     "autoprefixer": "^9.8.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "23.6.0",
