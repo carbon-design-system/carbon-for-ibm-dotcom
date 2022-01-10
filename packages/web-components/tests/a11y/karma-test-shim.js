@@ -12,9 +12,6 @@ import { render } from 'lit-html';
 // For generating coverage report for untested files
 const { default: merge } = require('lodash-es/merge');
 
-// const specContext = require.context('../../src/components', true, /\.test\.ts$/);
-// specContext.keys().forEach(specContext);
-
 const specContext = require.context('../../src/components', true, /\.stories\.ts$/);
 
 const storyModules = specContext.keys().map(specContext);
