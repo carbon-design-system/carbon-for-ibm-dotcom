@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -44,7 +44,7 @@ Aenean et ultricies est.\n
 - [list item](https://www.ibm.com)
   - list item 1a
 1. list item 2
-  1. list item 2a
+   1. list item 2a
 `;
 
 const bodyCopyWithFeaturedMedia = `Lorem ipsum *dolor* sit amet, [consectetur
