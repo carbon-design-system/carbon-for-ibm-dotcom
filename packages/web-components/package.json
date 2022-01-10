@@ -164,7 +164,7 @@
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.0.0",
     "babel-loader": "^8.0.0",
-    "babel-plugin-istanbul": "^4.1.0",
+    "babel-plugin-istanbul": "^6.0.0",
     "babel-plugin-template-html-minifier": "^4.1.0",
     "browserstack-cypress-cli": "^1.10.1",
     "cache-loader": "^4.1.0",
