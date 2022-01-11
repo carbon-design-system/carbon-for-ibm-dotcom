@@ -6739,7 +6739,7 @@ browserslist@^4.17.5, browserslist@^4.18.1:
     node-releases "^2.0.1"
     picocolors "^1.0.0"
 
-browserstack-cypress-cli@1.10.1, "browserstack-cypress-cli@1.10.1 ":
+browserstack-cypress-cli@1.10.1:
   version "1.10.1"
   resolved "https://registry.yarnpkg.com/browserstack-cypress-cli/-/browserstack-cypress-cli-1.10.1.tgz#f89b62e3f236a56afaf04aeed3ac70a5f5ab3940"
   integrity sha512-myvjIxvj4T7EGPsd/uvmxaDbjYR/FSWP59Y3eeknOM5YbExGnFTsvJsIPxP7fj1g3EOjcG5n0YEo+6S+fONuSg==
