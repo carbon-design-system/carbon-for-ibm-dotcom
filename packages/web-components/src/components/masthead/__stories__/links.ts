@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -1044,8 +1044,8 @@ const mastheadLinks: MastheadLink[] = [
     ],
   },
   {
-    title: 'Services & Consulting',
-    titleEnglish: 'Services & Consulting',
+    title: 'Consulting & Services',
+    titleEnglish: 'Consulting & Services',
     url: '',
     hasMenu: true,
     hasMegapanel: true,
