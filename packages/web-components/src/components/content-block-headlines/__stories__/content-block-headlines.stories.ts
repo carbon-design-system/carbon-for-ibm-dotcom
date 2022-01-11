@@ -63,6 +63,13 @@ export default !DDS_CONTENT_BLOCK_HEADLINES
   ? undefined
   : {
       title: 'Components/Content block headlines',
+      decorators: [
+        story => html`
+          <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-block-headlines">
+            ${story()}
+          </div>
+        `,
+      ],
       parameters: {
         ...readme.parameters,
         hasStoryPadding: true,
@@ -75,12 +82,16 @@ export default !DDS_CONTENT_BLOCK_HEADLINES
               elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.`,
           }),
         },
-        decorators: [
-          story => html`
-            <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-block-headlines">
-              ${story()}
-            </div>
-          `,
-        ],
+        propsSet: {
+          default: {
+            ContentBlockHeadlines: {
+              heading: 'Aliquam condimentum',
+              copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+              Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+              nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.`,
+            },
+          },
+        },
       },
     };

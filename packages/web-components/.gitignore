@@ -10,6 +10,7 @@ storybook-static-react
 .env
 templates
 generate.sh
+tests/a11y-results
 
 # e2e tests
 tests/cdn-build/cypress/screenshots

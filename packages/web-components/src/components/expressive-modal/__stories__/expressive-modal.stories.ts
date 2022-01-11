@@ -84,5 +84,19 @@ export default {
         buttonContent: textNullable('Button content', 'Lorem ipsum dolor', groupId),
       }),
     },
+    propsSet: {
+      default: {
+        Modal: {
+          open: true,
+          disableClose: false,
+          size: null,
+          onBeforeClose: 'dds-expressive-modal-beingclosed',
+          onClose: 'dds-expressive-modal-closed',
+        },
+        Other: {
+          buttonContent: 'Lorem ipsum dolor',
+        },
+      },
+    },
   },
 };

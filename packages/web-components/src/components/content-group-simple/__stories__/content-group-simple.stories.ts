@@ -164,5 +164,19 @@ export default {
         };
       },
     },
+    propsSet: {
+      default: {
+        ContentGroupSimple: {
+          copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.',
+          heading: 'Curabitur malesuada varius mi eu posuere',
+          mediaType: 'image',
+        },
+        CardCTA: {
+          copy: 'Lorem ipsum dolor sit amet',
+          ctaType: 'local',
+          href: 'https://www.example.com',
+        },
+      },
+    },
   },
 };

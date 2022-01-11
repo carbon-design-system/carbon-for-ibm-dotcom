@@ -36,14 +36,14 @@ const serviceMocks = {
 const reServices = /^@carbon\/ibmdotcom-services/i;
 
 module.exports = function setupKarma(config) {
-  const { browsers, collectCoverage, noPruneShapshot, specs, random, updateSnapshot, verbose } = config.customConfig;
+  const { browsers, collectCoverage, random, verbose } = config.customConfig;
 
   config.set({
     basePath: '..',
 
     browsers: (browsers.length > 0 ? browsers : ['ChromeHeadless']).map(normalizeBrowser),
 
-    frameworks: ['jasmine', 'snapshot'],
+    frameworks: ['jasmine', 'aChecker'],
 
     client: {
       jasmine: {
@@ -51,15 +51,12 @@ module.exports = function setupKarma(config) {
       },
     },
 
-    files: ['src/polyfills/index.ts', 'tests/utils/snapshot.js', 'tests/snapshots/**/*.md'].concat(
-      specs.length > 0 ? specs : ['tests/karma-test-shim.js']
-    ),
+    files: ['tests/utils/achecker-compliance.js', 'tests/a11y/karma-setup-context.js', 'tests/a11y/karma-test-shim.js'],
 
     preprocessors: {
-      'src/**/*.[jt]s': ['webpack', 'sourcemap'], // For generatoring coverage report for untested files
-      'tests/karma-test-shim.js': ['webpack', 'sourcemap'],
+      'src/**/*.js': ['webpack', 'sourcemap'],
+      'tests/a11y/**/*.js': ['webpack', 'sourcemap'],
       'tests/utils/**/*.js': ['webpack', 'sourcemap'],
-      'tests/snapshots/**/*.md': ['snapshot'],
     },
 
     webpack: {
@@ -152,6 +149,10 @@ module.exports = function setupKarma(config) {
             test: /\.(jpe?g|png|gif)(\?[a-z0-9=.]+)?$/,
             loader: 'url-loader',
           },
+          {
+            test: /\.(jpe?g|png|gif)(\?[a-z0-9=.]+)?$/,
+            loader: 'file-loader',
+          },
         ],
       },
 
@@ -179,19 +180,19 @@ module.exports = function setupKarma(config) {
     },
 
     plugins: [
+      require('karma-accessibility-checker'),
       require('karma-jasmine'),
       require('karma-spec-reporter'),
       require('karma-sourcemap-loader'),
       require('karma-coverage-istanbul-reporter'),
       require('karma-webpack'),
-      require('karma-snapshot'),
       require('karma-chrome-launcher'),
       require('karma-firefox-launcher'),
       require('karma-safari-launcher'),
       require('karma-ie-launcher'),
     ],
 
-    reporters: ['spec', ...(!collectCoverage ? [] : ['coverage-istanbul'])],
+    reporters: ['spec', ...(!collectCoverage ? [] : ['coverage-istanbul']), 'aChecker'],
 
     coverageIstanbulReporter: {
       reports: ['html', 'text'],
@@ -199,14 +200,6 @@ module.exports = function setupKarma(config) {
       combineBrowserReports: true,
       fixWebpackSourcePaths: true,
       verbose,
-    },
-
-    snapshot: {
-      prune: !noPruneShapshot,
-      update: updateSnapshot,
-      pathResolver(basePath, suiteName) {
-        return path.resolve(basePath, `tests/snapshots/${suiteName}.md`);
-      },
     },
 
     port: 9876,

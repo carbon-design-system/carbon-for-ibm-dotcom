@@ -312,6 +312,16 @@ withCardInCard.story = {
         cards: number('Number of cards', 5, { min: 2, max: 6 }, groupId),
       }),
     },
+    propsSet: {
+      default: {
+        CardGroup: {
+          media: false,
+          tagGroup: false,
+          gridMode: 'narrow',
+          cards: 5,
+        },
+      },
+    },
   },
 };
 
@@ -364,6 +374,20 @@ export default {
           offset,
           cta,
         };
+      },
+    },
+    propsSet: {
+      default: {
+        CardGroup: {
+          cardType: 'Card - default',
+          media: false,
+          tagGroup: false,
+          cards: 5,
+          cardsPerRow: 'dds-ce-demo-devenv--cards-in-row-3',
+          gridMode: 'collapsed',
+          offset: 0,
+          cta: false,
+        },
       },
     },
   },

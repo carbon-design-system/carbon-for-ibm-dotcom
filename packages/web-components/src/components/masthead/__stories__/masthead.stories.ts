@@ -127,6 +127,19 @@ WithCustomNavigation.story = {
           textNullable('custom profile login url (customProfileLogin)', 'https://www.example.com/', groupId),
       }),
     },
+    propsSet: {
+      default: {
+        MastheadComposite: {
+          platform: null,
+          hasProfile: true,
+          hasSearch: true,
+          searchPlaceholder: 'Search all of IBM',
+          selectedMenuItem: 'Products & Solutions',
+          userStatus: userStatuses.unauthenticated,
+          customProfileLogin: 'https://www.example.com/',
+        },
+      },
+    },
   },
 };
 
@@ -226,6 +239,17 @@ withPlatform.story = {
         userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
       }),
     },
+    propsSet: {
+      default: {
+        MastheadComposite: {
+          hasProfile: true,
+          hasSearch: true,
+          searchPlaceHolder: 'Search all of IBM',
+          selectedMenuItem: 'Services & Consulting',
+          userStatus: userStatuses.unauthenticated,
+        },
+      },
+    },
   },
 };
 
@@ -275,6 +299,17 @@ withL1.story = {
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Lorem ipsum dolor sit amet', groupId),
         userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
       }),
+    },
+    propsSet: {
+      default: {
+        MastheadComposite: {
+          hasProfile: true,
+          hasSearch: true,
+          searchPlaceholder: 'Search all of IBM',
+          selectedMenuItem: 'Lorem ipsum dolor sit amet',
+          userStatus: userStatuses.unauthenticated,
+        },
+      },
     },
   },
 };
@@ -338,6 +373,18 @@ withAlternateLogoAndTooltip.story = {
         userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
       }),
     },
+    propsSet: {
+      default: {
+        MastheadComposite: {
+          platform: null,
+          hasProfile: true,
+          hasSearch: true,
+          searchPlaceholder: 'Search all of IBM',
+          selectedMenuItem: 'Services & Consulting',
+          userStatus: userStatuses.unauthenticated,
+        },
+      },
+    },
   },
 };
 
@@ -384,5 +431,19 @@ export default {
         },
       };
     })(),
+    propsSet: {
+      default: {
+        MastheadComposite: {
+          platform: null,
+          hasProfile: true,
+          hasSearch: true,
+          searchPlaceholder: 'Search all of IBM',
+          selectedMenuItem: 'Services & Consulting',
+          userStatus: userStatuses.unauthenticated,
+          customProfileLogin: 'https://www.example.com/',
+          navLinks: links,
+        },
+      },
+    },
   },
 };

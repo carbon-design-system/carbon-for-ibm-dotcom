@@ -92,5 +92,12 @@ export default {
         orientation: select('Orientation (orientation):', orientationType, ORIENTATION.HORIZONTAL, groupId),
       }),
     },
+    propsSet: {
+      default: {
+        TabsExtended: {
+          orientation: 'horizontal',
+        },
+      },
+    },
   },
 };

@@ -79,5 +79,16 @@ export default {
         heading: textNullable('Heading (heading)', 'This is a caption', groupId),
       }),
     },
+    propsSet: {
+      default: {
+        'dds-image-with-caption': {
+          alt: 'Image alt text',
+          defaultSrc: imgLg2x1,
+          lightbox: true,
+          copy: 'Lorem ipsum dolor sit amet',
+          heading: 'This is a caption',
+        },
+      },
+    },
   },
 };
