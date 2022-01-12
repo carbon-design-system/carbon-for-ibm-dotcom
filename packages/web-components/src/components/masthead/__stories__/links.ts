@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -46,7 +46,7 @@ const logoData: MastheadLogoData = {
 };
 
 /**
- * MastheadL1 Data
+ * Dotcom shell MastheadL1 Data
  */
 const l1Data: MastheadL1 = {
   title: 'Stock Charts',
@@ -363,6 +363,71 @@ const l1Data: MastheadL1 = {
       hasMenu: false,
       hasMegapanel: false,
       menuSections: [],
+    },
+  ],
+};
+
+/**
+ * MastheadL1 Data
+ */
+const mastheadL1Data: MastheadL1 = {
+  title: 'Analytics',
+  url: 'https://www.ibm.com/analytics',
+  menuItems: [
+    {
+      title: 'Products',
+      titleEnglish: 'Products',
+      url: 'https://www.ibm.com/analytics/products',
+    },
+    {
+      title: 'Solutions',
+      titleEnglish: 'Solutions',
+      url: 'https://www.ibm.com/analytics/solutions',
+    },
+    {
+      title: 'Services',
+      titleEnglish: 'Services',
+      url: 'https://www.ibm.com/industries?lnk=min',
+    },
+    {
+      title: 'Learn',
+      titleEnglish: 'Learn',
+      menuSections: [
+        {
+          menuItems: [
+            {
+              title: 'Blogs',
+              url: 'https://www.ibm.com/blogs/journey-to-ai/',
+            },
+            {
+              title: 'Client stories',
+              url: 'https://www.ibm.com/analytics/client-stories',
+            },
+            {
+              title: 'Communities',
+              url: 'https://www.ibm.com/analytics/communities',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: 'Explore more',
+      titleEnglish: 'Explore more',
+      menuSections: [
+        {
+          menuItems: [
+            {
+              title: 'Product support',
+              url: 'https://www.ibm.com/analytics/support',
+            },
+            {
+              title: 'Expert gallery',
+              url: 'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
+            },
+          ],
+        },
+      ],
     },
   ],
 };
@@ -979,8 +1044,8 @@ const mastheadLinks: MastheadLink[] = [
     ],
   },
   {
-    title: 'Services & Consulting',
-    titleEnglish: 'Services & Consulting',
+    title: 'Consulting & Services',
+    titleEnglish: 'Consulting & Services',
     url: '',
     hasMenu: true,
     hasMegapanel: true,
@@ -2432,5 +2497,5 @@ const customLinks: MastheadLink[] = [
 
 /* eslint-enable max-len */
 
-export { mastheadLinks, customLinks, l1Data, logoData };
+export { mastheadLinks, customLinks, l1Data, logoData, mastheadL1Data };
 export default mastheadLinks;
