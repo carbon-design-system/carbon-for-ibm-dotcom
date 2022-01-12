@@ -149,5 +149,12 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
+    propsSet: {
+      default: {
+        Carousel: {
+          cardSize: 4,
+        },
+      },
+    },
   },
 };

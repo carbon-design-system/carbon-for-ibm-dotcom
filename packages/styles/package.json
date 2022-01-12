@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-styles",
   "description": "Carbon for IBM.com Styles",
-  "version": "1.29.0",
+  "version": "1.29.1",
   "license": "Apache-2.0",
   "main": "dist/ibm-dotcom-styles.min.css",
   "module": "src/scss",
@@ -40,9 +40,9 @@
     "@carbon/layout": "10.34.0",
     "@carbon/motion": "10.26.0",
     "@carbon/telemetry": "0.0.0-alpha.6",
-    "@carbon/themes": "10.47.0",
-    "@carbon/type": "10.38.0",
-    "carbon-components": "10.49.0"
+    "@carbon/themes": "10.48.0",
+    "@carbon/type": "10.39.0",
+    "carbon-components": "10.50.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
@@ -62,7 +62,7 @@
     "babel-loader": "^8.0.6",
     "browserslist-config-carbon": "^10.4.0",
     "cache-loader": "^4.1.0",
-    "carbon-components-react": "7.49.0",
+    "carbon-components-react": "7.50.0",
     "css-loader": "^5.2.0",
     "del": "^3.0.0",
     "gulp": "^4.0.2",
@@ -73,8 +73,8 @@
     "gulp-sass": "^5.0.0",
     "gulp-sourcemaps": "^2.6.5",
     "prop-types": "^15.7.2",
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "require-context.macro": "^1.2.2",
     "require-dir": "^1.2.0",
     "sass-loader": "^10.0.0",
@@ -86,7 +86,7 @@
   "sideEffects": false,
   "bundleSizeThreshold": 120000,
   "release": {
-    "branch": "master"
+    "branch": "main"
   },
   "gitHead": "37ae2adac6241513f4d1974505a207705e9e2784"
 }

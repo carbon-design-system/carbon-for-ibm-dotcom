@@ -5,15 +5,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+export * from './AudioPlayer';
 export * from './ButtonGroup';
 export * from './CalloutQuote';
 export * from './CalloutWithMedia';
+export * from './carbon-components-react/UIShell';
 export * from './Card';
 export * from './CardGroup';
 export * from './CardLink';
 export * from './CardSectionImages';
 export * from './CardSectionSimple';
 export * from './ContentBlockCards';
+export * from './ContentBlock';
+export * from './ContentGroup';
 export * from './ContentBlockHeadlines';
 export * from './ContentBlockHorizontal';
 export * from './ContentBlockMedia';
@@ -24,7 +28,9 @@ export * from './ContentGroupCards';
 export * from './ContentGroupHorizontal';
 export * from './ContentGroupPictograms';
 export * from './ContentGroupSimple';
+export * from './ContentItem';
 export * from './ContentItemHorizontal';
+export * from './ContentSection';
 export * from './CTA';
 export * from './CTASection';
 export * from './DotcomShell';
@@ -50,6 +56,4 @@ export * from './PictogramItem';
 export * from './Quote';
 export * from './ScrollAnimations';
 export * from './TableOfContents';
-export * from './carbon-components-react/UIShell';
 export * from './VideoPlayer';
-export * from './AudioPlayer';

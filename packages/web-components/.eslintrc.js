@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -140,10 +140,22 @@ module.exports = {
       },
     },
     {
-      files: ['tests/e2e/**/*.e2e.js', 'tests/e2e/**/*.cdn.e2e.js', 'src/components/**/*.e2e.js'],
+      files: ['tests/e2e/**/*.e2e.js', 'tests/e2e/**/*.cdn.e2e.js', 'src/components/**/*.e2e.js', 'tests/cdn-build/**/*.js'],
       extends: ['plugin:cypress/recommended'],
       parserOptions: {
-        sourceType: 'script',
+        sourceType: 'module',
+      },
+    },
+    {
+      files: ['tests/a11y/**/*.js', 'tests/utils/**/*.js'],
+      parserOptions: {
+        sourceType: 'module',
+      },
+      rules: {
+        'import/no-unresolved': 0,
+      },
+      globals: {
+        aChecker: true,
       },
     },
   ],

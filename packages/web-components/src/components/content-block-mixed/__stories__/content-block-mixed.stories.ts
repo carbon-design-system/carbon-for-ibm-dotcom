@@ -105,11 +105,27 @@ export default {
           `,
         cardsGroupHeading: textNullable(
           'Cards group heading (heading)',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
           groupId
         ),
         ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId),
       }),
+    },
+    propsSet: {
+      default: {
+        ContentBlockMixed: {
+          heading: 'Lorem ipsum dolor sit amet',
+          copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          Phasellus at elit sollicitudin, sodales nulla quis, consequat
+          libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+          `,
+          cardsGroupHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+          ctaType: 'local',
+        },
+      },
     },
   },
 };
@@ -201,7 +217,7 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const WithAsideElements = ({ parameters }) => {
+export const WithLinkList = ({ parameters }) => {
   const { heading, copy: groupCopy, cardsGroupHeading, complementaryStyleScheme, ctaType, linkListHeading } =
     parameters?.props?.ContentBlockMixed ?? {};
   return html`
@@ -300,8 +316,8 @@ export const WithAsideElements = ({ parameters }) => {
   `;
 };
 
-WithAsideElements.story = {
-  name: 'With aside elements',
+WithLinkList.story = {
+  name: 'With link list',
   parameters: {
     gridContentClasses: 'bx--col-lg-12',
     knobs: {
@@ -328,6 +344,24 @@ WithAsideElements.story = {
           groupId
         ),
       }),
+    },
+    propsSet: {
+      default: {
+        ContentBlockMixed: {
+          heading: 'Lorem ipsum dolor sit amet',
+          copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          Phasellus at elit sollicitudin, sodales nulla quis, consequat
+          libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+          `,
+          cardsGroupHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          ctaType: 'local',
+          linkListHeading: 'Tutorials',
+          complementaryStyleScheme: null,
+        },
+      },
     },
   },
 };

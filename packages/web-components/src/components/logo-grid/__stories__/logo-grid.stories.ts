@@ -72,5 +72,17 @@ export default {
         ctaHref: text('CTA Href (ctaHref):', 'http://local.url.com/', groupId),
       }),
     },
+    propsSet: {
+      default: {
+        LogoGrid: {
+          heading: 'Our customers',
+          logosGroup: logos,
+          hideBorder: false,
+          showCta: false,
+          ctaCopy: 'Lorem ipsum dolor sit amet',
+          ctaHref: 'http://local.url.com',
+        },
+      },
+    },
   },
 };

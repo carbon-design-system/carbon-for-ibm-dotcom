@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.29.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.29.1-rc.0...@carbon/ibmdotcom-react@1.29.1) (2021-12-13)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+## [1.29.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.29.0...@carbon/ibmdotcom-react@1.29.1-rc.0) (2021-12-09)
+
+
+
+# 1.29.0 (2021-12-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
 # [1.29.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.28.0-rc.0...@carbon/ibmdotcom-react@1.29.0) (2021-12-01)
 
 
@@ -71,7 +91,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **gulp:** adjustment to react vendor builds ([#7396](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7396)) ([259bae3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/259bae3))
 * **locale-modal:** fix to properly type in locale modal e2e tests ([#7477](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7477)) ([cc8e573](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cc8e573))
 * **masthead:** ensure reverse tabbing works in megamenu ([#7368](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7368)) ([ebe397a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ebe397a)), closes [#6624](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6624)
-* **Masthead:** resolve React and PropTypes warnings ([#7401](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7401)) ([3d3961e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3d3961e)), closes [#7224](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7224) [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/react/src/components/carbon-components-react/UIShell/HeaderMenu.js#L305-L309](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/react/src/components/carbon-components-react/UIShell/HeaderMenu.js/issues/L305-L309)
+* **Masthead:** resolve React and PropTypes warnings ([#7401](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7401)) ([3d3961e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3d3961e)), closes [#7224](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7224) [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/react/src/components/carbon-components-react/UIShell/HeaderMenu.js#L305-L309](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/react/src/components/carbon-components-react/UIShell/HeaderMenu.js/issues/L305-L309)
 * **Masthead:** set selected state for L1 menu items and mobile ([#7530](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7530)) ([0ffc894](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0ffc894)), closes [#7312](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7312)
 * **masthead-e2e:** update overflow test ([#7511](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7511)) ([25fddcd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/25fddcd))
 * **MastheadSearch:** allow search event handlers to determine method of change ([#7365](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7365)) ([773774e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/773774e)), closes [#7081](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7081)

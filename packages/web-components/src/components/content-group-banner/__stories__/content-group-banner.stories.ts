@@ -120,5 +120,15 @@ export default {
         };
       },
     },
+    propsSet: {
+      default: {
+        ContentGroupBanner: {
+          heading: 'Accelerate application development efforts with IBM Product Name',
+          ctaType: null,
+          download: undefined,
+          href: 'https://www.example.com',
+        },
+      },
+    },
   },
 };

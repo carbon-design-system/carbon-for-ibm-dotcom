@@ -87,6 +87,22 @@ Default.story = {
         cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none', groupId),
       }),
     },
+    propsSet: {
+      default: {
+        Card: {
+          image: false,
+          eyebrow: 'Industry',
+          heading: 'Aerospace and defence',
+          copy: '',
+          alt: 'Image alt text',
+          defaultSrc: imgXlg4x3,
+          tagGroup: false,
+          href: 'https://example.com',
+          footer: 'Learn more',
+          cardStyles: 'none',
+        },
+      },
+    },
   },
 };
 
@@ -141,14 +157,12 @@ Pictogram.story = {
     knobs: {
       PictogramCard: ({ groupId }) => {
         const pictogramPlacement = select('Pictogram position:', pictogramPlacements, pictogramPlacements.top, groupId);
-        const copy =
-          pictogramPlacement === pictogramPlacements.bottom
-            ? textNullable(
-                'Body copy:',
-                'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
-                groupId
-              )
-            : null;
+        const copy = textNullable(
+          'Body copy:',
+          `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+           Ut enim ad minim veniam, quis nostrud exercitation.`,
+          groupId
+        );
         return {
           pictogramPlacement,
           heading: textNullable('Heading:', 'Aerospace and defence', groupId),
@@ -156,6 +170,18 @@ Pictogram.story = {
           href: 'https://example.com',
           cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none', groupId),
         };
+      },
+    },
+    propsSet: {
+      default: {
+        PictogramCard: {
+          pictogramPlacement: 'top',
+          heading: 'Aerospace and defence',
+          copy: `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+           Ut enim ad minim veniam, quis nostrud exercitation.`,
+          href: 'https://example.com',
+          cardStyles: 'none',
+        },
       },
     },
   },
@@ -229,6 +255,22 @@ Static.story = {
         };
       },
     },
+    propsSet: {
+      default: {
+        Card: {
+          image: false,
+          eyebrow: 'Industry',
+          heading: 'Aerospace and defence',
+          copy: '',
+          alt: 'Image alt text',
+          defaultSrc: imgXlg4x3,
+          tagGroup: false,
+          cta: false,
+          ctaCopy: 'Sign up for the trial',
+          outlinedCard: 'true',
+        },
+      },
+    },
   },
 };
 
@@ -280,6 +322,20 @@ Logo.story = {
         ),
         href: 'https://example.com',
       }),
+    },
+    propsSet: {
+      default: {
+        Card: {
+          image: false,
+          eyebrow: 'Microsoft',
+          heading: '',
+          copy: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          alt: 'Image alt text',
+          defaultSrc: imgXlg4x3,
+          tagGroup: false,
+          href: 'https://example.com',
+        },
+      },
     },
   },
 };

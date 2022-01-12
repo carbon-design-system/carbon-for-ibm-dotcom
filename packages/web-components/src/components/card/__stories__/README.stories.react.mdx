@@ -5,10 +5,10 @@ import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-rea
 # Card
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/card)
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/card)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/card)
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/card)
 
 ## Getting started
 
@@ -29,7 +29,8 @@ function App() {
       <DDSCardEyebrow>Eyebrow text</DDSCardEyebrow>
       <DDSCardHeading>Lorem ipsum dolor sit amet</DDSCardHeading>
       <DDSCardFooter>
-       Card CTA text<ArrowRight20 slot="icon" />
+        Card CTA text
+        <ArrowRight20 slot="icon" />
       </DDSCardFooter>
     </DDSCard>
   );
@@ -74,7 +75,7 @@ import { Tag } from 'carbon-components-react';
 
 function App() {
   return (
-    <DDSCard colorScheme='light' border>
+    <DDSCard colorScheme="light" border>
       <DDSCardEyebrow>Eyebrow text</DDSCardEyebrow>
       <DDSCardHeading>Heading text</DDSCardHeading>
       <DDSTagGroup>
@@ -91,9 +92,9 @@ function App() {
 ```
 
 ## Card - logo
-If you need to use a Logo image for the Card component, use the Logo variant to ensure the Card 
-properly accomodates to the Logo image.
 
+If you need to use a Logo image for the Card component, use the Logo variant to ensure the Card
+properly accomodates to the Logo image.
 
 ```javascript
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
@@ -133,17 +134,50 @@ An optional light theme is available under `color-scheme`.
 <DDSCard colorScheme='light'>
 ```
 
+## Card with image
+
+To add image to the `DDSCard`, import the `DDSImage` component and place `DDSImage` within `DDSCard`:
+
+```javascript
+import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
+import { Tag } from 'carbon-components-react';
+
+function App() {
+  return (
+    <DDSCard colorScheme="light">
+      <DDSImage slot="image" alt="alt text" defaultSrc="../image.png" />
+      <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow>
+      <DDSCardHeading>{heading}</DDSCardHeading>
+      <DDSTagGroup>
+        <Tag>Most popular</Tag>
+        <Tag type="purple">Enterprise</Tag>
+      </DDSTagGroup>
+      <DDSCardFooter href="https://www.example.com">
+        Sign up for the trial
+        <ArrowRight20 slot="icon" />
+      </DDSCardFooter>
+    </DDSCard>
+  );
+}
+```
+
 ## Props
 
 <Props of={PropTypesRef} />
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector | Compatibility selector           | Description |
-| ----------------------- | -------------------------------- | ----------- |
-| `<dds-card>`            | `data-autoid="dds--card"`        | Component   |
-| `<dds-card-eyebrow>`    | `data-autoid="dds--card-eyebrow"`| Component   |
-| `<dds-card-heading>`    | `data-autoid="dds--card-heading"`| Component   |
-| `<dds-card-footer>`     | `data-autoid="dds--card-footer"` | Component   |
+| Web Components selector | Compatibility selector            | Description |
+| ----------------------- | --------------------------------- | ----------- |
+| `<dds-card>`            | `data-autoid="dds--card"`         | Component   |
+| `<dds-card-eyebrow>`    | `data-autoid="dds--card-eyebrow"` | Component   |
+| `<dds-card-heading>`    | `data-autoid="dds--card-heading"` | Component   |
+| `<dds-card-footer>`     | `data-autoid="dds--card-footer"`  | Component   |

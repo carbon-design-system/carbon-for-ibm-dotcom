@@ -1,0 +1,18 @@
+{
+  "baseUrl": "http://localhost:8080",
+  "browser": "chrome",
+  "headless": true,
+  "video": false,
+  "fixturesFolder": "tests/cdn-build/cypress/fixtures",
+  "fileServerFolder": "test/cdn-build/app",
+  "screenshotsFolder": "tests/cdn-build/cypress/screenshots",
+  "videosFolder": "tests/cdn-build/cypress/videos",
+  "integrationFolder": "tests/cdn-build/cypress/integration",
+  "supportFile": "tests/cdn-build/cypress/support/index.js",
+  "pluginsFile": "tests/cdn-build/cypress/plugins/index.js",
+  "nodeVersion": "system",
+  "includeShadowDom": true,
+  "testFiles": "**/*.e2e.js",
+  "pageLoadTimeout": 60000,
+  "defaultCommandTimeout": 60000
+}

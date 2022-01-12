@@ -72,5 +72,14 @@ export default {
         border: boolean('Border', false, groupId),
       }),
     },
+    propsSet: {
+      default: {
+        'dds-image': {
+          alt: 'Image alt text',
+          defaultSrc: imgLg2x1,
+          border: false,
+        },
+      },
+    },
   },
 };

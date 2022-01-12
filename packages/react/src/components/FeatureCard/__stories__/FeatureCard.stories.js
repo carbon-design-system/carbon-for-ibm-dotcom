@@ -7,12 +7,12 @@
 
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import FeatureCard from '../FeatureCard';
-import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--005.jpg';
-import imgMax1x1 from '../../../../../storybook-images/assets/1584/fpo--1x1--1584x1584--005.jpg';
-import imgMd2x1 from '../../../../../storybook-images/assets/480/fpo--2x1--480x240--005.jpg';
-import imgSm2x1 from '../../../../../storybook-images/assets/320/fpo--2x1--320x160--005.jpg';
-import imgXlg2x1 from '../../../../../storybook-images/assets/1312/fpo--2x1--1312x656--005.jpg';
-import mediumImgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--003.jpg';
+import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
+import imgMax1x1 from '../../../../../storybook-images/assets/1584/fpo--1x1--1584x1584--002.jpg';
+import imgMd2x1 from '../../../../../storybook-images/assets/480/fpo--2x1--480x240--002.jpg';
+import imgSm2x1 from '../../../../../storybook-images/assets/320/fpo--2x1--320x160--002.jpg';
+import imgXlg2x1 from '../../../../../storybook-images/assets/1312/fpo--2x1--1312x656--002.jpg';
+import mediumImgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import { text } from '@storybook/addon-knobs';

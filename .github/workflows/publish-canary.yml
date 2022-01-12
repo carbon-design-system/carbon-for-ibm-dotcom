@@ -3,7 +3,7 @@ name: publish-canary (Publish Canary release to NPM)
 on:
   push:
     branches:
-      - master
+      - main
 
 concurrency:
   group: publish-canary-${{ github.ref }}

@@ -99,5 +99,15 @@ export default {
         backgroundOpacity: number('Background Opacity', 100, { range: true, min: 0, max: 100 }, groupId),
       }),
     },
+    propsSet: {
+      default: {
+        'dds-background-media': {
+          gradientDirection: 'left-to-right',
+          alt: 'Image alt text',
+          defaultSrc: imgMax,
+          backgroundOpacity: '100',
+        },
+      },
+    },
   },
 };

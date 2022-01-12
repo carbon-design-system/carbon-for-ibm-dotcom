@@ -17,12 +17,12 @@ const { prefix } = settings;
 /**
  * ContentBlockHorizontal pattern.
  */
-const ContentBlockHorizontal = ({ heading, items }) => {
+const ContentBlockHorizontal = ({ heading, items, border }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--content-block-horizontal`}
       className={`${prefix}--content-block-horizontal`}>
-      <ContentBlock heading={heading} border={true}>
+      <ContentBlock heading={heading} border={border}>
         {items.map((item, index) => (
           <ContentItemHorizontal
             eyebrow={item.eyebrow}
@@ -69,6 +69,11 @@ ContentBlockHorizontal.propTypes = {
       }),
     })
   ).isRequired,
+
+  /**
+   * border for content block.
+   */
+  border: PropTypes.bool,
 };
 
 export default ContentBlockHorizontal;

@@ -56,5 +56,16 @@ export default {
         ),
       }),
     },
+    propsSet: {
+      default: {
+        LinkWithIcon: {
+          children: 'Link text',
+          disabled: false,
+          href: 'https://github.com/carbon-design-system/carbon-web-components',
+          onClick: 'click',
+          iconPlacement: 'right',
+        },
+      },
+    },
   },
 };
