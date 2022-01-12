@@ -462,17 +462,10 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
 
 :host(#{$dds-prefix}-search-with-typeahead-item) {
   @extend .react-autosuggest__suggestion;
-
-  &:last-of-type {
-    .#{$prefix}--container-class {
-      border-bottom-color: 1px solid $ui-04 !important;
-    }
-  }
-
-  font-size: $spacing-05;
-
+  
   &[groupTitle] {
     @include carbon--type-style('body-long-01', true);
+
     color: $text-05;
 
     &:active {
