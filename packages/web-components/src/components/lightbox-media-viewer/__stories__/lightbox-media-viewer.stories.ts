@@ -80,6 +80,20 @@ Default.story = {
         title: textNullable('Title (title)', 'Curabitur malesuada varius mi eu posuere', groupId),
       }),
     },
+    propsSet: {
+      default: {
+        LightboxImageViewer: {
+          alt: 'Image alt text',
+          defaultSrc: imgXlg2x1,
+          description: `
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.
+            Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+          `,
+          title: 'Curabitur malesuada varius mi eu posuere',
+        },
+      },
+    },
   },
 };
 
@@ -120,6 +134,16 @@ EmbeddedVideoPlayer.story = {
         customVideoDescription: textNullable('Video custom description', 'This is a custom video description', groupId),
       }),
     },
+    propsSet: {
+      default: {
+        LightboxVideoPlayerContainer: {
+          hideCaption: false,
+          videoId: '1_9h94wo6b',
+          customVideoName: 'Custom video name',
+          customVideoDescription: 'This is a custom video description',
+        },
+      },
+    },
   },
 };
 
@@ -140,6 +164,20 @@ Default.story = {
         ),
         title: textNullable('Title (title)', 'Curabitur malesuada varius mi eu posuere', groupId),
       }),
+    },
+    propsSet: {
+      default: {
+        LightboxImageViewer: {
+          alt: 'Image alt text',
+          defaultSrc: imgXlg2x1,
+          description: `
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.
+            Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+            `,
+          title: 'Curabitur malesuada varius mi eu posuere',
+        },
+      },
     },
   },
 };
@@ -162,6 +200,16 @@ export default {
         onBeforeClose: action('dds-expressive-modal-beingclosed'),
         onClose: action('dds-expressive-modal-closed'),
       }),
+    },
+    propsSet: {
+      default: {
+        Modal: {
+          open: true,
+          disableClose: false,
+          onBeforeClose: 'dds-expressive-modal-beingclosed',
+          onClose: 'dds-expressive-modal-closed',
+        },
+      },
     },
   },
 };

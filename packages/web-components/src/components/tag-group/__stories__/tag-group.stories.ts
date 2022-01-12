@@ -59,5 +59,12 @@ export default {
         tagType: select('Tag Type:', tagTypeOptions, 'Tag Link', groupId),
       }),
     },
+    propsSet: {
+      default: {
+        TagGroup: {
+          tagType: 'Tag Link',
+        },
+      },
+    },
   },
 };

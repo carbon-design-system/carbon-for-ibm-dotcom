@@ -115,5 +115,14 @@ export default {
         ),
       }),
     },
+    propsSet: {
+      default: {
+        ContentSection: {
+          heading: 'Speech recognition (statistical Artificial Intelligence)',
+          copy: "AI features for understanding speech can be trained for a specific speaker's voice.",
+          addChildren: '',
+        },
+      },
+    },
   },
 };

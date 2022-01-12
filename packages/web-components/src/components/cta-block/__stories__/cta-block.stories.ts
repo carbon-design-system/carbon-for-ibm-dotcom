@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -95,8 +95,6 @@ export const WithContentItems = ({ parameters }) => {
   const { contentItemType, contentItemCount } = parameters?.props?.WithContentItems ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
-  console.log('DEBUG:', border);
-
   return html`
     <dds-cta-block ?no-border=${!border}>
       <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
@@ -126,6 +124,14 @@ WithContentItems.story = {
           length: number('Number of content items', 3, { min: 2, max: 6 }, groupId),
         }),
       }),
+    },
+    propsSet: {
+      default: {
+        WithContentItems: {
+          contentItemType: contentItemTypeMap[contentItemTypeOptions.Text],
+          contentItemCount: Array(3),
+        },
+      },
     },
   },
 };
@@ -204,5 +210,15 @@ export default {
     },
     ...readme.parameters,
     hasStoryPadding: true,
+    propsSet: {
+      default: {
+        CTABlock: {
+          heading: 'Take the next step',
+          border: false,
+          copy: 'Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.',
+          renderIcon: iconOptions.Default,
+        },
+      },
+    },
   },
 };

@@ -45,6 +45,17 @@ export const Default = ({ parameters }) => {
 
 export default {
   title: 'Components/Callout with media',
+  decorators: [
+    story => html`
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-lg-12 bx--no-gutter">
+            ${story()}
+          </div>
+        </div>
+      </div>
+    `,
+  ],
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
@@ -58,16 +69,17 @@ export default {
   some common categories:`,
       }),
     },
-    decorators: [
-      story => html`
-        <div class="bx--grid">
-          <div class="bx--row">
-            <div class="bx--col-lg-12 bx--no-gutter">
-              ${story()}
-            </div>
-          </div>
-        </div>
-      `,
-    ],
+    propsSet: {
+      default: {
+        CalloutWithMedia: {
+          mediaType: 'image',
+          heading: 'Curabitur malesuada varius mi eu posuere',
+          copy: `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+  nulla quis, *consequat* libero. Here are
+  some common categories:`,
+        },
+      },
+    },
   },
 };

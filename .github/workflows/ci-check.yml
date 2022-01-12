@@ -70,4 +70,4 @@ jobs:
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Run a11y compliance tests
-        run: xvfb-run --auto-servernum --error-file=/dev/stderr yarn test:a11y || true
+        run: xvfb-run --auto-servernum --error-file=/dev/stderr yarn test:a11y

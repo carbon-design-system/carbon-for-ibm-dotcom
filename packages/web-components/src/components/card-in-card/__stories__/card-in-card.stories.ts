@@ -87,5 +87,17 @@ export default {
         };
       },
     },
+    propsSet: {
+      default: {
+        'dds-card-in-card': {
+          video: false,
+          alt: 'Image alt text',
+          defaultSrc: imgSm4x3,
+          heading: 'Standard Bank Group prepares to embrace Africa’s AI opportunity',
+          href: 'https://example.com',
+          eyebrow: 'Label',
+        },
+      },
+    },
   },
 };

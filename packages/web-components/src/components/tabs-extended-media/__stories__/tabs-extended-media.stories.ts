@@ -195,6 +195,27 @@ Default.story = {
         href2: textNullable('CTA 2 href (cta-href):', 'https://www.ibm.com'),
       }),
     },
+    propsSet: {
+      default: {
+        TabsExtendedWithMedia: {
+          sectionHeading: 'TitleHeading',
+          align: 'left',
+          type: 'image',
+          alt: 'Lorem ipsum',
+          heading: 'Aliquam condimentum',
+          copy:
+            'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. ' +
+            'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
+            'Phasellus at elit sollicitudin.',
+          ctaType1: 'local',
+          ctaCopy1: 'Learn more',
+          href1: 'https://www.ibm.com',
+          ctaType2: 'external',
+          ctaCopy2: 'Microservices and containers',
+          href2: 'https://www.ibm.com',
+        },
+      },
+    },
   },
 };
 

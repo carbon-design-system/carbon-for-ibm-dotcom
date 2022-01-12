@@ -40,5 +40,13 @@ export default {
         href: textNullable('Tag Link (href)', `https://example.com`),
       }),
     },
+    propsSet: {
+      default: {
+        TagLink: {
+          copy: 'Brand: Watson',
+          href: 'https://example.com',
+        },
+      },
+    },
   },
 };
