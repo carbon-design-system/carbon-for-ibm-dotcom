@@ -51,23 +51,23 @@ async function customTypeaheadApiFunction(searchVal) {
   return await fetch(
     `https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`
   )
-    .then((response) => response.json())
-    .then((data) => {
+    .then(response => response.json())
+    .then(data => {
       let searchResults = [
         data.hints,
         {
-          title: "Product pages",
-          items: data.products
-        }
+          title: 'Product pages',
+          items: data.products,
+        },
       ];
       return searchResults;
     });
 }
 
-document.documentElement.addEventListener('dds-search-with-typeahead-input', async (e) => { 
+document.documentElement.addEventListener('dds-search-with-typeahead-input', async e => {
   const results = await customTypeaheadApiFunction((e as CustomEvent).detail.value);
-  document.dispatchEvent(new CustomEvent('dds-custom-typeahead-api-results', { detail: results}))
-})
+  document.dispatchEvent(new CustomEvent('dds-custom-typeahead-api-results', { detail: results }));
+});
 
 export const Default = ({ parameters }) => {
   const { customProfileLogin, platform, hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
@@ -155,7 +155,7 @@ WithCustomNavigation.story = {
 export const WithCustomTypeahead = ({ parameters }) => {
   const { customProfileLogin, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch } =
     parameters?.props?.MastheadComposite ?? {};
-    return html`
+  return html`
     <style>
       ${styles}
     </style>

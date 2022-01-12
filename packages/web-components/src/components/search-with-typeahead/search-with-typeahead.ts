@@ -53,7 +53,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
   @property({ attribute: 'leadspace-search', type: Boolean })
   leadspaceSearch = false;
 
-  @property({attribute: 'custom-typeahead-api', type: Boolean})
+  @property({ attribute: 'custom-typeahead-api', type: Boolean })
   customTypeaheadAPI = false;
 
   @property()
@@ -266,7 +266,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
   protected _handleCustomResults = (event: CustomEvent) => {
     this.searchResults = event.detail[0];
     this.groupedResults = event.detail.slice(1);
-  }
+  };
 
   /**
    * Handles `input` event in the search input.
@@ -295,7 +295,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
     );
     this.value = value;
 
-    if(!this.customTypeaheadAPI) {
+    if (!this.customTypeaheadAPI) {
       this.getResults(value).then(res => {
         this.searchResults = res;
       });
@@ -496,7 +496,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
                       )}
                     ${this.groupedResults &&
                       this.groupedResults.map(
-                        group => 
+                        group =>
                           html`
                             <dds-search-with-typeahead-item groupTitle text="${group.title}"></dds-search-with-typeahead-item>
                             ${group.items.map(
@@ -615,11 +615,11 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
   }
 
   updated(changedProperties) {
-    if(changedProperties.has('searchResults')) {
-      const titleElements = this.shadowRoot?.querySelectorAll('dds-search-with-typeahead-item[groupTitle]')
-      titleElements?.forEach( e => {
+    if (changedProperties.has('searchResults')) {
+      const titleElements = this.shadowRoot?.querySelectorAll('dds-search-with-typeahead-item[groupTitle]');
+      titleElements?.forEach(e => {
         e.previousElementSibling?.setAttribute('lastBeforeGroup', '');
-      })
+      });
     }
   }
 
@@ -685,10 +685,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
                   this.searchResults.map(
                     item =>
                       html`
-                        <dds-search-with-typeahead-item
-                          text="${item}"
-                          @click=${handleClickItem}
-                        ></dds-search-with-typeahead-item>
+                        <dds-search-with-typeahead-item text="${item}" @click=${handleClickItem}></dds-search-with-typeahead-item>
                       `
                   )}
               </ul>

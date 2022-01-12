@@ -647,7 +647,7 @@ class DDSMastheadComposite extends LitElement {
   /**
    * The boolean to use a custom search API.
    */
-  @property({attribute: 'custom-typeahead-api', type: Boolean})
+  @property({ attribute: 'custom-typeahead-api', type: Boolean })
   customTypeaheadAPI = false;
 
   /**
