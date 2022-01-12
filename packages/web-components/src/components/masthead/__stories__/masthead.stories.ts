@@ -47,6 +47,28 @@ const urlObject = {
   },
 };
 
+async function customTypeaheadApiFunction(searchVal) {
+  return await fetch(
+    `https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      let searchResults = [
+        data.hints,
+        {
+          title: "Product pages",
+          items: data.products
+        }
+      ];
+      return searchResults;
+    });
+}
+
+document.documentElement.addEventListener('dds-search-with-typeahead-input', async (e) => { 
+  const results = await customTypeaheadApiFunction((e as CustomEvent).detail.value);
+  document.dispatchEvent(new CustomEvent('dds-custom-typeahead-api-results', { detail: results}))
+})
+
 export const Default = ({ parameters }) => {
   const { customProfileLogin, platform, hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
     parameters?.props?.MastheadComposite ?? {};
@@ -112,6 +134,50 @@ export const WithCustomNavigation = ({ parameters }) => {
 
 WithCustomNavigation.story = {
   name: 'With custom navigation',
+  parameters: {
+    knobs: {
+      escapeHTML: false,
+      MastheadComposite: ({ groupId }) => ({
+        platform: select('Platform (platform)', { none: null, platform: platformData.name }, null, groupId),
+        hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
+        hasSearch: boolean('show the search functionality (has-search)', true, groupId),
+        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
+        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Products & Solutions', groupId),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
+        customProfileLogin:
+          DDS_CUSTOM_PROFILE_LOGIN &&
+          textNullable('custom profile login url (customProfileLogin)', 'https://www.example.com/', groupId),
+      }),
+    },
+  },
+};
+
+export const WithCustomTypeahead = ({ parameters }) => {
+  const { customProfileLogin, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch } =
+    parameters?.props?.MastheadComposite ?? {};
+    return html`
+    <style>
+      ${styles}
+    </style>
+    <dds-masthead-composite
+      platform="${ifNonNull(platform)}"
+      .platformUrl="${ifNonNull(platformData.url)}"
+      selected-menu-item="${ifNonNull(selectedMenuItem)}"
+      user-status="${ifNonNull(userStatus)}"
+      searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+      .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+      .navLinks="${customLinks}"
+      ?has-profile="${hasProfile}"
+      ?has-search="${hasSearch}"
+      .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+      custom-profile-login="${customProfileLogin}"
+      ?custom-typeahead-api=${true}
+    ></dds-masthead-composite>
+  `;
+};
+
+WithCustomTypeahead.story = {
+  name: 'With custom typeahead',
   parameters: {
     knobs: {
       escapeHTML: false,

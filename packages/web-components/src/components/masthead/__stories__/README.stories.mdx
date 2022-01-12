@@ -111,6 +111,69 @@ To set a custom endpoint for the translation service to fetch from, set either t
 <dds-masthead-container data-endpoint="/custom-endpoint"></dds-masthead-container>
 ```
 
+## Using custom search with typeahead API
+
+Using a custom search API than the default provided from IBM Search is supported, as well as separating any existing groups into its separate sections.
+
+First, pass in the `custom-typeahead-api` boolean into the Masthead.
+
+```html
+<dds-masthead-composite custom-typeahead-api="true"></dds-masthead-composite>
+```
+
+As an example, we will be using the IBM Docs API to fetch the data. 
+
+```javascript
+  async function customTypeaheadApiFunction(searchVal) {
+    return await fetch(
+      `https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        let searchResults = [
+          data.hints,
+          {
+            title: "Product pages",
+            items: data.products
+          }
+        ];
+        return searchResults;
+      });
+  }
+```
+
+To query the current Masthead Search input, we need to create an event listener to listen for the `dds-search-with-typeahead-input` event.
+Once captured, we need to call our asynchronous function to fetch the custom API results based on the query. Once the results are retrieved,
+a new custom event `dds-custom-typeahead-api-results` needs to be dispatched containing the results. This is necessary for the component to
+render the custom search results as well as its optional groups, if they exist.
+
+```javascript
+  document.addEventListener('dds-search-with-typeahead-input', async (e) => { 
+
+    const results = await customTypeaheadApiFunction(e.detail.value);
+    document.dispatchEvent(new CustomEvent('dds-custom-typeahead-api-results', { detail: results}));
+  })
+```
+
+With these functions, the custom Search API will be working properly.
+
+#### Note
+The API results must match the following structure:
+```javascript
+[
+  ['result 1', 'result 2', 'result 3'],
+  {
+    title: 'Example group 1'
+    items: ['result a', 'result b', 'result c']
+  },
+  {
+    title: "Example group 2",
+    items: ['result d', 'result e', 'result f']
+  }
+]
+```
+Note that only the first Array element is necessary to render the basic search suggestions, the following JSON elements are optional Grouped sections.
+
 ## Props
 
 ### `<dds-masthead-container>`/`<dds-masthead-composite>`
