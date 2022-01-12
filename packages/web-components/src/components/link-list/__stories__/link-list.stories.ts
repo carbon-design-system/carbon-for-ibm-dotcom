@@ -116,6 +116,15 @@ Default.story = {
         };
       },
     },
+    propsSet: {
+      default: {
+        LinkListItem: {
+          ctaType: null,
+          download: undefined,
+          href: 'https://www.example.com',
+        },
+      },
+    },
   },
 };
 
@@ -181,6 +190,15 @@ Horizontal.story = {
         };
       },
     },
+    propsSet: {
+      default: {
+        LinkListItem: {
+          ctaType: null,
+          download: undefined,
+          href: 'https://www.example.com',
+        },
+      },
+    },
   },
 };
 
@@ -233,6 +251,15 @@ Vertical.story = {
   parameters: {
     colLgClass: 'bx--col-lg-4',
     knobs: Horizontal.story.parameters.knobs,
+    propsSet: {
+      default: {
+        LinkListItem: {
+          ctaType: null,
+          download: undefined,
+          href: 'https://www.example.com',
+        },
+      },
+    },
   },
 };
 
@@ -286,6 +313,15 @@ EndOfSection.story = {
   parameters: {
     colLgClass: 'bx--col-lg-6',
     knobs: Default.story.parameters.knobs,
+    propsSet: {
+      default: {
+        LinkListItem: {
+          ctaType: null,
+          download: undefined,
+          href: 'https://www.example.com',
+        },
+      },
+    },
   },
 };
 

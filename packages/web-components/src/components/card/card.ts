@@ -11,6 +11,7 @@ import { html, property, internalProperty, customElement, TemplateResult, query 
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXLink from 'carbon-web-components/es/components/link/link';
+import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml.js';
 import { BASIC_COLOR_SCHEME } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSCardFooter from './card-footer';
@@ -83,13 +84,28 @@ class DDSCard extends StableSelectorMixin(BXLink) {
   }
 
   /**
+   * Handles copy `slotchange` event.
+   */
+  protected _handleCopySlotChange({ target }: Event) {
+    const { pictogramPlacement: currentPictogramPlacement } = this;
+    const { dataset, name } = target as HTMLSlotElement;
+    const { pictogramPlacement } = dataset;
+    if ((!this._hasCopy && !pictogramPlacement) || pictogramPlacement === currentPictogramPlacement) {
+      const hasContent = (target as HTMLSlotElement)
+        .assignedNodes()
+        .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+      this[slotExistencePropertyNames[name] || '_hasCopy'] = hasContent;
+    }
+  }
+
+  /**
    * @returns The copy content.
    */
   protected _renderCopy(): TemplateResult | string | void {
     const { _hasCopy: hasCopy } = this;
     return html`
       <div ?hidden="${!hasCopy}" class="${prefix}--card__copy">
-        <slot @slotchange="${this._handleSlotChange}"></slot>
+        <slot @slotchange="${this._handleCopySlotChange}"></slot>
       </div>
     `;
   }
@@ -117,10 +133,14 @@ class DDSCard extends StableSelectorMixin(BXLink) {
    * @returns The inner content.
    */
   protected _renderInner() {
-    const { _handleSlotChange: handleSlotChange, _hasPictogram: hasPictogram } = this;
+    const { _handleSlotChange: handleSlotChange, _hasPictogram: hasPictogram, _hasCopy: hasCopy } = this;
     return html`
       ${this._renderImage()}
-      <div class="${prefix}--card__wrapper ${hasPictogram ? `${prefix}--card__pictogram` : ''}">
+      <div
+        class="${prefix}--card__wrapper ${hasPictogram ? `${prefix}--card__pictogram` : ''} ${hasPictogram && hasCopy
+          ? `${prefix}--card__motion`
+          : ''}"
+      >
         <div class="${prefix}--card__content">
           ${hasPictogram
             ? ''
@@ -148,6 +168,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
               `
             : ''}
           ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP ? this._renderHeading() : null}
+          ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP ? this._renderCopy() : ''}
           <slot name="footer"></slot>
         </div>
       </div>
@@ -221,6 +242,12 @@ class DDSCard extends StableSelectorMixin(BXLink) {
 
     if (this._hasPictogram) {
       this.onclick = () => window.open(this.href, '_self');
+    }
+
+    const copyElement = this.querySelector('p');
+    if (this._hasCopy && copyElement?.innerText) {
+      copyElement.innerHTML = `${markdownToHtml(copyElement?.innerText, { bold: false })}`;
+      copyElement.firstElementChild?.setAttribute('style', 'all:unset;');
     }
   }
 

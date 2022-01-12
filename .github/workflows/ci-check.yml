@@ -2,9 +2,9 @@ name: ci-check
 
 on:
   push:
-    branches: [ master, release/* ]
+    branches: [ main, release/* ]
   pull_request:
-    branches: [ master, release/* ]
+    branches: [ main, release/* ]
 
 concurrency:
   group: ci-check-${{ github.ref }}
@@ -70,4 +70,4 @@ jobs:
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Run a11y compliance tests
-        run: xvfb-run --auto-servernum --error-file=/dev/stderr yarn test:a11y || true
+        run: xvfb-run --auto-servernum --error-file=/dev/stderr yarn test:a11y

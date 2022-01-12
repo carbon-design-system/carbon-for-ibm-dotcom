@@ -75,22 +75,22 @@ export const WithImage = ({ parameters }) => {
 
 WithImage.story = {
   name: 'With image',
+  parameters: {
+    propsSet: {
+      default: {
+        LeadspaceWithSearch: {
+          heading: 'Find a product',
+          subheading: 'Innovate like a startup, scale for the enterprise',
+          paragraph: '',
+          theme: adjacentThemes.Monotheme,
+        },
+      },
+    },
+  },
 };
 
 export default {
   title: 'Components/Lead space search',
-  parameters: {
-    ...readme.parameters,
-    hasStoryPadding: true,
-    knobs: {
-      LeadspaceWithSearch: ({ groupId }) => ({
-        heading: text('Heading:', 'Find a product', groupId),
-        subheading: 'Innovate like a startup, scale for the enterprise',
-        paragraph: text('Paragraph:', '', groupId),
-        theme: select(`Adjacent theme`, adjacentThemes, adjacentThemes.Monotheme, groupId) ?? 0,
-      }),
-    },
-  },
   decorators: [
     story => html`
       <div class="bx--grid">
@@ -102,4 +102,26 @@ export default {
       </div>
     `,
   ],
+  parameters: {
+    ...readme.parameters,
+    hasStoryPadding: true,
+    knobs: {
+      LeadspaceWithSearch: ({ groupId }) => ({
+        heading: text('Heading:', 'Find a product', groupId),
+        subheading: 'Innovate like a startup, scale for the enterprise',
+        paragraph: text('Paragraph:', '', groupId),
+        theme: select(`Adjacent theme`, adjacentThemes, adjacentThemes.Monotheme, groupId) ?? 0,
+      }),
+    },
+    propsSet: {
+      default: {
+        LeadspaceWithSearch: {
+          heading: 'Find a product',
+          subheading: 'Innovate like a startup, scale for the enterprise',
+          paragraph: '',
+          theme: adjacentThemes.Monotheme,
+        },
+      },
+    },
+  },
 };

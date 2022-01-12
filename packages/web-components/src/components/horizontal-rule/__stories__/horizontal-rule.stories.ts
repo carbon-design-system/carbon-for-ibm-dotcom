@@ -69,5 +69,15 @@ export default {
         weight: select('Weight (weight):', weights, weights.thin, groupId),
       }),
     },
+    propsSet: {
+      default: {
+        HorizontalRule: {
+          type: types.solid,
+          size: sizes.fluid,
+          contrast: contrasts['medium-contrast'],
+          weight: weights.thin,
+        },
+      },
+    },
   },
 };

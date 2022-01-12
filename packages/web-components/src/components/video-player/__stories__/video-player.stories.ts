@@ -86,6 +86,17 @@ aspectRatio4x3.story = {
         };
       },
     },
+    propsSet: {
+      default: {
+        VideoPlayer: {
+          aspectRatio: '4x3',
+          caption: '',
+          hideCaption: false,
+          thumbnail: '',
+          videoId: '1_9h94wo6b',
+        },
+      },
+    },
   },
 };
 
@@ -101,6 +112,17 @@ aspectRatio1x1.story = {
           thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
           videoId: '1_9h94wo6b',
         };
+      },
+    },
+    propsSet: {
+      default: {
+        VideoPlayer: {
+          aspectRatio: '1x1',
+          caption: '',
+          hideCaption: false,
+          thumbnail: '',
+          videoId: '1_9h94wo6b',
+        },
       },
     },
   },
@@ -119,6 +141,18 @@ withLightboxMediaViewer.story = {
           thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
           videoId: '1_9h94wo6b',
         };
+      },
+    },
+    propsSet: {
+      default: {
+        VideoPlayer: {
+          aspectRatio: '16x9',
+          customVideoDescription: 'This is a custom video description',
+          caption: '',
+          hideCaption: false,
+          thumbnail: '',
+          videoId: '1_9h94wo6b',
+        },
       },
     },
   },
@@ -147,6 +181,16 @@ export default {
         thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
         videoId: '1_9h94wo6b',
       }),
+    },
+    propsSet: {
+      default: {
+        VideoPlayer: {
+          caption: '',
+          hideCaption: false,
+          thumbnail: '',
+          videoId: '1_9h94wo6b',
+        },
+      },
     },
     percy: {
       skip: true,

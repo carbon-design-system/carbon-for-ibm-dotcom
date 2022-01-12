@@ -1,13 +1,13 @@
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import imgLg16x9 from '../../../../../../storybook-images/assets/720/fpo--16x9--720x405--003.jpg';
-import imgMd16x9 from '../../../../../../storybook-images/assets/480/fpo--16x9--480x270--003.jpg';
-import imgSm16x9 from '../../../../../../storybook-images/assets/320/fpo--16x9--320x180--003.jpg';
+import imgLg16x9 from '../../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
+import imgMd16x9 from '../../../../../../storybook-images/assets/480/fpo--16x9--480x270--004.jpg';
+import imgSm16x9 from '../../../../../../storybook-images/assets/320/fpo--16x9--320x180--004.jpg';
 
 /**
  * Knobs for CustomGroupSimple
@@ -23,11 +23,11 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
 dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
 
 - [list item link](https://www.ibm.com)
-  1. list item 1a
+  1. list "item 1a"
   2. list item 2a
-    - list item 2a.a
+      - list item 2a.a
 1. list item 2
-  - list item 2a
+    - list item 2a
 `;
 
 const ContentGroupSimpleKnobs = {

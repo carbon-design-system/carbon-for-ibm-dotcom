@@ -82,5 +82,19 @@ export default {
         colorScheme: select('Color Scheme (color-scheme)', colorSchemes, colorSchemes.regular, groupId),
       }),
     },
+    propsSet: {
+      default: {
+        Quote: {
+          copy:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ' +
+            'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.',
+          quoteMark: 'double-curved',
+          sourceHeading: 'Lorem ipsum dolor sit amet',
+          sourceCopy: 'consectetur adipiscing elit',
+          sourceBottomCopy: 'IBM Cloud',
+          colorScheme: 'regular',
+        },
+      },
+    },
   },
 };

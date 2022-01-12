@@ -56,5 +56,13 @@ export default {
         }).map(() => cardGroupItemWithImages),
       }),
     },
+    propsSet: {
+      default: {
+        CardSectionImages: {
+          heading: 'Aliquam condimentum interdum',
+          cards: '5',
+        },
+      },
+    },
   },
 };

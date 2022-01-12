@@ -119,7 +119,7 @@ export default MyComponent;
 ## Turning On/Off Feature Flags Locally
 
 To enable a feature locally, follow the instructions on 
-[environment variables](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/react/docs/environment-variables.md).
+[environment variables](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/react/docs/environment-variables.md).
 
 Replace the helper text with the value `true`. For example:
 

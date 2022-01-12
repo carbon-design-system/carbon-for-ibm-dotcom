@@ -57,5 +57,13 @@ export default {
         },
       };
     })(),
+    propsSet: {
+      default: {
+        LocaleModalComposite: {
+          langDisplay: 'United States — English',
+          localList: localeData,
+        },
+      },
+    },
   },
 };

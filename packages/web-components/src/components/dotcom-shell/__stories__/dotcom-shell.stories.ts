@@ -232,6 +232,14 @@ DefaultFooterLanguageOnly.story = {
         langList: object('langlist', mockLangList, groupId),
       }),
     },
+    propsSet: {
+      default: {
+        FooterComposite: {
+          disableLocaleButton: false,
+          langList: mockLangList,
+        },
+      },
+    },
   },
 };
 
@@ -389,6 +397,17 @@ withPlatform.story = {
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
         userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
       }),
+    },
+    propsSet: {
+      default: {
+        DotcomShell: {
+          hasProfile: true,
+          hasSearch: true,
+          searchPlaceholder: 'Search all of IBM',
+          selectedMenuItem: menuItems[1],
+          userStatus: userStatuses.unauthenticated,
+        },
+      },
     },
   },
 };
@@ -553,6 +572,14 @@ withShortFooterLanguageOnly.story = {
         langList: object('langlist', mockLangList, groupId),
       }),
     },
+    propsSet: {
+      default: {
+        FooterComposite: {
+          disableLocaleButton: false,
+          langList: mockLangList,
+        },
+      },
+    },
   },
 };
 
@@ -714,6 +741,14 @@ withMicroFooterLanguageOnly.story = {
         langList: object('langlist', mockLangList, groupId),
       }),
     },
+    propsSet: {
+      default: {
+        FooterComposite: {
+          disableLocaleButton: false,
+          langList: mockLangList,
+        },
+      },
+    },
   },
 };
 
@@ -797,6 +832,17 @@ withL1.story = {
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
         userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
       }),
+    },
+    propsSet: {
+      default: {
+        DotcomShell: {
+          hasProfile: true,
+          hasSearch: true,
+          searchPlaceholder: 'Search all of IBM',
+          selectedMenuItem: menuItems[1],
+          userStatus: userStatuses.unauthenticated,
+        },
+      },
     },
   },
 };
@@ -1007,5 +1053,19 @@ export default {
         },
       };
     })(),
+    propsSet: {
+      default: {
+        DotcomShell: {
+          platform: null,
+          hasProfile: true,
+          hasSearch: true,
+          searchPlaceholder: 'Search all of IBM',
+          selectedMenuItem: menuItems[1],
+          userStatus: userStatuses.unauthenticated,
+          disableLocaleButton: false,
+          footerSize: 'regular',
+        },
+      },
+    },
   },
 };
