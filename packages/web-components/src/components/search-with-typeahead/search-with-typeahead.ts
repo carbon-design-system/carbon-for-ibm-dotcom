@@ -222,8 +222,9 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
    *
    * @param [options] The options.
    * @param [options.targetQuery] The query string the search query page should be of.
+   * @param [options.targetHref] The href string to be redirected to.
    */
-  private _handleUserInitiatedRedirect({ targetQuery }: { targetQuery?: string } = {}) {
+  private _handleUserInitiatedRedirect({ targetQuery, targetHref }: { targetQuery?: string; targetHref?: string } = {}) {
     const { eventBeforeRedirect } = this.constructor as typeof DDSSearchWithTypeahead;
     const { language, redirectUrl } = this;
     const [primary, country] = language.split('-');
@@ -234,7 +235,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
     searchParams.append('q', targetQuery ?? this._searchInputNode?.value);
     searchParams.append('lang', primary);
     searchParams.append('cc', country);
-    const redirectUrlWithSearch = `${base}?${searchParams.toString()}`;
+    const redirectUrlWithSearch = targetHref ? `${targetHref}` : `${base}?${searchParams.toString()}`;
     if (
       this.dispatchEvent(
         new CustomEvent(eventBeforeRedirect, {
@@ -262,7 +263,12 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
     //super._handleFocusOut(event);
   }
 
-  @HostListener('document:dds-custom-typeahead-api-results')
+  /**
+   * Handles search results when using a custom API.
+   *
+   * @param event The event.
+   */
+  @HostListener('document:eventCustomResults')
   protected _handleCustomResults = (event: CustomEvent) => {
     this.searchResults = event.detail[0];
     this.groupedResults = event.detail.slice(1);
@@ -276,7 +282,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
     const { value } = target as HTMLInputElement;
     this.removeAttribute('unfocused');
 
-    const items = this.shadowRoot!.querySelectorAll('dds-search-with-typeahead-item');
+    const items = this.shadowRoot!.querySelectorAll((this.constructor as typeof BXDropdown).selectorItem);
     items.forEach(e => {
       if (e.hasAttribute('highlighted')) {
         this.setAttribute('unfocused', '');
@@ -324,7 +330,10 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
   protected _handleUserInitiatedSelectItem(item?: BXDropdownItem) {
     if (item) {
       this._searchInputNode.value = ((item as unknown) as any).text;
-      this._handleUserInitiatedRedirect({ targetQuery: ((item as unknown) as any).text });
+      this._handleUserInitiatedRedirect({
+        targetQuery: ((item as unknown) as any).text,
+        targetHref: ((item as unknown) as any).href,
+      });
     }
   }
 
@@ -381,6 +390,11 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
     const highlightedItem = this.shadowRoot!.querySelector(constructor.selectorItemHighlighted);
     const highlightedIndex = indexOf(items, highlightedItem!);
     let nextIndex = highlightedIndex + direction;
+
+    if (items[nextIndex] && items[nextIndex].hasAttribute('groupTitle')) {
+      nextIndex+= direction;
+    }
+
     if (nextIndex < 0) {
       nextIndex = items.length - 1;
     }
@@ -502,7 +516,10 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
                             ${group.items.map(
                               item =>
                                 html`
-                                  <dds-search-with-typeahead-item text="${item.name}"></dds-search-with-typeahead-item>
+                                  <dds-search-with-typeahead-item
+                                    text="${item.name}"
+                                    href="${item.href}"
+                                  ></dds-search-with-typeahead-item>
                                 `
                             )}
                           `
@@ -721,6 +738,13 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
    */
   static get eventInput() {
     return `${ddsPrefix}-search-with-typeahead-input`;
+  }
+
+  /**
+   * The name of the custom event captured to retrieve the custom typeahead API results.
+   */
+  static get eventCustomResults() {
+    return `${ddsPrefix}-custom-typeahead-api-results`;
   }
 
   /**

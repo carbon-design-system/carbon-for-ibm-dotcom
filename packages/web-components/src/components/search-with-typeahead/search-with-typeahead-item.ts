@@ -29,6 +29,12 @@ class DDSSearchWithTypeaheadItem extends LitElement {
   private _content?: TemplateResult | string | (TemplateResult | string)[];
 
   /**
+   * The optional href to redirect the user to.
+   */
+  @property()
+  href = '';
+
+  /**
    * `true` if this dropdown item should be highlighted.
    * If `true`, parent `<dds-search-with-typeahead>` selects/deselects this dropdown item upon keyboard interaction.
    *
