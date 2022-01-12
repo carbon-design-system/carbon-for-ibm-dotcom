@@ -90,7 +90,7 @@ describe('dds-masthead-composite', function() {
       render(template(), document.body);
       await Promise.resolve();
       const mastheadComposite = document.body.querySelector('dds-masthead-composite');
-      expect(mastheadComposite!.querySelector('dds-top-nav')!.children.length).toBe(0);
+      expect(mastheadComposite!.querySelector('dds-top-nav')).toBeNull();
       expect(mastheadComposite!.querySelector('dds-left-nav')!.children.length).toBe(0);
     });
 

@@ -801,6 +801,7 @@ class DDSMastheadComposite extends LitElement {
       menuBarAssistiveText,
       menuButtonAssistiveTextActive,
       menuButtonAssistiveTextInactive,
+      navLinks,
       language,
       openSearchDropdown,
       hasSearch,
@@ -860,17 +861,18 @@ class DDSMastheadComposite extends LitElement {
           : html`
               <dds-top-nav-name href="${ifNonNull(platformAltUrl)}">${platform}</dds-top-nav-name>
             `}
-        ${l1Data
-          ? undefined
-          : html`
-              <dds-top-nav
-                selected-menu-item=${selectedMenuItem}
-                menu-bar-label="${ifNonNull(menuBarAssistiveText)}"
-                ?hideNav="${activateSearch}"
-              >
-                ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: false })}
-              </dds-top-nav>
-            `}
+        ${(!l1Data &&
+          navLinks &&
+          html`
+            <dds-top-nav
+              selected-menu-item=${selectedMenuItem}
+              menu-bar-label="${ifNonNull(menuBarAssistiveText)}"
+              ?hideNav="${activateSearch}"
+            >
+              ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: false })}
+            </dds-top-nav>
+          `) ||
+          undefined}
         ${!hasSearch
           ? undefined
           : html`
