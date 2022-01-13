@@ -7,4 +7,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import "@carbon/ibmdotcom-web-components/es/components/cta/button-cta.js";
+import '@carbon/ibmdotcom-web-components/es/components/cta/button-cta.js';
