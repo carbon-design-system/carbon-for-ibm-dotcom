@@ -48,7 +48,8 @@ const _tests = [
           customHeaderOutput = copy.innerText.trim();
           expect(customHeaderOutput).to.be.eq(customHeaderInput);
           expect(customHeaderOutput).to.not.eq(defaultHeader);
-        });
+        })
+        .screenshot();
     });
   },
   () => {
@@ -69,7 +70,8 @@ const _tests = [
           customCopyOutput = copy.innerText.trim();
           expect(customCopyOutput).to.be.eq(customCopyInput);
           expect(customCopyOutput).to.not.eq(defaultCopy);
-        });
+        })
+        .screenshot();
     });
   },
   () => {
@@ -89,7 +91,8 @@ const _tests = [
           customCopyOutput = copy.innerText.trim();
           expect(customCopyOutput).to.be.eq(customCopyInput);
           expect(customCopyOutput).to.not.eq(defaultCopy);
-        });
+        })
+        .screenshot();
     });
   },
   () => {
@@ -104,7 +107,8 @@ const _tests = [
           .find(cta_types[type])
           .should($link => {
             expect($link.prop('href')).not.to.be.empty;
-          });
+          })
+          .screenshot();
       });
     });
   },
@@ -118,7 +122,8 @@ const _tests = [
         cy.visit(`${_path}&knob-Media%20type:=${type}`)
           .get(_selector)
           .find(media_types[type])
-          .should('have.length', 1);
+          .should('have.length', 1)
+          .screenshot();
       });
     });
   },
@@ -140,7 +145,7 @@ describe('dds-content-item | default (desktop)', () => {
 
 describe('dds-content-item | default (mobile)', () => {
   beforeEach(() => {
-    cy.viewport(325, 720);
+    cy.viewport(320, 720);
   });
   _tests.forEach(test => test());
 });

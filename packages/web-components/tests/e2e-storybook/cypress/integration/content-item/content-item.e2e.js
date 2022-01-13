@@ -49,7 +49,8 @@ const _tests = [
 
           expect(customHeaderOutput).to.be.eq(customHeaderInput);
           expect(customHeaderOutput).to.not.eq(defaultHeader);
-        });
+        })
+        .screenshot();
     });
   },
   () => {
@@ -61,7 +62,8 @@ const _tests = [
         .visit(`${_path}&knob-Copy:=false`)
         .get(_selector)
         .find('dds-content-item-copy')
-        .should('have.length', 0);
+        .should('have.length', 0)
+        .screenshot();
     });
   },
   () => {
@@ -83,7 +85,8 @@ const _tests = [
 
           expect(customCopyOutput).to.be.eq(customCopyInput);
           expect(customCopyOutput).to.not.eq(defaultCopy);
-        });
+        })
+        .screenshot();
     });
   },
   () => {
@@ -100,7 +103,8 @@ const _tests = [
           .find('a')
           .should($link => {
             expect($link.prop('href')).not.to.be.empty;
-          });
+          })
+          .screenshot();
       });
     });
   },
@@ -114,7 +118,8 @@ const _tests = [
         cy.visit(`${_path}&knob-Media%20type:=${type}`)
           .get(_selector)
           .find(media_types[type])
-          .should('have.length', 1);
+          .should('have.length', 1)
+          .screenshot();
       });
     });
   },
@@ -137,7 +142,7 @@ describe('dds-content-item | default (desktop)', () => {
 
 describe('dds-content-item | default (mobile)', () => {
   beforeEach(() => {
-    cy.viewport(325, 720);
+    cy.viewport(320, 720);
   });
 
   _tests.forEach(test => test());
