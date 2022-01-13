@@ -149,7 +149,7 @@ describe('dds-feature-section (mobile)', () => {
   it('should have content on the bottom and image on the top (media align: left)', () => {
     cy.visit(`/${_path}&knob-Media%20Alignment_dds-feature-section=left`);
 
-    cy.wait(500)
+    cy.wait(500);
 
     // content takes the bottom half
     cy.get('dds-feature-section')
@@ -161,11 +161,10 @@ describe('dds-feature-section (mobile)', () => {
       });
 
     // image takes the top half
-    cy.get('dds-image')
-      .then(image => {
-        expect(image[0].getBoundingClientRect().top).to.equal(16);
-        expect(image[0].getBoundingClientRect().bottom).to.equal(336);
-      });
+    cy.get('dds-image').then(image => {
+      expect(image[0].getBoundingClientRect().top).to.equal(16);
+      expect(image[0].getBoundingClientRect().bottom).to.equal(336);
+    });
 
     cy.screenshot();
   });
