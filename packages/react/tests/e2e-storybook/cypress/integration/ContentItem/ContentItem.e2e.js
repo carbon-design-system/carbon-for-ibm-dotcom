@@ -48,8 +48,8 @@ const _tests = [
           customHeaderOutput = copy.innerText.trim();
           expect(customHeaderOutput).to.be.eq(customHeaderInput);
           expect(customHeaderOutput).to.not.eq(defaultHeader);
-        })
-        .screenshot();
+        });
+      cy.takeSnapshots();
     });
   },
   () => {
@@ -70,8 +70,8 @@ const _tests = [
           customCopyOutput = copy.innerText.trim();
           expect(customCopyOutput).to.be.eq(customCopyInput);
           expect(customCopyOutput).to.not.eq(defaultCopy);
-        })
-        .screenshot();
+        });
+      cy.takeSnapshots();
     });
   },
   () => {
@@ -91,8 +91,8 @@ const _tests = [
           customCopyOutput = copy.innerText.trim();
           expect(customCopyOutput).to.be.eq(customCopyInput);
           expect(customCopyOutput).to.not.eq(defaultCopy);
-        })
-        .screenshot();
+        });
+      cy.takeSnapshots();
     });
   },
   () => {
@@ -107,8 +107,8 @@ const _tests = [
           .find(cta_types[type])
           .should($link => {
             expect($link.prop('href')).not.to.be.empty;
-          })
-          .screenshot();
+          });
+        cy.takeSnapshots();
       });
     });
   },
@@ -122,8 +122,8 @@ const _tests = [
         cy.visit(`${_path}&knob-Media%20type:=${type}`)
           .get(_selector)
           .find(media_types[type])
-          .should('have.length', 1)
-          .screenshot();
+          .should('have.length', 1);
+        cy.takeSnapshots();
       });
     });
   },

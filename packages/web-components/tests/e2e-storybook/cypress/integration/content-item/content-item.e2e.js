@@ -49,8 +49,8 @@ const _tests = [
 
           expect(customHeaderOutput).to.be.eq(customHeaderInput);
           expect(customHeaderOutput).to.not.eq(defaultHeader);
-        })
-        .screenshot();
+        });
+      cy.takeSnapshots();
     });
   },
   () => {
@@ -62,8 +62,8 @@ const _tests = [
         .visit(`${_path}&knob-Copy:=false`)
         .get(_selector)
         .find('dds-content-item-copy')
-        .should('have.length', 0)
-        .screenshot();
+        .should('have.length', 0);
+      cy.takeSnapshots();
     });
   },
   () => {
@@ -85,8 +85,8 @@ const _tests = [
 
           expect(customCopyOutput).to.be.eq(customCopyInput);
           expect(customCopyOutput).to.not.eq(defaultCopy);
-        })
-        .screenshot();
+        });
+      cy.takeSnapshots();
     });
   },
   () => {
@@ -103,8 +103,8 @@ const _tests = [
           .find('a')
           .should($link => {
             expect($link.prop('href')).not.to.be.empty;
-          })
-          .screenshot();
+          });
+        cy.takeSnapshots();
       });
     });
   },
@@ -118,8 +118,8 @@ const _tests = [
         cy.visit(`${_path}&knob-Media%20type:=${type}`)
           .get(_selector)
           .find(media_types[type])
-          .should('have.length', 1)
-          .screenshot();
+          .should('have.length', 1);
+        cy.takeSnapshots();
       });
     });
   },
