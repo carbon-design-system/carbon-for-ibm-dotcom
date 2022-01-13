@@ -64,11 +64,6 @@ async function customTypeaheadApiFunction(searchVal) {
     });
 }
 
-document.documentElement.addEventListener('dds-search-with-typeahead-input', async e => {
-  const results = await customTypeaheadApiFunction((e as CustomEvent).detail.value);
-  document.dispatchEvent(new CustomEvent('dds-custom-typeahead-api-results', { detail: results }));
-});
-
 export const Default = ({ parameters }) => {
   const { customProfileLogin, platform, hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
     parameters?.props?.MastheadComposite ?? {};
@@ -168,6 +163,12 @@ WithCustomNavigation.story = {
 export const WithCustomTypeahead = ({ parameters }) => {
   const { customProfileLogin, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch } =
     parameters?.props?.MastheadComposite ?? {};
+
+  document.documentElement.addEventListener('dds-search-with-typeahead-input', async e => {
+    const results = await customTypeaheadApiFunction((e as CustomEvent).detail.value);
+    document.dispatchEvent(new CustomEvent('dds-custom-typeahead-api-results', { detail: results }));
+  });
+
   return html`
     <style>
       ${styles}

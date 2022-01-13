@@ -61,7 +61,9 @@ class DDSSearchWithTypeaheadItem extends LitElement {
     if (changedProperties.has('text')) {
       const { text } = this;
       const parent = (this.getRootNode() as any).host;
-      const { searchQueryString } = parent ?? {};
+      let { searchQueryString } = parent ?? {};
+      searchQueryString = searchQueryString.toLowerCase();
+
       if (!searchQueryString) {
         this._content = text;
       } else {

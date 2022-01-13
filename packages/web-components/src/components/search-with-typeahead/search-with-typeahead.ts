@@ -260,7 +260,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
   @HostListener('focusout')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   protected _handleFocusOut(event: FocusEvent) {
-    //super._handleFocusOut(event);
+    super._handleFocusOut(event);
   }
 
   /**
@@ -270,8 +270,10 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
    */
   @HostListener('document:eventCustomResults')
   protected _handleCustomResults = (event: CustomEvent) => {
-    this.searchResults = event.detail[0];
-    this.groupedResults = event.detail.slice(1);
+    if (this.customTypeaheadAPI) {
+      this.searchResults = event.detail[0];
+      this.groupedResults = event.detail.slice(1);
+    }
   };
 
   /**
@@ -392,7 +394,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
     let nextIndex = highlightedIndex + direction;
 
     if (items[nextIndex] && items[nextIndex].hasAttribute('groupTitle')) {
-      nextIndex+= direction;
+      nextIndex += direction;
     }
 
     if (nextIndex < 0) {
