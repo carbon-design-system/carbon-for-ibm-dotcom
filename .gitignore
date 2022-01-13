@@ -1,12 +1,14 @@
 # Build folders
-/build
-packages/*/build/
-packages/*/examples/*/build/
-packages/*/tests/e2e/dist/
+/.github
+/.yarn
+build
+/docs
+/gulp-tasks
+/packages
+/src
+/tasks
 es
 lib
-!packages/eslint-plugin-react-prop-type-comments/lib
-!packages/eslint-plugin-ibmdotcom-import-rules/lib
 dist
 umd
 css
