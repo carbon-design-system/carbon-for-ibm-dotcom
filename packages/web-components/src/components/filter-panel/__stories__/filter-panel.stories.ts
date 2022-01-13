@@ -112,5 +112,13 @@ export default {
         gridKnobs: select('Grid alignment', ['3 columns', '4 columns'], '4 columns', groupId),
       }),
     },
+    propsSet: {
+      default: {
+        FilterPanel: {
+          heading: 'Filter',
+          gridKnobs: '4 columns',
+        },
+      },
+    },
   },
 };

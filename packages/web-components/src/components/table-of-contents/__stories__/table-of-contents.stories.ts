@@ -81,6 +81,19 @@ Horizontal.story = {
         })),
       }),
     },
+    propsSet: {
+      default: {
+        Other: {
+          numberOfItems: [
+            { heading: 'Section 1 heading', copy: 'Section 1 copy' },
+            { heading: 'Section 2 heading', copy: 'Section 2 copy' },
+            { heading: 'Section 3 heading', copy: 'Section 3 copy' },
+            { heading: 'Section 4 heading', copy: 'Section 4 copy' },
+            { heading: 'Section 5 heading', copy: 'Section 5 copy' },
+          ],
+        },
+      },
+    },
   },
 };
 
@@ -109,6 +122,20 @@ export default {
           copy: text(`Section ${i + 1} copy`, `${LOREM}\n`.repeat(3).trim(), groupId),
         })),
       }),
+    },
+    propsSet: {
+      default: {
+        Other: {
+          withHeadingContent: false,
+          numberOfItems: [
+            { heading: 'Section 1 heading', copy: 'Section 1 copy' },
+            { heading: 'Section 2 heading', copy: 'Section 2 copy' },
+            { heading: 'Section 3 heading', copy: 'Section 3 copy' },
+            { heading: 'Section 4 heading', copy: 'Section 4 copy' },
+            { heading: 'Section 5 heading', copy: 'Section 5 copy' },
+          ],
+        },
+      },
     },
   },
 };

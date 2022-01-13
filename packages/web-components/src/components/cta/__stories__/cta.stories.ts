@@ -107,6 +107,18 @@ Text.story = {
         };
       },
     },
+    propsSet: {
+      default: {
+        TextCTA: {
+          copy: 'Lorem ipsum dolor sit amet',
+          ctaType: 'local',
+          download: undefined,
+          customVideoTitle: null,
+          customVideoDescription: null,
+          href: 'https://www.example.com',
+        },
+      },
+    },
   },
 };
 
@@ -154,6 +166,18 @@ Button.story = {
           customVideoDescription,
           href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR], groupId),
         };
+      },
+    },
+    propsSet: {
+      default: {
+        ButtonCTA: {
+          copy: 'Lorem ipsum dolor sit amet',
+          ctaType: 'local',
+          download: undefined,
+          customVideoTitle: null,
+          customVideoDescription: null,
+          href: 'https://www.example.com',
+        },
       },
     },
   },
@@ -227,6 +251,18 @@ Card.story = {
               ? undefined
               : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId),
         };
+      },
+    },
+    propsSet: {
+      default: {
+        CardCTA: {
+          copy: 'Lorem ipsum dolor sit amet',
+          ctaType: 'local',
+          download: undefined,
+          customVideoTitle: null,
+          customVideoDescription: null,
+          href: 'https://www.example.com',
+        },
       },
     },
   },
@@ -319,6 +355,21 @@ CardLink.story = {
         };
       },
     },
+    propsSet: {
+      default: {
+        CardCTA: {
+          heading: 'Explore AI use cases in all industries',
+          copy: '',
+          download: null,
+          customVideoTitle: null,
+          customVideoDescription: null,
+          href: `https://www.example.com`,
+          footerCopy: '',
+          footerHref: `https://www.example.com`,
+          footerDownload: '',
+        },
+      },
+    },
   },
 };
 
@@ -374,6 +425,18 @@ Feature.story = {
           customVideoDescription,
           href: hrefsForType[ctaType ?? CTA_TYPE.REGULAR],
         };
+      },
+    },
+    propsSet: {
+      default: {
+        FeatureCTA: {
+          heading: 'Explore AI uses cases in all industries',
+          ctaType: 'local',
+          download: undefined,
+          customVideoTitle: null,
+          customVideoDescription: null,
+          href: 'https://www.example.com',
+        },
       },
     },
   },

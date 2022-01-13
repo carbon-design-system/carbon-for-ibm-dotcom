@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -255,11 +255,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
     this._childItems = (event.target as HTMLSlotElement)
       .assignedNodes()
-      .filter(elem =>
-        (elem as HTMLElement).matches !== undefined
-          ? (elem as HTMLElement).matches((this.constructor as typeof DDSCarousel).selectorItem)
-          : false
-      );
+      .filter(elem => (elem as HTMLElement).matches?.((this.constructor as typeof DDSCarousel).selectorItem));
 
     // retrieve item heading, eyebrows, and footers to set same height
     if (this._childItems) {

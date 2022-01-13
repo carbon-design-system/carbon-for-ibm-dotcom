@@ -93,6 +93,20 @@ WithVideo.story = {
 
 export default {
   title: 'Components/Lead space block',
+  decorators: [
+    story => html`
+      <style>
+        ${styles}
+      </style>
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-lg-9 bx--no-gutter">
+            ${story()}
+          </div>
+        </div>
+      </div>
+    `,
+  ],
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
@@ -105,19 +119,16 @@ export default {
             ensuring software is always ready for deployment.`,
       }),
     },
-    decorators: [
-      story => html`
-        <style>
-          ${styles}
-        </style>
-        <div class="bx--grid">
-          <div class="bx--row">
-            <div class="bx--col-lg-9 bx--no-gutter">
-              ${story()}
-            </div>
-          </div>
-        </div>
-      `,
-    ],
+    propsSet: {
+      default: {
+        LeadSpaceBlock: {
+          title: 'Continuous delivery',
+          heading: 'Innovate like a startup and scale for the enterprise ',
+          copy: `Automate your software release process with continuous delivery (CD)—the most
+            critical part of adopting DevOps. Build, test, and deploy code changes quickly,
+            ensuring software is always ready for deployment.`,
+        },
+      },
+    },
   },
 };

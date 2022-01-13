@@ -145,5 +145,17 @@ export default !DDS_CLOUD_MASTHEAD
             },
           };
         })(),
+        propsSet: {
+          default: {
+            CloudMastheadComposite: {
+              userStatus: 'anonymous',
+              hasContact: true,
+              selectedMenuItem: 'Docs',
+              redirectPath: '',
+              authMethod: 'cookie',
+              navLinks: links,
+            },
+          },
+        },
       },
     };

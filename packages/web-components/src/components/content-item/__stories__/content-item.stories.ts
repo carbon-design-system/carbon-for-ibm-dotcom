@@ -86,5 +86,20 @@ export default {
         ctaCopy: textNullable('CTA copy:', 'Learn more about NLP'),
       }),
     },
+    propsSet: {
+      default: {
+        ContentItem: {
+          heading: 'Natural language understanding',
+          media: 'none',
+          showCopy: true,
+          copy:
+            'This area of NLP takes "real world" text and applies a symbolic ' +
+            'system for a machine to interpret its meaning, using formal logic; structures ' +
+            'that describe the various relationships between concepts (ontologies); and other semantic tools.',
+          ctaStyle: 'text',
+          ctaCopy: 'Learn more about NLP',
+        },
+      },
+    },
   },
 };

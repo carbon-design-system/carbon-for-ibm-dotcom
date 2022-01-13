@@ -418,6 +418,14 @@ Short.story = {
         title: text('title (title):', 'A short headline can go on multiple lines in this leadspace', groupId),
       }),
     },
+    propsSet: {
+      default: {
+        LeadSpace: {
+          navElements: navigationOptions[2],
+          title: 'Heading can go on two lines max',
+        },
+      },
+    },
   },
 };
 
@@ -494,6 +502,16 @@ ShortWithImage.story = {
         alt: text('Image alt text (alt):', 'Image alt text', groupId),
         defaultSrc: text('Default image (defaultSrc):', leadspaceImg, groupId),
       }),
+    },
+    propsSet: {
+      default: {
+        LeadSpace: {
+          navElements: navigationOptions[2],
+          title: 'A short headline can go multiple lines',
+          alt: 'Image alt text',
+          defaultSrc: leadspaceImg,
+        },
+      },
     },
   },
 };
@@ -675,6 +693,21 @@ export default {
         alt: text('Image alt text (alt):', 'Image alt text', groupId),
         defaultSrc: text('Default image (defaultSrc):', leadspaceImg, groupId),
       }),
+    },
+    propsSet: {
+      default: {
+        LeadSpace: {
+          navElements: navigationOptions[2],
+          title: 'Heading can go on two lines max',
+          copy: 'Use this area for a short line of copy to support the title',
+          buttons: [
+            { href: 'https://example.com', copy: 'Button 1', renderIcon: iconOptions['Arrow Right'], label: '' },
+            { href: 'https://example.com', copy: 'Button 2', renderIcon: iconOptions['Arrow Right'], label: '' },
+          ],
+          alt: 'Image alt text',
+          defaultSrc: leadspaceImg,
+        },
+      },
     },
   },
 };

@@ -111,6 +111,22 @@ export default {
         ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId),
       }),
     },
+    propsSet: {
+      default: {
+        ContentBlockMixed: {
+          heading: 'Lorem ipsum dolor sit amet',
+          copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          Phasellus at elit sollicitudin, sodales nulla quis, consequat
+          libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+          `,
+          cardsGroupHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+          ctaType: 'local',
+        },
+      },
+    },
   },
 };
 
@@ -328,6 +344,24 @@ WithLinkList.story = {
           groupId
         ),
       }),
+    },
+    propsSet: {
+      default: {
+        ContentBlockMixed: {
+          heading: 'Lorem ipsum dolor sit amet',
+          copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          Phasellus at elit sollicitudin, sodales nulla quis, consequat
+          libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+          `,
+          cardsGroupHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          ctaType: 'local',
+          linkListHeading: 'Tutorials',
+          complementaryStyleScheme: null,
+        },
+      },
     },
   },
 };

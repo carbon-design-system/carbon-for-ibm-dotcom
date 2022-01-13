@@ -44,6 +44,15 @@ export const Default = ({ parameters }) => {
 
 export default {
   title: 'Components/Link list section',
+  decorators: [
+    story => {
+      return html`
+        <div>
+          ${story()}
+        </div>
+      `;
+    },
+  ],
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
@@ -55,14 +64,12 @@ export default {
         };
       },
     },
-  },
-  decorators: [
-    story => {
-      return html`
-        <div>
-          ${story()}
-        </div>
-      `;
+    propsSet: {
+      default: {
+        LinkListSection: {
+          heading: 'Lorem ipsum dolor sit amet',
+        },
+      },
     },
-  ],
+  },
 };

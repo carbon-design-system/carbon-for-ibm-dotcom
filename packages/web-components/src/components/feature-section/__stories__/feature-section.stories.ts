@@ -84,5 +84,20 @@ export default {
         href: textNullable('CTA Href (href):', 'https://example.com', groupId),
       }),
     },
+    propsSet: {
+      default: {
+        'dds-feature-section': {
+          mediaAlign: 'right',
+          eyebrow: '5 min activity',
+          heading: 'Ready when you are',
+          copy: `Were flexible. We can work with you on a wide variety of engagements on a project
+          or consulting basis. And were technology agnostic. Our experts work with any vendors technology, not just IBMs.
+          You decide how you want to work and where to focus our expertise.`,
+          alt: 'Image alt text',
+          ctaType: 'local',
+          href: 'https://example.com',
+        },
+      },
+    },
   },
 };

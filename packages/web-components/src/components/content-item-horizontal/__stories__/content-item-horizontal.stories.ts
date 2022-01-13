@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -44,7 +44,7 @@ Aenean et ultricies est.\n
 - [list item](https://www.ibm.com)
   - list item 1a
 1. list item 2
-  1. list item 2a
+   1. list item 2a
 `;
 
 const bodyCopyWithFeaturedMedia = `Lorem ipsum *dolor* sit amet, [consectetur
@@ -201,6 +201,14 @@ WithThumbnail.story = {
         copy: bodyCopy,
       }),
     },
+    propsSet: {
+      default: {
+        ContentItemHorizontal: {
+          heading: 'Aliquam condimentum',
+          copy: bodyCopy,
+        },
+      },
+    },
   },
 };
 
@@ -224,6 +232,24 @@ WithMedia.story = {
         href2: textNullable('CTA 2 href (cta-href):', 'https://www.ibm.com'),
       }),
     },
+    propsSet: {
+      default: {
+        ContentItemHorizontal: {
+          align: 'right',
+          type: 'image',
+          alt: 'Image alt text',
+          heading: 'Aliquam condimentum',
+          eyebrow: 'Lorem Ipsum',
+          copy: bodyCopy,
+          ctaType1: 'local',
+          ctaCopy1: 'Learn more',
+          href1: 'https://www.ibm.com',
+          ctaType2: 'external',
+          ctaCopy2: 'Microservices and containers',
+          href2: 'https://www.ibm.com',
+        },
+      },
+    },
   },
 };
 
@@ -240,6 +266,19 @@ WithMediaFeatured.story = {
         ctaCopy1: textNullable('CTA 1 copy:', 'Learn more'),
         ctaCopy2: textNullable('CTA 2 copy:', 'Microservices and containers'),
       }),
+    },
+    propsSet: {
+      default: {
+        ContentItemHorizontal: {
+          type: 'image',
+          alt: 'Image alt text',
+          heading: 'Aliquam condimentum',
+          eyebrow: 'Lorem Ipsum',
+          copy: bodyCopyWithFeaturedMedia,
+          ctaCopy1: 'Learn more',
+          ctaCopy2: 'Microservices and containers',
+        },
+      },
     },
   },
 };
@@ -272,6 +311,21 @@ export default {
         ctaCopy2: textNullable('CTA 2 copy (cta-copy):', 'Microservices and containers'),
         href2: textNullable('CTA 2 href (cta-href):', 'https://www.ibm.com'),
       }),
+    },
+    propsSet: {
+      default: {
+        ContentItemHorizontal: {
+          eyebrow: 'Lorem ipsum',
+          heading: 'Aliquam condimentum',
+          copy: bodyCopy,
+          ctaType1: 'local',
+          ctaCopy1: 'Learn more',
+          href1: 'https://www.ibm.com',
+          ctaType2: 'external',
+          ctaCopy2: 'Microservices and containers',
+          href2: 'https://www.ibm.com',
+        },
+      },
     },
   },
 };
