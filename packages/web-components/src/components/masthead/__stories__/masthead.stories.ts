@@ -104,62 +104,6 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const WithCustomNavigation = ({ parameters }) => {
-  const { customProfileLogin, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch } =
-    parameters?.props?.MastheadComposite ?? {};
-  return html`
-    <style>
-      ${styles}
-    </style>
-    <dds-masthead-composite
-      platform="${ifNonNull(platform)}"
-      .platformUrl="${ifNonNull(platformData.url)}"
-      selected-menu-item="${ifNonNull(selectedMenuItem)}"
-      user-status="${ifNonNull(userStatus)}"
-      searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-      .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-      .navLinks="${customLinks}"
-      ?has-profile="${hasProfile}"
-      ?has-search="${hasSearch}"
-      .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-      custom-profile-login="${customProfileLogin}"
-    ></dds-masthead-composite>
-  `;
-};
-
-WithCustomNavigation.story = {
-  name: 'With custom navigation',
-  parameters: {
-    knobs: {
-      escapeHTML: false,
-      MastheadComposite: ({ groupId }) => ({
-        platform: select('Platform (platform)', { none: null, platform: platformData.name }, null, groupId),
-        hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
-        hasSearch: boolean('show the search functionality (has-search)', true, groupId),
-        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Products & Solutions', groupId),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
-        customProfileLogin:
-          DDS_CUSTOM_PROFILE_LOGIN &&
-          textNullable('custom profile login url (customProfileLogin)', 'https://www.example.com/', groupId),
-      }),
-    },
-    propsSet: {
-      default: {
-        MastheadComposite: {
-          platform: null,
-          hasProfile: true,
-          hasSearch: true,
-          searchPlaceholder: 'Search all of IBM',
-          selectedMenuItem: 'Products & Solutions',
-          userStatus: userStatuses.unauthenticated,
-          customProfileLogin: 'https://www.example.com/',
-        },
-      },
-    },
-  },
-};
-
 export const WithCustomTypeahead = ({ parameters }) => {
   const { customProfileLogin, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch } =
     parameters?.props?.MastheadComposite ?? {};
@@ -180,7 +124,6 @@ export const WithCustomTypeahead = ({ parameters }) => {
       user-status="${ifNonNull(userStatus)}"
       searchPlaceholder="${ifNonNull(searchPlaceholder)}"
       .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-      .navLinks="${customLinks}"
       ?has-profile="${hasProfile}"
       ?has-search="${hasSearch}"
       .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
@@ -211,7 +154,7 @@ WithCustomTypeahead.story = {
 };
 
 export const searchOpenOnload = ({ parameters }) => {
-  const { customProfileLogin, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch, navLinks } =
+  const { customProfileLogin, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch, navLinks } =
     parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -236,18 +179,17 @@ export const searchOpenOnload = ({ parameters }) => {
           ></dds-masthead-composite>
         `
       : html`
-          <dds-masthead-container
+          <dds-masthead-composite
             activate-search="true"
-            platform="${ifNonNull(platform)}"
+            platform="Platform"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
-          ></dds-masthead-container>
+          ></dds-masthead-composite>
         `}
   `;
 };
