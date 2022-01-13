@@ -156,14 +156,14 @@ describe('dds-feature-section (mobile)', () => {
       .shadow()
       .find('.bx--feature-section__body')
       .then($content => {
-        expect($content[0].getBoundingClientRect().top).to.equal(336);
-        expect($content[0].getBoundingClientRect().bottom).to.equal(874);
+        expect($content[0].getBoundingClientRect().top).to.equal(321);
+        expect($content[0].getBoundingClientRect().bottom).to.equal(859);
       });
 
     // image takes the top half
     cy.get('dds-image').then(image => {
       expect(image[0].getBoundingClientRect().top).to.equal(16);
-      expect(image[0].getBoundingClientRect().bottom).to.equal(336);
+      expect(image[0].getBoundingClientRect().bottom).to.equal(321);
     });
 
     cy.screenshot();
