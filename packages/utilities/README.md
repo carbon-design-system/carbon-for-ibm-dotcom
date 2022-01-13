@@ -24,12 +24,13 @@ project.
 
 ### List of Available Utilities
 
-View available utilities [here](https://ibmdotcom-utilities.mybluemix.net/).
+View available utilities
+[here](https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities).
 
 ## Documentation
 
-- See our documentation site [here](https://carbon-for-ibm-dotcom.mybluemix.net)
-  for full how-to docs and guidelines
+- See our documentation site [here](https://www.ibm.com/standards/carbon) for
+  full how-to docs and guidelines
 - [Contributing](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/.github/CONTRIBUTING.md):
   Guidelines for making contributions to this repo.
 
