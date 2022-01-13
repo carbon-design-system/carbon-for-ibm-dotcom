@@ -30,6 +30,8 @@ describe('dds-feature-section (desktop)', () => {
     cy.get('dds-content-item-paragraph')
       .invoke('text')
       .should('not.be.empty');
+
+    cy.screenshot();
   });
 
   it('should have content on the left and image on the right side (media align: right)', () => {
@@ -47,6 +49,8 @@ describe('dds-feature-section (desktop)', () => {
       expect($image[0].getBoundingClientRect().left).to.equal(640);
       expect($image[0].getBoundingClientRect().right).to.equal(1280);
     });
+
+    cy.screenshot();
   });
 
   it('should have image on the left and content on the right side (media align: left)', () => {
@@ -65,6 +69,8 @@ describe('dds-feature-section (desktop)', () => {
       expect($image[0].getBoundingClientRect().left).to.equal(0);
       expect($image[0].getBoundingClientRect().right).to.equal(640);
     });
+
+    cy.screenshot();
   });
 
   it('should have loaded and clickable card link', () => {
@@ -106,6 +112,12 @@ describe('dds-feature-section (desktop)', () => {
           .to.have.attr('target')
           .to.equal('_blank');
       });
+
+    cy.screenshot();
+  });
+
+  it('should render correctly in all themes', () => {
+    cy.carbonThemesScreenshot();
   });
 });
 
@@ -130,6 +142,8 @@ describe('dds-feature-section (mobile)', () => {
       expect($image[0].getBoundingClientRect().top).to.equal(394);
       expect($image[0].getBoundingClientRect().bottom).to.equal(634);
     });
+
+    cy.screenshot();
   });
 
   it('should have content on the bottom and image on the top (media align: left)', () => {
@@ -152,6 +166,8 @@ describe('dds-feature-section (mobile)', () => {
         expect(image[0].getBoundingClientRect().top).to.equal(16);
         expect(image[0].getBoundingClientRect().bottom).to.equal(336);
       });
+
+    cy.screenshot();
   });
 
   it('should have loaded and clickable card link', () => {
