@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://ibmdotcom-react-canary.mybluemix.net",
+  "baseUrl": "https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/react",
   "browser": "chrome",
   "headless": true,
   "nodeVersion": "system",

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,7 +16,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
-import { mastheadLinks as links, customLinks, l1Data, logoData } from './links';
+import { mastheadLinks as links, mastheadL1Data, logoData } from './links';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { authenticatedProfileItems, unauthenticatedProfileItems } from './profile-items';
 import { DDS_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
@@ -280,16 +280,14 @@ export const withPlatform = ({ parameters }) => {
           ></dds-masthead-composite>
         `
       : html`
-          <dds-masthead-container
-            platform="${ifNonNull(platformData.name)}"
+          <dds-masthead-composite
+            platform="Platform"
             .platformUrl="${ifNonNull(platformData.url)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-          ></dds-masthead-container>
+          ></dds-masthead-composite>
         `}
   `;
 };
@@ -302,7 +300,7 @@ withPlatform.story = {
         hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
         hasSearch: boolean('show the search functionality (has-search)', true, groupId),
         searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? '' : 'Search all of IBM', groupId),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
+        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services', groupId),
         userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
       }),
     },
@@ -337,7 +335,7 @@ export const withL1 = ({ parameters }) => {
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .l1Data="${l1Data}"
+            .l1Data="${mastheadL1Data}"
             .navLinks="${navLinks}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           ></dds-masthead-composite>
@@ -348,7 +346,7 @@ export const withL1 = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .l1Data="${l1Data}"
+            .l1Data="${mastheadL1Data}"
             .navLinks="${navLinks}"
           ></dds-masthead-container>
         `}
@@ -363,7 +361,7 @@ withL1.story = {
         hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
         hasSearch: boolean('show the search functionality (has-search)', true, groupId),
         searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? '' : 'Search all of IBM', groupId),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Lorem ipsum dolor sit amet', groupId),
+        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Products', groupId),
         userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
       }),
     },
@@ -382,7 +380,7 @@ withL1.story = {
 };
 
 export const withAlternateLogoAndTooltip = ({ parameters }) => {
-  const { platform, selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder, mastheadLogo } =
+  const { selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder, mastheadLogo } =
     parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -392,8 +390,6 @@ export const withAlternateLogoAndTooltip = ({ parameters }) => {
     ${useMock
       ? html`
           <dds-masthead-composite
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
@@ -407,8 +403,6 @@ export const withAlternateLogoAndTooltip = ({ parameters }) => {
         `
       : html`
           <dds-masthead-container
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
@@ -426,11 +420,10 @@ withAlternateLogoAndTooltip.story = {
   parameters: {
     knobs: {
       MastheadComposite: ({ groupId }) => ({
-        platform: select('Platform (platform)', { none: null, platform: platformData.name }, null, groupId),
         hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
         hasSearch: boolean('show the search functionality (has-search)', true, groupId),
         searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
+        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services', groupId),
         mastheadLogo: select(
           'masthead logo data (logoData)',
           { defaultWithNoTooltip: null, alternateWithTooltip: 'alternateWithTooltip' },
@@ -475,11 +468,10 @@ export default {
     knobs: {
       escapeHTML: false,
       MastheadComposite: ({ groupId }) => ({
-        platform: select('Platform (platform)', { none: null, platform: platformData.name }, null, groupId),
         hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
         hasSearch: boolean('show the search functionality (has-search)', true, groupId),
         searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
+        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services', groupId),
         userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
         customProfileLogin:
           DDS_CUSTOM_PROFILE_LOGIN &&

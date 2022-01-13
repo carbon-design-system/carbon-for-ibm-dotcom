@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,14 +12,6 @@
  * @private
  */
 const _pathDefault = '/iframe.html?id=components-masthead--default';
-
-/**
- * Sets the correct path (Custom Masthead)
- *
- * @type {string}
- * @private
- */
-const _pathCustom = '/iframe.html?id=components-masthead--with-custom-navigation';
 
 /**
  * Sets the correct path (Masthead with Platform)
@@ -202,111 +194,6 @@ describe('dds-masthead | default (mobile)', () => {
   });
 });
 
-describe('dds-masthead | custom (desktop)', () => {
-  beforeEach(() => {
-    cy.mockMastheadFooterData();
-    cy.visit(`/${_pathCustom}`);
-    cy.viewport(1280, 780);
-  });
-
-  it('should render 6 custom menu items', () => {
-    cy.get('dds-top-nav > *').should('have.length', 6);
-  });
-
-  it('should load custom menu item with selected state', () => {
-    cy.get('dds-top-nav > *:nth-child(1)').then($menuItem => {
-      expect($menuItem).to.have.attr('active');
-    });
-
-    cy.takeSnapshots();
-  });
-
-  it('should load the megamenu - custom first nav item', () => {
-    cy.get('dds-top-nav > *:nth-child(1)')
-      .click()
-      .then($menuItem => {
-        expect($menuItem).to.have.attr('expanded');
-      });
-
-    cy.takeSnapshots();
-  });
-
-  it('should load the megamenu - custom second nav item', () => {
-    cy.get('dds-top-nav > *:nth-child(2)')
-      .click()
-      .then($menuItem => {
-        expect($menuItem).to.have.attr('expanded');
-      });
-
-    cy.takeSnapshots();
-  });
-
-  it('should load regular menu - custom third nav item', () => {
-    cy.get('dds-top-nav > *:nth-child(3)')
-      .click()
-      .then($menuItem => {
-        expect($menuItem).to.have.attr('expanded');
-      });
-
-    cy.takeSnapshots();
-  });
-
-  it('should load regular menu - custom fourth nav item', () => {
-    cy.get('dds-top-nav > *:nth-child(4)')
-      .shadow()
-      .find('a')
-      .then($link => {
-        const url = $link.prop('href');
-        expect(url).not.to.be.empty;
-      });
-  });
-
-  it('should load the megamenu - custom fifth nav item', () => {
-    cy.get('dds-top-nav')
-      .shadow()
-      .find('.bx--header__nav-caret-right-container > button')
-      .click();
-    cy.get('dds-top-nav > *:nth-child(5)')
-      .click()
-      .then($menuItem => {
-        expect($menuItem).to.have.attr('expanded');
-      });
-
-    cy.takeSnapshots();
-  });
-
-  it('should load regular menu - custom sixth nav item', () => {
-    cy.get('dds-top-nav > *:nth-child(4)')
-      .shadow()
-      .find('a')
-      .then($link => {
-        const url = $link.prop('href');
-        expect(url).not.to.be.empty;
-      });
-  });
-
-  it('should scroll the L0 overflow properly', () => {
-    cy.get('dds-top-nav')
-      .shadow()
-      .find('.bx--header__nav-caret-right-container > button')
-      .click();
-
-    cy.get('dds-top-nav')
-      .shadow()
-      .find('.bx--header__nav-caret-right-container.dds-ce--header__nav-caret-container--hidden')
-      .then(() => {
-        cy.get('dds-top-nav')
-          .shadow()
-          .find('.bx--header__nav-caret-left-container')
-          .then($button => {
-            expect($button).not.to.have.class('dds-ce--header__nav-caret-container--hidden');
-          });
-      });
-
-    cy.takeSnapshots();
-  });
-});
-
 describe('dds-masthead | with platform (desktop)', () => {
   beforeEach(() => {
     cy.mockMastheadFooterData();
@@ -383,17 +270,21 @@ describe('dds-masthead | with L1 (desktop)', () => {
 
   it('should load the l1 - first nav item', () => {
     cy.get('dds-top-nav-l1 > *:nth-child(1)')
-      .click()
-      .then($menuItem => {
-        expect($menuItem).to.have.attr('expanded');
+      .shadow()
+      .find('a')
+      .then($link => {
+        const url = $link.prop('href');
+        expect(url).not.to.be.empty;
       });
   });
 
   it('should load the l1 - second nav item', () => {
     cy.get('dds-top-nav-l1 > *:nth-child(2)')
-      .click()
-      .then($menuItem => {
-        expect($menuItem).to.have.attr('expanded');
+      .shadow()
+      .find('a')
+      .then($link => {
+        const url = $link.prop('href');
+        expect(url).not.to.be.empty;
       });
   });
 
@@ -417,33 +308,10 @@ describe('dds-masthead | with L1 (desktop)', () => {
 
   it('should load and have url for fifth l1 item', () => {
     cy.get('dds-top-nav-l1 > *:nth-child(5)')
-      .shadow()
-      .find('a')
-      .then($link => {
-        const url = $link.prop('href');
-        expect(url).not.to.be.empty;
+      .click()
+      .then($menuItem => {
+        expect($menuItem).to.have.attr('expanded');
       });
-  });
-
-  it('should scroll the l1 overflow properly', () => {
-    cy.get('dds-top-nav-l1')
-      .shadow()
-      .find('.bx--header__nav-caret-right-container > button')
-      .click();
-
-    cy.get('dds-top-nav-l1')
-      .shadow()
-      .find('.bx--header__nav-caret-right-container.dds-ce--header__nav-caret-container--hidden')
-      .then($button => {
-        cy.get('dds-top-nav-l1')
-          .shadow()
-          .find('.bx--header__nav-caret-left-container')
-          .then($button => {
-            expect($button).not.to.have.class('dds-ce--header__nav-caret-container--hidden');
-          });
-      });
-
-    cy.takeSnapshots();
   });
 });
 

@@ -5,7 +5,9 @@ node_modules
 /src/internal/vendor
 /scss
 storybook-static
+storybook-static-experimental
 storybook-static-react
+storybook-static-rtl
 .vscode
 .env
 templates

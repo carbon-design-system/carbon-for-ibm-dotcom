@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -28,11 +28,18 @@ const mockStore = configureMockStore<
 const mockTranslation: Partial<Translation> = {
   mastheadNav: {
     links: [
-      { title: 'item-title-foo', url: 'https://ibmdotcom-webcomponents.mybluemix.net/foo' },
+      { title: 'item-title-foo', url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/foo' },
       {
         title: 'menu-title-foo',
         menuSections: [
-          { menuItems: [{ title: 'menu-item-title-bar', url: 'https://ibmdotcom-webcomponents.mybluemix.net/bar' }] },
+          {
+            menuItems: [
+              {
+                title: 'menu-item-title-bar',
+                url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/bar',
+              },
+            ],
+          },
         ],
       },
     ],
