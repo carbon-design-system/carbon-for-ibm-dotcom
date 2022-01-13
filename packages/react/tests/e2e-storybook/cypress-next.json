@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://carbon-design-system.github.io/carbon-for-ibm-dotcom/staging/react",
+  "baseUrl": "https://carbon-design-system.github.io/carbon-for-ibm-dotcom/next/react",
   "browser": "chrome",
   "headless": true,
   "nodeVersion": "system",
