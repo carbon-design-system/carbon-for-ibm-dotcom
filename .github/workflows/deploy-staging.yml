@@ -11,12 +11,14 @@ concurrency:
 
 jobs:
   react:
-    if: github.repository == 'jeffchew/carbon-for-ibm-dotcom'
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
@@ -77,17 +79,19 @@ jobs:
           git add staging/react-rtl
           git commit -m "chore(deploy): deploy React staging to GitHub Pages"
           git push origin gh-pages
-#      - uses: act10ns/slack@v1
-#        with:
-#          status: ${{ job.status }}
-#        if: failure()
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+        if: failure()
   web-components:
-    if: github.repository == 'jeffchew/carbon-for-ibm-dotcom'
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
@@ -148,7 +152,7 @@ jobs:
           git add staging/web-components-rtl
           git commit -m "chore(deploy): deploy Web Components staging to GitHub Pages"
           git push origin gh-pages
-#      - uses: act10ns/slack@v1
-#        with:
-#          status: ${{ job.status }}
-#        if: failure()
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+        if: failure()
