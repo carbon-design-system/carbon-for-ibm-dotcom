@@ -32,14 +32,13 @@ const { prefix } = settings;
 export default class Container extends Component {
   componentDidMount() {
     const params = new URLSearchParams(window.location.search);
-    const rtl = STORYBOOK_USE_RTL || false;
 
     if (params.has('theme')) {
       const theme = params.get('theme');
       document.body.classList.add(`dds-theme-zone-${theme}`);
     }
 
-    if (rtl) {
+    if (typeof STORYBOOK_USE_RTL !== 'undefined' && STORYBOOK_USE_RTL) {
       document.documentElement.dir = 'rtl';
       document.getElementsByTagName('html')[0].setAttribute('dir', 'rtl');
     }
