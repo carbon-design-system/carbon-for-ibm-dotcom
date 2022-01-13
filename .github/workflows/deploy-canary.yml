@@ -52,6 +52,7 @@ jobs:
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PROFILE_HOST: ${{ secrets.PROFILE_HOST }}
+          DDS_FLAGS_ALL: true
       - name: Building @carbon/ibmdotcom-react (experimental) storybook
         run: yarn build-storybook:experimental
         working-directory: packages/react
@@ -173,6 +174,7 @@ jobs:
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PROFILE_HOST: ${{ secrets.PROFILE_HOST }}
+          DDS_FLAGS_ALL: true
       - name: Building @carbon/ibmdotcom-web-components react wrapper storybook
         run: yarn build-storybook:react
         working-directory: packages/web-components
