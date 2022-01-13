@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://ibmdotcom-web-components-staging.mybluemix.net",
+  "baseUrl": "https://carbon-design-system.github.io/carbon-for-ibm-dotcom/next/react",
   "browser": "chrome",
   "headless": true,
   "nodeVersion": "system",
