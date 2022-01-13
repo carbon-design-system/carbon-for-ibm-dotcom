@@ -4,6 +4,8 @@ tests/a11y-results
 
 # Storybook
 storybook-static
+storybook-static-experimental
+storybook-static-rtl
 
 # rollup
 stats.html

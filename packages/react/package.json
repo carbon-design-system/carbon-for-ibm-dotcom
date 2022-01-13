@@ -26,6 +26,8 @@
   "scripts": {
     "build": "yarn clean && gulp vendor:carbon-components-react && node scripts/build.js",
     "build-storybook": "cross-env BABEL_ENV=es build-storybook",
+    "build-storybook:experimental": "cross-env DDS_FLAGS_ALL=true BABEL_ENV=es build-storybook -o storybook-static-experimental",
+    "build-storybook:rtl": "cross-env STORYBOOK_USE_RTL=true BABEL_ENV=es build-storybook -o storybook-static-rtl",
     "ci-check": "yarn test-ssr && yarn test:unit",
     "clean": "rimraf src/internal/vendor es lib umd storybook-static",
     "contributors:add": "all-contributors add",
@@ -46,7 +48,7 @@
     "test:e2e-storybook:test:no-percy:firefox": "start-server-and-test 'yarn test:e2e-storybook:run' 8082 'cypress run --config video=false --config-file tests/e2e-storybook/cypress.json'",
     "test:e2e-storybook:test:no-percy:with-video": "start-server-and-test 'yarn test:e2e-storybook:run' 8082 'cypress run --config-file tests/e2e-storybook/cypress.json'",
     "test:e2e-storybook:browserstack:canary": "browserstack-cypress run --cf tests/e2e-storybook/browserstack.json --ccf tests/e2e-storybook/cypress-canary.json --sync",
-    "test:e2e-storybook:browserstack:staging": "browserstack-cypress run --cf tests/e2e-storybook/browserstack.json --ccf tests/e2e-storybook/cypress-staging.json --sync",
+    "test:e2e-storybook:browserstack:next": "browserstack-cypress run --cf tests/e2e-storybook/browserstack.json --ccf tests/e2e-storybook/cypress-next.json --sync",
     "test:unit": "jest",
     "test:unit:updateSnapshot": "jest -u",
     "test:a11y": "gulp test:a11y || true",
@@ -54,8 +56,8 @@
     "visual-snapshot": "percy-storybook --widths=320,1280"
   },
   "peerDependencies": {
-    "react": "16.14.0",
-    "react-dom": "16.14.0"
+    "react": "16.9.0",
+    "react-dom": "16.9.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
@@ -168,8 +170,8 @@
     "promise": "^8.0.1",
     "prop-types": "^15.7.2",
     "raf": "^3.4.1",
-    "react": "16.14.0",
-    "react-dom": "16.14.0",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
     "react-test-renderer": "^16.8.6",
     "requestanimationframe": "^0.0.23",
     "require-context.macro": "^1.0.4",

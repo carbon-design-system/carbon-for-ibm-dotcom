@@ -73,7 +73,7 @@
     "lint-staged": "^10.2.0",
     "node-fetch": "^2.6.0",
     "prettier": "^1.17.0",
-    "react": "16.14.0",
+    "react": "16.9.0",
     "rimraf": "^2.6.3",
     "sass": "^1.19.0",
     "stylelint": "^10.1.0",

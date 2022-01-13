@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,21 +18,21 @@ const NODE_ENV = 'development';
  *
  * @type {boolean}
  */
-const useExternalCss = process.env.REACT_STORYBOOK_USE_EXTERNAL_CSS === 'true';
+const useExternalCss = process.env.STORYBOOK_USE_EXTERNAL_CSS === 'true';
 
 /**
  * Determines if sourcemaps should be turned on or off
  *
  * @type {boolean}
  */
-const useStyleSourceMap = process.env.REACT_STORYBOOK_SOURCEMAPS === 'true';
+const useStyleSourceMap = process.env.STORYBOOK_SOURCEMAPS === 'true';
 
 /**
  * Sets the document direction (https://developer.mozilla.org/en-US/docs/Web/API/Document/dir)
  *
  * @type {boolean}
  */
-const useRtl = process.env.REACT_STORYBOOK_USE_RTL === 'true';
+const useRtl = process.env.STORYBOOK_USE_RTL === 'true';
 
 const styleLoaders = [
   {
@@ -157,7 +157,10 @@ module.exports = ({ config, mode }) => {
   config.plugins.push(
     new webpack.EnvironmentPlugin({
       TRANSLATION_HOST: '',
-      REACT_STORYBOOK_USE_RTL: 'false',
+      STORYBOOK_USE_RTL: false,
+    }),
+    new webpack.DefinePlugin({
+      STORYBOOK_USE_RTL: useRtl,
     })
   );
 

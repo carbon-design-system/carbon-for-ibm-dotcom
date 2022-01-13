@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -278,7 +278,7 @@ export const StoryContent = (
     .join(' ');
 
   return html`
-    <main class="${mainClasses}">
+    <div class="${mainClasses}">
       ${config?.leadspace ? contentLeadspace : null}
       ${config?.tocLayout === TOC_TYPES.HORIZONTAL
         ? html`
@@ -295,13 +295,13 @@ export const StoryContent = (
               ${tocContent}
             </dds-table-of-contents>
           `}
-    </main>
+    </div>
   `;
 };
 
 export const StoryContentNoToC = () =>
   html`
-    <main class="dds-ce-demo-devenv--ui-shell-content" style='padding-right:1rem'>
+    <div class="dds-ce-demo-devenv--ui-shell-content" style='padding-right:1rem'>
       <div class="bx--grid bx--col-lg-8">
         <dds-leadspace-with-search adjacent-theme='white-and-g10' scroll-behavior>
           <dds-leadspace-block-heading slot='heading'>Find a product</dds-leadspace-block-heading>
@@ -434,7 +434,7 @@ export const StoryContentNoToC = () =>
           </dds-cta-block-item-row>
         </dds-cta-block>
       </div>
-    </main>`;
+    </div>`;
 
 export default { StoryContent, StoryContentNoToC };
 /* eslint-enable max-len */

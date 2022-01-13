@@ -68,7 +68,7 @@
       },
       "urx": {},
       "destinationURL": "https://www.ibm.com/standards/carbon/react/",
-      "destinationDomain": "mybluemix.net",
+      "destinationDomain": "carbon-design-system.github.io",
       "description": "A collection of IBM.com components implemented using React and Carbon Design System.",
       "effectiveDate": "",
       "expiryDate": "",
