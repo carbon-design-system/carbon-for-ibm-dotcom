@@ -137,7 +137,7 @@ As an example, we will be using the IBM Docs API to fetch the data, retrieving a
 
 ```javascript
   async function customTypeaheadApiFunction(searchVal) {
-    return await fetch(
+    return fetch(
       `https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=en&categories=&limit=6`
     )
       .then((response) => response.json())
@@ -175,7 +175,7 @@ results array.
 
 ```javascript
   async function customTypeaheadApiFunction(searchVal) {
-    return await fetch(
+    return fetch(
       `https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=en&categories=&limit=6`
     )
       .then((response) => response.json())

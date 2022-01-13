@@ -48,12 +48,10 @@ const urlObject = {
 };
 
 async function customTypeaheadApiFunction(searchVal) {
-  return await fetch(
-    `https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`
-  )
+  return fetch(`https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`)
     .then(response => response.json())
     .then(data => {
-      let searchResults = [
+      const searchResults = [
         data.hints,
         {
           title: 'Product pages',
@@ -154,7 +152,7 @@ WithCustomTypeahead.story = {
 };
 
 export const searchOpenOnload = ({ parameters }) => {
-  const { customProfileLogin, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch, navLinks } =
+  const { customProfileLogin, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch, navLinks } =
     parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -179,17 +177,18 @@ export const searchOpenOnload = ({ parameters }) => {
           ></dds-masthead-composite>
         `
       : html`
-          <dds-masthead-composite
+          <dds-masthead-container
             activate-search="true"
-            platform="Platform"
+            platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
-          ></dds-masthead-composite>
+          ></dds-masthead-container>
         `}
   `;
 };

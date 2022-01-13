@@ -271,7 +271,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
   @HostListener('document:eventCustomResults')
   protected _handleCustomResults = (event: CustomEvent) => {
     if (this.customTypeaheadAPI) {
-      this.searchResults = event.detail[0];
+      [this.searchResults] = event.detail;
       this.groupedResults = event.detail.slice(1);
     }
   };
