@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2021
+ * Copyright IBM Corp. 2019, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -254,7 +254,12 @@ class DDSCard extends StableSelectorMixin(BXLink) {
   render() {
     return this._hasPictogram
       ? html`
-          <div tabindex="0" aria-label="${this.querySelector(`${ddsPrefix}-card-heading`)?.textContent}">
+          <div
+            tabindex="0"
+            aria-label="${this.querySelector(`${ddsPrefix}-card-heading`)?.textContent}"
+            aria-live="polite"
+            aria-describedby="${prefix}--card__copy"
+          >
             ${this._renderInner()}
           </div>
         `
