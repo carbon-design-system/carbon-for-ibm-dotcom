@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,7 +22,7 @@ import getSimpleStorySort from './get-simple-story-sort';
 import decoratorKnobs from './decorator-knobs';
 import containerStyles from './container.scss'; // eslint-disable-line import/first
 
-if (process.env.STORYBOOK_IBMDOTCOM_WEB_COMPONENTS_USE_RTL === 'true') {
+if (process.env.STORYBOOK_USE_RTL === 'true') {
   document.documentElement.setAttribute('dir', 'rtl');
 }
 

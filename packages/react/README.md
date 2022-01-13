@@ -63,8 +63,8 @@ information in several ways:
 
 ## Documentation
 
-- See our documentation site [here](https://carbon-for-ibm-dotcom.mybluemix.net)
-  for full how-to docs and guidelines
+- See our documentation site [here](https://www.ibm.com/standards/carbon) for
+  full how-to docs and guidelines
 - [Contributing](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/.github/CONTRIBUTING.md):
   Guidelines for making contributions to this repo.
 

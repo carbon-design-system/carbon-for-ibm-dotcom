@@ -1,4 +1,4 @@
-name: deploy-canary (Deploy storybook environments to IBM Cloud)
+name: deploy-canary (Deploy storybook environments to Github Pages)
 
 on:
   push:
@@ -11,12 +11,14 @@ concurrency:
 
 jobs:
   react:
-    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
+    if: github.repository == 'jeffchew/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{secrets.BOT_TOKEN}}
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
@@ -37,33 +39,12 @@ jobs:
       - name: Building @carbon/ibmdotcom-react storybook
         run: yarn build-storybook
         working-directory: packages/react
-      - name: Deploying @carbon/ibmdotcom-react storybook to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.3.0
-        with:
-          cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-          cf-org: ibm-digital-design
-          cf-space: ibmdotcom-production
-          cf-region: us-south
-          cf-app: ibmdotcom-react-canary
-          cf-manifest: manifest-canary.yml
-          deploy-dir: packages/react
-  react-experimental:
-    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
-    runs-on: ubuntu-20.04
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
-          cache: 'yarn'
-      - name: Install dependencies
-        run: yarn install --offline
-      - name: Build project
-        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
-      - name: Set env vars
+      - name: Move storybook to build folder
+        run: |
+          rm packages/react/.env
+          mkdir -p builds
+          mv packages/react/storybook-static builds/react
+      - name: Set env vars (experimental)
         uses: ./.github/actions/set-dotenv
         with:
           env-file: packages/react/.env
@@ -71,41 +52,14 @@ jobs:
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PROFILE_HOST: ${{ secrets.PROFILE_HOST }}
-          DDS_FLAGS_ALL: true
       - name: Building @carbon/ibmdotcom-react (experimental) storybook
-        run: yarn build-storybook
+        run: yarn build-storybook:experimental
         working-directory: packages/react
-      - name: Deploying @carbon/ibmdotcom-react (experimental) storybook to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.3.0
-        with:
-          cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-          cf-org: ibm-digital-design
-          cf-space: ibmdotcom-production
-          cf-region: us-south
-          cf-app: ibmdotcom-react-experimental
-          cf-manifest: manifest-experimental.yml
-          deploy-dir: packages/react
-      - uses: act10ns/slack@v1
-        with:
-          status: ${{ job.status }}
-        if: failure()
-  react-rtl:
-    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
-    runs-on: ubuntu-20.04
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
-          cache: 'yarn'
-      - name: Install dependencies
-        run: yarn install --offline
-      - name: Build project
-        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
-      - name: Set env vars
+      - name: Move storybook to build folder
+        run: |
+          rm packages/react/.env
+          mv packages/react/storybook-static-experimental builds/react-experimental
+      - name: Set env vars (RTL)
         uses: ./.github/actions/set-dotenv
         with:
           env-file: packages/react/.env
@@ -113,31 +67,49 @@ jobs:
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PROFILE_HOST: ${{ secrets.PROFILE_HOST }}
-          REACT_STORYBOOK_USE_RTL: true
       - name: Building @carbon/ibmdotcom-react (RTL) storybook
-        run: yarn build-storybook
+        run: yarn build-storybook:rtl
         working-directory: packages/react
-      - name: Deploying @carbon/ibmdotcom-react (RTL) storybook to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.3.0
-        with:
-          cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-          cf-org: ibm-digital-design
-          cf-space: ibmdotcom-production
-          cf-region: us-south
-          cf-app: ibmdotcom-react-rtl
-          cf-manifest: manifest-rtl.yml
-          deploy-dir: packages/react
-      - uses: act10ns/slack@v1
-        with:
-          status: ${{ job.status }}
-        if: failure()
+      - name: Move storybook to build folder
+        run: |
+          rm packages/react/.env
+          mv packages/react/storybook-static-rtl builds/react-rtl
+      - name: Deploying @carbon/ibmdotcom-react storybook to Github Pages
+        run: |
+          git config --global user.email ${{ secrets.BOT_EMAIL }}
+          git config --global user.name ${{ secrets.BOT_NAME }}
+
+          git fetch origin gh-pages
+          git checkout -b gh-pages origin/gh-pages
+          git update-ref -d refs/remotes/origin/gh-pages
+          git pull origin gh-pages
+
+          rm -rf canary/react
+          rm -rf canary/react-experimental
+          rm -rf canary/react-rtl
+          mkdir -p canary
+          mv builds/react canary/react
+          mv builds/react-experimental canary/react-experimental
+          mv builds/react-rtl canary/react-rtl
+
+          git add canary/react
+          git add canary/react-rtl
+          git add canary/react-experimental
+          git commit -m "chore(deploy): deploy React canary to GitHub Pages"
+          git push origin gh-pages
+#      - uses: act10ns/slack@v1
+#        with:
+#          status: ${{ job.status }}
+#        if: failure()
   web-components:
-    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
+    if: github.repository == 'jeffchew/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{secrets.BOT_TOKEN}}
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
@@ -158,36 +130,11 @@ jobs:
       - name: Building @carbon/ibmdotcom-web-components storybook
         run: yarn build-storybook
         working-directory: packages/web-components
-      - name: Deploying @carbon/ibmdotcom-web-components storybook to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.3.0
-        with:
-          cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-          cf-org: ibm-digital-design
-          cf-space: ibmdotcom-production
-          cf-region: us-south
-          cf-app: ibmdotcom-web-components-canary
-          cf-manifest: manifest-canary.yml
-          deploy-dir: packages/web-components
-      - uses: act10ns/slack@v1
-        with:
-          status: ${{ job.status }}
-        if: failure()
-  web-components-rtl:
-    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
-    runs-on: ubuntu-20.04
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
-          cache: 'yarn'
-      - name: Install dependencies
-        run: yarn install --offline
-      - name: Build project
-        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
+      - name: Move storybook to build folder
+        run: |
+          rm packages/web-components/.env
+          mkdir -p builds
+          mv packages/web-components/storybook-static builds/web-components
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
         with:
@@ -196,41 +143,14 @@ jobs:
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PROFILE_HOST: ${{ secrets.PROFILE_HOST }}
-          STORYBOOK_IBMDOTCOM_WEB_COMPONENTS_USE_RTL: true
       - name: Building @carbon/ibmdotcom-web-components RTL storybook
-        run: yarn build-storybook
+        run: yarn build-storybook:rtl
         working-directory: packages/web-components
-      - name: Deploying @carbon/ibmdotcom-web-components RTL storybook to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.3.0
-        with:
-          cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-          cf-org: ibm-digital-design
-          cf-space: ibmdotcom-production
-          cf-region: us-south
-          cf-app: ibmdotcom-web-components-rtl
-          cf-manifest: manifest-rtl.yml
-          deploy-dir: packages/web-components
-      - uses: act10ns/slack@v1
-        with:
-          status: ${{ job.status }}
-        if: failure()
-  web-components-experimental:
-    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
-    runs-on: ubuntu-20.04
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
-          cache: 'yarn'
-      - name: Install dependencies
-        run: yarn install --offline
-      - name: Build project
-        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
-      - name: Set env vars
+      - name: Move storybook to build folder
+        run: |
+          rm packages/web-components/.env
+          mv packages/web-components/storybook-static-rtl builds/web-components-rtl
+      - name: Set env vars (experimental)
         uses: ./.github/actions/set-dotenv
         with:
           env-file: packages/web-components/.env
@@ -238,41 +158,14 @@ jobs:
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PROFILE_HOST: ${{ secrets.PROFILE_HOST }}
-          DDS_FLAGS_ALL: true
       - name: Building @carbon/ibmdotcom-web-components experimental storybook
-        run: yarn build-storybook
+        run: yarn build-storybook:experimental
         working-directory: packages/web-components
-      - name: Deploying @carbon/ibmdotcom-web-components experimental storybook to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.3.0
-        with:
-          cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-          cf-org: ibm-digital-design
-          cf-space: ibmdotcom-production
-          cf-region: us-south
-          cf-app: ibmdotcom-web-components-experimental
-          cf-manifest: manifest-experimental.yml
-          deploy-dir: packages/web-components
-      - uses: act10ns/slack@v1
-        with:
-          status: ${{ job.status }}
-        if: failure()
-  web-components-react:
-    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
-    runs-on: ubuntu-20.04
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
-          cache: 'yarn'
-      - name: Install dependencies
-        run: yarn install --offline
-      - name: Build project
-        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
-      - name: Set env vars
+      - name: Move storybook to build folder
+        run: |
+          rm packages/web-components/.env
+          mv packages/web-components/storybook-static-experimental builds/web-components-experimental
+      - name: Set env vars (react wrapper)
         uses: ./.github/actions/set-dotenv
         with:
           env-file: packages/web-components/.env
@@ -283,27 +176,49 @@ jobs:
       - name: Building @carbon/ibmdotcom-web-components react wrapper storybook
         run: yarn build-storybook:react
         working-directory: packages/web-components
-      - name: Deploying @carbon/ibmdotcom-web-components react wrapper storybook to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.3.0
-        with:
-          cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-          cf-org: ibm-digital-design
-          cf-space: ibmdotcom-production
-          cf-region: us-south
-          cf-app: ibmdotcom-web-components-react
-          cf-manifest: manifest-react.yml
-          deploy-dir: packages/web-components
-      - uses: act10ns/slack@v1
-        with:
-          status: ${{ job.status }}
-        if: failure()
+      - name: Move storybook to build folder
+        run: |
+          rm packages/web-components/.env
+          mv packages/web-components/storybook-static-react builds/web-components-react
+      - name: Deploying @carbon/ibmdotcom-web-components storybook to Github Pages
+        run: |
+          git config --global user.email ${{ secrets.BOT_EMAIL }}
+          git config --global user.name ${{ secrets.BOT_NAME }}
+
+          git fetch origin gh-pages
+          git checkout -b gh-pages origin/gh-pages
+          git update-ref -d refs/remotes/origin/gh-pages
+          git pull origin gh-pages
+
+          rm -rf canary/web-components
+          rm -rf canary/web-components-react
+          rm -rf canary/web-components-rtl
+          rm -rf canary/web-components-experimental
+          mkdir -p canary
+          mv builds/web-components canary/web-components
+          mv builds/web-components-react canary/web-components-react
+          mv builds/web-components-rtl canary/web-components-rtl
+          mv builds/web-components-experimental canary/web-components-experimental
+
+          git add canary/web-components
+          git add canary/web-components-react
+          git add canary/web-components-rtl
+          git add canary/web-components-experimental
+          git commit -m "chore(deploy): deploy Web Components canary to GitHub Pages"
+          git push origin gh-pages
+#      - uses: act10ns/slack@v1
+#        with:
+#          status: ${{ job.status }}
+#        if: failure()
   services:
-    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
+    if: github.repository == 'jeffchew/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{secrets.BOT_TOKEN}}
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
@@ -325,26 +240,37 @@ jobs:
         run: yarn jsdoc
         working-directory: packages/services
       - name: Deploying @carbon/ibmdotcom-services JSDocs to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.3.0
-        with:
-          cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-          cf-org: ibm-digital-design
-          cf-space: ibmdotcom-production
-          cf-region: us-south
-          cf-app: ibmdotcom-services
-          cf-manifest: manifest.yml
-          deploy-dir: packages/services
-      - uses: act10ns/slack@v1
-        with:
-          status: ${{ job.status }}
-        if: failure()
+        run: |
+          git config --global user.email ${{ secrets.BOT_EMAIL }}
+          git config --global user.name ${{ secrets.BOT_NAME }}
+
+          mkdir -p builds
+          mv packages/services/docs builds/services
+
+          git fetch origin gh-pages
+          git checkout -b gh-pages origin/gh-pages
+          git update-ref -d refs/remotes/origin/gh-pages
+          git pull origin gh-pages
+
+          rm -rf services
+          mv builds/services services
+
+          git add services
+          git commit -m "chore(deploy): deploy Services to GitHub Pages"
+          git push origin gh-pages
+#      - uses: act10ns/slack@v1
+#        with:
+#          status: ${{ job.status }}
+#        if: failure()
   utilities:
-    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
+    if: github.repository == 'jeffchew/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{secrets.BOT_TOKEN}}
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
@@ -365,16 +291,25 @@ jobs:
         run: yarn jsdoc
         working-directory: packages/utilities
       - name: Deploying @carbon/ibmdotcom-utilities JSDocs to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.3.0
-        with:
-          cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-          cf-org: ibm-digital-design
-          cf-space: ibmdotcom-production
-          cf-region: us-south
-          cf-app: ibmdotcom-utilities
-          cf-manifest: manifest.yml
-          deploy-dir: packages/utilities
-      - uses: act10ns/slack@v1
-        with:
-          status: ${{ job.status }}
-        if: failure()
+        run: |
+          git config --global user.email ${{ secrets.BOT_EMAIL }}
+          git config --global user.name ${{ secrets.BOT_NAME }}
+
+          mkdir -p builds
+          mv packages/utilities/docs builds/utilities
+
+          git fetch origin gh-pages
+          git checkout -b gh-pages origin/gh-pages
+          git update-ref -d refs/remotes/origin/gh-pages
+          git pull origin gh-pages
+
+          rm -rf utilities
+          mv builds/utilities utilities
+
+          git add utilities
+          git commit -m "chore(deploy): deploy Utilities to GitHub Pages"
+          git push origin gh-pages
+#      - uses: act10ns/slack@v1
+#        with:
+#          status: ${{ job.status }}
+#        if: failure()
