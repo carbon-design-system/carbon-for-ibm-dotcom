@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://ibmdotcom-web-components-canary.mybluemix.net",
+  "baseUrl": "https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components",
   "browser": "chrome",
   "headless": true,
   "nodeVersion": "system",
