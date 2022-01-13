@@ -157,7 +157,7 @@ describe('dds-feature-section (mobile)', () => {
       .find('.bx--feature-section__body')
       .then($content => {
         expect($content[0].getBoundingClientRect().top).to.equal(321);
-        expect($content[0].getBoundingClientRect().bottom).to.equal(859);
+        expect($content[0].getBoundingClientRect().bottom).to.equal(883);
       });
 
     // image takes the top half
