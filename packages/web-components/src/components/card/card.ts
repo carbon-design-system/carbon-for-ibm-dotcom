@@ -259,6 +259,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
             aria-label="${this.querySelector(`${ddsPrefix}-card-heading`)?.textContent || ''}"
             aria-live="polite"
             aria-describedby="${prefix}--card__copy"
+            role="button"
           >
             ${this._renderInner()}
           </div>
