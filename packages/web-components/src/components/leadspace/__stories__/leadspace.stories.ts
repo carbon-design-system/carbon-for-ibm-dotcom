@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -89,37 +89,6 @@ export const SuperWithImage = ({ parameters }) => {
           `;
         })}
       </dds-button-group>
-      <dds-leadspace-image class="bx--image" alt="${ifNonNull(alt)}" default-src="${image}">
-        <dds-image-item media="(min-width: 672px)" srcset="${image}"></dds-image-item>
-        <dds-image-item media="(min-width: 0)" srcset="${image}"></dds-image-item>
-      </dds-leadspace-image>
-    </dds-leadspace>
-  `;
-};
-
-export const RefactoredSuperWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
-  const image = defaultSrc || leadspaceImg;
-  return html`
-    <dds-leadspace
-      size="${LEADSPACE_SIZE.SUPER}"
-      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
-    >
-      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
-      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      ${ifNonNull(copy)}
-      <dds-button-group slot="action">
-        ${buttons.map(elem => {
-          return html`
-            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
-              >${elem.copy}${elem.renderIcon}</dds-button-group-item
-            >
-          `;
-        })}
-      </dds-button-group>
       <dds-background-media mobile-position="bottom" alt="${ifNonNull(alt)}" default-src="${defaultSrc}" opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}"> </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${image}"> </dds-image-item>
@@ -130,7 +99,11 @@ export const RefactoredSuperWithImage = ({ parameters }) => {
   `;
 };
 
-export const RefactoredSuperWithVideo = ({ parameters }) => {
+SuperWithImage.story = {
+  name: 'Super with image',
+};
+
+export const SuperWithVideo = ({ parameters }) => {
   const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace
@@ -159,8 +132,8 @@ export const RefactoredSuperWithVideo = ({ parameters }) => {
   `;
 };
 
-SuperWithImage.story = {
-  name: 'Super with image',
+SuperWithVideo.story = {
+  name: 'Super with video',
 };
 
 export const Tall = ({ parameters }) => {
@@ -207,37 +180,6 @@ export const TallWithImage = ({ parameters }) => {
           `;
         })}
       </dds-button-group>
-      <dds-leadspace-image class="bx--image" alt="${ifNonNull(alt)}" default-src="${image}">
-        <dds-image-item media="(min-width: 672px)" srcset="${image}"></dds-image-item>
-        <dds-image-item media="(min-width: 0)" srcset="${image}"></dds-image-item>
-      </dds-leadspace-image>
-    </dds-leadspace>
-  `;
-};
-
-export const RefactoredTallWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
-  const image = defaultSrc || leadspaceImg;
-  return html`
-    <dds-leadspace
-      size="${LEADSPACE_SIZE.TALL}"
-      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
-    >
-      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
-      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      ${ifNonNull(copy)}
-      <dds-button-group slot="action">
-        ${buttons.map(elem => {
-          return html`
-            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
-              >${elem.copy}${elem.renderIcon}</dds-button-group-item
-            >
-          `;
-        })}
-      </dds-button-group>
       <dds-background-media mobile-position="bottom" alt="${ifNonNull(alt)}" default-src="${defaultSrc}" opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}"> </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${image}"> </dds-image-item>
@@ -248,7 +190,11 @@ export const RefactoredTallWithImage = ({ parameters }) => {
   `;
 };
 
-export const RefactoredTallWithVideo = ({ parameters }) => {
+TallWithImage.story = {
+  name: 'Tall with image',
+};
+
+export const TallWithVideo = ({ parameters }) => {
   const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace
@@ -277,8 +223,8 @@ export const RefactoredTallWithVideo = ({ parameters }) => {
   `;
 };
 
-TallWithImage.story = {
-  name: 'Tall with image',
+TallWithVideo.story = {
+  name: 'Tall with video',
 };
 
 export const Medium = ({ parameters }) => {
@@ -325,37 +271,6 @@ export const MediumWithImage = ({ parameters }) => {
           `;
         })}
       </dds-button-group>
-      <dds-leadspace-image class="bx--image" alt="${ifNonNull(alt)}" default-src="${image}">
-        <dds-image-item media="(min-width: 672px)" srcset="${image}"></dds-image-item>
-        <dds-image-item media="(min-width: 0)" srcset="${image}"></dds-image-item>
-      </dds-leadspace-image>
-    </dds-leadspace>
-  `;
-};
-
-export const RefactoredMediumWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
-  const image = defaultSrc || leadspaceImg;
-  return html`
-    <dds-leadspace
-      size="${LEADSPACE_SIZE.MEDIUM}"
-      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
-    >
-      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
-      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      ${ifNonNull(copy)}
-      <dds-button-group slot="action">
-        ${buttons.map(elem => {
-          return html`
-            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
-              >${elem.copy}${elem.renderIcon}</dds-button-group-item
-            >
-          `;
-        })}
-      </dds-button-group>
       <dds-background-media mobile-position="bottom" alt="${ifNonNull(alt)}" default-src="${defaultSrc}" opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}"> </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${image}"> </dds-image-item>
@@ -366,7 +281,11 @@ export const RefactoredMediumWithImage = ({ parameters }) => {
   `;
 };
 
-export const RefactoredMediumWithVideo = ({ parameters }) => {
+MediumWithImage.story = {
+  name: 'Medium with image',
+};
+
+export const MediumWithVideo = ({ parameters }) => {
   const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace
@@ -395,8 +314,8 @@ export const RefactoredMediumWithVideo = ({ parameters }) => {
   `;
 };
 
-MediumWithImage.story = {
-  name: 'Medium with image',
+MediumWithVideo.story = {
+  name: 'Medium with Video',
 };
 
 export const Short = ({ parameters }) => {
@@ -442,51 +361,11 @@ export const ShortWithImage = ({ parameters }) => {
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      <dds-leadspace-image class="bx--image" alt="${ifNonNull(alt)}" default-src="${image}">
-        <dds-image-item media="(min-width: 672px)" srcset="${image}"></dds-image-item>
-        <dds-image-item media="(min-width: 0)" srcset="${image}"></dds-image-item>
-      </dds-leadspace-image>
-    </dds-leadspace>
-  `;
-};
-
-export const RefactoredShortWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, navElements } = parameters?.props?.LeadSpace ?? {};
-  const image = defaultSrc || leadspaceImg;
-  return html`
-    <dds-leadspace
-      size="${LEADSPACE_SIZE.SHORT}"
-      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
-    >
-      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
-      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       <dds-background-media mobile-position="bottom" alt="${ifNonNull(alt)}" default-src="${defaultSrc}" opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}"> </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${image}"> </dds-image-item>
         <dds-image-item media="(min-width: 320px)" srcset="${image}"> </dds-image-item>
         <dds-image-item media="(min-width: 0px)" srcset="${image}"> </dds-image-item>
-      </dds-background-media>
-    </dds-leadspace>
-  `;
-};
-
-export const RefactoredShortWithVideo = ({ parameters }) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, navElements } = parameters?.props?.LeadSpace ?? {};
-  return html`
-    <dds-leadspace
-      size="${LEADSPACE_SIZE.SHORT}"
-      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
-    >
-      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
-      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      <dds-background-media mobile-position="bottom" opacity="100">
-        <dds-video-player-container video-id="1_9h94wo6b" background-mode="true"></dds-video-player-container>
       </dds-background-media>
     </dds-leadspace>
   `;
@@ -514,6 +393,25 @@ ShortWithImage.story = {
       },
     },
   },
+};
+
+export const ShortWithVideo = ({ parameters }) => {
+  const { alt, defaultSrc, gradientStyleScheme, title, navElements } = parameters?.props?.LeadSpace ?? {};
+  return html`
+    <dds-leadspace
+      size="${LEADSPACE_SIZE.SHORT}"
+      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
+      alt="${ifNonNull(alt)}"
+      default-src="${ifNonNull(defaultSrc)}"
+    >
+      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
+      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
+      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      <dds-background-media mobile-position="bottom" opacity="100">
+        <dds-video-player-container video-id="1_9h94wo6b" background-mode="true"></dds-video-player-container>
+      </dds-background-media>
+    </dds-leadspace>
+  `;
 };
 
 export const Centered = ({ parameters }) => {
@@ -561,38 +459,6 @@ export const CenteredWithImage = ({ parameters }) => {
           `;
         })}
       </dds-button-group>
-      <dds-leadspace-image class="bx--image" alt="${ifNonNull(alt)}" default-src="${image}">
-        <dds-image-item media="(min-width: 672px)" srcset="${image}"></dds-image-item>
-        <dds-image-item media="(min-width: 0)" srcset="${image}"></dds-image-item>
-      </dds-leadspace-image>
-    </dds-leadspace>
-  `;
-};
-
-export const RefactoredCenteredWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradient, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
-  const image = defaultSrc || leadspaceImg;
-  return html`
-    <dds-leadspace
-      size="${LEADSPACE_SIZE.NONE}"
-      ?gradient="${ifNonNull(gradient)}"
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
-      type="centered"
-    >
-      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
-      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      ${ifNonNull(copy)}
-      <dds-button-group slot="action">
-        ${buttons.map(elem => {
-          return html`
-            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
-              >${elem.copy}${elem.renderIcon}</dds-button-group-item
-            >
-          `;
-        })}
-      </dds-button-group>
       <dds-background-media mobile-position="bottom" alt="${ifNonNull(alt)}" default-src="${defaultSrc}" opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}"> </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${image}"> </dds-image-item>
@@ -603,7 +469,11 @@ export const RefactoredCenteredWithImage = ({ parameters }) => {
   `;
 };
 
-export const RefactoredCenteredWithVideo = ({ parameters }) => {
+CenteredWithImage.story = {
+  name: 'Centered with image',
+};
+
+export const CenteredWithVideo = ({ parameters }) => {
   const { alt, defaultSrc, gradient, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace
@@ -633,8 +503,8 @@ export const RefactoredCenteredWithVideo = ({ parameters }) => {
   `;
 };
 
-CenteredWithImage.story = {
-  name: 'Centered with image',
+CenteredWithVideo.story = {
+  name: 'Centered with video',
 };
 
 const getAriaLabel = type => {
