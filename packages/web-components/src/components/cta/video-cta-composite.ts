@@ -91,7 +91,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
     const { href, videoName: customVideoName, videoDescription } = event.detail;
     (event.target as VideoCTAMixinImpl).videoThumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
       mediaId: href,
-      width: event.target.offsetWidth,
+      width: event?.target?.offsetWidth,
     });
     const videoData = await this._loadVideoData?.(href);
     if (videoData) {
