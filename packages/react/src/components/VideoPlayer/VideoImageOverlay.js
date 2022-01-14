@@ -29,7 +29,7 @@ const VideoImageOverlay = ({
   const [thumbnailSize, setThumbnailSize] = useState(3);
 
   const refImage = useCallback(node => {
-    if (node && node.parentElement) {
+    if (node?.parentElement) {
       setThumbnailSize(node.parentElement.offsetWidth);
     }
   }, []);
