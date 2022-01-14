@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -64,7 +64,7 @@ describe('dds-feature-card | medium', () => {
       expect($image[0].getBoundingClientRect().right).to.equal(328);
     });
 
-    // image takes the right half
+    // content takes the right half
     cy.get('dds-feature-card')
       .shadow()
       .find('.bx--card__wrapper')
@@ -170,7 +170,7 @@ describe('dds-feature-card | large', () => {
       expect($image[0].getBoundingClientRect().right).to.equal(529);
     });
 
-    // image takes the right half
+    // content takes the right half
     cy.get('dds-feature-card')
       .shadow()
       .find('.bx--card__wrapper')
