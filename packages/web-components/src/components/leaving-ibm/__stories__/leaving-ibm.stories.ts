@@ -23,6 +23,14 @@ export const Default = ({ parameters }) => {
 
 export default {
   title: 'Components/Leaving IBM',
+  decorators: [
+    story => html`
+      <style>
+        ${styles}
+      </style>
+      ${story()}
+    `,
+  ],
   parameters: {
     ...readme.parameters,
     knobs: {
@@ -31,13 +39,13 @@ export default {
         href: text('href (href)', 'https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/', groupId),
       }),
     },
-    decorators: [
-      story => html`
-        <style>
-          ${styles}
-        </style>
-        ${story()}
-      `,
-    ],
+    propsSet: {
+      default: {
+        'leaving-ibm': {
+          open: true,
+          href: 'https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/',
+        },
+      },
+    },
   },
 };

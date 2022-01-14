@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,8 +13,8 @@ const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const rtlcss = require('rtlcss');
 
-const useStyleSourceMap = process.env.STORYBOOK_IBMDOTCOM_WEB_COMPONENTS_USE_STYLE_SOURCEMAP === 'true';
-const useRtl = process.env.STORYBOOK_IBMDOTCOM_WEB_COMPONENTS_USE_RTL === 'true';
+const useStyleSourceMap = process.env.STORYBOOK_USE_STYLE_SOURCEMAP === 'true';
+const useRtl = process.env.STORYBOOK_USE_RTL === 'true';
 
 module.exports = ({ config, mode }) => {
   config.devtool = useStyleSourceMap ? 'source-map' : '';

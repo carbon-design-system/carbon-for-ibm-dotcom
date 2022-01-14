@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 const { prefix } = settings;
 
 const _htmlTagRegex = /<.*?>/g;
-const _cleanStringRegex = /\n|\s{2,}|&([a-zA-Z]+);/g;
+const _cleanStringRegex = /\n|\s{2,}|&;/g;
 
 /**
  * Removes any html tags from a string and keeps inner text if any
@@ -75,7 +75,10 @@ function markdownToHtml(
     },
   };
 
-  marked.use({ renderer: Object.assign(defaultRenderer, renderer) });
+  marked.use({
+    smartypants: true,
+    renderer: Object.assign(defaultRenderer, renderer),
+  });
 
   if (customTags) {
     DOMPurify.addHook('uponSanitizeElement', function(

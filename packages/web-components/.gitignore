@@ -5,11 +5,14 @@ node_modules
 /src/internal/vendor
 /scss
 storybook-static
+storybook-static-experimental
 storybook-static-react
+storybook-static-rtl
 .vscode
 .env
 templates
 generate.sh
+tests/a11y-results
 
 # e2e tests
 tests/cdn-build/cypress/screenshots

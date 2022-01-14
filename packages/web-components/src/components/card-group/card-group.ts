@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -97,11 +97,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
   private _handleSlotChange(event: Event) {
     this._childItems = (event.target as HTMLSlotElement)
       .assignedNodes()
-      .filter(elem =>
-        (elem as HTMLElement).matches !== undefined
-          ? (elem as HTMLElement).matches((this.constructor as typeof DDSCardGroup).selectorItem)
-          : false
-      );
+      .filter(elem => (elem as HTMLElement).matches?.((this.constructor as typeof DDSCardGroup).selectorItem));
 
     // retrieve item heading, eyebrows, and footers to set same height
     if (this._childItems) {
@@ -150,8 +146,9 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
         default:
           columns = this.cardsPerRow;
       }
-
-      this._setSameHeight();
+      if (!this.pictograms) {
+        this._setSameHeight();
+      }
       if (this.gridMode !== GRID_MODE.NARROW) {
         this._fillLastRowWithEmptyCards(columns);
         this._borderAdjustments(columns);
@@ -309,6 +306,13 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
    */
   @property({ attribute: 'grid-mode', reflect: true })
   gridMode = GRID_MODE.COLLAPSED;
+
+  /**
+   * If using cards with pictogram.
+   */
+  // necessary to avoid using sameHeight utility
+  @property({ type: Boolean, reflect: true })
+  pictograms = false;
 
   connectedCallback() {
     super.connectedCallback();

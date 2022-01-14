@@ -48,6 +48,17 @@ export const Default = ({ parameters }) => {
 
 export default {
   title: 'Components/Callout quote',
+  decorators: [
+    story => html`
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-lg-11">
+            ${story()}
+          </div>
+        </div>
+      </div>
+    `,
+  ],
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
@@ -65,16 +76,18 @@ export default {
         sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud', groupId),
       }),
     },
-    decorators: [
-      story => html`
-        <div class="bx--grid">
-          <div class="bx--row">
-            <div class="bx--col-lg-11">
-              ${story()}
-            </div>
-          </div>
-        </div>
-      `,
-    ],
+    propsSet: {
+      default: {
+        CalloutQuote: {
+          copy:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ' +
+            'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.',
+          quoteMark: 'double-curved',
+          sourceHeading: 'Lorem ipsum dolor sit amet',
+          sourceCopy: 'consectetur adipiscing elit',
+          sourceButtonCopy: 'IBM Cloud',
+        },
+      },
+    },
   },
 };

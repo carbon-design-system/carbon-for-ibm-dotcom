@@ -171,5 +171,22 @@ export default {
         border: boolean('Border:', false),
       }),
     },
+    propsSet: {
+      default: {
+        ContentBlock: {
+          heading: true,
+          showCopy: true,
+          copy:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quam ante, mattis id pellentesque at,' +
+            ' molestie et ipsum. Proin sodales est hendrerit maximus malesuada. Orci varius natoque penatibus et' +
+            ' magnis dis parturient montes, nascetur ridiculus mus. Etiam at arcu ligula. Praesent faucibus est ' +
+            'ligula, vitae finibus ante aliquet a.',
+          aside: false,
+          addChildren: '',
+          showCTA: true,
+          border: false,
+        },
+      },
+    },
   },
 };

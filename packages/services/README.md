@@ -24,7 +24,8 @@ project.
 
 ### List of Available Services
 
-View available services [here](https://ibmdotcom-services.mybluemix.net/).
+View available services
+[here](https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services).
 
 ## Documentation
 

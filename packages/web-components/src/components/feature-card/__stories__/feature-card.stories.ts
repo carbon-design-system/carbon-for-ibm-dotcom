@@ -74,6 +74,17 @@ Large.story = {
         href: textNullable('Card Href (href):', 'https://example.com', groupId),
       }),
     },
+    propsSet: {
+      default: {
+        'dds-feature-card': {
+          eyebrow: 'This is an eyebrow',
+          heading: 'Explore AI use cases in all industries',
+          copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua.`,
+          href: 'https://example.com',
+        },
+      },
+    },
   },
 };
 
@@ -99,6 +110,14 @@ export default {
         heading: textNullable('Card Heading (heading):', 'Explore AI use cases in all industries'),
         href: textNullable('Card Href (href):', 'https://example.com'),
       }),
+    },
+    propsSet: {
+      default: {
+        'dds-feature-card': {
+          heading: 'Explore AI use cases in all industries',
+          href: 'https://example.com',
+        },
+      },
     },
   },
 };
