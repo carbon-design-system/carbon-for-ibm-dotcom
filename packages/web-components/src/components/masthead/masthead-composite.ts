@@ -51,7 +51,6 @@ import './top-nav-menu';
 import './top-nav-menu-item';
 import './left-nav';
 import './left-nav-name';
-import './left-nav-item';
 import './left-nav-menu';
 import './left-nav-menu-section';
 import './left-nav-menu-item';
@@ -95,12 +94,13 @@ class DDSMastheadComposite extends LitElement {
   protected _renderL1({ selectedMenuItem }: { selectedMenuItem?: string } = {}) {
     if (!this.l1Data) return undefined;
     const { url, title } = this.l1Data;
+    const isSelected = !this._hasAutoSelectedItems && !selectedMenuItem;
     return html`
       <dds-masthead-l1 slot="masthead-l1">
         ${!title
           ? undefined
           : html`
-              <dds-masthead-l1-name title="${title}" aria-selected="${!selectedMenuItem}" url="${url}"></dds-masthead-l1-name>
+              <dds-masthead-l1-name title="${title}" aria-selected="${isSelected}" url="${url}"></dds-masthead-l1-name>
             `}
         <dds-top-nav-l1 selected-menu-item=${selectedMenuItem}
           >${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: true })}</dds-top-nav-l1
@@ -237,10 +237,11 @@ class DDSMastheadComposite extends LitElement {
    * @param isSubmenu determines whether menu section is a submenu section
    * @param showBackButton Determines whether to show back button
    * @param sectionTitle title of menu section
+   * @param sectionUrl section title url of menu section
    * @param sectionId id of menu section
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _renderLeftNavMenuSections(menuItems, heading, isSubmenu, showBackButton, sectionTitle, sectionId) {
+  protected _renderLeftNavMenuSections(menuItems, heading, isSubmenu, showBackButton, sectionTitle, sectionUrl, sectionId) {
     const items = menuItems.map(elem => {
       if (elem.menu) {
         return html`
@@ -279,6 +280,7 @@ class DDSMastheadComposite extends LitElement {
         section-id="${sectionId}"
         ?is-submenu=${ifNonNull(isSubmenu)}
         title=${ifNonNull(sectionTitle)}
+        titleUrl=${ifNonNull(sectionUrl)}
         show-back-button=${ifNonNull(showBackButton)}
       >
         ${items}
@@ -329,6 +331,7 @@ class DDSMastheadComposite extends LitElement {
             }
           }
         }
+        this._hasAutoSelectedItems = matchFound;
         return selectedItems;
       }
       return selectedItems;
@@ -397,8 +400,9 @@ class DDSMastheadComposite extends LitElement {
                 : selectedMenuItem === submenu.titleEnglish,
             });
           });
+
           if (level2Items.length !== 0) {
-            menu.push(this._renderLeftNavMenuSections(level2Items, null, true, true, item.title, `${i}, ${k}`));
+            menu.push(this._renderLeftNavMenuSections(level2Items, null, true, true, item.title, item.url, `${i}, ${k}`));
           }
 
           return level1Items.push({
@@ -411,9 +415,18 @@ class DDSMastheadComposite extends LitElement {
             menu: item.megapanelContent?.quickLinks?.links && item.megapanelContent?.quickLinks?.links.length !== 0,
           });
         });
+
         if (level1Items.length !== 0) {
           menu.push(
-            this._renderLeftNavMenuSections(level1Items, elem.menuSections[0]?.heading, true, true, elem.title, `${i}, -1`)
+            this._renderLeftNavMenuSections(
+              level1Items,
+              elem.menuSections[0]?.heading,
+              true,
+              true,
+              elem.title,
+              elem.url,
+              `${i}, -1`
+            )
           );
         }
       }
@@ -432,7 +445,7 @@ class DDSMastheadComposite extends LitElement {
     });
 
     return html`
-      ${this._renderLeftNavMenuSections(level0Items, null, false, null, null, '-1, -1')} ${menu}
+      ${this._renderLeftNavMenuSections(level0Items, null, false, null, null, null, '-1, -1')} ${menu}
     `;
   }
 
@@ -560,6 +573,13 @@ class DDSMastheadComposite extends LitElement {
 
     return !menu ? undefined : this._renderLeftNav(menu, selectedMenuItem, autoid, currentUrlPath);
   }
+
+  /**
+   * Whether or not a nav item has automatically been designated as "selected".
+   *
+   * @internal
+   */
+  _hasAutoSelectedItems = false;
 
   /**
    * The placeholder for `loadTranslation()` Redux action that will be mixed in.
@@ -781,6 +801,7 @@ class DDSMastheadComposite extends LitElement {
       menuBarAssistiveText,
       menuButtonAssistiveTextActive,
       menuButtonAssistiveTextInactive,
+      navLinks,
       language,
       openSearchDropdown,
       hasSearch,
@@ -840,17 +861,18 @@ class DDSMastheadComposite extends LitElement {
           : html`
               <dds-top-nav-name href="${ifNonNull(platformAltUrl)}">${platform}</dds-top-nav-name>
             `}
-        ${l1Data
-          ? undefined
-          : html`
-              <dds-top-nav
-                selected-menu-item=${selectedMenuItem}
-                menu-bar-label="${ifNonNull(menuBarAssistiveText)}"
-                ?hideNav="${activateSearch}"
-              >
-                ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: false })}
-              </dds-top-nav>
-            `}
+        ${(!l1Data &&
+          navLinks &&
+          html`
+            <dds-top-nav
+              selected-menu-item=${selectedMenuItem}
+              menu-bar-label="${ifNonNull(menuBarAssistiveText)}"
+              ?hideNav="${activateSearch}"
+            >
+              ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: false })}
+            </dds-top-nav>
+          `) ||
+          undefined}
         ${!hasSearch
           ? undefined
           : html`

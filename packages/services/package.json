@@ -62,10 +62,10 @@
     "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
     "@babel/plugin-syntax-import-meta": "^7.2.0",
     "@babel/plugin-transform-object-assign": "^7.2.0",
-    "@babel/plugin-transform-runtime": "7.16.4",
+    "@babel/plugin-transform-runtime": "7.16.7",
     "@babel/preset-env": "^7.4.3",
     "@rollup/plugin-node-resolve": "^8.4.0",
-    "all-contributors-cli": "^5.2.1",
+    "all-contributors-cli": "^6.0.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "23.6.0",
     "babel-loader": "^8.0.4",
@@ -97,7 +97,7 @@
   "sideEffects": false,
   "bundleSizeThreshold": 120000,
   "release": {
-    "branch": "master"
+    "branch": "main"
   },
   "gitHead": "37ae2adac6241513f4d1974505a207705e9e2784"
 }

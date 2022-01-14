@@ -29,7 +29,7 @@ yarn add @carbon/ibmdotcom-react
 
 1. These components require the use of [Webpack](https://webpack.js.org/) in
    your project. See our
-   [`webpack.config.js`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/react/.storybook/webpack.config.js)
+   [`webpack.config.js`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/react/.storybook/webpack.config.js)
    for an example configuration.
 
 2. Components do not import any of the styles themselves, use the scss or css
@@ -39,7 +39,7 @@ yarn add @carbon/ibmdotcom-react
 
 Styles are in a separate package entirely, as they are considered to be
 framework agnostic and can be used with any framework.
-[Learn how to include styles here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/README.md).
+[Learn how to include styles here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/styles/README.md).
 
 ## Usage
 
@@ -63,9 +63,9 @@ information in several ways:
 
 ## Documentation
 
-- See our documentation site [here](https://carbon-for-ibm-dotcom.mybluemix.net)
-  for full how-to docs and guidelines
-- [Contributing](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/.github/CONTRIBUTING.md):
+- See our documentation site [here](https://www.ibm.com/standards/carbon) for
+  full how-to docs and guidelines
+- [Contributing](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/.github/CONTRIBUTING.md):
   Guidelines for making contributions to this repo.
 
 ## 🙌 Contributing
@@ -73,12 +73,12 @@ information in several ways:
 We're always looking for contributors to help us fix bugs, build new features,
 or help us improve the project documentation. If you're interested, definitely
 check out our
-[Contributing Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/.github/CONTRIBUTING.md)
+[Contributing Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/.github/CONTRIBUTING.md)
 and our
-[Developer Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/developing.md)!
+[Developer Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/docs/developing.md)!
 👀
 
 ## 📝 License
 
 Licensed under the
-[Apache 2.0 License](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/LICENSE).
+[Apache 2.0 License](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/LICENSE).

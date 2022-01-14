@@ -69,6 +69,16 @@ export default {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.`,
       }),
     },
+    propsSet: {
+      default: {
+        ContentGroupPictograms: {
+          heading: 'Lorem ipsum dolor sit amet',
+          copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.`,
+        },
+      },
+    },
   },
 };
 

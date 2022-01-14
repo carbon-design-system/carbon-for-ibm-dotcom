@@ -107,6 +107,18 @@ Text.story = {
         };
       },
     },
+    propsSet: {
+      default: {
+        TextCTA: {
+          copy: 'Lorem ipsum dolor sit amet',
+          ctaType: 'local',
+          download: undefined,
+          customVideoTitle: null,
+          customVideoDescription: null,
+          href: 'https://www.example.com',
+        },
+      },
+    },
   },
 };
 
@@ -156,11 +168,24 @@ Button.story = {
         };
       },
     },
+    propsSet: {
+      default: {
+        ButtonCTA: {
+          copy: 'Lorem ipsum dolor sit amet',
+          ctaType: 'local',
+          download: undefined,
+          customVideoTitle: null,
+          customVideoDescription: null,
+          href: 'https://www.example.com',
+        },
+      },
+    },
   },
 };
 
 export const Card = ({ parameters }) => {
   const {
+    heading,
     copy,
     footerCopy,
     ctaType,
@@ -181,6 +206,7 @@ export const Card = ({ parameters }) => {
       href="${ifNonNull(href)}"
       ?no-poster=${noPoster}
     >
+      <dds-card-heading>${ctaType !== 'video' ? heading : ''}</dds-card-heading>
       ${ctaType !== 'video' ? copy : ''}
       <dds-card-cta-footer
         cta-type="${ifNonNull(ctaType)}"
@@ -206,8 +232,13 @@ Card.story = {
       CardCTA: ({ groupId }) => {
         const { ctaType } = Text.story.parameters.knobs.TextCTA({ groupId: groupId.replace(/Footer$/, '') });
         const noPoster = ctaType === CTA_TYPE.VIDEO ? boolean('No Video Poster', false, groupId) : null;
+        const heading =
+          ctaType === CTA_TYPE.VIDEO
+            ? null
+            : textNullable('Heading (heading):', 'Explore AI use cases in all industries', groupId);
         return {
           ...Text.story.parameters.knobs.TextCTA({ groupId }),
+          heading,
           footerCopy: textNullable('Footer copy text', '', groupId),
           footerHref: textNullable(
             footerKnobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
@@ -220,6 +251,18 @@ Card.story = {
               ? undefined
               : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId),
         };
+      },
+    },
+    propsSet: {
+      default: {
+        CardCTA: {
+          copy: 'Lorem ipsum dolor sit amet',
+          ctaType: 'local',
+          download: undefined,
+          customVideoTitle: null,
+          customVideoDescription: null,
+          href: 'https://www.example.com',
+        },
       },
     },
   },
@@ -312,6 +355,21 @@ CardLink.story = {
         };
       },
     },
+    propsSet: {
+      default: {
+        CardCTA: {
+          heading: 'Explore AI use cases in all industries',
+          copy: '',
+          download: null,
+          customVideoTitle: null,
+          customVideoDescription: null,
+          href: `https://www.example.com`,
+          footerCopy: '',
+          footerHref: `https://www.example.com`,
+          footerDownload: '',
+        },
+      },
+    },
   },
 };
 
@@ -367,6 +425,18 @@ Feature.story = {
           customVideoDescription,
           href: hrefsForType[ctaType ?? CTA_TYPE.REGULAR],
         };
+      },
+    },
+    propsSet: {
+      default: {
+        FeatureCTA: {
+          heading: 'Explore AI uses cases in all industries',
+          ctaType: 'local',
+          download: undefined,
+          customVideoTitle: null,
+          customVideoDescription: null,
+          href: 'https://www.example.com',
+        },
       },
     },
   },

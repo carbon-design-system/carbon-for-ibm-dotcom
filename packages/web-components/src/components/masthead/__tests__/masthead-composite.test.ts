@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -29,10 +29,19 @@ const template = (props?) => {
 };
 
 const navLinksFoo: MastheadLink[] = [
-  { title: 'item-title-foo', url: 'https://ibmdotcom-webcomponents.mybluemix.net/foo' },
+  { title: 'item-title-foo', url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/foo' },
   {
     title: 'menu-title-foo',
-    menuSections: [{ menuItems: [{ title: 'menu-item-title-bar', url: 'https://ibmdotcom-webcomponents.mybluemix.net/bar' }] }],
+    menuSections: [
+      {
+        menuItems: [
+          {
+            title: 'menu-item-title-bar',
+            url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/bar',
+          },
+        ],
+      },
+    ],
   },
 ];
 
@@ -90,7 +99,7 @@ describe('dds-masthead-composite', function() {
       render(template(), document.body);
       await Promise.resolve();
       const mastheadComposite = document.body.querySelector('dds-masthead-composite');
-      expect(mastheadComposite!.querySelector('dds-top-nav')!.children.length).toBe(0);
+      expect(mastheadComposite!.querySelector('dds-top-nav')).toBeNull();
       expect(mastheadComposite!.querySelector('dds-left-nav')!.children.length).toBe(0);
     });
 

@@ -51,7 +51,7 @@
 >
   <dds-top-nav-item
     data-autoid="dds--masthead__l0-nav--nav0"
-    href="https://ibmdotcom-webcomponents.mybluemix.net/foo"
+    href="https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/foo"
     title="item-title-foo"
   >
   </dds-top-nav-item>
@@ -62,7 +62,7 @@
   >
     <dds-top-nav-menu-item
       data-autoid="dds--masthead__l0-nav--subnav-col1-item0"
-      href="https://ibmdotcom-webcomponents.mybluemix.net/bar"
+      href="https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/bar"
       title="menu-item-title-bar"
     >
     </dds-top-nav-menu-item>
@@ -81,7 +81,7 @@
   <dds-left-nav-menu-section section-id="-1, -1">
     <dds-left-nav-menu-item
       data-autoid="dds--masthead__l0--sidenav--nav0"
-      href="https://ibmdotcom-webcomponents.mybluemix.net/foo"
+      href="https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/foo"
       title="item-title-foo"
     >
     </dds-left-nav-menu-item>
@@ -100,7 +100,7 @@
   >
     <dds-left-nav-menu-item
       data-autoid="dds--masthead__l0--sidenav--nav1-list0"
-      href="https://ibmdotcom-webcomponents.mybluemix.net/bar"
+      href="https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/bar"
       title="menu-item-title-bar"
     >
     </dds-left-nav-menu-item>

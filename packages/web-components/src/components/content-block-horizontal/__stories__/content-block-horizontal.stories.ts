@@ -8,6 +8,7 @@
  */
 
 import { html } from 'lit-element';
+import { boolean } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
@@ -34,9 +35,10 @@ const linkListItem = html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { heading } = parameters?.props?.ContentBlockHorizontal ?? {};
+  const { heading, border } = parameters?.props?.ContentBlockHorizontal ?? {};
+
   return html`
-    <dds-content-block-horizontal>
+    <dds-content-block-horizontal ?border=${border}>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       ${linkListItem} ${linkListItem} ${linkListItem}
     </dds-content-block-horizontal>
@@ -60,9 +62,18 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      ContentBlockHorizontal: () => ({
-        heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
+      ContentBlockHorizontal: ({ groupId }) => ({
+        heading: textNullable('Heading (heading):', 'Aliquam condimentum', groupId),
+        border: boolean('Bottom Border (border):', true, groupId),
       }),
+    },
+    propsSet: {
+      default: {
+        ContentBlockHorizontal: {
+          heading: 'Aliquam condimentum',
+          border: true,
+        },
+      },
     },
   },
 };

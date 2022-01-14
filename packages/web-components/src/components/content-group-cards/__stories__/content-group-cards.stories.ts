@@ -72,5 +72,13 @@ export default {
         copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       }),
     },
+    propsSet: {
+      default: {
+        ContentGroupCards: {
+          heading: 'Lorem ipsum dolor sit amet',
+          copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+        },
+      },
+    },
   },
 };

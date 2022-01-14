@@ -109,6 +109,13 @@ defaultWithAdjunctLegalLinks.story = {
         adjunctLinks: object('adjunct links (adjunctLinks):', mockAdjunctLinks, groupId),
       }),
     },
+    propsSet: {
+      default: {
+        FooterComposite: {
+          adjunctLinks: mockAdjunctLinks,
+        },
+      },
+    },
   },
 };
 
@@ -135,6 +142,14 @@ defaultLanguageOnly.story = {
         disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
         langList: object('language dropdown items (langList)', mockLangList, groupId),
       }),
+    },
+    propsSet: {
+      default: {
+        FooterComposite: {
+          disableLocaleButton: false,
+          langList: mockLangList,
+        },
+      },
     },
   },
 };
@@ -167,6 +182,13 @@ shortWithAdjunctLegalLinks.story = {
         adjunctLinks: object('adjunct links (adjunctLinks):', mockAdjunctLinks, groupId),
       }),
     },
+    propsSet: {
+      default: {
+        FooterComposite: {
+          adjunctLinks: mockAdjunctLinks,
+        },
+      },
+    },
   },
 };
 
@@ -191,6 +213,14 @@ shortLanguageOnly.story = {
         disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
         langList: object('language dropdown items (langList)', mockLangList, groupId),
       }),
+    },
+    propsSet: {
+      default: {
+        FooterComposite: {
+          disableLocaleButton: false,
+          langList: mockLangList,
+        },
+      },
     },
   },
 };
@@ -230,6 +260,14 @@ microLanguageOnly.story = {
         langList: object('language dropdown items (langList)', mockLangList, groupId),
       }),
     },
+    propsSet: {
+      default: {
+        FooterComposite: {
+          disableLocaleButton: false,
+          langList: mockLangList,
+        },
+      },
+    },
   },
 };
 
@@ -258,6 +296,18 @@ export default {
         },
       };
     })(),
+    propsSet: {
+      default: {
+        FooterComposite: {
+          disableLocaleButton: false,
+          langDisplay: 'United States - English',
+          legalLinks: mockLegalLinks,
+          adjunctLinks: mockLegalLinks,
+          links: mockLinks,
+          localeList: mockLocaleList,
+        },
+      },
+    },
   },
   excludeStories: ['base'],
 };

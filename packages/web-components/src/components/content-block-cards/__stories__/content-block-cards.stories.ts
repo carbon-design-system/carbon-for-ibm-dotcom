@@ -143,5 +143,15 @@ export default {
         href: textNullable('Href (href):', 'https://example.com'),
       }),
     },
+    propsSet: {
+      default: {
+        ContentBlockCards: {
+          heading: 'Aliquam condimentum interdum',
+          ctaCopy: 'Lorem ipsum dolor sit ametttt',
+          ctaType: 'local',
+          href: 'https://example.com',
+        },
+      },
+    },
   },
 };

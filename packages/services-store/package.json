@@ -14,7 +14,7 @@
   "files": [
     "es"
   ],
-  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store",
+  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/services-store",
   "bugs": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues",
   "keywords": [
     "ibm",
@@ -41,7 +41,7 @@
   "dependencies": {
     "@carbon/ibmdotcom-services": "1.29.1",
     "@carbon/ibmdotcom-utilities": "1.29.1",
-    "carbon-components": "10.34.0",
+    "carbon-components": "10.50.0",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.0",
     "redux-thunk": "^2.3.0",
