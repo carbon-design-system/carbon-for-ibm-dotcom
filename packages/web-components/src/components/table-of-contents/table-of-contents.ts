@@ -490,10 +490,9 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
    * @param records The resize records.
    */
   private _observeResizeMobileContainer = records => {
-    records.forEach(entry => {
-      const { height } = entry.contentRect;
-      this._hasMobileContainerVisible = height > 0;
-    });
+    const entry = records[records.length - 1];
+    const { height } = entry.contentRect;
+    this._hasMobileContainerVisible = height > 0;
   };
 
   /**
