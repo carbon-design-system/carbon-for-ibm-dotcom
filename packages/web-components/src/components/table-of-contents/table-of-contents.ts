@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -314,13 +314,11 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
 
   /**
    * Handles `slotchange` event on `<slot name="heading">`.
-   *
-   * @param event The event.
    */
-  private _handleSlotChangeHeading(event: Event) {
-    this._hasHeading = (event.target as HTMLSlotElement)
-      .assignedNodes()
-      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+  private _handleSlotChangeHeading() {
+    this._hasHeading = Array.from(this.querySelectorAll('[slot="heading"]')).some(
+      node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+    );
   }
 
   /**
@@ -492,9 +490,10 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
    * @param records The resize records.
    */
   private _observeResizeMobileContainer = records => {
-    const entry = records[records.length - 1];
-    const { height } = entry.contentRect;
-    this._hasMobileContainerVisible = height > 0;
+    records.forEach(entry => {
+      const { height } = entry.contentRect;
+      this._hasMobileContainerVisible = height > 0;
+    });
   };
 
   /**
