@@ -13,8 +13,6 @@ jobs:
   react:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -82,12 +80,12 @@ jobs:
       - uses: act10ns/slack@v1
         with:
           status: ${{ job.status }}
+          env:
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         if: failure()
   web-components:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -155,4 +153,6 @@ jobs:
       - uses: act10ns/slack@v1
         with:
           status: ${{ job.status }}
+          env:
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         if: failure()
