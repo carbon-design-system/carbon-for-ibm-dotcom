@@ -384,6 +384,8 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
     left: 0;
     width: 100%;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+    max-height: 80vh;
+    overflow-y: auto;
   }
 
   .react-autosuggest__suggestions-list {
