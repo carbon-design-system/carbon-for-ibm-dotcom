@@ -249,7 +249,7 @@ class DDSMastheadComposite extends LitElement {
     showBackButton = false,
     sectionTitle = '',
     sectionUrl = '',
-    sectionId,
+    sectionId = '',
   }) {
     const items = menuItems.map(elem => {
       if (elem.menu) {

@@ -173,7 +173,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     showBackButton = false,
     sectionTitle = '',
     sectionUrl = '',
-    sectionId,
+    sectionId = '',
   }) {
     const {
       userStatus,
