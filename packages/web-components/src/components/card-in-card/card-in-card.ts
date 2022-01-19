@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -48,7 +48,7 @@ class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
     if (linkNode) {
       linkNode.classList.add(`${prefix}--card-in-card`);
     }
-    this.onclick = () =>
+    this.querySelector('dds-card-in-card-image').onclick = () =>
       this.querySelector('dds-card-cta-footer')
         ?.shadowRoot?.querySelector(`a`)
         ?.click();
