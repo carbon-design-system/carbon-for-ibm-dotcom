@@ -314,7 +314,6 @@
     margin-top: $carbon--spacing-05;
 
     @include carbon--breakpoint(md) {
-      @include carbon--make-col-ready;
       @include carbon--make-col(3, 3);
 
       margin-top: 0;
