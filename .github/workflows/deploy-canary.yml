@@ -13,8 +13,6 @@ jobs:
   react:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -36,7 +34,6 @@ jobs:
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PROFILE_HOST: ${{ secrets.PROFILE_HOST }}
-          SLACK_WEBHOOK_URL: ''
       - name: Building @carbon/ibmdotcom-react storybook
         run: yarn build-storybook
         working-directory: packages/react
@@ -53,7 +50,6 @@ jobs:
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PROFILE_HOST: ${{ secrets.PROFILE_HOST }}
-          SLACK_WEBHOOK_URL: ''
           DDS_FLAGS_ALL: true
       - name: Building @carbon/ibmdotcom-react (experimental) storybook
         run: yarn build-storybook:experimental
@@ -70,7 +66,6 @@ jobs:
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PROFILE_HOST: ${{ secrets.PROFILE_HOST }}
-          SLACK_WEBHOOK_URL: ''
       - name: Building @carbon/ibmdotcom-react (RTL) storybook
         run: yarn build-storybook:rtl
         working-directory: packages/react
@@ -102,14 +97,14 @@ jobs:
           git commit -m "chore(deploy): deploy React canary to GitHub Pages"
           git push origin gh-pages
       - uses: act10ns/slack@v1
-#        if: failure()
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
           status: ${{ job.status }}
   web-components:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -131,7 +126,6 @@ jobs:
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PROFILE_HOST: ${{ secrets.PROFILE_HOST }}
-          SLACK_WEBHOOK_URL: ''
       - name: Building @carbon/ibmdotcom-web-components storybook
         run: yarn build-storybook
         working-directory: packages/web-components
@@ -148,7 +142,6 @@ jobs:
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PROFILE_HOST: ${{ secrets.PROFILE_HOST }}
-          SLACK_WEBHOOK_URL: ''
       - name: Building @carbon/ibmdotcom-web-components RTL storybook
         run: yarn build-storybook:rtl
         working-directory: packages/web-components
@@ -164,7 +157,6 @@ jobs:
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PROFILE_HOST: ${{ secrets.PROFILE_HOST }}
-          SLACK_WEBHOOK_URL: ''
       - name: Building @carbon/ibmdotcom-web-components experimental storybook
         run: yarn build-storybook:experimental
         working-directory: packages/web-components
@@ -180,7 +172,6 @@ jobs:
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PROFILE_HOST: ${{ secrets.PROFILE_HOST }}
-          SLACK_WEBHOOK_URL: ''
           DDS_FLAGS_ALL: true
       - name: Building @carbon/ibmdotcom-web-components react wrapper storybook
         run: yarn build-storybook:react
@@ -217,13 +208,13 @@ jobs:
           git push origin gh-pages
       - uses: act10ns/slack@v1
         if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
           status: ${{ job.status }}
   services:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -245,7 +236,6 @@ jobs:
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PROFILE_HOST: ${{ secrets.PROFILE_HOST }}
-          SLACK_WEBHOOK_URL: ''
       - name: Building @carbon/ibmdotcom-services JSDocs
         run: yarn jsdoc
         working-directory: packages/services
@@ -270,13 +260,13 @@ jobs:
           git push origin gh-pages
       - uses: act10ns/slack@v1
         if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
           status: ${{ job.status }}
   utilities:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -297,7 +287,6 @@ jobs:
         env:
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
-          SLACK_WEBHOOK_URL: ''
       - name: Building @carbon/ibmdotcom-utilities JSDocs
         run: yarn jsdoc
         working-directory: packages/utilities
@@ -322,5 +311,7 @@ jobs:
           git push origin gh-pages
       - uses: act10ns/slack@v1
         if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
           status: ${{ job.status }}
