@@ -15,6 +15,7 @@
   .#{$prefix}--dotcom-shell {
     display: flex;
     flex-direction: column;
+    padding-top: $carbon--layout-04;
     width: 100%;
 
     .#{$prefix}--tableofcontents__sidebar {
