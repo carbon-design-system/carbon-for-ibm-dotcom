@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.30.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.29.1...@carbon/ibmdotcom-utilities@1.30.0-rc.0) (2022-01-18)
+
+
+### Bug Fixes
+
+* **card:** ensure copy can render markdown ([#7871](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7871)) ([7b35d2d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7b35d2d)), closes [#7481](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7481)
+* **deps:** update dependency marked to v2 [security] ([#7980](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7980)) ([fa7a33c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/fa7a33c))
+
+
+
+
+
 ## [1.29.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.29.1-rc.0...@carbon/ibmdotcom-utilities@1.29.1) (2021-12-13)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities
