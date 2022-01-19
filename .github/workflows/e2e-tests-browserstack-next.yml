@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   react:
-    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
+    if: startsWith('refs/heads/release', github.ref) && github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -33,7 +33,7 @@ jobs:
           status: ${{ job.status }}
         if: failure()
   web-components:
-    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
+    if: startsWith('refs/heads/release', github.ref) && github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
