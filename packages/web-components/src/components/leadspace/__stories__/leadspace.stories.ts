@@ -315,7 +315,7 @@ export const MediumWithVideo = ({ parameters }) => {
 };
 
 MediumWithVideo.story = {
-  name: 'Medium with Video',
+  name: 'Medium with video',
 };
 
 export const Short = ({ parameters }) => {
@@ -412,6 +412,10 @@ export const ShortWithVideo = ({ parameters }) => {
       </dds-background-media>
     </dds-leadspace>
   `;
+};
+
+ShortWithVideo.story = {
+  name: 'Short with video',
 };
 
 export const Centered = ({ parameters }) => {
