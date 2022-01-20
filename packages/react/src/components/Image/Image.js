@@ -47,6 +47,7 @@ const Image = ({
   longDescription,
   icon: Icon,
   border,
+  refImage,
 }) => {
   if (!defaultSrc || !alt) {
     return null;
@@ -61,7 +62,7 @@ const Image = ({
     <div
       className={`${prefix}--image`}
       data-autoid={`${stablePrefix}--image__longdescription`}>
-      <picture>
+      <picture ref={refImage}>
         {sortedImages.map((imgSrc, key) => {
           return (
             <source
@@ -133,6 +134,11 @@ Image.propTypes = {
    * Option to apply a solid border around the image
    */
   border: PropTypes.bool,
+
+  /**
+   * Callback ref to get proper thumbnail sizing on Kaltura videos
+   */
+  refImage: PropTypes.func,
 };
 
 export default Image;
