@@ -402,16 +402,6 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
   }
 
   /**
-   * @param ms The number of milliseconds.
-   * @returns A promise that is resolves after the given milliseconds.
-   */
-  private static _delay(ms: number = 0) {
-    return new Promise(resolve => {
-      setTimeout(resolve, ms);
-    });
-  }
-
-  /**
    * A selector selecting buttons that should close this modal.
    */
   static get selectorCloseButton() {
