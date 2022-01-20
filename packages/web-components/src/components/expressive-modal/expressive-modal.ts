@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -42,9 +42,14 @@ const FOLLOWING = Node.DOCUMENT_POSITION_FOLLOWING | Node.DOCUMENT_POSITION_CONT
  *
  * @param elems The elements.
  * @param reverse `true` to go through the list in reverse order.
+ * @param fallback element to focus on if none
  * @returns `true` if one of the attempts is successful, `false` otherwise.
  */
-function tryFocusElems(elems: NodeListOf<HTMLElement>, reverse: boolean = false) {
+function tryFocusElems(
+  elems: NodeListOf<HTMLElement> | HTMLElement[],
+  reverse: boolean = false,
+  fallback: HTMLElement | null = null
+) {
   if (!reverse) {
     for (let i = 0; i < elems.length; ++i) {
       const elem = elems[i];
@@ -62,6 +67,7 @@ function tryFocusElems(elems: NodeListOf<HTMLElement>, reverse: boolean = false)
       }
     }
   }
+  fallback?.focus();
   return false;
 }
 
@@ -142,30 +148,37 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
   @HostListener('shadowRoot:focusout')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleBlur = async ({ target, relatedTarget }: FocusEvent) => {
-    const oldContains = target !== this && this.contains(target as Node);
-    const currentContains = relatedTarget !== this && this.contains(relatedTarget as Node);
+    const { open, _startSentinelNode: startSentinelNode, _endSentinelNode: endSentinelNode } = this;
+    const { selectorTabbable: selectorTabbableForModal } = this.constructor as typeof DDSExpressiveModal;
+
+    const oldContains = target !== this && (this.contains(target as Node) || this.shadowRoot?.contains(target as Node));
+    const currentContains =
+      relatedTarget !== this && (this.contains(relatedTarget as Node) || this.shadowRoot?.contains(relatedTarget as Node));
+    const sentinalIsFocused = relatedTarget === startSentinelNode || relatedTarget === endSentinelNode;
 
     // Performs focus wrapping if _all_ of the following is met:
     // * This modal is open
     // * The viewport still has focus
-    // * Modal body used to have focus but no longer has focus
-    const { open, _startSentinelNode: startSentinelNode, _endSentinelNode: endSentinelNode } = this;
-    const { selectorTabbable: selectorTabbableForModal } = this.constructor as typeof DDSExpressiveModal;
-    if (open && relatedTarget && oldContains && !currentContains) {
+    // * relatedTarget is not descendant of Modal or it's shadowroot OR is sentinal node
+
+    const focusShouldWrap = open && relatedTarget && oldContains && (!currentContains || sentinalIsFocused);
+
+    if (focusShouldWrap) {
       const comparisonResult = (target as Node).compareDocumentPosition(relatedTarget as Node);
+      const focusableElements = [
+        ...Array.from(this.querySelectorAll(selectorTabbableForModal) as NodeListOf<HTMLElement>),
+        ...Array.from((this.shadowRoot?.querySelectorAll(selectorTabbableForModal) as NodeListOf<HTMLElement>) || []),
+      ].filter(el => el !== startSentinelNode && el !== endSentinelNode);
+
+      // Focus has has moved backwards out of the modal.
       // eslint-disable-next-line no-bitwise
-      if (relatedTarget === startSentinelNode || comparisonResult & PRECEDING) {
-        await (this.constructor as typeof DDSExpressiveModal)._delay();
-        if (!tryFocusElems(this.querySelectorAll(selectorTabbableForModal), true) && relatedTarget !== this) {
-          this.focus();
-        }
+      if (relatedTarget === startSentinelNode || (comparisonResult & PRECEDING && relatedTarget !== endSentinelNode)) {
+        tryFocusElems(focusableElements, true, this);
       }
+      // Focus has moved forwards out of the modal.
       // eslint-disable-next-line no-bitwise
       else if (relatedTarget === endSentinelNode || comparisonResult & FOLLOWING) {
-        await (this.constructor as typeof DDSExpressiveModal)._delay();
-        if (!tryFocusElems(this.querySelectorAll(selectorTabbableForModal))) {
-          this.focus();
-        }
+        tryFocusElems(focusableElements, false, this);
       }
     }
   };
