@@ -154,13 +154,6 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
           navLink!.setAttribute('hasTooltip', label);
         }
       }
-      // if (navText!.scrollHeight > 70) {
-      //   const label = (tab as DDSTab).getAttribute('label');
-      //   if (label) {
-      //     navLink!.setAttribute('aria-label', label);
-      //     navLink!.setAttribute('hasTooltip', label);
-      //   }
-      // }
       return tab;
     });
   }
