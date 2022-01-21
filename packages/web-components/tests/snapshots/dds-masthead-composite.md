@@ -78,7 +78,11 @@
   data-autoid="dds--masthead__l0-sidenav"
   role="navigation"
 >
-  <dds-left-nav-menu-section section-id="-1, -1">
+  <dds-left-nav-menu-section
+    section-id="-1, -1"
+    title=""
+    titleurl=""
+  >
     <dds-left-nav-menu-item
       data-autoid="dds--masthead__l0--sidenav--nav0"
       href="https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/foo"
@@ -95,8 +99,9 @@
   <dds-left-nav-menu-section
     is-submenu=""
     section-id="1, -1"
-    show-back-button="true"
+    show-back-button=""
     title="menu-title-foo"
+    titleurl=""
   >
     <dds-left-nav-menu-item
       data-autoid="dds--masthead__l0--sidenav--nav1-list0"
