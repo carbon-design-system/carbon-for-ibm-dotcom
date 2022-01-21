@@ -42,12 +42,13 @@ class SearchTypeaheadAPI {
    *   return response;
    * }
    */
-  static async getResults(query) {
+  static async getResults(query, appid = '') {
     const lang = await LocaleAPI.getLang();
     const urlQuery = [
       `lang=${lang.lc}${lang.cc ? `&cc=${lang.cc}` : ''}`,
       `query=${encodeURIComponent(query)}`,
-    ].join('&');
+      `${appid ? `appid=${appid}` : ''}`
+    ].filter(item => item).join('&');
     const url = `${_endpoint}?${urlQuery}`;
     return await axios
       .get(url, {

@@ -12,8 +12,27 @@ import '../index';
 import readme from './README.stories.mdx';
 import styles from '../../carousel/__stories__/carousel.stories.scss';
 
+const scope = [
+  {
+    name: 'All',
+    value: 'all',
+  },
+  {
+    name: 'Analyst',
+    value: 'analyst',
+  },
+  {
+    name: 'PartnerWorld',
+    value: 'pw',
+  },
+  {
+    name: 'Developer',
+    value: 'dw',
+  },
+];
+
 export const Default = () => html`
-  <dds-search-with-typeahead> </dds-search-with-typeahead>
+  <dds-search-with-typeahead active .scopeParameters="${scope}"> </dds-search-with-typeahead>
 `;
 
 export const Alternate = () => html`
