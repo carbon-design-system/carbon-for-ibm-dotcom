@@ -18,6 +18,7 @@ import {
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import { VIDEO_PLAYER_CONTENT_STATE, VIDEO_PLAYER_PLAYING_MODE } from './defs';
 import '../image/image';
 import styles from './video-player.scss';
@@ -85,6 +86,16 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
       : html`
           <slot></slot>
         `;
+  }
+
+  /**
+   * Updates video thumbnail url to match video width
+   */
+  private _updateThumbnailUrl() {
+    this.thumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
+      mediaId: this.videoId,
+      width: String(this.offsetWidth),
+    });
   }
 
   /**
@@ -217,6 +228,10 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
       if (caption) {
         this.setAttribute('aria-label', caption);
       }
+    }
+
+    if (this.offsetWidth > 0) {
+      this._updateThumbnailUrl();
     }
   }
 

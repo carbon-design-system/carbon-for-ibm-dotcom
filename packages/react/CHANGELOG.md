@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.30.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.29.1...@carbon/ibmdotcom-react@1.30.0-rc.0) (2022-01-18)
+
+
+### Bug Fixes
+
+* **a11y-checker:** fix file-loader for karma a11y checker in React ([#7868](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7868)) ([5284925](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5284925))
+* **browserstack:** add missing dependency ws ([#8006](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8006)) ([875ad0f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/875ad0f))
+* **ContentBlockHorizontal:** add border-bottom option & knob ([#7832](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7832)) ([af04dfd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/af04dfd)), closes [#7640](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7640)
+* **cta-card:** add knob and docs to allow poster to be turned off ([#7784](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7784)) ([7d93d9e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7d93d9e)), closes [#7065](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7065)
+* **deps:** update dependency classnames to v2.3.1 ([#7909](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7909)) ([7bf9f70](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7bf9f70))
+* **leadspace:** fix gradient rotation for leadspace centered ([#7777](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7777)) ([b4f1200](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b4f1200)), closes [#7573](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7573)
+* **localemodal:** disable region button when no countries present ([#7840](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7840)) ([927c32e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/927c32e)), closes [#7831](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7831)
+* **storybook-image:** realligned web component and react images ([#7828](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7828)) ([07f4604](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/07f4604))
+
+
+### Features
+
+* **karma-accessibility-checker:** add to web components ([#7997](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7997)) ([5ac82c6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5ac82c6)), closes [#7599](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7599)
+* **masthead:** hide and show upon scroll on mobile ([#7982](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7982)) ([630172b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/630172b)), closes [#6046](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6046)
+
+
+
+
+
 ## [1.29.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.29.1-rc.0...@carbon/ibmdotcom-react@1.29.1) (2021-12-13)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react
