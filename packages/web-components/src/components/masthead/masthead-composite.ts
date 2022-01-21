@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -695,6 +695,12 @@ class DDSMastheadComposite extends LitElement {
   menuButtonAssistiveTextInactive!: string;
 
   /**
+   * The parameters passed to the search-with-typeahead for search scope
+   */
+  @property()
+  scopeParameters;
+
+  /**
    * The English title of the selected nav item.
    */
   @property({ attribute: 'selected-menu-item' })
@@ -812,6 +818,7 @@ class DDSMastheadComposite extends LitElement {
       language,
       openSearchDropdown,
       hasSearch,
+      scopeParameters,
       searchPlaceholder,
       selectedMenuItem,
       unauthenticatedProfileItems,
@@ -892,6 +899,7 @@ class DDSMastheadComposite extends LitElement {
                 placeholder="${ifNonNull(searchPlaceholder)}"
                 .currentSearchResults="${ifNonNull(currentSearchResults)}"
                 ?custom-typeahead-api="${ifNonNull(customTypeaheadAPI)}"
+                .scopeParameters="${ifNonNull(scopeParameters)}"
               ></dds-search-with-typeahead>
             `}
         <dds-masthead-global-bar ?has-search-active=${activateSearch}>

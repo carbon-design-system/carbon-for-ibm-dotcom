@@ -214,6 +214,49 @@ The API results must match the following structure:
 ```
 Note that only the first Array element is necessary to render the basic search suggestions, the following JSON objects are optional Grouped sections.
 
+## Scoped search
+The Masthead search supports Scoped search to retrieve suggestions from different IBM pages and products.
+
+First, prepare the desired categories to use when scoping the search. In this example, we will be creating an array with
+four categories, which must follow the structure below:
+
+
+```javascript
+const scopeParameters = [
+  {
+    name: 'All',
+    value: 'all',
+  },
+  {
+    name: 'Analyst',
+    value: 'analyst',
+  },
+  {
+    name: 'PartnerWorld',
+    value: 'pw',
+  },
+  {
+    name: 'Developer',
+    value: 'dw',
+  },
+];
+```
+#### Note
+A list of the available categories can be found [here](https://github.ibm.com/web-platform/stingray/blob/32a2f45e58ec5bd86e199e4c2a51a1ff179b5c7c/lib/appsearch/getEngineName.js#L22).
+
+This array will be passed into the `scopeParameters` property. If using `lit-html` to render your page, this can be added as
+using `.scopeParameters` (note the `.`), in order for the array to be processed properly in the component.
+
+```html
+<dds-masthead-composite .scopeParameters="true"></dds-masthead-composite>
+```
+
+In the event you are unable to get it working, you can try using JavaScript to dynamically insert it to the component.
+
+```javascript
+document.querySelector('dds-masthead-composite').scopeParameters = scopeParameters;
+```
+
 ## Props
 
 ### `<dds-masthead-container>`/`<dds-masthead-composite>`
