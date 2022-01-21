@@ -26,6 +26,7 @@ jobs:
         run: yarn install --offline
       - name: Build project
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
+
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
         with:
@@ -42,6 +43,7 @@ jobs:
           rm packages/react/.env
           mkdir -p builds
           mv packages/react/storybook-static builds/react
+
       - name: Set env vars (experimental)
         uses: ./.github/actions/set-dotenv
         with:
@@ -58,6 +60,7 @@ jobs:
         run: |
           rm packages/react/.env
           mv packages/react/storybook-static-experimental builds/react-experimental
+
       - name: Set env vars (RTL)
         uses: ./.github/actions/set-dotenv
         with:
@@ -73,6 +76,7 @@ jobs:
         run: |
           rm packages/react/.env
           mv packages/react/storybook-static-rtl builds/react-rtl
+
       - name: Deploying @carbon/ibmdotcom-react storybook to Github Pages
         run: |
           git config --global user.email ${{ secrets.BOT_EMAIL }}
@@ -118,6 +122,7 @@ jobs:
         run: yarn install --offline
       - name: Build project
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
+
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
         with:
@@ -134,7 +139,8 @@ jobs:
           rm packages/web-components/.env
           mkdir -p builds
           mv packages/web-components/storybook-static builds/web-components
-      - name: Set env vars
+
+      - name: Set env vars (RTL)
         uses: ./.github/actions/set-dotenv
         with:
           env-file: packages/web-components/.env
@@ -149,6 +155,7 @@ jobs:
         run: |
           rm packages/web-components/.env
           mv packages/web-components/storybook-static-rtl builds/web-components-rtl
+
       - name: Set env vars (experimental)
         uses: ./.github/actions/set-dotenv
         with:
@@ -164,6 +171,7 @@ jobs:
         run: |
           rm packages/web-components/.env
           mv packages/web-components/storybook-static-experimental builds/web-components-experimental
+
       - name: Set env vars (react wrapper)
         uses: ./.github/actions/set-dotenv
         with:
@@ -180,6 +188,7 @@ jobs:
         run: |
           rm packages/web-components/.env
           mv packages/web-components/storybook-static-react builds/web-components-react
+
       - name: Deploying @carbon/ibmdotcom-web-components storybook to Github Pages
         run: |
           git config --global user.email ${{ secrets.BOT_EMAIL }}
