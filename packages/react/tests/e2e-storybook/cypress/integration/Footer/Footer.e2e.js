@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -266,7 +266,7 @@ describe('Footer | Short (desktop)', () => {
 
   it('should load footer legal navigation with clickable links', () => {
     cy.get('[data-autoid="dds--footer-legal-nav"]')
-      .find('li a')
+      .find('.bx--legal-nav__list-item .bx--footer__link')
       .each($link => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
@@ -573,7 +573,7 @@ describe('Footer | Short (mobile)', () => {
 
   it('should load footer legal navigation with clickable links', () => {
     cy.get('[data-autoid="dds--footer-legal-nav"]')
-      .find('li a')
+      .find('.bx--legal-nav__list-item .bx--footer__link')
       .each($link => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
