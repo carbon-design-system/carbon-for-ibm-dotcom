@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -91,7 +91,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
     const { href, videoName: customVideoName, videoDescription } = event.detail;
     (event.target as VideoCTAMixinImpl).videoThumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
       mediaId: href,
-      width: '320',
+      width: (event?.target as HTMLElement)?.offsetWidth,
     });
     const videoData = await this._loadVideoData?.(href);
     if (videoData) {
