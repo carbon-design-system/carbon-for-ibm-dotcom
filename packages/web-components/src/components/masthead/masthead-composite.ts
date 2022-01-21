@@ -788,6 +788,7 @@ class DDSMastheadComposite extends LitElement {
 
     // This is a temp fix until we figure out why we can't set styles to the :host(dds-masthead-container) in stylesheets
     this.style.zIndex = '900';
+    this.style.paddingTop = '48px';
   }
 
   updated(changedProperties) {
