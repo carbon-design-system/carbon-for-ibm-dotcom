@@ -71,7 +71,7 @@
     "jest-junit": "^6.4.0",
     "lerna": "^3.20.2",
     "lint-staged": "^10.2.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^3.0.0",
     "prettier": "^1.17.0",
     "react": "16.9.0",
     "rimraf": "^2.6.3",
