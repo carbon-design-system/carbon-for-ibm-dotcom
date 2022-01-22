@@ -18,6 +18,7 @@ import { GRADIENT_DIRECTION, MOBILE_POSITION } from './defs';
 import DDSImage from '../image/image';
 import DDSVideoPlayer from '../video-player/video-player';
 import DDSVideoPlayerContainer from '../video-player/video-player-container';
+import DDSLeadSpace from '../leadspace/leadspace';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -48,6 +49,8 @@ class DDSBackgroundMedia extends DDSImage {
       [`${prefix}--background-media--container`]: true,
       [`${prefix}--background-media--mobile-position`]: true,
       [`${prefix}--background-media--mobile-position--${this.mobilePosition}`]: this.mobilePosition,
+      [`${prefix}--background-media--image`]: this.videoPlayer === null,
+      [`${prefix}--background-media--video`]: this.videoPlayer !== null,
     });
   }
 
@@ -68,6 +71,12 @@ class DDSBackgroundMedia extends DDSImage {
    */
   @property({ attribute: 'gradient-direction', reflect: true })
   gradientDirection = GRADIENT_DIRECTION.LEFT_TO_RIGHT;
+
+  /**
+   * Option to hide gradient. Automatically set to yes if parent is dds-leadspace
+   */
+  @property()
+  gradientHidden: boolean = false;
 
   /**
    * Mobile Position (bottom (default) | top)
@@ -134,6 +143,12 @@ class DDSBackgroundMedia extends DDSImage {
     `;
   }
 
+  renderGradient() {
+    return html`
+      <div class="${this._getGradientClass()}"></div>
+    `;
+  }
+
   _getMediaOpacity() {
     if (this.backgroundOpacity <= 100 && this.backgroundOpacity >= 0) {
       return `opacity:${this.backgroundOpacity / 100}`;
@@ -148,12 +163,16 @@ class DDSBackgroundMedia extends DDSImage {
     if (this.mobilePosition === MOBILE_POSITION.TOP) {
       this.parentElement?.shadowRoot?.prepend(this);
     }
+
+    if (this.parentElement instanceof DDSLeadSpace) {
+      this.gradientHidden = true;
+    }
   }
 
   render() {
     return html`
       <div class="${this._getMobilePositionClass()}">
-        <div class="${this._getGradientClass()}"></div>
+        ${this.gradientHidden ? '' : this.renderGradient()}
         <div class="${prefix}--background-media--item" style="${this._getMediaOpacity()}">
           ${this.containsOnlyImages ? super.render() : ''}
           <slot @slotchange="${this._handleBackgroundMedia}"></slot>
