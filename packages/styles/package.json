@@ -63,7 +63,7 @@
     "browserslist-config-carbon": "^10.4.0",
     "cache-loader": "^4.1.0",
     "carbon-components-react": "7.51.0",
-    "css-loader": "^5.2.0",
+    "css-loader": "^6.0.0",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
