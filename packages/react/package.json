@@ -135,7 +135,7 @@
     "css-loader": "^5.2.0",
     "cypress": "^9.0.0",
     "cypress-wait-until": "^1.7.2",
-    "doctoc": "^1.4.0",
+    "doctoc": "^2.0.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "fast-sass-loader": "2.0.1",
