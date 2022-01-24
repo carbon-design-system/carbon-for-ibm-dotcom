@@ -130,6 +130,7 @@ export const WithCustomTypeahead = ({ parameters }) => {
             .navLinks="${navLinks}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             custom-profile-login="${customProfileLogin}"
+            custom-typeahead-api="${true}"
           ></dds-masthead-composite>
         `
       : html`
