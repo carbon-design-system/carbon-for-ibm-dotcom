@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -241,11 +241,11 @@
   :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: $spacing-07;
     grid-auto-flow: dense;
 
     @include carbon--breakpoint(md) {
       grid-template-columns: repeat(8, 1fr);
+      gap: $spacing-07;
     }
     @include carbon--breakpoint(lg) {
       grid-template-columns: repeat(12, 1fr);
@@ -311,12 +311,7 @@
   }
 
   :host(#{$dds-prefix}-content-item-horizontal) ::slotted([slot='thumbnail']) {
-    @include carbon--make-col-ready;
-    @include carbon--make-col(3, 4);
-
     margin-top: $carbon--spacing-05;
-    padding-left: 0;
-    padding-right: rem(8px);
 
     @include carbon--breakpoint(md) {
       @include carbon--make-col(3, 3);

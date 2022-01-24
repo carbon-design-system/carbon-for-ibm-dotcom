@@ -34,14 +34,14 @@
     "visual-snapshot": "yarn build-storybook && percy-storybook --widths=320,1280"
   },
   "dependencies": {
-    "@carbon/grid": "10.39.0",
-    "@carbon/icons-react": "10.44.0",
+    "@carbon/grid": "10.40.0",
+    "@carbon/icons-react": "10.45.0",
     "@carbon/import-once": "10.6.0",
-    "@carbon/layout": "10.34.0",
-    "@carbon/motion": "10.26.0",
+    "@carbon/layout": "10.35.0",
+    "@carbon/motion": "10.27.0",
     "@carbon/telemetry": "0.0.0-alpha.6",
     "@carbon/themes": "10.48.0",
-    "@carbon/type": "10.39.0",
+    "@carbon/type": "10.40.0",
     "carbon-components": "10.50.0"
   },
   "devDependencies": {
@@ -62,9 +62,9 @@
     "babel-loader": "^8.0.6",
     "browserslist-config-carbon": "^10.4.0",
     "cache-loader": "^4.1.0",
-    "carbon-components-react": "7.50.0",
+    "carbon-components-react": "7.51.0",
     "css-loader": "^5.2.0",
-    "del": "^3.0.0",
+    "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-clean-css": "^4.2.0",
