@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -157,14 +157,24 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
   /**
    * Renders the left nav menus sections
    *
-   * @param menuItems menu items
-   * @param heading heading of menu section
-   * @param isSubmenu determines whether menu section is a submenu section
-   * @param showBackButton Determines whether to show back button
-   * @param sectionTitle title of menu section
-   * @param sectionId id of menu section
+   * @param object heading heading of menu section
+   * @param object.menuItems menu items
+   * @param object.heading heading heading of menu section
+   * @param object.isSubmenu determines whether menu section is a submenu section
+   * @param object.showBackButton Determines whether to show back button
+   * @param object.sectionTitle title of menu section
+   * @param object.sectionUrl section title url of menu section
+   * @param object.sectionId id of menu section
    */
-  protected _renderLeftNavMenuSections(menuItems, heading, isSubmenu, showBackButton, sectionTitle, sectionId) {
+  protected _renderLeftNavMenuSections({
+    menuItems,
+    heading = '',
+    isSubmenu = false,
+    showBackButton = false,
+    sectionTitle = '',
+    sectionUrl = '',
+    sectionId = '',
+  }) {
     const {
       userStatus,
       authenticatedProfileItems,
@@ -235,7 +245,8 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         section-id="${sectionId}"
         ?is-submenu=${ifNonNull(isSubmenu)}
         title=${ifNonNull(sectionTitle)}
-        show-back-button=${ifNonNull(showBackButton)}
+        titleUrl=${ifNonNull(sectionUrl)}
+        ?show-back-button=${ifNonNull(showBackButton)}
       >
         ${items}
       </dds-left-nav-menu-section>
