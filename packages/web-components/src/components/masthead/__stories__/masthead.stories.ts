@@ -103,7 +103,7 @@ export const Default = ({ parameters }) => {
 };
 
 export const WithCustomTypeahead = ({ parameters }) => {
-  const { customProfileLogin, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch } =
+  const { customProfileLogin, navLinks, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch } =
     parameters?.props?.MastheadComposite ?? {};
 
   document.documentElement.addEventListener('dds-search-with-typeahead-input', async e => {
@@ -122,6 +122,7 @@ export const WithCustomTypeahead = ({ parameters }) => {
       user-status="${ifNonNull(userStatus)}"
       searchPlaceholder="${ifNonNull(searchPlaceholder)}"
       .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+      .navLinks="${navLinks}"
       ?has-profile="${hasProfile}"
       ?has-search="${hasSearch}"
       .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
