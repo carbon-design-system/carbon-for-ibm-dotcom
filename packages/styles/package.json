@@ -34,7 +34,7 @@
     "visual-snapshot": "yarn build-storybook && percy-storybook --widths=320,1280"
   },
   "dependencies": {
-    "@carbon/grid": "10.39.0",
+    "@carbon/grid": "10.40.0",
     "@carbon/icons-react": "10.45.0",
     "@carbon/import-once": "10.6.0",
     "@carbon/layout": "10.35.0",
