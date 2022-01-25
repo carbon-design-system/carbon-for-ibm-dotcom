@@ -199,6 +199,12 @@ WithThumbnail.story = {
       ContentItemHorizontal: () => ({
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
         copy: bodyCopy,
+        ctaType1: select('CTA 1 type (cta-type)', types, CTA_TYPE.LOCAL),
+        ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
+        href1: textNullable('CTA 1 href (cta-href):', 'https://www.ibm.com'),
+        ctaType2: select('CTA 2 type (cta-type)', types, CTA_TYPE.EXTERNAL),
+        ctaCopy2: textNullable('CTA 2 copy (cta-copy):', 'Microservices and containers'),
+        href2: textNullable('CTA 2 href (cta-href):', 'https://www.ibm.com'),
       }),
     },
     propsSet: {

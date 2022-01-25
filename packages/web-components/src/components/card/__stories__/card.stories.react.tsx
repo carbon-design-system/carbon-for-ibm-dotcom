@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -159,7 +159,7 @@ Static.story = {
   parameters: {
     ...readme.parameters,
     knobs: {
-      Card: ({ groupId }) => {
+      StaticCard: ({ groupId }) => {
         const image = boolean('Add image:', false, groupId);
         const eyebrow = textNullable('Eyebrow:', 'SPSS Statistics', groupId);
         const heading = textNullable('Heading:', 'Free trial', groupId);
