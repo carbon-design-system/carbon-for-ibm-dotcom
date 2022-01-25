@@ -234,17 +234,24 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
     }
   }
 
+  private _renderSentinel = (side: String) => {
+    return html`
+      <button id="${side}-sentinel" type="button" class="${prefix}--visually-hidden"></button>
+    `;
+  };
+
   render() {
+    const { _renderSentinel: renderSentinel } = this;
     return html`
       <div class="${prefix}--side-nav__wrapper">
-        <a id="start-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
+        ${renderSentinel('start')}
         <div class="${prefix}--side-nav__platform-name">
           <slot name="platform-id"></slot>
         </div>
         <div class="${prefix}--side-nav__menu-sections">
           <slot></slot>
         </div>
-        <a id="end-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
+        ${renderSentinel('end')}
       </div>
     `;
   }
