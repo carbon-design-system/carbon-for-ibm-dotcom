@@ -9,7 +9,6 @@
   "integrationFolder": "tests/e2e-storybook/cypress/integration",
   "supportFile": "tests/e2e-storybook/cypress/support/index.js",
   "pluginsFile": "tests/e2e-storybook/cypress/plugins/index.js",
-  "nodeVersion": "system",
   "testFiles": "**/*.e2e.js",
   "pageLoadTimeout": 90000,
   "defaultCommandTimeout": 90000

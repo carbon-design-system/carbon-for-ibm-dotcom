@@ -2,7 +2,6 @@
   "baseUrl": "https://carbon-design-system.github.io/carbon-for-ibm-dotcom/next/react",
   "browser": "chrome",
   "headless": true,
-  "nodeVersion": "system",
   "includeShadowDom": true,
   "testFiles": "**/*.e2e.js",
   "pageLoadTimeout": 80000,
