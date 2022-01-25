@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.30.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.29.1...@carbon/ibmdotcom-services@1.30.0-rc.0) (2022-01-18)
+
+
+### Features
+
+* **KalturaAPI:** added ibm namespace to event-listeners ([#7789](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7789)) ([fe57305](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/fe57305)), closes [#7488](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7488) [#7652](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7652) [#7652](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7652)
+
+
+
+
+
 ## [1.29.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.29.1-rc.0...@carbon/ibmdotcom-services@1.29.1) (2021-12-13)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
