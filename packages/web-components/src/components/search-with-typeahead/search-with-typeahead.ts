@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2021
+ * Copyright IBM Corp. 2019, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -333,7 +333,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
     }
 
     // accomodate search results box's width with the scope dropdown
-    if (gridBreakpoint < document.body.clientWidth && this._searchSuggestions) {
+    if (gridBreakpoint < document.body.clientWidth && this._searchSuggestions && this.scopeParameters) {
       const scopeBarWidth = (this.shadowRoot?.querySelector('dds-scoped-search-dropdown') as HTMLElement).offsetWidth;
       (this._searchSuggestions?.parentElement as HTMLElement)?.setAttribute(
         'style',
@@ -694,7 +694,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
     }
 
     if (changedProperties.has('scopeValue')) {
-      if (gridBreakpoint < document.body.clientWidth) {
+      if (gridBreakpoint < document.body.clientWidth && this._searchSuggestions && this.scopeParameters) {
         const scopeBarWidth = (this.shadowRoot?.querySelector('dds-scoped-search-dropdown') as HTMLElement).offsetWidth;
         (this._searchSuggestions?.parentElement as HTMLElement)?.setAttribute(
           'style',

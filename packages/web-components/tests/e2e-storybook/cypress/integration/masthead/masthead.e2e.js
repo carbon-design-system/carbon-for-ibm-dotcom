@@ -30,6 +30,14 @@ const _pathPlatform = '/iframe.html?id=components-masthead--with-platform';
 const _pathCustomSearch = '/iframe.html?id=components-masthead--with-custom-typeahead';
 
 /**
+ * Sets the correct path (Masthead with scoped search)
+ *
+ * @type {string}
+ * @private
+ */
+const _pathScopedSearch = '/iframe.html?id=components-masthead--with-scoped-search';
+
+/**
  * Sets the correct path (Masthead with L1)
  *
  * @type {string}
@@ -371,7 +379,6 @@ describe('dds-masthead | search open onload (desktop)', () => {
 
 describe('dds-masthead | custom search (desktop)', () => {
   beforeEach(() => {
-    cy.mockMastheadFooterData();
     cy.visit(`/${_pathCustomSearch}`);
     cy.viewport(1280, 780);
   });
@@ -414,6 +421,121 @@ describe('dds-masthead | custom search (desktop)', () => {
       expect($item).to.have.attr('text');
     });
 
+    cy.takeSnapshots();
+  });
+});
+
+describe('dds-masthead | scoped search (desktop)', () => {
+  beforeEach(() => {
+    cy.visit(`/${_pathScopedSearch}`);
+    cy.viewport(1280, 780);
+  });
+
+  it('should open the search bar on click', () => {
+    cy.get('dds-masthead > dds-search-with-typeahead')
+      .shadow()
+      .find('.bx--header__search--search')
+      .click();
+
+    cy.takeSnapshots();
+  });
+
+  it('should retrieve regular results with "all" scope', () => {
+    cy.get('dds-masthead > dds-search-with-typeahead')
+      .shadow()
+      .find('.bx--header__search--search')
+      .click();
+
+    cy.get('dds-scoped-search-dropdown').should('have.value', 'all');
+
+    cy.get('dds-masthead > dds-search-with-typeahead')
+      .shadow()
+      .find('input[type="text"]')
+      .type('cloud', { force: true });
+
+    cy.get('dds-search-with-typeahead-item').should('have.length', 10);
+
+    cy.takeSnapshots();
+  });
+
+  it('should retrieve less results with "pw" scope', () => {
+    cy.get('dds-masthead > dds-search-with-typeahead')
+      .shadow()
+      .find('.bx--header__search--search')
+      .click();
+
+    cy.get('dds-scoped-search-dropdown')
+      .shadow()
+      .find('.bx--dropdown')
+      .click();
+
+    cy.get('dds-scoped-search-dropdown')
+      .find(`bx-dropdown-item[value="pw"]`)
+      .click();
+
+    cy.get('dds-scoped-search-dropdown').should('have.value', 'pw');
+
+    cy.get('dds-masthead > dds-search-with-typeahead')
+      .shadow()
+      .find('input[type="text"]')
+      .type('cloud', { force: true });
+
+    cy.get('dds-search-with-typeahead-item').should('have.length', 5);
+    cy.takeSnapshots();
+  });
+});
+
+describe('dds-masthead | scoped search (mobile)', () => {
+  beforeEach(() => {
+    cy.visit(`/${_pathScopedSearch}`);
+    cy.viewport(320, 780);
+  });
+
+  it('should open the search bar on click', () => {
+    cy.get('dds-masthead > dds-search-with-typeahead')
+      .shadow()
+      .find('.bx--header__search--search')
+      .click();
+
+    cy.takeSnapshots();
+  });
+
+  it('should retrieve regular results with "all" scope', () => {
+    cy.get('dds-masthead > dds-search-with-typeahead')
+      .shadow()
+      .find('.bx--header__search--search')
+      .click();
+
+    cy.get('dds-scoped-search-dropdown-mobile').should('have.value', 'all');
+
+    cy.get('dds-masthead > dds-search-with-typeahead')
+      .shadow()
+      .find('input[type="text"]')
+      .type('cloud', { force: true });
+
+    cy.get('dds-search-with-typeahead-item').should('have.length', 10);
+
+    cy.takeSnapshots();
+  });
+
+  it('should retrieve less results with "pw" scope', () => {
+    cy.get('dds-masthead > dds-search-with-typeahead')
+      .shadow()
+      .find('.bx--header__search--search')
+      .click();
+
+    cy.get('dds-scoped-search-dropdown-mobile')
+      .shadow()
+      .find('.bx--select-input')
+      .select('pw');
+    cy.get('dds-scoped-search-dropdown-mobile').should('have.value', 'pw');
+
+    cy.get('dds-masthead > dds-search-with-typeahead')
+      .shadow()
+      .find('input[type="text"]')
+      .type('cloud', { force: true });
+
+    cy.get('dds-search-with-typeahead-item').should('have.length', 5);
     cy.takeSnapshots();
   });
 });
