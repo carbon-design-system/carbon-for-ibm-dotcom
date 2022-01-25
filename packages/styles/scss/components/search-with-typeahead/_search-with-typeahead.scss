@@ -384,6 +384,8 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
     left: 0;
     width: 100%;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+    max-height: 80vh;
+    overflow-y: auto;
   }
 
   .react-autosuggest__suggestions-list {
@@ -463,7 +465,26 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
 :host(#{$dds-prefix}-search-with-typeahead-item) {
   @extend .react-autosuggest__suggestion;
 
-  font-size: $spacing-05;
+  &[groupTitle] {
+    @include carbon--type-style('body-long-01', true);
+
+    color: $text-05;
+
+    &:active {
+      outline: none;
+    }
+
+    &:hover {
+      cursor: auto;
+      background: none;
+    }
+  }
+
+  &[lastBeforeGroup] {
+    .#{$prefix}--container-class {
+      border-bottom-color: $ui-04;
+    }
+  }
 }
 
 @include exports('search-with-typeahead') {
