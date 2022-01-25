@@ -47,6 +47,21 @@ const urlObject = {
   },
 };
 
+async function customTypeaheadApiFunction(searchVal) {
+  return fetch(`https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`)
+    .then(response => response.json())
+    .then(data => {
+      const searchResults = [
+        data.hints,
+        {
+          title: 'Product pages',
+          items: data.products,
+        },
+      ];
+      return searchResults;
+    });
+}
+
 export const Default = ({ parameters }) => {
   const { customProfileLogin, platform, hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
     parameters?.props?.MastheadComposite ?? {};
@@ -85,6 +100,58 @@ export const Default = ({ parameters }) => {
           ></dds-masthead-container>
         `}
   `;
+};
+
+export const WithCustomTypeahead = ({ parameters }) => {
+  const { customProfileLogin, navLinks, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch } =
+    parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
+
+  document.documentElement.addEventListener('dds-search-with-typeahead-input', async e => {
+    const results = await customTypeaheadApiFunction((e as CustomEvent).detail.value);
+    document.dispatchEvent(new CustomEvent('dds-custom-typeahead-api-results', { detail: results }));
+  });
+
+  return html`
+    <style>
+      ${styles}
+    </style>
+    ${useMock
+      ? html`
+          <dds-masthead-composite
+            platform="${ifNonNull(platform)}"
+            .platformUrl="${ifNonNull(platformData.url)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            user-status="${ifNonNull(userStatus)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            .navLinks="${navLinks}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+            custom-profile-login="${customProfileLogin}"
+            custom-typeahead-api="${true}"
+          ></dds-masthead-composite>
+        `
+      : html`
+          <dds-masthead-container
+            platform="${ifNonNull(platform)}"
+            .platformUrl="${ifNonNull(platformData.url)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            user-status="${ifNonNull(userStatus)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            .navLinks="${navLinks}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            custom-profile-login="${customProfileLogin}"
+            custom-typeahead-api="${true}"
+          ></dds-masthead-container>
+        `}
+  `;
+};
+
+WithCustomTypeahead.story = {
+  name: 'With custom typeahead',
 };
 
 export const searchOpenOnload = ({ parameters }) => {
