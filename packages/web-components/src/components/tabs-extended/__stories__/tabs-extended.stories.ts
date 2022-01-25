@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -50,7 +50,7 @@ export const Default = ({ parameters }) => {
           </dds-card-link-cta>
         </dds-content-block-media-content>
       </dds-tab>
-      <dds-tab label="Second tab">
+      <dds-tab label="Second tab - min amount for tooltip ">
         <dds-content-block-media-content>
           <dds-content-item>
             <dds-content-item-heading>Content for second tab goes here.</dds-content-item-heading>
