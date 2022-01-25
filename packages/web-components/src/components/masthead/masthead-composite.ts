@@ -683,6 +683,12 @@ class DDSMastheadComposite extends LitElement {
   customProfileLogin?: string;
 
   /**
+   * The boolean to use a custom search API.
+   */
+  @property({ attribute: 'custom-typeahead-api', type: Boolean })
+  customTypeaheadAPI = false;
+
+  /**
    * The `aria-label` attribute for the top-level container.
    */
   @property({ attribute: 'masthead-assistive-text' })
@@ -811,6 +817,7 @@ class DDSMastheadComposite extends LitElement {
       activateSearch,
       authenticatedProfileItems,
       currentSearchResults,
+      customTypeaheadAPI,
       customProfileLogin,
       platform,
       platformUrl,
@@ -903,6 +910,7 @@ class DDSMastheadComposite extends LitElement {
                 ?searchOpenOnload="${activateSearch}"
                 placeholder="${ifNonNull(searchPlaceholder)}"
                 .currentSearchResults="${ifNonNull(currentSearchResults)}"
+                ?custom-typeahead-api="${ifNonNull(customTypeaheadAPI)}"
               ></dds-search-with-typeahead>
             `}
         <dds-masthead-global-bar ?has-search-active=${activateSearch}>
