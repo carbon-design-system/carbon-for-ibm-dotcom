@@ -175,7 +175,7 @@ describe('dds-feature-cta | (desktop)', () => {
   });
 
   it('Should load and be fully clickable', _tests.checkBlockLink);
-  it('Should load image on left and content on right', _tests.checkHorizontalLayout);
+  xit('Should load image on left and content on right', _tests.checkHorizontalLayout);
   it('Should have customizable heading from knobs', _tests.checkHeadingKnob);
   it('Should have customizable CTA type from knobs', _tests.checkTypeKnob);
 });
