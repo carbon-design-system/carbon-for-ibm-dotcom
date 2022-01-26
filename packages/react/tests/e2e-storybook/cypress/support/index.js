@@ -22,12 +22,12 @@ beforeEach(() => {
   );
 
   // Mock the user status
-  cy.intercept('https://login.ibm.com/v1/mgmt/idaas/user/status/', {
+  cy.intercept('**/v1/mgmt/idaas/user/status/', {
     fixture: 'status.json',
   });
 
   // Mock search typeahead API
-  cy.intercept('https://www-api.ibm.com/search/typeahead/v1?*', {
+  cy.intercept('**/search/typeahead/v1?*', {
     fixture: 'typeahead.json',
   });
 
