@@ -725,15 +725,6 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
     }
   }
 
-  updated(changedProperties) {
-    if (changedProperties.has('searchResults')) {
-      const titleElements = this.shadowRoot?.querySelectorAll('dds-search-with-typeahead-item[groupTitle]');
-      titleElements?.forEach(e => {
-        e.previousElementSibling?.setAttribute('lastBeforeGroup', '');
-      });
-    }
-  }
-
   render() {
     const {
       active,
