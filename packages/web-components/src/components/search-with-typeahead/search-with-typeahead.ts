@@ -52,6 +52,13 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
     return response.map(res => res[0]);
   }
 
+  /**
+   * The formatter for the placeholder text on the search box.
+   * Should be changed upon the locale the UI is rendered with.
+   */
+  @property({ attribute: false })
+  placeholderFormatter = ({ scopeValue }) => `Search in ${scopeValue}`;
+
   @property({ attribute: 'leadspace-search', type: Boolean })
   leadspaceSearch = false;
 
@@ -710,7 +717,9 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
         });
       }
 
-      const newPlaceholder = `Search in ${this.scopeParameters.filter(e => e.value === `${this.scopeValue}`)[0].name}`;
+      const newPlaceholder = this.placeholderFormatter({
+        scopeValue: this.scopeParameters.filter(e => e.value === `${this.scopeValue}`)[0].name,
+      });
       this.placeholder = newPlaceholder;
       this.performSearchButtonAssistiveText = newPlaceholder;
     }
