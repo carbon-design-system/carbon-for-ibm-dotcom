@@ -25,14 +25,14 @@ describe('Storybook Docs | default', () => {
         const url = docsPath.split('?')[1].replace('path=/story', 'path=/docs');
 
         cy.visit(`?${url}`);
-
-        cy.get('iframe').then($iframe => {
-          const $body = $iframe.contents().find('body');
-
-          cy.wrap($body)
-            .find('code[id="error-stack"]')
-            .children();
-        });
+        cy.get('iframe')
+          .should(iframe => expect(iframe.contents().find('body').to.exist))
+          .then(iframe => cy.wrap(iframe.contents().find('body')))
+          .within({}, $iframe => {
+            cy.get('code[id="error-stack"]')
+              .children()
+              .should('have.length', 0);
+          });
       }
     });
   });
