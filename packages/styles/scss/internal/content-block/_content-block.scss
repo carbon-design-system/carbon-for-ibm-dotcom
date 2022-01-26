@@ -18,6 +18,7 @@
   :host(#{$dds-prefix}-content-block-horizontal),
   :host(#{$dds-prefix}-content-group-horizontal),
   :host(#{$dds-prefix}-leadspace-block-content),
+  :host(#{$dds-prefix}-leadspace-with-search-content),
   :host(#{$dds-prefix}-content-block-segmented),
   :host(#{$dds-prefix}-content-block-headlines),
   .#{$prefix}--content-block {
