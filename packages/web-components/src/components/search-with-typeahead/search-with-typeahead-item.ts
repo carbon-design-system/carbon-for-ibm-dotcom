@@ -76,7 +76,6 @@ class DDSSearchWithTypeaheadItem extends LitElement {
         const highlightedResult = html`
           <span class="${ddsPrefix}-ce--search-with-typeahead-item__highlighted">${searchQueryString}</span>
         `;
-
         const content = text.split(new RegExp(searchQueryString, 'i')).reduce((acc, item) => {
           acc.push(item.replace(/^\s/, '\xa0').replace(/\s$/, '\xa0'));
           acc.push(highlightedResult);
