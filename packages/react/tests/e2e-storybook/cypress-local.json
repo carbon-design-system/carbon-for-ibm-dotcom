@@ -11,6 +11,10 @@
   "pluginsFile": "tests/e2e-storybook/cypress/plugins/index.js",
   "includeShadowDom": true,
   "testFiles": "**/*.e2e.js",
-  "pageLoadTimeout": 60000,
-  "defaultCommandTimeout": 60000
+  "pageLoadTimeout": 90000,
+  "defaultCommandTimeout": 90000,
+  "retries": {
+    "runMode": 2,
+    "openMode": 0
+  }
 }
