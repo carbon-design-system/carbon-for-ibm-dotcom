@@ -205,6 +205,7 @@
     @include carbon--type-style('expressive-heading-03', true);
 
     margin-bottom: $carbon--spacing-07;
+    color: $text-01;
   }
 
   .#{$prefix}--content-block__cta {

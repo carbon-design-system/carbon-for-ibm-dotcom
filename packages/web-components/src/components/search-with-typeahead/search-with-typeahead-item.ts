@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,6 +27,12 @@ class DDSSearchWithTypeaheadItem extends LitElement {
    * The the search result to be shown.
    */
   private _content?: TemplateResult | string | (TemplateResult | string)[];
+
+  /**
+   * The optional href to redirect the user to.
+   */
+  @property()
+  href = '';
 
   /**
    * `true` if this dropdown item should be highlighted.
@@ -55,14 +61,22 @@ class DDSSearchWithTypeaheadItem extends LitElement {
     if (changedProperties.has('text')) {
       const { text } = this;
       const parent = (this.getRootNode() as any).host;
-      const { searchQueryString } = parent ?? {};
+      let { searchQueryString } = parent ?? {};
+      searchQueryString = searchQueryString.toLowerCase();
+
       if (!searchQueryString) {
         this._content = text;
       } else {
+        const lowerCaseText = text.toLowerCase();
+        if (lowerCaseText.includes(searchQueryString)) {
+          const startingIndex = lowerCaseText.indexOf(searchQueryString);
+          searchQueryString = text.substring(startingIndex, startingIndex + searchQueryString.length);
+        }
+
         const highlightedResult = html`
           <span class="${ddsPrefix}-ce--search-with-typeahead-item__highlighted">${searchQueryString}</span>
         `;
-        const content = text.split(searchQueryString).reduce((acc, item) => {
+        const content = text.split(new RegExp(searchQueryString, 'i')).reduce((acc, item) => {
           acc.push(item.replace(/^\s/, '\xa0').replace(/\s$/, '\xa0'));
           acc.push(highlightedResult);
           return acc;

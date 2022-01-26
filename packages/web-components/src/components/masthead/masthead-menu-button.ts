@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -105,32 +105,23 @@ class DDSMastheadMenuButton extends HostListenerMixin(BXHeaderMenuButton) {
     }
   }
 
+  private _renderSentinel = (side: String) => {
+    return html`
+      <button id="${side}-sentinel" type="button" class="${prefix}--visually-hidden"></button>
+    `;
+  };
+
   render() {
-    const { active, _hasSearchActive: hasSearchActive } = this;
+    const { active, _hasSearchActive: hasSearchActive, _renderSentinel: renderSentinel } = this;
     const classes = classMap({
       [`${ddsPrefix}-ce--header__menu-trigger__container`]: true,
       [`${ddsPrefix}-ce--header__menu-trigger__container--has-search-active`]: hasSearchActive,
     });
-    const sentinelTabIndex = !active ? -1 : 0;
+    const startSentinel = active ? renderSentinel('start') : '';
+    const endSentinel = active ? renderSentinel('end') : '';
     return html`
       <div class="${classes}">
-        <a
-          id="start-sentinel"
-          tabindex="${sentinelTabIndex}"
-          class="${prefix}--visually-hidden"
-          href="javascript:void 0"
-          role="navigation"
-        >
-        </a>
-        ${super.render()}
-        <a
-          id="end-sentinel"
-          tabindex="${sentinelTabIndex}"
-          class="${prefix}--visually-hidden"
-          href="javascript:void 0"
-          role="navigation"
-        >
-        </a>
+        ${startSentinel}${super.render()}${endSentinel}
       </div>
     `;
   }

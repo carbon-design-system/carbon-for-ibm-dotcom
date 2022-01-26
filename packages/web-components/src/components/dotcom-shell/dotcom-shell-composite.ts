@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -167,7 +167,11 @@ class DDSDotcomShellComposite extends LitElement {
     this._masthead!.style.transition = 'none';
     const l1Element = this._masthead!.querySelector(`${ddsPrefix}-masthead-l1`) as HTMLElement;
 
-    if (this._tableOfContentsInnerBar && !this._localeModal?.hasAttribute('open')) {
+    if (this._localeModal?.hasAttribute('open')) {
+      return;
+    }
+
+    if (this._tableOfContentsInnerBar) {
       const tocBoundingClient = this._tableOfContentsInnerBar!.getBoundingClientRect();
 
       if (window.innerWidth < gridBreakpoint || this._tableOfContentsLayout === 'horizontal' || l1Element) {
@@ -217,8 +221,7 @@ class DDSDotcomShellComposite extends LitElement {
     if (
       this._leadspaceSearchBar &&
       this._leadspaceWithSearch?.hasAttribute('scroll-behavior') &&
-      !this._tableOfContentsInnerBar &&
-      !this._localeModal?.hasAttribute('open')
+      !this._tableOfContentsInnerBar
     ) {
       const searchContainer = this._leadspaceWithSearch?.shadowRoot!.querySelector(`.${prefix}--search-container`) as HTMLElement;
 
