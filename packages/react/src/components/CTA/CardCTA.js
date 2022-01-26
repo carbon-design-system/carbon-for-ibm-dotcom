@@ -4,12 +4,12 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import React, { useCallback, useState } from 'react';
 import { CardLink } from '../CardLink';
 import CTALogic from './CTALogic';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
 import PlayIcon from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import PropTypes from 'prop-types';
-import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { prefix } = settings;
@@ -28,6 +28,14 @@ const CardCTA = ({
   // eslint-disable-next-line no-unused-vars
   const { style, ...cardProps } = otherProps;
 
+  const [thumbnailSize, setThumbnailSize] = useState(3);
+
+  const refImage = useCallback(node => {
+    if (node?.parentElement) {
+      setThumbnailSize(node.parentElement.offsetWidth);
+    }
+  }, []);
+
   if (type === 'video') {
     let image;
     if (!disableImage) {
@@ -37,11 +45,11 @@ const CardCTA = ({
         : {
             defaultSrc: KalturaPlayerAPI.getThumbnailUrl({
               mediaId: cardProps.media?.src,
-              width: '320',
+              width: thumbnailSize,
             }),
             alt: videoTitle[0].title,
           };
-      image = { ...image, icon: PlayIcon };
+      image = { ...image, icon: PlayIcon, refImage };
     }
 
     return (

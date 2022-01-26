@@ -232,16 +232,25 @@ class DDSMastheadComposite extends LitElement {
   /**
    * Renders the left nav menus sections
    *
-   * @param menuItems menu items
-   * @param heading heading of menu section
-   * @param isSubmenu determines whether menu section is a submenu section
-   * @param showBackButton Determines whether to show back button
-   * @param sectionTitle title of menu section
-   * @param sectionUrl section title url of menu section
-   * @param sectionId id of menu section
+   * @param object heading heading of menu section
+   * @param object.menuItems menu items
+   * @param object.heading heading heading of menu section
+   * @param object.isSubmenu determines whether menu section is a submenu section
+   * @param object.showBackButton Determines whether to show back button
+   * @param object.sectionTitle title of menu section
+   * @param object.sectionUrl section title url of menu section
+   * @param object.sectionId id of menu section
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _renderLeftNavMenuSections(menuItems, heading, isSubmenu, showBackButton, sectionTitle, sectionUrl, sectionId) {
+  protected _renderLeftNavMenuSections({
+    menuItems,
+    heading = '',
+    isSubmenu = false,
+    showBackButton = false,
+    sectionTitle = '',
+    sectionUrl = '',
+    sectionId = '',
+  }) {
     const items = menuItems.map(elem => {
       if (elem.menu) {
         return html`
@@ -281,7 +290,7 @@ class DDSMastheadComposite extends LitElement {
         ?is-submenu=${ifNonNull(isSubmenu)}
         title=${ifNonNull(sectionTitle)}
         titleUrl=${ifNonNull(sectionUrl)}
-        show-back-button=${ifNonNull(showBackButton)}
+        ?show-back-button=${ifNonNull(showBackButton)}
       >
         ${items}
       </dds-left-nav-menu-section>
@@ -402,7 +411,16 @@ class DDSMastheadComposite extends LitElement {
           });
 
           if (level2Items.length !== 0) {
-            menu.push(this._renderLeftNavMenuSections(level2Items, null, true, true, item.title, item.url, `${i}, ${k}`));
+            menu.push(
+              this._renderLeftNavMenuSections({
+                menuItems: level2Items,
+                isSubmenu: true,
+                showBackButton: true,
+                sectionTitle: item.title,
+                sectionUrl: item.url,
+                sectionId: `${i}, ${k}`,
+              })
+            );
           }
 
           return level1Items.push({
@@ -418,15 +436,15 @@ class DDSMastheadComposite extends LitElement {
 
         if (level1Items.length !== 0) {
           menu.push(
-            this._renderLeftNavMenuSections(
-              level1Items,
-              elem.menuSections[0]?.heading,
-              true,
-              true,
-              elem.title,
-              elem.url,
-              `${i}, -1`
-            )
+            this._renderLeftNavMenuSections({
+              menuItems: level1Items,
+              heading: elem.menuSections[0]?.heading,
+              isSubmenu: true,
+              showBackButton: true,
+              sectionTitle: elem.title,
+              sectionUrl: elem.url,
+              sectionId: `${i}, -1`,
+            })
           );
         }
       }
@@ -445,7 +463,7 @@ class DDSMastheadComposite extends LitElement {
     });
 
     return html`
-      ${this._renderLeftNavMenuSections(level0Items, null, false, null, null, null, '-1, -1')} ${menu}
+      ${this._renderLeftNavMenuSections({ menuItems: level0Items, sectionId: '-1, -1' })} ${menu}
     `;
   }
 
@@ -782,6 +800,7 @@ class DDSMastheadComposite extends LitElement {
 
     // This is a temp fix until we figure out why we can't set styles to the :host(dds-masthead-container) in stylesheets
     this.style.zIndex = '900';
+    this.style.paddingTop = '48px';
   }
 
   updated(changedProperties) {

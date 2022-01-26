@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.30.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.29.1...@carbon/ibmdotcom-styles@1.30.0-rc.0) (2022-01-18)
+
+
+### Bug Fixes
+
+* **content-block:** paragraph styles ([#7942](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7942)) ([c246ac3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c246ac3)), closes [#7746](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7746)
+* **content-block-card-static:** address 2px border regression ([#7878](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7878)) ([34acc4a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/34acc4a)), closes [/github.com/carbon-design-system/carbon-for-ibm-dotcom/pull/7795/commits/1e7f1e6215f03772536f3af09429258e13462208#diff-05259170ca5a3fe372a8f04a548cf24a691bca2813e921579fc348ecfe3267b2R265](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/pull/7795/commits/1e7f1e6215f03772536f3af09429258e13462208/issues/diff-05259170ca5a3fe372a8f04a548cf24a691bca2813e921579fc348ecfe3267b2R265)
+* **feature-card:** make entire card clickable on mobile viewports ([#7853](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7853)) ([4df5f68](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4df5f68)), closes [#7806](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7806)
+* **leadspace:** allow background color to extend to full viewport width ([#7845](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7845)) ([846fccc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/846fccc)), closes [#7790](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7790)
+* **leadspace:** fix gradient rotation for leadspace centered ([#7777](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7777)) ([b4f1200](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b4f1200)), closes [#7573](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7573)
+* **leadspace:** fix scrollable component ([#8035](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8035)) ([1f09bbb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1f09bbb)), closes [#8034](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8034)
+* **masthead:** align react and wc mobile menu styles ([#7925](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7925)) ([d7bc1d0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d7bc1d0)), closes [#7116](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7116)
+
+
+### Features
+
+* **card-pictogram:** add design updates to improve mobile accessibility & hover interactions ([#7795](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7795)) ([694a227](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/694a227))
+
+
+
+
+
 ## [1.29.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.29.1-rc.0...@carbon/ibmdotcom-styles@1.29.1) (2021-12-13)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

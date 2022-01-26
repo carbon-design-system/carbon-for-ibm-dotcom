@@ -50,11 +50,18 @@ import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-contain
 #### Setting Platform URL
 
 The `platformUrl` property accepts a single URL as string or an object with a specific URL for each locale.
+This property has to be set via javascript.
 
 ###### Setting a single platform URL:
 
 ```html
-<dds-masthead-container platform="Lorem Ipsum" .platformUrl="${`https://www.example.com`}"></dds-masthead-container>
+<dds-masthead-container platform="Lorem Ipsum" id="masthead-container"></dds-masthead-container>
+```
+
+```javascript
+const singleUrl = "https://www.example.com";
+
+document.getElementById("masthead-container").platformUrl = singleUrl;
 ```
 
 ###### Setting multiple platform URLs with an object:
@@ -73,10 +80,12 @@ const urlObject = {
     url: 'https://www.example.com/es-mx/sample',
   },
 };
+
+document.getElementById("masthead-container").platformUrl = urlObject;
 ```
 
 ```html
-<dds-masthead-container platform="Lorem Ipsum" .platformUrl=${urlObject}></dds-masthead-container>
+<dds-masthead-container platform="Lorem Ipsum" id="masthead-container"></dds-masthead-container>
 ```
 
 #### Custom Navigation
@@ -130,7 +139,7 @@ Using a search API other than the default provided from IBM Search is supported.
 First, add the `custom-typeahead-api` attribute into the masthead and set it to `true`.
 
 ```html
-<dds-masthead-composite custom-typeahead-api="true"></dds-masthead-composite>
+<dds-masthead-container custom-typeahead-api="true"></dds-masthead-container>
 ```
 
 As an example, we will be using the IBM Docs API to fetch the data, retrieving an array of result suggestions.
