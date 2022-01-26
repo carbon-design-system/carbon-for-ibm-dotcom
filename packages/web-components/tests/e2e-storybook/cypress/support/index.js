@@ -29,7 +29,11 @@ beforeEach(() => {
   });
 
   // Mock the user status
-  cy.intercept('**/v1/mgmt/idaas/user/status/', {
+  cy.intercept('https://login.ibm.com/v1/mgmt/idaas/user/status/\n', {
+    fixture: 'status.json',
+  });
+
+  cy.intercept('https://prepiam.ice.ibmcloud.com/v1/mgmt/idaas/user/status/', {
     fixture: 'status.json',
   });
 
