@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -59,7 +59,9 @@ export function loadUserStatus(
 ): ThunkAction<Promise<UserStatus>, { cloudAccountAuthAPI: CloudAccountAuthAPIState }, void, CloudAccountAuthAPIActions> {
   return async dispatch => {
     const promiseStatus: Promise<UserStatus> =
-      authMethod === 'cookie' ? CloudAccountAuthAPI.checkCookie() : CloudAccountAuthAPI.checkAPI();
+      authMethod === 'cookie' || authMethod === 'personalization'
+        ? CloudAccountAuthAPI.checkPersonalization()
+        : CloudAccountAuthAPI.checkAPI();
     dispatch(setRequestUserStatusInProgress(promiseStatus));
     try {
       dispatch(setUserStatus(await promiseStatus));
