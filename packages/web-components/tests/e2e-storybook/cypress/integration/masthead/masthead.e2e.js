@@ -367,7 +367,6 @@ describe('dds-masthead | search open onload (desktop)', () => {
 
 describe('dds-masthead | custom search (desktop)', () => {
   beforeEach(() => {
-    cy.mockMastheadFooterData();
     cy.visit(`/${_pathCustomSearch}`);
     cy.viewport(1280, 780);
   });
