@@ -50,6 +50,29 @@
   }
 }
 
+:host(#{$dds-prefix}-filter-group-item) {
+  .#{$dds-prefix}-filter-group-item__view-all {
+    @include carbon--type-style('body-short-01');
+
+    width: 100%;
+    padding: $spacing-03 $spacing-05;
+    text-align: left;
+    background-color: transparent;
+    color: $interactive-01;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $background-hover;
+    }
+
+    &:focus-visible {
+      outline: $spacing-01 solid $focus;
+      outline-offset: -2px;
+    }
+  }
+}
+
 :host(#{$dds-prefix}-filter-modal-footer-button) {
   @extend :host(#{$prefix}-modal-footer-button);
 
