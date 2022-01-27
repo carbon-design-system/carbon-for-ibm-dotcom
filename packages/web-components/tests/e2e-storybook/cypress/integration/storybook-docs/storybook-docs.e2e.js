@@ -6,7 +6,7 @@
  */
 
 /* eslint-disable cypress/no-unnecessary-waiting */
-describe('Storybook Docs | default', () => {
+describe('storybook docs | default', () => {
   it('should load all Storybook Docs without exceptions', () => {
     cy.viewport(1280, 720);
     cy.visit('/');
@@ -24,7 +24,7 @@ describe('Storybook Docs | default', () => {
 
         cy.visit(`?${url}`);
 
-        cy.wait(500);
+        cy.wait(2000);
 
         cy.get('iframe')
           .its('0.contentDocument')
