@@ -79,11 +79,13 @@ const _tests = {
         'M11,23a1,1,0,0,1-1-1V10a1,1,0,0,1,1.4473-.8945l12,6a1,1,0,0,1,0,1.789l-12,6A1.001,1.001,0,0,1,11,23Zm1-11.3821v8.7642L20.7642,16Z',
     };
 
-    cy.wrap(Object.entries(types)).each(([type, expected]) => {
-      cy.visit(`${_path}&knob-CTA%20type%20(cta-type)_LinkListItem=${type}`);
+    Object.keys(types).forEach((type) => {
+      it(`should render CTA type: ${type}`, () => {
+        cy.visit(`${_path}&knob-CTA%20type%20(cta-type)_LinkListItem=${type}`);
 
-      cy.get('a.bx--link-with-icon path').then(path => {
-        expect(path.attr('d')).to.be.eq(expected);
+        cy.get('a.bx--link-with-icon path').then(path => {
+          expect(path.attr('d')).to.be.eq(types[type]);
+        });
       });
     });
   },
@@ -96,7 +98,7 @@ describe('dds-link-list | default (desktop)', () => {
 
   it('should load items with text and link', _tests.checkComponentLoad);
   it('should have a vertical layout', _tests.checkVerticalAlignment);
-  it('should render different CTA types', _tests.checkCTATypes);
+  _tests.checkCTATypes();
 });
 
 describe('dds-link-list | default (mobile)', () => {
@@ -106,5 +108,5 @@ describe('dds-link-list | default (mobile)', () => {
 
   it('should load items with text and link', _tests.checkComponentLoad);
   it('should have a vertical layout', _tests.checkVerticalAlignment);
-  it('should render different CTA types', _tests.checkCTATypes);
+  _tests.checkCTATypes();
 });

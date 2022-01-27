@@ -9,9 +9,12 @@
   "integrationFolder": "tests/e2e/cypress/integration",
   "supportFile": "tests/e2e/cypress/support/index.js",
   "pluginsFile": "tests/e2e/cypress/plugins/index.js",
-  "nodeVersion": "system",
   "includeShadowDom": true,
   "testFiles": "**/*.e2e.js",
-  "pageLoadTimeout": 40000,
-  "defaultCommandTimeout": 40000
+  "pageLoadTimeout": 90000,
+  "defaultCommandTimeout": 90000,
+  "retries": {
+    "runMode": 2,
+    "openMode": 0
+  }
 }
