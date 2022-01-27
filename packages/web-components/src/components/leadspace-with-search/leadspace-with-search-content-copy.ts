@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, css } from 'lit-element';
+import { customElement, css, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './leadspace-with-search.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -22,6 +22,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-leadspace-with-search-content-copy`)
 class DDSLeadspaceWithSearchContentCopy extends StableSelectorMixin(DDSContentBlockParagraph) {
+  /**
+   * The shadow slot the content should be in.
+   */
+  @property({ reflect: true })
+  slot = 'copy';
+
   static get stableSelector() {
     return `${ddsPrefix}--leadspace-with-search-content-copy`;
   }

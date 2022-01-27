@@ -24,7 +24,9 @@ const App = () => (
   <DDSLeadspaceWithSearch>
     <DDSLeadspaceWithSearchHeading>Find a product</DDSLeadspaceWithSearchHeading>
     <DDSLeadspaceWithSearchContent>
-      <DDSLeadspaceWithSearchContentHeading>Innovate like a startup, scale for the enterprise</DDSLeadspaceWithSearchContentHeading>
+      <DDSLeadspaceWithSearchContentHeading>
+        Innovate like a startup, scale for the enterprise
+      </DDSLeadspaceWithSearchContentHeading>
       <DDSLeadspaceWithSearchContentCopy>
         Automate your software release process with continuous delivery (CD)—the most critical part of adopting DevOps. Build,
         test, and deploy code changes quickly, ensuring software is always ready for deployment.
