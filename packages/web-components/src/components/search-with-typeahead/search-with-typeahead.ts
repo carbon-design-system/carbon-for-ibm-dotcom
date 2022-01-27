@@ -427,14 +427,14 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
    * @returns The main content of the trigger button.
    */
   protected _renderTriggerContent() {
-    const { placeholder, searchLabel, _handleInput: handleInput, _handleKeyInput: handleKeyInput } = this;
+    const { searchPlaceholder, searchLabel, _handleInput: handleInput, _handleKeyInput: handleKeyInput } = this;
     return html`
       <input
         type="text"
         part="search-input"
         class="${prefix}--header__search--input"
         name="q"
-        placeholder="${placeholder}"
+        placeholder="${searchPlaceholder}"
         autocomplete="off"
         aria-controls="result-list"
         aria-autocomplete="list"
@@ -580,7 +580,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
    * Value to display when the input has an empty `value`.
    */
   @property()
-  placeholder = 'Search all of IBM';
+  searchPlaceholder = 'Search all of IBM';
 
   /**
    * The redirect URL when a user selects a search suggestion.
