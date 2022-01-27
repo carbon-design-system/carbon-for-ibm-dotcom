@@ -24,16 +24,14 @@ describe('Storybook Docs | default', () => {
 
         cy.visit(`?${url}`);
 
-        cy.wait(500);
+        cy.wait(2000);
 
         cy.get('iframe')
           .its('0.contentDocument')
           .should('exist')
           .then(cy.wrap)
           .within({}, $iframe => {
-            cy.get('code[id="error-stack"]')
-              .children()
-              .should('have.length', 0);
+            cy.get('code[id="error-stack"]').should('be.empty');
           });
 
         cy.takeSnapshots();

@@ -24,17 +24,17 @@ describe('storybook docs | default', () => {
 
         cy.visit(`?${url}`);
 
-        cy.wait(2000);
+        cy.wait(1000);
 
-        cy.get('iframe')
-          .its('0.contentDocument')
-          .should('exist')
-          .then(cy.wrap)
-          .within({}, $iframe => {
-            cy.get('code[id="error-stack"]')
-              .children()
-              .should('have.length', 0);
-          });
+        const iframe = cy
+          .get('iframe')
+          .its('0.contentDocument.body')
+          .should('be.visible')
+          .then(cy.wrap);
+
+        iframe.within({}, $iframe => {
+          cy.get('code[id="error-stack"]').should('be.empty');
+        });
 
         cy.takeSnapshots();
       }
