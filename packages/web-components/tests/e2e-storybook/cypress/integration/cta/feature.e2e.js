@@ -182,7 +182,7 @@ describe('dds-feature-cta | (desktop)', () => {
 
 describe('dds-feature-cta | (mobile)', () => {
   beforeEach(() => {
-    cy.viewport(325, 720);
+    cy.viewport(375, 720);
     cy.visit(`/${_paths.default}`);
   });
 

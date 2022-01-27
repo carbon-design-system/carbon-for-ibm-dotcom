@@ -103,7 +103,7 @@ describe('dds-link-list | default (desktop)', () => {
 
 describe('dds-link-list | default (mobile)', () => {
   beforeEach(() => {
-    cy.viewport(325, 780);
+    cy.viewport(375, 780);
   });
 
   it('should load items with text and link', _tests.checkComponentLoad);
