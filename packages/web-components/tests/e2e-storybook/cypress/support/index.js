@@ -46,9 +46,9 @@ beforeEach(() => {
   cy.intercept('https://1.www.s81c.com/common/stats/ibm-common.js', { fixture: 'ibm-common.js' });
 
   // Mock Kaltura API
-  cy.intercept('https://cdnapisec.kaltura.com/api_v3/index.php?*', {
-    fixture: 'kaltura.json',
-  });
+  // cy.intercept('https://cdnapisec.kaltura.com/api_v3/index.php?*', {
+  //   fixture: 'kaltura.json',
+  // });
 
   // Set an initial `digitalData` object
   cy.window().then(win => {
