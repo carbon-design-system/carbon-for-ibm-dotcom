@@ -89,7 +89,7 @@
     "test:e2e-storybook:test:no-percy:with-video": "start-server-and-test 'yarn test:e2e-storybook:run' 8081 'cypress run --config-file tests/e2e-storybook/cypress.json'",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "upgrade-carbon": "yarn upgrade-interactive carbon-components carbon-web-components @carbon/icon-helpers @carbon/icons --latest --exact",
-    "visual-snapshot": "percy-storybook --widths=320,1280",
+    "visual-snapshot": "yarn build-storybook && percy-storybook --widths=320,1280",
     "wca": "web-component-analyzer analyze src --outFile custom-elements.json"
   },
   "resolutions": {
