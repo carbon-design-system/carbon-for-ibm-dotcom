@@ -48,7 +48,7 @@ const copyWithList = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit.
   - [list item](https://www.ibm.com)
     - list "item 1a"
   1. list item 2
-    1. list item 2a
+     1. list item 2a
         - list item 2a.a
 `;
 
