@@ -25,6 +25,8 @@ const _path = 'iframe.html?id=components-link-list--default';
  */
 const _tests = {
   checkComponentLoad: () => {
+    cy.visit(`/${_path}`);
+
     cy.get('dds-link-list').then(([list]) => {
       const items = list.querySelectorAll('dds-link-list-item-card');
       items.forEach(item => {
@@ -50,6 +52,8 @@ const _tests = {
   },
   checkVerticalAlignment: () => {
     let previous, window;
+    cy.visit(`/${_path}`);
+
     cy.window()
       .then(win => (window = win))
       .get('dds-link-list-item-card')
@@ -66,6 +70,8 @@ const _tests = {
       });
   },
   checkHoverState: () => {
+    cy.visit(`/${_path}`);
+
     cy.get('dds-link-list-item-card').then(([card]) => {
       const sheets = card.shadowRoot.adoptedStyleSheets;
 
@@ -92,8 +98,9 @@ const _tests = {
     };
 
     cy.wrap(Object.entries(types)).each(([type, expected]) => {
-      cy.visit(`${_path}&knob-CTA%20type%20(cta-type)_LinkListItem=${type}`)
-        .get('a.bx--link-with-icon path')
+      cy.visit(`${_path}&knob-CTA%20type%20(cta-type)_LinkListItem=${type}`);
+
+      cy.get('a.bx--link-with-icon path')
         .then(path => {
           expect(path.attr('d')).to.be.eq(expected);
         });
@@ -116,7 +123,6 @@ describe('dds-link-list | default (desktop)', () => {
 describe('dds-link-list | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(325, 780);
-    cy.visit(`/${_path}`);
   });
 
   it('should load items with text and link', _tests.checkComponentLoad);

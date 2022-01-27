@@ -4,7 +4,6 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import getCssPropertyForRule from '../../utils/get-css-property-for-rule';
 
 /**
  * Sets the correct path
@@ -24,6 +23,8 @@ const _path = 'iframe.html?id=components-link-list--vertical';
  */
 const _tests = {
   checkComponentLoad: () => {
+    cy.visit(`/${_path}`);
+
     cy.get('dds-link-list').then(([list]) => {
       const items = list.querySelectorAll('dds-link-list-item');
       items.forEach(item => {
@@ -49,6 +50,9 @@ const _tests = {
   },
   checkVerticalAlignment: () => {
     let previous, window;
+
+    cy.visit(`/${_path}`);
+
     cy.window()
       .then(win => (window = win))
       .get('dds-link-list-item')
@@ -76,8 +80,9 @@ const _tests = {
     };
 
     cy.wrap(Object.entries(types)).each(([type, expected]) => {
-      cy.visit(`${_path}&knob-CTA%20type%20(cta-type)_LinkListItem=${type}`)
-        .get('a.bx--link-with-icon path')
+      cy.visit(`${_path}&knob-CTA%20type%20(cta-type)_LinkListItem=${type}`);
+
+      cy.get('a.bx--link-with-icon path')
         .then(path => {
           expect(path.attr('d')).to.be.eq(expected);
         });
@@ -88,7 +93,6 @@ const _tests = {
 describe('dds-link-list | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
-    cy.visit(`/${_path}`);
   });
 
   it('should load items with text and link', _tests.checkComponentLoad);
@@ -99,7 +103,6 @@ describe('dds-link-list | default (desktop)', () => {
 describe('dds-link-list | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(325, 780);
-    cy.visit(`/${_path}`);
   });
 
   it('should load items with text and link', _tests.checkComponentLoad);
