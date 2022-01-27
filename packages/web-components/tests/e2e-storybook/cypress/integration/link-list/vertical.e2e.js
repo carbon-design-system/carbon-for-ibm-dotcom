@@ -82,10 +82,9 @@ const _tests = {
     cy.wrap(Object.entries(types)).each(([type, expected]) => {
       cy.visit(`${_path}&knob-CTA%20type%20(cta-type)_LinkListItem=${type}`);
 
-      cy.get('a.bx--link-with-icon path')
-        .then(path => {
-          expect(path.attr('d')).to.be.eq(expected);
-        });
+      cy.get('a.bx--link-with-icon path').then(path => {
+        expect(path.attr('d')).to.be.eq(expected);
+      });
     });
   },
 };
