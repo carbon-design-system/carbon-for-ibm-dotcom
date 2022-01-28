@@ -79,7 +79,7 @@ const _tests = {
         'M11,23a1,1,0,0,1-1-1V10a1,1,0,0,1,1.4473-.8945l12,6a1,1,0,0,1,0,1.789l-12,6A1.001,1.001,0,0,1,11,23Zm1-11.3821v8.7642L20.7642,16Z',
     };
 
-    Object.keys(types).forEach((type) => {
+    Object.keys(types).forEach(type => {
       it(`should render CTA type: ${type}`, () => {
         cy.visit(`${_path}&knob-CTA%20type%20(cta-type)_LinkListItem=${type}`);
 
