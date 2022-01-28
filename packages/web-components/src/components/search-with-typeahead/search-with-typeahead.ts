@@ -547,7 +547,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
                 <dds-scoped-search-dropdown-mobile value="${this.scopeValue}">
                   ${this.scopeParameters.map(
                     scope => html`
-                      <bx-select-item value="${scope.value}">${scope.name}</bx-select-item>
+                      <bx-select-item label="${scope.value}" value="${scope.value}">${scope.name}</bx-select-item>
                     `
                   )}
                 </dds-scoped-search-dropdown-mobile>
