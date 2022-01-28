@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, property, TemplateResult, html, query, state } from 'lit-element';
+import { customElement, property, query } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXAccordionItem from 'carbon-web-components/es/components/accordion/accordion-item';
@@ -37,13 +37,13 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
 
   static get viewAllSelector(): string {
     return `button.${viewAllClassName}`;
-  };
+  }
 
   /**
    * The element containing the default slot.
    */
   @query(`.${prefix}--accordion__content`)
-  accordionContent: any
+  accordionContent: any;
 
   /**
    * The text for the button that reveals all filters in the group.
@@ -66,60 +66,110 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
   /**
    * Whether or not any hidden filters have been revealed.
    */
-  @property({ type: Boolean, reflect: true })
-  expanded = true;
+  @property({ type: Boolean })
+  allRevealed = false;
 
-  protected _setChildrenExpanded(expanded: boolean = false) {
-    const { children, filterCutoff, accordionContent } = this;
-    [...children].slice(filterCutoff, children.length).forEach(elem => {
-      (elem as HTMLElement).style.display = expanded ? '' : 'none';
-    })
-
-    if (!expanded) {
-      accordionContent.appendChild(this._renderViewAll());
-    }
+  /**
+   * Whether or not to add view all button functionality.
+   */
+  protected _needsViewAll(): boolean {
+    return this.children.length > this.maxFilters;
   }
 
+  /**
+   * Hides or reveals excess filters.
+   */
+  protected _handleAllRevealed(revealed: boolean): void {
+    const { children, filterCutoff, accordionContent } = this;
+    [...children].slice(filterCutoff, children.length).forEach(elem => {
+      (elem as HTMLElement).style.display = revealed ? '' : 'none';
+    });
+
+    if (!revealed) {
+      accordionContent.appendChild(this._renderViewAll());
+    }
+
+    this._dispatchViewAllEvent(revealed);
+  }
+
+  /**
+   * Generates a view all button.
+   */
   protected _renderViewAll(): HTMLButtonElement {
     const viewAll = document.createElement('button');
     viewAll.classList.add(viewAllClassName);
     viewAll.type = 'button';
     viewAll.innerText = this.viewAllText;
 
-    viewAll.addEventListener('click', (e): void => {
-      const { children, filterCutoff } = this;
-      const { target } = e;
-      const firstHidden = children[filterCutoff];
-
-      if (firstHidden instanceof HTMLElement) firstHidden.focus();
-      if (target instanceof HTMLElement) target.remove();
-      this.expanded = true;
-    }, { passive: true, once: true });
+    viewAll.addEventListener(
+      'click',
+      (e): void => {
+        this.allRevealed = true;
+        if (e.target instanceof HTMLElement) e.target.remove();
+      },
+      { passive: true, once: true }
+    );
 
     return viewAll;
   }
 
+  /**
+   * Dispatches a custom event that notifies listeners whether or not this
+   * filter group has all options revealed.
+   */
+  protected _dispatchViewAllEvent(removed: boolean): void {
+    this.dispatchEvent(
+      new CustomEvent('filterGroupViewAll', {
+        bubbles: true,
+        cancelable: true,
+        composed: true,
+        detail: {
+          id: this.titleText,
+          value: removed,
+        },
+      })
+    );
+  }
+
+  /**
+   * Retrieves view all state stored in the filter panel composite. Returns
+   * false if none is found.
+   */
+  protected _getCachedViewAllValue(): boolean {
+    const { titleText } = this;
+
+    const cache = (((this.closest('dds-filter-panel')?.parentNode as ShadowRoot).host as HTMLElement) as any)
+      ._filterGroupsAllRevealed;
+
+    const match = cache.find(entry => entry.id === titleText);
+
+    return match ? match.value : false;
+  }
+
+  protected firstUpdated(): void {
+    if (this._needsViewAll()) {
+      this.allRevealed = this._getCachedViewAllValue();
+    }
+  }
+
   protected updated(_changedProperties: Map<string | number | symbol, unknown>): void {
-    const { children, maxFilters } = this;
+    if (this._needsViewAll()) {
+      const prevOpen = _changedProperties.get('open');
+      const hasAllRevealed = _changedProperties.has('allRevealed');
+      const prevAllRevealed = _changedProperties.get('allRevealed');
 
-    const hasOpen = _changedProperties.has('open');
-    const prevOpen = _changedProperties.get('open');
-    const hasExpanded = _changedProperties.has('expanded');
-    const prevExpanded = _changedProperties.get('expanded');
-
-    if (children.length > maxFilters) {
-      // Reset expanded on toggle.
-      if (hasOpen && prevOpen !== undefined) {
-        this.expanded = false;
+      // Reset `allRevealed` on accordion close.
+      if (prevOpen) {
+        this.allRevealed = false;
+        this._dispatchViewAllEvent(false);
       }
 
-      // Respect `expanded` attribute
-      if (hasExpanded) {
-        if (prevExpanded) {
-          this._setChildrenExpanded(false);
-        }
-        else {
-          this._setChildrenExpanded(true);
+      // Respect `allRevealed` attribute.
+      if (hasAllRevealed) {
+        if (prevAllRevealed === undefined) {
+          this._handleAllRevealed(this._getCachedViewAllValue());
+        } else {
+          this._handleAllRevealed(!prevAllRevealed);
         }
       }
     }
