@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -116,6 +116,21 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     }
 
     this.renderStatus();
+  };
+
+  @HostListener('document:filterGroupViewAll')
+  protected _handleViewAll = (event: CustomEvent) => {
+    const match = this._filterGroupsAllRevealed.findIndex(entry => {
+      return entry.id === event.detail.id;
+    });
+
+    if (match !== -1) {
+      // console.log('DEBUG: composite: Match found, setting cache to', event.detail.value);
+      this._filterGroupsAllRevealed[match].value = event.detail.value;
+    } else {
+      // console.log('DEBUG: composite: No match, setting cache to', event.detail.value);
+      this._filterGroupsAllRevealed.push(event.detail);
+    }
   };
 
   /**
@@ -270,6 +285,12 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
    */
   @property()
   _filterButtonTitle: string = '';
+
+  /**
+   * stores which filter groups have revealed filters
+   */
+  @property({ type: Array })
+  _filterGroupsAllRevealed: { id: string; value: boolean }[] = [];
 
   /**
    * Handles `slotchange` event.
