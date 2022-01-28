@@ -133,9 +133,6 @@ class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
    * Applies section attribute
    */
   connectedCallback() {
-    if (!this.hasAttribute('role')) {
-      this.setAttribute('role', 'section');
-    }
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
   }
