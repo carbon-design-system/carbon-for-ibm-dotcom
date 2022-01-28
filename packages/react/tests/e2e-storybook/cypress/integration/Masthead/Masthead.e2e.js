@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -49,7 +49,6 @@ const _pathSearchOpenOnload =
 
 describe('Masthead | default (desktop)', () => {
   beforeEach(() => {
-    cy.mockMastheadFooterData();
     cy.visit(_pathDefault);
     cy.viewport(1280, 780);
   });
@@ -147,7 +146,6 @@ describe('Masthead | default (desktop)', () => {
 
 describe('Masthead | default (mobile)', () => {
   beforeEach(() => {
-    cy.mockMastheadFooterData();
     cy.visit(_pathDefault);
     cy.viewport(320, 780);
   });
@@ -168,7 +166,6 @@ describe('Masthead | default (mobile)', () => {
 
 describe('Masthead | custom (desktop)', () => {
   beforeEach(() => {
-    cy.mockMastheadFooterData();
     cy.visit(_pathCustom);
     cy.viewport(1280, 780);
   });
@@ -255,7 +252,6 @@ describe('Masthead | custom (desktop)', () => {
 
 describe('Masthead | with platform (desktop)', () => {
   beforeEach(() => {
-    cy.mockMastheadFooterData();
     cy.visit(_pathPlatform);
     cy.viewport(1280, 780);
   });
@@ -290,7 +286,6 @@ describe('Masthead | with platform (desktop)', () => {
 
 describe('Masthead | with L1 (desktop)', () => {
   beforeEach(() => {
-    cy.mockMastheadFooterData();
     cy.visit(_pathl1);
     cy.viewport(1280, 780);
   });
