@@ -12,9 +12,9 @@ export default {
   title: 'Components|Card section carousel',
   parameters: {
     ...readme.parameters,
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
     proxy: true,
   },
 };

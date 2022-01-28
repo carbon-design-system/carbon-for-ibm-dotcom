@@ -12,9 +12,9 @@ export default {
   title: 'Components|Card in card',
   parameters: {
     ...readme.parameters,
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
     proxy: true,
   },
 };

@@ -55,9 +55,9 @@ export const Default = ({ parameters }) => {
 
 Default.story = {
   parameters: {
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
     knobs: {
       ContentBlockCards: ({ groupId }) => {
         const knobs = getBaseKnobs({ groupId });
@@ -148,9 +148,9 @@ export const WithVideos = ({ parameters }) => {
 WithVideos.story = {
   name: 'With videos',
   parameters: {
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
     knobs: {
       ContentBlockCards: ({ groupId }) => {
         const knobs = getBaseKnobs({ groupId });

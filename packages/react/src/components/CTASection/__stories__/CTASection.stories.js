@@ -151,8 +151,8 @@ WithContentItems.story = {
         items: contentItemsProps,
       }),
     },
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
   },
 };

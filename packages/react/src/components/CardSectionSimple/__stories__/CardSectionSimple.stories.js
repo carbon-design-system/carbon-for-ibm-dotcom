@@ -31,9 +31,9 @@ export default {
   title: 'Components|Card section simple',
   parameters: {
     ...readme.parameters,
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
   },
 };
 

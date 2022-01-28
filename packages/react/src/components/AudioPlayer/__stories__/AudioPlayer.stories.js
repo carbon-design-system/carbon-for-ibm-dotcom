@@ -17,9 +17,9 @@ export default !DDS_AUDIO_PLAYER
       title: 'Components|Audio player',
       parameters: {
         ...readme.parameters,
-        // percy: {
-        //   skip: true,
-        // },
+        percy: {
+          skip: true,
+        },
       },
     };
 

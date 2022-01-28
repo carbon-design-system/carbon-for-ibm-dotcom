@@ -14,9 +14,9 @@ export default {
   title: 'Components|Video player',
   parameters: {
     ...readme.parameters,
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
   },
 };
 

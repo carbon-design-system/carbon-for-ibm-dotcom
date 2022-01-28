@@ -12,9 +12,9 @@ export default {
   title: 'Components|Tag group',
   parameters: {
     ...readme.parameters,
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
     proxy: true,
   },
 };

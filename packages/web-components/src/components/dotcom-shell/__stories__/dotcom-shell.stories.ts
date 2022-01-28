@@ -926,9 +926,9 @@ WithHorizontalTOC.story = {
   name: 'With ToC horizontal',
   parameters: {
     ...readme.parameters,
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
   },
 };
 

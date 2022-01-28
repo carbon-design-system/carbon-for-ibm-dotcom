@@ -111,9 +111,9 @@ export const withVideos = ({ parameters }) => {
 withVideos.story = {
   name: 'With videos',
   parameters: {
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
   },
 };
 

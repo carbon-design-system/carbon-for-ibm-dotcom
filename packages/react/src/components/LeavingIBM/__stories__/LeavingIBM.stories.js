@@ -12,9 +12,9 @@ export default {
   title: 'Components|Leaving IBM',
   parameters: {
     ...readme.parameters,
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
     proxy: true,
   },
 };

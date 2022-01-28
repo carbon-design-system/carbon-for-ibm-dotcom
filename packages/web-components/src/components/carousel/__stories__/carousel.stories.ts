@@ -124,9 +124,9 @@ CardsWithVideos.story = {
   name: 'Cards with videos',
   parameters: {
     ...readme.parameters,
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
   },
 };
 

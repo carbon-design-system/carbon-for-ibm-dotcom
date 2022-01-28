@@ -119,9 +119,9 @@ WithMedia.story = {
   parameters: {
     ...readme.parameters,
     knobs: { ContentItemHorizontal: () => ({}) },
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
     proxy: true,
   },
 };
@@ -147,9 +147,9 @@ WithThumbnail.story = {
   parameters: {
     ...readme.parameters,
     knobs: { ContentItemHorizontal: () => ({}) },
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
     proxy: true,
   },
 };

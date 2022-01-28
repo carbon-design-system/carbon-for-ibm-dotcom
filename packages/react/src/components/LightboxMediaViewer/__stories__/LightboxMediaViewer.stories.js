@@ -25,9 +25,9 @@ export default {
   title: 'Components|Lightbox media viewer',
   parameters: {
     ...readme.parameters,
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
   },
 };
 

@@ -204,9 +204,9 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
   },
   decorators: [
     story => html`

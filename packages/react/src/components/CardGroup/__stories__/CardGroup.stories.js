@@ -144,9 +144,9 @@ Default.story = {
         ),
       }),
     },
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
   },
 };
 
@@ -186,9 +186,9 @@ WithCTA.story = {
         ),
       }),
     },
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
   },
 };
 

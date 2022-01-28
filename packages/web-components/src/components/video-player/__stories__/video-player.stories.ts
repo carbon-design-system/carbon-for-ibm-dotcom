@@ -192,8 +192,8 @@ export default {
         },
       },
     },
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
   },
 };

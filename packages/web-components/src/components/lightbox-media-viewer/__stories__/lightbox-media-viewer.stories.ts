@@ -186,9 +186,9 @@ export default {
   title: 'Components/Lightbox media viewer',
   parameters: {
     ...readme.parameters,
-    // percy: {
-    //   skip: true,
-    // },
+    percy: {
+      skip: true,
+    },
     knobs: {
       Modal: ({ groupId }) => ({
         open: boolean('Open (open)', true, groupId),
