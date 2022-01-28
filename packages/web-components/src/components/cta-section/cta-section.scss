@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2021
+// Copyright IBM Corp. 2020, 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -26,6 +26,7 @@
 
   .#{$prefix}--content-section__leading {
     padding-bottom: 0;
+    padding-top: 0;
 
     @include carbon--breakpoint('md') {
       margin-top: $carbon--layout-04;
@@ -45,6 +46,11 @@
     @include carbon--breakpoint('md') {
       margin-bottom: $spacing-06;
     }
+  }
+
+  .#{$prefix}--content-section__left {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   ::slotted(#{$dds-prefix}-cta-block) {

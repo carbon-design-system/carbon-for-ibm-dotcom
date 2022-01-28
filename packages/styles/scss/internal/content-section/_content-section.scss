@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,12 +14,6 @@
 }
 
 @mixin content-section {
-  :host(#{$dds-prefix}-link-list-section),
-  .#{$prefix}--content-section {
-    padding-top: $spacing-09;
-    padding-bottom: $carbon--layout-05;
-  }
-
   .#{$prefix}--content-section-layout {
     @include carbon--breakpoint('lg') {
       display: flex;
@@ -28,6 +22,7 @@
 
   .#{$prefix}--content-section__leading {
     padding: $spacing-05;
+    padding-bottom: $spacing-09;
 
     @include carbon--breakpoint(lg) {
       @include carbon--make-col(4, 16);
@@ -58,26 +53,26 @@
   }
 
   .#{$prefix}--content-section__left {
+    padding-bottom: $spacing-09;
+    padding-top: $spacing-05;
+
     @include carbon--breakpoint(lg) {
       @include carbon--make-col(4, 16);
-
-      padding-top: $spacing-05;
     }
   }
 
   :host(#{$dds-prefix}-content-section-heading),
   .#{$prefix}--content-section__heading {
     margin-top: 0;
-    margin-bottom: $spacing-06;
 
     @include type-style('expressive-heading-02');
   }
 
   :host(#{$dds-prefix}-content-section-copy),
   .#{$prefix}--content-section__copy p {
-    @include type-style('body-short-02');
+    @include type-style('body-long-02');
 
-    color: $text-02;
+    color: $text-01;
     margin-bottom: $spacing-06;
   }
 
@@ -93,8 +88,6 @@
   }
 
   .#{$prefix}--content-section__children {
-    margin-top: $spacing-06;
-
     @include carbon--breakpoint(lg) {
       @include carbon--make-col(12, 16);
 
