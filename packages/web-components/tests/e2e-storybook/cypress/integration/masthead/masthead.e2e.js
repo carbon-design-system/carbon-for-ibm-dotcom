@@ -22,6 +22,14 @@ const _pathDefault = '/iframe.html?id=components-masthead--default';
 const _pathPlatform = '/iframe.html?id=components-masthead--with-platform';
 
 /**
+ * Sets the correct path (Masthead with Custom Typeahead)
+ *
+ * @type {string}
+ * @private
+ */
+const _pathCustomSearch = '/iframe.html?id=components-masthead--with-custom-typeahead';
+
+/**
  * Sets the correct path (Masthead with L1)
  *
  * @type {string}
@@ -358,5 +366,54 @@ describe('dds-masthead | search open onload (desktop)', () => {
 
   it('should not display menu options while search field is open', () => {
     cy.get('dds-top-nav').should('have.attr', 'hidenav');
+  });
+});
+
+describe('dds-masthead | custom search (desktop)', () => {
+  beforeEach(() => {
+    cy.mockMastheadFooterData();
+    cy.visit(`/${_pathCustomSearch}`);
+    cy.viewport(1280, 780);
+  });
+
+  it('should open the search bar on click', () => {
+    cy.get('dds-masthead > dds-search-with-typeahead')
+      .shadow()
+      .find('.bx--header__search--search')
+      .click();
+
+    cy.takeSnapshots();
+  });
+
+  it('should display grouped results with hrefs', () => {
+    cy.get('dds-masthead > dds-search-with-typeahead')
+      .shadow()
+      .find('.bx--header__search--search')
+      .click();
+
+    cy.get('dds-masthead > dds-search-with-typeahead')
+      .shadow()
+      .find('.react-autosuggest__container > input')
+      .type('cloud', { force: true });
+
+    cy.get('dds-search-with-typeahead-item:not([groupTitle])').should('have.length', 12);
+
+    const groupedItem = cy.get('dds-search-with-typeahead-item[groupTitle]');
+    groupedItem.then($item => {
+      expect($item).to.have.length(1);
+      expect($item.attr('text')).to.eq('Product pages');
+    });
+
+    cy.get('dds-search-with-typeahead-item').each(($item, $index) => {
+      if ($index == 6) {
+        expect($item).to.have.attr('groupTitle');
+      } else if ($index > 6) {
+        expect($item).to.have.attr('href');
+      }
+
+      expect($item).to.have.attr('text');
+    });
+
+    cy.takeSnapshots();
   });
 });

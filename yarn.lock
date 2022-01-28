@@ -1338,10 +1338,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@carbon/colors@^10.34.0":
-  version "10.34.0"
-  resolved "https://registry.yarnpkg.com/@carbon/colors/-/colors-10.34.0.tgz#0bf039e85e797fc3a5e6e84a3cbada61ed2fd097"
-  integrity sha512-Tq7ZF6zdlT1V2VliqjeSVKVOK6ixy3CknifZAd3oxq4BYJC/jwsYwRHJAbSM/KFJrZ2ZUvQCrOsves6f7hndLg==
+"@carbon/colors@^10.35.0":
+  version "10.35.0"
+  resolved "https://registry.yarnpkg.com/@carbon/colors/-/colors-10.35.0.tgz#639639653f513979da80fe2615ca63e2e49fb780"
+  integrity sha512-V+nzHibjze9VqNdI2de7Fdb1IWgPzBvBwjalkAM6IMUTY9REcO2vNxPe9PyqC++sy6EIjRy3mRKRyIm9TrY35Q==
 
 "@carbon/feature-flags@^0.7.0":
   version "0.7.0"
@@ -1387,11 +1387,6 @@
   resolved "https://registry.yarnpkg.com/@carbon/layout/-/layout-10.35.0.tgz#ab62fbb7464fc4086bce84a5ab72553de6adcb54"
   integrity sha512-UKMOVN+fNnvNbIOPpSg3BlO5/tT+rd4O+exEWrPAb416WehHP2y/kf9l+EI2bD784gF4TtXVqwbr+SV7GGLjtw==
 
-"@carbon/layout@^10.34.0":
-  version "10.34.0"
-  resolved "https://registry.yarnpkg.com/@carbon/layout/-/layout-10.34.0.tgz#83dd68303f6ad29e6b4964b88da7bb2942e3e8d2"
-  integrity sha512-+PAQfV/bEXM9zRcjDWtuCjl/62mqdN6vpaal+6wnFi0FADr+uHYhNi+9W6QUpa29nbUqgIla+jlr59gAYidGLw==
-
 "@carbon/motion@10.27.0":
   version "10.27.0"
   resolved "https://registry.yarnpkg.com/@carbon/motion/-/motion-10.27.0.tgz#6b21d059600cccf462c9d29bb1133cfa1bc01f1e"
@@ -1422,31 +1417,23 @@
     winston "^3.3.3"
     yargs "^16.1.1"
 
-"@carbon/themes@10.48.0":
-  version "10.48.0"
-  resolved "https://registry.yarnpkg.com/@carbon/themes/-/themes-10.48.0.tgz#64cd3df55d62e2fca20e1317c7ef7f51fbd0ff0d"
-  integrity sha512-g0dqvWQHPwWW1y+BSuu5JKzMyACw/oHwEu3gqO9X39Z0VyAWFU9ReuG2HK3eLdxd8uCX4YRnDrrWsEbcJuczuA==
+"@carbon/themes@10.49.0":
+  version "10.49.0"
+  resolved "https://registry.yarnpkg.com/@carbon/themes/-/themes-10.49.0.tgz#9b08c9b2cc5039262d657e2f4c25b8822f6215da"
+  integrity sha512-+Oed5krJrj5WKSOysqeqxGFpLgK+EGhQLwSVYPlBcIPbJNSEfy/D3Ftsx/vYk0f7lsgye7keRa+xRpIJEDfXJg==
   dependencies:
-    "@carbon/colors" "^10.34.0"
-    "@carbon/layout" "^10.34.0"
-    "@carbon/type" "^10.39.0"
+    "@carbon/colors" "^10.35.0"
+    "@carbon/layout" "^10.35.0"
+    "@carbon/type" "^10.40.0"
     color "^3.1.2"
 
-"@carbon/type@10.40.0":
+"@carbon/type@10.40.0", "@carbon/type@^10.40.0":
   version "10.40.0"
   resolved "https://registry.yarnpkg.com/@carbon/type/-/type-10.40.0.tgz#b189baed73ce2d0ffb5dc08437144b38f788fbf7"
   integrity sha512-+ECJANAmAFmF3DmmH9iaCNtVZypBcE8vvhecjRYirSj7FS+9LeiqAZGhjzAqtHpsItH5QHqQs10PrAY2zSylYA==
   dependencies:
     "@carbon/import-once" "^10.6.0"
     "@carbon/layout" "^10.35.0"
-
-"@carbon/type@^10.39.0":
-  version "10.39.0"
-  resolved "https://registry.yarnpkg.com/@carbon/type/-/type-10.39.0.tgz#62af048ede9908d9c9f6adbdcff759b99939da8b"
-  integrity sha512-1Js2kJv79Y8zvpAs5qdkZUB0lE4j59+Mk73x19+L3Bla7n6TZ8IsafPyLg7aIDkqZSCYatGt7gw8bB8NOg/VQA==
-  dependencies:
-    "@carbon/import-once" "^10.6.0"
-    "@carbon/layout" "^10.34.0"
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
@@ -5756,12 +5743,12 @@ axios@^0.21.1:
   dependencies:
     follow-redirects "^1.14.0"
 
-axios@^0.25.0:
-  version "0.25.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.25.0.tgz#349cfbb31331a9b4453190791760a8d35b093e0a"
-  integrity sha512-cD8FOb0tRH3uuEe6+evtAbgJtfxr7ly3fQjYcMcuPlgkwVS9xboaVIpcDV+cYQe+yGykgwZCs1pzjntcGa6l5g==
+axios@~0.21.4:
+  version "0.21.4"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.4.tgz#c67b90dc0568e5c1cf2b0b858c43ba28e2eda575"
+  integrity sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==
   dependencies:
-    follow-redirects "^1.14.7"
+    follow-redirects "^1.14.0"
 
 axobject-query@^2.0.2:
   version "2.0.2"
@@ -7273,6 +7260,16 @@ carbon-components@10.50.0:
   version "10.50.0"
   resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.50.0.tgz#970cf978e9be83aeb53eb3f263014964974360fd"
   integrity sha512-MAtqZMQbOzrzO7X8tjlhDrWzF6VnjM19OIYqTuOsDv5XmiGNnmBqnPSFBi2n2PPGLXKnpOnHAXYVx5yQIHSKLQ==
+  dependencies:
+    "@carbon/telemetry" "0.0.0-alpha.6"
+    flatpickr "4.6.1"
+    lodash.debounce "^4.0.8"
+    warning "^3.0.0"
+
+carbon-components@10.51.0:
+  version "10.51.0"
+  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.51.0.tgz#a09b259db12fa3ea7868489bbea6cb165d4f814a"
+  integrity sha512-TkcfsYdFioZBx5vasC6bMOxI4XqJPt6EM7AqWAjwOeS7HByfBREYALHbZ3pBslb9yauoSbxQFKO2JlK5l+Baag==
   dependencies:
     "@carbon/telemetry" "0.0.0-alpha.6"
     flatpickr "4.6.1"
@@ -11273,11 +11270,6 @@ follow-redirects@^1.0.0, follow-redirects@^1.14.0:
   version "1.14.5"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.5.tgz#f09a5848981d3c772b5392309778523f8d85c381"
   integrity sha512-wtphSXy7d4/OR+MvIFbCVBDzZ5520qV8XfPklSN5QtxuMUJZ+b0Wnst1e1lCDocfzuCkHqj8k0FpZqO+UIaKNA==
-
-follow-redirects@^1.14.7:
-  version "1.14.7"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.7.tgz#2004c02eb9436eee9a21446a6477debf17e81685"
-  integrity sha512-+hbxoLbFMbRKDwohX8GkTataGqO6Jb7jGwpAlwgy2bIz25XtRm7KEzJM76R1WiNT5SwZkX4Y75SwBolkpmE7iQ==
 
 for-in@^0.1.3:
   version "0.1.8"
@@ -16927,15 +16919,10 @@ node-fetch@^1.0.1:
     encoding "^0.1.11"
     is-stream "^1.0.1"
 
-node-fetch@^2.3.0, node-fetch@^2.5.0, node-fetch@^2.6.0:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
-  integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
-
-node-fetch@^2.6.1:
-  version "2.6.6"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.6.tgz#1751a7c01834e8e1697758732e9efb6eeadfaf89"
-  integrity sha512-Z8/6vRlTUChSdIgMa51jxQ4lrw/Jy5SOW10ObaA47/RElsAN2c5Pn8bTgFGWn/ibwzXTE8qwr1Yzx28vsecXEA==
+node-fetch@^2.3.0, node-fetch@^2.5.0, node-fetch@^2.6.0, node-fetch@^2.6.1:
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
+  integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==
   dependencies:
     whatwg-url "^5.0.0"
 
