@@ -64,6 +64,8 @@
   :host(#{$dds-prefix}-content-section-heading),
   .#{$prefix}--content-section__heading {
     margin-top: 0;
+    margin-bottom: $spacing-06;
+    color: $text-01;
 
     @include type-style('expressive-heading-02');
   }

@@ -11,6 +11,7 @@
 
 :host(#{$dds-prefix}-cta-section) {
   display: block;
+  background-color: $ui-background;
 
   .#{$prefix}--content-section {
     @include hang;
