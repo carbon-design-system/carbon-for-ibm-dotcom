@@ -120,7 +120,7 @@ To set a custom endpoint for the translation service to fetch from, set either t
 <dds-masthead-container data-endpoint="/custom-endpoint"></dds-masthead-container>
 ```
 
-#### Setting the active menu item
+### Setting the active menu item
 The active menu item receives a unique style treatment to indicate where the current page is within the navigation hierarchy.
 
 ##### Manually
@@ -130,6 +130,98 @@ Manually set the active item by using the `selected-menu-item` property. See [th
 The first menu item whose `href` value matches the browser window's current URL will automatically be marked active if the `selected-menu-item` property has not been set.
 
 If no other menu items are marked active and the optional `platformUrl` property has been set, the platform link will be marked active.
+
+
+## Using custom search with typeahead API
+
+Using a search API other than the default provided from IBM Search is supported.
+
+First, add the `custom-typeahead-api` attribute into the masthead and set it to `true`.
+
+```html
+<dds-masthead-container custom-typeahead-api="true"></dds-masthead-container>
+```
+
+As an example, we will be using the IBM Docs API to fetch the data, retrieving an array of result suggestions.
+
+```javascript
+  async function customTypeaheadApiFunction(searchVal) {
+    return fetch(
+      `https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=en&categories=&limit=6`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        let searchResults = [
+          data.hints,
+        ];
+        return searchResults;
+      });
+  }
+```
+
+To query the current Masthead Search input, we need to create an event listener to listen for the `dds-search-with-typeahead-input` event.
+Once captured, we need to call our asynchronous function to fetch the custom API results based on the query. Once the results are retrieved,
+a new custom event `dds-custom-typeahead-api-results` needs to be dispatched containing the results for the component to render the search suggestions.
+
+```javascript
+  document.addEventListener('dds-search-with-typeahead-input', async (e) => { 
+
+    const results = await customTypeaheadApiFunction(e.detail.value);
+    document.dispatchEvent(new CustomEvent('dds-custom-typeahead-api-results', { detail: results}));
+  })
+```
+
+With these functions, the custom Search API will be working properly.
+
+### Grouped Search
+
+Some APIs contain grouped results in addition to regular search suggestions, which can also be displayed upon search.
+
+As before, create a function that fetches the query and make sure to include a JSON object containing the section's `title`
+and the array of retrieved section suggestions in `items`. In the example below, the section `Product pages` is added to the
+results array.
+
+
+```javascript
+  async function customTypeaheadApiFunction(searchVal) {
+    return fetch(
+      `https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=en&categories=&limit=6`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        let searchResults = [
+          data.hints,
+
+          // optional category results fetched from API
+          {
+            title: "Product pages",
+            items: data.products
+          }
+        ];
+        return searchResults;
+      });
+  }
+```
+
+As mentioned above, the two events `dds-search-with-typeahead-input` and `dds-custom-typeahead-api-results` must be handled for 
+suggestions to be rendered -- the same code for the event listener can be reused.
+
+#### Note
+The API results must match the following structure:
+```javascript
+[
+  ['result 1', 'result 2', 'result 3'],
+  {
+    title: 'Example group 1'
+    items: ['result a', 'result b', 'result c']
+  },
+  {
+    title: "Example group 2",
+    items: ['result d', 'result e', 'result f']
+  }
+]
+```
+Note that only the first Array element is necessary to render the basic search suggestions, the following JSON objects are optional Grouped sections.
 
 ## Props
 
