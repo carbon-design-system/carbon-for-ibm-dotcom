@@ -18,6 +18,6 @@
     "react"
   ],
   "peerDependencies": {
-    "eslint": "^6.8.0"
+    "eslint": "^8.0.0"
   }
 }

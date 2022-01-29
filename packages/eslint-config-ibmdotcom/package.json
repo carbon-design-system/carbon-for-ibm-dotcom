@@ -15,7 +15,7 @@
     "react"
   ],
   "peerDependencies": {
-    "eslint": "^6.8.0"
+    "eslint": "^8.0.0"
   },
   "dependencies": {
     "@carbon/eslint-plugin-react-prop-type-comments": "1.20.0-rc.0",
