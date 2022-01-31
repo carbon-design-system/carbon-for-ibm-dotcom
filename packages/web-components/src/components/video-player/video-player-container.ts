@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -201,6 +201,7 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
       }
       const embedVideoHandle = await KalturaPlayerAPI.embedMedia(videoId, playerId, additionalPlayerOptions);
       doc!.getElementById(playerId)!.dataset.videoId = videoId;
+      (doc!.getElementById(playerId)?.firstElementChild as HTMLElement).focus();
       return embedVideoHandle.kWidget();
     }
 
