@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -110,7 +110,6 @@ const _tests = {
 
 describe('LinkList | default (desktop)', () => {
   beforeEach(() => {
-    cy.mockKaltura();
     cy.viewport(1280, 780);
     cy.visit(`/${_path}`).wait(1000);
   });
@@ -123,7 +122,6 @@ describe('LinkList | default (desktop)', () => {
 
 describe('LinkList | default (mobile)', () => {
   beforeEach(() => {
-    cy.mockKaltura();
     cy.viewport(325, 780);
     cy.visit(`/${_path}`).wait(1000);
   });

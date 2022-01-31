@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,16 +23,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-card-section-images`)
 class DDSCardSectionImages extends StableSelectorMixin(DDSContentSection) {
-  /**
-   * Applies section attribute
-   */
-  connectedCallback() {
-    if (!this.hasAttribute('role')) {
-      this.setAttribute('role', 'section');
-    }
-    super.connectedCallback();
-  }
-
   static get stableSelector() {
     return `${ddsPrefix}--card-section-images`;
   }
