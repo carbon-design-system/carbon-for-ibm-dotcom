@@ -48,9 +48,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.0",
-    "@carbon/ibmdotcom-utilities": "1.30.0-rc.0",
+    "@carbon/ibmdotcom-utilities": "1.30.0-canary.adhoc4.6756",
     "@carbon/telemetry": "0.0.0-alpha.6",
-    "axios": "^0.25.0",
+    "axios": "~0.21.4",
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {
