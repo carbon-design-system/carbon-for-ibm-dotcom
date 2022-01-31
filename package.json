@@ -10,7 +10,8 @@
   "workspaces": {
     "packages": [
       "packages/*"
-    ]
+    ],
+    "nohoist": ["marked"]
   },
   "scripts": {
     "build": "lerna run build --stream --prefix --npm-client yarn",
