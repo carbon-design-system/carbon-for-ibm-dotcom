@@ -15,7 +15,6 @@ const _pathDefault = '/iframe.html?id=components-cloud-masthead--default';
 
 describe('dds-masthead | cloud platform (desktop)', () => {
   beforeEach(() => {
-    cy.mockMastheadFooterData();
     cy.viewport(1280, 780);
     cy.visit(`/${_pathDefault}`);
   });
@@ -98,7 +97,6 @@ describe('dds-masthead | cloud platform (desktop)', () => {
 
 describe('dds-masthead | cloud platform (mobile)', () => {
   beforeEach(() => {
-    cy.mockMastheadFooterData();
     cy.viewport(325, 780);
     cy.visit(`/${_pathDefault}`);
   });
