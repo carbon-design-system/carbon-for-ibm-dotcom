@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,6 +25,8 @@ const _path = 'iframe.html?id=components-link-list--default';
  */
 const _tests = {
   checkComponentLoad: () => {
+    cy.visit(`/${_path}`);
+
     cy.get('dds-link-list').then(([list]) => {
       const items = list.querySelectorAll('dds-link-list-item-card');
       items.forEach(item => {
@@ -50,6 +52,8 @@ const _tests = {
   },
   checkVerticalAlignment: () => {
     let previous, window;
+    cy.visit(`/${_path}`);
+
     cy.window()
       .then(win => (window = win))
       .get('dds-link-list-item-card')
@@ -66,6 +70,8 @@ const _tests = {
       });
   },
   checkHoverState: () => {
+    cy.visit(`/${_path}`);
+
     cy.get('dds-link-list-item-card').then(([card]) => {
       const sheets = card.shadowRoot.adoptedStyleSheets;
 
@@ -91,19 +97,20 @@ const _tests = {
         'M11,23a1,1,0,0,1-1-1V10a1,1,0,0,1,1.4473-.8945l12,6a1,1,0,0,1,0,1.789l-12,6A1.001,1.001,0,0,1,11,23Zm1-11.3821v8.7642L20.7642,16Z',
     };
 
-    cy.wrap(Object.entries(types)).each(([type, expected]) => {
-      cy.visit(`${_path}&knob-CTA%20type%20(cta-type)_LinkListItem=${type}`)
-        .get('a.bx--link-with-icon path')
-        .then(path => {
-          expect(path.attr('d')).to.be.eq(expected);
+    Object.keys(types).forEach(type => {
+      it(`should render CTA type: ${type}`, () => {
+        cy.visit(`${_path}&knob-CTA%20type%20(cta-type)_LinkListItem=${type}`);
+
+        cy.get('a.bx--link-with-icon path').then(path => {
+          expect(path.attr('d')).to.be.eq(types[type]);
         });
+      });
     });
   },
 };
 
 describe('dds-link-list | default (desktop)', () => {
   beforeEach(() => {
-    cy.mockKaltura();
     cy.viewport(1280, 780);
     cy.visit(`/${_path}`);
   });
@@ -111,18 +118,16 @@ describe('dds-link-list | default (desktop)', () => {
   it('should load items with text and link', _tests.checkComponentLoad);
   it('should have a vertical layout', _tests.checkVerticalAlignment);
   it('should change styles on hover', _tests.checkHoverState);
-  it('should render different CTA types', _tests.checkCTATypes);
+  _tests.checkCTATypes();
 });
 
 describe('dds-link-list | default (mobile)', () => {
   beforeEach(() => {
-    cy.mockKaltura();
-    cy.viewport(325, 780);
-    cy.visit(`/${_path}`);
+    cy.viewport(375, 780);
   });
 
   it('should load items with text and link', _tests.checkComponentLoad);
   it('should have a vertical layout', _tests.checkVerticalAlignment);
   it('should change styles on hover', _tests.checkHoverState);
-  it('should render different CTA types', _tests.checkCTATypes);
+  _tests.checkCTATypes();
 });
