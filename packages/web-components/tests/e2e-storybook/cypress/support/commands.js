@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,6 +20,9 @@ Cypress.Commands.add('mockMastheadFooterData', () => {
   cy.intercept('https://login.ibm.com/v1/mgmt/idaas/user/status/', { fixture: 'status.json' });
   cy.intercept('https://www-api.ibm.com/search/typeahead/v1?*', {
     fixture: 'typeahead.json',
+  });
+  cy.intercept('https://1.www.s81c.com/common/carbon-for-ibm-dotcom/translations/cloud-masthead/usen.json', {
+    fixture: 'cloud-masthead.json',
   });
 });
 

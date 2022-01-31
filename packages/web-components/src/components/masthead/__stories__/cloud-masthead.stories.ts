@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -28,18 +28,6 @@ import { DDS_CLOUD_MASTHEAD } from '../../../globals/internal/feature-flags';
 const platformData = {
   name: 'IBM Cloud',
   url: 'https://www.ibm.com/cloud',
-};
-
-const urlObject = {
-  'en-US': {
-    url: 'https://www.example.com/us-en',
-  },
-  'fr-FR': {
-    url: 'https://www.example.com/fr-fr/sample',
-  },
-  'es-MX': {
-    url: 'https://www.example.com/es-mx/sample',
-  },
 };
 
 export const Default = !DDS_CLOUD_MASTHEAD
@@ -82,7 +70,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
           : html`
               <dds-cloud-masthead-container
                 platform="Cloud"
-                .platformUrl="${ifNonNull(urlObject)}"
+                .platformUrl="${ifNonNull(platformData.url)}"
                 selected-menu-item="${ifNonNull(selectedMenuItem)}"
                 has-contact="${hasContact}"
                 auth-method="${authMethod}"
