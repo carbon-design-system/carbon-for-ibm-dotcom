@@ -5,20 +5,20 @@
  * LICENSE file in the root directory of this source tree.
  */
 
- /**
-  * Sets the correct path.
-  *
-  * @type {string}
-  * @private
-  */
- const _path = '/iframe.html?id=components-filter-panel--default';
+/**
+ * Sets the correct path.
+ *
+ * @type {string}
+ * @private
+ */
+const _path = '/iframe.html?id=components-filter-panel--default';
 
- /**
-  * Defines the component selector.
-  *
-  * @type {string}
-  * @private
-  */
+/**
+ * Defines the component selector.
+ *
+ * @type {string}
+ * @private
+ */
 const _selector = '[data-autoid="dds-filter-panel-composite"]';
 
 /**
@@ -26,8 +26,8 @@ const _selector = '[data-autoid="dds-filter-panel-composite"]';
  */
 const _viewportWidths = {
   mobile: [325, 720],
-  desktop: [1280, 720]
-}
+  desktop: [1280, 720],
+};
 
 /**
  * Common configuration for `check` command usages.
@@ -49,9 +49,11 @@ describe('dds-filter-panel | (desktop)', () => {
     cy.visit(_path)
       .get(_selector)
       .shadow()
-      .find('dds-filter-group-item').first()
+      .find('dds-filter-group-item')
+      .first()
       .click()
-      .find('dds-filter-panel-checkbox').first()
+      .find('dds-filter-panel-checkbox')
+      .first()
       .shadow()
       .find('input[type="checkbox"]')
       .check(_checkOptions);
@@ -64,11 +66,13 @@ describe('dds-filter-panel | (desktop)', () => {
       .click();
     // Verify box is checked
     cy.get(_selector)
-      .find('dds-filter-group-item').first()
-      .find('dds-filter-panel-checkbox').first()
+      .find('dds-filter-group-item')
+      .first()
+      .find('dds-filter-panel-checkbox')
+      .first()
       .shadow()
       .find('input[type="checkbox"]')
-      .should('be.checked')
+      .should('be.checked');
     cy.screenshot(_screenshotOptions);
   });
 
@@ -77,9 +81,11 @@ describe('dds-filter-panel | (desktop)', () => {
     cy.visit(_path)
       .get(_selector)
       .shadow()
-      .find('dds-filter-group-item').eq(1)
+      .find('dds-filter-group-item')
+      .eq(1)
       .click()
-      .find('dds-filter-panel-input-select').first()
+      .find('dds-filter-panel-input-select')
+      .first()
       .click();
     cy.screenshot(_screenshotOptions);
 
@@ -90,9 +96,11 @@ describe('dds-filter-panel | (desktop)', () => {
       .click();
     // Verify box is checked
     cy.get(_selector)
-      .find('dds-filter-group-item').eq(1)
-      .find('dds-filter-panel-input-select').first()
-      .should('have.attr', 'selected')
+      .find('dds-filter-group-item')
+      .eq(1)
+      .find('dds-filter-panel-input-select')
+      .first()
+      .should('have.attr', 'selected');
     cy.screenshot(_screenshotOptions);
   });
 });
@@ -110,20 +118,24 @@ describe('dds-filter-panel | (mobile)', () => {
       .click();
     // Check box on mobile
     cy.get(_selector)
-      .find('dds-filter-group-item').first()
+      .find('dds-filter-group-item')
+      .first()
       .click()
-      .find('dds-filter-panel-checkbox').first()
+      .find('dds-filter-panel-checkbox')
+      .first()
       .shadow()
       .find('input[type="checkbox"]')
       .check(_checkOptions);
-    cy.screenshot(_screenshotOptions)
+    cy.screenshot(_screenshotOptions);
 
     // Switch to desktop and verify box is checked
     cy.viewport(..._viewportWidths['desktop'])
       .get(_selector)
       .shadow()
-      .find('dds-filter-group-item').first()
-      .find('dds-filter-panel-checkbox').first()
+      .find('dds-filter-group-item')
+      .first()
+      .find('dds-filter-panel-checkbox')
+      .first()
       .shadow()
       .find('input[type="checkbox"]')
       .should('be.checked');
@@ -138,20 +150,23 @@ describe('dds-filter-panel | (mobile)', () => {
       .click();
     // Check box on mobile
     cy.get(_selector)
-      .find('dds-filter-group-item').eq(1)
+      .find('dds-filter-group-item')
+      .eq(1)
       .click()
-      .find('dds-filter-panel-input-select').first()
+      .find('dds-filter-panel-input-select')
+      .first()
       .click();
-    cy.screenshot(_screenshotOptions)
+    cy.screenshot(_screenshotOptions);
 
     // Switch to desktop and verify box is checked
     cy.viewport(..._viewportWidths['desktop'])
       .get(_selector)
       .shadow()
-      .find('dds-filter-group-item').eq(1)
-      .find('dds-filter-panel-input-select').first()
+      .find('dds-filter-group-item')
+      .eq(1)
+      .find('dds-filter-panel-input-select')
+      .first()
       .should('have.attr', 'selected');
     cy.screenshot(_screenshotOptions);
   });
 });
-
