@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, LitElement, property } from 'lit-element';
+import { customElement, html, LitElement, property, query } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -31,6 +31,24 @@ class DDSContentSection extends StableSelectorMixin(LitElement) {
   childrenCustomClass = '';
 
   /**
+   * The default slot.
+   */
+  @query('slot:not([name])')
+  private _slotNode?: HTMLSlotElement;
+
+  /**
+   * Handles `slotchange` event.
+   */
+  protected _handleChildrenSlotChange() {
+    const firstElem = this._slotNode!.assignedNodes().filter(
+      node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+    )[0];
+
+    (firstElem as HTMLElement).style.paddingTop = "0";
+    (firstElem as HTMLElement).style.marginTop = "0";
+  }
+
+  /**
    * Applies section attribute
    */
   connectedCallback() {
@@ -49,7 +67,7 @@ class DDSContentSection extends StableSelectorMixin(LitElement) {
           <slot name="footer"></slot>
         </div>
         <div class="${prefix}--content-section__body ${this.childrenCustomClass}">
-          <slot></slot>
+          <slot @slotchange="${this._handleChildrenSlotChange}"></slot>
         </div>
       </div>
     `;

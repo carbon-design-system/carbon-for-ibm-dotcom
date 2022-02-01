@@ -1,16 +1,16 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
+import React, { useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import { CTA } from '../CTA';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml';
 import PropTypes from 'prop-types';
-import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -29,6 +29,16 @@ const ContentSection = ({
   childrenCustomClassName,
   ...otherProps
 }) => {
+  const childrenRef = useRef();
+
+  useEffect(() => {
+    const {current: childrenNode} = childrenRef;
+    const firstElem = childrenNode?.querySelector(".bx--content-block, .bx--content-group");
+    if(firstElem){
+      firstElem.style.paddingTop = '0';
+      firstElem.style.marginTop = '0';
+    }
+  }, [children]);
   return (
     <section
       className={classNames(`${prefix}--content-section`, customClassName, {
@@ -69,7 +79,8 @@ const ContentSection = ({
             className={classNames(
               `${prefix}--content-section__children`,
               childrenCustomClassName
-            )}>
+            )}
+            ref={childrenRef}>
             {children}
           </div>
         </div>
