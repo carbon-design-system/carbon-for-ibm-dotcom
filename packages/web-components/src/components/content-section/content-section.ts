@@ -47,17 +47,7 @@ class DDSContentSection extends StableSelectorMixin(LitElement) {
     (firstElem as HTMLElement).style.paddingTop = "0";
     (firstElem as HTMLElement).style.marginTop = "0";
   }
-
-  /**
-   * Applies section attribute
-   */
-  connectedCallback() {
-    if (!this.hasAttribute('role')) {
-      this.setAttribute('role', 'section');
-    }
-    super.connectedCallback();
-  }
-
+  
   render() {
     return html`
       <div class="${prefix}--content-section ${prefix}--content-section-layout">
