@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -172,7 +172,7 @@ describe('dds-feature-cta | (desktop)', () => {
   });
 
   it('Should load and be fully clickable', _tests.checkBlockLink);
-  it(
+  xit(
     'Should load image on left and content on right',
     _tests.checkHorizontalLayout
   );

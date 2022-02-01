@@ -47,7 +47,6 @@ const _pathSearchOpenOnload = '/iframe.html?id=components-masthead--search-open-
 
 describe('dds-masthead | default (desktop)', () => {
   beforeEach(() => {
-    cy.mockMastheadFooterData();
     cy.visit(`/${_pathDefault}`);
     cy.viewport(1280, 780);
   });
@@ -173,7 +172,6 @@ describe('dds-masthead | default (desktop)', () => {
 
 describe('dds-masthead | default (mobile)', () => {
   beforeEach(() => {
-    cy.mockMastheadFooterData();
     cy.visit(`/${_pathDefault}`);
     cy.viewport(320, 780);
   });
@@ -204,7 +202,6 @@ describe('dds-masthead | default (mobile)', () => {
 
 describe('dds-masthead | with platform (desktop)', () => {
   beforeEach(() => {
-    cy.mockMastheadFooterData();
     cy.visit(`/${_pathPlatform}`);
     cy.viewport(1280, 780);
   });
@@ -239,7 +236,6 @@ describe('dds-masthead | with platform (desktop)', () => {
 
 describe('dds-masthead | with L1 (desktop)', () => {
   beforeEach(() => {
-    cy.mockMastheadFooterData();
     cy.visit(`/${_pathl1}`);
     cy.viewport(1280, 780);
   });
@@ -371,7 +367,6 @@ describe('dds-masthead | search open onload (desktop)', () => {
 
 describe('dds-masthead | custom search (desktop)', () => {
   beforeEach(() => {
-    cy.mockMastheadFooterData();
     cy.visit(`/${_pathCustomSearch}`);
     cy.viewport(1280, 780);
   });
