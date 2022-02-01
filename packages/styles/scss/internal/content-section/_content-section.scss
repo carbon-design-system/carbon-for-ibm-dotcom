@@ -103,6 +103,19 @@
     }
   }
 
+  .#{$prefix}--content-section__children > :first-child{
+    .#{$prefix}--content-block,
+    .#{$prefix}--content-group {
+        padding-top: 0;
+        margin-top: 0;
+      }
+    }
+
+  .#{$prefix}--content-section__body ::slotted(*:first-of-type) {
+    padding-top: 0;
+    margin-top: 0;
+  }
+
   .#{$prefix}--content-section--g10 {
     @include carbon--theme(
       $carbon--theme--g10,
