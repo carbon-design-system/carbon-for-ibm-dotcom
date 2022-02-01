@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,7 +26,7 @@ const template = (props?) => {
     open,
     openSearchButtonAssistiveText,
     performSearchButtonAssistiveText,
-    placeholder,
+    searchPlaceholder,
     redirectUrl,
   } = props ?? {};
   return html`
@@ -37,7 +37,7 @@ const template = (props?) => {
       ?open="${open}"
       open-search-button-assistive-text="${ifNonNull(openSearchButtonAssistiveText)}"
       perform-search-button-assistive-text="${ifNonNull(performSearchButtonAssistiveText)}"
-      placeholder="${ifNonNull(placeholder)}"
+      searchPlaceholder="${ifNonNull(searchPlaceholder)}"
       redirect-url="${ifNonNull(redirectUrl)}"
     >
     </dds-search-with-typeahead>
@@ -68,7 +68,7 @@ describe('dds-search-with-typeahead', function() {
           language: 'ko-KR',
           open: true,
           performSearchButtonAssistiveText: 'perform-search-button-assistive-text-foo',
-          placeholder: 'placeholder-foo',
+          searchPlaceholder: 'placeholder-foo',
           redirectUrl: 'https://www.ibm.com/search',
         }),
         document.body

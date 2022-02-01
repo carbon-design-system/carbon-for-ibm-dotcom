@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -122,15 +122,6 @@
         width: 100vw;
         top: 0;
         z-index: -1;
-      }
-    }
-
-    ::slotted(#{$dds-prefix}-leadspace-block-heading),
-    ::slotted(#{$dds-prefix}-leadspace-block-content) {
-      padding: 0;
-
-      ::slotted(*) {
-        padding: 0;
       }
     }
 
@@ -314,7 +305,13 @@
     }
   }
 
-  :host(#{$dds-prefix}-leadspace-search-block-heading) {
+  :host(#{$dds-prefix}-leadspace-with-search-heading),
+  :host(#{$dds-prefix}-leadspace-with-search-content) {
+    display: block;
+    padding: 0;
+  }
+
+  :host(#{$dds-prefix}-leadspace-with-search-content-heading) {
     @extend :host(#{$dds-prefix}-content-block-heading);
 
     @include carbon--breakpoint-down('lg') {
@@ -338,7 +335,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-leadspace-search-block-copy) {
+  :host(#{$dds-prefix}-leadspace-with-search-content-copy) {
     @extend :host(#{$dds-prefix}-content-block-paragraph);
     @include carbon--type-style('expressive-heading-03', true);
 
