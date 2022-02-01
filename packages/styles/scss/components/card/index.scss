@@ -640,30 +640,6 @@
 
     &[pictogram-placement='top'] .#{$prefix}--card,
     &[pictogram-placement='bottom'] .#{$prefix}--card {
-      &:hover,
-      &:focus {
-        .#{$prefix}--card__motion {
-          ::slotted(#{$dds-prefix}-card-heading) {
-            @include carbon--breakpoint('md') {
-              opacity: 0;
-              transform: translate3d(0, 16px, 0);
-              transition-delay: 0s;
-            }
-          }
-
-          .#{$prefix}--card__copy {
-            @include carbon--breakpoint('md') {
-              display: block;
-              overflow: hidden;
-              visibility: visible;
-              opacity: 1;
-              transform: translate3d(0, 0, 0);
-              transition-delay: 0.2s;
-            }
-          }
-        }
-      }
-
       .#{$prefix}--card__motion {
         ::slotted(#{$dds-prefix}-card-heading) {
           padding-top: 0;
@@ -679,7 +655,7 @@
             opacity: 1;
             transform: translate3d(0, 0, 0);
             transition: all $duration--moderate-02 motion(standard, productive)
-              0.25s;
+            0.25s;
           }
         }
 
@@ -701,6 +677,30 @@
             opacity: 0;
             transform: translate3d(0, -16px, 0);
             transition: all $duration--moderate-02 motion(standard, productive);
+          }
+        }
+      }
+
+      &:hover,
+      &:focus {
+        .#{$prefix}--card__motion {
+          ::slotted(#{$dds-prefix}-card-heading) {
+            @include carbon--breakpoint('md') {
+              opacity: 0;
+              transform: translate3d(0, 16px, 0);
+              transition-delay: 0s;
+            }
+          }
+
+          .#{$prefix}--card__copy {
+            @include carbon--breakpoint('md') {
+              display: block;
+              overflow: hidden;
+              visibility: visible;
+              opacity: 1;
+              transform: translate3d(0, 0, 0);
+              transition-delay: 0.2s;
+            }
           }
         }
       }
