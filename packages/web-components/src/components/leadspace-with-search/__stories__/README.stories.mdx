@@ -31,16 +31,16 @@ import '@carbon/ibmdotcom-web-components/es/components/leadspace-with-search/ind
 
 ```html
 <dds-leadspace-with-search>
-  <dds-leadspace-block-heading slot='heading'>Find a product</dds-leadspace-block-heading>
-  <dds-leadspace-block-content slot='content'>
-    <dds-leadspace-search-block-heading>Innovate like a startup, scale for the enterprise</dds-leadspace-search-block-heading>
-    <dds-leadspace-search-block-copy
+  <dds-leadspace-with-search-heading>Find a product</dds-leadspace-with-search-heading>
+  <dds-leadspace-with-search-content>
+    <dds-leadspace-with-search-content-heading>Innovate like a startup, scale for the enterprise</dds-leadspace-with-search-content-heading>
+    <dds-leadspace-with-search-content-copy
       >Automate your software release process with continuous
       delivery (CD)—the most critical part of adopting DevOps.
       Build, test, and deploy code changes quickly, ensuring
       software is always ready for deployment.
-    </dds-leadspace-search-block-copy>
-  </dds-leadspace-block-content>
+    </dds-leadspace-with-search-content-copy>
+  </dds-leadspace-with-search-content>
   <dds-search-with-typeahead slot='search' leadspace-search><dds-search-with-typeahead/>
   <dds-hr slot='hr'></dds-hr>
 </dds-leadspace-with-search>
@@ -57,16 +57,16 @@ import '@carbon/ibmdotcom-web-components/es/components/leadspace-with-search/ind
     slot='image'
   >
   </dds-background-media>
-  <dds-leadspace-block-heading slot='heading'>Find a product</dds-leadspace-block-heading>
-  <dds-leadspace-block-content slot='content'>
-    <dds-leadspace-search-block-heading>Innovate like a startup, scale for the enterprise</dds-leadspace-search-block-heading>
-    <dds-leadspace-search-block-copy
+  <dds-leadspace-with-search-heading>Find a product</dds-leadspace-with-search-heading>
+  <dds-leadspace-with-search-content>
+    <dds-leadspace-with-search-content-heading>Innovate like a startup, scale for the enterprise</dds-leadspace-with-search-content-heading>
+    <dds-leadspace-with-search-content-copy
       >Automate your software release process with continuous
       delivery (CD)—the most critical part of adopting DevOps.
       Build, test, and deploy code changes quickly, ensuring
       software is always ready for deployment.
-    </dds-leadspace-search-block-copy>
-  </dds-leadspace-block-content>
+    </dds-leadspace-with-search-content-copy>
+  </dds-leadspace-with-search-content>
   <dds-search-with-typeahead slot='search' leadspace-search><dds-search-with-typeahead/>
   <dds-hr slot='hr'></dds-hr>
 </dds-leadspace-with-search>
@@ -98,16 +98,16 @@ There are four adjacent theme combinations that are available in this component 
     slot='image'
   >
   </dds-background-media>
-  <dds-leadspace-block-heading slot='heading'>Find a product</dds-leadspace-block-heading>
-  <dds-leadspace-block-content slot='content'>
-    <dds-leadspace-search-block-heading>Innovate like a startup, scale for the enterprise</dds-leadspace-search-block-heading>
-    <dds-leadspace-search-block-copy
+  <dds-leadspace-with-search-heading>Find a product</dds-leadspace-with-search-heading>
+  <dds-leadspace-with-search-content>
+    <dds-leadspace-with-search-content-heading>Innovate like a startup, scale for the enterprise</dds-leadspace-with-search-content-heading>
+    <dds-leadspace-with-search-content-copy
       >Automate your software release process with continuous
       delivery (CD)—the most critical part of adopting DevOps.
       Build, test, and deploy code changes quickly, ensuring
       software is always ready for deployment.
-    </dds-leadspace-search-block-copy>
-  </dds-leadspace-block-content>
+    </dds-leadspace-with-search-content-copy>
+  </dds-leadspace-with-search-content>
   <dds-search-with-typeahead slot='search' leadspace-search><dds-search-with-typeahead/>
   <dds-hr slot='hr'></dds-hr>
 </dds-leadspace-with-search>
@@ -135,16 +135,16 @@ To enable, add the `scroll-behavior` attribute to `Leadspace with search`
 ```html
 <dds-dotcom-shell-container>
 <dds-leadspace-with-search adjacent-theme='white-and-g10' scroll-behavior>
-  <dds-leadspace-block-heading slot='heading'>Find a product</dds-leadspace-block-heading>
-  <dds-leadspace-block-content slot='content'>
-    <dds-leadspace-search-block-heading>Innovate like a startup, scale for the enterprise</dds-leadspace-search-block-heading>
-    <dds-leadspace-search-block-copy
+  <dds-leadspace-with-search-heading>Find a product</dds-leadspace-with-search-heading>
+  <dds-leadspace-with-search-content>
+    <dds-leadspace-with-search-content-heading>Innovate like a startup, scale for the enterprise</dds-leadspace-with-search-content-heading>
+    <dds-leadspace-with-search-content-copy
       >Automate your software release process with continuous
       delivery (CD)—the most critical part of adopting DevOps.
       Build, test, and deploy code changes quickly, ensuring
       software is always ready for deployment.
-    </dds-leadspace-search-block-copy>
-  </dds-leadspace-block-content>
+    </dds-leadspace-with-search-content-copy>
+  </dds-leadspace-with-search-content>
   <dds-search-with-typeahead slot='search' leadspace-search><dds-search-with-typeahead/>
   <dds-hr slot='hr'></dds-hr>
 </dds-leadspace-with-search>
@@ -154,11 +154,13 @@ To enable, add the `scroll-behavior` attribute to `Leadspace with search`
 
 See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector                | Compatibility selector                              | Description |
-| -------------------------------------- | --------------------------------------------------- | ----------- |
-| `<dds-leadspace-with-search>`          | `data-autoid="dds--leadspace-with-search"`          | Component   |
-| `<dds-leadspace-search-block-heading>` | `data-autoid="dds--leadspace-search-block-heading"` | Component   |
-| `<dds-leadspace-search-block-copy>`    | `data-autoid="dds--leadspace-search-block-copy"`    | Component   |
+| Web Components selector                       | Compatibility selector                                     | Description |
+| --------------------------------------------- | ---------------------------------------------------------- | ----------- |
+| `<dds-leadspace-with-search>`                 | `data-autoid="dds--leadspace-with-search"`                 | Component   |
+| `<dds-leadspace-with-search-content>`         | `data-autoid="dds--leadspace-with-search__content"`        | Component   |
+| `<dds-leadspace-with-search-heading>`         | `data-autoid="dds--leadspace-with-search__heading"`        | Component   |
+| `<dds-leadspace-with-search-content-copy>`    | `data-autoid="dds--leadspace-with-search-content-copy"`    | Component   |
+| `<dds-leadspace-with-search-content-heading>` | `data-autoid="dds--leadspace-with-search-content-heading"` | Component   |
 
 
 ## Props

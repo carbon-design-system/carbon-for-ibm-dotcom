@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.31.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.30.0...@carbon/ibmdotcom-styles@1.31.0-rc.0) (2022-02-01)
+
+
+### Bug Fixes
+
+* **content-item-horizontal-thumbnail:** adjust mobile spacing ([#8067](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8067)) ([dc2a715](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/dc2a715))
+* **deps:** update dependency @carbon/grid to v10.40.0 ([#8119](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8119)) ([0026aa4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0026aa4))
+* **deps:** update dependency @carbon/layout to v10.35.0 ([#8120](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8120)) ([f0f8b05](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f0f8b05))
+* **deps:** update dependency @carbon/motion to v10.27.0 ([#8122](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8122)) ([59e14dc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/59e14dc))
+* **deps:** update dependency @carbon/themes to v10.49.0 ([#8123](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8123)) ([84b9672](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/84b9672))
+* **deps:** update dependency carbon-components to v10.51.0 ([#8125](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8125)) ([594594d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/594594d))
+* **masthead:** add padding top to masthead-composite & cloud-masthead-container ([#8068](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8068)) ([ef58349](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ef58349))
+* **styles:** missing text color for content block and section ([#8079](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8079)) ([496fa16](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/496fa16)), closes [#7798](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7798)
+
+
+### Features
+
+* **masthead:** add grouped search support ([#8004](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8004)) ([7235567](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7235567)), closes [#7822](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7822)
+
+
+
+
+
 # [1.30.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.30.0-rc.1...@carbon/ibmdotcom-styles@1.30.0) (2022-01-31)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
