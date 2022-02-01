@@ -3,7 +3,7 @@ description:
   Suggest a new idea for the project.
 title: '[YOUR TITLE]: Brief description'
 assignees:
-  - jeffchew,ljcarot,oliviaflory,RichKummer,ariellalgilmore
+  - jeffchew,ljcarot,oliviaflory,emyarod
 labels: ['Feature request']
 body:
   - type: markdown

@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.31.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.30.0...@carbon/ibmdotcom-react@1.31.0-rc.0) (2022-02-01)
+
+
+
+# 1.30.0 (2022-01-31)
+
+
+### Bug Fixes
+
+* **deps:** update dependency carbon-components to v10.51.0 ([#8125](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8125)) ([594594d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/594594d))
+* **e2e:** mock ibm-common.js in e2e tests ([#8147](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8147)) ([a32b3e5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a32b3e5))
+* **video:** use component width to build video thumbnail ([#7914](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7914)) ([1cb82ee](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1cb82ee)), closes [#7660](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7660)
+
+
+
+
+
+# [1.30.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.30.0-rc.1...@carbon/ibmdotcom-react@1.30.0) (2022-01-31)
+
+
+
+# 1.30.0-rc.1 (2022-01-24)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.30.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.30.0-rc.0...@carbon/ibmdotcom-react@1.30.0-rc.1) (2022-01-24)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
 # [1.30.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.29.1...@carbon/ibmdotcom-react@1.30.0-rc.0) (2022-01-18)
 
 
