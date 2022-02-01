@@ -44,10 +44,10 @@ class DDSContentSection extends StableSelectorMixin(LitElement) {
       node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
     )[0];
 
-    (firstElem as HTMLElement).style.paddingTop = "0";
-    (firstElem as HTMLElement).style.marginTop = "0";
+    (firstElem as HTMLElement).style.paddingTop = '0';
+    (firstElem as HTMLElement).style.marginTop = '0';
   }
-  
+
   render() {
     return html`
       <div class="${prefix}--content-section ${prefix}--content-section-layout">

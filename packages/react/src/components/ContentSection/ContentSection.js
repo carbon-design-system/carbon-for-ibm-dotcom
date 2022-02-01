@@ -32,9 +32,11 @@ const ContentSection = ({
   const childrenRef = useRef();
 
   useEffect(() => {
-    const {current: childrenNode} = childrenRef;
-    const firstElem = childrenNode?.querySelector(".bx--content-block, .bx--content-group");
-    if(firstElem){
+    const { current: childrenNode } = childrenRef;
+    const firstElem = childrenNode?.querySelector(
+      '.bx--content-block, .bx--content-group'
+    );
+    if (firstElem) {
       firstElem.style.paddingTop = '0';
       firstElem.style.marginTop = '0';
     }
