@@ -720,7 +720,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
       const newPlaceholder = this.placeholderFormatter({
         scopeValue: this.scopeParameters.filter(e => e.value === `${this.scopeValue}`)[0].name,
       });
-      this.placeholder = newPlaceholder;
+      this.setAttribute('placeholder', newPlaceholder);
       this.performSearchButtonAssistiveText = newPlaceholder;
     }
   }
