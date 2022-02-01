@@ -6,23 +6,34 @@
  */
 
 import CloudAccountAuthAPI from '../CloudAccountAuth';
+import root from 'window-or-global';
 
-describe('CloudAccountAuth cookie utility', () => {
-  it('should fetch the CloudAccountAuth cookie and return the authenticated string', () => {
-    Object.defineProperty(window.document, 'cookie', {
-      writable: true,
-      value: 'com.ibm.cloud.iam.LoggedIn.prod=1',
-    });
+describe('CloudAccountAuth personalization utility', () => {
+  it('should fetch the personalization window boolean and return the authenticated string', () => {
+    root._dl = {
+      ddo: {
+        user: {
+          segment: {
+            isCloudLoggedOn: true,
+          },
+        },
+      },
+    };
 
     const loginStatus = CloudAccountAuthAPI.checkPersonalization();
     expect(loginStatus).toStrictEqual({ user: 'authenticated' });
   });
 
-  it('should fetch the CloudAccountAuth cookie and return the anonymous string', () => {
-    Object.defineProperty(window.document, 'cookie', {
-      writable: true,
-      value: 'com.ibm.cloud.iam.LoggedIn.prod=0',
-    });
+  it('should fetch the personalization window boolean and return the anonymous string', () => {
+    root._dl = {
+      ddo: {
+        user: {
+          segment: {
+            isCloudLoggedOn: false,
+          },
+        },
+      },
+    };
 
     const loginStatus = CloudAccountAuthAPI.checkPersonalization();
     expect(loginStatus).toStrictEqual({ user: 'anonymous' });
