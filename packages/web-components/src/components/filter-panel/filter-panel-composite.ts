@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, LitElement, property } from 'lit-element';
+import { customElement, html, LitElement, property, TemplateResult } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import Filter from 'carbon-web-components/es/icons/filter/16';
@@ -15,7 +15,6 @@ import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-list
 import './filter-group';
 import './filter-panel';
 import './filter-panel-modal';
-import { baseFontSize, breakpoints } from '@carbon/layout';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -25,7 +24,6 @@ import DDSFilterGroupItem from './filter-group-item';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-const gridBreakpoint = parseFloat(breakpoints.md.width) * baseFontSize;
 
 /**
  * Filter panel composite
@@ -319,31 +317,41 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     this._filterButtonTitle = this._title[0].innerText;
   }
 
-  protected _renderButton = gridBreakpoint < document.body.clientHeight;
+  /**
+   * Renders original content into the modal and listens for changes to this
+   * content to then be stored in `this._content`.
+   */
+  protected _renderModal = (): TemplateResult => html`
+    <dds-filter-panel-modal ?open=${this.openFilterModal} heading="${this._filterButtonTitle}">
+      <slot name="heading" @slotchange="${this._handleTitleSlotChange}"></slot>
+      <slot @slotchange="${this._handleSlotChange}"></slot>
+    </dds-filter-panel-modal>
+  `;
+
+  /**
+   * Renders copies of slotted elements into the desktop presentation.
+   */
+  protected _renderDesktop = (): TemplateResult => html`
+    <dds-filter-panel heading="${this._filterButtonTitle}">
+      ${this._title.map(e => {
+        return html`
+          ${unsafeHTML((e as HTMLElement).outerHTML)}
+        `;
+      })}
+      ${this._contents.map(e => {
+        return html`
+          ${unsafeHTML((e as HTMLElement).outerHTML)}
+        `;
+      })}
+    </dds-filter-panel>
+  `;
 
   render() {
     return html`
       <button class="bx--filter-button" @click=${this._openModal}>
         <div class="${prefix}--filter__modal__button">${this._filterButtonTitle} ${Filter()}</div>
       </button>
-
-      <dds-filter-panel-modal ?open=${this.openFilterModal} heading="${this._filterButtonTitle}">
-        <slot name="heading" @slotchange="${this._handleTitleSlotChange}"></slot>
-        <slot @slotchange="${this._handleSlotChange}"></slot>
-      </dds-filter-panel-modal>
-
-      <dds-filter-panel heading="${this._filterButtonTitle}">
-        ${this._title.map(e => {
-          return html`
-            ${unsafeHTML((e as HTMLElement).outerHTML)}
-          `;
-        })}
-        ${this._contents.map(e => {
-          return html`
-            ${unsafeHTML((e as HTMLElement).outerHTML)}
-          `;
-        })}
-      </dds-filter-panel>
+      ${this._renderModal()} ${this._renderDesktop()}
     `;
   }
 
