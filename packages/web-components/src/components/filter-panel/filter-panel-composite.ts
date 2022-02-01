@@ -123,10 +123,8 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     });
 
     if (match !== -1) {
-      // console.log('DEBUG: composite: Match found, setting cache to', event.detail.value);
       this._filterGroupsAllRevealed[match].value = event.detail.value;
     } else {
-      // console.log('DEBUG: composite: No match, setting cache to', event.detail.value);
       this._filterGroupsAllRevealed.push(event.detail);
     }
   };

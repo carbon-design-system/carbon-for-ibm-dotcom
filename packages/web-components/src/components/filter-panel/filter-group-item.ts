@@ -13,6 +13,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import BXAccordionItem from 'carbon-web-components/es/components/accordion/accordion-item';
 import styles from './filter-panel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import DDSFilterPanelComposite from './filter-panel-composite';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -137,13 +138,18 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
    */
   protected _getCachedViewAllValue(): boolean {
     const { titleText } = this;
+    let result: boolean = false;
 
-    const cache = (((this.closest('dds-filter-panel')?.parentNode as ShadowRoot).host as HTMLElement) as any)
-      ._filterGroupsAllRevealed;
+    const filterPanel = this.closest('dds-filter-panel');
+    if (filterPanel) {
+      // Indicates this is composite's duplicated content.
+      const shadowRoot = filterPanel?.parentNode as ShadowRoot;
+      const cache = (shadowRoot.host as DDSFilterPanelComposite)._filterGroupsAllRevealed;
+      const match = cache.find(entry => entry.id === titleText);
+      result = match ? match.value : false;
+    }
 
-    const match = cache.find(entry => entry.id === titleText);
-
-    return match ? match.value : false;
+    return result;
   }
 
   protected firstUpdated(): void {
@@ -169,7 +175,7 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
         if (prevAllRevealed === undefined) {
           this._handleAllRevealed(this._getCachedViewAllValue());
         } else {
-          this._handleAllRevealed(!prevAllRevealed);
+          this._handleAllRevealed(this.allRevealed);
         }
       }
     }
