@@ -14,6 +14,9 @@ import BXAccordionItem from 'carbon-web-components/es/components/accordion/accor
 import styles from './filter-panel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSFilterPanelComposite from './filter-panel-composite';
+import DDSFilterPanelCheckbox from './filter-panel-checkbox';
+import DDSFilterPanelInputSelectItem from './filter-panel-input-select-item';
+import DDSFilterPanelInputSelect from './filter-panel-input-select';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -78,15 +81,36 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
   }
 
   /**
+   * Checks if any filters beyond the cutoff point have been selected.
+   */
+  protected _hasHiddenActiveFilter(): boolean {
+    const { children, filterCutoff } = this;
+    let result: boolean = false;
+
+    [...children].slice(filterCutoff, children.length).forEach(elem => {
+      if (elem instanceof DDSFilterPanelCheckbox) {
+        if (elem.checked) result = true;
+      }
+      if (elem instanceof DDSFilterPanelInputSelectItem || elem instanceof DDSFilterPanelInputSelect) {
+        if (elem.selected) result = true;
+      }
+    });
+
+    return result;
+  }
+
+  /**
    * Hides or reveals excess filters.
    */
   protected _handleAllRevealed(revealed: boolean): void {
     const { children, filterCutoff, accordionContent } = this;
+    const hasHiddenActiveFilter = this._hasHiddenActiveFilter();
+
     [...children].slice(filterCutoff, children.length).forEach(elem => {
-      (elem as HTMLElement).style.display = revealed ? '' : 'none';
+      (elem as HTMLElement).style.display = revealed || hasHiddenActiveFilter ? '' : 'none';
     });
 
-    if (!revealed) {
+    if (!revealed && !hasHiddenActiveFilter) {
       accordionContent.appendChild(this._renderViewAll());
     }
 
