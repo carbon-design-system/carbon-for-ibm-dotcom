@@ -201,7 +201,10 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
       }
       const embedVideoHandle = await KalturaPlayerAPI.embedMedia(videoId, playerId, additionalPlayerOptions);
       doc!.getElementById(playerId)!.dataset.videoId = videoId;
-      (doc!.getElementById(playerId)?.firstElementChild as HTMLElement).focus();
+      const videoEmbed = doc!.getElementById(playerId)?.firstElementChild;
+      if (videoEmbed) {
+        (videoEmbed as HTMLElement).focus();
+      }
       return embedVideoHandle.kWidget();
     }
 
