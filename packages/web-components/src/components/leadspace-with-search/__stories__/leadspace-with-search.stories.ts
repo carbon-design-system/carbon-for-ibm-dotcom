@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -40,13 +40,13 @@ export const Default = ({ parameters }) => {
   const secondTheme = theme.split('-')[2];
   return html`
     <dds-leadspace-with-search adjacent-theme="${theme}">
-      <dds-leadspace-block-heading slot="heading">${heading}</dds-leadspace-block-heading>
-      <dds-leadspace-block-content slot="content">
-        <dds-leadspace-search-block-heading>${subheading}</dds-leadspace-search-block-heading>
-        <dds-leadspace-search-block-copy style="${!paragraph ? 'display: none' : ''}"
+      <dds-leadspace-with-search-heading>${heading}</dds-leadspace-with-search-heading>
+      <dds-leadspace-with-search-content>
+        <dds-leadspace-with-search-content-heading>${subheading}</dds-leadspace-with-search-content-heading>
+        <dds-leadspace-with-search-content-copy style="${!paragraph ? 'display: none' : ''}"
           >${paragraph}
-        </dds-leadspace-search-block-copy>
-      </dds-leadspace-block-content>
+        </dds-leadspace-with-search-content-copy>
+      </dds-leadspace-with-search-content>
       <dds-search-with-typeahead slot="search" leadspace-search></dds-search-with-typeahead>
       <dds-hr slot="hr" style="${currentTheme === secondTheme ? 'display: none' : ''}"></dds-hr>
     </dds-leadspace-with-search>
@@ -60,13 +60,13 @@ export const WithImage = ({ parameters }) => {
     <dds-leadspace-with-search adjacent-theme="${theme}">
       <dds-background-media gradient-direction="left-to-right" mobile-position="bottom" default-src="${image}" slot="image">
       </dds-background-media>
-      <dds-leadspace-block-heading slot="heading">${heading}</dds-leadspace-block-heading>
-      <dds-leadspace-block-content slot="content">
-        <dds-leadspace-search-block-heading>${subheading}</dds-leadspace-search-block-heading>
-        <dds-leadspace-search-block-copy style="${!paragraph ? 'display: none' : ''}"
+      <dds-leadspace-with-search-heading>${heading}</dds-leadspace-with-search-heading>
+      <dds-leadspace-with-search-content>
+        <dds-leadspace-with-search-content-heading>${subheading}</dds-leadspace-with-search-content-heading>
+        <dds-leadspace-with-search-content-copy style="${!paragraph ? 'display: none' : ''}"
           >${paragraph}
-        </dds-leadspace-search-block-copy>
-      </dds-leadspace-block-content>
+        </dds-leadspace-with-search-content-copy>
+      </dds-leadspace-with-search-content>
       <dds-search-with-typeahead slot="search" leadspace-search></dds-search-with-typeahead>
       <dds-hr slot="hr" style="${currentTheme === secondTheme ? 'display: none' : ''}"></dds-hr>
     </dds-leadspace-with-search>
