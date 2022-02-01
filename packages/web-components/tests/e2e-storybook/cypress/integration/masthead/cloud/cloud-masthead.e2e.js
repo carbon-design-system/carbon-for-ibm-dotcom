@@ -58,7 +58,10 @@ describe('dds-masthead | cloud platform (desktop)', () => {
         .get('dds-cloud-megamenu-tab', { withinSubject: $megaMenuNavItem })
         .each($tab => {
           cy.get($tab)
-            .click()
+            .shadow()
+            .find('button')
+            .click({force: true})
+            .parent()
             .then($tab => {
               const panelSelector = `#${$tab.attr('target')}`;
               cy.get(panelSelector).should('be.visible');
