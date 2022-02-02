@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.31.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.30.0...@carbon/ibmdotcom-utilities@1.31.0-rc.0) (2022-02-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency axios to ^0.25.0 ([#8124](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8124)) ([224cede](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/224cede))
+* **deps:** update dependency carbon-components to v10.51.0 ([#8125](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8125)) ([594594d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/594594d))
+* **masthead:** fix undefined error in locale call ([#8142](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8142)) ([ba3745c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ba3745c))
+
+
+
+
+
 # [1.30.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.30.0-rc.1...@carbon/ibmdotcom-utilities@1.30.0) (2022-01-31)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities

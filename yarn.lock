@@ -1356,19 +1356,6 @@
     "@carbon/import-once" "^10.6.0"
     "@carbon/layout" "^10.35.0"
 
-"@carbon/ibmdotcom-utilities@1.30.0-canary.adhoc4.6756":
-  version "1.30.0-canary.adhoc4.6756"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.30.0-canary.adhoc4.6756.tgz#c01a00e8eff318ae5574d5b6911e3706a6260ff0"
-  integrity sha512-WqwnQ+HvxndkVXA32ILRMJ5GxpTTqTI+d6QcxKMfYlBG/laQHZ5yozgLXhTJ0UMVcUIxZAmmJu6tPafOAF+Cxw==
-  dependencies:
-    "@carbon/telemetry" "0.0.0-alpha.6"
-    axios "^0.21.1"
-    carbon-components "10.50.0"
-    isomorphic-dompurify "0.4.0"
-    js-cookie "^2.2.1"
-    marked "^4.0.10"
-    window-or-global "^1.0.1"
-
 "@carbon/icon-helpers@10.26.0", "@carbon/icon-helpers@^10.26.0":
   version "10.26.0"
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.26.0.tgz#fe8277836e7b758ae48c93fbab8aab444b2f3b70"
@@ -4440,11 +4427,6 @@
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.0.tgz#69a23a3ad29caf0097f06eda59b361ee2f0639f6"
   integrity sha1-aaI6OtKcrwCX8G7aWbNh7i8GOfY=
-
-"@types/minimist@^1.2.1":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.2.tgz#ee771e2ba4b3dc5b372935d549fd9617bf345b8c"
-  integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
 "@types/node@*", "@types/node@^16.4.7":
   version "16.10.3"
@@ -9641,10 +9623,10 @@ domhandler@^4.2.0:
   dependencies:
     domelementtype "^2.2.0"
 
-dompurify@2.3.4:
-  version "2.3.4"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.3.4.tgz#1cf5cf0105ccb4debdf6db162525bd41e6ddacc6"
-  integrity sha512-6BVcgOAVFXjI0JTjEvZy901Rghm+7fDQOrNIcxB4+gdhj6Kwp6T9VBhBY/AbagKHJocRkDYGd6wvI+p4/10xtQ==
+dompurify@2.3.5:
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.3.5.tgz#c83ed5a3ae5ce23e52efe654ea052ffb358dd7e3"
+  integrity sha512-kD+f8qEaa42+mjdOpKeztu9Mfx5bv9gVLO6K9jRx4uGvh6Wv06Srn4jr1wPNY2OOUGGSKHNFN+A8MA3v0E0QAQ==
 
 dompurify@^2.0.0, dompurify@^2.0.12:
   version "2.2.6"
@@ -23454,13 +23436,6 @@ tsconfig-paths@^3.9.0:
     json5 "^1.0.1"
     minimist "^1.2.0"
     strip-bom "^3.0.0"
-
-tsickle@^0.43.0:
-  version "0.43.0"
-  resolved "https://registry.yarnpkg.com/tsickle/-/tsickle-0.43.0.tgz#d53501ee54932382c4923a77de9ab5a82abd9e98"
-  integrity sha512-n0lgIQBLliB7EFVTDpqrd/GjyB9I3NCodfX4R3NE/H73PQvGjgrkSZc8RVcWBG6s1MDiFjYDHIezYkuh8GYslw==
-  dependencies:
-    "@types/minimist" "^1.2.1"
 
 tslib@^1, tslib@^1.10.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
   version "1.13.0"
