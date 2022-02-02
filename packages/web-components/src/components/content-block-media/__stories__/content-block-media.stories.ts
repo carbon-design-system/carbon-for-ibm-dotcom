@@ -48,7 +48,7 @@ const copyWithList = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit.
   - [list item](https://www.ibm.com)
     - list "item 1a"
   1. list item 2
-    1. list item 2a
+     1. list item 2a
         - list item 2a.a
 `;
 
@@ -88,7 +88,7 @@ export const Default = ({ parameters }) => {
       <dds-content-block-heading>
         ${blockHeading}
       </dds-content-block-heading>
-      <dds-content-block-copy size="lg"
+      <dds-content-block-copy size="md"
         >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
         hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Phasellus at elit sollicitudin, sodales
         nulla quis, consequat libero.
@@ -166,7 +166,7 @@ export const withLinkList = ({ parameters }) => {
       <dds-content-block-heading>
         ${blockHeading}
       </dds-content-block-heading>
-      <dds-content-block-copy size="lg"
+      <dds-content-block-copy size="md"
         >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
         hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Phasellus at elit sollicitudin, sodales
         nulla quis, consequat libero.
