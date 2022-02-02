@@ -78,7 +78,6 @@
     "require-dir": "^1.2.0",
     "sass-loader": "^10.0.0",
     "semver": "^7.3.2",
-    "storybook-readme": "^5.0.8",
     "string-replace-loader": "^2.1.0",
     "style-loader": "^2.0.0"
   },
