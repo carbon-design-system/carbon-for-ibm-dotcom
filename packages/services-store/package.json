@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-services-store",
   "private": true,
-  "version": "1.30.0-rc.0",
+  "version": "1.31.0-rc.0",
   "description": "Redux store for Carbon for IBM.com Services",
   "license": "Apache-2.0",
   "main": "lib/store.js",
@@ -39,9 +39,9 @@
     "prettier": "^1.19.0"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "1.30.0-rc.0",
-    "@carbon/ibmdotcom-utilities": "1.30.0-rc.0",
-    "carbon-components": "10.50.0",
+    "@carbon/ibmdotcom-services": "1.31.0-rc.0",
+    "@carbon/ibmdotcom-utilities": "1.31.0-rc.0",
+    "carbon-components": "10.51.0",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.0",
     "redux-thunk": "^2.3.0",
@@ -60,7 +60,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.0.0",
-    "del": "^2.2.0",
+    "del": "^6.0.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-carbon-base": "^1.0.0",

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -29,16 +29,6 @@ class DDSContentSection extends StableSelectorMixin(LitElement) {
    */
   @property({ attribute: 'children-custom-class', reflect: true })
   childrenCustomClass = '';
-
-  /**
-   * Applies section attribute
-   */
-  connectedCallback() {
-    if (!this.hasAttribute('role')) {
-      this.setAttribute('role', 'section');
-    }
-    super.connectedCallback();
-  }
 
   render() {
     return html`

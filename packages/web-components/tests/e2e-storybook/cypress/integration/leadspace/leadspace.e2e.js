@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -150,7 +150,7 @@ describe('dds-leadspace | tall', () => {
     cy.visit(`/${_pathTall}`);
     cy.viewport(1280, 780);
 
-    cy.get('dds-leadspace-image').should('not.exist');
+    cy.get('dds-background-media').should('not.exist');
   });
 
   it('should load correctly in all themes', () => {
@@ -168,7 +168,7 @@ describe('dds-leadspace | tall with image', () => {
 
     cy.wait(500);
 
-    cy.get('dds-leadspace-image')
+    cy.get('dds-background-media')
       .find('dds-image-item')
       .should('have.attr', 'srcset');
 
@@ -252,7 +252,7 @@ describe('dds-leadspace | centered with image', () => {
 
     cy.wait(500);
 
-    cy.get('dds-leadspace-image')
+    cy.get('dds-background-media')
       .find('dds-image-item')
       .should('have.attr', 'srcset');
 
@@ -378,11 +378,11 @@ describe('dds-leadspace | super with image', () => {
 
     cy.wait(500);
 
-    cy.get('dds-leadspace-image')
+    cy.get('dds-background-media')
       .find('dds-image-item')
       .should('have.attr', 'srcset');
 
-    cy.get('dds-leadspace-image').then($ele => {
+    cy.get('dds-background-media').then($ele => {
       expect($ele[0].offsetHeight).to.equal(640);
     });
 

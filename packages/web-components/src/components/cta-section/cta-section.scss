@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2021
+// Copyright IBM Corp. 2020, 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -11,6 +11,7 @@
 
 :host(#{$dds-prefix}-cta-section) {
   display: block;
+  background-color: $ui-background;
 
   .#{$prefix}--content-section {
     @include hang;
@@ -37,6 +38,10 @@
       padding-left: $spacing-05;
       margin-bottom: $carbon--layout-04;
     }
+  }
+
+  .#{$prefix}--content-section__body {
+    padding-top: $spacing-09;
   }
 
   ::slotted(#{$dds-prefix}-content-section-heading) {

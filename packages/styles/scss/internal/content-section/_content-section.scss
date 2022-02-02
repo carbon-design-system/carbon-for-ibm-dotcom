@@ -69,6 +69,7 @@
   .#{$prefix}--content-section__heading {
     margin-top: 0;
     margin-bottom: $spacing-06;
+    color: $text-01;
 
     @include type-style('expressive-heading-02');
   }
@@ -100,6 +101,19 @@
 
       margin-top: 0;
     }
+  }
+
+  .#{$prefix}--content-section__children > :first-child {
+    .#{$prefix}--content-block,
+    .#{$prefix}--content-group {
+      padding-top: 0;
+      margin-top: 0;
+    }
+  }
+
+  .#{$prefix}--content-section__body ::slotted(*:first-of-type) {
+    padding-top: 0;
+    margin-top: 0;
   }
 
   .#{$prefix}--content-section--g10 {
