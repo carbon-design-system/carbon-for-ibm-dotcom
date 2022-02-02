@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -52,24 +52,10 @@
 
 :host(#{$dds-prefix}-filter-group-item) {
   .#{$dds-prefix}-filter-group-item__view-all {
-    @include carbon--type-style('body-short-01');
-
     width: 100%;
     padding: $spacing-03 $spacing-05;
     text-align: left;
-    background-color: transparent;
-    color: $interactive-01;
-    border: none;
     cursor: pointer;
-
-    &:hover {
-      background-color: $background-hover;
-    }
-
-    &:focus-visible {
-      outline: $spacing-01 solid $focus;
-      outline-offset: -2px;
-    }
   }
 }
 

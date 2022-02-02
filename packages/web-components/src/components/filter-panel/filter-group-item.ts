@@ -122,7 +122,7 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
    */
   protected _renderViewAll(): HTMLButtonElement {
     const viewAll = document.createElement('button');
-    viewAll.classList.add(viewAllClassName);
+    viewAll.classList.add(viewAllClassName, `${prefix}--btn--ghost`);
     viewAll.type = 'button';
     viewAll.innerText = this.viewAllText;
 
