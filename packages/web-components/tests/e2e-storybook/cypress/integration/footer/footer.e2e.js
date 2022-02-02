@@ -105,7 +105,6 @@ describe('dds-footer | default (desktop)', () => {
   });
 
   it('should load all the 41 interactable navigation links', () => {
-
     if (Cypress.browser.name === 'chrome') {
       cy.get(`dds-footer-nav-item`).should('have.length', 38);
     } else {
@@ -173,7 +172,6 @@ describe('dds-footer | Default language only (desktop)', () => {
   });
 
   it('should load all the 41 interactable navigation links', () => {
-
     if (Cypress.browser.name === 'chrome') {
       cy.get(`dds-footer-nav-item`).should('have.length', 38);
     } else {
@@ -461,7 +459,6 @@ describe('dds-footer | default (mobile)', () => {
   });
 
   it('should load all the 41 interactable navigation links', () => {
-
     if (Cypress.browser.name === 'chrome') {
       cy.get(`dds-footer-nav-item`).should('have.length', 38);
     } else {
@@ -520,7 +517,6 @@ describe('dds-footer | Default language only (mobile)', () => {
   });
 
   it('should load all the 41 interactable navigation links', () => {
-
     if (Cypress.browser.name === 'chrome') {
       cy.get(`dds-footer-nav-item`).should('have.length', 38);
     } else {
