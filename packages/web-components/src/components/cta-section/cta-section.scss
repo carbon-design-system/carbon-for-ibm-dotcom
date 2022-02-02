@@ -40,6 +40,10 @@
     }
   }
 
+  .#{$prefix}--content-section__body {
+    padding-top: $spacing-09;
+  }
+
   ::slotted(#{$dds-prefix}-content-section-heading) {
     margin-bottom: $spacing-07;
 

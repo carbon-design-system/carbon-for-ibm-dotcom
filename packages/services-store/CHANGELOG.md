@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.31.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.30.0...@carbon/ibmdotcom-services-store@1.31.0-rc.0) (2022-02-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency carbon-components to v10.51.0 ([#8125](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/services-store/issues/8125)) ([594594d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/services-store/commit/594594d))
+
+
+
+
+
+# [1.30.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.30.0-rc.1...@carbon/ibmdotcom-services-store@1.30.0) (2022-01-31)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services-store
+
+
+
+
+
+# [1.30.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.30.0-rc.0...@carbon/ibmdotcom-services-store@1.30.0-rc.1) (2022-01-24)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services-store
+
+
+
+
+
 # [1.30.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.29.1...@carbon/ibmdotcom-services-store@1.30.0-rc.0) (2022-01-18)
 
 
