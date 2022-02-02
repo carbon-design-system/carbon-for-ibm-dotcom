@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2021
+ * Copyright IBM Corp. 2019, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -427,14 +427,14 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
    * @returns The main content of the trigger button.
    */
   protected _renderTriggerContent() {
-    const { placeholder, searchLabel, _handleInput: handleInput, _handleKeyInput: handleKeyInput } = this;
+    const { searchPlaceholder, searchLabel, _handleInput: handleInput, _handleKeyInput: handleKeyInput } = this;
     return html`
       <input
         type="text"
         part="search-input"
         class="${prefix}--header__search--input"
         name="q"
-        placeholder="${placeholder}"
+        placeholder="${searchPlaceholder}"
         autocomplete="off"
         aria-controls="result-list"
         aria-autocomplete="list"
@@ -579,8 +579,8 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
   /**
    * Value to display when the input has an empty `value`.
    */
-  @property({ reflect: true })
-  placeholder = 'Search all of IBM';
+  @property()
+  searchPlaceholder = 'Search all of IBM';
 
   /**
    * The redirect URL when a user selects a search suggestion.
