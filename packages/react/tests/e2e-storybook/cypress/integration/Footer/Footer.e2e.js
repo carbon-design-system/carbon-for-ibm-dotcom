@@ -107,10 +107,10 @@ describe('Footer | default (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should load all the 38 navigation links', () => {
+  it('should load all the 41 navigation links', () => {
     cy.get(`[data-autoid="dds--footer-nav-group__link"]`).should(
       'have.length',
-      38
+      41
     );
     cy.screenshot();
   });
@@ -161,10 +161,10 @@ describe('Footer | Default language only (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should load all the 38 navigation links', () => {
+  it('should load all the 41 navigation links', () => {
     cy.get(`[data-autoid="dds--footer-nav-group__link"]`).should(
       'have.length',
-      38
+      41
     );
     cy.screenshot();
   });
@@ -429,10 +429,10 @@ describe('Footer | default (mobile)', () => {
     cy.takeSnapshots('mobile');
   });
 
-  it('should load all the 38 navigation links', () => {
+  it('should load all the 41 navigation links', () => {
     cy.get(`[data-autoid="dds--footer-nav-group__link"]`).should(
       'have.length',
-      38
+      41
     );
     cy.screenshot();
   });
@@ -468,10 +468,10 @@ describe('Footer | Default language only (mobile)', () => {
     cy.takeSnapshots('mobile');
   });
 
-  it('should load all the 38 navigation links', () => {
+  it('should load all the 41 navigation links', () => {
     cy.get(`[data-autoid="dds--footer-nav-group__link"]`).should(
       'have.length',
-      38
+      41
     );
     cy.screenshot();
   });

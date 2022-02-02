@@ -35,57 +35,105 @@ describe('LightboxMediaViewer | default', () => {
   it('should render with all elements', () => {
     cy.visit(`/${_defaultPath}`);
 
-    cy.get('[data-autoid="dds--image__longdescription"]').should(
-      'have.length',
-      1
+    cy.waitUntil(() => cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]')
+      .contains('Curabitur malesuada varius mi eu posuere')
     );
-    _tests.checkMediaMetadata();
 
-    cy.takeSnapshots();
+    cy.get('.bx--image__img')
+      .should('be.visible')
+      .then(() => {
+        cy.get('[data-autoid="dds--image__longdescription"]').should(
+          'have.length',
+          1
+        );
+        cy.get('[data-autoid="dds--lightbox-media-viewer__content__desc"]')
+          .should('be.visible')
+          .then(() => {
+            _tests.checkMediaMetadata();
+
+            cy.takeSnapshots();
+          });
+      });
   });
 
   it('should align elements', () => {
     cy.visit(`/${_defaultPath}`);
 
-    cy.get('[data-autoid="dds--image__longdescription"]').then($image => {
-      expect($image[0].getBoundingClientRect().left).to.equal(64);
-    });
+    cy.waitUntil(() => cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]')
+      .contains('Curabitur malesuada varius mi eu posuere')
+    );
 
-    cy.get('.bx--lightbox-media-viewer__content').then($content => {
-      expect($content[0].getBoundingClientRect().right).to.equal(1280 - 64);
-    });
+    cy.get('.bx--image__img')
+      .should('be.visible')
+      .then(() => {
+        cy.get('[data-autoid="dds--image__longdescription"]').then($image => {
+          expect($image[0].getBoundingClientRect().left).to.equal(64);
+        });
+
+        cy.get('.bx--lightbox-media-viewer__content').then($content => {
+          expect($content[0].getBoundingClientRect().right).to.equal(1280 - 64);
+        });
+      });
   });
 
   it('should verify the image size 1:1', () => {
     cy.visit(
       `/${_defaultPath}&knob-Image_LightboxMediaViewer=static/media/fpo--1x1--720x720--002.7158188a.jpg`
     );
-    cy.get('.bx--image__img').then($image => {
-      expect($image.width()).to.equal($image.height());
-    });
-    cy.takeSnapshots();
+
+    cy.waitUntil(() => cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]')
+      .contains('Curabitur malesuada varius mi eu posuere')
+    );
+
+    cy.get('.bx--image__img')
+      .should('be.visible')
+      .then($image => {
+        expect($image.width()).to.equal($image.height());
+
+        cy.takeSnapshots();
+      });
   });
 
   it('should verify the image size 2:1', () => {
     cy.visit(
       `/${_defaultPath}&knob-Image_LightboxMediaViewer=static/media/fpo--2x1--1312x656--002.80107d00.jpg`
     );
-    cy.get('.bx--image__img').then($image => {
-      expect($image.width() / 2).to.equal($image.height());
-    });
-    cy.takeSnapshots();
+
+    cy.waitUntil(() => cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]')
+      .contains('Curabitur malesuada varius mi eu posuere')
+    );
+
+    cy.get('.bx--image__img')
+      .should('be.visible')
+      .then($image => {
+        expect($image.width() / 2).to.equal($image.height());
+
+        cy.takeSnapshots();
+      });
   });
 
   it('should verify the image size 16:9', () => {
     cy.visit(`/${_defaultPath}`);
-    cy.get('.bx--image__img').then($image => {
-      expect(($image.width() * 9) / 16).to.equal($image.height());
-    });
+
+    cy.waitUntil(() => cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]')
+      .contains('Curabitur malesuada varius mi eu posuere')
+    );
+
+    cy.get('.bx--image__img')
+      .should('be.visible')
+      .then($image => {
+        expect(($image.width() * 9) / 16).to.equal($image.height());
+      });
   });
 
   it('should load correctly in all themes', () => {
     cy.visit(`/${_defaultPath}`);
     cy.viewport(1280, 780);
+
+    cy.waitUntil(() => cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]')
+        .contains('Curabitur malesuada varius mi eu posuere')
+    );
+
     cy.carbonThemesScreenshot();
   });
 });
@@ -97,14 +145,19 @@ describe('LightboxMediaViewer | embedded video player', () => {
   });
 
   it('should render with all elements', () => {
-    cy.get('.bx--video-player').should('have.length', 1);
-    cy.get('.bx--video-player__video').should('not.be.empty');
-    _tests.checkMediaMetadata();
+    cy.waitUntil(() => cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]')
+      .contains('Curabitur malesuada varius mi eu posuere')
+    );
 
+    _tests.checkMediaMetadata();
     cy.takeSnapshots();
   });
 
   it('should align elements correctly', () => {
+    cy.waitUntil(() => cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]')
+      .contains('Curabitur malesuada varius mi eu posuere')
+    );
+
     cy.get('.bx--video-player__video').then($video => {
       expect($video[0].getBoundingClientRect().left).to.equal(64);
     });
@@ -115,22 +168,26 @@ describe('LightboxMediaViewer | embedded video player', () => {
   });
 
   it('should have interactive video controls', () => {
+    cy.waitUntil(() => cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]')
+      .contains('Curabitur malesuada varius mi eu posuere')
+    );
+
     cy.get('.bx--video-player__video .controlsContainer').should(
       'not.be.empty'
     );
 
     // play/pause
-    cy.get('.bx--video-player__video iframe')
+    cy.get('.bx--video-player__video')
       .find('.playPauseBtn')
       .should('not.be.empty');
 
     // mute
-    cy.get('.bx--video-player__video iframe')
+    cy.get('.bx--video-player__video')
       .find('button[title="Mute"]')
       .should('not.be.empty');
 
     // full screen
-    cy.get('.bx--video-player__video iframe')
+    cy.get('.bx--video-player__video')
       .find('.fullScreenBtn')
       .should('not.be.empty');
 
@@ -138,10 +195,17 @@ describe('LightboxMediaViewer | embedded video player', () => {
   });
 
   it('should load correctly in all themes', () => {
+    cy.waitUntil(() => cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]')
+      .contains('Curabitur malesuada varius mi eu posuere')
+    );
     cy.carbonThemesScreenshot();
   });
 
   it('should close the modal when close button is clicked', () => {
+    cy.waitUntil(() => cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]')
+      .contains('Curabitur malesuada varius mi eu posuere')
+    );
+
     cy.get('.bx--modal-close').click();
     cy.takeSnapshots();
   });
