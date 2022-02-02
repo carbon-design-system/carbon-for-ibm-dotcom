@@ -1,25 +1,30 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html } from 'lit-element';
-import { text, select } from '@storybook/addon-knobs';
+import { text, select, number } from '@storybook/addon-knobs';
 import '../index';
 import readme from './README.stories.mdx';
 
 export const Default = ({ parameters }) => {
-  const { heading, gridKnobs } = parameters?.props?.FilterPanel ?? {};
+  const { heading, filterCutoff, maxFilters, viewAllText, gridKnobs } = parameters?.props?.FilterPanel ?? {};
   return html`
     <div class="${gridKnobs === '3 columns' ? 'bx--col-lg-3' : 'bx--col-lg-4'}" style="padding-right: 1rem;">
       <dds-filter-panel-composite>
         <dds-filter-panel-heading slot="heading">${heading}</dds-filter-panel-heading>
         <dds-filter-group>
-          <dds-filter-group-item title-text="Product types">
+          <dds-filter-group-item
+            title-text="Product types"
+            filter-cutoff="${filterCutoff}"
+            max-filters="${maxFilters}"
+            view-all-text="${viewAllText}"
+          >
             <dds-filter-panel-checkbox value="API">API</dds-filter-panel-checkbox>
             <dds-filter-panel-checkbox value="Application">Application</dds-filter-panel-checkbox>
             <dds-filter-panel-checkbox value="Data Set">Data Set</dds-filter-panel-checkbox>
@@ -109,6 +114,9 @@ export default {
     knobs: {
       FilterPanel: ({ groupId }) => ({
         heading: text('heading', 'Filter', groupId),
+        filterCutoff: number('Filter cutoff', 7, {}, groupId),
+        maxFilters: number('Max filters', 5, {}, groupId),
+        viewAllText: text('View all text', 'View all', groupId),
         gridKnobs: select('Grid alignment', ['3 columns', '4 columns'], '4 columns', groupId),
       }),
     },
@@ -116,6 +124,9 @@ export default {
       default: {
         FilterPanel: {
           heading: 'Filter',
+          filterCutoff: 7,
+          maxFilters: 5,
+          viewAllText: 'View all',
           gridKnobs: '4 columns',
         },
       },
