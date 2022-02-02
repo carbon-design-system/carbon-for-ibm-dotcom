@@ -119,7 +119,7 @@ describe('dds-filter-panel | (desktop)', () => {
       .click()
       .get('@filterGroupItem')
       .find('dds-filter-panel-checkbox')
-      .then(checkboxes => filterCount = checkboxes.length);
+      .then(checkboxes => (filterCount = checkboxes.length));
     cy.visit(`${_path}&knob-Max%20filters_FilterPanel=${filterCount}`)
       .get(_selector)
       .shadow()
@@ -196,7 +196,7 @@ describe('dds-filter-panel | (desktop)', () => {
       .click()
       .get('@lastCheckbox')
       .should('be.visible');
-      cy.screenshot(_screenshotOptions);
+    cy.screenshot(_screenshotOptions);
   });
 });
 
@@ -280,7 +280,7 @@ describe('dds-filter-panel | (mobile)', () => {
       .click()
       .get('@filterGroupItem')
       .find('dds-filter-panel-checkbox')
-      .then(checkboxes => filterCount = checkboxes.length);
+      .then(checkboxes => (filterCount = checkboxes.length));
     cy.visit(`${_path}&knob-Max%20filters_FilterPanel=${filterCount}`)
       .get(_selector)
       .find('.bx--filter-button')
