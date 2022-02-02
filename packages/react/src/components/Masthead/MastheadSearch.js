@@ -379,10 +379,6 @@ const MastheadSearch = forwardRef(
       event.currentTarget.dispatchEvent(onSearchCloseClicked);
 
       resetSearch();
-      const searchIconRef = root.document.querySelectorAll(
-        `[data-autoid="${stablePrefix}--masthead-${navType}__l0-search"]`
-      );
-      searchIconRef && searchIconRef[0].focus();
       handleChangeSearchActive();
     }
 
