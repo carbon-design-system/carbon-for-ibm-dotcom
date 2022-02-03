@@ -1,12 +1,12 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
-import { withReadme } from 'storybook-readme';
+// import { withReadme } from 'storybook-readme';
 import readme from './README.md';
 
 const readmeURL = 'https://bit.ly/2Z9PGsC';
@@ -240,21 +240,21 @@ WithOptions.story = {
   },
 };
 
-export const WithOverflowMenu = withReadme(readme, () =>
-  require('./stories/with-overflow-menu').default(props())
-);
-
-WithOverflowMenu.story = {
-  name: 'with overflow menu',
-
-  parameters: {
-    info: {
-      text: `
-    DataTable with Overflow menus added.
-
-    You can find more detailed information surrounding usage of this component
-    at the following url: ${readmeURL}
-  `,
-    },
-  },
-};
+// export const WithOverflowMenu = withReadme(readme, () =>
+//   require('./stories/with-overflow-menu').default(props())
+// );
+//
+// WithOverflowMenu.story = {
+//   name: 'with overflow menu',
+//
+//   parameters: {
+//     info: {
+//       text: `
+//     DataTable with Overflow menus added.
+//
+//     You can find more detailed information surrounding usage of this component
+//     at the following url: ${readmeURL}
+//   `,
+//     },
+//   },
+// };
