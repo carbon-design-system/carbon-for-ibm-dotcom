@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.0",
-    "@carbon/ibmdotcom-utilities": "1.31.0-rc.0",
+    "@carbon/ibmdotcom-utilities": "1.31.0-canary.adhoc5.6836",
     "@carbon/telemetry": "0.0.0-alpha.6",
     "axios": "~0.21.4",
     "window-or-global": "^1.0.1"
@@ -80,7 +80,7 @@
     "gzip-size": "^5.0.0",
     "jest": "25.5.4",
     "jest-circus": "25.5.4",
-    "jsdoc": "^3.6.2",
+    "jsdoc": "^3.6.10",
     "object-assign": "^4.1.1",
     "promise": "^8.0.1",
     "rimraf": "^2.6.3",
