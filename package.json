@@ -10,7 +10,8 @@
   "workspaces": {
     "packages": [
       "packages/*"
-    ]
+    ],
+    "nohoist": ["**/marked"]
   },
   "scripts": {
     "build": "lerna run build --stream --prefix --npm-client yarn",
@@ -87,6 +88,7 @@
   "resolutions": {
     "kind-of": ">=6.0.3",
     "lit-html": "^1.4.0",
+    "marked": "^4.0.10",
     "minimist": ">=1.2.2",
     "node-notifier": ">=8.0.1"
   }

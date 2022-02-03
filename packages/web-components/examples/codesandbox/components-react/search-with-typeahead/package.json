@@ -8,7 +8,7 @@
     "start": "webpack serve"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-web-components": "canary",
+    "@carbon/ibmdotcom-web-components": "latest",
     "@carbon/icons-react": "~10.22.0",
     "carbon-components": "~10.23.0",
     "lit-element": "^2.5.1",
