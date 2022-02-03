@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, internalProperty, customElement, TemplateResult, query } from 'lit-element';
+import { html, property, state, customElement, TemplateResult, query } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXLink from 'carbon-web-components/es/components/link/link';
@@ -43,19 +43,19 @@ class DDSCard extends StableSelectorMixin(BXLink) {
   /**
    * `true` if there is image content.
    */
-  @internalProperty()
+  @state()
   protected _hasImage = false;
 
   /**
    * `true` if there is copy content.
    */
-  @internalProperty()
+  @state()
   protected _hasCopy = false;
 
   /**
    * `true` if there is a pictogram.
    */
-  @internalProperty()
+  @state()
   protected _hasPictogram = false;
 
   /**
