@@ -400,6 +400,12 @@ class DDSDotcomShellComposite extends LitElement {
   authenticatedProfileItems?: MastheadProfileItem[];
 
   /**
+   * The boolean to enable custom typeahead API.
+   */
+  @property({ attribute: 'custom-typeahead-api', type: Boolean })
+  customTypeaheadAPI = false;
+
+  /**
    * The platform name. This goes to masthead.
    */
   @property({ attribute: 'platform' })
@@ -582,6 +588,12 @@ class DDSDotcomShellComposite extends LitElement {
   navLinks?: MastheadLink[];
 
   /**
+   * The parameters passed to the search-with-typeahead for search scope
+   */
+  @property()
+  scopeParameters;
+
+  /**
    * Value to display when the input has an empty `value`.
    */
   @property()
@@ -636,6 +648,7 @@ class DDSDotcomShellComposite extends LitElement {
       platformUrl,
       collatorCountryName,
       currentSearchResults,
+      customTypeaheadAPI,
       clearSelectionLabel,
       disableLocaleButton,
       mastheadAssistiveText,
@@ -659,6 +672,7 @@ class DDSDotcomShellComposite extends LitElement {
       hasProfile,
       hasSearch,
       searchPlaceholder,
+      scopeParameters,
       selectedLanguage,
       selectedMenuItem,
       userStatus,
@@ -677,6 +691,7 @@ class DDSDotcomShellComposite extends LitElement {
           platform,
           platformUrl,
           currentSearchResults,
+          customTypeaheadAPI,
           mastheadAssistiveText,
           menuBarAssistiveText,
           menuButtonAssistiveTextActive,
@@ -689,6 +704,7 @@ class DDSDotcomShellComposite extends LitElement {
           hasProfile,
           hasSearch,
           searchPlaceholder,
+          scopeParameters,
           openSearchDropdown,
           selectedMenuItem,
           userStatus,
