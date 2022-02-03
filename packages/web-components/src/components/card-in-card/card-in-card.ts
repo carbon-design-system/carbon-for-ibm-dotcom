@@ -49,10 +49,12 @@ class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
       linkNode.classList.add(`${prefix}--card-in-card`);
     }
 
-    (this.querySelector(`${ddsPrefix}-card-in-card-image`) as HTMLElement)!.onclick = () =>
-      this.querySelector(`${ddsPrefix}-card-cta-footer`)
-        ?.shadowRoot?.querySelector(`a`)
-        ?.click();
+    if (this.querySelector(`${ddsPrefix}-card-in-card-image`)) {
+      (this.querySelector(`${ddsPrefix}-card-in-card-image`) as HTMLElement).onclick = () =>
+        this.querySelector(`${ddsPrefix}-card-cta-footer`)
+          ?.shadowRoot?.querySelector(`a`)
+          ?.click();
+    }
   }
 
   static get stableSelector() {
