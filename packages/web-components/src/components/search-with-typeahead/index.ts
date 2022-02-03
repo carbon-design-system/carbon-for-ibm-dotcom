@@ -8,3 +8,5 @@
  */
 
 import './search-with-typeahead';
+import './scoped-search-dropdown';
+import './scoped-search-dropdown-mobile';

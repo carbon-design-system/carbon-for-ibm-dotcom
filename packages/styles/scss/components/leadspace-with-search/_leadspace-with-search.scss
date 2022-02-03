@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -125,15 +125,6 @@
       }
     }
 
-    ::slotted(#{$dds-prefix}-leadspace-block-heading),
-    ::slotted(#{$dds-prefix}-leadspace-block-content) {
-      padding: 0;
-
-      ::slotted(*) {
-        padding: 0;
-      }
-    }
-
     ::slotted(#{$dds-prefix}-leadspace-block-heading) {
       @include carbon--breakpoint('md') {
         width: calc(75% - 32px);
@@ -185,7 +176,7 @@
       position: relative;
       display: grid;
       padding-bottom: $spacing-10;
-      z-index: 1;
+      z-index: 11;
 
       @include carbon--breakpoint-down('md') {
         margin: 0 $spacing-05;
@@ -314,7 +305,13 @@
     }
   }
 
-  :host(#{$dds-prefix}-leadspace-search-block-heading) {
+  :host(#{$dds-prefix}-leadspace-with-search-heading),
+  :host(#{$dds-prefix}-leadspace-with-search-content) {
+    display: block;
+    padding: 0;
+  }
+
+  :host(#{$dds-prefix}-leadspace-with-search-content-heading) {
     @extend :host(#{$dds-prefix}-content-block-heading);
 
     @include carbon--breakpoint-down('lg') {
@@ -338,7 +335,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-leadspace-search-block-copy) {
+  :host(#{$dds-prefix}-leadspace-with-search-content-copy) {
     @extend :host(#{$dds-prefix}-content-block-paragraph);
     @include carbon--type-style('expressive-heading-03', true);
 
