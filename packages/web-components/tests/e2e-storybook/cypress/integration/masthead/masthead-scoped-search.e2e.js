@@ -13,7 +13,7 @@
  */
 const _pathScopedSearch = '/iframe.html?id=components-masthead--with-scoped-search';
 
-xdescribe('dds-masthead | scoped search (desktop)', () => {
+describe('dds-masthead | scoped search (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathScopedSearch}`);
     cy.viewport(1280, 780);
@@ -78,7 +78,7 @@ xdescribe('dds-masthead | scoped search (desktop)', () => {
   });
 });
 
-xdescribe('dds-masthead | scoped search (mobile)', () => {
+describe('dds-masthead | scoped search (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathScopedSearch}`);
     cy.viewport(320, 780);
