@@ -171,11 +171,11 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
 
   /**
    * Retrieves view all state stored in the filter panel composite. Returns
-   * false if none is found.
+   * internal value if no cache is found.
    */
   protected _getCachedViewAllValue(): boolean {
-    const { titleText } = this;
-    let result: boolean = false;
+    const { allRevealed, titleText } = this;
+    let result: boolean = allRevealed;
 
     const filterPanel = this.closest('dds-filter-panel');
     if (filterPanel) {
@@ -204,8 +204,7 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
 
       // Reset `allRevealed` on accordion close.
       if (prevOpen) {
-        this.allRevealed = false;
-        this._dispatchViewAllEvent(false);
+        this.allRevealed = this._hasHiddenActiveFilter() || false;
       }
 
       // Respect `allRevealed` attribute.
