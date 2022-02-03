@@ -10,7 +10,7 @@
     "build": "parcel build *.html --public-url ./"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-web-components": "canary"
+    "@carbon/ibmdotcom-web-components": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-0",

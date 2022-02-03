@@ -7,6 +7,9 @@
 
 @import 'carbon-components/scss/components/ui-shell/header';
 @import 'carbon-components/scss/components/ui-shell/side-nav';
+@import 'carbon-web-components/scss/components/dropdown/dropdown';
+@import 'carbon-web-components/scss/components/select/select';
+
 @import '../../globals/vars';
 @import '../../globals/imports';
 
@@ -229,6 +232,15 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
         transition-property: width;
         transition-delay: 380ms;
         transition-duration: 112ms;
+      }
+    }
+
+    &[scope-value] {
+      .react-autosuggest__suggestions-container {
+        @include carbon--breakpoint-down('lg') {
+          left: $spacing-09;
+          width: calc(100% - #{$spacing-09});
+        }
       }
     }
 
@@ -484,6 +496,57 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
     .#{$prefix}--container-class {
       border-bottom-color: $ui-04;
     }
+  }
+}
+
+:host(#{$dds-prefix}-scoped-search-dropdown),
+:host(#{$dds-prefix}-scoped-search-dropdown-mobile) {
+  display: flex;
+  border-right: 1px solid $ui-03;
+
+  .#{$prefix}--list-box {
+    height: 3rem;
+    max-height: none;
+  }
+
+  .#{$prefix}--list-box__field:focus {
+    outline: none;
+  }
+}
+
+:host(#{$dds-prefix}-scoped-search-dropdown) {
+  @include carbon--breakpoint-down('lg') {
+    display: none;
+  }
+
+  .#{$prefix}--list-box__menu {
+    width: fit-content;
+  }
+}
+
+:host(#{$dds-prefix}-scoped-search-dropdown-mobile) {
+  width: 3rem;
+
+  .#{$prefix}--select-input {
+    padding: 0;
+    color: transparent;
+  }
+
+  .#{$prefix}--select__arrow {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
+  .#{$prefix}--form__helper-text {
+    width: 0;
+  }
+
+  @include carbon--breakpoint('lg') {
+    display: none;
   }
 }
 

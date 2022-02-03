@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,6 @@ import requireContext from 'require-context.macro';
 import { configure, addParameters, addDecorator } from '@storybook/react';
 import { configureActions } from '@storybook/addon-actions';
 import { withA11y } from '@storybook/addon-a11y';
-import { withInfo } from '@storybook/addon-info';
 import Container from './Container';
 
 const SORT_ORDER_STORY = [
@@ -32,23 +31,10 @@ addParameters({
   },
 });
 
-// addDecorator(addReadme);
-
 configureActions({
   depth: 3,
   limit: 10,
 });
-
-addDecorator(
-  withInfo({
-    styles: {
-      children: {
-        width: '100%',
-      },
-    },
-    maxPropStringLength: 200, // Displays the first 200 characters in the default prop string
-  })
-);
 
 addDecorator(withA11y);
 addDecorator(story => <Container story={story} />);

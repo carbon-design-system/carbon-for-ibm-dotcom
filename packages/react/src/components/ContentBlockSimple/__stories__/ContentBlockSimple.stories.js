@@ -64,7 +64,7 @@ const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean 
   - [list item](https://www.ibm.com)
     1. list item 1a
   1. list item 2
-    - list item 2a
+     - list item 2a
 `;
 
 /**

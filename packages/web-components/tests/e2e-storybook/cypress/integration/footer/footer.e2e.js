@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -104,8 +104,12 @@ describe('dds-footer | default (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should load all the 38 interactable navigation links', () => {
-    cy.get(`dds-footer-nav-item`).should('have.length', 38);
+  it('should load all the 41 interactable navigation links', () => {
+    if (Cypress.browser.name === 'chrome') {
+      cy.get(`dds-footer-nav-item`).should('have.length', 38);
+    } else {
+      cy.get(`dds-footer-nav-item`).should('have.length', 41);
+    }
 
     cy.get('dds-footer-nav-item')
       .shadow()
@@ -167,8 +171,12 @@ describe('dds-footer | Default language only (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should load all the 38 interactable navigation links', () => {
-    cy.get(`dds-footer-nav-item`).should('have.length', 38);
+  it('should load all the 41 interactable navigation links', () => {
+    if (Cypress.browser.name === 'chrome') {
+      cy.get(`dds-footer-nav-item`).should('have.length', 38);
+    } else {
+      cy.get(`dds-footer-nav-item`).should('have.length', 41);
+    }
 
     cy.get('dds-footer-nav-item')
       .shadow()
@@ -450,8 +458,12 @@ describe('dds-footer | default (mobile)', () => {
     cy.takeSnapshots();
   });
 
-  it('should load all the 38 interactable navigation links', () => {
-    cy.get(`dds-footer-nav-item`).should('have.length', 38);
+  it('should load all the 41 interactable navigation links', () => {
+    if (Cypress.browser.name === 'chrome') {
+      cy.get(`dds-footer-nav-item`).should('have.length', 38);
+    } else {
+      cy.get(`dds-footer-nav-item`).should('have.length', 41);
+    }
 
     cy.get('dds-footer-nav-item')
       .shadow()
@@ -504,8 +516,12 @@ describe('dds-footer | Default language only (mobile)', () => {
     cy.takeSnapshots('mobile');
   });
 
-  it('should load all the 38 interactable navigation links', () => {
-    cy.get(`dds-footer-nav-item`).should('have.length', 38);
+  it('should load all the 41 interactable navigation links', () => {
+    if (Cypress.browser.name === 'chrome') {
+      cy.get(`dds-footer-nav-item`).should('have.length', 38);
+    } else {
+      cy.get(`dds-footer-nav-item`).should('have.length', 41);
+    }
 
     cy.get('dds-footer-nav-item')
       .shadow()
