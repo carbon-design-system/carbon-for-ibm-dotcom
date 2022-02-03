@@ -47,6 +47,11 @@ xdescribe('dds-masthead | scoped search (desktop)', () => {
   });
 
   it('should retrieve less results with "pw" scope', () => {
+    // Mock scoped search typeahead API
+    cy.intercept('**/search/typeahead/v1?*', {
+      fixture: 'scoped-typeahead.json',
+    });
+
     cy.get('dds-masthead > dds-search-with-typeahead')
       .shadow()
       .find('.bx--header__search--search')
@@ -107,6 +112,11 @@ xdescribe('dds-masthead | scoped search (mobile)', () => {
   });
 
   it('should retrieve less results with "pw" scope', () => {
+    // Mock scoped search typeahead API
+    cy.intercept('**/search/typeahead/v1?*', {
+      fixture: 'scoped-typeahead.json',
+    });
+
     cy.get('dds-masthead > dds-search-with-typeahead')
       .shadow()
       .find('.bx--header__search--search')
