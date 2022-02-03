@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, property, query } from 'lit-element';
+import { customElement, property, query, state } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXAccordionItem from 'carbon-web-components/es/components/accordion/accordion-item';
@@ -74,6 +74,12 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
   allRevealed = false;
 
   /**
+   * An element to set focus to on reveal.
+   */
+  @state()
+  _focusedElement: HTMLElement | null = null;
+
+  /**
    * Whether or not to add view all button functionality.
    */
   protected _needsViewAll(): boolean {
@@ -121,6 +127,8 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
    * Generates a view all button.
    */
   protected _renderViewAll(): HTMLButtonElement {
+    const { children, filterCutoff } = this;
+
     const viewAll = document.createElement('button');
     viewAll.classList.add(viewAllClassName, `${prefix}--btn--ghost`);
     viewAll.type = 'button';
@@ -131,6 +139,11 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
       (e): void => {
         this.allRevealed = true;
         if (e.target instanceof HTMLElement) e.target.remove();
+
+        const firstHidden = children[filterCutoff];
+        if (firstHidden instanceof HTMLElement) {
+          this._focusedElement = firstHidden;
+        }
       },
       { passive: true, once: true }
     );
@@ -183,6 +196,7 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
   }
 
   protected updated(_changedProperties: Map<string | number | symbol, unknown>): void {
+    const { allRevealed, _focusedElement } = this;
     if (this._needsViewAll()) {
       const prevOpen = _changedProperties.get('open');
       const hasAllRevealed = _changedProperties.has('allRevealed');
@@ -199,7 +213,12 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
         if (prevAllRevealed === undefined) {
           this._handleAllRevealed(this._getCachedViewAllValue());
         } else {
-          this._handleAllRevealed(this.allRevealed);
+          this._handleAllRevealed(allRevealed);
+
+          if (allRevealed && _focusedElement instanceof HTMLElement) {
+            _focusedElement.focus();
+            this._focusedElement = null;
+          }
         }
       }
     }
