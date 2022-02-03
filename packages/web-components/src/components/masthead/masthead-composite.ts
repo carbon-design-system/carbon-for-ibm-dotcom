@@ -623,8 +623,8 @@ class DDSMastheadComposite extends LitElement {
   /**
    * `true` if there is a profile.
    */
-  @property({ type: Boolean, attribute: 'has-profile' })
-  hasProfile = true;
+  @property({ type: String, reflect: true, attribute: 'has-profile' })
+  hasProfile = 'true';
 
   /**
    * `true` if there is a search.
@@ -922,8 +922,8 @@ class DDSMastheadComposite extends LitElement {
               ></dds-search-with-typeahead>
             `}
         <dds-masthead-global-bar ?has-search-active=${activateSearch}>
-          ${!hasProfile
-            ? undefined
+          ${hasProfile === 'false'
+            ? ''
             : html`
                 <dds-masthead-profile ?authenticated="${authenticated}">
                   ${profileItems?.map(
