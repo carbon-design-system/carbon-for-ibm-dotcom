@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -130,7 +130,7 @@ export default !DDS_CLOUD_MASTHEAD
             hasContact: select('Contact us button visibility (has-contact)', ['true', 'false'], 'true', groupId),
             selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Docs', groupId),
             redirectPath: textNullable('redirect path (redirect-path)', '', groupId),
-            authMethod: select('auth method (auth-method)', ['cookie', 'api'], 'cookie', groupId),
+            authMethod: select('auth method (auth-method)', ['personalization', 'api'], 'personalization', groupId),
           }),
         },
         props: (() => {
@@ -152,7 +152,7 @@ export default !DDS_CLOUD_MASTHEAD
               hasContact: true,
               selectedMenuItem: 'Docs',
               redirectPath: '',
-              authMethod: 'cookie',
+              authMethod: 'personalization',
               navLinks: links,
             },
           },

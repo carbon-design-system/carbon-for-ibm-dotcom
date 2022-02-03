@@ -7,13 +7,6 @@
 import axios from 'axios';
 import root from 'window-or-global';
 
-/**
- * The cookie name for determining user login status for cloud.ibm.com.
- *
- * @type {string}
- * @private
- */
-
 class CloudAccountAuthAPI {
   /**
    * retrieve the cloud login status via window object status
