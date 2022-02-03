@@ -38,9 +38,9 @@ beforeEach(() => {
   });
 
   // Mock search typeahead API
-  cy.intercept('**/search/typeahead/v1?*', {
-    fixture: 'typeahead.json',
-  });
+  // cy.intercept('**/search/typeahead/v1?*', {
+  //   fixture: 'typeahead.json',
+  // });
 
   // Block ibm-common.js
   cy.intercept('https://1.www.s81c.com/common/stats/ibm-common.js', { fixture: 'ibm-common.js' });
