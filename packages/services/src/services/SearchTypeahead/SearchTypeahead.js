@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -42,12 +42,15 @@ class SearchTypeaheadAPI {
    *   return response;
    * }
    */
-  static async getResults(query) {
+  static async getResults(query, appid = '') {
     const lang = await LocaleAPI.getLang();
     const urlQuery = [
       `lang=${lang.lc}${lang.cc ? `&cc=${lang.cc}` : ''}`,
       `query=${encodeURIComponent(query)}`,
-    ].join('&');
+      `${appid ? `appid=${appid}` : ''}`,
+    ]
+      .filter(item => item)
+      .join('&');
     const url = `${_endpoint}?${urlQuery}`;
     return await axios
       .get(url, {
