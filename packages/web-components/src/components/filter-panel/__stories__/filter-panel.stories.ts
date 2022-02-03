@@ -114,8 +114,8 @@ export default {
     knobs: {
       FilterPanel: ({ groupId }) => ({
         heading: text('heading', 'Filter', groupId),
-        filterCutoff: number('Filter cutoff', 7, {}, groupId),
-        maxFilters: number('Max filters', 5, {}, groupId),
+        filterCutoff: number('Filter cutoff', 5, {}, groupId),
+        maxFilters: number('Max filters', 7, {}, groupId),
         viewAllText: text('View all text', 'View all', groupId),
         gridKnobs: select('Grid alignment', ['3 columns', '4 columns'], '4 columns', groupId),
       }),
@@ -124,8 +124,8 @@ export default {
       default: {
         FilterPanel: {
           heading: 'Filter',
-          filterCutoff: 7,
-          maxFilters: 5,
+          filterCutoff: 5,
+          maxFilters: 7,
           viewAllText: 'View all',
           gridKnobs: '4 columns',
         },
