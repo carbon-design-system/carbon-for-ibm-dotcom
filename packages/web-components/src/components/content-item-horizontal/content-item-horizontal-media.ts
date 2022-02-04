@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, internalProperty, property, TemplateResult } from 'lit-element';
+import { customElement, html, state, property, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
@@ -39,7 +39,7 @@ class DDSContentItemHorizontalMedia extends HostListenerMixin(DDSContentItem) {
   /**
    * Identifies whether the window width is below the breakpoint or not.
    */
-  @internalProperty()
+  @state()
   _isOneColumn: boolean = window.innerWidth < breakpoint;
 
   @HostListener('window:resize')
