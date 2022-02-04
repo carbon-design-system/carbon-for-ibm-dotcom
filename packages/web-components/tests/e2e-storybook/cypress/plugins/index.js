@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-require('dotenv').config({ path: `${__dirname}/../../../../.env`});
+require('dotenv').config({ path: `${__dirname}/../../../../.env` });
 
 // eslint-disable-next-line no-unused-vars
 module.exports = (on, config) => {
