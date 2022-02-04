@@ -96,9 +96,9 @@
     "prettier": "^1.19.0"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "1.31.0-rc.0",
+    "@carbon/ibmdotcom-services": "1.31.0-canary.adhoc5.6836",
     "@carbon/ibmdotcom-styles": "1.31.0-rc.0",
-    "@carbon/ibmdotcom-utilities": "1.31.0-rc.0",
+    "@carbon/ibmdotcom-utilities": "1.31.0-canary.adhoc5.6836",
     "@carbon/layout": "10.34.0",
     "@carbon/telemetry": "0.0.0-alpha.6",
     "carbon-components": "10.51.0",

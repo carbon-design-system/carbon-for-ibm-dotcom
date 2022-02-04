@@ -8,7 +8,7 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { internalProperty, customElement, html, LitElement, property } from 'lit-element';
+import { state, customElement, html, LitElement, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -47,13 +47,13 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
   /**
    * Defines the layout for the end layout - based on END_TYPE_LAYOUT
    */
-  @internalProperty()
+  @state()
   private _endTypeLayout = END_TYPE_LAYOUT.DEFAULT;
 
   /**
    * Child items
    */
-  @internalProperty()
+  @state()
   private _childItems: Element[] = [];
 
   /**
