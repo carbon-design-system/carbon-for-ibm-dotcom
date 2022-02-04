@@ -98,7 +98,7 @@ export const Default = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            ?has-profile="${hasProfile}"
+            has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .navLinks="${navLinks}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
@@ -113,7 +113,7 @@ export const Default = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .navLinks="${navLinks}"
-            ?has-profile="${hasProfile}"
+            has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
           ></dds-masthead-container>
@@ -191,7 +191,7 @@ export const WithCustomTypeahead = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            ?has-profile="${hasProfile}"
+            has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .navLinks="${navLinks}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
@@ -207,7 +207,7 @@ export const WithCustomTypeahead = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .navLinks="${navLinks}"
-            ?has-profile="${hasProfile}"
+            has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
             ?custom-typeahead-api=${true}
@@ -239,7 +239,7 @@ export const searchOpenOnload = ({ parameters }) => {
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             .navLinks="${navLinks}"
-            ?has-profile="${hasProfile}"
+            has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             custom-profile-login="${customProfileLogin}"
@@ -254,7 +254,7 @@ export const searchOpenOnload = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .navLinks="${navLinks}"
-            ?has-profile="${hasProfile}"
+            has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
           ></dds-masthead-container>
@@ -284,7 +284,7 @@ export const withPlatform = ({ parameters }) => {
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             .navLinks="${navLinks}"
-            ?has-profile="${hasProfile}"
+            has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           ></dds-masthead-composite>
@@ -295,7 +295,7 @@ export const withPlatform = ({ parameters }) => {
             .platformUrl="${ifNonNull(platformData.url)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            ?has-profile="${hasProfile}"
+            has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
           ></dds-masthead-composite>
         `}
@@ -307,7 +307,7 @@ withPlatform.story = {
   parameters: {
     knobs: {
       MastheadComposite: ({ groupId }) => ({
-        hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
+        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true', groupId),
         hasSearch: boolean('show the search functionality (has-search)', true, groupId),
         searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? '' : 'Search all of IBM', groupId),
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services', groupId),
@@ -317,7 +317,7 @@ withPlatform.story = {
     propsSet: {
       default: {
         MastheadComposite: {
-          hasProfile: true,
+          hasProfile: 'true',
           hasSearch: true,
           searchPlaceHolder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -343,7 +343,7 @@ export const withL1 = ({ parameters }) => {
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             user-status="${ifNonNull(userStatus)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            ?has-profile="${hasProfile}"
+            has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .l1Data="${mastheadL1Data}"
             .navLinks="${navLinks}"
@@ -354,7 +354,7 @@ export const withL1 = ({ parameters }) => {
           <dds-masthead-container
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
-            ?has-profile="${hasProfile}"
+            has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .l1Data="${mastheadL1Data}"
             .navLinks="${navLinks}"
@@ -368,7 +368,7 @@ withL1.story = {
   parameters: {
     knobs: {
       MastheadComposite: ({ groupId }) => ({
-        hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
+        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true', groupId),
         hasSearch: boolean('show the search functionality (has-search)', true, groupId),
         searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? '' : 'Search all of IBM', groupId),
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Products', groupId),
@@ -378,7 +378,7 @@ withL1.story = {
     propsSet: {
       default: {
         MastheadComposite: {
-          hasProfile: true,
+          hasProfile: 'true',
           hasSearch: true,
           searchPlaceholder: 'Search all of IBM',
           selectedMenuItem: 'Lorem ipsum dolor sit amet',
@@ -404,7 +404,7 @@ export const withAlternateLogoAndTooltip = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            ?has-profile="${hasProfile}"
+            has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .navLinks="${navLinks}"
             .logoData="${mastheadLogo === 'alternateWithTooltip' ? logoData : null}"
@@ -418,7 +418,7 @@ export const withAlternateLogoAndTooltip = ({ parameters }) => {
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .navLinks="${navLinks}"
             .logoData="${mastheadLogo === 'alternateWithTooltip' ? logoData : null}"
-            ?has-profile="${hasProfile}"
+            has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
           ></dds-masthead-container>
         `}
@@ -430,7 +430,7 @@ withAlternateLogoAndTooltip.story = {
   parameters: {
     knobs: {
       MastheadComposite: ({ groupId }) => ({
-        hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
+        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true', groupId),
         hasSearch: boolean('show the search functionality (has-search)', true, groupId),
         searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services', groupId),
@@ -447,7 +447,7 @@ withAlternateLogoAndTooltip.story = {
       default: {
         MastheadComposite: {
           platform: null,
-          hasProfile: true,
+          hasProfile: 'true',
           hasSearch: true,
           searchPlaceholder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
@@ -478,7 +478,7 @@ export default {
     knobs: {
       escapeHTML: false,
       MastheadComposite: ({ groupId }) => ({
-        hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
+        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true', groupId),
         hasSearch: boolean('show the search functionality (has-search)', true, groupId),
         searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services', groupId),
@@ -504,7 +504,7 @@ export default {
       default: {
         MastheadComposite: {
           platform: null,
-          hasProfile: true,
+          hasProfile: 'true',
           hasSearch: true,
           searchPlaceholder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
