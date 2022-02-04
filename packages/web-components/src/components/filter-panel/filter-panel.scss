@@ -56,6 +56,12 @@
     padding: $spacing-03 $spacing-05;
     text-align: left;
     cursor: pointer;
+
+    &:focus-visible {
+      outline: none;
+      border-color: $focus;
+      box-shadow: inset 0 0 0 $button-outline-width $focus, inset 0 0 0 $button-border-width $ui-background;
+    }
   }
 }
 
