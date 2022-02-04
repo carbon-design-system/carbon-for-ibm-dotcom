@@ -116,7 +116,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     this.renderStatus();
   };
 
-  @HostListener('document:filterGroupViewAll')
+  @HostListener('document:eventFilterGroupViewAllToggle')
   protected _handleViewAll = (event: CustomEvent) => {
     const match = this._filterGroupsAllRevealed.findIndex(entry => {
       return entry.id === event.detail.id;
@@ -367,6 +367,15 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
 
   static get eventContentStateChange() {
     return `${ddsPrefix}-filter-panel-input-select`;
+  }
+
+  /**
+   * The name of the custom event captured upon activating "view all" button in
+   * a filter group item
+   */
+
+  static get eventFilterGroupViewAllToggle() {
+    return `${ddsPrefix}-filter-group-view-all-toggle`;
   }
 
   /**

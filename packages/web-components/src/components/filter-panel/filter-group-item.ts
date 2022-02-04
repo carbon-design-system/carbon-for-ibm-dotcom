@@ -156,8 +156,9 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
    * filter group has all options revealed.
    */
   protected _dispatchViewAllEvent(removed: boolean): void {
+    const { eventViewAll } = this.constructor as typeof DDSFilterGroupItem;
     this.dispatchEvent(
-      new CustomEvent('filterGroupViewAll', {
+      new CustomEvent(eventViewAll, {
         bubbles: true,
         cancelable: true,
         composed: true,
@@ -221,6 +222,10 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
         }
       }
     }
+  }
+
+  static get eventViewAll() {
+    return `${ddsPrefix}-filter-group-view-all-toggle`;
   }
 }
 
