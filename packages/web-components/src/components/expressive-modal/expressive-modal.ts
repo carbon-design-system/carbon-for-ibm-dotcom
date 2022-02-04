@@ -23,10 +23,11 @@ import styles from './expressive-modal.scss';
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-// eslint-disable-next-line no-bitwise
+/* eslint-disable no-bitwise */
 const PRECEDING = Node.DOCUMENT_POSITION_PRECEDING | Node.DOCUMENT_POSITION_CONTAINS;
-// eslint-disable-next-line no-bitwise
 const FOLLOWING = Node.DOCUMENT_POSITION_FOLLOWING | Node.DOCUMENT_POSITION_CONTAINED_BY;
+const WITHIN = Node.DOCUMENT_POSITION_CONTAINED_BY;
+/* eslint-enable no-bitwise */
 
 /**
  * Tries to focus on the given elements and bails out if one of the is successful.
@@ -45,7 +46,7 @@ function tryFocusElems(
     for (let i = 0; i < elems.length; ++i) {
       const elem = elems[i];
       elem.focus();
-      if (elem.ownerDocument!.activeElement === elem) {
+      if ((elem.getRootNode() as Document).activeElement === elem) {
         return true;
       }
     }
@@ -53,7 +54,8 @@ function tryFocusElems(
     for (let i = elems.length - 1; i >= 0; --i) {
       const elem = elems[i];
       elem.focus();
-      if (elem.ownerDocument!.activeElement === elem) {
+
+      if ((elem.getRootNode() as Document).activeElement === elem) {
         return true;
       }
     }
@@ -107,6 +109,11 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
   private _launcher: Element | null = null;
 
   /**
+   * Collection of all focusable elements within this component or its shadowRoot.
+   */
+  private _focusableElements: HTMLElement[] = [];
+
+  /**
    * Node to track focus going outside of modal content.
    */
   @query('#start-sentinel')
@@ -131,72 +138,63 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
     }
   };
 
+  /* eslint-disable no-bitwise */
   /**
-   * Handles `blur` event on this element.
+   * Handles the `focusin` event on the start and end sentinels
    *
    * @param event The event.
    */
-  @HostListener('shadowRoot:focusout')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleBlur = async ({ target, relatedTarget }: FocusEvent) => {
-    const { open, _startSentinelNode: startSentinelNode, _endSentinelNode: endSentinelNode } = this;
-    const { selectorTabbable: selectorTabbableForModal } = this.constructor as typeof DDSExpressiveModal;
+  private _handleFocusIn = ({ target, relatedTarget }) => {
+    const {
+      _endSentinelNode: endSentinelNode,
+      _startSentinelNode: startSentinelNode,
+      _focusableElements: focusableElements,
+    } = this;
+    const relativeToPrevious = relatedTarget.compareDocumentPosition(target);
 
-    const oldContains = target !== this && (this.contains(target as Node) || this.shadowRoot?.contains(target as Node));
-    const currentContains =
-      relatedTarget !== this && (this.contains(relatedTarget as Node) || this.shadowRoot?.contains(relatedTarget as Node));
-    const sentinalIsFocused = relatedTarget === startSentinelNode || relatedTarget === endSentinelNode;
-
-    // Performs focus wrapping if _all_ of the following is met:
-    // * This modal is open
-    // * The viewport still has focus
-    // * relatedTarget is not descendant of Modal or it's shadowroot OR is sentinal node
-
-    const focusShouldWrap = open && relatedTarget && oldContains && (!currentContains || sentinalIsFocused);
-
-    if (focusShouldWrap) {
-      const comparisonResult = (target as Node).compareDocumentPosition(relatedTarget as Node);
-      const focusableElements = [
-        ...Array.from(this.querySelectorAll(selectorTabbableForModal) as NodeListOf<HTMLElement>),
-        ...Array.from((this.shadowRoot?.querySelectorAll(selectorTabbableForModal) as NodeListOf<HTMLElement>) || []),
-      ].filter(el => el !== startSentinelNode && el !== endSentinelNode);
-
-      // Focus has has moved backwards out of the modal.
-      // eslint-disable-next-line no-bitwise
-      if (relatedTarget === startSentinelNode || (comparisonResult & PRECEDING && relatedTarget !== endSentinelNode)) {
+    if (target === startSentinelNode) {
+      if (relativeToPrevious & PRECEDING) {
         tryFocusElems(focusableElements, true, this);
+      } else if (relativeToPrevious & FOLLOWING) {
+        tryFocusElems(focusableElements, false, this);
       }
-      // Focus has moved forwards out of the modal.
-      // eslint-disable-next-line no-bitwise
-      else if (relatedTarget === endSentinelNode || comparisonResult & FOLLOWING) {
+    } else if (target === endSentinelNode) {
+      if (relativeToPrevious & FOLLOWING) {
+        tryFocusElems(focusableElements, true, this);
+      } else if (relativeToPrevious & PRECEDING) {
         tryFocusElems(focusableElements, false, this);
       }
     }
   };
 
   /**
-   * Special handler for `focus` events,
+   * Handles `focusout` event on this element.
    *
    * @param event The event.
    */
-  @HostListener('shadowRoot:focusin')
+  @HostListener('focusout')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleFocus = async ({ target, relatedTarget }: FocusEvent) => {
-    const { open, _endSentinelNode: endSentinelNode } = this;
-    const { selectorTabbable: selectorTabbableForModal } = this.constructor as typeof DDSExpressiveModal;
+  private _handleFocusOut = ({ target, relatedTarget }) => {
+    const { _focusableElements: focusableElements } = this;
+    // If no target/relatedTarget, focus has entered/left the window. Do nothing.
+    if (!target || !relatedTarget) return;
 
-    // Handling a special case in _handleBlur() where `relatedTarget` is null and `target` is the
-    // endSentintel, resulting in focus having already gone outside the modal into the browser bar
-    // when this logic is detected, rendering any focus() calls ineffective.
-    // The following logic captures this case the moment focus is within endSentinel instead.
-    if (open && target && !relatedTarget) {
-      if (target === endSentinelNode) {
-        if (!tryFocusElems(this.querySelectorAll(selectorTabbableForModal))) {
-          this.focus();
-        }
+    // See if element gaining focus is inside `this` or `this.shadowRoot`.
+    const positionToModal =
+      this.compareDocumentPosition(relatedTarget) | (this.shadowRoot?.compareDocumentPosition(relatedTarget) || 0);
+    const positionToPrevious = target.compareDocumentPosition(relatedTarget);
+    const relatedTargetIsContained = Boolean(positionToModal & WITHIN);
+
+    // If focusing outside of `this`, cycle focus
+    if (!relatedTargetIsContained && !(relatedTarget === this)) {
+      if (positionToPrevious & PRECEDING) {
+        tryFocusElems(focusableElements, true, this);
+      } else if (positionToPrevious & FOLLOWING) {
+        tryFocusElems(focusableElements, false, this);
       }
     }
   };
+  /* eslint-enable no-bitwise */
 
   @HostListener('document:keydown')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
@@ -284,7 +282,7 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
       [`${ddsPrefix}-ce--modal__hedaer--with-body`]: hasHeader && (hasBody || hasFooter),
     });
     return html`
-      <div class="${headerClasses}"><slot name="header"></slot></div>
+      <div id="modal-header" class="${headerClasses}"><slot name="header"></slot></div>
     `;
   }
 
@@ -337,7 +335,12 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
   mode = EXPRESSIVE_MODAL_MODE.DEFAULT;
 
   render() {
-    const { size, _handleClickContainer: handleClickContainer, _handleSlotChange: handleSlotChange } = this;
+    const {
+      size,
+      _handleClickContainer: handleClickContainer,
+      _handleSlotChange: handleSlotChange,
+      _handleFocusIn: handleFocusIn,
+    } = this;
     const containerClass = this.containerClass
       .split(' ')
       .filter(Boolean)
@@ -348,20 +351,28 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
       ...containerClass,
     });
     return html`
-      <a id="start-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
-      <div class="${containerClasses}" tabindex="-1" @click="${handleClickContainer}" @slotchange="${handleSlotChange}">
+      <button id="start-sentinel" class="${prefix}--visually-hidden" @focusin="${handleFocusIn}">START</button>
+      <div
+        class="${containerClasses}"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="modal-header"
+        @click="${handleClickContainer}"
+        @slotchange="${handleSlotChange}"
+      >
         <div class="bx--modal-content">
           ${this._renderHeader()}${this._renderBody()}${this._renderFooter()}
         </div>
       </div>
-      <a id="end-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
+      <button id="end-sentinel" class="${prefix}--visually-hidden" @focusin="${handleFocusIn}">END</button>
     `;
   }
 
   async updated(changedProperties) {
+    const { _focusableElements: focusableElements, size } = this;
+    const { selectorCloseButton, selectorTabbable: selectorTabbableForModal } = this.constructor as typeof DDSExpressiveModal;
+
     if (changedProperties.has('size')) {
-      const { selectorCloseButton } = this.constructor as typeof DDSExpressiveModal;
-      const { size } = this;
       const closeButton = this.querySelector(selectorCloseButton);
       if (closeButton) {
         (closeButton as DDSExpressiveModalCloseButton).size = size;
@@ -378,10 +389,8 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
           // For cases where a `carbon-web-components` component (e.g. `<bx-btn>`) being `primaryFocusNode`,
           // where its first update/render cycle that makes it focusable happens after `<bx-modal>`'s first update/render cycle
           (primaryFocusNode as HTMLElement).focus();
-        } else if (
-          !tryFocusElems(this.querySelectorAll((this.constructor as typeof DDSExpressiveModal).selectorTabbable), true)
-        ) {
-          this.focus();
+        } else {
+          tryFocusElems(focusableElements, true, this);
         }
       } else if (this._launcher && typeof (this._launcher as HTMLElement).focus === 'function') {
         (this._launcher as HTMLElement).focus();
@@ -389,6 +398,11 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
         this._launcher = null;
       }
     }
+
+    this._focusableElements = [
+      ...Array.from((this.shadowRoot?.querySelectorAll(selectorCloseButton) as NodeListOf<HTMLElement>) || []),
+      ...Array.from(this.querySelectorAll(selectorTabbableForModal) as NodeListOf<HTMLElement>),
+    ];
     return super.updated(changedProperties);
   }
 
