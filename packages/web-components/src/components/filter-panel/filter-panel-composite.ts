@@ -117,7 +117,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   };
 
   @HostListener('document:eventFilterGroupViewAllToggle')
-  protected _handleViewAll = (event: CustomEvent) => {
+  protected _handleFilterGroupViewAllToggle = (event: CustomEvent) => {
     const match = this._filterGroupsAllRevealed.findIndex(entry => {
       return entry.id === event.detail.id;
     });
