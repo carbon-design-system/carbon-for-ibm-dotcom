@@ -5,11 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 import axios from 'axios';
+import { DDOAPI } from '../DDO';
 import root from 'window-or-global';
 
 class CloudAccountAuthAPI {
   /**
    * retrieve the cloud login status via window object status
+   * gets the full digitalData (DDO) object.
    *
    * @example
    * import { cloudAccountAuthentication } from '@carbon/ibmdotcom-utilities';
@@ -18,9 +20,11 @@ class CloudAccountAuthAPI {
    *
    * @returns {string} string determining login status
    */
-  static checkPersonalization() {
-    const status = root._dl.ddo.user.segment.isCloudLoggedOn;
-    return { user: status === true ? 'authenticated' : 'anonymous' };
+  static async checkPersonalization() {
+    return await DDOAPI.isReady().then(() => {
+      const status = root.digitalData.user.segment.isCloudLoggedOn;
+      return { user: status === true ? 'authenticated' : 'anonymous' };
+    });
   }
 
   /**

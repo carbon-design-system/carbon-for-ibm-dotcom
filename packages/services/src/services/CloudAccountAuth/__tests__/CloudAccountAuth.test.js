@@ -10,7 +10,7 @@ import root from 'window-or-global';
 
 describe('CloudAccountAuth personalization utility', () => {
   it('should fetch the personalization window boolean and return the authenticated string', () => {
-    root._dl = {
+    root.digitalData = {
       ddo: {
         user: {
           segment: {
@@ -25,7 +25,7 @@ describe('CloudAccountAuth personalization utility', () => {
   });
 
   it('should fetch the personalization window boolean and return the anonymous string', () => {
-    root._dl = {
+    root.digitalData = {
       ddo: {
         user: {
           segment: {
