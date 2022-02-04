@@ -2,8 +2,9 @@ name: dependabot-yarn-mirror
 
 on:
   push:
-    branches:
-      - dependabot/*
+    branches: [ dependabot/* ]
+  pull_request:
+    branches: [ dependabot/* ]
 
 concurrency:
   group: dependabot-yarn-mirror-${{ github.ref }}
