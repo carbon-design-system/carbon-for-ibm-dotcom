@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, internalProperty, query, customElement, LitElement } from 'lit-element';
+import { html, property, state, query, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { INPUT_SIZE } from 'carbon-web-components/es/components/input/input.js';
@@ -50,7 +50,7 @@ class DDSLocaleSearch extends ThrottedInputMixin(StableSelectorMixin(LitElement)
   /**
    * `true` if there is one or more search result.
    */
-  @internalProperty()
+  @state()
   private _hasAvailableItem = true;
 
   /**
