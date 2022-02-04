@@ -8,7 +8,7 @@
  */
 
 import pickBy from 'lodash-es/pickBy.js';
-import { html, internalProperty, property, customElement, LitElement } from 'lit-element';
+import { html, state, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
@@ -49,7 +49,7 @@ class DDSDotcomShellComposite extends LitElement {
   /**
    * The last scroll Position
    */
-  @internalProperty()
+  @state()
   private _lastScrollPosition = 0;
 
   /**
