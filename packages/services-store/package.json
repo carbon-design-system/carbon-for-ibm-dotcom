@@ -68,7 +68,7 @@
     "eslint-import-resolver-node": "^0.3.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-lit": "^1.2.0",
-    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-filter": "^6.0.0",

@@ -192,7 +192,7 @@
     "eslint-plugin-cypress": "^2.11.3",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-lit": "^1.2.0",
-    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-restricted-globals": "^0.2.0",
     "event-target-shim": "^5.0.0",
     "file-loader": "^6.2.0",
