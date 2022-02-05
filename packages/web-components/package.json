@@ -101,7 +101,7 @@
     "@carbon/ibmdotcom-utilities": "1.31.0-canary.adhoc5.6836",
     "@carbon/layout": "10.34.0",
     "@carbon/telemetry": "0.0.0-alpha.6",
-    "carbon-components": "10.51.0",
+    "carbon-components": "10.52.0",
     "carbon-web-components": "1.20.0",
     "lit-element": "2.5.1",
     "lit-html": "1.4.1",
