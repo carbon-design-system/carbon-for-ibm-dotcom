@@ -202,7 +202,7 @@
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-exclude-gitignore": "^1.2.0",
-    "gulp-filter": "^6.0.0",
+    "gulp-filter": "^7.0.0",
     "gulp-header": "^2.0.0",
     "gulp-postcss": "^8.0.0",
     "gulp-prettier": "^2.1.0",
