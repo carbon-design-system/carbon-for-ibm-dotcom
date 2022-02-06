@@ -8,7 +8,7 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings';
-import { customElement, html, internalProperty, LitElement, TemplateResult, property } from 'lit-element';
+import { customElement, html, state, LitElement, TemplateResult, property } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import { classMap } from 'lit-html/directives/class-map';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -31,16 +31,16 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   /**
    * Child tab components.
    */
-  @internalProperty()
+  @state()
   private _tabItems: DDSTab[] = [];
 
   /**
    * Defines the active tab index.
    */
-  @internalProperty()
+  @state()
   private _activeTab: number = 0;
 
-  @internalProperty()
+  @state()
   private _isLTR: boolean = true;
 
   /**

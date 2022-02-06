@@ -8,7 +8,7 @@
  */
 
 import { ifDefined } from 'lit-html/directives/if-defined';
-import { html, property, internalProperty, query, customElement, LitElement } from 'lit-element';
+import { html, property, state, query, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight.js';
@@ -45,13 +45,13 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * The width of the scroll contents area node, excluding one of overflowed contents.
    */
-  @internalProperty()
+  @state()
   private _contentsBaseWidth = 0;
 
   /**
    * The gap width between each card.
    */
-  @internalProperty()
+  @state()
   private _gap = 0;
 
   /**
@@ -97,7 +97,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * The page size that is explicitly set.
    */
-  @internalProperty()
+  @state()
   private _pageSize?: number;
 
   /**
@@ -105,7 +105,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    * via `--dds--carousel--page-size` CSS custom property.
    * If `page-size` attribute is set, this value is ignored.
    */
-  @internalProperty()
+  @state()
   private _pageSizeAuto = 1;
 
   /**
@@ -117,19 +117,19 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * The number of total items.
    */
-  @internalProperty()
+  @state()
   private _total = 0;
 
   /**
    * Initial touch position (used to detect swipe gesture)
    */
-  @internalProperty()
+  @state()
   private _startPos = 0;
 
   /**
    * Initial touch time (used to detect swipe gesture)
    */
-  @internalProperty()
+  @state()
   private _startTime = 0;
 
   /**

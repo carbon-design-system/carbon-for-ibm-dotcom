@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -8,7 +8,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, select, text, object } from '@storybook/addon-knobs';
-import { withReadme } from 'storybook-readme';
+// import { withReadme } from 'storybook-readme';
 import readme from './README.md';
 import { MultiSelect } from 'carbon-components-react';
 

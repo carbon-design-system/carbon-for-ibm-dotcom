@@ -8,16 +8,7 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import {
-  html,
-  customElement,
-  property,
-  internalProperty,
-  query,
-  LitElement,
-  TemplateResult,
-  SVGTemplateResult,
-} from 'lit-element';
+import { html, customElement, property, state, query, LitElement, TemplateResult, SVGTemplateResult } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import on from 'carbon-components/es/globals/js/misc/on';
@@ -95,19 +86,19 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
   /**
    * `true` if there is a header content.
    */
-  @internalProperty()
+  @state()
   private _hasHeader = false;
 
   /**
    * `true` if there is a body content.
    */
-  @internalProperty()
+  @state()
   private _hasBody = false;
 
   /**
    * `true` if there is a footer content.
    */
-  @internalProperty()
+  @state()
   private _hasFooter = false;
 
   /**
