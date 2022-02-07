@@ -2,7 +2,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -181,8 +181,8 @@ export const Default = ({ parameters }) => {
                 viewBox="8 8 32 32"
                 xml:space="preserve"
               >
-                <g id="touch_screen">
-                  <g id="touch_screen_1_">
+                <g>
+                  <g>
                     <path
                       style="fill:none;stroke-width:0.72;stroke-linejoin:round;stroke-miterlimit:10;"
                       d="M15,29H9V10h25v19h-7
@@ -193,7 +193,7 @@ export const Default = ({ parameters }) => {
                     />
                   </g>
                 </g>
-                <g id="Layer_1"></g>
+                <g></g>
               </svg>
               <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
               <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
@@ -269,8 +269,8 @@ export const WithLinkList = ({ parameters }) => {
                 viewBox="8 8 32 32"
                 xml:space="preserve"
               >
-                <g id="touch_screen">
-                  <g id="touch_screen_1_">
+                <g>
+                  <g>
                     <path
                       style="fill:none;stroke-width:0.72;stroke-linejoin:round;stroke-miterlimit:10;"
                       d="M15,29H9V10h25v19h-7
@@ -281,7 +281,7 @@ export const WithLinkList = ({ parameters }) => {
                     />
                   </g>
                 </g>
-                <g id="Layer_1"></g>
+                <g"></g>
               </svg>
               <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
               <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
