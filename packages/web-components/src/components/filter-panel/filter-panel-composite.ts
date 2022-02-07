@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -283,7 +283,9 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   }
 
   protected renderStatus() {
-    this._filterButtonTitle = `Filter ${this._selectedValues.length > 0 ? `(${this._selectedValues.length})` : ''}`;
+    this._filterButtonTitle = `${
+      this._selectedValues.length > 0 ? `Filter (${this._selectedValues.length})` : this._title[0].innerText
+    }`;
   }
 
   /**
