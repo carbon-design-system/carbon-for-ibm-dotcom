@@ -9,33 +9,28 @@ import CloudAccountAuthAPI from '../CloudAccountAuth';
 import root from 'window-or-global';
 
 describe('CloudAccountAuth personalization utility', () => {
-  it('should fetch the personalization window boolean and return the authenticated string', () => {
+  beforeEach(function() {
     root.digitalData = {
-      ddo: {
-        user: {
-          segment: {
-            isCloudLoggedOn: true,
-          },
+      page: {
+        isDataLayerReady: true,
+      },
+      user: {
+        segment: {
+          isCloudLoggedOn: true,
         },
       },
     };
+  });
 
-    const loginStatus = CloudAccountAuthAPI.checkPersonalization();
+  it('should fetch the personalization window boolean and return the authenticated string', async () => {
+    const loginStatus = await CloudAccountAuthAPI.checkPersonalization();
     expect(loginStatus).toStrictEqual({ user: 'authenticated' });
   });
 
-  it('should fetch the personalization window boolean and return the anonymous string', () => {
-    root.digitalData = {
-      ddo: {
-        user: {
-          segment: {
-            isCloudLoggedOn: false,
-          },
-        },
-      },
-    };
+  it('should fetch the personalization window boolean and return the anonymous string', async () => {
+    root.digitalData.user.segment.isCloudLoggedOn = false;
 
-    const loginStatus = CloudAccountAuthAPI.checkPersonalization();
+    const loginStatus = await CloudAccountAuthAPI.checkPersonalization();
     expect(loginStatus).toStrictEqual({ user: 'anonymous' });
   });
 });
