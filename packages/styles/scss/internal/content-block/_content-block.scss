@@ -18,6 +18,7 @@
   :host(#{$dds-prefix}-content-block-horizontal),
   :host(#{$dds-prefix}-content-group-horizontal),
   :host(#{$dds-prefix}-leadspace-block-content),
+  :host(#{$dds-prefix}-leadspace-with-search-content),
   :host(#{$dds-prefix}-content-block-segmented),
   :host(#{$dds-prefix}-content-block-headlines),
   .#{$prefix}--content-block {
@@ -161,10 +162,10 @@
     margin-top: $layout-03;
 
     @include carbon--breakpoint('md') {
-      margin-top: $layout-04;
+      margin-top: 0;
     }
     @include carbon--breakpoint('lg') {
-      margin-top: $layout-06;
+      margin-top: $layout-05;
     }
   }
 

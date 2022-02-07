@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@carbon/ibmdotcom-services": "latest",
-    "@carbon/ibmdotcom-web-components": "canary"
+    "@carbon/ibmdotcom-web-components": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-0",

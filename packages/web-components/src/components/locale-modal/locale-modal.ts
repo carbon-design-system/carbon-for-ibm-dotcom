@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, internalProperty, customElement } from 'lit-element';
+import { html, property, state, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ArrowLeft20 from 'carbon-web-components/es/icons/arrow--left/20.js';
@@ -40,7 +40,7 @@ class DDSLocaleModal extends DDSExpressiveModal {
   /**
    * The current region.
    */
-  @internalProperty()
+  @state()
   private _currentRegion?: string;
 
   /**

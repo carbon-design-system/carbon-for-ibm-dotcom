@@ -10,7 +10,7 @@
 import { nothing } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map';
 import { ifDefined } from 'lit-html/directives/if-defined';
-import { html, property, internalProperty, query, queryAll, customElement, LitElement } from 'lit-element';
+import { html, property, state, query, queryAll, customElement, LitElement } from 'lit-element';
 import CaretLeft20 from 'carbon-web-components/es/icons/caret--left/20.js';
 import CaretRight20 from 'carbon-web-components/es/icons/caret--right/20.js';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -67,39 +67,39 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
   /**
    * The current scroll position.
    */
-  @internalProperty()
+  @state()
   private _currentScrollPosition = 0;
 
   /**
    * The current target `<a>` that should be in view.
    */
-  @internalProperty()
+  @state()
   private _currentTarget: HTMLAnchorElement | null = null;
 
   /**
    * `true` if left-hand scroll intersection sentinel intersects with the host element.
    * In this condition, the left-hand paginator button should be hidden.
    */
-  @internalProperty()
+  @state()
   private _isIntersectionLeftTrackerInContent = true;
 
   /**
    * `true` if right-hand scroll intersection sentinel intersects with the host element.
    * In this condition, the right-hand paginator button should be hidden.
    */
-  @internalProperty()
+  @state()
   private _isIntersectionRightTrackerInContent = true;
 
   /**
    * `true` if there is a heading content.
    */
-  @internalProperty()
+  @state()
   private _hasHeading = false;
 
   /**
    * `true` if mobile container is visible.
    */
-  @internalProperty()
+  @state()
   private _hasMobileContainerVisible = false;
 
   /**
@@ -153,13 +153,13 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
   /**
    * The target `<a>`s harvested from the document.
    */
-  @internalProperty()
+  @state()
   private _targets: HTMLAnchorElement[] = [];
 
   /**
    * Boolean checking if page is RTL
    */
-  @internalProperty()
+  @state()
   private _pageIsRTL: Boolean = this.ownerDocument!.documentElement.dir === 'rtl';
 
   /**

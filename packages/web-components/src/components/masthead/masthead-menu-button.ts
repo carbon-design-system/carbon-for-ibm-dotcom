@@ -8,7 +8,7 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, internalProperty, property, query, customElement } from 'lit-element';
+import { html, state, property, query, customElement } from 'lit-element';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -36,7 +36,7 @@ class DDSMastheadMenuButton extends HostListenerMixin(BXHeaderMenuButton) {
   /**
    * Search bar opened flag.
    */
-  @internalProperty()
+  @state()
   private _hasSearchActive = false;
 
   /**
