@@ -42,7 +42,7 @@
     "@carbon/telemetry": "0.0.0-alpha.6",
     "@carbon/themes": "10.49.0",
     "@carbon/type": "10.40.0",
-    "carbon-components": "10.51.0"
+    "carbon-components": "10.52.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
