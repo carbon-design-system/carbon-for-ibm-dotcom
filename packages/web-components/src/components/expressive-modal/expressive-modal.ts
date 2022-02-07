@@ -175,9 +175,12 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
   @HostListener('focusout')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleFocusOut = ({ target, relatedTarget }) => {
-    const { _focusableElements: focusableElements } = this;
+    // Don't attempt to wrap focus if the modal isn't open.
+    if (!this.open) return;
     // If no target/relatedTarget, focus has entered/left the window. Do nothing.
     if (!target || !relatedTarget) return;
+
+    const { _focusableElements: focusableElements } = this;
 
     // See if element gaining focus is inside `this` or `this.shadowRoot`.
     const positionToModal =
