@@ -7,12 +7,12 @@
 
 /* eslint-disable cypress/no-unnecessary-waiting */
 describe('storybook docs | default', () => {
-  const components = require('../../fixtures/components');
+  const components = require('../../fixtures/components.json');
 
   components.forEach(component => {
-    it(`should load Storybook Docs tab for ${component} without exceptions`, () => {
+    it(`should load Storybook Docs tab for ${component.name} without exceptions`, () => {
       cy.viewport(1280, 720);
-      cy.visit(`/?path=/docs/components-${component}--default`);
+      cy.visit(`/?path=/docs/components-${component.url}--default`);
 
       const iframe = cy
       .get('iframe')
