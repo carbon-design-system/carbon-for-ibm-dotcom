@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, internalProperty, customElement, LitElement } from 'lit-element';
+import { html, property, state, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import on from 'carbon-components/es/globals/js/misc/on.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
@@ -40,7 +40,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
    *
    * @internal
    */
-  @internalProperty()
+  @state()
   _embedMedia?: (videoId: string) => Promise<any>;
 
   /**
@@ -53,19 +53,19 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
   /**
    * `true` to show the video player.
    */
-  @internalProperty()
+  @state()
   private _activeVideoId?: string;
 
   /**
    * The video custom name.
    */
-  @internalProperty()
+  @state()
   private _videoName?: string;
 
   /**
    * The video custom description.
    */
-  @internalProperty()
+  @state()
   private _videoDescription?: string;
 
   /**

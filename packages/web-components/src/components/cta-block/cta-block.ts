@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, internalProperty, property, TemplateResult } from 'lit-element';
+import { customElement, html, state, property, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -41,13 +41,13 @@ class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
   /**
    * `true` if there are CTA action in the content item area.
    */
-  @internalProperty()
+  @state()
   protected _hasAction = false;
 
   /**
    * `true` if there is a link list.
    */
-  @internalProperty()
+  @state()
   protected _hasLinkList = false;
 
   /**

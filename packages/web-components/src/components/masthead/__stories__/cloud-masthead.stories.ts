@@ -61,7 +61,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
                 user-status="${ifNonNull(userStatus)}"
                 searchPlaceholder="${ifNonNull(searchPlaceholder)}"
                 .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-                ?has-profile="${hasProfile}"
+                has-profile="${hasProfile}"
                 ?has-search="${hasSearch}"
                 .navLinks="${navLinks}"
                 .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
@@ -78,7 +78,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
                 user-status="${ifNonNull(userStatus)}"
                 searchPlaceholder="${ifNonNull(searchPlaceholder)}"
                 .navLinks="${navLinks}"
-                ?has-profile="${hasProfile}"
+                has-profile="${hasProfile}"
                 ?has-search="${hasSearch}"
                 data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"
               ></dds-cloud-masthead-container>
