@@ -1446,10 +1446,10 @@
     winston "^3.3.3"
     yargs "^16.1.1"
 
-"@carbon/themes@10.49.0":
-  version "10.49.0"
-  resolved "https://registry.yarnpkg.com/@carbon/themes/-/themes-10.49.0.tgz#9b08c9b2cc5039262d657e2f4c25b8822f6215da"
-  integrity sha512-+Oed5krJrj5WKSOysqeqxGFpLgK+EGhQLwSVYPlBcIPbJNSEfy/D3Ftsx/vYk0f7lsgye7keRa+xRpIJEDfXJg==
+"@carbon/themes@10.50.0":
+  version "10.50.0"
+  resolved "https://registry.yarnpkg.com/@carbon/themes/-/themes-10.50.0.tgz#1ebe92e2b1d34db501dd1c0826e847892d4183c2"
+  integrity sha512-+sz/l7b7lORgLNlauFF1UMchq4u0hoo0gXtGvBHXx04tivs9rK9rwRdZ0uJtakk6dNmN+me5femm1SM6kr9ziw==
   dependencies:
     "@carbon/colors" "^10.35.0"
     "@carbon/layout" "^10.35.0"
