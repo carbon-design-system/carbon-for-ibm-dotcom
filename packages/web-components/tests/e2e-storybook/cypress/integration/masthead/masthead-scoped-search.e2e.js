@@ -13,7 +13,7 @@
  */
 const _pathScopedSearch = '/iframe.html?id=components-masthead--with-scoped-search';
 
-xdescribe('dds-masthead | scoped search (desktop)', () => {
+describe('dds-masthead | scoped search (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathScopedSearch}`);
     cy.viewport(1280, 780);
@@ -47,6 +47,11 @@ xdescribe('dds-masthead | scoped search (desktop)', () => {
   });
 
   it('should retrieve less results with "pw" scope', () => {
+    // Mock scoped search typeahead API
+    cy.intercept('**/search/typeahead/v1?*', {
+      fixture: 'scoped-typeahead.json',
+    });
+
     cy.get('dds-masthead > dds-search-with-typeahead')
       .shadow()
       .find('.bx--header__search--search')
@@ -73,7 +78,7 @@ xdescribe('dds-masthead | scoped search (desktop)', () => {
   });
 });
 
-xdescribe('dds-masthead | scoped search (mobile)', () => {
+describe('dds-masthead | scoped search (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathScopedSearch}`);
     cy.viewport(320, 780);
@@ -107,6 +112,11 @@ xdescribe('dds-masthead | scoped search (mobile)', () => {
   });
 
   it('should retrieve less results with "pw" scope', () => {
+    // Mock scoped search typeahead API
+    cy.intercept('**/search/typeahead/v1?*', {
+      fixture: 'scoped-typeahead.json',
+    });
+
     cy.get('dds-masthead > dds-search-with-typeahead')
       .shadow()
       .find('.bx--header__search--search')

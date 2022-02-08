@@ -8,7 +8,7 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, internalProperty, query, customElement } from 'lit-element';
+import { html, property, state, query, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import CaretLeft20 from 'carbon-web-components/es/icons/caret--left/20.js';
@@ -85,7 +85,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   /**
    * The current scroll position.
    */
-  @internalProperty()
+  @state()
   private _currentScrollPosition = 0;
 
   /**
@@ -123,14 +123,14 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
    * `true` if left-hand scroll intersection sentinel intersects with the host element.
    * In this condition, the left-hand paginator button should be hidden.
    */
-  @internalProperty()
+  @state()
   private _isIntersectionLeftTrackerInContent = true;
 
   /**
    * `true` if right-hand scroll intersection sentinel intersects with the host element.
    * In this condition, the right-hand paginator button should be hidden.
    */
-  @internalProperty()
+  @state()
   private _isIntersectionRightTrackerInContent = true;
 
   /**
@@ -141,7 +141,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   /**
    * Boolean checking if page is RTL
    */
-  @internalProperty()
+  @state()
   private _pageIsRTL: Boolean = this.ownerDocument!.documentElement.dir === 'rtl';
 
   @query('slot')

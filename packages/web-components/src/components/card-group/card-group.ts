@@ -8,7 +8,7 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, internalProperty, property, customElement, LitElement } from 'lit-element';
+import { html, state, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight.js';
@@ -276,13 +276,13 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
   /**
    * The number of columns per row. Min 2, max 4, default 3. Applies to >=`lg` breakpoint only.
    */
-  @internalProperty()
+  @state()
   private _cardsPerRow?: number;
 
   /**
    * Default number of cards per row. Applies to >=`lg` breakpoint only.
    */
-  @internalProperty()
+  @state()
   private _cardsPerRowAuto = 3;
 
   /**

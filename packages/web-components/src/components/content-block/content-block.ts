@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { Part } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map';
-import { html, customElement, property, internalProperty, LitElement, TemplateResult } from 'lit-element';
+import { html, customElement, property, state, LitElement, TemplateResult } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from './defs';
@@ -48,37 +48,37 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
   /**
    * `true` if there is complementary content.
    */
-  @internalProperty()
+  @state()
   protected _hasComplementary = false;
 
   /**
    * `true` if there is child content.
    */
-  @internalProperty()
+  @state()
   protected _hasContent = false;
 
   /**
    * `true` if there is heading content.
    */
-  @internalProperty()
+  @state()
   protected _hasHeading = false;
 
   /**
    * `true` if there is copy content.
    */
-  @internalProperty()
+  @state()
   protected _hasCopy = false;
 
   /**
    * `true` if there is footer content.
    */
-  @internalProperty()
+  @state()
   protected _hasFooter = false;
 
   /**
    * `true` if there is media content.
    */
-  @internalProperty()
+  @state()
   protected _hasMedia = false;
 
   /**
