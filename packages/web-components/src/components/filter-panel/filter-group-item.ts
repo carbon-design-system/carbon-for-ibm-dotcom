@@ -224,6 +224,9 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
     }
   }
 
+  /**
+   * The name of the event that fires when the view all button is toggled.
+   */
   static get eventViewAll() {
     return `${ddsPrefix}-filter-group-view-all-toggle`;
   }
