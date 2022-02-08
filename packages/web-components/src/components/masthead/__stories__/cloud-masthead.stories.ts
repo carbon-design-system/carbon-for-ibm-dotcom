@@ -30,6 +30,21 @@ const platformData = {
   url: 'https://www.ibm.com/cloud',
 };
 
+const urlObject = {
+  default: {
+    url: 'https://www.ibm.com/cloud',
+  },
+  'en-US': {
+    url: 'https://www.ibm.com/us-en/cloud',
+  },
+  'fr-FR': {
+    url: 'https://www.ibm.com/fr-fr/cloud',
+  },
+  'es-MX': {
+    url: 'https://www.ibm.com/es-mx/cloud',
+  },
+};
+
 export const Default = !DDS_CLOUD_MASTHEAD
   ? undefined
   : ({ parameters }) => {
@@ -70,7 +85,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
           : html`
               <dds-cloud-masthead-container
                 platform="Cloud"
-                .platformUrl="${ifNonNull(platformData.url)}"
+                .platformUrl="${ifNonNull(urlObject)}"
                 selected-menu-item="${ifNonNull(selectedMenuItem)}"
                 has-contact="${hasContact}"
                 auth-method="${authMethod}"
