@@ -171,6 +171,11 @@ class DDSDotcomShellComposite extends LitElement {
       return;
     }
 
+    if (this.hasBanner) {
+      const bannerBottom = Math.max(0, document.querySelector('dds-universal-banner')?.getBoundingClientRect().bottom!);
+      this._masthead!.style.top = `${bannerBottom}px`;
+    }
+
     if (this._tableOfContentsInnerBar) {
       const tocBoundingClient = this._tableOfContentsInnerBar!.getBoundingClientRect();
 
@@ -384,6 +389,12 @@ class DDSDotcomShellComposite extends LitElement {
    */
   @property({ type: Boolean, attribute: 'has-search' })
   hasSearch = true;
+
+  /**
+   * `true` if there is a universal banner.
+   */
+  @property({ type: Boolean, attribute: 'has-banner' })
+  hasBanner = false;
 
   /**
    * `true` to activate the search box. This goes to masthead.
@@ -629,6 +640,7 @@ class DDSDotcomShellComposite extends LitElement {
     if (!this._mastheadRenderRoot) {
       this._mastheadRenderRoot = this._createMastheadRenderRoot();
     }
+
     const {
       activateSearch,
       authenticatedProfileItems,
@@ -727,6 +739,22 @@ class DDSDotcomShellComposite extends LitElement {
         value => value !== undefined
       )
     );
+  }
+
+  updated(changedProperties) {
+    super.updated(changedProperties);
+
+    // moving universal banner outside of dotcom shell if placed within
+    if (this.querySelector('dds-universal-banner')) {
+      this.ownerDocument
+        .querySelector('dds-masthead-composite')
+        ?.before(this.querySelector('dds-universal-banner') as HTMLElement);
+    }
+
+    if (this.ownerDocument.querySelector('dds-universal-banner')) {
+      this.hasBanner = true;
+      this._masthead?.setAttribute('with-banner', '');
+    }
   }
 
   render() {

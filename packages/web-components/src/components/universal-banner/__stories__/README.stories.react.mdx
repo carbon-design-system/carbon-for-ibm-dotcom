@@ -1,0 +1,51 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
+
+# Search with Typeahead
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/search-with-typeahead)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/search-with-typeahead)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import DDSSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead.js';
+
+function App() {
+  return (
+  <DDSSearchWithTypeahead></DDSSearchWithTypeahead>
+  );
+}
+```
+
+To have the Search open on load, and always be active, you can render the app as follows:
+```javascript
+
+function App() {
+  return (
+		<DDSSearchWithTypeahead should-remain-open={true} active={true}></DDSSearchWithTypeahead>
+  );
+}
+```
+
+## Props
+
+<Props of={PropTypesRef} />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector       | Compatibility selector                    | Description |
+| ----------------------------- | ----------------------------------------- | ----------- |
+| `<dds-search-with-typeahead>` | `data-autoid="dds--search-with-typeahead` | Component   |
+
+<Description markdown={contributing} />
