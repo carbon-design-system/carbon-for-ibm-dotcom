@@ -67,7 +67,7 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${prefix}--universal-banner-image-container">
+      <div ?hidden="${!this.hasImage}" class="${prefix}--universal-banner-image-container">
         <slot name="image" @slotchange="${this._handleImageSlotChange}"></slot>
       </div>
 
