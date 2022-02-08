@@ -245,7 +245,7 @@ describe('dds-card | default (desktop)', () => {
     cy.viewport(1280, 780);
   });
 
-  it('should check tabbable', ()=>{
+  it('should check tabbable', () => {
     cy.get('dds-card > dds-card-footer')
       .shadow()
       .find('a.bx--card__footer')
