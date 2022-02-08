@@ -117,7 +117,7 @@
         }
 
         ::slotted(#{$dds-prefix}-universal-banner-copy) {
-          margin-top: 0px;
+          margin-top: 0;
         }
       }
 
@@ -166,7 +166,7 @@
 
     @include carbon--breakpoint('xlg') {
       margin-left: 6.5rem;
-      margin-right: 0rem;
+      margin-right: 0;
     }
 
     @include carbon--breakpoint('max') {
@@ -228,9 +228,6 @@
 :host(#{$dds-prefix}-universal-banner-copy) {
   @include carbon--type-style('expressive-heading-01', true);
 
-  p {
-    color: red;
-  }
   display: block;
   color: $text-01;
 
