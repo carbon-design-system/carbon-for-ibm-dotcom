@@ -179,12 +179,21 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
     let result: boolean = allRevealed;
 
     const filterPanel = this.closest('dds-filter-panel');
-    if (filterPanel) {
+    if (filterPanel !== null) {
       // Indicates this is composite's duplicated content.
-      const shadowRoot = filterPanel?.parentNode as ShadowRoot;
-      const cache = (shadowRoot.host as DDSFilterPanelComposite)._filterGroupsAllRevealed;
-      const match = cache.find(entry => entry.id === titleText);
-      result = match ? match.value : false;
+      let parentHost: Element | undefined;
+      const parent = filterPanel.parentNode;
+      if (parent instanceof ShadowRoot) {
+        parentHost = parent.host;
+      }
+      if (parentHost instanceof DDSFilterPanelComposite) {
+        const match = parentHost._filterGroupsAllRevealed.find(entry => {
+          return entry.id === titleText;
+        });
+        if (match !== undefined) {
+          result = match.value;
+        }
+      }
     }
 
     return result;
