@@ -22,6 +22,19 @@ global.window.location = {
   href: 'http://localhost',
 };
 
+// mock matchMedia to resolve JSOM error
+Object.defineProperty(window, 'matchMedia', {
+  writable: true,
+  value: jest.fn().mockImplementation(query => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+  })),
+});
+
 jest.mock('@carbon/ibmdotcom-services/lib/services/Locale/Locale', () =>
   require('./__mocks__/LocaleAPI')
 );
