@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,6 +26,9 @@ const _paths = {
  * @private
  */
 const _tests = {
+  checkA11y: () => {
+    cy.checkAxeA11y();
+  },
   checkForBlocklink: () => {
     cy.get('.bx--link.bx--card__footer').each($els => {
       const win = $els[0].ownerDocument.defaultView;
@@ -69,24 +72,28 @@ describe('DDSCardSectionSimple | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`/${_paths.default}`);
+    cy.injectAxe();
   });
 
   it('should load card as blocklink', _tests.checkForBlocklink);
   it('should load left-aligned section title', _tests.checkForTitlePosition);
   it('should load heading, copy, cta on each card', _tests.checkForCardContent);
   it('should render correctly in all themes', _tests.checkThemes);
+  it('should render correctly in all themes', _tests.checkA11y);
 });
 
 describe('DDSCardSectionSimple | with cta (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`/${_paths.default}`);
+    cy.injectAxe();
   });
 
   it('should load card as blocklink', _tests.checkForBlocklink);
   it('should load left-aligned section title', _tests.checkForTitlePosition);
   it('should load heading, copy, cta on each card', _tests.checkForCardContent);
   it('should render correctly in all themes', _tests.checkThemes);
+  it('should render correctly in all themes', _tests.checkA11y);
 });
 
 describe('DDSCardSectionSimple | default (mobile)', () => {

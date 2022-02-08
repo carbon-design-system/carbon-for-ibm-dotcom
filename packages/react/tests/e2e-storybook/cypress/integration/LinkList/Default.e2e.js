@@ -24,6 +24,9 @@ const _path = 'iframe.html?id=components-link-list--default';
  * @private
  */
 const _tests = {
+  checkA11y: () => {
+    cy.checkAxeA11y();
+  },
   checkComponentLoad: () => {
     cy.get('.bx--link-list').then(([list]) => {
       const items = list.querySelectorAll('.bx--link-list__list__CTA');
@@ -112,12 +115,14 @@ describe('LinkList | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
     cy.visit(`/${_path}`).wait(1000);
+    cy.injectAxe();
   });
 
   it('should load items with text and link', _tests.checkComponentLoad);
   it('should have a vertical layout', _tests.checkVerticalAlignment);
   it('should change styles on hover', _tests.checkHoverState);
   it('should render different CTA types', _tests.checkCTATypes);
+  it('should check a11y', _tests.checkA11y);
 });
 
 describe('LinkList | default (mobile)', () => {

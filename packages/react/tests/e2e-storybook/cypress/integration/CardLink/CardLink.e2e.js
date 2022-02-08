@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -36,6 +36,11 @@ const getTopElement = (x, y, root = window.document) => {
  * @private
  */
 const _tests = {
+  checkA11y: () => {
+    cy.visit(`/${_paths.default}`);
+    cy.injectAxe();
+    cy.checkAxeA11y();
+  },
   checkBlockLink: () => {
     let box;
 
@@ -106,6 +111,7 @@ describe('dds-card-cta | (desktop)', () => {
 
   it('Should load and be fully clickable', _tests.checkBlockLink);
   it('Should have hover-state styling', _tests.checkHoverStyles);
+  it('Should check a11y', _tests.checkA11y);
 });
 
 describe('dds-card-cta | (mobile)', () => {

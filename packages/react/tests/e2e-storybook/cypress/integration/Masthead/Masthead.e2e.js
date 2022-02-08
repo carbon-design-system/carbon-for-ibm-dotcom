@@ -50,7 +50,12 @@ const _pathSearchOpenOnload =
 describe('Masthead | default (desktop)', () => {
   beforeEach(() => {
     cy.visit(_pathDefault);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should have url for IBM logo', () => {
@@ -167,7 +172,12 @@ describe('Masthead | default (mobile)', () => {
 describe('Masthead | custom (desktop)', () => {
   beforeEach(() => {
     cy.visit(_pathCustom);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should render 5 custom menu items', () => {
@@ -253,7 +263,12 @@ describe('Masthead | custom (desktop)', () => {
 describe('Masthead | with platform (desktop)', () => {
   beforeEach(() => {
     cy.visit(_pathPlatform);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should load platform containing a link', () => {
@@ -287,7 +302,12 @@ describe('Masthead | with platform (desktop)', () => {
 describe('Masthead | with L1 (desktop)', () => {
   beforeEach(() => {
     cy.visit(_pathl1);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should render platform below the IBM logo', () => {
@@ -390,7 +410,12 @@ describe('Masthead | search open onload (desktop)', () => {
     });
 
     cy.visit(`/${_pathSearchOpenOnload}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should load search field open by default', () => {
