@@ -300,7 +300,9 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   }
 
   protected renderStatus() {
-    this._filterButtonTitle = `Filter ${this._selectedValues.length > 0 ? `(${this._selectedValues.length})` : ''}`;
+    this._filterButtonTitle = `${
+      this._selectedValues.length > 0 ? `Filter (${this._selectedValues.length})` : this._title[0].innerText
+    }`;
   }
 
   /**

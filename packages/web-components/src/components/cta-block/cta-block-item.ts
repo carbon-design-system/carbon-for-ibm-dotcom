@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, css, internalProperty, TemplateResult } from 'lit-element';
+import { customElement, html, css, state, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -42,13 +42,13 @@ class DDSCTABlockItem extends StableSelectorMixin(DDSContentItem) {
   /**
    * `true` if there are CTA media in the content item area.
    */
-  @internalProperty()
+  @state()
   protected _hasMedia = false;
 
   /**
    * `true` if there are CTA statistic in the content item area.
    */
-  @internalProperty()
+  @state()
   protected _hasStatistic = false;
 
   /**

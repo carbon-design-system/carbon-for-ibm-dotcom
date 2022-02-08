@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, internalProperty, customElement, LitElement, TemplateResult } from 'lit-element';
+import { html, state, customElement, LitElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -36,7 +36,7 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
   /**
    * `true` if there is a footer content.
    */
-  @internalProperty()
+  @state()
   _hasFooter = false;
 
   /**

@@ -64,7 +64,14 @@ const _tests = {
   checkHorizontalLayout: () => {
     let cardBox, imageBox, contentBox;
 
-    cy.get('.bx--feature-card')
+    cy.waitUntil(() => {
+        // Waits for image to load and page to redo layout.
+        return (
+          cy.get('.bx--feature-card .bx--image')
+            .then(([image]) => image.getBoundingClientRect().height > 0)
+        );
+      })
+      .get('.bx--feature-card')
       .then(([card]) => {
         cardBox = card.getBoundingClientRect();
       })
@@ -93,7 +100,14 @@ const _tests = {
   checkVerticalLayout: () => {
     let cardBox, imageBox, contentBox;
 
-    cy.get('.bx--feature-card')
+    cy.waitUntil(() => {
+        // Waits for image to load and page to redo layout.
+        return (
+          cy.get('.bx--feature-card .bx--image')
+            .then(([image]) => image.getBoundingClientRect().height > 0)
+        );
+      })
+      .get('.bx--feature-card')
       .then(([card]) => {
         cardBox = card.getBoundingClientRect();
       })
@@ -172,10 +186,7 @@ describe('dds-feature-cta | (desktop)', () => {
   });
 
   it('Should load and be fully clickable', _tests.checkBlockLink);
-  xit(
-    'Should load image on left and content on right',
-    _tests.checkHorizontalLayout
-  );
+  it('Should load image on left and content on right', _tests.checkHorizontalLayout);
   it('Should have customizable heading from knobs', _tests.checkHeadingKnob);
   it('Should have customizable CTA type from knobs', _tests.checkTypeKnob);
 });
@@ -187,10 +198,7 @@ describe('dds-feature-cta | (mobile)', () => {
   });
 
   it('Should load and be fully clickable', _tests.checkBlockLink);
-  it(
-    'Should load image on top and content on bottom',
-    _tests.checkVerticalLayout
-  );
+  it('Should load image on top and content on bottom', _tests.checkVerticalLayout);
   it('Should have customizable heading from knobs', _tests.checkHeadingKnob);
   it('Should have customizable CTA type from knobs', _tests.checkTypeKnob);
 });
