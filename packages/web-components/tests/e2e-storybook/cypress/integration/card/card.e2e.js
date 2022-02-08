@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -69,6 +69,9 @@ const _selectors = {
  * @private
  */
 const _tests = {
+  checkA11y: () => {
+    cy.checkAxeA11y();
+  },
   screenshotThemes: () => {
     cy.carbonThemesScreenshot({
       capture: 'viewport',
@@ -238,7 +241,16 @@ const _tests = {
 describe('dds-card | default (desktop)', () => {
   beforeEach(() => {
     cy.visit(`${_path}&knob-Body%20copy:_Card=copy`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+  });
+
+  it('should check tabbable', ()=>{
+    cy.get('dds-card > dds-card-footer')
+      .shadow()
+      .find('a.bx--card__footer')
+      .focus();
+    cy.wait(3000);
   });
 
   _tests.checkTextRenders();
@@ -248,11 +260,13 @@ describe('dds-card | default (desktop)', () => {
   _tests.checkInverseRenders(`${_path}&knob-Card%20style:_Card=Inverse%20card`);
   _tests.checkOutlineRenders(`${_path}&knob-Card%20style:_Card=Outlined%20card`);
   it('should render correctly in all themes', _tests.screenshotThemes);
+  it('should check a11y', _tests.checkA11y);
 });
 
 describe('dds-card | pictogram (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathPictogram}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
   });
 
@@ -262,11 +276,13 @@ describe('dds-card | pictogram (desktop)', () => {
   _tests.checkInverseRenders(`${_pathPictogram}&knob-Card%20style:_PictogramCard=Inverse%20card`);
   _tests.checkOutlineRenders(`${_pathPictogram}&knob-Card%20style:_PictogramCard=Outlined%20card`);
   it('should render correctly in all themes', _tests.screenshotThemes);
+  it('should check a11y', _tests.checkA11y);
 });
 
 describe('dds-card | static (desktop)', () => {
   beforeEach(() => {
     cy.visit(`${_pathStatic}&knob-Add%20CTA:_Card=true`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
   });
 
@@ -276,4 +292,5 @@ describe('dds-card | static (desktop)', () => {
   _tests.checkTagGroupRenders(_pathStatic);
   _tests.checkOutlineRenders(`${_pathStatic}&knob-Outlined%20card_Card=true`);
   it('should render correctly in all themes', _tests.screenshotThemes);
+  it('should check a11y', _tests.checkA11y);
 });

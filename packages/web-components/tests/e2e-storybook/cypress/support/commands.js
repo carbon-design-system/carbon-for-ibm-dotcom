@@ -42,3 +42,42 @@ Cypress.Commands.add('carbonThemesScreenshot', (screenshotOpts = {}, percyOption
       );
   });
 });
+
+/**
+ * Check a11y
+ */
+Cypress.Commands.add('checkAxeA11y', context => {
+  function terminalLog(violations) {
+    cy.task(
+      'log',
+      `${violations.length} accessibility violation${violations.length === 1 ? '' : 's'} ${
+        violations.length === 1 ? 'was' : 'were'
+      } detected`
+    );
+    // pluck specific keys to keep the table readable
+    const violationData = violations.map(({ id, impact, description, nodes }) => ({
+      id,
+      impact,
+      description,
+      nodes: nodes.length,
+    }));
+
+    cy.task('table', violationData);
+  }
+
+  // checks at the component
+  // cy.checkA11y('dds-content-item', null, terminalLog )
+
+  // skipping page a11y issues because we are only interested at the component level
+  cy.checkA11y(
+    context,
+    {
+      rules: {
+        'page-has-heading-one': { enabled: false },
+        'landmark-one-main': { enabled: false },
+      },
+    },
+    terminalLog,
+    true
+  );
+});

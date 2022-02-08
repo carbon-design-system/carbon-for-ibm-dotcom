@@ -6,6 +6,7 @@
  */
 
 import '@percy/cypress';
+import 'cypress-axe';
 import serializeDOM from '@percy/dom';
 
 import './commands';

@@ -62,6 +62,7 @@ const _buttonTests = [
 describe('dds-cta | button (desktop)', () => {
   beforeEach(() => {
     cy.visit(_path);
+    cy.injectAxe();
     cy.viewport(1280, 780);
   });
 
@@ -72,6 +73,7 @@ describe('dds-cta | button (desktop)', () => {
 describe('dds-cta | button (mobile)', () => {
   beforeEach(() => {
     cy.visit(_path);
+    cy.injectAxe();
     cy.viewport(375, 720);
   });
 

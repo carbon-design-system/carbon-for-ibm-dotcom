@@ -56,7 +56,12 @@ const _pathMicroLanguageOnly = '/iframe.html?id=components-footer--micro-languag
 describe('dds-footer | default (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should have interactable url for IBM logo', () => {
@@ -138,7 +143,12 @@ describe('dds-footer | default (desktop)', () => {
 describe('dds-footer | Default language only (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefaultLanguageOnly}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should load IBM logo and and be interactive', () => {
@@ -205,7 +215,12 @@ describe('dds-footer | Default language only (desktop)', () => {
 describe('dds-footer | Short (desktop)', () => {
   beforeEach(() => {
     cy.visit(`${_pathShort}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should display clickable IBM logo', () => {
@@ -307,7 +322,12 @@ describe('dds-footer | Short (desktop)', () => {
 describe('dds-footer | Short language only (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathShortLanguageOnly}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should load IBM logo and and be interactive', () => {
@@ -340,7 +360,12 @@ describe('dds-footer | Short language only (desktop)', () => {
 describe('dds-footer | Micro (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathMicro}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should load locale modal with 4 geos', () => {
@@ -389,7 +414,12 @@ describe('dds-footer | Micro (desktop)', () => {
 describe('dds-footer | Micro language only (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathMicroLanguageOnly}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should load language selector dropdown and be interactive', () => {

@@ -26,6 +26,12 @@ describe('dds-lightbox-media-viewer | default', () => {
     cy.viewport(1280, 780);
   });
 
+  it('should check a11y', () => {
+    cy.visit(`/${_defaultPath}`);
+    cy.injectAxe();
+    cy.checkAxeA11y();
+  });
+
   it('should render with all elements', () => {
     cy.visit(`/${_defaultPath}`);
 
@@ -95,6 +101,11 @@ describe('dds-lightbox-media-viewer | embedded video player', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
     cy.visit(`/${_embeddedVideoPlayerPath}`);
+    cy.injectAxe();
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should render with all elements', () => {

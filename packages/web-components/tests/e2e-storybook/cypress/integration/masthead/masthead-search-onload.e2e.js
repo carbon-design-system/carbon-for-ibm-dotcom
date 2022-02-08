@@ -23,7 +23,12 @@ describe('dds-masthead | search open onload (desktop)', () => {
     });
 
     cy.visit(`/${_pathSearchOpenOnload}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should load search field open by default', () => {

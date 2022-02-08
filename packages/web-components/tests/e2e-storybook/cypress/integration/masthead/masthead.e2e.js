@@ -16,7 +16,12 @@ const _pathDefault = '/iframe.html?id=components-masthead--default';
 describe('dds-masthead | default (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should have url for IBM logo', () => {
@@ -141,7 +146,12 @@ describe('dds-masthead | default (desktop)', () => {
 describe('dds-masthead | default (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
+    cy.injectAxe();
     cy.viewport(320, 780);
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should load the mobile menu', () => {
