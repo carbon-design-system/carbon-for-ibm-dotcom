@@ -13,6 +13,19 @@
  */
 const _pathDefault = '/iframe.html?id=components-cloud-masthead--default';
 
+function clickUntilGone($el) {
+  if ($el.is(':visible')) {
+    cy.get($el)
+      .click()
+      .wait(1000)
+      .then($clicked => {
+        if ($clicked.is(':visible')) {
+          clickUntilGone($clicked);
+        }
+      });
+  }
+}
+
 if (Cypress.env('DDS_CLOUD_MASTHEAD').toLowerCase() === 'true') {
   describe('dds-masthead | cloud platform (desktop)', () => {
     beforeEach(() => {
@@ -97,6 +110,52 @@ if (Cypress.env('DDS_CLOUD_MASTHEAD').toLowerCase() === 'true') {
         .should('be.visible')
         .click();
     });
+
+    it('should be able to scroll all nav elements into view if necessary', () => {
+
+      cy.viewport(960, 780)
+        .get('dds-top-nav')
+        .shadow()
+        .find('button')
+        .should(($buttons) => {
+          expect($buttons).to.have.length(2);
+        })
+        .then($buttons => {
+          let navItem, prevOffsetLeft;
+          cy.get('.bx--header__nav')
+            .then($nav => {
+              navItem = $nav
+              prevOffsetLeft = $nav.offset().left;
+            })
+            .get($buttons[0])
+            .click({force: true})
+            .wait(1000)
+            .click({force: true})
+            .wait(1000)
+            .then(() => {
+              expect(navItem.offset().left).to.be.gte(prevOffsetLeft);
+              prevOffsetLeft = navItem.offset().left;
+            })
+            .get($buttons[1])
+            .click({force: true})
+            .wait(1000)
+            .click({force: true})
+            .wait(1000)
+            .then(() => {
+              expect(navItem.offset().left).to.be.lte(prevOffsetLeft);
+              prevOffsetLeft = navItem.offset().left;
+            })
+            .get($buttons[0])
+            .click({force: true})
+            .wait(1000)
+            .click({force: true})
+            .wait(1000)
+            .then(() => {
+              expect(navItem.offset().left).to.be.gte(prevOffsetLeft);
+              prevOffsetLeft = navItem.offset().left;
+            })
+        })
+    })
   });
 
   describe('dds-masthead | cloud platform (mobile)', () => {
