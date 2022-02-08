@@ -45,18 +45,21 @@ function tryFocusElems(
   if (!reverse) {
     for (let i = 0; i < elems.length; ++i) {
       const elem = elems[i];
-      elem.focus();
-      if ((elem.getRootNode() as Document).activeElement === elem) {
-        return true;
+      if (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length) {
+        elem.focus();
+        if ((elem.getRootNode() as Document).activeElement === elem) {
+          return true;
+        }
       }
     }
   } else {
     for (let i = elems.length - 1; i >= 0; --i) {
       const elem = elems[i];
-      elem.focus();
-
-      if ((elem.getRootNode() as Document).activeElement === elem) {
-        return true;
+      if (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length) {
+        elem.focus();
+        if ((elem.getRootNode() as Document).activeElement === elem) {
+          return true;
+        }
       }
     }
   }
@@ -154,16 +157,15 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
 
     if (target === startSentinelNode) {
       if (relativeToPrevious & PRECEDING) {
+        // If sentinel is preceding the element we focused from.
         tryFocusElems(focusableElements, true, this);
       } else if (relativeToPrevious & FOLLOWING) {
+        // If sentinel is following the element we focused from.
         tryFocusElems(focusableElements, false, this);
       }
     } else if (target === endSentinelNode) {
-      if (relativeToPrevious & FOLLOWING) {
-        tryFocusElems(focusableElements, true, this);
-      } else if (relativeToPrevious & PRECEDING) {
-        tryFocusElems(focusableElements, false, this);
-      }
+      // Focusing to end sentinel should always take us to first item.
+      tryFocusElems(focusableElements, false, this);
     }
   };
 
@@ -375,6 +377,10 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
     const { _focusableElements: focusableElements, size } = this;
     const { selectorCloseButton, selectorTabbable: selectorTabbableForModal } = this.constructor as typeof DDSExpressiveModal;
 
+    this._focusableElements = [
+      ...Array.from((this.shadowRoot?.querySelectorAll(selectorCloseButton) as NodeListOf<HTMLElement>) || []),
+      ...Array.from(this.querySelectorAll(selectorTabbableForModal) as NodeListOf<HTMLElement>),
+    ];
     if (changedProperties.has('size')) {
       const closeButton = this.querySelector(selectorCloseButton);
       if (closeButton) {
@@ -396,16 +402,13 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
           tryFocusElems(focusableElements, true, this);
         }
       } else if (this._launcher && typeof (this._launcher as HTMLElement).focus === 'function') {
+        this._focusableElements = [];
         (this._launcher as HTMLElement).focus();
         this.ownerDocument.body.style.overflow = '';
         this._launcher = null;
       }
     }
 
-    this._focusableElements = [
-      ...Array.from((this.shadowRoot?.querySelectorAll(selectorCloseButton) as NodeListOf<HTMLElement>) || []),
-      ...Array.from(this.querySelectorAll(selectorTabbableForModal) as NodeListOf<HTMLElement>),
-    ];
     return super.updated(changedProperties);
   }
 
