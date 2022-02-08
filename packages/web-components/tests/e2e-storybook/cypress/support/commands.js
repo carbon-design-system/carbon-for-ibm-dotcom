@@ -73,7 +73,7 @@ Cypress.Commands.add('checkAxeA11y', context => {
     context,
     {
       rules: {
-        'region': { enabled: false},
+        region: { enabled: false },
         'page-has-heading-one': { enabled: false },
         'landmark-one-main': { enabled: false },
       },
