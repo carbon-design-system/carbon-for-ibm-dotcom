@@ -28,17 +28,17 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-card-in-card`)
 class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
   protected _renderImage() {
-    const { ctaType, videoName, videoThumbnailUrl, _hasImage: hasImage } = this;
-    const thumbnail =
+    const { ctaType, videoName, videoThumbnailUrl, thumbnail, _hasImage: hasImage } = this;
+    const image =
       hasImage || ctaType !== CTA_TYPE.VIDEO
         ? undefined
         : html`
-            <dds-card-in-card-image alt="${ifNonNull(videoName)}" default-src="${ifNonNull(videoThumbnailUrl)}">
+            <dds-card-in-card-image alt="${ifNonNull(videoName)}" default-src="${ifNonNull(thumbnail || videoThumbnailUrl)}">
               ${PlayVideo({ slot: 'icon' })}
             </dds-card-in-card-image>
           `;
     return html`
-      <slot name="image" @slotchange="${this._handleSlotChange}"></slot>${thumbnail}
+      <slot name="image" @slotchange="${this._handleSlotChange}"></slot>${image}
     `;
   }
 

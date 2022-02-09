@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -196,6 +196,7 @@ export const Card = ({ parameters }) => {
     customVideoDescription,
     footerDownload,
     noPoster,
+    thumbnail,
   } = parameters?.props?.CardCTA ?? {};
   return html`
     <dds-card-cta
@@ -205,6 +206,7 @@ export const Card = ({ parameters }) => {
       download="${ifNonNull(download)}"
       href="${ifNonNull(href)}"
       ?no-poster=${noPoster}
+      thumbnail="${ifNonNull(thumbnail)}"
     >
       <dds-card-heading>${ctaType !== 'video' ? heading : ''}</dds-card-heading>
       ${ctaType !== 'video' ? copy : ''}
@@ -236,9 +238,11 @@ Card.story = {
           ctaType === CTA_TYPE.VIDEO
             ? null
             : textNullable('Heading (heading):', 'Explore AI use cases in all industries', groupId);
+        const thumbnail = ctaType === CTA_TYPE.VIDEO ? textNullable('Custom thumbnail (thumbnail):', '', groupId) : null;
         return {
           ...Text.story.parameters.knobs.TextCTA({ groupId }),
           heading,
+          thumbnail,
           footerCopy: textNullable('Footer copy text', '', groupId),
           footerHref: textNullable(
             footerKnobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
@@ -261,6 +265,7 @@ Card.story = {
           download: undefined,
           customVideoTitle: null,
           customVideoDescription: null,
+          thumbnail: null,
           href: 'https://www.example.com',
         },
       },
@@ -363,6 +368,7 @@ CardLink.story = {
           download: null,
           customVideoTitle: null,
           customVideoDescription: null,
+          thumbnail: null,
           href: `https://www.example.com`,
           footerCopy: '',
           footerHref: `https://www.example.com`,

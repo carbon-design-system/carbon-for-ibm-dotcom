@@ -7,6 +7,8 @@
 
 import '@percy/cypress';
 import './commands';
+import translationData from '../fixtures/translation.json';
+import countryData from '../fixtures/countrylist.json';
 
 beforeEach(() => {
   // Mock the country list
@@ -73,5 +75,9 @@ beforeEach(() => {
         isDataLayerReady: true,
       },
     };
+
+    // Set sessionStorage data
+    win.sessionStorage.setItem('dds-translation-us-en', JSON.stringify(translationData));
+    win.sessionStorage.setItem('dds-countrylist-en-us', JSON.stringify(countryData));
   });
 });
