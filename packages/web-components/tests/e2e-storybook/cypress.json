@@ -6,7 +6,7 @@
   "fileServerFolder": "storybook-static",
   "screenshotsFolder": "tests/e2e-storybook/cypress/screenshots",
   "videosFolder": "tests/e2e-storybook/cypress/videos",
-  "integrationFolder": "tests/e2e-storybook/cypress/integration/footer",
+  "integrationFolder": "tests/e2e-storybook/cypress/integration",
   "supportFile": "tests/e2e-storybook/cypress/support/index.js",
   "pluginsFile": "tests/e2e-storybook/cypress/plugins/index.js",
   "includeShadowDom": true,
