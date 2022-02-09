@@ -44,7 +44,7 @@
       }
     }
 
-    .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon__icon-left,
+    &.#{$prefix}--link-with-icon__icon-left,
     .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon.#{$prefix}--link-with-icon__icon-left {
       display: flex;
       justify-content: flex-end;
