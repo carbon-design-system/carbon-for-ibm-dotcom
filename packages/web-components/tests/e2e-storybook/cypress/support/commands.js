@@ -59,7 +59,7 @@ Cypress.Commands.add('checkAxeA11y', () => {
       id,
       impact,
       description,
-      nodes: nodes.length,
+      nodes: `${nodes.length}: ${(nodes.map(({ target }) => (target))).toString()}`,
     }));
 
     cy.task('table', violationData);
