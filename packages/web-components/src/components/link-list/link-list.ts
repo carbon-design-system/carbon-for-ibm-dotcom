@@ -91,6 +91,13 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   type = LINK_LIST_TYPE.DEFAULT;
 
+  connectedCallback() {
+    if (!this.hasAttribute('role')) {
+      this.setAttribute('role', 'list');
+    }
+    super.connectedCallback();
+  }
+
   render() {
     const { type, _endTypeLayout: endTypeLayout } = this;
     const headingClasses = classMap({
