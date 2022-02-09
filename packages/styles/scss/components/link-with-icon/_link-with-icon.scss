@@ -52,10 +52,11 @@
 
       svg,
       ::slotted(svg[slot='icon']) {
-        align-self: center;
+        align-self: start;
         position: relative;
         margin-left: 0;
         margin-right: $carbon--spacing-03;
+        top: 1px;
       }
     }
   }
