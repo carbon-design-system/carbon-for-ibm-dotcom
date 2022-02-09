@@ -65,12 +65,9 @@ Cypress.Commands.add('checkAxeA11y', () => {
     cy.task('table', violationData);
   }
 
-  // checks at the component
-  // cy.checkA11y('dds-content-item', null, terminalLog )
-
   // skipping page a11y issues because we are only interested at the component level
   cy.checkA11y(
-    null,
+    null, // ex. 'dds-content-item'
     {
       rules: {
         'region': { enabled: false },
