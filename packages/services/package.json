@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-services",
   "description": "Carbon for IBM.com Services",
-  "version": "1.30.0",
+  "version": "1.31.0-rc.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.0",
-    "@carbon/ibmdotcom-utilities": "1.30.0-canary.adhoc4.6756",
+    "@carbon/ibmdotcom-utilities": "1.31.0-canary.adhoc5.6836",
     "@carbon/telemetry": "0.0.0-alpha.6",
     "axios": "~0.21.4",
     "window-or-global": "^1.0.1"
@@ -62,7 +62,7 @@
     "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
     "@babel/plugin-syntax-import-meta": "^7.2.0",
     "@babel/plugin-transform-object-assign": "^7.2.0",
-    "@babel/plugin-transform-runtime": "7.16.10",
+    "@babel/plugin-transform-runtime": "7.17.0",
     "@babel/preset-env": "^7.4.3",
     "@rollup/plugin-node-resolve": "^8.4.0",
     "all-contributors-cli": "^6.0.0",
@@ -80,7 +80,7 @@
     "gzip-size": "^5.0.0",
     "jest": "25.5.4",
     "jest-circus": "25.5.4",
-    "jsdoc": "^3.6.2",
+    "jsdoc": "^3.6.10",
     "object-assign": "^4.1.1",
     "promise": "^8.0.1",
     "rimraf": "^2.6.3",

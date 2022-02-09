@@ -20,5 +20,5 @@ module.exports = {
   transform: {
     '^.+\\.[jt]s$': '<rootDir>/config/jest/jsTransform.js',
   },
-  transformIgnorePatterns: ['/node_modules/(?!@carbon/ibmdotcom-utilities)'],
+  transformIgnorePatterns: ['/node_modules/(?!@carbon/ibmdotcom-*)'],
 };

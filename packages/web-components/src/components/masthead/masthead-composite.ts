@@ -623,8 +623,8 @@ class DDSMastheadComposite extends LitElement {
   /**
    * `true` if there is a profile.
    */
-  @property({ type: Boolean, attribute: 'has-profile' })
-  hasProfile = true;
+  @property({ type: String, reflect: true, attribute: 'has-profile' })
+  hasProfile = 'true';
 
   /**
    * `true` if there is a search.
@@ -711,6 +711,12 @@ class DDSMastheadComposite extends LitElement {
    */
   @property({ attribute: 'menu-button-assistive-text-inactive' })
   menuButtonAssistiveTextInactive!: string;
+
+  /**
+   * The parameters passed to the search-with-typeahead for search scope
+   */
+  @property()
+  scopeParameters;
 
   /**
    * The English title of the selected nav item.
@@ -831,6 +837,7 @@ class DDSMastheadComposite extends LitElement {
       language,
       openSearchDropdown,
       hasSearch,
+      scopeParameters,
       searchPlaceholder,
       selectedMenuItem,
       unauthenticatedProfileItems,
@@ -911,11 +918,12 @@ class DDSMastheadComposite extends LitElement {
                 placeholder="${ifNonNull(searchPlaceholder)}"
                 .currentSearchResults="${ifNonNull(currentSearchResults)}"
                 ?custom-typeahead-api="${ifNonNull(customTypeaheadAPI)}"
+                .scopeParameters="${ifNonNull(scopeParameters)}"
               ></dds-search-with-typeahead>
             `}
         <dds-masthead-global-bar ?has-search-active=${activateSearch}>
-          ${!hasProfile
-            ? undefined
+          ${hasProfile === 'false'
+            ? ''
             : html`
                 <dds-masthead-profile ?authenticated="${authenticated}">
                   ${profileItems?.map(

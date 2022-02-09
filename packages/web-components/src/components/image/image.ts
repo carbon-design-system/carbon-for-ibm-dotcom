@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, internalProperty, customElement, LitElement } from 'lit-element';
+import { html, property, state, customElement, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -29,7 +29,7 @@ class DDSImage extends StableSelectorMixin(LitElement) {
   /**
    * The image data, harvested from `<dds-image-item>`.
    */
-  @internalProperty()
+  @state()
   private _images: HTMLElement[] = [];
 
   /**

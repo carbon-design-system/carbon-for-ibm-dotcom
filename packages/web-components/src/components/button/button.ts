@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, internalProperty, customElement, LitElement } from 'lit-element';
+import { html, property, state, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
@@ -33,13 +33,13 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
   /**
    * `true` if there is an icon.
    */
-  @internalProperty()
+  @state()
   protected _hasIcon = false;
 
   /**
    * `true` if there is a non-icon content.
    */
-  @internalProperty()
+  @state()
   protected _hasMainContent = false;
 
   /**
