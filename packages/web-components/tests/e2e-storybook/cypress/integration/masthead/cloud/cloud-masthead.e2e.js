@@ -50,8 +50,9 @@ if (Cypress.env('DDS_CLOUD_MASTHEAD').toLowerCase() === 'true') {
         .find('a')
         .then($link => {
           const url = new URL($link.prop('href'));
+          const [langOrCloud, cloudOrNull] = url.split('/').filter(segment => segment !== '');
           expect(['www.ibm.com', 'ibm.com']).to.include(url.host);
-          expect(['/cloud', '/cloud/']).to.include(url.pathname);
+          expect([langOrCloud, cloudOrNull]).to.include('cloud');
         });
     });
 
@@ -112,50 +113,49 @@ if (Cypress.env('DDS_CLOUD_MASTHEAD').toLowerCase() === 'true') {
     });
 
     it('should be able to scroll all nav elements into view if necessary', () => {
-
       cy.viewport(960, 780)
         .get('dds-top-nav')
         .shadow()
         .find('button')
-        .should(($buttons) => {
+        .should($buttons => {
           expect($buttons).to.have.length(2);
         })
         .then($buttons => {
           let navItem, prevOffsetLeft;
           cy.get('.bx--header__nav')
             .then($nav => {
-              navItem = $nav
+              navItem = $nav;
               prevOffsetLeft = $nav.offset().left;
             })
             .get($buttons[0])
-            .click({force: true})
+            .click({ force: true })
             .wait(1000)
-            .click({force: true})
+            .click({ force: true })
             .wait(1000)
             .then(() => {
               expect(navItem.offset().left).to.be.gte(prevOffsetLeft);
               prevOffsetLeft = navItem.offset().left;
             })
             .get($buttons[1])
-            .click({force: true})
+            .click({ force: true })
             .wait(1000)
-            .click({force: true})
+            .click({ force: true })
             .wait(1000)
             .then(() => {
               expect(navItem.offset().left).to.be.lte(prevOffsetLeft);
               prevOffsetLeft = navItem.offset().left;
             })
             .get($buttons[0])
-            .click({force: true})
+            .click({ force: true })
             .wait(1000)
-            .click({force: true})
+            .click({ force: true })
             .wait(1000)
             .then(() => {
               expect(navItem.offset().left).to.be.gte(prevOffsetLeft);
               prevOffsetLeft = navItem.offset().left;
-            })
-        })
-    })
+            });
+        });
+    });
   });
 
   describe('dds-masthead | cloud platform (mobile)', () => {
@@ -170,8 +170,9 @@ if (Cypress.env('DDS_CLOUD_MASTHEAD').toLowerCase() === 'true') {
         .find('a')
         .then($link => {
           const url = new URL($link.prop('href'));
+          const [langOrCloud, cloudOrNull] = url.split('/').filter(segment => segment !== '');
           expect(['www.ibm.com', 'ibm.com']).to.include(url.host);
-          expect(url.pathname).to.be.equal('/');
+          expect([langOrCloud, cloudOrNull]).to.include('cloud');
         });
     });
 
