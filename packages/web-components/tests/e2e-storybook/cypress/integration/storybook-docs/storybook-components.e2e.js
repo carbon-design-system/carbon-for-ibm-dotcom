@@ -5,9 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 describe('Storybook Docs | grab component list', () => {
-
   it('should grab docs url from all Storybook components', () => {
-
     cy.visit('/');
     /**
      * grab all components and get their href values which contain
@@ -23,11 +21,10 @@ describe('Storybook Docs | grab component list', () => {
 
       if (docsPath) {
         const url = docsPath.split('?')[1].replace('path=/story', 'path=/docs');
-        docs.push({url, name});
+        docs.push({ url, name });
       }
     });
 
     cy.writeFile('tests/e2e-storybook/cypress/fixtures/components.json', docs);
-    
-    })
   });
+});

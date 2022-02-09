@@ -14,6 +14,8 @@ describe('storybook docs | default', () => {
       cy.viewport(1280, 720);
       cy.visit(`/?path=/docs/components-${component.url}--default`);
 
+      cy.wait(1000);
+
       const iframe = cy
       .get('iframe')
       .its('0.contentDocument.body')
