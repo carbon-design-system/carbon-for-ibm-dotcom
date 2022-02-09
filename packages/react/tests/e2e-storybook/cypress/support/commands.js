@@ -75,7 +75,7 @@ Cypress.Commands.add('checkAxeA11y', () => {
       id,
       impact,
       description,
-      nodes: `${nodes.length}: ${(nodes.map(({ target }) => (target))).toString()}`,
+      nodes: `${nodes.length}: ${nodes.map(({ target }) => target).toString()}`,
     }));
 
     cy.task('table', violationData);
@@ -86,7 +86,7 @@ Cypress.Commands.add('checkAxeA11y', () => {
     null, // ex. '.bx--content-item'
     {
       rules: {
-        'region': { enabled: false },
+        region: { enabled: false },
         'page-has-heading-one': { enabled: false },
         'landmark-one-main': { enabled: false },
       },
