@@ -62,7 +62,7 @@ Cypress.Commands.add(
 /**
  * Check a11y
  */
-Cypress.Commands.add('checkAxeA11y', context => {
+Cypress.Commands.add('checkAxeA11y', () => {
   function terminalLog(violations) {
     cy.task(
       'log',
@@ -86,13 +86,14 @@ Cypress.Commands.add('checkAxeA11y', context => {
 
   // skipping page a11y issues because we are only interested at the component level
   cy.checkA11y(
-    context,
+    null,
     {
       rules: {
         'region': { enabled: false},
         'page-has-heading-one': { enabled: false },
         'landmark-one-main': { enabled: false },
       },
+      // includedImpacts: ['serious']
     },
     terminalLog,
     true
