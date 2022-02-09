@@ -56,10 +56,6 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-// <dds-dotcom-shell-container>
-// ${StoryContent()}
-// </dds-dotcom-shell-container>
-
 Default.story = {
   parameters: {
     ...readme.parameters,
@@ -67,7 +63,7 @@ Default.story = {
       UniversalBanner: ({ groupId }) => ({
         heading: textNullable('Heading:', 'Hybrid cloud and AI for smarter business', groupId),
         copy: text('Copy (optional):', 'Las Vegas, June 15-18, 2025', groupId),
-        ctaCopy: textNullable('CTA copy:', 'Register for Think. free', groupId),
+        ctaCopy: textNullable('CTA copy:', 'Register for Think. Free', groupId),
         imageWidth: select('Image width:', imageWidthOptions, '4-col', groupId),
       }),
     },
@@ -79,61 +75,21 @@ export default {
   decorators: [
     story => {
       return html`
-        <dds-dotcom-shell-container>
-          ${story()}
-
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-          <h1>Tets</h1>
-        </dds-dotcom-shell-container>
+        ${story()}
       `;
     },
   ],
   parameters: {
     ...readme.parameters,
+  },
+  propsSet: {
+    default: {
+      UniversalBanner: {
+        heading: 'Hybrid cloud and AI for smarter business',
+        copy: 'Las Vegas, June 15-18, 2025',
+        ctaCopy: 'Register for Think. Free',
+        imageWidth: '4-col',
+      },
+    },
   },
 };

@@ -67,20 +67,22 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div ?hidden="${!this.hasImage}" class="${prefix}--universal-banner-image-container">
-        <slot name="image" @slotchange="${this._handleImageSlotChange}"></slot>
-      </div>
+      <div class="${prefix}--universal-banner-layout-container">
+        <div ?hidden="${!this.hasImage}" class="${prefix}--universal-banner-image-container">
+          <slot name="image" @slotchange="${this._handleImageSlotChange}"></slot>
+        </div>
 
-      <div class="${prefix}--universal-banner-text-container">
-        <slot name="heading"></slot>
-        <slot name="copy"></slot>
-      </div>
+        <div class="${prefix}--universal-banner-text-container">
+          <slot name="heading"></slot>
+          <slot name="copy"></slot>
+        </div>
 
-      <div class="${prefix}--universal-banner-cta-container">
-        <slot name="cta" @slotchange="${this._handleButtonSlotChange}"></slot>
-        <dds-link-with-icon href="${ifNonNull(this.buttonHref)}">
-          ${this.buttonCopy}${ArrowRight20({ slot: 'icon' })}
-        </dds-link-with-icon>
+        <div class="${prefix}--universal-banner-cta-container">
+          <slot name="cta" @slotchange="${this._handleButtonSlotChange}"></slot>
+          <dds-link-with-icon href="${ifNonNull(this.buttonHref)}">
+            ${this.buttonCopy}${ArrowRight20({ slot: 'icon' })}
+          </dds-link-with-icon>
+        </div>
       </div>
     `;
   }
