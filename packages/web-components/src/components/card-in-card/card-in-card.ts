@@ -28,17 +28,17 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-card-in-card`)
 class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
   protected _renderImage() {
-    const { ctaType, videoName, videoThumbnailUrl, _hasImage: hasImage } = this;
-    const thumbnail =
+    const { ctaType, videoName, videoThumbnailUrl, thumbnail, _hasImage: hasImage } = this;
+    const image =
       hasImage || ctaType !== CTA_TYPE.VIDEO
         ? undefined
         : html`
-            <dds-card-in-card-image alt="${ifNonNull(videoName)}" default-src="${ifNonNull(videoThumbnailUrl)}">
+            <dds-card-in-card-image alt="${ifNonNull(videoName)}" default-src="${ifNonNull(thumbnail || videoThumbnailUrl)}">
               ${PlayVideo({ slot: 'icon' })}
             </dds-card-in-card-image>
           `;
     return html`
-      <slot name="image" @slotchange="${this._handleSlotChange}"></slot>${thumbnail}
+      <slot name="image" @slotchange="${this._handleSlotChange}"></slot>${image}
     `;
   }
 
@@ -49,10 +49,12 @@ class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
       linkNode.classList.add(`${prefix}--card-in-card`);
     }
 
-    (this.querySelector(`${ddsPrefix}-card-in-card-image`) as HTMLElement)!.onclick = () =>
-      this.querySelector(`${ddsPrefix}-card-cta-footer`)
-        ?.shadowRoot?.querySelector(`a`)
-        ?.click();
+    if (this.querySelector(`${ddsPrefix}-card-in-card-image`)) {
+      (this.querySelector(`${ddsPrefix}-card-in-card-image`) as HTMLElement).onclick = () =>
+        this.querySelector(`${ddsPrefix}-card-cta-footer`)
+          ?.shadowRoot?.querySelector(`a`)
+          ?.click();
+    }
   }
 
   static get stableSelector() {
