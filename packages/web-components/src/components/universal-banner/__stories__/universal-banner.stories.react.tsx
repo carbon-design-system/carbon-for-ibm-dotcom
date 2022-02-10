@@ -17,12 +17,17 @@ import DDSUniversalBannerHeading from '@carbon/ibmdotcom-web-components/es/compo
 import DDSUniversalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-copy';
 import DDSUniversalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-image';
 import DDSButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
+import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 /* eslint-enable max-len */
 import readme from './README.stories.react.mdx';
 
 // eslint-disable-next-line sort-imports
 import img4Col from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-image.jpg';
 import img8Col from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-image.jpg';
+import img4ColLg from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-lg.jpg';
+import img8ColLg from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-lg.jpg';
+import img4ColXlg from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-xlg.jpg';
+import img8ColXlg from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-xlg.jpg';
 
 // import StoryContent from '../../back-to-top/__stories__/data/content';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -38,6 +43,11 @@ const images = {
   '8-col': img8Col,
 };
 
+const srcsets = {
+  '4-col': [img4ColLg, img4ColXlg, img4Col],
+  '8-col': [img8ColLg, img8ColXlg, img8Col],
+};
+
 export const Default = ({ parameters }) => {
   const { heading, copy, ctaCopy, imageWidth } = parameters?.props?.UniversalBanner ?? {};
 
@@ -47,9 +57,15 @@ export const Default = ({ parameters }) => {
     bannerHeading!.shadowRoot!.textContent = heading;
   }
 
+  const srcset = srcsets[imageWidth];
+
   return (
     <DDSUniversalBanner image-width={imageWidth}>
-      <DDSUniversalBannerImage slot="image" default-src={images[imageWidth]}></DDSUniversalBannerImage>
+      <DDSUniversalBannerImage slot="image" default-src={images[imageWidth]}>
+        <DDSImageItem media="(min-width:1584px)" srcset={srcset[2]}></DDSImageItem>
+        <DDSImageItem media="(min-width:1056px)" srcset={srcset[1]}></DDSImageItem>
+        <DDSImageItem media="(min-width:1312px)" srcset={srcset[0]}></DDSImageItem>
+      </DDSUniversalBannerImage>
       <DDSUniversalBannerHeading slot="heading">{heading}</DDSUniversalBannerHeading>
       <DDSUniversalBannerCopy slot="copy">{copy}</DDSUniversalBannerCopy>
       <DDSButtonCTA slot="cta" cta-type="local" kind="tertiary" href="https://www.example.com">

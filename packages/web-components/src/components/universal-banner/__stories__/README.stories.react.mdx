@@ -66,6 +66,22 @@ function App() {
 }
 ```
 
+In case you'd like to change images depending on the breakpoint, you can use the `DDSImageItem` component as such:
+
+```javascript
+import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
+
+
+	<DDSUniversalBannerImage slot="image" default-src="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+		<DDSImageItem media="(min-width:672px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+		</DDSImageItem>
+		<DDSImageItem media="(min-width:400px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+		</DDSImageItem>
+		<DDSImageItem media="(min-width:320px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+		</DDSImageItem>
+	</DDSUniversalBannerImage>
+```
+
 ## Props
 
 <Props of={PropTypesRef} />

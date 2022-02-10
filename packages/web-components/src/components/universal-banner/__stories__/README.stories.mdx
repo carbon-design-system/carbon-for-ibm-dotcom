@@ -64,6 +64,19 @@ It is important to create an image asset that best fits the component to ensure 
 	</dds-universal-banner>
 ```
 
+In case you'd like to change images depending on the breakpoint, you can use the `dds-image-item` component as such:
+
+```html
+	<dds-universal-banner-image slot="image" default-src="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+		<dds-image-item media="(min-width:672px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+		</dds-image-item>
+		<dds-image-item media="(min-width:400px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+		</dds-image-item>
+		<dds-image-item media="(min-width:320px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+		</dds-image-item>
+	</dds-universal-banner-image>
+```
+
 ## Props
 
 <Props of="dds-universal-banner" />
