@@ -17,6 +17,8 @@ describe('dds-masthead | custom search (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathCustomSearch}`);
     cy.viewport(1280, 780);
+
+    cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
   });
 
   it('should open the search bar on click', () => {
