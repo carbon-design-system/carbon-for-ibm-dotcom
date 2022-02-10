@@ -17,6 +17,8 @@ describe('dds-masthead | scoped search (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathScopedSearch}`);
     cy.viewport(1280, 780);
+
+    cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
   });
 
   it('should open the search bar on click', () => {
@@ -82,6 +84,8 @@ describe('dds-masthead | scoped search (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathScopedSearch}`);
     cy.viewport(320, 780);
+
+    cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
   });
 
   it('should open the search bar on click', () => {
