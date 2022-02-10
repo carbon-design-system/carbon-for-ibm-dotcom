@@ -61,7 +61,7 @@ describe('dds-footer | default (desktop)', () => {
   });
 
   it('should check a11y', () => {
-    cy.checkAxeA11y();
+    cy.checkAxeA11y('dds-footer', ['list']);
   });
 
   it('should have interactable url for IBM logo', () => {

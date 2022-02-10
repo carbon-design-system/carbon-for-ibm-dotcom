@@ -136,6 +136,14 @@ const _tests = {
       });
     }
   },
+  checkTabbableCard: () => {
+    it('should check tabbable', () => {
+      cy.get('dds-card > dds-card-footer')
+        .shadow()
+        .find('a.bx--card__footer')
+        .focus();
+    });
+  },
   checkNonClickableCard: () => {
     it('should not respond to a click ', () => {
       let initialLocation;
@@ -245,16 +253,9 @@ describe('dds-card | default (desktop)', () => {
     cy.viewport(1280, 780);
   });
 
-  it('should check tabbable', () => {
-    cy.get('dds-card > dds-card-footer')
-      .shadow()
-      .find('a.bx--card__footer')
-      .focus();
-    cy.wait(3000);
-  });
-
   _tests.checkTextRenders();
   _tests.checkClickableCard();
+  _tests.checkTabbableCard();
   _tests.checkImageRenders(_path);
   _tests.checkTagGroupRenders(_path);
   _tests.checkInverseRenders(`${_path}&knob-Card%20style:_Card=Inverse%20card`);

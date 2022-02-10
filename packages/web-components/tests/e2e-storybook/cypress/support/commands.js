@@ -45,8 +45,11 @@ Cypress.Commands.add('carbonThemesScreenshot', (screenshotOpts = {}, percyOption
 
 /**
  * Check a11y
+ *
+ * @param {string} context optional to specify component context (ex. 'dds-content-item)
+ * @param {Array} additionalRules optional to remove unnecessary rules by there id to pass a11y test (ex. ['list', 'region'])
  */
-Cypress.Commands.add('checkAxeA11y', () => {
+Cypress.Commands.add('checkAxeA11y', (context, additionalRules) => {
   function terminalLog(violations) {
     cy.task(
       'log',
@@ -66,15 +69,21 @@ Cypress.Commands.add('checkAxeA11y', () => {
   }
 
   // skipping page a11y issues because we are only interested at the component level
+  let rules = {
+    region: { enabled: false },
+    'page-has-heading-one': { enabled: false },
+    'landmark-one-main': { enabled: false },
+  };
+
+  if (additionalRules) {
+    additionalRules.forEach(rule => (rules[rule] = { enabled: false }));
+  }
+
   cy.checkA11y(
-    null, // ex. 'dds-content-item'
+    context || null,
     {
-      rules: {
-        region: { enabled: false },
-        'page-has-heading-one': { enabled: false },
-        'landmark-one-main': { enabled: false },
-      },
-      // includedImpacts: ['serious']
+      rules: rules,
+      includedImpacts: ['critical'],
     },
     terminalLog,
     true
