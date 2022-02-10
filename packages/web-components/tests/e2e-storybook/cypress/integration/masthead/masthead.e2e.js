@@ -18,6 +18,8 @@ describe('dds-masthead | default (desktop)', () => {
     cy.visit(`/${_pathDefault}`);
     cy.injectAxe();
     cy.viewport(1280, 780);
+
+    cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
   });
 
   it('should check a11y', () => {
@@ -148,6 +150,8 @@ describe('dds-masthead | default (mobile)', () => {
     cy.visit(`/${_pathDefault}`);
     cy.injectAxe();
     cy.viewport(320, 780);
+
+    cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
   });
 
   it('should check a11y', () => {

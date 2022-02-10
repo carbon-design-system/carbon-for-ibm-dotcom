@@ -18,6 +18,8 @@ describe('dds-masthead | with L1 (desktop)', () => {
     cy.visit(`/${_pathl1}`);
     cy.injectAxe();
     cy.viewport(1280, 780);
+
+    cy.waitUntil(() => cy.get('dds-top-nav-l1').should('not.be.empty'));
   });
 
   it('should check a11y', () => {

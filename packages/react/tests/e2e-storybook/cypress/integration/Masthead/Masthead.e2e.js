@@ -13,45 +13,13 @@
  */
 const _pathDefault = '/iframe.html?id=components-masthead--default';
 
-/**
- * Sets the correct path (Custom Masthead)
- *
- * @type {string}
- * @private
- */
-const _pathCustom =
-  '/iframe.html?id=components-masthead--with-custom-navigation';
-
-/**
- * Sets the correct path (Masthead with Platform)
- *
- * @type {string}
- * @private
- */
-const _pathPlatform = '/iframe.html?id=components-masthead--with-platform';
-
-/**
- * Sets the correct path (Masthead with L1)
- *
- * @type {string}
- * @private
- */
-const _pathl1 = '/iframe.html?id=components-masthead--with-l-1';
-
-/**
- * Sets the correct path (Masthead search open onload)
- *
- * @type {string}
- * @private
- */
-const _pathSearchOpenOnload =
-  '/iframe.html?id=components-masthead--search-open-onload';
-
 describe('Masthead | default (desktop)', () => {
   beforeEach(() => {
     cy.visit(_pathDefault);
     cy.injectAxe();
     cy.viewport(1280, 780);
+
+    cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
   });
 
   it('should check a11y', () => {
@@ -80,25 +48,25 @@ describe('Masthead | default (desktop)', () => {
   });
 
   it('should load the megamenu - first nav item', () => {
-    cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').click();
+    cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').trigger('click');
 
     cy.takeSnapshots();
   });
 
   it('should load the megamenu - second nav item', () => {
-    cy.get('[data-autoid="dds--masthead-default__l0-nav1"]').click();
+    cy.get('[data-autoid="dds--masthead-default__l0-nav1"]').trigger('click');
 
     cy.takeSnapshots();
   });
 
   it('should load the megamenu - third nav item', () => {
-    cy.get('[data-autoid="dds--masthead-default__l0-nav2"]').click();
+    cy.get('[data-autoid="dds--masthead-default__l0-nav2"]').trigger('click');
 
     cy.takeSnapshots();
   });
 
   it('should load the megamenu - fourth nav item', () => {
-    cy.get('[data-autoid="dds--masthead-default__l0-nav3"]').click();
+    cy.get('[data-autoid="dds--masthead-default__l0-nav3"]').trigger('click');
 
     cy.takeSnapshots();
   });
@@ -120,24 +88,24 @@ describe('Masthead | default (desktop)', () => {
   });
 
   it('should open the login menu', () => {
-    cy.get('[data-autoid="dds--masthead-default__l0-account"]').click();
+    cy.get('[data-autoid="dds--masthead-default__l0-account"]').trigger('click');
 
     cy.takeSnapshots();
   });
 
   it('should have 2 menu items under the login menu', () => {
-    cy.get('[data-autoid="dds--masthead-default__l0-account"]').click();
+    cy.get('[data-autoid="dds--masthead-default__l0-account"]').trigger('click');
     cy.get('.bx--masthead__profile-item').should('have.length', 2);
   });
 
   it('should open the search bar on click', () => {
-    cy.get('[data-autoid="dds--masthead-default__l0-search"]').click();
+    cy.get('[data-autoid="dds--masthead-default__l0-search"]').trigger('click');
 
     cy.takeSnapshots();
   });
 
   it('should allow keywords in the search bar and display 10 suggested results', () => {
-    cy.get('[data-autoid="dds--masthead-default__l0-search"]').click();
+    cy.get('[data-autoid="dds--masthead-default__l0-search"]').trigger('click');
 
     cy.get('[data-autoid="dds--masthead__search"]')
       .find('input[data-autoid="dds--header__search--input"]')
@@ -153,17 +121,19 @@ describe('Masthead | default (mobile)', () => {
   beforeEach(() => {
     cy.visit(_pathDefault);
     cy.viewport(320, 780);
+
+    cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').first().should('not.be.empty'));
   });
 
   it('should load the mobile menu', () => {
-    cy.get('[data-autoid="dds--masthead-default-sidenav__l0-menu"]').click();
+    cy.get('[data-autoid="dds--masthead-default-sidenav__l0-menu"]').trigger('click');
 
     cy.takeSnapshots('mobile');
   });
 
   it('should load the mobile menu | menu level 2', () => {
-    cy.get('[data-autoid="dds--masthead-default-sidenav__l0-menu"]').click();
-    cy.get('[data-autoid="dds--masthead-default-sidenav__l0-nav0"]').click();
+    cy.get('[data-autoid="dds--masthead-default-sidenav__l0-menu"]').trigger('click');
+    cy.get('[data-autoid="dds--masthead-default-sidenav__l0-nav0"]').trigger('click');
 
     cy.takeSnapshots('mobile');
   });
