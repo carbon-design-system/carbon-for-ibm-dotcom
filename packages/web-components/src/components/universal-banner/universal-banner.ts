@@ -19,15 +19,21 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Search with Typeahead
+ * Universal banner
  *
- * @element dds-search-with-typeahead
+ * @element dds-universal-banner
  */
 @customElement(`${ddsPrefix}-universal-banner`)
 class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
+  /**
+   * Saves the button CTA's copy to use in link-with-icon for the small breakpoint
+   */
   @property()
   buttonCopy;
 
+  /**
+   * Saves the button CTA's href to use in link-with-icon for the small breakpoint
+   */
   @property()
   buttonHref;
 
@@ -39,7 +45,7 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
 
   /**
    * Grid media options to display image.
-   *
+   * Available options are either '4-col' or '8-col'.
    */
   @property({ attribute: 'image-width', reflect: true, type: String })
   imageWidth;
@@ -51,6 +57,10 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
     this.hasImage = (target as HTMLSlotElement)
       .assignedNodes()
       .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+
+    if (this.hasImage && !this.imageWidth) {
+      this.imageWidth = '4-col';
+    }
   }
 
   /**

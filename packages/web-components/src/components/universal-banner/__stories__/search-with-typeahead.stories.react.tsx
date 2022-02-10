@@ -7,28 +7,90 @@
  * LICENSE file in the root directory of this source tree.
  */
 import React from 'react';
+import { select, text } from '@storybook/addon-knobs';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 /* eslint-disable max-len */
 // @ts-ignore
-import DDSSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
+import DDSUniversalBanner from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
+import DDSUniversalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-heading';
+import DDSUniversalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-copy';
+import DDSUniversalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-image';
+import DDSButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
 /* eslint-enable max-len */
 import readme from './README.stories.react.mdx';
 
-export const Default = () => {
-  return <DDSSearchWithTypeahead should-remain-open={true} active={true}></DDSSearchWithTypeahead>;
+// eslint-disable-next-line sort-imports
+import img4Col from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-image.jpg';
+import img8Col from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-image.jpg';
+
+// import StoryContent from '../../back-to-top/__stories__/data/content';
+import textNullable from '../../../../.storybook/knob-text-nullable';
+
+const imageWidthOptions = {
+  [`4 Columns`]: `4-col`,
+  [`8 Columns`]: `8-col`,
+  [`None`]: '',
 };
 
-Default.story = {};
+const images = {
+  '4-col': img4Col,
+  '8-col': img8Col,
+};
+
+export const Default = ({ parameters }) => {
+  const { heading, copy, ctaCopy, imageWidth } = parameters?.props?.UniversalBanner ?? {};
+
+  const bannerHeading = document.querySelector('dds-universal-banner-heading');
+
+  if (bannerHeading) {
+    bannerHeading!.shadowRoot!.textContent = heading;
+  }
+
+  return (
+    <DDSUniversalBanner image-width={imageWidth}>
+      <DDSUniversalBannerImage slot="image" default-src={images[imageWidth]}></DDSUniversalBannerImage>
+      <DDSUniversalBannerHeading slot="heading">{heading}</DDSUniversalBannerHeading>
+      <DDSUniversalBannerCopy slot="copy">{copy}</DDSUniversalBannerCopy>
+      <DDSButtonCTA slot="cta" cta-type="local" kind="tertiary" href="https://www.example.com">
+        {ctaCopy}
+      </DDSButtonCTA>
+    </DDSUniversalBanner>
+  );
+};
+
+Default.story = {
+  parameters: {
+    ...readme.parameters,
+    knobs: {
+      UniversalBanner: ({ groupId }) => ({
+        heading: textNullable('Heading:', 'Hybrid cloud and AI for smarter business', groupId),
+        copy: text('Copy (optional):', 'Las Vegas, June 15-18, 2025', groupId),
+        ctaCopy: textNullable('CTA copy:', 'Register for Think. Free', groupId),
+        imageWidth: select('Image width:', imageWidthOptions, '4-col', groupId),
+      }),
+    },
+  },
+};
 
 export default {
-  title: 'Components/Search with typeahead',
+  title: 'Components/Universal banner',
   decorators: [
     story => {
-      return <>{story()}</>;
+      return story();
     },
   ],
   parameters: {
     ...readme.parameters,
+  },
+  propsSet: {
+    default: {
+      UniversalBanner: {
+        heading: 'Hybrid cloud and AI for smarter business',
+        copy: 'Las Vegas, June 15-18, 2025',
+        ctaCopy: 'Register for Think. Free',
+        imageWidth: '4-col',
+      },
+    },
   },
 };

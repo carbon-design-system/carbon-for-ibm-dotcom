@@ -11,3 +11,5 @@ import './universal-banner';
 import './universal-banner-heading';
 import './universal-banner-copy';
 import './universal-banner-image';
+import '../cta/button-cta';
+import '../link-with-icon/index';
