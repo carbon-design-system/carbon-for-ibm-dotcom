@@ -17,6 +17,8 @@ describe('dds-masthead | with L1 (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathl1}`);
     cy.viewport(1280, 780);
+
+    cy.waitUntil(() => cy.get('dds-top-nav-l1').should('not.be.empty'));
   });
 
   it('should render platform below the IBM logo', () => {

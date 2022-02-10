@@ -17,6 +17,8 @@ describe('dds-masthead | default (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
     cy.viewport(1280, 780);
+
+    cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
   });
 
   it('should have url for IBM logo', () => {
@@ -142,6 +144,8 @@ describe('dds-masthead | default (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
     cy.viewport(320, 780);
+
+    cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
   });
 
   it('should load the mobile menu', () => {
