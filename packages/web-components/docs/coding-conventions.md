@@ -431,7 +431,7 @@ If you get TypeScript "may be null" errors, think twice to see if there is such 
 
 ## Updating view upon change in `private`/`protected` properties
 
-To cause re-rendering upon change in `private`/`protected` properties, use `internalProperty()` decorator (instead of `@property()`). This is [a new feature in `2.3.0` version of `lit-element`](https://github.com/Polymer/lit-element/blob/v2.4.0/CHANGELOG.md#added-1).
+To cause re-rendering upon change in `private`/`protected` properties, use `state()` decorator (instead of `@property()`). This is [a new feature in `2.3.0` version of `lit-element`](https://github.com/Polymer/lit-element/blob/v2.4.0/CHANGELOG.md#added-1).
 
 ## Avoiding global `document`/`window` reference
 
