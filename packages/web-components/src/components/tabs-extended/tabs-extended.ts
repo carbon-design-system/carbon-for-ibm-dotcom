@@ -88,6 +88,12 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
           this._setActiveItem(this._getNextTab(activeTab));
         }
         break;
+      case 'ArrowUp':
+        this._setActiveItem(this._getPrevTab(activeTab));
+        break;
+      case 'ArrowDown':
+        this._setActiveItem(this._getNextTab(activeTab));
+        break;
       case 'Home':
         this._setActiveItem(this._getNextTab(-1));
         break;
