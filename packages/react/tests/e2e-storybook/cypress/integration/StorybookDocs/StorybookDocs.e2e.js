@@ -25,8 +25,6 @@ describe('storybook docs | default', () => {
       iframe.within({}, $iframe => {
         cy.get('code[id="error-stack"]').should('be.empty');
       });
-
-      cy.takeSnapshots();
     });
   });
 });
