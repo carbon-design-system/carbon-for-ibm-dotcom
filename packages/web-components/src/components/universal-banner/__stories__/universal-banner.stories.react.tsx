@@ -61,11 +61,11 @@ export const Default = ({ parameters }) => {
 
   return (
     <DDSUniversalBanner image-width={imageWidth}>
-      <DDSUniversalBannerImage slot="image" default-src={images[imageWidth]}>
+      {imageWidth ? <DDSUniversalBannerImage slot="image" default-src={images[imageWidth]}>
         <DDSImageItem media="(min-width:1584px)" srcset={srcset[2]}></DDSImageItem>
         <DDSImageItem media="(min-width:1056px)" srcset={srcset[1]}></DDSImageItem>
         <DDSImageItem media="(min-width:1312px)" srcset={srcset[0]}></DDSImageItem>
-      </DDSUniversalBannerImage>
+      </DDSUniversalBannerImage> : ''}
       <DDSUniversalBannerHeading slot="heading">{heading}</DDSUniversalBannerHeading>
       <DDSUniversalBannerCopy slot="copy">{copy}</DDSUniversalBannerCopy>
       <DDSButtonCTA slot="cta" cta-type="local" kind="tertiary" href="https://www.example.com">

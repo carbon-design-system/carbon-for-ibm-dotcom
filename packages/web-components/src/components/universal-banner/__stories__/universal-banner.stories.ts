@@ -57,11 +57,15 @@ export const Default = ({ parameters }) => {
 
   return html`
     <dds-universal-banner image-width="${imageWidth}">
-      <dds-universal-banner-image slot="image" default-src="${images[imageWidth]}">
-        <dds-image-item media="(min-width: 1584px)" srcset="${srcset[2]}"> </dds-image-item>
-        <dds-image-item media="(min-width: 1056px)" srcset="${srcset[1]}"> </dds-image-item>
-        <dds-image-item media="(min-width: 1312px)" srcset="${srcset[0]}"> </dds-image-item>
-      </dds-universal-banner-image>
+      ${imageWidth
+        ? html`
+            <dds-universal-banner-image slot="image" default-src="${images[imageWidth]}">
+              <dds-image-item media="(min-width: 1584px)" srcset="${srcset[2]}"> </dds-image-item>
+              <dds-image-item media="(min-width: 1056px)" srcset="${srcset[1]}"> </dds-image-item>
+              <dds-image-item media="(min-width: 1312px)" srcset="${srcset[0]}"> </dds-image-item>
+            </dds-universal-banner-image>
+          `
+        : ``}
       <dds-universal-banner-heading slot="heading">${heading}</dds-universal-banner-heading>
       <dds-universal-banner-copy slot="copy">${copy}</dds-universal-banner-copy>
       <dds-button-cta slot="cta" cta-type="local" kind="tertiary" href="https://www.example.com">
