@@ -7,8 +7,6 @@
 
 import '@percy/cypress';
 import serializeDOM from '@percy/dom';
-import translationData from '../fixtures/translation.json';
-import countryData from '../fixtures/countrylist.json';
 
 import './commands';
 
@@ -27,7 +25,7 @@ beforeEach(() => {
 
   // Mock the translation file
   cy.intercept('https://1.www.s81c.com/common/carbon-for-ibm-dotcom/translations/masthead-footer/usen.json', {
-    fixture: 'translation.json',
+    fixture: 'translation-raw.json',
   });
 
   // Mock the user status
@@ -80,9 +78,5 @@ beforeEach(() => {
         isDataLayerReady: true,
       },
     };
-
-    // Set sessionStorage data
-    win.sessionStorage.setItem('dds-translation-us-en', JSON.stringify(translationData));
-    win.sessionStorage.setItem('dds-countrylist-en-us', JSON.stringify(countryData));
   });
 });
