@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -39,7 +39,28 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
     updateState(id, title);
     const selector = `a[name="${id}"]`;
     smoothScroll(null, selector, 50);
+    triggerFocus(selector);
   };
+
+  /**
+   * Trigger the focus on screen readers, so they can read the target paragraph
+   *
+   * @param {*} elem Selector to find the item
+   */
+  function triggerFocus(elem) {
+    const element = document.querySelector(elem);
+    element.setAttribute('tabindex', '0');
+    element.focus({ preventScroll: true });
+    elem.addEventListener(
+      'focusout',
+      ({ target: focusoutTarget }) => {
+        focusoutTarget.removeAttribute('tabindex');
+      },
+      {
+        once: true,
+      }
+    );
+  }
 
   /**
    * Handle OnBlur event
