@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2021
+// Copyright IBM Corp. 2020, 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -16,16 +16,6 @@
   // Re-define the ruleset so this wins over `.bx--link:visited`, etc.
   .#{$prefix}--link--disabled {
     color: $disabled-02;
-  }
-
-  .#{$prefix}--link-with-icon__icon-left ::slotted(svg[slot='icon']) {
-    margin-right: $carbon--spacing-03;
-    margin-left: 0;
-  }
-
-  .#{$prefix}--link-with-icon__icon-right ::slotted(svg[slot='icon']) {
-    margin-left: $carbon--spacing-03;
-    margin-right: 0;
   }
 }
 
