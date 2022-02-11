@@ -1367,6 +1367,17 @@
     axios "~0.21.4"
     window-or-global "^1.0.1"
 
+"@carbon/ibmdotcom-services@canary":
+  version "1.31.0-canary.1827018708.0"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-services/-/ibmdotcom-services-1.31.0-canary.1827018708.0.tgz#2fa24ea199cdf026e177ba74f76f9190cf810ca8"
+  integrity sha512-9RvnbOtST2klP1sm4WhssXGr7Ey9vVu5a96TP4gahdv6hk9Vl+FyqU/oEbJ0lcKmdnN+8b82wpfaFK9h1LUu7w==
+  dependencies:
+    "@babel/runtime" "^7.5.0"
+    "@carbon/ibmdotcom-utilities" "1.31.0-canary.adhoc5.6836"
+    "@carbon/telemetry" "0.0.0-alpha.6"
+    axios "~0.21.4"
+    window-or-global "^1.0.1"
+
 "@carbon/ibmdotcom-utilities@1.31.0-canary.adhoc5.6836", "@carbon/ibmdotcom-utilities@1.31.0-canary.adhoc5.6836+acf59c1b5":
   version "1.31.0-canary.adhoc5.6836"
   resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.31.0-canary.adhoc5.6836.tgz#61ebb6aaa3df135905ebc11f79c42927f250d839"
@@ -1375,6 +1386,19 @@
     "@carbon/telemetry" "0.0.0-alpha.6"
     axios "~0.21.4"
     carbon-components "10.51.0"
+    isomorphic-dompurify "0.4.0"
+    js-cookie "^2.2.1"
+    marked "^4.0.10"
+    window-or-global "^1.0.1"
+
+"@carbon/ibmdotcom-utilities@canary":
+  version "1.31.0-canary.1827018708.0"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.31.0-canary.1827018708.0.tgz#37048fa89a65e34964f882a5c6de3329b428543e"
+  integrity sha512-1bAci1BdK3hykH29eKRlcRqQuNA8bOoOaHhwnCNFhZdGkUiXuA7A8W55JnMdC8an0UGXcMMGu5Gr0VmRzIhtsQ==
+  dependencies:
+    "@carbon/telemetry" "0.0.0-alpha.6"
+    axios "~0.21.4"
+    carbon-components "10.52.0"
     isomorphic-dompurify "0.4.0"
     js-cookie "^2.2.1"
     marked "^4.0.10"
@@ -8935,10 +8959,10 @@ cypress@^8.1.0:
     url "^0.11.0"
     yauzl "^2.10.0"
 
-cypress@^9.3.1:
-  version "9.3.1"
-  resolved "https://registry.yarnpkg.com/cypress/-/cypress-9.3.1.tgz#8116f52d49d6daf90a91e88f3eafd940234d2958"
-  integrity sha512-BODdPesxX6bkVUnH8BVsV8I/jn57zQtO1FEOUTiuG2us3kslW7g0tcuwiny7CKCmJUZz8S/D587ppC+s58a+5Q==
+cypress@^9.4.1:
+  version "9.4.1"
+  resolved "https://registry.yarnpkg.com/cypress/-/cypress-9.4.1.tgz#1a4ba706435829c24b7edf350c2b059e05da9084"
+  integrity sha512-+JgMG9uT+QFx97JU9kOHE3jO3+0UdkQ9H1oCBiC7A74qme7Jkdy2sYDBCPjjGczutnWnGUTMRlwiNMP/Uq6LrQ==
   dependencies:
     "@cypress/request" "^2.88.10"
     "@cypress/xvfb" "^1.2.4"
@@ -8977,10 +9001,10 @@ cypress@^9.3.1:
     pretty-bytes "^5.6.0"
     proxy-from-env "1.0.0"
     request-progress "^3.0.0"
+    semver "^7.3.2"
     supports-color "^8.1.1"
     tmp "~0.2.1"
     untildify "^4.0.0"
-    url "^0.11.0"
     yauzl "^2.10.0"
 
 d@1:
