@@ -148,23 +148,29 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
    * @param event The event.
    */
   private _handleFocusIn = ({ target, relatedTarget }) => {
+    let focusFromWithin = false;
+    if (target && relatedTarget) {
+      const comparedToThis = this.compareDocumentPosition(relatedTarget);
+      const comparedToShadowRoot = this.shadowRoot!.compareDocumentPosition(relatedTarget);
+      // If relatedTarget is descendent of `this` or `this.shadowRoot`.
+      if (comparedToThis & WITHIN || comparedToShadowRoot & WITHIN) {
+        focusFromWithin = true;
+      }
+    }
+
     const {
       _endSentinelNode: endSentinelNode,
       _startSentinelNode: startSentinelNode,
       _focusableElements: focusableElements,
     } = this;
-    const relativeToPrevious = relatedTarget.compareDocumentPosition(target);
 
-    if (target === startSentinelNode) {
-      if (relativeToPrevious & PRECEDING) {
-        // If sentinel is preceding the element we focused from.
+    if (focusFromWithin) {
+      if (target === startSentinelNode) {
         tryFocusElems(focusableElements, true, this);
-      } else if (relativeToPrevious & FOLLOWING) {
-        // If sentinel is following the element we focused from.
+      } else if (target === endSentinelNode) {
         tryFocusElems(focusableElements, false, this);
       }
-    } else if (target === endSentinelNode) {
-      // Focusing to end sentinel should always take us to first item.
+    } else {
       tryFocusElems(focusableElements, false, this);
     }
   };
@@ -425,6 +431,7 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
   static get selectorTabbable() {
     return `
       ${selectorTabbable},
+      ${ddsPrefix}-button-expressive,
       ${ddsPrefix}-expressive-modal,
       ${ddsPrefix}-expressive-modal-close-button
     `;
