@@ -1367,6 +1367,17 @@
     axios "~0.21.4"
     window-or-global "^1.0.1"
 
+"@carbon/ibmdotcom-services@canary":
+  version "1.31.0-canary.1827018708.0"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-services/-/ibmdotcom-services-1.31.0-canary.1827018708.0.tgz#2fa24ea199cdf026e177ba74f76f9190cf810ca8"
+  integrity sha512-9RvnbOtST2klP1sm4WhssXGr7Ey9vVu5a96TP4gahdv6hk9Vl+FyqU/oEbJ0lcKmdnN+8b82wpfaFK9h1LUu7w==
+  dependencies:
+    "@babel/runtime" "^7.5.0"
+    "@carbon/ibmdotcom-utilities" "1.31.0-canary.adhoc5.6836"
+    "@carbon/telemetry" "0.0.0-alpha.6"
+    axios "~0.21.4"
+    window-or-global "^1.0.1"
+
 "@carbon/ibmdotcom-utilities@1.31.0-canary.adhoc5.6836", "@carbon/ibmdotcom-utilities@1.31.0-canary.adhoc5.6836+acf59c1b5":
   version "1.31.0-canary.adhoc5.6836"
   resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.31.0-canary.adhoc5.6836.tgz#61ebb6aaa3df135905ebc11f79c42927f250d839"
@@ -1375,6 +1386,19 @@
     "@carbon/telemetry" "0.0.0-alpha.6"
     axios "~0.21.4"
     carbon-components "10.51.0"
+    isomorphic-dompurify "0.4.0"
+    js-cookie "^2.2.1"
+    marked "^4.0.10"
+    window-or-global "^1.0.1"
+
+"@carbon/ibmdotcom-utilities@canary":
+  version "1.31.0-canary.1827018708.0"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.31.0-canary.1827018708.0.tgz#37048fa89a65e34964f882a5c6de3329b428543e"
+  integrity sha512-1bAci1BdK3hykH29eKRlcRqQuNA8bOoOaHhwnCNFhZdGkUiXuA7A8W55JnMdC8an0UGXcMMGu5Gr0VmRzIhtsQ==
+  dependencies:
+    "@carbon/telemetry" "0.0.0-alpha.6"
+    axios "~0.21.4"
+    carbon-components "10.52.0"
     isomorphic-dompurify "0.4.0"
     js-cookie "^2.2.1"
     marked "^4.0.10"
