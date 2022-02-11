@@ -125,7 +125,7 @@
           }
 
           .#{$prefix}--universal-banner-cta-container {
-            margin-left: calc(-1 * #{$spacing-04});
+            margin-left: calc(-1 * #{$spacing-03});
           }
 
           ::slotted(#{$dds-prefix}-universal-banner-heading) {
@@ -142,6 +142,10 @@
         }
 
         @include carbon--breakpoint('max') {
+          .#{$prefix}--universal-banner-cta-container {
+            margin-left: calc(-1 * #{$spacing-04});
+          }
+
           ::slotted(#{$dds-prefix}-button-cta) {
             width: calc(100% - #{$spacing-13});
           }
@@ -190,7 +194,7 @@
     }
 
     @include carbon--breakpoint('xlg') {
-      margin-left: 7.25rem;
+      margin-left: 6.25rem;
       margin-right: 0;
     }
 
