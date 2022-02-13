@@ -31,14 +31,17 @@ const platformData = {
 };
 
 const urlObject = {
+  default: {
+    url: 'https://www.ibm.com/cloud',
+  },
   'en-US': {
-    url: 'https://www.example.com/us-en',
+    url: 'https://www.ibm.com/us-en/cloud',
   },
   'fr-FR': {
-    url: 'https://www.example.com/fr-fr/sample',
+    url: 'https://www.ibm.com/fr-fr/cloud',
   },
   'es-MX': {
-    url: 'https://www.example.com/es-mx/sample',
+    url: 'https://www.ibm.com/es-mx/cloud',
   },
 };
 
