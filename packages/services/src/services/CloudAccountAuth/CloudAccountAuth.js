@@ -22,7 +22,7 @@ class CloudAccountAuthAPI {
    */
   static async checkPersonalization() {
     return await DDOAPI.isReady().then(() => {
-      const status = root.digitalData.user.segment.isCloudLoggedOn;
+      const status = root.digitalData?.user?.segment?.isCloudLoggedOn;
       return { user: status === true ? 'authenticated' : 'anonymous' };
     });
   }
