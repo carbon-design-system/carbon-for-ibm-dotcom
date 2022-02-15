@@ -10,6 +10,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
 import { DDS_CUSTOM_PROFILE_LOGIN } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import deprecate from '@carbon/ibmdotcom-utilities/es/utilities/deprecate/deprecate.js';
 import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
 import Header from '../../internal/vendor/carbon-components-react/components/UIShell/Header';
 import HeaderContainer from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderContainer';
@@ -592,4 +593,14 @@ Masthead.defaultProps = {
   mastheadL1Data: null,
 };
 
-export default Masthead;
+export default deprecate(
+  Masthead,
+  `
+  The React Masthead is now in feature freeze; any new features or enhancements will only be added to the Web Components Masthead. 
+  
+  We will continue to address any bugs specific to the React version for the rest of of Carbon for IBM.com v1.
+  
+  Please refer to the Web Components Masthead documentation for further details.
+  https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-masthead--default
+`
+);
