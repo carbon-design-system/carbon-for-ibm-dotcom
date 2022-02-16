@@ -256,7 +256,7 @@ const Masthead = ({
       if (!matchFound) {
         if (sections.url === currentUrlPath) {
           matchFound = true;
-        } else if (sections?.menuSections[0]) {
+        } else if (sections?.menuSections && sections?.menuSections[0]) {
           const { menuItems } = sections?.menuSections[0];
 
           for (let i = 0; i < menuItems.length; i++) {
