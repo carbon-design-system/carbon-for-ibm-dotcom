@@ -5,11 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-require('dotenv').config({ path: `${__dirname}/../../../../.env` });
-
 // eslint-disable-next-line no-unused-vars
 module.exports = (on, config) => {
-  config.env.DDS_CLOUD_MASTHEAD = process.env.DDS_CLOUD_MASTHEAD;
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
   on('before:browser:launch', (browser = {}, launchOptions) => {
@@ -32,6 +29,4 @@ module.exports = (on, config) => {
       return null;
     },
   });
-
-  return config;
 };
