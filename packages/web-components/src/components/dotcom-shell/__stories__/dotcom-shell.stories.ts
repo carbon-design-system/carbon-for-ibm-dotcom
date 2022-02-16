@@ -55,6 +55,10 @@ import { StoryContent, StoryContentNoToC } from './data/content';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { TOC_TYPES } from '../../table-of-contents/defs';
 
+// eslint-disable-next-line sort-imports
+import img4Col from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-image.jpg';
+import img8Col from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-image.jpg';
+
 const userStatuses = {
   authenticated: 'test.user@ibm.com',
   unauthenticated: UNAUTHENTICATED_STATUS,
@@ -72,6 +76,17 @@ const footerSizes = {
   Default: FOOTER_SIZE.REGULAR,
   [`Short (${FOOTER_SIZE.SHORT})`]: FOOTER_SIZE.SHORT,
   [`Micro (${FOOTER_SIZE.MICRO})`]: FOOTER_SIZE.MICRO,
+};
+
+const imageWidthOptions = {
+  [`4 Columns`]: `4-col`,
+  [`8 Columns`]: `8-col`,
+  [`None`]: '',
+};
+
+const images = {
+  '4-col': img4Col,
+  '8-col': img8Col,
 };
 
 /**
@@ -1004,6 +1019,137 @@ WithLeadspaceSearch.story = {
   parameters: {
     ...readme.parameters,
     'carbon-theme': { disabled: true },
+  },
+};
+
+export const WithUniversalBanner = ({ parameters }) => {
+  const {
+    platform,
+    hasProfile,
+    userStatus,
+    navLinks,
+    hasSearch,
+    searchPlaceholder,
+    selectedMenuItem,
+    langDisplay,
+    language,
+    footerSize,
+    legalLinks,
+    links: footerLinks,
+    localeList,
+    disableLocaleButton,
+    imageWidth,
+    heading,
+    copy,
+    ctaCopy,
+  } = parameters?.props?.DotcomShell ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
+
+  const bannerHeading = document.querySelector('dds-universal-banner-heading');
+  const bannerCopy = document.querySelector('dds-universal-banner-copy');
+
+  if (bannerHeading) {
+    bannerHeading!.shadowRoot!.textContent = heading;
+  }
+
+  if (bannerCopy) {
+    bannerCopy!.shadowRoot!.textContent = copy;
+  }
+
+  return html`
+    <style>
+      ${mastheadStyles}
+    </style>
+    <dds-universal-banner image-width="${imageWidth}">
+      <dds-universal-banner-image slot="image" default-src="${images[imageWidth]}"></dds-universal-banner-image>
+      <dds-universal-banner-heading slot="heading">${heading}</dds-universal-banner-heading>
+      <dds-universal-banner-copy slot="copy">${copy}</dds-universal-banner-copy>
+      <dds-button-cta slot="cta" cta-type="local" kind="tertiary" href="https://www.example.com">
+        ${ctaCopy}
+      </dds-button-cta>
+    </dds-universal-banner>
+    ${useMock
+      ? html`
+          <dds-dotcom-shell-composite
+            platform="${ifNonNull(platform)}"
+            platform-url="${ifNonNull(platformData.url)}"
+            language="${ifNonNull(language)}"
+            lang-display="${ifNonNull(langDisplay)}"
+            footer-size="${ifNonNull(footerSize)}"
+            user-status="${ifNonNull(userStatus)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .legalLinks="${ifNonNull(legalLinks)}"
+            .localeList="${ifNonNull(localeList)}"
+            .footerLinks="${ifNonNull(footerLinks)}"
+            .navLinks="${navLinks}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+            ?disable-locale-button="${disableLocaleButton}"
+          >
+            ${StoryContent()}
+          </dds-dotcom-shell-composite>
+        `
+      : html`
+          <dds-dotcom-shell-container
+            platform="${ifNonNull(platform)}"
+            platform-url="${ifNonNull(platformData.url)}"
+            language="${ifNonNull(language)}"
+            lang-display="${ifNonNull(langDisplay)}"
+            footer-size="${ifNonNull(footerSize)}"
+            user-status="${ifNonNull(userStatus)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            .legalLinks="${ifNonNull(legalLinks)}"
+            .localeList="${ifNonNull(localeList)}"
+            .footerLinks="${ifNonNull(footerLinks)}"
+            .navLinks="${navLinks}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            ?disable-locale-button="${disableLocaleButton}"
+          >
+            ${StoryContent()}
+          </dds-dotcom-shell-container>
+        `}
+  `;
+};
+
+WithUniversalBanner.story = {
+  name: 'With Universal banner',
+  parameters: {
+    knobs: {
+      DotcomShell: ({ groupId }) => ({
+        hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
+        hasSearch: boolean('show the search functionality (has-search)', true, groupId),
+        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? ' ' : 'Search all of IBM', groupId),
+        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
+        heading: textNullable('Universal banner heading:', 'Hybrid cloud and AI for smarter business', groupId),
+        copy: textNullable('Universal banner copy (optional):', 'Las Vegas, June 15-18, 2025', groupId),
+        ctaCopy: textNullable('Universal banner CTA copy:', 'Register for Think. Free', groupId),
+        imageWidth: select('Universal banner image width:', imageWidthOptions, '4-col', groupId),
+      }),
+    },
+    propsSet: {
+      default: {
+        DotcomShell: {
+          platform: null,
+          hasProfile: true,
+          hasSearch: true,
+          searchPlaceholder: 'Search all of IBM',
+          selectedMenuItem: menuItems[1],
+          userStatus: userStatuses.unauthenticated,
+          disableLocaleButton: false,
+          footerSize: 'regular',
+          heading: 'Hybrid cloud and AI for smarter business',
+          copy: 'Las Vegas, June 15-18, 2025',
+          ctaCopy: 'Register for Think. Free',
+          imageWidth: '4-col',
+        },
+      },
+    },
   },
 };
 
