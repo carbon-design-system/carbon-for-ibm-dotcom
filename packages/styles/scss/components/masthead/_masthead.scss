@@ -188,6 +188,10 @@ $search-transition-timing: 95ms;
     transition-timing-function: $search-transition;
     transition-duration: 300ms;
     background-color: $ui-background;
+
+    &[with-banner] {
+      top: $spacing-13;
+    }
   }
 
   :host(#{$dds-prefix}-megamenu-overlay),
