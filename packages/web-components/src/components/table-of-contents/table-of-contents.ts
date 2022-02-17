@@ -347,7 +347,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
       elem.addEventListener(
         'focusout',
         ({ target: focusoutTarget }) => {
-          focusoutTarget.removeAttribute('tabindex');
+          (focusoutTarget as HTMLElement)?.removeAttribute('tabindex');
         },
         {
           once: true,
