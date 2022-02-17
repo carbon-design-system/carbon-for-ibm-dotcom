@@ -124,7 +124,7 @@ const MastheadLeftNav = ({
         rest.hasL1Data ? 'l1' : 'l0'
       }-nav${i}`;
 
-      const menuItems = link.menuSections && link.menuSections[0]?.menuItems;
+      const menuItems = link.menuSections?.[0]?.menuItems;
       selectedItems = selectedUrlCheck({
         menu: menuItems,
         key: i,
@@ -273,11 +273,10 @@ function _renderLevel1Submenus(
     let highlightedItems = [];
     const items = [];
 
-    menu.sections &&
-      menu.sections[0].menuItems.forEach(item => {
-        if (item.highlighted) return highlightedItems.push(item);
-        return items.push(item);
-      });
+    menu.sections?.[0].menuItems.forEach(item => {
+      if (item.highlighted) return highlightedItems.push(item);
+      return items.push(item);
+    });
 
     const sortedMenu = highlightedItems.concat(items);
     const highlightedCount = highlightedItems.length;
@@ -291,7 +290,7 @@ function _renderLevel1Submenus(
             menuState.level0 === menu.parentKey && menuState.level1 >= 0,
         })}
         id={`panel__(${menu.parentKey},-1)`}
-        heading={menu.sections && menu.sections[0]?.heading}
+        heading={menu.sections?.[0]?.heading}
         key={menu.title}
         title={menu.title}
         navType={navType}
