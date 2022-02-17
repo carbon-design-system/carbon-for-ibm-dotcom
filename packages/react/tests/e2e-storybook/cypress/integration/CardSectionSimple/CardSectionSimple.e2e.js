@@ -79,7 +79,7 @@ describe('DDSCardSectionSimple | default (desktop)', () => {
   it('should load left-aligned section title', _tests.checkForTitlePosition);
   it('should load heading, copy, cta on each card', _tests.checkForCardContent);
   it('should render correctly in all themes', _tests.checkThemes);
-  it('should render correctly in all themes', _tests.checkA11y);
+  it('should check a11y', _tests.checkA11y);
 });
 
 describe('DDSCardSectionSimple | with cta (desktop)', () => {
@@ -93,7 +93,7 @@ describe('DDSCardSectionSimple | with cta (desktop)', () => {
   it('should load left-aligned section title', _tests.checkForTitlePosition);
   it('should load heading, copy, cta on each card', _tests.checkForCardContent);
   it('should render correctly in all themes', _tests.checkThemes);
-  it('should render correctly in all themes', _tests.checkA11y);
+  it('should check a11y', _tests.checkA11y);
 });
 
 describe('DDSCardSectionSimple | default (mobile)', () => {
