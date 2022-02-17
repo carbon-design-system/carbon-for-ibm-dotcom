@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components",
+  "baseUrl": "http://localhost:8081",
   "browser": "chrome",
   "headless": true,
   "fixturesFolder": "tests/e2e-storybook/cypress/fixtures",
