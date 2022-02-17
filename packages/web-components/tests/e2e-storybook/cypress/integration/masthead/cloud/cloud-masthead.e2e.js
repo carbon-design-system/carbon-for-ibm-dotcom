@@ -50,7 +50,7 @@ describe('dds-masthead | cloud platform (desktop)', () => {
       .find('a')
       .then($link => {
         const url = new URL($link.prop('href'));
-        const [langOrCloud, cloudOrNull] = url.split('/').filter(segment => segment !== '');
+        const [langOrCloud, cloudOrNull] = url.pathname.split('/').filter(segment => segment !== '');
         expect(['www.ibm.com', 'ibm.com']).to.include(url.host);
         expect([langOrCloud, cloudOrNull]).to.include('cloud');
       });
@@ -87,7 +87,7 @@ describe('dds-masthead | cloud platform (desktop)', () => {
 
   it('should have functioning search bar with typeahead', () => {
     cy.get('.bx--header__search--search')
-      .click()
+      .click({force: true})
       .wait(1000)
       .get('.bx--header__search--input')
       .should('have.focus')
@@ -170,9 +170,8 @@ describe('dds-masthead | cloud platform (mobile)', () => {
       .find('a')
       .then($link => {
         const url = new URL($link.prop('href'));
-        const [langOrCloud, cloudOrNull] = url.split('/').filter(segment => segment !== '');
         expect(['www.ibm.com', 'ibm.com']).to.include(url.host);
-        expect([langOrCloud, cloudOrNull]).to.include('cloud');
+        expect(url.pathname).to.be.equal('/');
       });
   });
 
@@ -182,8 +181,9 @@ describe('dds-masthead | cloud platform (mobile)', () => {
       .find('a')
       .then($link => {
         const url = new URL($link.prop('href'));
+        const [langOrCloud, cloudOrNull] = url.pathname.split('/').filter(segment => segment !== '');
         expect(['www.ibm.com', 'ibm.com']).to.include(url.host);
-        expect(['/cloud', '/cloud/']).to.include(url.pathname);
+        expect([langOrCloud, cloudOrNull]).to.include('cloud');
       });
   });
 
@@ -230,7 +230,7 @@ describe('dds-masthead | cloud platform (mobile)', () => {
 
   it('should have functioning search bar with typeahead', () => {
     cy.get('.bx--header__search--search')
-      .click()
+      .click({force: true})
       .wait(1000)
       .get('.bx--header__search--input')
       .should('have.focus')
@@ -252,4 +252,3 @@ describe('dds-masthead | cloud platform (mobile)', () => {
       .should('be.visible');
   });
 });
-
