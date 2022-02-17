@@ -87,7 +87,7 @@ describe('dds-masthead | cloud platform (desktop)', () => {
 
   it('should have functioning search bar with typeahead', () => {
     cy.get('.bx--header__search--search')
-      .click({force: true})
+      .click({ force: true })
       .wait(1000)
       .get('.bx--header__search--input')
       .should('have.focus')
@@ -230,7 +230,7 @@ describe('dds-masthead | cloud platform (mobile)', () => {
 
   it('should have functioning search bar with typeahead', () => {
     cy.get('.bx--header__search--search')
-      .click({force: true})
+      .click({ force: true })
       .wait(1000)
       .get('.bx--header__search--input')
       .should('have.focus')
