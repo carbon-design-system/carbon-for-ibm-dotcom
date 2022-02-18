@@ -50,16 +50,18 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
   function triggerFocus(elem) {
     const element = document.querySelector(elem);
 
-    const handleFocusOut = event => {
-      const focusoutTarget = event.target;
-      focusoutTarget.removeAttribute('tabindex');
-    };
+    if (element) {
+      const handleFocusOut = event => {
+        const focusoutTarget = event.target;
+        focusoutTarget.removeAttribute('tabindex');
+      };
 
-    element.setAttribute('tabindex', '0');
-    element.focus({ preventScroll: true });
-    element.addEventListener('focusout', handleFocusOut, {
-      once: true,
-    });
+      element.setAttribute('tabindex', '0');
+      element.focus({ preventScroll: true });
+      element.addEventListener('focusout', handleFocusOut, {
+        once: true,
+      });
+    }
   }
 
   /**
