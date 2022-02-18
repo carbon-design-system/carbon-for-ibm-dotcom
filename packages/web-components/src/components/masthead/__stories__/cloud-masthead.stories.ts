@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -31,14 +31,17 @@ const platformData = {
 };
 
 const urlObject = {
+  default: {
+    url: 'https://www.ibm.com/cloud',
+  },
   'en-US': {
-    url: 'https://www.example.com/us-en',
+    url: 'https://www.ibm.com/us-en/cloud',
   },
   'fr-FR': {
-    url: 'https://www.example.com/fr-fr/sample',
+    url: 'https://www.ibm.com/fr-fr/cloud',
   },
   'es-MX': {
-    url: 'https://www.example.com/es-mx/sample',
+    url: 'https://www.ibm.com/es-mx/cloud',
   },
 };
 
@@ -73,7 +76,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
                 user-status="${ifNonNull(userStatus)}"
                 searchPlaceholder="${ifNonNull(searchPlaceholder)}"
                 .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-                ?has-profile="${hasProfile}"
+                has-profile="${hasProfile}"
                 ?has-search="${hasSearch}"
                 .navLinks="${navLinks}"
                 .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
@@ -90,7 +93,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
                 user-status="${ifNonNull(userStatus)}"
                 searchPlaceholder="${ifNonNull(searchPlaceholder)}"
                 .navLinks="${navLinks}"
-                ?has-profile="${hasProfile}"
+                has-profile="${hasProfile}"
                 ?has-search="${hasSearch}"
                 data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"
               ></dds-cloud-masthead-container>
@@ -130,7 +133,7 @@ export default !DDS_CLOUD_MASTHEAD
             hasContact: select('Contact us button visibility (has-contact)', ['true', 'false'], 'true', groupId),
             selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Docs', groupId),
             redirectPath: textNullable('redirect path (redirect-path)', '', groupId),
-            authMethod: select('auth method (auth-method)', ['cookie', 'api'], 'cookie', groupId),
+            authMethod: select('auth method (auth-method)', ['personalization', 'api'], 'personalization', groupId),
           }),
         },
         props: (() => {
@@ -152,7 +155,7 @@ export default !DDS_CLOUD_MASTHEAD
               hasContact: true,
               selectedMenuItem: 'Docs',
               redirectPath: '',
-              authMethod: 'cookie',
+              authMethod: 'personalization',
               navLinks: links,
             },
           },

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,6 +10,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
 import { DDS_CUSTOM_PROFILE_LOGIN } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import deprecate from '@carbon/ibmdotcom-utilities/es/utilities/deprecate/deprecate.js';
 import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
 import Header from '../../internal/vendor/carbon-components-react/components/UIShell/Header';
 import HeaderContainer from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderContainer';
@@ -79,8 +80,13 @@ const Masthead = ({
    * @returns {*} The active search status
    */
   const [isSearchActive, setIsSearchActive] = useState(searchOpenOnload);
+  const searchIconButton = useRef(null);
+
   const handleChangeSearchActive = useCallback((event, { isOpen }) => {
     setIsSearchActive(isOpen);
+    setTimeout(() => {
+      searchIconButton.current.focus();
+    }, 0);
   }, []);
 
   useEffect(() => {
@@ -369,6 +375,7 @@ const Masthead = ({
                       initialSearchTerm={initialSearchTerm}
                       navType={navType}
                       isSearchActive={isSearchActive}
+                      ref={searchIconButton}
                       onChangeSearchActive={handleChangeSearchActive}
                     />
                   )}
@@ -586,4 +593,14 @@ Masthead.defaultProps = {
   mastheadL1Data: null,
 };
 
-export default Masthead;
+export default deprecate(
+  Masthead,
+  `
+  The React Masthead is now in feature freeze; any new features or enhancements will only be added to the Web Components Masthead. 
+  
+  We will continue to address any bugs specific to the React version for the rest of of Carbon for IBM.com v1.
+  
+  Please refer to the Web Components Masthead documentation for further details.
+  https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-masthead--default
+`
+);

@@ -8,7 +8,7 @@
  */
 
 import pickBy from 'lodash-es/pickBy.js';
-import { html, internalProperty, property, customElement, LitElement } from 'lit-element';
+import { html, state, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
@@ -49,7 +49,7 @@ class DDSDotcomShellComposite extends LitElement {
   /**
    * The last scroll Position
    */
-  @internalProperty()
+  @state()
   private _lastScrollPosition = 0;
 
   /**
@@ -149,7 +149,7 @@ class DDSDotcomShellComposite extends LitElement {
    */
   private _handleResize() {
     if (this._tableOfContentsInnerBar) {
-      if (window.innerWidth >= gridBreakpoint && this._tableOfContentsLayout !== 'horizontal') {
+      if (window.innerWidth >= gridBreakpoint && this._tableOfContentsLayout !== 'horizontal' && !this.hasBanner) {
         this._masthead!.style.top = '0';
       } else {
         if (this._masthead!.getBoundingClientRect().top === 0) {
@@ -171,10 +171,20 @@ class DDSDotcomShellComposite extends LitElement {
       return;
     }
 
+    if (this.hasBanner) {
+      const bannerBottomLimit = Math.max(
+        0,
+        this.ownerDocument.querySelector('dds-universal-banner')?.getBoundingClientRect().bottom!
+      );
+      this._masthead!.style.top = `${bannerBottomLimit}px`;
+    }
+
     if (this._tableOfContentsInnerBar) {
       const tocBoundingClient = this._tableOfContentsInnerBar!.getBoundingClientRect();
 
       if (window.innerWidth < gridBreakpoint || this._tableOfContentsLayout === 'horizontal' || l1Element) {
+        const bannerBottom = this.ownerDocument.querySelector('dds-universal-banner')?.getBoundingClientRect().bottom;
+        const bannerBottomLimit = Math.max(0, bannerBottom!);
         const mastheadTop = Math.round(Math.min(0, tocBoundingClient.top - this._masthead!.offsetHeight));
         const tocPosition = tocBoundingClient.top + this._lastScrollPosition - window.scrollY;
         this._tableOfContentsInnerBar!.style.top = `${Math.max(Math.min(tocPosition, this._masthead!.offsetHeight), 0)}px`;
@@ -184,7 +194,7 @@ class DDSDotcomShellComposite extends LitElement {
           if (this._tableOfContentsInnerBar!.style.top === '0px') {
             this._masthead!.style.top = `-${this._masthead?.offsetHeight}px`;
           } else if (this._tableOfContentsInnerBar!.style.top === `${this._masthead!.offsetHeight}px`) {
-            this._masthead!.style.top = '0';
+            this._masthead!.style.top = this.hasBanner ? `${bannerBottomLimit}px` : '0';
           } else {
             this._masthead!.style.top = `${mastheadTop}px`;
           }
@@ -193,19 +203,31 @@ class DDSDotcomShellComposite extends LitElement {
           const stickyOffset = Number(toc?.getAttribute('stickyOffset'));
           if (window.scrollY < this._lastScrollPosition) {
             // scrolling up
-            this._masthead!.style.top = '0';
+            if (this.hasBanner && bannerBottom! >= 0) {
+              this._masthead!.style.top = `${bannerBottomLimit}px`;
+            } else {
+              this._masthead!.style.top = '0';
+            }
             toc!.stickyOffset = stickyOffset + l1Element.offsetHeight;
           } else {
             // scrolling down
-            this._masthead!.style.top = `-${Math.min(
-              this._masthead!.offsetHeight - l1Element.offsetHeight,
-              Math.abs(mastheadTop)
-            )}px`;
+            if (!this.hasBanner || bannerBottom! < 0) {
+              this._masthead!.style.top = `-${Math.min(
+                this._masthead!.offsetHeight - l1Element.offsetHeight,
+                Math.abs(mastheadTop)
+              )}px`;
+            } else {
+              this._masthead!.style.top = `${bannerBottomLimit}px`;
+            }
             toc!.stickyOffset = Math.max(stickyOffset - l1Element.offsetHeight, stickyOffset);
           }
         } else if (this._tableOfContentsLayout === 'horizontal') {
+          if (!this.hasBanner || bannerBottom! < 0) {
+            this._masthead!.style.top = `${mastheadTop}px`;
+          } else {
+            this._masthead!.style.top = `${bannerBottomLimit}px`;
+          }
           this._tableOfContentsInnerBar!.style.top = `${Math.max(Math.min(tocPosition, this._masthead!.offsetHeight), 0)}px`;
-          this._masthead!.style.top = `${mastheadTop}px`;
         } else {
           this._masthead!.style.top = '0';
         }
@@ -384,6 +406,12 @@ class DDSDotcomShellComposite extends LitElement {
    */
   @property({ type: Boolean, attribute: 'has-search' })
   hasSearch = true;
+
+  /**
+   * `true` if there is a universal banner.
+   */
+  @property({ type: Boolean, attribute: 'has-banner' })
+  hasBanner = false;
 
   /**
    * `true` to activate the search box. This goes to masthead.
@@ -641,6 +669,7 @@ class DDSDotcomShellComposite extends LitElement {
     if (!this._mastheadRenderRoot) {
       this._mastheadRenderRoot = this._createMastheadRenderRoot();
     }
+
     const {
       activateSearch,
       authenticatedProfileItems,
@@ -743,6 +772,22 @@ class DDSDotcomShellComposite extends LitElement {
         value => value !== undefined
       )
     );
+  }
+
+  updated(changedProperties) {
+    super.updated(changedProperties);
+
+    // moving universal banner outside of dotcom shell if placed within
+    if (this.querySelector('dds-universal-banner')) {
+      this.ownerDocument
+        .querySelector('dds-masthead-composite')
+        ?.before(this.querySelector('dds-universal-banner') as HTMLElement);
+    }
+
+    if (this.ownerDocument.querySelector('dds-universal-banner')) {
+      this.hasBanner = true;
+      this._masthead?.setAttribute('with-banner', '');
+    }
   }
 
   render() {

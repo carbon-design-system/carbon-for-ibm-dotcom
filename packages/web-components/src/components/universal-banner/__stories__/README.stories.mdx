@@ -1,0 +1,95 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+import '../index';
+
+# Universal banner
+
+A Universal banner is the only component allowed to show up above the Masthead, and should be used exclusively for global and critical announcements
+ (e.g. THINK global event, COVID 19 messages etc).
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/universal-banner)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/universal-banner)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+## Example using imports
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/universal-banner/index.js';
+```
+
+<Description markdown={`${cdnJs({ components: ['universal-banner'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
+
+## Example HTML
+This will render a basic universal banner containing a heading, copy text, and a button CTA at the top of the page, sitting above the masthead.
+
+The component should be placed before the Dotcom shell, but in case it is placed within, it can move itself to the proper place automatically.
+
+```html
+	<dds-universal-banner>
+		<dds-universal-banner-heading slot="heading">Hybrid cloud and AI for smarter business</dds-universal-banner-heading>
+		<dds-universal-banner-copy slot="copy">Las Vegas, June 15-18, 2025</dds-universal-banner-copy>
+		<dds-button-cta slot="cta" cta-type="local" kind="tertiary" href="https://www.example.com">
+			Register for Think. Free
+		</dds-button-cta>
+	</dds-universal-banner>
+```
+
+## Example HTML - With image
+This example renders the banner with the aforementioned elements and an image.
+
+Add the `image-width` attribute into the universal banner and set it to either `4-col` or `8-col`.
+Note that if an image is added without the attribute being manually added, it will default to `4-col`.
+
+It is important to create an image asset that best fits the component to ensure a proper aspect ratio.
+
+```html
+	<dds-universal-banner image-width="4-col">
+	  <dds-universal-banner-image slot="image" default-src="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"></dds-universal-banner-image>
+		<dds-universal-banner-heading slot="heading">Hybrid cloud and AI for smarter business</dds-universal-banner-heading>
+		<dds-universal-banner-copy slot="copy">Las Vegas, June 15-18, 2025</dds-universal-banner-copy>
+		<dds-button-cta slot="cta" cta-type="local" kind="tertiary" href="https://www.example.com">
+			Register for Think. Free
+		</dds-button-cta>
+	</dds-universal-banner>
+```
+
+In case you'd like to change images depending on the breakpoint, you can use the `dds-image-item` component as such:
+
+```html
+	<dds-universal-banner-image slot="image" default-src="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+		<dds-image-item media="(min-width:672px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+		</dds-image-item>
+		<dds-image-item media="(min-width:400px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+		</dds-image-item>
+		<dds-image-item media="(min-width:320px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+		</dds-image-item>
+	</dds-universal-banner-image>
+```
+
+## Props
+
+<Props of="dds-universal-banner" />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector          | Compatibility selector                        | Description |
+| -------------------------------- | --------------------------------------------- | ----------- |
+| `<dds-universal-banner>` 			   | `data-autoid="dds--universal-banner"` 		     | Component   |
+| `<dds-universal-banner-heading>` | `data-autoid="dds--universal-banner-heading"` | Component   |
+| `<dds-universal-banner-copy>` 	 | `data-autoid="dds--universal-banner-copy"` 	 | Component   |
+| `<dds-universal-banner-image>` 	 | `data-autoid="dds--universal-banner-image"` 	 | Component   |
+
+<Description markdown={contributing} />

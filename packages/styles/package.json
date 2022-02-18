@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-styles",
   "description": "Carbon for IBM.com Styles",
-  "version": "1.31.0-rc.0",
+  "version": "1.31.0-rc.1",
   "license": "Apache-2.0",
   "main": "dist/ibm-dotcom-styles.min.css",
   "module": "src/scss",
@@ -25,13 +25,10 @@
   },
   "scripts": {
     "build": "gulp",
-    "build-storybook": "cross-env BABEL_ENV=es build-storybook",
     "ci-check": "yarn build",
     "postinstall": "carbon-telemetry collect --install",
     "start": "gulp dev",
-    "storybook": "start-storybook -p 9000",
-    "upgrade-carbon": "yarn upgrade-interactive @carbon/grid @carbon/import-once @carbon/layout @carbon/motion @carbon/themes @carbon/type carbon-components @carbon/icons-react carbon-components-react --latest --exact",
-    "visual-snapshot": "yarn build-storybook && percy-storybook --widths=320,1280"
+    "upgrade-carbon": "yarn upgrade-interactive @carbon/grid @carbon/import-once @carbon/layout @carbon/motion @carbon/themes @carbon/type carbon-components @carbon/icons-react --latest --exact"
   },
   "dependencies": {
     "@carbon/grid": "10.40.0",
@@ -40,29 +37,12 @@
     "@carbon/layout": "10.35.0",
     "@carbon/motion": "10.27.0",
     "@carbon/telemetry": "0.0.0-alpha.6",
-    "@carbon/themes": "10.49.0",
+    "@carbon/themes": "10.50.0",
     "@carbon/type": "10.40.0",
-    "carbon-components": "10.51.0"
+    "carbon-components": "10.52.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.4",
-    "@babel/plugin-proposal-class-properties": "^7.7.4",
-    "@babel/plugin-syntax-dynamic-import": "^7.7.4",
-    "@babel/plugin-transform-runtime": "^7.7.4",
-    "@babel/preset-env": "^7.7.4",
-    "@babel/preset-react": "^7.7.4",
-    "@percy/storybook": "^3.3.0",
-    "@storybook/addon-a11y": "^5.3.0",
-    "@storybook/addon-actions": "^5.3.0",
-    "@storybook/addon-knobs": "^5.3.0",
-    "@storybook/addon-storysource": "^5.3.0",
-    "@storybook/react": "^5.3.0",
     "autoprefixer": "^9.8.0",
-    "babel-loader": "^8.0.6",
-    "browserslist-config-carbon": "^10.4.0",
-    "cache-loader": "^4.1.0",
-    "carbon-components-react": "7.51.0",
-    "css-loader": "^5.2.0",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
@@ -70,16 +50,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-rtlcss": "^1.4.1",
     "gulp-sass": "^5.0.0",
-    "gulp-sourcemaps": "^2.6.5",
-    "prop-types": "^15.7.2",
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
-    "require-context.macro": "^1.2.2",
-    "require-dir": "^1.2.0",
-    "sass-loader": "^10.0.0",
-    "semver": "^7.3.2",
-    "string-replace-loader": "^2.1.0",
-    "style-loader": "^2.0.0"
+    "require-dir": "^1.2.0"
   },
   "sideEffects": false,
   "bundleSizeThreshold": 120000,

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.31.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.31.0-rc.0...@carbon/ibmdotcom-react@1.31.0-rc.1) (2022-02-14)
+
+
+### Bug Fixes
+
+* **content-section:** update child elements alignment to the top ([#8182](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8182)) ([4358e2d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4358e2d)), closes [#7804](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7804)
+* **deps:** fix to marked dependency issues ([#8172](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8172)) ([c1bb7f5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c1bb7f5))
+* **deps:** update dependency carbon-components to v10.52.0 ([#8209](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8209)) ([3ec4a16](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3ec4a16))
+* **footer:** change cypress intercept for translation to use raw data ([#8244](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8244)) ([444b310](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/444b310))
+* **footer:** stabilization of e2e tests ([#8241](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8241)) ([7fddf06](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7fddf06))
+* **masthead:** return focus to trigger items on close/escape ([#8186](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8186)) ([77efc3b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/77efc3b)), closes [#8080](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8080) [#8081](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8081)
+
+
+
+
+
 # [1.31.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.30.0...@carbon/ibmdotcom-react@1.31.0-rc.0) (2022-02-01)
 
 

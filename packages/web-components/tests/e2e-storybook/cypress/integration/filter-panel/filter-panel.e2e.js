@@ -103,6 +103,101 @@ describe('dds-filter-panel | (desktop)', () => {
       .should('have.attr', 'selected');
     cy.screenshot(_screenshotOptions);
   });
+
+  it('should only add view all button when enough filters are present', () => {
+    let filterCount;
+
+    cy.visit(`${_path}&knob-Filter%20cutoff_FilterPanel=1&knob-Max%20filters_FilterPanel=1`)
+      .get(_selector)
+      .shadow()
+      .find('dds-filter-group-item')
+      .first()
+      .as('filterGroupItem')
+      .click()
+      .find('.dds-filter-group-item__view-all')
+      .should('have.length', 1)
+      .click()
+      .get('@filterGroupItem')
+      .find('dds-filter-panel-checkbox')
+      .then(checkboxes => (filterCount = checkboxes.length));
+    cy.visit(`${_path}&knob-Max%20filters_FilterPanel=${filterCount}`)
+      .get(_selector)
+      .shadow()
+      .find('dds-filter-group-item')
+      .first()
+      .click()
+      .find('.dds-filter-group-item__view-all')
+      .should('have.length', 0);
+  });
+
+  it('should support custom view all button text', () => {
+    let customText = 'Foo button';
+
+    cy.visit(`${_path}&knob-View%20all%20text_FilterPanel=${customText}`)
+      .get(_selector)
+      .shadow()
+      .find('dds-filter-group-item')
+      .first()
+      .click()
+      .find('.dds-filter-group-item__view-all')
+      .should('have.text', customText);
+    cy.screenshot(_screenshotOptions);
+  });
+
+  it('should re-hide excess elements when filter groups are closed and reopened', () => {
+    cy.visit(_path)
+      .get(_selector)
+      .shadow()
+      .find('dds-filter-group-item')
+      .first()
+      .as('filterGroupItem')
+      .shadow()
+      .find('.bx--accordion__heading')
+      .as('toggle')
+      .click()
+      .get('@filterGroupItem')
+      .find('.dds-filter-group-item__view-all')
+      .click()
+      .get('@filterGroupItem')
+      .find('dds-filter-panel-checkbox')
+      .last()
+      .as('lastCheckbox')
+      .get('@toggle')
+      .click()
+      .click()
+      .get('@lastCheckbox')
+      .should('not.be.visible');
+    cy.screenshot(_screenshotOptions);
+  });
+
+  it('should not re-hide elements when an element that would be hidden has been selected', () => {
+    cy.visit(_path)
+      .get(_selector)
+      .shadow()
+      .find('dds-filter-group-item')
+      .first()
+      .as('filterGroupItem')
+      .shadow()
+      .find('.bx--accordion__heading')
+      .as('toggle')
+      .click()
+      .get('@filterGroupItem')
+      .find('.dds-filter-group-item__view-all')
+      .click()
+      .get('@filterGroupItem')
+      .find('dds-filter-panel-checkbox')
+      .last()
+      .as('lastCheckbox')
+      .shadow()
+      .find('input[type="checkbox')
+      .check(_checkOptions)
+      .get('@toggle')
+      .click()
+      .click()
+      .get('@lastCheckbox')
+      .should('be.visible');
+    cy.screenshot(_screenshotOptions);
+  });
 });
 
 describe('dds-filter-panel | (mobile)', () => {
@@ -111,13 +206,12 @@ describe('dds-filter-panel | (mobile)', () => {
   });
 
   it('checkboxes should maintain state when transitioning to desktop', () => {
-    // Visit on mobile and open modal
+    // Check box on mobile
     cy.visit(_path)
       .get(_selector)
       .find('.bx--filter-button')
-      .click();
-    // Check box on mobile
-    cy.get(_selector)
+      .click()
+      .get(_selector)
       .find('dds-filter-group-item')
       .first()
       .click()
@@ -143,13 +237,12 @@ describe('dds-filter-panel | (mobile)', () => {
   });
 
   it('select lists should maintain state when transitioning to desktop', () => {
-    // Visit on mobile and open modal
+    // Check box on mobile
     cy.visit(_path)
       .get(_selector)
       .find('.bx--filter-button')
-      .click();
-    // Check box on mobile
-    cy.get(_selector)
+      .click()
+      .get(_selector)
       .find('dds-filter-group-item')
       .eq(1)
       .click()
@@ -167,6 +260,111 @@ describe('dds-filter-panel | (mobile)', () => {
       .find('dds-filter-panel-input-select')
       .first()
       .should('have.attr', 'selected');
+    cy.screenshot(_screenshotOptions);
+  });
+
+  it('should only add view all button when enough filters are present', () => {
+    let filterCount;
+
+    cy.visit(`${_path}&knob-Filter%20cutoff_FilterPanel=1&knob-Max%20filters_FilterPanel=1`)
+      .get(_selector)
+      .find('.bx--filter-button')
+      .click()
+      .get(_selector)
+      .find('dds-filter-group-item')
+      .first()
+      .as('filterGroupItem')
+      .click()
+      .find('.dds-filter-group-item__view-all')
+      .should('have.length', 1)
+      .click()
+      .get('@filterGroupItem')
+      .find('dds-filter-panel-checkbox')
+      .then(checkboxes => (filterCount = checkboxes.length));
+    cy.visit(`${_path}&knob-Max%20filters_FilterPanel=${filterCount}`)
+      .get(_selector)
+      .find('.bx--filter-button')
+      .click()
+      .get(_selector)
+      .find('dds-filter-group-item')
+      .first()
+      .click()
+      .find('.dds-filter-group-item__view-all')
+      .should('have.length', 0);
+  });
+
+  it('should support custom view all button text', () => {
+    let customText = 'Foo button';
+
+    cy.visit(`${_path}&knob-View%20all%20text_FilterPanel=${customText}`)
+      .get(_selector)
+      .find('.bx--filter-button')
+      .click()
+      .get(_selector)
+      .find('dds-filter-group-item')
+      .first()
+      .click()
+      .find('.dds-filter-group-item__view-all')
+      .should('have.text', customText);
+    cy.screenshot(_screenshotOptions);
+  });
+
+  it('should re-hide excess elements when filter groups are closed and reopened', () => {
+    cy.visit(_path)
+      .get(_selector)
+      .find('.bx--filter-button')
+      .click()
+      .get(_selector)
+      .find('dds-filter-group-item')
+      .first()
+      .as('filterGroupItem')
+      .shadow()
+      .find('.bx--accordion__heading')
+      .as('toggle')
+      .click()
+      .get('@filterGroupItem')
+      .find('.dds-filter-group-item__view-all')
+      .click()
+      .get('@filterGroupItem')
+      .find('dds-filter-panel-checkbox')
+      .last()
+      .as('lastCheckbox')
+      .get('@toggle')
+      .click()
+      .click()
+      .get('@lastCheckbox')
+      .should('not.be.visible');
+    cy.screenshot(_screenshotOptions);
+  });
+
+  it('should not re-hide elements when an element that would be hidden has been selected', () => {
+    cy.visit(_path)
+      .get(_selector)
+      .find('.bx--filter-button')
+      .click()
+      .get(_selector)
+      .find('dds-filter-group-item')
+      .first()
+      .as('filterGroupItem')
+      .shadow()
+      .find('.bx--accordion__heading')
+      .as('toggle')
+      .click()
+      .get('@filterGroupItem')
+      .find('.dds-filter-group-item__view-all')
+      .click()
+      .get('@filterGroupItem')
+      .find('dds-filter-panel-checkbox')
+      .last()
+      .as('lastCheckbox')
+      .shadow()
+      .find('input[type="checkbox"]')
+      .check(_checkOptions)
+      .get('@toggle')
+      .click()
+      .click()
+      .get('@lastCheckbox')
+      .should('be.visible');
     cy.screenshot(_screenshotOptions);
   });
 });
