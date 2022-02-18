@@ -103,13 +103,13 @@ describe('dds-masthead | cloud platform (desktop)', () => {
   it('should have contact, login, and create-account CTAs', () => {
     cy.get('dds-cloud-button-cta[data-ibm-contact="contact-link"]')
       .should('be.visible')
-      .click()
+      .click({force: true})
       .get('dds-cloud-button-cta[href="https://cloud.ibm.com/login"]')
       .should('be.visible')
-      .click()
+      .click({force: true})
       .get('dds-cloud-button-cta[kind="primary"]')
       .should('be.visible')
-      .click();
+      .click({force: true});
   });
 
   it('should be able to scroll all nav elements into view if necessary', () => {
