@@ -116,6 +116,12 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     this.renderStatus();
   };
 
+  /**
+   * Host listener for caching filter group items' view all states.
+   *
+   * @param event filter group item view all toggle event
+   * @private
+   */
   @HostListener('document:eventFilterGroupViewAllToggle')
   protected _handleFilterGroupViewAllToggle = (event: CustomEvent) => {
     const match = this._filterGroupsAllRevealed.findIndex(entry => {
@@ -285,7 +291,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   /**
    * stores which filter groups have revealed filters
    */
-  @property({ type: Array })
+  @property()
   _filterGroupsAllRevealed: { id: string; value: boolean }[] = [];
 
   /**
