@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -175,6 +175,16 @@
   // Add Grid Mode Narrow (16px gutter) style.
   :host(#{$dds-prefix}-card-group)[grid-mode='narrow'],
   .#{$prefix}--card-group--narrow {
+    @include carbon--breakpoint('sm') {
+      padding-top: $carbon--spacing-03;
+      gap: $carbon--spacing-03;
+    }
+
+    @include carbon--breakpoint('md') {
+      padding-top: $carbon--spacing-05;
+      gap: $carbon--spacing-05;
+    }
+
     @include carbon--breakpoint('lg') {
       grid-template-columns: repeat(
         3,
@@ -182,20 +192,11 @@
       );
     }
 
-    @include carbon--breakpoint('sm') {
-      column-gap: $carbon--spacing-05;
-    }
-
     ::slotted(#{$dds-prefix}-card-group-item),
     ::slotted(#{$dds-prefix}-card-group-card-link-item),
     .#{$prefix}--card-group__cards__col {
       border: 0;
-      background-color: inherit;
-      padding: $carbon--spacing-03 0 0 0;
-
-      @include carbon--breakpoint('md') {
-        padding: $carbon--spacing-05 0 0 0;
-      }
+      padding: 0;
     }
   }
 
