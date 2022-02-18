@@ -512,6 +512,15 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
     this._throttleScroll!(event);
   };
 
+  /**
+   * The trigger reharvest listener.
+   */
+  @HostListener(`document:${ddsPrefix}-table-of-contents-reharvest`)
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _retriggerHarvest = () => {
+    this._targets = Array.from(this.querySelectorAll('a[name]'));
+  };
+
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResizeMobileContainer({ create: true });

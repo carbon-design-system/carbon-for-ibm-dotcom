@@ -106,6 +106,20 @@ dds-table-of-contents::part(table) {
 }
 ```
 
+## Reharvest the table of contents
+
+Use a dispatched event to trigger a reharvesting of the anchor tags within the Table of Contents.
+
+```js
+document.dispatchEvent(
+  new CustomEvent('dds-table-of-contents-reharvest', {
+    bubbles: true,
+    cancelable: true,
+    composed: true
+  })
+);
+```
+
 ## Slots
 
 <Props of="dds-table-of-contents" />
