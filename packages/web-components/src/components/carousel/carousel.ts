@@ -65,6 +65,11 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   private _childItemHeadings: any[] = [];
 
   /**
+   * Array to hold the card-heading elements within child items.
+   */
+  private _childItemVideoHeadings: any[] = [];
+
+  /**
    * Array to hold the card-eyebrow elements within child items.
    */
   private _childItemEyebrows: any[] = [];
@@ -255,7 +260,12 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
     this._childItems = (event.target as HTMLSlotElement)
       .assignedNodes()
-      .filter(elem => (elem as HTMLElement).matches?.((this.constructor as typeof DDSCarousel).selectorItem));
+      .filter(elem =>
+        (elem as HTMLElement).matches !== undefined
+          ? (elem as HTMLElement).matches((this.constructor as typeof DDSCarousel).selectorItem) ||
+            (elem as HTMLElement).matches((this.constructor as typeof DDSCarousel).selectorItemVideoCTAContainer)
+          : false
+      );
 
     // retrieve item heading, eyebrows, and footers to set same height
     if (this._childItems) {
@@ -272,6 +282,15 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         this._childItemHeadings.push(
           (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemHeading)
         );
+
+        this._childItemVideoHeadings.push(
+          (e as HTMLElement)
+            .querySelector((this.constructor as typeof DDSCarousel).selectorItemCardCTA)
+            ?.shadowRoot?.querySelector((this.constructor as typeof DDSCarousel).selectorItemHeading)
+        );
+
+        this._childItemVideoHeadings = this._childItemVideoHeadings.filter(e);
+
         this._childItemFooters.push(
           (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemFooter)
         );
@@ -320,6 +339,10 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     );
     sameHeight(
       this._childItemHeadings.filter(item => item !== null),
+      'sm'
+    );
+    sameHeight(
+      this._childItemVideoHeadings.filter(item => item !== null),
       'sm'
     );
     sameHeight(
@@ -492,6 +515,20 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    */
   static get selectorItem() {
     return `${ddsPrefix}-card`;
+  }
+
+  /**
+   * The selector for the card cta
+   */
+  static get selectorItemCardCTA() {
+    return `${ddsPrefix}-card-cta`;
+  }
+
+  /**
+   * The selector for the video cta container
+   */
+  static get selectorItemVideoCTAContainer() {
+    return `${ddsPrefix}-video-cta-container`;
   }
 
   /**
