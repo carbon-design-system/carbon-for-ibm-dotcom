@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -48,11 +48,15 @@
       height: auto;
       padding: $carbon--spacing-05;
 
-      @include carbon--breakpoint('lg') {
-        width: 33.33%;
+      @include carbon--breakpoint('md') {
+        width: 50%;
         position: absolute;
         bottom: 0;
         right: 0;
+      }
+
+      @include carbon--breakpoint('lg') {
+        width: 33.33%;
       }
 
       .#{$prefix}--card__eyebrow,
@@ -90,6 +94,14 @@
 
     ::slotted(svg[slot='icon']) {
       @extend .#{$prefix}--image__icon;
+
+      @include carbon--breakpoint('md') {
+        right: calc(75% - #{$carbon--spacing-07});
+      }
+
+      @include carbon--breakpoint('lg') {
+        right: calc(50% - #{$carbon--spacing-04});
+      }
     }
 
     &::before {
@@ -121,6 +133,10 @@
     }
 
     .#{$prefix}--card__wrapper {
+      @include carbon--breakpoint('md') {
+        width: calc(50% - #{$carbon--spacing-04});
+      }
+
       @include carbon--breakpoint('lg') {
         width: calc(33.33% - #{$carbon--spacing-04});
       }
