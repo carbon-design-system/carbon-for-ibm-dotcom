@@ -289,7 +289,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
             ?.shadowRoot?.querySelector((this.constructor as typeof DDSCarousel).selectorItemHeading)
         );
 
-        this._childItemVideoHeadings = this._childItemVideoHeadings.filter(e);
+        this._childItemVideoHeadings = this._childItemVideoHeadings.filter(heading => heading);
 
         this._childItemFooters.push(
           (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemFooter)
