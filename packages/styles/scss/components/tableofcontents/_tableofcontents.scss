@@ -239,13 +239,7 @@ $hover-transition-timing: 95ms;
   .#{$prefix}--tableofcontents-horizontal__contents {
     [name] {
       display: block;
-      color: $text-01;
-      transform: translateY(calc(-1 * #{$layout-03}));
-      padding-top: 1rem;
-
-      > * {
-        transform: translateY($layout-03);
-      }
+      padding-top: 3rem;
     }
   }
 
