@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -41,6 +41,11 @@ const _typeIcons = {
  * @returns {Array<Function>} - Collection of Cypress test scenarios.
  */
 export default (selector, paths, typeIcons = _typeIcons) => [
+  () => {
+    it('should check a11y', () => {
+      cy.checkAxeA11y();
+    });
+  },
   () => {
     it('should render link text', () => {
       cy.get(selector).should('not.be.empty');
