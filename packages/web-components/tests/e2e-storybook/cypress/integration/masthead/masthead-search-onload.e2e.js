@@ -23,9 +23,14 @@ describe('dds-masthead | search open onload (desktop)', () => {
     });
 
     cy.visit(`/${_pathSearchOpenOnload}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
 
     cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should load search field open by default', () => {

@@ -6,6 +6,7 @@
  */
 
 import '@percy/cypress';
+import 'cypress-axe'
 import './commands';
 
 beforeEach(() => {

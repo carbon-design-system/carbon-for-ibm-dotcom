@@ -32,6 +32,12 @@ describe('LightboxMediaViewer | default', () => {
     cy.viewport(1280, 780);
   });
 
+  it('should check a11y', () => {
+    cy.visit(_defaultPath);
+    cy.injectAxe();
+    cy.checkAxeA11y();
+  });
+
   it('should render with all elements', () => {
     cy.visit(`/${_defaultPath}`);
 
@@ -142,6 +148,12 @@ describe('LightboxMediaViewer | embedded video player', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
     cy.visit(`/${_embeddedVideoPlayerPath}`);
+  });
+
+  it('should check a11y', () => {
+    cy.visit(_embeddedVideoPlayerPath);
+    cy.injectAxe();
+    cy.checkAxeA11y();
   });
 
   it('should render with all elements', () => {
