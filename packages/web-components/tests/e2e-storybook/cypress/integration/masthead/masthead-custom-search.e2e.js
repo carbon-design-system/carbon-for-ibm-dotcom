@@ -16,9 +16,14 @@ const _pathCustomSearch = '/iframe.html?id=components-masthead--with-custom-type
 describe('dds-masthead | custom search (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathCustomSearch}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
 
     cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should open the search bar on click', () => {
