@@ -57,7 +57,7 @@ const _tests = {
         .each(link => {
           navItemsIds.push(link.attr('data-target'));
         })
-        .get('a[name]')
+        .get('[name]')
         .each(section => {
           sectionIds.push(section.attr('name'));
         })
@@ -96,7 +96,7 @@ const _tests = {
       });
     },
     checkScrollSpy: () => {
-      cy.get('a[name]').each((section, i) => {
+      cy.get('[name]').each((section, i) => {
         cy.scrollTo(0, section.offset().top)
           .wait(1000) // Give the browser time to execute the event callback.
           .get(`a[data-target="${section.attr('name')}"]`)
@@ -151,7 +151,7 @@ const _tests = {
         .each(option => {
           navItemsIds.push(option.val());
         })
-        .get('a[name]')
+        .get('[name]')
         .each(section => {
           sectionIds.push(section.attr('name'));
         })
@@ -190,7 +190,7 @@ const _tests = {
       });
     },
     checkScrollSpy: () => {
-      cy.get('a[name]').each((section, i) => {
+      cy.get('[name]').each((section, i) => {
         cy.scrollTo(0, section.offset().top)
           .wait(1000) // Give the browser time to execute the event callback.
           .get('.bx--tableofcontents__mobile__select')
