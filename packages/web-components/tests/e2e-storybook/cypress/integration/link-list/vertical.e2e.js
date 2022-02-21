@@ -22,6 +22,11 @@ const _path = 'iframe.html?id=components-link-list--vertical';
  * @private
  */
 const _tests = {
+  checkA11y: () => {
+    cy.visit(`/${_path}`);
+    cy.injectAxe();
+    cy.checkAxeA11y();
+  },
   checkComponentLoad: () => {
     cy.visit(`/${_path}`);
 
@@ -98,6 +103,7 @@ describe('dds-link-list | default (desktop)', () => {
 
   it('should load items with text and link', _tests.checkComponentLoad);
   it('should have a vertical layout', _tests.checkVerticalAlignment);
+  it('should check a11y', _tests.checkA11y);
   _tests.checkCTATypes();
 });
 

@@ -17,7 +17,12 @@ const _path = '/iframe.html?id=components-feature-section--default';
 describe('dds-feature-section (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_path}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should have eyebrow, heading, and copy content', () => {

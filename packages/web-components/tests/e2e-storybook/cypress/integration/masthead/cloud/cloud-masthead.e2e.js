@@ -30,6 +30,7 @@ describe('dds-masthead | cloud platform (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
     cy.visit(`/${_pathDefault}`);
+    cy.wait(1000);
   });
 
   it('should have url for IBM logo', () => {
@@ -49,7 +50,7 @@ describe('dds-masthead | cloud platform (desktop)', () => {
       .find('a')
       .then($link => {
         const url = new URL($link.prop('href'));
-        const [langOrCloud, cloudOrNull] = url.split('/').filter(segment => segment !== '');
+        const [langOrCloud, cloudOrNull] = url.pathname.split('/').filter(segment => segment !== '');
         expect(['www.ibm.com', 'ibm.com']).to.include(url.host);
         expect([langOrCloud, cloudOrNull]).to.include('cloud');
       });
@@ -86,7 +87,7 @@ describe('dds-masthead | cloud platform (desktop)', () => {
 
   it('should have functioning search bar with typeahead', () => {
     cy.get('.bx--header__search--search')
-      .click()
+      .click({ force: true })
       .wait(1000)
       .get('.bx--header__search--input')
       .should('have.focus')
@@ -102,13 +103,13 @@ describe('dds-masthead | cloud platform (desktop)', () => {
   it('should have contact, login, and create-account CTAs', () => {
     cy.get('dds-cloud-button-cta[data-ibm-contact="contact-link"]')
       .should('be.visible')
-      .click()
+      .click({ force: true })
       .get('dds-cloud-button-cta[href="https://cloud.ibm.com/login"]')
       .should('be.visible')
-      .click()
+      .click({ force: true })
       .get('dds-cloud-button-cta[kind="primary"]')
       .should('be.visible')
-      .click();
+      .click({ force: true });
   });
 
   it('should be able to scroll all nav elements into view if necessary', () => {
@@ -169,9 +170,8 @@ describe('dds-masthead | cloud platform (mobile)', () => {
       .find('a')
       .then($link => {
         const url = new URL($link.prop('href'));
-        const [langOrCloud, cloudOrNull] = url.split('/').filter(segment => segment !== '');
         expect(['www.ibm.com', 'ibm.com']).to.include(url.host);
-        expect([langOrCloud, cloudOrNull]).to.include('cloud');
+        expect(url.pathname).to.be.equal('/');
       });
   });
 
@@ -181,8 +181,9 @@ describe('dds-masthead | cloud platform (mobile)', () => {
       .find('a')
       .then($link => {
         const url = new URL($link.prop('href'));
+        const [langOrCloud, cloudOrNull] = url.pathname.split('/').filter(segment => segment !== '');
         expect(['www.ibm.com', 'ibm.com']).to.include(url.host);
-        expect(['/cloud', '/cloud/']).to.include(url.pathname);
+        expect([langOrCloud, cloudOrNull]).to.include('cloud');
       });
   });
 
@@ -229,7 +230,7 @@ describe('dds-masthead | cloud platform (mobile)', () => {
 
   it('should have functioning search bar with typeahead', () => {
     cy.get('.bx--header__search--search')
-      .click()
+      .click({ force: true })
       .wait(1000)
       .get('.bx--header__search--input')
       .should('have.focus')

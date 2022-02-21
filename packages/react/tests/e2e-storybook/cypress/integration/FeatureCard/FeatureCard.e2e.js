@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,7 +25,12 @@ const _pathLarge = '/iframe.html?id=components-feature-card--large';
 describe('Feature Card | medium', () => {
   beforeEach(() => {
     cy.visit(`/${_pathMedium}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+  });
+
+  it('should check for a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should check for link', () => {
@@ -107,7 +112,12 @@ describe('FeatureCard medium (mobile)', () => {
 describe('FeatureCard | large', () => {
   beforeEach(() => {
     cy.visit(`/${_pathLarge}`);
+    cy.injectAxe();
     cy.viewport(1400, 780);
+  });
+
+  it('should check for a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should check for link', () => {
