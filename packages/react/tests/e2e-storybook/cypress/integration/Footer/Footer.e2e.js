@@ -25,9 +25,14 @@ const _pathDefaultLanguageOnly =
 describe('Footer | default (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
 
     cy.waitUntil(() => cy.get('[data-autoid="dds--footer-nav-group"]').first().should('not.be.empty'));
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should have interactable url for IBM logo', () => {

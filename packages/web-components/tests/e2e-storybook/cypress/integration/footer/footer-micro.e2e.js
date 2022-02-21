@@ -24,9 +24,14 @@ const _pathMicroLanguageOnly = '/iframe.html?id=components-footer--micro-languag
 describe('dds-footer | Micro (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathMicro}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
 
     cy.waitUntil(() => cy.get('[data-autoid="dds--footer-legal-nav"]').should('not.be.empty'));
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should load locale modal with 4 geos', () => {
