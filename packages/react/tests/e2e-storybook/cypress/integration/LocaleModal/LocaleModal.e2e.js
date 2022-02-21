@@ -16,7 +16,12 @@ const _path = '/iframe.html?id=components-locale-modal--default';
 describe('LocaleModal | default', () => {
   beforeEach(() => {
     cy.visit(`/${_path}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should load with four regions', () => {
