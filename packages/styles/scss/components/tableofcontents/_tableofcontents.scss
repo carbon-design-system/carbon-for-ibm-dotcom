@@ -239,7 +239,7 @@ $hover-transition-timing: 95ms;
   .#{$prefix}--tableofcontents-horizontal__contents {
     [name] {
       display: block;
-      padding-top: 3rem;
+      padding-top: $spacing-09;
     }
   }
 
