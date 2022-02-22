@@ -58,3 +58,50 @@ Cypress.Commands.add(
     });
   }
 );
+
+/**
+ * Check a11y
+ *
+ * @param {string} context optional to specify component context (ex. '.bx--content-item)
+ * @param {Array} additionalRules optional to remove unnecessary rules by there id to pass a11y test (ex. ['list', 'region'])
+ */
+Cypress.Commands.add('checkAxeA11y', (context, additionalRules) => {
+  function terminalLog(violations) {
+    cy.task(
+      'log',
+      `${violations.length} accessibility violation${violations.length === 1 ? '' : 's'} ${
+        violations.length === 1 ? 'was' : 'were'
+      } detected`
+    );
+    // pluck specific keys to keep the table readable
+    const violationData = violations.map(({ id, impact, description, nodes }) => ({
+      id,
+      impact,
+      description,
+      nodes: `${nodes.length}: ${nodes.map(({ target }) => target).toString()}`,
+    }));
+
+    cy.task('table', violationData);
+  }
+
+  // skipping page a11y issues because we are only interested at the component level
+  let rules = {
+    region: { enabled: false },
+    'page-has-heading-one': { enabled: false },
+    'landmark-one-main': { enabled: false },
+  };
+
+  if (additionalRules) {
+    additionalRules.forEach(rule => (rules[rule] = { enabled: false }));
+  }
+
+  cy.checkA11y(
+    context || null,
+    {
+      rules: rules,
+      includedImpacts: ['critical']
+    },
+    terminalLog,
+    true
+  );
+});

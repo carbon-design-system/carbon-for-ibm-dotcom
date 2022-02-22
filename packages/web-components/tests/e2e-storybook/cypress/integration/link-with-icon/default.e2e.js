@@ -31,6 +31,13 @@ const _selector = '[data-autoid="dds--link-with-icon"]';
  */
 const _tests = [
   () => {
+    it('should check a11y', () => {
+      cy.visit(_path);
+      cy.injectAxe();
+      cy.checkAxeA11y();
+    });
+  },
+  () => {
     it('should render customizable link text', () => {
       let defaultCopy, customCopyOutput;
       const customCopyInput = 'Consectetur adipiscing elit.';

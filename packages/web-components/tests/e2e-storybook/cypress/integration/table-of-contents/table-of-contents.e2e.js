@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -35,6 +35,9 @@ const _tests = {
       cy.carbonThemesScreenshot({
         capture: 'viewport',
       });
+    },
+    checkA11y: () => {
+      cy.checkAxeA11y();
     },
   },
   /**
@@ -230,6 +233,7 @@ describe('dds-table-of-contents | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`/${_paths.default}`);
+    cy.injectAxe();
   });
 
   it('should load table of contents sidebar with links', _tests.desktop.checkRender);
@@ -237,12 +241,14 @@ describe('dds-table-of-contents | default (desktop)', () => {
   xit('should update current section on scroll', _tests.desktop.checkScrollSpy);
   it('should remain visible on page throughout scroll', _tests.desktop.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
+  it('should check a11y', _tests.all.checkA11y);
 });
 
 describe('dds-table-of-contents | horizontal (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`/${_paths.horizontal}`);
+    cy.injectAxe();
   });
 
   it('should load table of contents horizontal bar with links', _tests.desktop.checkRender);
@@ -250,12 +256,14 @@ describe('dds-table-of-contents | horizontal (desktop)', () => {
   xit('should update current section on scroll', _tests.desktop.checkScrollSpy);
   it('should remain visible on page throughout scroll', _tests.desktop.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
+  it('should check a11y', _tests.all.checkA11y);
 });
 
 describe('dds-table-of-contents | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
     cy.visit(`/${_paths.default}`);
+    cy.injectAxe();
   });
 
   it('should load table of contents sidebar with links', _tests.mobile.checkRender);
@@ -263,12 +271,14 @@ describe('dds-table-of-contents | default (mobile)', () => {
   xit('should update current section on scroll', _tests.mobile.checkScrollSpy);
   it('should remain visible on page throughout scroll', _tests.mobile.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
+  it('should check a11y', _tests.all.checkA11y);
 });
 
 describe('dds-table-of-contents | horizontal (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
     cy.visit(`/${_paths.horizontal}`);
+    cy.injectAxe();
   });
 
   it('should load table of contents sidebar with links', _tests.mobile.checkRender);
@@ -276,4 +286,5 @@ describe('dds-table-of-contents | horizontal (mobile)', () => {
   xit('should update current section on scroll', _tests.mobile.checkScrollSpy);
   it('should remain visible on page throughout scroll', _tests.mobile.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
+  it('should check a11y', _tests.all.checkA11y);
 });

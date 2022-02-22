@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -58,6 +58,9 @@ const _selectors = {
  * @private
  */
 const _tests = {
+  checkA11y: () => {
+    cy.checkAxeA11y();
+  },
   screenshotThemes: () => {
     cy.carbonThemesScreenshot({
       capture: 'viewport',
@@ -171,6 +174,7 @@ describe('Card | Default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
     cy.visit(`${_path}&knob-Body%20copy:_Card=copy`);
+    cy.injectAxe();
   });
 
   _tests.checkTextRenders();
@@ -181,12 +185,14 @@ describe('Card | Default (desktop)', () => {
   );
   _tests.checkInverseRenders(_path);
   it('should render correctly in all themes', _tests.screenshotThemes);
+  it('should check a11y', _tests.checkA11y);
 });
 
 describe('Card | Static (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
     cy.visit(`${_pathStatic}&knob-Add%20CTA:_Card=true`);
+    cy.injectAxe();
   });
 
   _tests.checkTextRenders();
@@ -194,4 +200,5 @@ describe('Card | Static (desktop)', () => {
   _tests.checkImageRenders(_pathStatic);
   _tests.checkOutlineRenders(`${_pathStatic}&knob-Outlined%20card_Card=true`);
   it('should render correctly in all themes', _tests.screenshotThemes);
+  it('should check a11y', _tests.checkA11y);
 });
