@@ -24,9 +24,14 @@ const _pathDefaultLanguageOnly = '/iframe.html?id=components-footer--default-lan
 describe('dds-footer | default (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
 
     cy.waitUntil(() => cy.get('[data-autoid="dds--footer-legal-nav"]').should('not.be.empty'));
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y('dds-footer', ['list']);
   });
 
   it('should have interactable url for IBM logo', () => {
@@ -104,9 +109,14 @@ describe('dds-footer | default (desktop)', () => {
 describe('dds-footer | Default language only (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefaultLanguageOnly}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
 
     cy.waitUntil(() => cy.get('[data-autoid="dds--footer-legal-nav"]').should('not.be.empty'));
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should load IBM logo and and be interactive', () => {

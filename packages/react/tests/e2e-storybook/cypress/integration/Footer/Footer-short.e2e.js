@@ -25,9 +25,14 @@ const _pathShortLanguageOnly =
 describe('Footer | Short (desktop)', () => {
   beforeEach(() => {
     cy.visit(`${_pathShort}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
 
     cy.waitUntil(() => cy.get('[data-autoid="dds--footer-legal-nav"]').should('not.be.empty'));
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should display clickable IBM logo', () => {

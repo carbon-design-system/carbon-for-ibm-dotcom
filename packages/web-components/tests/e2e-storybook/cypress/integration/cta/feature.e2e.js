@@ -38,6 +38,9 @@ const getTopElement = (x, y, root = window.document) => {
  * @private
  */
 const _tests = {
+  checkA11y: () => {
+    cy.checkAxeA11y();
+  },
   checkBlockLink: () => {
     let box;
 
@@ -172,12 +175,14 @@ describe('dds-feature-cta | (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`/${_paths.default}`);
+    cy.injectAxe();
   });
 
   it('Should load and be fully clickable', _tests.checkBlockLink);
   xit('Should load image on left and content on right', _tests.checkHorizontalLayout);
   it('Should have customizable heading from knobs', _tests.checkHeadingKnob);
   it('Should have customizable CTA type from knobs', _tests.checkTypeKnob);
+  it('Should check a11y', _tests.checkA11y);
 });
 
 describe('dds-feature-cta | (mobile)', () => {
