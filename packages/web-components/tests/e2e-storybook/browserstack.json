@@ -37,7 +37,8 @@
       "@percy/dom": "^1.0.0-beta.55",
       "cypress-wait-until": "^1.7.2",
       "ws": "^8.4.0",
-      "axe-core": "^4.4.1"
+      "axe-core": "^4.4.1",
+      "cypress-axe": "^0.14.0"
     },
     "package_config_options": {},
     "headless": true
