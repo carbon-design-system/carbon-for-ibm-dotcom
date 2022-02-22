@@ -16,9 +16,14 @@ const _pathPlatform = '/iframe.html?id=components-masthead--with-platform';
 describe('Masthead | with platform (desktop)', () => {
   beforeEach(() => {
     cy.visit(_pathPlatform);
+    cy.injectAxe();
     cy.viewport(1280, 780);
 
     cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-eco__l0-nav0"]').first().should('not.be.empty'));
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should load platform containing a link', () => {
