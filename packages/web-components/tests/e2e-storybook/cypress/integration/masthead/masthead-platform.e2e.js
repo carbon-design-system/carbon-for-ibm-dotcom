@@ -16,7 +16,12 @@ const _pathPlatform = '/iframe.html?id=components-masthead--with-platform';
 describe('dds-masthead | with platform (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathPlatform}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should load platform containing a link', () => {

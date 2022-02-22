@@ -16,9 +16,14 @@ const _pathl1 = '/iframe.html?id=components-masthead--with-l-1';
 describe('Masthead | with L1 (desktop)', () => {
   beforeEach(() => {
     cy.visit(_pathl1);
+    cy.injectAxe();
     cy.viewport(1280, 780);
 
     cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-eco__l1-nav0"]').first().should('not.be.empty'));
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should render platform below the IBM logo', () => {
