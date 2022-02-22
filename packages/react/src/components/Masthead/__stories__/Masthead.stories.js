@@ -19,7 +19,7 @@ import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/T
 const origGetTranslation = TranslationAPI.getTranslation;
 
 export default {
-  title: 'Components|Masthead',
+  title: 'Components/Masthead',
   parameters: {
     ...readme.parameters,
   },

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -39,7 +39,7 @@ function StoryContent({ title, paragraph, button }) {
 }
 
 export default {
-  title: 'Components|Expressive modal',
+  title: 'Components/Expressive modal',
   parameters: {
     ...readme.parameters,
     'carbon-theme': { disabled: true },
