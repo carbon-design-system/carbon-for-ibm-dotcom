@@ -3,6 +3,7 @@
   "browser": "chrome",
   "headless": true,
   "includeShadowDom": true,
+  "supportFile": "cypress/support/index.js",
   "testFiles": "**/*.e2e.js",
   "pageLoadTimeout": 90000,
   "defaultCommandTimeout": 90000,
