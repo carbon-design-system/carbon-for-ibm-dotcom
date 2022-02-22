@@ -79,7 +79,7 @@ const _tests = {
       cy.get('.bx--tableofcontents__desktop-container .bx--tableofcontents__desktop__item a').each(link => {
         cy.get(link)
           .click()
-          .get(`a[name="${link.attr('data-target')}"]`)
+          .get(`[name="${link.attr('data-target')}"]`)
           .then((section, i) => {
             const sectionScrolledTo = section.offset().top === 0 || window.scrollY === maxScrollVal;
             expect(sectionScrolledTo).to.be.true;
@@ -173,7 +173,7 @@ const _tests = {
         cy.get(option)
           .parent()
           .select(option.val())
-          .get(`a[name=${option.val()}]`)
+          .get(`[name=${option.val()}]`)
           .then(section => {
             const sectionScrolledTo = section.offset().top === 0 || window.scrollY === maxScrollVal;
             expect(sectionScrolledTo).to.be.true;
