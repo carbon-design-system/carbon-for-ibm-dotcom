@@ -3,6 +3,7 @@
   "browser": "chrome",
   "headless": true,
   "includeShadowDom": true,
+  "pluginsFile": "tests/e2e-storybook/cypress/plugins/index.js",
   "testFiles": "**/*.e2e.js",
   "pageLoadTimeout": 90000,
   "defaultCommandTimeout": 90000,
