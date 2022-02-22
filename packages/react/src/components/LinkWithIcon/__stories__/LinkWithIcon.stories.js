@@ -16,26 +16,24 @@ const iconPlacement = ['left', 'right'];
 
 export default {
   title: 'Components/Link with icon',
+  // component: LinkWithIcon,
+  // decorators: [withKnobs],
   parameters: {
     ...readme.parameters,
-    knobs: {
-      LinkWithIcon: ({ groupId }) => ({
-        disabled: boolean('Disabled (disabled):', false, groupId),
-        iconPlacement: select(
-          'Icon placement (iconPlacement):',
-          iconPlacement,
-          iconPlacement[1],
-          groupId
-        ),
-        visited: boolean('Allow visited styles (visited):', false, groupId),
-      }),
-    },
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { disabled, iconPlacement, visited } =
-    parameters?.props?.LinkWithIcon ?? {};
+const props = () => ({
+  disabled: boolean('Disabled (disabled):', false,),
+  iconPlacement: select(
+    'Icon placement (iconPlacement):',
+    iconPlacement,
+    iconPlacement[1],
+  ),
+  visited: boolean('Allow visited styles (visited):', false,),
+});
+
+export const Default = () => {
   return (
     <div
       style={{
@@ -46,9 +44,7 @@ export const Default = ({ parameters }) => {
       }}>
       <LinkWithIcon
         href="https://www.example.com"
-        {...(disabled && { disabled })}
-        {...(visited && { visited })}
-        iconPlacement={iconPlacement}>
+        {...props()}>
         <span>Link text</span>
         {iconPlacement === 'left' ? <ArrowLeft20 /> : <ArrowRight20 />}
       </LinkWithIcon>

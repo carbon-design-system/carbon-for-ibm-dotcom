@@ -13,6 +13,7 @@ import { configure, addParameters, addDecorator } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
 import { withKnobs } from '@storybook/addon-knobs';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
+// import decoratorKnobs from './decorator-knobs';
 import theme from './theme';
 import Container from './Container';
 
@@ -57,33 +58,34 @@ addParameters({
 
 addDecorator(withA11y);
 addDecorator(withKnobs);
+// addDecorator(decoratorKnobs);
 
-addDecorator((story, { parameters }) => {
-  const { knobs, propsSet } = parameters;
-  const { default: defaultProps } = propsSet ?? {};
-  if (Object(defaultProps) === defaultProps) {
-    if (!parameters.props) {
-      parameters.props = {};
-    }
-    Object.keys(defaultProps).forEach(name => {
-      Object.assign(
-        (parameters.props[name] = parameters.props[name] || {}),
-        defaultProps[name] ?? {}
-      );
-    });
-  }
-  if (Object(knobs) === knobs) {
-    if (!parameters.props) {
-      parameters.props = {};
-    }
-    Object.keys(knobs).forEach(name => {
-      if (typeof knobs[name] === 'function') {
-        parameters.props[name] = knobs[name]({ groupId: name });
-      }
-    });
-  }
-  return story();
-});
+// addDecorator((story, { parameters }) => {
+//   const { knobs, propsSet } = parameters;
+//   const { default: defaultProps } = propsSet ?? {};
+//   if (Object(defaultProps) === defaultProps) {
+//     if (!parameters.props) {
+//       parameters.props = {};
+//     }
+//     Object.keys(defaultProps).forEach(name => {
+//       Object.assign(
+//         (parameters.props[name] = parameters.props[name] || {}),
+//         defaultProps[name] ?? {}
+//       );
+//     });
+//   }
+//   if (Object(knobs) === knobs) {
+//     if (!parameters.props) {
+//       parameters.props = {};
+//     }
+//     Object.keys(knobs).forEach(name => {
+//       if (typeof knobs[name] === 'function') {
+//         parameters.props[name] = knobs[name]({ groupId: name });
+//       }
+//     });
+//   }
+//   return story();
+// });
 
 let preservedTheme;
 
