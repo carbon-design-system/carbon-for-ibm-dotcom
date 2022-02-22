@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,8 +30,7 @@
       grid-column: 1 / span 1;
       grid-row: 1;
       margin-bottom: $carbon--spacing-09;
-      margin-left: $carbon--spacing-05;
-      margin-right: $carbon--spacing-05;
+
       @include carbon--breakpoint(lg) {
         padding-top: var(--cds-spacing-04, 0.75rem);
         margin-left: 0;
@@ -42,9 +41,11 @@
     .#{$prefix}--tabs-extended-media {
       display: grid;
       column-gap: $carbon--spacing-07;
+
       @include carbon--breakpoint(sm) {
         grid-template-columns: repeat(1, 1fr);
       }
+
       @include carbon--breakpoint(lg) {
         grid-template-columns: repeat(4, 1fr);
       }
