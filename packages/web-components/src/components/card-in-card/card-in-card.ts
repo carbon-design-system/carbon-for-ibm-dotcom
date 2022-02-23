@@ -56,7 +56,7 @@ class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
 
     // fires the card cta footer when card image is clicked
     if (cardInCardImage || cardInCardImageVideo) {
-      (cardInCardImage || (cardInCardImageVideo as HTMLElement)).onclick = () =>
+      ((cardInCardImage as HTMLElement) || (cardInCardImageVideo as HTMLElement)).onclick = () =>
         this.querySelector(`${ddsPrefix}-card-cta-footer`)
           ?.shadowRoot?.querySelector(`a`)
           ?.click();
