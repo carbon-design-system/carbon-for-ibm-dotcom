@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,6 +34,9 @@ const _tests = {
       cy.carbonThemesScreenshot({
         capture: 'viewport',
       });
+    },
+    checkA11y: () => {
+      cy.checkAxeA11y();
     },
   },
   /**
@@ -234,6 +237,7 @@ describe('TableOfContents | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`/${_paths.default}`);
+    cy.injectAxe();
   });
 
   it(
@@ -250,12 +254,14 @@ describe('TableOfContents | default (desktop)', () => {
     _tests.desktop.checkStickyNav
   );
   it('should render correctly in all themes', _tests.all.screenshotThemes);
+  it('should check a11y', _tests.all.checkA11y);
 });
 
 describe('TableOfContents | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
     cy.visit(`/${_paths.default}`);
+    cy.injectAxe();
   });
 
   it(
@@ -272,4 +278,5 @@ describe('TableOfContents | default (mobile)', () => {
     _tests.mobile.checkStickyNav
   );
   it('should render correctly in all themes', _tests.all.screenshotThemes);
+  it('should check a11y', _tests.all.checkA11y);
 });

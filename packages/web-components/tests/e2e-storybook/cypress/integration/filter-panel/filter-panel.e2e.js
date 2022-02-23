@@ -44,6 +44,12 @@ describe('dds-filter-panel | (desktop)', () => {
     cy.viewport(..._viewportWidths.desktop);
   });
 
+  it('should check a11y', () => {
+    cy.visit(_path);
+    cy.injectAxe();
+    cy.checkAxeA11y();
+  });
+
   it('checkboxes should maintain state when transitioning to mobile', () => {
     // Check box on desktop
     cy.visit(_path)
@@ -203,6 +209,12 @@ describe('dds-filter-panel | (desktop)', () => {
 describe('dds-filter-panel | (mobile)', () => {
   beforeEach(() => {
     cy.viewport(..._viewportWidths.mobile);
+  });
+
+  it('should check a11y', () => {
+    cy.visit(_path);
+    cy.injectAxe();
+    cy.checkAxeA11y();
   });
 
   it('checkboxes should maintain state when transitioning to desktop', () => {
