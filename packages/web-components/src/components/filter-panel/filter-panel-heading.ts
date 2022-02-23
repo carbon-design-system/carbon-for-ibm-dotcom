@@ -11,7 +11,6 @@ import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './filter-panel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSFilterPanelComposite from './filter-panel-composite';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -39,16 +38,14 @@ class DDSFilterPanelHeading extends StableSelectorMixin(LitElement) {
   }
 
   protected _handleSlotChange = () => {
-    if (this.parentElement instanceof DDSFilterPanelComposite) {
-      const { eventChange } = this.constructor as typeof DDSFilterPanelHeading;
-      this.dispatchEvent(
-        new CustomEvent(eventChange, {
-          bubbles: true,
-          cancelable: true,
-          composed: true,
-        })
-      );
-    }
+    const { eventChange } = this.constructor as typeof DDSFilterPanelHeading;
+    this.dispatchEvent(
+      new CustomEvent(eventChange, {
+        bubbles: true,
+        cancelable: true,
+        composed: true,
+      })
+    );
   };
 
   render() {
