@@ -295,13 +295,6 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   _filterGroupsAllRevealed: { id: string; value: boolean }[] = [];
 
   /**
-   * Provides a mechanism for re-rendering the "status" (i.e. button title)
-   * based on external value changes, such as Storybook knobs.
-   */
-  @property({ type: String, attribute: 'title-watcher' })
-  titleWatcher;
-
-  /**
    * Handles `slotchange` event.
    *
    * @param event The event.
@@ -327,7 +320,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     this._title = (target as HTMLSlotElement)
       .assignedNodes()
       .filter(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
-    this.renderStatus();
+    this._filterButtonTitle = this._title[0].innerText;
   }
 
   /**
@@ -366,12 +359,6 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
       </button>
       ${this._renderModal()} ${this._renderDesktop()}
     `;
-  }
-
-  updated(_changedProperties: Map<string | number | symbol, unknown>): void {
-    if (_changedProperties.has('titleWatcher')) {
-      this.renderStatus();
-    }
   }
 
   /**
