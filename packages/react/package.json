@@ -88,7 +88,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.10.1",
     "@carbon/icons-react": "10.45.0",
-    "@carbon/pictograms-react": "11.21.0",
+    "@carbon/pictograms-react": "11.22.0",
     "@carbon/storybook-addon-theme": "1.22.0-rc.1",
     "@percy-io/in-percy": "^0.1.11",
     "@percy/agent": "^0.28.0",
