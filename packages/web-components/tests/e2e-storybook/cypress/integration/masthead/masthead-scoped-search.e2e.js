@@ -16,7 +16,14 @@ const _pathScopedSearch = '/iframe.html?id=components-masthead--with-scoped-sear
 describe('dds-masthead | scoped search (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathScopedSearch}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+
+    cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should open the search bar on click', () => {
@@ -82,6 +89,8 @@ describe('dds-masthead | scoped search (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathScopedSearch}`);
     cy.viewport(320, 780);
+
+    cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
   });
 
   it('should open the search bar on click', () => {

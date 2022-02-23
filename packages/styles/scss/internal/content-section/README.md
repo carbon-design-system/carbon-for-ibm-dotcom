@@ -5,7 +5,7 @@
 Import the package css into the top of your main CSS file.
 
 ```css
-@import '@carbon/ibmdotcom-styles/scss/components/content-section';
+@import '@carbon/ibmdotcom-styles/scss/internal/content-section/content-section';
 ```
 
 #### Elements

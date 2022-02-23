@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -36,8 +36,8 @@
 
   .#{$prefix}--image__icon {
     position: absolute;
-    top: calc(50% - 32px);
-    right: calc(50% - 32px);
+    top: calc(50% - #{$carbon--spacing-07});
+    right: calc(50% - #{$carbon--spacing-07});
   }
 
   // dds-image-logo style.

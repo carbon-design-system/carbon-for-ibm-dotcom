@@ -25,7 +25,12 @@ const _pathLarge = '/iframe.html?id=components-feature-card--large';
 describe('dds-feature-card | medium', () => {
   beforeEach(() => {
     cy.visit(`/${_pathMedium}`);
+    cy.injectAxe();
     cy.viewport(1280, 780);
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should check for link', () => {
@@ -120,7 +125,12 @@ describe('dds-feature-card | medium (mobile)', () => {
 describe('dds-feature-card | large', () => {
   beforeEach(() => {
     cy.visit(`/${_pathLarge}`);
+    cy.injectAxe();
     cy.viewport(1400, 780);
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should check for link', () => {

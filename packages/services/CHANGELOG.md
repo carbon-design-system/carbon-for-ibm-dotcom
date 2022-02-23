@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.31.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.31.0-rc.0...@carbon/ibmdotcom-services@1.31.0-rc.1) (2022-02-14)
+
+
+### Bug Fixes
+
+* **cloud-masthead:** replace cookie auth with window object status ([#8149](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8149)) ([1dc66b7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1dc66b7))
+* **cloud-masthead:** update the services and utilities to use canary ([#8250](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8250)) ([9a73de0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9a73de0))
+* **deps:** fix to marked dependency issues ([#8172](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8172)) ([c1bb7f5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c1bb7f5))
+
+
+### Features
+
+* **search-with-typeahead:** add scoped search support ([#8096](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8096)) ([8a26e56](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8a26e56)), closes [#7627](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7627)
+
+
+
+
+
 # [1.31.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.30.0...@carbon/ibmdotcom-services@1.31.0-rc.0) (2022-02-01)
 
 

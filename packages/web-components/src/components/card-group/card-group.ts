@@ -152,6 +152,8 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
       if (this.gridMode !== GRID_MODE.NARROW) {
         this._fillLastRowWithEmptyCards(columns);
         this._borderAdjustments(columns);
+      } else {
+        this._resetBorders();
       }
     });
   };
@@ -257,6 +259,15 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
           e.style.paddingTop = '1px';
         }
       }
+    });
+  };
+
+  private _resetBorders = () => {
+    this._childItems.forEach(elem => {
+      elem.style.paddingTop = '';
+      elem.style.paddingRight = '';
+      elem.style.paddingBottom = '';
+      elem.style.paddingLeft = '';
     });
   };
 

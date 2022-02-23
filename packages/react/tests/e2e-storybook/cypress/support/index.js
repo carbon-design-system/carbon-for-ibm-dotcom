@@ -6,6 +6,7 @@
  */
 
 import '@percy/cypress';
+import 'cypress-axe'
 import './commands';
 
 beforeEach(() => {
@@ -18,7 +19,7 @@ beforeEach(() => {
   // Mock the translation file
   cy.intercept(
     'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/translations/masthead-footer/usen.json',
-    { fixture: 'translation.json' }
+    { fixture: 'translation-raw.json' }
   );
 
   // Mock the user status
