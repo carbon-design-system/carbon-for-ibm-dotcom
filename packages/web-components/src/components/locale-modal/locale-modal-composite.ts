@@ -8,9 +8,9 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import altlangs from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/altlangs/altlangs.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import { Country, LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';

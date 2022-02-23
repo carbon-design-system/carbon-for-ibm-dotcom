@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,15 +10,15 @@
 import { html, property, customElement, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
+import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import {
   formatVideoCaption,
   formatVideoDuration,
-} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
-import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
-import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
+} from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import { VIDEO_PLAYER_CONTENT_STATE, VIDEO_PLAYER_PLAYING_MODE } from './defs';
 import '../image/image';
 import styles from './video-player.scss';

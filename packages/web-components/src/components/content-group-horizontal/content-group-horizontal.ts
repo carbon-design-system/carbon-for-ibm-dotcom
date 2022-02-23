@@ -8,7 +8,7 @@
  */
 
 import { customElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import DDSContentBlockHorizontal from '../content-block-horizontal/content-block-horizontal';
 

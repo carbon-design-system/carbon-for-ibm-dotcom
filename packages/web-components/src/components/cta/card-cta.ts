@@ -15,8 +15,8 @@ import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import {
   formatVideoCaption,
   formatVideoDuration,
-} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
-import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
+} from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
+import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import DDSCard from '../card/card';
 import '../card/card-heading';
 import './card-cta-image';

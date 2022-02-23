@@ -10,8 +10,8 @@
 import { classMap } from 'lit-html/directives/class-map';
 import { html, state, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import { GRID_MODE } from './defs';
 import styles from './card-group.scss';
