@@ -47,6 +47,13 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
       return super._renderHeading();
     }
     const caption = formatVideoCaptionInEffect({ name: videoName });
+
+    this.dispatchEvent(
+      new CustomEvent('video-updated', {
+        bubbles: true,
+        composed: true,
+      })
+    );
     return html`
       <slot name="heading"></slot><dds-card-heading>${caption}</dds-card-heading>
     `;

@@ -205,6 +205,18 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   };
 
   /**
+   * Handles card with video heading and applies the set same height function.
+   *
+   * @param event The event.
+   */
+  @HostListener('document:video-updated')
+  private _handleVideoTitleUpdate = async ({ target }: FocusEvent) => {
+    if (target) {
+      this._setSameHeight();
+    }
+  };
+
+  /**
    * Handles `click` event on the next button.
    */
   private _handleClickNextButton() {
