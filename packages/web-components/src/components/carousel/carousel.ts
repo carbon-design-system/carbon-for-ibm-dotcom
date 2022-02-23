@@ -209,7 +209,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    *
    * @param event The event.
    */
-  @HostListener('document:video-updated')
+  @HostListener(`document:${ddsPrefix}-card-cta-video-title-updated`)
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleVideoTitleUpdate = async (event: FocusEvent) => {
     if (event) {

@@ -49,7 +49,7 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
     const caption = formatVideoCaptionInEffect({ name: videoName });
 
     this.dispatchEvent(
-      new CustomEvent('video-updated', {
+      new CustomEvent(`${ddsPrefix}-card-cta-video-title-updated`, {
         bubbles: true,
         composed: true,
       })
