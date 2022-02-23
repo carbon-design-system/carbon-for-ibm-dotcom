@@ -49,8 +49,14 @@ class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
       linkNode.classList.add(`${prefix}--card-in-card`);
     }
 
-    if (this.querySelector(`${ddsPrefix}-card-in-card-image`)) {
-      (this.querySelector(`${ddsPrefix}-card-in-card-image`) as HTMLElement).onclick = () =>
+    const cardInCardImage = this.querySelector(`${ddsPrefix}-card-in-card-image`);
+    const cardInCardImageVideo = this.parentElement
+      .querySelector(`${ddsPrefix}-card-in-card`)
+      ?.shadowRoot?.querySelector('dds-card-in-card-image');
+
+    // fires the card cta footer when card image is clicked
+    if (cardInCardImage || cardInCardImageVideo) {
+      (cardInCardImage || (cardInCardImageVideo as HTMLElement)).onclick = () =>
         this.querySelector(`${ddsPrefix}-card-cta-footer`)
           ?.shadowRoot?.querySelector(`a`)
           ?.click();
