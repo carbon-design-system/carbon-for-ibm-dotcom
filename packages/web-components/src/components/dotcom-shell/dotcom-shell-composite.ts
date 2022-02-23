@@ -11,8 +11,8 @@ import pickBy from 'lodash-es/pickBy.js';
 import { html, state, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
 import { baseFontSize, breakpoints } from '@carbon/layout';
+import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import {
   BasicLink,

@@ -18,8 +18,8 @@ import BXDropdown, { DROPDOWN_KEYBOARD_ACTION } from 'carbon-web-components/es/c
 import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
-import SearchTypeaheadAPI from '@carbon/ibmdotcom-services/es/services/SearchTypeahead/SearchTypeahead';
 import { baseFontSize, breakpoints } from '@carbon/layout';
+import SearchTypeaheadAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/SearchTypeahead/SearchTypeahead';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 import styles from './search-with-typeahead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';

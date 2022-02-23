@@ -10,7 +10,7 @@
 import { customElement, html, property } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
+import { globalInit } from '../../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import './cloud-button-cta';
 import './cloud-left-nav-item';
 import './cloud-masthead-global-bar';
