@@ -51,7 +51,7 @@ class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
 
     const cardInCardImage = this.querySelector(`${ddsPrefix}-card-in-card-image`);
     const cardInCardImageVideo = this.parentElement
-      .querySelector(`${ddsPrefix}-card-in-card`)
+      ?.querySelector(`${ddsPrefix}-card-in-card`)
       ?.shadowRoot?.querySelector('dds-card-in-card-image');
 
     // fires the card cta footer when card image is clicked
