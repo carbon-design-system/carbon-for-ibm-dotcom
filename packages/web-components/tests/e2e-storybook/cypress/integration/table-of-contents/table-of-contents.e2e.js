@@ -57,7 +57,7 @@ const _tests = {
         .each(link => {
           navItemsIds.push(link.attr('data-target'));
         })
-        .get('a[name]')
+        .get('h3[name]')
         .each(section => {
           sectionIds.push(section.attr('name'));
         })
@@ -79,7 +79,7 @@ const _tests = {
       cy.get('.bx--tableofcontents__desktop-container .bx--tableofcontents__desktop__item a').each(link => {
         cy.get(link)
           .click()
-          .get(`a[name="${link.attr('data-target')}"]`)
+          .get(`[name="${link.attr('data-target')}"]`)
           .then((section, i) => {
             const sectionScrolledTo = section.offset().top === 0 || window.scrollY === maxScrollVal;
             expect(sectionScrolledTo).to.be.true;
@@ -96,7 +96,7 @@ const _tests = {
       });
     },
     checkScrollSpy: () => {
-      cy.get('a[name]').each((section, i) => {
+      cy.get('h3[name]').each((section, i) => {
         cy.scrollTo(0, section.offset().top)
           .wait(1000) // Give the browser time to execute the event callback.
           .get(`a[data-target="${section.attr('name')}"]`)
@@ -151,7 +151,7 @@ const _tests = {
         .each(option => {
           navItemsIds.push(option.val());
         })
-        .get('a[name]')
+        .get('h3[name]')
         .each(section => {
           sectionIds.push(section.attr('name'));
         })
@@ -173,7 +173,7 @@ const _tests = {
         cy.get(option)
           .parent()
           .select(option.val())
-          .get(`a[name=${option.val()}]`)
+          .get(`[name=${option.val()}]`)
           .then(section => {
             const sectionScrolledTo = section.offset().top === 0 || window.scrollY === maxScrollVal;
             expect(sectionScrolledTo).to.be.true;
@@ -190,7 +190,7 @@ const _tests = {
       });
     },
     checkScrollSpy: () => {
-      cy.get('a[name]').each((section, i) => {
+      cy.get('h3[name]').each((section, i) => {
         cy.scrollTo(0, section.offset().top)
           .wait(1000) // Give the browser time to execute the event callback.
           .get('.bx--tableofcontents__mobile__select')
