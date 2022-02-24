@@ -117,7 +117,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
         this._childItemFooters.push(
           (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemFooter)
         );
-        e.toggleAttribute('border', this.gridMode === 'border');
+        e.toggleAttribute('border', this.gridMode === GRID_MODE.BORDER);
       });
 
       const { customPropertyCardsPerRow } = this.constructor as typeof DDSCardGroup;
@@ -133,6 +133,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
    * The observer for the resize of the viewport, calls sameHeight utility function
    */
   private _resizeHandler = () => {
+    const { gridMode } = this;
     window.requestAnimationFrame(() => {
       const documentWidth = this.ownerDocument!.documentElement.clientWidth;
       let columns;
@@ -149,8 +150,14 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
       if (!this.pictograms) {
         this._setSameHeight();
       }
-      if (this.gridMode !== GRID_MODE.NARROW) {
+
+      if (gridMode !== GRID_MODE.NARROW) {
         this._fillLastRowWithEmptyCards(columns);
+      } else {
+        this._removeEmptyCards();
+      }
+
+      if (gridMode === GRID_MODE.BORDER) {
         this._borderAdjustments(columns);
       } else {
         this._resetBorders();
@@ -200,63 +207,33 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
 
   private _borderAdjustments = columns => {
     this._childItems.forEach((e, index) => {
-      if (this.gridMode !== 'border') {
-        if (e.hasAttribute('empty')) {
-          e.style.paddingBottom = '0';
-          e.style.paddingRight = '0';
-        } else {
-          // first column
-          if ((index + 1) % columns === 1) {
-            e.style.paddingLeft = '0';
-          }
-          // last column
-          if ((index + 1) % columns === 0) {
-            e.style.paddingRight = '0';
-            e.style.borderRight = 'inset 1px var(--cds-ui-background)';
-          } else {
-            e.style.paddingRight = '1px';
-            e.style.borderRight = 'none';
-          }
-          // first row
-          if (index < columns) {
-            e.style.paddingTop = '0';
-          }
-          // last row
-          if (Math.floor(index / columns) === Math.floor((this._childItems.length - 1) / columns)) {
-            e.style.paddingBottom = '0';
-          } else {
-            e.style.paddingBottom = '1px';
-          }
-        }
+      if (e.hasAttribute('empty')) {
+        e.style.paddingBottom = '1px';
+        e.style.paddingRight = '1px';
       } else {
-        if (e.hasAttribute('empty')) {
-          e.style.paddingBottom = '1px';
-          e.style.paddingRight = '1px';
-        } else {
-          e.style.paddingTop = '0';
-          // first row
-          if (index < columns) {
-            e.style.paddingTop = '1px';
-          }
-          // last row
-          if (Math.floor(index / columns) === Math.floor(this._childItems.length / columns)) {
-            e.style.paddingBottom = '1px';
-          }
-          // last column
-          if ((index + 1) % columns === 0) {
-            e.style.paddingRight = '1px';
-          }
-        }
-        // if not empty and first column
-        if (!e.hasAttribute('empty') && (index + 1) % columns === 1) {
-          e.style.paddingLeft = '1px';
-        } else {
-          e.style.paddingLeft = '0';
-        }
-        // if one column and first item is empty then set top border for second item
-        if (columns === 1 && index === 1 && this._childItems[0].hasAttribute('empty')) {
+        e.style.paddingTop = '0';
+        // first row
+        if (index < columns) {
           e.style.paddingTop = '1px';
         }
+        // last row
+        if (Math.floor(index / columns) === Math.floor(this._childItems.length / columns)) {
+          e.style.paddingBottom = '1px';
+        }
+        // last column
+        if ((index + 1) % columns === 0) {
+          e.style.paddingRight = '1px';
+        }
+      }
+      // if not empty and first column
+      if (!e.hasAttribute('empty') && (index + 1) % columns === 1) {
+        e.style.paddingLeft = '1px';
+      } else {
+        e.style.paddingLeft = '0';
+      }
+      // if one column and first item is empty then set top border for second item
+      if (columns === 1 && index === 1 && this._childItems[0].hasAttribute('empty')) {
+        e.style.paddingTop = '1px';
       }
     });
   };
@@ -272,15 +249,19 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
 
   private _fillLastRowWithEmptyCards = columns => {
     // remove all empty cards
-    this.shadowRoot?.querySelectorAll('[empty]').forEach(e => e.remove());
-    const emptyNeeded = this.childElementCount % columns > 0 && columns > 1 ? columns - (this.childElementCount % columns) : 0;
+    this._removeEmptyCards();
 
     // add empty cards
+    const emptyNeeded = this.childElementCount % columns > 0 && columns > 1 ? columns - (this.childElementCount % columns) : 0;
     for (let i = 0; i < emptyNeeded; i++) {
       const card = document.createElement('dds-card-group-item');
       card.setAttribute('empty', '');
       this.shadowRoot?.appendChild(card);
     }
+  };
+
+  private _removeEmptyCards = () => {
+    this.shadowRoot?.querySelectorAll('[empty]').forEach(e => e.remove());
   };
 
   /**
@@ -344,10 +325,11 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
   }
 
   render() {
+    const { gridMode } = this;
     const slotClasses = classMap({
-      [`${prefix}--card-group--narrow`]: this.gridMode === GRID_MODE.NARROW,
-      [`${prefix}--card-group--collapsed`]: this.gridMode === GRID_MODE.COLLAPSED,
-      [`${prefix}--card-group--border`]: this.gridMode === GRID_MODE.BORDER,
+      [`${prefix}--card-group--narrow`]: gridMode === GRID_MODE.NARROW,
+      [`${prefix}--card-group--collapsed`]: gridMode === GRID_MODE.COLLAPSED,
+      [`${prefix}--card-group--border`]: gridMode === GRID_MODE.BORDER,
     });
 
     return html`
