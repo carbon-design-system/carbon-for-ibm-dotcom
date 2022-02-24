@@ -53,16 +53,6 @@
   }
 }
 
-:host(#{$dds-prefix}-card-group[grid-mode='collapsed']) {
-  gap: 1px;
-  background: var(--#{$dds-prefix}--card-group-gradient, $decorative-01);
-
-  ::slotted(#{$dds-prefix}-card-group-item),
-  ::slotted(#{$dds-prefix}-card-group-card-link-item) {
-    padding: 0;
-  }
-}
-
 :host(#{$dds-prefix}-card-group-item),
 :host(#{$dds-prefix}-card-group-card-link-item) {
   padding-bottom: 1px;
