@@ -64,7 +64,7 @@
         height: auto;
         overflow: visible;
         white-space: normal;
-        background: unset;
+        background: none;
         border: initial;
         border-bottom: 2px solid var(--cds-ui-03, #e0e0e0);
         display: inline-flex;
@@ -135,9 +135,6 @@
 
         .#{$prefix}--tabs__nav-link {
           width: auto;
-        }
-
-        .#{$prefix}--tabs__nav-link {
           padding: 0;
           border-bottom: carbon--rem(2px) solid transparent;
         }
@@ -248,8 +245,6 @@ button.#{$prefix}--tabs__nav-link {
     height: rem(48px);
     padding: $spacing-03 $spacing-05;
     border-bottom: none;
-    // Height - vertical padding
-    line-height: calc(#{rem(48px)} - (#{$spacing-03} * 2));
   }
 }
 
@@ -259,6 +254,6 @@ button.#{$prefix}--tabs__nav-link {
 }
 
 .#{$prefix}--tabs__nav-item:not(.#{$prefix}--tabs__nav-item--selected):not(.#{$prefix}--tabs__nav-item--disabled):not(.#{$prefix}--tabs__nav-item--selected)
-    button.#{$prefix}--tabs__nav-link:active {
-    color: $text-02;
-  }
+  button.#{$prefix}--tabs__nav-link:active {
+  color: $text-02;
+}
