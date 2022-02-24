@@ -12,8 +12,6 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import BXLink from 'carbon-web-components/es/components/link/link';
 import Error20 from 'carbon-web-components/es/icons/error/20.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './locale-modal.scss';
 
@@ -26,19 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-region-item
  */
 @customElement(`${ddsPrefix}-region-item`)
-class DDSRegionItem extends HostListenerMixin(BXLink) {
-  @HostListener('click')
-  // eslint-disable-next-line class-methods-use-this
-  protected _handleClick(event: MouseEvent) {
-    event.preventDefault();
-  }
-
-  /**
-   * The link href.
-   */
-  @property({ reflect: true })
-  href = '#';
-
+class DDSRegionItem extends BXLink {
   /**
    * `true` if this region has no countries.
    */
@@ -57,7 +43,19 @@ class DDSRegionItem extends HostListenerMixin(BXLink) {
   protected _renderDisabledLink() {
     const { _classes: classes } = this;
     return html`
-      <div id="link" class="${classes}">${this._renderInner()}</div>
+      <button id="link" class="${classes}" disabled type="button">${this._renderInner()}</button>
+    `;
+  }
+
+  /**
+   * @returns The link content.
+   */
+  protected _renderLink() {
+    const { _classes: classes } = this;
+    return html`
+      <button id="link" class="${classes}" type="button">
+        ${this._renderInner()}
+      </button>
     `;
   }
 

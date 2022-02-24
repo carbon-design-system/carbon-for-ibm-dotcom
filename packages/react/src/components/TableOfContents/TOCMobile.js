@@ -39,7 +39,30 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
     updateState(id, title);
     const selector = `a[name="${id}"]`;
     smoothScroll(null, selector, 50);
+    triggerFocus(selector);
   };
+
+  /**
+   * Trigger the focus on screen readers, so they can read the target paragraph
+   *
+   * @param {*} elem Selector to find the item
+   */
+  function triggerFocus(elem) {
+    const element = document.querySelector(elem);
+
+    if (element) {
+      const handleFocusOut = event => {
+        const focusoutTarget = event.target;
+        focusoutTarget.removeAttribute('tabindex');
+      };
+
+      element.setAttribute('tabindex', '0');
+      element.focus({ preventScroll: true });
+      element.addEventListener('focusout', handleFocusOut, {
+        once: true,
+      });
+    }
+  }
 
   /**
    * Handle OnBlur event

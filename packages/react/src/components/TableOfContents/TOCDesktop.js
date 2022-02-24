@@ -72,9 +72,17 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
    */
   function triggerFocus(elem) {
     const element = document.querySelector(elem);
+
+    const handleFocusOut = event => {
+      const focusoutTarget = event.target;
+      focusoutTarget.removeAttribute('tabindex');
+    };
+
     element.setAttribute('tabindex', '0');
     element.focus({ preventScroll: true });
-    element.removeAttribute('tabindex');
+    element.addEventListener('focusout', handleFocusOut, {
+      once: true,
+    });
   }
 
   return (

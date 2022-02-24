@@ -59,6 +59,9 @@ class DDSLocaleSearch extends ThrottedInputMixin(StableSelectorMixin(LitElement)
   @query(`${ddsPrefix}-search`)
   private _searchNode?: DDSSearch;
 
+  @query('[aria-live]')
+  private _liveRegion?: HTMLDivElement;
+
   /**
    * Updates the search results.
    *
@@ -66,17 +69,23 @@ class DDSLocaleSearch extends ThrottedInputMixin(StableSelectorMixin(LitElement)
    */
   private _updateSearchResults(searchText: string) {
     const { selectorItem } = this.constructor as typeof DDSLocaleSearch;
-    const { region: currentRegion } = this;
+    const { region: currentRegion, _liveRegion: liveRegion } = this;
     let hasMatch = false;
+    let count = 0;
     forEach(this.querySelectorAll(selectorItem), item => {
       const { country, language, region } = item as DDSLocaleItem;
       const matches = region === currentRegion && search([country, language], searchText);
       if (matches) {
         hasMatch = true;
+        count++;
       }
       (item as HTMLElement).hidden = !matches;
     });
     this._hasAvailableItem = hasMatch;
+    if (liveRegion) {
+      const announcement = count === 1 ? `${count} result` : `${count} results`;
+      liveRegion.innerText = announcement;
+    }
   }
 
   _handleThrottledInput(event: Event) {
@@ -202,11 +211,12 @@ class DDSLocaleSearch extends ThrottedInputMixin(StableSelectorMixin(LitElement)
             data-autoid="${ddsPrefix}--locale-modal__filter"
           >
           </dds-search>
+          <div class="${prefix}--visually-hidden" aria-live="polite"></div>
           <p class="${prefix}--locale-modal__search-text">
             ${hasAvailableItem ? availabilityLabelText : unavailabilityLabelText}
           </p>
         </div>
-        <div class="${prefix}--locale-modal__list">
+        <div class="${prefix}--locale-modal__list" role="list">
           <slot></slot>
         </div>
       </div>

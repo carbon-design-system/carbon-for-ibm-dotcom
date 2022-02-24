@@ -48,6 +48,12 @@ class DDSLocaleItem extends BXLink {
   region = '';
 
   /**
+   * Element's role for assistive technologies
+   */
+  @property({ reflect: true })
+  role = 'listitem';
+
+  /**
    * @returns The inner content.
    */
   _renderInner() {

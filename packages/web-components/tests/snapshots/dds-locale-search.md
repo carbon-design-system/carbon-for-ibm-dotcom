@@ -17,11 +17,20 @@
       size="xl"
     >
     </dds-search>
+    <div
+      aria-live="polite"
+      class="bx--visually-hidden"
+    >
+      0 results
+    </div>
     <p class="bx--locale-modal__search-text">
       This page is available in the following locations and languages
     </p>
   </div>
-  <div class="bx--locale-modal__list">
+  <div
+    class="bx--locale-modal__list"
+    role="list"
+  >
     <slot>
     </slot>
   </div>
@@ -44,11 +53,20 @@
       size="xl"
     >
     </dds-search>
+    <div
+      aria-live="polite"
+      class="bx--visually-hidden"
+    >
+      0 results
+    </div>
     <p class="bx--locale-modal__search-text">
       availability-label-text-foo
     </p>
   </div>
-  <div class="bx--locale-modal__list">
+  <div
+    class="bx--locale-modal__list"
+    role="list"
+  >
     <slot>
     </slot>
   </div>
