@@ -212,8 +212,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
           // last column
           if ((index + 1) % columns === 0) {
             e.style.paddingRight = '0';
-            const borderColor = getComputedStyle(document.body).getPropertyValue('--cds-ui-background');
-            e.style.borderRight = `inset 1px ${borderColor}`;
+            e.style.borderRight = 'inset 1px var(--cds-ui-background)';
           } else {
             e.style.paddingRight = '1px';
             e.style.borderRight = 'none';
