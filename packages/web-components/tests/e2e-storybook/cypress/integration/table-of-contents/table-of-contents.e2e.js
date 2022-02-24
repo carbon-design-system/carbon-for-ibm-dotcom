@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -36,6 +36,9 @@ const _tests = {
         capture: 'viewport',
       });
     },
+    checkA11y: () => {
+      cy.checkAxeA11y();
+    },
   },
   /**
    * Collection of tests for use on desktop-sized viewports.
@@ -54,7 +57,7 @@ const _tests = {
         .each(link => {
           navItemsIds.push(link.attr('data-target'));
         })
-        .get('a[name]')
+        .get('h3[name]')
         .each(section => {
           sectionIds.push(section.attr('name'));
         })
@@ -76,7 +79,7 @@ const _tests = {
       cy.get('.bx--tableofcontents__desktop-container .bx--tableofcontents__desktop__item a').each(link => {
         cy.get(link)
           .click()
-          .get(`a[name="${link.attr('data-target')}"]`)
+          .get(`[name="${link.attr('data-target')}"]`)
           .then((section, i) => {
             const sectionScrolledTo = section.offset().top === 0 || window.scrollY === maxScrollVal;
             expect(sectionScrolledTo).to.be.true;
@@ -93,7 +96,7 @@ const _tests = {
       });
     },
     checkScrollSpy: () => {
-      cy.get('a[name]').each((section, i) => {
+      cy.get('h3[name]').each((section, i) => {
         cy.scrollTo(0, section.offset().top)
           .wait(1000) // Give the browser time to execute the event callback.
           .get(`a[data-target="${section.attr('name')}"]`)
@@ -148,7 +151,7 @@ const _tests = {
         .each(option => {
           navItemsIds.push(option.val());
         })
-        .get('a[name]')
+        .get('h3[name]')
         .each(section => {
           sectionIds.push(section.attr('name'));
         })
@@ -170,7 +173,7 @@ const _tests = {
         cy.get(option)
           .parent()
           .select(option.val())
-          .get(`a[name=${option.val()}]`)
+          .get(`[name=${option.val()}]`)
           .then(section => {
             const sectionScrolledTo = section.offset().top === 0 || window.scrollY === maxScrollVal;
             expect(sectionScrolledTo).to.be.true;
@@ -187,7 +190,7 @@ const _tests = {
       });
     },
     checkScrollSpy: () => {
-      cy.get('a[name]').each((section, i) => {
+      cy.get('h3[name]').each((section, i) => {
         cy.scrollTo(0, section.offset().top)
           .wait(1000) // Give the browser time to execute the event callback.
           .get('.bx--tableofcontents__mobile__select')
@@ -230,6 +233,7 @@ describe('dds-table-of-contents | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`/${_paths.default}`);
+    cy.injectAxe();
   });
 
   it('should load table of contents sidebar with links', _tests.desktop.checkRender);
@@ -237,12 +241,14 @@ describe('dds-table-of-contents | default (desktop)', () => {
   xit('should update current section on scroll', _tests.desktop.checkScrollSpy);
   it('should remain visible on page throughout scroll', _tests.desktop.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
+  it('should check a11y', _tests.all.checkA11y);
 });
 
 describe('dds-table-of-contents | horizontal (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`/${_paths.horizontal}`);
+    cy.injectAxe();
   });
 
   it('should load table of contents horizontal bar with links', _tests.desktop.checkRender);
@@ -250,12 +256,14 @@ describe('dds-table-of-contents | horizontal (desktop)', () => {
   xit('should update current section on scroll', _tests.desktop.checkScrollSpy);
   it('should remain visible on page throughout scroll', _tests.desktop.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
+  it('should check a11y', _tests.all.checkA11y);
 });
 
 describe('dds-table-of-contents | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
     cy.visit(`/${_paths.default}`);
+    cy.injectAxe();
   });
 
   it('should load table of contents sidebar with links', _tests.mobile.checkRender);
@@ -263,12 +271,14 @@ describe('dds-table-of-contents | default (mobile)', () => {
   xit('should update current section on scroll', _tests.mobile.checkScrollSpy);
   it('should remain visible on page throughout scroll', _tests.mobile.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
+  it('should check a11y', _tests.all.checkA11y);
 });
 
 describe('dds-table-of-contents | horizontal (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
     cy.visit(`/${_paths.horizontal}`);
+    cy.injectAxe();
   });
 
   it('should load table of contents sidebar with links', _tests.mobile.checkRender);
@@ -276,4 +286,5 @@ describe('dds-table-of-contents | horizontal (mobile)', () => {
   xit('should update current section on scroll', _tests.mobile.checkScrollSpy);
   it('should remain visible on page throughout scroll', _tests.mobile.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
+  it('should check a11y', _tests.all.checkA11y);
 });

@@ -1,5 +1,14 @@
 # Breaking changes
 
+## v1.32.0
+
+### Deprecation warning
+
+#### React
+
+- The React `Masthead` is now in feature freeze, where any new features or enhancements will only be done on the Web Component version. We will continue to support
+any bugs or issues for the rest of `Carbon for IBM.com v1`.
+
 ## v1.28.0
 
 ### Deprecation warning

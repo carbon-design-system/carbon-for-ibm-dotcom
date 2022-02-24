@@ -3,6 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.16.0-rc.1...@carbon/ibmdotcom-web-components@1.16.0-rc.2) (2022-02-24)
+
+
+### Bug Fixes
+
+* **cypress:** adding back plugins file ([#8280](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8280)) ([24dcf25](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/24dcf25))
+
+
+
+
+
+# [1.16.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.16.0-rc.0...@carbon/ibmdotcom-web-components@1.16.0-rc.1) (2022-02-14)
+
+
+### Bug Fixes
+
+* **card-in-card:** add null check for card-in-card-image ([#8191](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8191)) ([4289269](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/4289269))
+* **cloud-masthead:** replace cookie auth with window object status ([#8149](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8149)) ([1dc66b7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/1dc66b7))
+* **cloud-masthead:** update the services and utilities to use canary ([#8250](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8250)) ([9a73de0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/9a73de0))
+* **content-block-mixed:** remove conflicting element IDs ([#8219](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8219)) ([6ecdee9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/6ecdee9)), closes [#8011](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8011)
+* **content-section:** update child elements alignment to the top ([#8182](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8182)) ([4358e2d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/4358e2d)), closes [#7804](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/7804)
+* **deps:** fix to marked dependency issues ([#8172](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8172)) ([c1bb7f5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/c1bb7f5))
+* **deps:** update dependency carbon-components to v10.52.0 ([#8209](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8209)) ([3ec4a16](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/3ec4a16))
+* **deps:** update dependency carbon-web-components to v1.21.0 ([#8210](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8210)) ([0261303](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/0261303))
+* **feature-section-card-link:** remove incorrect role ([#8197](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8197)) ([e68d4a1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/e68d4a1)), closes [#8010](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8010)
+* **filter-panel:** return to original heading after clearing filters ([#8153](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8153)) ([5e4dcdd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/5e4dcdd)), closes [#8020](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8020)
+* **footer:** change cypress intercept for translation to use raw data ([#8244](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8244)) ([444b310](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/444b310))
+* **footer:** stabilization of e2e tests ([#8241](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8241)) ([7fddf06](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/7fddf06))
+* **leadspace-with-search:** refactor for correct styles to be added ([#8152](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8152)) ([5e84f6f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/5e84f6f)), closes [#7781](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/7781)
+* **link-with-icon:** adjust left icon placement style & clean up ([#8238](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8238)) ([0a0c5ea](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/0a0c5ea))
+* **masthead:** change hasProfile to accept a string instead of boolean ([#8202](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8202)) ([20de023](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/20de023))
+* **tabs-extended:** add vertical arrow key support ([#8243](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8243)) ([0b17c94](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/0b17c94)), closes [#7719](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/7719)
+* **video-player:** move focus to iframe after Kaltura embed ([#8181](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8181)) ([c4f18c1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/c4f18c1)), closes [#8077](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8077)
+
+
+### Features
+
+* **cta:** optional video thumbnail ([#8200](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8200)) ([929191c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/929191c)), closes [#7805](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/7805)
+* **filter-panel:** add view all button for filter groups ([#8188](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8188)) ([6a55992](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/6a55992)), closes [#7405](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/7405)
+* **search-with-typeahead:** add scoped search support ([#8096](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8096)) ([8a26e56](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/8a26e56)), closes [#7627](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/7627)
+
+
+
+
+
 # [1.16.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.15.0...@carbon/ibmdotcom-web-components@1.16.0-rc.0) (2022-02-01)
 
 

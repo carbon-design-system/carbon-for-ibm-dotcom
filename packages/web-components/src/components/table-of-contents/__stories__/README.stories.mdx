@@ -90,9 +90,9 @@ body {
 
 ## Harvesting the table of contents
 
-`<dds-table-of-contents>` automatically harvests the table of contents by looking for `<a>`s with their `name` attribute.
-The titles in the table of contents are harvested from the text content in `<a>` by default.
-You can add `data-title` attribute to the `<a>`s to change the titles.
+`<dds-table-of-contents>` automatically harvests the table of contents by looking for elements with the `name` attribute.
+The titles in the table of contents are harvested from the text content in the element by default.
+You can add `data-title` attribute to the elements to change the titles.
 
 ## Adjusting the position of `<select>` box
 
@@ -104,6 +104,20 @@ This is useful e.g. when you use `<dds-table-of-contents>` with ibm.com masthead
 dds-table-of-contents::part(table) {
   top: 3rem;
 }
+```
+
+## Reharvest the table of contents
+
+Use a dispatched event to trigger a reharvesting of the anchor tags within the Table of Contents.
+
+```js
+document.dispatchEvent(
+  new CustomEvent('dds-table-of-contents-reharvest', {
+    bubbles: true,
+    cancelable: true,
+    composed: true
+  })
+);
 ```
 
 ## Slots

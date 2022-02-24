@@ -17,9 +17,14 @@ const _pathCustom =
 describe('Masthead | custom (desktop)', () => {
   beforeEach(() => {
     cy.visit(_pathCustom);
+    cy.injectAxe();
     cy.viewport(1280, 780);
 
     cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 
   it('should render 5 custom menu items', () => {

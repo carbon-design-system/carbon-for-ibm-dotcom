@@ -116,6 +116,12 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     this.renderStatus();
   };
 
+  /**
+   * Host listener for caching filter group items' view all states.
+   *
+   * @param event filter group item view all toggle event
+   * @private
+   */
   @HostListener('document:eventFilterGroupViewAllToggle')
   protected _handleFilterGroupViewAllToggle = (event: CustomEvent) => {
     const match = this._filterGroupsAllRevealed.findIndex(entry => {
@@ -185,6 +191,11 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
       this.shadowRoot!.querySelector('dds-filter-panel-modal')?.setAttribute('has-selections', '');
       this.shadowRoot!.querySelector('dds-filter-panel')?.setAttribute('has-selections', '');
     }
+    this.renderStatus();
+  };
+
+  @HostListener('document:eventHeadingChange')
+  protected _handleHeadingChange = () => {
     this.renderStatus();
   };
 
@@ -285,7 +296,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   /**
    * stores which filter groups have revealed filters
    */
-  @property({ type: Array })
+  @property()
   _filterGroupsAllRevealed: { id: string; value: boolean }[] = [];
 
   /**
@@ -402,6 +413,14 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
 
   static get eventSelectionClear() {
     return `${ddsPrefix}-selection-clear`;
+  }
+
+  /**
+   * The name of the custom event capture when the heading changes
+   */
+
+  static get eventHeadingChange() {
+    return `${ddsPrefix}-filter-panel-heading-change`;
   }
 
   static get stableSelector() {

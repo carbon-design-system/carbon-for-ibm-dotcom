@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -74,6 +74,12 @@ const _pathSuperWithImage =
 
 /* eslint-disable cypress/no-unnecessary-waiting */
 describe('LeadSpace | tall', () => {
+  it('should check a11y', () => {
+    cy.visit(_pathTall);
+    cy.injectAxe();
+    cy.checkAxeA11y();
+  });
+
   it('should load title and copy - both left aligned', () => {
     cy.visit(_pathTall);
     cy.viewport(1280, 780);
@@ -152,6 +158,12 @@ describe('LeadSpace | tall', () => {
 });
 
 describe('LeadSpace | tall with image', () => {
+  it('should check a11y', () => {
+    cy.visit(_pathTallImage);
+    cy.injectAxe();
+    cy.checkAxeA11y();
+  });
+
   it('should load with background image', () => {
     cy.visit(`/${_pathTallImage}`);
     cy.viewport(1280, 780);
@@ -176,6 +188,12 @@ describe('LeadSpace | tall with image', () => {
 });
 
 describe('LeadSpace | centered', () => {
+  it('should check a11y', () => {
+    cy.visit(_pathCentered);
+    cy.injectAxe();
+    cy.checkAxeA11y();
+  });
+
   it('should load title and copy - both centered', () => {
     cy.visit(`/${_pathCentered}`);
     cy.viewport(1280, 780);
@@ -246,6 +264,12 @@ describe('LeadSpace | centered', () => {
 });
 
 describe('LeadSpace | centered with image', () => {
+  it('should check a11y', () => {
+    cy.visit(_pathCenteredImage);
+    cy.injectAxe();
+    cy.checkAxeA11y();
+  });
+
   it('should load with background image', () => {
     cy.visit(`/${_pathCenteredImage}`);
     cy.viewport(1280, 780);
@@ -274,6 +298,12 @@ describe('LeadSpace | centered with image', () => {
 });
 
 describe('LeadSpace | medium', () => {
+  it('should check a11y', () => {
+    cy.visit(_pathMedium);
+    cy.injectAxe();
+    cy.checkAxeA11y();
+  });
+
   it('should load correctly in all themes', () => {
     cy.visit(`/${_pathMedium}`);
     cy.viewport(1280, 780);
@@ -285,6 +315,12 @@ describe('LeadSpace | medium', () => {
 });
 
 describe('LeadSpace | medium with image', () => {
+  it('should check a11y', () => {
+    cy.visit(_pathMediumWithImage);
+    cy.injectAxe();
+    cy.checkAxeA11y();
+  });
+
   it('should load correctly in all themes', () => {
     cy.visit(`/${_pathMediumWithImage}`);
     cy.viewport(1280, 780);
@@ -296,6 +332,12 @@ describe('LeadSpace | medium with image', () => {
 });
 
 describe('LeadSpace | super', () => {
+  it('should check a11y', () => {
+    cy.visit(_pathSuper);
+    cy.injectAxe();
+    cy.checkAxeA11y();
+  });
+
   it('should load title and copy - both left aligned', () => {
     cy.visit(_pathSuper);
     cy.viewport(1280, 780);
@@ -369,6 +411,12 @@ describe('LeadSpace | super', () => {
 });
 
 describe('LeadSpace | super with image', () => {
+  it('should check a11y', () => {
+    cy.visit(_pathSuperWithImage);
+    cy.injectAxe();
+    cy.checkAxeA11y();
+  });
+
   it('should load with background image', () => {
     cy.visit(`/${_pathSuperWithImage}`);
     cy.viewport(1280, 780);
