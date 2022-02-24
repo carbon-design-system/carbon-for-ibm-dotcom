@@ -8,7 +8,7 @@
 import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
 import LightboxMediaViewer from '../LightboxMediaViewer/LightboxMediaViewer';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';

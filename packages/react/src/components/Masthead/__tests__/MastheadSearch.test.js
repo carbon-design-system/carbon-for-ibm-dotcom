@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,12 +9,12 @@ import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import Masthead from '../Masthead';
 import { mount } from 'enzyme';
 import React from 'react';
-import SearchTypeaheadAPI from '@carbon/ibmdotcom-services/es/services/SearchTypeahead/SearchTypeahead';
+import SearchTypeaheadAPI from '../../../internal/vendor/@carbon/ibmdotcom-services/services/SearchTypeahead/SearchTypeahead';
 
 const { stablePrefix } = ddsSettings;
 
 jest.mock(
-  '@carbon/ibmdotcom-services/lib/services/SearchTypeahead/SearchTypeahead',
+  '../../../internal/vendor/@carbon/ibmdotcom-services/services/SearchTypeahead/SearchTypeahead',
   () => ({
     getResults: jest.fn(() =>
       Promise.resolve([

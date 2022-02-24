@@ -10,8 +10,8 @@
 import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
 import { customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
 import { MediaData, MediaPlayerAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
 import { loadMediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI';
