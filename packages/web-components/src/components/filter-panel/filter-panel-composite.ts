@@ -194,6 +194,11 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     this.renderStatus();
   };
 
+  @HostListener('document:eventHeadingChange')
+  protected _handleHeadingChange = () => {
+    this.renderStatus();
+  };
+
   static get selectorInputSelect() {
     return `${ddsPrefix}-filter-panel-input-select`;
   }
@@ -408,6 +413,14 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
 
   static get eventSelectionClear() {
     return `${ddsPrefix}-selection-clear`;
+  }
+
+  /**
+   * The name of the custom event capture when the heading changes
+   */
+
+  static get eventHeadingChange() {
+    return `${ddsPrefix}-filter-panel-heading-change`;
   }
 
   static get stableSelector() {
