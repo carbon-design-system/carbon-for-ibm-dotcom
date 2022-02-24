@@ -18,6 +18,7 @@ jobs:
         node-version: [ 14.x ]
         browser: [ chromium, firefox ]
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
@@ -53,6 +54,7 @@ jobs:
         node-version: [ 14.x ]
         browser: [ chromium, firefox ]
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
