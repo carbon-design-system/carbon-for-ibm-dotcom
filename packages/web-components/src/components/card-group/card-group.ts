@@ -153,6 +153,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
         this._fillLastRowWithEmptyCards(columns);
         this._borderAdjustments(columns);
       } else {
+        this._removeEmptyCards();
         this._resetBorders();
       }
     });
@@ -272,15 +273,19 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
 
   private _fillLastRowWithEmptyCards = columns => {
     // remove all empty cards
-    this.shadowRoot?.querySelectorAll('[empty]').forEach(e => e.remove());
-    const emptyNeeded = this.childElementCount % columns > 0 && columns > 1 ? columns - (this.childElementCount % columns) : 0;
+    this._removeEmptyCards();
 
     // add empty cards
+    const emptyNeeded = this.childElementCount % columns > 0 && columns > 1 ? columns - (this.childElementCount % columns) : 0;
     for (let i = 0; i < emptyNeeded; i++) {
       const card = document.createElement('dds-card-group-item');
       card.setAttribute('empty', '');
       this.shadowRoot?.appendChild(card);
     }
+  };
+
+  private _removeEmptyCards = () => {
+    this.shadowRoot?.querySelectorAll('[empty]').forEach(e => e.remove());
   };
 
   /**
