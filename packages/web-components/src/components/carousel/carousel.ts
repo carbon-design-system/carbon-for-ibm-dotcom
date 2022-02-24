@@ -65,11 +65,6 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   private _childItemHeadings: any[] = [];
 
   /**
-   * Array to hold the card-heading elements within child items.
-   */
-  private _childItemVideoHeadings: any[] = [];
-
-  /**
    * Array to hold the card-eyebrow elements within child items.
    */
   private _childItemEyebrows: any[] = [];
@@ -209,7 +204,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    *
    * @param event The event.
    */
-  @HostListener(`document:${ddsPrefix}-card-cta-video-title-updated`)
+  @HostListener(`document:eventVideoTitleUpdated`)
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleVideoTitleUpdate = async (event: FocusEvent) => {
     if (event) {
@@ -296,13 +291,13 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemHeading)
         );
 
-        this._childItemVideoHeadings.push(
+        this._childItemHeadings.push(
           (e as HTMLElement)
             .querySelector((this.constructor as typeof DDSCarousel).selectorItemCardCTA)
             ?.shadowRoot?.querySelector((this.constructor as typeof DDSCarousel).selectorItemHeading)
         );
 
-        this._childItemVideoHeadings = this._childItemVideoHeadings.filter(heading => heading);
+        this._childItemHeadings = this._childItemHeadings.filter(heading => heading);
 
         this._childItemFooters.push(
           (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemFooter)
@@ -352,10 +347,6 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     );
     sameHeight(
       this._childItemHeadings.filter(item => item !== null),
-      'sm'
-    );
-    sameHeight(
-      this._childItemVideoHeadings.filter(item => item !== null),
       'sm'
     );
     sameHeight(
@@ -521,6 +512,13 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    */
   static get customPropertyPageSize() {
     return `--${ddsPrefix}--carousel--page-size`;
+  }
+
+  /**
+   * The name of the custom event fired when the video title is updated
+   */
+  static get eventVideoTitleUpdated() {
+    return `${ddsPrefix}-card-cta-video-title-updated`;
   }
 
   /**
