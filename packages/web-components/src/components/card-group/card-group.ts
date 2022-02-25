@@ -217,9 +217,8 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
             e.style.paddingLeft = '0';
           }
           if (inLastColumn(index)) {
-            const backgroundColor = window.getComputedStyle(e).getPropertyValue('--cds-ui-background');
             e.style.paddingRight = '0';
-            e.style.borderRight = `1px solid ${backgroundColor}`;
+            e.style.borderRight = `1px solid var(--cds-ui-background)`;
           } else {
             e.style.paddingRight = '1px';
             e.style.borderRight = 'none';
