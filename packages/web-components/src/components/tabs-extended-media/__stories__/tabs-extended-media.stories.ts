@@ -225,7 +225,7 @@ export default {
     story => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-lg-16">
+          <div class="bx--col-lg-16 bx--no-gutter">
             ${story()}
           </div>
         </div>
