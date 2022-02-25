@@ -16,7 +16,7 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         node-version: [ 14.x ]
-        browser: [ chromium, firefox ]
+        browser: [ chromium ]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
