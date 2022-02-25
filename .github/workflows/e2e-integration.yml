@@ -2,17 +2,17 @@ name: e2e-integration
 
 on:
   push:
-    branches: [ main, release/*, chore/e2e-integration-github-pages ]
+    branches: [ main, release/* ]
   schedule:
     - cron: '0 20 * * 1-5'
 
-#concurrency:
-#  group: e2e-integration-${{ github.ref }}
-#  cancel-in-progress: true
+concurrency:
+  group: e2e-integration-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   web-components:
-    if: github.repository == 'jeffchew/carbon-for-ibm-dotcom'
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -43,7 +43,7 @@ jobs:
         with:
           status: ${{ job.status }}
   react:
-    if: github.repository == 'jeffchew/carbon-for-ibm-dotcom'
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-latest
     strategy:
       matrix:
