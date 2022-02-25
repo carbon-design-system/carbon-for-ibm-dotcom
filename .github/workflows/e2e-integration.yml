@@ -2,7 +2,7 @@ name: e2e-integration
 
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/1 * * * *'
 
 #concurrency:
 #  group: e2e-integration-${{ github.ref }}
