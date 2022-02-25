@@ -1,8 +1,10 @@
 name: e2e-integration
 
 on:
+  push:
+    branches: [ main, release/*, chore/e2e-integration-github-pages ]
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '0 20 * * 1-5'
 
 #concurrency:
 #  group: e2e-integration-${{ github.ref }}
@@ -17,8 +19,6 @@ jobs:
         node-version: ['14.x']
     steps:
       - uses: actions/checkout@v2
-        with:
-          ref: chore/e2e-integration-github-pages
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
@@ -50,8 +50,6 @@ jobs:
         node-version: [ '14.x' ]
     steps:
       - uses: actions/checkout@v2
-        with:
-          ref: chore/e2e-integration-github-pages
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
