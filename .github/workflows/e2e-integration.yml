@@ -2,11 +2,11 @@ name: e2e-integration
 
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '*/10 * * * *'
 
-concurrency:
-  group: e2e-integration-${{ github.ref }}
-  cancel-in-progress: true
+#concurrency:
+#  group: e2e-integration-${{ github.ref }}
+#  cancel-in-progress: true
 
 jobs:
   web-components:
@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         node-version: ['14.x']
-        branch: [ main, release/*, chore/e2e-integration-github-pages ]
+        branch: [ 'main', 'release/*', 'chore/e2e-integration-github-pages' ]
     steps:
       - uses: actions/checkout@v2
         with:
@@ -44,13 +44,16 @@ jobs:
         with:
           status: ${{ job.status }}
   react:
-    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
+    if: github.repository == 'jeffchew/carbon-for-ibm-dotcom'
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ '14.x' ]
+        branch: [ 'main', 'release/*', 'chore/e2e-integration-github-pages' ]
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ matrix.branch }}
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
