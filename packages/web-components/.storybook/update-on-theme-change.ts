@@ -13,8 +13,6 @@ import { LitElement } from 'lit-element';
 
 export default selector => {
   addons.getChannel().on(CURRENT_THEME, () => {
-    document.querySelectorAll(selector).forEach(element => {
-      if (element instanceof LitElement) element.requestUpdate();
-    });
+    (document.querySelector(selector) as LitElement).requestUpdate();
   });
 };
