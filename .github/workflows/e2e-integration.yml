@@ -15,11 +15,10 @@ jobs:
     strategy:
       matrix:
         node-version: ['14.x']
-        branch: [ 'main', 'release/*', 'chore/e2e-integration-github-pages' ]
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: ${{ matrix.branch }}
+          ref: chore/e2e-integration-github-pages
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
@@ -49,11 +48,10 @@ jobs:
     strategy:
       matrix:
         node-version: [ '14.x' ]
-        branch: [ 'main', 'release/*', 'chore/e2e-integration-github-pages' ]
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: ${{ matrix.branch }}
+          ref: chore/e2e-integration-github-pages
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
