@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -84,9 +84,6 @@ export default !DDS_CONTENT_BLOCK_CARD_STATIC
       parameters: {
         ...readme.parameters,
         hasStoryPadding: true,
-        'carbon-theme': {
-          elementsToUpdate: ['dds-card-group'],
-        },
         knobs: {
           ContentBlockCards: () => ({
             heading: textNullable('Heading (heading):', 'Ways to buy'),
