@@ -152,7 +152,7 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
         sourceMap: true,
         namedExports: {
           'redux-logger/dist/redux-logger.js': ['createLogger'],
-          'marked/lib/marked.umd.js': ['marked'],
+          '../utilities/node_modules/marked/lib/marked.umd.js': ['marked'],
         },
       }),
       ibmdotcomIcon(),
