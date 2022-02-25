@@ -32,6 +32,10 @@
       fill: currentColor;
     }
 
+    &.#{$prefix}--link--visited {
+      color: $visited-link;
+    }
+
     &.#{$prefix}--link--disabled {
       &:hover {
         @include type-style('body-short-02');
