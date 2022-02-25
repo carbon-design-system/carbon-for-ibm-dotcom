@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -70,6 +70,13 @@
     @extend .#{$prefix}--tile;
     @extend .#{$prefix}--tile--clickable;
     @extend .#{$prefix}--card;
+
+    align-items: stretch;
+    text-align: inherit;
+
+    &:hover.#{$prefix}--link--disabled {
+      display: flex;
+    }
 
     .#{$prefix}--card__wrapper .bx--card__footer svg {
       color: $ui-05;

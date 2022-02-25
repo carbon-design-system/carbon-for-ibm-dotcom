@@ -5,11 +5,10 @@
 ####   `should render with various attributes`
 
 ```
-<a
+<button
   class="bx--link"
-  href="about:blank"
   id="link"
-  part="link"
+  type="button"
 >
   <div class="bx--card__wrapper">
     <div class="bx--card__content">
@@ -22,16 +21,18 @@
       </div>
     </div>
   </div>
-</a>
+</button>
 
 ```
 
 ####   `should render with invalid state`
 
 ```
-<div
+<button
   class="bx--link bx--link--disabled"
+  disabled=""
   id="link"
+  type="button"
 >
   <div class="bx--card__wrapper">
     <div class="bx--card__content">
@@ -44,7 +45,7 @@
       </div>
     </div>
   </div>
-</div>
+</button>
 
 ```
 

@@ -32,6 +32,10 @@
       fill: currentColor;
     }
 
+    &.#{$prefix}--link--visited {
+      color: $visited-link;
+    }
+
     &.#{$prefix}--link--disabled {
       &:not([href]),
       &:not([button]) {
