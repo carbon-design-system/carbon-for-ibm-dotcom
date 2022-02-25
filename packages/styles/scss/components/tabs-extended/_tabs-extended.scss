@@ -75,6 +75,19 @@
           @include tooltip--trigger('definition', top);
           @include tooltip--placement('definition', 'bottom', 'start');
 
+          &::before,
+          &::after {
+            display: none;
+          }
+
+          &:hover,
+          &:focus {
+            &::before,
+            &::after {
+              display: flex;
+            }
+          }
+
           &:focus {
             @include focus-outline('outline');
           }
