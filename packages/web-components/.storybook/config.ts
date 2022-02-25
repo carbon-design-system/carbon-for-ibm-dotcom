@@ -74,8 +74,7 @@ let preservedTheme;
 
 addDecorator((story, { parameters }) => {
   const root = document.documentElement;
-  const preventReload = parameters['carbon-theme']?.preventReload || false;
-  root.toggleAttribute('storybook-carbon-theme-prevent-reload', preventReload);
+  root.toggleAttribute('storybook-carbon-theme-prevent-reload', parameters['carbon-theme']?.preventReload);
   if (parameters['carbon-theme']?.disabled) {
     root.setAttribute('storybook-carbon-theme', '');
   } else {
