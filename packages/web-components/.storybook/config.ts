@@ -20,6 +20,7 @@ import customElements from '../custom-elements.json';
 import theme from './theme';
 import getSimpleStorySort from './get-simple-story-sort';
 import decoratorKnobs from './decorator-knobs';
+import updateOnThemeChange from './update-on-theme-change';
 import containerStyles from './container.scss'; // eslint-disable-line import/first
 
 if (process.env.STORYBOOK_USE_RTL === 'true') {
@@ -90,6 +91,16 @@ addons.getChannel().on(CURRENT_THEME, theme => {
   if (!document.documentElement.hasAttribute('storybook-carbon-theme-prevent-reload')) {
     addons.getChannel().emit(coreEvents.FORCE_RE_RENDER);
   }
+});
+
+// Alternative for forcing component re-renders
+addDecorator((story, { parameters }) => {
+  if (parameters['carbon-theme']?.elementsToUpdate?.length) {
+    parameters['carbon-theme'].elementsToUpdate.forEach(selector => {
+      updateOnThemeChange(selector);
+    });
+  }
+  return story();
 });
 
 const reqDocs = require.context('../docs', true, /\.stories\.mdx$/);

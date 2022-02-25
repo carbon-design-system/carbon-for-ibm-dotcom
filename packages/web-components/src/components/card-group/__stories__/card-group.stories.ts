@@ -346,6 +346,9 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
+    'carbon-theme': {
+      elementsToUpdate: ['dds-card-group'],
+    },
     knobs: {
       CardGroup: ({ groupId }) => {
         const cardType = select(
