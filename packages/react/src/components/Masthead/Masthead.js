@@ -143,21 +143,13 @@ const Masthead = ({
     profileMenuList.closest('ul').style.top = '48px';
   };
 
-  const [isMastheadSticky, setIsMastheadSticky] = useState(false);
   const stickyRef = useRef(null);
   const mastheadL1Ref = useRef(null);
-
-  const mastheadSticky = cx({
-    [`${prefix}--masthead--sticky`]: isMastheadSticky,
-    [`${prefix}--masthead--sticky__l1`]: mastheadL1Ref.current != null,
-  });
 
   const headerSearchClasses = cx({
     [`${prefix}--masthead__platform`]: platform,
     [`${prefix}--masthead__header--search-active`]: isSearchActive,
   });
-
-  const [scrollOffset, setScrollOffset] = useState(root.scrollY);
 
   useEffect(() => {
     const tableOfContents = document.querySelector(
@@ -175,10 +167,19 @@ const Masthead = ({
        *
        */
       if (mastheadL1Ref.current != null) {
-        const prevOffset = scrollOffset;
-        const currOffset = window.scrollY;
-        setIsMastheadSticky(currOffset > prevOffset);
-        setScrollOffset(currOffset);
+        const tocBoundingClient = tableOfContents.getBoundingClientRect();
+        const mastheadTop = Math.round(
+          Math.min(0, tocBoundingClient.top - stickyRef.current.offsetHeight)
+        );
+        const tocPosition =
+          tocBoundingClient.top + lastScrollPosition - window.scrollY;
+
+        tableOfContents.style.top = `${Math.max(
+          Math.min(tocPosition, stickyRef.current.offsetHeight),
+          0
+        )}px`;
+        stickyRef.current.style.top = `${mastheadTop}px`;
+        stickyRef.current.style.transition = 'none';
 
         /**
          * L0 will hide on scroll down, show up on scroll up when mobile ToC is present
@@ -218,7 +219,7 @@ const Masthead = ({
     return () => {
       root.removeEventListener('scroll', () => handleScroll);
     };
-  }, [scrollOffset]);
+  });
 
   if (navigation) {
     switch (typeof navigation) {
@@ -286,9 +287,7 @@ const Masthead = ({
           root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
         }
         return (
-          <div
-            className={`${prefix}--masthead ${mastheadSticky}`}
-            ref={stickyRef}>
+          <div className={`${prefix}--masthead`} ref={stickyRef}>
             <div className={`${prefix}--masthead__l0`}>
               <Header
                 aria-label="IBM"
@@ -419,7 +418,6 @@ const Masthead = ({
                 <MastheadL1
                   {...mastheadL1Data}
                   platform={platform}
-                  isShort={isMastheadSticky}
                   navType={navType}
                   hasCurrentUrl={_hasCurrentUrl}
                   selectedMenuItem={selectedMenuItem}
