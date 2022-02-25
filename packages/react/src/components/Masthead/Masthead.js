@@ -166,7 +166,7 @@ const Masthead = ({
        * L0 will hide on scroll down, show on scroll up
        *
        */
-      if (mastheadL1Ref.current != null) {
+      if (mastheadL1Ref.current != null && tableOfContents != null) {
         const tocBoundingClient = tableOfContents.getBoundingClientRect();
         const mastheadTop = Math.round(
           Math.min(0, tocBoundingClient.top - stickyRef.current.offsetHeight)
