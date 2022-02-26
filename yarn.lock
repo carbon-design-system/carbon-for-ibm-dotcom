@@ -1409,12 +1409,12 @@
   resolved "https://registry.yarnpkg.com/@carbon/motion/-/motion-10.27.0.tgz#6b21d059600cccf462c9d29bb1133cfa1bc01f1e"
   integrity sha512-E9UmtVojjTGoeVME7DtguFodCm697EkNBZifq8tHwczBLSpU+j02vQjH1l1K8wrpEr5CGxTs6CaD4RQsoXuYLA==
 
-"@carbon/pictograms-react@11.21.0":
-  version "11.21.0"
-  resolved "https://registry.yarnpkg.com/@carbon/pictograms-react/-/pictograms-react-11.21.0.tgz#63c86e75449ab8ce6df5d47178786b38fc06cbda"
-  integrity sha512-rQhVV6eB9EY8jf9d8JqoDcu2ajc7K9EMhVAtmdTVv6N/FqQxDr3EwtV1HcKnhloVjx/NePn+5JS05dRijdD1IA==
+"@carbon/pictograms-react@11.23.0":
+  version "11.23.0"
+  resolved "https://registry.yarnpkg.com/@carbon/pictograms-react/-/pictograms-react-11.23.0.tgz#f7dfaba7e5e9bc9884c0b7c5701a1286c55f1017"
+  integrity sha512-TcTDc3jdVOF7e6Bk0LOoeN9q+xAb9KCXfnFxfz/w50xZrABL0JNY5DgRH7LURH4M1vbEqEk8ix8R11m6gCpb2Q==
   dependencies:
-    "@carbon/icon-helpers" "^10.26.0"
+    "@carbon/icon-helpers" "^10.28.0"
     "@carbon/telemetry" "0.0.0-alpha.6"
     prop-types "^15.7.2"
 
