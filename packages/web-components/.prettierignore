@@ -12,4 +12,5 @@ docs
 storybook-static
 storybook-static-react
 CHANGELOG.md
+tests/e2e/cypress/fixtures
 tests/e2e-storybook/cypress/fixtures
