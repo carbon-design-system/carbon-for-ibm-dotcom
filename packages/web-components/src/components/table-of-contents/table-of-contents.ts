@@ -327,7 +327,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
    * @param target The hash name.
    */
   private _handleUserInitiatedJump(target: string) {
-    const elem = this.querySelector(`a[name="${target}"]`);
+    const elem = this.querySelector(`[name="${target}"]`);
     const masthead: HTMLElement | null = this.ownerDocument.querySelector(`${ddsPrefix}-masthead`);
 
     if (elem instanceof HTMLElement) {
@@ -344,7 +344,15 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
 
       elem.setAttribute('tabindex', '0');
       (elem as HTMLElement).focus({ preventScroll: true });
-      elem.removeAttribute('tabindex');
+      elem.addEventListener(
+        'focusout',
+        ({ target: focusoutTarget }) => {
+          (focusoutTarget as HTMLElement)?.removeAttribute('tabindex');
+        },
+        {
+          once: true,
+        }
+      );
     }
   }
 
@@ -510,6 +518,15 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleScroll = (event: Event) => {
     this._throttleScroll!(event);
+  };
+
+  /**
+   * The trigger reharvest listener.
+   */
+  @HostListener(`document:${ddsPrefix}-table-of-contents-reharvest`)
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _retriggerHarvest = () => {
+    this._targets = Array.from(this.querySelectorAll('a[name]'));
   };
 
   connectedCallback() {
@@ -779,7 +796,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
   /**
    * The selector that determines where to harvest the table of contents from.
    */
-  static selectorTarget = 'a[name]';
+  static selectorTarget = '[name]';
 
   static get stableSelector() {
     return `${ddsPrefix}--table-of-contents`;

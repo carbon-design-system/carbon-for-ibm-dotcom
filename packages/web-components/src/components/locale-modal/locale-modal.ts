@@ -173,8 +173,8 @@ class DDSLocaleModal extends DDSExpressiveModal {
     if (changedProperties.has('_currentRegion')) {
       const { selectorLocaleSearch } = this.constructor as typeof DDSLocaleModal;
       const localeSearch = this.querySelector(selectorLocaleSearch);
-      if (localeSearch) {
-        (localeSearch as DDSLocaleSearch).region = this._currentRegion ?? '';
+      (localeSearch as DDSLocaleSearch).region = this._currentRegion ?? '';
+      if (localeSearch && this.open) {
         (localeSearch as DDSLocaleSearch).reset();
         (localeSearch as HTMLElement).focus();
       }
@@ -182,7 +182,7 @@ class DDSLocaleModal extends DDSExpressiveModal {
       // re-focus on first region-item when navigating back to the first modal pane
       const { selectorPrimaryFocus } = this.constructor as typeof DDSLocaleModal;
       const activeRegion = this.querySelector(selectorPrimaryFocus);
-      if (activeRegion) {
+      if (activeRegion && this.open) {
         (activeRegion as HTMLElement).tabIndex = 0;
         (activeRegion as HTMLElement).focus();
       }
@@ -218,7 +218,9 @@ class DDSLocaleModal extends DDSExpressiveModal {
       ${selectorTabbable},
       ${ddsPrefix}-expressive-modal,
       ${ddsPrefix}-expressive-modal-close-button,
-      ${ddsPrefix}-region-item
+      ${ddsPrefix}-region-item,
+      ${ddsPrefix}-search,
+      ${ddsPrefix}-locale-item
     `;
   }
 

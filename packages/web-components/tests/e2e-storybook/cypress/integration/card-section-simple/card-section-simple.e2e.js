@@ -26,6 +26,9 @@ const _paths = {
  * @private
  */
 const _tests = {
+  checkA11y: () => {
+    cy.checkAxeA11y();
+  },
   checkForBlocklink: () => {
     cy.get('dds-card-group-item > dds-card-cta-footer').each(footer => {
       cy.get(footer)
@@ -67,46 +70,54 @@ describe('dds-card-section-simple | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`/${_paths.default}`);
+    cy.injectAxe();
   });
 
   it('should load card as blocklink', _tests.checkForBlocklink);
   it('should load left-aligned section title', _tests.checkForTitlePosition);
   it('should load heading, copy, cta on each card', _tests.checkForCardContent);
   it('should render correctly in all themes', _tests.checkThemes);
+  it('should check a11y', _tests.checkA11y);
 });
 
 describe('dds-card-section-simple | with cta (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`/${_paths.default}`);
+    cy.injectAxe();
   });
 
   it('should load card as blocklink', _tests.checkForBlocklink);
   it('should load left-aligned section title', _tests.checkForTitlePosition);
   it('should load heading, copy, cta on each card', _tests.checkForCardContent);
   it('should render correctly in all themes', _tests.checkThemes);
+  it('should check a11y', _tests.checkA11y);
 });
 
 describe('dds-card-section-simple | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(375, 720);
     cy.visit(`/${_paths.default}`);
+    cy.injectAxe();
   });
 
   it('should load card as blocklink', _tests.checkForBlocklink);
   it('should load left-aligned section title', _tests.checkForTitlePosition);
   it('should load heading, copy, cta on each card', _tests.checkForCardContent);
   it('should render correctly in all themes', _tests.checkThemes);
+  it('should check a11y', _tests.checkA11y);
 });
 
 describe('dds-card-section-simple | with cta (mobile)', () => {
   beforeEach(() => {
     cy.viewport(375, 720);
     cy.visit(`/${_paths.default}`);
+    cy.injectAxe();
   });
 
   it('should load card as blocklink', _tests.checkForBlocklink);
   it('should load left-aligned section title', _tests.checkForTitlePosition);
   it('should load heading, copy, cta on each card', _tests.checkForCardContent);
   it('should render correctly in all themes', _tests.checkThemes);
+  it('should check a11y', _tests.checkA11y);
 });

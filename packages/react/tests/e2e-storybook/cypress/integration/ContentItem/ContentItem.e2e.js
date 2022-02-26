@@ -31,6 +31,13 @@ const _selector = '[data-autoid="dds--content-item"]';
  */
 const _tests = [
   () => {
+    it('should check a11y', () => {
+      cy.visit(_path);
+      cy.injectAxe();
+      cy.checkAxeA11y();
+    });
+  },
+  () => {
     it('should render customizable header text', () => {
       let defaultHeader, customHeaderOutput;
       const customHeaderInput = 'Lorem ipsum dolor sit amet';

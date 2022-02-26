@@ -21,6 +21,7 @@ import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-list
 import SearchTypeaheadAPI from '@carbon/ibmdotcom-services/es/services/SearchTypeahead/SearchTypeahead';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
+import { DDS_SCOPED_SEARCH } from '../../globals/internal/feature-flags';
 import styles from './search-with-typeahead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './search-with-typeahead-item';
@@ -534,7 +535,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
           @keydown="${handleKeydownInner}"
           @keypress="${handleKeypressInner}"
         >
-          ${this.scopeParameters
+          ${this.scopeParameters && DDS_SCOPED_SEARCH
             ? html`
                 <dds-scoped-search-dropdown value="${this.scopeValue}">
                   ${this.scopeParameters.map(
