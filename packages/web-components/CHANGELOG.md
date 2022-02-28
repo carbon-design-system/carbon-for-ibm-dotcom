@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.16.0-rc.3...@carbon/ibmdotcom-web-components@1.16.0) (2022-02-28)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.16.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.16.0-rc.2...@carbon/ibmdotcom-web-components@1.16.0-rc.3) (2022-02-25)
+
+
+### Bug Fixes
+
+* **rollup:** fix to named exports declaration for marked dependency ([#8384](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8384)) ([e8fae65](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/e8fae65))
+
+
+
+
+
+# [1.16.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.16.0-rc.1...@carbon/ibmdotcom-web-components@1.16.0-rc.2) (2022-02-24)
+
+
+### Bug Fixes
+
+* **cypress:** adding back plugins file ([#8280](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8280)) ([24dcf25](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/24dcf25))
+
+
+
+
+
 # [1.16.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.16.0-rc.0...@carbon/ibmdotcom-web-components@1.16.0-rc.1) (2022-02-14)
 
 
