@@ -96,17 +96,10 @@
     "prettier": "^1.19.0"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "@carbon/ibmdotcom-services": "1.31.0-rc.3",
-    "@carbon/ibmdotcom-styles": "1.31.0-rc.3",
-    "@carbon/ibmdotcom-utilities": "1.31.0-rc.3",
-    "@carbon/layout": "10.37.0",
-=======
     "@carbon/ibmdotcom-services": "1.31.0",
     "@carbon/ibmdotcom-styles": "1.31.0",
     "@carbon/ibmdotcom-utilities": "1.31.0",
-    "@carbon/layout": "10.34.0",
->>>>>>> release/v1.31.0
+    "@carbon/layout": "10.37.0",
     "@carbon/telemetry": "0.0.0-alpha.6",
     "carbon-components": "10.54.0",
     "carbon-web-components": "1.21.0",
