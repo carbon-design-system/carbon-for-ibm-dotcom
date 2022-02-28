@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.31.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.31.0-rc.3...@carbon/ibmdotcom-styles@1.31.0) (2022-02-28)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
 # [1.31.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.31.0-rc.2...@carbon/ibmdotcom-styles@1.31.0-rc.3) (2022-02-25)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
