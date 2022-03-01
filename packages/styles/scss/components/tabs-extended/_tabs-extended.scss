@@ -64,6 +64,7 @@
         height: auto;
         overflow: visible;
         white-space: normal;
+        width: 100%;
 
         &[hasTooltip] {
           @include tooltip--trigger('definition', top);
@@ -103,7 +104,7 @@
     .#{$prefix}--tab-content {
       @include carbon--type-style('body-long-02', true);
 
-      padding: 0;
+      padding: 0 $carbon--spacing-05;
       display: none;
 
       @include carbon--breakpoint(lg) {
