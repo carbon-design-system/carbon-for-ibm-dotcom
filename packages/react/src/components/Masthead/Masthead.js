@@ -168,7 +168,7 @@ const Masthead = ({
        */
       if (mastheadL1Ref.current != null && tableOfContents != null) {
         const tocBoundingClient = tableOfContents.getBoundingClientRect();
-        const mastheadTop = Math.round(
+        const mobileMastheadTop = Math.round(
           Math.min(0, tocBoundingClient.top - stickyRef.current.offsetHeight)
         );
         const tocPosition =
@@ -178,6 +178,20 @@ const Masthead = ({
           Math.min(tocPosition, stickyRef.current.offsetHeight),
           0
         )}px`;
+
+        const regularMastheadTop =
+          window.scrollY < lastScrollPosition
+            ? 0
+            : -Math.min(
+                stickyRef.current.offsetHeight -
+                  mastheadL1Ref.current.offsetHeight,
+                Math.abs(mobileMastheadTop)
+              );
+        const mastheadTop =
+          window.innerWidth < gridBreakpoint
+            ? mobileMastheadTop
+            : regularMastheadTop;
+
         stickyRef.current.style.top = `${mastheadTop}px`;
         stickyRef.current.style.transition = 'none';
 
@@ -211,9 +225,8 @@ const Masthead = ({
         } else {
           stickyRef.current.style.top = `${mastheadTop}px`;
         }
-
-        lastScrollPosition = window.scrollY;
       }
+      lastScrollPosition = window.scrollY;
     });
 
     return () => {
