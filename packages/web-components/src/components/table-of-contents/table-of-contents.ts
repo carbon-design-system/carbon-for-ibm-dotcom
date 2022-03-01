@@ -328,7 +328,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
    * @param target The hash name.
    */
   private _handleUserInitiatedJump(target: string) {
-    const elem = this.querySelector(`a[name="${target}"]`);
+    const elem = this.querySelector(`[name="${target}"]`);
     const masthead: HTMLElement | null = this.ownerDocument.querySelector(`${ddsPrefix}-masthead`);
 
     if (elem instanceof HTMLElement) {
@@ -345,7 +345,15 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
 
       elem.setAttribute('tabindex', '0');
       (elem as HTMLElement).focus({ preventScroll: true });
-      elem.removeAttribute('tabindex');
+      elem.addEventListener(
+        'focusout',
+        ({ target: focusoutTarget }) => {
+          (focusoutTarget as HTMLElement)?.removeAttribute('tabindex');
+        },
+        {
+          once: true,
+        }
+      );
     }
   }
 
@@ -793,7 +801,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
   /**
    * The selector that determines where to harvest the table of contents from.
    */
-  static selectorTarget = 'a[name]';
+  static selectorTarget = '[name]';
 
   static get stableSelector() {
     return `${ddsPrefix}--table-of-contents`;
