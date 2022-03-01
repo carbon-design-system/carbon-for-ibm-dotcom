@@ -16,6 +16,7 @@ import '../horizontal-rule/horizontal-rule';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leadspace-with-search.scss';
 import { ADJACENT_THEMES } from './defs';
+import StickyHeader from '../../../../utilities/src/utilities/StickyHeader/StickyHeader.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -95,6 +96,12 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
       [`${prefix}--search-container`]: true,
       [`${prefix}--search-container-adjacent-theme`]: this.theme !== ADJACENT_THEMES.MONOTHEME || this._hasImage,
     });
+  }
+
+  protected firstUpdated() {
+    if (StickyHeader.isNecessary()) {
+      StickyHeader.global.leadspaceWithSearch = this;
+    }
   }
 
   render() {

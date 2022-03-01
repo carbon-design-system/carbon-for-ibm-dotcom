@@ -12,6 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
+import StickyHeader from '../../../../utilities/src/utilities/StickyHeader/StickyHeader.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -26,6 +27,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-masthead`)
 class DDSMasthead extends StableSelectorMixin(LitElement) {
+  firstUpdated() {
+    if (StickyHeader.isNecessary()) {
+      StickyHeader.global.masthead = this;
+    }
+  }
+
   render() {
     return html`
       <div class="${prefix}--masthead__l0">
