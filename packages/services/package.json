@@ -51,7 +51,8 @@
     "@carbon/ibmdotcom-utilities": "1.31.0",
     "@carbon/telemetry": "0.0.0-alpha.6",
     "axios": "~0.21.4",
-    "window-or-global": "^1.0.1"
+    "window-or-global": "^1.0.1",
+    "marked": "^4.0.10"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",
