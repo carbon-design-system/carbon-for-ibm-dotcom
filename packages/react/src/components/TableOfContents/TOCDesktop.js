@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -72,9 +72,17 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
    */
   function triggerFocus(elem) {
     const element = document.querySelector(elem);
+
+    const handleFocusOut = event => {
+      const focusoutTarget = event.target;
+      focusoutTarget.removeAttribute('tabindex');
+    };
+
     element.setAttribute('tabindex', '0');
     element.focus({ preventScroll: true });
-    element.removeAttribute('tabindex');
+    element.addEventListener('focusout', handleFocusOut, {
+      once: true,
+    });
   }
 
   return (

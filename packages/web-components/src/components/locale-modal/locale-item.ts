@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -46,6 +46,12 @@ class DDSLocaleItem extends BXLink {
    */
   @property({ reflect: true })
   region = '';
+
+  /**
+   * Element's role for assistive technologies
+   */
+  @property({ reflect: true })
+  role = 'listitem';
 
   /**
    * @returns The inner content.

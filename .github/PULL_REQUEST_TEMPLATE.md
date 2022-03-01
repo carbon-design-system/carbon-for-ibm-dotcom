@@ -25,6 +25,7 @@
 <!-- React and Web Component deploy previews are enabled by default. -->
 <!-- To enable additional available deploy previews, apply the following -->
 <!-- labels for the corresponding package: -->
+<!-- *** "test: e2e": Codesandbox examples and e2e integration tests -->
 <!-- *** "package: services": Services -->
 <!-- *** "package: utilities": Utilities -->
 <!-- *** "RTL": React / Web Components (RTL) -->

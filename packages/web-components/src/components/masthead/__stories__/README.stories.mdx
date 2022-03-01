@@ -220,58 +220,6 @@ The API results must match the following structure:
 ```
 Note that only the first array element is necessary to render the basic search suggestions, the following JSON objects are optional Grouped sections.
 
-## Scoped search
-Scoped searches are also supported, returning results from specifically targeted IBM pages and products.
-
-First, prepare the desired categories to use when scoping the search. In this example, we will be creating an array with
-four categories, which must follow the structure below:
-
-
-```javascript
-const scopeParameters = [
-  {
-    name: 'All',
-    value: 'all',
-  },
-  {
-    name: 'Analyst',
-    value: 'analyst',
-  },
-  {
-    name: 'PartnerWorld',
-    value: 'pw',
-  },
-  {
-    name: 'Developer',
-    value: 'dw',
-  },
-];
-```
-#### Note
-A list of the available categories can be found [here](https://github.ibm.com/web-platform/stingray/blob/32a2f45e58ec5bd86e199e4c2a51a1ff179b5c7c/lib/appsearch/getEngineName.js#L22).
-
-This array will be passed into the `scopeParameters` property. If using `lit-html` to render your page, this can be added
-using `.scopeParameters` (note the `.`), in order for the array to be processed properly in the component.
-
-```html
-<dds-masthead-composite .scopeParameters="${scopeParameters}"></dds-masthead-composite>
-```
-
-Alternatively, JavaScript can be used to insert it into the component.
-
-```javascript
-document.querySelector('dds-masthead-composite').scopeParameters = scopeParameters;
-```
-
-If a different locale is used, it will be necessary to use a formatter function to localize the placeholder text that 
-will be rendered depending on the selected scope.
-
-```javascript
-const placeholderFormatter = ({scopeValue}) => `Buscar en ${scopeValue}`;
-
-document.querySelector('dds-search-with-typeahead').placeholderFormatter = placeholderFormatter;
-```
-
 ## Props
 
 ### `<dds-masthead-container>`/`<dds-masthead-composite>`
