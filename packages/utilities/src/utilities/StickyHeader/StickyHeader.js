@@ -1,5 +1,5 @@
 import { baseFontSize, breakpoints } from '@carbon/layout';
-import ddsSettings from "../settings/settings.js";
+import ddsSettings from '../settings/settings.js';
 import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 
@@ -9,7 +9,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
 class StickyHeader {
-
   constructor() {
     this.ownerDocument = root.document;
     this._banner = undefined;
@@ -44,7 +43,9 @@ class StickyHeader {
    * @returns {boolean} true/false
    */
   static isNecessary() {
-    return Boolean(!root.document.querySelector(`${ddsPrefix}-dotcom-shell-container`));
+    return Boolean(
+      !root.document.querySelector(`${ddsPrefix}-dotcom-shell-container`)
+    );
   }
 
   /**
@@ -64,7 +65,8 @@ class StickyHeader {
   }
 
   set banner(component) {
-    if (this._validateComponent(component, `${ddsPrefix}-banner`)) {
+    console.log(component);
+    if (this._validateComponent(component, `${ddsPrefix}-universal-banner`)) {
       this._banner = component;
       this.hasBanner = true;
 
@@ -75,9 +77,13 @@ class StickyHeader {
   }
 
   set leadspaceWithSearch(component) {
-    if (this._validateComponent(component, `${ddsPrefix}-leadspace-with-search`)) {
+    if (
+      this._validateComponent(component, `${ddsPrefix}-leadspace-with-search`)
+    ) {
       this._leadspaceWithSearch = component;
-      this._leadspaceWithSearchBar = component.querySelector('dds-search-with-typeahead');
+      this._leadspaceWithSearchBar = component.querySelector(
+        'dds-search-with-typeahead'
+      );
     }
   }
 
@@ -100,12 +106,12 @@ class StickyHeader {
       this._tableOfContents = component;
       if (component.layout === 'horizontal') {
         this._tableOfContentsInnerBar = component.shadowRoot.querySelector(
-          `.${prefix}--tableofcontents__navbar`,
+          `.${prefix}--tableofcontents__navbar`
         );
         this._tableOfContentsLayout = 'horizontal';
       } else {
         this._tableOfContentsInnerBar = component.shadowRoot.querySelector(
-          `.${prefix}--tableofcontents__sidebar`,
+          `.${prefix}--tableofcontents__sidebar`
         );
       }
       this._resizeObserver.observe(this._tableOfContents);
@@ -154,13 +160,9 @@ class StickyHeader {
     const {
       _lastScrollPosition: oldY,
       _banner: banner,
-      _hasBanner: hasBanner,
       _masthead: masthead,
-      _mastheadL1: l1Element,
       _localeModal: localeModal,
-      _tableOfContents: toc,
       _tableOfContentsInnerBar: tocInner,
-      _tableOfContentsLayout: tocLayout,
     } = StickyHeader.global;
 
     if (localeModal && localeModal.hasAttribute('open')) return;
@@ -177,8 +179,10 @@ class StickyHeader {
       if (masthead) maxScrollaway += masthead.offsetHeight;
     }
 
-
-    let cumulativeOffset = Math.max(Math.min(topmostElement.offsetTop + oldY - newY, 0), (maxScrollaway * -1));
+    let cumulativeOffset = Math.max(
+      Math.min(topmostElement.offsetTop + oldY - newY, 0),
+      maxScrollaway * -1
+    );
 
     if (banner) {
       banner.style.transition = 'none';
