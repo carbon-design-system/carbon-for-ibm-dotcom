@@ -66,8 +66,11 @@ class StickyHeader {
   set banner(component) {
     if (this._validateComponent(component, `${ddsPrefix}-banner`)) {
       this._banner = component;
-      this._masthead?.setAttribute('with-banner', '');
       this.hasBanner = true;
+
+      if (this._masthead) {
+        this._masthead.setAttribute('with-banner', '');
+      }
     }
   }
 
@@ -160,7 +163,7 @@ class StickyHeader {
       _tableOfContentsLayout: tocLayout,
     } = StickyHeader.global;
 
-    if (localeModal?.hasAttribute('open')) return;
+    if (localeModal && localeModal.hasAttribute('open')) return;
 
     const newY = window.scrollY;
     this._lastScrollPosition = newY;
