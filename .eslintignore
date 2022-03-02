@@ -25,6 +25,7 @@ packages/services/es
 packages/services/umd
 packages/services/lib
 packages/services/node_modules
+packages/services/src/internal/vendor
 
 # services-store
 packages/services-store/es
