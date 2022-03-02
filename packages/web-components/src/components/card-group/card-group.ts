@@ -209,6 +209,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
     this._childItems.forEach((e, index) => {
       const { gridMode } = this;
       if (gridMode === GRID_MODE.COLLAPSED) {
+        e.toggleAttribute('border', false);
         if (isEmpty(e)) {
           e.style.paddingBottom = '0';
           e.style.paddingRight = '0';
@@ -234,6 +235,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
         }
       }
       if (gridMode === GRID_MODE.BORDER) {
+        e.toggleAttribute('border', true);
         if (isEmpty(e)) {
           e.style.paddingBottom = '1px';
           e.style.paddingRight = '1px';
@@ -264,6 +266,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
 
   private _resetBorders = () => {
     this._childItems.forEach(elem => {
+      elem.toggleAttribute('border', false);
       elem.style.paddingTop = '';
       elem.style.paddingRight = '';
       elem.style.paddingBottom = '';
