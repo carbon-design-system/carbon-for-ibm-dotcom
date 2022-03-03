@@ -719,7 +719,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
             </div>
             <div class="${prefix}--tableofcontents__mobile">
               <div class="${prefix}--tableofcontents__mobile__select__wrapper">
-                <select class="${prefix}--tableofcontents__mobile__select" @change="${handleChangeSelect}">
+                <select aria-label="State" class="${prefix}--tableofcontents__mobile__select" @change="${handleChangeSelect}">
                   ${targets.map(item => {
                     const name = item.getAttribute('name');
                     const title = (item.dataset.title ?? item.textContent ?? '').trim();
