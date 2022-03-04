@@ -1,3 +1,10 @@
+/**
+ * Copyright IBM Corp. 2016, 2018
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import ddsSettings from '../settings/settings.js';
 import root from 'window-or-global';
@@ -53,7 +60,8 @@ class StickyHeader {
    *
    * @param {HTMLElement} component The component provided
    * @param {string} expected The lowercase tag name expected
-   * @returns Error or true
+   * @throws {TypeError} Throws error if component tag name doesn't match expected string
+   * @returns {boolean} Returns true if component tag name matches expected string
    */
   _validateComponent(component, expected) {
     const received = component.tagName.toLowerCase();
