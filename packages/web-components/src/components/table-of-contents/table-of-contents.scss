@@ -8,8 +8,7 @@
 @import 'carbon-components/scss/globals/scss/vars';
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '../../globals/scss/box-sizing';
-//@import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
-@import '../../../../styles/scss/components/tableofcontents/tableofcontents';
+@import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
 @import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
 
 :host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal']) .#{$prefix}--tableofcontents__navbar {
