@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.16.0...@carbon/ibmdotcom-web-components@1.16.1) (2022-03-04)
+
+
+### Bug Fixes
+
+* **cloud-masthead:** remove extra spacing from masthead ([#8451](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8451)) ([6793b47](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/6793b47))
+* **masthead:** remove extra spacing above masthead ([#8452](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8452)) ([4cadff9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/4cadff9))
+
+
+
+
+
 # [1.16.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.16.0-rc.3...@carbon/ibmdotcom-web-components@1.16.0) (2022-02-28)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components

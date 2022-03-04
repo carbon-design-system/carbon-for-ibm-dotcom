@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.31.0...@carbon/ibmdotcom-utilities@1.31.1) (2022-03-04)
+
+
+### Bug Fixes
+
+* **cloud-masthead:** remove extra spacing from masthead ([#8451](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8451)) ([6793b47](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6793b47))
+
+
+
+
+
 # [1.31.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.31.0-rc.3...@carbon/ibmdotcom-utilities@1.31.0) (2022-02-28)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities
