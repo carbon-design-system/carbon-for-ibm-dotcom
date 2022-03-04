@@ -5,19 +5,23 @@
 ####   `should render with minimum attributes`
 
 ```
-<a
+<button
   class="bx--visually-hidden"
-  href="javascript:void 0"
   id="start-sentinel"
-  role="navigation"
 >
-</a>
+  START
+</button>
 <div
+  aria-labelledby="modal-header"
   class="bx--modal-container"
+  role="dialog"
   tabindex="-1"
 >
   <div class="bx--modal-content">
-    <div class="dds-ce--modal__hedaer--with-body">
+    <div
+      class="dds-ce--modal__hedaer--with-body"
+      id="modal-header"
+    >
       <slot name="header">
       </slot>
     </div>
@@ -31,32 +35,35 @@
     </div>
   </div>
 </div>
-<a
+<button
   class="bx--visually-hidden"
-  href="javascript:void 0"
   id="end-sentinel"
-  role="navigation"
 >
-</a>
+  END
+</button>
 
 ```
 
 ####   `should render with various attributes`
 
 ```
-<a
+<button
   class="bx--visually-hidden"
-  href="javascript:void 0"
   id="start-sentinel"
-  role="navigation"
 >
-</a>
+  START
+</button>
 <div
+  aria-labelledby="modal-header"
   class="bx--modal-container"
+  role="dialog"
   tabindex="-1"
 >
   <div class="bx--modal-content">
-    <div class="dds-ce--modal__hedaer--with-body">
+    <div
+      class="dds-ce--modal__hedaer--with-body"
+      id="modal-header"
+    >
       <slot name="header">
       </slot>
     </div>
@@ -70,13 +77,12 @@
     </div>
   </div>
 </div>
-<a
+<button
   class="bx--visually-hidden"
-  href="javascript:void 0"
   id="end-sentinel"
-  role="navigation"
 >
-</a>
+  END
+</button>
 
 ```
 
@@ -85,19 +91,20 @@
 ####   `should render with header only`
 
 ```
-<a
+<button
   class="bx--visually-hidden"
-  href="javascript:void 0"
   id="start-sentinel"
-  role="navigation"
 >
-</a>
+  START
+</button>
 <div
+  aria-labelledby="modal-header"
   class="bx--modal-container"
+  role="dialog"
   tabindex="-1"
 >
   <div class="bx--modal-content">
-    <div>
+    <div id="modal-header">
       <slot name="header">
       </slot>
     </div>
@@ -111,32 +118,35 @@
     </div>
   </div>
 </div>
-<a
+<button
   class="bx--visually-hidden"
-  href="javascript:void 0"
   id="end-sentinel"
-  role="navigation"
 >
-</a>
+  END
+</button>
 
 ```
 
 ####   `should render with header and body only`
 
 ```
-<a
+<button
   class="bx--visually-hidden"
-  href="javascript:void 0"
   id="start-sentinel"
-  role="navigation"
 >
-</a>
+  START
+</button>
 <div
+  aria-labelledby="modal-header"
   class="bx--modal-container"
+  role="dialog"
   tabindex="-1"
 >
   <div class="bx--modal-content">
-    <div class="dds-ce--modal__hedaer--with-body">
+    <div
+      class="dds-ce--modal__hedaer--with-body"
+      id="modal-header"
+    >
       <slot name="header">
       </slot>
     </div>
@@ -150,32 +160,35 @@
     </div>
   </div>
 </div>
-<a
+<button
   class="bx--visually-hidden"
-  href="javascript:void 0"
   id="end-sentinel"
-  role="navigation"
 >
-</a>
+  END
+</button>
 
 ```
 
 ####   `should render with header and footer only`
 
 ```
-<a
+<button
   class="bx--visually-hidden"
-  href="javascript:void 0"
   id="start-sentinel"
-  role="navigation"
 >
-</a>
+  START
+</button>
 <div
+  aria-labelledby="modal-header"
   class="bx--modal-container"
+  role="dialog"
   tabindex="-1"
 >
   <div class="bx--modal-content">
-    <div class="dds-ce--modal__hedaer--with-body">
+    <div
+      class="dds-ce--modal__hedaer--with-body"
+      id="modal-header"
+    >
       <slot name="header">
       </slot>
     </div>
@@ -189,13 +202,12 @@
     </div>
   </div>
 </div>
-<a
+<button
   class="bx--visually-hidden"
-  href="javascript:void 0"
   id="end-sentinel"
-  role="navigation"
 >
-</a>
+  END
+</button>
 
 ```
 
