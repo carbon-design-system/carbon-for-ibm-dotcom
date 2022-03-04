@@ -1153,12 +1153,32 @@ WithUniversalBanner.story = {
   },
 };
 
-export const WithoutShell = () => {
+export const WithoutShell = ({parameters}) => {
+  const { masthead, universalBanner } = parameters?.props?.DotcomShell ?? {};
+
   return html`
     <style>
       ${mastheadStyles}
     </style>
-    <dds-masthead-container id="masthead-container"></dds-masthead-container>
+    ${universalBanner
+      ? html`
+          <dds-universal-banner image-width="4-col">
+            <dds-universal-banner-image slot="image" default-src="${images['4-col']}"></dds-universal-banner-image>
+            <dds-universal-banner-heading slot="heading">heading</dds-universal-banner-heading>
+            <dds-universal-banner-copy slot="copy">copy</dds-universal-banner-copy>
+            <dds-button-cta slot="cta" cta-type="local" kind="tertiary" href="https://www.example.com">
+              cta copy
+            </dds-button-cta>
+          </dds-universal-banner>
+        `
+      : ''}
+    ${masthead === 'L0'
+      ? html`
+          <dds-masthead-container id="masthead-container"></dds-masthead-container>
+        `
+      : html`
+          <dds-masthead-container id="masthead-container" .l1Data="${l1Data}"></dds-masthead-container>
+        `}
     <main class="bx--content dds-ce-demo--ui-shell-content">
       <div class="bx--grid">
         <div class="bx--row">
@@ -1219,10 +1239,18 @@ WithoutShell.story = {
   name: 'Without Shell (Fallback Utility)',
   parameters: {
     knobs: {
-      DotcomShell: () => ({}),
+      DotcomShell: ({ groupId }) => ({
+        masthead: select('Masthead Version', ['L0', 'L1'], 'L0', groupId),
+        universalBanner: boolean('Has Universal Banner', false, groupId),
+      }),
     },
     propsSet: {
-      default: {},
+      default: {
+        FooterComposite: {
+          disableLocaleButton: false,
+          langList: mockLangList,
+        },
+      },
     },
   },
 };
