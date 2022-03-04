@@ -35,25 +35,6 @@ const platformData = {
   url: 'https://www.ibm.com/cloud',
 };
 
-const scopeParameters = [
-  {
-    name: 'All',
-    value: 'all',
-  },
-  {
-    name: 'Analyst',
-    value: 'analyst',
-  },
-  {
-    name: 'PartnerWorld',
-    value: 'pw',
-  },
-  {
-    name: 'Developer',
-    value: 'dw',
-  },
-];
-
 const urlObject = {
   'en-US': {
     url: 'https://www.example.com/us-en',
@@ -119,53 +100,6 @@ export const Default = ({ parameters }) => {
           ></dds-masthead-container>
         `}
   `;
-};
-
-export const WithScopedSearch = ({ parameters }) => {
-  const { customProfileLogin, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch, navLinks } =
-    parameters?.props?.MastheadComposite ?? {};
-  const { useMock } = parameters?.props?.Other ?? {};
-
-  return html`
-    <style>
-      ${styles}
-    </style>
-    ${useMock
-      ? html`
-          <dds-masthead-composite
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(platformData.url)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            ?has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
-            .navLinks="${navLinks}"
-            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            custom-profile-login="${customProfileLogin}"
-            .scopeParameters=${scopeParameters}
-          ></dds-masthead-composite>
-        `
-      : html`
-          <dds-masthead-container
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(platformData.url)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .navLinks="${navLinks}"
-            ?has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
-            custom-profile-login="${customProfileLogin}"
-            .scopeParameters=${scopeParameters}
-          ></dds-masthead-container>
-        `}
-  `;
-};
-
-WithScopedSearch.story = {
-  name: 'With scoped search',
 };
 
 export const WithCustomTypeahead = ({ parameters }) => {

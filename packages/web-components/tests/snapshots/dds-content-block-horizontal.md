@@ -26,8 +26,6 @@
   <slot name="complementary">
   </slot>
 </div>
-<dds-hr data-autoid="dds--hr">
-</dds-hr>
 
 ```
 
@@ -55,8 +53,6 @@
   <slot name="complementary">
   </slot>
 </div>
-<dds-hr data-autoid="dds--hr">
-</dds-hr>
 
 ```
 

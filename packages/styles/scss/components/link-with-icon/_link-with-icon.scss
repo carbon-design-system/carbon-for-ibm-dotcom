@@ -37,14 +37,8 @@
     }
 
     &.#{$prefix}--link--disabled {
-      &:not([href]),
-      &:not([button]) {
-        pointer-events: auto;
-        display: flex;
-        &:hover {
-          display: flex;
-          text-decoration: none;
-        }
+      &:hover {
+        @include type-style('body-short-02');
       }
     }
 
