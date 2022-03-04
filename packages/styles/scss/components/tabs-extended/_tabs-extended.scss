@@ -68,7 +68,7 @@
         border: initial;
         border-bottom: 2px solid var(--cds-ui-03, #e0e0e0);
         display: inline-flex;
-        width: 10rem;
+        width: $spacing-13;
         text-align: left;
 
         &[hasTooltip] {
@@ -222,7 +222,7 @@ button.#{$prefix}--tabs__nav-link {
   margin: 0 $spacing-05;
   color: $text-02;
   font-weight: 400;
-  line-height: 1rem;
+  line-height: $spacing-05;
   text-decoration: none;
   text-overflow: ellipsis;
   transition: border $duration--fast-01 motion(standard, productive),
@@ -234,7 +234,7 @@ button.#{$prefix}--tabs__nav-link {
     @include focus-outline('outline');
 
     width: 100%;
-    padding-left: 16px;
+    padding-left: $spacing-05;
     margin: 0;
   }
 
