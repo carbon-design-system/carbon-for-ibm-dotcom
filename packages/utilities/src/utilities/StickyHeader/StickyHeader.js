@@ -72,8 +72,33 @@ class StickyHeader {
     }
   }
 
+  _tableOfContentsStickyUpdate() {
+    const {
+      _tableOfContents: toc,
+    } = this;
+
+    const tocRoot = toc.shadowRoot;
+
+    const desktopSelector = `.${ddsPrefix}-ce--table-of-contents__items-container`;
+
+    if (window.outerWidth > gridBreakpoint) {
+      this._tableOfContentsInnerBar = tocRoot.querySelector(desktopSelector)
+    } else {
+      if (toc.layout === 'horizontal') {
+        this._tableOfContentsInnerBar = tocRoot.querySelector(
+          `.${prefix}--tableofcontents__navbar`
+        );
+        this._tableOfContentsLayout = 'horizontal';
+      } else {
+        this._tableOfContentsInnerBar = tocRoot.querySelector(
+          `.${prefix}--tableofcontents__sidebar`
+        );
+      }
+    }
+
+  }
+
   set banner(component) {
-    console.log(component);
     if (this._validateComponent(component, `${ddsPrefix}-universal-banner`)) {
       this._banner = component;
       this.hasBanner = true;
@@ -105,6 +130,7 @@ class StickyHeader {
     if (this._validateComponent(component, `${ddsPrefix}-masthead`)) {
       this._masthead = component;
       if (this._banner) this._masthead.setAttribute('with-banner', '');
+
       this._mastheadL1 = component.querySelector(`${ddsPrefix}-masthead-l1`);
     }
   }
@@ -112,16 +138,7 @@ class StickyHeader {
   set tableOfContents(component) {
     if (this._validateComponent(component, `${ddsPrefix}-table-of-contents`)) {
       this._tableOfContents = component;
-      if (component.layout === 'horizontal') {
-        this._tableOfContentsInnerBar = component.shadowRoot.querySelector(
-          `.${prefix}--tableofcontents__navbar`
-        );
-        this._tableOfContentsLayout = 'horizontal';
-      } else {
-        this._tableOfContentsInnerBar = component.shadowRoot.querySelector(
-          `.${prefix}--tableofcontents__sidebar`
-        );
-      }
+      this._tableOfContentsStickyUpdate();
       this._resizeObserver.observe(this._tableOfContents);
     }
   }
@@ -144,11 +161,12 @@ class StickyHeader {
     const {
       _hasBanner: hasBanner,
       _masthead: masthead,
-      _tableOfContentsInnerBar: tocInner,
+      _tableOfContents: toc,
       _tableOfContentsLayout: tocLayout,
     } = this;
 
-    if (tocInner && masthead) {
+    if (toc && masthead) {
+      this._tableOfContentsStickyUpdate();
       if (
         window.innerWidth >= gridBreakpoint &&
         tocLayout !== 'horizontal' &&
@@ -156,11 +174,13 @@ class StickyHeader {
       ) {
         masthead.style.top = '0';
       } else {
+        // This has to happen after the tocStickyUpdate method.
+        const { _tableOfContentsInnerBar: tocInner } = this;
         if (masthead.offsetTop === 0) {
           tocInner.style.top = `${masthead.offsetHeight}px`;
         }
-        this._handleIntersect();
       }
+      this._handleIntersect();
     }
   }
 
@@ -179,9 +199,7 @@ class StickyHeader {
     this._lastScrollPosition = newY;
 
     let maxScrollaway = 0;
-    let topmostElement = banner || masthead || tocInner;
-
-    if (banner) maxScrollaway += banner.offsetHeight;
+    let topmostElement = masthead ?? tocInner;
 
     if (window.outerWidth < gridBreakpoint) {
       if (masthead) maxScrollaway += masthead.offsetHeight;
@@ -193,9 +211,7 @@ class StickyHeader {
     );
 
     if (banner) {
-      banner.style.transition = 'none';
-      banner.style.top = `${cumulativeOffset}px`;
-      cumulativeOffset += banner.offsetHeight;
+      cumulativeOffset += Math.max(banner.offsetHeight - newY, 0);
     }
 
     if (masthead) {
