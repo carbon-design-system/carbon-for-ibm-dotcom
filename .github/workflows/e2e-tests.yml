@@ -16,7 +16,7 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         node-version: [ 14.x ]
-        browser: [ chromium ]
+        browser: [ chromium, firefox ]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 60
     steps:
