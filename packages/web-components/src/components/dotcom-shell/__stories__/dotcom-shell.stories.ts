@@ -164,68 +164,6 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const WithoutShell = () => {
-  return html`
-    <style>
-      ${mastheadStyles}
-    </style>
-    <dds-masthead-container id="masthead-container"></dds-masthead-container>
-    <main class="bx--content dds-ce-demo--ui-shell-content">
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-8 bx--col-lg-16">
-            <dds-table-of-contents>
-              <div class="bx--tableofcontents__contents">
-                <a name="1" data-title="Section - 1"></a>
-                <h3 style="margin:4rem 0;">Section - 1</h3>
-                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
-                  <p>Lorem ipsum dolor sit amet</p>
-                </div>
-
-                <a name="2" data-title="Section - 2"></a>
-                <h3 style="margin:4rem 0;">Section - 2</h3>
-                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
-                  <p>Lorem ipsum dolor sit amet</p>
-                </div>
-
-                <a name="3" data-title="Section - 3"></a>
-                <h3 style="margin:4rem 0;">Section - 3</h3>
-                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
-                  <p>Lorem ipsum dolor sit amet</p>
-                </div>
-
-                <a name="4" data-title="Section - 4"></a>
-                <h3 style="margin:4rem 0;">Section - 4</h3>
-                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
-                  <p>Lorem ipsum dolor sit amet</p>
-                </div>
-
-                <a name="5" data-title="Section - 5"></a>
-                <h3 style="margin:4rem 0;">Section - 5</h3>
-                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
-                  <p>Lorem ipsum dolor sit amet</p>
-                </div>
-
-                <a name="6" data-title="Section - 6"></a>
-                <h3 style="margin:4rem 0;">Section - 6</h3>
-                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
-                  <p>Lorem ipsum dolor sit amet</p>
-                </div>
-
-                <a name="7" data-title="Section - 7"></a>
-                <h3 style="margin:4rem 0;">Section - 7</h3>
-                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
-                  <p>Lorem ipsum dolor sit amet</p>
-                </div>
-              </div>
-            </dds-table-of-contents>
-          </div>
-        </div>
-      </div>
-    </main>
-  `;
-};
-
 export const DefaultFooterLanguageOnly = ({ parameters }) => {
   const {
     platform,
@@ -1211,6 +1149,80 @@ WithUniversalBanner.story = {
           imageWidth: '4-col',
         },
       },
+    },
+  },
+};
+
+export const WithoutShell = () => {
+  return html`
+    <style>
+      ${mastheadStyles}
+    </style>
+    <dds-masthead-container id="masthead-container"></dds-masthead-container>
+    <main class="bx--content dds-ce-demo--ui-shell-content">
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-sm-8 bx--col-lg-16">
+            <dds-table-of-contents>
+              <div class="bx--tableofcontents__contents">
+                <a name="1" data-title="Section - 1"></a>
+                <h3 style="margin:4rem 0;">Section - 1</h3>
+                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
+                  <p>Lorem ipsum dolor sit amet</p>
+                </div>
+
+                <a name="2" data-title="Section - 2"></a>
+                <h3 style="margin:4rem 0;">Section - 2</h3>
+                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
+                  <p>Lorem ipsum dolor sit amet</p>
+                </div>
+
+                <a name="3" data-title="Section - 3"></a>
+                <h3 style="margin:4rem 0;">Section - 3</h3>
+                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
+                  <p>Lorem ipsum dolor sit amet</p>
+                </div>
+
+                <a name="4" data-title="Section - 4"></a>
+                <h3 style="margin:4rem 0;">Section - 4</h3>
+                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
+                  <p>Lorem ipsum dolor sit amet</p>
+                </div>
+
+                <a name="5" data-title="Section - 5"></a>
+                <h3 style="margin:4rem 0;">Section - 5</h3>
+                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
+                  <p>Lorem ipsum dolor sit amet</p>
+                </div>
+
+                <a name="6" data-title="Section - 6"></a>
+                <h3 style="margin:4rem 0;">Section - 6</h3>
+                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
+                  <p>Lorem ipsum dolor sit amet</p>
+                </div>
+
+                <a name="7" data-title="Section - 7"></a>
+                <h3 style="margin:4rem 0;">Section - 7</h3>
+                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
+                  <p>Lorem ipsum dolor sit amet</p>
+                </div>
+              </div>
+            </dds-table-of-contents>
+          </div>
+        </div>
+      </div>
+    </main>
+  `;
+};
+
+WithoutShell.story = {
+  name: 'Without Shell (Fallback Utility)',
+  parameters: {
+    knobs: {
+      DotcomShell: () => ({}),
+    },
+    propsSet: {
+      default: {},
     },
   },
 };
