@@ -215,7 +215,7 @@ button.#{$prefix}--tabs__nav-link {
 
   display: inline-block;
   overflow: hidden;
-  width: calc(100% - 32px);
+  width: calc(100% - #{$spacing-07});
   height: rem(40px);
   padding: $spacing-04 0;
   border-bottom: 1px solid $ui-03;
