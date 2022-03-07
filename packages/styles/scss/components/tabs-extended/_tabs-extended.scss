@@ -248,7 +248,7 @@ button.#{$prefix}--tabs__nav-link {
     &:focus,
     &:active {
       width: rem(160px);
-      border-bottom: 2px;
+      border-bottom: carbon--rem(2px);
     }
   }
 }
