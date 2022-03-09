@@ -1153,7 +1153,7 @@ WithUniversalBanner.story = {
   },
 };
 
-export const WithoutShell = ({parameters}) => {
+export const WithoutShell = ({ parameters }) => {
   const { masthead, universalBanner } = parameters?.props?.DotcomShell ?? {};
 
   return html`
