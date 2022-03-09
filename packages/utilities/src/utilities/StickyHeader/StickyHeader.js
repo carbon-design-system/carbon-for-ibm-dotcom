@@ -201,29 +201,31 @@ class StickyHeader {
     let maxScrollaway = 0;
     let topmostElement = masthead || tocInner;
 
-    if (window.outerWidth < gridBreakpoint) {
-      if (masthead) maxScrollaway += masthead.offsetHeight;
-    }
+    if (topmostElement) {
+      if (window.outerWidth < gridBreakpoint) {
+        if (masthead) maxScrollaway += masthead.offsetHeight;
+      }
 
-    let cumulativeOffset = Math.max(
-      Math.min(topmostElement.offsetTop + oldY - newY, 0),
-      maxScrollaway * -1
-    );
+      let cumulativeOffset = Math.max(
+        Math.min(topmostElement.offsetTop + oldY - newY, 0),
+        maxScrollaway * -1
+      );
 
-    if (banner) {
-      cumulativeOffset += Math.max(banner.offsetHeight - newY, 0);
-    }
+      if (banner) {
+        cumulativeOffset += Math.max(banner.offsetHeight - newY, 0);
+      }
 
-    if (masthead) {
-      masthead.style.transition = 'none';
-      masthead.style.top = `${cumulativeOffset}px`;
-      cumulativeOffset += masthead.offsetHeight;
-    }
+      if (masthead) {
+        masthead.style.transition = 'none';
+        masthead.style.top = `${cumulativeOffset}px`;
+        cumulativeOffset += masthead.offsetHeight;
+      }
 
-    if (tocInner) {
-      tocInner.style.transition = 'none';
-      tocInner.style.top = `${cumulativeOffset}px`;
-      cumulativeOffset += tocInner.offsetHeight;
+      if (tocInner) {
+        tocInner.style.transition = 'none';
+        tocInner.style.top = `${cumulativeOffset}px`;
+        cumulativeOffset += tocInner.offsetHeight;
+      }
     }
   }
 }
