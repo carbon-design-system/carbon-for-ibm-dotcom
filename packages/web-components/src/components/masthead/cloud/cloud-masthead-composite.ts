@@ -264,7 +264,6 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
 
     // This is a temp fix until we figure out why we can't set styles to the :host(dds-cloud-masthead-container) in stylesheets
     this.style.zIndex = '900';
-    this.style.paddingTop = '48px';
   }
 
   render() {

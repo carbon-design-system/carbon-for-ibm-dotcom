@@ -22,8 +22,8 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-block-horizontal`)
 class DDSContentBlockHorizontal extends DDSContentGroup {
-  @property({ type: Boolean, reflect: true })
-  border: Boolean = true;
+  @property({ type: Boolean, reflect: true, attribute: 'border' })
+  border = false;
 
   render() {
     return html`
