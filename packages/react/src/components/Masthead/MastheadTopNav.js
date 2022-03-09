@@ -31,9 +31,9 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
 
   useEffect(() => {
     document
-      .querySelector('.bx--header__menu-bar')
+      .querySelector(`.${prefix}--header__menu-bar`)
       .setAttribute('role', 'menu');
-    document.querySelectorAll('.bx--header__menu-bar li').forEach(e => {
+    document.querySelectorAll(`.${prefix}--header__menu-bar li`).forEach(e => {
       e.setAttribute('role', 'menuitem');
       e.querySelector('a').removeAttribute('role');
     });
