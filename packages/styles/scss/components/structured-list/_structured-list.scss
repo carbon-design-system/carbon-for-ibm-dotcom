@@ -11,6 +11,9 @@
 @import 'carbon-web-components/scss/components/structured-list/structured-list';
 
 :host(#{$dds-prefix}-structured-list) {
+  display: table;
+  width: 100%;
+
   .#{$prefix}--structured-list-head {
     display: table-header-group;
     vertical-align: middle;
@@ -22,6 +25,26 @@
 
   .#{$prefix}--structured-list-foot {
     display: table-footer-group;
+  }
+}
+
+:host(#{$dds-prefix}-structured-list-group) {
+  display: contents;
+
+  tr {
+    background-color: #ccc;
+    border-bottom: 1px solid $ui-03;
+    transition: background-color $duration--fast-02 motion(standard, productive);
+  }
+
+  th {
+    @include reset;
+    @include padding-td;
+
+    text-align: left;
+    position: relative;
+    color: $text-02;
+    @include type-style('productive-heading-01');
   }
 }
 
@@ -37,14 +60,14 @@
 
   position: relative;
   display: table-cell;
-  max-width: 36rem;
   color: $text-02;
 
   &[role="cell"] {
     @include type-style('body-long-01');
   }
 
-  &[role="columnheader"] {
+  &[role="columnheader"],
+  &[role="rowheader"] {
     @include type-style('productive-heading-01');
   }
 }

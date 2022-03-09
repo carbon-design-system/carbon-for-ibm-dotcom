@@ -8,5 +8,6 @@
  */
 
 import './structured-list';
+import './structured-list-group';
 import './structured-list-row';
 import './structured-list-cell';
