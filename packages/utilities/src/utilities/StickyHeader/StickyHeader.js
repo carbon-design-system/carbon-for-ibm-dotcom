@@ -199,7 +199,7 @@ class StickyHeader {
     this._lastScrollPosition = newY;
 
     let maxScrollaway = 0;
-    let topmostElement = masthead ?? tocInner;
+    let topmostElement = masthead || tocInner;
 
     if (window.outerWidth < gridBreakpoint) {
       if (masthead) maxScrollaway += masthead.offsetHeight;
