@@ -73,16 +73,14 @@ class StickyHeader {
   }
 
   _tableOfContentsStickyUpdate() {
-    const {
-      _tableOfContents: toc,
-    } = this;
+    const { _tableOfContents: toc } = this;
 
     const tocRoot = toc.shadowRoot;
 
     const desktopSelector = `.${ddsPrefix}-ce--table-of-contents__items-container`;
 
     if (window.outerWidth > gridBreakpoint) {
-      this._tableOfContentsInnerBar = tocRoot.querySelector(desktopSelector)
+      this._tableOfContentsInnerBar = tocRoot.querySelector(desktopSelector);
     } else {
       if (toc.layout === 'horizontal') {
         this._tableOfContentsInnerBar = tocRoot.querySelector(
@@ -95,7 +93,6 @@ class StickyHeader {
         );
       }
     }
-
   }
 
   set banner(component) {
