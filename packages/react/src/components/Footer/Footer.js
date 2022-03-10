@@ -1,22 +1,22 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import FooterLogo from './FooterLogo';
 import FooterNav from './FooterNav';
-import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
+import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import LanguageSelector from './LanguageSelector';
 import LegalNav from './LegalNav';
-import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
+import LocaleAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/Locale/Locale';
 import LocaleButton from './LocaleButton';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
-import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
+import TranslationAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/Translation/Translation';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
