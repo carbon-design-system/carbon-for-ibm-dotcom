@@ -1183,6 +1183,9 @@ export const WithoutShell = ({ parameters }) => {
       <div class="bx--grid">
         <div class="bx--row">
           <div class="bx--col-sm-8 bx--col-lg-16">
+            <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
+              <h2>Leadspace</h2>
+            </div>
             <dds-table-of-contents toc-layout="${tocLayout ?? ''}">
               <div class="bx--tableofcontents__contents">
                 <a name="1" data-title="Section - 1"></a>

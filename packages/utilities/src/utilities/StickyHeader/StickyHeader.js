@@ -80,18 +80,18 @@ class StickyHeader {
     const desktopSelector = `.${ddsPrefix}-ce--table-of-contents__items-container`;
 
     if (window.outerWidth > gridBreakpoint) {
-      this._tableOfContentsInnerBar = tocRoot.querySelector(desktopSelector);
-    } else {
       if (toc.layout === 'horizontal') {
         this._tableOfContentsInnerBar = tocRoot.querySelector(
           `.${prefix}--tableofcontents__navbar`
         );
         this._tableOfContentsLayout = 'horizontal';
       } else {
-        this._tableOfContentsInnerBar = tocRoot.querySelector(
-          `.${prefix}--tableofcontents__sidebar`
-        );
+        this._tableOfContentsInnerBar = tocRoot.querySelector(desktopSelector);
       }
+    } else {
+      this._tableOfContentsInnerBar = tocRoot.querySelector(
+        `.${prefix}--tableofcontents__sidebar`
+      );
     }
   }
 
@@ -199,8 +199,13 @@ class StickyHeader {
     let topmostElement = masthead || tocInner;
 
     if (topmostElement) {
-      if (window.outerWidth < gridBreakpoint) {
-        if (masthead) maxScrollaway += masthead.offsetHeight;
+      if (
+        tocInner &&
+        masthead &&
+        tocInner.getBoundingClientRect().top <=
+          masthead.offsetTop + masthead.offsetHeight
+      ) {
+        maxScrollaway += masthead.offsetHeight;
       }
 
       let cumulativeOffset = Math.max(
