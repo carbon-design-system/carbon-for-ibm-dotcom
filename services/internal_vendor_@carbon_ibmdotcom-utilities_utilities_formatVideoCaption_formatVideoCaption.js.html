@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: services/MastheadLogo/MastheadLogo.js</title>
+    <title>JSDoc: Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: services/MastheadLogo/MastheadLogo.js</h1>
+    <h1 class="page-title">Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js</h1>
 
     
 
@@ -27,51 +27,52 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-class MastheadLogoAPI {
-  /**
-   * Determines whether to return custom or default IBM logo
-   *
-   * @returns {boolean} Use alternate logo or not
-   *
-   * @example
-   * import { MastheadLogoAPI } from '@carbon/ibmdotcom-services';
-   *
-   * const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(logoData);
-   */
-  static setMastheadLogo(logoData) {
-    if (logoData === undefined) return false;
+/**
+ * The default g11n formatter for video caption, combining video name and video duration.
+ * Components using this function should have a mechanism to allow translators
+ * to replace it with one accomodating the preferences of specific locale.
+ *
+ * @param {object} [options] The options, with a video name and a formatted video duration.
+ * @param {string} [options.duration] The video duration.
+ * @param {string} [options.name] The video name.
+ * @returns {string} The formatted video caption.
+ */
+export function formatVideoCaption() {
+  var _ref = arguments.length > 0 &amp;&amp; arguments[0] !== undefined ? arguments[0] : {},
+      duration = _ref.duration,
+      name = _ref.name;
 
-    const currentTime = new Date().getTime();
-    const expireTime = logoData.end ? Date.parse(logoData.end) : null;
-    const isExpired = expireTime &amp;&amp; currentTime > expireTime ? true : false;
-
-    if (
-      logoData.svg === null ||
-      isExpired ||
-      (logoData.denylist &amp;&amp; logoData.denylist.indexOf(location.pathname) !== -1)
-    ) {
-      return false;
-    } else if (
-      logoData.allowlist &amp;&amp;
-      (logoData.allowlist.length == 0 ||
-        logoData.allowlist.indexOf(location.pathname) !== -1) &amp;&amp;
-      logoData.svg
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  return !name || duration !== 0 &amp;&amp; !duration ? name || duration || '' : "".concat(name, " (").concat(duration, ")");
 }
+/**
+ * The default g11n formatter for video duration.
+ * Components using this function should have a mechanism to allow translators
+ * to replace it with one accomodating the preferences of specific locale,
+ * or to replace it with general-purpose g11n formatting library.
+ * (e.g. moment, though it's too big for us to make it a hard dependency)
+ *
+ * @param {object} [options] The options, with a video duration.
+ * @param {number} [options.duration] The video duration, in seconds.
+ * @returns {string} The formatted video duration.
+ */
 
-export default MastheadLogoAPI;
-</code></pre>
+export function formatVideoDuration() {
+  var _ref2 = arguments.length > 0 &amp;&amp; arguments[0] !== undefined ? arguments[0] : {},
+      duration = _ref2.duration;
+
+  var minutes = Math.floor((duration !== null &amp;&amp; duration !== void 0 ? duration : 0) / 60000);
+  var seconds = Math.floor((duration !== null &amp;&amp; duration !== void 0 ? duration : 0) / 1000 % 60);
+  var fillSeconds = Array.from({
+    length: 2 - String(seconds).length + 1
+  }).join('0');
+  return duration == null ? duration : "".concat(minutes, ":").concat(fillSeconds).concat(seconds);
+}</code></pre>
         </article>
     </section>
 

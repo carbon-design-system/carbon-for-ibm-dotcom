@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: services/MastheadLogo/MastheadLogo.js</title>
+    <title>JSDoc: Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/removeHtmlTagEntities/removeHtmlTagEntities.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: services/MastheadLogo/MastheadLogo.js</h1>
+    <h1 class="page-title">Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/removeHtmlTagEntities/removeHtmlTagEntities.js</h1>
 
     
 
@@ -27,51 +27,63 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+var _htmlTagRegex = /&lt;.*?>/g;
+var _cleanStringRegex = /\n|\s{2,}|&amp;([a-zA-Z]+);/g;
+/**
+ * Removes any html tags from a string and keeps inner text if any
+ *
+ * @param {string} str String to be checked for html tags
+ * @returns {string} String with html tags stripped out
+ * @private
+ */
 
-class MastheadLogoAPI {
-  /**
-   * Determines whether to return custom or default IBM logo
-   *
-   * @returns {boolean} Use alternate logo or not
-   *
-   * @example
-   * import { MastheadLogoAPI } from '@carbon/ibmdotcom-services';
-   *
-   * const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(logoData);
-   */
-  static setMastheadLogo(logoData) {
-    if (logoData === undefined) return false;
+var _removeHtmlTags = function _removeHtmlTags(str) {
+  return str.replace(_htmlTagRegex, '');
+};
+/**
+ * Cleans string by replacing multiple spaces with a single space
+ * and removing single new lines.
+ *
+ * @param {string} str String to be checked
+ * @returns {string} String with multiple spaces and single new lines removed
+ * @private
+ */
 
-    const currentTime = new Date().getTime();
-    const expireTime = logoData.end ? Date.parse(logoData.end) : null;
-    const isExpired = expireTime &amp;&amp; currentTime > expireTime ? true : false;
 
-    if (
-      logoData.svg === null ||
-      isExpired ||
-      (logoData.denylist &amp;&amp; logoData.denylist.indexOf(location.pathname) !== -1)
-    ) {
-      return false;
-    } else if (
-      logoData.allowlist &amp;&amp;
-      (logoData.allowlist.length == 0 ||
-        logoData.allowlist.indexOf(location.pathname) !== -1) &amp;&amp;
-      logoData.svg
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+var _cleanString = function _cleanString(str) {
+  return str.replace(_cleanStringRegex, ' ');
+};
+/**
+ *
+ * @param {string} str html string passed in to remove html tags and entities
+ * @param {object} [options={}] Object with options for the conversion
+ * @param {boolean} [options.removeEntities=true] Defines if should remove html entities
+ * @returns {string} String removed of html tags
+ * @example
+ * import { removeHtmlTagEntities } from '@carbon/ibmdotcom-utilities';
+ *
+ * markdownToHtml('&lt;p>example string&lt;/p>&amp;nbsp;&lt;p>here&lt;/>')
+ * // 'example string here'
+ */
+
+
+function removeHtmlTagEntities(str) {
+  var _ref = arguments.length > 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : {},
+      _ref$removeEntities = _ref.removeEntities,
+      removeEntities = _ref$removeEntities === void 0 ? true : _ref$removeEntities;
+
+  var removedTags = _removeHtmlTags(str);
+
+  removedTags = removeEntities ? _cleanString(removedTags) : removedTags;
+  return removedTags;
 }
 
-export default MastheadLogoAPI;
-</code></pre>
+export default removeHtmlTagEntities;</code></pre>
         </article>
     </section>
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: services/MastheadLogo/MastheadLogo.js</title>
+    <title>JSDoc: Source: internal/vendor/@carbon/ibmdotcom-utilities/index.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: services/MastheadLogo/MastheadLogo.js</h1>
+    <h1 class="page-title">Source: internal/vendor/@carbon/ibmdotcom-utilities/index.js</h1>
 
     
 
@@ -27,51 +27,12 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2018
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
-class MastheadLogoAPI {
-  /**
-   * Determines whether to return custom or default IBM logo
-   *
-   * @returns {boolean} Use alternate logo or not
-   *
-   * @example
-   * import { MastheadLogoAPI } from '@carbon/ibmdotcom-services';
-   *
-   * const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(logoData);
-   */
-  static setMastheadLogo(logoData) {
-    if (logoData === undefined) return false;
-
-    const currentTime = new Date().getTime();
-    const expireTime = logoData.end ? Date.parse(logoData.end) : null;
-    const isExpired = expireTime &amp;&amp; currentTime > expireTime ? true : false;
-
-    if (
-      logoData.svg === null ||
-      isExpired ||
-      (logoData.denylist &amp;&amp; logoData.denylist.indexOf(location.pathname) !== -1)
-    ) {
-      return false;
-    } else if (
-      logoData.allowlist &amp;&amp;
-      (logoData.allowlist.length == 0 ||
-        logoData.allowlist.indexOf(location.pathname) !== -1) &amp;&amp;
-      logoData.svg
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-}
-
-export default MastheadLogoAPI;
-</code></pre>
+export * from './utilities';</code></pre>
         </article>
     </section>
 

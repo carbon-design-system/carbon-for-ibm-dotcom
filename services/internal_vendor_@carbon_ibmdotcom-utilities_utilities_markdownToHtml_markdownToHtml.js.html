@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/markdownToHtml/markdownToHtml.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/markdownToHtml/markdownToHtml.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Copyright IBM Corp. 2020, 2022
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+import DOMPurify from 'isomorphic-dompurify';
+import { marked } from 'marked';
+import settings from 'carbon-components/es/globals/js/settings';
+var prefix = settings.prefix;
+var _htmlTagRegex = /&lt;.*?>/g;
+var _cleanStringRegex = /\n|\s{2,}|&amp;;/g;
+/**
+ * Removes any html tags from a string and keeps inner text if any
+ *
+ * @param {string} str String to be checked for html tags
+ * @returns {string} String with html tags stripped out
+ * @private
+ */
+
+var _removeHtmlTags = function _removeHtmlTags(str) {
+  return str.replace(_htmlTagRegex, '');
+};
+/**
+ * Cleans string by replacing multiple spaces with a single space
+ * and removing single new lines.
+ *
+ * @param {string} str String to be checked
+ * @returns {string} String with multiple spaces and single new lines removed
+ * @private
+ */
+
+
+var _cleanString = function _cleanString(str) {
+  return str.replace(_cleanStringRegex, ' ');
+};
+/**
+ * Converts markdown syntaxes into html
+ *
+ * @param {string} str String to convert to html
+ * @param {object} [options={}] Object with options for the conversion
+ * @param {boolean} [options.allowHtml=false] Defines if should allow or remove html tags
+ * @param {object} [options.renderer] Custom renderers
+ * @param {Set&lt;string>} [options.customTags] List of custom element tags the `renderer` uses.
+ * @returns {string} String converted to html
+ * @example
+ * import { markdownToHtml } from '@carbon/ibmdotcom-utilities';
+ *
+ * markdownToHtml('Lorem *ipsum* dolor __sit__.')
+ * // 'Lorem &lt;em class="bx--type-light">ipsum&lt;/em> dolor &lt;strong class="bx--type-semibold">sit&lt;/strong>.'
+ */
+
+
+function markdownToHtml(str) {
+  var _ref = arguments.length > 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : {},
+      _ref$allowHtml = _ref.allowHtml,
+      allowHtml = _ref$allowHtml === void 0 ? false : _ref$allowHtml,
+      _ref$renderer = _ref.renderer,
+      renderer = _ref$renderer === void 0 ? {} : _ref$renderer,
+      customTags = _ref.customTags;
+
+  var converted = allowHtml ? str : _removeHtmlTags(str);
+  /**
+   * Custom rendering options to add Carbon styles
+   *
+   */
+
+  var defaultRenderer = {
+    link: function link(href, title, text) {
+      var linkTitle = title ? "title=\"".concat(title, "\"") : null;
+      return "&lt;a class=\"".concat(prefix, "--link ").concat(prefix, "--link--lg\" href=\"").concat(href, "\" ").concat(linkTitle, ">").concat(text, "&lt;/a>");
+    },
+    list: function list(body, ordered) {
+      var listType = ordered ? 'ol' : 'ul';
+      var listClass = ordered ? "".concat(prefix, "--list--ordered") : "".concat(prefix, "--list--unordered");
+      return "&lt;".concat(listType, " class=\"").concat(listClass, "\">").concat(body, "&lt;/").concat(listType, ">");
+    },
+    listitem: function listitem(text) {
+      return "&lt;li class=\"".concat(prefix, "--list__item\">").concat(text, "&lt;/li>");
+    }
+  };
+  marked.use({
+    smartypants: true,
+    renderer: Object.assign(defaultRenderer, renderer)
+  });
+
+  if (customTags) {
+    DOMPurify.addHook('uponSanitizeElement', function (node, _ref2) {
+      var allowedTags = _ref2.allowedTags,
+          tagName = _ref2.tagName;
+
+      if (customTags.has(tagName) &amp;&amp; !allowedTags[tagName]) {
+        allowedTags[tagName] = true;
+      }
+    });
+  }
+
+  var convertedMarkdown = DOMPurify.sanitize(marked(converted));
+
+  if (customTags) {
+    DOMPurify.removeHook('uponSanitizeElement');
+  }
+
+  return _cleanString(convertedMarkdown);
+}
+
+export default markdownToHtml;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="ibmdotcom.module_settings.html">settings</a></li></ul><h3>Classes</h3><ul><li><a href="AnalyticsAPI.html">AnalyticsAPI</a></li><li><a href="DDOAPI.html">DDOAPI</a></li><li><a href="KalturaPlayerAPI.html">KalturaPlayerAPI</a></li><li><a href="LocaleAPI.html">LocaleAPI</a></li><li><a href="MarketingSearchAPI.html">MarketingSearchAPI</a></li><li><a href="MastheadLogoAPI.html">MastheadLogoAPI</a></li><li><a href="ProfileAPI.html">ProfileAPI</a></li><li><a href="SearchTypeaheadAPI.html">SearchTypeaheadAPI</a></li><li><a href="TranslationAPI.html">TranslationAPI</a></li><li><a href="VideoPlayerAPI.html">VideoPlayerAPI</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_htmlTagRegex">_htmlTagRegex</a></li><li><a href="global.html#altlangs">altlangs</a></li><li><a href="global.html#calculateTotalWidth">calculateTotalWidth</a></li><li><a href="global.html#decodeString">decodeString</a></li><li><a href="global.html#escapeRegExp">escapeRegExp</a></li><li><a href="global.html#focuswrap">focuswrap</a></li><li><a href="global.html#formatVideoCaption">formatVideoCaption</a></li><li><a href="global.html#formatVideoDuration">formatVideoDuration</a></li><li><a href="global.html#geolocation">geolocation</a></li><li><a href="global.html#globalInit">globalInit</a></li><li><a href="global.html#ipcinfoCookie">ipcinfoCookie</a></li><li><a href="global.html#loadNonLatinPlex">loadNonLatinPlex</a></li><li><a href="global.html#markdownToHtml">markdownToHtml</a></li><li><a href="global.html#removeHtmlTagEntities">removeHtmlTagEntities</a></li><li><a href="global.html#sameHeight">sameHeight</a></li><li><a href="global.html#serialize">serialize</a></li><li><a href="global.html#smoothScroll">smoothScroll</a></li><li><a href="global.html#stripHTML">stripHTML</a></li><li><a href="global.html#uniqueid">uniqueid</a></li><li><a href="global.html#value">value</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Thu Mar 10 2022 00:39:14 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

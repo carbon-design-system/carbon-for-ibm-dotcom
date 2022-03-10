@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: services/SearchTypeahead/SearchTypeahead.js</title>
+    <title>JSDoc: Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/ipcinfoCookie/ipcinfoCookie.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: services/SearchTypeahead/SearchTypeahead.js</h1>
+    <h1 class="page-title">Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/ipcinfoCookie/ipcinfoCookie.js</h1>
 
     
 
@@ -26,71 +26,102 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Copyright IBM Corp. 2020, 2022
+            <pre class="prettyprint source linenums"><code>function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i &lt; props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+/**
+ * Copyright IBM Corp. 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import axios from 'axios';
-import { LocaleAPI } from '../Locale';
+import Cookies from 'js-cookie';
 /**
- * @constant {string | string} Host for the API calls
- * @private
- */
-const _host =
-  (process &amp;&amp; process.env.SEARCH_TYPEAHEAD_API) || 'https://www-api.ibm.com';
-/**
- * @constant {string | string} API version
- * @private
- */
-const _version = (process &amp;&amp; process.env.SEARCH_TYPEAHEAD_VERSION) || 'v1';
-/**
- * SearchTypeahead endpoint
+ * Name of cookie needed to grab cc and lc
  *
  * @type {string}
  * @private
  */
-const _endpoint = `${_host}/search/typeahead/${_version}`;
+
+var _cookieName = 'ipcInfo';
 /**
- * SearchTypeahead API class with methods of fetching search results for
- * ibm.com
+ * Utility to set and get the ipcInfo cookie needed to determine country and language code
  */
-class SearchTypeaheadAPI {
-  /**
-   * Gets search results
-   *
-   * @param {string} query Query string to pass to the service
-   * @returns {Promise&lt;any>} Response data from ibm search
-   * @example
-   * import { SearchTypeaheadAPI } from '@carbon/ibmdotcom-services';
-   *
-   * async function getResults(query) {
-   *   const response = await SearchTypeaheadAPI.getResults(query);
-   *   return response;
-   * }
-   */
-  static async getResults(query, appid = '') {
-    const lang = await LocaleAPI.getLang();
-    const urlQuery = [
-      `lang=${lang.lc}${lang.cc ? `&amp;cc=${lang.cc}` : ''}`,
-      `query=${encodeURIComponent(query)}`,
-      `${appid ? `appid=${appid}` : ''}`,
-    ]
-      .filter(item => item)
-      .join('&amp;');
-    const url = `${_endpoint}?${urlQuery}`;
-    return await axios
-      .get(url, {
-        headers: {
-          'Content-Type': 'application/json; charset=utf-8',
-        },
-      })
-      .then(response => response.data.response);
+
+var ipcinfoCookie = /*#__PURE__*/function () {
+  function ipcinfoCookie() {
+    _classCallCheck(this, ipcinfoCookie);
   }
-}
-export default SearchTypeaheadAPI;
-</code></pre>
+
+  _createClass(ipcinfoCookie, null, [{
+    key: "get",
+
+    /**
+     * retreive the ipcInfo cookie that contains the cc and lc
+     * decodes and converts to object
+     *
+     * @example
+     * import { ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
+     *
+     * const info = ipcinfoCookie.get();
+     *
+     *
+     * @returns {object} object containing cc and lc
+     */
+    value: function get() {
+      var ipcinfo = Cookies.get(_cookieName);
+
+      if (ipcinfo) {
+        var cc;
+        var lc;
+        var info = decodeURIComponent(ipcinfo).split(';');
+        info.map(function (code) {
+          var itemParts = code.split('=');
+          if (itemParts[0] === 'cc') cc = itemParts[1];
+          if (itemParts[0] === 'lc') lc = itemParts[1];
+        });
+        return {
+          cc: cc,
+          lc: lc
+        };
+      }
+    }
+    /**
+     * set the ipcInfo cookie with expiration of a year
+     * takes care of converting to string and encoding
+     *
+     * @param {object} params params object
+     * @param {string} params.cc country code
+     * @param {string} params.lc language code
+     *
+     * @example
+     * import { ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
+     *
+     * const locale = {cc: 'us', lc: 'en'}
+     * ipcinfoCookie.set(locale);
+     *
+     */
+
+  }, {
+    key: "set",
+    value: function set(_ref) {
+      var cc = _ref.cc,
+          lc = _ref.lc;
+      var info = "cc=".concat(cc, ";lc=").concat(lc);
+      Cookies.set(_cookieName, encodeURIComponent(info), {
+        expires: 365,
+        domain: '.ibm.com'
+      });
+    }
+  }]);
+
+  return ipcinfoCookie;
+}();
+
+export default ipcinfoCookie;</code></pre>
         </article>
     </section>
 

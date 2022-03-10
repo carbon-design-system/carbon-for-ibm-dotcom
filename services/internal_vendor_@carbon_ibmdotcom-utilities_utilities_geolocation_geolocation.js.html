@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: services/MastheadLogo/MastheadLogo.js</title>
+    <title>JSDoc: Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/geolocation/geolocation.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: services/MastheadLogo/MastheadLogo.js</h1>
+    <h1 class="page-title">Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/geolocation/geolocation.js</h1>
 
     
 
@@ -26,52 +26,68 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Copyright IBM Corp. 2016, 2020
+            <pre class="prettyprint source linenums"><code>function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+/**
+ * Copyright IBM Corp. 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import axios from 'axios';
 
-class MastheadLogoAPI {
-  /**
-   * Determines whether to return custom or default IBM logo
-   *
-   * @returns {boolean} Use alternate logo or not
-   *
-   * @example
-   * import { MastheadLogoAPI } from '@carbon/ibmdotcom-services';
-   *
-   * const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(logoData);
-   */
-  static setMastheadLogo(logoData) {
-    if (logoData === undefined) return false;
+var _endpoint = process &amp;&amp; process.env.GEO_API || 'https://api.www.s81c.com/webmaster/dbip/';
+/**
+ * Utility to retrieve user's country code based on their IP address
+ *
+ * @example
+ * import { geolocation } from '@carbon/ibmdotcom-utilities';
+ *
+ * const locationInfo = await geolocation();
+ *
+ * @returns {string} country cc (cc)
+ *
+ */
 
-    const currentTime = new Date().getTime();
-    const expireTime = logoData.end ? Date.parse(logoData.end) : null;
-    const isExpired = expireTime &amp;&amp; currentTime > expireTime ? true : false;
 
-    if (
-      logoData.svg === null ||
-      isExpired ||
-      (logoData.denylist &amp;&amp; logoData.denylist.indexOf(location.pathname) !== -1)
-    ) {
-      return false;
-    } else if (
-      logoData.allowlist &amp;&amp;
-      (logoData.allowlist.length == 0 ||
-        logoData.allowlist.indexOf(location.pathname) !== -1) &amp;&amp;
-      logoData.svg
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+function geolocation() {
+  return _geolocation.apply(this, arguments);
 }
 
-export default MastheadLogoAPI;
-</code></pre>
+function _geolocation() {
+  _geolocation = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+    var location, cc;
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return axios.get(_endpoint, {
+              headers: {
+                'Content-Type': 'application/json; charset=utf-8'
+              }
+            }).then(function (response) {
+              return response.data;
+            });
+
+          case 2:
+            location = _context.sent;
+            cc = location &amp;&amp; location.country;
+            return _context.abrupt("return", cc);
+
+          case 5:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _geolocation.apply(this, arguments);
+}
+
+export default geolocation;</code></pre>
         </article>
     </section>
 

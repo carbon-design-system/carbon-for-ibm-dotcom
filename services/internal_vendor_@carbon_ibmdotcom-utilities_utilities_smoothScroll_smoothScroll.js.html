@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: services/MastheadLogo/MastheadLogo.js</title>
+    <title>JSDoc: Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/smoothScroll/smoothScroll.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: services/MastheadLogo/MastheadLogo.js</h1>
+    <h1 class="page-title">Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/smoothScroll/smoothScroll.js</h1>
 
     
 
@@ -33,45 +33,43 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-class MastheadLogoAPI {
-  /**
-   * Determines whether to return custom or default IBM logo
-   *
-   * @returns {boolean} Use alternate logo or not
-   *
-   * @example
-   * import { MastheadLogoAPI } from '@carbon/ibmdotcom-services';
-   *
-   * const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(logoData);
-   */
-  static setMastheadLogo(logoData) {
-    if (logoData === undefined) return false;
+/**
+ * Utility handles smoothScroll on the anchor element after onClick
+ *
+ * @example
+ * import { smoothScroll } from '@carbon/ibmdotcom-utilities';
+ *
+ * Here e is event param and seletor is param where you want to apply smoothscroll
+ * &lt;a href="#anchorlinkname" onClick={smoothScroll({ e, selector })}>lorem ipsum&lt;/a>
+ *
+ * You can use this for jump to target element by providing event object.
+ * it will scroll into view of target by selecting attribute and assigning to id.
+ *
+ * @param {*} e event object
+ * @param {*} selector menu item selector id
+ * @param {number} offset top offset for the scroll
+ * @returns {null} Returns null if no scroll is needed
+ */
+var smoothScroll = function smoothScroll(e, selector) {
+  var offset = arguments.length > 2 &amp;&amp; arguments[2] !== undefined ? arguments[2] : 0;
+  var getSelector;
 
-    const currentTime = new Date().getTime();
-    const expireTime = logoData.end ? Date.parse(logoData.end) : null;
-    const isExpired = expireTime &amp;&amp; currentTime > expireTime ? true : false;
-
-    if (
-      logoData.svg === null ||
-      isExpired ||
-      (logoData.denylist &amp;&amp; logoData.denylist.indexOf(location.pathname) !== -1)
-    ) {
-      return false;
-    } else if (
-      logoData.allowlist &amp;&amp;
-      (logoData.allowlist.length == 0 ||
-        logoData.allowlist.indexOf(location.pathname) !== -1) &amp;&amp;
-      logoData.svg
-    ) {
-      return true;
-    } else {
-      return false;
-    }
+  if (e !== null) {
+    e.preventDefault();
+    getSelector = e.currentTarget.getAttribute('href');
+  } else if (selector) {
+    getSelector = selector;
+  } else {
+    return null;
   }
-}
 
-export default MastheadLogoAPI;
-</code></pre>
+  window.scroll({
+    top: document.querySelector(getSelector).getBoundingClientRect().top - offset + window.scrollY,
+    behavior: 'smooth'
+  });
+};
+
+export default smoothScroll;</code></pre>
         </article>
     </section>
 
