@@ -1154,7 +1154,7 @@ WithUniversalBanner.story = {
 };
 
 export const WithoutShell = ({ parameters }) => {
-  const { masthead, universalBanner } = parameters?.props?.DotcomShell ?? {};
+  const { masthead, universalBanner, tocLayout } = parameters?.props?.DotcomShell ?? {};
 
   return html`
     <style>
@@ -1183,7 +1183,7 @@ export const WithoutShell = ({ parameters }) => {
       <div class="bx--grid">
         <div class="bx--row">
           <div class="bx--col-sm-8 bx--col-lg-16">
-            <dds-table-of-contents>
+            <dds-table-of-contents toc-layout="${tocLayout ?? ''}">
               <div class="bx--tableofcontents__contents">
                 <a name="1" data-title="Section - 1"></a>
                 <h3 style="margin:4rem 0;">Section - 1</h3>
@@ -1242,6 +1242,7 @@ WithoutShell.story = {
       DotcomShell: ({ groupId }) => ({
         masthead: select('Masthead Version', ['L0', 'L1'], 'L0', groupId),
         universalBanner: boolean('Has Universal Banner', false, groupId),
+        tocLayout: select('Table of Contents Layout', { Vertical: null, Horizontal: 'horizontal' }, null, groupId),
       }),
     },
     propsSet: {
