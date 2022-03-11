@@ -43,7 +43,7 @@ const _selectors = {
   copy: `.bx--card__copy`,
   footer: `${_selectorBase} [data-autoid="dds--card-footer"]`,
   image: `${_selectorBase} [data-autoid="dds--image"]`,
-  video: `${_selectorBase} [data-autoid="dds--image"]`,
+  video: `dds-card-cta-image`,
   buttonNext: `button[part="next-button"]`,
   buttonPrevious: `button[part="prev-button"]`,
 };
@@ -84,19 +84,45 @@ const _tests = {
   },
   checkTextRenders: () => {
     it('should render card text', () => {
-      cy.get(_selectors.heading).each($heading => {
-        expect($heading).should('be.visible');
-      });
 
-      cy.get(_selectors.copy).each($copy => {
-          expect($copy).should('be.visible');
+      if (_selectorBase.children('dds-card')) {
+        cy.get(_selectors.heading).each($heading => {
+          expect($heading).should('be.visible');
         });
 
-      cy.get(_selectors.footer)
-        .find('svg path')
-        .each($icon => {
-          expect($icon).to.have.attr('d', 'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z');
-      });
+        cy.get(_selectors.copy).each($copy => {
+            expect($copy).should('be.visible');
+          });
+
+        cy.get(_selectors.footer)
+          .find('svg path')
+          .each($icon => {
+            expect($icon).to.have.attr('d', 'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z');
+        });
+
+        cy.takeSnapshots();
+      } else if (_selectorBase.children('dds-video-cta-container')) {
+        console.log('this is a video');
+      }
+    });
+  },
+  checkImageRenders: () => {
+    it('should render with image', () => {
+      cy.get(_selectors.image).should('be.visible');
+
+      cy.takeSnapshots();
+    });
+  },
+  checkVideoRenders: () => {
+    it('should render the video thumbnail and play button', () => {
+      cy.get(_selectors.video)
+        .shadow()
+        .find('img.bx--image__img')
+        .should('be.visible');
+
+      cy.get(_selectors.video)
+        .find('svg[slot="icon"]')
+        .should('be.visible');
 
       cy.takeSnapshots();
     });
@@ -116,13 +142,6 @@ const _tests = {
       cy.get(_selectors.heading).each($heading => {
         expect($heading).to.have.css('height', headingHeight);
       });
-    });
-  },
-  checkImageRenders: () => {
-    it('should render with image', () => {
-      cy.get(_selectors.image).should('be.visible');
-
-      cy.takeSnapshots();
     });
   },
   checkClickableCard: () => {
@@ -196,18 +215,54 @@ const _tests = {
 //   _tests.checkScroll();
 // });
 
-describe('dds-carousel | with images (desktop)', () => {
+// describe('dds-carousel | with images (desktop)', () => {
+//   beforeEach(() => {
+//     cy.viewport(1280, 720);
+//     cy.visit(`${_paths.withImages}`);
+//     cy.injectAxe();
+//   });
+
+  // it('should check a11y', _tests.checkA11y);
+  // it('should render correctly in all themes', _tests.screenshotThemes);
+
+  // _tests.checkTextRenders();
+  // _tests.checkImageRenders();
+  // _tests.checkSameHeight();
+  // _tests.checkClickableCard();
+  // _tests.checkScroll();
+// });
+
+// describe('dds-carousel | with videos (desktop)', () => {
+//   beforeEach(() => {
+//     cy.viewport(1280, 720);
+//     cy.visit(`${_paths.withVideos}`);
+//     cy.injectAxe();
+//   });
+
+  // it('should check a11y', _tests.checkA11y);
+  // it('should render correctly in all themes', _tests.screenshotThemes);
+
+  // _tests.checkTextRenders();
+  // _tests.checkVideoRenders();
+  // _tests.checkSameHeight();
+  // _tests.checkClickableCard();
+  // _tests.checkScroll();
+// });
+
+describe('dds-carousel | with media (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
-    cy.visit(`${_paths.withImages}`);
+    cy.visit(`${_paths.withMedia}`);
     cy.injectAxe();
   });
 
   // it('should check a11y', _tests.checkA11y);
   // it('should render correctly in all themes', _tests.screenshotThemes);
 
-  // _tests.checkTextRenders();
-  _tests.checkSameHeight();
+  _tests.checkTextRenders();
+  // _tests.checkImageRenders();
+  // _tests.checkVideoRenders();
+  // _tests.checkSameHeight();
   // _tests.checkClickableCard();
   // _tests.checkScroll();
 });
