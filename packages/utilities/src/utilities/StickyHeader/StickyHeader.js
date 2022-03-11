@@ -187,6 +187,7 @@ class StickyHeader {
       _banner: banner,
       _masthead: masthead,
       _localeModal: localeModal,
+      _tableOfContents: toc,
       _tableOfContentsInnerBar: tocInner,
     } = StickyHeader.global;
 
@@ -199,13 +200,16 @@ class StickyHeader {
     let topmostElement = masthead || tocInner;
 
     if (topmostElement) {
-      if (
-        tocInner &&
-        masthead &&
-        tocInner.getBoundingClientRect().top <=
-          masthead.offsetTop + masthead.offsetHeight
-      ) {
-        maxScrollaway += masthead.offsetHeight;
+      if (tocInner && masthead) {
+        const tocIsAtTop =
+          tocInner.getBoundingClientRect().top <=
+          masthead.offsetTop + masthead.offsetHeight + 1;
+        if (
+          tocIsAtTop &&
+          (toc.layout === 'horizontal' || window.innerWidth < gridBreakpoint)
+        ) {
+          maxScrollaway += masthead.offsetHeight;
+        }
       }
 
       let cumulativeOffset = Math.max(
