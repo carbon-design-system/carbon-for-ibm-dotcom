@@ -18,7 +18,7 @@ import HostListener from 'carbon-web-components/es/globals/decorators/host-liste
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import TableOfContents20 from 'carbon-web-components/es/icons/table-of-contents/20.js';
 import throttle from 'lodash-es/throttle.js';
-import StickyHeader from '../../../../utilities/src/utilities/StickyHeader/StickyHeader.js';
+import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './table-of-contents.scss';
 import { TOC_TYPES } from './defs';
