@@ -32,9 +32,8 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-filter-panel-composite`)
 class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitElement)) {
-  /** host listener */
   /**
-   * Event to filter selected values in the modal and add the 'has-selections' attribute
+   * Host listener for handling the state change when a input select item is selected.
    *
    * @param event content state change
    * @private
@@ -50,8 +49,8 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
       this._selectedValues = this._selectedValues.filter(e => e !== value);
 
       if (!this._selectedValues.length) {
-        this.shadowRoot!.querySelector('dds-filter-panel-modal')?.removeAttribute('has-selections');
-        this.shadowRoot!.querySelector('dds-filter-panel')?.removeAttribute('has-selections');
+        this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel-modal`)?.removeAttribute('has-selections');
+        this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel`)?.removeAttribute('has-selections');
       }
       return;
     }
@@ -65,15 +64,14 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     }
     // enables the clear button
     if (this._selectedValues) {
-      this.shadowRoot!.querySelector('dds-filter-panel-modal')?.setAttribute('has-selections', '');
-      this.shadowRoot!.querySelector('dds-filter-panel')?.setAttribute('has-selections', '');
+      this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel-modal`)?.setAttribute('has-selections', '');
+      this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel`)?.setAttribute('has-selections', '');
     }
     this.renderStatus();
   };
 
-  /** host listener */
   /**
-   * Host listener for handling the statechange when a checkbox is selected
+   * Host listener for handling the state change when a checkbox is selected.
    *
    * @param event checkbox select event
    * @private
@@ -83,15 +81,17 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     const { value } = event.detail;
 
     // toggle checkbox in filter panel modal
-    this.querySelectorAll('dds-filter-panel-checkbox').forEach(e => {
+    this.querySelectorAll(`${ddsPrefix}-filter-panel-checkbox`).forEach(e => {
       if (e.getAttribute('value') === value) {
         e.toggleAttribute('checked');
-        e.closest('dds-filter-group-item')?.setAttribute('open', '');
+        e.closest(`${ddsPrefix}-filter-group-item`)?.setAttribute('open', '');
+
+        this._focusElement = `${ddsPrefix}-filter-panel-checkbox[value="${value}"]`;
       }
     });
 
-    const filterGroupItems = this.querySelectorAll('dds-filter-group-item');
-    this.shadowRoot?.querySelectorAll('dds-filter-group-item').forEach((filterGroupItem, index) => {
+    const filterGroupItems = this.querySelectorAll(`${ddsPrefix}-filter-group-item`);
+    this.shadowRoot?.querySelectorAll(`${ddsPrefix}-filter-group-item`).forEach((filterGroupItem, index) => {
       if ((filterGroupItem as DDSFilterGroupItem).open) {
         (filterGroupItems[index] as DDSFilterGroupItem).open = true;
       }
@@ -106,11 +106,11 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
 
     // shows clear button depending on the list's length
     if (!this._selectedValues.length) {
-      this.shadowRoot!.querySelector('dds-filter-panel-modal')?.removeAttribute('has-selections');
-      this.shadowRoot!.querySelector('dds-filter-panel')?.removeAttribute('has-selections');
+      this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel-modal`)?.removeAttribute('has-selections');
+      this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel`)?.removeAttribute('has-selections');
     } else {
-      this.shadowRoot!.querySelector('dds-filter-panel-modal')?.setAttribute('has-selections', '');
-      this.shadowRoot!.querySelector('dds-filter-panel')?.setAttribute('has-selections', '');
+      this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel-modal`)?.setAttribute('has-selections', '');
+      this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel`)?.setAttribute('has-selections', '');
     }
 
     this.renderStatus();
@@ -143,26 +143,25 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     this.openFilterModal = false;
   };
 
-  /** host listener for input select header */
   /**
-   * Handles the Filter title state changing
+   * Handles the state change when an input select is selected.
    *
    * @param event title state change
    * @private
    */
-  @HostListener('document:eventTitleChange')
-  protected _handleTitleStateChange = (event: CustomEvent) => {
+  @HostListener('document:eventInputSelect')
+  protected _handleInputSelectStateChange = (event: CustomEvent) => {
     const { headerValue } = event.detail;
 
     // toggle checkbox in filter panel modal
-    this.querySelectorAll('dds-filter-panel-input-select').forEach(e => {
+    this.querySelectorAll(`${ddsPrefix}-filter-panel-input-select`).forEach(e => {
       // capture the element counterpart in Filter Panel Modal
       if (e.getAttribute('header-value') === headerValue) {
-        const currentGroup = e.closest('dds-filter-group-item');
+        const currentGroup = e.closest(`${ddsPrefix}-filter-group-item`);
         currentGroup?.setAttribute('open', '');
 
         // Clears all other sibling items in the Filter Group
-        currentGroup?.querySelectorAll('dds-filter-panel-input-select').forEach(inputSelect => {
+        currentGroup?.querySelectorAll(`${ddsPrefix}-filter-panel-input-select`).forEach(inputSelect => {
           if (inputSelect === e) return;
           this._selectedValues = this._selectedValues.filter(str => str !== inputSelect.getAttribute('header-value'));
           inputSelect.removeAttribute('selected');
@@ -182,14 +181,14 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     }
 
     if (!this._selectedValues.length) {
-      this.shadowRoot!.querySelector('dds-filter-panel-modal')?.removeAttribute('has-selections');
-      this.shadowRoot!.querySelector('dds-filter-panel')?.removeAttribute('has-selections');
+      this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel-modal`)?.removeAttribute('has-selections');
+      this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel`)?.removeAttribute('has-selections');
     }
 
     // enables the clear button
     if (this._selectedValues.length > 0) {
-      this.shadowRoot!.querySelector('dds-filter-panel-modal')?.setAttribute('has-selections', '');
-      this.shadowRoot!.querySelector('dds-filter-panel')?.setAttribute('has-selections', '');
+      this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel-modal`)?.setAttribute('has-selections', '');
+      this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel`)?.setAttribute('has-selections', '');
     }
     this.renderStatus();
   };
@@ -199,17 +198,12 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
     this.renderStatus();
   };
 
-  static get selectorInputSelect() {
-    return `${ddsPrefix}-filter-panel-input-select`;
-  }
-
   /**
    * selected value property
    */
   @property({ type: String, reflect: true })
   selectValue = '';
 
-  /** host listener */
   /**
    * Event handler for the clearing functionality
    *
@@ -221,35 +215,35 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
 
     // handles clear when clearing from the static filter panel modal
     this._contents.forEach(group => {
-      group.querySelectorAll('dds-filter-panel-checkbox').forEach(e => {
+      group.querySelectorAll(`${ddsPrefix}-filter-panel-checkbox`).forEach(e => {
         e.removeAttribute('checked');
       });
-      group.querySelectorAll('dds-filter-panel-input-select-item').forEach(e => {
+      group.querySelectorAll(`${ddsPrefix}-filter-panel-input-select-item`).forEach(e => {
         e.removeAttribute('selected');
         e.removeAttribute('is-open');
       });
-      group.querySelectorAll('dds-filter-panel-input-select').forEach(e => {
+      group.querySelectorAll(`${ddsPrefix}-filter-panel-input-select`).forEach(e => {
         e.removeAttribute('selected');
         e.removeAttribute('is-open');
       });
     });
 
     // handles clear when clearing from the filter panel static
-    this.shadowRoot?.querySelectorAll('dds-filter-panel-checkbox').forEach(e => {
+    this.shadowRoot?.querySelectorAll(`${ddsPrefix}-filter-panel-checkbox`).forEach(e => {
       e.removeAttribute('checked');
     });
-    this.shadowRoot?.querySelectorAll('dds-filter-panel-input-select-item').forEach(e => {
+    this.shadowRoot?.querySelectorAll(`${ddsPrefix}-filter-panel-input-select-item`).forEach(e => {
       e.removeAttribute('selected');
       e.removeAttribute('is-open');
     });
-    this.shadowRoot?.querySelectorAll('dds-filter-panel-input-select').forEach(e => {
+    this.shadowRoot?.querySelectorAll(`${ddsPrefix}-filter-panel-input-select`).forEach(e => {
       e.removeAttribute('selected');
       e.removeAttribute('is-open');
     });
 
     // disables the button
-    this.shadowRoot!.querySelector('dds-filter-panel-modal')?.removeAttribute('has-selections');
-    this.shadowRoot!.querySelector('dds-filter-panel')?.removeAttribute('has-selections');
+    this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel-modal`)?.removeAttribute('has-selections');
+    this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel`)?.removeAttribute('has-selections');
 
     this.renderStatus();
   };
@@ -400,10 +394,10 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   }
 
   /**
-   * The name of the custom event capture upon selecting a title
+   * The name of the custom event capture upon selecting an input select item
    */
 
-  static get eventTitleChange() {
+  static get eventInputSelect() {
     return `${ddsPrefix}-filter-panel-input-select-title`;
   }
 
