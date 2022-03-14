@@ -1,0 +1,73 @@
+//
+// Copyright IBM Corp. 2019, 2021
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../globals/imports';
+@import '../../globals/vars';
+@import 'carbon-components/scss/components/structured-list/structured-list';
+@import 'carbon-web-components/scss/components/structured-list/structured-list';
+
+:host(#{$dds-prefix}-structured-list) {
+  display: table;
+  width: 100%;
+
+  .#{$prefix}--structured-list-head {
+    display: table-header-group;
+    vertical-align: middle;
+  }
+
+  .#{$prefix}--structured-list-body {
+    display: table-row-group;
+  }
+
+  .#{$prefix}--structured-list-foot {
+    display: table-footer-group;
+  }
+}
+
+:host(#{$dds-prefix}-structured-list-group) {
+  display: contents;
+
+  tr {
+    background-color: #ccc;
+    border-bottom: 1px solid $ui-03;
+    transition: background-color $duration--fast-02 motion(standard, productive);
+  }
+
+  th {
+    @include reset;
+    @include padding-td;
+
+    text-align: left;
+    position: relative;
+    color: $text-02;
+    @include type-style('productive-heading-01');
+  }
+}
+
+:host(#{$dds-prefix}-structured-list-row) {
+  display: table-row;
+  border-bottom: 1px solid $ui-03;
+  transition: background-color $duration--fast-02 motion(standard, productive);
+}
+
+:host(#{$dds-prefix}-structured-list-cell) {
+  @include reset;
+  @include padding-td;
+
+  position: relative;
+  display: table-cell;
+  color: $text-02;
+
+  &[role="cell"] {
+    @include type-style('body-long-01');
+  }
+
+  &[role="columnheader"],
+  &[role="rowheader"] {
+    @include type-style('productive-heading-01');
+  }
+}

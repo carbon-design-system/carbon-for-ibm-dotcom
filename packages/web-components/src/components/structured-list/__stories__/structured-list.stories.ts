@@ -36,6 +36,72 @@ export const Default = ({ parameters }) => {
   `;
 };
 
+export const WithRowHeaders = ({ parameters }) => {
+  const { copy } = parameters?.props?.StructuredList ?? {};
+  return html`
+    <dds-structured-list>
+      <dds-structured-list-row slot="header">
+      <dds-structured-list-cell></dds-structured-list-cell>
+      <dds-structured-list-cell>Product 1</dds-structured-list-cell>
+      <dds-structured-list-cell>Product 2</dds-structured-list-cell>
+      <dds-structured-list-cell>Product 3</dds-structured-list-cell>
+      </dds-structured-list-row>
+      <dds-structured-list-row>
+        <dds-structured-list-cell labels="row">Feature 1</dds-structured-list-cell>
+        <dds-structured-list-cell>Lorem ipsum</dds-structured-list-cell>
+        <dds-structured-list-cell>Dolor sit amet</dds-structured-list-cell>
+        <dds-structured-list-cell>Consectetur adipisicing elit</dds-structured-list-cell>
+      </dds-structured-list-row>
+      <dds-structured-list-row>
+        <dds-structured-list-cell labels="row">Feature 2</dds-structured-list-cell>
+        <dds-structured-list-cell>Lorem ipsum</dds-structured-list-cell>
+        <dds-structured-list-cell>Dolor sit amet</dds-structured-list-cell>
+        <dds-structured-list-cell>Consectetur adipisicing elit</dds-structured-list-cell>
+      </dds-structured-list-row>
+      <dds-structured-list-row>
+        <dds-structured-list-cell labels="row">Feature 3</dds-structured-list-cell>
+        <dds-structured-list-cell>Lorem ipsum</dds-structured-list-cell>
+        <dds-structured-list-cell>Dolor sit amet</dds-structured-list-cell>
+        <dds-structured-list-cell>Consectetur adipisicing elit</dds-structured-list-cell>
+      </dds-structured-list-row>
+    </dds-structured-list>
+  `;
+};
+
+export const WithSubheaders = ({ parameters }) => {
+  const { copy } = parameters?.props?.StructuredList ?? {};
+  return html`
+    <dds-structured-list>
+      <dds-structured-list-row slot="header">
+        <dds-structured-list-cell></dds-structured-list-cell>
+        <dds-structured-list-cell>Product 1</dds-structured-list-cell>
+        <dds-structured-list-cell>Product 2</dds-structured-list-cell>
+        <dds-structured-list-cell>Product 3</dds-structured-list-cell>
+      </dds-structured-list-row>
+      <dds-structured-list-group title="Group 1">
+        <dds-structured-list-row>
+          <dds-structured-list-cell labels="row">Feature 1</dds-structured-list-cell>
+          <dds-structured-list-cell>Lorem ipsum</dds-structured-list-cell>
+          <dds-structured-list-cell>Dolor sit amet</dds-structured-list-cell>
+          <dds-structured-list-cell>Consectetur adipisicing elit</dds-structured-list-cell>
+        </dds-structured-list-row>
+        <dds-structured-list-row>
+          <dds-structured-list-cell labels="row">Feature 2</dds-structured-list-cell>
+          <dds-structured-list-cell>Lorem ipsum</dds-structured-list-cell>
+          <dds-structured-list-cell>Dolor sit amet</dds-structured-list-cell>
+          <dds-structured-list-cell>Consectetur adipisicing elit</dds-structured-list-cell>
+        </dds-structured-list-row>
+        <dds-structured-list-row>
+          <dds-structured-list-cell labels="row">Feature 3</dds-structured-list-cell>
+          <dds-structured-list-cell>Lorem ipsum</dds-structured-list-cell>
+          <dds-structured-list-cell>Dolor sit amet</dds-structured-list-cell>
+          <dds-structured-list-cell>Consectetur adipisicing elit</dds-structured-list-cell>
+        </dds-structured-list-row>
+      </dds-structured-list-group>
+    </dds-structured-list>
+  `;
+};
+
 export default {
   title: 'Components/Structured List',
   parameters: {
