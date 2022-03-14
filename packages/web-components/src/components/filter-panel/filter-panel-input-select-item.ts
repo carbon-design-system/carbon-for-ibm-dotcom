@@ -14,7 +14,6 @@ import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
-import DDSFilterPanelComposite from './filter-panel-composite';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -37,31 +36,6 @@ class DDSFilterPanelInputSelectItem extends FocusMixin(StableSelectorMixin(LitEl
    */
   @property({ type: Boolean, reflect: true })
   selected = false;
-
-  /**
-   * Checks if this element's selector matches the focused element state stored
-   * in the filter panel composite.
-   */
-  protected _matchesCachedFocus(): boolean {
-    const { stableSelector } = this.constructor as typeof DDSFilterPanelInputSelectItem;
-    const selector = `${stableSelector}[value="${this.getAttribute('value')}"]`;
-    let result = false;
-
-    const filterPanel = this.closest('dds-filter-panel');
-    if (filterPanel !== null) {
-      // Indicates this is composite's duplicated content.
-      let parentHost: Element | undefined;
-      const parent = filterPanel.parentNode;
-      if (parent instanceof ShadowRoot) {
-        parentHost = parent.host;
-      }
-      if (parentHost instanceof DDSFilterPanelComposite) {
-        result = parentHost._focusElement === selector;
-      }
-    }
-
-    return result;
-  }
 
   /**
    * Handles `slotchange` event.
@@ -89,10 +63,6 @@ class DDSFilterPanelInputSelectItem extends FocusMixin(StableSelectorMixin(LitEl
     if (changedProperties.has('selected')) {
       this.setAttribute('aria-selected', `${String(Boolean(this.selected))}`);
       this.setAttribute('aria-label', `${this._title}, ${this.selected ? 'selected' : 'unselected'}`);
-    }
-
-    if (this._matchesCachedFocus()) {
-      this.focus();
     }
   }
 

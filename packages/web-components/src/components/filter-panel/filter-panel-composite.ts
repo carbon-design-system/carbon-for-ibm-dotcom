@@ -7,10 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, LitElement, property, TemplateResult } from 'lit-element';
+import { customElement, html, LitElement, property, state, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import Filter from 'carbon-web-components/es/icons/filter/16';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
+import { baseFontSize, breakpoints } from '@carbon/layout';
 import './filter-group';
 import './filter-panel';
 import './filter-panel-modal';
@@ -21,9 +22,14 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
 import 'carbon-web-components/es/components/checkbox/checkbox';
 import DDSFilterGroupItem from './filter-group-item';
+import DDSFilterPanelCheckbox from './filter-panel-checkbox';
+import DDSFilterPanelInputSelect from './filter-panel-input-select';
+import DDSFilterPanelInputSelectItem from './filter-panel-input-select-item';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
+
+const breakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
 /**
  * Filter panel composite
@@ -42,7 +48,8 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   protected _handleInputSelectItemStateChange = (event: CustomEvent) => {
     const { value, lastValue, headerValue } = event.detail;
 
-    this._focusElement = `${ddsPrefix}-filter-panel-input-select-item[value="${value}"]`;
+    const { stableSelector } = DDSFilterPanelInputSelectItem;
+    this._focusElement = `${stableSelector}[value="${value}"]`;
 
     // remove the DDSInputSelect (header) value from list to add an inner child instead
     this._selectedValues = this._selectedValues.filter(e => e !== headerValue);
@@ -88,7 +95,8 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
         e.toggleAttribute('checked');
         e.closest(`${ddsPrefix}-filter-group-item`)?.setAttribute('open', '');
 
-        this._focusElement = `${ddsPrefix}-filter-panel-checkbox[value="${value}"]`;
+        const { stableSelector } = DDSFilterPanelCheckbox;
+        this._focusElement = `${stableSelector}[value="${value}"]`;
       }
     });
 
@@ -155,7 +163,8 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   protected _handleInputSelectStateChange = (event: CustomEvent) => {
     const { headerValue } = event.detail;
 
-    this._focusElement = `${ddsPrefix}-filter-panel-input-select[header-value="${headerValue}"]`;
+    const { stableSelector } = DDSFilterPanelInputSelect;
+    this._focusElement = `${stableSelector}[header-value="${headerValue}"]`;
 
     // toggle checkbox in filter panel modal
     this.querySelectorAll(`${ddsPrefix}-filter-panel-input-select`).forEach(e => {
@@ -297,6 +306,45 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   @property()
   _filterGroupsAllRevealed: { id: string; value: boolean }[] = [];
 
+  @property()
+  _isMobile: boolean = window.innerWidth < breakpoint;
+
+  /**
+   * An element to set focus to on render.
+   */
+  @state()
+  _focusElement: string | null = null;
+
+  @HostListener('window:resize')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleWindowResize = (): void => {
+    this._isMobile = window.innerWidth < breakpoint;
+  };
+
+  protected async _querySelectorMobile(id: string): Promise<Element | null> {
+    return this.querySelector(id);
+  }
+
+  protected async _querySelectorDesktop(id: string): Promise<Element | null> {
+    let element;
+    if (this.shadowRoot) {
+      element = this.shadowRoot.querySelector(id);
+    }
+    return element;
+  }
+
+  protected async _querySelector(id: string): Promise<Element | null> {
+    const { _isMobile } = this;
+    let element;
+
+    if (_isMobile) {
+      element = await this._querySelectorMobile(id);
+    } else {
+      element = await this._querySelectorDesktop(id);
+    }
+    return element;
+  }
+
   /**
    * Handles `slotchange` event.
    *
@@ -362,6 +410,20 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
       </button>
       ${this._renderModal()} ${this._renderDesktop()}
     `;
+  }
+
+  protected async updated() {
+    const { _focusElement } = this;
+
+    if (_focusElement) {
+      const targetElement = await this._querySelector(_focusElement);
+
+      if (targetElement instanceof HTMLElement) {
+        targetElement?.focus();
+      }
+
+      this._focusElement = null;
+    }
   }
 
   /**

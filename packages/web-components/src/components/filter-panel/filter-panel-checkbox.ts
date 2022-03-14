@@ -14,7 +14,6 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import 'carbon-web-components/es/components/modal/modal';
 import styles from './filter-panel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSFilterPanelComposite from './filter-panel-composite';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -26,31 +25,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-filter-panel-checkbox`)
 class DDSFilterPanelCheckbox extends FocusMixin(StableSelectorMixin(BXCheckbox)) {
-  /**
-   * Checks if this element's selector matches the focused element state stored
-   * in the filter panel composite.
-   */
-  protected _matchesCachedFocus(): boolean {
-    const { stableSelector } = this.constructor as typeof DDSFilterPanelCheckbox;
-    const selector = `${stableSelector}[value="${this.value}"]`;
-    let result = false;
-
-    const filterPanel = this.closest('dds-filter-panel');
-    if (filterPanel !== null) {
-      // Indicates this is composite's duplicated content.
-      let parentHost: Element | undefined;
-      const parent = filterPanel.parentNode;
-      if (parent instanceof ShadowRoot) {
-        parentHost = parent.host;
-      }
-      if (parentHost instanceof DDSFilterPanelComposite) {
-        result = parentHost._focusElement === selector;
-      }
-    }
-
-    return result;
-  }
-
   /**
    * Handles `click` event on the `<input>` in the shadow DOM.
    */
@@ -68,12 +42,6 @@ class DDSFilterPanelCheckbox extends FocusMixin(StableSelectorMixin(BXCheckbox))
         },
       })
     );
-  }
-
-  protected updated() {
-    if (this._matchesCachedFocus()) {
-      this._checkboxNode.focus();
-    }
   }
 
   /**
