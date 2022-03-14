@@ -64,7 +64,7 @@
     "@carbon/ibmdotcom-services": "1.31.0",
     "@carbon/ibmdotcom-styles": "1.31.0",
     "@carbon/ibmdotcom-utilities": "1.31.0",
-    "@carbon/telemetry": "^0.0.0-alpha.6",
+    "@carbon/telemetry": "^0.1.0",
     "autosuggest-highlight": "^3.1.1",
     "carbon-components": "10.54.0",
     "carbon-components-react": "7.54.2",
@@ -87,7 +87,7 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.10.1",
-    "@carbon/icons-react": "10.47.0",
+    "@carbon/icons-react": "10.48.0",
     "@carbon/pictograms-react": "11.23.0",
     "@carbon/storybook-addon-theme": "1.22.0",
     "@percy-io/in-percy": "^0.1.11",
@@ -202,7 +202,7 @@
     "whatwg-fetch": "^2.0.3"
   },
   "resolutions": {
-    "@carbon/icons-react": "10.47.0"
+    "@carbon/icons-react": "10.48.0"
   },
   "sideEffects": false,
   "bundleSizeThreshold": 300000,

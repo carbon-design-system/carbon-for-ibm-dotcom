@@ -100,7 +100,7 @@
     "@carbon/ibmdotcom-styles": "1.31.0",
     "@carbon/ibmdotcom-utilities": "1.31.0",
     "@carbon/layout": "10.37.0",
-    "@carbon/telemetry": "0.0.0-alpha.6",
+    "@carbon/telemetry": "0.1.0",
     "carbon-components": "10.54.0",
     "carbon-web-components": "1.21.0",
     "lit-element": "2.5.1",
@@ -112,7 +112,7 @@
     "window-or-global": "^1.0.0"
   },
   "optionalDependencies": {
-    "@carbon/icons-react": "10.47.0",
+    "@carbon/icons-react": "10.48.0",
     "lodash.pickby": "^4.6.0",
     "prop-types": "^15.7.0",
     "react": "^16.10.0 || ^17.0.0",
@@ -137,7 +137,7 @@
     "@babel/traverse": "^7.8.0",
     "@carbon/ibmdotcom-services-store": "1.31.0",
     "@carbon/icon-helpers": "10.28.0",
-    "@carbon/icons": "10.47.0",
+    "@carbon/icons": "10.48.0",
     "@carbon/type": "10.42.0",
     "@open-wc/semantic-dom-diff": "^0.15.0",
     "@percy-io/in-percy": "^0.1.11",

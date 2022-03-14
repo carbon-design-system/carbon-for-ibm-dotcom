@@ -48,7 +48,7 @@
     "upgrade-carbon": "yarn upgrade-interactive carbon-components --latest --exact"
   },
   "dependencies": {
-    "@carbon/telemetry": "0.0.0-alpha.6",
+    "@carbon/telemetry": "0.1.0",
     "axios": "~0.21.4",
     "carbon-components": "10.54.0",
     "isomorphic-dompurify": "0.4.0",
