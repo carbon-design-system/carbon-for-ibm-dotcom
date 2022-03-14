@@ -129,7 +129,9 @@ class StickyHeader {
       this._masthead = component;
       if (this._banner) this._masthead.setAttribute('with-banner', '');
 
-      this._mastheadL0 = component.shadowRoot.querySelector(`.${prefix}--masthead__l0`);
+      this._mastheadL0 = component.shadowRoot.querySelector(
+        `.${prefix}--masthead__l0`
+      );
       this._mastheadL1 = component.querySelector(`${ddsPrefix}-masthead-l1`);
     }
   }
@@ -210,11 +212,9 @@ class StickyHeader {
         masthead.offsetTop + masthead.offsetHeight + 1;
       if (
         tocIsAtTop &&
-        (
-          toc.layout === 'horizontal' ||
+        (toc.layout === 'horizontal' ||
           window.innerWidth < gridBreakpoint ||
-          mastheadL1
-        )
+          mastheadL1)
       ) {
         maxScrollaway += masthead.offsetHeight;
 
