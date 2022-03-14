@@ -14,6 +14,7 @@ import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
+import DDSFilterPanelComposite from './filter-panel-composite';
 import DDSFilterPanelInputSelectItem from './filter-panel-input-select-item';
 
 const { prefix } = settings;
@@ -58,6 +59,31 @@ class DDSFilterPanelInputSelect extends FocusMixin(StableSelectorMixin(LitElemen
    */
   @property()
   lastValue: any;
+
+  /**
+   * Checks if this element's selector matches the focused element state stored
+   * in the filter panel composite.
+   */
+  protected _matchesCachedFocus(): boolean {
+    const { stableSelector } = this.constructor as typeof DDSFilterPanelInputSelect;
+    const selector = `${stableSelector}[header-value="${this.headerValue}"]`;
+    let result = false;
+
+    const filterPanel = this.closest('dds-filter-panel');
+    if (filterPanel !== null) {
+      // Indicates this is composite's duplicated content.
+      let parentHost: Element | undefined;
+      const parent = filterPanel.parentNode;
+      if (parent instanceof ShadowRoot) {
+        parentHost = parent.host;
+      }
+      if (parentHost instanceof DDSFilterPanelComposite) {
+        result = parentHost._focusElement === selector;
+      }
+    }
+
+    return result;
+  }
 
   static get selectorItem() {
     return `${ddsPrefix}-filter-panel-input-select-item`;
@@ -168,6 +194,11 @@ class DDSFilterPanelInputSelect extends FocusMixin(StableSelectorMixin(LitElemen
   updated(changedProperties) {
     if (changedProperties.has('selected')) {
       this.ariaLabel = `${this.title}, ${this.selected ? 'selected' : 'unselected'}`;
+    }
+
+    if (this._matchesCachedFocus()) {
+      const focusableElement = this.shadowRoot?.querySelector(`.${prefix}--input-container__heading`) as HTMLElement;
+      focusableElement.focus();
     }
   }
 

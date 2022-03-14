@@ -38,9 +38,11 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
    * @param event content state change
    * @private
    */
-  @HostListener('document:eventContentStateChange')
-  protected _handleContentStateChangeDocument = (event: CustomEvent) => {
+  @HostListener('document:eventInputSelectItem')
+  protected _handleInputSelectItemStateChange = (event: CustomEvent) => {
     const { value, lastValue, headerValue } = event.detail;
+
+    this._focusElement = `${ddsPrefix}-filter-panel-input-select-item[value="${value}"]`;
 
     // remove the DDSInputSelect (header) value from list to add an inner child instead
     this._selectedValues = this._selectedValues.filter(e => e !== headerValue);
@@ -152,6 +154,8 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   @HostListener('document:eventInputSelect')
   protected _handleInputSelectStateChange = (event: CustomEvent) => {
     const { headerValue } = event.detail;
+
+    this._focusElement = `${ddsPrefix}-filter-panel-input-select[header-value="${headerValue}"]`;
 
     // toggle checkbox in filter panel modal
     this.querySelectorAll(`${ddsPrefix}-filter-panel-input-select`).forEach(e => {
@@ -369,10 +373,10 @@ class DDSFilterPanelComposite extends HostListenerMixin(StableSelectorMixin(LitE
   }
 
   /**
-   * The name of the custom event captured upon selecting an option
+   * The name of the custom event captured upon selecting an input select item.
    */
 
-  static get eventContentStateChange() {
+  static get eventInputSelectItem() {
     return `${ddsPrefix}-filter-panel-input-select`;
   }
 
