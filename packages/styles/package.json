@@ -32,11 +32,11 @@
   },
   "dependencies": {
     "@carbon/grid": "10.42.0",
-    "@carbon/icons-react": "10.47.0",
+    "@carbon/icons-react": "10.48.0",
     "@carbon/import-once": "10.7.0",
     "@carbon/layout": "10.37.0",
     "@carbon/motion": "10.29.0",
-    "@carbon/telemetry": "0.0.0-alpha.6",
+    "@carbon/telemetry": "0.1.0",
     "@carbon/themes": "10.52.0",
     "@carbon/type": "10.42.0",
     "carbon-components": "10.55.1"

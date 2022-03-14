@@ -15,5 +15,6 @@
   "rangeStrategy": "replace",
   "vulnerabilityAlerts": {
     "enabled": true
-  }
+  },
+  "rebaseWhen": "never"
 }
