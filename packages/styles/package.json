@@ -37,7 +37,7 @@
     "@carbon/layout": "10.37.0",
     "@carbon/motion": "10.29.0",
     "@carbon/telemetry": "0.1.0",
-    "@carbon/themes": "10.52.0",
+    "@carbon/themes": "10.53.1",
     "@carbon/type": "10.42.0",
     "carbon-components": "10.54.0"
   },
