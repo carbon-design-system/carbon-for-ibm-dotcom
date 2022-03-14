@@ -25,6 +25,7 @@ class StickyHeader {
     this._leadspaceSearchBar = undefined;
     this._localeModal = undefined;
     this._masthead = undefined;
+    this._mastheadL0 = undefined;
     this._mastheadL1 = undefined;
     this._tableOfContents = undefined;
     this._tableOfContentsInnerBar = undefined;
@@ -128,6 +129,7 @@ class StickyHeader {
       this._masthead = component;
       if (this._banner) this._masthead.setAttribute('with-banner', '');
 
+      this._mastheadL0 = component.shadowRoot.querySelector(`.${prefix}--masthead__l0`);
       this._mastheadL1 = component.querySelector(`${ddsPrefix}-masthead-l1`);
     }
   }
@@ -146,11 +148,11 @@ class StickyHeader {
   _throttledHandler() {
     if (!this._throttled) {
       this._throttled = true;
-      this._handleIntersect();
+      this._handleScroll();
 
       setTimeout(() => {
         this._throttled = false;
-      }, 10);
+      }, 20);
     }
   }
 
@@ -177,15 +179,17 @@ class StickyHeader {
           tocInner.style.top = `${masthead.offsetHeight}px`;
         }
       }
-      this._handleIntersect();
+      this._handleScroll();
     }
   }
 
-  _handleIntersect() {
+  _handleScroll() {
     const {
       _lastScrollPosition: oldY,
       _banner: banner,
       _masthead: masthead,
+      _mastheadL0: mastheadL0,
+      _mastheadL1: mastheadL1,
       _localeModal: localeModal,
       _tableOfContents: toc,
       _tableOfContentsInnerBar: tocInner,
@@ -197,19 +201,28 @@ class StickyHeader {
     this._lastScrollPosition = newY;
 
     let maxScrollaway = 0;
-    let topmostElement = masthead || tocInner;
 
-    if (topmostElement) {
-      if (tocInner && masthead) {
-        const tocIsAtTop =
-          tocInner.getBoundingClientRect().top <=
-          masthead.offsetTop + masthead.offsetHeight + 1;
-        if (
-          tocIsAtTop &&
-          (toc.layout === 'horizontal' || window.innerWidth < gridBreakpoint)
-        ) {
-          maxScrollaway += masthead.offsetHeight;
+    const topmostElement = masthead || tocInner;
+
+    if (masthead && tocInner) {
+      const tocIsAtTop =
+        tocInner.getBoundingClientRect().top <=
+        masthead.offsetTop + masthead.offsetHeight + 1;
+      if (
+        tocIsAtTop &&
+        (
+          toc.layout === 'horizontal' ||
+          window.innerWidth < gridBreakpoint ||
+          mastheadL1
+        )
+      ) {
+        maxScrollaway += masthead.offsetHeight;
+
+        if (mastheadL1 && window.innerWidth > gridBreakpoint) {
+          maxScrollaway -= mastheadL1.offsetHeight;
         }
+      } else if (mastheadL0 && mastheadL1) {
+        maxScrollaway += mastheadL0.offsetHeight;
       }
 
       let cumulativeOffset = Math.max(
