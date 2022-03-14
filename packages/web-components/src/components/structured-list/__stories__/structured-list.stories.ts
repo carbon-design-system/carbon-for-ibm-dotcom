@@ -16,22 +16,39 @@ export const Default = ({ parameters }) => {
   const { copy } = parameters?.props?.StructuredList ?? {};
   return html`
     <dds-structured-list>
-      <dds-structured-list-row slot="header">
-        <dds-structured-list-cell>Column 1</dds-structured-list-cell>
-        <dds-structured-list-cell>Column 2</dds-structured-list-cell>
-      </dds-structured-list-row>
-      <dds-structured-list-row>
-        <dds-structured-list-cell>Row Item</dds-structured-list-cell>
-        <dds-structured-list-cell>Lorem Ipsum</dds-structured-list-cell>
-      </dds-structured-list-row>
-      <dds-structured-list-row>
-        <dds-structured-list-cell>Row Item</dds-structured-list-cell>
-        <dds-structured-list-cell>Lorem Ipsum</dds-structured-list-cell>
-      </dds-structured-list-row>
-      <dds-structured-list-row>
-        <dds-structured-list-cell>Row Item</dds-structured-list-cell>
-        <dds-structured-list-cell>Lorem Ipsum</dds-structured-list-cell>
-      </dds-structured-list-row>
+      <dds-structured-list-head>
+        <dds-structured-list-header-row>
+          <dds-structured-list-header-cell>Column A</dds-structured-list-header-cell>
+          <dds-structured-list-header-cell>Column B</dds-structured-list-header-cell>
+          <dds-structured-list-header-cell>Column C</dds-structured-list-header-cell>
+        </dds-structured-list-header-row>
+      </dds-structured-list-head>
+      <dds-structured-list-body>
+        <dds-structured-list-row>
+          <dds-structured-list-cell>Row 1</dds-structured-list-cell>
+          <dds-structured-list-cell>Row 1</dds-structured-list-cell>
+          <dds-structured-list-cell>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+            augue. Aenean posuere sem vel euismod dignissim.
+          </dds-structured-list-cell>
+        </dds-structured-list-row>
+        <dds-structured-list-row>
+          <dds-structured-list-cell>Row 2</dds-structured-list-cell>
+          <dds-structured-list-cell>Row 2</dds-structured-list-cell>
+          <dds-structured-list-cell>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+            augue. Aenean posuere sem vel euismod dignissim.
+          </dds-structured-list-cell>
+        </dds-structured-list-row>
+        <dds-structured-list-row>
+          <dds-structured-list-cell>Row 3</dds-structured-list-cell>
+          <dds-structured-list-cell>Row 3</dds-structured-list-cell>
+          <dds-structured-list-cell>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+            augue. Aenean posuere sem vel euismod dignissim.
+          </dds-structured-list-cell>
+        </dds-structured-list-row>
+      </dds-structured-list-body>
     </dds-structured-list>
   `;
 };
@@ -40,30 +57,39 @@ export const WithRowHeaders = ({ parameters }) => {
   const { copy } = parameters?.props?.StructuredList ?? {};
   return html`
     <dds-structured-list>
-      <dds-structured-list-row slot="header">
-      <dds-structured-list-cell></dds-structured-list-cell>
-      <dds-structured-list-cell>Product 1</dds-structured-list-cell>
-      <dds-structured-list-cell>Product 2</dds-structured-list-cell>
-      <dds-structured-list-cell>Product 3</dds-structured-list-cell>
-      </dds-structured-list-row>
-      <dds-structured-list-row>
-        <dds-structured-list-cell labels="row">Feature 1</dds-structured-list-cell>
-        <dds-structured-list-cell>Lorem ipsum</dds-structured-list-cell>
-        <dds-structured-list-cell>Dolor sit amet</dds-structured-list-cell>
-        <dds-structured-list-cell>Consectetur adipisicing elit</dds-structured-list-cell>
-      </dds-structured-list-row>
-      <dds-structured-list-row>
-        <dds-structured-list-cell labels="row">Feature 2</dds-structured-list-cell>
-        <dds-structured-list-cell>Lorem ipsum</dds-structured-list-cell>
-        <dds-structured-list-cell>Dolor sit amet</dds-structured-list-cell>
-        <dds-structured-list-cell>Consectetur adipisicing elit</dds-structured-list-cell>
-      </dds-structured-list-row>
-      <dds-structured-list-row>
-        <dds-structured-list-cell labels="row">Feature 3</dds-structured-list-cell>
-        <dds-structured-list-cell>Lorem ipsum</dds-structured-list-cell>
-        <dds-structured-list-cell>Dolor sit amet</dds-structured-list-cell>
-        <dds-structured-list-cell>Consectetur adipisicing elit</dds-structured-list-cell>
-      </dds-structured-list-row>
+      <dds-structured-list-head>
+        <dds-structured-list-header-row>
+          <dds-structured-list-header-cell></dds-structured-list-header-cell>
+          <dds-structured-list-header-cell>Column A</dds-structured-list-header-cell>
+          <dds-structured-list-header-cell>Column B</dds-structured-list-header-cell>
+        </dds-structured-list-header-row>
+      </dds-structured-list-head>
+      <dds-structured-list-body>
+        <dds-structured-list-row>
+          <dds-structured-list-header-cell scope="row">Row 1</dds-structured-list-header-cell>
+          <dds-structured-list-cell>Row 1</dds-structured-list-cell>
+          <dds-structured-list-cell>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+            augue. Aenean posuere sem vel euismod dignissim.
+          </dds-structured-list-cell>
+        </dds-structured-list-row>
+        <dds-structured-list-row>
+          <dds-structured-list-header-cell scope="row">Row 2</dds-structured-list-header-cell>
+          <dds-structured-list-cell>Row 2</dds-structured-list-cell>
+          <dds-structured-list-cell>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+            augue. Aenean posuere sem vel euismod dignissim.
+          </dds-structured-list-cell>
+        </dds-structured-list-row>
+        <dds-structured-list-row>
+          <dds-structured-list-header-cell scope="row">Row 3</dds-structured-list-header-cell>
+          <dds-structured-list-cell>Row 3</dds-structured-list-cell>
+          <dds-structured-list-cell>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+            augue. Aenean posuere sem vel euismod dignissim.
+          </dds-structured-list-cell>
+        </dds-structured-list-row>
+      </dds-structured-list-body>
     </dds-structured-list>
   `;
 };
@@ -72,32 +98,93 @@ export const WithSubheaders = ({ parameters }) => {
   const { copy } = parameters?.props?.StructuredList ?? {};
   return html`
     <dds-structured-list>
-      <dds-structured-list-row slot="header">
-        <dds-structured-list-cell></dds-structured-list-cell>
-        <dds-structured-list-cell>Product 1</dds-structured-list-cell>
-        <dds-structured-list-cell>Product 2</dds-structured-list-cell>
-        <dds-structured-list-cell>Product 3</dds-structured-list-cell>
-      </dds-structured-list-row>
-      <dds-structured-list-group title="Group 1">
-        <dds-structured-list-row>
-          <dds-structured-list-cell labels="row">Feature 1</dds-structured-list-cell>
-          <dds-structured-list-cell>Lorem ipsum</dds-structured-list-cell>
-          <dds-structured-list-cell>Dolor sit amet</dds-structured-list-cell>
-          <dds-structured-list-cell>Consectetur adipisicing elit</dds-structured-list-cell>
-        </dds-structured-list-row>
-        <dds-structured-list-row>
-          <dds-structured-list-cell labels="row">Feature 2</dds-structured-list-cell>
-          <dds-structured-list-cell>Lorem ipsum</dds-structured-list-cell>
-          <dds-structured-list-cell>Dolor sit amet</dds-structured-list-cell>
-          <dds-structured-list-cell>Consectetur adipisicing elit</dds-structured-list-cell>
-        </dds-structured-list-row>
-        <dds-structured-list-row>
-          <dds-structured-list-cell labels="row">Feature 3</dds-structured-list-cell>
-          <dds-structured-list-cell>Lorem ipsum</dds-structured-list-cell>
-          <dds-structured-list-cell>Dolor sit amet</dds-structured-list-cell>
-          <dds-structured-list-cell>Consectetur adipisicing elit</dds-structured-list-cell>
-        </dds-structured-list-row>
-      </dds-structured-list-group>
+      <dds-structured-list-head>
+        <dds-structured-list-header-row>
+          <dds-structured-list-header-cell></dds-structured-list-header-cell>
+          <dds-structured-list-header-cell>Column A</dds-structured-list-header-cell>
+          <dds-structured-list-header-cell>Column B</dds-structured-list-header-cell>
+        </dds-structured-list-header-row>
+      </dds-structured-list-head>
+      <dds-structured-list-body>
+        <dds-structured-list-group title="Group 1">
+          <dds-structured-list-row>
+            <dds-structured-list-header-cell scope="row">Row 1</dds-structured-list-header-cell>
+            <dds-structured-list-cell>Row 1</dds-structured-list-cell>
+            <dds-structured-list-cell>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+              augue. Aenean posuere sem vel euismod dignissim.
+            </dds-structured-list-cell>
+          </dds-structured-list-row>
+          <dds-structured-list-row>
+            <dds-structured-list-header-cell scope="row">Row 2</dds-structured-list-header-cell>
+            <dds-structured-list-cell>Row 2</dds-structured-list-cell>
+            <dds-structured-list-cell>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+              augue. Aenean posuere sem vel euismod dignissim.
+            </dds-structured-list-cell>
+          </dds-structured-list-row>
+          <dds-structured-list-row>
+            <dds-structured-list-header-cell scope="row">Row 3</dds-structured-list-header-cell>
+            <dds-structured-list-cell>Row 3</dds-structured-list-cell>
+            <dds-structured-list-cell>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+              augue. Aenean posuere sem vel euismod dignissim.
+            </dds-structured-list-cell>
+          </dds-structured-list-row>
+        </dds-structured-list-group>
+        <dds-structured-list-group title="Group 2">
+          <dds-structured-list-row>
+            <dds-structured-list-header-cell scope="row">Row 1</dds-structured-list-header-cell>
+            <dds-structured-list-cell>Row 1</dds-structured-list-cell>
+            <dds-structured-list-cell>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+              augue. Aenean posuere sem vel euismod dignissim.
+            </dds-structured-list-cell>
+          </dds-structured-list-row>
+          <dds-structured-list-row>
+            <dds-structured-list-header-cell scope="row">Row 2</dds-structured-list-header-cell>
+            <dds-structured-list-cell>Row 2</dds-structured-list-cell>
+            <dds-structured-list-cell>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+              augue. Aenean posuere sem vel euismod dignissim.
+            </dds-structured-list-cell>
+          </dds-structured-list-row>
+          <dds-structured-list-row>
+            <dds-structured-list-header-cell scope="row">Row 3</dds-structured-list-header-cell>
+            <dds-structured-list-cell>Row 3</dds-structured-list-cell>
+            <dds-structured-list-cell>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+              augue. Aenean posuere sem vel euismod dignissim.
+            </dds-structured-list-cell>
+          </dds-structured-list-row>
+        </dds-structured-list-group>
+        <dds-structured-list-group title="Group 3">
+          <dds-structured-list-row>
+            <dds-structured-list-header-cell scope="row">Row 1</dds-structured-list-header-cell>
+            <dds-structured-list-cell>Row 1</dds-structured-list-cell>
+            <dds-structured-list-cell>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+              augue. Aenean posuere sem vel euismod dignissim.
+            </dds-structured-list-cell>
+          </dds-structured-list-row>
+          <dds-structured-list-row>
+            <dds-structured-list-header-cell scope="row">Row 2</dds-structured-list-header-cell>
+            <dds-structured-list-cell>Row 2</dds-structured-list-cell>
+            <dds-structured-list-cell>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+              augue. Aenean posuere sem vel euismod dignissim.
+            </dds-structured-list-cell>
+          </dds-structured-list-row>
+          <dds-structured-list-row>
+            <dds-structured-list-header-cell scope="row">Row 3</dds-structured-list-header-cell>
+            <dds-structured-list-cell>Row 3</dds-structured-list-cell>
+            <dds-structured-list-cell>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+              augue. Aenean posuere sem vel euismod dignissim.
+            </dds-structured-list-cell>
+          </dds-structured-list-row>
+        </dds-structured-list-group>
+      </dds-structured-list-body>
     </dds-structured-list>
   `;
 };
