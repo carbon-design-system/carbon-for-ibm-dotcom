@@ -6,7 +6,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
 import smoothScroll from '@carbon/ibmdotcom-utilities/es/utilities/smoothScroll/smoothScroll';

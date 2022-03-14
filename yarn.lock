@@ -1356,12 +1356,34 @@
     "@carbon/import-once" "^10.7.0"
     "@carbon/layout" "^10.37.0"
 
+"@carbon/ibmdotcom-utilities@1.31.0":
+  version "1.31.0"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.31.0.tgz#895e2d9ecada9e8ba3f0016f3622affe0c0415b5"
+  integrity sha512-0PqjCh8OCEHxcUFujKeLnQh6LCbPv+uV2+ykTWqdpH2Y0nvshJihFSSZIuzmMW/sLwDb3yuLnbfBkLUPvRV34g==
+  dependencies:
+    "@carbon/telemetry" "0.0.0-alpha.6"
+    axios "~0.21.4"
+    carbon-components "10.52.0"
+    isomorphic-dompurify "0.4.0"
+    js-cookie "^2.2.1"
+    marked "^4.0.10"
+    window-or-global "^1.0.1"
+
 "@carbon/icon-helpers@10.28.0", "@carbon/icon-helpers@^10.28.0":
   version "10.28.0"
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.28.0.tgz#702f1bb055c6c2bc203cdd44582ebd3d2801eaaf"
   integrity sha512-hf4fjouzr3jCvh5lTWJt87ABWmoq+3ck0/OOLpxUZLfhumTLRW+8H1Ctz0ldQh5mhmFaPNQUifll6tGI5bkmTw==
 
-"@carbon/icons-react@10.47.0", "@carbon/icons-react@^10.47.0":
+"@carbon/icons-react@10.48.0":
+  version "10.48.0"
+  resolved "https://registry.yarnpkg.com/@carbon/icons-react/-/icons-react-10.48.0.tgz#3d29a28277f64e6d04d4f7dbbec655619d03c0cd"
+  integrity sha512-cYSUXKAIiBxj4KiaXMUtRJK46mpdBPkYW6xT2u266Oh3HFwoJbbsbn4fT2K9CnoL+n28eU7x8o0hjSXfIItEmA==
+  dependencies:
+    "@carbon/icon-helpers" "^10.28.0"
+    "@carbon/telemetry" "0.0.0-alpha.6"
+    prop-types "^15.7.2"
+
+"@carbon/icons-react@^10.47.0":
   version "10.47.0"
   resolved "https://registry.yarnpkg.com/@carbon/icons-react/-/icons-react-10.47.0.tgz#d6e40d9654560238538782338a7d87f56bed543a"
   integrity sha512-9Qud3IqqoJGl/iM3mEIqR843k0LTZr68a3ytn1Gm1xO3P6sQLFAFaKGuM9EONs7BBzFkjJuoSvrDwjZwDFj4PQ==
@@ -1370,10 +1392,10 @@
     "@carbon/telemetry" "0.0.0-alpha.6"
     prop-types "^15.7.2"
 
-"@carbon/icons@10.47.0":
-  version "10.47.0"
-  resolved "https://registry.yarnpkg.com/@carbon/icons/-/icons-10.47.0.tgz#58f55a15b7f58e25db2e714eaea051bc092ba94d"
-  integrity sha512-I1HhB/YGuUoFVp4/hithMuBDtv3z+fVFG9Q169NQ8gzkwE1PMxjUoHlgrKR3kLcRstzC60e5y30uWSRhOBGWBw==
+"@carbon/icons@10.48.0":
+  version "10.48.0"
+  resolved "https://registry.yarnpkg.com/@carbon/icons/-/icons-10.48.0.tgz#a517812f42fc816ef9735409383111d8f23e7bff"
+  integrity sha512-wLvTfQy4k/vF8oVH2T/esISogdyjWJ34KdlfD//A0bKa6YViJStnvyoJA8Pmi7XolVyKm5Cw1ho7CjV1TFBJSg==
 
 "@carbon/import-once@10.7.0", "@carbon/import-once@^10.7.0":
   version "10.7.0"
@@ -1399,7 +1421,7 @@
     "@carbon/telemetry" "0.0.0-alpha.6"
     prop-types "^15.7.2"
 
-"@carbon/telemetry@0.0.0-alpha.6", "@carbon/telemetry@^0.0.0-alpha.6":
+"@carbon/telemetry@0.0.0-alpha.6":
   version "0.0.0-alpha.6"
   resolved "https://registry.yarnpkg.com/@carbon/telemetry/-/telemetry-0.0.0-alpha.6.tgz#1d11e64f310e98f32c3db0c55f02e047f2398087"
   integrity sha512-DCE8ui/tFi+qvCH+mewbUbWzsiq5Ko3HU1lgrVbpjWv1LfswLKFmMg4Os+PmX6edYoBj39qVChJPeaN/UyfJDw==
@@ -1414,6 +1436,11 @@
     semver "^7.3.2"
     winston "^3.3.3"
     yargs "^16.1.1"
+
+"@carbon/telemetry@0.1.0", "@carbon/telemetry@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@carbon/telemetry/-/telemetry-0.1.0.tgz#57b331cd5a855b4abbf55457456da8211624d879"
+  integrity sha512-kNWt0bkgPwGW0i5h7HFuljbKRXPvIhsKbB+1tEURAYLXoJg9iJLF1eGvWN5iVoFCS2zje4GR3OGOsvvKVe7Hlg==
 
 "@carbon/themes@10.52.0":
   version "10.52.0"
@@ -7281,10 +7308,10 @@ capture-exit@^2.0.0:
   dependencies:
     rsvp "^4.8.4"
 
-carbon-components-react@7.54.0:
-  version "7.54.0"
-  resolved "https://registry.yarnpkg.com/carbon-components-react/-/carbon-components-react-7.54.0.tgz#bfe0907089548e37aeb491c99551902ec84b9646"
-  integrity sha512-U55tFKRpvFN9DtoB0++RZYB8zMPkufUIJz7Y7UGI4CTyNVShg9jFyhtk9/8SeEhIgLE3hOdMCd2fg7BtlEva8w==
+carbon-components-react@7.54.2:
+  version "7.54.2"
+  resolved "https://registry.yarnpkg.com/carbon-components-react/-/carbon-components-react-7.54.2.tgz#22f0453800d58d6d80dbaf37a9be4b2cdc10e18e"
+  integrity sha512-eOThqnY9bWZvBYRDx6ODFddLzjTbbzKJQwMg4lXFWCa17U6W/IlSqBVSV9dsEJbirCDWCr1HMV0V6XXzz5JuVg==
   dependencies:
     "@babel/runtime" "^7.16.7"
     "@carbon/feature-flags" "^0.7.0"
@@ -8942,7 +8969,7 @@ cypress-wait-until@^1.7.2:
   resolved "https://registry.yarnpkg.com/cypress-wait-until/-/cypress-wait-until-1.7.2.tgz#7f534dd5a11c89b65359e7a0210f20d3dfc22107"
   integrity sha512-uZ+M8/MqRcpf+FII/UZrU7g1qYZ4aVlHcgyVopnladyoBrpoaMJ4PKZDrdOJ05H5RHbr7s9Tid635X3E+ZLU/Q==
 
-cypress@^8.7.0:
+cypress@^8.1.0:
   version "8.7.0"
   resolved "https://registry.yarnpkg.com/cypress/-/cypress-8.7.0.tgz#2ee371f383d8f233d3425b6cc26ddeec2668b6da"
   integrity sha512-b1bMC3VQydC6sXzBMFnSqcvwc9dTZMgcaOzT0vpSD+Gq1yFc+72JDWi55sfUK5eIeNLAtWOGy1NNb6UlhMvB+Q==
@@ -11369,6 +11396,11 @@ flatpickr@4.6.1:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.6.1.tgz#9eb498ab805dd27f5ae02e1ac6ac6c099ce45e94"
   integrity sha512-3ULSxbXmcMIRzer/2jLNweoqHpwDvsjEawO2FUd9UFR8uPwLM+LruZcPDpuZStcEgbQKhuFOfXo4nYdGladSNw==
+
+flatpickr@4.6.10:
+  version "4.6.10"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.6.10.tgz#6f581fdf8ebba83766457c7ddae36cc4ec983811"
+  integrity sha512-Z1rNbMAg7WmKPBVj0cOjO/4Ab5H3Of5MMohgVvJpFiEAcWFUcaGgN5yzizKGUUN1j6zXYeYASI2XxqrhbiRoig==
 
 flatpickr@4.6.9:
   version "4.6.9"
@@ -16159,12 +16191,19 @@ macos-release@^2.2.0:
   resolved "https://registry.yarnpkg.com/macos-release/-/macos-release-2.3.0.tgz#eb1930b036c0800adebccd5f17bc4c12de8bb71f"
   integrity sha512-OHhSbtcviqMPt7yfw5ef5aghS2jzFVKEFyCJndQt2YpSQ9qRVSEv2axSJI1paVThEu+FFGs584h/1YhxjVqajA==
 
-magic-string@^0.25.0, magic-string@^0.25.2, magic-string@^0.25.7:
+magic-string@^0.25.2, magic-string@^0.25.7:
   version "0.25.7"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.25.7.tgz#3f497d6fd34c669c6798dcb821f2ef31f5445051"
   integrity sha512-4CrMT5DOHTDk4HYDlzmwu4FVCcIYI8gauveasrdCu2IKIFOJ3f0v/8MDGJCDL9oD2ppz/Av1b0Nj345H9M+XIA==
   dependencies:
     sourcemap-codec "^1.4.4"
+
+magic-string@^0.26.0:
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.26.1.tgz#ba9b651354fa9512474199acecf9c6dbe93f97fd"
+  integrity sha512-ndThHmvgtieXe8J/VGPjG+Apu7v7ItcD5mhEIvOscWjPF/ccOiLxHaSuCAS2G+3x4GKsAbT8u7zdyamupui8Tg==
+  dependencies:
+    sourcemap-codec "^1.4.8"
 
 make-dir@^1.0.0:
   version "1.3.0"
@@ -22005,6 +22044,11 @@ sourcemap-codec@^1.4.4:
   version "1.4.6"
   resolved "https://registry.yarnpkg.com/sourcemap-codec/-/sourcemap-codec-1.4.6.tgz#e30a74f0402bad09807640d39e971090a08ce1e9"
   integrity sha512-1ZooVLYFxC448piVLBbtOxFcXwnymH9oUF8nRd3CuYDVvkRBxRl6pB4Mtas5a4drtL+E8LDgFkQNcgIw6tc8Hg==
+
+sourcemap-codec@^1.4.8:
+  version "1.4.8"
+  resolved "https://registry.yarnpkg.com/sourcemap-codec/-/sourcemap-codec-1.4.8.tgz#ea804bd94857402e6992d05a38ef1ae35a9ab4c4"
+  integrity sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==
 
 space-separated-tokens@^1.0.0, space-separated-tokens@^1.1.2:
   version "1.1.5"

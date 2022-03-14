@@ -8,7 +8,6 @@
  */
 
 import { customElement, html, LitElement, property, TemplateResult } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import Filter from 'carbon-web-components/es/icons/filter/16';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
@@ -17,6 +16,7 @@ import './filter-panel';
 import './filter-panel-modal';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
 import 'carbon-web-components/es/components/checkbox/checkbox';

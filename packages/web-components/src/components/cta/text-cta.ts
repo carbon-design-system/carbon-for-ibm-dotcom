@@ -8,11 +8,11 @@
  */
 
 import { html, property, state, customElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import {
   formatVideoCaption,
   formatVideoDuration,
-} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
+} from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
 import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
 import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
