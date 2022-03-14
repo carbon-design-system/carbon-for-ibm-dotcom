@@ -20,7 +20,8 @@
   @extend .#{$prefix}--structured-list-thead;
 }
 :host(#{$dds-prefix}-structured-list-header-row) {
-  @extend .#{$prefix}--structured-list-row, .#{$prefix}--structured-list-row--header-row;
+  @extend .#{$prefix}--structured-list-row,
+    .#{$prefix}--structured-list-row--header-row;
 }
 :host(#{$dds-prefix}-structured-list-header-cell) {
   @extend .#{$prefix}--structured-list-th;
