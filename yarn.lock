@@ -1356,6 +1356,19 @@
     "@carbon/import-once" "^10.7.0"
     "@carbon/layout" "^10.37.0"
 
+"@carbon/ibmdotcom-utilities@1.31.0":
+  version "1.31.0"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.31.0.tgz#895e2d9ecada9e8ba3f0016f3622affe0c0415b5"
+  integrity sha512-0PqjCh8OCEHxcUFujKeLnQh6LCbPv+uV2+ykTWqdpH2Y0nvshJihFSSZIuzmMW/sLwDb3yuLnbfBkLUPvRV34g==
+  dependencies:
+    "@carbon/telemetry" "0.0.0-alpha.6"
+    axios "~0.21.4"
+    carbon-components "10.52.0"
+    isomorphic-dompurify "0.4.0"
+    js-cookie "^2.2.1"
+    marked "^4.0.10"
+    window-or-global "^1.0.1"
+
 "@carbon/icon-helpers@10.28.0", "@carbon/icon-helpers@^10.28.0":
   version "10.28.0"
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.28.0.tgz#702f1bb055c6c2bc203cdd44582ebd3d2801eaaf"
