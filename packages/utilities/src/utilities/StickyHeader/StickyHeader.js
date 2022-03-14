@@ -210,15 +210,14 @@ class StickyHeader {
       const tocIsAtTop =
         tocInner.getBoundingClientRect().top <=
         masthead.offsetTop + masthead.offsetHeight + 1;
-      if (
-        tocIsAtTop &&
-        (toc.layout === 'horizontal' ||
-          window.innerWidth < gridBreakpoint ||
-          mastheadL1)
-      ) {
+
+      const tocShouldStick =
+        toc.layout === 'horizontal' || window.innerWidth < gridBreakpoint;
+
+      if (tocIsAtTop && (tocShouldStick || mastheadL1)) {
         maxScrollaway += masthead.offsetHeight;
 
-        if (mastheadL1 && window.innerWidth > gridBreakpoint) {
+        if (mastheadL1 && !tocShouldStick) {
           maxScrollaway -= mastheadL1.offsetHeight;
         }
       } else if (mastheadL0 && mastheadL1) {
