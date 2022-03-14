@@ -137,7 +137,7 @@
     "@babel/traverse": "^7.8.0",
     "@carbon/ibmdotcom-services-store": "1.31.0",
     "@carbon/icon-helpers": "10.28.0",
-    "@carbon/icons": "10.47.0",
+    "@carbon/icons": "10.48.0",
     "@carbon/type": "10.42.0",
     "@open-wc/semantic-dom-diff": "^0.15.0",
     "@percy-io/in-percy": "^0.1.11",
