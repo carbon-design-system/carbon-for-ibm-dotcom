@@ -31,7 +31,7 @@
     "upgrade-carbon": "yarn upgrade-interactive @carbon/grid @carbon/import-once @carbon/layout @carbon/motion @carbon/themes @carbon/type carbon-components @carbon/icons-react --latest --exact"
   },
   "dependencies": {
-    "@carbon/grid": "10.42.0",
+    "@carbon/grid": "10.43.0",
     "@carbon/icons-react": "10.48.0",
     "@carbon/import-once": "10.7.0",
     "@carbon/layout": "10.37.0",
@@ -39,7 +39,7 @@
     "@carbon/telemetry": "0.1.0",
     "@carbon/themes": "10.53.1",
     "@carbon/type": "10.42.0",
-    "carbon-components": "10.54.0"
+    "carbon-components": "10.55.1"
   },
   "devDependencies": {
     "autoprefixer": "^9.8.0",
