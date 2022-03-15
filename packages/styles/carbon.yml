@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=https://unpkg.com/@carbon-platform/schemas/carbon-resources.schema.json
+library:
+  id: ibmdotcom-styles
+  name: IBM.com Styles
+  description: IBM.com framework agnostic component styles
+  noIndex: true
+  externalDocsUrl: www.ibm.com/standards/web/carbon-for-ibm-dotcom
+assets:
+  back-to-top:
+    name: Back to top
+    description: Back to top is a sticky button that appears on long form pages. When triggered it scrolls the the user back to the top of the page.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/back-to-top
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    # TODO: verify this
+    thumbnailPath: ../../thumbnails/back-to-top.svg
+  button-group:
+    name: Button group
+    description: The Button group component is to be utilized within IBM.com for grouping two or more Button components together and sets all buttons to the same width.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/button-group
+    status:
+      key: stable
+      note: Additional usage guidelines are coming soon.
+    type: component
+    platform: web
+    noIndex: true
+    # TODO: verify this
+    thumbnailPath: ../../thumbnails/button-group.svg
+  callout-quote:
+    name: Callout quote
+    description: Callout quote is a typographic layout that is used to highlight an impactful client statement or user testimonial.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/callout-quote
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    # TODO: verify this
+    thumbnailPath: ../../thumbnails/callout-quote.svg
+  callout-with-media:
+    name: Callout with media
+    description: Callout with media is used to feature a high value media asset such as a customer story.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/callout-with-media
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    # TODO: verify this
+    thumbnailPath: ../../thumbnails/callout-with-media.svg
+  card:
+    name: Card
+    description: The Card component can be used in many different page types. The default design includes a heading and a call to action, and optional extras include an eyebrow, copy, and media. By adding and removing optional content, the card offers a wide range of design possibilities.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/cards#card
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    # TODO: verify this
+    thumbnailPath: ../../thumbnails/card.svg

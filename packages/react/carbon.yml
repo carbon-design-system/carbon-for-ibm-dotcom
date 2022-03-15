@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=https://unpkg.com/@carbon-platform/schemas/carbon-resources.schema.json
+library:
+  id: ibmdotcom-react
+  name: IBM.com React
+  description: IBM.com React components and patterns
+  noIndex: true
+  externalDocsUrl: www.ibm.com/standards/web/carbon-for-ibm-dotcom
+  inherits: ibmdotcom-styles
+  demoLinks:
+    - type: storybook
+      name: Storybook
+      action: link
+      url: https://www.ibm.com/standards/carbon/react/?path=/story/overview-getting-started--page
+assets:
+  back-to-top:
+    status: stable
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/back-to-top
+    framework: react
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/react/?path=/story/components-back-to-top
+  button-group:
+    status:
+      key: stable
+      note: Additional usage guidelines are coming soon.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/button-group
+    framework: react
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/react/?path=/story/components-button-group
+  callout-quote:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/callout-quote
+    status: stable
+    framework: react
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/react/?path=/story/components-callout-quote
+  callout-with-media:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/callout-with-media
+    status: stable
+    framework: react
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/react/?path=/story/components-callout-with-media
+  card:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/cards#card
+    status: stable
+    framework: react
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/react/?path=/story/components-card
