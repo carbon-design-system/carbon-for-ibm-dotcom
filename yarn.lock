@@ -1348,23 +1348,7 @@
   resolved "https://registry.yarnpkg.com/@carbon/feature-flags/-/feature-flags-0.7.0.tgz#fe8068b482439ae7af519ccdbf627f31373bb646"
   integrity sha512-nxVvnSMC6Ia/xn0j02FHPATfB/Iv6nnkZAQ6GrEdPLivSF1T2oaTvgawUsXBO8RBX7wQBq5l7uW8qH/0WfjIFw==
 
-"@carbon/grid@10.43.0":
-  version "10.43.0"
-  resolved "https://registry.yarnpkg.com/@carbon/grid/-/grid-10.43.0.tgz#3040f82094cb985c8bdc79ae1cdb25a2b4a7d7af"
-  integrity sha512-nVyS36Q99GRgda/ntHaUfQpf9+Hts3loqqclwq+l2D1QpuqqL5FTYfJEvLj63AM+/Rt71O+Z8PuXnYJTw0PwGA==
-  dependencies:
-    "@carbon/import-once" "^10.7.0"
-    "@carbon/layout" "^10.37.0"
-
-"@carbon/grid@^10.42.0":
-  version "10.42.0"
-  resolved "https://registry.yarnpkg.com/@carbon/grid/-/grid-10.42.0.tgz#9c0ab3c4afef3028265b6ed8fa539180c5de69c6"
-  integrity sha512-8kqW60tWgM4x3V1XQWSii4KDan5YLfjW7OFeqaJ/cE11sbKqKQtZ5T3JWamDF4Tc1nzWZ4+9PTJ7tX3n7Jskog==
-  dependencies:
-    "@carbon/import-once" "^10.7.0"
-    "@carbon/layout" "^10.37.0"
-
-"@carbon/grid@^10.43.0":
+"@carbon/grid@10.43.0", "@carbon/grid@^10.43.0":
   version "10.43.0"
   resolved "https://registry.yarnpkg.com/@carbon/grid/-/grid-10.43.0.tgz#3040f82094cb985c8bdc79ae1cdb25a2b4a7d7af"
   integrity sha512-nVyS36Q99GRgda/ntHaUfQpf9+Hts3loqqclwq+l2D1QpuqqL5FTYfJEvLj63AM+/Rt71O+Z8PuXnYJTw0PwGA==
@@ -1468,15 +1452,7 @@
     "@carbon/type" "^10.43.1"
     color "^3.1.2"
 
-"@carbon/type@10.42.0":
-  version "10.42.0"
-  resolved "https://registry.yarnpkg.com/@carbon/type/-/type-10.42.0.tgz#3be06607b89abbb7a9e721d6ebe77e21a2d1d395"
-  integrity sha512-EV14OZc/ry/JXIq1Oexgt4TaBgY/bA0HFxUFhDsDx1PtQuinKJwa4tprhPo8moSq9JybApc14MoFBXOG0g1M1Q==
-  dependencies:
-    "@carbon/grid" "^10.42.0"
-    "@carbon/import-once" "^10.7.0"
-
-"@carbon/type@^10.43.1":
+"@carbon/type@10.43.1", "@carbon/type@^10.43.1":
   version "10.43.1"
   resolved "https://registry.yarnpkg.com/@carbon/type/-/type-10.43.1.tgz#6674664d19d474573ebc47eb0237bc0dcf137db2"
   integrity sha512-zfXcmUeqXhaugDtBR0GMiS3drr4mpVZ6n2CiS8B6X6P+aTMgzjsbzgRNe5uXNFGot74IhhxgaKogFd/SBviCmg==
