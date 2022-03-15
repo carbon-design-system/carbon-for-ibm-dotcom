@@ -42,7 +42,6 @@ class DDSStructuredListGroup extends StableSelectorMixin(LitElement) {
   }
 
   render() {
-    console.log(styles);
     return html`
       ${this.groupTitle ? this._renderTitle() : ''}
       <slot></slot>

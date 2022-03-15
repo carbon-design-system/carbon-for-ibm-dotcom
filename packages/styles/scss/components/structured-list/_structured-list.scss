@@ -35,7 +35,7 @@
   tr {
     @extend .#{$prefix}--structured-list-row;
 
-    background-color: #ccc;
+    background-color: $ui-03;
     border-bottom: 1px solid $ui-03;
   }
 

@@ -10,6 +10,7 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/structured-list)
 > example implementation.
+
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/structured-list)
 
 ## Getting started
@@ -29,7 +30,41 @@ import '@carbon/ibmdotcom-web-components/es/components/structured-list/index.js'
 ### HTML
 
 ```html
-<dds-structured-list><dds-structured-list>
+<dds-structured-list>
+  <dds-structured-list-head>
+    <dds-structured-list-header-row>
+      <dds-structured-list-header-cell>Column A</dds-structured-list-header-cell>
+      <dds-structured-list-header-cell>Column B</dds-structured-list-header-cell>
+      <dds-structured-list-header-cell>Column C</dds-structured-list-header-cell>
+    </dds-structured-list-header-row>
+  </dds-structured-list-head>
+  <dds-structured-list-body>
+    <dds-structured-list-row>
+      <dds-structured-list-cell>Row 1</dds-structured-list-cell>
+      <dds-structured-list-cell>Row 1</dds-structured-list-cell>
+      <dds-structured-list-cell>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+        augue. Aenean posuere sem vel euismod dignissim.
+      </dds-structured-list-cell>
+    </dds-structured-list-row>
+    <dds-structured-list-row>
+      <dds-structured-list-cell>Row 2</dds-structured-list-cell>
+      <dds-structured-list-cell>Row 2</dds-structured-list-cell>
+      <dds-structured-list-cell>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+        augue. Aenean posuere sem vel euismod dignissim.
+      </dds-structured-list-cell>
+    </dds-structured-list-row>
+    <dds-structured-list-row>
+      <dds-structured-list-cell>Row 3</dds-structured-list-cell>
+      <dds-structured-list-cell>Row 3</dds-structured-list-cell>
+      <dds-structured-list-cell>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+        augue. Aenean posuere sem vel euismod dignissim.
+      </dds-structured-list-cell>
+    </dds-structured-list-row>
+  </dds-structured-list-body>
+</dds-structured-list>
 ```
 
 ## Props

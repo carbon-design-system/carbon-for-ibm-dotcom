@@ -8,8 +8,10 @@
  */
 
 import { html } from 'lit-element';
+import Info16 from 'carbon-web-components/es/icons/information/16';
 import readme from './README.stories.mdx';
 import '../index';
+import 'carbon-web-components/es/components/tooltip/index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = ({ parameters }) => {
@@ -184,6 +186,42 @@ export const WithSubheaders = ({ parameters }) => {
             </dds-structured-list-cell>
           </dds-structured-list-row>
         </dds-structured-list-group>
+      </dds-structured-list-body>
+    </dds-structured-list>
+  `;
+};
+
+export const WithComplexContent = ({ parameters }) => {
+  const { copy } = parameters?.props?.StructuredList ?? {};
+  return html`
+    <dds-structured-list>
+      <dds-structured-list-head>
+        <dds-structured-list-header-row>
+          <dds-structured-list-header-cell></dds-structured-list-header-cell>
+          <dds-structured-list-header-cell>Column A</dds-structured-list-header-cell>
+          <dds-structured-list-header-cell>Column B</dds-structured-list-header-cell>
+        </dds-structured-list-header-row>
+      </dds-structured-list-head>
+      <dds-structured-list-body>
+
+        <dds-structured-list-row>
+          <dds-structured-list-header-cell scope="row">Row 1</dds-structured-list-header-cell>
+          <dds-structured-list-cell>
+            Row 1
+            <bx-tooltip-icon alignment="start" body-text="Tooltip for row 1" direction="right">
+              ${Info16()}
+            </bx-tooltip-icon>
+          </dds-structured-list-cell>
+          <dds-structured-list-cell>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+              augue. Aenean posuere sem vel euismod dignissim.
+            </p>
+            <dds-tag-link type="green" href="https://example.com">Tag One</dds-tag-link>
+            <dds-tag-link type="green" href="https://example.com">Tag Two</dds-tag-link>
+          </dds-structured-list-cell>
+        </dds-structured-list-row>
+
       </dds-structured-list-body>
     </dds-structured-list>
   `;
