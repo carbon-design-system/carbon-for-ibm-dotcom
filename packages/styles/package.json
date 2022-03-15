@@ -39,7 +39,7 @@
     "@carbon/telemetry": "0.1.0",
     "@carbon/themes": "10.52.0",
     "@carbon/type": "10.42.0",
-    "carbon-components": "10.54.0"
+    "carbon-components": "10.55.1"
   },
   "devDependencies": {
     "autoprefixer": "^9.8.0",
