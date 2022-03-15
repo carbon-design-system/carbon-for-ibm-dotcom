@@ -60,6 +60,13 @@ function findLastIndex<T>(a: T[], predicate: (search: T, index?: number, thisObj
 @customElement(`${ddsPrefix}-table-of-contents`)
 class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
+   * The formatter for the aria label text for the mobile ToC.
+   * Should be changed upon the locale the component is rendered with.
+   */
+  @property({ attribute: false })
+  ariaLabelFormatter = 'Table of contents';
+
+  /**
    * Defines TOC type, "" for default, `horizontal` for horizontal variant.
    */
   @property({ reflect: true, attribute: 'toc-layout' })
@@ -724,7 +731,11 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
             </div>
             <div class="${prefix}--tableofcontents__mobile">
               <div class="${prefix}--tableofcontents__mobile__select__wrapper">
-                <select class="${prefix}--tableofcontents__mobile__select" @change="${handleChangeSelect}">
+                <select
+                  aria-label="${this.ariaLabelFormatter}"
+                  class="${prefix}--tableofcontents__mobile__select"
+                  @change="${handleChangeSelect}"
+                >
                   ${targets.map(item => {
                     const name = item.getAttribute('name');
                     const title = (item.dataset.title ?? item.textContent ?? '').trim();

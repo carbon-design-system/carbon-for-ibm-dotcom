@@ -79,6 +79,7 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
       data-autoid={`${stablePrefix}--tableofcontents__mobile`}>
       <div className={`${prefix}--tableofcontents__mobile__select__wrapper`}>
         <select
+          aria-label={menuLabel}
           className={`${prefix}--tableofcontents__mobile__select`}
           onBlur={handleOnBlur}
           value={selectedOption}

@@ -80,6 +80,9 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
     if (StickyHeader.isNecessary()) {
       StickyHeader.global.banner = this;
     }
+
+  updated() {
+    this.querySelector((this.constructor as typeof DDSUniversalBanner).ctaButton)?.removeAttribute('role');
   }
 
   render() {
