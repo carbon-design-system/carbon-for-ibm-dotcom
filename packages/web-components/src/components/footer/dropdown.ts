@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2021
+ * Copyright IBM Corp. 2019, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -172,7 +172,6 @@ class DDSDropdown extends BXDropdown {
         <slot name="label-text" @slotchange="${handleSlotchangeLabelText}">${labelText}</slot>
       </label>
       <div
-        role="listbox"
         class="${classes}"
         ?data-invalid=${invalid}
         @click=${handleClickInner}
@@ -182,7 +181,7 @@ class DDSDropdown extends BXDropdown {
         ${validityIcon}
         <div
           part="trigger-button"
-          role="${ifDefined(!shouldTriggerBeFocusable ? undefined : 'button')}"
+          role="button"
           class="${prefix}--list-box__field"
           tabindex="${ifDefined(!shouldTriggerBeFocusable ? undefined : '0')}"
           aria-labelledby="trigger-label"
