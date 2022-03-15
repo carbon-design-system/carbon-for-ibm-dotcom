@@ -18,7 +18,6 @@ assets:
     status: stable
     noIndex: true
     externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/AnalyticsAPI.html
-    framework: vanilla
     demoLinks:
       - type: storybook
         name: Storybook
@@ -32,7 +31,6 @@ assets:
     status: stable
     noIndex: true
     externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/KalturaPlayerAPI.html
-    framework: vanilla
     demoLinks:
       - type: storybook
         name: Storybook
@@ -44,7 +42,6 @@ assets:
     type: function
     platform: web
     status: stable
-    framework: vanilla
     noIndex: true
     externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/DDOAPI.html
     demoLinks:
@@ -57,7 +54,6 @@ assets:
     description: Locale API class with method of fetching user's locale for ibm.com.
     type: function
     platform: web
-    framework: vanilla
     status: stable
     noIndex: true
     externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/LocaleAPI.html
@@ -72,7 +68,6 @@ assets:
     type: function
     platform: web
     status: stable
-    framework: vanilla
     noIndex: true
     externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/MarketingSearchAPI.html
     demoLinks:
