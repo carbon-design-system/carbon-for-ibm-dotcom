@@ -75,6 +75,10 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
     this.buttonCopy = hasContent[0]?.textContent?.trim();
   }
 
+  updated() {
+    this.querySelector((this.constructor as typeof DDSUniversalBanner).ctaButton)?.removeAttribute('role');
+  }
+
   render() {
     return html`
       <div class="${prefix}--universal-banner-layout-container">
