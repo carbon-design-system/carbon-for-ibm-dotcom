@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://unpkg.com/@carbon-platform/schemas/carbon-resources.schema.json
+# yaml-language-server: $schema=https://unpkg.com/@carbon-platform/schemas@v1/carbon-resources.schema.json
 library:
   id: ibmdotcom-react
   name: IBM.com React

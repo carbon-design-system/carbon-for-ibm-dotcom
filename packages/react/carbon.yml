@@ -1,9 +1,8 @@
-# yaml-language-server: $schema=https://unpkg.com/@carbon-platform/schemas/carbon-resources.schema.json
+# yaml-language-server: $schema=https://unpkg.com/@carbon-platform/schemas@v1/carbon-resources.schema.json
 library:
   id: ibmdotcom-react
   name: IBM.com React
   description: IBM.com React components and patterns
-  noIndex: true
   externalDocsUrl: www.ibm.com/standards/web/carbon-for-ibm-dotcom
   inherits: ibmdotcom-styles
   demoLinks:
