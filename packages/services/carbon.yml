@@ -19,8 +19,8 @@ assets:
     noIndex: true
     externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/AnalyticsAPI.html
     demoLinks:
-      - type: storybook
-        name: Storybook
+      - type: jsdoc
+        name: JSDoc
         action: link
         url: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/AnalyticsAPI.html
   kaltura-player-api:
