@@ -26,7 +26,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => (
-  <Masthead {...(parameters?.props?.Masthead ?? {})} searchNoRedirect />
+  <Masthead {...(parameters?.props?.Masthead ?? {})} />
 );
 
 Default.story = {
