@@ -3,13 +3,8 @@ library:
   id: ibmdotcom-utilities
   name: IBM.com Utilities
   description: IBM.com ES6 utility classes
-  externalDocsUrl: https://ibmdotcom-utilities.mybluemix.net
+  externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities
   noIndex: true
-  demoLinks:
-    - type: storybook
-      name: Storybook
-      action: link
-      url: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities
 assets:
   altlangs:
     name: altlangs
@@ -20,11 +15,8 @@ assets:
     noIndex: true
     externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#altlangs
     framework: vanilla
-    demoLinks:
-      - type: storybook
-        name: Storybook
-        action: link
-        url: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#altlangs
+    tags:
+      - utility
   calculateTotalWidth:
     name: calculateTotalWidth
     description: Utility to calculate the total width of elements.
@@ -34,11 +26,8 @@ assets:
     noIndex: true
     externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#calculateTotalWidth
     framework: vanilla
-    demoLinks:
-      - type: storybook
-        name: Storybook
-        action: link
-        url: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#calculateTotalWidth
+    tags:
+      - utility
   decodeString:
     name: decodeString
     description: Utility function to parse and decode text content. Strings can become encoded for various reasons. This utility decodes those strings.
@@ -48,11 +37,8 @@ assets:
     framework: vanilla
     noIndex: true
     externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#decodeString
-    demoLinks:
-      - type: storybook
-        name: Storybook
-        action: link
-        url: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#decodeString
+    tags:
+      - utility
   escapeRegExp:
     name: escapeRegExp
     description: Utiltity function for escaping regex expressions https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Escaping.
@@ -62,11 +48,8 @@ assets:
     framework: vanilla
     noIndex: true
     externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#escapeRegExp
-    demoLinks:
-      - type: storybook
-        name: Storybook
-        action: link
-        url: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#escapeRegExp
+    tags:
+      - utility
   focuswrap:
     name: focuswrap
     description: Fires the given event if focus goes out of the given element.
@@ -76,8 +59,5 @@ assets:
     framework: vanilla
     noIndex: true
     externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#focuswrap
-    demoLinks:
-      - type: storybook
-        name: Storybook
-        action: link
-        url: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#focuswrap
+    tags:
+      - utility

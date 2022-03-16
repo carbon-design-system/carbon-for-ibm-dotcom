@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="180px" viewBox="0 0 320 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>call-to-action</title>
+    <defs>
+        <path d="M11.375,6.5625 L10.758125,5.945625 L7.4375,9.261875 L7.4375,0.875 L6.5625,0.875 L6.5625,9.261875 L3.241875,5.945625 L2.625,6.5625 L7,10.9375 L11.375,6.5625 L11.375,6.5625 Z M11.375,10.5 L11.375,12.25 L2.625,12.25 L2.625,10.5 L1.75,10.5 L1.75,12.25 L1.75,12.25 C1.75,12.7332492 2.14175084,13.125 2.625,13.125 L11.375,13.125 C11.8582492,13.125 12.25,12.7332492 12.25,12.25 L12.25,12.25 L12.25,10.5 L11.375,10.5 Z" id="path-1"></path>
+    </defs>
+    <g id="call-to-action" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <text id="Download-file-Copy" font-family="IBMPlexSans, IBM Plex Sans" font-size="12" font-weight="normal" line-spacing="22" fill="#0F62FE">
+            <tspan x="112" y="92">Download file</tspan>
+        </text>
+        <g id="icons/arrows/ibm-forward-link-copy" transform="translate(193.000000, 83.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="icon-color" fill="#0F62FE" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

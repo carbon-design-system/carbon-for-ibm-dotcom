@@ -4,11 +4,7 @@ library:
   name: IBM.com Services
   description: IBM.com ES6 service classes
   noIndex: true
-  demoLinks:
-    - type: storybook
-      name: Storybook
-      action: link
-      url: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services
+  externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services
 assets:
   analytics-api:
     name: AnalyticsAPI
@@ -18,11 +14,9 @@ assets:
     status: stable
     noIndex: true
     externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/AnalyticsAPI.html
-    demoLinks:
-      - type: jsdoc
-        name: JSDoc
-        action: link
-        url: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/AnalyticsAPI.html
+    framework: vanilla
+    tags:
+      - service
   kaltura-player-api:
     name: KalturaPlayerAPI
     description: KalturaPlayerAPI class with methods of checking script state and embed media meta data and api data.
@@ -31,11 +25,9 @@ assets:
     status: stable
     noIndex: true
     externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/KalturaPlayerAPI.html
-    demoLinks:
-      - type: storybook
-        name: Storybook
-        action: link
-        url: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/KalturaPlayerAPI.html
+    framework: vanilla
+    tags:
+      - service
   ddo-api:
     name: DDOAPI
     description: DDO API class with methods of fetching search results for ibm.com.
@@ -44,11 +36,9 @@ assets:
     status: stable
     noIndex: true
     externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/DDOAPI.html
-    demoLinks:
-      - type: storybook
-        name: Storybook
-        action: link
-        url: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/DDOAPI.html
+    framework: vanilla
+    tags:
+      - service
   locale-api:
     name: LocaleAPI
     description: Locale API class with method of fetching user's locale for ibm.com.
@@ -57,11 +47,9 @@ assets:
     status: stable
     noIndex: true
     externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/LocaleAPI.html
-    demoLinks:
-      - type: storybook
-        name: Storybook
-        action: link
-        url: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/LocaleAPI.html
+    framework: vanilla
+    tags:
+      - service
   marketing-search-api:
     name: MarketingSearchAPI
     description: MarketingSearch API class with methods of fetching search results for ibm.com.
@@ -70,8 +58,6 @@ assets:
     status: stable
     noIndex: true
     externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/MarketingSearchAPI.html
-    demoLinks:
-      - type: storybook
-        name: Storybook
-        action: link
-        url: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/MarketingSearchAPI.html
+    framework: vanilla
+    tags:
+      - service

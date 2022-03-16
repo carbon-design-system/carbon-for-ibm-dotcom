@@ -1,15 +1,15 @@
 # yaml-language-server: $schema=https://unpkg.com/@carbon-platform/schemas@v1/carbon-resources.schema.json
 library:
-  id: ibmdotcom-react
-  name: IBM.com React
-  description: IBM.com React components and patterns
+  id: ibmdotcom-web-components
+  name: IBM.com Web Components
+  description: IBM.com web components
   externalDocsUrl: www.ibm.com/standards/web/carbon-for-ibm-dotcom
   inherits: ibmdotcom-styles
   demoLinks:
     - type: storybook
       name: Storybook
       action: link
-      url: https://www.ibm.com/standards/carbon/react/?path=/story/overview-getting-started--page
+      url: https://www.ibm.com/standards/carbon/web-components
 assets:
   back-to-top:
     status: stable

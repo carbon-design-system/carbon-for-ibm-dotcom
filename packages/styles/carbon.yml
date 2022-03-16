@@ -14,8 +14,9 @@ assets:
     type: component
     platform: web
     noIndex: true
-    # TODO: verify this
     thumbnailPath: ../../thumbnails/back-to-top.svg
+    tags:
+      - contextual-navigation
   button-group:
     name: Button group
     description: The Button group component is to be utilized within IBM.com for grouping two or more Button components together and sets all buttons to the same width.
@@ -26,8 +27,9 @@ assets:
     type: component
     platform: web
     noIndex: true
-    # TODO: verify this
     thumbnailPath: ../../thumbnails/button-group.svg
+    tags:
+      - form
   callout-quote:
     name: Callout quote
     description: Callout quote is a typographic layout that is used to highlight an impactful client statement or user testimonial.
@@ -36,8 +38,9 @@ assets:
     type: component
     platform: web
     noIndex: true
-    # TODO: verify this
     thumbnailPath: ../../thumbnails/callout-quote.svg
+    tags:
+      - content-element
   callout-with-media:
     name: Callout with media
     description: Callout with media is used to feature a high value media asset such as a customer story.
@@ -46,8 +49,10 @@ assets:
     type: component
     platform: web
     noIndex: true
-    # TODO: verify this
     thumbnailPath: ../../thumbnails/callout-with-media.svg
+    tags:
+      - content-block
+      - media
   card:
     name: Card
     description: The Card component can be used in many different page types. The default design includes a heading and a call to action, and optional extras include an eyebrow, copy, and media. By adding and removing optional content, the card offers a wide range of design possibilities.
@@ -56,5 +61,7 @@ assets:
     type: component
     platform: web
     noIndex: true
-    # TODO: verify this
+    # TODO: get this thumbnail from design
     thumbnailPath: ../../thumbnails/card.svg
+    tags:
+      - content-element
