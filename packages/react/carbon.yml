@@ -10,7 +10,7 @@ library:
     - type: storybook
       name: Storybook
       action: link
-      url: https://www.ibm.com/standards/carbon/react/?path=/story/overview-getting-started--page
+      url: https://www.ibm.com/standards/carbon/react
 assets:
   back-to-top:
     status: stable
