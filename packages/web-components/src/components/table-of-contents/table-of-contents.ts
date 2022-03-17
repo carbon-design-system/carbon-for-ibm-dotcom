@@ -18,6 +18,7 @@ import HostListener from 'carbon-web-components/es/globals/decorators/host-liste
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import TableOfContents20 from 'carbon-web-components/es/icons/table-of-contents/20.js';
 import throttle from 'lodash-es/throttle.js';
+import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './table-of-contents.scss';
 import { TOC_TYPES } from './defs';
@@ -58,6 +59,13 @@ function findLastIndex<T>(a: T[], predicate: (search: T, index?: number, thisObj
  */
 @customElement(`${ddsPrefix}-table-of-contents`)
 class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElement)) {
+  /**
+   * The formatter for the aria label text for the mobile ToC.
+   * Should be changed upon the locale the component is rendered with.
+   */
+  @property({ attribute: false })
+  ariaLabelFormatter = 'Table of contents';
+
   /**
    * Defines TOC type, "" for default, `horizontal` for horizontal variant.
    */
@@ -552,6 +560,10 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
   firstUpdated() {
     this._cleanAndCreateObserverResizeMobileContainer({ create: true });
     this._cleanAndCreateIntersectionObserverContainer({ create: true });
+
+    if (StickyHeader.isNecessary()) {
+      StickyHeader.global.tableOfContents = this;
+    }
   }
 
   updated(changedProperties) {
@@ -719,7 +731,11 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
             </div>
             <div class="${prefix}--tableofcontents__mobile">
               <div class="${prefix}--tableofcontents__mobile__select__wrapper">
-                <select class="${prefix}--tableofcontents__mobile__select" @change="${handleChangeSelect}">
+                <select
+                  aria-label="${this.ariaLabelFormatter}"
+                  class="${prefix}--tableofcontents__mobile__select"
+                  @change="${handleChangeSelect}"
+                >
                   ${targets.map(item => {
                     const name = item.getAttribute('name');
                     const title = (item.dataset.title ?? item.textContent ?? '').trim();
