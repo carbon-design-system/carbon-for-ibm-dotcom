@@ -133,7 +133,7 @@ const _tests = {
   },
   checkSameHeight: () => {
     it('should have headings all the same height', () => {
-      cy.get(_selectors.heading).then($heading => {
+      cy.get(_selectors.heading).wait(1000).then($heading => {
         let headingHeightNum = $heading.first().height();
         let headingHeight = headingHeightNum + 'px';
 
