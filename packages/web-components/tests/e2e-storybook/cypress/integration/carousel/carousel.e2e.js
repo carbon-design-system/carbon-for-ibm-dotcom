@@ -133,13 +133,15 @@ const _tests = {
   },
   checkSameHeight: () => {
     it('should have headings all the same height', () => {
-      cy.get(_selectors.heading).wait(1000).then($heading => {
-        let headingHeightNum = $heading.first().height();
-        let headingHeight = headingHeightNum + 'px';
+      cy.get(_selectors.heading)
+        .wait(1000)
+        .then($heading => {
+          let headingHeightNum = $heading.first().height();
+          let headingHeight = headingHeightNum + 'px';
 
-        expect($heading).to.not.have.css('height', '0px');
-        expect($heading).to.have.css('height', headingHeight);
-      });
+          expect($heading).to.not.have.css('height', '0px');
+          expect($heading).to.have.css('height', headingHeight);
+        });
     });
   },
   checkClickableCard: () => {
