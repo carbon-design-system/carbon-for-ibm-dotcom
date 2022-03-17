@@ -24,7 +24,6 @@ import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x5
 
 const hrefDefault = 'https://www.ibm.com/standards/carbon';
 const headingDefault = 'Lorem ipsum dolor sit amet';
-const headingOdd = 'Lorem ipsum dolor sit amet quis, consequat libero';
 const copyDefault = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
 const copyOdd = `
   ${copyDefault}
@@ -96,9 +95,7 @@ export const CardsWithImages = ({ parameters }) => {
   });
   return html`
     <dds-carousel class="${classes}">
-      ${Card({ image: imgLg2x1 })}${Card({ heading: headingOdd, copy: copyOdd, image: imgLg2x1 })}${Card({
-        image: imgLg2x1,
-      })}${Card({
+      ${Card({ image: imgLg2x1 })}${Card({ copy: copyOdd, image: imgLg2x1 })}${Card({ image: imgLg2x1 })}${Card({
         copy: copyOdd,
         image: imgLg2x1,
       })}${Card({ image: imgLg2x1 })}
