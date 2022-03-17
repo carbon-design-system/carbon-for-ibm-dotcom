@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,7 +26,7 @@
 
       .#{$prefix}--tabs__nav-item {
         min-height: $spacing-09;
-        width: $spacing-13;
+        width: calc(100% / (12 / 2) - (#{$spacing-01} / 2));
         height: auto;
 
         p {
@@ -68,7 +68,7 @@
         border: initial;
         border-bottom: carbon--rem(2px) solid $ui-03;
         display: inline-flex;
-        width: $spacing-13;
+        width: 100%;
         text-align: left;
 
         &[hasTooltip] {
