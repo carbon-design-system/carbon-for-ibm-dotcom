@@ -67,7 +67,6 @@ const _tests = {
   },
   checkTextRenders: () => {
     it('should render card text and arrow icon', () => {
-
       cy.get(_selectors.heading).then($heading => {
         expect($heading).not.to.be.empty;
       });
@@ -76,7 +75,7 @@ const _tests = {
         expect($copy).not.to.be.empty;
       });
 
-      cy.get(_selectorBase).then(($carousel) => {
+      cy.get(_selectorBase).then($carousel => {
         if ($carousel.find(_selectors.footer).length > 0) {
           cy.get(_selectors.footer)
             .find('svg[slot="icon"] path')
@@ -114,7 +113,10 @@ const _tests = {
       cy.get(_selectors.video)
         .find('svg[slot="icon"] path')
         .each($icon => {
-          expect($icon).to.have.attr('d', 'M26.5555476,43.111135 C26.0032708,43.111135 25.5555476,42.6633959 25.5555476,42.1111111 L25.5555476,20.1111111 C25.5541311,19.7531358 25.7441673,19.4217049 26.0538295,19.2421008 C26.3634918,19.0624967 26.745539,19.0621192 27.0555476,19.2411111 L46.0555476,30.2411111 C46.368866,30.4186723 46.5625038,30.7509842 46.5625038,31.1111111 C46.5625038,31.4712381 46.368866,31.8035499 46.0555476,31.9811111 L27.0555476,42.9811111 C26.9031526,43.0674916 26.7307319,43.1123209 26.5555476,43.111135 Z');
+          expect($icon).to.have.attr(
+            'd',
+            'M26.5555476,43.111135 C26.0032708,43.111135 25.5555476,42.6633959 25.5555476,42.1111111 L25.5555476,20.1111111 C25.5541311,19.7531358 25.7441673,19.4217049 26.0538295,19.2421008 C26.3634918,19.0624967 26.745539,19.0621192 27.0555476,19.2411111 L46.0555476,30.2411111 C46.368866,30.4186723 46.5625038,30.7509842 46.5625038,31.1111111 C46.5625038,31.4712381 46.368866,31.8035499 46.0555476,31.9811111 L27.0555476,42.9811111 C26.9031526,43.0674916 26.7307319,43.1123209 26.5555476,43.111135 Z'
+          );
         });
 
       cy.takeSnapshots();
@@ -131,7 +133,7 @@ const _tests = {
   },
   checkSameHeight: () => {
     it('should have headings all the same height', () => {
-      cy.get(_selectors.heading).then(($heading) => {
+      cy.get(_selectors.heading).then($heading => {
         let headingHeightNum = $heading.first().height();
         let headingHeight = headingHeightNum + 'px';
 
@@ -142,7 +144,7 @@ const _tests = {
   },
   checkClickableCard: () => {
     it("should check that the footer's pseudo class takes up entire card to be clickable", () => {
-      cy.get(_selectorBase).then(($carousel) => {
+      cy.get(_selectorBase).then($carousel => {
         if ($carousel.find(_selectors.footer).length > 0) {
           cy.get(_selectors.footer)
             .shadow()
