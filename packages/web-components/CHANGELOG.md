@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.17.0-rc.0...@carbon/ibmdotcom-web-components@1.17.0-rc.1) (2022-03-17)
+
+
+### Bug Fixes
+
+* **plex:** replace `gstatic` font references with akamai ([#8502](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8502)) ([e0b3a51](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/e0b3a51))
+
+
+### Features
+
+* **scrolling-utility:** Add new utility to mimic dotcom-shell functionality ([#8434](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8434)) ([d06b45a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/d06b45a))
+
+
+
+
+
 # [1.17.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.16.0...@carbon/ibmdotcom-web-components@1.17.0-rc.0) (2022-03-16)
 
 

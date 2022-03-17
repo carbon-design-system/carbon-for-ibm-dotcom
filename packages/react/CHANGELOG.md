@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.32.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.32.0-rc.0...@carbon/ibmdotcom-react@1.32.0-rc.1) (2022-03-17)
+
+
+### Bug Fixes
+
+* **masthead-search:** react searchNoRedirect prop doesn't work on enter ([#8516](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8516)) ([#8541](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8541)) ([d1d1c95](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d1d1c95)), closes [#8334](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8334)
+* **plex:** replace `gstatic` font references with akamai ([#8502](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8502)) ([e0b3a51](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e0b3a51))
+
+
+### Features
+
+* **scrolling-utility:** Add new utility to mimic dotcom-shell functionality ([#8434](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8434)) ([d06b45a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d06b45a))
+
+
+
+# 1.32.0-rc.0 (2022-03-16)
+
+
+
+
+
 # [1.32.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.31.0...@carbon/ibmdotcom-react@1.32.0-rc.0) (2022-03-16)
 
 
