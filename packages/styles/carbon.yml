@@ -57,9 +57,7 @@ assets:
     name: Card
     description: The Card component can be used in many different page types. The default design includes a heading and a call to action, and optional extras include an eyebrow, copy, and media. By adding and removing optional content, the card offers a wide range of design possibilities.
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/cards#card
-    status:
-      key: stable
-      note: new
+    status: stable
     type: component
     platform: web
     noIndex: true
@@ -71,9 +69,7 @@ assets:
     name: Card in card
     description: Card in card shares the same functionality and text content requirements of a standard card, but requires a large media element. Card in card is often used in a Card group to as a featured card.
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/cards#card-in-card
-    status:
-      key: stable
-      note: new
+    status: stable
     type: component
     platform: web
     noIndex: true
@@ -241,9 +237,7 @@ assets:
     name: Content group banner
     description: Content group banner is designed as a subtle callout, intended for tangential information or announcements that are supplementary to the page's main focus.
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-group-banner
-    status:
-      key: stable
-      note: new
+    status: stable
     type: component
     platform: web
     noIndex: true
@@ -299,9 +293,7 @@ assets:
     name: Content item horizontal
     description: Content item horizontal component displays information in a horizontal orientation.
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-item-horizontal
-    status:
-      key: stable
-      note: new
+    status: stable
     type: component
     platform: web
     noIndex: true
@@ -323,9 +315,7 @@ assets:
     name: CTA
     description: CTA stands for call to action. A CTA refers to the use of words or phrases that can compel an audience to act in a specific way.
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/cta
-    status:
-      key: stable
-      note: new
+    status: stable
     type: component
     platform: web
     noIndex: true
@@ -347,7 +337,7 @@ assets:
     name: CTA block
     description: CTA block combines a heading, copy and CTA(s), this component is typically used at the bottom of a page to guide the user towards the next step in their journey.
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/cta-block-and-section#cta-block
-    status: draft
+    status: stable
     type: component
     platform: web
     noIndex: true
@@ -359,9 +349,7 @@ assets:
     name: Dotcom shell
     description: Dotcom shell includes the Masthead, and Footer components, all wrapped in a UI shell using Carbon's grid.
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/dotcom-shell
-    status:
-      key: stable
-      note: updated
+    status: stable
     type: component
     platform: web
     noIndex: true
@@ -384,9 +372,7 @@ assets:
     name: Feature section
     description: Feature section is a dedicated section for a single story.
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/feature-section
-    status:
-      key: stable
-      note: new
+    status: stable
     type: component
     platform: web
     noIndex: true
@@ -410,9 +396,7 @@ assets:
     name: Footer
     description: The Footer is required on all IBM.com pages, it is placed at the bottom of a page and acts as the catch-all section that helps users navigate and provides corporate level general and legal information.
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/footer
-    status:
-      key: stable
-      note: updated
+    status: stable
     type: component
     platform: web
     noIndex: true
@@ -442,6 +426,7 @@ assets:
     thumbnailPath: ../../thumbnails/image.svg
     tags:
       - content-element
+      - media
   image-with-caption:
     name: Image with caption
     description: With the Image with caption component, an image can include a caption beneath to provide more context. In addition, the image can be clicked to open a larger version of the image, using the Lightbox media viewer overlay.
@@ -502,9 +487,7 @@ assets:
     name: Lead space search
     description:  Lead space search provides a fast route to information discovery by including a prominent search option in the lead space. As the search is always positioned at the top, it is discoverable by users the moment they land on the page.
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/lead-space-search
-    status:
-      key: stable
-      note: new
+    status: stable
     type: component
     platform: web
     noIndex: true
@@ -548,9 +531,7 @@ assets:
     name: Link list section
     description:  Link list section is used for multiple CTAs, with options for vertical and horizontal lists and varying CTA styling.
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/link-list-section
-    status:
-      key: stable
-      note: new
+    status: stable
     type: component
     platform: web
     noIndex: true
@@ -595,9 +576,7 @@ assets:
     name: Masthead
     description: Masthead is a fundamental navigational component for IBM.com that displays consistently at the top of each page. It also includes search and profile services for IBM.com.
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/masthead
-    status:
-      key: stable
-      note: updated
+    status: stable
     type: component
     platform: web
     noIndex: true
@@ -642,9 +621,7 @@ assets:
     name: Tabs extended
     description: On desktop, Tabs extended renders as tabs. On mobile, the component renders as an accordion, making it easy to read and access each section while scrolling.
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/tabs-extended#tabs-extended
-    status:
-      key: stable
-      note: new
+    status: stable
     type: component
     platform: web
     noIndex: true
@@ -656,9 +633,7 @@ assets:
     name: Tabs extended media
     description: Tabs extended provides an option to include media. It uses Content item horizontal with media to create an organized section for displaying content with media. This is useful especially when reducing page length is desired. Keep in mind that when using tabs, some content will be hidden until the user interacts with the component, so they should not be used for information that is considered critical.
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/tabs-extended#tabs-extended-media
-    status:
-      key: stable
-      note: new
+    status: stable
     type: component
     platform: web
     noIndex: true
@@ -666,13 +641,12 @@ assets:
     tags:
       - data-display
       - content-block
+      - media
   tag-link:
     name: Tag link
     description: Tag link is a clickable tag that links the topic to another page with more information.
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/tag-link
-    status:
-      key: stable
-      note: new
+    status: stable
     type: component
     platform: web
     noIndex: true
@@ -687,7 +661,7 @@ assets:
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/universal-banner
     status:
       key: draft
-      note: under construction
+      note: This component is currently being worked on.
     type: component
     platform: web
     noIndex: true
