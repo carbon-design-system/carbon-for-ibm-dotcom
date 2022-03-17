@@ -61,3 +61,56 @@ assets:
     framework: vanilla
     tags:
       - service
+  masthead-logo-api:
+    name: MastheadLogoAPI
+    type: function
+    platform: web
+    status: stable
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/MastheadLogoAPI.html
+    framework: vanilla
+    tags:
+      - service
+  profile-api:
+    name: ProfileAPI
+    description: Profile API class with methods for checking user authentication for ibm.com
+    type: function
+    platform: web
+    status: stable
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/ProfileAPI.html
+    framework: vanilla
+    tags:
+      - service
+  search-typeahead-api:
+    name: SearchTypeaheadAPI
+    description: SearchTypeahead API class with methods of fetching search results for ibm.com
+    type: function
+    platform: web
+    status: stable
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/SearchTypeaheadAPI.html
+    framework: vanilla
+    tags:
+      - service
+  translation-api:
+    name: TranslationAPI
+    description: Translation API class with methods for fetching i18n data for ibm.com
+    type: function
+    platform: web
+    status: stable
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/TranslationAPI.html
+    framework: vanilla
+    tags:
+      - service
+  video-player-api:
+    name: VideoPlayerAPI
+    type: function
+    platform: web
+    status: deprecated
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/VideoPlayerAPI.html
+    framework: vanilla
+    tags:
+      - service
