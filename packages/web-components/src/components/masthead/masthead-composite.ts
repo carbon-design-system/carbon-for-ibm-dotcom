@@ -11,11 +11,11 @@ import { html, property, customElement, LitElement } from 'lit-element';
 import { nothing } from 'lit-html';
 import ArrowRight16 from 'carbon-web-components/es/icons/arrow--right/16.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
 import { unsafeSVG } from 'lit-html/directives/unsafe-svg';
-import MastheadLogoAPI from '@carbon/ibmdotcom-services/es/services/MastheadLogo/MastheadLogo';
 import root from 'window-or-global';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
+import MastheadLogoAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/MastheadLogo/MastheadLogo';
 import {
   MastheadL1,
   MastheadLink,
@@ -800,7 +800,6 @@ class DDSMastheadComposite extends LitElement {
 
     // This is a temp fix until we figure out why we can't set styles to the :host(dds-masthead-container) in stylesheets
     this.style.zIndex = '900';
-    this.style.paddingTop = '48px';
   }
 
   updated(changedProperties) {

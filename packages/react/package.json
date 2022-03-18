@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-react",
   "description": "Carbon for IBM.com React Components",
-  "version": "1.31.0",
+  "version": "1.32.0-rc.1",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -24,7 +24,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "yarn clean && gulp vendor:carbon-components-react && node scripts/build.js",
+    "build": "yarn clean && gulp vendor && node scripts/build.js",
     "build-storybook": "cross-env BABEL_ENV=es build-storybook",
     "build-storybook:experimental": "cross-env DDS_FLAGS_ALL=true BABEL_ENV=es build-storybook -o storybook-static-experimental",
     "build-storybook:rtl": "cross-env STORYBOOK_USE_RTL=true BABEL_ENV=es build-storybook -o storybook-static-rtl",
@@ -61,13 +61,13 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@carbon/ibmdotcom-services": "1.31.0",
-    "@carbon/ibmdotcom-styles": "1.31.0",
-    "@carbon/ibmdotcom-utilities": "1.31.0",
-    "@carbon/telemetry": "^0.0.0-alpha.6",
+    "@carbon/ibmdotcom-services": "1.32.0-rc.1",
+    "@carbon/ibmdotcom-styles": "1.32.0-rc.1",
+    "@carbon/ibmdotcom-utilities": "1.32.0-rc.1",
+    "@carbon/telemetry": "^0.1.0",
     "autosuggest-highlight": "^3.1.1",
-    "carbon-components": "10.54.0",
-    "carbon-components-react": "7.54.0",
+    "carbon-components": "10.55.1",
+    "carbon-components-react": "7.54.2",
     "carbon-icons": "7.0.7",
     "classnames": "2.3.1",
     "react-autosuggest": "^10.1.0",
@@ -87,9 +87,9 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.10.1",
-    "@carbon/icons-react": "10.47.0",
-    "@carbon/pictograms-react": "11.23.0",
-    "@carbon/storybook-addon-theme": "1.22.0",
+    "@carbon/icons-react": "10.48.0",
+    "@carbon/pictograms-react": "11.24.0",
+    "@carbon/storybook-addon-theme": "1.23.0-rc.1",
     "@percy-io/in-percy": "^0.1.11",
     "@percy/agent": "^0.28.0",
     "@percy/cli": "^1.0.0-beta.67",
@@ -162,7 +162,7 @@
     "karma-webpack": "^4.0.0",
     "lcov2badge": "^0.1.0",
     "lodash-es": "^4.17.0",
-    "magic-string": "^0.25.0",
+    "magic-string": "^0.26.0",
     "mini-css-extract-plugin": "^0.12.0",
     "minimatch": "^3.0.0",
     "node-sass": "^5.0.0",
@@ -202,7 +202,7 @@
     "whatwg-fetch": "^2.0.3"
   },
   "resolutions": {
-    "@carbon/icons-react": "10.47.0"
+    "@carbon/icons-react": "10.48.0"
   },
   "sideEffects": false,
   "bundleSizeThreshold": 300000,
