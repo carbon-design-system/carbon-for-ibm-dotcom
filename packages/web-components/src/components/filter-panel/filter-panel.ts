@@ -65,9 +65,6 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
   @property({ attribute: 'has-selections', type: Boolean })
   hasSelections = false;
 
-  // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
-  protected _handleContentStateChange(_: CustomEvent) {}
-
   render() {
     return html`
       <section class="${prefix}--filter-panel__section">
@@ -83,14 +80,6 @@ class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) 
         <slot></slot>
       </section>
     `;
-  }
-
-  /**
-   * The name of the custom event captured upon option being seleced
-   */
-
-  static get eventContentStateChange() {
-    return `${ddsPrefix}-filter-panel-input-select`;
   }
 
   /**
