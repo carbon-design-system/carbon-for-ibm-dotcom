@@ -1374,19 +1374,10 @@
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.28.0.tgz#702f1bb055c6c2bc203cdd44582ebd3d2801eaaf"
   integrity sha512-hf4fjouzr3jCvh5lTWJt87ABWmoq+3ck0/OOLpxUZLfhumTLRW+8H1Ctz0ldQh5mhmFaPNQUifll6tGI5bkmTw==
 
-"@carbon/icons-react@10.48.0":
+"@carbon/icons-react@10.48.0", "@carbon/icons-react@^10.48.0":
   version "10.48.0"
   resolved "https://registry.yarnpkg.com/@carbon/icons-react/-/icons-react-10.48.0.tgz#3d29a28277f64e6d04d4f7dbbec655619d03c0cd"
   integrity sha512-cYSUXKAIiBxj4KiaXMUtRJK46mpdBPkYW6xT2u266Oh3HFwoJbbsbn4fT2K9CnoL+n28eU7x8o0hjSXfIItEmA==
-  dependencies:
-    "@carbon/icon-helpers" "^10.28.0"
-    "@carbon/telemetry" "0.0.0-alpha.6"
-    prop-types "^15.7.2"
-
-"@carbon/icons-react@^10.47.0":
-  version "10.47.0"
-  resolved "https://registry.yarnpkg.com/@carbon/icons-react/-/icons-react-10.47.0.tgz#d6e40d9654560238538782338a7d87f56bed543a"
-  integrity sha512-9Qud3IqqoJGl/iM3mEIqR843k0LTZr68a3ytn1Gm1xO3P6sQLFAFaKGuM9EONs7BBzFkjJuoSvrDwjZwDFj4PQ==
   dependencies:
     "@carbon/icon-helpers" "^10.28.0"
     "@carbon/telemetry" "0.0.0-alpha.6"
@@ -7308,14 +7299,14 @@ capture-exit@^2.0.0:
   dependencies:
     rsvp "^4.8.4"
 
-carbon-components-react@7.54.2:
-  version "7.54.2"
-  resolved "https://registry.yarnpkg.com/carbon-components-react/-/carbon-components-react-7.54.2.tgz#22f0453800d58d6d80dbaf37a9be4b2cdc10e18e"
-  integrity sha512-eOThqnY9bWZvBYRDx6ODFddLzjTbbzKJQwMg4lXFWCa17U6W/IlSqBVSV9dsEJbirCDWCr1HMV0V6XXzz5JuVg==
+carbon-components-react@7.55.1:
+  version "7.55.1"
+  resolved "https://registry.yarnpkg.com/carbon-components-react/-/carbon-components-react-7.55.1.tgz#8057e7e1c537d533eae18ab3cfa292bba08abcf6"
+  integrity sha512-1LgF0iNZ9khwka68aMVQyEARsKIlWT5YAtgEM0pg+gCsNPIIthwTYoLbJEjZol4JQhu6E2/FU/slKaFBonbq5A==
   dependencies:
     "@babel/runtime" "^7.16.7"
     "@carbon/feature-flags" "^0.7.0"
-    "@carbon/icons-react" "^10.47.0"
+    "@carbon/icons-react" "^10.48.0"
     "@carbon/layout" "^10.37.0"
     "@carbon/telemetry" "0.0.0-alpha.6"
     classnames "2.3.1"
