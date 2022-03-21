@@ -327,7 +327,7 @@ assets:
       - type: storybook
         name: Storybook
         action: link
-        # TODO: is there a link to this?
+        # Mapping to storybook homepage, dotcom doesn't yet have a an entry for this in react storybook
         url: https://www.ibm.com/standards/carbon/react
   lightbox-media-viewer:
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/lightbox-media-viewer
@@ -431,3 +431,104 @@ assets:
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/react/?path=/story/components-video-player
+  back-to-top:
+    status: stable
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/back-to-top
+    framework: react
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/react/?path=/story/components-back-to-top
+  card-in-card:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/cards#card-in-card
+    status: stable
+    framework: react
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/react/?path=/story/components-card-in-card
+  card-section-carousel:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/card-section-carousel
+    status: stable
+    framework: react
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/react/?path=/story/components-card-section-carousel
+  carousel:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/carousel
+    status: stable
+    framework: react
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/react/?path=/story/components-carousel
+  content-group-banner:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-group-banner
+    status: stable
+    framework: react
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/react/?path=/story/components-content-group-banner
+  tabs-extended:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/tabs-extended#tabs-extended
+    status: stable
+    framework: react
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/react/?path=/story/components-tabs-extended
+  tag-link:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/tag-link
+    status: stable
+    framework: react
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/react/?path=/story/components-tag-link
+  leaving-ibm-modal:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/leaving-ibm-modal
+    status: stable
+    framework: react
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/react/?path=/story/components-leaving-ibm
+  filter-panel:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/filter-panel
+    status: stable
+    framework: react
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/react/?path=/story/components-filter-panel
+  tabs-extended-media:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/tabs-extended#tabs-extended-media
+    status:
+      key: draft
+      note: This component is currently being worked on.
+    framework: react
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/react/?path=/story/components-tabs-extended-media
+  feature-section:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/feature-section
+    status: stable
+    framework: react
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/react/?path=/story/components-feature-section
