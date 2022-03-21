@@ -70,6 +70,7 @@ export const WithRowHeaders = ({ parameters }) => {
       </dds-structured-list-head>
       <dds-structured-list-body>
         <dds-structured-list-row>
+          <dds-structured-list-header-cell scope="row">Row 1</dds-structured-list-header-cell>
           <dds-structured-list-cell>Row 1</dds-structured-list-cell>
           <dds-structured-list-cell>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum

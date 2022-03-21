@@ -12,6 +12,7 @@
 
 @include structured-list;
 
+// Inherited Table Styles
 :host(#{$dds-prefix}-structured-list) {
   @extend .#{$prefix}--structured-list;
   width: 100%;
@@ -51,4 +52,35 @@
 }
 :host(#{$dds-prefix}-structured-list-cell) {
   @extend .#{$prefix}--structured-list-td;
+}
+
+
+// Carbon Rows/Columns
+:host(#{$dds-prefix}-structured-list-header-row),
+:host(#{$dds-prefix}-structured-list-row),
+:host(#{$dds-prefix}-structured-list-group) tr {
+  @include carbon--breakpoint('md') {
+    @include carbon--make-row();
+  }
+}
+
+:host(#{$dds-prefix}-structured-list-header-cell),
+:host(#{$dds-prefix}-structured-list-cell),
+:host(#{$dds-prefix}-structured-list-group) td {
+
+  height: auto;
+  min-width: 60vw;
+
+  @include carbon--breakpoint('md') {
+    min-width: 0;
+    @include carbon--make-col(2, 8);
+  }
+
+  @include carbon--breakpoint('lg') {
+    @include carbon--make-col(2, 16);
+  }
+
+  &:last-child {
+    max-width: none;
+  }
 }
