@@ -581,7 +581,8 @@ assets:
     noIndex: true
     thumbnailPath: ../../thumbnails/locale-modal.svg
     tags:
-      - form
+      - input-control
+      - contextual-navigation
   logo-grid:
     name: Logo grid
     description: Logo grid is used to present a group of client or partner logos. Currently the logos are not clickable.
@@ -637,7 +638,7 @@ assets:
     thumbnailPath: ../../thumbnails/table-of-contents.svg
     tags:
       - data-display
-      - structural-navigation
+      - contextual-navigation
   tabs-extended:
     name: Tabs extended
     description: On desktop, Tabs extended renders as tabs. On mobile, the component renders as an accordion, making it easy to read and access each section while scrolling.
@@ -674,7 +675,7 @@ assets:
     thumbnailPath: ../../thumbnails/tag-link.svg
     tags:
       - data-display
-      - contextual-navigation
+      - structural-navigation
   universal-banner:
     name: Universal banner
     description: Universal banner is used exclusively to feature global and critical announcements. It is the only component that can be positioned above the masthead.
