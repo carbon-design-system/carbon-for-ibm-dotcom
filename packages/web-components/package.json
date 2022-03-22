@@ -197,7 +197,7 @@
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-restricted-globals": "^0.2.0",
     "file-loader": "^6.2.0",
-    "flatpickr": "4.6.10",
+    "flatpickr": "4.6.11",
     "fs-extra": "^10.0.0",
     "globby": "^10.0.0",
     "gulp": "^4.0.0",
