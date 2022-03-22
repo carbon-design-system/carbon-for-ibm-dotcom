@@ -54,7 +54,6 @@
   @extend .#{$prefix}--structured-list-td;
 }
 
-
 // Default Carbon Rows/Columns
 :host(#{$dds-prefix}-structured-list-header-row),
 :host(#{$dds-prefix}-structured-list-row),
@@ -68,13 +67,11 @@
 :host(#{$dds-prefix}-structured-list-header-cell),
 :host(#{$dds-prefix}-structured-list-cell),
 :host(#{$dds-prefix}-structured-list-group) td {
-
   border: 1px solid lightsalmon;
   height: auto;
 
   @include carbon--breakpoint('sm') {
-    @include carbon--make-col(2, 4)
-
+    @include carbon--make-col(2, 4);
   }
 
   @include carbon--breakpoint('md') {
@@ -97,7 +94,10 @@
 
   @include carbon--breakpoint('md') {
     &:nth-child(#{$colNumber}) {
-      --cols: var(--col-span-md-#{$colNumber}, var(--col-span-#{$colNumber}, 2));
+      --cols: var(
+        --col-span-md-#{$colNumber},
+        var(--col-span-#{$colNumber}, 2)
+      );
       --width: calc((var(--cols) / var(--max-cols)) * 100%);
       max-width: var(--width);
       flex: 0 0 var(--width);
@@ -106,7 +106,10 @@
 
   @include carbon--breakpoint('lg') {
     &:nth-child(#{$colNumber}) {
-      --cols: var(--col-span-lg-#{$colNumber}, var(--col-span-md-#{$colNumber}, var(--col-span-#{$colNumber}, 2)));
+      --cols: var(
+        --col-span-lg-#{$colNumber},
+        var(--col-span-md-#{$colNumber}, var(--col-span-#{$colNumber}, 2))
+      );
       --width: calc((var(--cols) / var(--max-cols)) * 100%);
       max-width: var(--width);
       flex: 0 0 var(--width);
