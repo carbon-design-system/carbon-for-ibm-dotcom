@@ -55,12 +55,13 @@
 }
 
 
-// Carbon Rows/Columns
+// Default Carbon Rows/Columns
 :host(#{$dds-prefix}-structured-list-header-row),
 :host(#{$dds-prefix}-structured-list-row),
 :host(#{$dds-prefix}-structured-list-group) tr {
-  @include carbon--breakpoint('md') {
+  @include carbon--breakpoint('sm') {
     @include carbon--make-row();
+    flex-wrap: nowrap;
   }
 }
 
@@ -68,19 +69,74 @@
 :host(#{$dds-prefix}-structured-list-cell),
 :host(#{$dds-prefix}-structured-list-group) td {
 
+  border: 1px solid lightsalmon;
   height: auto;
-  min-width: 60vw;
+
+  @include carbon--breakpoint('sm') {
+    @include carbon--make-col(2, 4)
+
+  }
 
   @include carbon--breakpoint('md') {
-    min-width: 0;
     @include carbon--make-col(2, 8);
   }
 
   @include carbon--breakpoint('lg') {
     @include carbon--make-col(2, 16);
   }
+}
+
+// Overridden column spanning
+@mixin structured-list-colspan($colNumber) {
+  &:nth-child(#{$colNumber}) {
+    --cols: var(--col-span-#{$colNumber}, 2);
+    --width: calc((var(--cols) / var(--max-cols)) * 100%);
+    max-width: var(--width);
+    flex: 0 0 var(--width);
+  }
+
+  @include carbon--breakpoint('md') {
+    &:nth-child(#{$colNumber}) {
+      --cols: var(--col-span-md-#{$colNumber}, var(--col-span-#{$colNumber}, 2));
+      --width: calc((var(--cols) / var(--max-cols)) * 100%);
+      max-width: var(--width);
+      flex: 0 0 var(--width);
+    }
+  }
+
+  @include carbon--breakpoint('lg') {
+    &:nth-child(#{$colNumber}) {
+      --cols: var(--col-span-lg-#{$colNumber}, var(--col-span-md-#{$colNumber}, var(--col-span-#{$colNumber}, 2)));
+      --width: calc((var(--cols) / var(--max-cols)) * 100%);
+      max-width: var(--width);
+      flex: 0 0 var(--width);
+    }
+  }
+}
+
+:host(#{$dds-prefix}-structured-list-header-cell),
+:host(#{$dds-prefix}-structured-list-cell) {
+  --max-cols: 4;
+
+  @include carbon--breakpoint('md') {
+    --max-cols: 8;
+  }
+
+  @include carbon--breakpoint('lg') {
+    --max-cols: 16;
+  }
+
+  @include structured-list-colspan(1);
+  @include structured-list-colspan(2);
+  @include structured-list-colspan(3);
+  @include structured-list-colspan(4);
+  @include structured-list-colspan(5);
+  @include structured-list-colspan(6);
+  @include structured-list-colspan(7);
+  @include structured-list-colspan(8);
 
   &:last-child {
+    flex-grow: 1;
     max-width: none;
   }
 }

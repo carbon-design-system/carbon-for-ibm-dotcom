@@ -1,6 +1,5 @@
 import BXStructuredListHeaderCell from 'carbon-web-components/es/components/structured-list/structured-list-header-cell';
 import { customElement } from 'lit-element';
-import { extend } from 'lodash-es';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './structured-list.scss';
 

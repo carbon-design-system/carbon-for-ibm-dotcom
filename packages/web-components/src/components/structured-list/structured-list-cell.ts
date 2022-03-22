@@ -1,6 +1,5 @@
 import BXStructuredListCell from 'carbon-web-components/es/components/structured-list/structured-list-cell';
 import { customElement, property } from 'lit-element';
-import { html, TemplateResult } from 'lit-html';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSStructuredListGroup from './structured-list-group';
 import styles from './structured-list.scss';

@@ -17,14 +17,20 @@ import 'carbon-web-components/es/components/tooltip/index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = ({ parameters }) => {
-  const { copy } = parameters?.props?.StructuredList ?? {};
+  const { colSpan1, colSpan2, colSpan3, colSpan4 } = parameters?.props?.StructuredList ?? {};
   return html`
-    <dds-structured-list>
+    <dds-structured-list
+      col-span-1="${colSpan1 ?? ''}"
+      col-span-2="${colSpan2 ?? ''}"
+      col-span-3="${colSpan3 ?? ''}"
+      col-span-4="${colSpan4 ?? ''}"
+    >
       <dds-structured-list-head>
         <dds-structured-list-header-row>
           <dds-structured-list-header-cell>Column A</dds-structured-list-header-cell>
           <dds-structured-list-header-cell>Column B</dds-structured-list-header-cell>
           <dds-structured-list-header-cell>Column C</dds-structured-list-header-cell>
+          <dds-structured-list-header-cell>Column D</dds-structured-list-header-cell>
         </dds-structured-list-header-row>
       </dds-structured-list-head>
       <dds-structured-list-body>
@@ -35,6 +41,10 @@ export const Default = ({ parameters }) => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
             augue. Aenean posuere sem vel euismod dignissim.
           </dds-structured-list-cell>
+          <dds-structured-list-cell>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+            augue. Aenean posuere sem vel euismod dignissim.
+          </dds-structured-list-cell>
         </dds-structured-list-row>
         <dds-structured-list-row>
           <dds-structured-list-cell>Row 2</dds-structured-list-cell>
@@ -43,10 +53,18 @@ export const Default = ({ parameters }) => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
             augue. Aenean posuere sem vel euismod dignissim.
           </dds-structured-list-cell>
+          <dds-structured-list-cell>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+            augue. Aenean posuere sem vel euismod dignissim.
+          </dds-structured-list-cell>
         </dds-structured-list-row>
         <dds-structured-list-row>
           <dds-structured-list-cell>Row 3</dds-structured-list-cell>
           <dds-structured-list-cell>Row 3</dds-structured-list-cell>
+          <dds-structured-list-cell>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+            augue. Aenean posuere sem vel euismod dignissim.
+          </dds-structured-list-cell>
           <dds-structured-list-cell>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
             augue. Aenean posuere sem vel euismod dignissim.
@@ -58,9 +76,14 @@ export const Default = ({ parameters }) => {
 };
 
 export const WithRowHeaders = ({ parameters }) => {
-  const { copy } = parameters?.props?.StructuredList ?? {};
+  const { colSpan1, colSpan2, colSpan3, colSpan4 } = parameters?.props?.StructuredList ?? {};
   return html`
-    <dds-structured-list>
+    <dds-structured-list
+      col-span-1="${colSpan1 ?? ''}"
+      col-span-2="${colSpan2 ?? ''}"
+      col-span-3="${colSpan3 ?? ''}"
+      col-span-4="${colSpan4 ?? ''}"
+    >
       <dds-structured-list-head>
         <dds-structured-list-header-row>
           <dds-structured-list-header-cell></dds-structured-list-header-cell>
@@ -99,9 +122,14 @@ export const WithRowHeaders = ({ parameters }) => {
 };
 
 export const WithSubheaders = ({ parameters }) => {
-  const { copy } = parameters?.props?.StructuredList ?? {};
+  const { colSpan1, colSpan2, colSpan3, colSpan4 } = parameters?.props?.StructuredList ?? {};
   return html`
-    <dds-structured-list>
+    <dds-structured-list
+      col-span-1="${colSpan1 ?? ''}"
+      col-span-2="${colSpan2 ?? ''}"
+      col-span-3="${colSpan3 ?? ''}"
+      col-span-4="${colSpan4 ?? ''}"
+    >
       <dds-structured-list-head>
         <dds-structured-list-header-row>
           <dds-structured-list-header-cell></dds-structured-list-header-cell>
@@ -194,9 +222,14 @@ export const WithSubheaders = ({ parameters }) => {
 };
 
 export const WithComplexContent = ({ parameters }) => {
-  const { copy } = parameters?.props?.StructuredList ?? {};
+  const { colSpan1, colSpan2, colSpan3, colSpan4 } = parameters?.props?.StructuredList ?? {};
   return html`
-    <dds-structured-list>
+    <dds-structured-list
+      col-span-1="${colSpan1 ?? ''}"
+      col-span-2="${colSpan2 ?? ''}"
+      col-span-3="${colSpan3 ?? ''}"
+      col-span-4="${colSpan4 ?? ''}"
+    >
       <dds-structured-list-head>
         <dds-structured-list-header-row>
           <dds-structured-list-header-cell>Product Name</dds-structured-list-header-cell>
@@ -271,7 +304,10 @@ export default {
     ...readme.parameters,
     knobs: {
       StructuredList: () => ({
-        copy: textNullable('Copy', 'Hello world!'),
+        colSpan1: textNullable('col-span-1', ''),
+        colSpan2: textNullable('col-span-2', ''),
+        colSpan3: textNullable('col-span-3', ''),
+        colSpan4: textNullable('col-span-4', ''),
       }),
     },
   },
