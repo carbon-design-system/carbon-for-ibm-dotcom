@@ -79,6 +79,7 @@ class DDSLeavingIbmComposite extends HostListenerMixin(ModalRenderMixin(LitEleme
 
   @HostListener('document:click')
   protected _handleDocumentClick = (event: PointerEvent): void => {
+    const { attributeLeaving } = this.constructor as typeof DDSLeavingIbmComposite;
     if (!this.open) {
       const { target } = event;
       const linkTarget =
@@ -89,8 +90,8 @@ class DDSLeavingIbmComposite extends HostListenerMixin(ModalRenderMixin(LitEleme
             }) as HTMLAnchorElement | undefined);
 
       if (linkTarget) {
-        const linkIsExternal = linkTarget.hasAttribute('data-external');
-        const targetIsExternal = target instanceof Element && target.hasAttribute('data-external');
+        const linkIsExternal = linkTarget.hasAttribute(attributeLeaving);
+        const targetIsExternal = target instanceof Element && target.hasAttribute(attributeLeaving);
 
         if (linkIsExternal || targetIsExternal) {
           event.preventDefault();
@@ -141,6 +142,13 @@ class DDSLeavingIbmComposite extends HostListenerMixin(ModalRenderMixin(LitEleme
         </bx-modal-footer>
       </dds-leaving-ibm-modal>
     `;
+  }
+
+  /**
+   * Attribute that triggers Leaving IBM modal on click.
+   */
+  static get attributeLeaving() {
+    return 'data-leaving-ibm';
   }
 
   static get eventClose() {

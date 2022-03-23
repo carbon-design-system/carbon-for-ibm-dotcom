@@ -32,7 +32,7 @@ export const WithHTMLLink = ({ parameters }) => {
   const { linkText, href } = parameters?.props?.['leaving-ibm'];
   return html`
     <dds-leaving-ibm-container></dds-leaving-ibm-container>
-    <a href="${href}" data-external>
+    <a href="${href}" data-leaving-ibm>
       ${linkText}
     </a>
   `;
@@ -52,7 +52,7 @@ export const WithCarbonLink = ({ parameters }) => {
   const { linkText, href } = parameters?.props?.['leaving-ibm'];
   return html`
     <dds-leaving-ibm-container></dds-leaving-ibm-container>
-    <bx-link href="${href}" data-external>
+    <bx-link href="${href}" data-leaving-ibm>
       ${linkText}
     </bx-link></li>
   `;
@@ -75,7 +75,7 @@ export const WithLinkList = ({ parameters }) => {
     <dds-leaving-ibm-container></dds-leaving-ibm-container>
     <dds-link-list type="default">
       <dds-link-list-heading>Carbon Design System</dds-link-list-heading>
-      <dds-link-list-item-card-cta href="${href}" cta-type="external" data-external>
+      <dds-link-list-item-card-cta href="${href}" cta-type="external" data-leaving-ibm>
         <p>${linkText}</p>
         <dds-card-cta-footer></dds-card-cta-footer>
       </dds-link-list-item-card-cta>
@@ -103,7 +103,7 @@ export const WithCTABlockItem = ({ parameters }) => {
         <dds-content-item-copy
           >Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</dds-content-item-copy
         >
-        <dds-text-cta slot="footer" cta-type="external" icon-placement="right" href=${href} data-external>
+        <dds-text-cta slot="footer" cta-type="external" icon-placement="right" href=${href} data-leaving-ibm>
           ${linkText}
         </dds-text-cta>
       </dds-cta-block-item>
