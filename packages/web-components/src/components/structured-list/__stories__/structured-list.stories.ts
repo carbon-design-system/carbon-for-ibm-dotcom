@@ -8,9 +8,6 @@
  */
 
 import { html } from 'lit-element';
-import Info16 from 'carbon-web-components/es/icons/information/16';
-import Checkmark16 from 'carbon-web-components/es/icons/checkmark/16';
-import Error16 from 'carbon-web-components/es/icons/error/16';
 import readme from './README.stories.mdx';
 import '../index';
 import 'carbon-web-components/es/components/tooltip/index';
@@ -233,64 +230,28 @@ export const WithComplexContent = ({ parameters }) => {
       <dds-structured-list-head>
         <dds-structured-list-header-row>
           <dds-structured-list-header-cell>Product Name</dds-structured-list-header-cell>
-          <dds-structured-list-header-cell>Status</dds-structured-list-header-cell>
-          <dds-structured-list-header-cell>Description</dds-structured-list-header-cell>
         </dds-structured-list-header-row>
       </dds-structured-list-head>
       <dds-structured-list-body>
         <dds-structured-list-row>
-          <dds-structured-list-cell>
-            Product 1
-            <bx-tooltip-icon alignment="start" body-text="Super cool product" direction="right">
-              ${Info16()}
-            </bx-tooltip-icon>
+          <dds-structured-list-cell tooltip="Tooltip text">
+            Cell with tooltip
           </dds-structured-list-cell>
-          <dds-structured-list-cell>
-            ${Checkmark16()}
+        </dds-structured-list-row>
+        <dds-structured-list-row>
+          <dds-structured-list-cell icon="checkmark">
+            Cell with icon
           </dds-structured-list-cell>
-          <dds-structured-list-cell>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-              augue. Aenean posuere sem vel euismod dignissim.
-            </p>
-            <dds-tag-link type="green" href="https://example.com">Tag One</dds-tag-link>
-            <dds-tag-link type="green" href="https://example.com">Tag Two</dds-tag-link>
+        </dds-structured-list-row>
+        <dds-structured-list-row>
+          <dds-structured-list-cell tags="Merchandising Offer, Secondary Tag, Other">
+            Cell with tags
           </dds-structured-list-cell>
         </dds-structured-list-row>
         <dds-structured-list-row>
           <dds-structured-list-cell>
-            Product 2
-            <bx-tooltip-icon alignment="start" body-text="Ok product" direction="right">
-              ${Info16()}
-            </bx-tooltip-icon>
-          </dds-structured-list-cell>
-          <dds-structured-list-cell></dds-structured-list-cell>
-          <dds-structured-list-cell>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-              augue. Aenean posuere sem vel euismod dignissim.
-            </p>
-            <dds-tag-link type="green" href="https://example.com">Tag One</dds-tag-link>
-            <dds-tag-link type="green" href="https://example.com">Tag Two</dds-tag-link>
-          </dds-structured-list-cell>
-        </dds-structured-list-row>
-        <dds-structured-list-row>
-          <dds-structured-list-cell>
-            Product 3
-            <bx-tooltip-icon alignment="start" body-text="Less cool product" direction="right">
-              ${Info16()}
-            </bx-tooltip-icon>
-          </dds-structured-list-cell>
-          <dds-structured-list-cell>
-            ${Error16()}
-          </dds-structured-list-cell>
-          <dds-structured-list-cell>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-              augue. Aenean posuere sem vel euismod dignissim.
-            </p>
-            <dds-tag-link type="green" href="https://example.com">Tag One</dds-tag-link>
-            <dds-tag-link type="green" href="https://example.com">Tag Two</dds-tag-link>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed,aliquet bibendum augue.
+            Aenean posuere sem vel euismod dignissim.
           </dds-structured-list-cell>
         </dds-structured-list-row>
       </dds-structured-list-body>
