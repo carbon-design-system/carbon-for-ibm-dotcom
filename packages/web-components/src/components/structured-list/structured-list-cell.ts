@@ -9,7 +9,7 @@
 
 import BXStructuredListCell from 'carbon-web-components/es/components/structured-list/structured-list-cell';
 import { customElement, property, html } from 'lit-element';
-import Info20 from 'carbon-web-components/es/icons/information/20';
+import Info16 from 'carbon-web-components/es/icons/information/16';
 import Checkmark20 from 'carbon-web-components/es/icons/checkmark/20';
 import Error20 from 'carbon-web-components/es/icons/error/20';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -59,7 +59,7 @@ class DDSStructuredListCell extends BXStructuredListCell {
       ${tags!.split(',').map(
         tag =>
           html`
-            <bx-tag type="green">${tag.trim()}</bx-tag>
+            <bx-tag size="sm" type="green">${tag.trim()}</bx-tag>
           `
       )}
     `;
@@ -70,18 +70,13 @@ class DDSStructuredListCell extends BXStructuredListCell {
 
     return html`
       <bx-tooltip-icon alignment="start" body-text="${tooltip}" direction="right">
-        ${Info20()}
+        ${Info16()}
       </bx-tooltip-icon>
     `;
   }
 
   render() {
-    const {
-      _tooltipText: tooltip,
-      _icon: icon,
-      _iconsAllowed: iconsAllowed,
-      _tags: tags,
-    } = this;
+    const { _tooltipText: tooltip, _icon: icon, _iconsAllowed: iconsAllowed, _tags: tags } = this;
 
     if (icon && Object.keys(iconsAllowed).includes(icon.toLowerCase())) {
       return html`
