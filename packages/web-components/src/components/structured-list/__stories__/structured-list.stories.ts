@@ -120,13 +120,6 @@ export const WithSubheaders = ({ parameters }) => {
       col-span-3="${colSpan3 ?? ''}"
       col-span-4="${colSpan4 ?? ''}"
     >
-      <dds-structured-list-head>
-        <dds-structured-list-header-row>
-          <dds-structured-list-header-cell></dds-structured-list-header-cell>
-          <dds-structured-list-header-cell>Column A</dds-structured-list-header-cell>
-          <dds-structured-list-header-cell>Column B</dds-structured-list-header-cell>
-        </dds-structured-list-header-row>
-      </dds-structured-list-head>
       <dds-structured-list-body>
         <dds-structured-list-group title="Group 1">
           <dds-structured-list-row>
