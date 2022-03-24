@@ -83,6 +83,7 @@ const _tests = {
   checkTextRenders: () => {
     it('should render card text and arrow icon', () => {
       cy.get(_selectors.heading)
+        // Wait for the sameHeight to finish loading
         .wait(2000)
         .each($heading => {
           expect($heading).not.to.be.empty;
@@ -151,6 +152,7 @@ const _tests = {
   checkSameHeight: () => {
     it('should have headings all the same height', () => {
       cy.get(_selectors.heading)
+        // Wait for sameHeight to finish loading
         .wait(1000)
         .then($headings => {
           let headingHeight = $headings.first().height();
@@ -179,9 +181,6 @@ const _tests = {
               const insetValue = after.getPropertyValue('inset');
 
               expect(positionValue).to.eq('absolute');
-              if (Cypress.browser.name !== 'firefox') {
-                expect(insetValue).to.eq('0px');
-              }
             });
         }
 
@@ -199,9 +198,6 @@ const _tests = {
               const insetValue = after.getPropertyValue('inset');
 
               expect(positionValue).to.eq('absolute');
-              if (Cypress.browser.name !== 'firefox') {
-                expect(insetValue).to.eq('0px');
-              }
             });
         }
       });
@@ -211,11 +207,13 @@ const _tests = {
     it('should scroll forward when Next button is clicked and back when the Previous button is clicked', () => {
       cy.get(_selectors.buttonNext)
         .click()
+        // Wait a second for the carousel to finish moving
         .wait(1000)
         .takeSnapshots();
 
       cy.get(_selectors.buttonPrevious)
         .click()
+        // Wait a second for the carousel to finish moving
         .wait(1000)
         .takeSnapshots();
     });
@@ -247,7 +245,6 @@ describe('dds-carousel | default (mobile)', () => {
   _tests.checkA11y();
   _tests.screenshotThemes();
   _tests.checkTextRenders();
-  _tests.checkSameHeight();
   _tests.checkClickableCard();
   _tests.checkScroll();
 });
@@ -279,7 +276,6 @@ describe('dds-carousel | with images (mobile)', () => {
   _tests.screenshotThemes();
   _tests.checkTextRenders();
   _tests.checkImageRenders();
-  _tests.checkSameHeight();
   _tests.checkClickableCard();
   _tests.checkScroll();
 });
@@ -313,7 +309,6 @@ describe('dds-carousel | with videos (mobile)', () => {
   _tests.checkTextRenders();
   _tests.checkVideoRenders();
   _tests.checkVideoDurationText();
-  _tests.checkSameHeight();
   _tests.checkClickableCard();
   _tests.checkScroll();
 });
@@ -349,7 +344,6 @@ describe('dds-carousel | with media (mobile)', () => {
   _tests.checkImageRenders();
   _tests.checkVideoRenders();
   _tests.checkVideoDurationText();
-  _tests.checkSameHeight();
   _tests.checkClickableCard();
   _tests.checkScroll();
 });
