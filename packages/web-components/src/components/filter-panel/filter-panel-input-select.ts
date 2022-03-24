@@ -203,6 +203,7 @@ class DDSFilterPanelInputSelect extends FocusMixin(StableSelectorMixin(LitElemen
   }
 
   /**
+   * @event
    * The name of the custom event fired upon selecting the title
    */
   static get eventInputSelect() {
@@ -210,6 +211,7 @@ class DDSFilterPanelInputSelect extends FocusMixin(StableSelectorMixin(LitElemen
   }
 
   /**
+   * @event
    * The name of the custom event fired after the search content is changed upon a user gesture.
    */
   static get eventContentStateChange() {
