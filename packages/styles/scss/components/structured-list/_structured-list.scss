@@ -24,9 +24,13 @@
 :host(#{$dds-prefix}-structured-list-header-row) {
   @extend .#{$prefix}--structured-list-row,
     .#{$prefix}--structured-list-row--header-row;
+  border-bottom: none;
 }
 :host(#{$dds-prefix}-structured-list-header-cell) {
   @extend .#{$prefix}--structured-list-th;
+  padding-inline: $spacing-05;
+  padding-block-end: $spacing-05;
+  border-bottom: 1px solid $ui-03;
 }
 :host(#{$dds-prefix}-structured-list-body) {
   @extend .#{$prefix}--structured-list-tbody;
@@ -38,6 +42,17 @@
     @extend .#{$prefix}--structured-list-row;
 
     background-color: $ui-03;
+    box-shadow:
+      100vw 0 $ui-03,
+      200vw 0 $ui-03,
+      300vw 0 $ui-03,
+      400vw 0 $ui-03,
+      500vw 0 $ui-03,
+      600vw 0 $ui-03,
+      700vw 0 $ui-03,
+      800vw 0 $ui-03,
+      900vw 0 $ui-03;
+    color: $text-01;
     border-bottom: 1px solid $ui-03;
   }
 
@@ -46,13 +61,17 @@
 
     text-align: left;
     font-weight: bold;
+    padding-inline: $spacing-05;
   }
 }
 :host(#{$dds-prefix}-structured-list-row) {
   @extend .#{$prefix}--structured-list-row;
+  border-bottom: none;
 }
 :host(#{$dds-prefix}-structured-list-cell) {
   @extend .#{$prefix}--structured-list-td;
+  padding-inline: $spacing-05;
+  border-bottom: 1px solid $ui-03;
 }
 
 // Default Carbon Rows/Columns
