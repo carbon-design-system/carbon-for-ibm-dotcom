@@ -30,7 +30,7 @@ assets:
       - service
   ddo-api:
     name: DDOAPI
-    description: DDO API class with methods of fetching search results for ibm.com.
+    description: DDO API class with methods of fetching search results for IBM.com.
     type: function
     platform: web
     status: stable
@@ -41,7 +41,7 @@ assets:
       - service
   locale-api:
     name: LocaleAPI
-    description: Locale API class with method of fetching user's locale for ibm.com.
+    description: Locale API class with method of fetching user's locale for IBM.com.
     type: function
     platform: web
     status: stable
@@ -52,7 +52,7 @@ assets:
       - service
   marketing-search-api:
     name: MarketingSearchAPI
-    description: MarketingSearch API class with methods of fetching search results for ibm.com.
+    description: MarketingSearch API class with methods of fetching search results for IBM.com.
     type: function
     platform: web
     status: stable
@@ -73,7 +73,7 @@ assets:
       - service
   profile-api:
     name: ProfileAPI
-    description: Profile API class with methods for checking user authentication for ibm.com
+    description: Profile API class with methods for checking user authentication for IBM.com
     type: function
     platform: web
     status: stable
@@ -84,7 +84,7 @@ assets:
       - service
   search-typeahead-api:
     name: SearchTypeaheadAPI
-    description: SearchTypeahead API class with methods of fetching search results for ibm.com
+    description: SearchTypeahead API class with methods of fetching search results for IBM.com
     type: function
     platform: web
     status: stable
@@ -95,7 +95,7 @@ assets:
       - service
   translation-api:
     name: TranslationAPI
-    description: Translation API class with methods for fetching i18n data for ibm.com
+    description: Translation API class with methods for fetching i18n data for IBM.com
     type: function
     platform: web
     status: stable
