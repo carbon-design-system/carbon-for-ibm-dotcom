@@ -147,3 +147,15 @@
     max-width: none;
   }
 }
+
+// Internal components
+:host(#{$dds-prefix}-structured-list-cell) {
+  #{$prefix}-tooltip-icon {
+    display: inline-flex;
+    vertical-align: sub;
+
+    svg {
+      fill: $icon-02;
+    }
+  }
+}
