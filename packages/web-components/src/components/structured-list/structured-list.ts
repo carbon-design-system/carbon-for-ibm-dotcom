@@ -7,15 +7,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import BXStructuredList from 'carbon-web-components/es/components/structured-list/structured-list';
-import { customElement } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
+import { customElement, LitElement, html } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './structured-list.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix } = settings;
 
 @customElement(`${ddsPrefix}-structured-list`)
-class DDSStructuredList extends BXStructuredList {
+class DDSStructuredList extends LitElement {
   _mutationObserver = new MutationObserver(this._setColumnSpans.bind(this));
 
   _setColumnSpans(entries) {
@@ -33,6 +34,9 @@ class DDSStructuredList extends BXStructuredList {
   }
 
   connectedCallback() {
+    if (!this.hasAttribute('role')) {
+      this.setAttribute('role', 'table');
+    }
     super.connectedCallback();
     this._mutationObserver.observe(this, { attributes: true, attributeOldValue: true });
 
@@ -41,6 +45,14 @@ class DDSStructuredList extends BXStructuredList {
     colSpanAttributes.forEach(attr => {
       this.style.setProperty(`--${attr.name}`, attr.value);
     });
+  }
+
+  render() {
+    return html`
+      <section id="section" class="${prefix}--structured-list">
+        <slot></slot>
+      </section>
+    `;
   }
 
   static styles = styles;
