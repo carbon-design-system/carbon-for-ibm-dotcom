@@ -229,12 +229,12 @@ describe('dds-carousel | default (desktop)', () => {
     cy.injectAxe();
   });
 
-  // _tests.checkA11y();
-  // _tests.screenshotThemes();
-  // _tests.checkTextRenders();
-  // _tests.checkSameHeight();
-  // _tests.checkClickableCard();
-  // _tests.checkScroll();
+  _tests.checkA11y();
+  _tests.screenshotThemes();
+  _tests.checkTextRenders();
+  _tests.checkSameHeight();
+  _tests.checkClickableCard();
+  _tests.checkScroll();
 });
 
 describe('dds-carousel | default (mobile)', () => {
@@ -244,12 +244,12 @@ describe('dds-carousel | default (mobile)', () => {
     cy.injectAxe();
   });
 
-  // _tests.checkA11y();
-  // _tests.screenshotThemes();
-  // _tests.checkTextRenders();
-  // _tests.checkSameHeight();
-  // _tests.checkClickableCard();
-  // _tests.checkScroll();
+  _tests.checkA11y();
+  _tests.screenshotThemes();
+  _tests.checkTextRenders();
+  _tests.checkSameHeight();
+  _tests.checkClickableCard();
+  _tests.checkScroll();
 });
 
 describe('dds-carousel | with images (desktop)', () => {
@@ -259,13 +259,13 @@ describe('dds-carousel | with images (desktop)', () => {
     cy.injectAxe();
   });
 
-  // _tests.checkA11y();
-  // _tests.screenshotThemes();
-  // _tests.checkTextRenders();
-  // _tests.checkImageRenders();
-  // _tests.checkSameHeight();
-  // _tests.checkClickableCard();
-  // _tests.checkScroll();
+  _tests.checkA11y();
+  _tests.screenshotThemes();
+  _tests.checkTextRenders();
+  _tests.checkImageRenders();
+  _tests.checkSameHeight();
+  _tests.checkClickableCard();
+  _tests.checkScroll();
 });
 
 describe('dds-carousel | with images (mobile)', () => {
@@ -275,13 +275,13 @@ describe('dds-carousel | with images (mobile)', () => {
     cy.injectAxe();
   });
 
-  // _tests.checkA11y();
-  // _tests.screenshotThemes();
-  // _tests.checkTextRenders();
-  // _tests.checkImageRenders();
-  // _tests.checkSameHeight();
-  // _tests.checkClickableCard();
-  // _tests.checkScroll();
+  _tests.checkA11y();
+  _tests.screenshotThemes();
+  _tests.checkTextRenders();
+  _tests.checkImageRenders();
+  _tests.checkSameHeight();
+  _tests.checkClickableCard();
+  _tests.checkScroll();
 });
 
 describe('dds-carousel | with videos (desktop)', () => {
@@ -291,14 +291,14 @@ describe('dds-carousel | with videos (desktop)', () => {
     cy.injectAxe();
   });
 
-  // _tests.checkA11y();
-  // _tests.screenshotThemes();
-  // _tests.checkTextRenders();
-  // _tests.checkVideoRenders();
-  // _tests.checkVideoDurationText();
-  // _tests.checkSameHeight();
-  // _tests.checkClickableCard();
-  // _tests.checkScroll();
+  _tests.checkA11y();
+  _tests.screenshotThemes();
+  _tests.checkTextRenders();
+  _tests.checkVideoRenders();
+  _tests.checkVideoDurationText();
+  _tests.checkSameHeight();
+  _tests.checkClickableCard();
+  _tests.checkScroll();
 });
 
 describe('dds-carousel | with videos (mobile)', () => {
@@ -308,14 +308,14 @@ describe('dds-carousel | with videos (mobile)', () => {
     cy.injectAxe();
   });
 
-  // _tests.checkA11y();
-  // _tests.screenshotThemes();
-  // _tests.checkTextRenders();
-  // _tests.checkVideoRenders();
-  // _tests.checkVideoDurationText();
-  // _tests.checkSameHeight();
-  // _tests.checkClickableCard();
-  // _tests.checkScroll();
+  _tests.checkA11y();
+  _tests.screenshotThemes();
+  _tests.checkTextRenders();
+  _tests.checkVideoRenders();
+  _tests.checkVideoDurationText();
+  _tests.checkSameHeight();
+  _tests.checkClickableCard();
+  _tests.checkScroll();
 });
 
 describe('dds-carousel | with media (desktop)', () => {
