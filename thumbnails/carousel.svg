@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="180px" viewBox="0 0 320 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>carousel</title>
+    <g id="carousel" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-Copy-14-Copy" stroke="#C6C6C6" fill="#FFFFFF" fill-rule="nonzero" x="60" y="51" width="200" height="78"></rect>
+        <rect id="Rectangle-Copy-3-Copy" fill="#8D8D8D" fill-rule="nonzero" x="249.772727" y="112.857585" width="6.81818181" height="6.87306501"></rect>
+        <rect id="Rectangle-Copy-4-Copy" fill="#8D8D8D" fill-rule="nonzero" x="241.818182" y="112.857585" width="6.81818181" height="6.87306501"></rect>
+        <rect id="Rectangle-Copy-21-Copy" stroke="#FFFFFF" stroke-width="0.81" fill="#C6C6C6" fill-rule="nonzero" x="111.136364" y="60.164087" width="48.8636363" height="49.2569659"></rect>
+        <rect id="Rectangle-Copy-21-Copy-2" stroke="#FFFFFF" stroke-width="0.81" fill="#C6C6C6" fill-rule="nonzero" x="62.1363638" y="60.164087" width="48.8636363" height="49.2569659"></rect>
+        <rect id="Rectangle-Copy-22-Copy" stroke="#FFFFFF" stroke-width="0.81" fill="#C6C6C6" fill-rule="nonzero" x="160" y="60.164087" width="48.8636363" height="49.2569659"></rect>
+        <rect id="Rectangle-Copy-23-Copy" stroke="#FFFFFF" stroke-width="0.81" fill="#C6C6C6" fill-rule="nonzero" x="208.863636" y="60.164087" width="48.8636363" height="49.2569659"></rect>
+    </g>
+</svg>
