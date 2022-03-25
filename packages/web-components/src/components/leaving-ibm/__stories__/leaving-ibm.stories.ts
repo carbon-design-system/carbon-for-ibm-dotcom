@@ -23,10 +23,10 @@ export const Default = ({ parameters }) => {
 
     ${ctaType === 'Link'
       ? html`
-      <bx-link href="${href}" data-leaving-ibm>
-        ${ctaText}${Launch20({ slot: 'icon' })}
-      </bx-link></li>
-    `
+          <dds-link-with-icon icon-placement="right" href="${href}" data-leaving-ibm>
+            ${ctaText}${Launch20({ slot: 'icon' })}
+          </dds-link-with-icon>
+        `
       : null}
     ${ctaType === 'Button'
       ? html`
