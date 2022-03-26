@@ -138,7 +138,7 @@
     "@carbon/ibmdotcom-services-store": "1.32.0-rc.1",
     "@carbon/icon-helpers": "10.28.0",
     "@carbon/icons": "10.48.0",
-    "@carbon/type": "10.43.2",
+    "@carbon/type": "10.44.0",
     "@open-wc/semantic-dom-diff": "^0.15.0",
     "@percy-io/in-percy": "^0.1.11",
     "@percy/cli": "^1.0.0-beta.67",
