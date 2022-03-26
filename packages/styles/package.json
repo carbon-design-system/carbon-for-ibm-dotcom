@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.8.0",
-    "carbon-components-react": "7.55.2",
+    "carbon-components-react": "7.56.0",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
