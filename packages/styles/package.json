@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@carbon/grid": "10.43.1",
-    "@carbon/icons-react": "10.48.0",
+    "@carbon/icons-react": "10.49.0",
     "@carbon/import-once": "10.7.0",
     "@carbon/layout": "10.37.1",
     "@carbon/motion": "10.29.0",

@@ -112,7 +112,7 @@
     "window-or-global": "^1.0.0"
   },
   "optionalDependencies": {
-    "@carbon/icons-react": "10.48.0",
+    "@carbon/icons-react": "10.49.0",
     "lodash.pickby": "^4.6.0",
     "prop-types": "^15.7.0",
     "react": "^16.10.0 || ^17.0.0",
