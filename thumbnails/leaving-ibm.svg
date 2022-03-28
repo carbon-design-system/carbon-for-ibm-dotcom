@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="180px" viewBox="0 0 320 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>leaving-ibm</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="191" height="115"></rect>
+        <filter x="-4.5%" y="-5.7%" width="108.9%" height="114.8%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.862745106   0 0 0 0 0.862745106   0 0 0 0 0.862745106  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <polygon id="path-3" points="6.37366775 5.85852592 8.78419811 3.44701019 8.26666244 2.92926296 5.85613208 5.34077869 3.44560171 2.92926296 2.92806604 3.44701019 5.3385964 5.85852592 2.92806604 8.27004165 3.44560171 8.78778888 5.85613208 6.37627315 8.26666244 8.78778888 8.78419811 8.27004165"></polygon>
+    </defs>
+    <g id="leaving-ibm" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(64.000000, 32.000000)">
+            <g id="Group-38-Copy-2">
+                <g id="Rectangle" fill="black" fill-opacity="1">
+                    <use filter="url(#filter-2)" xlink:href="#path-1"></use>
+                </g>
+                <g id="color/gray/10-copy-10" fill="#F3F3F3">
+                    <rect id="Rectangle" x="0" y="0" width="191" height="116"></rect>
+                </g>
+            </g>
+            <g transform="translate(172.080189, 6.309182)" id="icon/navigation/close/16-copy-3">
+                <mask id="mask-4" fill="white">
+                    <use xlink:href="#path-3"></use>
+                </mask>
+                <use id="icon-color" fill="#000000" xlink:href="#path-3"></use>
+            </g>
+            <rect id="Rectangle-Copy-5" fill="#A8A8A8" x="8.10849057" y="11.7170518" width="52.254717" height="6.30918176"></rect>
+            <rect id="Rectangle-Copy-13" fill="#C6C6C6" x="8.10849057" y="26.1380387" width="133.339623" height="4.5065584"></rect>
+            <rect id="Rectangle-Copy-19" fill="#C6C6C6" x="8.10849057" y="44.1642723" width="133.339623" height="4.5065584"></rect>
+            <rect id="Rectangle-Copy-20" fill="#0F6DFF" x="95" y="93" width="96.4009434" height="22.532792"></rect>
+            <rect id="Rectangle-Copy-21" fill="#C6C6C6" x="8.10849057" y="35.1511555" width="109.007575" height="4.5065584"></rect>
+            <rect id="Rectangle-Copy-12-Copy-Copy" fill="#0F6DFF" fill-rule="nonzero" x="8.10849057" y="72.4996877" width="52.254717" height="4.5065584"></rect>
+            <rect id="Rectangle-Copy-12-Copy-2-Copy" fill="#C6C6C6" fill-rule="nonzero" x="8.10849057" y="66.2891943" width="28.8301887" height="2.70393504"></rect>
+        </g>
+    </g>
+</svg>
