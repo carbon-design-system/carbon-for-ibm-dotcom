@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="180px" viewBox="0 0 320 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>video-player</title>
+    <g id="video-player" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-Copy-29" fill="#BEBEBE" x="60" y="32" width="200" height="109"></rect>
+        <rect id="Rectangle-Copy-30" fill="#C6C6C6" transform="translate(79.500000, 146.000000) scale(1, -1) translate(-79.500000, -146.000000) " x="60" y="144" width="39" height="4"></rect>
+        <g id="Group-Copy" transform="translate(150.000000, 76.000000)">
+            <circle id="Oval" fill="#3D3D3D" cx="10.5" cy="10.5" r="10.5"></circle>
+            <g id="Actions-/-Controls-/-play--filled--alt-/-16" transform="translate(6.000000, 5.500000)" fill="#FFFFFF">
+                <path d="M2.165625,8.6625 C1.99476191,8.6625 1.85625,8.52398809 1.85625,8.353125 L1.85625,1.546875 C1.85625,1.43630684 1.91535308,1.33417025 2.01115219,1.2789629 C2.10695129,1.22375555 2.22493096,1.22387096 2.32062188,1.27926562 L8.19874687,4.68239062 C8.2941588,4.73773747 8.35288621,4.8396972 8.35288621,4.95 C8.35288621,5.0603028 8.2941588,5.16226253 8.19874687,5.21760937 L2.32062188,8.62073437 C2.27354225,8.64807839 2.22006934,8.6625 2.165625,8.6625 Z" id="Fill"></path>
+            </g>
+        </g>
+    </g>
+</svg>
