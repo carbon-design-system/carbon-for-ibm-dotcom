@@ -238,7 +238,7 @@ describe('dds-carousel | default (desktop)', () => {
 describe('dds-carousel | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
-    cy.visit(`/${_paths.default}`);
+    cy.visit(`${_paths.default}`);
     cy.injectAxe();
   });
 
