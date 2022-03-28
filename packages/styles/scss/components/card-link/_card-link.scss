@@ -9,10 +9,12 @@
 @import '../card/index';
 
 @mixin card-link {
-  :host(#{$dds-prefix}-card-link).#{$prefix}--card__CTA--disabled,
-  .#{$prefix}--card-link.#{$prefix}--card__CTA--disabled {
+  .#{$prefix}--card__CTA--disabled {
     cursor: not-allowed;
+  }
 
+  :host(#{$dds-prefix}-card-link[disabled]),
+  .#{$prefix}--card__CTA--disabled {
     .#{$prefix}--card__heading,
     ::slotted([slot='heading']),
     .#{$prefix}--card__copy,
