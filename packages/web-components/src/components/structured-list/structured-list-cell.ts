@@ -23,13 +23,13 @@ class DDSStructuredListCell extends BXStructuredListCell {
   _parentGroup: DDSStructuredListGroup | null = this.closest(`${ddsPrefix}-structured-list-group`);
 
   @property({ attribute: 'aria-label', reflect: true })
-  _groupLabel: string | null = null;
+  _groupLabel?: string;
 
   @property({ attribute: 'tooltip', reflect: true })
-  _tooltipText: string | null = null;
+  _tooltipText?: string;
 
   @property({ attribute: 'icon', reflect: true })
-  _icon: string | null = null;
+  _icon?: string;
 
   _iconsAllowed = {
     checkmark: Checkmark20,
@@ -37,11 +37,11 @@ class DDSStructuredListCell extends BXStructuredListCell {
   };
 
   @property({ attribute: 'tags', reflect: true })
-  _tags: string | null = null;
+  _tags?: string;
 
   connectedCallback() {
     super.connectedCallback();
-    this._groupLabel = this._parentGroup?.groupTitle || null;
+    this._groupLabel = this._parentGroup?.groupTitle;
   }
 
   _renderIcon() {

@@ -25,7 +25,7 @@ class DDSStructuredListGroup extends StableSelectorMixin(LitElement) {
   _parentTable: DDSStructuredList | null = this.closest(`${ddsPrefix}-structured-list`);
 
   @property({ attribute: 'title' })
-  groupTitle: string | null = null;
+  groupTitle?: string;
 
   connectedCallback() {
     super.connectedCallback();

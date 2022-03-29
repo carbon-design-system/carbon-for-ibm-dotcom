@@ -111,6 +111,10 @@ export const WithRowHeaders = ({ parameters }) => {
   `;
 };
 
+WithRowHeaders.story = {
+  name: 'With row headers',
+};
+
 export const WithSubheaders = ({ parameters }) => {
   const { colSpan1, colSpan2, colSpan3, colSpan4 } = parameters?.props?.StructuredList ?? {};
   return html`
@@ -204,6 +208,10 @@ export const WithSubheaders = ({ parameters }) => {
   `;
 };
 
+WithSubheaders.story = {
+  name: 'With subheaders',
+};
+
 export const WithComplexContent = ({ parameters }) => {
   const { colSpan1, colSpan2, colSpan3, colSpan4 } = parameters?.props?.StructuredList ?? {};
   return html`
@@ -245,8 +253,12 @@ export const WithComplexContent = ({ parameters }) => {
   `;
 };
 
+WithComplexContent.story = {
+  name: 'With complex content',
+};
+
 export default {
-  title: 'Components/Structured List',
+  title: 'Components/Structured list',
   parameters: {
     ...readme.parameters,
     knobs: {

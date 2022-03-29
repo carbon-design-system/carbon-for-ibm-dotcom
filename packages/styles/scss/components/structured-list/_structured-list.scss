@@ -7,24 +7,11 @@
 
 @import '../../globals/imports';
 @import '../../globals/vars';
-@import 'carbon-components/scss/components/structured-list/structured-list';
 @import 'carbon-web-components/scss/components/structured-list/structured-list';
 
-@include structured-list;
 
 // Inherited Table Styles
-:host(#{$dds-prefix}-structured-list) {
-  @extend .#{$prefix}--structured-list;
-
-  width: 100%;
-}
-:host(#{$dds-prefix}-structured-list-head) {
-  @extend .#{$prefix}--structured-list-thead;
-}
 :host(#{$dds-prefix}-structured-list-header-row) {
-  @extend .#{$prefix}--structured-list-row,
-    .#{$prefix}--structured-list-row--header-row;
-
   border-bottom: none;
 }
 :host(#{$dds-prefix}-structured-list-header-cell) {
@@ -33,9 +20,6 @@
   padding-inline: $spacing-05;
   padding-block-end: $spacing-05;
   border-bottom: 1px solid $ui-03;
-}
-:host(#{$dds-prefix}-structured-list-body) {
-  @extend .#{$prefix}--structured-list-tbody;
 }
 :host(#{$dds-prefix}-structured-list-group) {
   display: contents;
@@ -54,15 +38,11 @@
   th {
     @extend .#{$prefix}--structured-list-td;
 
+    color: $text-01;
     text-align: left;
     font-weight: bold;
     padding-inline: $spacing-05;
   }
-}
-:host(#{$dds-prefix}-structured-list-row) {
-  @extend .#{$prefix}--structured-list-row;
-
-  border-bottom: none;
 }
 :host(#{$dds-prefix}-structured-list-cell) {
   @extend .#{$prefix}--structured-list-td;
@@ -171,5 +151,11 @@
 
   svg {
     fill: $icon-02;
+  }
+}
+
+:host(#{$dds-prefix}-structured-list-cell[icon]) {
+  &[icon="checkmark"] {
+    color: $support-02;
   }
 }
