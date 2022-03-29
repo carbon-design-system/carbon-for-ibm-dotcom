@@ -51,7 +51,7 @@ async function _buildComponents({ mode = 'development', dir = 'ltr' } = {}) {
         dir: config.bundleDestDir,
         // FIXME: Figure out how to handle `process.env` without build toolstack
         banner: 'let process = { env: {} };',
-        chunkFileNames: '[name].js',
+        chunkFileNames: `${dir === 'rtl' ? 'rtl/' : ''}[name].js`,
       });
     })
     .catch(err => {
