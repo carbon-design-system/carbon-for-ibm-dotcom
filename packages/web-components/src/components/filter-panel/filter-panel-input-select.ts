@@ -140,11 +140,11 @@ class DDSFilterPanelInputSelect extends FocusMixin(StableSelectorMixin(LitElemen
    * @private
    */
   protected _handleClickHeader() {
-    const { eventTitleChange } = this.constructor as typeof DDSFilterPanelInputSelect;
+    const { eventInputSelect } = this.constructor as typeof DDSFilterPanelInputSelect;
     this.isOpen = !this.isOpen;
     this.selected = !this.selected;
     this.dispatchEvent(
-      new CustomEvent(eventTitleChange, {
+      new CustomEvent(eventInputSelect, {
         bubbles: true,
         composed: true,
         detail: {
@@ -205,7 +205,7 @@ class DDSFilterPanelInputSelect extends FocusMixin(StableSelectorMixin(LitElemen
   /**
    * The name of the custom event fired upon selecting the title
    */
-  static get eventTitleChange() {
+  static get eventInputSelect() {
     return `${ddsPrefix}-filter-panel-input-select-title`;
   }
 

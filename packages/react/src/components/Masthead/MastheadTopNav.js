@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
@@ -28,6 +28,16 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
   const [overlay, setOverlay] = useState(false);
 
   const childLinkChecker = topNavProps.hasCurrentUrl();
+
+  useEffect(() => {
+    document
+      .querySelector(`.${prefix}--header__menu-bar`)
+      ?.setAttribute('role', 'menu');
+    document.querySelectorAll(`.${prefix}--header__menu-bar li`).forEach(e => {
+      e.setAttribute('role', 'menuitem');
+      e.querySelector('a').removeAttribute('role');
+    });
+  }, []);
 
   /**
    * Top masthead navigation

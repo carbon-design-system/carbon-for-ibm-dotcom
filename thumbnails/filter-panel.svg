@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="180px" viewBox="0 0 320 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>filter-panel</title>
+    <g id="filter-panel" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(100.000000, 25.000000)">
+            <rect id="Rectangle-Copy-29" fill="#F4F4F4" fill-rule="nonzero" x="0" y="0" width="113" height="130"></rect>
+            <rect id="Rectangle-Copy-35" fill="#A8A8A8" fill-rule="nonzero" x="10.2727273" y="24.2156863" width="66.7727273" height="5"></rect>
+            <rect id="Rectangle-Copy-37" fill="#A8A8A8" fill-rule="nonzero" x="10.2727273" y="101.960784" width="66.7727273" height="5"></rect>
+            <rect id="Rectangle-Copy-38" fill="#C6C6C6" fill-rule="nonzero" x="10.2727273" y="35.6862745" width="53.9318182" height="5"></rect>
+            <rect id="Rectangle-Copy-40" fill="#A8A8A8" fill-rule="nonzero" x="10.2727273" y="84.1176471" width="53.9318182" height="5"></rect>
+            <rect id="Rectangle-Copy-40" fill="#A8A8A8" fill-rule="nonzero" x="10.2727273" y="6.37254902" width="53.9318182" height="5"></rect>
+            <rect id="Rectangle-Copy-41" fill="#C6C6C6" fill-rule="nonzero" x="10.2727273" y="47.1568627" width="66.7727273" height="5"></rect>
+            <rect id="Rectangle-Copy-44" fill="#C6C6C6" fill-rule="nonzero" x="10.2727273" y="58.627451" width="53.9318182" height="5"></rect>
+            <g id="Group" transform="translate(96.467330, 24.660665)" fill="#000000" fill-rule="nonzero">
+                <g id="Actions-/-Navigation-/-chevron--down-/-16" transform="translate(3.000000, 1.697241) scale(-1, 1) rotate(-180.000000) translate(-3.000000, -1.697241) ">
+                    <polygon id="Fill" points="3 3.39448204 0 0.416866216 0.42 0 3 2.56074961 5.58 0 6 0.416866216"></polygon>
+                </g>
+            </g>
+            <g id="Actions-/-Navigation-/-chevron--down-/-16" transform="translate(96.467330, 85.376225)" fill="#000000" fill-rule="nonzero">
+                <polygon id="Fill" points="3 3.39448204 0 0.416866216 0.42 0 3 2.56074961 5.58 0 6 0.416866216"></polygon>
+            </g>
+            <g id="Actions-/-Navigation-/-chevron--down-/-16" transform="translate(96.467330, 103.219363)" fill="#000000" fill-rule="nonzero">
+                <polygon id="Fill" points="3 3.39448204 0 0.416866216 0.42 0 3 2.56074961 5.58 0 6 0.416866216"></polygon>
+            </g>
+            <line x1="0" y1="17.8431373" x2="113" y2="17.8431373" id="Path-4-Copy-4" stroke="#A8A8A8" stroke-width="0.64"></line>
+            <line x1="0" y1="77.745098" x2="113" y2="77.745098" id="Path-4-Copy-5" stroke="#A8A8A8" stroke-width="0.64"></line>
+            <line x1="0" y1="95.5882353" x2="113" y2="95.5882353" id="Path-4-Copy-6" stroke="#A8A8A8" stroke-width="0.64"></line>
+            <line x1="0" y1="113.431373" x2="113" y2="113.431373" id="Path-4-Copy-7" stroke="#A8A8A8" stroke-width="0.64"></line>
+        </g>
+    </g>
+</svg>

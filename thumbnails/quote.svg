@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="180px" viewBox="0 0 320 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>quote</title>
+    <g id="quote" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-Copy-69" fill="#A8A8A8" x="68" y="117" width="47" height="4"></rect>
+        <rect id="Rectangle-Copy-70" fill="#C6C6C6" x="68" y="124" width="37" height="4"></rect>
+        <rect id="Rectangle-Copy-75" fill="#C6C6C6" x="68" y="46" width="184" height="7"></rect>
+        <rect id="Rectangle-Copy-76" fill="#C6C6C6" x="68" y="59" width="162.517766" height="7"></rect>
+        <rect id="Rectangle-Copy-77" fill="#C6C6C6" x="68" y="72" width="184" height="7"></rect>
+        <rect id="Rectangle-Copy-78" fill="#C6C6C6" x="68" y="85" width="162.517766" height="7"></rect>
+        <rect id="Rectangle-Copy-79" fill="#C6C6C6" x="68" y="98" width="184" height="7"></rect>
+        <line x1="63" y1="137" x2="254.900048" y2="137" id="Path-Copy-3" stroke="#8D8D8D" stroke-width="0.5"></line>
+        <text id="“-copy" font-family="IBMPlexSerif-Light, IBM Plex Serif" font-size="24" font-weight="300" fill="#000000">
+            <tspan x="56" y="57">“</tspan>
+        </text>
+        <text id="”-copy" font-family="IBMPlexSerif-Light, IBM Plex Serif" font-size="24" font-weight="300" fill="#000000">
+            <tspan x="253" y="111">”</tspan>
+        </text>
+        <rect id="Rectangle-Copy-12" fill="#78A9FF" x="68" y="144" width="31" height="4"></rect>
+    </g>
+</svg>
