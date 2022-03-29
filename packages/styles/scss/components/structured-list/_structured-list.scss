@@ -9,7 +9,6 @@
 @import '../../globals/vars';
 @import 'carbon-web-components/scss/components/structured-list/structured-list';
 
-
 // Inherited Table Styles
 :host(#{$dds-prefix}-structured-list-header-row) {
   border-bottom: none;
@@ -155,7 +154,7 @@
 }
 
 :host(#{$dds-prefix}-structured-list-cell[icon]) {
-  &[icon="checkmark"] {
+  &[icon='checkmark'] {
     color: $support-02;
   }
 }
