@@ -1,0 +1,194 @@
+# yaml-language-server: $schema=https://unpkg.com/@carbon-platform/schemas@v1/carbon-resources.schema.json
+library:
+  id: ibmdotcom-utilities
+  name: IBM.com Utilities
+  description: IBM.com ES6 utility classes
+  externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities
+  noIndex: true
+assets:
+  altlangs:
+    name: altlangs
+    description: Utility to grab all alternative languages on the page. this scrapes the page of all elements and returns as a readable object.
+    type: function
+    platform: web
+    status: stable
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#altlangs
+    framework: vanilla
+    tags:
+      - utility
+  calculate-total-width:
+    name: calculateTotalWidth
+    description: Utility to calculate the total width of elements.
+    type: function
+    platform: web
+    status: stable
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#calculateTotalWidth
+    framework: vanilla
+    tags:
+      - utility
+  decode-string:
+    name: decodeString
+    description: Utility function to parse and decode text content. Strings can become encoded for various reasons. This utility decodes those strings.
+    type: function
+    platform: web
+    status: stable
+    framework: vanilla
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#decodeString
+    tags:
+      - utility
+  escape-reg-exp:
+    name: escapeRegExp
+    description: Utiltity function for escaping regex expressions.
+    type: function
+    platform: web
+    status: stable
+    framework: vanilla
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#escapeRegExp
+    tags:
+      - utility
+  focus-wrap:
+    name: focuswrap
+    description: Fires the given event if focus goes out of the given element.
+    type: function
+    platform: web
+    status: stable
+    framework: vanilla
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#focuswrap
+    tags:
+      - utility
+  ipc-info-cookie:
+    name: ipcinfoCookie
+    description: Utility to set and get the ipcInfo cookie needed to determine country and language code.
+    type: function
+    platform: web
+    status: stable
+    framework: vanilla
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/ipcinfoCookie.html
+    tags:
+      - utility
+  format-video-caption:
+    name: formatVideoCaption
+    description: The default g11n formatter for video caption, combining video name and video duration. Components using this function should have a mechanism to allow translators to replace it with one accomodating the preferences of specific locale.
+    type: function
+    platform: web
+    status: stable
+    framework: vanilla
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#formatVideoCaption
+    tags:
+      - utility
+  format-video-duration:
+    name: formatVideoDuration
+    description: The default g11n formatter for video duration. Components using this function should have a mechanism to allow translators to replace it with one accomodating the preferences of specific locale, or to replace it with general-purpose g11n formatting library. (e.g. moment, though it's too big for us to make it a hard dependency)
+    type: function
+    platform: web
+    status: stable
+    framework: vanilla
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#formatVideoDuration
+    tags:
+      - utility
+  geolocation:
+    name: geolocation
+    description: Utility to retrieve user's country code based on their IP address
+    type: function
+    platform: web
+    status: stable
+    framework: vanilla
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#geolocation
+    tags:
+      - utility
+  load-non-latin-plex:
+    name: loadNonLatinPlex
+    description: Utility to load in the corresponding non-Latin Plex font if necessary
+    type: function
+    platform: web
+    status: stable
+    framework: vanilla
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#loadNonLatinPlex
+    tags:
+      - utility
+  markdown-to-html:
+    name: markdownToHtml
+    description: Converts markdown syntaxes into html
+    type: function
+    platform: web
+    status: stable
+    framework: vanilla
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#markdownToHtml
+    tags:
+      - utility
+  remove-html-tag-entities:
+    name: removeHtmlTagEntities
+    type: function
+    platform: web
+    status: stable
+    framework: vanilla
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#removeHtmlTagEntities
+    tags:
+      - utility
+  same-height:
+    name: sameHeight
+    description: Utility that sets an array of elements to the same height.
+    type: function
+    platform: web
+    status: stable
+    framework: vanilla
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#sameHeight
+    tags:
+      - utility
+  serialize:
+    name: serialize
+    description: Converts a JSON object to a serialized string
+    type: function
+    platform: web
+    status: stable
+    framework: vanilla
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#serialize
+    tags:
+      - utility
+  smooth-scroll:
+    name: smoothScroll
+    description: Utility handles smoothScroll on the anchor element after onClick
+    type: function
+    platform: web
+    status: stable
+    framework: vanilla
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#smoothScroll
+    tags:
+      - utility
+  strip-html:
+    name: stripHTML
+    description: Utility returns the text stripping all html tags from it.
+    type: function
+    platform: web
+    status: stable
+    framework: vanilla
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#stripHTML
+    tags:
+      - utility
+  unique-id:
+    name: uniqueid
+    description: Creates a unique ID to use
+    type: function
+    platform: web
+    status: stable
+    framework: vanilla
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#uniqueid
+    tags:
+      - utility
