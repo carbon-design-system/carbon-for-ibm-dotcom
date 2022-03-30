@@ -9,6 +9,43 @@
 @import '../../globals/vars';
 @import 'carbon-web-components/scss/components/structured-list/structured-list';
 
+// Overridden column spanning
+@mixin structured-list-colspan($colNumber) {
+  &:nth-child(#{$colNumber}) {
+    --cols: var(--col-span-#{$colNumber}, 2);
+    --width: calc((var(--cols) / var(--max-cols)) * 100%);
+
+    max-width: var(--width);
+    flex: 0 0 var(--width);
+  }
+
+  @include carbon--breakpoint('md') {
+    &:nth-child(#{$colNumber}) {
+      --cols: var(
+        --col-span-md-#{$colNumber},
+        var(--col-span-#{$colNumber}, 2)
+      );
+      --width: calc((var(--cols) / var(--max-cols)) * 100%);
+
+      max-width: var(--width);
+      flex: 0 0 var(--width);
+    }
+  }
+
+  @include carbon--breakpoint('lg') {
+    &:nth-child(#{$colNumber}) {
+      --cols: var(
+        --col-span-lg-#{$colNumber},
+        var(--col-span-md-#{$colNumber}, var(--col-span-#{$colNumber}, 2))
+      );
+      --width: calc((var(--cols) / var(--max-cols)) * 100%);
+
+      max-width: var(--width);
+      flex: 0 0 var(--width);
+    }
+  }
+}
+
 @mixin structured-list {
   // Inherited Table Styles
   :host(#{$dds-prefix}-structured-list-header-row) {
@@ -77,43 +114,6 @@
 
     @include carbon--breakpoint('lg') {
       @include carbon--make-col(2, 16);
-    }
-  }
-
-  // Overridden column spanning
-  @mixin structured-list-colspan($colNumber) {
-    &:nth-child(#{$colNumber}) {
-      --cols: var(--col-span-#{$colNumber}, 2);
-      --width: calc((var(--cols) / var(--max-cols)) * 100%);
-
-      max-width: var(--width);
-      flex: 0 0 var(--width);
-    }
-
-    @include carbon--breakpoint('md') {
-      &:nth-child(#{$colNumber}) {
-        --cols: var(
-          --col-span-md-#{$colNumber},
-          var(--col-span-#{$colNumber}, 2)
-        );
-        --width: calc((var(--cols) / var(--max-cols)) * 100%);
-
-        max-width: var(--width);
-        flex: 0 0 var(--width);
-      }
-    }
-
-    @include carbon--breakpoint('lg') {
-      &:nth-child(#{$colNumber}) {
-        --cols: var(
-          --col-span-lg-#{$colNumber},
-          var(--col-span-md-#{$colNumber}, var(--col-span-#{$colNumber}, 2))
-        );
-        --width: calc((var(--cols) / var(--max-cols)) * 100%);
-
-        max-width: var(--width);
-        flex: 0 0 var(--width);
-      }
     }
   }
 
