@@ -20,40 +20,40 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-structured-list-cell`)
 class DDSStructuredListCell extends BXStructuredListCell {
-  _parentGroup: DDSStructuredListGroup | null = this.closest(`${ddsPrefix}-structured-list-group`);
+  parentGroup: DDSStructuredListGroup | null = this.closest(`${ddsPrefix}-structured-list-group`);
 
   @property({ attribute: 'aria-label', reflect: true })
-  _groupLabel?: string;
+  groupLabel?: string;
 
   @property({ attribute: 'tooltip', reflect: true })
-  _tooltipText?: string;
+  tooltipText?: string;
 
   @property({ attribute: 'icon', reflect: true })
-  _icon?: string;
+  icon?: string;
 
-  _iconsAllowed = {
+  private _iconsAllowed = {
     checkmark: Checkmark20,
     error: Error20,
   };
 
   @property({ attribute: 'tags', reflect: true })
-  _tags?: string;
+  tags?: string;
 
   connectedCallback() {
     super.connectedCallback();
-    this._groupLabel = this._parentGroup?.groupTitle;
+    this.groupLabel = this.parentGroup?.groupTitle;
   }
 
-  _renderIcon() {
-    const { _icon: icon, _iconsAllowed: iconMap } = this;
+  private _renderIcon() {
+    const { icon, _iconsAllowed: iconMap } = this;
 
     return html`
       ${iconMap[icon!.toLowerCase()].call()}
     `;
   }
 
-  _renderTags() {
-    const { _tags: tags } = this;
+  private _renderTags() {
+    const { tags } = this;
 
     return html`
       ${tags!.split(',').map(
@@ -65,8 +65,8 @@ class DDSStructuredListCell extends BXStructuredListCell {
     `;
   }
 
-  _renderTooltip() {
-    const { _tooltipText: tooltip } = this;
+  private _renderTooltip() {
+    const { tooltipText: tooltip } = this;
 
     return html`
       <bx-tooltip-icon alignment="start" body-text="${tooltip}" direction="right">
@@ -76,7 +76,7 @@ class DDSStructuredListCell extends BXStructuredListCell {
   }
 
   render() {
-    const { _tooltipText: tooltip, _icon: icon, _iconsAllowed: iconsAllowed, _tags: tags } = this;
+    const { tooltipText: tooltip, icon, _iconsAllowed: iconsAllowed, tags } = this;
 
     if (icon && Object.keys(iconsAllowed).includes(icon.toLowerCase())) {
       return html`

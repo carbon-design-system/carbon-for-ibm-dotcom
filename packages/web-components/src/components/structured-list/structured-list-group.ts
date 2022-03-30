@@ -31,7 +31,7 @@ class DDSStructuredListGroup extends StableSelectorMixin(LitElement) {
     super.connectedCallback();
   }
 
-  _renderTitle() {
+  private _renderTitle() {
     // set colspan to max value to ensure it spans all columns
     return html`
       <tr>

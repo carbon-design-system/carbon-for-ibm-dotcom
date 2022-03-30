@@ -17,13 +17,16 @@ const { prefix } = settings;
 
 @customElement(`${ddsPrefix}-structured-list`)
 class DDSStructuredList extends LitElement {
-  _mutationObserver = new MutationObserver(this._setColumnSpans.bind(this));
+  private _mutationObserver = new MutationObserver(this._setColumnSpans.bind(this));
 
-  _setColumnSpans(entries) {
+  /**
+   * Handles attribute changes to attributes starting with `col-span`.
+   */
+  private _setColumnSpans(entries) {
     entries.forEach(entry => {
       const attr = entry.attributeName;
 
-      if (attr.startsWith('col-span')) {
+      if (attr?.startsWith('col-span')) {
         if (this.hasAttribute(attr) && parseInt(this.getAttribute(attr)!, 10)) {
           this.style.setProperty(`--${attr}`, parseInt(this.getAttribute(attr)!, 10).toString());
         } else {
