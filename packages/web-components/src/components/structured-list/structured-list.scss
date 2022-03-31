@@ -5,5 +5,6 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-//@import '@carbon/ibmdotcom-styles/scss/components/structured-list/structured-list';
-@import '../../../../styles/scss/components/structured-list/structured-list';
+@import '@carbon/ibmdotcom-styles/scss/components/structured-list/structured-list';
+
+@include structured-list;
