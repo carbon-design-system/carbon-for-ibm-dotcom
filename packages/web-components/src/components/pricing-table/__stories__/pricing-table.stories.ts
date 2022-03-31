@@ -7,247 +7,141 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html, TemplateResult } from 'lit-element';
+import { number, text } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
 import 'carbon-web-components/es/components/tooltip/index';
-import textNullable from '../../../../.storybook/knob-text-nullable';
+// import textNullable from '../../../../.storybook/knob-text-nullable';
 
-export const Default = ({ parameters }) => {
-  const { colSpan1, colSpan2, colSpan3, colSpan4 } = parameters?.props?.PricingTable ?? {};
-  return html`
-    <dds-pricing-table
-      col-span-1="${colSpan1 ?? ''}"
-      col-span-2="${colSpan2 ?? ''}"
-      col-span-3="${colSpan3 ?? ''}"
-      col-span-4="${colSpan4 ?? ''}"
-    >
-      <dds-pricing-table-headline>
-        <dds-pricing-table-headline-heading>Optional heading</dds-pricing-table-headline-heading>
-        <dds-content-section>
-          <dds-content-section-heading>Content section heading</dds-content-section-heading>
-          <dds-content-section-copy>I am the headline, short and stout.</dds-content-section-copy>
-          <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com">Link action</dds-text-cta>
-        </dds-content-section>
-      </dds-pricing-table-headline>
-      <dds-pricing-table-head>
-        <dds-pricing-table-header-row>
-          <dds-pricing-table-header-cell>Column A</dds-pricing-table-header-cell>
-          <dds-pricing-table-header-cell>Column B</dds-pricing-table-header-cell>
-          <dds-pricing-table-header-cell>Column C</dds-pricing-table-header-cell>
-          <dds-pricing-table-header-cell>Column D</dds-pricing-table-header-cell>
-        </dds-pricing-table-header-row>
-      </dds-pricing-table-head>
-      <dds-pricing-table-body>
-        <dds-pricing-table-row>
-          <dds-pricing-table-cell>Row 1</dds-pricing-table-cell>
-          <dds-pricing-table-cell>Row 1</dds-pricing-table-cell>
-          <dds-pricing-table-cell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-            augue. Aenean posuere sem vel euismod dignissim.
-          </dds-pricing-table-cell>
-          <dds-pricing-table-cell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-            augue. Aenean posuere sem vel euismod dignissim.
-          </dds-pricing-table-cell>
-        </dds-pricing-table-row>
-        <dds-pricing-table-row>
-          <dds-pricing-table-cell>Row 2</dds-pricing-table-cell>
-          <dds-pricing-table-cell>Row 2</dds-pricing-table-cell>
-          <dds-pricing-table-cell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-            augue. Aenean posuere sem vel euismod dignissim.
-          </dds-pricing-table-cell>
-          <dds-pricing-table-cell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-            augue. Aenean posuere sem vel euismod dignissim.
-          </dds-pricing-table-cell>
-        </dds-pricing-table-row>
-        <dds-pricing-table-row>
-          <dds-pricing-table-cell>Row 3</dds-pricing-table-cell>
-          <dds-pricing-table-cell>Row 3</dds-pricing-table-cell>
-          <dds-pricing-table-cell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-            augue. Aenean posuere sem vel euismod dignissim.
-          </dds-pricing-table-cell>
-          <dds-pricing-table-cell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-            augue. Aenean posuere sem vel euismod dignissim.
-          </dds-pricing-table-cell>
-        </dds-pricing-table-row>
-      </dds-pricing-table-body>
-    </dds-pricing-table>
-  `;
+const renderHeaderCell = name => html`
+  <dds-pricing-table-header-cell>
+    <dds-pricing-table-header-cell-headline>Variation ${name}</dds-pricing-table-header-cell-headline>
+    <dds-pricing-table-header-cell-caption>Starting at $X.XX per user</dds-pricing-table-header-cell-caption>
+    <dds-pricing-table-header-cell-tag href="https://www.example.com">Merchandising</dds-pricing-table-header-cell-tag>
+    <dds-pricing-table-header-cell-description>
+      Lorem ipsum dolor sit amet consectetur.
+      <bx-unordered-list>
+        <bx-list-item>Lorem ipsum dolor</bx-list-item>
+        <bx-list-item>sit amet</bx-list-item>
+        <bx-list-item>consectetur retention adispiscing elit sed do eiusm Eiusmod tempor</bx-list-item>
+      </bx-unordered-list>
+    </dds-pricing-table-header-cell-description>
+    <dds-pricing-table-header-cell-cta href="https://www.example.com">Call to action</dds-pricing-table-header-cell-cta>
+  </dds-pricing-table-header-cell>
+`;
+
+const renderHead = columnCount => html`
+  <dds-pricing-table-head>
+    <dds-pricing-table-header-row>
+      <dds-pricing-table-header-cell></dds-pricing-table-header-cell>
+      ${(() => {
+        const cells: TemplateResult[] = [];
+        for (let i = 1; i < columnCount; i++) {
+          cells.push(renderHeaderCell(i));
+        }
+        return cells;
+      })()}
+    </dds-pricing-table-header-row>
+  </dds-pricing-table-head>
+`;
+
+const bodyCellTypeMap = {
+  text: 'text',
+  icon: 'icon',
+  tags: 'tags',
 };
 
-export const WithRowHeaders = ({ parameters }) => {
-  const { colSpan1, colSpan2, colSpan3, colSpan4 } = parameters?.props?.PricingTable ?? {};
+const renderBodyCell = (type = bodyCellTypeMap.text) => {
+  let content;
+  if (type === bodyCellTypeMap.text) {
+    content = html`
+      <dds-pricing-table-cell>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue.
+        Aenean posuere sem vel euismod dignissim.
+      </dds-pricing-table-cell>
+    `;
+  }
+
+  if (type === bodyCellTypeMap.icon) {
+    content = html`
+      <dds-pricing-table-cell icon="checkmark">
+        Cell with icon
+      </dds-pricing-table-cell>
+    `;
+  }
+
+  if (type === bodyCellTypeMap.tags) {
+    content = html`
+      <dds-pricing-table-cell tags="Merchandising Offer, Secondary Tag, Other">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue.
+        Aenean posuere sem vel euismod dignissim.
+      </dds-pricing-table-cell>
+    `;
+  }
+
+  return content;
+};
+
+const renderBodyRow = (columnCount, rowNum) => html`
+  <dds-pricing-table-row>
+    ${(() => {
+      const cells: TemplateResult[] = [
+        html`
+          <dds-pricing-table-header-cell scope="row">Row ${rowNum}</dds-pricing-table-header-cell>
+        `,
+      ];
+      for (let i = 1; i < columnCount; i++) {
+        cells.push(renderBodyCell(bodyCellTypeMap[i + 1]));
+      }
+      return cells;
+    })()}
+  </dds-pricing-table-row>
+`;
+
+export const Default = ({ parameters }) => {
+  const { colSpan1, colSpan2, colSpan3, colSpan4, highlightCol, highlightLabel, columnCount } =
+    parameters?.props?.PricingTable ?? {};
   return html`
     <dds-pricing-table
       col-span-1="${colSpan1 ?? ''}"
       col-span-2="${colSpan2 ?? ''}"
       col-span-3="${colSpan3 ?? ''}"
       col-span-4="${colSpan4 ?? ''}"
+      highlight-column="${highlightCol}"
+      highlight-label="${highlightLabel}"
     >
+      ${renderHead(columnCount)}
       <dds-pricing-table-body>
-        <dds-pricing-table-row>
-          <dds-pricing-table-header-cell scope="row">Row 1</dds-pricing-table-header-cell>
-          <dds-pricing-table-cell>Row 1</dds-pricing-table-cell>
-          <dds-pricing-table-cell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-            augue. Aenean posuere sem vel euismod dignissim.
-          </dds-pricing-table-cell>
-        </dds-pricing-table-row>
-        <dds-pricing-table-row>
-          <dds-pricing-table-header-cell scope="row">Row 2</dds-pricing-table-header-cell>
-          <dds-pricing-table-cell>Row 2</dds-pricing-table-cell>
-          <dds-pricing-table-cell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-            augue. Aenean posuere sem vel euismod dignissim.
-          </dds-pricing-table-cell>
-        </dds-pricing-table-row>
-        <dds-pricing-table-row>
-          <dds-pricing-table-header-cell scope="row">Row 3</dds-pricing-table-header-cell>
-          <dds-pricing-table-cell>Row 3</dds-pricing-table-cell>
-          <dds-pricing-table-cell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-            augue. Aenean posuere sem vel euismod dignissim.
-          </dds-pricing-table-cell>
-        </dds-pricing-table-row>
+        ${renderBodyRow(columnCount, 1)} ${renderBodyRow(columnCount, 2)} ${renderBodyRow(columnCount, 3)}
       </dds-pricing-table-body>
     </dds-pricing-table>
   `;
 };
 
 export const WithSubheaders = ({ parameters }) => {
-  const { colSpan1, colSpan2, colSpan3, colSpan4 } = parameters?.props?.PricingTable ?? {};
+  const { colSpan1, colSpan2, colSpan3, colSpan4, columnCount, highlightCol, highlightLabel } =
+    parameters?.props?.PricingTable ?? {};
   return html`
     <dds-pricing-table
       col-span-1="${colSpan1 ?? ''}"
       col-span-2="${colSpan2 ?? ''}"
       col-span-3="${colSpan3 ?? ''}"
       col-span-4="${colSpan4 ?? ''}"
+      highlight-column="${highlightCol}"
+      highlight-label="${highlightLabel}"
     >
+      ${renderHead(columnCount)}
       <dds-pricing-table-body>
         <dds-pricing-table-group title="Group 1">
-          <dds-pricing-table-row>
-            <dds-pricing-table-header-cell scope="row">Row 1</dds-pricing-table-header-cell>
-            <dds-pricing-table-cell>Row 1</dds-pricing-table-cell>
-            <dds-pricing-table-cell>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-              augue. Aenean posuere sem vel euismod dignissim.
-            </dds-pricing-table-cell>
-          </dds-pricing-table-row>
-          <dds-pricing-table-row>
-            <dds-pricing-table-header-cell scope="row">Row 2</dds-pricing-table-header-cell>
-            <dds-pricing-table-cell>Row 2</dds-pricing-table-cell>
-            <dds-pricing-table-cell>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-              augue. Aenean posuere sem vel euismod dignissim.
-            </dds-pricing-table-cell>
-          </dds-pricing-table-row>
-          <dds-pricing-table-row>
-            <dds-pricing-table-header-cell scope="row">Row 3</dds-pricing-table-header-cell>
-            <dds-pricing-table-cell>Row 3</dds-pricing-table-cell>
-            <dds-pricing-table-cell>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-              augue. Aenean posuere sem vel euismod dignissim.
-            </dds-pricing-table-cell>
-          </dds-pricing-table-row>
+          ${renderBodyRow(columnCount, 1)} ${renderBodyRow(columnCount, 2)} ${renderBodyRow(columnCount, 3)}
         </dds-pricing-table-group>
         <dds-pricing-table-group title="Group 2">
-          <dds-pricing-table-row>
-            <dds-pricing-table-header-cell scope="row">Row 1</dds-pricing-table-header-cell>
-            <dds-pricing-table-cell>Row 1</dds-pricing-table-cell>
-            <dds-pricing-table-cell>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-              augue. Aenean posuere sem vel euismod dignissim.
-            </dds-pricing-table-cell>
-          </dds-pricing-table-row>
-          <dds-pricing-table-row>
-            <dds-pricing-table-header-cell scope="row">Row 2</dds-pricing-table-header-cell>
-            <dds-pricing-table-cell>Row 2</dds-pricing-table-cell>
-            <dds-pricing-table-cell>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-              augue. Aenean posuere sem vel euismod dignissim.
-            </dds-pricing-table-cell>
-          </dds-pricing-table-row>
-          <dds-pricing-table-row>
-            <dds-pricing-table-header-cell scope="row">Row 3</dds-pricing-table-header-cell>
-            <dds-pricing-table-cell>Row 3</dds-pricing-table-cell>
-            <dds-pricing-table-cell>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-              augue. Aenean posuere sem vel euismod dignissim.
-            </dds-pricing-table-cell>
-          </dds-pricing-table-row>
+          ${renderBodyRow(columnCount, 1)} ${renderBodyRow(columnCount, 2)} ${renderBodyRow(columnCount, 3)}
         </dds-pricing-table-group>
         <dds-pricing-table-group title="Group 3">
-          <dds-pricing-table-row>
-            <dds-pricing-table-header-cell scope="row">Row 1</dds-pricing-table-header-cell>
-            <dds-pricing-table-cell>Row 1</dds-pricing-table-cell>
-            <dds-pricing-table-cell>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-              augue. Aenean posuere sem vel euismod dignissim.
-            </dds-pricing-table-cell>
-          </dds-pricing-table-row>
-          <dds-pricing-table-row>
-            <dds-pricing-table-header-cell scope="row">Row 2</dds-pricing-table-header-cell>
-            <dds-pricing-table-cell>Row 2</dds-pricing-table-cell>
-            <dds-pricing-table-cell>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-              augue. Aenean posuere sem vel euismod dignissim.
-            </dds-pricing-table-cell>
-          </dds-pricing-table-row>
-          <dds-pricing-table-row>
-            <dds-pricing-table-header-cell scope="row">Row 3</dds-pricing-table-header-cell>
-            <dds-pricing-table-cell>Row 3</dds-pricing-table-cell>
-            <dds-pricing-table-cell>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-              augue. Aenean posuere sem vel euismod dignissim.
-            </dds-pricing-table-cell>
-          </dds-pricing-table-row>
+          ${renderBodyRow(columnCount, 1)} ${renderBodyRow(columnCount, 2)} ${renderBodyRow(columnCount, 3)}
         </dds-pricing-table-group>
-      </dds-pricing-table-body>
-    </dds-pricing-table>
-  `;
-};
-
-export const WithComplexContent = ({ parameters }) => {
-  const { colSpan1, colSpan2, colSpan3, colSpan4 } = parameters?.props?.PricingTable ?? {};
-  return html`
-    <dds-pricing-table
-      col-span-1="${colSpan1 ?? ''}"
-      col-span-2="${colSpan2 ?? ''}"
-      col-span-3="${colSpan3 ?? ''}"
-      col-span-4="${colSpan4 ?? ''}"
-    >
-      <dds-pricing-table-head>
-        <dds-pricing-table-header-row>
-          <dds-pricing-table-header-cell>Product Name</dds-pricing-table-header-cell>
-        </dds-pricing-table-header-row>
-      </dds-pricing-table-head>
-      <dds-pricing-table-body>
-        <dds-pricing-table-row>
-          <dds-pricing-table-cell tooltip="Tooltip text">
-            Cell with tooltip
-          </dds-pricing-table-cell>
-        </dds-pricing-table-row>
-        <dds-pricing-table-row>
-          <dds-pricing-table-cell icon="checkmark">
-            Cell with icon
-          </dds-pricing-table-cell>
-        </dds-pricing-table-row>
-        <dds-pricing-table-row>
-          <dds-pricing-table-cell tags="Merchandising Offer, Secondary Tag, Other">
-            Cell with tags
-          </dds-pricing-table-cell>
-        </dds-pricing-table-row>
-        <dds-pricing-table-row>
-          <dds-pricing-table-cell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed,aliquet bibendum augue.
-            Aenean posuere sem vel euismod dignissim.
-          </dds-pricing-table-cell>
-        </dds-pricing-table-row>
       </dds-pricing-table-body>
     </dds-pricing-table>
   `;
@@ -259,10 +153,13 @@ export default {
     ...readme.parameters,
     knobs: {
       PricingTable: () => ({
-        colSpan1: textNullable('col-span-1', ''),
-        colSpan2: textNullable('col-span-2', ''),
-        colSpan3: textNullable('col-span-3', ''),
-        colSpan4: textNullable('col-span-4', ''),
+        columnCount: number('number of columns', 3),
+        highlightCol: number('highlighted column', 2),
+        highlightLabel: text('highlighted label', 'Featured'),
+        // colSpan1: textNullable('col-span-1', ''),
+        // colSpan2: textNullable('col-span-2', ''),
+        // colSpan3: textNullable('col-span-3', ''),
+        // colSpan4: textNullable('col-span-4', ''),
       }),
     },
   },

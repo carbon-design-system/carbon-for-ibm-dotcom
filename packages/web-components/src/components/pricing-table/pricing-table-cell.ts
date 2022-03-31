@@ -23,6 +23,10 @@ class DDSPricingTableCell extends DDSStructuredListCell {
     super.connectedCallback();
   }
 
+  static get stableSelector() {
+    return `${ddsPrefix}--pricing-table-group`;
+  }
+
   static styles = styles;
 }
 

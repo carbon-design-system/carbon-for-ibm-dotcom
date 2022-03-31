@@ -7,34 +7,32 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, LitElement, html, property } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import { customElement, html, LitElement, property } from 'lit-element';
+// import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './pricing-table.scss';
 
-const { prefix } = settings;
+// const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-@customElement(`${ddsPrefix}-pricing-table-headline-heading`)
-class DDSPricingTableHeaderHeadlineHeading extends StableSelectorMixin(LitElement) {
+@customElement(`${ddsPrefix}-pricing-table-header-cell-caption`)
+class DDSPricingTableHeaderCellCaption extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
-  slot = 'heading';
+  slot = 'caption';
 
   render() {
     return html`
-      <div class=${`${prefix}--heading`}>
-        <slot></slot>
-      </div>
+      <slot></slot>
     `;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-headline-heading`;
+    return `${ddsPrefix}--pricing-table-header-cell-caption`;
   }
 
   static styles = styles;
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSPricingTableHeaderHeadlineHeading;
+export default DDSPricingTableHeaderCellCaption;

@@ -10,6 +10,7 @@
 import { customElement, html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSStructuredListHeaderCell from '../structured-list/structured-list-header-cell';
 import styles from './pricing-table.scss';
 
@@ -17,21 +18,30 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-header-cell`)
-class DDSPricingTableHeaderCell extends DDSStructuredListHeaderCell {
+class DDSPricingTableHeaderCell extends StableSelectorMixin(DDSStructuredListHeaderCell) {
   connectedCallback() {
     super.connectedCallback();
   }
 
   render() {
     return html`
-      <div class=${`${prefix}--grid`}>
-        <slot name="headline"></slot>
-        <slot name="subheadline"></slot>
-        <slot name="tag"></slot>
-        <slot name="content"></slot>
-        <slot name="cta"></slot>
+      <div class=${`${prefix}--pricing-table-header-cell`}>
+        <div>
+          <slot name="highlight-label"></slot>
+          <slot name="headline"></slot>
+          <slot name="caption"></slot>
+          <slot name="tag"></slot>
+          <slot></slot>
+        </div>
+        <div>
+          <slot name="cta"></slot>
+        </div>
       </div>
     `;
+  }
+
+  static get stableSelector() {
+    return `${ddsPrefix}--pricing-table-header-cell`;
   }
 
   static styles = styles;

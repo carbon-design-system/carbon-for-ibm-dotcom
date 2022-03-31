@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement } from 'lit-element';
+import { customElement, html } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import DDSStructuredListHeaderRow from '../structured-list/structured-list-header-row';
 import styles from './pricing-table.scss';
@@ -16,8 +16,25 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-header-row`)
 class DDSPricingTableHeaderRow extends DDSStructuredListHeaderRow {
-  connectedCallback() {
-    super.connectedCallback();
+  protected _handleSlotChange() {
+    const columnCount = this.children.length;
+    let defaultColumnWidth = '2';
+    if (columnCount <= 3) {
+      defaultColumnWidth = '4';
+    } else if (columnCount <= 6) {
+      defaultColumnWidth = '3';
+    }
+    this.style.setProperty('--default-cols', defaultColumnWidth);
+  }
+
+  render() {
+    return html`
+      <slot @slotchange=${this._handleSlotChange}></slot>
+    `;
+  }
+
+  static get stableSelector() {
+    return `${ddsPrefix}--pricing-table-header-row`;
   }
 
   static styles = styles;

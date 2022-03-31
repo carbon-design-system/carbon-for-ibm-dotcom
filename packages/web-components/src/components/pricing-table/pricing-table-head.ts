@@ -20,6 +20,10 @@ class DDSPricingTableHead extends DDSStructuredListHead {
     super.connectedCallback();
   }
 
+  static get stableSelector() {
+    return `${ddsPrefix}--pricing-table-head`;
+  }
+
   static styles = styles;
 }
 

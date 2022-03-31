@@ -20,6 +20,10 @@ class DDSPricingTableBody extends DDSStructuredListBody {
     super.connectedCallback();
   }
 
+  static get stableSelector() {
+    return `${ddsPrefix}--pricing-table-body`;
+  }
+
   static styles = styles;
 }
 
