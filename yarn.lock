@@ -1452,7 +1452,15 @@
     "@carbon/type" "^10.43.1"
     color "^3.1.2"
 
-"@carbon/type@10.43.1", "@carbon/type@^10.43.1":
+"@carbon/type@10.44.0":
+  version "10.44.0"
+  resolved "https://registry.yarnpkg.com/@carbon/type/-/type-10.44.0.tgz#f70944fe25b225d2dc44cea31fa2e7a400d4772c"
+  integrity sha512-sLe4e9gu2QuM8k6PrXWc9xWpH6W9Q/FJ+/IHNFpx+8zBLkBsM6dbf4o76Zw9OcV2HuAA+8K3JOpZJ4r76fw8kg==
+  dependencies:
+    "@carbon/grid" "^10.43.0"
+    "@carbon/import-once" "^10.7.0"
+
+"@carbon/type@^10.43.1":
   version "10.43.1"
   resolved "https://registry.yarnpkg.com/@carbon/type/-/type-10.43.1.tgz#6674664d19d474573ebc47eb0237bc0dcf137db2"
   integrity sha512-zfXcmUeqXhaugDtBR0GMiS3drr4mpVZ6n2CiS8B6X6P+aTMgzjsbzgRNe5uXNFGot74IhhxgaKogFd/SBviCmg==
