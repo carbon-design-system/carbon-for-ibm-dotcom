@@ -15,30 +15,41 @@
 @include tags;
 
 @mixin pricing-table {
+  .#{$prefix}--pricing-table,
   :host(#{$dds-prefix}-pricing-table) {
     display: block;
   }
 
+  .#{$prefix}--pricing-table-group,
   :host(#{$dds-prefix}-pricing-table-group) {
     @extend .#{$prefix}--structured-list-group;
   }
 
+  .#{$prefix}--pricing-table-header-row,
   :host(#{$dds-prefix}-header-row) {
     @extend .#{$prefix}--structured-list-header-row;
   }
 
+  .#{$prefix}--pricing-table-header-row,
+  .#{$prefix}--pricing-table-row,
+  .#{$prefix}--pricing-table-group tr,
   :host(#{$dds-prefix}-pricing-table-header-row),
   :host(#{$dds-prefix}-pricing-table-row),
   :host(#{$dds-prefix}-pricing-table-group) tr {
     @extend .#{$prefix}--structured-list-all-rows;
   }
 
+  .#{$prefix}--pricing-table-header-cell,
+  .#{$prefix}--pricing-table-cell,
+  .#{$prefix}--pricing-table-group td,
   :host(#{$dds-prefix}-pricing-table-header-cell),
   :host(#{$dds-prefix}-pricing-table-cell),
   :host(#{$dds-prefix}-pricing-table-group) td {
     @extend .#{$prefix}--structured-list-all-cells;
   }
 
+  .#{$prefix}--pricing-table-header-cell,
+  .#{$prefix}--pricing-table-cell,
   :host(#{$dds-prefix}-pricing-table-header-cell),
   :host(#{$dds-prefix}-pricing-table-cell) {
     position: relative;
@@ -48,10 +59,12 @@
     }
   }
 
+  .#{$prefix}--pricing-table-header-cell,
   :host(#{$dds-prefix}-pricing-table-header-cell) {
     @extend .#{$prefix}--structured-list-header-cell;
   }
 
+  .#{$prefix}--pricing-table-header-cell:not([scope='row']),
   :host(#{$dds-prefix}-pricing-table-header-cell:not([scope='row'])) {
     padding-bottom: $carbon--layout-06;
 
@@ -63,7 +76,7 @@
       }
     }
 
-    .#{$prefix}--pricing-table-header-cell {
+    .#{$prefix}--pricing-table-header-cell-inner {
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -71,6 +84,7 @@
     }
   }
 
+  .#{$prefix}--pricing-table-cell,
   :host(#{$dds-prefix}-pricing-table-cell) {
     @extend .#{$prefix}--structured-list-cell;
 
@@ -88,10 +102,12 @@
     }
   }
 
+  .#{$prefix}--pricing-table-cell[icon],
   :host(#{$dds-prefix}-pricing-table-cell[icon]) {
     @extend .#{$prefix}--structured-list-cell[icon];
   }
 
+  .#{$prefix}--pricing-table-highlight-label,
   :host(#{$dds-prefix}-pricing-table-highlight-label) {
     @include carbon--type-style('body-short-01');
 
@@ -105,6 +121,7 @@
     padding: $carbon--spacing-03 $carbon--spacing-05;
   }
 
+  .#{$prefix}--pricing-table-header-cell-headline,
   :host(#{$dds-prefix}-pricing-table-header-cell-headline) {
     @include carbon--type-style('expressive-heading-03');
 
@@ -112,6 +129,7 @@
     display: block;
   }
 
+  .#{$prefix}--pricing-table-header-cell-caption,
   :host(#{$dds-prefix}-pricing-table-header-cell-caption) {
     @include carbon--type-style('productive-heading-01');
 
@@ -119,19 +137,21 @@
     display: block;
   }
 
-  :host(#{$dds-prefix}-pricing-table-header-cell-tag) {
+  .#{$prefix}--pricing-table-header-cell-tag,
+  :host(#{$dds-prefix}-pricing-table-header-cell-tag) a {
     @extend .#{$prefix}--tag;
     @extend .#{$prefix}--tag--green;
     @extend .#{$prefix}--tag--sm;
 
+    text-decoration: none;
     margin: $carbon--spacing-05 0 0;
 
-    a {
-      color: inherit;
-      text-decoration: inherit;
+    &[href] {
+      cursor: pointer;
     }
   }
 
+  .#{$prefix}--pricing-table-header-cell-description,
   :host(#{$dds-prefix}-pricing-table-header-cell-description) {
     @include carbon--type-style('body-long-01');
 
@@ -140,6 +160,7 @@
     color: $text-01;
   }
 
+  .#{$prefix}--pricing-table-header-cell-cta,
   :host(#{$dds-prefix}-pricing-table-header-cell-cta) {
     @extend .#{$prefix}--buttongroup-item;
 
@@ -147,6 +168,7 @@
     margin-top: $carbon--spacing-06;
   }
 
+  .#{$prefix}--pricing-table-annotation-toggle,
   :host(#{$dds-prefix}-pricing-table-annotation-toggle) {
     position: absolute;
     right: $carbon--spacing-05;
@@ -163,6 +185,7 @@
     }
   }
 
+  .#{$prefix}--pricing-table-cell-annotation,
   :host(#{$dds-prefix}-pricing-table-cell-annotation) {
     display: block;
     color: $text-02;

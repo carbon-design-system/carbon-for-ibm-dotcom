@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSPricingTableHeaderCell extends StableSelectorMixin(DDSStructuredListHeaderCell) {
   render() {
     return html`
-      <div class=${`${prefix}--pricing-table-header-cell`}>
+      <div class=${`${prefix}--pricing-table-header-cell-inner`}>
         <div>
           <slot name="highlight-label"></slot>
           <slot name="headline"></slot>
