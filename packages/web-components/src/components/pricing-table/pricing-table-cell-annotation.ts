@@ -7,17 +7,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, LitElement, property } from 'lit-element';
+import { customElement, LitElement, property, html } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './pricing-table.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-@customElement(`${ddsPrefix}-pricing-table-header-cell-caption`)
-class DDSPricingTableHeaderCellCaption extends StableSelectorMixin(LitElement) {
+@customElement(`${ddsPrefix}-pricing-table-cell-annotation`)
+class DDSPricingTableCellAnnotation extends LitElement {
   @property({ reflect: true })
-  slot = 'caption';
+  slot = 'annotation';
 
   render() {
     return html`
@@ -26,11 +25,11 @@ class DDSPricingTableHeaderCellCaption extends StableSelectorMixin(LitElement) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-header-cell-caption`;
+    return `${ddsPrefix}--pricing-table-group-annotation`;
   }
 
   static styles = styles;
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSPricingTableHeaderCellCaption;
+export default DDSPricingTableCellAnnotation;

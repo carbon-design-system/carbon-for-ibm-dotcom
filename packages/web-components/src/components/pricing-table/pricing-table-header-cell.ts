@@ -19,10 +19,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-header-cell`)
 class DDSPricingTableHeaderCell extends StableSelectorMixin(DDSStructuredListHeaderCell) {
-  connectedCallback() {
-    super.connectedCallback();
-  }
-
   render() {
     return html`
       <div class=${`${prefix}--pricing-table-header-cell`}>

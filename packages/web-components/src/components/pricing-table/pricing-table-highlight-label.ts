@@ -8,12 +8,10 @@
  */
 
 import { customElement, html, LitElement, property } from 'lit-element';
-// import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './pricing-table.scss';
 
-// const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-highlight-label`)

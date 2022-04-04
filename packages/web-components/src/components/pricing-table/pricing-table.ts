@@ -9,7 +9,7 @@
 
 import { customElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import StableSelectorMixin from '../../globals/mixins/stable-selector';
+// import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSStructuredList from '../structured-list/structured-list';
 import styles from './pricing-table.scss';
 import DDSPricingTableHeaderCell from './pricing-table-header-cell';
@@ -18,7 +18,7 @@ import DDSPricingTableHighlightLabel from './pricing-table-highlight-label';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table`)
-class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
+class DDSPricingTable extends DDSStructuredList {
   @property({ reflect: true, attribute: 'highlight-column' })
   highlightColumn?: number;
 
@@ -68,7 +68,7 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
       });
   }
 
-  protected updated(): void {
+  updated(): void {
     const { highlightColumn } = this;
     if (highlightColumn) {
       this._unhighlightCells(

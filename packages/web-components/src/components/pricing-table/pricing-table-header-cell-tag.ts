@@ -8,23 +8,17 @@
  */
 
 import { customElement, property } from 'lit-element';
-// import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import styles from './pricing-table.scss';
 import DDSTagLink from '../tag-link/tag-link';
+import styles from './pricing-table.scss';
 
-// const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-header-cell-tag`)
 class DDSPricingTableHeaderCellTag extends StableSelectorMixin(DDSTagLink) {
   @property({ reflect: true })
   slot = 'tag';
-
-  connectedCallback(): void {
-    super.connectedCallback();
-  }
 
   static get stableSelector() {
     return `${ddsPrefix}--pricing-table-header-cell-tag`;

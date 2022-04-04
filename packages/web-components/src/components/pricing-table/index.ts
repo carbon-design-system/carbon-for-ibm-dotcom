@@ -21,3 +21,5 @@ import './pricing-table-body';
 import './pricing-table-group';
 import './pricing-table-row';
 import './pricing-table-cell';
+import './pricing-table-cell-annotation';
+import './pricing-table-annotation-toggle';

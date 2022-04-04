@@ -41,6 +41,8 @@
 
   :host(#{$dds-prefix}-pricing-table-header-cell),
   :host(#{$dds-prefix}-pricing-table-cell) {
+    position: relative;
+
     &.highlighted {
       background-color: $ui-01;
     }
@@ -143,6 +145,22 @@
 
     display: block;
     margin-top: $carbon--spacing-06;
+  }
+
+  :host(#{$dds-prefix}-pricing-table-annotation-toggle) {
+    position: absolute;
+    right: $carbon--spacing-05;
+    top: $carbon--spacing-05;
+
+    button {
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    svg {
+      fill: $ui-04;
+    }
   }
 
   :host(#{$dds-prefix}-pricing-table-cell-annotation) {

@@ -7,24 +7,42 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html } from 'lit-element';
+import { customElement, html, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import DDSStructuredListRow from '../structured-list/structured-list-row';
 import styles from './pricing-table.scss';
+import { setColumnWidth } from './utils';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-row`)
 class DDSPricingTableRow extends DDSStructuredListRow {
+  @property()
+  hasAnnotations: boolean = false;
+
   protected _handleSlotChange() {
-    const columnCount = this.children.length;
-    let defaultColumnWidth = '2';
-    if (columnCount <= 3) {
-      defaultColumnWidth = '4';
-    } else if (columnCount <= 6) {
-      defaultColumnWidth = '3';
+    setColumnWidth(this);
+  }
+
+  private _hasAnnotations(): boolean {
+    let hasAnnotations = false;
+    Array.from(this.children).forEach(cell => {
+      const annotation = cell.querySelector(`${ddsPrefix}-pricing-table-cell-annotation`);
+      if (annotation) hasAnnotations = true;
+    });
+
+    return hasAnnotations;
+  }
+
+  connectedCallback(): void {
+    this.hasAnnotations = this._hasAnnotations();
+
+    if (this.hasAnnotations) {
+      const toggle = document.createElement('dds-pricing-table-annotation-toggle');
+      this.children[0].appendChild(toggle);
     }
-    this.style.setProperty('--default-cols', defaultColumnWidth);
+
+    super.connectedCallback();
   }
 
   render() {

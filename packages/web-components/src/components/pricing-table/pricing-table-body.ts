@@ -16,10 +16,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-body`)
 class DDSPricingTableBody extends DDSStructuredListBody {
-  connectedCallback() {
-    super.connectedCallback();
-  }
-
   static get stableSelector() {
     return `${ddsPrefix}--pricing-table-body`;
   }

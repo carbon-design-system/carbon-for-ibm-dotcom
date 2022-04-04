@@ -7,8 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement } from 'lit-element';
+import { customElement, html } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import DDSStructuredListCell from '../structured-list/structured-list-cell';
 import DDSPricingTableGroup from './pricing-table-group';
 import styles from './pricing-table.scss';
@@ -16,11 +18,21 @@ import styles from './pricing-table.scss';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-cell`)
-class DDSPricingTableCell extends DDSStructuredListCell {
+class DDSPricingTableCell extends HostListenerMixin(DDSStructuredListCell) {
   _parentGroup: DDSPricingTableGroup | null = this.closest(`${ddsPrefix}-pricing-table-group`);
 
-  connectedCallback() {
-    super.connectedCallback();
+  @HostListener('document:event-toggle-annotations')
+  protected _handleAnnotationToggle = ({ detail }) => {
+    if (detail.emitter === this.parentNode) {
+      this.classList.toggle('annotation-visible');
+    }
+  };
+
+  render() {
+    return html`
+      ${super.render()}
+      <slot name="annotation"></slot>
+    `;
   }
 
   static get stableSelector() {

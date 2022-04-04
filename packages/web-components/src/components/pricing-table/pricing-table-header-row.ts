@@ -11,20 +11,14 @@ import { customElement, html } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import DDSStructuredListHeaderRow from '../structured-list/structured-list-header-row';
 import styles from './pricing-table.scss';
+import { setColumnWidth } from './utils';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-header-row`)
 class DDSPricingTableHeaderRow extends DDSStructuredListHeaderRow {
   protected _handleSlotChange() {
-    const columnCount = this.children.length;
-    let defaultColumnWidth = '2';
-    if (columnCount <= 3) {
-      defaultColumnWidth = '4';
-    } else if (columnCount <= 6) {
-      defaultColumnWidth = '3';
-    }
-    this.style.setProperty('--default-cols', defaultColumnWidth);
+    setColumnWidth(this);
   }
 
   render() {
