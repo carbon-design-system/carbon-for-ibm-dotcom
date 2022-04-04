@@ -14,11 +14,19 @@ import '../index';
 import 'carbon-web-components/es/components/tooltip/index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
+enum CELL_TYPES {
+  TEXT = 'text',
+  ICON = 'icon',
+  EMPTY = 'empty',
+}
+
 const renderHeaderCell = name => html`
   <dds-pricing-table-header-cell>
     <dds-pricing-table-header-cell-headline>Variation ${name}</dds-pricing-table-header-cell-headline>
     <dds-pricing-table-header-cell-caption>Starting at $X.XX per user</dds-pricing-table-header-cell-caption>
-    <dds-pricing-table-header-cell-tag href="https://www.example.com">Merchandising</dds-pricing-table-header-cell-tag>
+    <dds-pricing-table-header-cell-tag href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
+      >Merchandising</dds-pricing-table-header-cell-tag
+    >
     <dds-pricing-table-header-cell-description>
       Lorem ipsum dolor sit amet consectetur.
       <bx-unordered-list>
@@ -27,7 +35,9 @@ const renderHeaderCell = name => html`
         <bx-list-item>consectetur retention adispiscing elit sed do eiusm Eiusmod tempor</bx-list-item>
       </bx-unordered-list>
     </dds-pricing-table-header-cell-description>
-    <dds-pricing-table-header-cell-cta href="https://www.example.com">Call to action</dds-pricing-table-header-cell-cta>
+    <dds-pricing-table-header-cell-cta href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
+      >Call to action</dds-pricing-table-header-cell-cta
+    >
   </dds-pricing-table-header-cell>
 `;
 
@@ -47,12 +57,6 @@ const renderHead = (columnCount, heading = '') => {
     </dds-pricing-table-head>
   `;
 };
-
-enum CELL_TYPES {
-  TEXT = 'text',
-  ICON = 'icon',
-  TAGS = 'tags',
-}
 
 const renderBodyCell = (type: CELL_TYPES = CELL_TYPES.TEXT) => {
   let content;
@@ -79,11 +83,9 @@ const renderBodyCell = (type: CELL_TYPES = CELL_TYPES.TEXT) => {
     `;
   }
 
-  if (type === CELL_TYPES.TAGS) {
+  if (type === CELL_TYPES.EMPTY) {
     content = html`
-      <dds-pricing-table-cell tags="Merchandising Offer, Secondary Tag, Other">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue.
-        Aenean posuere sem vel euismod dignissim.
+      <dds-pricing-table-cell>
         <dds-pricing-table-cell-annotation>
           Sed quis neque ultrices, convallis augue non, scelerisque massa.
         </dds-pricing-table-cell-annotation>
@@ -133,8 +135,8 @@ export const Default = ({ parameters }) => {
     >
       ${renderHead(columnCount, heading)}
       <dds-pricing-table-body>
-        ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.TEXT)}
-        ${renderBodyRow(columnCount, 3, CELL_TYPES.TAGS)}
+        ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
+        ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
       </dds-pricing-table-body>
     </dds-pricing-table>
   `;
@@ -154,8 +156,8 @@ export const WithoutRowHeaders = ({ parameters }) => {
     >
       ${renderHead(columnCount, heading)}
       <dds-pricing-table-body>
-        ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, false)} ${renderBodyRow(columnCount, 2, CELL_TYPES.TEXT, false)}
-        ${renderBodyRow(columnCount, 3, CELL_TYPES.TAGS, false)}
+        ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, false)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY, false)}
+        ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT, false)}
       </dds-pricing-table-body>
     </dds-pricing-table>
   `;
@@ -176,16 +178,16 @@ export const WithSubheaders = ({ parameters }) => {
       ${renderHead(columnCount, heading)}
       <dds-pricing-table-body>
         <dds-pricing-table-group title="Group 1">
-          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.TEXT)}
-          ${renderBodyRow(columnCount, 3, CELL_TYPES.TAGS)}
+          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
+          ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
         </dds-pricing-table-group>
         <dds-pricing-table-group title="Group 2">
-          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.TEXT)}
-          ${renderBodyRow(columnCount, 3, CELL_TYPES.TAGS)}
+          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
+          ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
         </dds-pricing-table-group>
         <dds-pricing-table-group title="Group 3">
-          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.TEXT)}
-          ${renderBodyRow(columnCount, 3, CELL_TYPES.TAGS)}
+          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
+          ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
         </dds-pricing-table-group>
       </dds-pricing-table-body>
     </dds-pricing-table>

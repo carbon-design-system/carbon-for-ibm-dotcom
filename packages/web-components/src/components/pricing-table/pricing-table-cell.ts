@@ -28,6 +28,12 @@ class DDSPricingTableCell extends HostListenerMixin(DDSStructuredListCell) {
     }
   };
 
+  connectedCallback(): void {
+    // Disable inherited tags functionality
+    this.removeAttribute('tags');
+    super.connectedCallback();
+  }
+
   render() {
     return html`
       ${super.render()}
