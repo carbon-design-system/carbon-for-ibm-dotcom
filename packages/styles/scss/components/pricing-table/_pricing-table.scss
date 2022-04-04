@@ -1,0 +1,160 @@
+//
+// Copyright IBM Corp. 2022
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import 'carbon-components/scss/components/tag/tag';
+@import '../../globals/imports';
+@import '../../globals/vars';
+@import '../buttongroup/buttongroup';
+@import '../structured-list/structured-list';
+
+@include structured-list;
+@include tags;
+
+@mixin pricing-table {
+  :host(#{$dds-prefix}-pricing-table) {
+    display: block;
+  }
+
+  :host(#{$dds-prefix}-pricing-table-group) {
+    @extend .#{$prefix}--structured-list-group;
+  }
+
+  :host(#{$dds-prefix}-header-row) {
+    @extend .#{$prefix}--structured-list-header-row;
+  }
+
+  :host(#{$dds-prefix}-pricing-table-header-row),
+  :host(#{$dds-prefix}-pricing-table-row),
+  :host(#{$dds-prefix}-pricing-table-group) tr {
+    @extend .#{$prefix}--structured-list-all-rows;
+  }
+
+  :host(#{$dds-prefix}-pricing-table-header-cell),
+  :host(#{$dds-prefix}-pricing-table-cell),
+  :host(#{$dds-prefix}-pricing-table-group) td {
+    @extend .#{$prefix}--structured-list-all-cells;
+  }
+
+  :host(#{$dds-prefix}-pricing-table-header-cell),
+  :host(#{$dds-prefix}-pricing-table-cell) {
+    &.highlighted {
+      background-color: $ui-01;
+    }
+  }
+
+  :host(#{$dds-prefix}-pricing-table-header-cell) {
+    @extend .#{$prefix}--structured-list-header-cell;
+  }
+
+  :host(#{$dds-prefix}-pricing-table-header-cell:not([scope='row'])) {
+    padding-bottom: $carbon--layout-06;
+
+    &.highlighted {
+      position: relative;
+
+      ::slotted(#{$dds-prefix}-pricing-table-highlight-label) {
+        display: block;
+      }
+    }
+
+    .#{$prefix}--pricing-table-header-cell {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  :host(#{$dds-prefix}-pricing-table-cell) {
+    @extend .#{$prefix}--structured-list-cell;
+
+    &.annotation-visible {
+      ::slotted(#{$dds-prefix}-pricing-table-cell-annotation) {
+        display: block;
+        height: auto;
+        opacity: 1;
+        margin-top: $carbon--spacing-05;
+      }
+    }
+
+    #{$prefix}-tooltip-icon {
+      @extend .#{$prefix}--structured-list-cell-tooltip-icon;
+    }
+  }
+
+  :host(#{$dds-prefix}-pricing-table-cell[icon]) {
+    @extend .#{$prefix}--structured-list-cell[icon];
+  }
+
+  :host(#{$dds-prefix}-pricing-table-highlight-label) {
+    @include carbon--type-style('body-short-01');
+
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: $ui-05;
+    color: $text-04;
+    padding: $carbon--spacing-03 $carbon--spacing-05;
+  }
+
+  :host(#{$dds-prefix}-pricing-table-header-cell-headline) {
+    @include carbon--type-style('expressive-heading-03');
+
+    color: $text-01;
+    display: block;
+  }
+
+  :host(#{$dds-prefix}-pricing-table-header-cell-caption) {
+    @include carbon--type-style('productive-heading-01');
+
+    color: $text-01;
+    display: block;
+  }
+
+  :host(#{$dds-prefix}-pricing-table-header-cell-tag) {
+    @extend .#{$prefix}--tag;
+    @extend .#{$prefix}--tag--green;
+    @extend .#{$prefix}--tag--sm;
+
+    margin: $carbon--spacing-05 0 0;
+
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
+  }
+
+  :host(#{$dds-prefix}-pricing-table-header-cell-description) {
+    @include carbon--type-style('body-long-01');
+
+    display: block;
+    margin-top: $carbon--spacing-05;
+    color: $text-01;
+  }
+
+  :host(#{$dds-prefix}-pricing-table-header-cell-cta) {
+    @extend .#{$prefix}--buttongroup-item;
+
+    display: block;
+    margin-top: $carbon--spacing-06;
+  }
+
+  :host(#{$dds-prefix}-pricing-table-cell-annotation) {
+    display: block;
+    color: $text-02;
+    transition: $duration--fast-02 motion(standard, productive);
+    height: 0;
+    opacity: 0;
+    margin-top: -#{$carbon--spacing-05};
+  }
+}
+
+@include exports('pricing-table') {
+  @include pricing-table;
+}
