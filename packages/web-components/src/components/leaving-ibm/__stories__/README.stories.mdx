@@ -29,11 +29,18 @@ import '@carbon/ibmdotcom-web-components/es/components/leaving-ibm/index';
 ### HTML
 
 ```html
-<dds-leaving-ibm-container open="true" href="http://example.com/"> </dds-leaving-ibm-container>
+<!-- Add component to document -->
+<dds-leaving-ibm-container></dds-leaving-ibm-container>
+
+...
+
+<!-- Trigger modal on click -->
+<dds-link-with-icon href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/" data-leaving-ibm>
+  Learn more about the Carbon Design System
+</dds-link-with-icon>
 ```
 
-> 💡 The modal state must be set manually by the triggering element. Alternatively, the component could be placed in a reusable function or component if multiple external links are present.
-> See available custom events available to the modal [here](https://web-components.carbondesignsystem.com/?path=/docs/components-modal--default#bx-modal-attributes-and-properties).
+> 💡 Give your link the `data-leaving-ibm` attribute to trigger the modal on click. Alternatively, you can use the [custom events available to the modal](https://web-components.carbondesignsystem.com/?path=/docs/components-modal--default#bx-modal-attributes-and-properties) to create custom triggering behavior.
 
 ## Stable selectors
 

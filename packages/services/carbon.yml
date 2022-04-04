@@ -1,0 +1,116 @@
+# yaml-language-server: $schema=https://unpkg.com/@carbon-platform/schemas@v1/carbon-resources.schema.json
+library:
+  id: ibmdotcom-services
+  name: IBM.com Services
+  description: IBM.com ES6 service classes
+  noIndex: true
+  externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services
+assets:
+  analytics-api:
+    name: AnalyticsAPI
+    description: Analytics API class with methods for firing analytics events on IBM.com.
+    type: function
+    platform: web
+    status: stable
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/AnalyticsAPI.html
+    framework: vanilla
+    tags:
+      - service
+  kaltura-player-api:
+    name: KalturaPlayerAPI
+    description: KalturaPlayerAPI class with methods of checking script state and embed media meta data and api data.
+    type: function
+    platform: web
+    status: stable
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/KalturaPlayerAPI.html
+    framework: vanilla
+    tags:
+      - service
+  ddo-api:
+    name: DDOAPI
+    description: DDO API class with methods of fetching search results for IBM.com.
+    type: function
+    platform: web
+    status: stable
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/DDOAPI.html
+    framework: vanilla
+    tags:
+      - service
+  locale-api:
+    name: LocaleAPI
+    description: Locale API class with method of fetching user's locale for IBM.com.
+    type: function
+    platform: web
+    status: stable
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/LocaleAPI.html
+    framework: vanilla
+    tags:
+      - service
+  marketing-search-api:
+    name: MarketingSearchAPI
+    description: MarketingSearch API class with methods of fetching search results for IBM.com.
+    type: function
+    platform: web
+    status: stable
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/MarketingSearchAPI.html
+    framework: vanilla
+    tags:
+      - service
+  masthead-logo-api:
+    name: MastheadLogoAPI
+    type: function
+    platform: web
+    status: stable
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/MastheadLogoAPI.html
+    framework: vanilla
+    tags:
+      - service
+  profile-api:
+    name: ProfileAPI
+    description: Profile API class with methods for checking user authentication for IBM.com
+    type: function
+    platform: web
+    status: stable
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/ProfileAPI.html
+    framework: vanilla
+    tags:
+      - service
+  search-typeahead-api:
+    name: SearchTypeaheadAPI
+    description: SearchTypeahead API class with methods of fetching search results for IBM.com
+    type: function
+    platform: web
+    status: stable
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/SearchTypeaheadAPI.html
+    framework: vanilla
+    tags:
+      - service
+  translation-api:
+    name: TranslationAPI
+    description: Translation API class with methods for fetching i18n data for IBM.com
+    type: function
+    platform: web
+    status: stable
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/TranslationAPI.html
+    framework: vanilla
+    tags:
+      - service
+  video-player-api:
+    name: VideoPlayerAPI
+    type: function
+    platform: web
+    status: deprecated
+    noIndex: true
+    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services/VideoPlayerAPI.html
+    framework: vanilla
+    tags:
+      - service
