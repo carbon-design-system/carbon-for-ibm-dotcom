@@ -23,7 +23,7 @@ import DDSLocaleSearch from './locale-search';
 import DDSRegionItem from './region-item';
 import styles from './locale-modal.scss';
 import { ICON_PLACEMENT } from '../link-with-icon/link-with-icon';
-import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
+import StickyHeader from '../../../../utilities/src/utilities/StickyHeader/StickyHeader.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

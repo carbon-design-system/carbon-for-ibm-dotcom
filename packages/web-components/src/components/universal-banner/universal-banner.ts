@@ -14,7 +14,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './universal-banner.scss';
-import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
+import StickyHeader from '../../../../utilities/src/utilities/StickyHeader/StickyHeader.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
