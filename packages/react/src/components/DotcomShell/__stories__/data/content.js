@@ -35,21 +35,39 @@ import logoMicrosoft from '../../../../../../storybook-images/assets/logos/logo-
 import logoRabobank from '../../../../../../storybook-images/assets/logos/logo-rabobank.png';
 import logoUsBank from '../../../../../../storybook-images/assets/logos/logo-usbank.png';
 
+import DDSTableOfContents from '@carbon/ibmdotcom-web-components/es/components-react/table-of-contents/table-of-contents';
+
 import PropTypes from 'prop-types';
 import React from 'react';
 
 /**
- * DDS patterns template
+ * Function to conditionally render horizontal or default ToC
  *
- * @returns {*} JSX for Learn template
+ * @returns {*} JSX for ToC components
  */
-const Content = ({ withL1 }) => (
-  <>
-    <TableOfContents
+const renderTableOfContents = (withHorizontalTOC, withL1) => {
+  if(withHorizontalTOC) {
+    return (<DDSTableOfContents
+      layout='horizontal'
       menuLabel="Jump to"
       theme="white"
       stickyOffset={withL1 ? '96' : '48'}>
-      <a name="section-1" data-title="Lorem ipsum dolor sit amet" />
+      {innerContent()}
+    </DDSTableOfContents>)
+  }
+  return (<DDSTableOfContents>
+    {innerContent()}
+  </DDSTableOfContents>)
+}
+
+/**
+ * DDS components
+ *
+ * @returns {*} JSX for the inner components
+ */
+const innerContent = () => (
+  <>
+  <a name="section-1" data-title="Lorem ipsum dolor sit amet" />
       <LeadSpaceBlock
         title="Lorem ipsum dolor sit amet"
         copy="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
@@ -382,7 +400,17 @@ const Content = ({ withL1 }) => (
           },
         }}
       />
-    </TableOfContents>
+  </>
+)
+
+/**
+ * DDS patterns template
+ *
+ * @returns {*} JSX for Learn template
+ */
+const Content = ({ withHorizontalTOC, withL1 }) => (
+  <>
+  {renderTableOfContents(withHorizontalTOC, withL1)}
     <div className="bx--grid" style={{ backgroundColor: '#f4f4f4' }}>
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
@@ -431,6 +459,11 @@ const Content = ({ withL1 }) => (
 );
 
 Content.propTypes = {
+  /**
+   * `true` if content is rendered with a horizontal TOC
+   */
+  withHorizontalTOC: PropTypes.bool,
+
   /**
    * `true` if content is rendered with an L1 on the page
    */
