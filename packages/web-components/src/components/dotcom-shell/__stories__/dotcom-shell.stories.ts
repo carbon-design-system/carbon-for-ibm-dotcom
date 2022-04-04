@@ -51,7 +51,7 @@ import '../../callout-with-media/callout-with-media';
 import '../../callout-with-media/callout-with-media-copy';
 import '../../callout-with-media/callout-with-media-video';
 import readme from './README.stories.mdx';
-import { StoryContent, StoryContentNoToC } from './data/content';
+import { StoryContent, StoryContentNoToC, universalBanner as StoryUniversalBanner, tocContent, contentLeadspaceSearch } from './data/content';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { TOC_TYPES } from '../../table-of-contents/defs';
 
@@ -1154,24 +1154,13 @@ WithUniversalBanner.story = {
 };
 
 export const WithoutShell = ({ parameters }) => {
-  const { masthead, universalBanner, tocLayout } = parameters?.props?.DotcomShell ?? {};
+  const { masthead, universalBanner, leadspaceSearch, tocLayout } = parameters?.props?.DotcomShell ?? {};
 
   return html`
     <style>
       ${mastheadStyles}
     </style>
-    ${universalBanner
-      ? html`
-          <dds-universal-banner image-width="4-col">
-            <dds-universal-banner-image slot="image" default-src="${images['4-col']}"></dds-universal-banner-image>
-            <dds-universal-banner-heading slot="heading">heading</dds-universal-banner-heading>
-            <dds-universal-banner-copy slot="copy">copy</dds-universal-banner-copy>
-            <dds-button-cta slot="cta" cta-type="local" kind="tertiary" href="https://www.example.com">
-              cta copy
-            </dds-button-cta>
-          </dds-universal-banner>
-        `
-      : ''}
+    ${universalBanner ? StoryUniversalBanner(images['4-col']) : ''}
     ${masthead === 'L0'
       ? html`
           <dds-masthead-container id="masthead-container"></dds-masthead-container>
@@ -1181,58 +1170,22 @@ export const WithoutShell = ({ parameters }) => {
         `}
     <main class="bx--content dds-ce-demo--ui-shell-content">
       <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-8 bx--col-lg-16">
-            <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
-              <h2>Leadspace</h2>
-            </div>
-            <dds-table-of-contents toc-layout="${tocLayout ?? ''}">
-              <div class="bx--tableofcontents__contents">
-                <a name="1" data-title="Section - 1"></a>
-                <h3 style="margin:4rem 0;">Section - 1</h3>
-                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
-                  <p>Lorem ipsum dolor sit amet</p>
-                </div>
-
-                <a name="2" data-title="Section - 2"></a>
-                <h3 style="margin:4rem 0;">Section - 2</h3>
-                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
-                  <p>Lorem ipsum dolor sit amet</p>
-                </div>
-
-                <a name="3" data-title="Section - 3"></a>
-                <h3 style="margin:4rem 0;">Section - 3</h3>
-                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
-                  <p>Lorem ipsum dolor sit amet</p>
-                </div>
-
-                <a name="4" data-title="Section - 4"></a>
-                <h3 style="margin:4rem 0;">Section - 4</h3>
-                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
-                  <p>Lorem ipsum dolor sit amet</p>
-                </div>
-
-                <a name="5" data-title="Section - 5"></a>
-                <h3 style="margin:4rem 0;">Section - 5</h3>
-                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
-                  <p>Lorem ipsum dolor sit amet</p>
-                </div>
-
-                <a name="6" data-title="Section - 6"></a>
-                <h3 style="margin:4rem 0;">Section - 6</h3>
-                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
-                  <p>Lorem ipsum dolor sit amet</p>
-                </div>
-
-                <a name="7" data-title="Section - 7"></a>
-                <h3 style="margin:4rem 0;">Section - 7</h3>
-                <div style="height: 400px; max-height: 75vh; padding: 1rem; background: #bbb;">
-                  <p>Lorem ipsum dolor sit amet</p>
-                </div>
+        ${leadspaceSearch ? contentLeadspaceSearch : ''}
+        ${tocLayout === 'none'
+          ? html`
+              <div class="bx--grid bx--col-lg-8">
+                ${tocContent}
               </div>
-            </dds-table-of-contents>
-          </div>
-        </div>
+            `
+          : ''}
+        ${tocLayout === null ? StoryContent() : ''}
+        ${tocLayout === 'horizontal'
+          ? StoryContent({
+              l1: false,
+              leadspace: true,
+              tocLayout: TOC_TYPES.HORIZONTAL,
+            })
+          : ''}
       </div>
     </main>
   `;
@@ -1245,7 +1198,8 @@ WithoutShell.story = {
       DotcomShell: ({ groupId }) => ({
         masthead: select('Masthead Version', ['L0', 'L1'], 'L0', groupId),
         universalBanner: boolean('Has Universal Banner', false, groupId),
-        tocLayout: select('Table of Contents Layout', { Vertical: null, Horizontal: 'horizontal' }, null, groupId),
+        leadspaceSearch: boolean('Has Leadspace With Search', false, groupId),
+        tocLayout: select('Table of Contents Layout', { Vertical: null, Horizontal: 'horizontal', None: 'none' }, null, groupId),
       }),
     },
     propsSet: {
