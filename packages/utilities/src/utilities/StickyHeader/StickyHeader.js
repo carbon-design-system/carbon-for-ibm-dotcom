@@ -112,7 +112,10 @@ class StickyHeader {
       this._validateComponent(component, `${ddsPrefix}-leadspace-with-search`)
     ) {
       this._leadspaceWithSearch = component;
-      this._leadspaceWithSearchBar = component.querySelector(
+      this._leadspaceWithSearchBar = component.shadowRoot.querySelector(
+        '.bx--search-container'
+      );
+      this._leadspaceWithSearchInput = component.querySelector(
         'dds-search-with-typeahead'
       );
     }
@@ -195,6 +198,8 @@ class StickyHeader {
       _localeModal: localeModal,
       _tableOfContents: toc,
       _tableOfContentsInnerBar: tocInner,
+      _leadspaceWithSearchBar: leadspaceSearchBar,
+      _leadspaceWithSearchInput: leadspaceSearchInput,
     } = StickyHeader.global;
 
     if (localeModal && localeModal.hasAttribute('open')) return;
@@ -206,7 +211,22 @@ class StickyHeader {
 
     const topmostElement = masthead || tocInner;
 
-    if (masthead && tocInner) {
+    let cumulativeOffset = Math.max(
+      Math.min(topmostElement.offsetTop + oldY - newY, 0),
+      maxScrollaway * -1
+    );
+
+    if (banner) {
+      cumulativeOffset += Math.max(banner.offsetHeight - newY, 0);
+    }
+
+    if (masthead) {
+      masthead.style.transition = 'none';
+      masthead.style.top = `${cumulativeOffset}px`;
+      cumulativeOffset += masthead.offsetHeight;
+    }
+
+    if (tocInner) {
       const tocIsAtTop =
         tocInner.getBoundingClientRect().top <=
         masthead.offsetTop + masthead.offsetHeight + 1;
@@ -224,26 +244,30 @@ class StickyHeader {
         maxScrollaway += mastheadL0.offsetHeight;
       }
 
-      let cumulativeOffset = Math.max(
-        Math.min(topmostElement.offsetTop + oldY - newY, 0),
-        maxScrollaway * -1
-      );
+      tocInner.style.transition = 'none';
+      tocInner.style.top = `${cumulativeOffset}px`;
+      cumulativeOffset += tocInner.offsetHeight;
+    }
 
-      if (banner) {
-        cumulativeOffset += Math.max(banner.offsetHeight - newY, 0);
+    if (!tocInner && leadspaceSearchBar) {
+      const searchIsAtTop =
+        leadspaceSearchBar.getBoundingClientRect().top <=
+        masthead.offsetTop + masthead.offsetHeight + 1;
+
+      if (searchIsAtTop) {
+        maxScrollaway += masthead.offsetHeight
+
+        leadspaceSearchInput.style.transition = 'none';
+        leadspaceSearchInput.style.position = 'fixed';
+        leadspaceSearchInput.style.top = `${cumulativeOffset}px`;
+        cumulativeOffset += leadspaceSearchInput.offsetHeight;
+      } else {
+        leadspaceSearchInput.style.transition = '';
+        leadspaceSearchInput.style.position = '';
+        leadspaceSearchInput.style.top = '';
       }
 
-      if (masthead) {
-        masthead.style.transition = 'none';
-        masthead.style.top = `${cumulativeOffset}px`;
-        cumulativeOffset += masthead.offsetHeight;
-      }
 
-      if (tocInner) {
-        tocInner.style.transition = 'none';
-        tocInner.style.top = `${cumulativeOffset}px`;
-        cumulativeOffset += tocInner.offsetHeight;
-      }
     }
   }
 }

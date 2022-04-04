@@ -1169,24 +1169,22 @@ export const WithoutShell = ({ parameters }) => {
           <dds-masthead-container id="masthead-container" .l1Data="${l1Data}"></dds-masthead-container>
         `}
     <main class="bx--content dds-ce-demo--ui-shell-content">
-      <div class="bx--grid">
-        ${leadspaceSearch ? contentLeadspaceSearch : ''}
-        ${tocLayout === 'none'
-          ? html`
-              <div class="bx--grid bx--col-lg-8">
-                ${tocContent}
-              </div>
-            `
-          : ''}
-        ${tocLayout === null ? StoryContent() : ''}
-        ${tocLayout === 'horizontal'
-          ? StoryContent({
-              l1: false,
-              leadspace: true,
-              tocLayout: TOC_TYPES.HORIZONTAL,
-            })
-          : ''}
-      </div>
+      ${leadspaceSearch ? contentLeadspaceSearch : ''}
+      ${tocLayout === 'none'
+        ? html`
+            <div class="bx--grid bx--col-lg-8">
+              ${tocContent}
+            </div>
+          `
+        : ''}
+      ${tocLayout === null ? StoryContent() : ''}
+      ${tocLayout === 'horizontal'
+        ? StoryContent({
+            l1: false,
+            leadspace: true,
+            tocLayout: TOC_TYPES.HORIZONTAL,
+          })
+        : ''}
     </main>
   `;
 };
