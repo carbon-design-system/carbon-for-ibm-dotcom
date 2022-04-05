@@ -43,6 +43,7 @@ import './megamenu-category-group';
 import './megamenu-category-group-copy';
 import './megamenu-link-with-icon';
 import './megamenu-overlay';
+import './skip-to-content';
 import './top-nav';
 import './top-nav-l1';
 import './top-nav-name';
@@ -106,16 +107,6 @@ class DDSMastheadComposite extends LitElement {
           >${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: true })}</dds-top-nav-l1
         >
       </dds-masthead-l1>
-    `;
-  }
-
-  /**
-   * Renders skip to content link
-   *
-   */
-  protected _renderSkipToContent() {
-    return html`
-      <bx-skip-to-content href="${this.skipToContentHref}">${this.skipToContentText}</bx-skip-to-content>
     `;
   }
 
@@ -765,18 +756,6 @@ class DDSMastheadComposite extends LitElement {
   navLinks?: MastheadLink[];
 
   /**
-   * skip-to-content href
-   */
-  @property({ attribute: 'skip-to-content-href' })
-  skipToContentHref = '#main-content';
-
-  /**
-   * The search placeholder text
-   */
-  @property()
-  skipToContentText = 'Skip to main content';
-
-  /**
    * Logo data
    */
   @property({ attribute: false })
@@ -902,7 +881,7 @@ class DDSMastheadComposite extends LitElement {
         ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV, hasL1: !!l1Data })}
       </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
-        ${this._renderSkipToContent()}
+        <dds-skip-to-content href="#main-content" link-assistive-text="Skip to main content"></dds-skip-to-content>
         <dds-masthead-menu-button
           button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
           button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
