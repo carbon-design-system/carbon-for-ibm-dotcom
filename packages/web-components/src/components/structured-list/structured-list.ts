@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,14 +10,15 @@
 import settings from 'carbon-components/es/globals/js/settings';
 import { customElement, LitElement, html } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './structured-list.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
 
 @customElement(`${ddsPrefix}-structured-list`)
-class DDSStructuredList extends LitElement {
-  private _mutationObserver = new MutationObserver(this._setColumnSpans.bind(this));
+class DDSStructuredList extends StableSelectorMixin(LitElement) {
+  private _listMutationObserver = new MutationObserver(this._setColumnSpans.bind(this));
 
   /**
    * Handles attribute changes to attributes starting with `col-span`.
@@ -41,7 +42,7 @@ class DDSStructuredList extends LitElement {
       this.setAttribute('role', 'table');
     }
     super.connectedCallback();
-    this._mutationObserver.observe(this, { attributes: true, attributeOldValue: true });
+    this._listMutationObserver.observe(this, { attributes: true, attributeOldValue: true });
 
     const colSpanAttributes = Object.values(this.attributes).filter(attr => attr.name.startsWith('col-span'));
 
@@ -51,11 +52,16 @@ class DDSStructuredList extends LitElement {
   }
 
   render() {
+    const { wrapperId } = this.constructor as typeof DDSStructuredList;
     return html`
-      <section id="section" class="${prefix}--structured-list">
+      <section id="${wrapperId}" class="${prefix}--structured-list">
         <slot></slot>
       </section>
     `;
+  }
+
+  static get wrapperId() {
+    return 'section';
   }
 
   static styles = styles;

@@ -9,7 +9,7 @@
 
 import { customElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-// import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSStructuredList from '../structured-list/structured-list';
 import styles from './pricing-table.scss';
 import DDSPricingTableHeaderCell from './pricing-table-header-cell';
@@ -18,7 +18,7 @@ import DDSPricingTableHighlightLabel from './pricing-table-highlight-label';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table`)
-class DDSPricingTable extends DDSStructuredList {
+class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   @property({ reflect: true, attribute: 'highlight-column' })
   highlightColumn?: number;
 
@@ -37,7 +37,7 @@ class DDSPricingTable extends DDSStructuredList {
     return element;
   }
 
-  protected _unhighlightCells(cells): void {
+  protected _unhighlightCells(cells: NodeListOf<Element>): void {
     const { highlightClass } = this;
     cells.forEach(cell => {
       cell.classList.remove(highlightClass);
@@ -46,7 +46,7 @@ class DDSPricingTable extends DDSStructuredList {
     });
   }
 
-  protected _highlightCells(cells): void {
+  protected _highlightCells(cells: NodeListOf<Element>): void {
     const { highlightLabel, highlightClass } = this;
     cells.forEach(cell => cell.classList.add(highlightClass));
     if (highlightLabel) {
@@ -59,14 +59,15 @@ class DDSPricingTable extends DDSStructuredList {
   }
 
   protected _setMarginTop(): void {
+    const wrapper = this.shadowRoot?.getElementById(DDSStructuredList.wrapperId) || this;
     (async () => {
       return this.querySelector(`${ddsPrefix}-pricing-table-highlight-label`);
     })()
       .then(value => {
-        this.style.marginTop = `${value?.getBoundingClientRect().height}px`;
+        wrapper.style.marginTop = `${value?.getBoundingClientRect().height}px`;
       })
       .catch(() => {
-        this.style.marginTop = '';
+        wrapper.style.marginTop = '';
       });
   }
 
