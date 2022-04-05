@@ -12,10 +12,7 @@
 // Overridden column spanning
 @mixin structured-list-colspan($colNumber) {
   &:nth-child(#{$colNumber}) {
-    --cols: var(
-      --col-span-#{$colNumber},
-      var(--default-cols, var(--default-cols, 2))
-    );
+    --cols: var(--col-span-#{$colNumber}, var(--default-cols, 2));
     --width: calc((var(--cols) / var(--max-cols)) * 100%);
 
     max-width: var(--width);
@@ -76,9 +73,11 @@
       @extend .#{$prefix}--structured-list-row;
 
       background-color: $ui-03;
-      box-shadow: 100vw 0 $ui-03, 200vw 0 $ui-03, 300vw 0 $ui-03, 400vw 0 $ui-03,
-        500vw 0 $ui-03, 600vw 0 $ui-03, 700vw 0 $ui-03, 800vw 0 $ui-03,
-        900vw 0 $ui-03;
+      box-shadow: 50vw 0 $ui-03, 100vw 0 $ui-03, 150vw 0 $ui-03, 200vw 0 $ui-03,
+        250vw 0 $ui-03, 300vw 0 $ui-03, 350vw 0 $ui-03, 400vw 0 $ui-03,
+        450vw 0 $ui-03, 500vw 0 $ui-03, 550vw 0 $ui-03, 600vw 0 $ui-03,
+        650vw 0 $ui-03, 700vw 0 $ui-03, 750vw 0 $ui-03, 800vw 0 $ui-03,
+        850vw 0 $ui-03, 900vw 0 $ui-03;
       color: $text-01;
       border-bottom: 1px solid $ui-03;
     }
@@ -161,6 +160,16 @@
   }
 
   // Internal components
+  .#{$dds-prefix}--structured-list,
+  :host(#{$dds-prefix}-structured-list) {
+    display: block;
+    overflow: auto;
+    padding-left: $carbon--layout-01;
+    padding-right: $carbon--layout-01;
+    margin-left: -#{$carbon--layout-01};
+    margin-right: -#{$carbon--layout-01};
+  }
+
   .#{$prefix}--structured-list-cell-tooltip-icon,
   :host(#{$dds-prefix}-structured-list-cell) #{$prefix}-tooltip-icon {
     display: inline-flex;

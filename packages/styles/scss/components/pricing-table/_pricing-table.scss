@@ -17,7 +17,7 @@
 @mixin pricing-table {
   .#{$prefix}--pricing-table,
   :host(#{$dds-prefix}-pricing-table) {
-    display: block;
+    @extend .#{$dds-prefix}--structured-list;
   }
 
   .#{$prefix}--pricing-table-group,
@@ -46,6 +46,11 @@
   :host(#{$dds-prefix}-pricing-table-cell),
   :host(#{$dds-prefix}-pricing-table-group) td {
     @extend .#{$prefix}--structured-list-all-cells;
+
+    &:last-child {
+      flex-grow: none;
+      max-width: var(--width);
+    }
   }
 
   .#{$prefix}--pricing-table-header-cell,
