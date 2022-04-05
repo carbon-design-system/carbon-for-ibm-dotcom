@@ -170,9 +170,8 @@
 
   .#{$prefix}--pricing-table-annotation-toggle,
   :host(#{$dds-prefix}-pricing-table-annotation-toggle) {
-    position: absolute;
-    right: $carbon--spacing-05;
-    top: $carbon--spacing-05;
+    float: right;
+    margin: 0 0 $carbon--spacing-02 $carbon--spacing-02;
 
     button {
       background: none;

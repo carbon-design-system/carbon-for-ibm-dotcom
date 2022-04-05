@@ -39,7 +39,7 @@ class DDSPricingTableRow extends DDSStructuredListRow {
 
     if (this.hasAnnotations) {
       const toggle = this.ownerDocument.createElement('dds-pricing-table-annotation-toggle');
-      this.children[0].appendChild(toggle);
+      this.children[0].prepend(toggle);
     }
 
     super.connectedCallback();
