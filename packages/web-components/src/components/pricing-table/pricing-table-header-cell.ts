@@ -7,33 +7,48 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html } from 'lit-element';
+import { customElement, html, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSStructuredListHeaderCell from '../structured-list/structured-list-header-cell';
 import styles from './pricing-table.scss';
+import { PRICING_TABLE_HEADER_CELL_TYPES } from './defs';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-header-cell`)
 class DDSPricingTableHeaderCell extends StableSelectorMixin(DDSStructuredListHeaderCell) {
+  @property({ reflect: true })
+  type: PRICING_TABLE_HEADER_CELL_TYPES = PRICING_TABLE_HEADER_CELL_TYPES.COMPLEX;
+
   render() {
-    return html`
-      <div class=${`${prefix}--pricing-table-header-cell-inner`}>
-        <div>
-          <slot name="highlight-label"></slot>
-          <slot name="headline"></slot>
-          <slot name="caption"></slot>
-          <slot name="tag"></slot>
-          <slot></slot>
-        </div>
-        <div>
-          <slot name="cta"></slot>
-        </div>
-      </div>
-    `;
+    const { type } = this;
+    const { tagWrapperSelector } = this.constructor as typeof DDSPricingTableHeaderCell;
+
+    return type === PRICING_TABLE_HEADER_CELL_TYPES.COMPLEX
+      ? html`
+          <div class="${prefix}--pricing-table-header-cell-inner">
+            <div>
+              <slot name="highlight-label"></slot>
+              <slot name="headline"></slot>
+              <slot name="caption"></slot>
+              <div class="${tagWrapperSelector}">
+                <slot name="tag"></slot>
+              </div>
+              <slot></slot>
+            </div>
+            <div>
+              <slot name="cta"></slot>
+            </div>
+          </div>
+        `
+      : super.render();
+  }
+
+  static get tagWrapperSelector() {
+    return `${prefix}--pricing-table-header-cell-tag-wrapper`;
   }
 
   static get stableSelector() {

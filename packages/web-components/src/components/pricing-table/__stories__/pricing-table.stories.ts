@@ -13,6 +13,7 @@ import readme from './README.stories.mdx';
 import '../index';
 import 'carbon-web-components/es/components/tooltip/index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import { PRICING_TABLE_HEADER_CELL_TYPES } from '../defs';
 
 enum CELL_TYPES {
   TEXT = 'text',
@@ -20,32 +21,74 @@ enum CELL_TYPES {
   EMPTY = 'empty',
 }
 
-const renderHeaderCell = name => html`
-  <dds-pricing-table-header-cell>
-    <dds-pricing-table-header-cell-headline>Variation ${name}</dds-pricing-table-header-cell-headline>
-    <dds-pricing-table-header-cell-caption>Starting at $X.XX per user</dds-pricing-table-header-cell-caption>
-    <dds-pricing-table-header-cell-tag href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
-      >Merchandising</dds-pricing-table-header-cell-tag
-    >
-    <dds-pricing-table-header-cell-description>
-      Lorem ipsum dolor sit amet consectetur.
-      <bx-unordered-list>
-        <bx-list-item>Lorem ipsum dolor</bx-list-item>
-        <bx-list-item>sit amet</bx-list-item>
-        <bx-list-item>consectetur retention adispiscing elit sed do eiusm Eiusmod tempor</bx-list-item>
-      </bx-unordered-list>
-    </dds-pricing-table-header-cell-description>
-    <dds-pricing-table-header-cell-cta href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
-      >Call to action</dds-pricing-table-header-cell-cta
-    >
-  </dds-pricing-table-header-cell>
-`;
+const renderHeaderCell = (iterator: number): TemplateResult => {
+  const cellVariations = [
+    html`
+      <dds-pricing-table-header-cell>
+        <dds-pricing-table-header-cell-headline>Variation ${iterator}</dds-pricing-table-header-cell-headline>
+        <dds-pricing-table-header-cell-caption>Starting at $X.XX per user</dds-pricing-table-header-cell-caption>
+        <dds-pricing-table-header-cell-tag href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
+          >Merchandising offer</dds-pricing-table-header-cell-tag
+        >
+        <dds-pricing-table-header-cell-description>
+          Lorem ipsum dolor sit amet consectetur.
+          <bx-unordered-list>
+            <bx-list-item>Lorem ipsum dolor</bx-list-item>
+            <bx-list-item>sit amet</bx-list-item>
+            <bx-list-item>consectetur retention adispiscing elit sed do eiusm Eiusmod tempor</bx-list-item>
+          </bx-unordered-list>
+        </dds-pricing-table-header-cell-description>
+        <dds-pricing-table-header-cell-cta href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
+          >Call to action</dds-pricing-table-header-cell-cta
+        >
+      </dds-pricing-table-header-cell>
+    `,
+    html`
+      <dds-pricing-table-header-cell>
+        <dds-pricing-table-header-cell-headline>Variation ${iterator}</dds-pricing-table-header-cell-headline>
+        <dds-pricing-table-header-cell-caption>Starting at $X.XX per user</dds-pricing-table-header-cell-caption>
+        <dds-pricing-table-header-cell-description>
+          Lorem ipsum dolor sit amet consectetur.
+          <bx-unordered-list>
+            <bx-list-item>Lorem ipsum dolor</bx-list-item>
+            <bx-list-item>sit amet</bx-list-item>
+            <bx-list-item>consectetur retention adispiscing elit sed do eiusm Eiusmod tempor</bx-list-item>
+          </bx-unordered-list>
+        </dds-pricing-table-header-cell-description>
+        <dds-pricing-table-header-cell-cta href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
+          >Call to action</dds-pricing-table-header-cell-cta
+        >
+      </dds-pricing-table-header-cell>
+    `,
+    html`
+      <dds-pricing-table-header-cell>
+        <dds-pricing-table-header-cell-headline>Variation ${iterator}</dds-pricing-table-header-cell-headline>
+        <dds-pricing-table-header-cell-caption>Starting at $X.XX per user</dds-pricing-table-header-cell-caption>
+        <dds-pricing-table-header-cell-tag href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
+          >Secondary tag</dds-pricing-table-header-cell-tag
+        >
+        <dds-pricing-table-header-cell-description>
+          Lorem ipsum dolor sit amet consectetur.
+          <bx-unordered-list>
+            <bx-list-item>Lorem ipsum dolor</bx-list-item>
+            <bx-list-item>sit amet</bx-list-item>
+            <bx-list-item>consectetur retention adispiscing elit sed do eiusm Eiusmod tempor</bx-list-item>
+          </bx-unordered-list>
+        </dds-pricing-table-header-cell-description>
+        <dds-pricing-table-header-cell-cta href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
+          >Call to action</dds-pricing-table-header-cell-cta
+        >
+      </dds-pricing-table-header-cell>
+    `,
+  ];
+  return cellVariations[(iterator - 1) % cellVariations.length];
+};
 
-const renderHead = (columnCount, heading = '') => {
+const renderHead = (columnCount: number, heading: string = ''): TemplateResult => {
   return html`
     <dds-pricing-table-head>
       <dds-pricing-table-header-row>
-        <dds-pricing-table-header-cell>${heading}</dds-pricing-table-header-cell>
+        <dds-pricing-table-header-cell type="${PRICING_TABLE_HEADER_CELL_TYPES.SIMPLE}">${heading}</dds-pricing-table-header-cell>
         ${(() => {
           const cells: TemplateResult[] = [];
           for (let i = 1; i < columnCount; i++) {
@@ -58,45 +101,44 @@ const renderHead = (columnCount, heading = '') => {
   `;
 };
 
-const renderBodyCell = (type: CELL_TYPES = CELL_TYPES.TEXT) => {
-  let content;
-  if (type === CELL_TYPES.TEXT) {
-    content = html`
-      <dds-pricing-table-cell>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue.
-        Aenean posuere sem vel euismod dignissim.
-        <dds-pricing-table-cell-annotation>
-          Sed quis neque ultrices, convallis augue non, scelerisque massa.
-        </dds-pricing-table-cell-annotation>
-      </dds-pricing-table-cell>
-    `;
+const renderBodyCell = (type: CELL_TYPES): TemplateResult => {
+  switch (type) {
+    case CELL_TYPES.TEXT:
+      return html`
+        <dds-pricing-table-cell>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue.
+          Aenean posuere sem vel euismod dignissim.
+          <dds-pricing-table-cell-annotation>
+            Sed quis neque ultrices, convallis augue non, scelerisque massa.
+          </dds-pricing-table-cell-annotation>
+        </dds-pricing-table-cell>
+      `;
+    case CELL_TYPES.ICON:
+      return html`
+        <dds-pricing-table-cell icon="checkmark">
+          Cell with icon
+          <dds-pricing-table-cell-annotation>
+            Sed quis neque ultrices, convallis augue non, scelerisque massa.
+          </dds-pricing-table-cell-annotation>
+        </dds-pricing-table-cell>
+      `;
+    default:
+      return html`
+        <dds-pricing-table-cell>
+          <dds-pricing-table-cell-annotation>
+            Sed quis neque ultrices, convallis augue non, scelerisque massa.
+          </dds-pricing-table-cell-annotation>
+        </dds-pricing-table-cell>
+      `;
   }
-
-  if (type === CELL_TYPES.ICON) {
-    content = html`
-      <dds-pricing-table-cell icon="checkmark">
-        Cell with icon
-        <dds-pricing-table-cell-annotation>
-          Sed quis neque ultrices, convallis augue non, scelerisque massa.
-        </dds-pricing-table-cell-annotation>
-      </dds-pricing-table-cell>
-    `;
-  }
-
-  if (type === CELL_TYPES.EMPTY) {
-    content = html`
-      <dds-pricing-table-cell>
-        <dds-pricing-table-cell-annotation>
-          Sed quis neque ultrices, convallis augue non, scelerisque massa.
-        </dds-pricing-table-cell-annotation>
-      </dds-pricing-table-cell>
-    `;
-  }
-
-  return content;
 };
 
-const renderBodyRow = (columnCount, rowNum, cellType, rowHeaders = true) => html`
+const renderBodyRow = (
+  columnCount: number,
+  rowNum: number,
+  cellType: CELL_TYPES,
+  rowHeaders: boolean = true
+): TemplateResult => html`
   <dds-pricing-table-row>
     ${(() => {
       const cells: TemplateResult[] = [
