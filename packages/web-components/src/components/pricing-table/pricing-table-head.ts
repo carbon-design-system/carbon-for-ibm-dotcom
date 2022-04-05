@@ -23,5 +23,4 @@ class DDSPricingTableHead extends DDSStructuredListHead {
   static styles = styles;
 }
 
-/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSPricingTableHead;

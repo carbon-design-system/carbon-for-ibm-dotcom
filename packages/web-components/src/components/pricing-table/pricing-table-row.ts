@@ -38,7 +38,7 @@ class DDSPricingTableRow extends DDSStructuredListRow {
     this.hasAnnotations = this._hasAnnotations();
 
     if (this.hasAnnotations) {
-      const toggle = document.createElement('dds-pricing-table-annotation-toggle');
+      const toggle = this.ownerDocument.createElement('dds-pricing-table-annotation-toggle');
       this.children[0].appendChild(toggle);
     }
 
@@ -58,5 +58,4 @@ class DDSPricingTableRow extends DDSStructuredListRow {
   static styles = styles;
 }
 
-/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSPricingTableRow;

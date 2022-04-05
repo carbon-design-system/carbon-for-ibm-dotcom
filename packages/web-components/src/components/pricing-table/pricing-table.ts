@@ -30,7 +30,9 @@ class DDSPricingTable extends DDSStructuredList {
 
   protected _renderHighlightLabel(): DDSPricingTableHighlightLabel {
     const { highlightLabel } = this;
-    const element = document.createElement(`${ddsPrefix}-pricing-table-highlight-label`) as DDSPricingTableHighlightLabel;
+    const element = this.ownerDocument.createElement(
+      `${ddsPrefix}-pricing-table-highlight-label`
+    ) as DDSPricingTableHighlightLabel;
     element.innerText = highlightLabel || '';
     return element;
   }
@@ -92,5 +94,4 @@ class DDSPricingTable extends DDSStructuredList {
   static styles = styles;
 }
 
-/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSPricingTable;
