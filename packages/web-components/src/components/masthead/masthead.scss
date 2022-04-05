@@ -43,12 +43,6 @@
   }
 }
 
-:host(#{prefix}-skip-to-content),
-bx-skip-to-content {
-  position: absolute;
-  width: 500px;
-}
-
 :host(#{$dds-prefix}-masthead-logo) {
   @extend :host(#{$prefix}-header-name);
   @include masthead-logo;
