@@ -253,6 +253,20 @@ export default {
       }),
     },
   },
+  propsSet: {
+    default: {
+      PricingTable: {
+        heading: 'Optional section heading',
+        columnCount: 3,
+        highlightCol: 2,
+        highlightLabel: 'Featured',
+        colSpan1: '',
+        colSpan2: '',
+        colSpan3: '',
+        colSpan4: '',
+      },
+    },
+  },
   decorators: [
     story => html`
       <div class="bx--grid">
