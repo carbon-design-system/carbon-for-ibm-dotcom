@@ -20,6 +20,7 @@ $search-transition-timing: 95ms;
   height: 100%;
   z-index: 2;
   background-color: $ui-background;
+  position: absolute;
 
   a {
     position: relative;

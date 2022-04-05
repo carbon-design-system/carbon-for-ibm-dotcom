@@ -110,6 +110,16 @@ class DDSMastheadComposite extends LitElement {
   }
 
   /**
+   * Renders skip to content link
+   *
+   */
+  protected _renderSkipToContent() {
+    return html`
+      <bx-skip-to-content href="${this.skipToContentHref}">${this.skipToContentText}</bx-skip-to-content>
+    `;
+  }
+
+  /**
    * Renders masthead logo
    *
    */
@@ -755,6 +765,18 @@ class DDSMastheadComposite extends LitElement {
   navLinks?: MastheadLink[];
 
   /**
+   * skip-to-content href
+   */
+  @property({ attribute: 'skip-to-content-href' })
+  skipToContentHref = '#main-content';
+
+  /**
+   * The search placeholder text
+   */
+  @property()
+  skipToContentText = 'Skip to main content';
+
+  /**
    * Logo data
    */
   @property({ attribute: false })
@@ -880,6 +902,7 @@ class DDSMastheadComposite extends LitElement {
         ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV, hasL1: !!l1Data })}
       </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
+        ${this._renderSkipToContent()}
         <dds-masthead-menu-button
           button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
           button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
