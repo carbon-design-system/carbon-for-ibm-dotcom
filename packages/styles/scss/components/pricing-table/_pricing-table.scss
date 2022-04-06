@@ -121,6 +121,7 @@
         height: auto;
         opacity: 1;
         margin-top: $carbon--spacing-05;
+        transform: translateY(0);
       }
     }
   }
@@ -220,7 +221,7 @@
     transition: $duration--fast-02 motion(standard, productive);
     height: 0;
     opacity: 0;
-    margin-top: -#{$carbon--spacing-05};
+    transform: translateY(-#{$carbon--spacing-05});
   }
 }
 
