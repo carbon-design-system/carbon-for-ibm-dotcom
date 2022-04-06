@@ -20,9 +20,36 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-header-row`)
 class DDSPricingTableHeaderRow extends DDSStructuredListHeaderRow {
+  /**
+   * Array full of tag wrapper elements within header cells.
+   */
+  private _tagWrappers: any[] = [];
+
+  /**
+   * Observer that watches for viewport resizes.
+   */
+  private _resizeObserver: any | null = null;
+
+  private _createResizeObserver() {
+    this._resizeObserver = new ResizeObserver(this._setSameHeight);
+    this._resizeObserver.observe(this.ownerDocument!.documentElement);
+  }
+
+  private _cleanResizeObserver() {
+    this._resizeObserver.disconnect();
+    this._resizeObserver = null;
+  }
+
+  private _setSameHeight = () => {
+    window.requestAnimationFrame(() => {
+      sameHeight(this._tagWrappers, 'md');
+    });
+  };
+
   protected _handleSlotChange(e) {
     setColumnWidth(this);
 
+    // Find cells that are eligible to have tags within them.
     const validCells = e.target.assignedNodes().filter(node => {
       if (node instanceof DDSPricingTableHeaderCell) {
         return node.type === PRICING_TABLE_HEADER_CELL_TYPES.COMPLEX;
@@ -30,17 +57,27 @@ class DDSPricingTableHeaderRow extends DDSStructuredListHeaderRow {
       return false;
     });
 
-    const tagWrappers = validCells.reduce((acc, cell) => {
+    // Get wrapper markup for tag slot, which is always rendered regardless of
+    // the presence of a tag.
+    this._tagWrappers = validCells.reduce((acc, cell) => {
       if (cell.length !== 0) {
         const tag = cell.shadowRoot.querySelector(`.${DDSPricingTableHeaderCell.tagWrapperSelector}`);
-        if (tag) {
-          acc.push(tag);
-        }
+        if (tag) acc.push(tag);
       }
       return acc;
     }, []);
 
-    sameHeight(tagWrappers, 'md');
+    this._setSameHeight();
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this._createResizeObserver();
+  }
+
+  disconnectedCallback() {
+    this._cleanResizeObserver();
+    super.disconnectedCallback();
   }
 
   render() {
