@@ -95,17 +95,12 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
     const thumbnailSrc = new URL(this.thumbnailUrl || '');
 
     // If current thumbnail is from Kaltura and includes this video's ID we should be able to safely update it.
-    if (
-      thumbnailSrc.host.toLowerCase().includes('kaltura') &&
-      thumbnailSrc.pathname.includes(this.videoId!)
-    ) {
+    if (thumbnailSrc.host.toLowerCase().includes('kaltura') && thumbnailSrc.pathname.includes(this.videoId!)) {
       this.thumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
         mediaId: this.videoId,
         width: String(this.offsetWidth),
       });
     }
-
-
   }
 
   /**
