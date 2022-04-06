@@ -189,6 +189,13 @@
 
     display: block;
     margin-top: $carbon--spacing-06;
+
+    .#{$prefix}--btn svg {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
 
   .#{$prefix}--pricing-table-annotation-toggle,
