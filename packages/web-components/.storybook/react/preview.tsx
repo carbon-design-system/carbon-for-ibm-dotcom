@@ -84,7 +84,7 @@ addons.getChannel().on(CURRENT_THEME, theme => {
   }
 });
 
-const reqDocs = require.context('../../docs', true, /\.stories\.react\.mdx$/);
+const reqDocs = require.context('../../docs', true, /\.stories\.mdx$/);
 configure(reqDocs, module);
 
 const reqComponents = require.context('../../src/components', true, /\.stories\.react\.[jt]sx$/);

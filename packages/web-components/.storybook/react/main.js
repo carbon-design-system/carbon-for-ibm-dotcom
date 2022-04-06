@@ -96,7 +96,7 @@ class CreateReactCustomElementTypeProxyPlugin {
 }
 
 module.exports = {
-  addons: addons,
+  addons,
   managerWebpack,
   webpackFinal(config, mode) {
     const massagedConfig = webpackFinal(config, mode);
