@@ -321,7 +321,7 @@ const MastheadSearch = forwardRef(
       className: `${prefix}--header__search--input`,
       'aria-label': placeHolderText,
       role: 'combobox',
-      'aria-expanded': !!state.suggestions.length,
+      'aria-expanded': isSearchActive,
     };
 
     /**
