@@ -49,11 +49,7 @@
       width: 100%;
       height: 1px;
       background-color: $ui-03;
-      box-shadow: 50vw 0 $ui-03, 100vw 0 $ui-03, 150vw 0 $ui-03, 200vw 0 $ui-03,
-        250vw 0 $ui-03, 300vw 0 $ui-03, 350vw 0 $ui-03, 400vw 0 $ui-03,
-        450vw 0 $ui-03, 500vw 0 $ui-03, 550vw 0 $ui-03, 600vw 0 $ui-03,
-        650vw 0 $ui-03, 700vw 0 $ui-03, 750vw 0 $ui-03, 800vw 0 $ui-03,
-        850vw 0 $ui-03, 900vw 0 $ui-03;
+      box-shadow: extended-box-shadow();
     }
   }
 
