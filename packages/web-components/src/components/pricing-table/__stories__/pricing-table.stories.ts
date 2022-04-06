@@ -204,6 +204,9 @@ export const WithoutRowHeaders = ({ parameters }) => {
     </dds-pricing-table>
   `;
 };
+WithoutRowHeaders.story = {
+  name: 'Without row headers',
+};
 
 export const WithSubheaders = ({ parameters }) => {
   const { colSpan1, colSpan2, colSpan3, colSpan4, columnCount, highlightCol, highlightLabel, heading } =
@@ -234,6 +237,9 @@ export const WithSubheaders = ({ parameters }) => {
       </dds-pricing-table-body>
     </dds-pricing-table>
   `;
+};
+WithSubheaders.story = {
+  name: 'With subheaders',
 };
 
 export default {
