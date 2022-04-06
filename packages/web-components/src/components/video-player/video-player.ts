@@ -92,10 +92,20 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
    * Updates video thumbnail url to match video width
    */
   private _updateThumbnailUrl() {
-    this.thumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
-      mediaId: this.videoId,
-      width: String(this.offsetWidth),
-    });
+    const thumbnailSrc = new URL(this.thumbnailUrl || '');
+
+    // If current thumbnail is from Kaltura and includes this video's ID we should be able to safely update it.
+    if (
+      thumbnailSrc.host.toLowerCase().includes('kaltura') &&
+      thumbnailSrc.pathname.includes(this.videoId!)
+    ) {
+      this.thumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
+        mediaId: this.videoId,
+        width: String(this.offsetWidth),
+      });
+    }
+
+
   }
 
   /**
@@ -170,7 +180,7 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
    * The thumbnail URL.
    */
   @property({ attribute: 'thumbnail-url' })
-  thumbnailUrl = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg"/%3E';
+  thumbnailUrl = '';
 
   /**
    * The video ID.
