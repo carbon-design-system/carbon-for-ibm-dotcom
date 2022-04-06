@@ -37,14 +37,25 @@ class DDSPricingTableHeaderCell extends StableSelectorMixin(DDSStructuredListHea
               <div class="${tagWrapperSelector}">
                 <slot name="tag"></slot>
               </div>
-              <slot></slot>
+              <div class="${prefix}--pricing-table-cell-inner">
+                <div class="${prefix}--pricing-table-cell-content">
+                  <slot></slot>
+                </div>
+                <slot name="toggle"></slot>
+              </div>
             </div>
             <div>
               <slot name="cta"></slot>
             </div>
           </div>
         `
-      : super.render();
+      : html`
+          <div class="${prefix}--pricing-table-cell-inner">
+            <div class="${prefix}--pricing-table-cell-content">
+              ${super.render()}
+            </div>
+          </div>
+        `;
   }
 
   static get tagWrapperSelector() {

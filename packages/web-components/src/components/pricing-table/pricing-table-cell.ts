@@ -8,6 +8,7 @@
  */
 
 import { customElement, html } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
@@ -15,6 +16,7 @@ import DDSStructuredListCell from '../structured-list/structured-list-cell';
 import DDSPricingTableGroup from './pricing-table-group';
 import styles from './pricing-table.scss';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-cell`)
@@ -36,7 +38,12 @@ class DDSPricingTableCell extends HostListenerMixin(DDSStructuredListCell) {
 
   render() {
     return html`
-      ${super.render()}
+      <div class="${prefix}--pricing-table-cell-inner">
+        <div class="${prefix}--pricing-table-cell-content">
+          ${super.render()}
+        </div>
+        <slot name="toggle"></slot>
+      </div>
       <slot name="annotation"></slot>
     `;
   }

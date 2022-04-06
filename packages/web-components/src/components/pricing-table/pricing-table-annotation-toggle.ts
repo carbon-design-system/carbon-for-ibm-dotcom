@@ -19,6 +19,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-annotation-toggle`)
 class DDSPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
+  @property({ reflect: true })
+  slot = 'toggle';
+
   @property()
   toggled: boolean = false;
 

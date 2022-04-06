@@ -78,6 +78,12 @@
     &.highlighted {
       background-color: $ui-01;
     }
+
+    .#{$prefix}--pricing-table-cell-inner {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   .#{$prefix}--pricing-table-header-cell,
@@ -116,10 +122,6 @@
         opacity: 1;
         margin-top: $carbon--spacing-05;
       }
-    }
-
-    #{$prefix}-tooltip-icon {
-      @extend .#{$prefix}--structured-list-cell-tooltip-icon;
     }
   }
 
@@ -191,8 +193,7 @@
 
   .#{$prefix}--pricing-table-annotation-toggle,
   :host(#{$dds-prefix}-pricing-table-annotation-toggle) {
-    float: right;
-    margin: 0 0 $carbon--spacing-02 $carbon--spacing-02;
+    padding-left: $carbon--spacing-03;
 
     button {
       background: none;
