@@ -12,11 +12,13 @@ import DDSPricingTableRow from './pricing-table-row';
 
 export const setColumnWidth = (row: DDSPricingTableHeaderRow | DDSPricingTableRow) => {
   const columnCount = row.children.length;
-  let defaultColumnWidth = '2';
-  if (columnCount <= 3) {
-    defaultColumnWidth = '4';
-  } else if (columnCount <= 6) {
+  let defaultColumnWidth: string;
+  if (columnCount >= 6) {
+    defaultColumnWidth = '2';
+  } else if (columnCount >= 4) {
     defaultColumnWidth = '3';
+  } else {
+    defaultColumnWidth = '4';
   }
   row.style.setProperty('--default-cols', defaultColumnWidth);
 };
