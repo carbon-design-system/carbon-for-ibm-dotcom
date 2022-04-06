@@ -9,7 +9,7 @@
 
 import { customElement, html, LitElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import Info16 from 'carbon-web-components/es/icons/information/16';
+import ChevronDown16 from 'carbon-web-components/es/icons/chevron--down/16';
 import Close16 from 'carbon-web-components/es/icons/close/16';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './pricing-table.scss';
@@ -53,7 +53,7 @@ class DDSPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
     const { toggled } = this;
     return html`
       <button @click="${this._handleClick}" type="button" aria-pressed="${toggled}" aria-label="cell annotations visibility">
-        ${toggled ? Close16() : Info16()}
+        ${toggled ? Close16() : ChevronDown16()}
       </button>
     `;
   }
