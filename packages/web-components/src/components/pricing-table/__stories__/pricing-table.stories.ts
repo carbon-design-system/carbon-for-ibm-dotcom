@@ -38,7 +38,9 @@ const renderHeaderCell = (iterator: number): TemplateResult => {
             <bx-list-item>consectetur retention adispiscing elit sed do eiusm Eiusmod tempor</bx-list-item>
           </bx-unordered-list>
         </dds-pricing-table-header-cell-description>
-        <dds-pricing-table-header-cell-cta href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
+        <dds-pricing-table-header-cell-cta
+          cta-type="local"
+          href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
           >Call to action</dds-pricing-table-header-cell-cta
         >
       </dds-pricing-table-header-cell>
@@ -55,7 +57,9 @@ const renderHeaderCell = (iterator: number): TemplateResult => {
             <bx-list-item>consectetur retention adispiscing elit sed do eiusm Eiusmod tempor</bx-list-item>
           </bx-unordered-list>
         </dds-pricing-table-header-cell-description>
-        <dds-pricing-table-header-cell-cta href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
+        <dds-pricing-table-header-cell-cta
+          cta-type="local"
+          href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
           >Call to action</dds-pricing-table-header-cell-cta
         >
       </dds-pricing-table-header-cell>
@@ -75,7 +79,9 @@ const renderHeaderCell = (iterator: number): TemplateResult => {
             <bx-list-item>consectetur retention adispiscing elit sed do eiusm Eiusmod tempor</bx-list-item>
           </bx-unordered-list>
         </dds-pricing-table-header-cell-description>
-        <dds-pricing-table-header-cell-cta href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
+        <dds-pricing-table-header-cell-cta
+          cta-type="local"
+          href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
           >Call to action</dds-pricing-table-header-cell-cta
         >
       </dds-pricing-table-header-cell>
