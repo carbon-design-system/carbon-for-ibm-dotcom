@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,6 +12,7 @@ import '../index';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { select } from '@storybook/addon-knobs';
 import styles from './pictogram-item.stories.scss';
+import { COLOR_OPTIONS } from '../defs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
@@ -144,10 +145,15 @@ const pictograms = {
   Pattern: 'Pattern',
 };
 
+const pictogramColors = {
+  'Black (default)': COLOR_OPTIONS.DEFAULT,
+  'Blue 50': COLOR_OPTIONS.BLUE,
+};
+
 export const Default = ({ parameters }) => {
-  const { heading, copy, href, linkCopy, pictogram } = parameters?.props?.PictogramItem ?? {};
+  const { heading, copy, href, linkCopy, pictogram, pictogramColor } = parameters?.props?.PictogramItem ?? {};
   return html`
-    <dds-pictogram-item>
+    <dds-pictogram-item color="${pictogramColor}">
       ${pictogram?.src}
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       <dds-content-item-copy>${copy}</dds-content-item-copy>
@@ -190,6 +196,7 @@ export default {
           src: selectPictogram(select('Pictogram (required)', pictograms, pictograms.Desktop, groupId)),
           'aria-label': textNullable('Aria-label:', 'Pictogram description', groupId),
         },
+        pictogramColor: select('Pictogram color:', pictogramColors, pictogramColors.black, groupId),
       }),
     },
     propsSet: {
@@ -206,6 +213,7 @@ export default {
             src: pictograms.Desktop,
             'aria-label': 'Pictogram description',
           },
+          pictogramColor: pictogramColors.black,
         },
       },
     },
