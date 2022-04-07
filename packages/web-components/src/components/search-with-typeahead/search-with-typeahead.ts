@@ -529,7 +529,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
           class="${classes}"
           aria-haspopup="listbox"
           aria-owns="result-list"
-          aria-expanded="${Boolean(open)}"
+          aria-expanded="${Boolean(this.active)}"
           aria-label="${ifNonNull(searchLabel)}"
           @click=${handleClickInner}
           @keydown="${handleKeydownInner}"
