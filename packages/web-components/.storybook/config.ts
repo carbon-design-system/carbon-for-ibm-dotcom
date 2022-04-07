@@ -13,7 +13,6 @@ import 'carbon-web-components/es/components/skip-to-content/skip-to-content.js';
 import { configure, addDecorator, addParameters, setCustomElements } from '@storybook/web-components'; // eslint-disable-line import/first
 import coreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
-import { withA11y } from '@storybook/addon-a11y';
 import { withKnobs } from '@storybook/addon-knobs';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
 import customElements from '../custom-elements.json';
@@ -66,7 +65,6 @@ addDecorator((story, { parameters }) => {
   `;
 });
 
-addDecorator(withA11y);
 addDecorator(withKnobs);
 addDecorator(decoratorKnobs);
 
