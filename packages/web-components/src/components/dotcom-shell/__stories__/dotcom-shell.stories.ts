@@ -51,7 +51,13 @@ import '../../callout-with-media/callout-with-media';
 import '../../callout-with-media/callout-with-media-copy';
 import '../../callout-with-media/callout-with-media-video';
 import readme from './README.stories.mdx';
-import { StoryContent, StoryContentNoToC, universalBanner as StoryUniversalBanner, tocContent, contentLeadspaceSearch } from './data/content';
+import {
+  StoryContent,
+  StoryContentNoToC,
+  universalBanner as StoryUniversalBanner,
+  tocContent,
+  contentLeadspaceSearch,
+} from './data/content';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { TOC_TYPES } from '../../table-of-contents/defs';
 

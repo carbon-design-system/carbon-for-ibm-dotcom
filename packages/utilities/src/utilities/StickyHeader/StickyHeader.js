@@ -207,12 +207,70 @@ class StickyHeader {
     const newY = window.scrollY;
     this._lastScrollPosition = newY;
 
+    /**
+     * maxScrollaway is a calculated value matching the height of all components
+     * that are allowed to hide above the viewport.
+     *
+     * We should only have one sticky header showing as the page scrolls down.
+     *
+     * Items that stick, in order
+     * - L0
+     * - L1
+     * - The TOC in horizontal bar form
+     * - The leadspace with search (if no TOC)
+     */
     let maxScrollaway = 0;
 
-    const topmostElement = masthead || tocInner;
+    // Calculate maxScrollaway values based on TOC positon
+    let tocIsAtTop = false;
+    let tocShouldStick = false;
+    if (tocInner) {
+      tocIsAtTop =
+        tocInner.getBoundingClientRect().top <=
+        masthead.offsetTop + masthead.offsetHeight + 1;
 
+      tocShouldStick =
+        toc.layout === 'horizontal' || window.innerWidth < gridBreakpoint;
+
+      if (tocIsAtTop && (tocShouldStick || mastheadL1)) {
+        maxScrollaway += masthead.offsetHeight;
+
+        if (mastheadL1 && !tocShouldStick) {
+          maxScrollaway -= mastheadL1.offsetHeight;
+        }
+      } else if (mastheadL0 && mastheadL1) {
+        maxScrollaway += mastheadL0.offsetHeight;
+      }
+    }
+
+    // Calculate maxScrollaway values based on leadspace search position
+    if (!tocInner && leadspaceSearchBar) {
+      const searchIsAtTop =
+        leadspaceSearchBar.getBoundingClientRect().top <=
+        masthead.offsetTop + masthead.offsetHeight + 1;
+
+      if (searchIsAtTop) {
+        maxScrollaway += masthead.offsetHeight;
+      }
+    }
+
+    /**
+     * Cumulative offset is a calculated value used to set the `top` property of
+     * components that stick to the top of the viewport.
+     *
+     * This value is equal to the difference between the previous scrollY and
+     * the current scrollY values, but is positively and negatively limited.
+     *
+     * Positive limit: 0
+     *   all elements visible, starting at the top of the viewport.
+     *
+     * Negative limit: maxScrollaway * -1
+     *   all elements that should be hidden are positioned above the viewport
+     *   with the elements that should be visible starting at the top of the
+     *   viewport.
+     */
     let cumulativeOffset = Math.max(
-      Math.min(topmostElement.offsetTop + oldY - newY, 0),
+      Math.min(masthead.offsetTop + oldY - newY, 0),
       maxScrollaway * -1
     );
 
@@ -227,36 +285,16 @@ class StickyHeader {
     }
 
     if (tocInner) {
-      const tocIsAtTop =
-        tocInner.getBoundingClientRect().top <=
-        masthead.offsetTop + masthead.offsetHeight + 1;
-
-      const tocShouldStick =
-        toc.layout === 'horizontal' || window.innerWidth < gridBreakpoint;
-
-      if (tocIsAtTop && (tocShouldStick || mastheadL1)) {
-        maxScrollaway += masthead.offsetHeight;
-
-        if (mastheadL1 && !tocShouldStick) {
-          maxScrollaway -= mastheadL1.offsetHeight;
-        }
-      } else if (mastheadL0 && mastheadL1) {
-        maxScrollaway += mastheadL0.offsetHeight;
-      }
-
       tocInner.style.transition = 'none';
       tocInner.style.top = `${cumulativeOffset}px`;
       cumulativeOffset += tocInner.offsetHeight;
     }
 
     if (!tocInner && leadspaceSearchBar) {
-      const searchIsAtTop =
-        leadspaceSearchBar.getBoundingClientRect().top <=
-        masthead.offsetTop + masthead.offsetHeight + 1;
+      const searchIsSticky =
+        leadspaceSearchBar.getBoundingClientRect().bottom <= 0;
 
-      if (searchIsAtTop) {
-        maxScrollaway += masthead.offsetHeight
-
+      if (searchIsSticky) {
         leadspaceSearchInput.style.transition = 'none';
         leadspaceSearchInput.style.position = 'fixed';
         leadspaceSearchInput.style.top = `${cumulativeOffset}px`;
@@ -266,8 +304,6 @@ class StickyHeader {
         leadspaceSearchInput.style.position = '';
         leadspaceSearchInput.style.top = '';
       }
-
-
     }
   }
 }
