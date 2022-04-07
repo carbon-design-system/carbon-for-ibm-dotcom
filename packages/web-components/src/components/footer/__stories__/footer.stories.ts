@@ -82,9 +82,8 @@ export const base = args => {
 };
 
 export const Default = args => {
-  const { props = {} } = args;
-  props.FooterComposite = {
-    ...(props.FooterComposite || {}),
+  args.FooterComposite = {
+    ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.REGULAR,
     langList: '',
     adjunctLinks: [],
@@ -93,9 +92,8 @@ export const Default = args => {
 };
 
 export const defaultWithAdjunctLegalLinks = args => {
-  const { props = {} } = args;
-  props.FooterComposite = {
-    ...(props.FooterComposite || {}),
+  args.FooterComposite = {
+    ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.REGULAR,
   };
   return base(args);
@@ -120,9 +118,8 @@ defaultWithAdjunctLegalLinks.story = {
 };
 
 export const defaultLanguageOnly = args => {
-  const { props = {} } = args;
-  props.FooterComposite = {
-    ...(props.FooterComposite || {}),
+  args.FooterComposite = {
+    ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.REGULAR,
     languageSelectorLabel: 'Choose a language',
     clearSelectionLabel: 'Clear language selection',
@@ -155,9 +152,8 @@ defaultLanguageOnly.story = {
 };
 
 export const short = args => {
-  const { props = {} } = args;
-  props.FooterComposite = {
-    ...(props.FooterComposite || {}),
+  args.FooterComposite = {
+    ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
     langList: '',
     adjunctLinks: [],
@@ -166,9 +162,8 @@ export const short = args => {
 };
 
 export const shortWithAdjunctLegalLinks = args => {
-  const { props = {} } = args;
-  props.FooterComposite = {
-    ...(props.FooterComposite || {}),
+  args.FooterComposite = {
+    ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
   };
   return base(args);
@@ -193,9 +188,8 @@ shortWithAdjunctLegalLinks.story = {
 };
 
 export const shortLanguageOnly = args => {
-  const { props = {} } = args;
-  props.FooterComposite = {
-    ...(props.FooterComposite || {}),
+  args.FooterComposite = {
+    ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
     languageSelectorLabel: 'Choose a language',
     clearSelectionLabel: 'Clear language selection',
@@ -226,9 +220,8 @@ shortLanguageOnly.story = {
 };
 
 export const micro = args => {
-  const { props = {} } = args;
-  props.FooterComposite = {
-    ...(props.FooterComposite || {}),
+  args.FooterComposite = {
+    ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.MICRO,
     langList: '',
   };
@@ -238,9 +231,8 @@ export const micro = args => {
 };
 
 export const microLanguageOnly = args => {
-  const { props = {} } = args;
-  props.FooterComposite = {
-    ...(props.FooterComposite || {}),
+  args.FooterComposite = {
+    ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.MICRO,
     languageSelectorLabel: 'Choose a language',
     clearSelectionLabel: 'Clear language selection',
