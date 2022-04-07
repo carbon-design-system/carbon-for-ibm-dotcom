@@ -124,6 +124,12 @@
         transform: translateY(0);
       }
     }
+
+    &.annotation-visible.no-cell-content {
+      ::slotted(#{$dds-prefix}-pricing-table-cell-annotation) {
+        margin-top: 0;
+      }
+    }
   }
 
   .#{$prefix}--pricing-table-cell[icon],

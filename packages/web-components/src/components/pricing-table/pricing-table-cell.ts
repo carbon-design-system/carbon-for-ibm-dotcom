@@ -15,6 +15,7 @@ import HostListener from 'carbon-web-components/es/globals/decorators/host-liste
 import DDSStructuredListCell from '../structured-list/structured-list-cell';
 import DDSPricingTableGroup from './pricing-table-group';
 import styles from './pricing-table.scss';
+import DDSPricingTableCellAnnotation from './pricing-table-cell-annotation';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -34,6 +35,31 @@ class DDSPricingTableCell extends HostListenerMixin(DDSStructuredListCell) {
     // Disable inherited tags functionality
     this.removeAttribute('tags');
     super.connectedCallback();
+  }
+
+  protected firstUpdated(): void {
+    const slots = this.shadowRoot?.querySelectorAll('slot');
+
+    // Get default slot
+    let defaultSlot;
+    slots?.forEach(slot => {
+      if (!slot.hasAttribute('name')) {
+        defaultSlot = slot;
+      }
+    });
+    // Filter out annotations, which should be in the "annotation" slot but
+    // sometimes appear as inside the default slot. Also filter out empty
+    // text nodes.
+    const slotContents = defaultSlot.assignedNodes().filter(node => {
+      const isAnnotation = node instanceof DDSPricingTableCellAnnotation;
+      const isEmpty = node.textContent?.trim() === '';
+
+      return !isAnnotation && !isEmpty;
+    });
+
+    if (slotContents.length === 0) {
+      this.classList.toggle('no-cell-content');
+    }
   }
 
   render() {
