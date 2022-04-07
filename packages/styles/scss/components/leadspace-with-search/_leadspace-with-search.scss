@@ -87,6 +87,7 @@
   }
 
   :host(#{$dds-prefix}-leadspace-with-search) {
+    display: block;
     position: relative;
 
     &[has-image] {
@@ -209,27 +210,18 @@
       .#{$prefix}--sticky-header {
         @include carbon--type-style('expressive-heading-01');
 
-        opacity: 0;
-        transition: all $duration--fast-02 motion(entrance, productive);
-
-        transform: translate(-29%, calc(#{$spacing-12} * -1));
-
-        @include carbon--breakpoint-down('lg') {
-          display: none;
-        }
-
-        @include carbon--breakpoint('xlg') {
-          transform: translate(-28%, calc(#{$spacing-12} * -1));
-        }
+        display: none;
       }
 
       &::before {
+        top: 0;
         right: calc(50% - 50vw);
         content: '';
         background-color: $ui-background;
         position: absolute;
         width: 100vw;
         height: 100%;
+        z-index: -1;
       }
     }
 
@@ -285,13 +277,30 @@
     }
 
     &[sticky-search] {
-      .#{$prefix}--search-container > .#{$prefix}--sticky-header {
-        opacity: 1;
-        z-index: 2;
-        transform: translate(-29%, $spacing-07);
+      .#{$prefix}--search-container {
+        @include carbon--make-row();
+
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        top: 0;
+        left: 0;
+        padding: 1rem;
+        margin: 0;
+        align-items: center;
+      }
+
+      .#{$prefix}--sticky-header {
+        @include carbon--breakpoint('lg') {
+          @include carbon--make-col(4, 16);
+        }
+      }
+
+      ::slotted(#{$dds-prefix}-search-with-typeahead) {
+        @include carbon--make-col(4, 4);
 
         @include carbon--breakpoint('lg') {
-          transform: translate(-28%, $spacing-05);
+          @include carbon--make-col(10, 16);
         }
       }
 

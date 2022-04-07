@@ -104,9 +104,6 @@ class StickyHeader {
       this._leadspaceWithSearchBar = component.shadowRoot.querySelector(
         '.bx--search-container'
       );
-      this._leadspaceWithSearchInput = component.querySelector(
-        'dds-search-with-typeahead'
-      );
     }
   }
 
@@ -187,8 +184,8 @@ class StickyHeader {
       _localeModal: localeModal,
       _tableOfContents: toc,
       _tableOfContentsInnerBar: tocInner,
+      _leadspaceWithSearch: leadspaceSearch,
       _leadspaceWithSearchBar: leadspaceSearchBar,
-      _leadspaceWithSearchInput: leadspaceSearchInput,
     } = StickyHeader.global;
 
     if (localeModal && localeModal.hasAttribute('open')) return;
@@ -280,18 +277,24 @@ class StickyHeader {
     }
 
     if (!tocInner && leadspaceSearchBar) {
-      const searchIsSticky =
-        leadspaceSearchBar.getBoundingClientRect().bottom <= 0;
+      const searchShouldBeSticky =
+        leadspaceSearch.getBoundingClientRect().bottom <= 0;
+      const searchIsSticky = leadspaceSearch.hasAttribute('sticky-search');
 
-      if (searchIsSticky) {
-        leadspaceSearchInput.style.transition = 'none';
-        leadspaceSearchInput.style.position = 'fixed';
-        leadspaceSearchInput.style.top = `${cumulativeOffset}px`;
-        cumulativeOffset += leadspaceSearchInput.offsetHeight;
-      } else {
-        leadspaceSearchInput.style.transition = '';
-        leadspaceSearchInput.style.position = '';
-        leadspaceSearchInput.style.top = '';
+      if (searchShouldBeSticky) {
+        if (!searchIsSticky) {
+          leadspaceSearch.style.paddingBottom = leadspaceSearchBar.offsetHeight;
+          leadspaceSearch.setAttribute('sticky-search', '');
+        }
+
+        leadspaceSearchBar.style.top = `${cumulativeOffset}px`;
+        cumulativeOffset += leadspaceSearchBar.offsetHeight;
+      }
+
+      if (!searchShouldBeSticky && searchIsSticky) {
+        leadspaceSearch.removeAttribute('sticky-search');
+        leadspaceSearch.style.paddingBottom = '';
+        leadspaceSearchBar.style.top = '';
       }
     }
   }

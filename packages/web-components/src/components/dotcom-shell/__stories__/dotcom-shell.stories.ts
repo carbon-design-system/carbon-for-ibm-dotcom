@@ -1175,7 +1175,13 @@ export const WithoutShell = ({ parameters }) => {
           <dds-masthead-container id="masthead-container" .l1Data="${l1Data}"></dds-masthead-container>
         `}
     <main class="bx--content dds-ce-demo--ui-shell-content">
-      ${leadspaceSearch ? contentLeadspaceSearch : ''}
+      ${leadspaceSearch
+        ? html`
+            <div class="bx--grid bx--col-lg-8">
+              ${contentLeadspaceSearch}
+            </div>
+          `
+        : ''}
       ${tocLayout === 'none'
         ? html`
             <div class="bx--grid bx--col-lg-8">
