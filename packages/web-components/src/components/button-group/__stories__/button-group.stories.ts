@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -29,8 +29,8 @@ const iconOptions = {
   PDF: 'Pdf20',
 };
 
-export const Default = ({ parameters }) => {
-  const { buttons } = parameters?.props?.ButtonGroup ?? {};
+export const Default = args => {
+  const { buttons } = args?.ButtonGroup ?? {};
   return html`
     <dds-button-group>
       ${buttons.map(
@@ -59,13 +59,13 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      ButtonGroup: ({ groupId }) => ({
+      ButtonGroup: () => ({
         buttons: Array.from({
-          length: number('Number of buttons', 2, {}, groupId),
+          length: number('Number of buttons', 2, {}),
         }).map((_, i) => ({
-          href: textNullable(`Link ${i + 1}`, `https://example.com`, groupId),
-          copy: text(`Button ${i + 1}`, `Button ${i + 1}`, groupId),
-          renderIcon: iconMap[select(`Icon ${i + 1}`, iconOptions, iconOptions.Default, groupId) ?? 0],
+          href: textNullable(`Link ${i + 1}`, `https://example.com`),
+          copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+          renderIcon: iconMap[select(`Icon ${i + 1}`, iconOptions, iconOptions.Default) ?? 0],
         })),
       }),
     },

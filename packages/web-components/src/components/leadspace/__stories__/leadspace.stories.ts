@@ -45,8 +45,8 @@ const navigationWithBreadcrumbs = html`
   </dds-breadcrumb>
 `;
 
-export const Super = ({ parameters }) => {
-  const { title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
+export const Super = args => {
+  const { title, copy, buttons, navElements } = args?.LeadSpace ?? {};
   return html`
     <dds-leadspace size="${LEADSPACE_SIZE.SUPER}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
@@ -66,8 +66,8 @@ export const Super = ({ parameters }) => {
   `;
 };
 
-export const SuperWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
+export const SuperWithImage = args => {
+  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = args?.LeadSpace ?? {};
   const image = defaultSrc || leadspaceImg;
   return html`
     <dds-leadspace
@@ -103,8 +103,8 @@ SuperWithImage.story = {
   name: 'Super with image',
 };
 
-export const SuperWithVideo = ({ parameters }) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
+export const SuperWithVideo = args => {
+  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = args?.LeadSpace ?? {};
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.SUPER}"
@@ -136,8 +136,8 @@ SuperWithVideo.story = {
   name: 'Super with video',
 };
 
-export const Tall = ({ parameters }) => {
-  const { title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
+export const Tall = args => {
+  const { title, copy, buttons, navElements } = args?.LeadSpace ?? {};
   return html`
     <dds-leadspace size="${LEADSPACE_SIZE.TALL}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
@@ -157,8 +157,8 @@ export const Tall = ({ parameters }) => {
   `;
 };
 
-export const TallWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
+export const TallWithImage = args => {
+  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = args?.LeadSpace ?? {};
   const image = defaultSrc || leadspaceImg;
   return html`
     <dds-leadspace
@@ -194,8 +194,8 @@ TallWithImage.story = {
   name: 'Tall with image',
 };
 
-export const TallWithVideo = ({ parameters }) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
+export const TallWithVideo = args => {
+  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = args?.LeadSpace ?? {};
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.TALL}"
@@ -227,8 +227,8 @@ TallWithVideo.story = {
   name: 'Tall with video',
 };
 
-export const Medium = ({ parameters }) => {
-  const { title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
+export const Medium = args => {
+  const { title, copy, buttons, navElements } = args?.LeadSpace ?? {};
   return html`
     <dds-leadspace size="${LEADSPACE_SIZE.MEDIUM}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
@@ -248,8 +248,8 @@ export const Medium = ({ parameters }) => {
   `;
 };
 
-export const MediumWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
+export const MediumWithImage = args => {
+  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = args?.LeadSpace ?? {};
   const image = defaultSrc || leadspaceImg;
   return html`
     <dds-leadspace
@@ -285,8 +285,8 @@ MediumWithImage.story = {
   name: 'Medium with image',
 };
 
-export const MediumWithVideo = ({ parameters }) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
+export const MediumWithVideo = args => {
+  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = args?.LeadSpace ?? {};
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.MEDIUM}"
@@ -318,8 +318,8 @@ MediumWithVideo.story = {
   name: 'Medium with video',
 };
 
-export const Short = ({ parameters }) => {
-  const { title, navElements } = parameters?.props?.LeadSpace ?? {};
+export const Short = args => {
+  const { title, navElements } = args?.LeadSpace ?? {};
   return html`
     <dds-leadspace size="${LEADSPACE_SIZE.SHORT}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
@@ -332,9 +332,9 @@ export const Short = ({ parameters }) => {
 Short.story = {
   parameters: {
     knobs: {
-      LeadSpace: ({ groupId }) => ({
-        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2], groupId),
-        title: text('title (title):', 'A short headline can go on multiple lines in this leadspace', groupId),
+      LeadSpace: () => ({
+        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
+        title: text('title (title):', 'A short headline can go on multiple lines in this leadspace'),
       }),
     },
     propsSet: {
@@ -348,8 +348,8 @@ Short.story = {
   },
 };
 
-export const ShortWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, navElements } = parameters?.props?.LeadSpace ?? {};
+export const ShortWithImage = args => {
+  const { alt, defaultSrc, gradientStyleScheme, title, navElements } = args?.LeadSpace ?? {};
   const image = defaultSrc || leadspaceImg;
   return html`
     <dds-leadspace
@@ -375,11 +375,11 @@ ShortWithImage.story = {
   name: 'Short with image',
   parameters: {
     knobs: {
-      LeadSpace: ({ groupId }) => ({
-        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2], groupId),
-        title: text('title (title):', 'A short headline can go on multiple lines in this leadspace', groupId),
-        alt: text('Image alt text (alt):', 'Image alt text', groupId),
-        defaultSrc: text('Default image (defaultSrc):', leadspaceImg, groupId),
+      LeadSpace: () => ({
+        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
+        title: text('title (title):', 'A short headline can go on multiple lines in this leadspace'),
+        alt: text('Image alt text (alt):', 'Image alt text'),
+        defaultSrc: text('Default image (defaultSrc):', leadspaceImg),
       }),
     },
     propsSet: {
@@ -395,8 +395,8 @@ ShortWithImage.story = {
   },
 };
 
-export const ShortWithVideo = ({ parameters }) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, navElements } = parameters?.props?.LeadSpace ?? {};
+export const ShortWithVideo = args => {
+  const { alt, defaultSrc, gradientStyleScheme, title, navElements } = args?.LeadSpace ?? {};
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.SHORT}"
@@ -418,8 +418,8 @@ ShortWithVideo.story = {
   name: 'Short with video',
 };
 
-export const Centered = ({ parameters }) => {
-  const { title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
+export const Centered = args => {
+  const { title, copy, buttons, navElements } = args?.LeadSpace ?? {};
   return html`
     <dds-leadspace size="${LEADSPACE_SIZE.NONE}" type="centered">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
@@ -439,8 +439,8 @@ export const Centered = ({ parameters }) => {
   `;
 };
 
-export const CenteredWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradient, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
+export const CenteredWithImage = args => {
+  const { alt, defaultSrc, gradient, title, copy, buttons, navElements } = args?.LeadSpace ?? {};
   const image = defaultSrc || leadspaceImg;
   return html`
     <dds-leadspace
@@ -477,8 +477,8 @@ CenteredWithImage.story = {
   name: 'Centered with image',
 };
 
-export const CenteredWithVideo = ({ parameters }) => {
-  const { alt, defaultSrc, gradient, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
+export const CenteredWithVideo = args => {
+  const { alt, defaultSrc, gradient, title, copy, buttons, navElements } = args?.LeadSpace ?? {};
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.NONE}"
@@ -549,23 +549,23 @@ export default {
     hasStoryPadding: true,
     'carbon-theme': { preventReload: true },
     knobs: {
-      LeadSpace: ({ groupId }) => ({
-        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2], groupId),
-        title: text('title (title):', 'Heading can go on two lines max', groupId),
-        copy: text('copy (copy):', 'Use this area for a short line of copy to support the title', groupId),
+      LeadSpace: () => ({
+        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
+        title: text('title (title):', 'Heading can go on two lines max'),
+        copy: text('copy (copy):', 'Use this area for a short line of copy to support the title'),
         buttons: Array.from({
-          length: number('Number of buttons', 2, {}, groupId),
+          length: number('Number of buttons', 2, {}),
         }).map((_, i) => {
-          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right'], groupId) ?? 0;
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ?? 0;
           return {
-            href: textNullable(`Link ${i + 1}`, `https://example.com`, groupId),
-            copy: text(`Button ${i + 1}`, `Button ${i + 1}`, groupId),
+            href: textNullable(`Link ${i + 1}`, `https://example.com`),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
             renderIcon: iconMap[icon],
             label: getAriaLabel(icon),
           };
         }),
-        alt: text('Image alt text (alt):', 'Image alt text', groupId),
-        defaultSrc: text('Default image (defaultSrc):', leadspaceImg, groupId),
+        alt: text('Image alt text (alt):', 'Image alt text'),
+        defaultSrc: text('Default image (defaultSrc):', leadspaceImg),
       }),
     },
     propsSet: {

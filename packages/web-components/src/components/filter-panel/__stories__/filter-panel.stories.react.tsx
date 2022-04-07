@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,8 +24,8 @@ import DDSFilterPanelInputSelectItem from '@carbon/ibmdotcom-web-components/es/c
 
 import readme from './README.stories.react.mdx';
 
-export const Default = ({ parameters }) => {
-  const { heading, gridKnobs } = parameters?.props?.FilterPanel ?? {};
+export const Default = args => {
+  const { heading, gridKnobs } = args?.FilterPanel ?? {};
 
   return (
     <>
@@ -103,9 +103,9 @@ export default {
   parameters: {
     ...readme.parameters,
     knobs: {
-      FilterPanel: ({ groupId }) => ({
-        heading: text('heading', 'Filter', groupId),
-        gridKnobs: select('Grid alignment', ['3 columns', '4 columns'], '4 columns', groupId),
+      FilterPanel: () => ({
+        heading: text('heading', 'Filter'),
+        gridKnobs: select('Grid alignment', ['3 columns', '4 columns'], '4 columns'),
       }),
     },
   },

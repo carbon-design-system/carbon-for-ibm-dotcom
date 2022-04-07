@@ -104,3 +104,21 @@ if (module.hot) {
     window.location.reload();
   });
 }
+
+let currentPath;
+if (window.parent) {
+  const parentWindow = window.parent;
+  parentWindow.setInterval(function() {
+    const urlParams = new URLSearchParams(parentWindow.location.search);
+    const path = urlParams.get('path');
+    if (path && path !== currentPath) {
+      currentPath = path;
+
+      const knobButtons = parentWindow.document.querySelectorAll('#panel-tab-content button');
+      if (knobButtons) {
+        const resetButton = knobButtons[knobButtons.length - 1];
+        resetButton.click();
+      }
+    }
+  }, 100);
+}

@@ -72,8 +72,8 @@ const image = html`
   </dds-image>
 `;
 
-export const Default = ({ parameters }) => {
-  const { ctaType, ctaStyle, heading, complementaryStyleScheme, onClick } = parameters?.props?.ContentBlockSimple ?? {};
+export const Default = args => {
+  const { ctaType, ctaStyle, heading, complementaryStyleScheme, onClick } = args?.ContentBlockSimple ?? {};
   const ctaCopy = 'Lorem ipsum dolor sit amet';
   const href = 'https://www.example.com';
   return html`
@@ -106,8 +106,8 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const WithImage = ({ parameters }) => {
-  const { ctaType, ctaStyle, heading, complementaryStyleScheme, onClick } = parameters?.props?.ContentBlockSimple ?? {};
+export const WithImage = args => {
+  const { ctaType, ctaStyle, heading, complementaryStyleScheme, onClick } = args?.ContentBlockSimple ?? {};
   const ctaCopy = 'Lorem ipsum dolor sit amet';
   const href = 'https://www.example.com';
   return html`
@@ -145,8 +145,8 @@ WithImage.story = {
   name: 'With image',
 };
 
-export const WithVideo = ({ parameters }) => {
-  const { ctaType, ctaStyle, heading, complementaryStyleScheme, onClick } = parameters?.props?.ContentBlockSimple ?? {};
+export const WithVideo = args => {
+  const { ctaType, ctaStyle, heading, complementaryStyleScheme, onClick } = args?.ContentBlockSimple ?? {};
   const ctaCopy = 'Lorem ipsum dolor sit amet';
   const href = 'https://www.example.com';
   return html`
@@ -187,8 +187,8 @@ WithVideo.story = {
   },
 };
 
-export const WithLinkList = ({ parameters }) => {
-  const { ctaType, ctaStyle, heading, complementaryStyleScheme, onClick } = parameters?.props?.ContentBlockSimple ?? {};
+export const WithLinkList = args => {
+  const { ctaType, ctaStyle, heading, complementaryStyleScheme, onClick } = args?.ContentBlockSimple ?? {};
   const ctaCopy = 'Lorem ipsum dolor sit amet';
   const href = 'https://www.example.com';
   return html`
@@ -258,15 +258,14 @@ export default {
     gridContentClasses: 'bx--col-lg-9',
     hasStoryPadding: true,
     knobs: {
-      ContentBlockSimple: ({ groupId }) => ({
-        heading: textNullable('Heading (required)', 'Curabitur malesuada varius mi eu posuere', groupId),
-        ctaStyle: select('CTA style (cta-style)', ctaStyles, CTA_STYLE.TEXT, groupId),
-        ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId),
+      ContentBlockSimple: () => ({
+        heading: textNullable('Heading (required)', 'Curabitur malesuada varius mi eu posuere'),
+        ctaStyle: select('CTA style (cta-style)', ctaStyles, CTA_STYLE.TEXT),
+        ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
         complementaryStyleScheme: select(
           'Container bottom border',
           complementaryStyleSchemes,
-          CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
-          groupId
+          CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER
         ),
       }),
     },

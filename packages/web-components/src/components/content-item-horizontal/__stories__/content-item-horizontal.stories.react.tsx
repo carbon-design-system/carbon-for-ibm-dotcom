@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -63,9 +63,8 @@ const mediaType = {
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
 
-export const Default = ({ parameters }) => {
-  const { eyebrow, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
-    parameters?.props?.ContentItemHorizontal ?? {};
+export const Default = args => {
+  const { eyebrow, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } = args?.ContentItemHorizontal ?? {};
   return (
     <DDSContentItemHorizontal>
       <DDSContentItemHorizontalEyebrow>{eyebrow}</DDSContentItemHorizontalEyebrow>
@@ -105,9 +104,8 @@ Default.story = {
   },
 };
 
-export const withThumbnail = ({ parameters }) => {
-  const { alt, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
-    parameters?.props?.ContentItemHorizontal ?? {};
+export const withThumbnail = args => {
+  const { alt, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } = args?.ContentItemHorizontal ?? {};
   return (
     <DDSContentItemHorizontal thumbnail>
       <DDSContentItemHeading>{heading}</DDSContentItemHeading>
@@ -148,9 +146,9 @@ withThumbnail.story = {
   },
 };
 
-export const withMedia = ({ parameters }) => {
+export const withMedia = args => {
   const { align, type, alt, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
-    parameters?.props?.ContentItemHorizontal ?? {};
+    args?.ContentItemHorizontal ?? {};
   return (
     <DDSContentItemHorizontalMedia align={align}>
       {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt={alt || undefined} default-src={imgLg16x9}></DDSImage> : ''}

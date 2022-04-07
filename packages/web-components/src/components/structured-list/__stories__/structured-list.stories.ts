@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,8 +13,8 @@ import '../index';
 import 'carbon-web-components/es/components/tooltip/index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
-export const Default = ({ parameters }) => {
-  const { colSpan1, colSpan2, colSpan3, colSpan4 } = parameters?.props?.StructuredList ?? {};
+export const Default = args => {
+  const { colSpan1, colSpan2, colSpan3, colSpan4 } = args?.StructuredList ?? {};
   return html`
     <dds-structured-list
       col-span-1="${colSpan1 ?? ''}"
@@ -72,8 +72,8 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const WithRowHeaders = ({ parameters }) => {
-  const { colSpan1, colSpan2, colSpan3, colSpan4 } = parameters?.props?.StructuredList ?? {};
+export const WithRowHeaders = args => {
+  const { colSpan1, colSpan2, colSpan3, colSpan4 } = args?.StructuredList ?? {};
   return html`
     <dds-structured-list
       col-span-1="${colSpan1 ?? ''}"
@@ -115,8 +115,8 @@ WithRowHeaders.story = {
   name: 'With row headers',
 };
 
-export const WithSubheaders = ({ parameters }) => {
-  const { colSpan1, colSpan2, colSpan3, colSpan4 } = parameters?.props?.StructuredList ?? {};
+export const WithSubheaders = args => {
+  const { colSpan1, colSpan2, colSpan3, colSpan4 } = args?.StructuredList ?? {};
   return html`
     <dds-structured-list
       col-span-1="${colSpan1 ?? ''}"
@@ -212,8 +212,8 @@ WithSubheaders.story = {
   name: 'With subheaders',
 };
 
-export const WithComplexContent = ({ parameters }) => {
-  const { colSpan1, colSpan2, colSpan3, colSpan4 } = parameters?.props?.StructuredList ?? {};
+export const WithComplexContent = args => {
+  const { colSpan1, colSpan2, colSpan3, colSpan4 } = args?.StructuredList ?? {};
   return html`
     <dds-structured-list
       col-span-1="${colSpan1 ?? ''}"

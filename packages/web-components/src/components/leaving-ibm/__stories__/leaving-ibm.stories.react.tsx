@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,9 +15,9 @@ import DDSLeavingIbmComposite from '../../../components-react/leaving-ibm/leavin
 import DDSLeavingIbmContainer, { store } from '../../../components-react/leaving-ibm/leaving-ibm-container';
 import readme from './README.stories.react.mdx';
 
-export const Default = ({ parameters }) => {
-  const { href, leavingIbmButtonLabel, leavingIbmCopy, open } = parameters?.props?.LeavingIbmComposite ?? {};
-  const { useMock } = parameters?.props?.Other ?? {};
+export const Default = args => {
+  const { href, leavingIbmButtonLabel, leavingIbmCopy, open } = args?.LeavingIbmComposite ?? {};
+  const { useMock } = args?.Other ?? {};
   return useMock ? (
     <DDSLeavingIbmComposite
       href={href}
@@ -36,9 +36,9 @@ export default {
     ...readme.parameters,
     decorators: [story => <Provider store={store}>{story()}</Provider>],
     knobs: {
-      LeavingIbmComposite: ({ groupId }) => ({
-        open: boolean('open (open)', true, groupId),
-        href: text('href (href)', 'https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/', groupId),
+      LeavingIbmComposite: () => ({
+        open: boolean('open (open)', true),
+        href: text('href (href)', 'https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/'),
       }),
     },
     props: (() => {

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,8 +19,8 @@ import logos from './data/logos.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
-export const Default = ({ parameters }) => {
-  const { heading, logosGroup, hideBorder, showCta, ctaCopy, ctaHref } = parameters?.props?.LogoGrid ?? {};
+export const Default = args => {
+  const { heading, logosGroup, hideBorder, showCta, ctaCopy, ctaHref } = args?.LogoGrid ?? {};
   return html`
     <dds-logo-grid ?hide-border="${hideBorder}">
       <dds-content-block-heading>
@@ -63,13 +63,13 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      LogoGrid: ({ groupId }) => ({
-        heading: textNullable('Heading (heading)', 'Our customers', groupId),
+      LogoGrid: () => ({
+        heading: textNullable('Heading (heading)', 'Our customers'),
         logosGroup: logos,
-        hideBorder: boolean('Hide border (hideBorder): Hide the bottom border', false, groupId),
-        showCta: boolean('Display CTA:', false, groupId),
-        ctaCopy: text('CTA Copy (ctaCopy)', 'Lorem ipsum dolor sit amet', groupId),
-        ctaHref: text('CTA Href (ctaHref):', 'http://local.url.com/', groupId),
+        hideBorder: boolean('Hide border (hideBorder): Hide the bottom border', false),
+        showCta: boolean('Display CTA:', false),
+        ctaCopy: text('CTA Copy (ctaCopy)', 'Lorem ipsum dolor sit amet'),
+        ctaHref: text('CTA Href (ctaHref):', 'http://local.url.com/'),
       }),
     },
     propsSet: {

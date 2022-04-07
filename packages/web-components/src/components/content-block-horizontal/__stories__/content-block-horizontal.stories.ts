@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,8 +34,8 @@ const linkListItem = html`
   </dds-content-item-horizontal>
 `;
 
-export const Default = ({ parameters }) => {
-  const { heading, border } = parameters?.props?.ContentBlockHorizontal ?? {};
+export const Default = args => {
+  const { heading, border } = args?.ContentBlockHorizontal ?? {};
 
   return html`
     <dds-content-block-horizontal ?border=${border}>
@@ -62,9 +62,9 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      ContentBlockHorizontal: ({ groupId }) => ({
-        heading: textNullable('Heading (heading):', 'Aliquam condimentum', groupId),
-        border: boolean('Bottom Border (border):', true, groupId),
+      ContentBlockHorizontal: () => ({
+        heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
+        border: boolean('Bottom Border (border):', true),
       }),
     },
     propsSet: {

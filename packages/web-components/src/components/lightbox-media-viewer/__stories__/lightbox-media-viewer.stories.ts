@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,9 +30,9 @@ const images = {
   '1584 x 738 (16:9)': imgMax16x9,
 };
 
-export const Default = ({ parameters }) => {
-  const { open, disableClose, onBeforeClose, onClose } = parameters?.props?.Modal ?? {};
-  const { alt, defaultSrc, description, title } = parameters?.props?.LightboxImageViewer ?? {};
+export const Default = args => {
+  const { open, disableClose, onBeforeClose, onClose } = args?.Modal ?? {};
+  const { alt, defaultSrc, description, title } = args?.LightboxImageViewer ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose?.(event);
     if (disableClose) {
@@ -65,19 +65,18 @@ export const Default = ({ parameters }) => {
 Default.story = {
   parameters: {
     knobs: {
-      LightboxImageViewer: ({ groupId }) => ({
-        alt: textNullable('Image alt text (alt)', 'Image alt text', groupId),
-        defaultSrc: select('Image (default-src)', images, images['1312 x 656 (2:1)'], groupId),
+      LightboxImageViewer: () => ({
+        alt: textNullable('Image alt text (alt)', 'Image alt text'),
+        defaultSrc: select('Image (default-src)', images, images['1312 x 656 (2:1)']),
         description: textNullable(
           'Description (description)',
           `
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.
             Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-          `,
-          groupId
+          `
         ),
-        title: textNullable('Title (title)', 'Curabitur malesuada varius mi eu posuere', groupId),
+        title: textNullable('Title (title)', 'Curabitur malesuada varius mi eu posuere'),
       }),
     },
     propsSet: {
@@ -97,9 +96,9 @@ Default.story = {
   },
 };
 
-export const EmbeddedVideoPlayer = ({ parameters }) => {
-  const { open, disableClose, onBeforeClose, onClose } = parameters?.props?.Modal ?? {};
-  const { hideCaption, videoId, customVideoName, customVideoDescription } = parameters?.props?.LightboxVideoPlayerContainer ?? {};
+export const EmbeddedVideoPlayer = args => {
+  const { open, disableClose, onBeforeClose, onClose } = args?.Modal ?? {};
+  const { hideCaption, videoId, customVideoName, customVideoDescription } = args?.LightboxVideoPlayerContainer ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose?.(event);
     if (disableClose) {
@@ -127,11 +126,11 @@ EmbeddedVideoPlayer.story = {
   name: 'Embedded video player',
   parameters: {
     knobs: {
-      LightboxVideoPlayerContainer: ({ groupId }) => ({
-        hideCaption: boolean('hide caption (hide-caption)', false, groupId),
-        videoId: textNullable('Video ID (video-id)', '1_9h94wo6b', groupId),
-        customVideoName: textNullable('Video custom name', 'Custom video name', groupId),
-        customVideoDescription: textNullable('Video custom description', 'This is a custom video description', groupId),
+      LightboxVideoPlayerContainer: () => ({
+        hideCaption: boolean('hide caption (hide-caption)', false),
+        videoId: textNullable('Video ID (video-id)', '1_9h94wo6b'),
+        customVideoName: textNullable('Video custom name', 'Custom video name'),
+        customVideoDescription: textNullable('Video custom description', 'This is a custom video description'),
       }),
     },
     propsSet: {
@@ -150,19 +149,18 @@ EmbeddedVideoPlayer.story = {
 Default.story = {
   parameters: {
     knobs: {
-      LightboxImageViewer: ({ groupId }) => ({
-        alt: textNullable('Image alt text (alt)', 'Image alt text', groupId),
-        defaultSrc: select('Image (default-src)', images, images['1312 x 656 (2:1)'], groupId),
+      LightboxImageViewer: () => ({
+        alt: textNullable('Image alt text (alt)', 'Image alt text'),
+        defaultSrc: select('Image (default-src)', images, images['1312 x 656 (2:1)']),
         description: textNullable(
           'Description (description)',
           `
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.
             Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-          `,
-          groupId
+          `
         ),
-        title: textNullable('Title (title)', 'Curabitur malesuada varius mi eu posuere', groupId),
+        title: textNullable('Title (title)', 'Curabitur malesuada varius mi eu posuere'),
       }),
     },
     propsSet: {
@@ -190,12 +188,11 @@ export default {
       skip: true,
     },
     knobs: {
-      Modal: ({ groupId }) => ({
-        open: boolean('Open (open)', true, groupId),
+      Modal: () => ({
+        open: boolean('Open (open)', true),
         disableClose: boolean(
           'Disable user-initiated close action (Call event.preventDefault() in dds-expressive-modal-beingclosed event)',
-          false,
-          groupId
+          false
         ),
         onBeforeClose: action('dds-expressive-modal-beingclosed'),
         onClose: action('dds-expressive-modal-closed'),

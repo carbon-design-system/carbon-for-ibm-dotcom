@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -57,9 +57,9 @@ const mediaType = {
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
 
-export const Default = ({ parameters }) => {
+export const Default = args => {
   const { sectionHeading, align, type, alt, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
-    parameters?.props?.TabsExtendedMedia ?? {};
+    args?.TabsExtendedMedia ?? {};
   return (
     <DDSTabsExtendedMedia>
       <DDSContentSectionHeading>{sectionHeading || undefined}</DDSContentSectionHeading>

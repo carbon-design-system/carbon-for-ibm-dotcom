@@ -33,6 +33,7 @@ module.exports = {
     '@storybook/addon-docs',
     '@storybook/addon-knobs',
     '@carbon/storybook-addon-theme/es/register',
+    path.resolve(__dirname, 'addon-knobs-args'),
   ],
   managerWebpack(config) {
     // `@storybook/react` NPM installation seems to add `@babel/preset-react` automatically
@@ -73,6 +74,42 @@ module.exports = {
         ],
       };
     }
+
+    // Uses our own option for `@babel/preset-env`
+    config.module.rules = deepReplace(
+      config.module.rules,
+      (value, key, parent, parents) =>
+        getPaths(parents) === 'use.options.presets' && Array.isArray(value) && /@babel\/preset-env/i.test(value[0]),
+      value => [
+        value[0],
+        {
+          modules: false,
+          targets: ['last 1 version', 'Firefox ESR', 'ie >= 11'],
+        },
+      ]
+    );
+    // Uses `@babel/plugin-proposal-decorators` configuration in our `.babelrc`
+    config.module.rules = deepReplace(
+      config.module.rules,
+      (value, key, parent, parents) =>
+        getPaths(parents) === 'use.options.plugins' &&
+        Array.isArray(value) &&
+        /@babel\/plugin-proposal-decorators/i.test(value[0]),
+      () => deepReplace.DELETE
+    );
+    // Normalizes several plugins with `loose: false` option
+    config.module.rules = deepReplace(
+      config.module.rules,
+      (value, key, parent, parents) =>
+        getPaths(parents) === 'use.options.plugins' && Array.isArray(value) && value[1] && value[1].loose,
+      value => [
+        value[0],
+        {
+          ...value[1],
+          loose: false,
+        },
+      ]
+    );
 
     // `@carbon/ibmdotcom-web-components` does not use `polymer-webpack-loader` as it does not use full-blown Polymer
     const htmlRuleIndex = config.module.rules.findIndex(

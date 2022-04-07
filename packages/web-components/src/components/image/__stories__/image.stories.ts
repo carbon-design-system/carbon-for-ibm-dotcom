@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -31,8 +31,8 @@ const srcsets = {
   '16:9': [imgSm16x9, imgMd16x9, imgLg16x9],
 };
 
-export const Default = ({ parameters }) => {
-  const { alt, defaultSrc, border } = parameters?.props?.['dds-image'] ?? {};
+export const Default = args => {
+  const { alt, defaultSrc, border } = args?.['dds-image'] ?? {};
   // TODO: See if we can fix unwanted `&` to `&amp` conversion upon changing the select knob
   const srcset = srcsets[defaultSrc?.replace(/&amp;/, '&')];
   return html`
@@ -66,10 +66,10 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      'dds-image': ({ groupId }) => ({
-        alt: textNullable('Alt text', 'Image alt text', groupId),
-        defaultSrc: select('Default image (default-src)', images, imgLg2x1, groupId),
-        border: boolean('Border', false, groupId),
+      'dds-image': () => ({
+        alt: textNullable('Alt text', 'Image alt text'),
+        defaultSrc: select('Default image (default-src)', images, imgLg2x1),
+        border: boolean('Border', false),
       }),
     },
     propsSet: {
