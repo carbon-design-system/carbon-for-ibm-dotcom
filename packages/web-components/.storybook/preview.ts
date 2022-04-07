@@ -10,7 +10,7 @@
 import { html } from 'lit-html'; // eslint-disable-line import/first
 import { classMap } from 'lit-html/directives/class-map';
 import 'carbon-web-components/es/components/skip-to-content/skip-to-content.js';
-import { configure, addDecorator, addParameters, setCustomElements } from '@storybook/web-components'; // eslint-disable-line import/first
+import { configure, setCustomElements } from '@storybook/web-components'; // eslint-disable-line import/first
 import coreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
 import { withA11y } from '@storybook/addon-a11y';
@@ -19,7 +19,6 @@ import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
 import customElements from '../custom-elements.json';
 import theme from './theme';
 import getSimpleStorySort from './get-simple-story-sort';
-import decoratorKnobs from './decorator-knobs';
 import containerStyles from './container.scss'; // eslint-disable-line import/first
 
 if (process.env.STORYBOOK_USE_RTL === 'true') {
@@ -28,7 +27,7 @@ if (process.env.STORYBOOK_USE_RTL === 'true') {
 
 setCustomElements(customElements);
 
-addParameters({
+export const parameters = {
   options: {
     showRoots: true,
     storySort: getSimpleStorySort([
@@ -44,44 +43,40 @@ addParameters({
     ]),
     theme: theme,
   },
-});
-
-// The TS configuration for `@storybook/web-components` does not seem to allow returning `TemplateResult` in decorators,
-// using `TemplateResult` in decorators seems to work with `@storybook/web-components` actually
-// @ts-ignore
-addDecorator((story, { parameters }) => {
-  const result = story();
-  const { hasStoryPadding } = parameters;
-  const classes = classMap({
-    'dds-story-padding': hasStoryPadding,
-  });
-  return html`
-    <style>
-      ${containerStyles}
-    </style>
-    <bx-skip-to-content href="#main-content">Skip to main content</bx-skip-to-content>
-    <div id="main-content" name="main-content" data-floating-menu-container data-modal-container role="main" class="${classes}">
-      ${result}
-    </div>
-  `;
-});
-
-addDecorator(withA11y);
-addDecorator(withKnobs);
-addDecorator(decoratorKnobs);
+};
 
 let preservedTheme;
-
-addDecorator((story, { parameters }) => {
-  const root = document.documentElement;
-  root.toggleAttribute('storybook-carbon-theme-prevent-reload', parameters['carbon-theme']?.preventReload);
-  if (parameters['carbon-theme']?.disabled) {
-    root.setAttribute('storybook-carbon-theme', '');
-  } else {
-    root.setAttribute('storybook-carbon-theme', preservedTheme || '');
-  }
-  return story();
-});
+export const decorator = [
+  (story, { parameters }) => {
+    const result = story();
+    const { hasStoryPadding } = parameters;
+    const classes = classMap({
+      'dds-story-padding': hasStoryPadding,
+    });
+    return html`
+      <style>
+        ${containerStyles}
+      </style>
+      <bx-skip-to-content href="#main-content">Skip to main content</bx-skip-to-content>
+      <div id="main-content" name="main-content" data-floating-menu-container data-modal-container role="main" class="${classes}">
+        ${result}
+      </div>
+    `;
+  },
+  withA11y,
+  withKnobs,
+  // decoratorKnobs,
+  (story, { parameters }) => {
+    const root = document.documentElement;
+    root.toggleAttribute('storybook-carbon-theme-prevent-reload', parameters['carbon-theme']?.preventReload);
+    if (parameters['carbon-theme']?.disabled) {
+      root.setAttribute('storybook-carbon-theme', '');
+    } else {
+      root.setAttribute('storybook-carbon-theme', preservedTheme || '');
+    }
+    return story();
+  },
+];
 
 addons.getChannel().on(CURRENT_THEME, theme => {
   document.documentElement.setAttribute('storybook-carbon-theme', (preservedTheme = theme));

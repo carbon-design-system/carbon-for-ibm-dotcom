@@ -11,21 +11,20 @@ import cx from 'classnames';
 import React, { StrictMode } from 'react';
 import coreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
-import { configure, addDecorator, addParameters } from '@storybook/react'; // eslint-disable-line import/first
+import { configure } from '@storybook/react'; // eslint-disable-line import/first
 import { withA11y } from '@storybook/addon-a11y';
 import { withKnobs } from '@storybook/addon-knobs';
 import BXSkipToContent from 'carbon-web-components/es/components-react/skip-to-content/skip-to-content';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
 import theme from './theme';
 import getSimpleStorySort from '../get-simple-story-sort';
-import decoratorKnobs from '../decorator-knobs';
 import containerStyles from './container.scss'; // eslint-disable-line import/first
 
 if (process.env.STORYBOOK_CARBON_CUSTOM_ELEMENTS_USE_RTL === 'true') {
   document.documentElement.setAttribute('dir', 'rtl');
 }
 
-addParameters({
+export const parameters = {
   options: {
     showRoots: true,
     storySort: getSimpleStorySort([
@@ -40,41 +39,39 @@ addParameters({
     ]),
     theme: theme,
   },
-});
-
-addDecorator((story, { parameters }) => {
-  const result = story();
-  const { hasStoryPadding } = parameters;
-  const classes = cx({
-    'dds-story-padding': hasStoryPadding,
-  });
-  return (
-    <StrictMode>
-      <style>{containerStyles.cssText}</style>
-      <BXSkipToContent href="#main-content">Skip to main content</BXSkipToContent>
-      <div id="main-content" data-floating-menu-container data-modal-container role="main" className={classes}>
-        {result}
-      </div>
-    </StrictMode>
-  );
-});
-
-addDecorator(withA11y);
-addDecorator(withKnobs);
-addDecorator(decoratorKnobs);
+};
 
 let preservedTheme;
-
-addDecorator((story, { parameters }) => {
-  const root = document.documentElement;
-  root.toggleAttribute('storybook-carbon-theme-prevent-reload', parameters['carbon-theme']?.preventReload);
-  if (parameters['carbon-theme']?.disabled) {
-    root.setAttribute('storybook-carbon-theme', '');
-  } else {
-    root.setAttribute('storybook-carbon-theme', preservedTheme || '');
-  }
-  return story();
-});
+export const decorator = [
+  (story, { parameters }) => {
+    const result = story();
+    const { hasStoryPadding } = parameters;
+    const classes = cx({
+      'dds-story-padding': hasStoryPadding,
+    });
+    return (
+      <StrictMode>
+        <style>{containerStyles.cssText}</style>
+        <BXSkipToContent href="#main-content">Skip to main content</BXSkipToContent>
+        <div id="main-content" data-floating-menu-container data-modal-container role="main" className={classes}>
+          {result}
+        </div>
+      </StrictMode>
+    );
+  },
+  withA11y,
+  withKnobs,
+  (story, { parameters }) => {
+    const root = document.documentElement;
+    root.toggleAttribute('storybook-carbon-theme-prevent-reload', parameters['carbon-theme']?.preventReload);
+    if (parameters['carbon-theme']?.disabled) {
+      root.setAttribute('storybook-carbon-theme', '');
+    } else {
+      root.setAttribute('storybook-carbon-theme', preservedTheme || '');
+    }
+    return story();
+  },
+];
 
 addons.getChannel().on(CURRENT_THEME, theme => {
   document.documentElement.setAttribute('storybook-carbon-theme', (preservedTheme = theme));
@@ -96,4 +93,22 @@ if (module.hot) {
     window.history.pushState(null, '', currentLocationHref);
     window.location.reload();
   });
+}
+
+let currentPath;
+if (window.parent) {
+  const parentWindow = window.parent;
+  parentWindow.setInterval(function() {
+    const urlParams = new URLSearchParams(parentWindow.location.search);
+    const path = urlParams.get('path');
+    if (path && path !== currentPath) {
+      currentPath = path;
+
+      const knobButtons = parentWindow.document.querySelectorAll('#panel-tab-content button');
+      if (knobButtons) {
+        const resetButton = knobButtons[knobButtons.length - 1];
+        resetButton.click();
+      }
+    }
+  }, 100);
 }
