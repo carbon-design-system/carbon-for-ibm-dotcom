@@ -31,6 +31,8 @@ class DDSPricingTableHeaderRow extends DDSStructuredListHeaderRow {
   private _resizeObserver: any | null = null;
 
   private _createResizeObserver() {
+    // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+    // @ts-ignore
     this._resizeObserver = new ResizeObserver(this._setSameHeight);
     this._resizeObserver.observe(this.ownerDocument!.documentElement);
   }
