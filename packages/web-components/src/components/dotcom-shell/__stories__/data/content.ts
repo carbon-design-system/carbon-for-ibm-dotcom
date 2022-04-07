@@ -120,14 +120,16 @@ export const contentLeadspace = html`
 
 export const contentLeadspaceSearch = html`
   <dds-leadspace-with-search adjacent-theme="white-and-g10" scroll-behavior>
-    <dds-leadspace-block-heading slot="heading">Find a product</dds-leadspace-block-heading>
-    <dds-leadspace-block-content slot="content">
-      <dds-leadspace-search-block-heading>Innovate like a startup, scale for the enterprise</dds-leadspace-search-block-heading>
-      <dds-leadspace-search-block-copy>
+    <dds-leadspace-with-search-heading>Find a product</dds-leadspace-with-search-heading>
+    <dds-leadspace-with-search-content>
+      <dds-leadspace-with-search-content-heading
+        >Innovate like a startup, scale for the enterprise</dds-leadspace-with-search-content-heading
+      >
+      <dds-leadspace-with-search-content-copy>
         Automate your software release process with continuous delivery (CD)—the most critical part of adopting DevOps. Build,
         test, and deploy code changes quickly, ensuring software is always ready for deployment.
-      </dds-leadspace-search-block-copy>
-    </dds-leadspace-block-content>
+      </dds-leadspace-with-search-content-copy>
+    </dds-leadspace-with-search-content>
     <dds-search-with-typeahead slot="search" leadspace-search active should-remain-open></dds-search-with-typeahead>
   </dds-leadspace-with-search>
 `;
