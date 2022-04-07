@@ -28,9 +28,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-masthead`)
 class DDSMasthead extends StableSelectorMixin(LitElement) {
   firstUpdated() {
-    if (StickyHeader.isNecessary()) {
-      StickyHeader.global.masthead = this;
-    }
+    StickyHeader.global.masthead = this;
   }
 
   render() {

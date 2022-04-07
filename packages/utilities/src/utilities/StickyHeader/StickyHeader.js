@@ -46,17 +46,6 @@ class StickyHeader {
   }
 
   /**
-   * True if dotcom shell is not present on page.
-   *
-   * @returns {boolean} true/false
-   */
-  static isNecessary() {
-    return Boolean(
-      !root.document.querySelector(`${ddsPrefix}-dotcom-shell-container`)
-    );
-  }
-
-  /**
    * Compares the tag name of the component provided to what we expect it to be
    *
    * @param {HTMLElement} component The component provided

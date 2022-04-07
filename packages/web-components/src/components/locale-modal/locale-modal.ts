@@ -170,9 +170,7 @@ class DDSLocaleModal extends DDSExpressiveModal {
   langDisplay?: string;
 
   firstUpdated() {
-    if (StickyHeader.isNecessary()) {
-      StickyHeader.global.localeModal = this;
-    }
+    StickyHeader.global.localeModal = this;
   }
 
   async updated(changedProperties) {
