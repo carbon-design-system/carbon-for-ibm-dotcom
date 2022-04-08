@@ -64,29 +64,6 @@ export const Default = ({ parameters }) => {
   );
 };
 
-export const WithHorizontalTOC = ({ parameters }) => {
-  const { mastheadProps, footerProps } = parameters?.props?.DotcomShell ?? {};
-  return (
-    <DotcomShell mastheadProps={mastheadProps} footerProps={footerProps}>
-      <main id="main-content">
-        <div style={{ paddingTop: '6rem' }}>
-          <Content
-            withHorizontalTOC={true}
-            withL1={!!mastheadProps.mastheadL1Data}
-          />
-        </div>
-      </main>
-    </DotcomShell>
-  );
-};
-
-WithHorizontalTOC.story = {
-  name: 'With ToC horizontal',
-  parameters: {
-    ...readme.parameters,
-  },
-};
-
 export const DefaultLanguageOnly = ({ parameters }) => (
   <Default parameters={parameters} />
 );
