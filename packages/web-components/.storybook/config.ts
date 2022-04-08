@@ -58,7 +58,6 @@ addDecorator((story, { parameters }) => {
     <style>
       ${containerStyles}
     </style>
-    <bx-skip-to-content href="#main-content">Skip to main content</bx-skip-to-content>
     <div id="main-content" name="main-content" data-floating-menu-container data-modal-container role="main" class="${classes}">
       ${result}
     </div>
