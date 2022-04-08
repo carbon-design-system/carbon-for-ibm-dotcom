@@ -48,6 +48,7 @@ const Pattern = html`
     focusable="false"
     preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
     data-autoid="dds--pictogram-item__pictogram"
     aria-label="Pictogram description"
     width="64"
@@ -92,6 +93,7 @@ const Touch = html`
     focusable="false"
     preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
     data-autoid="dds--pictogram-item__pictogram"
     aria-label="Pictogram description"
     width="64"
@@ -146,8 +148,8 @@ const pictograms = {
 };
 
 const pictogramColors = {
-  'Black (default)': COLOR_OPTIONS.DEFAULT,
-  'Blue 50': COLOR_OPTIONS.BLUE,
+  'Text color (default)': COLOR_OPTIONS.DEFAULT,
+  Blue: COLOR_OPTIONS.BLUE,
 };
 
 export const Default = ({ parameters }) => {
@@ -196,7 +198,7 @@ export default {
           src: selectPictogram(select('Pictogram (required)', pictograms, pictograms.Desktop, groupId)),
           'aria-label': textNullable('Aria-label:', 'Pictogram description', groupId),
         },
-        pictogramColor: select('Pictogram color:', pictogramColors, pictogramColors.black, groupId),
+        pictogramColor: select('Pictogram color:', pictogramColors, COLOR_OPTIONS.DEFAULT, groupId),
       }),
     },
     propsSet: {
@@ -213,7 +215,7 @@ export default {
             src: pictograms.Desktop,
             'aria-label': 'Pictogram description',
           },
-          pictogramColor: pictogramColors.black,
+          pictogramColor: COLOR_OPTIONS.DEFAULT,
         },
       },
     },

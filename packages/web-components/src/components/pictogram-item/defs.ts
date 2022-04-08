@@ -12,12 +12,12 @@
  */
 export enum COLOR_OPTIONS {
   /**
-   * Defaults to black.
+   * Defaults to component text color.
    */
   DEFAULT = '',
 
   /**
-   * Blue 50 - $link-01
+   * Blue - $link-01
    */
   BLUE = 'blue',
 }
