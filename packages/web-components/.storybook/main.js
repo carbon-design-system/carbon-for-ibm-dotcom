@@ -7,12 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// 'use strict';
-//
-// const path = require('path');
-
-// module.exports = [path.resolve(__dirname, 'preset'), '@storybook/addon-docs/preset'];
-
 'use strict';
 
 const path = require('path');
@@ -27,6 +21,7 @@ const useStyleSourceMap = process.env.STORYBOOK_USE_STYLE_SOURCEMAP === 'true';
 const useRtl = process.env.STORYBOOK_USE_RTL === 'true';
 
 module.exports = {
+  stories: ['../src/**/*.stories.ts', '../src/**/*.stories.mdx'],
   addons: [
     '@storybook/addon-storysource',
     '@storybook/addon-docs',

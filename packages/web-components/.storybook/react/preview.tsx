@@ -41,7 +41,7 @@ export const parameters = {
 };
 
 let preservedTheme;
-export const decorator = [
+export const decorators = [
   (story, { parameters }) => {
     const result = story();
     const { hasStoryPadding } = parameters;

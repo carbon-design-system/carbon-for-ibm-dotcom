@@ -45,7 +45,7 @@ export const parameters = {
 };
 
 let preservedTheme;
-export const decorator = [
+export const decorators = [
   (story, { parameters }) => {
     const result = story();
     const { hasStoryPadding } = parameters;
@@ -63,7 +63,6 @@ export const decorator = [
     `;
   },
   withKnobs,
-  // decoratorKnobs,
   (story, { parameters }) => {
     const root = document.documentElement;
     root.toggleAttribute('storybook-carbon-theme-prevent-reload', parameters['carbon-theme']?.preventReload);
@@ -110,7 +109,7 @@ if (window.parent) {
       const knobButtons = parentWindow.document.querySelectorAll('#panel-tab-content button');
       if (knobButtons) {
         const resetButton = knobButtons[knobButtons.length - 1];
-        (resetButton as HTMLElement).click();
+        (resetButton as HTMLElement)?.click();
       }
     }
   }, 100);
