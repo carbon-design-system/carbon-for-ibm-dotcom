@@ -44,7 +44,7 @@ class DDSPricingTableHeaderRow extends DDSStructuredListHeaderRow {
 
   private _setSameHeight = () => {
     window.requestAnimationFrame(() => {
-      sameHeight(this._tagWrappers, 'md');
+      sameHeight(this._tagWrappers);
     });
   };
 
