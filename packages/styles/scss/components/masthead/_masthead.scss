@@ -301,6 +301,10 @@ $search-transition-timing: 95ms;
     }
   }
 
+  .#{$prefix}--skip-to-content:focus {
+    height: rem(49px);
+  }
+
   .#{$prefix}--header__logo {
     @include masthead-logo;
   }
