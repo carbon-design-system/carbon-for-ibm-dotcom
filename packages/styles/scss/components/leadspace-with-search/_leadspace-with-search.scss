@@ -178,6 +178,10 @@
       display: grid;
       padding-bottom: $spacing-10;
       z-index: 11;
+      transform: translateY(0);
+      transition-property: transform;
+      transition-timing-function: cubic-bezier(0, 0, 0.38, 0.9);
+      transition-duration: 0s;
 
       @include carbon--breakpoint-down('md') {
         margin: 0 $spacing-05;
@@ -288,6 +292,7 @@
         padding: 1rem;
         margin: 0;
         align-items: center;
+        transform: translateY(-100%);
       }
 
       .#{$prefix}--sticky-header {

@@ -102,7 +102,10 @@ class StickyHeader {
     ) {
       this._leadspaceWithSearch = component;
       this._leadspaceWithSearchBar = component.shadowRoot.querySelector(
-        '.bx--search-container'
+        `.${prefix}--search-container`
+      );
+      this._leadspaceWithSearchInput = component.querySelector(
+        `${ddsPrefix}-search-with-typeahead`
       );
     }
   }
@@ -186,6 +189,7 @@ class StickyHeader {
       _tableOfContentsInnerBar: tocInner,
       _leadspaceWithSearch: leadspaceSearch,
       _leadspaceWithSearchBar: leadspaceSearchBar,
+      _leadspaceWithSearchInput: leadspaceSearchInput,
     } = StickyHeader.global;
 
     if (localeModal && localeModal.hasAttribute('open')) return;
@@ -283,8 +287,14 @@ class StickyHeader {
 
       if (searchShouldBeSticky) {
         if (!searchIsSticky) {
-          leadspaceSearch.style.paddingBottom = leadspaceSearchBar.offsetHeight;
+          leadspaceSearch.style.paddingBottom = `${leadspaceSearchBar.offsetHeight}px`;
           leadspaceSearch.setAttribute('sticky-search', '');
+          leadspaceSearchInput.setAttribute('large', '');
+
+          window.requestAnimationFrame(() => {
+            leadspaceSearchBar.style.transitionDuration = '110ms';
+            leadspaceSearchBar.style.transform = 'translateY(0)';
+          });
         }
 
         leadspaceSearchBar.style.top = `${cumulativeOffset}px`;
@@ -295,6 +305,9 @@ class StickyHeader {
         leadspaceSearch.removeAttribute('sticky-search');
         leadspaceSearch.style.paddingBottom = '';
         leadspaceSearchBar.style.top = '';
+        leadspaceSearchBar.style.transitionDuration = '';
+        leadspaceSearchBar.style.transform = '';
+        leadspaceSearchInput.removeAttribute('large');
       }
     }
   }
