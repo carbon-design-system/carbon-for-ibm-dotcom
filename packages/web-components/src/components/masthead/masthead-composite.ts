@@ -702,6 +702,18 @@ class DDSMastheadComposite extends LitElement {
   menuBarAssistiveText!: string;
 
   /**
+   * The skip-to-content link text.
+   */
+  @property({ attribute: 'skip-to-content-text' })
+  skipToContentText = 'Skip to content';
+
+  /**
+   * The skip-to-content href.
+   */
+  @property({ attribute: 'skip-to-content-href' })
+  skipToContentHref = '#main-content';
+
+  /**
    * The `aria-label` attribute for the header menu button in its active state.
    */
   @property({ attribute: 'menu-button-assistive-text-active' })
@@ -840,6 +852,8 @@ class DDSMastheadComposite extends LitElement {
       scopeParameters,
       searchPlaceholder,
       selectedMenuItem,
+      skipToContentText,
+      skipToContentHref,
       unauthenticatedProfileItems,
       userStatus,
       l1Data,
@@ -881,7 +895,7 @@ class DDSMastheadComposite extends LitElement {
         ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV, hasL1: !!l1Data })}
       </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
-        <dds-skip-to-content href="#main-content" link-assistive-text="Skip to main content"></dds-skip-to-content>
+        <dds-skip-to-content href="${skipToContentHref}" link-assistive-text="${skipToContentText}"></dds-skip-to-content>
         <dds-masthead-menu-button
           button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
           button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
