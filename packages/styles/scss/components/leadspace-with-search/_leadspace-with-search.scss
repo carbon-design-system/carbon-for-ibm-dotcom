@@ -122,7 +122,7 @@
         margin: 0 calc(50% - 50vw);
         width: 100vw;
         top: 0;
-        z-index: -1;
+        z-index: -1; // Puts background underneath all static elements
       }
     }
 
@@ -180,7 +180,7 @@
       z-index: 11;
       transform: translateY(0);
       transition-property: transform;
-      transition-timing-function: cubic-bezier(0, 0, 0.38, 0.9);
+      transition-timing-function: motion(entrance, productive);
       transition-duration: 0s;
 
       @include carbon--breakpoint-down('md') {
@@ -285,11 +285,10 @@
         @include carbon--make-row();
 
         position: fixed;
-        z-index: 999;
         width: 100%;
         top: 0;
         left: 0;
-        padding: 1rem;
+        padding: $spacing-05;
         margin: 0;
         align-items: center;
         transform: translateY(-100%);
