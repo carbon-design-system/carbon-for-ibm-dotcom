@@ -49,20 +49,9 @@ const LightboxMediaViewer = ({ media, onClose, ...modalProps }) => {
     const { current: containerNode } = containerRef;
     const dialogNode = containerNode.querySelector('div[role="dialog"]');
     if (dialogNode && (media.title || videoData.title)) {
-      dialogNode.setAttribute('aria-labelledby', titleId);
+      dialogNode.setAttribute('aria-label', media.title || videoData.title);
     }
   }, [titleId, media.title, videoData.title]);
-
-  /**
-   * Adds aria-describedby attribute to dialog container with video description.
-   */
-  useEffect(() => {
-    const { current: containerNode } = containerRef;
-    const dialogNode = containerNode.querySelector('div[role="dialog"]');
-    if (dialogNode && (media.description || videoData.description)) {
-      dialogNode.setAttribute('aria-describedby', descriptionId);
-    }
-  }, [descriptionId, media.description, videoData.description]);
 
   useEffect(() => {
     let stale = false;
