@@ -156,11 +156,15 @@ const MastheadSearch = forwardRef(
     // Sets aria-labelledby to suggestions list to suppress a11y errors.
     // Autosuggest package does not provide method to add attribute to this element.
     useEffect(() => {
-      const suggestionsList = document.querySelector(
-        '.react-autosuggest__suggestions-list'
+      const suggestionsListContainer = document.getElementById(
+        'react-autowhatever-1'
       );
-      suggestionsList &&
-        suggestionsList.setAttribute('aria-labelledby', 'react-autowhatever-1');
+
+      suggestionsListContainer &&
+        suggestionsListContainer.setAttribute(
+          'aria-labelledby',
+          `${prefix}--header__search--input`
+        );
     });
 
     useEffect(() => {
@@ -321,7 +325,8 @@ const MastheadSearch = forwardRef(
       className: `${prefix}--header__search--input`,
       'aria-label': placeHolderText,
       role: 'combobox',
-      'aria-expanded': !!state.suggestions.length,
+      'aria-expanded': isSearchActive,
+      id: `${prefix}--header__search--input`,
     };
 
     /**
@@ -565,9 +570,7 @@ const MastheadSearch = forwardRef(
 
     /* eslint-disable react/prop-types */
     const renderSuggestionsContainer = ({ containerProps, children }) => (
-      <div {...containerProps} aria-labelledby="react-autowhatever-1">
-        {children}
-      </div>
+      <div {...containerProps}>{children}</div>
     );
 
     return (
