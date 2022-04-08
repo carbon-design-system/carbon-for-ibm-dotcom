@@ -59,7 +59,9 @@ const _tests = [
       cy.visit(`${_path}&knob-Disabled%20(disabled):_LinkWithIcon=true`)
         .get(_selector)
         .find('a')
-        .should('have.length', 0);
+        .should($link => {
+          expect($link.prop('href')).to.be.empty;
+        });
     });
   },
   () => {

@@ -9,7 +9,7 @@
 
 import { customElement, query, state } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
 import DDSTopNavMenu from './top-nav-menu';
 import DDSMegaMenuOverlay from './megamenu-overlay';
