@@ -151,7 +151,7 @@ const Masthead = ({
     [`${prefix}--masthead__header--search-active`]: isSearchActive,
   });
 
-  const [scrollOffset, setScrollOffset] = useState(root.scrollY);
+  const [scrollOffset] = useState(root.scrollY);
   const [tableOfContents, setTableOfContents] = useState(null);
 
   useEffect(() => {
@@ -161,7 +161,7 @@ const Masthead = ({
           .querySelector('dds-table-of-contents')
           ?.shadowRoot.querySelector('.bx--tableofcontents__navbar')
     );
-  });
+  }, [tableOfContents]);
 
   useEffect(() => {
     let lastScrollPosition = 0;

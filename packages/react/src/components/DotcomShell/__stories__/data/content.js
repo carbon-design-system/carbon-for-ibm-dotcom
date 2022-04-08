@@ -20,6 +20,7 @@ import {
 } from '../../../../index';
 
 import { ArrowRight20 } from '@carbon/icons-react';
+import DDSTableOfContents from '@carbon/ibmdotcom-web-components/es/components-react/table-of-contents/table-of-contents';
 import imgLg16x9 from '../../../../../../storybook-images/assets/720/fpo--16x9--720x405--003.jpg';
 import imgLg16x9_2 from '../../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
 import imgLg1x1 from '../../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
@@ -34,8 +35,6 @@ import logoDell from '../../../../../../storybook-images/assets/logos/logo-dell.
 import logoMicrosoft from '../../../../../../storybook-images/assets/logos/logo-microsoft.png';
 import logoRabobank from '../../../../../../storybook-images/assets/logos/logo-rabobank.png';
 import logoUsBank from '../../../../../../storybook-images/assets/logos/logo-usbank.png';
-
-import DDSTableOfContents from '@carbon/ibmdotcom-web-components/es/components-react/table-of-contents/table-of-contents';
 
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -57,7 +56,7 @@ const renderTableOfContents = (withHorizontalTOC, withL1) => {
       </DDSTableOfContents>
     );
   }
-  return <DDSTableOfContents>{innerContent()}</DDSTableOfContents>;
+  return <TableOfContents>{innerContent()}</TableOfContents>;
 };
 
 /**
