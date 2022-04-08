@@ -7,9 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html } from 'lit-element';
+import { property, customElement, html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { COLOR_OPTIONS } from './defs';
 import DDSContentItem from '../content-item/content-item';
 import styles from './pictogram-item.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -27,6 +28,14 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-pictogram-item`)
 class DDSPictogramItem extends StableSelectorMixin(DDSContentItem) {
+  /**
+   * The pictogram color.
+   *
+   * Color scheme options are: "Black (Default)" and "Blue 50"
+   */
+  @property({ attribute: 'color', reflect: true })
+  colorOption = COLOR_OPTIONS.DEFAULT;
+
   render() {
     return html`
       <div class="${prefix}--pictogram-item__row">
