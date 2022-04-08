@@ -46,19 +46,19 @@ import React from 'react';
  * @returns {*} JSX for ToC components
  */
 const renderTableOfContents = (withHorizontalTOC, withL1) => {
-  if(withHorizontalTOC) {
-    return (<DDSTableOfContents
-      layout='horizontal'
-      menuLabel="Jump to"
-      theme="white"
-      stickyOffset={withL1 ? '96' : '48'}>
-      {innerContent()}
-    </DDSTableOfContents>)
+  if (withHorizontalTOC) {
+    return (
+      <DDSTableOfContents
+        layout="horizontal"
+        menuLabel="Jump to"
+        theme="white"
+        stickyOffset={withL1 ? '96' : '48'}>
+        {innerContent()}
+      </DDSTableOfContents>
+    );
   }
-  return (<DDSTableOfContents>
-    {innerContent()}
-  </DDSTableOfContents>)
-}
+  return <DDSTableOfContents>{innerContent()}</DDSTableOfContents>;
+};
 
 /**
  * DDS components
@@ -67,341 +67,338 @@ const renderTableOfContents = (withHorizontalTOC, withL1) => {
  */
 const innerContent = () => (
   <>
-  <a name="section-1" data-title="Lorem ipsum dolor sit amet" />
-      <LeadSpaceBlock
-        title="Lorem ipsum dolor sit amet"
-        copy="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        heading="Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut."
-        mediaType="video"
-        mediaData={{
-          videoId: '1_9h94wo6b',
-          showDescription: true,
-        }}
-        items={{
-          heading: 'Featured products',
-          items: [
-            {
-              type: 'local',
-              copy: 'IBM Cloud Continuous Delivery',
-              cta: {
-                href: 'https://ibm.com',
-              },
-            },
-            {
-              type: 'local',
-              copy: 'UrbanCode',
-              cta: {
-                href: 'https://ibm.com',
-              },
-            },
-            {
-              type: 'local',
-              copy: 'View all products',
-              cta: {
-                href: 'https://ibm.com',
-              },
-            },
-          ],
-        }}
-        cta={{
-          style: 'button',
-          type: 'local',
-          buttons: [
-            {
-              type: 'local',
-              copy: 'Excepteur sint occaecat',
-              href: 'https://example.com/',
-            },
-          ],
-        }}
-      />
-      <a
-        name="section-2"
-        data-title="Pharetra pharetra massa massa ultricies mi quis."
-      />
-      <ContentBlockSegmented
-        heading="Pharetra pharetra massa massa ultricies mi quis."
-        items={[
+    <a name="section-1" data-title="Lorem ipsum dolor sit amet" />
+    <LeadSpaceBlock
+      title="Lorem ipsum dolor sit amet"
+      copy="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      heading="Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut."
+      mediaType="video"
+      mediaData={{
+        videoId: '1_9h94wo6b',
+        showDescription: true,
+      }}
+      items={{
+        heading: 'Featured products',
+        items: [
           {
-            heading: 'A scelerisque purus semper eget duis at tellus.',
-            copy:
-              'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
+            type: 'local',
+            copy: 'IBM Cloud Continuous Delivery',
             cta: {
-              type: 'local',
-              copy: 'Lorem Ipsum dolor sit',
-              href: 'https://example.com',
+              href: 'https://ibm.com',
             },
           },
           {
-            heading: 'A scelerisque purus semper eget duis at tellus.',
-            copy:
-              'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
-          },
-          {
-            heading: 'A scelerisque purus semper eget duis at tellus.',
-            copy:
-              'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
+            type: 'local',
+            copy: 'UrbanCode',
             cta: {
-              type: 'local',
-              copy: 'Lorem Ipsum dolor sit',
-              href: 'https://example.com',
+              href: 'https://ibm.com',
             },
           },
           {
-            heading: 'A scelerisque purus semper eget duis at tellus.',
-            copy:
-              'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
+            type: 'local',
+            copy: 'View all products',
+            cta: {
+              href: 'https://ibm.com',
+            },
           },
-        ]}
-      />
-      <FeatureCard
-        card={{
-          eyebrow: 'scelerisque purus',
-          heading: 'Elementum nibh tellus molestie nunc?',
+        ],
+      }}
+      cta={{
+        style: 'button',
+        type: 'local',
+        buttons: [
+          {
+            type: 'local',
+            copy: 'Excepteur sint occaecat',
+            href: 'https://example.com/',
+          },
+        ],
+      }}
+    />
+    <a
+      name="section-2"
+      data-title="Pharetra pharetra massa massa ultricies mi quis."
+    />
+    <ContentBlockSegmented
+      heading="Pharetra pharetra massa massa ultricies mi quis."
+      items={[
+        {
+          heading: 'A scelerisque purus semper eget duis at tellus.',
           copy:
-            'Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbi tristique.',
+            'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
           cta: {
+            type: 'local',
+            copy: 'Lorem Ipsum dolor sit',
             href: 'https://example.com',
-            icon: {
-              src: ArrowRight20,
+          },
+        },
+        {
+          heading: 'A scelerisque purus semper eget duis at tellus.',
+          copy:
+            'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
+        },
+        {
+          heading: 'A scelerisque purus semper eget duis at tellus.',
+          copy:
+            'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
+          cta: {
+            type: 'local',
+            copy: 'Lorem Ipsum dolor sit',
+            href: 'https://example.com',
+          },
+        },
+        {
+          heading: 'A scelerisque purus semper eget duis at tellus.',
+          copy:
+            'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
+        },
+      ]}
+    />
+    <FeatureCard
+      card={{
+        eyebrow: 'scelerisque purus',
+        heading: 'Elementum nibh tellus molestie nunc?',
+        copy:
+          'Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbi tristique.',
+        cta: {
+          href: 'https://example.com',
+          icon: {
+            src: ArrowRight20,
+          },
+        },
+        image: {
+          defaultSrc: imgLg1x1,
+          alt: 'Image alt text',
+        },
+      }}
+      size={'large'}
+    />
+
+    <a name="section-3" data-title="Elementum nibh tellus molestie nunc non" />
+    <ContentBlockSegmented
+      heading="Elementum nibh tellus molestie nunc non."
+      items={[
+        {
+          heading: 'A scelerisque purus semper eget duis at tellus.',
+          copy:
+            'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
+          image: {
+            heading: 'Mauris iaculis eget dolor nec hendrerit.',
+            image: {
+              sources: [
+                {
+                  src: imgSm16x9,
+                  breakpoint: 320,
+                },
+                {
+                  src: imgMd16x9,
+                  breakpoint: 400,
+                },
+                {
+                  src: imgLg16x9,
+                  breakpoint: 672,
+                },
+              ],
+              alt: 'Image alt text',
+              defaultSrc: imgLg16x9,
             },
           },
+          cta: {
+            type: 'local',
+            copy: 'Lorem Ipsum dolor sit',
+            href: 'https://example.com',
+          },
+        },
+        {
+          heading: 'A scelerisque purus semper eget duis at tellus.',
+          copy:
+            'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
           image: {
-            defaultSrc: imgLg1x1,
+            heading: 'Mauris iaculis eget dolor nec hendrerit.',
+            image: {
+              sources: [
+                {
+                  src: imgSm16x9_2,
+                  breakpoint: 320,
+                },
+                {
+                  src: imgMd16x9_2,
+                  breakpoint: 400,
+                },
+                {
+                  src: imgLg16x9_2,
+                  breakpoint: 672,
+                },
+              ],
+              alt: 'Image alt text',
+              defaultSrc: imgLg16x9_2,
+            },
+          },
+        },
+      ]}
+      cta={{
+        style: 'card',
+        disableImage: true,
+        type: 'video',
+        media: {
+          src: '1_9h94wo6b',
+          type: 'video',
+        },
+      }}
+      mediaType="image"
+    />
+
+    <CalloutWithMedia
+      heading="Mauris ultrices eros in cursus"
+      copy="Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat. In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in. Vel facilisis volutpat est velit egestas dui."
+      mediaType="video"
+      mediaData={{
+        videoId: '1_9h94wo6b',
+      }}
+    />
+
+    <a name="section-4" data-title="Tincidunt ornare massa" />
+    <ContentGroupHorizontal
+      heading="Tincidunt ornare massa"
+      items={[
+        {
+          eyebrow: 'Lorem ipsum',
+          heading: 'Aliquam condimentum',
+          copy:
+            'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
+          cta: {
+            heading: 'Aliquam condimentum',
+            items: [
+              {
+                type: 'local',
+                copy: 'Link text',
+                href: 'https://example.com',
+              },
+              {
+                type: 'external',
+                copy: 'External link text',
+                href: 'https://example.com',
+              },
+            ],
+          },
+        },
+        {
+          eyebrow: 'Lorem ipsum',
+          heading: 'Aliquam condimentum',
+          copy:
+            'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
+          cta: {
+            heading: 'Aliquam condimentum',
+            items: [
+              {
+                type: 'local',
+                copy: 'Link text',
+                href: 'https://example.com',
+              },
+              {
+                type: 'external',
+                copy: 'External link text',
+                href: 'https://example.com',
+              },
+            ],
+          },
+        },
+      ]}
+    />
+
+    <a name="section-5" data-title="Lobortis elementum nibh tellus" />
+    <LogoGrid
+      heading="Lobortis elementum nibh tellus"
+      logosGroup={[
+        {
+          label: 'Microsoft',
+          imgSrc: logoMicrosoft,
+          altText: 'Microsoft',
+        },
+        {
+          label: 'Dell',
+          imgSrc: logoDell,
+          altText: 'Dell',
+        },
+        {
+          label: 'Rabobank',
+          imgSrc: logoRabobank,
+          altText: 'Rabobank',
+        },
+        {
+          label: 'Adobe',
+          imgSrc: logoAdobe,
+          altText: 'Adobe',
+        },
+        {
+          label: 'US Bank',
+          imgSrc: logoUsBank,
+          altText: 'US Bank',
+        },
+        {
+          label: 'Cisco',
+          imgSrc: logoCisco,
+          altText: 'Cisco',
+        },
+      ]}
+    />
+
+    <a name="section-6" data-title="Aliquam condimentum interdum" />
+    <ContentBlockCards
+      heading="Aliquam condimentum interdum"
+      cards={[
+        {
+          image: {
+            defaultSrc: imgXlg4x3,
             alt: 'Image alt text',
           },
-        }}
-        size={'large'}
-      />
-
-      <a
-        name="section-3"
-        data-title="Elementum nibh tellus molestie nunc non"
-      />
-      <ContentBlockSegmented
-        heading="Elementum nibh tellus molestie nunc non."
-        items={[
-          {
-            heading: 'A scelerisque purus semper eget duis at tellus.',
-            copy:
-              'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
-            image: {
-              heading: 'Mauris iaculis eget dolor nec hendrerit.',
-              image: {
-                sources: [
-                  {
-                    src: imgSm16x9,
-                    breakpoint: 320,
-                  },
-                  {
-                    src: imgMd16x9,
-                    breakpoint: 400,
-                  },
-                  {
-                    src: imgLg16x9,
-                    breakpoint: 672,
-                  },
-                ],
-                alt: 'Image alt text',
-                defaultSrc: imgLg16x9,
-              },
-            },
-            cta: {
-              type: 'local',
-              copy: 'Lorem Ipsum dolor sit',
-              href: 'https://example.com',
-            },
-          },
-          {
-            heading: 'A scelerisque purus semper eget duis at tellus.',
-            copy:
-              'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
-            image: {
-              heading: 'Mauris iaculis eget dolor nec hendrerit.',
-              image: {
-                sources: [
-                  {
-                    src: imgSm16x9_2,
-                    breakpoint: 320,
-                  },
-                  {
-                    src: imgMd16x9_2,
-                    breakpoint: 400,
-                  },
-                  {
-                    src: imgLg16x9_2,
-                    breakpoint: 672,
-                  },
-                ],
-                alt: 'Image alt text',
-                defaultSrc: imgLg16x9_2,
-              },
-            },
-          },
-        ]}
-        cta={{
-          style: 'card',
-          disableImage: true,
-          type: 'video',
-          media: {
-            src: '1_9h94wo6b',
-            type: 'video',
-          },
-        }}
-        mediaType="image"
-      />
-
-      <CalloutWithMedia
-        heading="Mauris ultrices eros in cursus"
-        copy="Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat. In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in. Vel facilisis volutpat est velit egestas dui."
-        mediaType="video"
-        mediaData={{
-          videoId: '1_9h94wo6b',
-        }}
-      />
-
-      <a name="section-4" data-title="Tincidunt ornare massa" />
-      <ContentGroupHorizontal
-        heading="Tincidunt ornare massa"
-        items={[
-          {
-            eyebrow: 'Lorem ipsum',
-            heading: 'Aliquam condimentum',
-            copy:
-              'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
-            cta: {
-              heading: 'Aliquam condimentum',
-              items: [
-                {
-                  type: 'local',
-                  copy: 'Link text',
-                  href: 'https://example.com',
-                },
-                {
-                  type: 'external',
-                  copy: 'External link text',
-                  href: 'https://example.com',
-                },
-              ],
-            },
-          },
-          {
-            eyebrow: 'Lorem ipsum',
-            heading: 'Aliquam condimentum',
-            copy:
-              'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
-            cta: {
-              heading: 'Aliquam condimentum',
-              items: [
-                {
-                  type: 'local',
-                  copy: 'Link text',
-                  href: 'https://example.com',
-                },
-                {
-                  type: 'external',
-                  copy: 'External link text',
-                  href: 'https://example.com',
-                },
-              ],
-            },
-          },
-        ]}
-      />
-
-      <a name="section-5" data-title="Lobortis elementum nibh tellus" />
-      <LogoGrid
-        heading="Lobortis elementum nibh tellus"
-        logosGroup={[
-          {
-            label: 'Microsoft',
-            imgSrc: logoMicrosoft,
-            altText: 'Microsoft',
-          },
-          {
-            label: 'Dell',
-            imgSrc: logoDell,
-            altText: 'Dell',
-          },
-          {
-            label: 'Rabobank',
-            imgSrc: logoRabobank,
-            altText: 'Rabobank',
-          },
-          {
-            label: 'Adobe',
-            imgSrc: logoAdobe,
-            altText: 'Adobe',
-          },
-          {
-            label: 'US Bank',
-            imgSrc: logoUsBank,
-            altText: 'US Bank',
-          },
-          {
-            label: 'Cisco',
-            imgSrc: logoCisco,
-            altText: 'Cisco',
-          },
-        ]}
-      />
-
-      <a name="section-6" data-title="Aliquam condimentum interdum" />
-      <ContentBlockCards
-        heading="Aliquam condimentum interdum"
-        cards={[
-          {
-            image: {
-              defaultSrc: imgXlg4x3,
-              alt: 'Image alt text',
-            },
-            eyebrow: 'Topic',
-            heading: 'Natural language processing.',
-            cta: {
-              href: 'https://www.example.com',
-            },
-          },
-          {
-            image: {
-              defaultSrc: imgXlg4x3,
-              alt: 'Image alt text',
-            },
-            eyebrow: 'Topic',
-            heading: 'Natural language processing.',
-            cta: {
-              href: 'https://www.example.com',
-            },
-          },
-          {
-            image: {
-              defaultSrc: imgXlg4x3,
-              alt: 'Image alt text',
-            },
-            eyebrow: 'Topic',
-            heading: 'Natural language processing.',
-            cta: {
-              href: 'https://www.example.com',
-            },
-          },
-        ]}
-      />
-      <a name="section-7" data-title="Duis aute irure dolor in reprehenderit" />
-      <CalloutQuote
-        quote={{
-          copy: 'Duis aute irure dolor in reprehenderit',
-          source: {
-            heading: 'Lorem ipsum',
-            copy: 'dolor sit amet',
-          },
+          eyebrow: 'Topic',
+          heading: 'Natural language processing.',
           cta: {
-            copy: 'Link with Icon',
-            type: 'local',
-            href: 'https://example.com',
+            href: 'https://www.example.com',
           },
-        }}
-      />
+        },
+        {
+          image: {
+            defaultSrc: imgXlg4x3,
+            alt: 'Image alt text',
+          },
+          eyebrow: 'Topic',
+          heading: 'Natural language processing.',
+          cta: {
+            href: 'https://www.example.com',
+          },
+        },
+        {
+          image: {
+            defaultSrc: imgXlg4x3,
+            alt: 'Image alt text',
+          },
+          eyebrow: 'Topic',
+          heading: 'Natural language processing.',
+          cta: {
+            href: 'https://www.example.com',
+          },
+        },
+      ]}
+    />
+    <a name="section-7" data-title="Duis aute irure dolor in reprehenderit" />
+    <CalloutQuote
+      quote={{
+        copy: 'Duis aute irure dolor in reprehenderit',
+        source: {
+          heading: 'Lorem ipsum',
+          copy: 'dolor sit amet',
+        },
+        cta: {
+          copy: 'Link with Icon',
+          type: 'local',
+          href: 'https://example.com',
+        },
+      }}
+    />
   </>
-)
+);
 
 /**
  * DDS patterns template
@@ -410,7 +407,7 @@ const innerContent = () => (
  */
 const Content = ({ withHorizontalTOC, withL1 }) => (
   <>
-  {renderTableOfContents(withHorizontalTOC, withL1)}
+    {renderTableOfContents(withHorizontalTOC, withL1)}
     <div className="bx--grid" style={{ backgroundColor: '#f4f4f4' }}>
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">

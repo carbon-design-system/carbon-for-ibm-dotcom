@@ -158,13 +158,16 @@ const Masthead = ({
   });
 
   const [scrollOffset, setScrollOffset] = useState(root.scrollY);
-  const [tableOfContents, setTableOfContents] = useState(null)
+  const [tableOfContents, setTableOfContents] = useState(null);
 
   useEffect(() => {
-    setTableOfContents(document.querySelector(
-      '.bx--tableofcontents__sidebar'
-    ) ?? document.querySelector('dds-table-of-contents')?.shadowRoot.querySelector('.bx--tableofcontents__navbar'));
-  })
+    setTableOfContents(
+      document.querySelector('.bx--tableofcontents__sidebar') ??
+        document
+          .querySelector('dds-table-of-contents')
+          ?.shadowRoot.querySelector('.bx--tableofcontents__navbar')
+    );
+  });
 
   useEffect(() => {
     let lastScrollPosition = 0;
@@ -187,10 +190,7 @@ const Masthead = ({
         /**
          * L0 will hide on scroll down, show up on scroll up when mobile ToC is present
          */
-      } else if (
-        tableOfContents != null &&
-        stickyRef.current !== null
-      ) {
+      } else if (tableOfContents != null && stickyRef.current !== null) {
         const tocBoundingClient = tableOfContents.getBoundingClientRect();
         stickyRef.current.style.transition = `none`;
 
@@ -200,10 +200,12 @@ const Masthead = ({
         const tocPosition =
           tocBoundingClient.top + lastScrollPosition - window.scrollY;
 
-        if(tableOfContents.getRootNode().host.getAttribute('toc-layout') === 'horizontal') {
+        if (
+          tableOfContents.getRootNode().host.getAttribute('toc-layout') ===
+          'horizontal'
+        ) {
           tableOfContents.style.top = `${stickyRef.current.offsetHeight}px`;
-
-        } else if(window.innerWidth < gridBreakpoint) {
+        } else if (window.innerWidth < gridBreakpoint) {
           tableOfContents.style.top = `${Math.max(
             Math.min(tocPosition, stickyRef.current.offsetHeight),
             0
