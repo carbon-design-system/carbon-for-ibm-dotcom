@@ -12,7 +12,6 @@ import React, { StrictMode } from 'react';
 import coreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
 import { configure } from '@storybook/react'; // eslint-disable-line import/first
-import { withA11y } from '@storybook/addon-a11y';
 import { withKnobs } from '@storybook/addon-knobs';
 import BXSkipToContent from 'carbon-web-components/es/components-react/skip-to-content/skip-to-content';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
@@ -59,7 +58,6 @@ export const decorator = [
       </StrictMode>
     );
   },
-  withA11y,
   withKnobs,
   (story, { parameters }) => {
     const root = document.documentElement;
@@ -107,7 +105,7 @@ if (window.parent) {
       const knobButtons = parentWindow.document.querySelectorAll('#panel-tab-content button');
       if (knobButtons) {
         const resetButton = knobButtons[knobButtons.length - 1];
-        resetButton.click();
+        (resetButton as HTMLElement).click();
       }
     }
   }, 100);

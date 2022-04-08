@@ -146,7 +146,6 @@
     "@percy/dom": "^1.0.0-beta.55",
     "@percy/sdk-utils": "^1.0.0-beta.55",
     "@percy/storybook": "^3.3.0",
-    "@storybook/addon-a11y": "^6.3.8",
     "@storybook/addon-actions": "^6.3.8",
     "@storybook/addon-docs": "^6.3.8",
     "@storybook/addon-knobs": "^6.3.1",

@@ -13,7 +13,6 @@ import 'carbon-web-components/es/components/skip-to-content/skip-to-content.js';
 import { configure, setCustomElements } from '@storybook/web-components'; // eslint-disable-line import/first
 import coreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
-import { withA11y } from '@storybook/addon-a11y';
 import { withKnobs } from '@storybook/addon-knobs';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
 import customElements from '../custom-elements.json';
@@ -63,7 +62,6 @@ export const decorator = [
       </div>
     `;
   },
-  withA11y,
   withKnobs,
   // decoratorKnobs,
   (story, { parameters }) => {
@@ -112,7 +110,7 @@ if (window.parent) {
       const knobButtons = parentWindow.document.querySelectorAll('#panel-tab-content button');
       if (knobButtons) {
         const resetButton = knobButtons[knobButtons.length - 1];
-        resetButton.click();
+        (resetButton as HTMLElement).click();
       }
     }
   }, 100);

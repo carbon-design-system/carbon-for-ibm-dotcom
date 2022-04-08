@@ -28,7 +28,6 @@ const useRtl = process.env.STORYBOOK_USE_RTL === 'true';
 
 module.exports = {
   addons: [
-    '@storybook/addon-a11y',
     '@storybook/addon-storysource',
     '@storybook/addon-docs',
     '@storybook/addon-knobs',
