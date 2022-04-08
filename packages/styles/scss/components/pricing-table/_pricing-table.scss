@@ -132,9 +132,10 @@
     }
   }
 
-  .#{$prefix}--pricing-table-cell[icon],
   :host(#{$dds-prefix}-pricing-table-cell[icon]) {
-    @extend .#{$prefix}--structured-list-cell[icon];
+    &[icon='checkmark'] {
+      color: $support-02;
+    }
   }
 
   .#{$prefix}--pricing-table-highlight-label,
