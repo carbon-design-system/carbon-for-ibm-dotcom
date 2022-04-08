@@ -122,7 +122,8 @@
         margin: 0 calc(50% - 50vw);
         width: 100vw;
         top: 0;
-        z-index: -1; // Puts background underneath all static elements
+        // Puts background underneath all static elements
+        z-index: -1;
       }
     }
 

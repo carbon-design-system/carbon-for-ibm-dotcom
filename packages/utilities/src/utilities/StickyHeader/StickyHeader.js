@@ -214,15 +214,16 @@ class StickyHeader {
     // Calculate maxScrollaway values based on TOC positon
     let tocIsAtTop = false;
     let tocShouldStick = false;
+
     if (tocInner) {
       tocIsAtTop =
         tocInner.getBoundingClientRect().top <=
-        masthead.offsetTop + masthead.offsetHeight + 1;
+        (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1;
 
       tocShouldStick =
         toc.layout === 'horizontal' || window.innerWidth < gridBreakpoint;
 
-      if (tocIsAtTop && (tocShouldStick || mastheadL1)) {
+      if (masthead && tocIsAtTop && (tocShouldStick || mastheadL1)) {
         maxScrollaway += masthead.offsetHeight;
 
         if (mastheadL1 && !tocShouldStick) {
@@ -237,9 +238,9 @@ class StickyHeader {
     if (!tocInner && leadspaceSearchBar) {
       const searchIsAtTop =
         leadspaceSearchBar.getBoundingClientRect().top <=
-        masthead.offsetTop + masthead.offsetHeight + 1;
+        (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1;
 
-      if (searchIsAtTop) {
+      if (masthead && searchIsAtTop) {
         maxScrollaway += masthead.offsetHeight;
       }
     }
@@ -260,7 +261,7 @@ class StickyHeader {
      *   viewport.
      */
     let cumulativeOffset = Math.max(
-      Math.min(masthead.offsetTop + oldY - newY, 0),
+      Math.min((masthead?.offsetTop || 0) + oldY - newY, 0),
       maxScrollaway * -1
     );
 
