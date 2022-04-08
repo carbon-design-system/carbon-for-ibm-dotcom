@@ -23,6 +23,7 @@ class StickyHeader {
     this._lastScrollPosition = 0;
     this._leadspaceWithSearch = undefined;
     this._leadspaceSearchBar = undefined;
+    this._leadspaceWithSearchStickyThreshold = 0;
     this._localeModal = undefined;
     this._masthead = undefined;
     this._mastheadL0 = undefined;
@@ -101,12 +102,14 @@ class StickyHeader {
       this._validateComponent(component, `${ddsPrefix}-leadspace-with-search`)
     ) {
       this._leadspaceWithSearch = component;
-      this._leadspaceWithSearchBar = component.shadowRoot.querySelector(
+      const leadspaceSearchBar = component.shadowRoot.querySelector(
         `.${prefix}--search-container`
       );
+      this._leadspaceWithSearchBar = leadspaceSearchBar;
       this._leadspaceWithSearchInput = component.querySelector(
         `${ddsPrefix}-search-with-typeahead`
       );
+      this._leadspaceWithSearchStickyThreshold = parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) - 16;
     }
   }
 
@@ -156,6 +159,7 @@ class StickyHeader {
       _masthead: masthead,
       _tableOfContents: toc,
       _tableOfContentsLayout: tocLayout,
+      _leadspaceSearchBar: leadspaceSearchBar,
     } = this;
 
     if (toc && masthead) {
@@ -175,6 +179,10 @@ class StickyHeader {
       }
       this._handleScroll();
     }
+
+    if (leadspaceSearchBar) {
+      this._leadspaceWithSearchStickyThreshold = parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) - 16;
+    }
   }
 
   _handleScroll() {
@@ -190,6 +198,7 @@ class StickyHeader {
       _leadspaceWithSearch: leadspaceSearch,
       _leadspaceWithSearchBar: leadspaceSearchBar,
       _leadspaceWithSearchInput: leadspaceSearchInput,
+      _leadspaceWithSearchStickyThreshold: leadspaceSearchThreshold,
     } = StickyHeader.global;
 
     if (localeModal && localeModal.hasAttribute('open')) return;
@@ -282,8 +291,8 @@ class StickyHeader {
     }
 
     if (!tocInner && leadspaceSearchBar) {
-      const searchShouldBeSticky =
-        leadspaceSearch.getBoundingClientRect().bottom <= 0;
+
+      const searchShouldBeSticky = leadspaceSearch.getBoundingClientRect().bottom <= leadspaceSearchThreshold;
       const searchIsSticky = leadspaceSearch.hasAttribute('sticky-search');
 
       if (searchShouldBeSticky) {
