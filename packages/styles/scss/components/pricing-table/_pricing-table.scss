@@ -61,6 +61,7 @@
   :host(#{$dds-prefix}-pricing-table-group) td {
     @extend .#{$prefix}--structured-list-all-cells;
 
+    padding-block-end: $carbon--spacing-05;
     border-bottom: 0;
 
     &:last-child {
