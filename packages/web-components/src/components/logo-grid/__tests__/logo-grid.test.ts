@@ -14,11 +14,7 @@ import { Default } from '../__stories__/logo-grid.stories';
 
 const template = (props?) =>
   Default({
-    parameters: {
-      props: {
-        LogoGrid: { hideBorder: true, ...props },
-      },
-    },
+    LogoGrid: { hideBorder: true, ...props },
   });
 
 describe('dds-logo-grid', function() {

@@ -13,11 +13,7 @@ import { Default } from '../__stories__/link-with-icon.stories';
 
 const template = (props?) =>
   Default({
-    parameters: {
-      props: {
-        LinkWithIcon: props,
-      },
-    },
+    LinkWithIcon: props,
   });
 
 describe('dds-link-with-icon', function() {

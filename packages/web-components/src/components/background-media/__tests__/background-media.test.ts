@@ -13,11 +13,7 @@ import { Default } from '../__stories__/background-media.stories';
 
 const template = (props?) =>
   Default({
-    parameters: {
-      props: {
-        'dds-background-media': props,
-      },
-    },
+    'dds-background-media': props,
   });
 
 describe('dds-background-media', function() {

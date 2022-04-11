@@ -13,11 +13,7 @@ import { Default } from '../__stories__/feature-section.stories';
 
 const template = (props?) =>
   Default({
-    parameters: {
-      props: {
-        'dds-feature-section': props,
-      },
-    },
+    'dds-feature-section': props,
   });
 
 describe('dds-feature-section', function() {

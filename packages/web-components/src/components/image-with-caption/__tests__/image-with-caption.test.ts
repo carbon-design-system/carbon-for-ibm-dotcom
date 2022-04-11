@@ -13,11 +13,7 @@ import { Default } from '../__stories__/image-with-caption.stories';
 
 const template = (props?) =>
   Default({
-    parameters: {
-      props: {
-        'dds-image-with-caption': props,
-      },
-    },
+    'dds-image-with-caption': props,
   });
 
 describe('dds-image-with-caption', function() {

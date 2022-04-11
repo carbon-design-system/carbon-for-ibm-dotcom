@@ -13,11 +13,7 @@ import { EmbeddedVideoPlayer } from '../__stories__/lightbox-media-viewer.storie
 
 const videoPlayerTemplate = (props?) =>
   EmbeddedVideoPlayer({
-    parameters: {
-      props: {
-        LightboxVideoPlayerContainer: props,
-      },
-    },
+    LightboxVideoPlayerContainer: props,
   });
 
 describe('dds-lightbox-video-player-container', function() {

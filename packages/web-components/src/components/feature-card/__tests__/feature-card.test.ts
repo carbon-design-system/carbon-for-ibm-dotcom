@@ -13,11 +13,7 @@ import { Medium } from '../__stories__/feature-card.stories';
 
 const template = (props?) =>
   Medium({
-    parameters: {
-      props: {
-        'dds-feature-card': props,
-      },
-    },
+    'dds-feature-card': props,
   });
 
 describe('dds-feature-card', function() {
