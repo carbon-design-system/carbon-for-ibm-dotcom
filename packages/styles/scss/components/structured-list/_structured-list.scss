@@ -36,7 +36,10 @@
     &:nth-child(#{$colNumber}) {
       --cols: var(
         --col-span-lg-#{$colNumber},
-        var(--col-span-md-#{$colNumber}, var(--col-span-#{$colNumber}, 2))
+        var(
+          --col-span-md-#{$colNumber},
+          var(--col-span-#{$colNumber}, var(--default-cols, 2))
+        )
       );
       --width: calc((var(--cols) / var(--max-cols)) * 100%);
 
@@ -46,11 +49,29 @@
   }
 }
 
+@function extended-box-shadow($begin: 1, $end: 20) {
+  $value: null;
+
+  @for $i from $begin through $end {
+    $new-value: ($i * 50vw) 0 $ui-03;
+    $value: append($value, $new-value);
+
+    @if $i != $end {
+      $value: append($value, #{','});
+    }
+  }
+
+  @return $value;
+}
+
 @mixin structured-list {
   // Inherited Table Styles
+  .#{$prefix}--structured-list-header-row,
   :host(#{$dds-prefix}-structured-list-header-row) {
     border-bottom: none;
   }
+
+  .#{$prefix}--structured-list-header-cell,
   :host(#{$dds-prefix}-structured-list-header-cell) {
     @extend .#{$prefix}--structured-list-th;
 
@@ -58,6 +79,8 @@
     padding-block-end: $spacing-05;
     border-bottom: 1px solid $ui-03;
   }
+
+  .#{$prefix}--structured-list-group,
   :host(#{$dds-prefix}-structured-list-group) {
     display: contents;
 
@@ -65,9 +88,7 @@
       @extend .#{$prefix}--structured-list-row;
 
       background-color: $ui-03;
-      box-shadow: 100vw 0 $ui-03, 200vw 0 $ui-03, 300vw 0 $ui-03, 400vw 0 $ui-03,
-        500vw 0 $ui-03, 600vw 0 $ui-03, 700vw 0 $ui-03, 800vw 0 $ui-03,
-        900vw 0 $ui-03;
+      box-shadow: extended-box-shadow();
       color: $text-01;
       border-bottom: 1px solid $ui-03;
     }
@@ -81,6 +102,8 @@
       padding-inline: $spacing-05;
     }
   }
+
+  .#{$prefix}--structured-list-cell,
   :host(#{$dds-prefix}-structured-list-cell) {
     @extend .#{$prefix}--structured-list-td;
 
@@ -89,6 +112,7 @@
   }
 
   // Default Carbon Rows/Columns
+  .#{$prefix}--structured-list-all-rows,
   :host(#{$dds-prefix}-structured-list-header-row),
   :host(#{$dds-prefix}-structured-list-row),
   :host(#{$dds-prefix}-structured-list-group) tr {
@@ -99,6 +123,7 @@
     }
   }
 
+  .#{$prefix}--structured-list-all-cells,
   :host(#{$dds-prefix}-structured-list-header-cell),
   :host(#{$dds-prefix}-structured-list-cell),
   :host(#{$dds-prefix}-structured-list-group) td {
@@ -117,6 +142,7 @@
     }
   }
 
+  .#{$prefix}--structured-list-all-cells,
   :host(#{$dds-prefix}-structured-list-header-cell),
   :host(#{$dds-prefix}-structured-list-cell) {
     --max-cols: 4;
@@ -145,6 +171,17 @@
   }
 
   // Internal components
+  .#{$dds-prefix}--structured-list,
+  :host(#{$dds-prefix}-structured-list) {
+    display: block;
+    overflow: auto;
+    padding-left: $carbon--layout-01;
+    padding-right: $carbon--layout-01;
+    margin-left: -#{$carbon--layout-01};
+    margin-right: -#{$carbon--layout-01};
+  }
+
+  .#{$prefix}--structured-list-cell-tooltip-icon,
   :host(#{$dds-prefix}-structured-list-cell) #{$prefix}-tooltip-icon {
     display: inline-flex;
     vertical-align: sub;
@@ -154,6 +191,7 @@
     }
   }
 
+  .#{$prefix}--structured-list-cell[icon],
   :host(#{$dds-prefix}-structured-list-cell[icon]) {
     &[icon='checkmark'] {
       color: $support-02;
