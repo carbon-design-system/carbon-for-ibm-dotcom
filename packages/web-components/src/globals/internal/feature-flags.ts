@@ -55,3 +55,10 @@ export const DDS_CLOUD_MASTHEAD: boolean = process!.env.DDS_CLOUD_MASTHEAD === '
  * @type {boolean}
  */
 export const DDS_CUSTOM_PROFILE_LOGIN: boolean = process!.env.DDS_CUSTOM_PROFILE_LOGIN === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * Enables Pricing Table
+ *
+ * @type {boolean}
+ */
+export const DDS_PRICING_TABLE: boolean = process!.env.DDS_PRICING_TABLE === 'true' || DDS_FLAGS_ALL || false;
