@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.33.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.31.0...@carbon/ibmdotcom-services@1.33.0-rc.0) (2022-04-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @carbon/telemetry to v0.1.0 ([#8481](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8481)) ([2a7a0c6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2a7a0c6))
+
+
+
+
+
 # [1.32.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.32.0-rc.1...@carbon/ibmdotcom-services@1.32.0) (2022-03-28)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
