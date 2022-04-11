@@ -16,7 +16,7 @@ import '../horizontal-rule/horizontal-rule';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leadspace-with-search.scss';
 import { ADJACENT_THEMES } from './defs';
-import StickyHeader from '../../../../utilities/src/utilities/StickyHeader/StickyHeader.js';
+import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
