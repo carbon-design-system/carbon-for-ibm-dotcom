@@ -26176,10 +26176,10 @@ wcwidth@^1.0.0:
   dependencies:
     defaults "^1.0.3"
 
-web-component-analyzer@^1.0.0:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/web-component-analyzer/-/web-component-analyzer-1.1.6.tgz#d9bd904d904a711c19ba6046a45b60a7ee3ed2e9"
-  integrity sha512-1PyBkb/jijDEVE+Pnk3DTmVHD8takipdvAwvZv1V8jIidsSIJ5nhN87Gs+4dpEb1vw48yp8dnbZKkvMYJ+C0VQ==
+web-component-analyzer@^1.2.0:
+  version "1.2.0-next.0"
+  resolved "https://registry.yarnpkg.com/web-component-analyzer/-/web-component-analyzer-1.2.0-next.0.tgz#acdb3729d2e9d72ee2b11f458f37e30066729673"
+  integrity sha512-T1/2axCXhw5620t2bLcjhuIW+EivvDf2B96M1y1c2BLLwdUVVisJi5O7A3tQqJfeYLjCjqJ64vSfuDa+v2Z0uw==
   dependencies:
     fast-glob "^3.2.2"
     ts-simple-type "~1.0.5"
