@@ -109,7 +109,9 @@ class StickyHeader {
       this._leadspaceWithSearchInput = component.querySelector(
         `${ddsPrefix}-search-with-typeahead`
       );
-      this._leadspaceWithSearchStickyThreshold = parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) - 16;
+      this._leadspaceWithSearchStickyThreshold =
+        parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) -
+        16;
     }
   }
 
@@ -181,7 +183,9 @@ class StickyHeader {
     }
 
     if (leadspaceSearchBar) {
-      this._leadspaceWithSearchStickyThreshold = parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) - 16;
+      this._leadspaceWithSearchStickyThreshold =
+        parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) -
+        16;
     }
   }
 
@@ -269,10 +273,12 @@ class StickyHeader {
      *   with the elements that should be visible starting at the top of the
      *   viewport.
      */
-    let cumulativeOffset = Math.max(
-      Math.min((masthead?.offsetTop || 0) + oldY - newY, 0),
-      maxScrollaway * -1
-    );
+    let cumulativeOffset = masthead
+      ? Math.max(
+          Math.min(masthead.offsetTop + oldY - newY, 0),
+          maxScrollaway * -1
+        )
+      : Math.max(Math.min(oldY - newY, 0), maxScrollaway * -1);
 
     if (banner) {
       cumulativeOffset += Math.max(banner.offsetHeight - newY, 0);
@@ -291,8 +297,9 @@ class StickyHeader {
     }
 
     if (!tocInner && leadspaceSearchBar) {
-
-      const searchShouldBeSticky = leadspaceSearch.getBoundingClientRect().bottom <= leadspaceSearchThreshold;
+      const searchShouldBeSticky =
+        leadspaceSearch.getBoundingClientRect().bottom <=
+        leadspaceSearchThreshold;
       const searchIsSticky = leadspaceSearch.hasAttribute('sticky-search');
 
       if (searchShouldBeSticky) {
