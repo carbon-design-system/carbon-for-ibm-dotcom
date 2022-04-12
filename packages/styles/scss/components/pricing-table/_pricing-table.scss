@@ -55,10 +55,10 @@
 
   .#{$prefix}--pricing-table-header-cell,
   .#{$prefix}--pricing-table-cell,
-  .#{$prefix}--pricing-table-group td,
+  .#{$prefix}--pricing-table-group th,
   :host(#{$dds-prefix}-pricing-table-header-cell),
   :host(#{$dds-prefix}-pricing-table-cell),
-  :host(#{$dds-prefix}-pricing-table-group) td {
+  :host(#{$dds-prefix}-pricing-table-group) th {
     @extend .#{$prefix}--structured-list-all-cells;
 
     padding-block-end: $carbon--spacing-05;
