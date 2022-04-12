@@ -218,7 +218,7 @@ const Masthead = ({
           tocBoundingClient.top + lastScrollPosition - window.scrollY;
 
         if (
-          tableOfContents.getRootNode().host.getAttribute('toc-layout') ===
+          tableOfContents?.getRootNode()?.host?.getAttribute('toc-layout') ===
           'horizontal'
         ) {
           tableOfContents.style.top = `${stickyRef.current.offsetHeight}px`;
