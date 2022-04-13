@@ -20,14 +20,34 @@
     @extend .#{$dds-prefix}--structured-list;
   }
 
+  .#{$prefix}--pricing-table-head,
+  :host(#{$dds-prefix}-pricing-table-head) {
+    width: 100%;
+    display: block;
+  }
+
   .#{$prefix}--pricing-table-group,
   :host(#{$dds-prefix}-pricing-table-group) {
     @extend .#{$prefix}--structured-list-group;
   }
 
   .#{$prefix}--pricing-table-header-row,
-  :host(#{$dds-prefix}-header-row) {
+  :host(#{$dds-prefix}-pricing-table-header-row) {
     @extend .#{$prefix}--structured-list-header-row;
+
+    &.#{$prefix}--pricing-table-header-row--sticky {
+      position: fixed;
+      top: 0;
+      z-index: 999;
+      background-color: $ui-02;
+      box-shadow: 0 2px 2px $ui-01;
+      overflow: hidden;
+      width: calc(var(--max-width) + (#{$carbon--spacing-05} * 2));
+
+      ::slotted(#{$dds-prefix}-pricing-table-header-cell) {
+        padding-block-end: $carbon--spacing-05;
+      }
+    }
   }
 
   .#{$prefix}--pricing-table-header-row,
@@ -95,6 +115,13 @@
   .#{$prefix}--pricing-table-header-cell:not([scope='row']),
   :host(#{$dds-prefix}-pricing-table-header-cell:not([scope='row'])) {
     padding-block-end: $carbon--layout-06;
+
+    &.#{$prefix}--pricing-table-header-cell--sticky:not([type='simple']) {
+      .#{$prefix}--pricing-table-header-cell-tag-wrapper,
+      .#{$prefix}--pricing-table-cell-inner {
+        display: none;
+      }
+    }
 
     &.highlighted {
       position: relative;
