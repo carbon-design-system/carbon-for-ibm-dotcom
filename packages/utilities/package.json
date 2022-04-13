@@ -43,7 +43,6 @@
     "contributors:generate": "all-contributors generate",
     "jsdoc": "rimraf docs && jsdoc -c ./jsdoc.json ./README.md",
     "postinstall": "carbon-telemetry collect --install",
-    "prepublish": "yarn build",
     "test": "jest",
     "upgrade-carbon": "yarn upgrade-interactive carbon-components --latest --exact"
   },

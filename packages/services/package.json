@@ -42,7 +42,6 @@
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "postinstall": "carbon-telemetry collect --install",
-    "prepublish": "yarn build",
     "test": "jest",
     "jsdoc": "rimraf docs && jsdoc -c ./jsdoc.json ./README.md"
   },
