@@ -28,6 +28,9 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   @property()
   highlightClass = 'highlighted';
 
+  @property()
+  dynamicTopMargin: number = 0;
+
   protected _renderHighlightLabel(): DDSPricingTableHighlightLabel {
     const { highlightLabel } = this;
     const element = this.ownerDocument.createElement(
@@ -64,7 +67,8 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
       return this.querySelector(`${ddsPrefix}-pricing-table-highlight-label`);
     })()
       .then(value => {
-        wrapper.style.marginTop = `${value?.getBoundingClientRect().height}px`;
+        this.dynamicTopMargin = value?.getBoundingClientRect().height || 0;
+        wrapper.style.marginTop = `${this.dynamicTopMargin}px`;
       })
       .catch(() => {
         wrapper.style.marginTop = '';

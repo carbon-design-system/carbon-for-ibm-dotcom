@@ -23,7 +23,8 @@
   .#{$prefix}--pricing-table-head,
   :host(#{$dds-prefix}-pricing-table-head) {
     width: 100%;
-    display: block;
+    // display: block;
+    // transition: $duration--slow-01 motion(standard, productive);
   }
 
   .#{$prefix}--pricing-table-group,
@@ -46,6 +47,10 @@
 
       ::slotted(#{$dds-prefix}-pricing-table-header-cell) {
         padding-block-end: $carbon--spacing-05;
+      }
+
+      &.#{$prefix}--pricing-table-header-row--absolute {
+        position: absolute;
       }
     }
   }
@@ -115,12 +120,22 @@
   .#{$prefix}--pricing-table-header-cell:not([scope='row']),
   :host(#{$dds-prefix}-pricing-table-header-cell:not([scope='row'])) {
     padding-block-end: $carbon--layout-06;
+    transition: padding-block-end $duration--slow-01
+      motion(standard, productive);
 
     &.#{$prefix}--pricing-table-header-cell--sticky:not([type='simple']) {
       .#{$prefix}--pricing-table-header-cell-tag-wrapper,
       .#{$prefix}--pricing-table-cell-inner {
-        display: none;
+        transition: $duration--slow-01 motion(standard, productive),
+          opacity $duration--fast-02 motion(standard, productive);
       }
+    }
+
+    .#{$prefix}--pricing-table-header-cell-tag-wrapper,
+    .#{$prefix}--pricing-table-cell-inner {
+      transition: $duration--slow-01 motion(standard, productive),
+        opacity $duration--slow-01 motion(standard, productive)
+          $duration--slow-01;
     }
 
     &.highlighted {
