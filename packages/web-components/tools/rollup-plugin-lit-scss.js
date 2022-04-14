@@ -13,10 +13,10 @@ const path = require('path');
 const { promisify } = require('util');
 /* eslint-disable import/no-extraneous-dependencies */
 const sass = require('node-sass');
-const { createFilter } = require('rollup-pluginutils');
+const { createFilter } = require('@rollup/pluginutils');
 
 const renderSass = promisify(sass.render);
-const noop = s => s;
+const noop = (s) => s;
 
 /**
  * @param {string} css A CSS.

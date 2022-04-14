@@ -16,11 +16,11 @@ const postcss = require('postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const rtlcss = require('rtlcss');
-const resolve = require('rollup-plugin-node-resolve');
-const babel = require('rollup-plugin-babel');
-const commonjs = require('rollup-plugin-commonjs');
-const json = require('rollup-plugin-json');
-const replace = require('rollup-plugin-replace');
+const { nodeResolve } = require('@rollup/plugin-node-resolve');
+const babel = require('@rollup/plugin-babel');
+const commonjs = require('@rollup/plugin-commonjs');
+const json = require('@rollup/plugin-json');
+const replace = require('@rollup/plugin-replace');
 const { terser } = require('rollup-plugin-terser');
 const multiInput = require('rollup-plugin-multi-input').default;
 const injectProcessEnv = require('rollup-plugin-inject-process-env');
@@ -103,7 +103,7 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
   // adding the cloud masthead
   inputs[`cloud-masthead${dirSuffixes[dir]}${modeSuffixes[mode]}`] = 'src/components/masthead/cloud/index.ts';
 
-  folders.forEach(folder => {
+  folders.forEach((folder) => {
     if (folder === 'cta') {
       inputs[`card-cta${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/card-cta.ts`;
       inputs[`feature-cta${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/feature-cta.ts`;
@@ -134,7 +134,7 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
     input: inputs,
     plugins: [
       multiInput(),
-      resolve({
+      nodeResolve({
         browser: true,
         mainFields: ['jsnext', 'module', 'main'],
         dedupe: [
@@ -150,10 +150,6 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
       commonjs({
         include: [/node_modules/],
         sourceMap: true,
-        namedExports: {
-          'redux-logger/dist/redux-logger.js': ['createLogger'],
-          '../utilities/node_modules/marked/lib/marked.umd.js': ['marked'],
-        },
       }),
       ibmdotcomIcon(),
       injectProcessEnv(
@@ -166,7 +162,8 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
           include: ['**/feature-flags.ts'],
         }
       ),
-      babel({
+      babel.babel({
+        babelHelpers: 'inline',
         extensions: ['.ts'],
         exclude: ['node_modules/**'], // only transpile our source code
         presets: ['@babel/preset-modules'],
@@ -201,7 +198,8 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
       }),
       // We are using `carbon-web-components` code merely as the source of inheritance,
       // and we don't want to affect `carbon-web-components`' components application may define elsewhere
-      babel({
+      babel.babel({
+        babelHelpers: 'inline',
         include: [/carbon-web-components\/es\/components\//i],
         plugins: [path.resolve(__dirname, 'babel-plugin-undef-custom-elements')],
       }),
@@ -213,6 +211,7 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
       }),
       replace({
         'process.env.NODE_ENV': JSON.stringify(mode),
+        preventAssignment: true,
       }),
       ...(mode === 'development' ? [license(licenseOptions)] : [terser(), license(licenseOptions)]),
     ],

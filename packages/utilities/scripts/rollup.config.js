@@ -11,12 +11,12 @@ const chalk = require('chalk');
 const Table = require('cli-table');
 const gzip = require('gzip-size');
 
-const commonjs = require('rollup-plugin-commonjs');
+const commonjs = require('@rollup/plugin-commonjs');
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const builtins = require('rollup-plugin-node-builtins');
-const babel = require('rollup-plugin-babel');
-const json = require('rollup-plugin-json');
-const replace = require('rollup-plugin-replace');
+const babel = require('@rollup/plugin-babel');
+const json = require('@rollup/plugin-json');
+const replace = require('@rollup/plugin-replace');
 const { terser } = require('rollup-plugin-terser');
 const sizes = require('rollup-plugin-sizes');
 
@@ -38,8 +38,8 @@ const prodSettings =
               colAligns: ['left', 'right'],
             });
             details.totals
-              .map(item => [chalk.white.bold(item.name), item.size])
-              .forEach(item => {
+              .map((item) => [chalk.white.bold(item.name), item.size])
+              .forEach((item) => {
                 table.push(item);
               });
             console.log(`Sizes of app/dependencies:\n${table}`); // eslint-disable-line no-console
@@ -75,11 +75,13 @@ module.exports = {
       include: [/node_modules/],
       sourceMap: true,
     }),
-    babel({
+    babel.babel({
+      babelHelpers: 'bundled',
       exclude: ['node_modules/**'], // only transpile our source code
     }),
     replace({
       'process.env.NODE_ENV': JSON.stringify(env),
+      preventAssignment: true,
     }),
     builtins(),
     json(),
