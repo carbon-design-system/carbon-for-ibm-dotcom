@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,13 +11,13 @@ const chalk = require('chalk');
 const Table = require('cli-table');
 const gzip = require('gzip-size');
 
-const commonjs = require('rollup-plugin-commonjs');
+const commonjs = require('@rollup/plugin-commonjs');
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const builtins = require('rollup-plugin-node-builtins');
-const babel = require('rollup-plugin-babel');
+const babel = require('@rollup/plugin-babel');
 const scss = require('rollup-plugin-scss');
-const replace = require('rollup-plugin-replace');
-const json = require('rollup-plugin-json');
+const replace = require('@rollup/plugin-replace');
+const json = require('@rollup/plugin-json');
 const { terser } = require('rollup-plugin-terser');
 const sizes = require('rollup-plugin-sizes');
 const visualizer = require('rollup-plugin-visualizer');
@@ -80,32 +80,14 @@ module.exports = {
     commonjs({
       include: [/node_modules/, /icons-react\/lib/],
       sourceMap: true,
-      namedExports: {
-        'react/index.js': [
-          'Children',
-          'Component',
-          'PureComponent',
-          'Fragment',
-          'PropTypes',
-          'cloneElement',
-          'createElement',
-          'useCallback',
-          'useEffect',
-          'useState',
-          'useReducer',
-          'useRef',
-        ],
-        'react-dom/index.js': ['render'],
-        'react-is/index.js': ['isForwardRef'],
-        'downshift/node_modules/react-is/index.js': ['isForwardRef'],
-      },
     }),
-    babel({
-      runtimeHelpers: true,
+    babel.babel({
+      babelHelpers: 'runtime',
       exclude: ['node_modules/**'], // only transpile our source code
     }),
     replace({
       'process.env.NODE_ENV': JSON.stringify(env),
+      preventAssignment: true,
     }),
     builtins(),
     scss(),
@@ -114,7 +96,7 @@ module.exports = {
   ],
   treeshake: {
     propertyReadSideEffects: false,
-    pureExternalModules: true,
+    moduleSideEffects: 'no-external',
   },
   external: peerDependencies,
   output: {
