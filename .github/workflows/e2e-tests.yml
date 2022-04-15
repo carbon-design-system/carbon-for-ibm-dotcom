@@ -14,7 +14,7 @@ jobs:
   web-components:
     strategy:
       matrix:
-        os: [ ubuntu-latest ]
+        os: [ macos-latest ]
         node-version: [ 14.x ]
         browser: [ chromium ]
     runs-on: ${{ matrix.os }}

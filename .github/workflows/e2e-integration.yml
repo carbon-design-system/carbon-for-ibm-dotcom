@@ -13,7 +13,7 @@ concurrency:
 jobs:
   web-components:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     strategy:
       matrix:
         node-version: ['14.x']
@@ -44,7 +44,7 @@ jobs:
           status: ${{ job.status }}
   react:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     strategy:
       matrix:
         node-version: [ '14.x' ]
