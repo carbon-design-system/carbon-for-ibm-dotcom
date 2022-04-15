@@ -13,8 +13,7 @@ import { boolean, select } from '@storybook/addon-knobs';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import 'carbon-web-components/es/components/modal/modal-close-button.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../lightbox-image-viewer';
-import '../lightbox-video-player-container';
+import '../index';
 import styles from './lightbox-media-viewer.stories.scss';
 import readme from './README.stories.mdx';
 
@@ -175,6 +174,89 @@ Default.story = {
             Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.
             Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
             `,
+          title: 'Curabitur malesuada varius mi eu posuere',
+        },
+      },
+    },
+  },
+};
+
+export const ModalWithCarousel = ({ parameters }) => {
+  const { open, disableClose, onBeforeClose, onClose } = parameters?.props?.Modal ?? {};
+  const { alt, defaultSrc, description, title } = parameters?.props?.LightboxImageViewer ?? {};
+  const handleBeforeClose = (event: CustomEvent) => {
+    onBeforeClose?.(event);
+    if (disableClose) {
+      event.preventDefault();
+    }
+  };
+  return html`
+    <style>
+      ${styles}
+    </style>
+    <dds-lightbox
+      ?open="${open}"
+      @dds-expressive-modal-beingclosed="${handleBeforeClose}"
+      @dds-expressive-modal-closed="${onClose}"
+    >
+      <dds-carousel page-size="1">
+        <dds-lightbox-image-viewer
+          alt="${ifNonNull(alt)}"
+          default-src="${ifNonNull(defaultSrc)}"
+          description="${ifNonNull(description)}"
+          title="${ifNonNull(title)}"
+        ></dds-lightbox-image-viewer>
+        <dds-lightbox-image-viewer
+          alt="${ifNonNull(alt)}"
+          default-src="${ifNonNull(defaultSrc)}"
+          description="${ifNonNull(description)}"
+          title="${ifNonNull(title)}"
+        ></dds-lightbox-image-viewer>
+        <dds-lightbox-image-viewer
+          alt="${ifNonNull(alt)}"
+          default-src="${ifNonNull(defaultSrc)}"
+          description="${ifNonNull(description)}"
+          title="${ifNonNull(title)}"
+        ></dds-lightbox-image-viewer>
+        <dds-lightbox-image-viewer
+          alt="${ifNonNull(alt)}"
+          default-src="${ifNonNull(defaultSrc)}"
+          description="${ifNonNull(description)}"
+          title="${ifNonNull(title)}"
+        ></dds-lightbox-image-viewer>
+      </dds-carousel>
+    </dds-lightbox>
+  `;
+};
+
+ModalWithCarousel.story = {
+  parameters: {
+    knobs: {
+      LightboxImageViewer: ({ groupId }) => ({
+        alt: textNullable('Image alt text (alt)', 'Image alt text', groupId),
+        defaultSrc: select('Image (default-src)', images, images['1312 x 656 (2:1)'], groupId),
+        description: textNullable(
+          'Description (description)',
+          `
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.
+            Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+          `,
+          groupId
+        ),
+        title: textNullable('Title (title)', 'Curabitur malesuada varius mi eu posuere', groupId),
+      }),
+    },
+    propsSet: {
+      default: {
+        LightboxImageViewer: {
+          alt: 'Image alt text',
+          defaultSrc: imgXlg2x1,
+          description: `
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.
+            Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+          `,
           title: 'Curabitur malesuada varius mi eu posuere',
         },
       },

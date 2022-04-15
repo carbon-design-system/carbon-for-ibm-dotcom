@@ -52,6 +52,10 @@
     }
   }
 
+  :host(#{$dds-prefix}-lightbox) {
+
+  }
+
   :host(#{$dds-prefix}-lightbox-media-viewer-body),
   .#{$prefix}--lightbox-media-viewer__container {
     display: block;
@@ -108,9 +112,8 @@
         @include carbon--make-col-ready;
         @include carbon--make-col(12, 16);
 
-        position: fixed;
-        height: calc(100vh - #{$spacing-13});
-        width: calc(75% - #{$spacing-09});
+        // height: calc(100vh - #{$spacing-13});
+        // width: calc(75% - #{$spacing-09});
 
         .#{$prefix}--image {
           height: 100%;

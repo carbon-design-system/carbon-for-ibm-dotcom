@@ -147,7 +147,7 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
    *
    * @param event The event.
    */
-  private _handleFocusIn = ({ target, relatedTarget }) => {
+  protected _handleFocusIn = ({ target, relatedTarget }) => {
     let focusFromWithin = false;
     if (target && relatedTarget) {
       const comparedToThis = this.compareDocumentPosition(relatedTarget);
@@ -220,7 +220,7 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
    *
    * @param event The event.
    */
-  private _handleClickContainer(event: MouseEvent) {
+  protected _handleClickContainer(event: MouseEvent) {
     if ((event.target as Element).matches((this.constructor as typeof DDSExpressiveModal).selectorCloseButton)) {
       this._handleUserInitiatedClose(event.target);
     }
@@ -229,7 +229,7 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
   /**
    * Handles `slotchange` event.
    */
-  private _handleSlotChange({ target }: Event) {
+  protected _handleSlotChange({ target }: Event) {
     const { name } = target as HTMLSlotElement;
     const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
