@@ -18,6 +18,12 @@
   .#{$prefix}--pricing-table,
   :host(#{$dds-prefix}-pricing-table) {
     @extend .#{$dds-prefix}--structured-list;
+
+    .#{$dds-prefix}-pricing-table-sentinel {
+      display: block;
+      height: 1px;
+      margin-top: -1px;
+    }
   }
 
   .#{$prefix}--pricing-table-head,
