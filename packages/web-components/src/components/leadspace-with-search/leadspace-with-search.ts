@@ -112,8 +112,10 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
         </div>
       </div>
       <div class="${this._getSearchClass()}">
-        <div class="${prefix}--sticky-header">${this._heading}</div>
-        <slot name="search"></slot>
+        <div class="${prefix}--search-container-inner">
+          <div class="${prefix}--sticky-header">${this._heading}</div>
+          <slot name="search"></slot>
+        </div>
       </div>
       <slot name="hr"></slot>
       ${this._contents.map(e => {
