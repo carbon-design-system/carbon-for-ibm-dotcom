@@ -7,16 +7,7 @@
 
 import '@percy/cypress';
 import 'cypress-axe';
-import serializeDOM from '@percy/dom';
-
 import './commands';
-
-if (window) {
-  // Workaround, @percy/cypress was not properly loading in PercyDOM
-  window.PercyDOM = {
-    serialize: serializeDOM,
-  };
-}
 
 beforeEach(() => {
   // Mock the country list
