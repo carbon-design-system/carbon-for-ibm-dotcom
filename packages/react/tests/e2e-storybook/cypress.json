@@ -10,6 +10,8 @@
   "supportFile": "tests/e2e-storybook/cypress/support/index.js",
   "pluginsFile": "tests/e2e-storybook/cypress/plugins/index.js",
   "testFiles": "**/*.e2e.js",
+  "screenshotOnRunFailure": false,
+  "video": false,
   "pageLoadTimeout": 90000,
   "defaultCommandTimeout": 90000,
   "retries": {

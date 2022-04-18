@@ -37,7 +37,7 @@ describe('dds-masthead | custom search (desktop)', () => {
 
   it('should display grouped results with hrefs', () => {
     // Mock grouped search typeahead API
-    cy.intercept('https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=cloud&categories=&limit=6', {
+    cy.intercept('https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=cloud&lang=undefined&categories=&limit=6', {
       fixture: 'grouped-typeahead.json',
     });
 
