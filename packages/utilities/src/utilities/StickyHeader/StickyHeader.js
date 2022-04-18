@@ -23,6 +23,7 @@ class StickyHeader {
     this._lastScrollPosition = 0;
     this._leadspaceWithSearch = undefined;
     this._leadspaceSearchBar = undefined;
+    this._leadspaceWithSearchStickyThreshold = 0;
     this._localeModal = undefined;
     this._masthead = undefined;
     this._mastheadL0 = undefined;
@@ -43,17 +44,6 @@ class StickyHeader {
       root.stickyHeader = new StickyHeader();
     }
     return root.stickyHeader;
-  }
-
-  /**
-   * True if dotcom shell is not present on page.
-   *
-   * @returns {boolean} true/false
-   */
-  static isNecessary() {
-    return Boolean(
-      !root.document.querySelector(`${ddsPrefix}-dotcom-shell-container`)
-    );
   }
 
   /**
@@ -112,9 +102,16 @@ class StickyHeader {
       this._validateComponent(component, `${ddsPrefix}-leadspace-with-search`)
     ) {
       this._leadspaceWithSearch = component;
-      this._leadspaceWithSearchBar = component.querySelector(
-        'dds-search-with-typeahead'
+      const leadspaceSearchBar = component.shadowRoot.querySelector(
+        `.${prefix}--search-container`
       );
+      this._leadspaceWithSearchBar = leadspaceSearchBar;
+      this._leadspaceWithSearchInput = component.querySelector(
+        `${ddsPrefix}-search-with-typeahead`
+      );
+      this._leadspaceWithSearchStickyThreshold =
+        parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) -
+        16;
     }
   }
 
@@ -164,6 +161,7 @@ class StickyHeader {
       _masthead: masthead,
       _tableOfContents: toc,
       _tableOfContentsLayout: tocLayout,
+      _leadspaceSearchBar: leadspaceSearchBar,
     } = this;
 
     if (toc && masthead) {
@@ -183,6 +181,12 @@ class StickyHeader {
       }
       this._handleScroll();
     }
+
+    if (leadspaceSearchBar) {
+      this._leadspaceWithSearchStickyThreshold =
+        parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) -
+        16;
+    }
   }
 
   _handleScroll() {
@@ -195,6 +199,10 @@ class StickyHeader {
       _localeModal: localeModal,
       _tableOfContents: toc,
       _tableOfContentsInnerBar: tocInner,
+      _leadspaceWithSearch: leadspaceSearch,
+      _leadspaceWithSearchBar: leadspaceSearchBar,
+      _leadspaceWithSearchInput: leadspaceSearchInput,
+      _leadspaceWithSearchStickyThreshold: leadspaceSearchThreshold,
     } = StickyHeader.global;
 
     if (localeModal && localeModal.hasAttribute('open')) return;
@@ -202,19 +210,33 @@ class StickyHeader {
     const newY = window.scrollY;
     this._lastScrollPosition = newY;
 
+    /**
+     * maxScrollaway is a calculated value matching the height of all components
+     * that are allowed to hide above the viewport.
+     *
+     * We should only have one sticky header showing as the page scrolls down.
+     *
+     * Items that stick, in order
+     * - L0
+     * - L1
+     * - The TOC in horizontal bar form
+     * - The leadspace with search (if no TOC)
+     */
     let maxScrollaway = 0;
 
-    const topmostElement = masthead || tocInner;
+    // Calculate maxScrollaway values based on TOC positon
+    let tocIsAtTop = false;
+    let tocShouldStick = false;
 
-    if (masthead && tocInner) {
-      const tocIsAtTop =
+    if (tocInner) {
+      tocIsAtTop =
         tocInner.getBoundingClientRect().top <=
-        masthead.offsetTop + masthead.offsetHeight + 1;
+        (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1;
 
-      const tocShouldStick =
+      tocShouldStick =
         toc.layout === 'horizontal' || window.innerWidth < gridBreakpoint;
 
-      if (tocIsAtTop && (tocShouldStick || mastheadL1)) {
+      if (masthead && tocIsAtTop && (tocShouldStick || mastheadL1)) {
         maxScrollaway += masthead.offsetHeight;
 
         if (mastheadL1 && !tocShouldStick) {
@@ -223,26 +245,86 @@ class StickyHeader {
       } else if (mastheadL0 && mastheadL1) {
         maxScrollaway += mastheadL0.offsetHeight;
       }
+    }
 
-      let cumulativeOffset = Math.max(
-        Math.min(topmostElement.offsetTop + oldY - newY, 0),
-        maxScrollaway * -1
-      );
+    // Calculate maxScrollaway values based on leadspace search position
+    if (!tocInner && leadspaceSearchBar) {
+      const searchIsAtTop =
+        leadspaceSearchBar.getBoundingClientRect().top <=
+        (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1;
 
-      if (banner) {
-        cumulativeOffset += Math.max(banner.offsetHeight - newY, 0);
+      if (masthead && searchIsAtTop) {
+        maxScrollaway += masthead.offsetHeight;
+      }
+    }
+
+    /**
+     * Cumulative offset is a calculated value used to set the `top` property of
+     * components that stick to the top of the viewport.
+     *
+     * This value is equal to the difference between the previous scrollY and
+     * the current scrollY values, but is positively and negatively limited.
+     *
+     * Positive limit: 0
+     *   all elements visible, starting at the top of the viewport.
+     *
+     * Negative limit: maxScrollaway * -1
+     *   all elements that should be hidden are positioned above the viewport
+     *   with the elements that should be visible starting at the top of the
+     *   viewport.
+     */
+    let cumulativeOffset = masthead
+      ? Math.max(
+          Math.min(masthead.offsetTop + oldY - newY, 0),
+          maxScrollaway * -1
+        )
+      : Math.max(Math.min(oldY - newY, 0), maxScrollaway * -1);
+
+    if (banner) {
+      cumulativeOffset += Math.max(banner.offsetHeight - newY, 0);
+    }
+
+    if (masthead) {
+      masthead.style.transition = 'none';
+      masthead.style.top = `${cumulativeOffset}px`;
+      cumulativeOffset += masthead.offsetHeight;
+    }
+
+    if (tocInner) {
+      tocInner.style.transition = 'none';
+      tocInner.style.top = `${cumulativeOffset}px`;
+      cumulativeOffset += tocInner.offsetHeight;
+    }
+
+    if (!tocInner && leadspaceSearchBar) {
+      const searchShouldBeSticky =
+        leadspaceSearch.getBoundingClientRect().bottom <=
+        leadspaceSearchThreshold;
+      const searchIsSticky = leadspaceSearch.hasAttribute('sticky-search');
+
+      if (searchShouldBeSticky) {
+        if (!searchIsSticky) {
+          leadspaceSearch.style.paddingBottom = `${leadspaceSearchBar.offsetHeight}px`;
+          leadspaceSearch.setAttribute('sticky-search', '');
+          leadspaceSearchInput.setAttribute('large', '');
+
+          window.requestAnimationFrame(() => {
+            leadspaceSearchBar.style.transitionDuration = '110ms';
+            leadspaceSearchBar.style.transform = 'translateY(0)';
+          });
+        }
+
+        leadspaceSearchBar.style.top = `${cumulativeOffset}px`;
+        cumulativeOffset += leadspaceSearchBar.offsetHeight;
       }
 
-      if (masthead) {
-        masthead.style.transition = 'none';
-        masthead.style.top = `${cumulativeOffset}px`;
-        cumulativeOffset += masthead.offsetHeight;
-      }
-
-      if (tocInner) {
-        tocInner.style.transition = 'none';
-        tocInner.style.top = `${cumulativeOffset}px`;
-        cumulativeOffset += tocInner.offsetHeight;
+      if (!searchShouldBeSticky && searchIsSticky) {
+        leadspaceSearch.removeAttribute('sticky-search');
+        leadspaceSearch.style.paddingBottom = '';
+        leadspaceSearchBar.style.top = '';
+        leadspaceSearchBar.style.transitionDuration = '';
+        leadspaceSearchBar.style.transform = '';
+        leadspaceSearchInput.removeAttribute('large');
       }
     }
   }

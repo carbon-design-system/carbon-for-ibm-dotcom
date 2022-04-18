@@ -77,9 +77,7 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
   }
 
   firstUpdated() {
-    if (StickyHeader.isNecessary()) {
-      StickyHeader.global.banner = this;
-    }
+    StickyHeader.global.banner = this;
   }
 
   updated() {
