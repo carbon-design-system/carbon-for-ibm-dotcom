@@ -14,11 +14,11 @@ jobs:
   web-components:
     strategy:
       matrix:
-        os: [ ubuntu-latest ]
+        os: [ macos-latest ]
         node-version: [ 14.x ]
         browser: [ chromium ]
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 60
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
