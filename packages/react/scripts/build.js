@@ -8,7 +8,12 @@
 'use strict';
 
 const { execSync } = require('child_process');
+const { inInstall } = require('in-publish');
 const path = require('path');
+
+if (inInstall()) {
+  process.exit(0);
+}
 
 const babelPath = path
   .resolve(__dirname, '../node_modules/.bin/babel')
