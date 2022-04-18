@@ -12,7 +12,7 @@
 const path = require('path');
 const readPkgUp = require('read-pkg-up');
 const MagicString = require('magic-string');
-const { createFilter } = require('@rollup/pluginutils');
+const { createFilter } = require('rollup-pluginutils');
 
 function rollupPluginLicense({ include, exclude, whitelist, sourcemap, sourceMap, licenseSelf } = {}) {
   const filter = createFilter(include, exclude);
