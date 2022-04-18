@@ -88,7 +88,6 @@
     "@carbon/pictograms-react": "11.26.2",
     "@carbon/storybook-addon-theme": "1.24.0-rc.0",
     "@percy-io/in-percy": "^0.1.11",
-    "@percy/agent": "^0.28.7",
     "@percy/cli": "^1.0.5",
     "@percy/cypress": "^3.1.1",
     "@percy/dom": "^1.0.5",
