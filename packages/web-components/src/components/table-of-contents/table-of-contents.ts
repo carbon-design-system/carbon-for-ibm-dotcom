@@ -565,9 +565,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
     this._cleanAndCreateObserverResizeMobileContainer({ create: true });
     this._cleanAndCreateIntersectionObserverContainer({ create: true });
 
-    if (StickyHeader.isNecessary()) {
-      StickyHeader.global.tableOfContents = this;
-    }
+    StickyHeader.global.tableOfContents = this;
   }
 
   updated(changedProperties) {
