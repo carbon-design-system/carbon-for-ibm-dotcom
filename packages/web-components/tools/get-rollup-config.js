@@ -103,7 +103,7 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
   // adding the cloud masthead
   inputs[`cloud-masthead${dirSuffixes[dir]}${modeSuffixes[mode]}`] = 'src/components/masthead/cloud/index.ts';
 
-  folders.forEach((folder) => {
+  folders.forEach(folder => {
     if (folder === 'cta') {
       inputs[`card-cta${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/card-cta.ts`;
       inputs[`feature-cta${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/feature-cta.ts`;
