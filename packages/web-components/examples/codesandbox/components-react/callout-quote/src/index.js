@@ -19,13 +19,13 @@ import './index.css';
 const App = () => (
   <DDSCalloutQuote mark-type="double-curved">
     Bringing together the technology and expertise for a new way to create
-  <DDSQuoteSourceHeading>John Doe</DDSQuoteSourceHeading>
-  <DDSQuoteSourceCopy>Senior Vice President</DDSQuoteSourceCopy>
-  <DDSQuoteSourceBottomCopy>IBM Cloud</DDSQuoteSourceBottomCopy>
-  <DDSCalloutLinkWithIcon slot="footer" href="https://example.com">
-    Link with icon <ArrowRight20 slot="icon"></ArrowRight20>
-  </DDSCalloutLinkWithIcon>
-</DDSCalloutQuote>
+    <DDSQuoteSourceHeading>John Doe</DDSQuoteSourceHeading>
+    <DDSQuoteSourceCopy>Senior Vice President</DDSQuoteSourceCopy>
+    <DDSQuoteSourceBottomCopy>IBM Cloud</DDSQuoteSourceBottomCopy>
+    <DDSCalloutLinkWithIcon slot="footer" href="https://example.com">
+      Link with icon <ArrowRight20 slot="icon"></ArrowRight20>
+    </DDSCalloutLinkWithIcon>
+  </DDSCalloutQuote>
 );
 
 render(<App />, document.getElementById('root'));
