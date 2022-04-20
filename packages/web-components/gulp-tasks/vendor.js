@@ -83,7 +83,7 @@ const utilitiesVendorCJSDst = () =>
   gulp.src([`${utilitiesCJSSrcDir}/**/*`, '!**/*-{test,story}.js']).pipe(gulp.dest(utilitiesVendorCJSDstDir));
 
 // Vendor builds
+gulp.task('vendor:utilities', gulp.parallel(utilitiesVendorSrc, utilitiesVendorCJSDst, utilitiesVendorESDst));
 gulp.task('vendor:services', gulp.parallel(servicesVendorSrc, servicesVendorCJSDst, servicesVendorESDst));
 gulp.task('vendor:services-store', gulp.parallel(servicesStoreVendorSrc, servicesStoreVendorCJSDst, servicesStoreVendorESDst));
-gulp.task('vendor:utilities', gulp.parallel(utilitiesVendorSrc, utilitiesVendorCJSDst, utilitiesVendorESDst));
-gulp.task('vendor', gulp.series(gulp.task('vendor:services'), gulp.task('vendor:services-store'), gulp.task('vendor:utilities')));
+gulp.task('vendor', gulp.series(gulp.task('vendor:utilities'), gulp.task('vendor:services'), gulp.task('vendor:services-store')));

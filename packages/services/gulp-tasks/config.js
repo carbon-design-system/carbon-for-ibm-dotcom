@@ -53,12 +53,12 @@ module.exports = {
   sassDestDir: 'scss',
   tasksDir: 'gulp-tasks',
   utilitiesCJSSrcDir: path.resolve(
-    path.dirname(require.resolve('@carbon/ibmdotcom-utilities/package.json')),
-    'lib'
+    __dirname,
+    '../../utilities/lib'
   ),
   utilitiesESSrcDir: path.resolve(
-    path.dirname(require.resolve('@carbon/ibmdotcom-utilities/package.json')),
-    'es'
+    __dirname,
+    '../../utilities/es'
   ),
   utilitiesVendorSrcDir: path.resolve(
     __dirname,
