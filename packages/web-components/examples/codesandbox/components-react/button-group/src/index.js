@@ -16,15 +16,15 @@ import './index.css';
 
 const App = () => (
   <DDSButtonGroup>
-  <DDSButtonGroupItem href="https://www.example.com">
-    <ArrowRight20 slot="icon" />
-    Button 1
-  </DDSButtonGroupItem>
-  <DDSButtonGroupItem href="https://www.example.com">
-    <ArrowRight20 slot="icon" />
-    Button 2
-  </DDSButtonGroupItem>
-</DDSButtonGroup>
+    <DDSButtonGroupItem href="https://www.example.com">
+      <ArrowRight20 slot="icon" />
+      Button 1
+    </DDSButtonGroupItem>
+    <DDSButtonGroupItem href="https://www.example.com">
+      <ArrowRight20 slot="icon" />
+      Button 2
+    </DDSButtonGroupItem>
+  </DDSButtonGroup>
 );
 
 render(<App />, document.getElementById('root'));
