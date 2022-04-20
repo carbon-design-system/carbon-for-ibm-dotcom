@@ -14,8 +14,6 @@ import DDSHorizontalRule from '@carbon/ibmdotcom-web-components/es/components-re
 /* eslint-enable max-len */
 import './index.css';
 
-const App = () => (
-  <DDSHorizontalRule size="fluid"></DDSHorizontalRule>
-);
+const App = () => <DDSHorizontalRule size="fluid"></DDSHorizontalRule>;
 
 render(<App />, document.getElementById('root'));
