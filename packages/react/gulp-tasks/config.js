@@ -72,14 +72,8 @@ module.exports = {
     __dirname,
     '../lib/internal/vendor/carbon-components-react'
   ),
-  servicesCJSSrcDir: path.resolve(
-    path.dirname(require.resolve('@carbon/ibmdotcom-services/package.json')),
-    'lib'
-  ),
-  servicesESSrcDir: path.resolve(
-    path.dirname(require.resolve('@carbon/ibmdotcom-services/package.json')),
-    'es'
-  ),
+  servicesCJSSrcDir: path.resolve(__dirname, '../../services/lib'),
+  servicesESSrcDir: path.resolve(__dirname, '../../services/es'),
   servicesVendorSrcDir: path.resolve(
     __dirname,
     '../src/internal/vendor/@carbon/ibmdotcom-services'
@@ -92,14 +86,8 @@ module.exports = {
     __dirname,
     '../lib/internal/vendor/@carbon/ibmdotcom-services'
   ),
-  utilitiesCJSSrcDir: path.resolve(
-    path.dirname(require.resolve('@carbon/ibmdotcom-utilities/package.json')),
-    'lib'
-  ),
-  utilitiesESSrcDir: path.resolve(
-    path.dirname(require.resolve('@carbon/ibmdotcom-utilities/package.json')),
-    'es'
-  ),
+  utilitiesCJSSrcDir: path.resolve(__dirname, '../../utilities/lib'),
+  utilitiesESSrcDir: path.resolve(__dirname, '../../utilities/es'),
   utilitiesVendorSrcDir: path.resolve(
     __dirname,
     '../src/internal/vendor/@carbon/ibmdotcom-utilities'

@@ -231,7 +231,7 @@
     "karma-sourcemap-loader": "^0.3.0",
     "karma-spec-reporter": "0.0.34",
     "karma-webpack": "^4.0.0",
-    "lint-staged": "^8.1.0",
+    "lint-staged": "^12.3.8",
     "magic-string": "^0.26.0",
     "marked": "^4.0.10",
     "mini-css-extract-plugin": "^0.12.0",
