@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.33.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.33.0-rc.0...@carbon/ibmdotcom-services@1.33.0-rc.1) (2022-04-21)
+
+
+### Bug Fixes
+
+* **vendor:** fix to pull direct source for internal vendor packages ([#8734](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8734)) ([be94613](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/be94613))
+
+
+
+
+
 # [1.33.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.31.0...@carbon/ibmdotcom-services@1.33.0-rc.0) (2022-04-11)
 
 

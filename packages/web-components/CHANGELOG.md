@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.18.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.18.0-rc.0...@carbon/ibmdotcom-web-components@1.18.0-rc.1) (2022-04-21)
+
+
+### Bug Fixes
+
+* **vendor:** fix to pull direct source for internal vendor packages ([#8734](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8734)) ([be94613](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/be94613))
+
+
+
+
+
 # [1.18.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.16.0...@carbon/ibmdotcom-web-components@1.18.0-rc.0) (2022-04-11)
 
 
