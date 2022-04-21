@@ -79,7 +79,7 @@ module.exports = ({ config, mode }) => {
     test: /.stories\.jsx?$/,
     loaders: [
       {
-        loader: require.resolve('@storybook/addon-storysource/loader'),
+        loader: require.resolve('@storybook/source-loader'),
         options: {
           prettierConfig: {
             parser: 'babylon',

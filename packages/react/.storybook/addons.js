@@ -6,7 +6,7 @@
  */
 
 import '@storybook/addon-knobs/register';
-import '@storybook/addon-storysource/register';
+import '@storybook/source-loader';
 import '@storybook/addon-links/register';
 import '@storybook/addon-options/register';
 import '@carbon/storybook-addon-theme/es/register';
