@@ -85,8 +85,7 @@ const bodyCopyWithFeaturedMedia = `Lorem ipsum *dolor* sit amet, [consectetur
   nulla quis,consequat libero.`;
 
 export const Default = args => {
-  const { eyebrow, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
-    args?.ContentItemHorizontal ?? {};
+  const { eyebrow, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } = args?.ContentItemHorizontal ?? {};
 
   return (
     <DDSContentItemHorizontal>
