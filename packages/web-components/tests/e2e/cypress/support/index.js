@@ -5,17 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import serializeDOM from '@percy/dom';
 import '@percy/cypress';
-
 import './commands';
-
-// Workaround, @percy/cypress was not properly loading in PercyDOM
-if (window) {
-  window.PercyDOM = {
-    serialize: serializeDOM,
-  };
-}
 
 beforeEach(() => {
   // Mock the country list

@@ -1,17 +1,17 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import altlangs from '@carbon/ibmdotcom-utilities/es/utilities/altlangs/altlangs.js';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import altlangs from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/altlangs/altlangs.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import { Country, LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import './locale-modal';
