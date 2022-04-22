@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -38,7 +38,10 @@ import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image
 import readme from './README.stories.react.mdx';
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-horizontal/defs';
-import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
+import imgLg16x9a from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
+import imgLg16x9b from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
+import imgLg16x9c from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--003.jpg';
+import imgLg16x9d from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { CTA_TYPE } from '../../cta/defs';
 
@@ -65,7 +68,7 @@ export const Default = ({ parameters }) => {
       <DDSContentSectionHeading>{sectionHeading || undefined}</DDSContentSectionHeading>
       <DDSTab label="First tab">
         <DDSContentItemHorizontalMedia align={align}>
-          {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt={alt || undefined} default-src={imgLg16x9}></DDSImage> : ''}
+          {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt={alt || undefined} default-src={imgLg16x9a}></DDSImage> : ''}
           {type === MEDIA_TYPE.VIDEO ? (
             <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
           ) : (
@@ -85,7 +88,7 @@ export const Default = ({ parameters }) => {
       </DDSTab>
       <DDSTab label="Second tab">
         <DDSContentItemHorizontalMedia align={align}>
-          {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt={alt || undefined} default-src={imgLg16x9}></DDSImage> : ''}
+          {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt={alt || undefined} default-src={imgLg16x9b}></DDSImage> : ''}
           {type === MEDIA_TYPE.VIDEO ? (
             <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
           ) : (
@@ -105,7 +108,7 @@ export const Default = ({ parameters }) => {
       </DDSTab>
       <DDSTab label="Third tab">
         <DDSContentItemHorizontalMedia align={align}>
-          {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt={alt || undefined} default-src={imgLg16x9}></DDSImage> : ''}
+          {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt={alt || undefined} default-src={imgLg16x9c}></DDSImage> : ''}
           {type === MEDIA_TYPE.VIDEO ? (
             <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
           ) : (
@@ -125,7 +128,7 @@ export const Default = ({ parameters }) => {
       </DDSTab>
       <DDSTab label="Fourth tab">
         <DDSContentItemHorizontalMedia align={align}>
-          {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt={alt || undefined} default-src={imgLg16x9}></DDSImage> : ''}
+          {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt={alt || undefined} default-src={imgLg16x9d}></DDSImage> : ''}
           {type === MEDIA_TYPE.VIDEO ? (
             <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
           ) : (

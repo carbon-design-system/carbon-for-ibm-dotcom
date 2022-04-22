@@ -15,7 +15,10 @@ import '../index';
 
 import { ICON_PLACEMENT } from '../../../globals/defs';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-horizontal/defs';
-import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
+import imgLg16x9a from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
+import imgLg16x9b from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
+import imgLg16x9c from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--003.jpg';
+import imgLg16x9d from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { CTA_TYPE } from '../../cta/defs';
 
@@ -44,7 +47,7 @@ export const Default = ({ parameters }) => {
         <dds-content-item-horizontal-media align="${align}">
           ${type === MEDIA_TYPE.IMAGE
             ? html`
-                <dds-image slot="media" alt="${ifNonNull(alt)}" default-src="${imgLg16x9}"></dds-image>
+                <dds-image slot="media" alt="${ifNonNull(alt)}" default-src="${imgLg16x9a}"></dds-image>
               `
             : null}
           ${type === MEDIA_TYPE.VIDEO
@@ -76,7 +79,7 @@ export const Default = ({ parameters }) => {
         <dds-content-item-horizontal-media align="${align}">
           ${type === MEDIA_TYPE.IMAGE
             ? html`
-                <dds-image slot="media" alt="${ifNonNull(alt)}" default-src="${imgLg16x9}"></dds-image>
+                <dds-image slot="media" alt="${ifNonNull(alt)}" default-src="${imgLg16x9b}"></dds-image>
               `
             : null}
           ${type === MEDIA_TYPE.VIDEO
@@ -108,7 +111,7 @@ export const Default = ({ parameters }) => {
         <dds-content-item-horizontal-media align="${align}">
           ${type === MEDIA_TYPE.IMAGE
             ? html`
-                <dds-image slot="media" alt="${ifNonNull(alt)}" default-src="${imgLg16x9}"></dds-image>
+                <dds-image slot="media" alt="${ifNonNull(alt)}" default-src="${imgLg16x9c}"></dds-image>
               `
             : null}
           ${type === MEDIA_TYPE.VIDEO
@@ -140,7 +143,7 @@ export const Default = ({ parameters }) => {
         <dds-content-item-horizontal-media align="${align}">
           ${type === MEDIA_TYPE.IMAGE
             ? html`
-                <dds-image slot="media" alt="${ifNonNull(alt)}" default-src="${imgLg16x9}"></dds-image>
+                <dds-image slot="media" alt="${ifNonNull(alt)}" default-src="${imgLg16x9d}"></dds-image>
               `
             : null}
           ${type === MEDIA_TYPE.VIDEO
