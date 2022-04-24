@@ -42,6 +42,9 @@ class DDSTab extends StableSelectorMixin(LitElement) {
   /**
    * Defines the index of the tab relative to other tabs.
    */
+  @property({ reflect: true })
+  index: Number = 0;
+
   @state()
   private _index: Number = 0;
 
@@ -50,6 +53,7 @@ class DDSTab extends StableSelectorMixin(LitElement) {
    */
   setIndex(index: Number) {
     this._index = index;
+    this.index = index;
   }
 
   render() {

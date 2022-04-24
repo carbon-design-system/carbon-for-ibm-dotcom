@@ -43,6 +43,9 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   @state()
   private _isLTR: boolean = true;
 
+  @state()
+  private _isHorizontal = true;
+
   /**
    * Handler for @slotChange, creates tabs from dds-tab components.
    *
@@ -58,13 +61,28 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
 
   private _handleClick(index, e) {
     e.preventDefault();
-    this._setActiveItem(index);
+    this._setPanelFocus(index);
+  }
+
+  private _setPanelFocus(index: number) {
+    this._activeTab = index;
+    const newTabPanel = this.querySelector(`dds-tab[index="${index}"]`).shadowRoot?.querySelector(`[role="tabpanel"]`);
+    const newTabLink = this.shadowRoot?.querySelector(`
+    [role="tablist"] li[role="tab"]:nth-child(${index + 1}) .bx--tabs__nav-link`);
+
+    if (newTabPanel instanceof HTMLElement) {
+      newTabLink.blur();
+      setTimeout(() => {
+        newTabPanel.focus();
+      }, 0);
+    }
   }
 
   private _setActiveItem(index: number) {
     this._activeTab = index;
     const newTabLink = this.shadowRoot?.querySelector(`
     [role="tablist"] li[role="tab"]:nth-child(${index + 1}) .bx--tabs__nav-link`);
+
     if (newTabLink instanceof HTMLElement) {
       newTabLink.focus();
     }
@@ -72,7 +90,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
 
   private _handleTabListKeyDown(event: KeyboardEvent) {
     const { key } = event;
-    const { _activeTab: activeTab, _tabItems: tabItems, _isLTR: isLTR } = this;
+    const { _activeTab: activeTab, _tabItems: tabItems, _isLTR: isLTR, _isHorizontal: isHorizontal } = this;
     switch (key) {
       case 'ArrowRight':
         if (isLTR) {
@@ -92,13 +110,20 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
         this._setActiveItem(this._getPrevTab(activeTab));
         break;
       case 'ArrowDown':
-        this._setActiveItem(this._getNextTab(activeTab));
+        if (isHorizontal) {
+          this._setPanelFocus(this._activeTab);
+        } else {
+          this._setActiveItem(this._getNextTab(activeTab));
+        }
         break;
       case 'Home':
         this._setActiveItem(this._getNextTab(-1));
         break;
       case 'End':
         this._setActiveItem(this._getPrevTab(tabItems.length));
+        break;
+      case 'Enter':
+        this._setPanelFocus(this._activeTab);
         break;
       default:
         break;
@@ -147,6 +172,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
 
   updated() {
     this._isLTR = window.getComputedStyle(this).direction === 'ltr';
+    this._isHorizontal = this.orientation === 'horizontal';
 
     this._tabItems.map((tab, index) => {
       (tab as DDSTab).selected = index === this._activeTab;
