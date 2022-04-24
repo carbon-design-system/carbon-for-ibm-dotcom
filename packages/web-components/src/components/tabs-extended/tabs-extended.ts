@@ -66,12 +66,15 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
 
   private _setPanelFocus(index: number) {
     this._activeTab = index;
-    const newTabPanel = this.querySelector(`dds-tab[index="${index}"]`).shadowRoot?.querySelector(`[role="tabpanel"]`);
     const newTabLink = this.shadowRoot?.querySelector(`
     [role="tablist"] li[role="tab"]:nth-child(${index + 1}) .bx--tabs__nav-link`);
+    const newTabPanel = this.querySelector(`dds-tab[index="${index}"]`)?.shadowRoot?.querySelector(`[role="tabpanel"]`);
+
+    if (newTabLink instanceof HTMLElement) {
+      newTabLink.blur();
+    }
 
     if (newTabPanel instanceof HTMLElement) {
-      newTabLink.blur();
       setTimeout(() => {
         newTabPanel.focus();
       }, 0);
