@@ -194,7 +194,9 @@ export const ModalWithCarousel = ({ parameters }) => {
     <style>
       ${styles}
     </style>
-    <dds-lightbox
+    <dds-expressive-modal
+      expressive-size="full-width"
+      mode="lightbox"
       ?open="${open}"
       @dds-expressive-modal-beingclosed="${handleBeforeClose}"
       @dds-expressive-modal-closed="${onClose}"
@@ -203,7 +205,7 @@ export const ModalWithCarousel = ({ parameters }) => {
         <dds-lightbox-image-viewer
           alt="${ifNonNull(alt)}"
           default-src="${ifNonNull(defaultSrc)}"
-          description="${ifNonNull(description)}"
+          description="${ifNonNull(description)} ${ifNonNull(description)} ${ifNonNull(description)} ${ifNonNull(description)} ${ifNonNull(description)} ${ifNonNull(description)} ${ifNonNull(description)} ${ifNonNull(description)} "
           title="${ifNonNull(title)}"
         ></dds-lightbox-image-viewer>
         <dds-lightbox-image-viewer
@@ -225,7 +227,7 @@ export const ModalWithCarousel = ({ parameters }) => {
           title="${ifNonNull(title)}"
         ></dds-lightbox-image-viewer>
       </dds-carousel>
-    </dds-lightbox>
+    </dds-expressive-modal>
   `;
 };
 

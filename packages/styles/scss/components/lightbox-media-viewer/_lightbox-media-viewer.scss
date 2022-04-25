@@ -52,17 +52,13 @@
     }
   }
 
-  :host(#{$dds-prefix}-lightbox) {
-
-  }
-
   :host(#{$dds-prefix}-lightbox-media-viewer-body),
   .#{$prefix}--lightbox-media-viewer__container {
     display: block;
     width: 100%;
     padding-top: $spacing-09;
     padding-bottom: $spacing-05;
-    overflow-y: auto;
+    height: 100%;
 
     @include carbon--breakpoint('md') {
       padding-top: $spacing-07;
@@ -83,6 +79,7 @@
 
       flex-flow: column nowrap;
       width: 100%;
+      height: 100%;
 
       @include carbon--breakpoint('lg') {
         flex-direction: row;
@@ -124,7 +121,9 @@
     .#{$prefix}--lightbox-media-viewer__media-description {
       display: flex;
       flex-direction: column;
-      padding-bottom: $spacing-07;
+      position: relative;
+      overflow-y: auto;
+      margin-top: calc(#{$spacing-07} * -1);
 
       @include carbon--breakpoint('lg') {
         @include carbon--make-col-ready;
@@ -135,33 +134,31 @@
 
       &::before,
       &::after {
+
         @include carbon--breakpoint('md') {
           content: '';
           display: block;
-          position: fixed;
+          position: sticky;
           height: $spacing-07;
-          width: calc(100% - #{$spacing-12});
+          width: 100%;
           z-index: 1;
-        }
-
-        @include carbon--breakpoint('lg') {
-          width: calc(25% - #{$spacing-09});
         }
       }
 
       &::before {
-        top: $spacing-07;
+        top: 0;
         background: linear-gradient(to bottom, $ui-01, transparent);
       }
 
       &::after {
-        bottom: $spacing-07;
+        top: calc(100% - #{$spacing-07});
         background: linear-gradient(to top, $ui-01, transparent);
       }
     }
 
     .#{$prefix}--lightbox-media-viewer__content {
       padding-right: $carbon--spacing-07;
+      position: absolute;
 
       @include carbon--type-style('body-long-02');
       @include carbon--breakpoint('lg') {
@@ -180,6 +177,7 @@
 
     .#{$prefix}--lightbox-media-viewer__content__desc {
       color: $text-02;
+      padding-bottom: $spacing-07;
 
       @include carbon--type-style('body-long-02');
     }

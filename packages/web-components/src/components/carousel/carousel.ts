@@ -397,6 +397,9 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   @property({ attribute: false })
   formatStatus = ({ currentPage, pages }) => `${currentPage} / ${pages}`;
 
+  @property({ reflect: true, attribute: 'in-modal' })
+  inModal?: String;
+
   /**
    * Number of items per page.
    * If `--dds--carousel--page-size` CSS custom property is set to `<div class="bx--carousel__scroll-container">`
@@ -434,6 +437,10 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
+
+    if (this.closest(`${ddsPrefix}-expressive-modal`)) {
+      this.inModal = '';
+    }
   }
 
   disconnectedCallback() {

@@ -100,6 +100,20 @@
   }
 }
 
+:host(#{$dds-prefix}-carousel[in-modal]) {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+
+  .#{$prefix}--carousel__scroll-container {
+    flex-grow: 1;
+  }
+
+  .#{$prefix}--carousel__scroll-contents {
+    height: 100%;
+  }
+}
+
 @media print {
   :host(#{$dds-prefix}-carousel),
   .#{$prefix}--carousel {
