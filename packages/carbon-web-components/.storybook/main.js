@@ -26,7 +26,7 @@ module.exports = {
     '@storybook/addon-knobs',
     '@storybook/addon-storysource',
     path.resolve(__dirname, 'addon-carbon-theme'),
-    path.resolve(__dirname, 'addon-knobs-args'),
+    path.resolve(__dirname, 'addon-knobs-args')
   ],
   managerWebpack(config) {
     // Ignores our `.babelrc` for manager
@@ -36,7 +36,7 @@ module.exports = {
       value => ({
         ...value,
         babelrc: false,
-        configFile: false,
+        configFile: false
       })
     );
     return config;
@@ -51,8 +51,8 @@ module.exports = {
         value[0],
         {
           modules: false,
-          targets: ['last 1 version', 'Firefox ESR', 'ie >= 11'],
-        },
+          targets: ['last 1 version', 'Firefox ESR', 'ie >= 11']
+        }
       ]
     );
     // Uses `@babel/plugin-proposal-decorators` configuration in our `.babelrc`
@@ -73,8 +73,8 @@ module.exports = {
         value[0],
         {
           ...value[1],
-          loose: false,
-        },
+          loose: false
+        }
       ]
     );
     // Supports `*-story.mdx`
@@ -102,14 +102,14 @@ module.exports = {
                   '@babel/preset-env',
                   {
                     modules: false,
-                    targets: ['last 1 version', 'Firefox ESR', 'ie >= 11'],
-                  },
-                ],
-              ],
-            },
+                    targets: ['last 1 version', 'Firefox ESR', 'ie >= 11']
+                  }
+                ]
+              ]
+            }
           },
-          require.resolve('../tools/svg-result-carbon-icon-loader'),
-        ],
+          require.resolve('../tools/svg-result-carbon-icon-loader')
+        ]
       },
       {
         test: /\.scss$/,
@@ -123,9 +123,9 @@ module.exports = {
               plugins: () => [
                 require('../tools/postcss-fix-host-pseudo')(),
                 require('autoprefixer')(),
-                ...(useRtl ? [rtlcss] : []),
-              ],
-            },
+                ...(useRtl ? [rtlcss] : [])
+              ]
+            }
           },
           {
             loader: 'sass-loader',
@@ -138,15 +138,15 @@ module.exports = {
               implementation: sass,
               webpackImporter: false,
               sassOptions: {
-                includePaths: [path.resolve(__dirname, '..', 'node_modules')],
-              },
-            },
-          },
-        ],
+                includePaths: [path.resolve(__dirname, '..', 'node_modules')]
+              }
+            }
+          }
+        ]
       },
       {
         test: /\.html$/,
-        use: 'file-loader',
+        use: 'file-loader'
       }
     );
 
@@ -158,5 +158,5 @@ module.exports = {
     config.resolve.alias['carbon-web-components/es/icons'] = '@carbon/icons/lib';
 
     return config;
-  },
+  }
 };

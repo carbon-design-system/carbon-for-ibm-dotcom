@@ -20,7 +20,7 @@ module.exports = function resourceCJSPaths(babel) {
           declaration.source.value = source.replace(/^carbon-components\/es/i, 'carbon-components/umd');
           path.replaceWith(declaration);
         }
-      },
-    },
+      }
+    }
   };
 };

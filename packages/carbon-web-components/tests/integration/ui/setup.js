@@ -24,11 +24,11 @@ module.exports = async config => {
     await setupDevServer({
       command: `yarn http-server storybook-static -p ${process.env.PORT}`,
       launchTimeout: Number(process.env.LAUNCH_TIMEOUT),
-      port: process.env.PORT,
+      port: process.env.PORT
     });
     await isPortReachable(Number(process.env.PORT), {
       host: 'localhost',
-      timeout: Number(process.env.LAUNCH_TIMEOUT),
+      timeout: Number(process.env.LAUNCH_TIMEOUT)
     });
   }
 };

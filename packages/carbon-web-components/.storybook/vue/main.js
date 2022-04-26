@@ -31,14 +31,14 @@ module.exports = {
                 '@babel/preset-env',
                 {
                   modules: false,
-                  targets: ['last 1 version', 'Firefox ESR', 'ie >= 11'],
-                },
-              ],
-            ],
-          },
-        },
-      ],
+                  targets: ['last 1 version', 'Firefox ESR', 'ie >= 11']
+                }
+              ]
+            ]
+          }
+        }
+      ]
     });
     return massagedConfig;
-  },
+  }
 };

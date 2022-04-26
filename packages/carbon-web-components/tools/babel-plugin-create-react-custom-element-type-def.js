@@ -20,7 +20,7 @@ module.exports = function generateCreateReactCustomElementType(api) {
 
   const types = {
     Boolean: 'boolean',
-    Number: 'number',
+    Number: 'number'
   };
 
   return {
@@ -44,7 +44,7 @@ module.exports = function generateCreateReactCustomElementType(api) {
           return [
             ...acc,
             comments.map(({ value }) => `/*${value.replace(regexMagicComment, magicCommentForReact)}*/`).join('\n'),
-            `${key.replace(regexEvent, 'on')}?: (event: CustomEvent) => void;`,
+            `${key.replace(regexEvent, 'on')}?: (event: CustomEvent) => void;`
           ];
         }, []);
 
@@ -68,14 +68,14 @@ module.exports = function generateCreateReactCustomElementType(api) {
           {
             plugins: ['typescript'],
             preserveComments: true,
-            sourceType: 'module',
+            sourceType: 'module'
           }
         );
 
         const body = build();
         path.replaceWith(t.program(body));
         path.stop();
-      },
-    },
+      }
+    }
   };
 };

@@ -12,5 +12,5 @@ function managerEntries(entry = []) {
 }
 
 module.exports = {
-  managerEntries,
+  managerEntries
 };

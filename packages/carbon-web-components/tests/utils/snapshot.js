@@ -27,10 +27,10 @@ jasmine.getEnv().addReporter({
   },
   suiteDone() {
     currentSpec.pop();
-  },
+  }
 });
 
-beforeEach(function () {
+beforeEach(function() {
   jasmine.addMatchers({
     toMatchSnapshot() {
       return {
@@ -52,21 +52,21 @@ beforeEach(function () {
           if (!snapshot) {
             snapshotState.set(currentSpec, currentSeq, formattedActual);
             return {
-              pass: true,
+              pass: true
             };
           }
           const formattedExpected = getDiffableHTML(snapshot.code);
           if (!snapshotState.match(formattedActual, formattedExpected)) {
             return {
               pass: false,
-              message: `Unmatched snapshot:\n${diff(formattedExpected, formattedActual)}`,
+              message: `Unmatched snapshot:\n${diff(formattedExpected, formattedActual)}`
             };
           }
           return {
-            pass: true,
+            pass: true
           };
-        },
+        }
       };
-    },
+    }
   });
 });

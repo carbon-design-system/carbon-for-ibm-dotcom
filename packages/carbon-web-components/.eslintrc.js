@@ -15,20 +15,20 @@ module.exports = {
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
-    sourceType: 'script',
+    sourceType: 'script'
   },
   env: {
     node: true,
     es6: true,
-    browser: true,
+    browser: true
   },
   rules: {
     'max-len': [2, 130, 4],
     'no-param-reassign': [
       2,
       {
-        props: false,
-      },
+        props: false
+      }
     ],
     'no-plusplus': 0,
     'no-underscore-dangle': 0,
@@ -42,18 +42,18 @@ module.exports = {
       {
         devDependencies: true,
         optionalDependencies: false,
-        peerDependencies: false,
-      },
+        peerDependencies: false
+      }
     ],
     'import/no-unresolved': [2, { ignore: ['^carbon-web-components/es/icons/'] }],
-    'max-classes-per-file': 0,
+    'max-classes-per-file': 0
   },
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.ts', '.d.ts'],
-      },
-    },
+        extensions: ['.js', '.ts', '.d.ts']
+      }
+    }
   },
   overrides: [
     {
@@ -62,8 +62,8 @@ module.exports = {
       plugins: ['@typescript-eslint'],
       rules: {
         'no-unused-vars': 0,
-        '@typescript-eslint/no-unused-vars': 2,
-      },
+        '@typescript-eslint/no-unused-vars': 2
+      }
     },
     {
       files: ['**/*-react.tsx'],
@@ -74,46 +74,46 @@ module.exports = {
         '@typescript-eslint/no-unused-vars': 2,
         'import/no-unresolved': [2, { ignore: ['^carbon-web-components/es/(components-react|icons)/'] }],
         'react/jsx-uses-react': 2,
-        'react/jsx-uses-vars': 2,
-      },
+        'react/jsx-uses-vars': 2
+      }
     },
     {
       files: ['**/defs.ts'],
       rules: {
-        'import/prefer-default-export': 0,
-      },
+        'import/prefer-default-export': 0
+      }
     },
     {
       files: ['examples/codesandbox/**/*.js', 'examples/codesandbox/**/*.ts'],
       parserOptions: {
-        sourceType: 'module',
+        sourceType: 'module'
       },
       rules: {
-        'import/no-unresolved': 0,
-      },
+        'import/no-unresolved': 0
+      }
     },
     {
       files: ['examples/codesandbox/{react*,next,form/redux-form}/**/*.js'],
       plugins: ['react'],
       rules: {
         'react/jsx-uses-react': 2,
-        'react/jsx-uses-vars': 2,
-      },
+        'react/jsx-uses-vars': 2
+      }
     },
     {
       files: ['examples/codesandbox/**/app.js', 'examples/codesandbox/**/babel-plugin-*.js'],
       parserOptions: {
-        sourceType: 'script',
+        sourceType: 'script'
       },
       rules: {
-        'import/no-unresolved': 2,
-      },
+        'import/no-unresolved': 2
+      }
     },
     {
       files: ['examples/codesandbox/**/*.config.js'],
       parserOptions: {
-        sourceType: 'script',
-      },
-    },
-  ],
+        sourceType: 'script'
+      }
+    }
+  ]
 };

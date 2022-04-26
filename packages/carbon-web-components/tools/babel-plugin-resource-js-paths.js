@@ -29,7 +29,7 @@ module.exports = function resourceJSPaths(babel) {
           declaration.source.value = source.replace(/^@carbon\/icons\/lib/i, iconsDir);
           path.replaceWith(declaration);
         }
-      },
-    },
+      }
+    }
   };
 };

@@ -162,7 +162,7 @@ function createMetadataVisitor(api) {
           );
         }
         const metadata = {
-          eventName: t.cloneDeep(argument.node),
+          eventName: t.cloneDeep(argument.node)
         };
         const leadingComments = path.get('leadingComments');
         if (leadingComments) {
@@ -181,7 +181,7 @@ function createMetadataVisitor(api) {
           throw value.buildCodeFrameError('`static eventFoo` must refer to a string literal or a template literal.');
         }
         const metadata = {
-          eventName: t.cloneDeep(value.node),
+          eventName: t.cloneDeep(value.node)
         };
         const leadingComments = path.get('leadingComments');
         if (leadingComments) {
@@ -238,7 +238,7 @@ function createMetadataVisitor(api) {
           }
         }
       }
-    },
+    }
   };
 
   return metadataVisitor;
@@ -258,7 +258,7 @@ module.exports = function generateCreateReactCustomElementType(api, { nonUpgrada
   const importSpecifiers = {
     Boolean: t.importSpecifier(booleanSerializerIdentifier, booleanSerializerIdentifier),
     Number: t.importSpecifier(numberSerializerIdentifier, numberSerializerIdentifier),
-    Object: t.importSpecifier(objectSerializerIdentifier, objectSerializerIdentifier),
+    Object: t.importSpecifier(objectSerializerIdentifier, objectSerializerIdentifier)
   };
 
   /**
@@ -268,7 +268,7 @@ module.exports = function generateCreateReactCustomElementType(api, { nonUpgrada
   const serializers = {
     Boolean: booleanSerializerIdentifier,
     Number: numberSerializerIdentifier,
-    Object: objectSerializerIdentifier,
+    Object: objectSerializerIdentifier
   };
 
   /**
@@ -279,7 +279,7 @@ module.exports = function generateCreateReactCustomElementType(api, { nonUpgrada
     String: t.memberExpression(t.identifier('PropTypes'), t.identifier('string')),
     Boolean: t.memberExpression(t.identifier('PropTypes'), t.identifier('bool')),
     Number: t.memberExpression(t.identifier('PropTypes'), t.identifier('number')),
-    Object: t.memberExpression(t.identifier('PropTypes'), t.identifier('object')),
+    Object: t.memberExpression(t.identifier('PropTypes'), t.identifier('object'))
   };
 
   /**
@@ -294,7 +294,7 @@ module.exports = function generateCreateReactCustomElementType(api, { nonUpgrada
     return t.importDeclaration(
       [
         t.importDefaultSpecifier(t.identifier('createReactCustomElementType')),
-        ...Array.from(new Set(typesInUse)).map(type => importSpecifiers[type]),
+        ...Array.from(new Set(typesInUse)).map(type => importSpecifiers[type])
       ],
       t.stringLiteral('../../globals/wrappers/createReactCustomElementType.js')
     );
@@ -394,7 +394,7 @@ module.exports = function generateCreateReactCustomElementType(api, { nonUpgrada
           : t.callExpression(t.memberExpression(t.identifier('Object'), t.identifier('assign')), [
               t.objectExpression([]),
               t.identifier('parentDescriptor'),
-              descriptors,
+              descriptors
             ]);
 
         const propTypes = t.objectExpression([...buildPropTypes(declaredProps), ...buildEventsPropTypes(customEvents)]);
@@ -403,7 +403,7 @@ module.exports = function generateCreateReactCustomElementType(api, { nonUpgrada
           : t.callExpression(t.memberExpression(t.identifier('Object'), t.identifier('assign')), [
               t.objectExpression([]),
               t.identifier('parentPropTypes'),
-              propTypes,
+              propTypes
             ]);
 
         const body = [];
@@ -471,8 +471,8 @@ module.exports = function generateCreateReactCustomElementType(api, { nonUpgrada
         traverse(program, transformTemplateLiterals(api).visitor, path.scope, path);
         path.replaceWith(program);
         path.stop();
-      },
-    },
+      }
+    }
   };
 };
 

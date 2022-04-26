@@ -27,8 +27,8 @@ const buildCreateReactCustomElementTypeBabelOpts = {
     '@babel/plugin-syntax-typescript',
     '@babel/plugin-proposal-nullish-coalescing-operator',
     '@babel/plugin-proposal-optional-chaining',
-    babelPluginCreateReactCustomElementType,
-  ],
+    babelPluginCreateReactCustomElementType
+  ]
 };
 
 /**
@@ -40,7 +40,7 @@ const buildReactCustomElementTypeOnTheFly = async (dst, src) => {
   await mkdirpAsync(path.dirname(dst));
   const transformed = await transformAsync(await readFileAsync(src), {
     ...buildCreateReactCustomElementTypeBabelOpts,
-    filename: src,
+    filename: src
   });
   await writeFileAsync(dst, transformed.code);
 };
@@ -88,5 +88,5 @@ module.exports = {
     }
     massagedConfig.resolve.plugins.push(new CreateReactCustomElementTypeProxyPlugin());
     return massagedConfig;
-  },
+  }
 };

@@ -20,7 +20,7 @@ const pseudoElementNames = [
   'before',
   'after',
   'marker',
-  'placeholder',
+  'placeholder'
 ];
 const rePseudoElements = new RegExp(`::?(${pseudoElementNames.join('|')})`);
 
