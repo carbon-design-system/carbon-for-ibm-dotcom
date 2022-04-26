@@ -50,7 +50,7 @@ const _gulpCheckLicense = () => {
 async function src() {
   const paths = await globby(path.resolve(__dirname, '../**/.gitignore'), {
     cwd: path.resolve(__dirname, '..'),
-    gitignore: true,
+    gitignore: true
   });
   await promisifyStream(() =>
     paths

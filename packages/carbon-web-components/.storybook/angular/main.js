@@ -33,8 +33,8 @@ module.exports = {
       (value, key, parent) => key === 'options' && /ts-loader/i.test(parent.loader),
       () => ({
         compilerOptions: {
-          noUnusedLocals: false,
-        },
+          noUnusedLocals: false
+        }
       })
     );
 
@@ -50,15 +50,15 @@ module.exports = {
                 '@babel/preset-env',
                 {
                   modules: false,
-                  targets: ['last 1 version', 'Firefox ESR', 'ie >= 11'],
-                },
-              ],
-            ],
-          },
-        },
-      ],
+                  targets: ['last 1 version', 'Firefox ESR', 'ie >= 11']
+                }
+              ]
+            ]
+          }
+        }
+      ]
     });
 
     return massagedConfig;
-  },
+  }
 };

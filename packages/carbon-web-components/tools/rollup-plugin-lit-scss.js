@@ -68,16 +68,16 @@ function rollupPluginLitSCSS({ include = /\.scss$/i, exclude, preprocessor = noo
       const { css } = await renderSass({
         ...options,
         file: id,
-        data: finalContent,
+        data: finalContent
       });
 
       return {
         code: transformToTemplate(await preprocessor(css.toString(), id)),
         map: {
-          mappings: '',
-        },
+          mappings: ''
+        }
       };
-    },
+    }
   };
 }
 

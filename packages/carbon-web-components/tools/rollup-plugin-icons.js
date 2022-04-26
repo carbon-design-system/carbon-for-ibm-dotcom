@@ -52,16 +52,16 @@ function rollupPluginIcons({ include = /@carbon[\\/]icons[\\/]/i, exclude } = {}
         `import { svg } from 'lit-html'`,
         `import spread from '${path.resolve(__dirname, '../src/globals/directives/spread')}';`,
         `const svgResultCarbonIcon = ${createSVGResultCarbonIcon(svg)};`,
-        `export default svgResultCarbonIcon;`,
+        `export default svgResultCarbonIcon;`
       ].join(';');
 
       return {
         code,
         map: {
-          mappings: '',
-        },
+          mappings: ''
+        }
       };
-    },
+    }
   };
 }
 

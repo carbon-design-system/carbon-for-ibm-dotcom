@@ -35,7 +35,7 @@ const readFile = promisify(fs.readFile);
  */
 const modeSuffixes = {
   development: '',
-  production: '.min',
+  production: '.min'
 };
 
 /**
@@ -45,7 +45,7 @@ const modeSuffixes = {
  */
 const dirSuffixes = {
   ltr: '',
-  rtl: '.rtl',
+  rtl: '.rtl'
 };
 
 /**
@@ -106,7 +106,7 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = [] } = {
     whitelist: /^(carbon-components|@carbon*)$/i,
     async licenseSelf() {
       return readFile(path.resolve(__dirname, './license.js'), 'utf8');
-    },
+    }
   };
 
   return {
@@ -117,11 +117,11 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = [] } = {
         browser: true,
         mainFields: ['jsnext', 'module', 'main'],
         dedupe: ['carbon-components'],
-        extensions: ['.js', '.ts'],
+        extensions: ['.js', '.ts']
       }),
       commonjs({
         include: [/node_modules/],
-        sourceMap: true,
+        sourceMap: true
       }),
       carbonIcons(),
       babel({
@@ -144,31 +144,31 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = [] } = {
                   {
                     modules: {
                       'lit-html': ['html'],
-                      'lit-element': ['html'],
+                      'lit-element': ['html']
                     },
                     htmlMinifier: {
                       collapseWhitespace: true,
                       conservativeCollapse: true,
                       removeComments: true,
                       caseSensitive: true,
-                      minifyCSS: true,
-                    },
-                  },
-                ],
-              ]),
-        ],
+                      minifyCSS: true
+                    }
+                  }
+                ]
+              ])
+        ]
       }),
       litSCSS({
         includePaths: [path.resolve(__dirname, '../node_modules')],
         async preprocessor(contents, id) {
           return (await postcss(postCSSPlugins).process(contents, { from: id })).css;
-        },
+        }
       }),
       replace({
-        'process.env.NODE_ENV': JSON.stringify(mode),
+        'process.env.NODE_ENV': JSON.stringify(mode)
       }),
-      ...(mode === 'development' ? [license(licenseOptions)] : [terser(), license(licenseOptions)]),
-    ],
+      ...(mode === 'development' ? [license(licenseOptions)] : [terser(), license(licenseOptions)])
+    ]
   };
 }
 

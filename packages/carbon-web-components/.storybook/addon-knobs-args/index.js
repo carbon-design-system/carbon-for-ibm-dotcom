@@ -12,5 +12,5 @@ function config(entry = []) {
 }
 
 module.exports = {
-  config,
+  config
 };

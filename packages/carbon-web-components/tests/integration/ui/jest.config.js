@@ -14,5 +14,5 @@ module.exports = {
   globalTeardown: './teardown',
   setupFilesAfterEnv: ['expect-playwright'],
   testEnvironment: 'jest-playwright-preset',
-  testRegex: '.*_steps\\.js$',
+  testRegex: '.*_steps\\.js$'
 };

@@ -18,14 +18,22 @@ function normalizeBrowser(browser) {
       chrome: `Chrome${process.env.TRAVIS ? '_Travis' : ''}`,
       firefox: 'Firefox',
       safari: 'Safari',
-      ie: 'IE',
+      ie: 'IE'
     }[browser.toLowerCase()] || browser
   );
 }
 
 module.exports = function setupKarma(config) {
-  const { browsers, collectCoverage, noPruneShapshot, specs, random, updateSnapshot, useExperimentalFeatures, verbose } =
-    config.customConfig;
+  const {
+    browsers,
+    collectCoverage,
+    noPruneShapshot,
+    specs,
+    random,
+    updateSnapshot,
+    useExperimentalFeatures,
+    verbose
+  } = config.customConfig;
 
   config.set({
     basePath: '..',
@@ -36,15 +44,15 @@ module.exports = function setupKarma(config) {
 
     client: {
       jasmine: {
-        random: !!random,
-      },
+        random: !!random
+      }
     },
 
     files: [
       'src/polyfills/index.ts',
       'tests/utils/snapshot.js',
       'tests/snapshots/**/*.md',
-      'tests/karma-setup-renderroot.js',
+      'tests/karma-setup-renderroot.js'
     ].concat(specs.length > 0 ? specs : ['tests/karma-test-shim.js']),
 
     preprocessors: {
@@ -52,7 +60,7 @@ module.exports = function setupKarma(config) {
       'tests/karma-test-shim.js': ['webpack', 'sourcemap'],
       'tests/spec/**/*.ts': ['webpack', 'sourcemap'],
       'tests/utils/**/*.js': ['webpack', 'sourcemap'],
-      'tests/snapshots/**/*.md': ['snapshot'],
+      'tests/snapshots/**/*.md': ['snapshot']
     },
 
     webpack: {
@@ -62,19 +70,19 @@ module.exports = function setupKarma(config) {
         alias: {
           // In our development environment (where `carbon-web-components/es/icons` may not have been built yet),
           // we load icons from `@carbon/icons` and use a Webpack loader to convert the icons to `lit-html` version
-          'carbon-web-components/es/icons': '@carbon/icons/lib',
+          'carbon-web-components/es/icons': '@carbon/icons/lib'
         },
-        extensions: ['.js', '.ts'],
+        extensions: ['.js', '.ts']
       },
       module: {
         rules: [
           {
             test: /@storybook[\\/]addon-/i,
-            use: 'null-loader',
+            use: 'null-loader'
           },
           {
             test: /@carbon[\\/]icons[\\/]/i,
-            use: [require.resolve('../tools/svg-result-carbon-icon-loader')],
+            use: [require.resolve('../tools/svg-result-carbon-icon-loader')]
           },
           {
             test: /\.ts$/,
@@ -84,10 +92,10 @@ module.exports = function setupKarma(config) {
                 // given `7.7` or later versions seems to have a problem with using decorator with fields without an initializer
                 loader: 'babel-loader',
                 options: {
-                  configFile: path.resolve(__dirname, '..', '.babelrc'),
-                },
-              },
-            ],
+                  configFile: path.resolve(__dirname, '..', '.babelrc')
+                }
+              }
+            ]
           },
           {
             test: [/directives-angular\/.*\.ts$/, /-angular_spec\.ts$/],
@@ -98,11 +106,11 @@ module.exports = function setupKarma(config) {
                   ignoreDiagnostics: [6133],
                   compilerOptions: {
                     sourceMap: false,
-                    inlineSourceMap: true,
-                  },
-                },
-              },
-            ],
+                    inlineSourceMap: true
+                  }
+                }
+              }
+            ]
           },
           !collectCoverage
             ? {}
@@ -113,9 +121,9 @@ module.exports = function setupKarma(config) {
                 use: {
                   loader: 'istanbul-instrumenter-loader',
                   options: {
-                    esModules: true,
-                  },
-                },
+                    esModules: true
+                  }
+                }
               },
           {
             test: /\.js$/,
@@ -127,14 +135,14 @@ module.exports = function setupKarma(config) {
               // `ShadyCSS` NPM package is missing its entry point file
               path.dirname(require.resolve('@webcomponents/shadycss/scoping-shim.min.js')),
               path.dirname(require.resolve('@webcomponents/shadydom')),
-              path.resolve(__dirname, '..', 'src/polyfills'),
+              path.resolve(__dirname, '..', 'src/polyfills')
             ],
             use: {
               loader: 'babel-loader',
               options: {
-                configFile: path.resolve(__dirname, '..', '.babelrc'),
-              },
-            },
+                configFile: path.resolve(__dirname, '..', '.babelrc')
+              }
+            }
           },
           {
             test: /\.scss$/,
@@ -146,10 +154,10 @@ module.exports = function setupKarma(config) {
                 options: {
                   plugins: () => [
                     require('autoprefixer')({
-                      overrideBrowserslist: ['last 1 version', 'ie >= 11'],
-                    }),
-                  ],
-                },
+                      overrideBrowserslist: ['last 1 version', 'ie >= 11']
+                    })
+                  ]
+                }
               },
               {
                 loader: 'sass-loader',
@@ -163,29 +171,29 @@ module.exports = function setupKarma(config) {
                   implementation: sass,
                   webpackImporter: false,
                   sassOptions: {
-                    includePaths: [path.resolve(__dirname, '..', 'node_modules')],
-                  },
-                },
-              },
-            ],
+                    includePaths: [path.resolve(__dirname, '..', 'node_modules')]
+                  }
+                }
+              }
+            ]
           },
           {
             test: /\.mdx$/,
-            use: 'null-loader',
-          },
-        ],
-      },
+            use: 'null-loader'
+          }
+        ]
+      }
     },
 
     webpackMiddleware: {
-      noInfo: !verbose,
+      noInfo: !verbose
     },
 
     customLaunchers: {
       Chrome_Travis: {
         base: 'ChromeHeadless',
-        flags: ['--no-sandbox'],
-      },
+        flags: ['--no-sandbox']
+      }
     },
 
     plugins: [
@@ -198,7 +206,7 @@ module.exports = function setupKarma(config) {
       require('karma-chrome-launcher'),
       require('karma-firefox-launcher'),
       require('karma-safari-launcher'),
-      require('karma-ie-launcher'),
+      require('karma-ie-launcher')
     ],
 
     reporters: ['spec', ...(!collectCoverage ? [] : ['coverage-istanbul'])],
@@ -208,7 +216,7 @@ module.exports = function setupKarma(config) {
       dir: path.join(__dirname, 'coverage'),
       combineBrowserReports: true,
       fixWebpackSourcePaths: true,
-      verbose,
+      verbose
     },
 
     snapshot: {
@@ -216,7 +224,7 @@ module.exports = function setupKarma(config) {
       update: updateSnapshot,
       pathResolver(basePath, suiteName) {
         return path.resolve(basePath, `tests/snapshots/${suiteName}.md`);
-      },
+      }
     },
 
     port: 9876,
@@ -230,6 +238,6 @@ module.exports = function setupKarma(config) {
 
     logLevel: verbose ? config.LOG_DEBUG : config.LOG_INFO,
 
-    concurrency: Infinity,
+    concurrency: Infinity
   });
 };

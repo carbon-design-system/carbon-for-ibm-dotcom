@@ -10,6 +10,6 @@
 module.exports = {
   browser: process.env.CCE_UI_INTEGRATION_TEST_BROWSER,
   launchBrowserApp: {
-    headless: process.env.CI !== 'false',
-  },
+    headless: process.env.CI !== 'false'
+  }
 };

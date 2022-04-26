@@ -39,7 +39,7 @@ function rollupPluginLicense({ include, exclude, whitelist, sourcemap, sourceMap
               licensesForPackages[name] = text.trim().replace(/^[*!]\s*/, '');
             }
           }
-        },
+        }
       });
 
       if (!licensesForPackages[name]) {
@@ -62,7 +62,7 @@ function rollupPluginLicense({ include, exclude, whitelist, sourcemap, sourceMap
           '',
           'Also refer to the following links for the license of other third-party dependencies:',
           '',
-          ...keys.filter(name => !licensesForPackages[name]).map(name => `https://www.npmjs.com/package/${name}`),
+          ...keys.filter(name => !licensesForPackages[name]).map(name => `https://www.npmjs.com/package/${name}`)
         ].join('\n * ');
         magicString.prepend(`/**\n * ${thirdPartyLicenseNotice}\n */\n\n`);
       }
@@ -74,7 +74,7 @@ function rollupPluginLicense({ include, exclude, whitelist, sourcemap, sourceMap
         result.map = magicString.generateMap({ hires: true });
       }
       return result;
-    },
+    }
   };
 }
 
