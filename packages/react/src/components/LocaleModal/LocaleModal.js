@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,13 +10,13 @@ import ComposedModal, {
   ModalHeader,
 } from '../../internal/vendor/carbon-components-react/components/ComposedModal/ComposedModal';
 import React, { useEffect, useState } from 'react';
-import altlangs from '@carbon/ibmdotcom-utilities/es/utilities/altlangs/altlangs';
+import altlangs from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/altlangs/altlangs';
 import ArrowLeft20 from '@carbon/icons-react/es/arrow--left/20';
 import cx from 'classnames';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import EarthFilled16 from '@carbon/icons-react/es/earth--filled/16';
 import { LinkWithIcon } from '../LinkWithIcon';
-import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
+import LocaleAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/Locale/Locale';
 import LocaleModalCountries from './LocaleModalCountries';
 import LocaleModalRegions from './LocaleModalRegions';
 import PropTypes from 'prop-types';

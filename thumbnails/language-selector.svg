@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="180px" viewBox="0 0 320 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>language-selector</title>
+    <defs>
+        <polygon id="path-1" points="8.707 8 12 4.707 11.293 4 8 7.293 4.707 4 4 4.707 7.293 8 4 11.293 4.707 12 8 8.707 11.293 12 12 11.293"></polygon>
+        <polygon id="path-3" points="5 0 10 5 9.293 5.707 5 1.414 0.707 5.707 0 5"></polygon>
+    </defs>
+    <g id="language-selector" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(54.000000, 76.000000)">
+            <rect id="Rectangle-Copy-42" fill="#262626" x="0" y="0" width="212" height="32"></rect>
+            <rect id="Rectangle-3-Copy-11" fill="#E0E0E0" x="12" y="13" width="96" height="7"></rect>
+        </g>
+        <g id="icon/navigation/close/16-copy-2" transform="translate(217.000000, 84.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="icon-color" fill="#FFFFFF" xlink:href="#path-1"></use>
+        </g>
+        <g id="Group" transform="translate(238.000000, 84.000000)">
+            <g id="Group" transform="translate(8.000000, 8.000000) scale(1, -1) translate(-8.000000, -8.000000) ">
+                <g id="chevron--up" transform="translate(3.000000, 5.000000)">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <use id="Mask" fill="#000000" fill-rule="nonzero" xlink:href="#path-3"></use>
+                    <g id="Group" mask="url(#mask-4)">
+                        <g transform="translate(-3.000000, -5.000000)" id="icon-color">
+                            <rect id="white" fill="#FFFFFF" x="0" y="0" width="40" height="40"></rect>
+                        </g>
+                    </g>
+                </g>
+                <polygon id="transparent-rectangle" transform="translate(8.000000, 8.000000) rotate(-90.000000) translate(-8.000000, -8.000000) " points="1.77635684e-15 -7.90206676e-15 16 -7.90206676e-15 16 16 1.77635684e-15 16"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

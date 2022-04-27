@@ -11,7 +11,7 @@ concurrency:
 jobs:
   react:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
-    runs-on: ubuntu-20.04
+    runs-on: macos-latest
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
