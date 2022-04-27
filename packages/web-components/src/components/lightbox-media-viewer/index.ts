@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import './lightbox-media-viewer';
 import './lightbox-media-viewer-body';
 import './lightbox-image-viewer';
 import './lightbox-video-player';
