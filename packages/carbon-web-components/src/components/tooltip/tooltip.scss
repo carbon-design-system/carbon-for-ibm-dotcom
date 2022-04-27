@@ -94,7 +94,7 @@ $caret-horizontal-position: calc(#{$caret-size * (-1)} + 1px);
 
   &[alignment='start'] {
     .#{$prefix}--tooltip__caret {
-      top: calc($caret-size + rem(17px));
+      top: calc(#{$caret-size} + rem(17px));
     }
   }
 
