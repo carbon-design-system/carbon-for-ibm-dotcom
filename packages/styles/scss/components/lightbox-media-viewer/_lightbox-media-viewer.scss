@@ -109,9 +109,6 @@
         @include carbon--make-col-ready;
         @include carbon--make-col(12, 16);
 
-        // height: calc(100vh - #{$spacing-13});
-        // width: calc(75% - #{$spacing-09});
-
         .#{$prefix}--image {
           height: 100%;
         }
@@ -134,7 +131,6 @@
 
       &::before,
       &::after {
-
         @include carbon--breakpoint('md') {
           content: '';
           display: block;
