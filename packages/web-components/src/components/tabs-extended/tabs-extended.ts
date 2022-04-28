@@ -51,9 +51,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   protected _handleSlotChange(event: Event) {
     const slottedNodes = (event.target as HTMLSlotElement).assignedNodes({ flatten: true });
     this._tabItems = slottedNodes.filter(node => node instanceof DDSTab) as DDSTab[];
-    this._tabItems.forEach((tab, index) => {
-      this._activeTab = (tab as DDSTab).selected ? index : this._activeTab;
-    });
+    this._activeTab = this._tabItems.findIndex(tab => (tab as DDSTab).selected);
   }
 
   private _handleClick(index, e) {
@@ -169,7 +167,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     return html`
       <ul class="${prefix}--accordion">
         ${tabs.map((tab, index) => {
-          const disabled = (tab as DDSTab).disabled && true;
+          const { disabled } = tab as DDSTab;
           const active = index === this._activeTab;
           const label = (tab as DDSTab).getAttribute('label');
           const classes = classMap({
@@ -209,7 +207,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
       <div class="${prefix}--tabs">
         <ul class="${prefix}--tabs__nav ${prefix}--tabs__nav--hidden" role="tablist" @keydown="${this._handleTabListKeyDown}">
           ${tabs.map((tab, index) => {
-            const disabled = (tab as DDSTab).disabled && true;
+            const { disabled } = tab as DDSTab;
             const active = index === this._activeTab;
             const label = (tab as DDSTab).getAttribute('label');
             const classes = classMap({

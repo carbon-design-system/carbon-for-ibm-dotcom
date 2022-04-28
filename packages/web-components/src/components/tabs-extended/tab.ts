@@ -30,14 +30,14 @@ class DDSTab extends StableSelectorMixin(LitElement) {
   /**
    * Defines the disabled state of the tab.
    */
-  @property({ reflect: true })
-  disabled: Boolean = false;
+  @property({ reflect: true, type: Boolean })
+  disabled: boolean = false;
 
   /**
    * Defines the selected state of the tab.
    */
-  @property({ reflect: true })
-  selected: Boolean = false;
+  @property({ reflect: true, type: Boolean })
+  selected: boolean = false;
 
   /**
    * Defines the index of the tab relative to other tabs.
