@@ -112,7 +112,6 @@ Default.story = {
 
 export const WithCarousel = ({ parameters }) => {
   const { open, disableClose, onBeforeClose, onClose } = parameters?.props?.Modal ?? {};
-  const { alt, defaultSrc, description, title } = parameters?.props?.LightboxImageViewer ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose?.(event);
     if (disableClose) {
@@ -134,25 +133,44 @@ export const WithCarousel = ({ parameters }) => {
         <dds-lightbox-media-viewer
           video-id="${videos['Speed of AI Test Video']}"
           title="Praesent at erat."
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at erat eu lectus elementum hendrerit sed sed lacus. Morbi feugiat tortor purus, id pretium elit scelerisque id. Donec dignissim ac purus id faucibus."
+          description="
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at erat eu lectus elementum hendrerit sed sed lacus.
+            Morbi feugiat tortor purus, id pretium elit scelerisque id. Donec dignissim ac purus id faucibus.
+          "
         ></dds-lightbox-media-viewer>
         <dds-lightbox-media-viewer
           default-src="${images['1312 x 738 (16:9)']}"
           alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           title="Donec dignissim ac purus id faucibus."
-          description="Proin ut leo condimentum, consequat risus quis, mattis lacus. Donec malesuada convallis erat ut luctus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus non ultricies libero. Fusce scelerisque sit amet ex finibus scelerisque. "
+          description="
+            Proin ut leo condimentum, consequat risus quis, mattis lacus. Donec malesuada convallis erat ut luctus.
+            Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            Vivamus non ultricies libero. Fusce scelerisque sit amet ex finibus scelerisque.
+          "
         ></dds-lightbox-media-viewer>
         <dds-lightbox-media-viewer
           default-src="${images['1312 x 738 (16:9)']}"
           alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           title="Donec malesuada convallis."
-          description="In ac luctus mauris. Sed egestas neque nec lorem pharetra congue. Vestibulum quis mi ac nibh dictum vulputate. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed et justo massa."
+          description="
+            In ac luctus mauris. Sed egestas neque nec lorem pharetra congue. Vestibulum quis mi ac nibh dictum vulputate.
+            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed et justo massa.
+          "
         ></dds-lightbox-media-viewer>
         <dds-lightbox-media-viewer
           default-src="${images['1312 x 738 (16:9)']}"
           alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           title="Fusce scelerisque sit amet ex finibus"
-          description="Integer interdum facilisis lacus quis lobortis. Mauris vestibulum rhoncus libero nec dictum. Maecenas mi ipsum, ornare at sem in, cursus vestibulum mauris. Proin suscipit leo sit amet ipsum hendrerit viverra. Sed a varius sapien. Nam sit amet felis congue, porttitor turpis at, gravida dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur tempor ante magna, sit amet pulvinar odio vehicula in. Vivamus placerat aliquam sem vitae mattis. Etiam eget tempor ante, convallis tempor dui. Proin sodales congue dictum. Proin arcu nisl, ultricies eu dolor ut, posuere placerat arcu. Fusce placerat purus vel libero consectetur, id fringilla ex egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In sodales faucibus mi vel ultricies."
+          description="
+            Integer interdum facilisis lacus quis lobortis. Mauris vestibulum rhoncus libero nec dictum. Maecenas mi ipsum,
+            ornare at sem in, cursus vestibulum mauris. Proin suscipit leo sit amet ipsum hendrerit viverra. Sed a varius sapien.
+            Nam sit amet felis congue, porttitor turpis at, gravida dolor. Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur tempor ante
+            magna, sit amet pulvinar odio vehicula in. Vivamus placerat aliquam sem vitae mattis. Etiam eget tempor ante,
+            convallis tempor dui. Proin sodales congue dictum. Proin arcu nisl, ultricies eu dolor ut, posuere placerat arcu.
+            Fusce placerat purus vel libero consectetur, id fringilla ex egestas. Vestibulum ante ipsum primis in faucibus orci
+            luctus et ultrices posuere cubilia curae; In sodales faucibus mi vel ultricies.
+          "
         ></dds-lightbox-media-viewer>
         <dds-lightbox-media-viewer
           default-src="${images['1312 x 738 (16:9)']}"
@@ -165,8 +183,7 @@ export const WithCarousel = ({ parameters }) => {
   `;
 };
 
-WithCarousel.story = {
-};
+WithCarousel.story = {};
 
 export default {
   title: 'Components/Lightbox media viewer',

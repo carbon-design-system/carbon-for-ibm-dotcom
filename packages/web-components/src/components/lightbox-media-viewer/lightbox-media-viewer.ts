@@ -15,7 +15,6 @@ import DDSLightboxMediaViewerBody from './lightbox-media-viewer-body';
 import '../video-player/video-player';
 import '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-close-button';
-import styles from './lightbox-video-player-composite.scss';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
