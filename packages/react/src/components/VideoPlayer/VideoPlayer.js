@@ -30,6 +30,7 @@ const VideoPlayer = ({
   playingMode,
   caption,
   thumbnail,
+  alt,
 }) => {
   const [videoData, setVideoData] = useState({ description: '', name: '' });
 
@@ -80,6 +81,7 @@ const VideoPlayer = ({
           playingMode={playingMode}
           onClick={() => setEmbedVideo(true)}
           thumbnail={thumbnail}
+          alt={alt}
         />
       </div>
       <LightboxMediaViewer
@@ -104,6 +106,7 @@ const VideoPlayer = ({
           embedVideo={setEmbedVideo}
           playingMode={playingMode}
           thumbnail={thumbnail}
+          alt={alt}
         />
       )}
     </div>
@@ -169,6 +172,11 @@ VideoPlayer.propTypes = {
    * Optional custom video thumbnail
    */
   thumbnail: PropTypes.string,
+
+  /**
+   * Optional custom alt text
+   */
+  alt: PropTypes.string,
 };
 
 VideoPlayer.defaultProps = {
