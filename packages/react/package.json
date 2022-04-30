@@ -126,7 +126,7 @@
     "commander": "^7.2.0",
     "cross-env": "^7.0.0",
     "css-loader": "^5.2.0",
-    "cypress": "~9.5.4",
+    "cypress": "~9.6.0",
     "cypress-axe": "^0.14.0",
     "cypress-wait-until": "^1.7.2",
     "doctoc": "^2.0.0",
