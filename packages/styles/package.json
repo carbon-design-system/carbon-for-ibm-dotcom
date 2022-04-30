@@ -42,7 +42,7 @@
     "carbon-components": "10.56.0"
   },
   "devDependencies": {
-    "carbon-components-react": "7.56.0",
+    "carbon-components-react": "7.57.0",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
