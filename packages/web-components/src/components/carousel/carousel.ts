@@ -443,7 +443,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     if (containingModal) {
       this.inModal = '';
 
-      window.requestIdleCallback(() => {
+      (window as Window).requestIdleCallback(() => {
         (containingModal as DDSExpressiveModal).modalBody!.style.overflow = 'hidden';
       });
     }

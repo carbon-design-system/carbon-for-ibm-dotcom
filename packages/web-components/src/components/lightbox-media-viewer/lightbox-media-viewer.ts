@@ -124,8 +124,8 @@ class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
   connectedCallback() {
     super.connectedCallback();
 
-    this._containingCarousel = this.closest(`${ddsPrefix}-carousel`) || undefined;
-    this._containingModal = this.closest(`${ddsPrefix}-expressive-modal`) || undefined;
+    this._containingCarousel = (this.closest(`${ddsPrefix}-carousel`) as DDSCarousel) || undefined;
+    this._containingModal = (this.closest(`${ddsPrefix}-expressive-modal`) as DDSExpressiveModal) || undefined;
   }
 
   update(changedProperties) {
