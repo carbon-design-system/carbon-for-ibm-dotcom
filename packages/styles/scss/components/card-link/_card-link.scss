@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,16 +9,17 @@
 @import '../card/index';
 
 @mixin card-link {
-  :host(#{$dds-prefix}-card-link-heading).#{$prefix}--card__CTA--disabled,
-  .#{$prefix}--card-link.#{$prefix}--card__CTA--disabled {
+  .#{$prefix}--card__CTA--disabled {
     cursor: not-allowed;
-    &.#{$prefix}--card {
-      .#{$prefix}--card__heading,
-      ::slotted([slot='heading']),
-      .#{$prefix}--card__copy,
-      .#{$prefix}--card__eyebrow {
-        color: $disabled-02;
-      }
+  }
+
+  :host(#{$dds-prefix}-card-link[disabled]),
+  .#{$prefix}--card__CTA--disabled {
+    .#{$prefix}--card__heading,
+    ::slotted([slot='heading']),
+    .#{$prefix}--card__copy,
+    .#{$prefix}--card__eyebrow {
+      color: $disabled-02;
     }
     .#{$prefix}--card__footer,
     .#{$prefix}--card__wrapper {

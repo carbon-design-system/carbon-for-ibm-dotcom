@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2019, 2020
+// Copyright IBM Corp. 2019, 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -35,11 +35,13 @@
 //
 // Let sort button rather than the cell define the padding
 
+/* stylelint-disable-next-line no-duplicate-selectors */
 :host(#{$prefix}-table-header-row) ::slotted(#{$prefix}-table-header-cell[sort-direction]) {
   padding-left: 0;
   padding-right: 0;
 }
 
+/* stylelint-disable-next-line no-duplicate-selectors */
 :host(#{$prefix}-table-header-cell[sort-direction]) .#{$prefix}--table-sort {
   padding-left: $spacing-04;
   padding-right: $spacing-04;

@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2019, 2021
+// Copyright IBM Corp. 2019, 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -16,6 +16,7 @@ $css--plex: true !default;
 
 :host(#{$prefix}-clickable-tile) {
   display: block;
+  /* stylelint-disable-next-line declaration-block-no-duplicate-properties */
   display: content;
   outline: none;
 
@@ -41,12 +42,14 @@ $css--plex: true !default;
 
 :host(#{$prefix}-radio-tile) {
   display: block;
+  /* stylelint-disable-next-line declaration-block-no-duplicate-properties */
   display: content;
   outline: none;
 }
 
 :host(#{$prefix}-selectable-tile) {
   display: block;
+  /* stylelint-disable-next-line declaration-block-no-duplicate-properties */
   display: content;
   outline: none;
 }
@@ -61,6 +64,7 @@ $css--plex: true !default;
 :host(#{$prefix}-expandable-tile) {
   @extend .#{$prefix}--tile;
   @extend .#{$prefix}--tile--expandable;
+
   position: relative;
 
   ::slotted(#{$prefix}-tile-above-the-fold-content) {

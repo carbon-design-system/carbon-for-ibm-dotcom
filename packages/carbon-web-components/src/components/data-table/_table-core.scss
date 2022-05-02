@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2019, 2020
+// Copyright IBM Corp. 2019, 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -11,22 +11,25 @@
 
 :host(#{$prefix}-table) {
   @extend .#{$prefix}--data-table;
+
   display: table;
 }
 
 //
 // Table header and table body
 //
-
+/* stylelint-disable-next-line no-duplicate-selectors */
 :host(#{$prefix}-table) {
   ::slotted(#{$prefix}-table-head) {
     @include type-style('heading-01');
+
     background-color: $ui-03;
     display: table-header-group;
   }
 
   ::slotted(#{$prefix}-table-body) {
     @include type-style('body-short-01');
+
     background-color: $ui-01;
     width: 100%;
     display: table-row-group;

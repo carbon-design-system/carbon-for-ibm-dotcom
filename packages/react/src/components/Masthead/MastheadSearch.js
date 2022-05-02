@@ -156,11 +156,15 @@ const MastheadSearch = forwardRef(
     // Sets aria-labelledby to suggestions list to suppress a11y errors.
     // Autosuggest package does not provide method to add attribute to this element.
     useEffect(() => {
-      const suggestionsList = document.querySelector(
-        '.react-autosuggest__suggestions-list'
+      const suggestionsListContainer = document.getElementById(
+        'react-autowhatever-1'
       );
-      suggestionsList &&
-        suggestionsList.setAttribute('aria-labelledby', 'react-autowhatever-1');
+
+      suggestionsListContainer &&
+        suggestionsListContainer.setAttribute(
+          'aria-labelledby',
+          `${prefix}--header__search--input`
+        );
     });
 
     useEffect(() => {
@@ -271,6 +275,27 @@ const MastheadSearch = forwardRef(
     }
 
     /**
+     * Custom onKeyDown event handlers
+     *
+     * @param {event} event The callback event
+     */
+    function onKeyDown(event) {
+      switch (event.key) {
+        case 'Enter': {
+          // Disables Enter key if searchNoRirect is true
+          if (rest.searchNoRedirect) {
+            onSearchNoRedirect(event, state.val);
+            event.preventDefault();
+          }
+          // Disable search on enter key if the search field is empty
+          if (!state.val) {
+            event.preventDefault();
+          }
+        }
+      }
+    }
+
+    /**
      * When the input field changes, we set the new val to our state
      *
      * @param {event} event The callback event
@@ -296,10 +321,12 @@ const MastheadSearch = forwardRef(
       placeholder: placeHolderText,
       value: state.val,
       onChange,
+      onKeyDown,
       className: `${prefix}--header__search--input`,
       'aria-label': placeHolderText,
       role: 'combobox',
-      'aria-expanded': !!state.suggestions.length,
+      'aria-expanded': isSearchActive,
+      id: `${prefix}--header__search--input`,
     };
 
     /**
@@ -543,9 +570,7 @@ const MastheadSearch = forwardRef(
 
     /* eslint-disable react/prop-types */
     const renderSuggestionsContainer = ({ containerProps, children }) => (
-      <div {...containerProps} aria-labelledby="react-autowhatever-1">
-        {children}
-      </div>
+      <div {...containerProps}>{children}</div>
     );
 
     return (

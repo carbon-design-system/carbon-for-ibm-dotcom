@@ -14,6 +14,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './universal-banner.scss';
+import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -73,6 +74,10 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
 
     this.buttonHref = (hasContent[0] as HTMLElement)?.getAttribute('href');
     this.buttonCopy = hasContent[0]?.textContent?.trim();
+  }
+
+  firstUpdated() {
+    StickyHeader.global.banner = this;
   }
 
   updated() {

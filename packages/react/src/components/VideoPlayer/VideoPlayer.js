@@ -8,7 +8,7 @@
 import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
+import { KalturaPlayer as KalturaPlayerAPI } from '@carbon/ibmdotcom-services/es/services';
 import LightboxMediaViewer from '../LightboxMediaViewer/LightboxMediaViewer';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -111,7 +111,7 @@ const VideoPlayer = ({
 
   const videoCaption = `${caption || videoData.name} ${videoDuration}`;
   return (
-    <div aria-label={videoCaption} className={classnames}>
+    <div aria-label={videoCaption} role="region" className={classnames}>
       <div
         className={`${prefix}--video-player__video-container ${aspectRatioClass}`}
         data-autoid={`${stablePrefix}--video-player__video-${videoId}`}>
