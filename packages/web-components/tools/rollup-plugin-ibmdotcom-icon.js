@@ -10,7 +10,7 @@
 'use strict';
 
 const path = require('path');
-const { createFilter } = require('rollup-pluginutils');
+const { createFilter } = require('@rollup/pluginutils');
 const descriptorFromSVG = require('./descriptor-from-svg');
 const createSVGResultFromIconDescriptor = require('./svg-result-from-icon-descriptor');
 
