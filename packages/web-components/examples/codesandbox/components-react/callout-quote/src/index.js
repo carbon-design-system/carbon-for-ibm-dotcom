@@ -9,6 +9,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import DDSCalloutQuote from '@carbon/ibmdotcom-web-components/es/components-react/callout-quote/callout-quote';
 import DDSCalloutLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/callout-quote/callout-link-with-icon';
 import DDSQuoteSourceHeading from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-heading';
