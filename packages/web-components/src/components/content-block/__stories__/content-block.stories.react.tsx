@@ -10,7 +10,7 @@
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import React from 'react';
 
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 
 // @ts-ignore
 import DDSContentBlock from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block';
@@ -28,7 +28,7 @@ import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-r
 import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
 import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import DDSLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
-import DDSLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
+import DDSLinkListCard from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item-card';
 import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
 import DDSImageWithCaption from '@carbon/ibmdotcom-web-components/es/components-react/image-with-caption/image-with-caption';
 import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
@@ -131,15 +131,19 @@ export const Default = ({ parameters }) => {
         <DDSLinkList type="default" slot="complementary">
           <DDSLinkListHeading>Tutorials</DDSLinkListHeading>
 
-          <DDSLinkListItem href="https://example.com">
+          <DDSLinkListCard href="https://example.com">
             <p>Learn more about Kubernetes</p>
-            <DDSCardFooter>{ArrowRight20({ slot: 'icon' })}</DDSCardFooter>
-          </DDSLinkListItem>
+            <DDSCardFooter>
+              <ArrowRight20 slot="icon" />
+            </DDSCardFooter>
+          </DDSLinkListCard>
 
-          <DDSLinkListItem href="https://example.com">
+          <DDSLinkListCard href="https://example.com">
             <p>Containerziation A Complete Guide</p>
-            <DDSCardFooter>{ArrowRight20({ slot: 'icon' })}</DDSCardFooter>
-          </DDSLinkListItem>
+            <DDSCardFooter>
+              <ArrowRight20 slot="icon" />
+            </DDSCardFooter>
+          </DDSLinkListCard>
         </DDSLinkList>
       ) : (
         ''
