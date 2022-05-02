@@ -129,6 +129,7 @@ export const WithCarousel = ({ parameters }) => {
       @dds-expressive-modal-beingclosed="${handleBeforeClose}"
       @dds-expressive-modal-closed="${onClose}"
     >
+      <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
       <dds-carousel page-size="1">
         <dds-lightbox-media-viewer
           video-id="${videos['Speed of AI Test Video']}"

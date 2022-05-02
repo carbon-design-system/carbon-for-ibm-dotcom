@@ -7,14 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement } from 'lit-element';
+import { html, property, customElement, query } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSLightboxMediaViewerBody from './lightbox-media-viewer-body';
-import '../video-player/video-player';
-import '../expressive-modal/expressive-modal';
-import '../expressive-modal/expressive-modal-close-button';
+import DDSVideoPlayerContainer from '../video-player/video-player-container';
+import DDSCarousel from '../carousel/carousel';
+import DDSExpressiveModal from '../expressive-modal/expressive-modal';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -35,36 +34,9 @@ class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
     `;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   _renderMedia() {
-    // const { videoId } = this;
-    // if (videoId) {
-    //   return this._renderVideoMedia();
-    // }
-
-    // return this._renderImageMedia();
     return html`
-      <slot name="media"></slot>
-    `;
-  }
-
-  _renderImageMedia() {
-    const { alt, defaultSrc } = this;
-    return html`
-      <img class="${prefix}--image__img" alt="${ifNonNull(alt)}" src="${ifNonNull(defaultSrc)}" loading="lazy" />
-    `;
-  }
-
-  _renderVideoMedia() {
-    const { videoId, caption, hideCaption, thumbnail } = this;
-    return html`
-      <dds-video-player-container
-        playing-mode="inline"
-        video-id=${videoId}
-        caption=${caption}
-        ?hide-caption=${hideCaption}
-        thumbnail=${thumbnail}
-      ></dds-video-player-container>
+      <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
     `;
   }
 
@@ -73,6 +45,87 @@ class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
     return html`
       <slot name="title">${title}</slot>
     `;
+  }
+
+  private _mediaItem?: HTMLElement;
+
+  @query(`.${prefix}--lightbox-media-viewer__media`)
+  private _mediaWindow!: HTMLDivElement;
+
+  private _containingCarousel?: DDSCarousel;
+
+  private _containingModal?: DDSExpressiveModal;
+
+  private _handleSlotChange(event: Event) {
+    const { _containingModal: containingModal } = this;
+    const [media] = (event.target as HTMLSlotElement).assignedNodes();
+    this._mediaItem = media as HTMLImageElement | DDSVideoPlayerContainer;
+
+    // Disconnect & delete intersection observer
+    if (this._intersectionObserver instanceof IntersectionObserver) {
+      this._intersectionObserver.disconnect();
+      this._intersectionObserver = undefined;
+    }
+
+    // Remove modal closed listeners from the containing modal
+    if (containingModal && this._boundModalClosedHandler) {
+      containingModal.removeEventListener(DDSExpressiveModal.eventBeforeClose, this._boundModalClosedHandler);
+      this._boundModalClosedHandler = undefined;
+    }
+
+    if (media instanceof DDSVideoPlayerContainer) {
+      const { _mediaWindow: mediaWindow, _containingCarousel: containingCarousel } = this;
+
+      // Watch for out-of-view if we're in a carousel
+      if (mediaWindow && containingCarousel) {
+        const callback = this._handleOutOfCarouselView.bind(this);
+        this._intersectionObserver = new IntersectionObserver(callback, {
+          root: containingCarousel,
+          rootMargin: '999px 0px 999px 0px',
+          threshold: 1,
+        });
+
+        this._intersectionObserver.observe(mediaWindow);
+      }
+
+      // Watch for modal close
+      if (containingModal) {
+        this._boundModalClosedHandler = this._handleModalClosed.bind(this);
+
+        containingModal.addEventListener(DDSExpressiveModal.eventBeforeClose, this._boundModalClosedHandler);
+      }
+    }
+  }
+
+  private _intersectionObserver?: IntersectionObserver;
+
+  private _handleOutOfCarouselView(entries) {
+    entries.forEach(entry => {
+      if (entry.intersectionRatio < 1) {
+        this._pauseVideo();
+      }
+    });
+  }
+
+  private _handleModalClosed() {
+    this._pauseVideo();
+  }
+
+  private _pauseVideo() {
+    const { _mediaItem: mediaItem } = this;
+
+    if (mediaItem instanceof DDSVideoPlayerContainer) {
+      mediaItem.pauseAllVideos();
+    }
+  }
+
+  _boundModalClosedHandler?: EventListenerOrEventListenerObject;
+
+  connectedCallback() {
+    super.connectedCallback();
+
+    this._containingCarousel = this.closest(`${ddsPrefix}-carousel`) || undefined;
+    this._containingModal = this.closest(`${ddsPrefix}-expressive-modal`) || undefined;
   }
 
   update(changedProperties) {
@@ -139,6 +192,10 @@ class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
 
   @property()
   thumbnail = '';
+
+  static get eventBeforeModalClose() {
+    return `${ddsPrefix}-expressive-modal-beingclosed`;
+  }
 }
 
 export default DDSLightboxMediaViewer;

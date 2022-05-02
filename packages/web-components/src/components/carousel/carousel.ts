@@ -19,6 +19,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import styles from './carousel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import DDSExpressiveModal from '../expressive-modal/expressive-modal';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -438,8 +439,13 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
 
-    if (this.closest(`${ddsPrefix}-expressive-modal`)) {
+    const containingModal = this.closest(`${ddsPrefix}-expressive-modal`);
+    if (containingModal) {
       this.inModal = '';
+
+      window.requestIdleCallback(() => {
+        (containingModal as DDSExpressiveModal).modalBody!.style.overflow = 'hidden';
+      });
     }
   }
 

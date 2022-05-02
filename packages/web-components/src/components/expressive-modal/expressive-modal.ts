@@ -128,6 +128,9 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
   @query('#end-sentinel')
   private _endSentinelNode!: HTMLAnchorElement;
 
+  @query(`.${ddsPrefix}-ce--modal__body`)
+  modalBody?: HTMLDivElement;
+
   /**
    * Handles `click` event on this element.
    *
@@ -290,7 +293,7 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
   protected _renderHeader(): TemplateResult | SVGTemplateResult | void {
     const { _hasHeader: hasHeader, _hasBody: hasBody, _hasFooter: hasFooter } = this;
     const headerClasses = classMap({
-      [`${ddsPrefix}-ce--modal__hedaer--with-body`]: hasHeader && (hasBody || hasFooter),
+      [`${ddsPrefix}-ce--modal__header--with-body`]: hasHeader && (hasBody || hasFooter),
     });
     return html`
       <div id="modal-header" class="${headerClasses}"><slot name="header"></slot></div>
