@@ -96,11 +96,7 @@
     @include carbon--breakpoint('lg') {
       display: flex;
       flex-direction: column;
-      padding-bottom: 0;
-      padding-left: 0;
-      padding-right: 0;
-      padding-top: $spacing-09;
-      padding-bottom: $spacing-05;
+      padding: $spacing-09 0 $spacing-05 0;
     }
 
     @include carbon--breakpoint-down('lg') {
