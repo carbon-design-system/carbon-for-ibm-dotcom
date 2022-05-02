@@ -119,8 +119,6 @@
     "@carbon/icons-angular": "^10.8.3",
     "@carbon/icons-react": "^10.48.0",
     "@carbon/icons-vue": "^10.48.0",
-    "@commitlint/cli": "^16.0.0",
-    "@commitlint/config-conventional": "^16.0.0",
     "@open-wc/semantic-dom-diff": "~0.18.0",
     "@percy-io/in-percy": "~0.1.11",
     "@percy/storybook": "^3.3.1",
@@ -195,7 +193,6 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-typescript": "^5.0.1",
     "http-server": "~14.1.0",
-    "husky": "^4.3.8",
     "is-plain-obj": "^2.1.0",
     "is-port-reachable": "^3.1.0",
     "istanbul-instrumenter-loader": "^3.0.1",
@@ -216,7 +213,6 @@
     "karma-sourcemap-loader": "^0.3.8",
     "karma-spec-reporter": "0.0.33",
     "karma-webpack": "^4.0.2",
-    "lint-staged": "^12.0.0",
     "magic-string": "~0.25.7",
     "mini-css-extract-plugin": "~2.5.0",
     "mkdirp": "^0.5.5",
@@ -227,8 +223,6 @@
     "postcss": "^8.2.10",
     "postcss-loader": "^3.0.0",
     "postcss-selector-parser": "^6.0.0",
-    "prettier": "~2.5.0",
-    "prettier-plugin-package": "^1.3.0",
     "prop-types": "^15.7.0",
     "puppeteer": "^13.0.0",
     "raw-loader": "^4.0.0",
@@ -276,50 +270,5 @@
     "last 2 versions",
     "Firefox ESR",
     "ie > 11"
-  ],
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
-    "rules": {
-      "header-max-length": [
-        2,
-        "always",
-        72
-      ],
-      "body-max-line-length": [
-        2,
-        "always",
-        80
-      ]
-    }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-staged": {
-    "*.{css,js,json,md,scss,ts}": [
-      "yarn format:staged"
-    ],
-    "*.{js,ts,tsx}": [
-      "yarn lint:license:staged",
-      "yarn lint:scripts:staged"
-    ],
-    "*.scss": [
-      "yarn format:staged",
-      "yarn lint:license:staged"
-    ],
-    "*.{css,md}": [
-      "yarn format:staged"
-    ]
-  },
-  "prettier": {
-    "arrowParens": "avoid",
-    "bracketSameLine": true,
-    "printWidth": 130,
-    "singleQuote": true
-  }
+  ]
 }
