@@ -65,10 +65,37 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   private _intersectionObserverEnd: IntersectionObserver | null = null;
 
   /**
+   * Observer that watches for viewport resizes.
+   */
+  private _resizeObserver: ResizeObserver | null = null;
+
+  /**
    * The height of the header row.
    */
   private _getHeaderHeight() {
     return this._headerRow?.getBoundingClientRect().height || 0;
+  }
+
+  /**
+   * Takes actions whenever the viewport is resized.
+   */
+  private _createResizeObserver() {
+    // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+    // @ts-ignore
+    this._resizeObserver = new ResizeObserver(() => {
+      this._setMaxWidth();
+    });
+    this._resizeObserver.observe(this.ownerDocument!.documentElement);
+  }
+
+  /**
+   * Safely disconnects and removes the resize observer.
+   */
+  private _cleanResizeObserver() {
+    if (this._resizeObserver instanceof ResizeObserver) {
+      this._resizeObserver.disconnect();
+    }
+    this._resizeObserver = null;
   }
 
   /**
@@ -80,7 +107,6 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
     if (this.shadowRoot) {
       this._intersectionObserverStart = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-          // console.log('DEBUG: start entry', entry);
           const { isIntersecting, boundingClientRect } = entry;
           if (!isIntersecting && boundingClientRect.top < 0 && !this._isSticky) {
             this._setSticky(true);
@@ -328,8 +354,14 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
     this._cleanAndCreateIntersectionObservers();
   }
 
+  connectedCallback() {
+    this._createResizeObserver();
+    super.connectedCallback();
+  }
+
   disconnectedCallback() {
     this._cleanIntersectionObservers();
+    this._cleanResizeObserver();
     super.disconnectedCallback();
   }
 
