@@ -326,12 +326,13 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
       this._headerRow = headerRow;
     }
 
-    this._setMaxWidth();
-    // this._createIntersectionObservers();
-
-    if (StickyHeader.isNecessary()) {
-      StickyHeader.global.pricingTable = this;
+    if (StickyHeader.global._pricingTables) {
+      StickyHeader.global._pricingTables.push(this);
+    } else {
+      StickyHeader.global._pricingTables = [this];
     }
+
+    this._setMaxWidth();
   }
 
   updated(): void {

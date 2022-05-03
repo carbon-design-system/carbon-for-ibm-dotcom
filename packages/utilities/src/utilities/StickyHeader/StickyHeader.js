@@ -28,6 +28,7 @@ class StickyHeader {
     this._masthead = undefined;
     this._mastheadL0 = undefined;
     this._mastheadL1 = undefined;
+    this._pricingTables = undefined;
     this._tableOfContents = undefined;
     this._tableOfContentsInnerBar = undefined;
     this._tableOfContentsLayout = undefined;
@@ -133,6 +134,15 @@ class StickyHeader {
     }
   }
 
+  set pricingTables(components) {
+    this._pricingTables = components.reduce((acc, component) => {
+      if (this._validateComponent(component, `${ddsPrefix}-pricing-table`)) {
+        acc.push(component);
+      }
+      return acc;
+    }, []);
+  }
+
   set tableOfContents(component) {
     if (this._validateComponent(component, `${ddsPrefix}-table-of-contents`)) {
       this._tableOfContents = component;
@@ -196,6 +206,7 @@ class StickyHeader {
       _masthead: masthead,
       _mastheadL0: mastheadL0,
       _mastheadL1: mastheadL1,
+      _pricingTables: pricingTables,
       _localeModal: localeModal,
       _tableOfContents: toc,
       _tableOfContentsInnerBar: tocInner,
@@ -221,6 +232,7 @@ class StickyHeader {
      * - L1
      * - The TOC in horizontal bar form
      * - The leadspace with search (if no TOC)
+     * - Pricing table header rows
      */
     let maxScrollaway = 0;
 
@@ -326,6 +338,18 @@ class StickyHeader {
         leadspaceSearchBar.style.transform = '';
         leadspaceSearchInput.removeAttribute('large');
       }
+    }
+
+    if (masthead && pricingTables) {
+      pricingTables.forEach(pricingTable => {
+        let pricingTableOffset = masthead.offsetHeight;
+
+        if (tocInner.offsetTop < pricingTable.offsetTop) {
+          pricingTableOffset = 0;
+        }
+
+        pricingTable._headerRow.style.top = `${pricingTableOffset}px`;
+      });
     }
   }
 }
