@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="180px" viewBox="0 0 320 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>feature-card-block</title>
+    <g id="feature-card-block" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3" transform="translate(72.000000, 46.000000)">
+            <rect id="Rectangle" stroke="#C6C6C6" fill="#FFFFFF" x="0" y="0" width="176" height="87"></rect>
+            <g id="Group-4" transform="translate(45.000000, 8.000000)">
+                <g id="Group-2" transform="translate(2.000000, 0.000000)" fill="#8D8D8D">
+                    <rect id="Rectangle-Copy-2" x="0" y="0" width="60" height="4"></rect>
+                    <rect id="Rectangle-Copy-3" x="0" y="7" width="39" height="4"></rect>
+                </g>
+                <g id="Group-2" transform="translate(0.000000, 20.000000)">
+                    <rect id="Rectangle" fill="#161616" x="0" y="0" width="86" height="43"></rect>
+                    <rect id="Rectangle-Copy-7" fill="#C6C6C6" x="0" y="0" width="43" height="43"></rect>
+                    <g id="Group" transform="translate(46.000000, 3.000000)" fill="#A8A8A8">
+                        <rect id="Rectangle-Copy-4" x="0" y="0" width="28" height="2"></rect>
+                        <rect id="Rectangle-Copy-5" x="0" y="4" width="28" height="2"></rect>
+                        <rect id="Rectangle-Copy-6" x="0" y="8" width="28" height="2"></rect>
+                        <rect id="Rectangle-Copy-8" x="0" y="12" width="18" height="2"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

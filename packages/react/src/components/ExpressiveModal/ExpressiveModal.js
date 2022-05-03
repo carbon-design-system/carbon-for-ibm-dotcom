@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -8,7 +8,7 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import ComposedModal from '../../internal/vendor/carbon-components-react/components/ComposedModal/ComposedModal';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import ExpressiveModalCloseBtn from './ExpressiveModalCloseBtn';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
