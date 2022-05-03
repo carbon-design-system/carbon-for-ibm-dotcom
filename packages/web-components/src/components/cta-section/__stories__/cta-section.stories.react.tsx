@@ -144,17 +144,20 @@ export const WithContentItems = args => {
   const { contentItemType, contentItemCount } = args?.WithContentItems ?? {};
 
   return (
-    <DDSCTASection>
-      <DDSContentSectionHeading>Related products and services</DDSContentSectionHeading>
-      <DDSCTABlock _noBorder={!border}>
-        <DDSContentBlockHeading>{heading || undefined}</DDSContentBlockHeading>
-        <DDSContentBlockCopy>{copy}</DDSContentBlockCopy>
-        <DDSTextCTA slot="action" cta-type="local" icon-placement="right" href="example.com">
-          Browse tutorials
-        </DDSTextCTA>
-        {renderItems(contentItemType, contentItemCount)}
-      </DDSCTABlock>
-    </DDSCTASection>
+    <>
+      <DDSCTASection>
+        <DDSContentSectionHeading>Related products and services</DDSContentSectionHeading>
+        <DDSCTABlock _noBorder={!border}>
+          <DDSContentBlockHeading>{heading || undefined}</DDSContentBlockHeading>
+          <DDSContentBlockCopy>{copy}</DDSContentBlockCopy>
+          <DDSTextCTA slot="action" cta-type="local" icon-placement="right" href="example.com">
+            Browse tutorials
+          </DDSTextCTA>
+          {renderItems(contentItemType, contentItemCount)}
+        </DDSCTABlock>
+      </DDSCTASection>
+      <DDSLightboxVideoPlayerContainer></DDSLightboxVideoPlayerContainer>
+    </>
   );
 };
 
