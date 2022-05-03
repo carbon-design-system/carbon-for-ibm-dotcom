@@ -169,7 +169,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     return html`
       <ul class="${prefix}--accordion">
         ${tabs.map((tab, index) => {
-          const disabled = (tab as DDSTab).disabled && true;
+          const { disabled } = tab as DDSTab;
           const active = index === this._activeTab;
           const label = (tab as DDSTab).getAttribute('label');
           const classes = classMap({
@@ -209,7 +209,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
       <div class="${prefix}--tabs">
         <ul class="${prefix}--tabs__nav ${prefix}--tabs__nav--hidden" role="tablist" @keydown="${this._handleTabListKeyDown}">
           ${tabs.map((tab, index) => {
-            const disabled = (tab as DDSTab).disabled && true;
+            const { disabled } = tab as DDSTab;
             const active = index === this._activeTab;
             const label = (tab as DDSTab).getAttribute('label');
             const classes = classMap({
