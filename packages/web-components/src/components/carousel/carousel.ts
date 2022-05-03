@@ -442,10 +442,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     const containingModal = this.closest(`${ddsPrefix}-expressive-modal`);
     if (containingModal) {
       this.inModal = '';
-
-      (window as Window).requestIdleCallback(() => {
-        (containingModal as DDSExpressiveModal).modalBody!.style.overflow = 'hidden';
-      });
+      (containingModal as DDSExpressiveModal).modalBody!.style.overflow = 'hidden';
     }
   }
 
