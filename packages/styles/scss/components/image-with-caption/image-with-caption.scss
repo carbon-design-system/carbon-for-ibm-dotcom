@@ -26,6 +26,7 @@
   }
 
   .#{$prefix}--image-with-caption__image {
+    display: block;
     width: 100%;
     padding: 0;
     position: relative;

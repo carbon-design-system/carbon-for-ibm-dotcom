@@ -10,13 +10,13 @@
 import { ifDefined } from 'lit-html/directives/if-defined';
 import { html, property, state, query, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import CaretLeft20 from 'carbon-web-components/es/icons/caret--left/20.js';
 import CaretRight20 from 'carbon-web-components/es/icons/caret--right/20.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import styles from './carousel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
@@ -200,6 +200,19 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   };
 
   /**
+   * Handles card with video heading and applies the set same height function.
+   *
+   * @param event The event.
+   */
+  @HostListener(`document:eventVideoTitleUpdated`)
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleVideoTitleUpdate = async (event: FocusEvent) => {
+    if (event) {
+      this._setSameHeight();
+    }
+  };
+
+  /**
    * Handles `click` event on the next button.
    */
   private _handleClickNextButton() {
@@ -255,7 +268,12 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
     this._childItems = (event.target as HTMLSlotElement)
       .assignedNodes()
-      .filter(elem => (elem as HTMLElement).matches?.((this.constructor as typeof DDSCarousel).selectorItem));
+      .filter(elem =>
+        (elem as HTMLElement).matches !== undefined
+          ? (elem as HTMLElement).matches((this.constructor as typeof DDSCarousel).selectorItem) ||
+            (elem as HTMLElement).matches((this.constructor as typeof DDSCarousel).selectorItemVideoCTAContainer)
+          : false
+      );
 
     // retrieve item heading, eyebrows, and footers to set same height
     if (this._childItems) {
@@ -272,6 +290,15 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         this._childItemHeadings.push(
           (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemHeading)
         );
+
+        this._childItemHeadings.push(
+          (e as HTMLElement)
+            .querySelector((this.constructor as typeof DDSCarousel).selectorItemCardCTA)
+            ?.shadowRoot?.querySelector((this.constructor as typeof DDSCarousel).selectorItemHeading)
+        );
+
+        this._childItemHeadings = this._childItemHeadings.filter(heading => heading);
+
         this._childItemFooters.push(
           (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemFooter)
         );
@@ -488,10 +515,31 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   }
 
   /**
+   * The name of the custom event fired when the video title is updated
+   */
+  static get eventVideoTitleUpdated() {
+    return `${ddsPrefix}-card-cta-video-title-updated`;
+  }
+
+  /**
    * The selector for the card component
    */
   static get selectorItem() {
     return `${ddsPrefix}-card`;
+  }
+
+  /**
+   * The selector for the card cta
+   */
+  static get selectorItemCardCTA() {
+    return `${ddsPrefix}-card-cta`;
+  }
+
+  /**
+   * The selector for the video cta container
+   */
+  static get selectorItemVideoCTAContainer() {
+    return `${ddsPrefix}-video-cta-container`;
   }
 
   /**

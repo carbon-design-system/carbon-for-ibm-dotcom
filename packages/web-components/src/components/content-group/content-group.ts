@@ -8,7 +8,7 @@
  */
 
 import { customElement, html, TemplateResult } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSContentBlock from '../content-block/content-block';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-group.scss';

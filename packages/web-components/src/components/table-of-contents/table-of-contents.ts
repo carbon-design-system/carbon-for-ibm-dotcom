@@ -14,11 +14,13 @@ import { html, property, state, query, queryAll, customElement, LitElement } fro
 import CaretLeft20 from 'carbon-web-components/es/icons/caret--left/20.js';
 import CaretRight20 from 'carbon-web-components/es/icons/caret--right/20.js';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { baseFontSize, breakpoints } from '@carbon/layout';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import TableOfContents20 from 'carbon-web-components/es/icons/table-of-contents/20.js';
 import throttle from 'lodash-es/throttle.js';
+import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './table-of-contents.scss';
 import { TOC_TYPES } from './defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -28,6 +30,8 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 // total button width - grid offset
 const buttonWidthOffset = 32;
+
+const gridLgBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
 interface Cancelable {
   cancel(): void;
@@ -58,6 +62,13 @@ function findLastIndex<T>(a: T[], predicate: (search: T, index?: number, thisObj
  */
 @customElement(`${ddsPrefix}-table-of-contents`)
 class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElement)) {
+  /**
+   * The formatter for the aria label text for the mobile ToC.
+   * Should be changed upon the locale the component is rendered with.
+   */
+  @property({ attribute: false })
+  ariaLabelFormatter = 'Table of contents';
+
   /**
    * Defines TOC type, "" for default, `horizontal` for horizontal variant.
    */
@@ -294,13 +305,25 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
   };
 
   /**
-   * Handles `slotchange` event on the default `<slot>`.
-   *
-   * @param event The event.
+   * Watches for changes to content in the default slot.
    */
-  private _handleSlotChange(event: Event) {
+  private _contentMutationObserver = new MutationObserver(this._contentObserverCallback.bind(this));
+
+  /**
+   * Sets table of contents targets whenever any node tree mutation is observed.
+   */
+  private _contentObserverCallback() {
+    const shadowRoot = this.shadowRoot as ShadowRoot;
+    const defaultSlot = shadowRoot.querySelector(`.${prefix}--tableofcontents__content slot`) as HTMLSlotElement;
+    this._setTargets(Array.from(defaultSlot.assignedNodes()));
+  }
+
+  /**
+   * Sets targets used for generating the table of contents.
+   */
+  private _setTargets(nodes: Node[]) {
     const { selectorTarget } = this.constructor as typeof DDSTableOfContents;
-    this._targets = (event.target as HTMLSlotElement).assignedNodes().reduce((acc, node) => {
+    this._targets = nodes.reduce((acc, node) => {
       if (node.nodeType === Node.ELEMENT_NODE) {
         const elem = node as Element;
         if (elem.matches(selectorTarget)) {
@@ -310,6 +333,24 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
       }
       return acc;
     }, [] as HTMLAnchorElement[]);
+  }
+
+  /**
+   * Handles `slotchange` event on the default `<slot>`.
+   *
+   * @param event The event.
+   */
+  private _handleSlotChange(event: Event) {
+    // Handle changes to immediate slotted children.
+    this._setTargets((event.target as HTMLSlotElement).assignedNodes());
+
+    // Handle changes to slotted contents' children.
+    this._contentMutationObserver.disconnect();
+    (event.target as HTMLSlotElement).assignedNodes().forEach(node => {
+      if (node instanceof HTMLElement) {
+        this._contentMutationObserver.observe(node, { subtree: true, childList: true });
+      }
+    });
   }
 
   /**
@@ -329,6 +370,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
   private _handleUserInitiatedJump(target: string) {
     const elem = this.querySelector(`[name="${target}"]`);
     const masthead: HTMLElement | null = this.ownerDocument.querySelector(`${ddsPrefix}-masthead`);
+    const mobilePadding = window.innerWidth < gridLgBreakpoint ? this._mobileContainerNode?.offsetHeight : 0;
 
     if (elem instanceof HTMLElement) {
       const currentY = window.scrollY;
@@ -337,7 +379,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
       if (currentY > elem.offsetTop && masthead) {
         targetY = elem.offsetTop - masthead.offsetHeight;
       } else {
-        targetY = elem.offsetTop;
+        targetY = elem.offsetTop - mobilePadding!;
       }
 
       window.scrollTo(0, targetY);
@@ -526,7 +568,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
   @HostListener(`document:${ddsPrefix}-table-of-contents-reharvest`)
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _retriggerHarvest = () => {
-    this._targets = Array.from(this.querySelectorAll('a[name]'));
+    this._targets = Array.from(this.querySelectorAll('[name]'));
   };
 
   connectedCallback() {
@@ -542,6 +584,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
   disconnectedCallback() {
     this._cleanAndCreateObserverResizeMobileContainer();
     this._cleanAndCreateIntersectionObserverContainer();
+    this._contentMutationObserver.disconnect();
     if (this._throttleScroll) {
       this._throttleScroll.cancel();
       this._throttleScroll = null;
@@ -552,6 +595,8 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
   firstUpdated() {
     this._cleanAndCreateObserverResizeMobileContainer({ create: true });
     this._cleanAndCreateIntersectionObserverContainer({ create: true });
+
+    StickyHeader.global.tableOfContents = this;
   }
 
   updated(changedProperties) {
@@ -559,7 +604,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
       const { _currentTarget: currentTarget, _mobileSelectNode: mobileSelectNode } = this;
       // Ensures setting the `value` after rendering child `<option>`s when there is a change in `value`,
       // given reflecting `value` requires child `<option>`s being there beforehand
-      mobileSelectNode!.value = currentTarget?.name ?? '';
+      mobileSelectNode!.value = currentTarget?.getAttribute('name') ?? '';
     }
   }
 
@@ -719,7 +764,11 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
             </div>
             <div class="${prefix}--tableofcontents__mobile">
               <div class="${prefix}--tableofcontents__mobile__select__wrapper">
-                <select class="${prefix}--tableofcontents__mobile__select" @change="${handleChangeSelect}">
+                <select
+                  aria-label="${this.ariaLabelFormatter}"
+                  class="${prefix}--tableofcontents__mobile__select"
+                  @change="${handleChangeSelect}"
+                >
                   ${targets.map(item => {
                     const name = item.getAttribute('name');
                     const title = (item.dataset.title ?? item.textContent ?? '').trim();

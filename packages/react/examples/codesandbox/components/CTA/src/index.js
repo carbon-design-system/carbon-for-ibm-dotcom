@@ -26,18 +26,19 @@ const ctaButton = {
   style: "button",
   buttons: [
     {
-      href: "#",
-      copy: "Button 3",
-      iconDescription: "video play icon",
+      type: "video",
+      href: "https://www.example.com",
+      copy: "Lorem Ipsum",
       media: {
         src: "1_9h94wo6b",
-        type: "video",
+        type: "video"
       },
     },
     {
+      type: "external",
       href: "https://www.example.com",
-      copy: "Button 1",
-      iconDescription: "right arrow icon",
+      copy: "Lorem Ipsum",
+      renderIcon: ArrowRight20
     },
   ],
 };
