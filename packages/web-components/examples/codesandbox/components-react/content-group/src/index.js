@@ -21,11 +21,11 @@ const App = () => (
   <DDSContentGroup>
     <DDSContentGroupHeading>{heading}</DDSContentGroupHeading>
     <DDSContentGroupCopy>{copy}</DDSContentGroupCopy>
-    <DDSCardLinkCTA slot='footer' cta-type='local' href='https://www.example.com'>
-        <DDSCardLinkHeading>Learn more about natural language processing</DDSCardLinkHeading>
-        <DDSCardCTAFooter></DDSCardCTAFooter>
+    <DDSCardLinkCTA slot="footer" cta-type="local" href="https://www.example.com">
+      <DDSCardLinkHeading>Learn more about natural language processing</DDSCardLinkHeading>
+      <DDSCardCTAFooter></DDSCardCTAFooter>
     </DDSCardLinkCTA>
-    </DDSContentGroup>
-  );
+  </DDSContentGroup>
+);
 
 render(<App />, document.getElementById('root'));

@@ -16,11 +16,13 @@ import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta
 import './index.css';
 
 const App = () => (
-	<DDSContentSection>
-		<DDSContentSectionHeading>{heading}</DDSContentSectionHeading>
-		<DDSContentSectionCopy>{copy}</DDSContentSectionCopy>
-		<DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">Link action</DDSTextCTA>
-	</DDSContentSection>
+  <DDSContentSection>
+    <DDSContentSectionHeading>{heading}</DDSContentSectionHeading>
+    <DDSContentSectionCopy>{copy}</DDSContentSectionCopy>
+    <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">
+      Link action
+    </DDSTextCTA>
+  </DDSContentSection>
 );
 
 render(<App />, document.getElementById('root'));

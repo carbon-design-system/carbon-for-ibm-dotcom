@@ -109,7 +109,7 @@ export default {
         <>
           <div className="bx--grid">
             <div className="bx--row">
-              <div className="bx--col-lg-12 bx--no-gutter">
+              <div className="bx--col-lg-16 bx--no-gutter">
                 <DDSVideoCTAContainer>{story()}</DDSVideoCTAContainer>
               </div>
             </div>
