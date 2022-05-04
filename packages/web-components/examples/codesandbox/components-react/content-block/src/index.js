@@ -18,14 +18,14 @@ import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-rea
 import './index.css';
 
 const App = () => (
-	<DDSContentBlock>
-	<DDSContentBlockHeading>Heading text</DDSContentBlockHeading>
-	<DDSContentBlockCopy>Copy test</DDSContentBlockCopy>
-	<DDSCardLinkCTA slot="footer" cta-type="local" href="https://www.example.com">
-		<DDSCardLinkHeading>cta copy</DDSCardLinkHeading>
-		<DDSCardCTAFooter></DDSCardCTAFooter>
-		</DDSCardLinkCTA>
-	</DDSContentBlock>
+  <DDSContentBlock>
+    <DDSContentBlockHeading>Heading text</DDSContentBlockHeading>
+    <DDSContentBlockCopy>Copy test</DDSContentBlockCopy>
+    <DDSCardLinkCTA slot="footer" cta-type="local" href="https://www.example.com">
+      <DDSCardLinkHeading>cta copy</DDSCardLinkHeading>
+      <DDSCardCTAFooter></DDSCardCTAFooter>
+    </DDSCardLinkCTA>
+  </DDSContentBlock>
 );
 
 render(<App />, document.getElementById('root'));
