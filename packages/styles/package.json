@@ -39,10 +39,10 @@
     "@carbon/telemetry": "0.1.0",
     "@carbon/themes": "10.54.0",
     "@carbon/type": "10.44.0",
-    "carbon-components": "10.57.0"
+    "carbon-components": "10.57.1"
   },
   "devDependencies": {
-    "carbon-components-react": "7.57.0",
+    "carbon-components-react": "7.57.1",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
