@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.18.0...@carbon/ibmdotcom-web-components@1.18.1) (2022-05-04)
+
+
+### Bug Fixes
+
+* **tabs-extended & table-of-contents:** ensure DOM updates are handled ([#8767](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8767)) ([c2db623](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/c2db623)), closes [#8751](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8751)
+
+
+
+
+
 # [1.18.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.18.0-rc.1...@carbon/ibmdotcom-web-components@1.18.0) (2022-04-25)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
