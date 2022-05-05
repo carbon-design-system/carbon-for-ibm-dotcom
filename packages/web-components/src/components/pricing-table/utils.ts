@@ -16,9 +16,9 @@ export const slideHidden = (element: HTMLElement) => {
   element.style.transition = '';
 
   requestAnimationFrame(() => {
+    element.style.transition = transition;
     element.style.height = `${height}px`;
     element.style.opacity = '1';
-    element.style.transition = transition;
 
     requestAnimationFrame(() => {
       element.style.height = '0px';
@@ -28,9 +28,11 @@ export const slideHidden = (element: HTMLElement) => {
 };
 
 export const slideUnhidden = (element: HTMLElement) => {
-  const height = element.scrollHeight;
-  element.style.height = `${height}px`;
-  element.style.opacity = '1';
+  requestAnimationFrame(() => {
+    const height = element.scrollHeight;
+    element.style.height = `${height}px`;
+    element.style.opacity = '1';
+  });
 
   element.addEventListener(
     'transitionend',
@@ -53,6 +55,16 @@ export const setColumnWidth = (row: DDSPricingTableHeaderRow | DDSPricingTableRo
     defaultColumnWidth = '4';
   }
   row.style.setProperty('--default-cols', defaultColumnWidth);
+};
+
+export const convertStyleToObject = (styleString: string): {} => {
+  return styleString.split(';').reduce((acc, styleRule) => {
+    if (styleRule !== '') {
+      const pair = styleRule.split(':');
+      acc[pair[0].trim()] = pair[1].trim();
+    }
+    return acc;
+  }, {});
 };
 
 export default setColumnWidth;

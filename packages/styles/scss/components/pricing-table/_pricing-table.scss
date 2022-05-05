@@ -29,8 +29,8 @@
   .#{$prefix}--pricing-table-head,
   :host(#{$dds-prefix}-pricing-table-head) {
     width: 100%;
-    // display: block;
-    // transition: $duration--slow-01 motion(standard, productive);
+    position: relative;
+    display: block;
   }
 
   .#{$prefix}--pricing-table-group,
@@ -42,18 +42,20 @@
   :host(#{$dds-prefix}-pricing-table-header-row) {
     @extend .#{$prefix}--structured-list-header-row;
 
+    transition: top $duration--slow-01 motion(standard, productive);
+
+    &[role='row'] {
+      position: initial;
+    }
+
     &.#{$prefix}--pricing-table-header-row--sticky {
       position: fixed;
-      top: 0;
-      z-index: 999;
+      top: var(--#{$dds-prefix}-sticky-header-height);
+      z-index: 1;
       background-color: $ui-02;
       box-shadow: 0 2px 2px $ui-01;
       overflow: hidden;
-      width: calc(var(--max-width) + (#{$carbon--spacing-05} * 2));
-
-      ::slotted(#{$dds-prefix}-pricing-table-header-cell) {
-        padding-block-end: $carbon--spacing-05;
-      }
+      width: var(--max-width);
 
       &.#{$prefix}--pricing-table-header-row--absolute {
         position: absolute;
@@ -129,7 +131,9 @@
     transition: padding-block-end $duration--slow-01
       motion(standard, productive);
 
-    &.#{$prefix}--pricing-table-header-cell--sticky:not([type='simple']) {
+    &.#{$prefix}--pricing-table-header-cell--sticky[type='complex'] {
+      padding-block-end: $carbon--spacing-05;
+
       .#{$prefix}--pricing-table-header-cell-tag-wrapper,
       .#{$prefix}--pricing-table-cell-inner {
         transition: $duration--slow-01 motion(standard, productive),

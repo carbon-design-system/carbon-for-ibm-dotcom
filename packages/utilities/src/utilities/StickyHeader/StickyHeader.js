@@ -18,6 +18,7 @@ const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 class StickyHeader {
   constructor() {
     this.ownerDocument = root.document;
+    this.cumulativeHeight = 0;
     this._banner = undefined;
     this._hasBanner = false;
     this._lastScrollPosition = 0;
@@ -28,7 +29,6 @@ class StickyHeader {
     this._masthead = undefined;
     this._mastheadL0 = undefined;
     this._mastheadL1 = undefined;
-    this._pricingTables = undefined;
     this._tableOfContents = undefined;
     this._tableOfContentsInnerBar = undefined;
     this._tableOfContentsLayout = undefined;
@@ -45,6 +45,14 @@ class StickyHeader {
       root.stickyHeader = new StickyHeader();
     }
     return root.stickyHeader;
+  }
+
+  static get customPropertyName() {
+    return `--${ddsPrefix}-sticky-header-height`;
+  }
+
+  get height() {
+    return this.cumulativeHeight;
   }
 
   /**
@@ -134,15 +142,6 @@ class StickyHeader {
     }
   }
 
-  set pricingTables(components) {
-    this._pricingTables = components.reduce((acc, component) => {
-      if (this._validateComponent(component, `${ddsPrefix}-pricing-table`)) {
-        acc.push(component);
-      }
-      return acc;
-    }, []);
-  }
-
   set tableOfContents(component) {
     if (this._validateComponent(component, `${ddsPrefix}-table-of-contents`)) {
       this._tableOfContents = component;
@@ -199,6 +198,32 @@ class StickyHeader {
     }
   }
 
+  /**
+   * Checks if the given element is at the top of the viewport
+   *
+   * @param {HTMLElement} element An element to check
+   * @returns {boolean} Returns true if the element is at the top of the
+   * viewport
+   */
+  _elementIsAtTop(element) {
+    const { _masthead: masthead } = this;
+    const elementTop = element.getBoundingClientRect().top;
+    const mastheadTop =
+      (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1;
+    return elementTop <= mastheadTop;
+  }
+
+  /**
+   * Checks if the bottom edge of a component is above the viewport.
+   *
+   * @param {HTMLElement} element An element to check
+   * @returns {boolean} Returns true if the element's bottom edge is above the
+   * viewport.
+   */
+  _elementIsPast(element) {
+    return element.getBoundingClientRect().bottom < 0;
+  }
+
   _handleScroll() {
     const {
       _lastScrollPosition: oldY,
@@ -206,7 +231,6 @@ class StickyHeader {
       _masthead: masthead,
       _mastheadL0: mastheadL0,
       _mastheadL1: mastheadL1,
-      _pricingTables: pricingTables,
       _localeModal: localeModal,
       _tableOfContents: toc,
       _tableOfContentsInnerBar: tocInner,
@@ -215,6 +239,8 @@ class StickyHeader {
       _leadspaceWithSearchInput: leadspaceSearchInput,
       _leadspaceWithSearchStickyThreshold: leadspaceSearchThreshold,
     } = StickyHeader.global;
+
+    const { customPropertyName } = this.constructor;
 
     if (localeModal && localeModal.hasAttribute('open')) return;
 
@@ -232,7 +258,6 @@ class StickyHeader {
      * - L1
      * - The TOC in horizontal bar form
      * - The leadspace with search (if no TOC)
-     * - Pricing table header rows
      */
     let maxScrollaway = 0;
 
@@ -340,17 +365,14 @@ class StickyHeader {
       }
     }
 
-    if (masthead && pricingTables) {
-      pricingTables.forEach(pricingTable => {
-        let pricingTableOffset = masthead.offsetHeight;
+    // Set CSS custom property
+    root.document.documentElement.style.setProperty(
+      customPropertyName,
+      `${cumulativeOffset}px`
+    );
 
-        if (tocInner.offsetTop < pricingTable.offsetTop) {
-          pricingTableOffset = 0;
-        }
-
-        pricingTable._headerRow.style.top = `${pricingTableOffset}px`;
-      });
-    }
+    // Set internal property
+    this.cumulativeHeight = cumulativeOffset;
   }
 }
 

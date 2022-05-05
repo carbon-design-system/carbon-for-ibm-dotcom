@@ -1425,6 +1425,11 @@
   resolved "https://registry.yarnpkg.com/@carbon/motion/-/motion-10.29.0.tgz#1e78c70d396ad3b9363f7a0c7e36ce9bac3d5702"
   integrity sha512-b8Cc9vgMlkQfLQAwq9Zt1/UfsrtGcWQpf0kK5gCamAuSmNSFWYJSwqbY9MeodxM2xNfXrxFcEFwqwy/E7egxUw==
 
+"@carbon/motion@^11.0.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@carbon/motion/-/motion-11.0.0.tgz#2a6e4175ac0a29e9b9a9a83750deae46a0eeedb3"
+  integrity sha512-3KYZJEALeYq99EF/LyIbfa8NvkWeZAeAjlqlYGmCCs8rDihaX97NQ4QgfMT9kwzjD/3sEjV5CTmvI2CJJw0RfA==
+
 "@carbon/pictograms-react@11.26.2":
   version "11.26.2"
   resolved "https://registry.yarnpkg.com/@carbon/pictograms-react/-/pictograms-react-11.26.2.tgz#e5d6f469c01c507543d1d90736c28a2d7cfff29a"

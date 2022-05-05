@@ -15,6 +15,7 @@ import DDSPricingTableHeaderCell from './pricing-table-header-cell';
 import styles from './pricing-table.scss';
 import { setColumnWidth } from './utils';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from './defs';
+import DDSPricingTable from './pricing-table';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -37,7 +38,9 @@ class DDSPricingTableHeaderRow extends DDSStructuredListHeaderRow {
     // TODO: Wait for `.d.ts` update to support `ResizeObserver`
     // @ts-ignore
     this._resizeObserver = new ResizeObserver(() => {
-      this._setSameHeight();
+      if (!(this.closest(`${ddsPrefix}-pricing-table`) as DDSPricingTable)?.isSticky) {
+        this._setSameHeight();
+      }
     });
     this._resizeObserver.observe(this.ownerDocument!.documentElement);
   }
