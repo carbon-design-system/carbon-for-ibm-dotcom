@@ -17,8 +17,8 @@ import './index.css';
 
 const App = () => (
   <DDSContentSection>
-    <DDSContentSectionHeading>{heading}</DDSContentSectionHeading>
-    <DDSContentSectionCopy>{copy}</DDSContentSectionCopy>
+    <DDSContentSectionHeading>Heading</DDSContentSectionHeading>
+    <DDSContentSectionCopy>Copy</DDSContentSectionCopy>
     <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">
       Link action
     </DDSTextCTA>

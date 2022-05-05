@@ -19,8 +19,8 @@ import './index.css';
 
 const App = () => (
   <DDSContentGroup>
-    <DDSContentGroupHeading>{heading}</DDSContentGroupHeading>
-    <DDSContentGroupCopy>{copy}</DDSContentGroupCopy>
+    <DDSContentGroupHeading>Heading</DDSContentGroupHeading>
+    <DDSContentGroupCopy>Copy</DDSContentGroupCopy>
     <DDSCardLinkCTA slot="footer" cta-type="local" href="https://www.example.com">
       <DDSCardLinkHeading>Learn more about natural language processing</DDSCardLinkHeading>
       <DDSCardCTAFooter></DDSCardCTAFooter>
