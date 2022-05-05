@@ -20,24 +20,24 @@ import DDSButtonExpressive from '@carbon/ibmdotcom-web-components/es/components-
 import './index.css';
 
 const App = () => (
-	<DDSExpressiveModal open={true}>
-		<DDSExpressiveModalHeader>
-			<DDSExpressiveModalCloseButton></DDSExpressiveModalCloseButton>
-			<DDSExpressiveModalHeading>Modal Title</DDSExpressiveModalHeading>
-		</DDSExpressiveModalHeader>
-		<DDSExpressiveModalBody>
-			Quisque felis odio, egestas vel tempus iaculis, interdum vel eros. Phasellus pharetra, purus et pretium posuere, ipsum
-			risus pulvinar leo, non rutrum tortor risus vitae quam. Nulla sed nibh felis. Maecenas nec tincidunt eros. Fusce
-			sollicitudin sit amet quam eu fringilla. Donec tincidunt ut nisi vitae pharetra. Curabitur imperdiet ante sit amet mi
-			laoreet, vitae facilisis ante convallis. Aenean quis dapibus augue. Sed nisl dui, scelerisque et augue eget, pharetra
-			commodo elit. In venenatis sapien eu nisl congue suscipit.
-		</DDSExpressiveModalBody>
-		<DDSExpressiveModalFooter>
-			<DDSButtonExpressive>
-				Lorem ipsum <ArrowRight20 slot='icon' />
-			</DDSButtonExpressive>
-		</DDSExpressiveModalFooter>
-	</DDSExpressiveModal>
+  <DDSExpressiveModal open={true}>
+    <DDSExpressiveModalHeader>
+      <DDSExpressiveModalCloseButton></DDSExpressiveModalCloseButton>
+      <DDSExpressiveModalHeading>Modal Title</DDSExpressiveModalHeading>
+    </DDSExpressiveModalHeader>
+    <DDSExpressiveModalBody>
+      Quisque felis odio, egestas vel tempus iaculis, interdum vel eros. Phasellus pharetra, purus et pretium posuere, ipsum risus
+      pulvinar leo, non rutrum tortor risus vitae quam. Nulla sed nibh felis. Maecenas nec tincidunt eros. Fusce sollicitudin sit
+      amet quam eu fringilla. Donec tincidunt ut nisi vitae pharetra. Curabitur imperdiet ante sit amet mi laoreet, vitae
+      facilisis ante convallis. Aenean quis dapibus augue. Sed nisl dui, scelerisque et augue eget, pharetra commodo elit. In
+      venenatis sapien eu nisl congue suscipit.
+    </DDSExpressiveModalBody>
+    <DDSExpressiveModalFooter>
+      <DDSButtonExpressive>
+        Lorem ipsum <ArrowRight20 slot="icon" />
+      </DDSButtonExpressive>
+    </DDSExpressiveModalFooter>
+  </DDSExpressiveModal>
 );
 
 render(<App />, document.getElementById('root'));
