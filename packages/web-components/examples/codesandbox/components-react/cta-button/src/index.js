@@ -13,11 +13,7 @@ import DDSButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/c
 import './index.css';
 
 const App = () => (
-  <DDSButtonCTA
-    cta-type="local"
-    kind="tertiary"
-    href="https://www.example.com"
-  >
+  <DDSButtonCTA cta-type="local" kind="tertiary" href="https://www.example.com">
     Button CTA Copy
   </DDSButtonCTA>
 );

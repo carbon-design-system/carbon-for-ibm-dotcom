@@ -13,10 +13,7 @@ import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta
 import './index.css';
 
 const App = () => (
-  <DDSTextCTA
-    cta-type="local"
-    href="https://www.example.com"
-  >
+  <DDSTextCTA cta-type="local" href="https://www.example.com">
     Text CTA Copy
   </DDSTextCTA>
 );

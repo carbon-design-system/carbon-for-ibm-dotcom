@@ -22,9 +22,11 @@ const App = () => (
       <div className="bx--col-sm-4 bx--col-lg-8">
         <DDSFeatureCTA cta-type="local" href="https://www.example.com">
           <DDSCardHeading>Feature CTA Copy</DDSCardHeading>
-          <DDSImage slot="image"
-                    alt="Image alt text"
-                    default-src="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616" />
+          <DDSImage
+            slot="image"
+            alt="Image alt text"
+            default-src="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616"
+          />
           <DDSFeatureCTAFooter>
             <ArrowRight20 slot="icon" />
           </DDSFeatureCTAFooter>
