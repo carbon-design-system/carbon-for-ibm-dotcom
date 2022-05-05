@@ -67,6 +67,14 @@ function tryFocusElems(
   return false;
 }
 
+function onResize([entry]) {
+  const { target, contentRect } = entry;
+  const { width, height } = contentRect;
+
+  target.style.setProperty('--modal-vh', `${height}px`);
+  target.style.setProperty('--modal-vw', `${width}px`);
+}
+
 /**
  * The table mapping slot name with the private property name that indicates the existence of the slot content.
  */
@@ -128,8 +136,13 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
   @query('#end-sentinel')
   private _endSentinelNode!: HTMLAnchorElement;
 
+  @query(`.${prefix}--modal-content`)
+  modalContent?: HTMLDivElement;
+
   @query(`.${ddsPrefix}-ce--modal__body`)
   modalBody?: HTMLDivElement;
+
+  private _resizeObserver = new ResizeObserver(onResize as ResizeObserverCallback);
 
   /**
    * Handles `click` event on this element.
@@ -380,6 +393,12 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
       </div>
       <button id="end-sentinel" class="${prefix}--visually-hidden" @focusin="${handleFocusIn}">END</button>
     `;
+  }
+
+  protected firstUpdated() {
+    if (this.modalContent) {
+      this._resizeObserver.observe(this.modalContent);
+    }
   }
 
   async updated(changedProperties) {
