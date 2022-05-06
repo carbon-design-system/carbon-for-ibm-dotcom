@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.19.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.18.1...@carbon/ibmdotcom-web-components@1.19.0-rc.0) (2022-05-06)
+
+
+### Bug Fixes
+
+* **callout-quote:** add ArrowRight icon import to codesandbox example ([#8749](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8749)) ([053ca30](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/053ca30))
+* **cloud-masthead:** revert - replace cookie auth with window object status ([#8792](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8792)) ([766d470](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/766d470))
+* **content-item-horizontal:** update wrapper story and readme ([#8724](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8724)) ([36478d7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/36478d7)), closes [#7268](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/7268)
+* **cta-section-content-items:** missing lightbox video player ([#8777](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8777)) ([335af95](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/335af95)), closes [#8306](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8306)
+* **github-actions:** remove xvfb for e2e integration tests ([#8718](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8718)) ([9bab468](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/9bab468))
+* **leadspace:** align stories and documentation for wc and wrapper ([#8750](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8750)) ([a8047cd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/a8047cd)), closes [#7150](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/7150)
+* **pricing-table:** use correct subheader bottom padding ([#8699](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8699)) ([8c8be5e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/8c8be5e)), closes [#8694](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8694)
+
+
+### Features
+
+* **content-block/item:** introducing react wrappers ([#8771](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8771)) ([f3e12bc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/f3e12bc)), closes [#8626](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8626) [#8631](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8631)
+* **cta:** add react wrapper ([#8805](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8805)) ([cf66a30](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/cf66a30))
+* **expressive-modal:** created react wrapper ([#8806](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8806)) ([6af5ad8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/6af5ad8))
+* **image/with-caption:** add wrapper stories and codesandbox ([#8723](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8723)) ([a958ab0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/a958ab0)), closes [#8641](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8641) [#8640](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8640)
+* **react-wrapper:** introduces `content-group/section` wrapper ([#8787](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8787)) ([9b20c83](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/9b20c83))
+* **react-wrapper:** introduces `feature-card` ([#8807](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8807)) ([d661add](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/d661add)), closes [#8637](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8637)
+* **sticky header utility:** update storybook story & remove old dotcom-shell code ([#8684](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8684)) ([136a610](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/136a610)), closes [#8486](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8486) [#8472](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8472) [#8434](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8434)
+
+
+
+
+
 ## [1.18.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.18.0...@carbon/ibmdotcom-web-components@1.18.1) (2022-05-04)
 
 
