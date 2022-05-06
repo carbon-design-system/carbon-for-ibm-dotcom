@@ -17,19 +17,18 @@ LICENSE file in the root directory of this source tree.
         href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/grid.css"/>
   <style type="text/css">
     /* Suppress custom element until styles are loaded */
-    dds-card-cta:not(:defined) {
+    dds-card-link-cta:not(:defined) {
       display: none;
     }
   </style>
-  <script type="module"
-          src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/card-cta.min.js"></script>
+  <script src="src/index.js"></script>
 </head>
 <body>
 <div class="bx--grid">
   <div class="bx--row">
     <div class="bx--col-sm-4 bx--col-lg-4">
-      <dds-card-cta href="https://www.ibm.com/" cta-type="local">
-        Lorem ipsum dolor sit amet
+      <dds-card-link-cta href="https://www.ibm.com/" cta-type="local">
+        <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
         <dds-card-cta-footer>
           <svg
             slot="icon"
@@ -46,7 +45,7 @@ LICENSE file in the root directory of this source tree.
               d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
           </svg>
         </dds-card-cta-footer>
-      </dds-card-cta>
+      </dds-card-link-cta>
     </div>
   </div>
 </div>
