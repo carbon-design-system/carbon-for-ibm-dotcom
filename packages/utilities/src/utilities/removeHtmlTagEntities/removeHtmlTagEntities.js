@@ -1,20 +1,13 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-const _htmlTagRegex = /<.*?>/g;
-const _cleanStringRegex = /\n|\s{2,}|&([a-zA-Z]+);/g;
 
-/**
- * Removes any html tags from a string and keeps inner text if any
- *
- * @param {string} str String to be checked for html tags
- * @returns {string} String with html tags stripped out
- * @private
- */
-const _removeHtmlTags = str => str.replace(_htmlTagRegex, '');
+import striptags from 'striptags';
+
+const _cleanStringRegex = /\n|\s{2,}|&([a-zA-Z]+);/g;
 
 /**
  * Cleans string by replacing multiple spaces with a single space
@@ -39,7 +32,7 @@ const _cleanString = str => str.replace(_cleanStringRegex, ' ');
  * // 'example string here'
  */
 function removeHtmlTagEntities(str, { removeEntities = true } = {}) {
-  let removedTags = _removeHtmlTags(str);
+  let removedTags = striptags(str);
   removedTags = removeEntities ? _cleanString(removedTags) : removedTags;
 
   return removedTags;
