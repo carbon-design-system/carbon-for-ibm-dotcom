@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.34.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.33.1...@carbon/ibmdotcom-services-store@1.34.0-rc.0) (2022-05-06)
+
+
+### Bug Fixes
+
+* **cloud-masthead:** revert - replace cookie auth with window object status ([#8792](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/services-store/issues/8792)) ([766d470](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/services-store/commit/766d470))
+
+
+
+
+
 ## [1.33.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.33.0...@carbon/ibmdotcom-services-store@1.33.1) (2022-05-04)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services-store
