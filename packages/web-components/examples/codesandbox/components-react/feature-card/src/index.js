@@ -18,7 +18,11 @@ import './index.css';
 
 const App = () => (
   <DDSFeatureCard href="https://www.example.com">
-    <DDSImage alt="Image alt text" defaultSrc="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616" slot="image" />
+    <DDSImage
+      alt="Image alt text"
+      defaultSrc="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616"
+      slot="image"
+    />
     <DDSCardHeading>Feature card heading</DDSCardHeading>
     <DDSFeatureCardFooter>
       <ArrowRight20 slot="icon" />
