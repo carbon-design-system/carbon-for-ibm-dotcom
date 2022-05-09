@@ -439,10 +439,14 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
 
-    const containingModal = this.closest(`${ddsPrefix}-expressive-modal`);
+    const containingModal = this.closest(`${ddsPrefix}-expressive-modal`) as DDSExpressiveModal;
     if (containingModal) {
       this.inModal = '';
-      (containingModal as DDSExpressiveModal).modalBody!.style.overflow = 'hidden';
+
+      setTimeout(() => {
+        containingModal.modalBody!.style.overflow = 'hidden';
+        containingModal.modalBody!.style.width = 'var(--modal-vw)';
+      }, 0);
     }
   }
 
