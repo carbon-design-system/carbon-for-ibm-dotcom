@@ -13,7 +13,7 @@ concurrency:
 jobs:
   web-components:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     strategy:
       matrix:
         node-version: ['14.x']
@@ -26,8 +26,6 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install
-      - name: Install xvfb
-        run: sudo apt-get install xvfb
       - name: Build
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
       - name: Build CDN components
@@ -44,7 +42,7 @@ jobs:
           status: ${{ job.status }}
   react:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     strategy:
       matrix:
         node-version: [ '14.x' ]
@@ -57,8 +55,6 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install
-      - name: Install xvfb
-        run: sudo apt-get install xvfb
       - name: Build
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-services-store --ignore @carbon/ibmdotcom-web-components build
       - name: Run e2e codesandbox tests
