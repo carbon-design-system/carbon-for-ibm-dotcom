@@ -56,8 +56,8 @@
     "visual-snapshot": "yarn build-storybook && percy-storybook --widths=320,1280"
   },
   "peerDependencies": {
-    "react": "16.9.0",
-    "react-dom": "16.9.0"
+    "react": "^16.14.0 || ^17.0.2",
+    "react-dom": "^16.14.0 || ^17.0.2"
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
