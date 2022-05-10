@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.34.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.33.0...@carbon/ibmdotcom-styles@1.34.0-rc.0) (2022-05-06)
+
+
+### Bug Fixes
+
+* **card:** remove hover style for static card ([#8781](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8781)) ([4bcb4ad](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4bcb4ad)), closes [#8297](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8297)
+* **image-with-caption:** lightbox caption styles ([#8754](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8754)) ([500ff74](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/500ff74)), closes [#8704](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8704)
+* **pricing-table:** use correct subheader bottom padding ([#8699](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8699)) ([8c8be5e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8c8be5e)), closes [#8694](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8694)
+
+
+### Features
+
+* **sticky header utility:** update storybook story & remove old dotcom-shell code ([#8684](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8684)) ([136a610](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/136a610)), closes [#8486](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8486) [#8472](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8472) [#8434](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8434)
+
+
+
+
+
 # [1.33.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.33.0-rc.1...@carbon/ibmdotcom-styles@1.33.0) (2022-04-25)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
