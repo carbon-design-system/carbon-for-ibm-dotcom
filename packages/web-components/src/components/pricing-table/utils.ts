@@ -10,6 +10,26 @@
 import DDSPricingTableHeaderRow from './pricing-table-header-row';
 import DDSPricingTableRow from './pricing-table-row';
 
+/**
+ * Sets a CSS custom property on the given row that indicates the default
+ * number of columns each of that row's cells row should span.
+ */
+export const setColumnWidth = (row: DDSPricingTableHeaderRow | DDSPricingTableRow) => {
+  const columnCount = row.children.length;
+  let defaultColumnWidth: string;
+  if (columnCount >= 6) {
+    defaultColumnWidth = '2';
+  } else if (columnCount >= 4) {
+    defaultColumnWidth = '3';
+  } else {
+    defaultColumnWidth = '4';
+  }
+  row.style.setProperty('--default-cols', defaultColumnWidth);
+};
+
+/**
+ * Animates an element hidden.
+ */
 export const slideHidden = (element: HTMLElement) => {
   const height = element.scrollHeight;
   const { transition } = element.style;
@@ -27,6 +47,9 @@ export const slideHidden = (element: HTMLElement) => {
   });
 };
 
+/**
+ * Animates an element visible.
+ */
 export const slideUnhidden = (element: HTMLElement) => {
   requestAnimationFrame(() => {
     const height = element.scrollHeight;
@@ -44,19 +67,9 @@ export const slideUnhidden = (element: HTMLElement) => {
   );
 };
 
-export const setColumnWidth = (row: DDSPricingTableHeaderRow | DDSPricingTableRow) => {
-  const columnCount = row.children.length;
-  let defaultColumnWidth: string;
-  if (columnCount >= 6) {
-    defaultColumnWidth = '2';
-  } else if (columnCount >= 4) {
-    defaultColumnWidth = '3';
-  } else {
-    defaultColumnWidth = '4';
-  }
-  row.style.setProperty('--default-cols', defaultColumnWidth);
-};
-
+/**
+ * Splits a style attribute string into an object full of properties and values.
+ */
 export const convertStyleToObject = (styleString: string): {} => {
   return styleString.split(';').reduce((acc, styleRule) => {
     if (styleRule !== '') {
