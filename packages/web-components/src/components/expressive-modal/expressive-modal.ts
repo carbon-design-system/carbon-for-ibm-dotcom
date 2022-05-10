@@ -67,13 +67,17 @@ function tryFocusElems(
   return false;
 }
 
-function onResize([entry]) {
+// TODO: Wait for `.d.ts` update to support `ResizeObserver`
+// @ts-ignore
+const onResize: ResizeObserverCallback = ([entry]) => {
   const { target, contentRect } = entry;
   const { width, height } = contentRect;
 
-  target.style.setProperty('--modal-vh', `${height}px`);
-  target.style.setProperty('--modal-vw', `${width}px`);
-}
+  const modalContent = target as HTMLDivElement;
+
+  modalContent.style.setProperty('--modal-vh', `${height}px`);
+  modalContent.style.setProperty('--modal-vw', `${width}px`);
+};
 
 /**
  * The table mapping slot name with the private property name that indicates the existence of the slot content.
@@ -142,6 +146,8 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
   @query(`.${ddsPrefix}-ce--modal__body`)
   modalBody?: HTMLDivElement;
 
+  // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+  // @ts-ignore
   private _resizeObserver = new ResizeObserver(onResize as ResizeObserverCallback);
 
   /**
