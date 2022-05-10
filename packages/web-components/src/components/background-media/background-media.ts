@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -166,6 +166,10 @@ class DDSBackgroundMedia extends DDSImage {
 
     if (this.parentElement instanceof DDSLeadSpace) {
       this.gradientHidden = true;
+    }
+
+    if (this.hasAttribute('default-src') && !this.videoId) {
+      this.containsOnlyImages = true;
     }
   }
 
