@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -88,7 +88,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { cta, items } = parameters?.props?.ContentBlockMixed ?? {};
+  const { cta, items, border } = parameters?.props?.ContentBlockMixed ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">
@@ -98,6 +98,7 @@ export const Default = ({ parameters }) => {
             copy={copy}
             cta={cta}
             items={items}
+            border={border}
           />
         </div>
       </div>
@@ -151,6 +152,7 @@ Default.story = {
             heading: 'Lorem ipsum dolor sit ametttt',
           },
           items,
+          border: boolean('Border (border)', false, groupId),
         };
       },
     },
@@ -170,7 +172,8 @@ Default.story = {
 };
 
 export const WithLinkList = ({ parameters }) => {
-  const { cta, items, aside } = parameters?.props?.ContentBlockMixed ?? {};
+  const { cta, items, aside, border } =
+    parameters?.props?.ContentBlockMixed ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">
@@ -181,6 +184,7 @@ export const WithLinkList = ({ parameters }) => {
             cta={cta}
             items={items}
             aside={aside}
+            border={border}
           />
         </div>
       </div>
@@ -219,12 +223,12 @@ WithLinkList.story = {
 
         const aside = {
           items: <LinkList style="card" {...linkListProps} />,
-          border: boolean('border', false, groupId),
         };
 
         return {
           ...knobs,
           aside,
+          border: boolean('Border (border)', false, groupId),
         };
       },
     },
