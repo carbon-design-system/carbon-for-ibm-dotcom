@@ -310,12 +310,8 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
     const { rowStickyClass } = this.constructor as typeof DDSPricingTable;
     if (head && headerRow) {
       if (!isSticky) {
-        head.style.display = '';
-        head.style.height = '';
         headerRow.classList.remove(rowStickyClass);
       } else {
-        head.style.display = 'block';
-        head.style.height = `${this._getHeaderHeight()}px`;
         headerRow.classList.add(rowStickyClass);
       }
     }
