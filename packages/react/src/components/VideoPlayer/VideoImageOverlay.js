@@ -24,6 +24,7 @@ const VideoImageOverlay = ({
   embedVideo,
   playingMode,
   thumbnail,
+  alt,
   ...rest
 }) => {
   const [thumbnailSize, setThumbnailSize] = useState(3);
@@ -58,7 +59,7 @@ const VideoImageOverlay = ({
       <Image
         refImage={refImage}
         defaultSrc={imageSrc}
-        alt={videoData.name}
+        alt={alt || videoData.name}
         icon={PlayIcon}
       />
     </button>
@@ -96,6 +97,11 @@ VideoImageOverlay.propTypes = {
    * Optional custom video thumbnail
    */
   thumbnail: PropTypes.string,
+
+  /**
+   * Optional custom alt text
+   */
+  alt: PropTypes.string,
 };
 
 export default VideoImageOverlay;
