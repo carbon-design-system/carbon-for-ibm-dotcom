@@ -322,7 +322,7 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   }
 
   /**
-   *
+   * Set or unset sticky state of pricing table header row.
    */
   private _setSticky(sticky: boolean = !this.isSticky) {
     const { head, headerRow, headerCells } = this;

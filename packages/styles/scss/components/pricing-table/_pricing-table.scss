@@ -42,24 +42,19 @@
   :host(#{$dds-prefix}-pricing-table-header-row) {
     @extend .#{$prefix}--structured-list-header-row;
 
-    transition: top $duration--slow-01 motion(standard, productive);
-
-    &[role='row'] {
-      position: initial;
-    }
+    box-shadow: none;
+    transition: top $duration--slow-01 motion(standard, productive),
+      box-shadow $duration--fast-02 motion(standard, productive);
 
     &.#{$prefix}--pricing-table-header-row--sticky {
       position: fixed;
       top: var(--#{$dds-prefix}-sticky-header-height);
       z-index: 1;
-      background-color: $ui-02;
-      box-shadow: 0 2px 2px $ui-01;
-      overflow: hidden;
+      background-color: $ui-background;
+      box-shadow: 0 6px 10px 0 $ui-03;
+      overflow-x: auto;
+      overflow-y: hidden;
       width: var(--max-width);
-
-      &.#{$prefix}--pricing-table-header-row--absolute {
-        position: absolute;
-      }
     }
   }
 

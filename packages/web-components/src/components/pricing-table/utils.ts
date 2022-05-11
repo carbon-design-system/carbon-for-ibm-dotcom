@@ -35,6 +35,11 @@ export const slideHidden = (element: HTMLElement) => {
   const { transition } = element.style;
   element.style.transition = '';
 
+  // Store height values set by other scripts.
+  if (element.style.height) {
+    element.dataset.originalHeight = element.style.height;
+  }
+
   requestAnimationFrame(() => {
     element.style.transition = transition;
     element.style.height = `${height}px`;
@@ -51,16 +56,17 @@ export const slideHidden = (element: HTMLElement) => {
  * Animates an element visible.
  */
 export const slideUnhidden = (element: HTMLElement) => {
+  const { originalHeight } = element.dataset;
+
   requestAnimationFrame(() => {
-    const height = element.scrollHeight;
-    element.style.height = `${height}px`;
+    element.style.height = originalHeight || `${element.scrollHeight}px`;
     element.style.opacity = '1';
   });
 
   element.addEventListener(
     'transitionend',
     () => {
-      element.style.height = '';
+      element.style.height = originalHeight || '';
       element.style.opacity = '';
     },
     { once: true }
