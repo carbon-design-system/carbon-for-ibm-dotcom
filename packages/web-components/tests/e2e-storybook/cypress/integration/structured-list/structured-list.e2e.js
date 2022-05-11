@@ -11,116 +11,202 @@
  * @type {string}
  * @private
  */
- const _path = '/iframe.html?id=components-structured-list--default';
+ const _pathRoot = '/iframe.html?id=components-structured-list';
 
-describe('dds-structured-list | default', () => {
+describe('dds-structured-list | default (desktop)', () => {
 
   beforeEach(() => {
-    cy.visit(_path)
+    cy.visit(`${_pathRoot}--default`)
       .injectAxe()
       .viewport(1280, 780);
   })
 
-  // it('should check a11y', () => {
-  //   cy.checkAxeA11y();
-  // });
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
+  });
 
-  it('should load headers', () => {
-    cy.get('dds-structured-list-header-cell')
-      .should
+  it('should have column headers', () => {
+    cy.get('dds-structured-list-header-row dds-structured-list-header-cell')
+      .should('exist')
       .each((header_cell) => {
         cy.get(header_cell)
-          .wait(2000)
-          .then((header_cell) => {
-            debugger;
-          })
           .should('not.be.empty');
       });
   });
 
-  // it('should scroll with overflow', () => {
+});
 
-  // });
+describe('dds-structured-list | default (mobile)', () => {
 
+  beforeEach(() => {
+    cy.visit(`${_pathRoot}--default`)
+      .injectAxe()
+      .viewport(320, 780);
+  })
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
+  });
+
+  it('should have column headers', () => {
+    cy.get('dds-structured-list-header-row dds-structured-list-header-cell')
+      .should('exist')
+      .each((header_cell) => {
+        cy.get(header_cell)
+          .should('not.be.empty');
+      });
+  });
+
+  it('should scroll to display all cells', () => {
+    cy.get('dds-structured-list-header-cell, dds-structured-list-cell')
+      .each((cell) => {
+        cy.get(cell)
+          .scrollIntoView()
+          .should('be.visible');
+      });
+  });
 
 });
 
- /* eslint-disable cypress/no-unnecessary-waiting */
-//  describe('dds-structured-list | default', () => {
-//    beforeEach(() => {
-//      cy.visit(`/${_path}`);
-//      cy.injectAxe();
-//      cy.viewport(1280, 780);
-//    });
+describe('dds-structured-list | With Row Headers (desktop)', () => {
+  beforeEach(() => {
+    cy.visit(`${_pathRoot}--with-row-headers`)
+      .injectAxe()
+      .viewport(1280, 780);
+  })
 
-//    it('should check a11y', () => {
-//      cy.checkAxeA11y();
-//    });
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
+  });
 
-//    it('should load with four regions', () => {
-//      cy.get('dds-region-item').should('have.length', 4);
+  it('should have row headers', () => {
+    cy.get('dds-structured-list-row dds-structured-list-header-cell')
+      .should('exist')
+      .each((header_cell) => {
+        cy.get(header_cell)
+          .should('not.be.empty');
+      });
+  });
+})
 
-//      cy.get('dds-region-item[name="Americas"]').should('be.visible');
-//      cy.get('dds-region-item[name="Asia Pacific"]').should('be.visible');
-//      cy.get('dds-region-item[name="Europe"]').should('be.visible');
-//      cy.get('dds-region-item[name="Middle East and Africa"]').should('be.visible');
+describe('dds-structured-list | With Row Headers (mobile)', () => {
+  beforeEach(() => {
+    cy.visit(`${_pathRoot}--with-row-headers`)
+      .injectAxe()
+      .viewport(320, 780);
+  })
 
-//      cy.screenshot();
-//      // Take a snapshot for visual diffing
-//      cy.percySnapshot('dds-locale-modal | all four regions loaded', {
-//        widths: [1280],
-//      });
-//    });
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
+  });
 
-//    it('should load the Americas region', () => {
-//      cy.get('dds-region-item[name="Americas"]').click();
+  it('should have row headers', () => {
+    cy.get('dds-structured-list-row dds-structured-list-header-cell')
+      .should('exist')
+      .each((header_cell) => {
+        cy.get(header_cell)
+          .should('not.be.empty');
+      });
+  });
 
-//      cy.takeSnapshots();
-//    });
+  it('should scroll to display all cells', () => {
+    cy.get('dds-structured-list-header-cell, dds-structured-list-cell')
+      .each((cell) => {
+        cy.get(cell)
+          .scrollIntoView()
+          .should('be.visible');
+      });
+  });
+})
 
-//    it('should filter locales/languages', () => {
-//      cy.get('[name="Americas"]').click();
+describe('dds-structured-list | With Subheaders (desktop)', () => {
+  beforeEach(() => {
+    cy.visit(`${_pathRoot}--with-subheaders`)
+      .injectAxe()
+      .viewport(1280, 780);
+  })
 
-//      cy.get('dds-locale-search')
-//        .shadow()
-//        .find('.bx--search-input')
-//        .type('ca', {
-//          force: true,
-//        });
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
+  });
 
-//      cy.get('dds-locale-item:not([hidden])')
-//        .invoke('attr', 'country')
-//        .should('eq', 'Canada');
+  it('should have Subheaders', () => {
+    cy.get('dds-structured-list-group')
+      .shadow()
+      .find('th')
+      .each(([header]) => {
+        const title = header
+          .getRootNode()
+          .host
+          .getAttribute('title');
 
-//      cy.takeSnapshots();
-//    });
+        cy.get(header)
+          .should('include.text', title);
+      });
+  });
+});
 
-//    it('should be able to go back to the region menu', () => {
-//      cy.get('[name="Americas"]').click();
-//      cy.get('dds-regions').should('not.be.visible');
-//      cy.get('dds-locale-modal')
-//        .shadow()
-//        .find('dds-expressive-modal-heading dds-link-with-icon')
-//        .click();
-//      cy.get('dds-regions').should('be.visible');
-//    });
+describe('dds-structured-list | With Subheaders (mobile)', () => {
+  beforeEach(() => {
+    cy.visit(`${_pathRoot}--with-subheaders`)
+      .injectAxe()
+      .viewport(1280, 780);
+  })
 
-//    it('should have a clickable X icon and is able to close menu', () => {
-//      const closeButton = cy
-//        .get('dds-locale-modal')
-//        .shadow()
-//        .find('dds-expressive-modal-close-button');
-//      closeButton
-//        .shadow()
-//        .find('svg path')
-//        .then($icon => {
-//          expect($icon).to.have.attr(
-//            'd',
-//            'M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z'
-//          );
-//        });
-//      closeButton.click();
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
+  });
 
-//      cy.takeSnapshots();
-//    });
-//  });
+  it('should have Subheaders', () => {
+    cy.get('dds-structured-list-group')
+      .shadow()
+      .find('th')
+      .each(([header]) => {
+        const title = header
+          .getRootNode()
+          .host
+          .getAttribute('title');
+
+        cy.get(header)
+          .should('include.text', title);
+      });
+  });
+
+  it('should scroll to display all cells', () => {
+    cy.get('dds-structured-list-header-cell, dds-structured-list-cell')
+      .each((cell) => {
+        cy.get(cell)
+          .scrollIntoView()
+          .should('be.visible');
+      });
+  });
+});
+
+describe('dds-structured-list | With Complex Content', () => {
+  beforeEach(() => {
+    cy.visit(`${_pathRoot}--with-complex-content`)
+      .injectAxe()
+      .viewport(1280, 780);
+  });
+
+  it('should inject tooltip with tooltip attribute', () => {
+    cy.get('dds-structured-list-cell[tooltip]')
+      .shadow()
+      .find('bx-tooltip-icon')
+      .should('exist')
+  });
+
+  it('should inject svg with icon attribute', () => {
+    cy.get('dds-structured-list-cell[icon]')
+      .shadow()
+      .find('svg')
+      .should('exist')
+  })
+
+  it('should inject tags with tags attribute', () => {
+    cy.get('dds-structured-list-cell[tags]')
+      .shadow()
+      .find('bx-tag')
+      .should('exist')
+  });
+});
