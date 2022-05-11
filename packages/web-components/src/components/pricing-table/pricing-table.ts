@@ -10,13 +10,16 @@
 import { customElement, property, query, html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSStructuredList from '../structured-list/structured-list';
 import styles from './pricing-table.scss';
 import DDSPricingTableHeaderCell from './pricing-table-header-cell';
 import DDSPricingTableHighlightLabel from './pricing-table-highlight-label';
+import DDSPricingTableHead from './pricing-table-head';
 import DDSPricingTableHeaderRow from './pricing-table-header-row';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from './defs';
+import { slideHidden, slideUnhidden } from './utils';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -34,6 +37,8 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
 
   @property()
   highlightGap: number = 0;
+
+  private _head?: DDSPricingTableHead;
 
   private _headerRow?: DDSPricingTableHeaderRow;
 
@@ -60,6 +65,13 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   private _intersectionObserverEnd: IntersectionObserver | null = null;
 
   /**
+   * The height of the header row.
+   */
+  private _getHeaderHeight() {
+    return this._headerRow?.getBoundingClientRect().height || 0;
+  }
+
+  /**
    * Takes actions whenever the pricing table enters the viewport.
    */
   private _createIntersectionObservers() {
@@ -68,20 +80,30 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
     if (this.shadowRoot) {
       this._intersectionObserverStart = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            this._unsetSticky();
-          } else {
-            this._setSticky();
+          // console.log('DEBUG: start entry', entry);
+          const { isIntersecting, boundingClientRect } = entry;
+          if (!isIntersecting && boundingClientRect.top < 0 && !this._isSticky) {
+            this._setSticky(true);
+          } else if (this._isSticky) {
+            this._setSticky(false);
           }
         });
       });
 
       this._intersectionObserverEnd = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            this._setSticky();
-          } else {
-            this._unsetSticky();
+          console.log('DEBUG: end entry', entry);
+
+          const { isIntersecting, boundingClientRect } = entry;
+
+          if (!isIntersecting && boundingClientRect.top < -1) {
+            // this._setSticky(false);
+            this._headerRow.style.display = 'none';
+          }
+
+          if (isIntersecting && boundingClientRect.top >= -1) {
+            // this._setSticky(true);
+            this._headerRow.style.display = '';
           }
         });
       });
@@ -104,6 +126,19 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
       this._intersectionObserverEnd.disconnect();
     }
     this._intersectionObserverEnd = null;
+  }
+
+  /**
+   * Clean any set intersection observers, then create new ones.
+   */
+  private _cleanAndCreateIntersectionObservers() {
+    if (this._intersectionObserverStart && this._intersectionObserverEnd) {
+      this._cleanIntersectionObservers();
+    }
+
+    if (!this._intersectionObserverStart && !this._intersectionObserverEnd) {
+      this._createIntersectionObservers();
+    }
   }
 
   /**
@@ -149,102 +184,65 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
     }
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  private _animateHidden(element: HTMLElement) {
-    const height = element.scrollHeight;
-    const { transition } = element.style;
-    element.style.transition = '';
-
-    requestAnimationFrame(() => {
-      element.style.height = `${height}px`;
-      element.style.opacity = '1';
-      element.style.transition = transition;
-
-      requestAnimationFrame(() => {
-        element.style.height = '0px';
-        element.style.opacity = '0';
-      });
-    });
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  private _animateUnhidden(element: HTMLElement) {
-    const height = element.scrollHeight;
-    element.style.height = `${height}px`;
-    element.style.opacity = '1';
-
-    element.addEventListener(
-      'transitionend',
-      () => {
-        element.style.height = '';
-        element.style.opacity = '';
-      },
-      { once: true }
-    );
-  }
-
-  private async _animateElementsHidden() {
-    const { _isSticky, _elementsToHide } = this;
+  private async _animateElements(visible: boolean) {
+    const { _elementsToHide } = this;
     _elementsToHide.forEach(element => {
-      if (_isSticky) {
-        this._animateHidden(element);
+      if (visible) {
+        slideUnhidden(element);
+      } else {
+        slideHidden(element);
       }
     });
   }
 
-  private async _animateElementsUnhidden() {
-    const { _isSticky, _elementsToHide } = this;
-    _elementsToHide.forEach(element => {
-      if (!_isSticky) {
-        this._animateUnhidden(element);
+  private _setSticky(sticky: boolean = !this._isSticky) {
+    const { _head, _headerRow } = this;
+    const { tableStickyClass, rowStickyClass, cellStickyClass } = this.constructor as typeof DDSPricingTable;
+
+    console.log('DEBUG: setting sticky to', sticky);
+
+    // Toggle sticky property
+    this._isSticky = sticky;
+
+    // Adjust classes.
+    if (_head && _headerRow) {
+      const cells = Array.from(_headerRow.children);
+
+      if (sticky) {
+        // Table
+        this.classList.add(tableStickyClass);
+
+        // Head
+        _head.style.display = 'block';
+        _head.style.height = `${this._getHeaderHeight()}px`;
+
+        // Row
+        _headerRow.classList.add(rowStickyClass);
+
+        // Cells
+        cells.forEach(cell => {
+          cell.classList.add(cellStickyClass);
+        });
+      } else {
+        // Table
+        this.classList.remove(tableStickyClass);
+
+        // Head
+        _head.style.display = '';
+        _head.style.height = '';
+
+        // Row
+        _headerRow.classList.remove(rowStickyClass);
+
+        // Cells
+        cells.forEach(cell => {
+          cell.classList.remove(cellStickyClass);
+        });
       }
-    });
-  }
-
-  private _setSticky() {
-    const { _headerRow } = this;
-    const { rowStickyClass, cellStickyClass } = this.constructor as typeof DDSPricingTable;
-
-    // Set sticky property
-    this._isSticky = true;
-
-    // Set classes for CSS changes
-    // this.classList.add(rowStickyClass);
-    // Array.from(this.children).forEach(child => {
-    //   child.classList.add(cellStickyClass);
-    // });
-    if (_headerRow) {
-      _headerRow.classList.add(rowStickyClass);
-      Array.from(_headerRow.children).forEach(cell => {
-        cell.classList.add(cellStickyClass);
-      });
     }
 
-    // Hide elements
-    this._animateElementsHidden();
-  }
-
-  private _unsetSticky() {
-    const { _headerRow } = this;
-    const { rowStickyClass, cellStickyClass } = this.constructor as typeof DDSPricingTable;
-
-    // Set sticky property
-    this._isSticky = false;
-
-    // Remove classes for CSS changes
-    // this.classList.remove(rowStickyClass);
-    // Array.from(this.children).forEach(child => {
-    //   child.classList.remove(cellStickyClass);
-    // });
-    if (_headerRow) {
-      _headerRow.classList.remove(rowStickyClass);
-      Array.from(_headerRow.children).forEach(cell => {
-        cell.classList.remove(cellStickyClass);
-      });
-    }
-
-    // Animate elements unhidden
-    this._animateElementsUnhidden();
+    // Animate elements.
+    this._animateElements(!sticky);
   }
 
   protected _renderHighlightLabel(): DDSPricingTableHighlightLabel {
@@ -292,20 +290,22 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   }
 
   firstUpdated() {
-    this._createIntersectionObservers();
+    const head = this.querySelector(`${ddsPrefix}-pricing-table-head`);
+    if (head instanceof DDSPricingTableHead) {
+      this._head = head;
+    }
 
-    const headerRow = this.querySelector(`${ddsPrefix}-pricing-table-head`)?.querySelector(
-      `${ddsPrefix}-pricing-table-header-row`
-    );
-    if (headerRow instanceof DDSPricingTableHeaderRow) this._headerRow = headerRow;
+    const headerRow = head?.querySelector(`${ddsPrefix}-pricing-table-header-row`);
+    if (headerRow instanceof DDSPricingTableHeaderRow) {
+      this._headerRow = headerRow;
+    }
 
     this._setMaxWidth();
-    this._setElementsToHide();
-  }
+    // this._createIntersectionObservers();
 
-  disconnectedCallback() {
-    this._cleanIntersectionObservers();
-    super.disconnectedCallback();
+    if (StickyHeader.isNecessary()) {
+      StickyHeader.global.pricingTable = this;
+    }
   }
 
   updated(): void {
@@ -323,20 +323,34 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
       `)
       );
     }
+
+    this._setElementsToHide();
+    this._cleanAndCreateIntersectionObservers();
+  }
+
+  disconnectedCallback() {
+    this._cleanIntersectionObservers();
+    super.disconnectedCallback();
   }
 
   render() {
     const sentinelClass = `${ddsPrefix}-pricing-table-sentinel`;
 
     return html`
-      <span class="${sentinelClass}" id="start-sentinel"></span>
-      ${super.render()}
-      <span class="${sentinelClass}" id="end-sentinel"></span>
+      <section id="section" class="${`${prefix}--structured-list`}">
+        <span class="${sentinelClass}" id="start-sentinel"></span>
+        <slot></slot>
+        <span class="${sentinelClass}" id="end-sentinel"></span>
+      </section>
     `;
   }
 
   static get stableSelector() {
     return `${ddsPrefix}--pricing-table`;
+  }
+
+  static get tableStickyClass() {
+    return `${prefix}--pricing-table--header-sticky`;
   }
 
   static get rowStickyClass() {

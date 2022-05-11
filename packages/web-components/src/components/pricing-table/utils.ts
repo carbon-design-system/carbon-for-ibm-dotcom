@@ -10,6 +10,38 @@
 import DDSPricingTableHeaderRow from './pricing-table-header-row';
 import DDSPricingTableRow from './pricing-table-row';
 
+export const slideHidden = (element: HTMLElement) => {
+  const height = element.scrollHeight;
+  const { transition } = element.style;
+  element.style.transition = '';
+
+  requestAnimationFrame(() => {
+    element.style.height = `${height}px`;
+    element.style.opacity = '1';
+    element.style.transition = transition;
+
+    requestAnimationFrame(() => {
+      element.style.height = '0px';
+      element.style.opacity = '0';
+    });
+  });
+};
+
+export const slideUnhidden = (element: HTMLElement) => {
+  const height = element.scrollHeight;
+  element.style.height = `${height}px`;
+  element.style.opacity = '1';
+
+  element.addEventListener(
+    'transitionend',
+    () => {
+      element.style.height = '';
+      element.style.opacity = '';
+    },
+    { once: true }
+  );
+};
+
 export const setColumnWidth = (row: DDSPricingTableHeaderRow | DDSPricingTableRow) => {
   const columnCount = row.children.length;
   let defaultColumnWidth: string;
