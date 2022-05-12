@@ -102,6 +102,8 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   /**
    * Observer that watches for viewport resizes.
    */
+  // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+  // @ts-ignore
   private _resizeObserver: ResizeObserver | null = null;
 
   /**
@@ -135,6 +137,8 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
    * Safely disconnects and removes the resize observer.
    */
   private _cleanResizeObserver() {
+    // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+    // @ts-ignore
     if (this._resizeObserver instanceof ResizeObserver) {
       this._resizeObserver.disconnect();
     }
