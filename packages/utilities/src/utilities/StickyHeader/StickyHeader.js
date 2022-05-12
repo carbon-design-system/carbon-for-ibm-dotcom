@@ -18,8 +18,8 @@ const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 class StickyHeader {
   constructor() {
     this.ownerDocument = root.document;
-    this.cumulativeHeight = 0;
     this._banner = undefined;
+    this._cumulativeHeight = 0;
     this._hasBanner = false;
     this._lastScrollPosition = 0;
     this._leadspaceWithSearch = undefined;
@@ -52,7 +52,7 @@ class StickyHeader {
   }
 
   get height() {
-    return this.cumulativeHeight;
+    return this._cumulativeHeight;
   }
 
   /**
@@ -372,7 +372,7 @@ class StickyHeader {
     );
 
     // Set internal property
-    this.cumulativeHeight = cumulativeOffset;
+    this._cumulativeHeight = cumulativeOffset;
   }
 }
 

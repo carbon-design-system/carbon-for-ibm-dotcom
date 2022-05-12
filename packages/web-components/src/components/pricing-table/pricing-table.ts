@@ -11,8 +11,7 @@ import { customElement, property, query, html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { slow01 } from '@carbon/motion/es/index';
-// import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
-import StickyHeader from '../../../../utilities/src/utilities/StickyHeader/StickyHeader';
+import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSStructuredList from '../structured-list/structured-list';
 import styles from './pricing-table.scss';
@@ -195,9 +194,8 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
    */
   private _createIntersectionObservers() {
     const { _startSentinelNode, _endSentinelNode } = this;
-    const { cumulativeHeight: stickyHeaderHeight } = StickyHeader.global;
-    const safeHeight = stickyHeaderHeight || 0;
-    const endObserverMargin = safeHeight + this._getLastRowHeight() + 1;
+    const stuckElementsHeight = StickyHeader.global.height || 0;
+    const endObserverMargin = stuckElementsHeight + this._getLastRowHeight() + 1;
 
     if (this.shadowRoot) {
       this._intersectionObserverStart = new IntersectionObserver(
@@ -205,7 +203,7 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
           entries.forEach(entry => {
             const { isIntersecting, boundingClientRect } = entry;
 
-            if (!isIntersecting && boundingClientRect.top <= safeHeight && !this.isSticky) {
+            if (!isIntersecting && boundingClientRect.top <= stuckElementsHeight && !this.isSticky) {
               this._setSticky(true);
             } else if (isIntersecting && this.isSticky) {
               this._setSticky(false);
@@ -213,7 +211,7 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
           });
         },
         {
-          rootMargin: `-${safeHeight}px 0px 0px 0px`,
+          rootMargin: `-${stuckElementsHeight}px 0px 0px 0px`,
           threshold: 0,
         }
       );
