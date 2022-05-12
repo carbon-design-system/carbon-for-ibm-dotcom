@@ -198,32 +198,6 @@ class StickyHeader {
     }
   }
 
-  /**
-   * Checks if the given element is at the top of the viewport
-   *
-   * @param {HTMLElement} element An element to check
-   * @returns {boolean} Returns true if the element is at the top of the
-   * viewport
-   */
-  _elementIsAtTop(element) {
-    const { _masthead: masthead } = this;
-    const elementTop = element.getBoundingClientRect().top;
-    const mastheadTop =
-      (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1;
-    return elementTop <= mastheadTop;
-  }
-
-  /**
-   * Checks if the bottom edge of a component is above the viewport.
-   *
-   * @param {HTMLElement} element An element to check
-   * @returns {boolean} Returns true if the element's bottom edge is above the
-   * viewport.
-   */
-  _elementIsPast(element) {
-    return element.getBoundingClientRect().bottom < 0;
-  }
-
   _handleScroll() {
     const {
       _lastScrollPosition: oldY,
@@ -365,14 +339,14 @@ class StickyHeader {
       }
     }
 
-    // Set CSS custom property
+    // Set internal property for use in scripts
+    this._cumulativeHeight = cumulativeOffset;
+
+    // Set custom property for use in stylesheets
     root.document.documentElement.style.setProperty(
       customPropertyName,
-      `${cumulativeOffset}px`
+      `${this._cumulativeHeight}px`
     );
-
-    // Set internal property
-    this._cumulativeHeight = cumulativeOffset;
   }
 }
 

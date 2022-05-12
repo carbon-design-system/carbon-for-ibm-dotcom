@@ -61,12 +61,6 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   public isSticky: boolean = false;
 
   /**
-   * Tracks width of the parent element so we know how wide the fixed header
-   * row should be.
-   */
-  private _maxWidth: number | undefined;
-
-  /**
    * Tracks elements in header cells that should be hidden when set to sticky.
    */
   private _elementsToHide: HTMLElement[] = [];
@@ -99,13 +93,6 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   private _mutationObserverHeaderHeight: MutationObserver | null = null;
 
   /**
-   * Observer that watches for viewport resizes.
-   */
-  // TODO: Wait for `.d.ts` update to support `ResizeObserver`
-  // @ts-ignore
-  private _resizeObserver: ResizeObserver | null = null;
-
-  /**
    * The height of the header row.
    */
   private _getHeaderHeight(): number {
@@ -121,34 +108,10 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   }
 
   /**
-   * Takes actions whenever the viewport is resized.
-   */
-  private _createResizeObserver() {
-    // TODO: Wait for `.d.ts` update to support `ResizeObserver`
-    // @ts-ignore
-    this._resizeObserver = new ResizeObserver(() => {
-      this._setMaxWidth();
-    });
-    this._resizeObserver.observe(this.ownerDocument!.documentElement);
-  }
-
-  /**
-   * Safely disconnects and removes the resize observer.
-   */
-  private _cleanResizeObserver() {
-    // TODO: Wait for `.d.ts` update to support `ResizeObserver`
-    // @ts-ignore
-    if (this._resizeObserver instanceof ResizeObserver) {
-      this._resizeObserver.disconnect();
-    }
-    this._resizeObserver = null;
-  }
-
-  /**
    * Creates a mutation observer that watches the root element for style
    * attribute changes and resets the table's intersection observers.
    */
-  private _createMutationObsever() {
+  private _createMutationObserver() {
     const { customPropertyName } = StickyHeader;
     this._mutationObserverHeaderHeight = new MutationObserver(entries => {
       entries.forEach(entry => {
@@ -257,14 +220,6 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   }
 
   /**
-   * Sets a CSS custom property that constrains the width of the fixed header.
-   */
-  private _setMaxWidth() {
-    this._maxWidth = this.getBoundingClientRect().width;
-    this.style.setProperty('--max-width', `${this._maxWidth}px`);
-  }
-
-  /**
    * Builds an array of references to elements that should be hidden when the
    * header is sticky.
    */
@@ -308,9 +263,9 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
    * Animates the header row when transitioning between sticky states.
    */
   private _animateHeaderRow() {
-    const { head, headerRow, isSticky } = this;
+    const { headerRow, isSticky } = this;
     const { rowStickyClass } = this.constructor as typeof DDSPricingTable;
-    if (head && headerRow) {
+    if (headerRow) {
       if (!isSticky) {
         headerRow.classList.remove(rowStickyClass);
       } else {
@@ -398,7 +353,9 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
       });
   }
 
-  firstUpdated() {
+  updated(): void {
+    const { highlightColumn } = this;
+
     const head = this.querySelector(`${ddsPrefix}-pricing-table-head`);
     if (head instanceof DDSPricingTableHead) {
       this.head = head;
@@ -410,11 +367,6 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
       this.headerCells = Array.from(headerRow.children) as DDSPricingTableHeaderCell[];
     }
 
-    this._setMaxWidth();
-  }
-
-  updated(): void {
-    const { highlightColumn } = this;
     if (highlightColumn) {
       this._unhighlightCells(
         this.querySelectorAll(`
@@ -435,15 +387,13 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   }
 
   connectedCallback() {
-    this._createMutationObsever();
-    this._createResizeObserver();
+    this._createMutationObserver();
     super.connectedCallback();
   }
 
   disconnectedCallback() {
     this._cleanIntersectionObservers();
     this._cleanMutationObserver();
-    this._cleanResizeObserver();
     super.disconnectedCallback();
   }
 
