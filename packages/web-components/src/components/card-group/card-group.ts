@@ -10,9 +10,9 @@
 import { classMap } from 'lit-html/directives/class-map';
 import { html, state, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import { GRID_MODE } from './defs';
 import styles from './card-group.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -135,24 +135,25 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
   private _resizeHandler = () => {
     window.requestAnimationFrame(() => {
       const documentWidth = this.ownerDocument!.documentElement.clientWidth;
-      let columns;
+      let columnCount;
       switch (true) {
         case documentWidth < gridMdBreakpoint:
-          columns = 1;
+          columnCount = 1;
           break;
         case documentWidth < gridLgBreakpoint:
-          columns = 2;
+          columnCount = 2;
           break;
         default:
-          columns = this.cardsPerRow;
+          columnCount = this.cardsPerRow;
       }
       if (!this.pictograms) {
         this._setSameHeight();
       }
       if (this.gridMode !== GRID_MODE.NARROW) {
-        this._fillLastRowWithEmptyCards(columns);
-        this._borderAdjustments(columns);
+        this._fillLastRowWithEmptyCards(columnCount);
+        this._borderAdjustments(columnCount);
       } else {
+        this._removeEmptyCards();
         this._resetBorders();
       }
     });
@@ -198,64 +199,65 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
     });
   };
 
-  private _borderAdjustments = columns => {
+  private _borderAdjustments = columnCount => {
+    const isEmpty = element => element.hasAttribute('empty');
+    const inFirstColumn = index => (index + 1) % columnCount === 1;
+    const inLastColumn = index => (index + 1) % columnCount === 0;
+    const inFirstRow = index => index < columnCount;
+    const inLastRow = index => Math.floor(index / columnCount) === Math.floor((this._childItems.length - 1) / columnCount);
+
     this._childItems.forEach((e, index) => {
-      if (this.gridMode !== 'border') {
-        if (e.hasAttribute('empty')) {
+      const { gridMode } = this;
+      if (gridMode === GRID_MODE.COLLAPSED) {
+        e.toggleAttribute('border', false);
+        if (isEmpty(e)) {
           e.style.paddingBottom = '0';
           e.style.paddingRight = '0';
         } else {
-          // first column
-          if ((index + 1) % columns === 1) {
+          if (inFirstColumn(index)) {
             e.style.paddingLeft = '0';
           }
-          // last column
-          if ((index + 1) % columns === 0) {
+          if (inLastColumn(index)) {
             e.style.paddingRight = '0';
-            const borderColor = getComputedStyle(document.body).getPropertyValue('--cds-ui-background');
-            e.style.borderRight = `inset 1px ${borderColor}`;
+            e.style.borderRight = `1px solid var(--cds-ui-background)`;
           } else {
             e.style.paddingRight = '1px';
             e.style.borderRight = 'none';
           }
-          // first row
-          if (index < columns) {
+          if (inFirstRow(index)) {
             e.style.paddingTop = '0';
           }
-          // last row
-          if (Math.floor(index / columns) === Math.floor((this._childItems.length - 1) / columns)) {
+          if (inLastRow(index)) {
             e.style.paddingBottom = '0';
           } else {
             e.style.paddingBottom = '1px';
           }
         }
-      } else {
-        if (e.hasAttribute('empty')) {
+      }
+      if (gridMode === GRID_MODE.BORDER) {
+        e.toggleAttribute('border', true);
+        if (isEmpty(e)) {
           e.style.paddingBottom = '1px';
           e.style.paddingRight = '1px';
         } else {
           e.style.paddingTop = '0';
-          // first row
-          if (index < columns) {
+          if (inFirstRow(index)) {
             e.style.paddingTop = '1px';
           }
-          // last row
-          if (Math.floor(index / columns) === Math.floor(this._childItems.length / columns)) {
+          if (inLastRow(index)) {
             e.style.paddingBottom = '1px';
           }
-          // last column
-          if ((index + 1) % columns === 0) {
+          if (inFirstColumn(index)) {
+            e.style.paddingLeft = '1px';
+          } else {
+            e.style.paddingLeft = '0';
+          }
+          if (inLastColumn(index)) {
             e.style.paddingRight = '1px';
           }
         }
-        // if not empty and first column
-        if (!e.hasAttribute('empty') && (index + 1) % columns === 1) {
-          e.style.paddingLeft = '1px';
-        } else {
-          e.style.paddingLeft = '0';
-        }
         // if one column and first item is empty then set top border for second item
-        if (columns === 1 && index === 1 && this._childItems[0].hasAttribute('empty')) {
+        if (columnCount === 1 && isEmpty(this._childItems[0]) && index === 1) {
           e.style.paddingTop = '1px';
         }
       }
@@ -264,6 +266,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
 
   private _resetBorders = () => {
     this._childItems.forEach(elem => {
+      elem.toggleAttribute('border', false);
       elem.style.paddingTop = '';
       elem.style.paddingRight = '';
       elem.style.paddingBottom = '';
@@ -271,17 +274,22 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
     });
   };
 
-  private _fillLastRowWithEmptyCards = columns => {
+  private _fillLastRowWithEmptyCards = columnCount => {
     // remove all empty cards
-    this.shadowRoot?.querySelectorAll('[empty]').forEach(e => e.remove());
-    const emptyNeeded = this.childElementCount % columns > 0 && columns > 1 ? columns - (this.childElementCount % columns) : 0;
+    this._removeEmptyCards();
 
     // add empty cards
+    const emptyNeeded =
+      this.childElementCount % columnCount > 0 && columnCount > 1 ? columnCount - (this.childElementCount % columnCount) : 0;
     for (let i = 0; i < emptyNeeded; i++) {
       const card = document.createElement('dds-card-group-item');
       card.setAttribute('empty', '');
       this.shadowRoot?.appendChild(card);
     }
+  };
+
+  private _removeEmptyCards = () => {
+    this.shadowRoot?.querySelectorAll('[empty]').forEach(e => e.remove());
   };
 
   /**

@@ -1,0 +1,56 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block';
+
+# Content block
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/content-block)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/content-block)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import DDSContentBlock from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block.js';
+import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
+import DDSCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
+import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+
+function App() {
+  return (
+    <DDSContentBlock>
+      <DDSContentBlockHeading>Heading text</DDSContentBlockHeading>
+      <DDSContentBlockCopy>Copy test</DDSContentBlockCopy>
+      <DDSCardLinkCTA slot="footer" cta-type="local" href="https://www.example.com">
+        <DDSCardLinkHeading>cta copy</DDSCardLinkCTA>
+        <DDSCardCTAFooter></DDSCardCTAFooter>
+      </DDSCardLinkCTA>
+    </DDSContentBlock>
+  );
+}
+```
+
+## Props
+
+<Props of={PropTypesRef} />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector             | Compatibility selector                            | Description |
+| ----------------------------------- | ------------------------------------------------- | ----------- |
+| `<dds-content-block>`               | `data-autoid="dds--content-block"`                | Component   |
+| `<dds-content-block-copy>`          | `data-autoid="dds--content-block__copy"`          | Component   |
+| `<dds-content-block-heading>`       | `data-autoid="dds--content-block__heading"`       | Component   |
+| `<dds-content-block-complementary>` | `data-autoid="dds--content-block__complementary"` | Component   |
+
+<Description markdown={contributing} />

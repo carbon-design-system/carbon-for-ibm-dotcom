@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@ import ContentBlock from '../ContentBlock/ContentBlock';
 import { ContentGroupCards } from '../ContentGroupCards';
 import { ContentGroupPictograms } from '../ContentGroupPictograms';
 import { ContentGroupSimple } from '../ContentGroupSimple';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -20,7 +20,7 @@ const { prefix } = settings;
 /**
  * ContentBlockMixed Pattern.
  */
-const ContentBlockMixed = ({ heading, copy, cta, items, aside }) => {
+const ContentBlockMixed = ({ heading, copy, cta, items, aside, border }) => {
   const patterns = {
     ContentGroupCards,
     ContentGroupSimple,
@@ -35,7 +35,12 @@ const ContentBlockMixed = ({ heading, copy, cta, items, aside }) => {
     <div
       data-autoid={`${stablePrefix}--content-block-mixed`}
       className={`${prefix}--content-block-mixed`}>
-      <ContentBlock heading={heading} copy={copy} cta={cta} aside={aside}>
+      <ContentBlock
+        heading={heading}
+        copy={copy}
+        cta={cta}
+        aside={aside}
+        border={border}>
         {groups}
       </ContentBlock>
     </div>
@@ -275,6 +280,11 @@ ContentBlockMixed.propTypes = {
     items: PropTypes.element,
     border: PropTypes.bool,
   }),
+
+  /**
+   * border for content block.
+   */
+  border: PropTypes.bool,
 };
 
 export default ContentBlockMixed;
