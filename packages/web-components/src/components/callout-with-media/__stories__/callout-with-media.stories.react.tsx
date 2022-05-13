@@ -75,17 +75,5 @@ export default {
           some common categories:`,
       }),
     },
-    propsSet: {
-      default: {
-        CalloutWithMedia: {
-          mediaType: 'image',
-          heading: 'Curabitur malesuada varius mi eu posuere',
-          copy: `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-            Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-            nulla quis, *consequat* libero. Here are
-            some common categories:`,
-        },
-      },
-    },
   },
 };
