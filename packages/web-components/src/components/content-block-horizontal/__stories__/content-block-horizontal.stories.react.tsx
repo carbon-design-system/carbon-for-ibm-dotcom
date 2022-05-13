@@ -83,13 +83,5 @@ export default {
         border: boolean('Bottom Border (border):', true, groupId),
       }),
     },
-    propsSet: {
-      default: {
-        ContentBlockHorizontal: {
-          heading: 'Aliquam condimentum',
-          border: true,
-        },
-      },
-    },
   },
 };
