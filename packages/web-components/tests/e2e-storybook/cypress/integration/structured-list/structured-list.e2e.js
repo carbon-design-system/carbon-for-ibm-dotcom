@@ -11,15 +11,14 @@
  * @type {string}
  * @private
  */
- const _pathRoot = '/iframe.html?id=components-structured-list';
+const _pathRoot = '/iframe.html?id=components-structured-list';
 
 describe('dds-structured-list | default (desktop)', () => {
-
   beforeEach(() => {
     cy.visit(`${_pathRoot}--default`)
       .injectAxe()
       .viewport(1280, 780);
-  })
+  });
 
   it('should check a11y', () => {
     cy.checkAxeA11y();
@@ -28,21 +27,18 @@ describe('dds-structured-list | default (desktop)', () => {
   it('should have column headers', () => {
     cy.get('dds-structured-list-header-row dds-structured-list-header-cell')
       .should('exist')
-      .each((header_cell) => {
-        cy.get(header_cell)
-          .should('not.be.empty');
+      .each(header_cell => {
+        cy.get(header_cell).should('not.be.empty');
       });
   });
-
 });
 
 describe('dds-structured-list | default (mobile)', () => {
-
   beforeEach(() => {
     cy.visit(`${_pathRoot}--default`)
       .injectAxe()
       .viewport(320, 780);
-  })
+  });
 
   it('should check a11y', () => {
     cy.checkAxeA11y();
@@ -51,21 +47,18 @@ describe('dds-structured-list | default (mobile)', () => {
   it('should have column headers', () => {
     cy.get('dds-structured-list-header-row dds-structured-list-header-cell')
       .should('exist')
-      .each((header_cell) => {
-        cy.get(header_cell)
-          .should('not.be.empty');
+      .each(header_cell => {
+        cy.get(header_cell).should('not.be.empty');
       });
   });
 
   it('should scroll to display all cells', () => {
-    cy.get('dds-structured-list-header-cell, dds-structured-list-cell')
-      .each((cell) => {
-        cy.get(cell)
-          .scrollIntoView()
-          .should('be.visible');
-      });
+    cy.get('dds-structured-list-header-cell, dds-structured-list-cell').each(cell => {
+      cy.get(cell)
+        .scrollIntoView()
+        .should('be.visible');
+    });
   });
-
 });
 
 describe('dds-structured-list | With Row Headers (desktop)', () => {
@@ -73,7 +66,7 @@ describe('dds-structured-list | With Row Headers (desktop)', () => {
     cy.visit(`${_pathRoot}--with-row-headers`)
       .injectAxe()
       .viewport(1280, 780);
-  })
+  });
 
   it('should check a11y', () => {
     cy.checkAxeA11y();
@@ -82,19 +75,18 @@ describe('dds-structured-list | With Row Headers (desktop)', () => {
   it('should have row headers', () => {
     cy.get('dds-structured-list-row dds-structured-list-header-cell')
       .should('exist')
-      .each((header_cell) => {
-        cy.get(header_cell)
-          .should('not.be.empty');
+      .each(header_cell => {
+        cy.get(header_cell).should('not.be.empty');
       });
   });
-})
+});
 
 describe('dds-structured-list | With Row Headers (mobile)', () => {
   beforeEach(() => {
     cy.visit(`${_pathRoot}--with-row-headers`)
       .injectAxe()
       .viewport(320, 780);
-  })
+  });
 
   it('should check a11y', () => {
     cy.checkAxeA11y();
@@ -103,28 +95,26 @@ describe('dds-structured-list | With Row Headers (mobile)', () => {
   it('should have row headers', () => {
     cy.get('dds-structured-list-row dds-structured-list-header-cell')
       .should('exist')
-      .each((header_cell) => {
-        cy.get(header_cell)
-          .should('not.be.empty');
+      .each(header_cell => {
+        cy.get(header_cell).should('not.be.empty');
       });
   });
 
   it('should scroll to display all cells', () => {
-    cy.get('dds-structured-list-header-cell, dds-structured-list-cell')
-      .each((cell) => {
-        cy.get(cell)
-          .scrollIntoView()
-          .should('be.visible');
-      });
+    cy.get('dds-structured-list-header-cell, dds-structured-list-cell').each(cell => {
+      cy.get(cell)
+        .scrollIntoView()
+        .should('be.visible');
+    });
   });
-})
+});
 
 describe('dds-structured-list | With Subheaders (desktop)', () => {
   beforeEach(() => {
     cy.visit(`${_pathRoot}--with-subheaders`)
       .injectAxe()
       .viewport(1280, 780);
-  })
+  });
 
   it('should check a11y', () => {
     cy.checkAxeA11y();
@@ -135,13 +125,9 @@ describe('dds-structured-list | With Subheaders (desktop)', () => {
       .shadow()
       .find('th')
       .each(([header]) => {
-        const title = header
-          .getRootNode()
-          .host
-          .getAttribute('title');
+        const title = header.getRootNode().host.getAttribute('title');
 
-        cy.get(header)
-          .should('include.text', title);
+        cy.get(header).should('include.text', title);
       });
   });
 });
@@ -151,7 +137,7 @@ describe('dds-structured-list | With Subheaders (mobile)', () => {
     cy.visit(`${_pathRoot}--with-subheaders`)
       .injectAxe()
       .viewport(1280, 780);
-  })
+  });
 
   it('should check a11y', () => {
     cy.checkAxeA11y();
@@ -162,23 +148,18 @@ describe('dds-structured-list | With Subheaders (mobile)', () => {
       .shadow()
       .find('th')
       .each(([header]) => {
-        const title = header
-          .getRootNode()
-          .host
-          .getAttribute('title');
+        const title = header.getRootNode().host.getAttribute('title');
 
-        cy.get(header)
-          .should('include.text', title);
+        cy.get(header).should('include.text', title);
       });
   });
 
   it('should scroll to display all cells', () => {
-    cy.get('dds-structured-list-header-cell, dds-structured-list-cell')
-      .each((cell) => {
-        cy.get(cell)
-          .scrollIntoView()
-          .should('be.visible');
-      });
+    cy.get('dds-structured-list-header-cell, dds-structured-list-cell').each(cell => {
+      cy.get(cell)
+        .scrollIntoView()
+        .should('be.visible');
+    });
   });
 });
 
@@ -193,20 +174,20 @@ describe('dds-structured-list | With Complex Content', () => {
     cy.get('dds-structured-list-cell[tooltip]')
       .shadow()
       .find('bx-tooltip-icon')
-      .should('exist')
+      .should('exist');
   });
 
   it('should inject svg with icon attribute', () => {
     cy.get('dds-structured-list-cell[icon]')
       .shadow()
       .find('svg')
-      .should('exist')
-  })
+      .should('exist');
+  });
 
   it('should inject tags with tags attribute', () => {
     cy.get('dds-structured-list-cell[tags]')
       .shadow()
       .find('bx-tag')
-      .should('exist')
+      .should('exist');
   });
 });
