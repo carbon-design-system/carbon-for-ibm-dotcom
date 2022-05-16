@@ -32,8 +32,6 @@ export const setColumnWidth = (row: DDSPricingTableHeaderRow | DDSPricingTableRo
  */
 export const slideHidden = (element: HTMLElement) => {
   const height = element.scrollHeight;
-  const { transition } = element.style;
-  element.style.transition = '';
 
   // Store height values set by other scripts.
   if (element.style.height) {
@@ -41,7 +39,6 @@ export const slideHidden = (element: HTMLElement) => {
   }
 
   requestAnimationFrame(() => {
-    element.style.transition = transition;
     element.style.height = `${height}px`;
     element.style.opacity = '1';
 

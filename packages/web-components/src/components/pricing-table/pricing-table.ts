@@ -61,11 +61,6 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   public isSticky: boolean = false;
 
   /**
-   * Tracks elements in header cells that should be hidden when set to sticky.
-   */
-  private _elementsToHide: HTMLElement[] = [];
-
-  /**
    * Node to track focus going outside of modal content.
    */
   @query('#start-sentinel')
@@ -174,7 +169,7 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
           });
         },
         {
-          rootMargin: `-${stuckElementsHeight}px 0px 0px 0px`,
+          rootMargin: `${stuckElementsHeight * -1}px 0px 0px 0px`,
           threshold: 0,
         }
       );
@@ -220,27 +215,34 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   }
 
   /**
-   * Builds an array of references to elements that should be hidden when the
-   * header is sticky.
+   * Returns true if a cell's contents are valid to animate when transitioning * between sticky states and false otherwise.
    */
-  private _setElementsToHide() {
-    const { headerCells } = this;
-    this._elementsToHide = [];
+  // eslint-disable-next-line class-methods-use-this
+  private _validateCell(cell: HTMLElement): boolean {
+    return (
+      cell instanceof DDSPricingTableHeaderCell &&
+      cell.getAttribute('type') !== PRICING_TABLE_HEADER_CELL_TYPES.SIMPLE &&
+      cell.shadowRoot !== null
+    );
+  }
+
+  /**
+   * Animates specific cell elements when transitioning between sticky states.
+   */
+  private _animateCellElements(cell: HTMLElement) {
+    const { isSticky } = this;
     const selectors = [`.${prefix}--pricing-table-header-cell-tag-wrapper`, `.${prefix}--pricing-table-cell-inner`];
 
-    if (headerCells) {
-      const validCells = headerCells.filter(cell => {
-        return cell instanceof DDSPricingTableHeaderCell && cell.getAttribute('type') !== PRICING_TABLE_HEADER_CELL_TYPES.SIMPLE;
-      });
-      validCells.forEach(cell => {
-        selectors.forEach(selector => {
-          if (cell.shadowRoot !== null) {
-            const element = cell.shadowRoot.querySelector(selector);
-            if (element instanceof HTMLElement) {
-              this._elementsToHide.push(element);
-            }
+    if (this._validateCell(cell)) {
+      selectors.forEach(selector => {
+        const element = (cell.shadowRoot as ShadowRoot).querySelector(selector);
+        if (element instanceof HTMLElement) {
+          if (isSticky) {
+            slideHidden(element);
+          } else {
+            slideUnhidden(element);
           }
-        });
+        }
       });
     }
   }
@@ -249,13 +251,15 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
    * Animates header cells when transitioning between sticky states.
    */
   private _animateCells() {
-    const { _elementsToHide, isSticky } = this;
-    _elementsToHide.forEach(element => {
-      if (!isSticky) {
-        slideUnhidden(element);
+    const { headerCells, isSticky } = this;
+    const { cellStickyClass } = this.constructor as typeof DDSPricingTable;
+    headerCells?.forEach(cell => {
+      if (isSticky) {
+        cell.classList.add(cellStickyClass);
       } else {
-        slideHidden(element);
+        cell.classList.remove(cellStickyClass);
       }
+      this._animateCellElements(cell);
     });
   }
 
@@ -266,10 +270,10 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
     const { headerRow, isSticky } = this;
     const { rowStickyClass } = this.constructor as typeof DDSPricingTable;
     if (headerRow) {
-      if (!isSticky) {
-        headerRow.classList.remove(rowStickyClass);
-      } else {
+      if (isSticky) {
         headerRow.classList.add(rowStickyClass);
+      } else {
+        headerRow.classList.remove(rowStickyClass);
       }
     }
   }
@@ -278,32 +282,16 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
    * Set or unset sticky state of pricing table header row.
    */
   private _setSticky(sticky: boolean = !this.isSticky) {
-    const { head, headerRow, headerCells } = this;
-    const { cellStickyClass } = this.constructor as typeof DDSPricingTable;
-
-    if (!head || !headerRow || !headerCells) return;
-
     this.isSticky = sticky;
-
-    // Set CSS classes
     if (sticky) {
-      headerCells.forEach(cell => {
-        cell.classList.add(cellStickyClass);
-      });
-    } else {
-      headerCells.forEach(cell => {
-        cell.classList.remove(cellStickyClass);
-      });
-    }
-
-    // Animate elements
-    if (sticky) {
+      // Add buffer to prevent animation jitters.
+      this._startSentinelNode.style.top = '-10px';
       this._animateCells();
       setTimeout(() => {
         this._animateHeaderRow();
-        this._endSentinelNode.style.top = `-${this._getHeaderHeight()}px`;
       }, animationTiming);
     } else {
+      this._startSentinelNode.style.top = '';
       this._animateCells();
       this._animateHeaderRow();
     }
@@ -381,7 +369,6 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
       );
     }
 
-    this._setElementsToHide();
     this._cleanIntersectionObservers();
     this._createIntersectionObservers();
   }
