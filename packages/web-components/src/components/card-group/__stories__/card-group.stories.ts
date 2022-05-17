@@ -67,7 +67,6 @@ const imageContent = html`
 `;
 
 const cardsDiffLengthPhrase = (index, tagGroup, media, gridMode, cardType, addCta) => {
-  console.log('text', addCta);
   const defaultCardGroupItem = html`
     <dds-card-group-item
       cta-type=${cardType === 'Card static' ? '' : 'local'}
@@ -361,6 +360,7 @@ export default {
         );
         const media = cardType === 'Card - default' || cardType === 'Card static' ? boolean('Add media:', false, groupId) : '';
         const tagGroup = cardType === 'Card - default' || cardType === 'Card static' ? boolean('Add tags:', false, groupId) : '';
+        const addCta = cardType === 'Card static' ? boolean('Add CTA Links:', false, groupId) : '';
         const cards = number('Number of cards:', 5, { min: 2, max: 6 }, groupId);
         const cardsPerRow = select('Cards per row:', cardsCol, cardsCol['3 cards per row (default)'], groupId);
         const gridMode =
@@ -369,17 +369,16 @@ export default {
             : select('Grid mode:', gridModes, gridModes['Collapsed (1px)'], groupId);
         const offset = select('Offset:', ['0', '1'], '0', groupId);
         const cta = media ? '' : boolean('Add CTA card:', false, groupId);
-        const addCta = cardType === 'Card static' ? boolean('Add CTA Links:', false, groupId) : '';
         return {
           cardType,
           media,
           tagGroup,
+          addCta,
           cards,
           cardsPerRow,
           gridMode,
           offset,
           cta,
-          addCta,
         };
       },
     },
@@ -389,12 +388,12 @@ export default {
           cardType: 'Card - default',
           media: false,
           tagGroup: false,
+          addCta: false,
           cards: 5,
           cardsPerRow: 'dds-ce-demo-devenv--cards-in-row-3',
           gridMode: 'collapsed',
           offset: 0,
           cta: false,
-          addCta: false,
         },
       },
     },
