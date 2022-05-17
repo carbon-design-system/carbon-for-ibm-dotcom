@@ -97,6 +97,12 @@ const image = ({ heading: imageHeading } = { heading: undefined }) => (
 
 export const Default = ({ parameters }) => {
   const { heading, copy: groupCopy, cardsGroupHeading, ctaType } = parameters?.props?.ContentBlockMixed ?? {};
+  const headingComponent = document.querySelector('dds-content-block-heading');
+
+  if (headingComponent) {
+    headingComponent.shadowRoot!.textContent = heading;
+  }
+
   return (
     <DDSContentBlockMixed>
       <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
@@ -158,6 +164,12 @@ export const Default = ({ parameters }) => {
 export const withLinkList = ({ parameters }) => {
   const { heading, copy: groupCopy, cardsGroupHeading, complementaryStyleScheme, ctaType, linkListHeading } =
     parameters?.props?.ContentBlockMixed ?? {};
+  const headingComponent = document.querySelector('dds-content-block-heading');
+
+  if (headingComponent) {
+    headingComponent.shadowRoot!.textContent = heading;
+  }
+
   return (
     <DDSContentBlockMixed complementary-style-scheme={complementaryStyleScheme || undefined}>
       <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>

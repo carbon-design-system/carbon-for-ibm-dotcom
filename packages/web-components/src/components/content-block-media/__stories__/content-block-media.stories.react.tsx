@@ -99,6 +99,12 @@ const linkListItems = [
 
 export const Default = ({ parameters }) => {
   const { blockHeading, simpleGroupHeading, featureCard, complementaryStyleScheme } = parameters?.props?.ContentBlockMedia ?? {};
+  const headingComponent = document.querySelector('dds-content-block-heading');
+
+  if (headingComponent) {
+    headingComponent.shadowRoot!.textContent = blockHeading;
+  }
+
   return (
     <DDSContentBlockMedia complementary-style-scheme={complementaryStyleScheme || undefined}>
       <DDSContentBlockHeading>{blockHeading}</DDSContentBlockHeading>
@@ -161,6 +167,12 @@ export const Default = ({ parameters }) => {
 export const withLinkList = ({ parameters }) => {
   const { blockHeading, simpleGroupHeading, featureCard, linkListHeading, complementaryStyleScheme, totalLinks } =
     parameters?.props?.ContentBlockMedia ?? {};
+  const headingComponent = document.querySelector('dds-content-block-heading');
+
+  if (headingComponent) {
+    headingComponent.shadowRoot!.textContent = blockHeading;
+  }
+
   return (
     <DDSContentBlockMedia complementary-style-scheme={complementaryStyleScheme || undefined}>
       <DDSContentBlockHeading>{blockHeading}</DDSContentBlockHeading>
