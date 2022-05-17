@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.34.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.33.1...@carbon/ibmdotcom-utilities@1.34.0-rc.0) (2022-05-06)
+
+
+### Features
+
+* **sticky header utility:** update storybook story & remove old dotcom-shell code ([#8684](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8684)) ([136a610](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/136a610)), closes [#8486](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8486) [#8472](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8472) [#8434](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8434)
+
+
+
+
+
+## [1.33.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.33.0...@carbon/ibmdotcom-utilities@1.33.1) (2022-05-04)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.33.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.33.0-rc.1...@carbon/ibmdotcom-utilities@1.33.0) (2022-04-25)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.33.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.33.0-rc.0...@carbon/ibmdotcom-utilities@1.33.0-rc.1) (2022-04-21)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
 # [1.33.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.31.0...@carbon/ibmdotcom-utilities@1.33.0-rc.0) (2022-04-11)
 
 

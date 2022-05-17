@@ -21,8 +21,15 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { showCaption, aspectRatio, videoId, playingMode, caption, thumbnail } =
-    parameters?.props?.VideoPlayer ?? {};
+  const {
+    showCaption,
+    aspectRatio,
+    videoId,
+    playingMode,
+    caption,
+    thumbnail,
+    alt,
+  } = parameters?.props?.VideoPlayer ?? {};
 
   return (
     <div className="bx--grid">
@@ -35,6 +42,7 @@ export const Default = ({ parameters }) => {
             playingMode={playingMode}
             caption={caption}
             thumbnail={thumbnail}
+            alt={alt}
           />
         </div>
       </div>
@@ -52,6 +60,7 @@ Default.story = {
         playingMode: 'inline',
         caption: text('Custom caption (caption):', '', groupId),
         thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
+        alt: text('Custom alt text (alt):', '', groupId),
       }),
     },
   },
@@ -72,6 +81,7 @@ aspectRatio1x1.story = {
         playingMode: 'inline',
         caption: text('Custom caption (caption):', '', groupId),
         thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
+        alt: text('Custom alt text (alt):', '', groupId),
       }),
     },
   },
@@ -92,6 +102,7 @@ aspectRatio4x3.story = {
         playingMode: 'inline',
         caption: text('Custom caption (caption):', '', groupId),
         thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
+        alt: text('Custom alt text (alt):', '', groupId),
       }),
     },
   },
@@ -112,6 +123,7 @@ withLightboxMediaViewer.story = {
         playingMode: 'lightbox',
         caption: text('Custom caption (caption):', '', groupId),
         thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
+        alt: text('Custom alt text (alt):', '', groupId),
       }),
     },
   },

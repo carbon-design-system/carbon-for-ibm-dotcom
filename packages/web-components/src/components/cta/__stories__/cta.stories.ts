@@ -381,7 +381,7 @@ CardLink.story = {
 
 export const Feature = ({ parameters }) => {
   const { heading, ctaType, download, href, customVideoTitle, customVideoDescription } = parameters?.props?.FeatureCTA ?? {};
-  const { copy: footerCopy, download: footerDownload, href: footerHref } = parameters?.props?.FeatureCTAFooter ?? {};
+  const { download: footerDownload, href: footerHref } = parameters?.props?.FeatureCTAFooter ?? {};
   return html`
     <dds-feature-cta
       cta-type="${ifNonNull(ctaType)}"
@@ -399,7 +399,6 @@ export const Feature = ({ parameters }) => {
         video-description="${ifNonNull(customVideoDescription)}"
         href="${ifNonNull(footerHref)}"
       >
-        ${footerCopy}
       </dds-feature-cta-footer>
     </dds-feature-cta>
   `;

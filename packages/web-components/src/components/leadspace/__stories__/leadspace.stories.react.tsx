@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,7 +19,7 @@ import DDSLeadspace from '@carbon/ibmdotcom-web-components/es/components-react/l
 // @ts-ignore
 import DDSLeadspaceHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace-heading';
 // @ts-ignore
-import DDSLeadspaceImage from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace-image';
+import DDSBackgroundMedia from '@carbon/ibmdotcom-web-components/es/components-react/background-media/background-media';
 // @ts-ignore
 import DDSButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
 // @ts-ignore
@@ -36,6 +36,8 @@ import DDSBreadcrumbLink from '@carbon/ibmdotcom-web-components/es/components-re
 import DDSBreadcrumbItem from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/breadcrumb-item';
 // @ts-ignore
 import DDSBreadcrumb from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/breadcrumb';
+// @ts-ignore
+import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 
 import leadspaceImg from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import readme from './README.stories.react.mdx';
@@ -91,7 +93,8 @@ const iconOptions = {
 };
 
 const Default = ({ parameters }) => {
-  const { alt, buttons, copy, defaultSrc, hasImage, navElements, size, title, type } = parameters?.props?.Leadspace ?? {};
+  const { alt, buttons, copy, defaultSrc, hasImage, hasVideo, navElements, size, title, type } =
+    parameters?.props?.Leadspace ?? {};
   return (
     <DDSLeadspace size={size} type={type} {...(hasImage ? { alt } : {})}>
       {navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
@@ -109,10 +112,15 @@ const Default = ({ parameters }) => {
         })}
       </DDSButtonGroup>
       {hasImage && (
-        <DDSLeadspaceImage slot="image" default-src={defaultSrc} className="bx--image" alt={alt}>
+        <DDSBackgroundMedia default-src={defaultSrc} alt={alt} opacity="100">
           <DDSImageItem media="(min-width: 672px)" srcset={leadspaceImg}></DDSImageItem>
           <DDSImageItem media="(min-width: 0)" srcset={leadspaceImg}></DDSImageItem>
-        </DDSLeadspaceImage>
+        </DDSBackgroundMedia>
+      )}
+      {hasVideo && (
+        <DDSBackgroundMedia mobilePosition="bottom" opacity="100">
+          <DDSVideoPlayerContainer video-id="1_9h94wo6b" background-mode="true"></DDSVideoPlayerContainer>
+        </DDSBackgroundMedia>
       )}
     </DDSLeadspace>
   );
@@ -153,6 +161,35 @@ TallWithImage.story = {
       Leadspace: () => ({
         size: LEADSPACE_SIZE.NONE,
         hasImage: true,
+        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
+        title: text('title (title)', 'Heading can go on two lines max'),
+        copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
+        alt: text('Image alt text (alt)', 'Image alt text'),
+        buttons: Array.from({
+          length: number('Number of buttons', 2, {}),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ?? 0;
+          return {
+            href: text(`Link ${i + 1}`, `https://example.com`),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
+        defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
+      }),
+    },
+  },
+};
+
+export const TallWithVideo = context => Default(context);
+TallWithVideo.story = {
+  name: 'Tall with video',
+  parameters: {
+    knobs: {
+      Leadspace: () => ({
+        size: LEADSPACE_SIZE.NONE,
+        hasVideo: true,
         navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
         title: text('title (title)', 'Heading can go on two lines max'),
         copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
@@ -231,18 +268,53 @@ MediumWithImage.story = {
   },
 };
 
+export const MediumWithVideo = context => Default(context);
+
+MediumWithVideo.story = {
+  name: 'Medium with video',
+  parameters: {
+    knobs: {
+      Leadspace: () => ({
+        size: LEADSPACE_SIZE.MEDIUM,
+        hasVideo: true,
+        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
+        title: text('title (title)', 'Heading can go on two lines max'),
+        copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
+        alt: text('Image alt text (alt)', 'Image alt text'),
+        buttons: Array.from({
+          length: number('Number of buttons', 2, {}),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ?? 0;
+          return {
+            href: text(`Link ${i + 1}`, `https://example.com`),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
+        defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
+      }),
+    },
+  },
+};
+
 export const Short = ({ parameters }) => {
-  const { alt, defaultSrc, hasImage, navElements, size, title, type } = parameters?.props?.Leadspace ?? {};
+  const { alt, defaultSrc, hasImage, hasVideo, navElements, size, title, type } = parameters?.props?.Leadspace ?? {};
   return (
     <DDSLeadspace size={size} type={type} {...(hasImage ? { alt } : {})}>
       {navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       {navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <DDSLeadspaceHeading>{title}</DDSLeadspaceHeading>
       {hasImage && (
-        <DDSLeadspaceImage slot="image" default-src={defaultSrc} className="bx--image" alt={alt}>
+        <DDSBackgroundMedia default-src={defaultSrc} alt={alt} opacity="100">
           <DDSImageItem media="(min-width: 672px)" srcset={leadspaceImg}></DDSImageItem>
           <DDSImageItem media="(min-width: 0)" srcset={leadspaceImg}></DDSImageItem>
-        </DDSLeadspaceImage>
+        </DDSBackgroundMedia>
+      )}
+      {hasVideo && (
+        <DDSBackgroundMedia mobilePosition="bottom" opacity="100">
+          <DDSVideoPlayerContainer video-id="1_9h94wo6b" background-mode="true"></DDSVideoPlayerContainer>
+        </DDSBackgroundMedia>
       )}
     </DDSLeadspace>
   );
@@ -269,6 +341,24 @@ ShortWithImage.story = {
       Leadspace: () => ({
         size: LEADSPACE_SIZE.SHORT,
         hasImage: true,
+        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
+        title: text('title (title)', 'A short headline can go on multiple lines in this leadspace'),
+        alt: text('Image alt text (alt)', 'Image alt text'),
+        defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
+      }),
+    },
+  },
+};
+
+export const ShortWithVideo = context => Short(context);
+
+ShortWithVideo.story = {
+  name: 'Short with video',
+  parameters: {
+    knobs: {
+      Leadspace: () => ({
+        size: LEADSPACE_SIZE.SHORT,
+        hasVideo: true,
         navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
         title: text('title (title)', 'A short headline can go on multiple lines in this leadspace'),
         alt: text('Image alt text (alt)', 'Image alt text'),
@@ -335,6 +425,36 @@ CenteredWithImage.story = {
   },
 };
 
+export const CenteredWithVideo = context => Default(context);
+
+CenteredWithVideo.story = {
+  name: 'Centered with video',
+  parameters: {
+    knobs: {
+      Leadspace: () => ({
+        hasVideo: true,
+        type: 'centered',
+        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
+        title: text('title (title)', 'Heading can go on two lines max'),
+        copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
+        alt: text('Image alt text (alt)', 'Image alt text'),
+        buttons: Array.from({
+          length: number('Number of buttons', 2, {}),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ?? 0;
+          return {
+            href: text(`Link ${i + 1}`, `https://example.com`),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
+        defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
+      }),
+    },
+  },
+};
+
 export const Super = context => Tall(context);
 
 Super.story = {
@@ -371,6 +491,36 @@ SuperWithImage.story = {
       Leadspace: () => ({
         size: LEADSPACE_SIZE.SUPER,
         hasImage: true,
+        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
+        title: text('title (title)', 'Heading can go on two lines max'),
+        copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
+        alt: text('Image alt text (alt)', 'Image alt text'),
+        buttons: Array.from({
+          length: number('Number of buttons', 2, {}),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ?? 0;
+          return {
+            href: text(`Link ${i + 1}`, `https://example.com`),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
+        defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
+      }),
+    },
+  },
+};
+
+export const SuperWithVideo = context => Tall(context);
+
+SuperWithVideo.story = {
+  name: 'Super with video',
+  parameters: {
+    knobs: {
+      Leadspace: () => ({
+        size: LEADSPACE_SIZE.SUPER,
+        hasVideo: true,
         navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
         title: text('title (title)', 'Heading can go on two lines max'),
         copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
