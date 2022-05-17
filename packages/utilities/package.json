@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "@carbon/telemetry": "0.1.0",
-    "axios": "~0.21.4",
+    "axios": "^0.27.2",
     "carbon-components": "10.57.1",
     "isomorphic-dompurify": "0.4.0",
     "js-cookie": "^2.2.1",

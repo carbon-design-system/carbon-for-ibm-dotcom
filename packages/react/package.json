@@ -176,7 +176,7 @@
     "rollup-plugin-visualizer": "^2.5.4",
     "rtlcss": "^2.4.0",
     "sass-loader": "^10.0.0",
-    "start-server-and-test": "^1.12.5",
+    "start-server-and-test": "^1.14.0",
     "style-loader": "^2.0.0",
     "temp": "^0.9.0",
     "terser-webpack-plugin": "^4.2.3",
