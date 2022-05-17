@@ -56,8 +56,8 @@
     "visual-snapshot": "yarn build-storybook && percy-storybook --widths=320,1280"
   },
   "peerDependencies": {
-    "react": "16.9.0",
-    "react-dom": "16.9.0"
+    "react": "^16.14.0 || ^17.0.2",
+    "react-dom": "^16.14.0 || ^17.0.2"
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
@@ -176,7 +176,7 @@
     "rollup-plugin-visualizer": "^2.5.4",
     "rtlcss": "^2.4.0",
     "sass-loader": "^10.0.0",
-    "start-server-and-test": "^1.12.5",
+    "start-server-and-test": "^1.14.0",
     "style-loader": "^2.0.0",
     "temp": "^0.9.0",
     "terser-webpack-plugin": "^4.2.3",
