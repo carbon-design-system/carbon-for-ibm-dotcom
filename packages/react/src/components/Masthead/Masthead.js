@@ -9,9 +9,9 @@ import { baseFontSize, breakpoints } from '@carbon/layout';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
 import { DDS_CUSTOM_PROFILE_LOGIN } from '../../internal/FeatureFlags';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import deprecate from '@carbon/ibmdotcom-utilities/es/utilities/deprecate/deprecate.js';
-import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate.js';
+import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import Header from '../../internal/vendor/carbon-components-react/components/UIShell/Header';
 import HeaderContainer from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderContainer';
 import HeaderGlobalBar from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderGlobalBar';
@@ -22,12 +22,12 @@ import MastheadLeftNav from './MastheadLeftNav';
 import MastheadProfile from './MastheadProfile';
 import MastheadSearch from './MastheadSearch';
 import MastheadTopNav from './MastheadTopNav';
-import ProfileAPI from '@carbon/ibmdotcom-services/es/services/Profile/Profile';
+import ProfileAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/Profile/Profile';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 import SkipToContent from '../../internal/vendor/carbon-components-react/components/UIShell/SkipToContent';
-import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
+import TranslationAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/Translation/Translation';
 import User20 from '@carbon/icons-react/es/user/20';
 import UserOnline20 from '@carbon/icons-react/es/user--online/20';
 
@@ -143,26 +143,27 @@ const Masthead = ({
     profileMenuList.closest('ul').style.top = '48px';
   };
 
-  const [isMastheadSticky, setIsMastheadSticky] = useState(false);
   const stickyRef = useRef(null);
   const mastheadL1Ref = useRef(null);
-
-  const mastheadSticky = cx({
-    [`${prefix}--masthead--sticky`]: isMastheadSticky,
-    [`${prefix}--masthead--sticky__l1`]: mastheadL1Ref.current != null,
-  });
 
   const headerSearchClasses = cx({
     [`${prefix}--masthead__platform`]: platform,
     [`${prefix}--masthead__header--search-active`]: isSearchActive,
   });
 
-  const [scrollOffset, setScrollOffset] = useState(root.scrollY);
+  const [scrollOffset] = useState(root.scrollY);
+  const [tableOfContents, setTableOfContents] = useState(null);
 
   useEffect(() => {
-    const tableOfContents = document.querySelector(
-      '.bx--tableofcontents__sidebar'
+    setTableOfContents(
+      document.querySelector('.bx--tableofcontents__sidebar') ??
+        document
+          .querySelector('dds-table-of-contents')
+          ?.shadowRoot.querySelector('.bx--tableofcontents__navbar')
     );
+  }, [tableOfContents]);
+
+  useEffect(() => {
     let lastScrollPosition = 0;
 
     /**
@@ -174,20 +175,39 @@ const Masthead = ({
        * L0 will hide on scroll down, show on scroll up
        *
        */
-      if (mastheadL1Ref.current != null) {
-        const prevOffset = scrollOffset;
-        const currOffset = window.scrollY;
-        setIsMastheadSticky(currOffset > prevOffset);
-        setScrollOffset(currOffset);
+      if (mastheadL1Ref.current != null && tableOfContents != null) {
+        const tocBoundingClient = tableOfContents.getBoundingClientRect();
+        const mobileMastheadTop = Math.round(
+          Math.min(0, tocBoundingClient.top - stickyRef.current.offsetHeight)
+        );
+        const tocPosition =
+          tocBoundingClient.top + lastScrollPosition - window.scrollY;
+
+        tableOfContents.style.top = `${Math.max(
+          Math.min(tocPosition, stickyRef.current.offsetHeight),
+          0
+        )}px`;
+
+        const regularMastheadTop =
+          window.scrollY < lastScrollPosition
+            ? 0
+            : -Math.min(
+                stickyRef.current.offsetHeight -
+                  mastheadL1Ref.current.offsetHeight,
+                Math.abs(mobileMastheadTop)
+              );
+        const mastheadTop =
+          window.innerWidth < gridBreakpoint
+            ? mobileMastheadTop
+            : regularMastheadTop;
+
+        stickyRef.current.style.top = `${mastheadTop}px`;
+        stickyRef.current.style.transition = 'none';
 
         /**
          * L0 will hide on scroll down, show up on scroll up when mobile ToC is present
          */
-      } else if (
-        tableOfContents != null &&
-        stickyRef.current !== null &&
-        window.innerWidth < gridBreakpoint
-      ) {
+      } else if (tableOfContents != null && stickyRef.current !== null) {
         const tocBoundingClient = tableOfContents.getBoundingClientRect();
         stickyRef.current.style.transition = `none`;
 
@@ -196,29 +216,36 @@ const Masthead = ({
         );
         const tocPosition =
           tocBoundingClient.top + lastScrollPosition - window.scrollY;
-        tableOfContents.style.top = `${Math.max(
-          Math.min(tocPosition, stickyRef.current.offsetHeight),
-          0
-        )}px`;
 
-        if (tableOfContents.style.top === '0px') {
-          stickyRef.current.style.top = `-${stickyRef.current.offsetHeight}px`;
-        } else if (
-          tableOfContents.style.top === `${stickyRef.current.offsetHeight}px`
+        if (
+          tableOfContents?.getRootNode()?.host?.getAttribute('toc-layout') ===
+          'horizontal'
         ) {
-          stickyRef.current.style.top = '0';
-        } else {
-          stickyRef.current.style.top = `${mastheadTop}px`;
-        }
+          tableOfContents.style.top = `${stickyRef.current.offsetHeight}px`;
+        } else if (window.innerWidth < gridBreakpoint) {
+          tableOfContents.style.top = `${Math.max(
+            Math.min(tocPosition, stickyRef.current.offsetHeight),
+            0
+          )}px`;
 
-        lastScrollPosition = window.scrollY;
+          if (tableOfContents.style.top === '0px') {
+            stickyRef.current.style.top = `-${stickyRef.current.offsetHeight}px`;
+          } else if (
+            tableOfContents.style.top === `${stickyRef.current.offsetHeight}px`
+          ) {
+            stickyRef.current.style.top = '0';
+          } else {
+            stickyRef.current.style.top = `${mastheadTop}px`;
+          }
+        }
       }
+      lastScrollPosition = window.scrollY;
     });
 
     return () => {
       root.removeEventListener('scroll', () => handleScroll);
     };
-  }, [scrollOffset]);
+  }, [scrollOffset, tableOfContents]);
 
   if (navigation) {
     switch (typeof navigation) {
@@ -286,9 +313,7 @@ const Masthead = ({
           root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
         }
         return (
-          <div
-            className={`${prefix}--masthead ${mastheadSticky}`}
-            ref={stickyRef}>
+          <div className={`${prefix}--masthead`} ref={stickyRef}>
             <div className={`${prefix}--masthead__l0`}>
               <Header
                 aria-label="IBM"
@@ -419,7 +444,6 @@ const Masthead = ({
                 <MastheadL1
                   {...mastheadL1Data}
                   platform={platform}
-                  isShort={isMastheadSticky}
                   navType={navType}
                   hasCurrentUrl={_hasCurrentUrl}
                   selectedMenuItem={selectedMenuItem}

@@ -1,19 +1,19 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
+import React, { useEffect } from 'react';
 import cx from 'classnames';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
 import HeaderMenuItem from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderMenuItem';
 import HeaderNavContainer from './HeaderNavContainer';
 import HeaderNavigation from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderNavigation';
 import MegaMenu from './MastheadMegaMenu/MegaMenu';
 import PropTypes from 'prop-types';
-import React from 'react';
 import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 
@@ -28,6 +28,16 @@ const MastheadL1 = ({ navigationL1, ...rest }) => {
     [`${prefix}--masthead__l1`]: true,
   });
   const childLinkChecker = rest.hasCurrentUrl();
+
+  useEffect(() => {
+    document
+      .querySelector(`.${prefix}--header__menu-bar`)
+      ?.setAttribute('role', 'menu');
+    document.querySelectorAll(`.${prefix}--header__menu-bar li`).forEach(e => {
+      e.setAttribute('role', 'menuitem');
+      e.querySelector('a').removeAttribute('role');
+    });
+  }, []);
 
   const mastheadL1Links = navigationL1.map((link, index) => {
     const selectedUrlItem =

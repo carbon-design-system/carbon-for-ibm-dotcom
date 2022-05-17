@@ -8,8 +8,8 @@
  */
 
 import { html, customElement, LitElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './tag-group.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 

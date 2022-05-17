@@ -8,7 +8,7 @@
  */
 
 import { html, customElement, property, LitElement, state } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './tabs-extended.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
@@ -30,14 +30,14 @@ class DDSTab extends StableSelectorMixin(LitElement) {
   /**
    * Defines the disabled state of the tab.
    */
-  @property({ reflect: true })
-  disabled: Boolean = false;
+  @property({ reflect: true, type: Boolean })
+  disabled: boolean = false;
 
   /**
    * Defines the selected state of the tab.
    */
-  @property({ reflect: true })
-  selected: Boolean = false;
+  @property({ reflect: true, type: Boolean })
+  selected: boolean = false;
 
   /**
    * Defines the index of the tab relative to other tabs.

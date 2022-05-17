@@ -1,0 +1,82 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import markdownContents from '../../../../docs/markdown-contents.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
+# Structured List
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/structured-list)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/structured-list)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS (via import)
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/structured-list/index.js';
+```
+
+<Description markdown={`${cdnJs({ components: ['structured-list'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
+
+### HTML
+
+```html
+<dds-structured-list>
+  <dds-structured-list-head>
+    <dds-structured-list-header-row>
+      <dds-structured-list-header-cell>Column A</dds-structured-list-header-cell>
+      <dds-structured-list-header-cell>Column B</dds-structured-list-header-cell>
+      <dds-structured-list-header-cell>Column C</dds-structured-list-header-cell>
+    </dds-structured-list-header-row>
+  </dds-structured-list-head>
+  <dds-structured-list-body>
+    <dds-structured-list-row>
+      <dds-structured-list-cell>Row 1</dds-structured-list-cell>
+      <dds-structured-list-cell>Row 1</dds-structured-list-cell>
+      <dds-structured-list-cell>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+        augue. Aenean posuere sem vel euismod dignissim.
+      </dds-structured-list-cell>
+    </dds-structured-list-row>
+    <dds-structured-list-row>
+      <dds-structured-list-cell>Row 2</dds-structured-list-cell>
+      <dds-structured-list-cell>Row 2</dds-structured-list-cell>
+      <dds-structured-list-cell>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+        augue. Aenean posuere sem vel euismod dignissim.
+      </dds-structured-list-cell>
+    </dds-structured-list-row>
+    <dds-structured-list-row>
+      <dds-structured-list-cell>Row 3</dds-structured-list-cell>
+      <dds-structured-list-cell>Row 3</dds-structured-list-cell>
+      <dds-structured-list-cell>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+        augue. Aenean posuere sem vel euismod dignissim.
+      </dds-structured-list-cell>
+    </dds-structured-list-row>
+  </dds-structured-list-body>
+</dds-structured-list>
+```
+
+## Props
+
+<Props of="dds-structured-list" />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector     | Compatibility selector                   | Description |
+| --------------------------- | ---------------------------------------- | ----------- |
+| `<dds-structured-list>`     | `data-autoid="dds--structured-list"`     | Component   |
+
+<Description markdown={contributing} />

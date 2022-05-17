@@ -226,6 +226,10 @@ $hover-transition-timing: 95ms;
         transform: translateY($layout-03);
       }
 
+      &:focus {
+        outline: none;
+      }
+
       @include carbon--breakpoint('lg') {
         transform: none;
 

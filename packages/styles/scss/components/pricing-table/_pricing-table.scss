@@ -1,0 +1,238 @@
+//
+// Copyright IBM Corp. 2022
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import 'carbon-components/scss/components/tag/tag';
+@import '../../globals/imports';
+@import '../../globals/vars';
+@import '../buttongroup/buttongroup';
+@import '../structured-list/structured-list';
+
+@include structured-list;
+@include tags;
+
+@mixin pricing-table {
+  .#{$prefix}--pricing-table,
+  :host(#{$dds-prefix}-pricing-table) {
+    @extend .#{$dds-prefix}--structured-list;
+  }
+
+  .#{$prefix}--pricing-table-group,
+  :host(#{$dds-prefix}-pricing-table-group) {
+    @extend .#{$prefix}--structured-list-group;
+  }
+
+  .#{$prefix}--pricing-table-header-row,
+  :host(#{$dds-prefix}-header-row) {
+    @extend .#{$prefix}--structured-list-header-row;
+  }
+
+  .#{$prefix}--pricing-table-header-row,
+  .#{$prefix}--pricing-table-row,
+  .#{$prefix}--pricing-table-group tr,
+  :host(#{$dds-prefix}-pricing-table-header-row),
+  :host(#{$dds-prefix}-pricing-table-row),
+  :host(#{$dds-prefix}-pricing-table-group) tr {
+    @extend .#{$prefix}--structured-list-all-rows;
+
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $ui-03;
+      box-shadow: extended-box-shadow();
+    }
+  }
+
+  .#{$prefix}--pricing-table-header-cell,
+  .#{$prefix}--pricing-table-cell,
+  .#{$prefix}--pricing-table-group th,
+  :host(#{$dds-prefix}-pricing-table-header-cell),
+  :host(#{$dds-prefix}-pricing-table-cell),
+  :host(#{$dds-prefix}-pricing-table-group) th {
+    @extend .#{$prefix}--structured-list-all-cells;
+
+    padding-block-end: $carbon--spacing-05;
+    border-bottom: 0;
+
+    &:last-child {
+      flex-grow: none;
+      max-width: var(--width);
+    }
+  }
+
+  .#{$prefix}--pricing-table-header-cell,
+  .#{$prefix}--pricing-table-cell,
+  :host(#{$dds-prefix}-pricing-table-header-cell),
+  :host(#{$dds-prefix}-pricing-table-cell) {
+    position: relative;
+
+    &.highlighted {
+      background-color: $ui-01;
+    }
+
+    .#{$prefix}--pricing-table-cell-inner {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .#{$prefix}--pricing-table-header-cell,
+  :host(#{$dds-prefix}-pricing-table-header-cell) {
+    @extend .#{$prefix}--structured-list-header-cell;
+  }
+
+  .#{$prefix}--pricing-table-header-cell:not([scope='row']),
+  :host(#{$dds-prefix}-pricing-table-header-cell:not([scope='row'])) {
+    padding-block-end: $carbon--layout-06;
+
+    &.highlighted {
+      position: relative;
+
+      ::slotted(#{$dds-prefix}-pricing-table-highlight-label) {
+        display: block;
+      }
+    }
+
+    .#{$prefix}--pricing-table-header-cell-inner {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  .#{$prefix}--pricing-table-cell,
+  :host(#{$dds-prefix}-pricing-table-cell) {
+    @extend .#{$prefix}--structured-list-cell;
+
+    &.annotation-visible {
+      ::slotted(#{$dds-prefix}-pricing-table-cell-annotation) {
+        display: block;
+        height: auto;
+        opacity: 1;
+        margin-block-start: $carbon--spacing-05;
+        transform: translateY(0);
+      }
+    }
+
+    &.annotation-visible.no-cell-content {
+      ::slotted(#{$dds-prefix}-pricing-table-cell-annotation) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  :host(#{$dds-prefix}-pricing-table-cell[icon]) {
+    &[icon='checkmark'] {
+      color: $support-02;
+    }
+  }
+
+  .#{$prefix}--pricing-table-highlight-label,
+  :host(#{$dds-prefix}-pricing-table-highlight-label) {
+    @include carbon--type-style('body-short-01');
+
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: $ui-05;
+    color: $inverse-01;
+    padding: $carbon--spacing-03 $carbon--spacing-05;
+  }
+
+  .#{$prefix}--pricing-table-header-cell-headline,
+  :host(#{$dds-prefix}-pricing-table-header-cell-headline) {
+    @include carbon--type-style('expressive-heading-03');
+
+    color: $text-01;
+    display: block;
+  }
+
+  .#{$prefix}--pricing-table-header-cell-caption,
+  :host(#{$dds-prefix}-pricing-table-header-cell-caption) {
+    @include carbon--type-style('productive-heading-01');
+
+    color: $text-01;
+    display: block;
+  }
+
+  .#{$prefix}--pricing-table-header-cell-tag,
+  :host(#{$dds-prefix}-pricing-table-header-cell-tag) a {
+    @extend .#{$prefix}--tag;
+    @extend .#{$prefix}--tag--green;
+    @extend .#{$prefix}--tag--sm;
+
+    text-decoration: none;
+    margin: $carbon--spacing-05 0 0;
+
+    &[href] {
+      cursor: pointer;
+    }
+  }
+
+  .#{$prefix}--pricing-table-header-cell-description,
+  :host(#{$dds-prefix}-pricing-table-header-cell-description) {
+    @include carbon--type-style('body-long-01');
+
+    display: block;
+    margin-block-start: $carbon--spacing-05;
+    color: $text-01;
+  }
+
+  .#{$prefix}--pricing-table-header-cell-cta,
+  :host(#{$dds-prefix}-pricing-table-header-cell-cta) {
+    @extend .#{$prefix}--buttongroup-item;
+
+    display: block;
+    margin-block-start: $carbon--spacing-06;
+
+    .#{$prefix}--btn svg {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .#{$prefix}--pricing-table-annotation-toggle,
+  :host(#{$dds-prefix}-pricing-table-annotation-toggle) {
+    padding-inline-end: $carbon--spacing-03;
+
+    button {
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    svg {
+      fill: $ui-04;
+    }
+  }
+
+  .#{$prefix}--pricing-table-cell-annotation,
+  :host(#{$dds-prefix}-pricing-table-cell-annotation) {
+    display: block;
+    color: $text-02;
+    transition: $duration--fast-02 motion(standard, productive);
+    height: 0;
+    opacity: 0;
+    transform: translateY(-#{$carbon--spacing-05});
+  }
+}
+
+@include exports('pricing-table') {
+  @include pricing-table;
+}
