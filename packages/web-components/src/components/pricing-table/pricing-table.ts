@@ -73,6 +73,11 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   private _endSentinelNode!: HTMLSpanElement;
 
   /**
+   * Buffer space used to prevent animation jitters.
+   */
+  private _startSentinelBuffer = -10;
+
+  /**
    * Observer that watches intersection of window and start of pricing table.
    */
   private _intersectionObserverStart: IntersectionObserver | null = null;
@@ -284,8 +289,7 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   private _setSticky(sticky: boolean = !this.isSticky) {
     this.isSticky = sticky;
     if (sticky) {
-      // Add buffer to prevent animation jitters.
-      this._startSentinelNode.style.top = '-10px';
+      this._startSentinelNode.style.top = `${this._startSentinelBuffer}px`;
       this._animateCells();
       setTimeout(() => {
         this._animateHeaderRow();
