@@ -66,7 +66,8 @@ const imageContent = html`
   <dds-card-cta-image slot="image" alt="Image Alt Text" default-src="${imgXlg4x3}"></dds-card-cta-image>
 `;
 
-const cardsDiffLengthPhrase = (index, tagGroup, media, gridMode, cardType) => {
+const cardsDiffLengthPhrase = (index, tagGroup, media, gridMode, cardType, addCta) => {
+  console.log('text', addCta);
   const defaultCardGroupItem = html`
     <dds-card-group-item
       cta-type=${cardType === 'Card static' ? '' : 'local'}
@@ -80,8 +81,10 @@ const cardsDiffLengthPhrase = (index, tagGroup, media, gridMode, cardType) => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.'
       </p>
       ${tagGroup ? tagGroupContent : ''}
-      ${cardType === 'Card static'
-        ? ''
+      ${cardType === 'Card static' && addCta
+        ? html`
+            <dds-text-cta slot="footer" cta-type="local" href="https://example.com">Learn more</dds-text-cta>
+          `
         : html`
             <dds-card-cta-footer slot="footer"></dds-card-cta-footer>
           `}
@@ -100,7 +103,7 @@ const cardsDiffLengthPhrase = (index, tagGroup, media, gridMode, cardType) => {
   return media && index % 2 ? videoCardGroupItem : defaultCardGroupItem;
 };
 
-const longHeadingCardGroupItem = (tagGroup, media, gridMode, cardType) => {
+const longHeadingCardGroupItem = (tagGroup, media, gridMode, cardType, addCta) => {
   return html`
     <dds-card-group-item
       cta-type=${cardType === 'Card static' ? '' : 'local'}
@@ -115,8 +118,10 @@ const longHeadingCardGroupItem = (tagGroup, media, gridMode, cardType) => {
         Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
       ${tagGroup ? tagGroupContent : ''}
-      ${cardType === 'Card static'
-        ? ''
+      ${cardType === 'Card static' && addCta
+        ? html`
+            <dds-text-cta slot="footer" cta-type="local" href="https://example.com">Learn more</dds-text-cta>
+          `
         : html`
             <dds-card-cta-footer slot="footer"></dds-card-cta-footer>
           `}
@@ -202,7 +207,7 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
 };
 
 export const Default = ({ parameters }) => {
-  const { cards, cardType, media, tagGroup, cardsPerRow, gridMode, offset, cta } = parameters?.props?.CardGroup ?? {};
+  const { cards, cardType, media, tagGroup, cardsPerRow, gridMode, offset, cta, addCta } = parameters?.props?.CardGroup ?? {};
 
   const classes = classMap({
     [cardsPerRow]: cardsPerRow,
@@ -215,9 +220,9 @@ export const Default = ({ parameters }) => {
   }
 
   if (cardType === 'Card - default') {
-    allCards.push(longHeadingCardGroupItem(tagGroup, media, gridMode, cardType));
+    allCards.push(longHeadingCardGroupItem(tagGroup, media, gridMode, cardType, addCta));
     for (let i = 1; i < cards; i++) {
-      allCards.push(cardsDiffLengthPhrase(i, tagGroup, media, gridMode, cardType));
+      allCards.push(cardsDiffLengthPhrase(i, tagGroup, media, gridMode, cardType, addCta));
     }
     if (cta) {
       allCards.push(
@@ -238,9 +243,9 @@ export const Default = ({ parameters }) => {
   }
 
   if (cardType === 'Card static') {
-    allCards.push(longHeadingCardGroupItem(tagGroup, media, gridMode, cardType));
+    allCards.push(longHeadingCardGroupItem(tagGroup, media, gridMode, cardType, addCta));
     for (let i = 1; i < cards; i++) {
-      allCards.push(cardsDiffLengthPhrase(i, tagGroup, media, gridMode, cardType));
+      allCards.push(cardsDiffLengthPhrase(i, tagGroup, media, gridMode, cardType, addCta));
     }
     if (cta) {
       allCards.push(
@@ -364,6 +369,7 @@ export default {
             : select('Grid mode:', gridModes, gridModes['Collapsed (1px)'], groupId);
         const offset = select('Offset:', ['0', '1'], '0', groupId);
         const cta = media ? '' : boolean('Add CTA card:', false, groupId);
+        const addCta = cardType === 'Card static' ? boolean('Add CTA Links:', false, groupId) : '';
         return {
           cardType,
           media,
@@ -373,6 +379,7 @@ export default {
           gridMode,
           offset,
           cta,
+          addCta,
         };
       },
     },
@@ -387,6 +394,7 @@ export default {
           gridMode: 'collapsed',
           offset: 0,
           cta: false,
+          addCta: false,
         },
       },
     },
