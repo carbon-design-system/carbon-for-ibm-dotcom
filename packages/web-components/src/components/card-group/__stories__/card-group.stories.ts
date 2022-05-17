@@ -62,6 +62,12 @@ const tagGroupContent = html`
   </dds-tag-group>
 `;
 
+const textCTAContent = html`
+  <dds-text-cta slot="footer" cta-type="local" href="https://example.com">
+    Learn more
+  </dds-text-cta>
+`;
+
 const imageContent = html`
   <dds-card-cta-image slot="image" alt="Image Alt Text" default-src="${imgXlg4x3}"></dds-card-cta-image>
 `;
@@ -81,9 +87,7 @@ const cardsDiffLengthPhrase = (index, tagGroup, media, gridMode, cardType, addCt
       </p>
       ${tagGroup ? tagGroupContent : ''}
       ${cardType === 'Card static' && addCta
-        ? html`
-            <dds-text-cta slot="footer" cta-type="local" href="https://example.com">Learn more</dds-text-cta>
-          `
+        ? textCTAContent
         : html`
             <dds-card-cta-footer slot="footer"></dds-card-cta-footer>
           `}
@@ -118,9 +122,7 @@ const longHeadingCardGroupItem = (tagGroup, media, gridMode, cardType, addCta) =
       </p>
       ${tagGroup ? tagGroupContent : ''}
       ${cardType === 'Card static' && addCta
-        ? html`
-            <dds-text-cta slot="footer" cta-type="local" href="https://example.com">Learn more</dds-text-cta>
-          `
+        ? textCTAContent
         : html`
             <dds-card-cta-footer slot="footer"></dds-card-cta-footer>
           `}
