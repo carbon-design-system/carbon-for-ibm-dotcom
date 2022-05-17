@@ -19,14 +19,9 @@ Here's a quick example to get you started.
 import DDSContentItemHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal';
 import DDSContentItemHorizontalCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-copy';
 import DDSContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-eyebrow';
-import DDSContentItemHorizontalMedia from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media';
-import DDSContentItemHorizontalMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-copy';
-import DDSContentItemHorizontalMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-video';
-import DDSContentItemHorizontalThumbnailCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-thumbnail-copy';
 import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
 import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import DDSLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 
 function App() {
   return (
@@ -49,6 +44,161 @@ function App() {
   );
 }
 ```
+### JS (with thumbnail)
+
+```javascript
+import DDSContentItemHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal';
+import DDSContentItemHorizontalThumbnailCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-thumbnail-copy';
+import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import DDSLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+
+function App() {
+  return (
+  <DDSContentItemHorizontal thumbnail>
+    <DDSContentItemHeading>Aliquam condimentum</DDSContentItemHeading>
+    <DDSContentItemHorizontalThumbnailCopy
+      >Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+      Phasellus at elit sollicitudin.</DDSContentItemHorizontalThumbnailCopy
+    >
+    <DDSLinkList slot="footer" type="vertical">
+      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
+        Learn more
+      </DDSLinkListItemCTA>
+      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
+        Microservices and containers
+      </DDSLinkListItemCTA>
+    </DDSLinkList>
+    <DDSImage slot="thumbnail" alt="Alt text" default-src="https://fpoimg.com/960x720?text=4:3&bg_color=ee5396&text_color=161616" />
+  </DDSContentItemHorizontal>
+  );
+}
+```
+
+### JS (with media - image)
+
+```javascript
+import DDSContentItemHorizontalMedia from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media';
+import DDSContentItemHorizontalMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-copy';
+import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import DDSLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+
+function App() {
+  return (
+  <DDSContentItemHorizontalMedia align="right">
+    <DDSImage slot="media" alt="Alt text" default-src="https://fpoimg.com/960x720?text=4:3&bg_color=ee5396&text_color=161616" />
+    <DDSContentItemHeading>Aliquam condimentum</DDSContentItemHeading>
+    <DDSContentItemHorizontalMediaCopy>Lorem Ipsum</DDSContentItemHorizontalMediaCopy>
+    <DDSLinkList slot="footer" type="vertical">
+      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
+        Learn more
+      </DDSLinkListItemCTA>
+      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
+        Microservices and containers
+      </DDSLinkListItemCTA>
+    </DDSLinkList>
+  </DDSContentItemHorizontalMedia>
+  );
+}
+```
+
+### JS (with media - video)
+
+```javascript
+import DDSContentItemHorizontalMedia from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media';
+import DDSContentItemHorizontalMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-video';
+import DDSContentItemHorizontalMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-copy';
+import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import DDSLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+
+function App() {
+  return (
+  <DDSContentItemHorizontalMedia align="right">
+    <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
+    <DDSContentItemHeading>Aliquam condimentum</DDSContentItemHeading>
+    <DDSContentItemHorizontalMediaCopy>Lorem Ipsum</DDSContentItemHorizontalMediaCopy>
+    <DDSLinkList slot="footer" type="vertical">
+      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
+        Learn more
+      </DDSLinkListItemCTA>
+      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
+        Microservices and containers
+      </DDSLinkListItemCTA>
+    </DDSLinkList>
+  </DDSContentItemHorizontalMedia>
+  );
+}
+```
+
+### JS (with featured media - image)
+
+```javascript
+import DDSContentItemHorizontalMediaFeatured from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-featured';
+import DDSContentItemHorizontalMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-copy';
+import DDSContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-eyebrow';
+import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import DDSLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+
+function App() {
+  return (
+  <DDSContentItemHorizontalMediaFeatured>
+    <DDSContentItemHorizontalEyebrow>Lorem ipsum</DDSContentItemHorizontalEyebrow>
+    <DDSContentItemHeading>Aliquam condimentum</DDSContentItemHeading>
+    <DDSContentItemHorizontalMediaCopy>
+        Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.
+    </DDSContentItemHorizontalMediaCopy>
+    <DDSLinkList slot="footer" type="vertical">
+      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
+        Learn more
+      </DDSLinkListItemCTA>
+      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
+        Microservices and containers
+      </DDSLinkListItemCTA>
+    </DDSLinkList>
+    <DDSImage slot="media" alt="Alt text" default-src="https://fpoimg.com/960x720?text=4:3&bg_color=ee5396&text_color=161616" />
+  </DDSContentItemHorizontalMedia>
+  );
+}
+```
+
+### JS (with featured media - video)
+
+```javascript
+import DDSContentItemHorizontalMediaFeatured from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-featured';
+import DDSContentItemHorizontalMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-copy';
+import DDSContentItemHorizontalMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-video';
+import DDSContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-eyebrow';
+import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import DDSLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+
+function App() {
+  return (
+  <DDSContentItemHorizontalMediaFeatured>
+    <DDSContentItemHorizontalEyebrow>Lorem ipsum</DDSContentItemHorizontalEyebrow>
+    <DDSContentItemHeading>Aliquam condimentum</DDSContentItemHeading>
+    <DDSContentItemHorizontalMediaCopy>
+        Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.
+    </DDSContentItemHorizontalMediaCopy>
+    <DDSLinkList slot="footer" type="vertical">
+      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
+        Learn more
+      </DDSLinkListItemCTA>
+      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
+        Microservices and containers
+      </DDSLinkListItemCTA>
+    </DDSLinkList>
+  <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
+  </DDSContentItemHorizontalMedia>
+  );
+}
+```
 
 ## Props
 
@@ -66,6 +216,7 @@ See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/t
 | `<dds-content-item-horizontal-media>`                | `data-autoid="dds--content-item-horizontal-media"`          | Component   |
 | `<dds-content-item-horizontal-media-copy>`           | `data-autoid="dds--content-item-horizontal-media-copy"`     | Component   |
 | `<dds-content-item-horizontal-media-video>`          | `data-autoid="dds--content-item-horizontal-media-video"`    | Component   |
+| `<dds-content-item-horizontal-media-featured>`       | `data-autoid="dds--content-item-horizontal-media-featured"` | Component   |
 | `<dds-content-item-horizontal-thumbnail-copy>`       | `data-autoid="dds--content-item-horizontal-thumbnail-copy"` | Component   |
 
 <Description markdown={contributing} />

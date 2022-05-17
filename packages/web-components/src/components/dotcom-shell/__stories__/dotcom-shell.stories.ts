@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -51,7 +51,13 @@ import '../../callout-with-media/callout-with-media';
 import '../../callout-with-media/callout-with-media-copy';
 import '../../callout-with-media/callout-with-media-video';
 import readme from './README.stories.mdx';
-import { StoryContent, StoryContentNoToC } from './data/content';
+import {
+  StoryContent,
+  StoryContentNoToC,
+  universalBanner as StoryUniversalBanner,
+  tocContent,
+  contentLeadspaceSearch,
+} from './data/content';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { TOC_TYPES } from '../../table-of-contents/defs';
 
@@ -1147,6 +1153,70 @@ WithUniversalBanner.story = {
           copy: 'Las Vegas, June 15-18, 2025',
           ctaCopy: 'Register for Think. Free',
           imageWidth: '4-col',
+        },
+      },
+    },
+  },
+};
+
+export const WithoutShell = ({ parameters }) => {
+  const { masthead, universalBanner, leadspaceSearch, tocLayout } = parameters?.props?.DotcomShell ?? {};
+
+  return html`
+    <style>
+      ${mastheadStyles}
+    </style>
+    ${universalBanner ? StoryUniversalBanner(images['4-col']) : ''}
+    ${masthead === 'L0'
+      ? html`
+          <dds-masthead-container id="masthead-container"></dds-masthead-container>
+        `
+      : html`
+          <dds-masthead-container id="masthead-container" .l1Data="${l1Data}"></dds-masthead-container>
+        `}
+    <main class="bx--content dds-ce-demo--ui-shell-content">
+      ${leadspaceSearch
+        ? html`
+            <div class="bx--grid bx--col-lg-8">
+              ${contentLeadspaceSearch}
+            </div>
+          `
+        : ''}
+      ${tocLayout === 'none'
+        ? html`
+            <div class="bx--grid bx--col-lg-8">
+              ${tocContent}
+            </div>
+          `
+        : ''}
+      ${tocLayout === null ? StoryContent() : ''}
+      ${tocLayout === 'horizontal'
+        ? StoryContent({
+            l1: false,
+            leadspace: true,
+            tocLayout: TOC_TYPES.HORIZONTAL,
+          })
+        : ''}
+    </main>
+  `;
+};
+
+WithoutShell.story = {
+  name: 'Without Shell (Fallback Utility)',
+  parameters: {
+    knobs: {
+      DotcomShell: ({ groupId }) => ({
+        masthead: select('Masthead Version', ['L0', 'L1'], 'L0', groupId),
+        universalBanner: boolean('Has Universal Banner', false, groupId),
+        leadspaceSearch: boolean('Has Leadspace With Search', false, groupId),
+        tocLayout: select('Table of Contents Layout', { Vertical: null, Horizontal: 'horizontal', None: 'none' }, null, groupId),
+      }),
+    },
+    propsSet: {
+      default: {
+        FooterComposite: {
+          disableLocaleButton: false,
+          langList: mockLangList,
         },
       },
     },

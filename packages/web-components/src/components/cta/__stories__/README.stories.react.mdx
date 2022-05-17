@@ -1,0 +1,291 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef as TextCTAProps } from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
+import { PropTypesRef as ButtonCTAProps } from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
+import { PropTypesRef as CardCTAProps } from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta';
+import { PropTypesRef as CardLinkCTAProps } from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
+import { PropTypesRef as FeatureCTAProps } from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta';
+
+# CTA
+
+> The CTA component is used to select from various CTA link types – text, cards,
+> and buttons – as well as defining their behavior, such as anchor links,
+> videos, and external links.
+
+## Getting started
+
+## `<DDSTextCTA>`
+
+`DDSTextCTA` is the most basic version of CTA, presented as a simple link.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/cta-text)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/cta-text)
+
+### JS
+
+```javascript
+import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta.js';
+
+function App() {
+  return (
+  <DDSTextCTA href="https://www.ibm.com/" cta-type="local">
+    Copy text
+  </DDSTextCTA>
+  );
+}
+```
+
+### Props
+
+<Props of={TextCTAProps} />
+
+## `<DDSButtonCTA>`
+
+`DDSButtonCTA` is a version of CTA presented as a button.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/cta-button)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/cta-button)
+
+### JS
+
+```javascript
+import DDSButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta.js';
+
+function App() {
+  return (
+  <DDSButtonCTA cta-type="local" kind="tertiary" href="https://www.example.com">
+    Button CTA Copy
+  </DDSButtonCTA>
+  );
+}
+```
+
+### Props
+
+<Props of={ButtonCTAProps} />
+
+## `<DDSCardCTA>`
+
+`DDSCardCTA` is a version of CTA presented as a card.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/cta-card)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/cta-card)
+
+### JS
+
+```javascript
+import DDSCardCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta';
+import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+
+function App() {
+  return (
+  <DDSCardCTA cta-type="local" href="https://www.example.com">
+    Card CTA Copy
+    <DDSCardCTAFooter>
+      <ArrowRight20 slot="icon" />
+    </DDSCardCTAFooter>
+  </DDSCardCTA>
+  );
+}
+```
+
+### Props
+
+<Props of={CardCTAProps} />
+
+## `<DDSCardLinkCTA>`
+
+`DDSCardLinkCTA` is a version of CTA presented as a card.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/cta-card-link)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/cta-card-link)
+
+### JS
+
+```javascript
+import DDSCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta.js';
+import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading.js';
+import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+
+function App() {
+  return (
+  <DDSCardLinkCTA href="https://www.ibm.com/" cta-type="local">
+    <DDSCardLinkHeading>Heading text</DDSCardLinkHeading>
+    <DDSCardCTAFooter>
+      <ArrowRight20 slot="icon" />
+    </DDSCardCTAFooter>
+  </DDSCardLinkCTA>
+  );
+}
+```
+
+### Props
+
+<Props of={CardLinkCTAProps} />
+
+## `<DDSFeatureCTA>`
+
+`DDSFeatureCTA` is a version of CTA presented as a feature card.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/cta-feature)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/cta-feature)
+
+### JS
+
+```javascript
+import DDSFeatureCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta';
+import DDSFeatureCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta-footer';
+import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+
+function App() {
+  return (
+  <DDSFeatureCTA cta-type="local" href="https://www.example.com">
+    <DDSCardHeading>Feature CTA Copy</DDSCardHeading>
+    <DDSImage slot="image"
+              alt="Image alt text"
+              default-src="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616" />
+    <DDSFeatureCTAFooter>
+      <ArrowRight20 slot="icon" />
+    </DDSFeatureCTAFooter>
+  </DDSFeatureCTA>
+  );
+}
+```
+
+The Feature Card for CTA can also use the 'large' variation, but be sure to at least include an eyebrow and heading.
+
+### JS
+
+```javascript
+import DDSFeatureCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta';
+import DDSFeatureCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta-footer';
+import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+
+function App() {
+  return (
+  <DDSFeatureCTA size="large" cta-type="local" href="https://www.example.com">
+    <DDSCardHeading>Feature CTA Copy</DDSCardHeading>
+    <DDSImage slot="image"
+              alt="Image alt text"
+              default-src="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616" />
+    <DDSFeatureCTAFooter>
+      <ArrowRight20 slot="icon" />
+    </DDSFeatureCTAFooter>
+  </DDSFeatureCTA>
+  );
+}
+```
+
+### Props
+
+<Props of={FeatureCTAProps} />
+
+## Using a video player
+
+The `<DDSVideoCTAContainer>` component lets you integrate `<DDSTextCTA>`/`<DDSButtonCTA>`/`<DDSCardCTA>`/`<DDSFeatureCTA>` with video player quickly.
+Only one `<DDSVideoCTAContainer>` has to be put in application.
+Ensure that `<DDSVideoCTAContainer>` contains all `<DDSTextCTA>`/`<DDSButtonCTA>`/`<DDSCardCTA>`/`<DDSFeatureCTA>`:
+
+### JS
+
+```javascript
+import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta.js';
+import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
+
+function App() {
+  return (
+  <DDSVideoCTAContainer>
+    <DDSTextCTA cta-type="video" href="1_9h94wo6b"></DDSTextCTA>
+  </DDSVideoCTAContainer>
+  );
+}
+```
+
+### `dds-cta-run-action` customization
+
+For more flexible solution that is better tailored to your application's needs,
+CTA components fire `dds-cta-run-action` custom event when user clicks on a CTA
+with `type="video"`. Application code can take care of creating/putting our
+video player component and working with our video player service API to put the
+video data into the video player component:
+
+```javascript
+import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
+import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js.js';
+import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/index.js';
+import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player.js';
+
+...
+
+document.addEventListener('dds-cta-run-action', async event => {
+  const videoId = event.detail.href;
+  const lightboxId = `lightbox-${videoId}`;
+  let lightboxElem = document.getElementById(lightboxId);
+  if (!lightboxElem) {
+    lightboxElem = document.createElement('dds-expressive-modal');
+    lightboxElem.size = 'full-width';
+    lightboxElem.innerHTML = `
+      <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
+      <dds-lightbox-video-player id="lightbox-video-player-${videoId}"></dds-lightbox-video-player>
+    `;
+    document.body.appendChild(lightboxElem);
+    const videoTarget = document.createElement('div');
+    videoTarget.id = `video-target-${videoId}`;
+    videoTarget.className = 'bx--video-player__video';
+    const videoPlayer = document.getElementById(`lightbox-video-player-${videoId}`);
+    videoPlayer.appendChild(videoTarget);
+    const [videoData] = await Promise.all([
+      KalturaPlayerAPI.api(videoId),
+      KalturaPlayerAPI.embedMedia(videoId, videoTarget.id, true),
+    ]);
+    const { name, description, duration } = videoData;
+    videoPlayer.name = name;
+    videoPlayer.duration = duration;
+    videoPlayer.description = description;
+  }
+  lightboxElem.open = true;
+});
+```
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector | Compatibility selector | Description |
+| ----------------------- | ---------------------- | ----------- |
+| `<dds-button-cta>`        | N/A                    | Component   |
+| `<dds-card-cta>`        | N/A                    | Component   |
+| `<dds-card-cta-footer>`        | N/A                    | Component   |
+| `<dds-card-cta-image>`        | N/A                    | Component   |
+| `<dds-card-link-cta>`        | N/A                    | Component   |
+| `<dds-feature-cta>`        | N/A                    | Component   |
+| `<dds-feature-cta-footer>`        | N/A                    | Component   |
+| `<dds-link-list-item-card-cta>`        | N/A                    | Component   |
+| `<dds-link-list-item-cta>`        | N/A                    | Component   |
+| `<dds-text-cta>`        | N/A                    | Component   |
+| `<dds-video-cta-composite>`        | N/A                    | Component   |
+| `<dds-video-cta-container>`        | N/A                    | Component   |
+
+<Description markdown={contributing} />

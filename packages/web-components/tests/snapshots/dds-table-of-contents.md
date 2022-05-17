@@ -41,7 +41,10 @@
       </div>
       <div class="bx--tableofcontents__mobile">
         <div class="bx--tableofcontents__mobile__select__wrapper">
-          <select class="bx--tableofcontents__mobile__select">
+          <select
+            aria-label="Table of contents"
+            class="bx--tableofcontents__mobile__select"
+          >
           </select>
         </div>
       </div>
@@ -93,7 +96,10 @@
       </div>
       <div class="bx--tableofcontents__mobile">
         <div class="bx--tableofcontents__mobile__select__wrapper">
-          <select class="bx--tableofcontents__mobile__select">
+          <select
+            aria-label="Table of contents"
+            class="bx--tableofcontents__mobile__select"
+          >
           </select>
         </div>
       </div>
@@ -139,7 +145,10 @@
       </div>
       <div class="bx--tableofcontents__mobile">
         <div class="bx--tableofcontents__mobile__select__wrapper">
-          <select class="bx--tableofcontents__mobile__select">
+          <select
+            aria-label="Table of contents"
+            class="bx--tableofcontents__mobile__select"
+          >
           </select>
         </div>
       </div>
