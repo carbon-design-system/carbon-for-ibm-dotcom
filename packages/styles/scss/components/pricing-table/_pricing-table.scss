@@ -129,6 +129,11 @@
         transition: $duration--slow-01 motion(standard, productive),
           opacity $duration--fast-02 motion(standard, productive);
       }
+
+      .#{$prefix}--pricing-table-header-cell-cta,
+      ::slotted(#{$dds-prefix}-pricing-table-header-cell-cta) {
+        margin-block-start: $carbon--spacing-05;
+      }
     }
 
     .#{$prefix}--pricing-table-header-cell-tag-wrapper,
