@@ -12,6 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import DDSTab from '../tabs-extended/tab';
 
 import styles from './cta-block.scss';
 
@@ -44,6 +45,15 @@ class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
    * The observer for the resize of the viewport.
    */
   private _observerResizeRoot: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+
+  /**
+   * A list of potential parent components that may be hide their content on
+   * first render. Lists event names that indicate the parent element
+   * visibility has changed keyed by component selector strings.
+   */
+  private _parentsThatHide = {
+    [`${ddsPrefix}-tab`]: DDSTab.eventTabSelected,
+  };
 
   /**
    * Cleans-up and creats the resize observer for the scrolling container.
@@ -124,12 +134,19 @@ class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
     `;
   }
 
-  /**
-   * Applies section attribute
-   */
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
+
+    // Reset heights when parents that can be hidden transition to a visible
+    // state.
+    Object.entries(this._parentsThatHide).forEach(([component, event]) => {
+      let target: Element | null | undefined = this.closest(component);
+      while (target) {
+        target.addEventListener(event, this._setSameHeight.bind(this));
+        target = target?.parentElement?.closest(component);
+      }
+    });
   }
 
   disconnectedCallback() {
