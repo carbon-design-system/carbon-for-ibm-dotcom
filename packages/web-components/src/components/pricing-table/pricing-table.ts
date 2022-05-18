@@ -78,6 +78,16 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   private _startSentinelBuffer = -10;
 
   /**
+   * Observer that watches document root for style attribute changes.
+   */
+  private _mutationObserverHeaderHeight: MutationObserver | null = null;
+
+  /**
+   * Observer that watches this element for resizes.
+   */
+  private _resizeObserver: ResizeObserver | null = null;
+
+  /**
    * Observer that watches intersection of window and start of pricing table.
    */
   private _intersectionObserverStart: IntersectionObserver | null = null;
@@ -86,11 +96,6 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
    * Observer that watches intersection of window and end of pricing table.
    */
   private _intersectionObserverEnd: IntersectionObserver | null = null;
-
-  /**
-   * Observer that watches document root for style attribute changes.
-   */
-  private _mutationObserverHeaderHeight: MutationObserver | null = null;
 
   /**
    * The height of the header row.
@@ -150,6 +155,27 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
       this._mutationObserverHeaderHeight.disconnect();
     }
     this._mutationObserverHeaderHeight = null;
+  }
+
+  /**
+   * Takes actions whenever the pricing table is resized.
+   */
+  private _createResizeObserver() {
+    this._resizeObserver = new ResizeObserver(() => {
+      this._cleanIntersectionObservers();
+      this._createIntersectionObservers();
+    });
+    this._resizeObserver.observe(this);
+  }
+
+  /**
+   * Safely disconnects and removes the resize observer.
+   */
+  private _cleanResizeObserver() {
+    if (this._resizeObserver instanceof ResizeObserver) {
+      this._resizeObserver.disconnect();
+    }
+    this._resizeObserver = null;
   }
 
   /**
@@ -379,12 +405,14 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
 
   connectedCallback() {
     this._createMutationObserver();
+    this._createResizeObserver();
     super.connectedCallback();
   }
 
   disconnectedCallback() {
     this._cleanIntersectionObservers();
     this._cleanMutationObserver();
+    this._cleanResizeObserver();
     super.disconnectedCallback();
   }
 
