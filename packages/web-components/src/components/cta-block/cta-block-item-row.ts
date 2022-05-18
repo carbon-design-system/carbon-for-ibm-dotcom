@@ -36,7 +36,7 @@ class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
   private _childItemHeadings: any[] = [];
 
   /**
-   * Array to hold the copy elements within child items.
+   * Array to hold the text copy elements within child items.
    */
   private _childItemCopies: any[] = [];
 
@@ -104,19 +104,14 @@ class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
    */
   protected _handleSlotChange(event: Event) {
     const { target } = event;
+    const { selectorItem, selectorItemHeading, selectorItemCopy } = this.constructor as typeof DDSCTABlockItemRow;
 
-    const childItems = (target as HTMLSlotElement)
-      .assignedNodes()
-      .filter(elem => (elem as HTMLElement).matches?.((this.constructor as typeof DDSCTABlockItemRow).selectorItem));
-    // retrieves all cta-section-item headings
+    const childItems = (target as HTMLSlotElement).assignedNodes().filter(elem => (elem as HTMLElement).matches?.(selectorItem));
+
     if (childItems) {
       childItems.forEach(e => {
-        this._childItemHeadings.push(
-          (e as HTMLElement).querySelector((this.constructor as typeof DDSCTABlockItemRow).selectorItemHeading)
-        );
-        this._childItemCopies.push(
-          (e as HTMLElement).querySelector((this.constructor as typeof DDSCTABlockItemRow).selectorItemCopy)
-        );
+        this._childItemHeadings.push((e as HTMLElement).querySelector(selectorItemHeading));
+        this._childItemCopies.push((e as HTMLElement).querySelector(selectorItemCopy));
       });
     }
 
