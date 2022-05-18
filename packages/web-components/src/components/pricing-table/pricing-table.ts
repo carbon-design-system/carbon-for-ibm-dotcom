@@ -85,6 +85,8 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   /**
    * Observer that watches this element for resizes.
    */
+  // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+  // @ts-ignore
   private _resizeObserver: ResizeObserver | null = null;
 
   /**
@@ -161,6 +163,8 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
    * Takes actions whenever the pricing table is resized.
    */
   private _createResizeObserver() {
+    // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+    // @ts-ignore
     this._resizeObserver = new ResizeObserver(() => {
       this._cleanIntersectionObservers();
       this._createIntersectionObservers();
@@ -172,6 +176,8 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
    * Safely disconnects and removes the resize observer.
    */
   private _cleanResizeObserver() {
+    // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+    // @ts-ignore
     if (this._resizeObserver instanceof ResizeObserver) {
       this._resizeObserver.disconnect();
     }
