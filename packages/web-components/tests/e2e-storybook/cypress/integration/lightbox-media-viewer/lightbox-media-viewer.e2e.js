@@ -17,7 +17,7 @@ const _args = {
   video: '&knob-Video%20ID%20(video-id)_LightboxMedia=1_9h94wo6b',
   img1x1: '&knob-Image%20(default-src)_LightboxImageViewer=23163c123ccb40d86a8b44fae716c453.jpg',
   img16x9: '&knob-Image%20(default-src)_LightboxMedia=3a7714edad00ad8b4f6f19f94ab56dd1.jpg',
-}
+};
 
 xdescribe('dds-lightbox-media-viewer | default', () => {
   beforeEach(() => {
@@ -31,7 +31,8 @@ xdescribe('dds-lightbox-media-viewer | default', () => {
   });
 
   it('should render with all elements', () => {
-    cy.get('dds-lightbox-media-viewer').as('component')
+    cy.get('dds-lightbox-media-viewer')
+      .as('component')
       .should('have.attr', 'default-src')
       .should('not.be.empty');
 
@@ -46,11 +47,9 @@ xdescribe('dds-lightbox-media-viewer | default', () => {
   });
 
   it('should align elements', () => {
-
-    cy.get('dds-lightbox-media-viewer .bx--image__img')
-      .then($image => {
-        expect($image[0].getBoundingClientRect().left).to.equal(64);
-      });
+    cy.get('dds-lightbox-media-viewer .bx--image__img').then($image => {
+      expect($image[0].getBoundingClientRect().left).to.equal(64);
+    });
 
     cy.get('dds-lightbox-media-viewer')
       .find('.bx--lightbox-media-viewer__content')
@@ -69,18 +68,16 @@ xdescribe('dds-lightbox-media-viewer | default', () => {
   });
 
   it('should verify the image size 2:1', () => {
-    cy.get('.bx--image__img')
-      .then($image => {
-        expect($image.width() / 2).to.equal($image.height());
-      });
+    cy.get('.bx--image__img').then($image => {
+      expect($image.width() / 2).to.equal($image.height());
+    });
   });
 
   it('should verify the image size 16:9', () => {
     cy.visit(`/${_defaultPath}${_args.img16x9}`);
-    cy.get('.bx--image__img')
-      .then($image => {
-        expect(($image.width() * 9) / 16).to.equal($image.height());
-      });
+    cy.get('.bx--image__img').then($image => {
+      expect(($image.width() * 9) / 16).to.equal($image.height());
+    });
     cy.takeSnapshots();
   });
 
@@ -101,7 +98,8 @@ describe('dds-lightbox-media-viewer | embedded video player', () => {
   });
 
   it('should render with all elements', () => {
-    cy.get('dds-lightbox-media-viewer').as('component')
+    cy.get('dds-lightbox-media-viewer')
+      .as('component')
       .should('have.attr', 'video-id')
       .and('not.be.empty')
 
@@ -149,12 +147,12 @@ describe('dds-lightbox-media-viewer | embedded video player', () => {
       // mute
       .get('.bx--video-player__video iframe')
       .find('button[title="Mute"]')
-      .should('not.be.empty')
+      .should('not.be.empty');
 
-      // full screen
-      cy.get('.bx--video-player__video iframe')
+    // full screen
+    cy.get('.bx--video-player__video iframe')
       .find('.fullScreenBtn')
-      .should('not.be.empty')
+      .should('not.be.empty');
   });
 
   it('should load correctly in all themes', () => {
