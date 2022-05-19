@@ -149,6 +149,7 @@ export const WithCTABlockItemRows = ({ parameters }) => {
               </dds-video-cta-container>
             </dds-cta-block-item>
             <dds-cta-block-item>
+              <dds-content-item-heading> </dds-content-item-heading>
               <dds-content-item-copy>
                 <dds-content-item-paragraph>
                   Software
