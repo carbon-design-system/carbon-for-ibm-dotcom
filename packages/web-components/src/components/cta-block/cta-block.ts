@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, property, TemplateResult } from 'lit-element';
+import { customElement, html, state, property, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -17,6 +17,14 @@ import DDSContentBlock from '../content-block/content-block';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
+
+/**
+ * The table mapping slot name with the private property name that indicates the existence of the slot content.
+ */
+const slotExistencePropertyNames = {
+  action: '_hasAction',
+  'link-list': '_hasLinkList',
+};
 
 /**
  * The CTA BLOCK pattern
@@ -31,6 +39,18 @@ class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
   _noBorder = false;
 
   /**
+   * `true` if there are CTA action in the content item area.
+   */
+  @state()
+  protected _hasAction = false;
+
+  /**
+   * `true` if there is a link list.
+   */
+  @state()
+  protected _hasLinkList = false;
+
+  /**
    * Checks if the no-border attribute has changed and applies the border class accordingly
    */
   updated(changedProperties) {
@@ -39,13 +59,39 @@ class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
     }
   }
 
+  protected _hasBodyContent(): boolean {
+    const { _hasLinkList, _hasAction } = this;
+    return _hasLinkList || _hasAction || super._hasBodyContent();
+  }
+
+  /**
+   * Handles `slotchange` event, also sets height to all headings to the tallest one.
+   *
+   * @param event The event.
+   */
+  protected _handleSlotChange(event: Event) {
+    const { target } = event;
+    const { name } = target as HTMLSlotElement;
+
+    if (!slotExistencePropertyNames[name]) {
+      super._handleSlotChange(event);
+      return;
+    }
+    const hasContent = (target as HTMLSlotElement)
+      .assignedNodes()
+      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+    this[slotExistencePropertyNames[name]] = hasContent;
+  }
+
   /**
    * @returns The actions (CTA) content.
    */
   protected _renderActions(): TemplateResult | string | void {
-    const { _handleSlotChange: handleSlotChange } = this;
+    const { _hasAction: hasAction, _handleSlotChange: handleSlotChange } = this;
     return html`
-      <slot name="action" @slotchange="${handleSlotChange}"></slot>
+      <div ?hidden="${!hasAction}" class="${prefix}--content-item__cta">
+        <slot name="action" @slotchange="${handleSlotChange}"></slot>
+      </div>
     `;
   }
 
