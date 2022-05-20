@@ -92,12 +92,6 @@ class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
   protected _hasAction = false;
 
   /**
-   * `true` if there is a link list.
-   */
-  @state()
-  protected _hasLinkList = false;
-
-  /**
    * Handles `slotchange` event, also sets height to all headings to the tallest one.
    *
    * @param event The event.
