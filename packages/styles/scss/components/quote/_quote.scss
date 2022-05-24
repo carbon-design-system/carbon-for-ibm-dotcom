@@ -78,6 +78,10 @@
     @include carbon--breakpoint('lg') {
       left: -1rem;
     }
+
+    @include carbon--breakpoint('max') {
+      left: -2rem;
+    }
   }
 
   .#{$prefix}--quote__source {
