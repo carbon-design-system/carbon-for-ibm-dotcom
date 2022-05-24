@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,10 +26,21 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-logo-grid`)
 class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
   protected _renderInnerBody() {
-    const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
+    const { _hasContent: hasContent, _hasMedia: hasMedia, logoCount, logoRatio, _ratioSeparatorRegex: regex } = this;
+    const ratioSplit = (logoRatio || '').split(regex).filter(i => i);
+    let gridStyles = '';
+
+    if (ratioSplit.length === 2) {
+      const [w, h] = ratioSplit;
+      gridStyles = `${gridStyles} --logo-ratio:${w}/${h};`;
+    }
+
+    if (logoCount) {
+      gridStyles = `${gridStyles} --logo-count:${logoCount};`;
+    }
     return html`
       <div ?hidden="${!hasContent && !hasMedia}" class="${prefix}--content-block__children ${prefix}--content-layout__body">
-        <div class="${prefix}--logo-grid__row">
+        <div class="${prefix}--logo-grid__row" style="${gridStyles}">
           ${this._renderContent()}${this._renderMedia()}
         </div>
       </div>
@@ -52,6 +63,26 @@ class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
 
   @property({ attribute: 'hide-border', reflect: true, type: Boolean })
   hideBorder = false;
+
+  /**
+   * Integer value that determines the number of columns in the grid.
+   *
+   * While any non-zero integer will work, styles will constrain values to between
+   * two and four.
+   */
+  @property({ attribute: 'logo-count', reflect: true })
+  logoCount?;
+
+  /**
+   * Aspect ratio of grid cells.
+   *
+   * Values should match the format `<integer><divider-character><integer>`.
+   * Any non-digit character can work as a divider.
+   */
+  @property({ attribute: 'logo-ratio', reflect: true })
+  logoRatio?;
+
+  private _ratioSeparatorRegex = new RegExp('[^0-9]{1}');
 
   render() {
     return html`
