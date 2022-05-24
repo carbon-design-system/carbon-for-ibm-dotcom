@@ -55,6 +55,9 @@ class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    */
   private _handleOnClick() {
     this.ownerDocument!.defaultView!.scrollTo({ top: 0, behavior: 'smooth' });
+    this.ownerDocument.body.tabIndex = 0;
+    this.ownerDocument.body.focus({ preventScroll: true });
+    this.ownerDocument.body.removeAttribute('tabindex');
   }
 
   /**
