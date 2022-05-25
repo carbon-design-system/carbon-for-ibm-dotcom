@@ -38,7 +38,7 @@
     }
 
     .#{$prefix}--content-block__cta {
-      margin-top: $layout-01;
+      margin-top: $spacing-09;
 
       @include carbon--make-col-ready;
       @include carbon--make-col(1, 1);
