@@ -267,8 +267,8 @@ export default {
           'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
           groupId
         ),
-        showText: boolean('Show Text', true, groupId),
-        showCta: boolean('Show CTA', true, groupId),
+        showText: boolean('Add Copy', true, groupId),
+        showCta: boolean('Add CTA', true, groupId),
         border: boolean('CTA Block border', false, groupId),
       }),
     },
