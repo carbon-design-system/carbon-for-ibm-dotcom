@@ -115,7 +115,6 @@
 
   .#{$prefix}--logo-grid__col,
   :host(#{$dds-prefix}-logo-grid-item) {
-    outline: 1px solid red;
     aspect-ratio: var(--logo-ratio, '16/9');
     padding-left: $carbon--grid-gutter--condensed / 2;
     padding-right: $carbon--grid-gutter--condensed / 2;
