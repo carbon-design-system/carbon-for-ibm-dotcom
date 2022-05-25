@@ -25,7 +25,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-logo-grid ?hide-border="${hideBorder}" logo-count="${logoCount}" logo-ratio="${logoRatio}">
       <dds-content-block-heading>
-        ${heading} ${logoRatio}
+        ${heading}
       </dds-content-block-heading>
       ${logosGroup &&
         logosGroup.map(
