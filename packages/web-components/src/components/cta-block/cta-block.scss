@@ -152,7 +152,6 @@
 
   @include carbon--breakpoint('md') {
     grid-template-columns: repeat(2, 1fr);
-    row-gap: $carbon--spacing-10;
   }
 
   @include carbon--breakpoint('lg') {
@@ -174,10 +173,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-
-  @include carbon--breakpoint(md) {
-    padding-bottom: $carbon--spacing-10;
-  }
 
   ::slotted(#{$dds-prefix}-text-cta) {
     margin-left: 0;
