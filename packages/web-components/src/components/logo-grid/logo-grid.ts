@@ -10,6 +10,7 @@ import { css, customElement, html, property, TemplateResult } from 'lit-element'
 import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import parseAspectRatio from '@carbon/ibmdotcom-utilities/es/utilities/parseAspectRatio/parseAspectRatio';
 import DDSContentBlock from '../content-block/content-block';
 import '../horizontal-rule/horizontal-rule';
 import '../content-block/content-block-heading';
@@ -27,8 +28,8 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-logo-grid`)
 class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
   protected _renderInnerBody() {
-    const { _hasContent: hasContent, _hasMedia: hasMedia, logoCount, logoRatio, _ratioSeparatorRegex: regex } = this;
-    const ratioSplit = (logoRatio || '').split(regex).filter(i => i);
+    const { _hasContent: hasContent, _hasMedia: hasMedia, logoCount, logoRatio } = this;
+    const ratioSplit = parseAspectRatio(logoRatio);
     let gridStyles = '';
 
     if (ratioSplit.length === 2) {
@@ -84,8 +85,6 @@ class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
    */
   @property({ attribute: 'logo-ratio', reflect: true })
   logoRatio?;
-
-  private _ratioSeparatorRegex = new RegExp('[^0-9]{1}');
 
   render() {
     return html`
