@@ -102,14 +102,20 @@
     grid-template-columns: 1fr;
     margin-left: calc(-1 * #{$carbon--grid-gutter} / 2);
     margin-right: calc(-1 * #{$carbon--grid-gutter} / 2);
-    --column-count: clamp(3, var(--logo-count, 3), 4);
+    grid-template-columns: repeat(2, 1fr);
 
     @include carbon--breakpoint('md') {
-      grid-template-columns: repeat(calc(var(--column-count) - 1), 1fr);
+      &.#{$prefix}--logo-grid__4-columns {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
 
     @include carbon--breakpoint('lg') {
-      grid-template-columns: repeat(var(--column-count), 1fr);
+      grid-template-columns: repeat(3, 1fr);
+
+      &.#{$prefix}--logo-grid__4-columns {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
   }
 

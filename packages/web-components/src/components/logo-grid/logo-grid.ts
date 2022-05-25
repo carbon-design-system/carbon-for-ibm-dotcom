@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { css, customElement, html, property, TemplateResult } from 'lit-element';
+import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import DDSContentBlock from '../content-block/content-block';
@@ -35,12 +36,14 @@ class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
       gridStyles = `${gridStyles} --logo-ratio:${w}/${h};`;
     }
 
-    if (logoCount) {
-      gridStyles = `${gridStyles} --logo-count:${logoCount};`;
-    }
+    const rowClasses = {
+      [`${prefix}--logo-grid__row`]: true,
+      [`${prefix}--logo-grid__${logoCount}-columns`]: logoCount,
+    };
+
     return html`
       <div ?hidden="${!hasContent && !hasMedia}" class="${prefix}--content-block__children ${prefix}--content-layout__body">
-        <div class="${prefix}--logo-grid__row" style="${gridStyles}">
+        <div class="${classMap(rowClasses)}" style="${gridStyles}">
           ${this._renderContent()}${this._renderMedia()}
         </div>
       </div>
