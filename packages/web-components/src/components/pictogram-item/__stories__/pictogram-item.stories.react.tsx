@@ -200,7 +200,7 @@ export default {
       return (
         <div className="bx--grid">
           <div className="bx--row">
-            <div className="bx--col-sm-16 bx--col-md-6">{story()}</div>
+            <div className="bx--col-sm-4 bx--col-lg-8 bx--no-gutter">{story()}</div>
           </div>
         </div>
       );
