@@ -37,8 +37,7 @@ const App = () => (
         stroke-miterlimit="10"
         stroke-width=".72"
         d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,
-        0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30">
-      </path>
+        0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"></path>
     </svg>
     <DDSContentItemHeading>Example heading</DDSContentItemHeading>
     <DDSContentItemCopy>Example item copy</DDSContentItemCopy>
