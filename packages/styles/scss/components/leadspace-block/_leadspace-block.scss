@@ -108,7 +108,7 @@
       padding-top: $spacing-05;
     }
 
-    ::slotted(#{$dds-prefix}-image-with-caption),
+    ::slotted(#{$dds-prefix}-image),
     .#{$prefix}--image-with-caption {
       margin-top: 0;
       margin-bottom: 0;
