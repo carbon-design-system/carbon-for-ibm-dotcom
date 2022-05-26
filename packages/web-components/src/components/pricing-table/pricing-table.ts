@@ -75,7 +75,7 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   /**
    * Buffer space used to prevent animation jitters.
    */
-  private _startSentinelBuffer = -10;
+  private _startSentinelBuffer = -12;
 
   /**
    * Observer that watches document root for style attribute changes.

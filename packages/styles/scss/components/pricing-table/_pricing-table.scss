@@ -40,13 +40,39 @@
     transition: top $duration--slow-01 motion(standard, productive),
       box-shadow $duration--fast-02 motion(standard, productive);
 
+    // Pseudo full width background activated when row is sticky.
+    &::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      transition: $duration--slow-01 motion(standard, productive),
+        box-shadow 0 motion(standard, productive);
+    }
+
     &.#{$prefix}--pricing-table-header-row--sticky {
       position: sticky;
       top: var(--#{$dds-prefix}-sticky-header-height);
-      left: 0;
-      box-shadow: 0 6px 10px 0 $ui-03;
       background-color: $ui-background;
       z-index: 1;
+
+      &::before {
+        @include carbon--breakpoint('md') {
+          width: 100vw;
+          left: calc(50% - 50vw);
+          right: calc(50% - 50vw);
+          background-color: $ui-background;
+          box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+          transition: $duration--fast-02 motion(standard, productive),
+            box-shadow $duration--slow-01 motion(standard, productive);
+        }
+      }
+
+      &::after {
+        background-color: transparent;
+      }
     }
   }
 
@@ -120,6 +146,28 @@
     padding-block-end: $carbon--layout-06;
     transition: padding-block-end $duration--slow-01
       motion(standard, productive);
+
+    &.#{$prefix}--pricing-table-header-cell--sticky {
+      border-bottom-color: transparent;
+
+      &::after {
+        @include carbon--breakpoint-down('md') {
+          /**
+           * Mobile sticky header shadow must be set on cells since they extend
+           * beyond the width of their container.
+           */
+          $shadow-height: 6px;
+
+          content: '';
+          position: absolute;
+          height: $shadow-height;
+          left: 0;
+          right: 0;
+          bottom: $shadow-height * -1;
+          background: linear-gradient(rgba(0, 0, 0, 0.3), transparent);
+        }
+      }
+    }
 
     &.#{$prefix}--pricing-table-header-cell--sticky[type='complex'] {
       padding-block-end: $carbon--spacing-05;
