@@ -109,7 +109,7 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
   /**
    * The heading.
    */
-  @property({ reflect: true })
+  @property()
   heading = '';
 
   @property({ attribute: 'launch-lightbox-button-assistive-text' })
@@ -118,7 +118,7 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
   /**
    * The description.
    */
-  @property({ reflect: true })
+  @property()
   copy = '';
 
   /**

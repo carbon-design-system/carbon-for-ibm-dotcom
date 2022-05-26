@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,13 +12,13 @@ import '../content-block-segmented';
 import '../content-block-segmented-item';
 
 const image = html`
-  <dds-image-with-caption
+  <dds-image
     slot="media"
     alt="Image alt text"
     default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
     heading="Mauris iaculis eget dolor nec hendrerit."
   >
-  </dds-image-with-caption>
+  </dds-image>
 `;
 
 const template = (props?) => {
