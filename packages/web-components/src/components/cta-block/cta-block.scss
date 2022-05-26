@@ -200,4 +200,8 @@
   .#{$prefix}--cta-block-item__media {
     margin-bottom: $carbon--layout-03;
   }
+
+  .#{$prefix}--content-item__cta {
+    margin-top: 0;
+  }
 }
