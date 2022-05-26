@@ -19,14 +19,14 @@ import './index.css';
 
 const App = () => (
   <DDSQuote color-scheme="inverse" mark-type="double-curved">
-  Bringing together the technology and expertise for a new way to create
-  <DDSQuoteSourceHeading>John Doe</DDSQuoteSourceHeading>
-  <DDSQuoteSourceCopy>Senior Vice President</DDSQuoteSourceCopy>
-  <DDSQuoteSourceBottomCopy>IBM Cloud</DDSQuoteSourceBottomCopy>
-  <DDSLinkWithIcon slot="footer" href="https://example.com">
-    Link with icon <ArrowRight20 slot="icon"></ArrowRight20>
-  </DDSLinkWithIcon>
-</DDSQuote>
+    Bringing together the technology and expertise for a new way to create
+    <DDSQuoteSourceHeading>John Doe</DDSQuoteSourceHeading>
+    <DDSQuoteSourceCopy>Senior Vice President</DDSQuoteSourceCopy>
+    <DDSQuoteSourceBottomCopy>IBM Cloud</DDSQuoteSourceBottomCopy>
+    <DDSLinkWithIcon slot="footer" href="https://example.com">
+      Link with icon <ArrowRight20 slot="icon"></ArrowRight20>
+    </DDSLinkWithIcon>
+  </DDSQuote>
 );
 
 render(<App />, document.getElementById('root'));
