@@ -82,7 +82,7 @@ export default {
     story => (
       <div className="bx--grid">
         <div className="bx--row">
-          <div className="bx--col-lg-11">{story()}</div>
+          <div className="bx--col-lg-10">{story()}</div>
         </div>
       </div>
     ),
