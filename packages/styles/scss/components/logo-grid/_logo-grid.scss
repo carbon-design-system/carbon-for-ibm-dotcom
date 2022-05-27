@@ -5,8 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/* stylelint-disable */
-
 @import '../../globals/vars';
 @import '../../globals/imports';
 @import '../../globals/utils/hang';
@@ -99,7 +97,6 @@
 
   .#{$prefix}--logo-grid__row {
     display: grid;
-    grid-template-columns: 1fr;
     margin-left: calc(-1 * #{$carbon--grid-gutter} / 2);
     margin-right: calc(-1 * #{$carbon--grid-gutter} / 2);
     grid-template-columns: repeat(2, 1fr);
@@ -121,7 +118,9 @@
 
   .#{$prefix}--logo-grid__col,
   :host(#{$dds-prefix}-logo-grid-item) {
+    /* stylelint-disable */
     aspect-ratio: var(--logo-ratio, '16/9');
+    /* stylelint-enable */
     padding-left: $carbon--grid-gutter--condensed / 2;
     padding-right: $carbon--grid-gutter--condensed / 2;
   }
@@ -174,5 +173,3 @@
 @include exports('logo-grid') {
   @include logo-grid;
 }
-
-/* stylelint-enable */
