@@ -380,7 +380,8 @@ CardLink.story = {
 };
 
 export const Feature = ({ parameters }) => {
-  const { heading, ctaType, download, href, customVideoTitle, customVideoDescription } = parameters?.props?.FeatureCTA ?? {};
+  const { heading, ctaType, customThumbnail, download, href, customVideoTitle, customVideoDescription, noPoster } =
+    parameters?.props?.FeatureCTA ?? {};
   const { download: footerDownload, href: footerHref } = parameters?.props?.FeatureCTAFooter ?? {};
   return html`
     <dds-feature-cta
@@ -389,9 +390,15 @@ export const Feature = ({ parameters }) => {
       video-description="${ifNonNull(customVideoDescription)}"
       download="${ifNonNull(download)}"
       href="${ifNonNull(href)}"
+      ?no-poster=${noPoster}
     >
       <dds-card-heading>${heading}</dds-card-heading>
-      <dds-image slot="image" alt="Image alt text" default-src="${imgLg1x1}"> </dds-image>
+      ${ctaType !== CTA_TYPE.VIDEO || customThumbnail
+        ? html`
+            <dds-image slot="image" alt="Image alt text" default-src="${imgLg1x1}"> </dds-image>
+          `
+        : ''}
+
       <dds-feature-cta-footer
         cta-type="${ifNonNull(ctaType)}"
         download="${ifNonNull(footerDownload)}"
@@ -422,6 +429,8 @@ Feature.story = {
           ctaType === CTA_TYPE.VIDEO
             ? textNullable('Custom video description', 'This is a custom video description', groupId)
             : null;
+        const customThumbnail = ctaType === CTA_TYPE.VIDEO ? boolean('Custom image', false, groupId) : null;
+        const noPoster = ctaType === CTA_TYPE.VIDEO ? boolean('No Video Poster', false, groupId) : null;
         return {
           heading,
           ctaType,
@@ -429,6 +438,9 @@ Feature.story = {
           customVideoTitle,
           customVideoDescription,
           href: hrefsForType[ctaType ?? CTA_TYPE.REGULAR],
+          thumbnail: null,
+          customThumbnail,
+          noPoster,
         };
       },
     },
@@ -441,6 +453,9 @@ Feature.story = {
           customVideoTitle: null,
           customVideoDescription: null,
           href: 'https://www.example.com',
+          thumbnail: null,
+          customThumbnail: false,
+          noPoster: false,
         },
       },
     },
