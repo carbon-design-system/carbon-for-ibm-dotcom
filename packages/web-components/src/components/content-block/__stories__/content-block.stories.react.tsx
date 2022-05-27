@@ -30,7 +30,7 @@ import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/li
 import DDSLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
 import DDSLinkListCard from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item-card';
 import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
-import DDSImageWithCaption from '@carbon/ibmdotcom-web-components/es/components-react/image-with-caption/image-with-caption';
+import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
@@ -67,7 +67,7 @@ const itemsCopy = `Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
   Donec quis pretium odio, in dignissim sapien.`;
 
 const image = (
-  <DDSImageWithCaption slot="media" alt="Image alt text" default-src={imgLg16x9} heading="Lorem ipsum dolor sit amet.">
+  <DDSImage slot="media" alt="Image alt text" default-src={imgLg16x9} heading="Lorem ipsum dolor sit amet.">
     <DDSImageItem media="(min-width: 672px)" srcset={imgLg16x9}>
       {' '}
     </DDSImageItem>
@@ -77,7 +77,7 @@ const image = (
     <DDSImageItem media="(min-width: 320px)" srcset={imgSm16x9}>
       {' '}
     </DDSImageItem>
-  </DDSImageWithCaption>
+  </DDSImage>
 );
 
 const items = [

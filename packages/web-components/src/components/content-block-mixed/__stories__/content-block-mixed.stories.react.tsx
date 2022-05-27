@@ -32,7 +32,7 @@ import DDSLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-reac
 import DDSContentGroupSimple from '@carbon/ibmdotcom-web-components/es/components-react/content-group-simple/content-group-simple';
 import DDSCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
 import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
-import DDSImageWithCaption from '@carbon/ibmdotcom-web-components/es/components-react/image-with-caption/image-with-caption';
+import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
 import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
@@ -88,11 +88,11 @@ const complementaryStyleSchemes = {
 };
 
 const image = ({ heading: imageHeading } = { heading: undefined }) => (
-  <DDSImageWithCaption slot="media" alt="Image alt text" defaultSrc={imgLg16x9} heading={imageHeading}>
+  <DDSImage slot="media" alt="Image alt text" defaultSrc={imgLg16x9} heading={imageHeading}>
     <DDSImageItem media="(min-width: 672px)" srcset={imgLg16x9} />
     <DDSImageItem media="(min-width: 400px)" srcset={imgMd16x9} />
     <DDSImageItem media="(min-width: 320px)" srcset={imgSm16x9} />
-  </DDSImageWithCaption>
+  </DDSImage>
 );
 
 export const Default = ({ parameters }) => {

@@ -17,7 +17,7 @@ import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/component
 import DDSContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
 import DDSButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
 import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
-import DDSImageWithCaption from '@carbon/ibmdotcom-web-components/es/components-react/image-with-caption/image-with-caption';
+import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
@@ -29,11 +29,7 @@ export const Default = ({ parameters }) => {
   return (
     <DDSContentItem>
       {media === 'image' ? (
-        <DDSImageWithCaption
-          slot="media"
-          alt="Alt image text"
-          default-src={imgLg16x9}
-          heading="Image caption text"></DDSImageWithCaption>
+        <DDSImage slot="media" alt="Alt image text" default-src={imgLg16x9} heading="Image caption text"></DDSImage>
       ) : (
         ''
       )}
