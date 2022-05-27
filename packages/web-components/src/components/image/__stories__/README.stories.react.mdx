@@ -23,11 +23,68 @@ import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/i
 function App() {
   return (
   <DDSImage alt="Image alt text">
-    <DDSImageItem media="(min-wiidth:672px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    <DDSImageItem media="(min-width:672px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
     </DDSImageItem>
-    <DDSImageItem media="(min-wiidth:400px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    <DDSImageItem media="(min-width:400px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
     </DDSImageItem>
-    <DDSImageItem media="(min-wiidth:320px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    <DDSImageItem media="(min-width:320px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+  </DDSImage>
+  );
+}
+```
+
+## Image with caption
+
+As of Carbon for IBM.com v1.35.0, the caption functionality found in Image with caption has been merged within the basic Image component.
+Simply adding a `heading` attribute will display the caption underneath the image component.
+
+```javascript
+function App() {
+  return (
+  <DDSImage alt="Image alt text" heading={"This is a heading"}>
+    <DDSImageItem media="(min-width:672px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+    <DDSImageItem media="(min-width:400px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+    <DDSImageItem media="(min-width:320px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+  </DDSImage>
+  );
+}
+```
+
+## Opening image in Lightbox media viewer
+
+Likewise, the lightbox functionality from Image with caption can be used with the basic Image component.
+Simply adding the `lightbox` attribute boolean will ensure the user can click on the image and launch the media viewer in a lightbox modal.
+
+```javascript
+function App() {
+  return (
+  <DDSImage alt="Image alt text" lightbox={true}>
+    <DDSImageItem media="(min-width:672px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+    <DDSImageItem media="(min-width:400px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+    <DDSImageItem media="(min-width:320px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+  </DDSImage>
+  );
+}
+```
+
+A heading and copy can be added so that it can be displayed underneath the image in the lighbox media viewer upon clicking the original image.
+
+```javascript
+function App() {
+  return (
+  <DDSImage alt="Image alt text" lightbox={true} heading={"This is a heading"} copy={"This is a copy"}>
+    <DDSImageItem media="(min-width:672px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+    <DDSImageItem media="(min-width:400px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+    <DDSImageItem media="(min-width:320px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
     </DDSImageItem>
   </DDSImage>
   );
