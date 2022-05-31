@@ -29,12 +29,15 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
   protected _renderInnerBody() {
     const { _hasContent: hasContent, _hasMedia: hasMedia, logoCount, logoRatio } = this;
-    const ratioSplit = parseAspectRatio(logoRatio);
+
     let gridStyles = '';
 
-    if (ratioSplit.length === 2) {
-      const [w, h] = ratioSplit;
-      gridStyles = `${gridStyles} --logo-ratio:${w}/${h};`;
+    if (logoRatio) {
+      const ratioSplit = parseAspectRatio(logoRatio);
+      if (ratioSplit.length === 2) {
+        const [w, h] = ratioSplit;
+        gridStyles = `${gridStyles} --logo-ratio:${w}/${h};`;
+      }
     }
 
     const rowClasses = {
