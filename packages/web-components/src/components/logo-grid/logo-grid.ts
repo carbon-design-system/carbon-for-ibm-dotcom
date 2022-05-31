@@ -9,8 +9,8 @@
 import { css, customElement, html, property, TemplateResult } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import parseAspectRatio from '@carbon/ibmdotcom-utilities/es/utilities/parseAspectRatio/parseAspectRatio';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import parseAspectRatio from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/parseAspectRatio/parseAspectRatio';
 import DDSContentBlock from '../content-block/content-block';
 import '../horizontal-rule/horizontal-rule';
 import '../content-block/content-block-heading';
@@ -28,17 +28,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-logo-grid`)
 class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
   protected _renderInnerBody() {
-    const { _hasContent: hasContent, _hasMedia: hasMedia, logoCount, logoRatio } = this;
-
-    let gridStyles = '';
-
-    if (logoRatio) {
-      const ratioSplit = parseAspectRatio(logoRatio);
-      if (ratioSplit.length === 2) {
-        const [w, h] = ratioSplit;
-        gridStyles = `${gridStyles} --logo-ratio:${w}/${h};`;
-      }
-    }
+    const { _hasContent: hasContent, _hasMedia: hasMedia, logoCount } = this;
 
     const rowClasses = {
       [`${prefix}--logo-grid__row`]: true,
@@ -47,7 +37,7 @@ class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
 
     return html`
       <div ?hidden="${!hasContent && !hasMedia}" class="${prefix}--content-block__children ${prefix}--content-layout__body">
-        <div class="${classMap(rowClasses)}" style="${gridStyles}">
+        <div class="${classMap(rowClasses)}">
           ${this._renderContent()}${this._renderMedia()}
         </div>
       </div>
@@ -88,6 +78,21 @@ class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
    */
   @property({ attribute: 'logo-ratio', reflect: true })
   logoRatio?;
+
+  updated(changedProperties) {
+    const { logoRatio } = this;
+    if (changedProperties.has('logoRatio')) {
+      if (logoRatio) {
+        const ratioSplit = parseAspectRatio(logoRatio);
+        if (ratioSplit.length === 2) {
+          const [w, h] = ratioSplit;
+          this.style.setProperty('--logo-ratio', `${w}/${h}`);
+        }
+      } else {
+        this.style.removeProperty('--logo-ratio');
+      }
+    }
+  }
 
   render() {
     return html`

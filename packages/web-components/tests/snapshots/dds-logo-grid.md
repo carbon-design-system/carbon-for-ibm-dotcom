@@ -16,10 +16,7 @@
       class="bx--content-block__children bx--content-layout__body"
       hidden=""
     >
-      <div
-        class="bx--logo-grid__row"
-        style=" --logo-count:undefined;"
-      >
+      <div class="bx--logo-grid__row bx--logo-grid__undefined-columns">
         <slot>
         </slot>
         <slot name="media">
