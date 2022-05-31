@@ -19,7 +19,7 @@ const _args = {
   img16x9: '&knob-Image%20(default-src)_LightboxMedia=3a7714edad00ad8b4f6f19f94ab56dd1.jpg',
 };
 
-xdescribe('dds-lightbox-media-viewer | default', () => {
+describe('dds-lightbox-media-viewer | default', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
     cy.visit(_defaultPath);
