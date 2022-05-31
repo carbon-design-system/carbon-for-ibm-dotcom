@@ -18,7 +18,7 @@
  */
 
 function parseAspectRatio(aspectRatioString) {
-  if (typeof aspectRatioString == 'string') {
+  if (typeof aspectRatioString !== 'string') {
     throw new TypeError(
       `parseAspectRatio expected a string but was given a ${typeof aspectRatioString}`
     );
