@@ -18,7 +18,7 @@ import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-
 // eslint-disable-next-line max-len
 import DDSContentBlockMediaContent from '@carbon/ibmdotcom-web-components/es/components-react/content-block-media/content-block-media-content';
 import DDSContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
-import DDSImageWithCaption from '@carbon/ibmdotcom-web-components/es/components-react/image-with-caption/image-with-caption';
+import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 import DDSContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item';
 import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
@@ -27,7 +27,6 @@ import DDSCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react
 import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
 import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
 import DDSFeatureCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
 import DDSFeatureCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta-footer';
 import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
@@ -115,11 +114,11 @@ export const Default = ({ parameters }) => {
       </DDSContentBlockCopy>
       <DDSContentBlockMediaContent>
         <DDSContentGroupHeading>{simpleGroupHeading}</DDSContentGroupHeading>
-        <DDSImageWithCaption slot="media" alt="Image alt text" defaultSrc={imgLg16x9} heading="Lorem ipsum">
+        <DDSImage slot="media" alt="Image alt text" defaultSrc={imgLg16x9} heading="Lorem ipsum">
           <DDSImageItem media="(min-width: 672px)" srcset={imgLg16x9} />
           <DDSImageItem media="(min-width: 400px)" srcset={imgMd16x9} />
           <DDSImageItem media="(min-width: 320px)" srcset={imgSm16x9} />
-        </DDSImageWithCaption>
+        </DDSImage>
         {items.map(({ heading: itemHeading, copy: itemCopy }) => (
           <DDSContentItem>
             <DDSContentItemHeading>{itemHeading}</DDSContentItemHeading>
@@ -133,11 +132,11 @@ export const Default = ({ parameters }) => {
       </DDSContentBlockMediaContent>
       <DDSContentBlockMediaContent>
         <DDSContentGroupHeading>{simpleGroupHeading}</DDSContentGroupHeading>
-        <DDSImageWithCaption slot="media" alt="Image alt text" defaultSrc={imgLg16x9} heading="Lorem ipsum">
+        <DDSImage slot="media" alt="Image alt text" defaultSrc={imgLg16x9} heading="Lorem ipsum">
           <DDSImageItem media="(min-width: 672px)" srcset={imgLg16x9} />
           <DDSImageItem media="(min-width: 400px)" srcset={imgMd16x9} />
           <DDSImageItem media="(min-width: 320px)" srcset={imgSm16x9} />
-        </DDSImageWithCaption>
+        </DDSImage>
         {items.map(({ heading: itemHeading, copy: itemCopy }) => (
           <DDSContentItem>
             <DDSContentItemHeading>{itemHeading}</DDSContentItemHeading>
@@ -183,11 +182,11 @@ export const withLinkList = ({ parameters }) => {
       </DDSContentBlockCopy>
       <DDSContentBlockMediaContent>
         <DDSContentGroupHeading>{simpleGroupHeading}</DDSContentGroupHeading>
-        <DDSImageWithCaption slot="media" alt="Image alt text" defaultSrc={imgLg16x9} heading="Lorem ipsum">
+        <DDSImage slot="media" alt="Image alt text" defaultSrc={imgLg16x9} heading="Lorem ipsum">
           <DDSImageItem media="(min-width: 672px)" srcset={imgLg16x9} />
           <DDSImageItem media="(min-width: 400px)" srcset={imgMd16x9} />
           <DDSImageItem media="(min-width: 320px)" srcset={imgSm16x9} />
-        </DDSImageWithCaption>
+        </DDSImage>
         {items.map(({ heading: itemHeading, copy: itemCopy }) => (
           <DDSContentItem>
             <DDSContentItemHeading>{itemHeading}</DDSContentItemHeading>
@@ -201,11 +200,11 @@ export const withLinkList = ({ parameters }) => {
       </DDSContentBlockMediaContent>
       <DDSContentBlockMediaContent>
         <DDSContentGroupHeading>{simpleGroupHeading}</DDSContentGroupHeading>
-        <DDSImageWithCaption slot="media" alt="Image alt text" defaultSrc={imgLg16x9} heading="Lorem ipsum">
+        <DDSImage slot="media" alt="Image alt text" defaultSrc={imgLg16x9} heading="Lorem ipsum">
           <DDSImageItem media="(min-width: 672px)" srcset={imgLg16x9} />
           <DDSImageItem media="(min-width: 400px)" srcset={imgMd16x9} />
           <DDSImageItem media="(min-width: 320px)" srcset={imgSm16x9} />
-        </DDSImageWithCaption>
+        </DDSImage>
         {items.map(({ heading: itemHeading, copy: itemCopy }) => (
           <DDSContentItem>
             <DDSContentItemHeading>{itemHeading}</DDSContentItemHeading>
