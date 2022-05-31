@@ -130,14 +130,24 @@ const renderItems = (item, count) => {
 };
 
 export const Simple = ({ parameters }) => {
-  const { heading, copy, border } = parameters?.props?.CTASection ?? {};
+  const { heading, copy, showText, showCta, border } = parameters?.props?.CTASection ?? {};
 
   return html`
     <dds-cta-section>
       <dds-cta-block ?no-border="${!border}">
         <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
-        <dds-content-block-copy>${copy}</dds-content-block-copy>
-        <dds-text-cta slot="action" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
+        ${showText
+          ? html`
+              <dds-content-block-copy>${ifNonNull(copy)}</dds-content-block-copy>
+            `
+          : ''}
+        ${showCta
+          ? html`
+              <dds-text-cta slot="action" cta-type="local" icon-placement="right" href="example.com"
+                >Browse tutorials</dds-text-cta
+              >
+            `
+          : ''}
       </dds-cta-block>
     </dds-cta-section>
     <dds-lightbox-video-player-container></dds-lightbox-video-player-container>
@@ -145,7 +155,7 @@ export const Simple = ({ parameters }) => {
 };
 
 export const WithContentItems = ({ parameters }) => {
-  const { heading, copy, border } = parameters?.props?.CTASection ?? {};
+  const { heading, copy, showText, showCta, border } = parameters?.props?.CTASection ?? {};
   const { contentItemType, contentItemCount, logoAspectRatio } = parameters?.props?.WithContentItems ?? {};
 
   return html`
@@ -153,8 +163,18 @@ export const WithContentItems = ({ parameters }) => {
       <dds-content-section-heading>Related products and services</dds-content-section-heading>
       <dds-cta-block ?no-border="${!border}">
         <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
-        <dds-content-block-copy>${copy}</dds-content-block-copy>
-        <dds-text-cta slot="action" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
+        ${showText
+          ? html`
+              <dds-content-block-copy>${ifNonNull(copy)}</dds-content-block-copy>
+            `
+          : ''}
+        ${showCta
+          ? html`
+              <dds-text-cta slot="action" cta-type="local" icon-placement="right" href="example.com"
+                >Browse tutorials</dds-text-cta
+              >
+            `
+          : ''}
         ${renderItems(contentItemType, contentItemCount)}
       </dds-cta-block>
     </dds-cta-section>
@@ -187,15 +207,25 @@ WithContentItems.story = {
 };
 
 export const WithLinkList = ({ parameters }) => {
-  const { heading, copy, border } = parameters?.props?.CTASection ?? {};
+  const { heading, copy, showText, showCta, border } = parameters?.props?.CTASection ?? {};
 
   return html`
     <dds-cta-section>
       <dds-content-section-heading>Related products and services</dds-content-section-heading>
       <dds-cta-block ?no-border="${!border}">
         <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
-        <dds-content-block-copy>${copy}</dds-content-block-copy>
-        <dds-text-cta slot="action" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
+        ${showText
+          ? html`
+              <dds-content-block-copy>${ifNonNull(copy)}</dds-content-block-copy>
+            `
+          : ''}
+        ${showCta
+          ? html`
+              <dds-text-cta slot="action" cta-type="local" icon-placement="right" href="example.com"
+                >Browse tutorials</dds-text-cta
+              >
+            `
+          : ''}
         <dds-link-list slot="link-list" type="end">
           <dds-link-list-heading>More ways to explore DevOps</dds-link-list-heading>
           <dds-link-list-item href="https://example.com">
@@ -248,7 +278,13 @@ export default {
     knobs: {
       CTASection: ({ groupId }) => ({
         heading: textNullable('Heading (required)', 'Optional title heading-05 color text-01', groupId),
-        copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
+        copy: textNullable(
+          'Copy text (optional)',
+          'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
+          groupId
+        ),
+        showText: boolean('Add Copy', true, groupId),
+        showCta: boolean('Add CTA', true, groupId),
         border: boolean('CTA Block border', false, groupId),
       }),
     },
@@ -257,6 +293,8 @@ export default {
         CTASection: {
           heading: 'Optional title heading-05 color text-01',
           copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
+          showText: true,
+          showCta: true,
           boolean: false,
         },
       },

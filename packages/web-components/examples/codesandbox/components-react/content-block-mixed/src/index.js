@@ -26,7 +26,7 @@ import DDSLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-reac
 import DDSContentGroupSimple from '@carbon/ibmdotcom-web-components/es/components-react/content-group-simple/content-group-simple';
 import DDSCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
 import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
-import DDSImageWithCaption from '@carbon/ibmdotcom-web-components/es/components-react/image-with-caption/image-with-caption';
+import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
@@ -85,7 +85,7 @@ const App = () => (
           <DDSContentGroupSimple>
             <DDSContentGroupHeading>Curabitur malesuada varius mi eu posuere</DDSContentGroupHeading>
             <DDSContentGroupCopy>Lorem ipsum *dolor* sit amet</DDSContentGroupCopy>
-            <DDSImageWithCaption
+            <DDSImage
               slot="media"
               alt="Image alt text"
               defaultSrc="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
@@ -102,7 +102,7 @@ const App = () => (
                 media="(min-width: 320px)"
                 srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
               />
-            </DDSImageWithCaption>
+            </DDSImage>
             <DDSCardLinkCTA slot="footer" cta-type="local" href="https://example.com">
               <DDSCardLinkHeading>Lorem ipsum dolor sit amet</DDSCardLinkHeading>
               <DDSCardCTAFooter></DDSCardCTAFooter>
