@@ -15,3 +15,5 @@ import './structured-list-body';
 import './structured-list-group';
 import './structured-list-row';
 import './structured-list-cell';
+import 'carbon-web-components/es/components/tooltip/index.js';
+import 'carbon-web-components/es/components/tag/index.js';
