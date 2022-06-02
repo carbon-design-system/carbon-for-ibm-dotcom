@@ -7,14 +7,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { html, property, customElement, LitElement } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import settings from 'carbon-components/es/globals/js/settings';
+import { baseFontSize, breakpoints } from '@carbon/layout';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './universal-banner.scss';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
+
+const gridMdBreakpoint = parseFloat(breakpoints.md.width) * baseFontSize;
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -51,6 +53,10 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
   @property({ attribute: 'image-width', reflect: true, type: String })
   imageWidth;
 
+  private _breakpoint?: MediaQueryList;
+
+  private _shouldRenderAsLink = false;
+
   /**
    * Handles `slotchange` event on the cta `<slot>`.
    */
@@ -76,15 +82,29 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
     this.buttonCopy = hasContent[0]?.textContent?.trim();
   }
 
+  protected _handleResize() {
+    const { _breakpoint: breakpoint } = this;
+
+    this._shouldRenderAsLink = !breakpoint!.matches;
+    this.requestUpdate();
+  }
+
   firstUpdated() {
     StickyHeader.global.banner = this;
+
+    this._breakpoint = window.matchMedia(`(min-width: ${gridMdBreakpoint}px)`);
+    this._breakpoint.addEventListener('change', this._handleResize.bind(this));
+    this._handleResize();
   }
 
   updated() {
     this.querySelector((this.constructor as typeof DDSUniversalBanner).ctaButton)?.removeAttribute('role');
   }
 
-  render() {
+  /**
+   * Renders shadow dom within a static div
+   */
+  _renderAsStatic() {
     return html`
       <div class="${prefix}--universal-banner-layout-container">
         <div ?hidden="${!this.hasImage}" class="${prefix}--universal-banner-image-container">
@@ -98,11 +118,42 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
 
         <div class="${prefix}--universal-banner-cta-container">
           <slot name="cta" @slotchange="${this._handleButtonSlotChange}"></slot>
-          <dds-link-with-icon href="${ifNonNull(this.buttonHref)}">
-            ${this.buttonCopy}${ArrowRight20({ slot: 'icon' })}
-          </dds-link-with-icon>
         </div>
       </div>
+    `;
+  }
+
+  /**
+   * Renders shadow dom within a link.
+   *
+   * Even though we don't display the `cta` slot, we need to keep it to maintain this.buttonHref
+   */
+  _renderAsLink() {
+    return html`
+      <a href="${this.buttonHref}" class="${prefix}--universal-banner-layout-container">
+        <div ?hidden="${!this.hasImage}" class="${prefix}--universal-banner-image-container">
+          <slot name="image" @slotchange="${this._handleImageSlotChange}"></slot>
+        </div>
+
+        <div class="${prefix}--universal-banner-text-container">
+          <slot name="heading"></slot>
+          <slot name="copy"></slot>
+        </div>
+
+        <div class="${prefix}--universal-banner-cta-container">
+          <slot name="cta" @slotchange="${this._handleButtonSlotChange}"></slot>
+        </div>
+
+        <div class="${prefix}--universal-banner-icon">
+          ${ArrowRight20()}
+        </div>
+      </a>
+    `;
+  }
+
+  render() {
+    return html`
+      ${this._shouldRenderAsLink ? this._renderAsLink() : this._renderAsStatic()}
     `;
   }
 

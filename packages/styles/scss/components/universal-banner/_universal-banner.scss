@@ -14,6 +14,10 @@
   display: block;
   background-color: $ui-background;
 
+  @include carbon--breakpoint-down('md') {
+    cursor: pointer;
+  }
+
   .#{$prefix}--universal-banner-layout-container {
     display: grid;
     grid-template-rows: 1fr;
@@ -26,6 +30,29 @@
 
     @include carbon--breakpoint('md') {
       grid-template-columns: 2fr 1fr;
+    }
+
+    /* stylelint-disable selector-pseudo-class-no-unknown */
+    &:where(a) {
+      /* stylelint-enable selector-pseudo-class-no-unknown */
+      text-decoration: none;
+      padding-inline-end: $spacing-08;
+      border: 1px solid transparent;
+
+      &:hover {
+        background: $hover-ui;
+      }
+
+      &:focus {
+        outline: $ui-background 1px solid;
+        border-color: $focus;
+      }
+
+      &:active {
+        outline: $ui-background 1px solid;
+        border-color: $focus;
+        background: $active-ui;
+      }
     }
   }
 
@@ -201,6 +228,17 @@
     @include carbon--breakpoint('max') {
       margin-left: 7.5rem;
     }
+  }
+
+  .#{$prefix}--universal-banner-icon {
+    @include carbon--breakpoint('md') {
+      display: none;
+    }
+
+    position: absolute;
+    inset-block-start: $spacing-05;
+    inset-inline-end: $spacing-05;
+    color: $text-01;
   }
 
   ::slotted(#{$dds-prefix}-button-cta) {
