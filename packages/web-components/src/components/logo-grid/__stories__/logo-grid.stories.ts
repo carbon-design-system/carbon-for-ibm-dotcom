@@ -66,11 +66,11 @@ export default {
     knobs: {
       LogoGrid: ({ groupId }) => ({
         heading: textNullable('Heading (heading)', 'Our customers', groupId),
-        logoCount: select('Column count (logoCount)', { Default: '', Three: '3', Four: '4' }, '', groupId),
+        logoCount: select('Column count (logoCount)', { 'Default (3)': '3', '4': '4' }, '3', groupId),
         logoRatio: select(
           'Logo aspect ratio (logoRatio)',
-          { Default: '', '4:3': '4:3', '16:9': '16:9', '2:1': '2:1' },
-          '',
+          { 'Default (4:3)': '4:3', '16:9': '16:9', '2:1': '2:1' },
+          '4:3',
           groupId
         ),
         logosGroup: logos,
