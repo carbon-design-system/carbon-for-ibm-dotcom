@@ -235,7 +235,7 @@
 }
 
 :host(#{$dds-prefix}-universal-banner-heading) {
-  @include carbon--type-style('expressive-paragraph-01', true);
+  @include carbon--type-style('expressive-heading-02', true);
 
   display: block;
   color: $text-01;
@@ -255,16 +255,10 @@
 }
 
 :host(#{$dds-prefix}-universal-banner-copy) {
-  @include carbon--type-style('expressive-heading-01', true);
+  @include carbon--type-style('body-short-02', true);
 
   display: block;
   color: $text-01;
-
-  margin-top: $spacing-03;
-
-  @include carbon--breakpoint('lg') {
-    margin-top: $spacing-05;
-  }
 }
 
 :host(#{$dds-prefix}-universal-banner-image) {
