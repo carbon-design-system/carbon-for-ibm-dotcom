@@ -95,11 +95,11 @@ export const Default = ({ parameters }) => {
         <dds-content-group-heading>
           ${simpleGroupHeading}
         </dds-content-group-heading>
-        <dds-image-with-caption slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum">
+        <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum">
           <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
           <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
           <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
-        </dds-image-with-caption>
+        </dds-image>
         ${items.map(
           ({ heading: itemHeading, copy: itemCopy }) => html`
             <dds-content-item>
@@ -117,11 +117,11 @@ export const Default = ({ parameters }) => {
         <dds-content-group-heading>
           ${simpleGroupHeading}
         </dds-content-group-heading>
-        <dds-image-with-caption slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum">
+        <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum">
           <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
           <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
           <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
-        </dds-image-with-caption>
+        </dds-image>
         ${items.map(
           ({ heading: itemHeading, copy: itemCopy }) => html`
             <dds-content-item>
@@ -167,11 +167,11 @@ export const withLinkList = ({ parameters }) => {
         <dds-content-group-heading>
           ${simpleGroupHeading}
         </dds-content-group-heading>
-        <dds-image-with-caption slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum">
+        <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum">
           <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
           <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
           <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
-        </dds-image-with-caption>
+        </dds-image>
         ${items.map(
           ({ heading: itemHeading, copy: itemCopy }) => html`
             <dds-content-item>
@@ -189,11 +189,11 @@ export const withLinkList = ({ parameters }) => {
         <dds-content-group-heading>
           Lorem ipsum dolor sit amet
         </dds-content-group-heading>
-        <dds-image-with-caption slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum">
+        <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum">
           <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
           <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
           <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
-        </dds-image-with-caption>
+        </dds-image>
         ${items.map(
           ({ heading: itemHeading, copy: itemCopy }) => html`
             <dds-content-item>
