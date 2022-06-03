@@ -28,21 +28,18 @@
       /* stylelint-enable selector-pseudo-class-no-unknown */
       display: block;
       text-decoration: none;
-      border: 1px solid transparent;
+      border: 2px solid transparent;
 
-      &:hover {
+      &:hover,
+      &:active {
         background: $hover-ui;
       }
 
-      &:focus {
-        outline: $ui-background 1px solid;
-        border-color: $focus;
-      }
-
+      &:focus,
       &:active {
         outline: $ui-background 1px solid;
+        outline-offset: -1px;
         border-color: $focus;
-        background: $active-ui;
       }
     }
   }
@@ -64,39 +61,62 @@
 
     ::slotted(#{$dds-prefix}-universal-banner-image) {
       position: absolute;
-      width: 100%;
+      width: calc(100% + #{$spacing-05});
       height: 100%;
-      inset: 0;
+      inset-inline-end: 0;
+      inset-block-start: 0;
+
+      @include carbon--breakpoint('max') {
+        width: 100%;
+      }
     }
   }
 
   .#{$prefix}--universal-banner-text-container {
     @include carbon--make-col(4, 4);
 
-    max-width: calc(100% - #{$spacing-09});
+    padding-inline: $spacing-05;
+    max-width: calc(100% - (20px + #{$spacing-05}));
 
     @include carbon--breakpoint('md') {
-      @include carbon--make-col(6, 8);
+      @include carbon--make-col(7, 8);
     }
 
-    padding-inline-start: $spacing-05;
-    padding-inline-end: $spacing-09;
+    @include carbon--breakpoint('lg') {
+      padding-inline-end: $spacing-09;
+    }
   }
 
   .#{$prefix}--universal-banner-cta-container {
-    @include carbon--breakpoint-down('lg') {
-      display: none;
+    display: none;
+
+    @include carbon--breakpoint('lg') {
+      @include carbon--make-col(4, 16);
+    }
+
+    @include carbon--breakpoint('xlg') {
+      @include carbon--make-col(3, 16);
+    }
+
+    @include carbon--breakpoint('max') {
+      @include carbon--make-col(4, 16);
     }
   }
 
   .#{$prefix}--universal-banner-icon {
-    width: $spacing-07;
+    width: calc(20px + #{$spacing-05});
+    padding-inline-end: $spacing-05;
     color: $text-01;
     text-align: right;
 
+    svg {
+      margin-top: $spacing-01;
+    }
+
     @include carbon--breakpoint('md') {
       @include carbon--make-col(1, 8);
-      @include carbon--make-col-offset(1, 8);
+
+      padding-inline-end: 0;
     }
 
     @include carbon--breakpoint('lg') {
@@ -125,7 +145,6 @@
 
     .#{$prefix}--universal-banner-cta-container {
       @include carbon--breakpoint('lg') {
-        @include carbon--make-col(4, 16);
         @include carbon--make-col-offset(1, 16);
       }
     }
@@ -141,12 +160,6 @@
         @include carbon--make-col(4, 16);
       }
     }
-
-    .#{$prefix}--universal-banner-cta-container {
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-col(4, 16);
-      }
-    }
   }
 
   &:not([has-image]) {
@@ -158,7 +171,6 @@
 
     .#{$prefix}--universal-banner-cta-container {
       @include carbon--breakpoint('lg') {
-        @include carbon--make-col(4, 16);
         @include carbon--make-col-offset(1, 16);
       }
     }
@@ -170,6 +182,10 @@
     width: 100%;
     display: block;
     max-width: 320px;
+
+    @include carbon--breakpoint('xlg') {
+      width: calc(100% + #{$spacing-05});
+    }
   }
 
   #{$dds-prefix}-link-with-icon {
