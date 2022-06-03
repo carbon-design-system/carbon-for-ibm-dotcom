@@ -14,16 +14,6 @@
   display: block;
   background-color: $ui-background;
 
-  /* Helper styles. Yell at me if these are in the PR */
-  .#{$prefix}--universal-banner-image-container,
-  .#{$prefix}--universal-banner-text-container,
-  .#{$prefix}--universal-banner-cta-container,
-  .#{$prefix}--universal-banner-icon {
-    outline: 1px solid #ff0000;
-    background-color: rgba(255, 0, 0, 0.25);
-    background-clip: content-box;
-  }
-
   .#{$prefix}--universal-banner-content-wrapper {
     @include carbon--make-row;
   }
