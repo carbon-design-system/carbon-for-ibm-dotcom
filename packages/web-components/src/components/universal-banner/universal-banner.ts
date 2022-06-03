@@ -16,7 +16,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './universal-banner.scss';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 
-const gridMdBreakpoint = parseFloat(breakpoints.md.width) * baseFontSize;
+const gridLgBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -92,7 +92,7 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
   firstUpdated() {
     StickyHeader.global.banner = this;
 
-    this._breakpoint = window.matchMedia(`(min-width: ${gridMdBreakpoint}px)`);
+    this._breakpoint = window.matchMedia(`(min-width: ${gridLgBreakpoint}px)`);
     this._breakpoint.addEventListener('change', this._handleResize.bind(this));
     this._handleResize();
   }
@@ -107,30 +107,22 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
   _renderAsStatic() {
     return html`
       <div class="${prefix}--universal-banner-layout-container">
-        <div ?hidden="${!this.hasImage}" class="${prefix}--universal-banner-image-container">
-          <slot name="image" @slotchange="${this._handleImageSlotChange}"></slot>
-        </div>
-
-        <div class="${prefix}--universal-banner-text-container">
-          <slot name="heading"></slot>
-          <slot name="copy"></slot>
-        </div>
-
-        <div class="${prefix}--universal-banner-cta-container">
-          <slot name="cta" @slotchange="${this._handleButtonSlotChange}"></slot>
-        </div>
+        ${this._renderInnerContents()}
       </div>
     `;
   }
 
-  /**
-   * Renders shadow dom within a link.
-   *
-   * Even though we don't display the `cta` slot, we need to keep it to maintain this.buttonHref
-   */
   _renderAsLink() {
     return html`
       <a href="${this.buttonHref}" class="${prefix}--universal-banner-layout-container">
+        ${this._renderInnerContents()}
+      </a>
+    `;
+  }
+
+  _renderInnerContents() {
+    return html`
+      <div class="${prefix}--universal-banner-content-wrapper">
         <div ?hidden="${!this.hasImage}" class="${prefix}--universal-banner-image-container">
           <slot name="image" @slotchange="${this._handleImageSlotChange}"></slot>
         </div>
@@ -147,7 +139,7 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
         <div class="${prefix}--universal-banner-icon">
           ${ArrowRight20()}
         </div>
-      </a>
+      </div>
     `;
   }
 

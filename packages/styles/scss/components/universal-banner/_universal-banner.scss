@@ -14,29 +14,30 @@
   display: block;
   background-color: $ui-background;
 
-  @include carbon--breakpoint-down('md') {
-    cursor: pointer;
+  /* Helper styles. Yell at me if these are in the PR */
+  .#{$prefix}--universal-banner-image-container,
+  .#{$prefix}--universal-banner-text-container,
+  .#{$prefix}--universal-banner-cta-container,
+  .#{$prefix}--universal-banner-icon {
+    outline: 1px solid #ff0000;
+    background-color: rgba(255, 0, 0, 0.25);
+    background-clip: content-box;
+  }
+
+  .#{$prefix}--universal-banner-content-wrapper {
+    @include carbon--make-row;
   }
 
   .#{$prefix}--universal-banner-layout-container {
-    display: grid;
-    grid-template-rows: 1fr;
+    @include carbon--make-container;
 
-    margin: 0 auto;
-    max-width: 99rem;
-
-    background-color: $ui-background;
     max-height: $spacing-13;
-
-    @include carbon--breakpoint('md') {
-      grid-template-columns: 2fr 1fr;
-    }
 
     /* stylelint-disable selector-pseudo-class-no-unknown */
     &:where(a) {
       /* stylelint-enable selector-pseudo-class-no-unknown */
+      display: block;
       text-decoration: none;
-      padding-inline-end: $spacing-08;
       border: 1px solid transparent;
 
       &:hover {
@@ -57,212 +58,128 @@
   }
 
   .#{$prefix}--universal-banner-text-container,
-  .#{$prefix}--universal-banner-cta-container {
-    padding-top: $spacing-05;
-    padding-bottom: $spacing-05;
+  .#{$prefix}--universal-banner-cta-container,
+  .#{$prefix}--universal-banner-icon {
+    padding-block: $spacing-05;
 
     @include carbon--breakpoint('lg') {
-      padding-top: $spacing-07;
-      padding-bottom: $spacing-07;
+      padding-block: $spacing-07;
     }
   }
 
   .#{$prefix}--universal-banner-image-container {
     max-height: $spacing-13;
-  }
+    padding-inline-end: $spacing-05;
+    position: relative;
 
-  &[has-image] {
-    ::slotted(#{$dds-prefix}-image) {
-      height: $spacing-13;
-    }
-
-    .#{$prefix}--universal-banner-layout-container {
-      @include carbon--breakpoint('sm') {
-        grid-template-columns: 1fr;
-
-        .#{$prefix}--universal-banner-text-container {
-          margin-left: $spacing-05;
-        }
-
-        .#{$prefix}--universal-banner-image-container {
-          display: none;
-        }
-      }
-
-      @include carbon--breakpoint('md') {
-        grid-template-columns: 2fr 1fr;
-
-        .#{$prefix}--universal-banner-text-container {
-          margin-left: $spacing-07;
-        }
-      }
-    }
-
-    &[image-width='4-col'] {
-      .#{$prefix}--universal-banner-layout-container {
-        @include carbon--breakpoint('lg') {
-          grid-template-columns: 1fr 2fr 1fr;
-
-          .#{$prefix}--universal-banner-image-container {
-            display: block;
-            margin-right: $spacing-03;
-          }
-
-          .#{$prefix}--universal-banner-text-container {
-            margin-left: $spacing-06;
-          }
-
-          .#{$prefix}--universal-banner-cta-container {
-            margin-left: calc(-1 * #{$spacing-03});
-          }
-        }
-
-        @include carbon--breakpoint('max') {
-          .#{$prefix}--universal-banner-image-container {
-            margin-right: $spacing-02;
-          }
-
-          .#{$prefix}--universal-banner-text-container {
-            margin-left: 1.75rem;
-          }
-
-          .#{$prefix}--universal-banner-cta-container {
-            margin-left: calc(-1 * #{$spacing-04});
-          }
-
-          ::slotted(#{$dds-prefix}-button-cta) {
-            width: calc(100% - #{$spacing-13});
-          }
-        }
-      }
-    }
-
-    &[image-width='8-col'] {
-      .#{$prefix}--universal-banner-layout-container {
-        @include carbon--breakpoint('lg') {
-          grid-template-columns: 2fr 1fr 1fr;
-
-          .#{$prefix}--universal-banner-image-container {
-            display: block;
-            margin-right: $spacing-05;
-          }
-
-          .#{$prefix}--universal-banner-text-container {
-            margin-left: $spacing-05;
-          }
-
-          .#{$prefix}--universal-banner-cta-container {
-            margin-left: calc(-1 * #{$spacing-03});
-          }
-
-          ::slotted(#{$dds-prefix}-universal-banner-heading) {
-            @include carbon--type-style('body-short-02');
-
-            font-weight: carbon--font-weight('semibold');
-          }
-
-          ::slotted(#{$dds-prefix}-universal-banner-copy) {
-            @include carbon--type-style('body-short-02');
-
-            margin-top: 0;
-          }
-        }
-
-        @include carbon--breakpoint('max') {
-          .#{$prefix}--universal-banner-cta-container {
-            margin-left: calc(-1 * #{$spacing-04});
-          }
-
-          ::slotted(#{$dds-prefix}-button-cta) {
-            width: calc(100% - #{$spacing-13});
-          }
-        }
-      }
+    ::slotted(#{$dds-prefix}-universal-banner-image) {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      inset: 0;
     }
   }
 
   .#{$prefix}--universal-banner-text-container {
-    @include carbon--theme($carbon--theme--g100, true);
+    @include carbon--make-col(4, 4);
 
-    margin-left: $spacing-05;
+    max-width: calc(100% - #{$spacing-09});
 
     @include carbon--breakpoint('md') {
-      margin-left: $spacing-07;
+      @include carbon--make-col(6, 8);
     }
 
-    @include carbon--breakpoint('lg') {
-      margin-left: $spacing-07;
-    }
-
-    @include carbon--breakpoint('max') {
-      margin-left: $spacing-08;
-      margin-right: 3.5rem;
-    }
+    padding-inline-start: $spacing-05;
+    padding-inline-end: $spacing-09;
   }
 
   .#{$prefix}--universal-banner-cta-container {
-    @include carbon--theme($carbon--theme--g100, true);
-
-    position: relative;
-    margin-left: $spacing-05;
-
-    @include carbon--breakpoint-down('md') {
-      padding-top: 0;
-    }
-
-    @include carbon--breakpoint('md') {
-      margin-left: $spacing-09;
-      margin-right: $spacing-07;
-    }
-
-    @include carbon--breakpoint('lg') {
-      margin-left: $spacing-11;
-      margin-right: $spacing-08;
-    }
-
-    @include carbon--breakpoint('xlg') {
-      margin-left: 6.25rem;
-      margin-right: 0;
-    }
-
-    @include carbon--breakpoint('max') {
-      margin-left: 7.5rem;
+    @include carbon--breakpoint-down('lg') {
+      display: none;
     }
   }
 
   .#{$prefix}--universal-banner-icon {
+    width: $spacing-07;
+    color: $text-01;
+    text-align: right;
+
     @include carbon--breakpoint('md') {
-      display: none;
+      @include carbon--make-col(1, 8);
+      @include carbon--make-col-offset(1, 8);
     }
 
-    position: absolute;
-    inset-block-start: $spacing-05;
-    inset-inline-end: $spacing-05;
-    color: $text-01;
+    @include carbon--breakpoint('lg') {
+      display: none;
+    }
+  }
+
+  &[has-image] {
+    .#{$prefix}--universal-banner-image-container {
+      display: none;
+    }
+  }
+
+  &[image-width='4-col'] {
+    .#{$prefix}--universal-banner-image-container {
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(4, 16);
+      }
+    }
+
+    .#{$prefix}--universal-banner-text-container {
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(7, 16);
+      }
+    }
+
+    .#{$prefix}--universal-banner-cta-container {
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(4, 16);
+        @include carbon--make-col-offset(1, 16);
+      }
+    }
+  }
+
+  &[image-width='8-col'] {
+    .#{$prefix}--universal-banner-image-container {
+      @include carbon--make-col(8, 16);
+    }
+
+    .#{$prefix}--universal-banner-text-container {
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(4, 16);
+      }
+    }
+
+    .#{$prefix}--universal-banner-cta-container {
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(4, 16);
+      }
+    }
+  }
+
+  &:not([has-image]) {
+    .#{$prefix}--universal-banner-text-container {
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(11, 16);
+      }
+    }
+
+    .#{$prefix}--universal-banner-cta-container {
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(4, 16);
+        @include carbon--make-col-offset(1, 16);
+      }
+    }
   }
 
   ::slotted(#{$dds-prefix}-button-cta) {
     @include carbon--theme($carbon--theme--g100, true);
 
-    width: calc(100% + #{$spacing-05});
+    width: 100%;
     display: block;
     max-width: 320px;
-
-    @include carbon--breakpoint-down('md') {
-      display: none;
-    }
-
-    @include carbon--breakpoint('lg') {
-      width: calc(100% + #{$spacing-06});
-    }
-
-    @include carbon--breakpoint('xlg') {
-      width: calc(100% - #{$spacing-12});
-    }
-
-    @include carbon--breakpoint('max') {
-      width: calc(100% + #{$spacing-05});
-    }
   }
 
   #{$dds-prefix}-link-with-icon {
