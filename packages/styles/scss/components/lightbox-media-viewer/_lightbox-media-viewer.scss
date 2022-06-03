@@ -188,7 +188,6 @@
 
       @include carbon--type-style('body-long-02');
       @include carbon--breakpoint('lg') {
-        position: absolute;
         overflow: auto;
       }
     }
