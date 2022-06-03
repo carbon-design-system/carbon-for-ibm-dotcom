@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -96,7 +96,7 @@
     @include carbon--breakpoint('lg') {
       display: flex;
       flex-direction: column;
-      padding: $spacing-09 0 $spacing-05 0;
+      padding: $spacing-07 0 $spacing-05 0;
     }
 
     @include carbon--breakpoint-down('lg') {
