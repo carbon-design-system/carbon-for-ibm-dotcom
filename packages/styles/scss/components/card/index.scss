@@ -431,6 +431,12 @@
   }
 
   :host(#{$dds-prefix}-feature-cta-footer) a {
+    align-items: center;
+
+    .#{$prefix}--card__cta__copy {
+      color: $inverse-link;
+    }
+
     svg,
     ::slotted(svg[slot='icon']) {
       fill: $inverse-link;

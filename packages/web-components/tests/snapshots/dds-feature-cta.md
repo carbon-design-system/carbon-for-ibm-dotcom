@@ -57,7 +57,10 @@
       </slot>
       <slot name="heading">
       </slot>
-      <div class="bx--card__copy">
+      <div
+        class="bx--card__copy"
+        hidden=""
+      >
         <slot>
         </slot>
       </div>
