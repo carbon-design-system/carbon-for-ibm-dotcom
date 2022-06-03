@@ -158,6 +158,8 @@ export const WithContentItems = ({ parameters }) => {
   const { heading, copy, showText, showCta, border } = parameters?.props?.CTASection ?? {};
   const { contentItemType, contentItemCount, logoAspectRatio } = parameters?.props?.WithContentItems ?? {};
 
+  const contentItem = contentItemTypeMap[contentItemType];
+
   return html`
     <dds-cta-section logo-ratio="${ifNonNull(logoAspectRatio)}">
       <dds-content-section-heading>Related products and services</dds-content-section-heading>
@@ -175,7 +177,7 @@ export const WithContentItems = ({ parameters }) => {
               >
             `
           : ''}
-        ${renderItems(contentItemType, contentItemCount)}
+        ${renderItems(contentItem, contentItemCount)}
       </dds-cta-block>
     </dds-cta-section>
     <dds-lightbox-video-player-container></dds-lightbox-video-player-container>
@@ -186,14 +188,21 @@ WithContentItems.story = {
   name: 'With content items',
   parameters: {
     knobs: {
-      WithContentItems: ({ groupId }) => ({
-        contentItemType:
-          contentItemTypeMap[select(`Content item type`, contentItemTypeOptions, contentItemTypeOptions.Text, groupId) ?? 0],
-        contentItemCount: Array.from({
-          length: number('Number of content items', 3, { min: 2, max: 6 }, groupId),
-        }),
-        logoAspectRatio: select('Logo Aspect Ratio', ['', '1:1', '16:9', '4:3', '2:1'], '2:1', groupId),
-      }),
+      WithContentItems: ({ groupId }) => {
+        const contentItemType = select('Content item type', contentItemTypeOptions, contentItemTypeOptions.Text, groupId);
+
+        const logoAspectRatio =
+          contentItemType !== contentItemTypeOptions.Logo
+            ? undefined
+            : select('Logo aspect ratio', ['2:1', '1:1'], '2:1', groupId);
+        return {
+          contentItemType,
+          contentItemCount: Array.from({
+            length: number('Number of content items', 3, { min: 2, max: 6 }, groupId),
+          }),
+          logoAspectRatio,
+        };
+      },
     },
     propsSet: {
       default: {

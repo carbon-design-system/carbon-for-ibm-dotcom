@@ -209,5 +209,7 @@
     /* stylelint-disable */
     aspect-ratio: var(--logo-ratio);
     /* stylelint-enable */
+    margin: 0;
+    max-width: $spacing-12;
   }
 }
