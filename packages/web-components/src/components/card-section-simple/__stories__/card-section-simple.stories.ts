@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -59,8 +59,10 @@ export default {
   title: 'Components/Card section simple',
   decorators: [
     story => html`
-      <div class="bx--grid bx--row">
-        ${story()}
+      <div class="bx--grid">
+        <div class="bx--row">
+          ${story()}
+        </div>
       </div>
     `,
   ],

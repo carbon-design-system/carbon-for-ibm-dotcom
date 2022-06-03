@@ -39,7 +39,7 @@
     "@carbon/telemetry": "0.1.0",
     "@carbon/themes": "10.54.0",
     "@carbon/type": "10.44.0",
-    "carbon-components": "10.57.1"
+    "carbon-components": "10.57.2"
   },
   "devDependencies": {
     "carbon-components-react": "7.57.1",
