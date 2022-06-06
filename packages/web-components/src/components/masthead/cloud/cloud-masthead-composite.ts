@@ -374,14 +374,14 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                       >
                     `}
                 ${profileItems?.map(
-                  ({ title, url }) =>
+                  ({ url }) =>
                     html`
                       <dds-cloud-button-cta
                         href="${url === 'https://cloud.ibm.com/login' && this.redirectPath
                           ? ifNonNull(`${url}?redirect=${encodeURIComponent(this.redirectPath)}`)
                           : ifNonNull(url)}"
                         kind="ghost"
-                        >${title}</dds-cloud-button-cta
+                        >Hello, testing here!</dds-cloud-button-cta
                       >
                     `
                 )}
