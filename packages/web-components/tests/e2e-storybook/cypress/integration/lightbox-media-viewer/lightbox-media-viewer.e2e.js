@@ -54,7 +54,7 @@ describe('dds-lightbox-media-viewer | default', () => {
     cy.get('dds-lightbox-media-viewer')
       .find('.bx--lightbox-media-viewer__content')
       .then($content => {
-        expect($content[0].getBoundingClientRect().right).to.equal(1280 - 48);
+        expect($content[0].getBoundingClientRect().right).to.equal(1280 - 64);
       });
   });
 
@@ -125,7 +125,7 @@ describe('dds-lightbox-media-viewer | embedded video player', () => {
     cy.get('dds-lightbox-media-viewer')
       .find('.bx--lightbox-media-viewer__content')
       .then($content => {
-        expect($content[0].getBoundingClientRect().right).to.equal(1280 - 48);
+        expect($content[0].getBoundingClientRect().right).to.equal(1280 - 64);
       });
   });
 
