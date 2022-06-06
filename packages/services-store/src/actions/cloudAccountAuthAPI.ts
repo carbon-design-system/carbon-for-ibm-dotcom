@@ -59,7 +59,9 @@ export function loadUserStatus(
 ): ThunkAction<Promise<UserStatus>, { cloudAccountAuthAPI: CloudAccountAuthAPIState }, void, CloudAccountAuthAPIActions> {
   return async dispatch => {
     const promiseStatus: Promise<UserStatus> =
-      authMethod === 'cookie' ? CloudAccountAuthAPI.checkCookie() : CloudAccountAuthAPI.checkAPI();
+      authMethod === 'cookie' || authMethod === 'personalization'
+        ? CloudAccountAuthAPI.checkPersonalization()
+        : CloudAccountAuthAPI.checkAPI();
     dispatch(setRequestUserStatusInProgress(promiseStatus));
     try {
       dispatch(setUserStatus(await promiseStatus));
