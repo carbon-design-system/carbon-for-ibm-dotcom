@@ -67,6 +67,18 @@ function tryFocusElems(
   return false;
 }
 
+// TODO: Wait for `.d.ts` update to support `ResizeObserver`
+// @ts-ignore
+const onResize: ResizeObserverCallback = ([entry]) => {
+  const { target, contentRect } = entry;
+  const { width, height } = contentRect;
+
+  const modalContent = target as HTMLDivElement;
+
+  modalContent.style.setProperty('--modal-vh', `${height}px`);
+  modalContent.style.setProperty('--modal-vw', `${width}px`);
+};
+
 /**
  * The table mapping slot name with the private property name that indicates the existence of the slot content.
  */
@@ -127,6 +139,16 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
    */
   @query('#end-sentinel')
   private _endSentinelNode!: HTMLAnchorElement;
+
+  @query(`.${prefix}--modal-content`)
+  modalContent?: HTMLDivElement;
+
+  @query(`.${ddsPrefix}-ce--modal__body`)
+  modalBody?: HTMLDivElement;
+
+  // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+  // @ts-ignore
+  private _resizeObserver = new ResizeObserver(onResize as ResizeObserverCallback);
 
   /**
    * Handles `click` event on this element.
@@ -290,7 +312,7 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
   protected _renderHeader(): TemplateResult | SVGTemplateResult | void {
     const { _hasHeader: hasHeader, _hasBody: hasBody, _hasFooter: hasFooter } = this;
     const headerClasses = classMap({
-      [`${ddsPrefix}-ce--modal__hedaer--with-body`]: hasHeader && (hasBody || hasFooter),
+      [`${ddsPrefix}-ce--modal__header--with-body`]: hasHeader && (hasBody || hasFooter),
     });
     return html`
       <div id="modal-header" class="${headerClasses}"><slot name="header"></slot></div>
@@ -377,6 +399,12 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
       </div>
       <button id="end-sentinel" class="${prefix}--visually-hidden" @focusin="${handleFocusIn}">END</button>
     `;
+  }
+
+  protected firstUpdated() {
+    if (this.modalContent) {
+      this._resizeObserver.observe(this.modalContent);
+    }
   }
 
   async updated(changedProperties) {
