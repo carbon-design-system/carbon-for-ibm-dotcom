@@ -8,6 +8,7 @@
  */
 
 import { property, customElement, html } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
@@ -19,8 +20,6 @@ import DDSFeatureCard from '../feature-card/feature-card';
 import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 /* eslint-disable import/no-duplicates */
-import DDSCardHeading from '../card/card-heading';
-import '../card/card-heading';
 import DDSFeatureCTAFooter from './feature-cta-footer';
 import './feature-cta-footer';
 /* eslint-enable import/no-duplicates */
@@ -28,10 +27,12 @@ import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
 
 import '../card/card-eyebrow';
+import '../card/card-heading';
 import '../image/image';
 
 export { CTA_TYPE };
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -41,12 +42,29 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-feature-cta`)
 class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
-  protected _renderHeading() {
-    const { ctaType, videoName } = this;
-    if (ctaType === CTA_TYPE.VIDEO) {
-      this.captionHeading = this.formatVideoCaption({ name: videoName });
+  protected _renderCopy() {
+    const {
+      ctaType,
+      videoDuration,
+      videoName,
+      formatVideoCaption: formatCaptionInEffect,
+      formatVideoDuration: formatDurationInEffect,
+    } = this;
+    if (ctaType !== CTA_TYPE.VIDEO) {
+      return super._renderCopy();
     }
-    return super._renderHeading();
+    const caption = formatCaptionInEffect({
+      duration: formatDurationInEffect({ duration: !videoDuration ? videoDuration : videoDuration * 1000 }),
+      name: videoName,
+    });
+
+    this.captionHeading = caption;
+
+    return html`
+      <div class="${prefix}--card__copy">
+        <slot @slotchange="${this._handleSlotChange}"></slot>
+      </div>
+    `;
   }
 
   protected _renderImage() {
@@ -129,26 +147,21 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
 
   updated(changedProperties) {
     super.updated(changedProperties);
-    const { captionHeading, ctaType, videoName, videoDescription, videoDuration } = this;
-    const { selectorFooter, selectorHeading } = this.constructor as typeof DDSFeatureCTA;
+    const { selectorFooter } = this.constructor as typeof DDSFeatureCTA;
     if (changedProperties.has('ctaType') || changedProperties.has('videoName') || changedProperties.has('captionHeading')) {
+      const { ctaType, videoName, videoDescription } = this;
       const footer = this.querySelector(selectorFooter);
-      if (footer instanceof DDSFeatureCTAFooter) {
-        footer.ctaType = ctaType;
-        footer.altAriaLabel = videoName || captionHeading;
-        footer.videoName = videoName;
-        footer.videoDescription = videoDescription;
+      if (footer) {
+        (footer as DDSFeatureCTAFooter).ctaType = ctaType;
+        (footer as DDSFeatureCTAFooter).altAriaLabel = this.videoName || this.captionHeading;
+        (footer as DDSFeatureCTAFooter).videoName = videoName;
+        (footer as DDSFeatureCTAFooter).videoDescription = videoDescription;
       }
     }
-    if (changedProperties.has('captionHeading') && captionHeading) {
-      const heading = this.querySelector(selectorHeading) as DDSCardHeading;
-      heading.innerText = captionHeading;
-    }
-    if (changedProperties.has('videoDuration') && videoDuration) {
-      const footer = this.querySelector(selectorFooter) as DDSFeatureCTAFooter;
-      footer.innerText = this.formatVideoDuration({
-        duration: videoDuration * 1000,
-      });
+    if (changedProperties.has('captionHeading')) {
+      (this.querySelector(
+        (this.constructor as typeof DDSFeatureCTA).selectorHeading
+      ) as HTMLElement)!.innerText = this.captionHeading;
     }
   }
 
