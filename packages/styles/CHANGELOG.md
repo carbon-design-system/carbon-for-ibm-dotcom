@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.35.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.34.0...@carbon/ibmdotcom-styles@1.35.0-rc.0) (2022-06-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency carbon-components ([#8925](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8925)) ([d36320f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d36320f8460ede20d27557873edbcf7a661e77bd))
+* **footer:** language selector styles ([#8821](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8821)) ([90e6e32](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/90e6e3273fdec6046f6cb2778e6eb391fdce9d6c)), closes [#7329](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7329)
+* **link-list:** align icon to top when wrapping multiple lines ([#8827](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8827)) ([4fee5ee](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4fee5ee8aee7de6cbde73e50943a3c190f3da1ca)), closes [#6874](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6874)
+* **quote:** link styles in dark themes ([#8862](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8862)) ([af08015](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/af08015f40a565b900444957f72c15b5deef8ad2)), closes [#8705](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8705)
+* **quote:** update max breakpoint corner bracket position ([#8907](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8907)) ([53f6cbe](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/53f6cbef52191720d9b95cf58e9498214853e6be)), closes [#8690](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8690)
+* **toc:** update styles ([#8935](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8935)) ([10fba63](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/10fba6392bfd3384aa42cb7a4b4ddd0108a74784)), closes [#8930](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8930) [#8933](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8933)
+
+
+### Features
+
+* **image:** merge image-with-caption with regular image ([#8919](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8919)) ([74689c1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/74689c1b638f5d14a8c9272c02dc63e761a6dd8b)), closes [#8839](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8839)
+* **lightbox-media-viewer:** add carousel functionality ([#8757](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8757)) ([c7e9d1c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c7e9d1c79c588777e1dc8876f4635c55529fbfc4)), closes [#6372](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6372)
+* **logo-grid:** add logoCount and logoRatio props ([#8905](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8905)) ([c519b06](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c519b06d80acbbb0ba37c5f0414d1c8a49c87873)), closes [#8848](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8848)
+
+
+
+
+
 # [1.34.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.34.0-rc.0...@carbon/ibmdotcom-styles@1.34.0) (2022-05-20)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
