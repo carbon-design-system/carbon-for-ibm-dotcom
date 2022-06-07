@@ -131,25 +131,24 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
     super.updated(changedProperties);
     const { captionHeading, ctaType, videoName, videoDescription, videoDuration } = this;
     const { selectorFooter, selectorHeading } = this.constructor as typeof DDSFeatureCTA;
-
-    const heading = this.querySelector(selectorHeading) as DDSCardHeading;
-    const footer = this.querySelector(selectorFooter) as DDSFeatureCTAFooter;
-
     if (changedProperties.has('ctaType') || changedProperties.has('videoName') || changedProperties.has('captionHeading')) {
-      footer.ctaType = ctaType;
-      footer.altAriaLabel = videoName || captionHeading;
-      footer.videoName = videoName;
-      footer.videoDescription = videoDescription;
+      const footer = this.querySelector(selectorFooter);
+      if (footer instanceof DDSFeatureCTAFooter) {
+        footer.ctaType = ctaType;
+        footer.altAriaLabel = videoName || captionHeading;
+        footer.videoName = videoName;
+        footer.videoDescription = videoDescription;
+      }
     }
     if (changedProperties.has('captionHeading') && captionHeading) {
+      const heading = this.querySelector(selectorHeading) as DDSCardHeading;
       heading.innerText = captionHeading;
     }
-    if (changedProperties.has('videoDuration')) {
-      footer.innerText = videoDuration
-        ? this.formatVideoDuration({
-            duration: videoDuration * 1000,
-          })
-        : '';
+    if (changedProperties.has('videoDuration') && videoDuration) {
+      const footer = this.querySelector(selectorFooter) as DDSFeatureCTAFooter;
+      footer.innerText = this.formatVideoDuration({
+        duration: videoDuration * 1000,
+      });
     }
   }
 
