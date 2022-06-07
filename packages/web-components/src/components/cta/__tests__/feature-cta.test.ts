@@ -62,7 +62,7 @@ describe('dds-feature-cta', function() {
         template({
           ctaType: CTA_TYPE.VIDEO,
           videoName: 'video-name-foo',
-          heading: 'heading',
+          heading: 'custom-heading',
           children: 'video-name-bar',
         }),
         document.body
@@ -75,7 +75,7 @@ describe('dds-feature-cta', function() {
           .querySelector('dds-feature-cta')!
           .querySelector('dds-card-heading')!
           .textContent!.trim()
-      ).toBe('video-name-foo');
+      ).toBe('custom-heading');
     });
 
     it('should not use the thumbnail image if image is given', async function() {
