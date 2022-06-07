@@ -7,4 +7,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/structured-list/structured-list.js';
+import '@carbon/ibmdotcom-web-components/es/components/structured-list/index';
