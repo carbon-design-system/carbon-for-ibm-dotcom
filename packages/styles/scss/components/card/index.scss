@@ -434,6 +434,11 @@
     svg,
     ::slotted(svg[slot='icon']) {
       fill: $inverse-link;
+
+      @include carbon--breakpoint('max') {
+        width: $carbon--spacing-07;
+        height: $carbon--spacing-07;
+      }
     }
   }
 
