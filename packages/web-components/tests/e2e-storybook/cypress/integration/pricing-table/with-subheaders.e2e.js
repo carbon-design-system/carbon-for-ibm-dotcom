@@ -40,10 +40,7 @@ describe('dds-pricing-table | with subheaders (desktop)', () => {
     cy.viewport(1280, 780);
   });
 
-  [
-    ...createTests(path),
-    ..._tests(path),
-  ].forEach(test => test());
+  [...createTests(path), ..._tests(path)].forEach(test => test());
 });
 
 describe('dds-pricing-table | with subheaders (mobile)', () => {
@@ -51,9 +48,5 @@ describe('dds-pricing-table | with subheaders (mobile)', () => {
     cy.viewport(320, 720);
   });
 
-  [
-    ...createTests(path),
-    ...createTestsMobile(path),
-    ..._tests(path),
-  ].forEach(test => test());
+  [...createTests(path), ...createTestsMobile(path), ..._tests(path)].forEach(test => test());
 });

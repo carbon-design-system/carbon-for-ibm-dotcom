@@ -28,8 +28,5 @@ describe('dds-pricing-table | without row headers (mobile)', () => {
     cy.viewport(320, 720);
   });
 
-  [
-    ...createTests(path),
-    ...createTestsMobile(path),
-  ].forEach(test => test());
+  [...createTests(path), ...createTestsMobile(path)].forEach(test => test());
 });

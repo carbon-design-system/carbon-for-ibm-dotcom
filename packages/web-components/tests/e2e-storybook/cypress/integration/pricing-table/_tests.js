@@ -29,7 +29,7 @@ export const selectors = {
  *   The Story path.
  * @return {Array<function>}
  */
-export const createTests = (path) => [
+export const createTests = path => [
   () => {
     it('should check a11y', () => {
       cy.visit(path);
@@ -70,11 +70,11 @@ export const createTests = (path) => [
   () => {
     it('should should support customizable highlighted column', () => {
       const highlightedCol = 3;
-      const checkHighlight = (row) => {
+      const checkHighlight = row => {
         const children = row.children;
         const highlightedCell = children[highlightedCol - 1];
         expect(highlightedCell).to.have.class('highlighted');
-      }
+      };
 
       cy.visit(`${path}&knob-highlighted%20column_PricingTable=${highlightedCol}`)
         .get(selectors.headerRow)
@@ -85,7 +85,7 @@ export const createTests = (path) => [
         .then($rows => {
           $rows.each((index, row) => {
             checkHighlight(row);
-          })
+          });
         });
     });
   },
@@ -124,21 +124,14 @@ export const createTests = (path) => [
   },
   () => {
     it('should have rows that support toggling annotation visibility', () => {
-      const getCellsWithAnnotations = $row => (
-        Array.from($row[0].children).filter(cell => cell.querySelector(selectors.annotation))
-      );
+      const getCellsWithAnnotations = $row =>
+        Array.from($row[0].children).filter(cell => cell.querySelector(selectors.annotation));
 
-      const getAnnotationHeight = cell => (
-        cell.querySelector(selectors.annotation).getBoundingClientRect().height
-      );
+      const getAnnotationHeight = cell => cell.querySelector(selectors.annotation).getBoundingClientRect().height;
 
       cy.visit(path)
         .get(selectors.row)
-        .then($rows => (
-          $rows.filter((index, row) => (
-            row.querySelector(selectors.annotationToggle)
-          )).first()
-        ))
+        .then($rows => $rows.filter((index, row) => row.querySelector(selectors.annotationToggle)).first())
         .as('firstRowWithAnnotations')
         .find(selectors.annotationToggle)
         .then($toggle => $toggle[0].shadowRoot.querySelector('button'))
@@ -171,14 +164,14 @@ export const createTests = (path) => [
  *   The Story path.
  * @return {Array<function>}
  */
-export const createTestsMobile = (path) => [
+export const createTestsMobile = path => [
   () => {
     it('should scroll horizontally', () => {
       cy.visit(path)
         .get(selectors.table)
         .scrollTo('right');
       cy.takeSnapshots();
-    })
+    });
   },
 ];
 
