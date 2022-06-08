@@ -15,13 +15,9 @@ import '../feature-cta';
 import '../feature-cta-footer';
 import '../text-cta';
 import { html } from 'lit-element';
-import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20.js';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import Download20 from 'carbon-web-components/es/icons/download/20.js';
-import Launch20 from 'carbon-web-components/es/icons/launch/20.js';
-import PlayOutline20 from 'carbon-web-components/es/icons/play--outline/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select, boolean } from '@storybook/addon-knobs';
+import { icons as ctaIcons } from '../../../component-mixins/cta/cta';
 // eslint-disable-next-line sort-imports
 import { CTA_TYPE } from '../defs';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
@@ -33,8 +29,11 @@ const hrefsForType = {
   [CTA_TYPE.LOCAL]: 'https://www.example.com',
   [CTA_TYPE.JUMP]: '#example',
   [CTA_TYPE.EXTERNAL]: 'https://www.example.com',
+  [CTA_TYPE.NEW_TAB]: 'https://www.example.com',
   [CTA_TYPE.DOWNLOAD]: 'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
   [CTA_TYPE.VIDEO]: '1_9h94wo6b',
+  [CTA_TYPE.PDF]: 'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
+  [CTA_TYPE.BLOG]: 'https://www.example.com',
 };
 
 const knobNamesForType = {
@@ -42,8 +41,11 @@ const knobNamesForType = {
   [CTA_TYPE.LOCAL]: 'Content link href (href)',
   [CTA_TYPE.JUMP]: 'Anchor href (href)',
   [CTA_TYPE.EXTERNAL]: 'Content link href (href)',
+  [CTA_TYPE.NEW_TAB]: 'Content link href (href)',
   [CTA_TYPE.DOWNLOAD]: 'Download link href (href)',
   [CTA_TYPE.VIDEO]: 'Video ID (href)',
+  [CTA_TYPE.PDF]: 'Download link href (href)',
+  [CTA_TYPE.BLOG]: 'Content link href (href)',
 };
 
 const footerKnobNamesForType = {
@@ -51,16 +53,22 @@ const footerKnobNamesForType = {
   [CTA_TYPE.LOCAL]: 'Content link href (href)',
   [CTA_TYPE.JUMP]: 'Anchor href (href)',
   [CTA_TYPE.EXTERNAL]: 'Content link href (href)',
+  [CTA_TYPE.NEW_TAB]: 'Content link href (href)',
   [CTA_TYPE.DOWNLOAD]: 'Download link href (href)',
   [CTA_TYPE.VIDEO]: 'Video ID (href)',
+  [CTA_TYPE.PDF]: 'Download link href (href)',
+  [CTA_TYPE.BLOG]: 'Content link href (href)',
 };
 
 const types = {
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
   [`Jump (${CTA_TYPE.JUMP})`]: CTA_TYPE.JUMP,
   [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
+  [`New Tab (${CTA_TYPE.NEW_TAB})`]: CTA_TYPE.NEW_TAB,
   [`Download (${CTA_TYPE.DOWNLOAD})`]: CTA_TYPE.DOWNLOAD,
   [`Video (${CTA_TYPE.VIDEO})`]: CTA_TYPE.VIDEO,
+  [`PDF (${CTA_TYPE.PDF})`]: CTA_TYPE.PDF,
+  [`Blog (${CTA_TYPE.BLOG})`]: CTA_TYPE.BLOG,
 };
 
 export const Text = ({ parameters }) => {
@@ -85,10 +93,9 @@ Text.story = {
       TextCTA: ({ groupId }) => {
         const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL, groupId);
         const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy (copy):', 'Lorem ipsum dolor sit amet', groupId);
-        const download =
-          ctaType !== CTA_TYPE.DOWNLOAD
-            ? undefined
-            : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
+        const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
+          ? undefined
+          : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
         const customVideoTitle =
           ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video title', 'Custom video title', groupId) : null;
 
@@ -147,10 +154,9 @@ Button.story = {
       ButtonCTA: ({ groupId }) => {
         const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL, groupId);
         const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text', 'Lorem ipsum dolor sit amet', groupId);
-        const download =
-          ctaType !== CTA_TYPE.DOWNLOAD
-            ? undefined
-            : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
+        const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
+          ? undefined
+          : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
         const customVideoTitle =
           ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video title', 'Custom video title', groupId) : null;
         const customVideoDescription =
@@ -217,11 +223,7 @@ export const Card = ({ parameters }) => {
         video-description="${ifNonNull(customVideoDescription)}"
         href="${ifNonNull(footerHref)}"
       >
-        ${ctaType === 'local' ? footerCopy || ArrowRight20({ slot: 'icon' }) : ''}
-        ${ctaType === 'jump' ? footerCopy || ArrowDown20({ slot: 'icon' }) : ''}
-        ${ctaType === 'external' ? footerCopy || Launch20({ slot: 'icon' }) : ''}
-        ${ctaType === 'download' ? footerCopy || Download20({ slot: 'icon' }) : ''}
-        ${ctaType === 'video' ? footerCopy || PlayOutline20({ slot: 'icon' }) : ''}
+        ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
       </dds-card-cta-footer>
     </dds-card-cta>
   `;
@@ -307,11 +309,7 @@ export const CardLink = ({ parameters }) => {
         video-description="${ifNonNull(customVideoDescription)}"
         href="${ifNonNull(footerHref)}"
       >
-        ${ctaType === 'local' ? footerCopy || ArrowRight20({ slot: 'icon' }) : ''}
-        ${ctaType === 'jump' ? footerCopy || ArrowDown20({ slot: 'icon' }) : ''}
-        ${ctaType === 'external' ? footerCopy || Launch20({ slot: 'icon' }) : ''}
-        ${ctaType === 'download' ? footerCopy || Download20({ slot: 'icon' }) : ''}
-        ${ctaType === 'video' ? footerCopy || PlayOutline20({ slot: 'icon' }) : ''}
+        ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
       </dds-card-cta-footer>
     </dds-card-link-cta>
   `;
@@ -325,10 +323,9 @@ CardLink.story = {
       CardCTA: ({ groupId }) => {
         const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL, groupId);
         const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy (copy):', '', groupId);
-        const download =
-          ctaType !== CTA_TYPE.DOWNLOAD
-            ? undefined
-            : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
+        const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
+          ? undefined
+          : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
         const heading =
           ctaType === CTA_TYPE.VIDEO
             ? null
@@ -412,10 +409,9 @@ Feature.story = {
         const ctaType = select('CTA type:', types, CTA_TYPE.LOCAL, groupId);
         const heading =
           ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Heading', 'Explore AI uses cases in all industries', groupId);
-        const download =
-          ctaType !== CTA_TYPE.DOWNLOAD
-            ? undefined
-            : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
+        const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
+          ? undefined
+          : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
         const customVideoTitle =
           ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video title', 'Custom video title', groupId) : null;
         const customVideoDescription =
