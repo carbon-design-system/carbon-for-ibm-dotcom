@@ -28,7 +28,7 @@
       /* stylelint-enable selector-pseudo-class-no-unknown */
       display: block;
       text-decoration: none;
-      border: 2px solid transparent;
+      border: $spacing-01 solid transparent;
 
       &:hover,
       &:active {
@@ -37,8 +37,8 @@
 
       &:focus,
       &:active {
-        outline: $ui-background 1px solid;
-        outline-offset: -1px;
+        outline: carbon--rem(1px) solid $ui-background;
+        outline-offset: carbon--rem(-1px);
         border-color: $focus;
       }
     }
