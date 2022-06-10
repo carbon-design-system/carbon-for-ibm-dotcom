@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 import axios from 'axios';
-import root from 'window-or-global';
 
 class CloudAccountAuthAPI {
   /**
@@ -20,7 +19,7 @@ class CloudAccountAuthAPI {
    * @returns {string} string determining login status
    */
   static async checkPersonalization() {
-    const status = root.digitalData.user.segment.isCloudLoggedOn;
+    const status = window.digitalData.user.segment.isCloudLoggedOn;
     console.log('testing auth status', status);
     return { user: status === true ? 'authenticated' : 'anonymous' };
   }
