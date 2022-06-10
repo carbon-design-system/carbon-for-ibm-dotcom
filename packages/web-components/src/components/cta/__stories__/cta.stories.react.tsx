@@ -26,7 +26,7 @@ import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image
 import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
 
 import readme from './README.stories.react.mdx';
-import { hrefsForType, knobNamesForType, footerKnobNamesForType, types } from './ctaTypeConfig';
+import { hrefsForType, knobNamesForType, footerKnobNamesForType, typeOptions, types } from './ctaTypeConfig';
 import { CTA_TYPE } from '../defs';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
 
@@ -49,7 +49,7 @@ Text.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
     knobs: {
       TextCTA: ({ groupId }) => {
-        const ctaType = select('CTA type (cta-type)', types, types[CTA_TYPE.LOCAL], groupId);
+        const ctaType = select('CTA type (cta-type)', typeOptions, types[CTA_TYPE.LOCAL], groupId);
         const copy = ctaType === CTA_TYPE.VIDEO ? undefined : text('Copy (copy):', 'Lorem ipsum dolor sit amet', groupId);
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD ? undefined : text('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
@@ -95,7 +95,7 @@ Button.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
     knobs: {
       ButtonCTA: ({ groupId }) => {
-        const ctaType = select('CTA type (cta-type)', types, types[CTA_TYPE.LOCAL], groupId);
+        const ctaType = select('CTA type (cta-type)', typeOptions, types[CTA_TYPE.LOCAL], groupId);
         const copy = ctaType === CTA_TYPE.VIDEO ? undefined : text('Copy (copy):', 'Lorem ipsum dolor sit amet', groupId);
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD ? undefined : text('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
@@ -208,7 +208,7 @@ CardLink.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-4 bx--no-gutter',
     knobs: {
       CardCTA: ({ groupId }) => {
-        const ctaType = select('CTA type (cta-type)', types, types[CTA_TYPE.LOCAL], groupId);
+        const ctaType = select('CTA type (cta-type)', typeOptions, types[CTA_TYPE.LOCAL], groupId);
         const copy = ctaType === CTA_TYPE.VIDEO ? undefined : text('Copy (copy):', '', groupId);
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD ? undefined : text('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
@@ -267,7 +267,7 @@ Feature.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
     knobs: {
       FeatureCTA: ({ groupId }) => {
-        const ctaType = select('CTA type:', types, types[CTA_TYPE.LOCAL], groupId);
+        const ctaType = select('CTA type:', typeOptions, types[CTA_TYPE.LOCAL], groupId);
         const heading =
           ctaType === CTA_TYPE.VIDEO ? undefined : text('Heading', 'Explore AI uses cases in all industries', groupId);
         const download =

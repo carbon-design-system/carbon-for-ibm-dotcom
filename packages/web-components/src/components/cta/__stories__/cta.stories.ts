@@ -20,7 +20,7 @@ import { select, boolean } from '@storybook/addon-knobs';
 import { icons as ctaIcons } from '../../../component-mixins/cta/cta';
 // eslint-disable-next-line sort-imports
 import { CTA_TYPE } from '../defs';
-import { hrefsForType, knobNamesForType, footerKnobNamesForType, types } from './ctaTypeConfig';
+import { hrefsForType, knobNamesForType, footerKnobNamesForType, typeOptions, types } from './ctaTypeConfig';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -45,7 +45,7 @@ Text.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
     knobs: {
       TextCTA: ({ groupId }) => {
-        const ctaType = select('CTA type (cta-type)', types, types[CTA_TYPE.LOCAL], groupId);
+        const ctaType = select('CTA type (cta-type)', typeOptions, types[CTA_TYPE.LOCAL], groupId);
         const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy (copy):', 'Lorem ipsum dolor sit amet', groupId);
         const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
           ? undefined
@@ -106,7 +106,7 @@ Button.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
     knobs: {
       ButtonCTA: ({ groupId }) => {
-        const ctaType = select('CTA type (cta-type)', types, types[CTA_TYPE.LOCAL], groupId);
+        const ctaType = select('CTA type (cta-type)', typeOptions, types[CTA_TYPE.LOCAL], groupId);
         const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text', 'Lorem ipsum dolor sit amet', groupId);
         const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
           ? undefined
@@ -275,7 +275,7 @@ CardLink.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-4 bx--no-gutter',
     knobs: {
       CardCTA: ({ groupId }) => {
-        const ctaType = select('CTA type (cta-type)', types, types[CTA_TYPE.LOCAL], groupId);
+        const ctaType = select('CTA type (cta-type)', typeOptions, types[CTA_TYPE.LOCAL], groupId);
         const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy (copy):', '', groupId);
         const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
           ? undefined
@@ -360,7 +360,7 @@ Feature.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
     knobs: {
       FeatureCTA: ({ groupId }) => {
-        const ctaType = select('CTA type:', types, types[CTA_TYPE.LOCAL], groupId);
+        const ctaType = select('CTA type:', typeOptions, types[CTA_TYPE.LOCAL], groupId);
         const heading =
           ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Heading', 'Explore AI uses cases in all industries', groupId);
         const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)

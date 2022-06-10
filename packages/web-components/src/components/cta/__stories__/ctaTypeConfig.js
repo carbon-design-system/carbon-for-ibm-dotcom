@@ -45,7 +45,7 @@ export const footerKnobNamesForType = {
   [CTA_TYPE.BLOG]: 'Content link href (href)',
 };
 
-export const types = {
+export const typeOptions = {
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
   [`Jump (${CTA_TYPE.JUMP})`]: CTA_TYPE.JUMP,
   [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
@@ -54,4 +54,16 @@ export const types = {
   [`Video (${CTA_TYPE.VIDEO})`]: CTA_TYPE.VIDEO,
   [`PDF (${CTA_TYPE.PDF})`]: CTA_TYPE.PDF,
   [`Blog (${CTA_TYPE.BLOG})`]: CTA_TYPE.BLOG,
+};
+
+export const types = {
+  [CTA_TYPE.REGULAR]: CTA_TYPE.REGULAR,
+  [CTA_TYPE.LOCAL]: CTA_TYPE.LOCAL,
+  [CTA_TYPE.JUMP]: CTA_TYPE.JUMP,
+  [CTA_TYPE.EXTERNAL]: CTA_TYPE.EXTERNAL,
+  [CTA_TYPE.NEW_TAB]: CTA_TYPE.NEW_TAB,
+  [CTA_TYPE.DOWNLOAD]: CTA_TYPE.DOWNLOAD,
+  [CTA_TYPE.VIDEO]: CTA_TYPE.VIDEO,
+  [CTA_TYPE.PDF]: CTA_TYPE.PDF,
+  [CTA_TYPE.BLOG]: CTA_TYPE.BLOG,
 };
