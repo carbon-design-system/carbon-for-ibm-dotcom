@@ -21,6 +21,7 @@ class CloudAccountAuthAPI {
    * @returns {string} string determining login status
    */
   static async checkPersonalization() {
+    console.log('in checkPersonalization method');
     return await DDOAPI.isReady().then(() => {
       const status = root.digitalData.user.segment.isCloudLoggedOn;
       console.log('testing auth status', status);
