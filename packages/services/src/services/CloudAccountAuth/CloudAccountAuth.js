@@ -22,7 +22,7 @@ class CloudAccountAuthAPI {
   static async checkPersonalization() {
     console.log('in checkPersonalization method');
     return await DDOAPI.isReady().then(() => {
-      console.log('check DDO', window.digitalData.page);
+      console.log('check DDO', window.digitalData);
       const status = window.digitalData.user.segment.isCloudLoggedOn;
       console.log('check auth status', status);
       return { user: status === true ? 'authenticated' : 'anonymous' };
