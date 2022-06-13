@@ -153,6 +153,19 @@ const DDSVideoPlayerComposite: FunctionComponent<DDSVideoPlayerCompositeProps> =
       if (autoplay || backgroundMode) {
         embedMedia?.(videoId, backgroundMode);
       }
+
+      window.addEventListener('eventPlaybackStateChanged', () => {
+        // const videoId = event.detail;
+        if (isPlaying) {
+          embeddedVideos[videoId].sendNotification('doPause');
+          isPlaying = false;
+        } else {
+          embeddedVideos[videoId].sendNotification('doPlay');
+          isPlaying = true;
+        }
+
+        setAutoplayPreference(isPlaying);
+      });
     }
   }, [videoId, autoplay, backgroundMode, loadVideoData, embedMedia]);
 
@@ -171,7 +184,7 @@ const DDSVideoPlayerComposite: FunctionComponent<DDSVideoPlayerCompositeProps> =
     }
   });
 
-  const { [videoId]: currentVideoData = {} as MediaData } = mediaData;
+  const { [videoId<any>]: currentVideoData = {} as MediaData } = mediaData;
   const { duration, name } = currentVideoData;
   const thumbnail =
     thumbnailUrl ||
