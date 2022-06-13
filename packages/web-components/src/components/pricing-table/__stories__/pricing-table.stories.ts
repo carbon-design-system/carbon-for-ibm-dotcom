@@ -22,6 +22,26 @@ enum CELL_TYPES {
   EMPTY = 'empty',
 }
 
+const richTextContent = html`
+  <p>Example using rich text: Lorem ipsum dolor sit amet consectetur.</p>
+  <ul>
+    <li>Lorem ipsum dolor</li>
+    <li>
+      sit amet
+    </li>
+    <li>consectetur retention adispiscing elit sed do eiusm Eiusmod tempor</li>
+  </ul>
+`;
+
+const listItemContent = html`
+  Example using Carbon Core's bx-unordered-list. Lorem ipsum dolor sit amet consectetur.
+  <bx-unordered-list>
+    <bx-list-item>Lorem ipsum dolor</bx-list-item>
+    <bx-list-item>sit amet</bx-list-item>
+    <bx-list-item>consectetur retention adispiscing elit sed do eiusm Eiusmod tempor</bx-list-item>
+  </bx-unordered-list>
+`;
+
 const renderHeaderCell = (iterator: number): TemplateResult => {
   const cellVariations = [
     html`
@@ -32,12 +52,7 @@ const renderHeaderCell = (iterator: number): TemplateResult => {
           >Merchandising offer</dds-pricing-table-header-cell-tag
         >
         <dds-pricing-table-header-cell-description>
-          Lorem ipsum dolor sit amet consectetur.
-          <bx-unordered-list>
-            <bx-list-item>Lorem ipsum dolor</bx-list-item>
-            <bx-list-item>sit amet</bx-list-item>
-            <bx-list-item>consectetur retention adispiscing elit sed do eiusm Eiusmod tempor</bx-list-item>
-          </bx-unordered-list>
+          ${richTextContent}
         </dds-pricing-table-header-cell-description>
         <dds-pricing-table-header-cell-cta
           cta-type="local"
@@ -51,12 +66,7 @@ const renderHeaderCell = (iterator: number): TemplateResult => {
         <dds-pricing-table-header-cell-headline>Variation ${iterator}</dds-pricing-table-header-cell-headline>
         <dds-pricing-table-header-cell-caption>Starting at $X.XX per user</dds-pricing-table-header-cell-caption>
         <dds-pricing-table-header-cell-description>
-          Lorem ipsum dolor sit amet consectetur.
-          <bx-unordered-list>
-            <bx-list-item>Lorem ipsum dolor</bx-list-item>
-            <bx-list-item>sit amet</bx-list-item>
-            <bx-list-item>consectetur retention adispiscing elit sed do eiusm Eiusmod tempor</bx-list-item>
-          </bx-unordered-list>
+          ${listItemContent}
         </dds-pricing-table-header-cell-description>
         <dds-pricing-table-header-cell-cta
           cta-type="local"
@@ -73,12 +83,7 @@ const renderHeaderCell = (iterator: number): TemplateResult => {
           >Secondary tag</dds-pricing-table-header-cell-tag
         >
         <dds-pricing-table-header-cell-description>
-          Lorem ipsum dolor sit amet consectetur.
-          <bx-unordered-list>
-            <bx-list-item>Lorem ipsum dolor</bx-list-item>
-            <bx-list-item>sit amet</bx-list-item>
-            <bx-list-item>consectetur retention adispiscing elit sed do eiusm Eiusmod tempor</bx-list-item>
-          </bx-unordered-list>
+          ${listItemContent}
         </dds-pricing-table-header-cell-description>
         <dds-pricing-table-header-cell-cta
           cta-type="local"
@@ -113,10 +118,13 @@ const renderBodyCell = (type: CELL_TYPES): TemplateResult => {
     case CELL_TYPES.TEXT:
       return html`
         <dds-pricing-table-cell>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue.
-          Aenean posuere sem vel euismod dignissim.
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+            Aenean posuere sem vel euismod dignissim.
+          </p>
+          ${richTextContent}
           <dds-pricing-table-cell-annotation>
-            Sed quis neque ultrices, convallis augue non, scelerisque massa.
+            <p>Sed quis neque ultrices, convallis augue non, scelerisque massa.</p>
           </dds-pricing-table-cell-annotation>
         </dds-pricing-table-cell>
       `;
@@ -125,7 +133,7 @@ const renderBodyCell = (type: CELL_TYPES): TemplateResult => {
         <dds-pricing-table-cell icon="checkmark">
           Cell with icon
           <dds-pricing-table-cell-annotation>
-            Sed quis neque ultrices, convallis augue non, scelerisque massa.
+            <p>Sed quis neque ultrices, convallis augue non, scelerisque massa.</p>
           </dds-pricing-table-cell-annotation>
         </dds-pricing-table-cell>
       `;

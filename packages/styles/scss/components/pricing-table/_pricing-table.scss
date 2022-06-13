@@ -190,6 +190,75 @@
     display: block;
     margin-block-start: $carbon--spacing-05;
     color: $text-01;
+
+    .#{$prefix}--pricing-table-header-cell-description-body {
+      p,
+      ul,
+      ol {
+        color: $text-01;
+      }
+    }
+  }
+
+  .#{$prefix}--pricing-table-cell-annotation,
+  :host(#{$dds-prefix}-pricing-table-cell-annotation) {
+    display: block;
+    color: $text-02;
+    transition: $duration--fast-02 motion(standard, productive);
+    height: 0;
+    opacity: 0;
+    transform: translateY(-#{$carbon--spacing-05});
+
+    .#{$prefix}--pricing-table-header-cell-description-body {
+      p,
+      ul,
+      ol {
+        color: $text-02;
+      }
+    }
+  }
+
+  .#{$prefix}--pricing-table-header-cell-description,
+  :host(#{$dds-prefix}-pricing-table-header-cell-description),
+  .#{$prefix}--pricing-table-cell-annotation,
+  :host(#{$dds-prefix}-pricing-table-cell-annotation) {
+    .#{$prefix}--pricing-table-header-cell-description-body {
+      p,
+      ul,
+      ol {
+        @include carbon--type-style('body-long-01');
+      }
+
+      ol,
+      ul {
+        @extend :host(#{$prefix}-ordered-list),
+          :host(#{$prefix}-unordered-list);
+      }
+
+      ol {
+        @extend .#{$prefix}--list--ordered;
+        @extend :host(#{$prefix}-ordered-list);
+      }
+
+      ul {
+        @extend .#{$prefix}--list--unordered;
+        @extend :host(#{$prefix}-unordered-list);
+      }
+
+      li {
+        @extend :host(#{$prefix}-list-item);
+
+        color: inherit;
+      }
+
+      ul ul {
+        @extend :host(#{$prefix}-unordered-list[slot='nested']);
+      }
+
+      ul li {
+        @extend ::slotted(#{$prefix}-list-item);
+      }
+    }
   }
 
   .#{$prefix}--pricing-table-header-cell-cta,
@@ -220,16 +289,6 @@
     svg {
       fill: $ui-04;
     }
-  }
-
-  .#{$prefix}--pricing-table-cell-annotation,
-  :host(#{$dds-prefix}-pricing-table-cell-annotation) {
-    display: block;
-    color: $text-02;
-    transition: $duration--fast-02 motion(standard, productive);
-    height: 0;
-    opacity: 0;
-    transform: translateY(-#{$carbon--spacing-05});
   }
 }
 

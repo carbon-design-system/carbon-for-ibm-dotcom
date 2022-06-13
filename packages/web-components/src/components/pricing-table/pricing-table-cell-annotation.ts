@@ -7,22 +7,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, LitElement, property, html } from 'lit-element';
+import { customElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import styles from './pricing-table.scss';
+import DDSPricingTableHeaderCellDescription from './pricing-table-header-cell-description';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-cell-annotation`)
-class DDSPricingTableCellAnnotation extends LitElement {
+class DDSPricingTableCellAnnotation extends DDSPricingTableHeaderCellDescription {
   @property({ reflect: true })
   slot = 'annotation';
-
-  render() {
-    return html`
-      <slot></slot>
-    `;
-  }
 
   static get stableSelector() {
     return `${ddsPrefix}--pricing-table-group-annotation`;
