@@ -38,8 +38,22 @@ export const Default = ({ parameters }) => {
             augue. Aenean posuere sem vel euismod dignissim.
           </dds-structured-list-cell>
           <dds-structured-list-cell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
-            augue. Aenean posuere sem vel euismod dignissim.
+            <p>
+              Example with rich text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan ante et
+              faucibus. Aenean nec dui et sem blandit commodo. Quisque at ex eget lorem pellentesque consectetur. Mauris elementum
+              massa placerat tortor placerat, nec aliquet arcu pulvinar.
+            </p>
+            <ul>
+              <li>Lorem ipsum dolor sit amet</li>
+              <li>
+                Vestibulum luctus accumsan
+                <ul>
+                  <li>Lorem ipsum 2.1</li>
+                  <li>Lorem ipsum 2.2</li>
+                </ul>
+              </li>
+              <li>Mauris elementum massa</li>
+            </ul>
           </dds-structured-list-cell>
         </dds-structured-list-row>
         <dds-structured-list-row>
@@ -243,8 +257,22 @@ export const WithComplexContent = ({ parameters }) => {
         </dds-structured-list-row>
         <dds-structured-list-row>
           <dds-structured-list-cell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed,aliquet bibendum augue.
-            Aenean posuere sem vel euismod dignissim.
+            <p>
+              Example with rich text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan ante et
+              faucibus. Aenean nec dui et sem blandit commodo. Quisque at ex eget lorem pellentesque consectetur. Mauris elementum
+              massa placerat tortor placerat, nec aliquet arcu pulvinar.
+            </p>
+            <ul>
+              <li>Lorem ipsum dolor sit amet</li>
+              <li>
+                Vestibulum luctus accumsan
+                <ul>
+                  <li>Lorem ipsum 2.1</li>
+                  <li>Lorem ipsum 2.2</li>
+                </ul>
+              </li>
+              <li>Mauris elementum massa</li>
+            </ul>
           </dds-structured-list-cell>
         </dds-structured-list-row>
       </dds-structured-list-body>

@@ -12,10 +12,12 @@ import { customElement, property, html } from 'lit-element';
 import Info16 from 'carbon-web-components/es/icons/information/16';
 import Checkmark20 from 'carbon-web-components/es/icons/checkmark/20';
 import Error20 from 'carbon-web-components/es/icons/error/20';
+import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSStructuredListGroup from './structured-list-group';
 import styles from './structured-list.scss';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-structured-list-cell`)
@@ -38,6 +40,14 @@ class DDSStructuredListCell extends BXStructuredListCell {
 
   @property({ attribute: 'tags', reflect: true })
   tags?: string;
+
+  /**
+   * Handles `slotchange` event.
+   */
+  protected _handleSlotChange({ target }: Event) {
+    const hasContent = (target as HTMLSlotElement).assignedNodes();
+    hasContent.forEach(e => this.shadowRoot?.querySelector(`.${prefix}--structured-list-cell-body`)?.append(e));
+  }
 
   connectedCallback() {
     super.connectedCallback();
@@ -85,7 +95,9 @@ class DDSStructuredListCell extends BXStructuredListCell {
     }
 
     return html`
-      ${super.render()} ${tags ? this._renderTags() : ''} ${tooltip ? this._renderTooltip() : ''}
+      <div class="${prefix}--structured-list-cell-body"></div>
+      <slot @slotchange="${this._handleSlotChange}"></slot>
+      ${tags ? this._renderTags() : ''} ${tooltip ? this._renderTooltip() : ''}
     `;
   }
 

@@ -8,6 +8,8 @@
 @import '../../globals/imports';
 @import '../../globals/vars';
 @import 'carbon-web-components/scss/components/structured-list/structured-list';
+@import 'carbon-web-components/scss/components/list/list';
+@import 'carbon-components/scss/components/list/_list';
 
 // Overridden column spanning
 @mixin structured-list-colspan($colNumber) {
@@ -109,6 +111,49 @@
 
     padding-inline: $spacing-05;
     border-bottom: 1px solid $ui-03;
+
+    .#{$prefix}--structured-list-cell-body {
+      p,
+      ul,
+      ol {
+        @include carbon--type-style('body-long-01');
+
+        color: $text-02;
+        margin-bottom: $spacing-05;
+      }
+
+      ol,
+      ul {
+        @extend :host(#{$prefix}-ordered-list),
+          :host(#{$prefix}-unordered-list);
+      }
+
+      ol {
+        @extend .#{$prefix}--list--ordered;
+        @extend :host(#{$prefix}-ordered-list);
+      }
+
+      ul {
+        @extend .#{$prefix}--list--unordered;
+        @extend :host(#{$prefix}-unordered-list);
+      }
+
+      li {
+        @extend :host(#{$prefix}-list-item);
+
+        color: inherit;
+      }
+
+      ul ul {
+        @extend :host(#{$prefix}-unordered-list[slot='nested']);
+
+        margin-bottom: 0;
+      }
+
+      ul li {
+        @extend ::slotted(#{$prefix}-list-item);
+      }
+    }
   }
 
   // Default Carbon Rows/Columns
