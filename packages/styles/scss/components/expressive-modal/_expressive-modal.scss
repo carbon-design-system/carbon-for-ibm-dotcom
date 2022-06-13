@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,7 +18,8 @@
   $modal: '.#{$prefix}--modal';
   $button-size: carbon--rem(48px);
   $icon-size: carbon--rem(20px);
-  $offset-close-icon: $carbon--spacing-07 - (($button-size - $icon-size) / 2);
+  $offset-close-icon: $carbon--spacing-07 -
+    calc(($button-size - $icon-size) / 2);
 
   :host(#{$dds-prefix}-expressive-modal),
   #{$modal}--expressive {

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -42,10 +42,10 @@
 
   :host(#{$dds-prefix}-content-group-cards-item),
   .#{$prefix}--content-group-cards-item__col {
-    margin-top: $carbon--grid-gutter--condensed / 2;
-    margin-bottom: $carbon--grid-gutter--condensed / 2;
-    padding-left: $carbon--grid-gutter--condensed / 2;
-    padding-right: $carbon--grid-gutter--condensed / 2;
+    margin-top: calc($carbon--grid-gutter--condensed / 2);
+    margin-bottom: calc($carbon--grid-gutter--condensed / 2);
+    padding-left: calc($carbon--grid-gutter--condensed / 2);
+    padding-right: calc($carbon--grid-gutter--condensed / 2);
 
     &:focus {
       outline: none;
@@ -53,7 +53,7 @@
   }
 
   :host(#{$dds-prefix}-content-group-cards-item) {
-    padding: $carbon--grid-gutter--condensed / 2;
+    padding: calc($carbon--grid-gutter--condensed / 2);
     background: none;
   }
 }
