@@ -52,6 +52,8 @@ export const ariaLabels = {
   [CTA_TYPE.BLOG]: '',
 };
 
+export const types = CTA_TYPE;
+
 /**
  * @param Base The base class.
  * @returns A mix-in implementing the logic of handling link for CTA.
