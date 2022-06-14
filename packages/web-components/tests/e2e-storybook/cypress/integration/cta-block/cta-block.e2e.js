@@ -22,7 +22,7 @@ describe('dds-cta-block (desktop)', () => {
     cy.viewport(1280, 780);
   });
 
-  xit('should check a11y', () => {
+  it('should check a11y', () => {
     cy.checkAxeA11y();
   });
 
