@@ -33,6 +33,12 @@ class DDSStructuredListCell extends BXStructuredListCell {
   @property({ attribute: 'icon', reflect: true })
   icon?: string;
 
+  /**
+   * Structured list cell body container.
+   */
+  @property()
+  bodyContainer;
+
   private _iconsAllowed = {
     checkmark: Checkmark20,
     error: Error20,
@@ -42,17 +48,9 @@ class DDSStructuredListCell extends BXStructuredListCell {
   tags?: string;
 
   /**
-   * Handles `slotchange` event.
+   * Watches for changes to components childlist and clones nodes to shadow dom.
    */
-  protected _handleSlotChange({ target }: Event) {
-    const hasContent = (target as HTMLSlotElement).assignedNodes();
-    hasContent.forEach(e => this.shadowRoot?.querySelector(`.${prefix}--structured-list-cell-body`)?.append(e));
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
-    this.groupLabel = this.parentGroup?.groupTitle;
-  }
+  private _mutationObserver = new MutationObserver(this._handleMutation.bind(this));
 
   private _renderIcon() {
     const { icon, _iconsAllowed: iconMap } = this;
@@ -85,6 +83,45 @@ class DDSStructuredListCell extends BXStructuredListCell {
     `;
   }
 
+  /**
+   * MutationObserver callback.
+   */
+  protected _handleMutation() {
+    if (!this.bodyContainer) {
+      this.bodyContainer = this.shadowRoot?.querySelector(`.${prefix}--structured-list-cell-body`);
+    }
+
+    const hasContent = this.childNodes;
+
+    // Remove all children in body on each update.
+    while (this.bodyContainer?.firstChild) {
+      this.bodyContainer.removeChild(this.bodyContainer.firstChild);
+    }
+
+    // Append a deeply-cloned node to keep nodes synced in light/shadow dom.
+    hasContent.forEach(e => {
+      this.bodyContainer?.append(e.cloneNode(true));
+    });
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.groupLabel = this.parentGroup?.groupTitle;
+
+    this._mutationObserver.observe(this, {
+      subtree: true,
+      childList: true,
+      attributes: true,
+      characterData: true,
+    });
+
+    this._handleMutation();
+  }
+
+  firstUpdated() {
+    this._handleMutation();
+  }
+
   render() {
     const { tooltipText: tooltip, icon, _iconsAllowed: iconsAllowed, tags } = this;
 
@@ -96,7 +133,6 @@ class DDSStructuredListCell extends BXStructuredListCell {
 
     return html`
       <div class="${prefix}--structured-list-cell-body"></div>
-      <slot @slotchange="${this._handleSlotChange}"></slot>
       ${tags ? this._renderTags() : ''} ${tooltip ? this._renderTooltip() : ''}
     `;
   }
