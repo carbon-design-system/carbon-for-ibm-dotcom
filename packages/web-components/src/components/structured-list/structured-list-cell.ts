@@ -114,8 +114,6 @@ class DDSStructuredListCell extends BXStructuredListCell {
       attributes: true,
       characterData: true,
     });
-
-    this._handleMutation();
   }
 
   firstUpdated() {

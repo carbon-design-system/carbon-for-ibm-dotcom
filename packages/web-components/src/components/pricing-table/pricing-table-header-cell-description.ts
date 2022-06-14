@@ -59,8 +59,6 @@ class DDSPricingTableHeaderCellDescription extends StableSelectorMixin(LitElemen
       attributes: true,
       characterData: true,
     });
-
-    this._handleMutation();
   }
 
   firstUpdated() {
