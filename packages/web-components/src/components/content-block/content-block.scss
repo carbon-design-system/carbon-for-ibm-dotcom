@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2021
+// Copyright IBM Corp. 2020, 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -19,12 +19,6 @@
 :host(#{$dds-prefix}-content-block-complementary),
 :host(#{$dds-prefix}-content-block-paragraph) {
   display: block;
-}
-
-:host(#{$dds-prefix}-content-block-heading) {
-  @include carbon--breakpoint(lg) {
-    margin-bottom: $carbon--layout-03;
-  }
 }
 
 // TODO: Consider applying this rule in general

@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.35.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.34.0...@carbon/ibmdotcom-react@1.35.0-rc.0) (2022-06-07)
+
+
+### Bug Fixes
+
+* **cta:** reorder csb styles ([#8948](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8948)) ([bfb3343](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bfb3343ae399f27b1d9eeac4b70228cba7dd1ce0))
+* **deps:** update dependency carbon-components ([#8925](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8925)) ([d36320f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d36320f8460ede20d27557873edbcf7a661e77bd))
+* **quote:** update max breakpoint corner bracket position ([#8907](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8907)) ([53f6cbe](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/53f6cbef52191720d9b95cf58e9498214853e6be)), closes [#8690](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8690)
+
+
+
+# 1.34.0 (2022-05-20)
+
+
+### Bug Fixes
+
+* **dotcom-shell:** remove padding top ([#8818](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8818)) ([da2ff39](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/da2ff398a2dc70cf128f5945a695cef6d4c22844)), closes [#8703](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8703)
+
+
+### Features
+
+* **background-media:** introducing react wrapper ([#8819](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8819)) ([6c13daf](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6c13dafd38d724059a933afa56663a9dded3715d)), closes [#8617](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8617)
+
+
+
+
+
+# [1.34.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.34.0-rc.0...@carbon/ibmdotcom-react@1.34.0) (2022-05-20)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
 # [1.34.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.33.1...@carbon/ibmdotcom-react@1.34.0-rc.0) (2022-05-06)
 
 

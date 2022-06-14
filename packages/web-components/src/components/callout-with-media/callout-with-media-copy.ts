@@ -30,4 +30,5 @@ class DDSCalloutWithMediaCopy extends DDSContentBlockCopy {
   }
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSCalloutWithMediaCopy;

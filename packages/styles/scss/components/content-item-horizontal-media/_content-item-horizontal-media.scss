@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -175,7 +175,7 @@
     ::slotted([slot='media']) {
       grid-column: 1 / span 10;
     }
-    ::slotted(#{$dds-prefix}-image-with-caption) {
+    ::slotted(#{$dds-prefix}-image) {
       max-width: none;
       margin: 0;
     }
