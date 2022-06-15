@@ -14,6 +14,9 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import Download20 from 'carbon-web-components/es/icons/download/20.js';
 import Launch20 from 'carbon-web-components/es/icons/launch/20.js';
 import PlayOutline20 from 'carbon-web-components/es/icons/play--outline/20.js';
+import Blog20 from 'carbon-web-components/es/icons/blog/20.js';
+import DocumentPDF20 from 'carbon-web-components/es/icons/document--pdf/20.js';
+import NewTab20 from 'carbon-web-components/es/icons/new-tab/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';
@@ -28,8 +31,11 @@ export const icons = {
   [CTA_TYPE.LOCAL]: ArrowRight20,
   [CTA_TYPE.DOWNLOAD]: Download20,
   [CTA_TYPE.EXTERNAL]: Launch20,
+  [CTA_TYPE.NEW_TAB]: NewTab20,
   [CTA_TYPE.JUMP]: ArrowDown20,
   [CTA_TYPE.VIDEO]: PlayOutline20,
+  [CTA_TYPE.PDF]: DocumentPDF20,
+  [CTA_TYPE.BLOG]: Blog20,
 };
 
 /**
@@ -39,9 +45,14 @@ export const ariaLabels = {
   [CTA_TYPE.LOCAL]: '',
   [CTA_TYPE.DOWNLOAD]: ' - This link downloads a file',
   [CTA_TYPE.EXTERNAL]: ' - This link opens in a new tab',
+  [CTA_TYPE.NEW_TAB]: ' - This link opens in a new tab',
   [CTA_TYPE.JUMP]: '',
   [CTA_TYPE.VIDEO]: ' - This link plays a video',
+  [CTA_TYPE.PDF]: ' - This link downloads a pdf',
+  [CTA_TYPE.BLOG]: '',
 };
+
+export const types = CTA_TYPE;
 
 /**
  * @param Base The base class.
@@ -114,9 +125,12 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       const { ctaType, _linkNode: linkNode } = this;
       if (changedProperties.has('ctaType') || changedProperties.has('download')) {
         const { download } = this;
-        if (ctaType !== CTA_TYPE.DOWNLOAD && download) {
+
+        const downloadTypes = [CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF];
+
+        if (!downloadTypes.includes(ctaType) && download) {
           // eslint-disable-next-line no-console
-          console.warn(`\`download\` property used with a CTA data item besides \`type: download\` (\`type: ${ctaType}\`).`);
+          console.warn(`\`download\` property used with a CTA data item besides \`type: download|pdf\` (\`type: ${ctaType}\`).`);
         }
       }
       // TODO: See why `linkNode` can possibly be `null`
@@ -135,7 +149,11 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
           // Default the target to `_blank` if this CTA is an external link and
           // target is not already set
           const { target } = this;
-          const targetInEffect = ctaType === CTA_TYPE.EXTERNAL && !target ? '_blank' : target;
+
+          const newTabTypes = [CTA_TYPE.EXTERNAL, CTA_TYPE.NEW_TAB];
+
+          const targetInEffect = newTabTypes.includes(ctaType) && !target ? '_blank' : target;
+
           if (!targetInEffect) {
             linkNode.removeAttribute('target');
           } else {
