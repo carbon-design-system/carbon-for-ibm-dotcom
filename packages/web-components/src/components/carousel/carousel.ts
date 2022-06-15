@@ -15,6 +15,7 @@ import CaretLeft20 from 'carbon-web-components/es/icons/caret--left/20.js';
 import CaretRight20 from 'carbon-web-components/es/icons/caret--right/20.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
+import { selectorTabbable } from 'carbon-web-components/es/globals/settings';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import styles from './carousel.scss';
@@ -267,43 +268,43 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     }
     this._updateGap();
 
-    this._childItems = (event.target as HTMLSlotElement)
-      .assignedNodes()
-      .filter(elem =>
-        (elem as HTMLElement).matches !== undefined
-          ? (elem as HTMLElement).matches((this.constructor as typeof DDSCarousel).selectorItem) ||
-            (elem as HTMLElement).matches((this.constructor as typeof DDSCarousel).selectorItemVideoCTAContainer)
-          : false
-      );
+    this._childItems = (event.target as HTMLSlotElement).assignedNodes().filter(node => node instanceof HTMLElement);
 
     // retrieve item heading, eyebrows, and footers to set same height
     if (this._childItems) {
-      this._childItems.forEach(e => {
-        this._childItemEyebrows.push(
-          (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemEyebrow)
-        );
-        this._childItemParagraphs.push(
-          (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemParagraph)
-        );
-        this._childItemTagGroup.push(
-          (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemTagGroup)
-        );
-        this._childItemHeadings.push(
-          (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemHeading)
-        );
+      this._childItems
+        .filter(elem =>
+          (elem as HTMLElement).matches !== undefined
+            ? (elem as HTMLElement).matches((this.constructor as typeof DDSCarousel).selectorItem) ||
+              (elem as HTMLElement).matches((this.constructor as typeof DDSCarousel).selectorItemVideoCTAContainer)
+            : false
+        )
+        .forEach(e => {
+          this._childItemEyebrows.push(
+            (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemEyebrow)
+          );
+          this._childItemParagraphs.push(
+            (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemParagraph)
+          );
+          this._childItemTagGroup.push(
+            (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemTagGroup)
+          );
+          this._childItemHeadings.push(
+            (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemHeading)
+          );
 
-        this._childItemHeadings.push(
-          (e as HTMLElement)
-            .querySelector((this.constructor as typeof DDSCarousel).selectorItemCardCTA)
-            ?.shadowRoot?.querySelector((this.constructor as typeof DDSCarousel).selectorItemHeading)
-        );
+          this._childItemHeadings.push(
+            (e as HTMLElement)
+              .querySelector((this.constructor as typeof DDSCarousel).selectorItemCardCTA)
+              ?.shadowRoot?.querySelector((this.constructor as typeof DDSCarousel).selectorItemHeading)
+          );
 
-        this._childItemHeadings = this._childItemHeadings.filter(heading => heading);
+          this._childItemHeadings = this._childItemHeadings.filter(heading => heading);
 
-        this._childItemFooters.push(
-          (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemFooter)
-        );
-      });
+          this._childItemFooters.push(
+            (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemFooter)
+          );
+        });
     }
   }
 
@@ -392,14 +393,19 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           (elems.length - 1);
   }
 
+  get focusableElements() {
+    const { selectorTabbable: selectorTabbableForCarousel } = this.constructor as typeof DDSExpressiveModal;
+    return [
+      ...Array.from((this.shadowRoot?.querySelectorAll(selectorTabbableForCarousel) as NodeListOf<HTMLElement>) || []),
+      ...Array.from(this.querySelectorAll(selectorTabbableForCarousel) as NodeListOf<HTMLElement>),
+    ];
+  }
+
   /**
    * The formatter for the pagination status. Should be changed upon the locale the UI is rendered with.
    */
   @property({ attribute: false })
   formatStatus = ({ currentPage, pages }) => `${currentPage} / ${pages}`;
-
-  @property({ reflect: true, attribute: 'in-modal' })
-  inModal?: String;
 
   /**
    * Number of items per page.
@@ -441,7 +447,8 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
     const containingModal = this.closest(`${ddsPrefix}-expressive-modal`) as DDSExpressiveModal;
     if (containingModal) {
-      this.inModal = '';
+      containingModal.hasFocusableElements.push(this);
+      this.setAttribute('in-modal', '');
 
       setTimeout(() => {
         containingModal.modalBody!.style.overflow = 'hidden';
@@ -457,6 +464,21 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
   firstUpdated() {
     this._cleanAndCreateObserverResize({ create: true });
+  }
+
+  protected updated(changedProperties) {
+    if (changedProperties.has('start')) {
+      const { _childItems: childItems, start, pageSize } = this;
+
+      childItems.forEach(item => {
+        const index = childItems.indexOf(item);
+        if (index < start || index > start + pageSize - 1) {
+          item.inert = true;
+        } else {
+          item.inert = false;
+        }
+      });
+    }
   }
 
   render() {
@@ -593,6 +615,15 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
   static get stableSelector() {
     return `${ddsPrefix}--carousel`;
+  }
+
+  /**
+   * A selector selecting tabbable nodes.
+   */
+  static get selectorTabbable() {
+    return `
+      ${selectorTabbable}
+    `;
   }
 
   static styles = styles;
