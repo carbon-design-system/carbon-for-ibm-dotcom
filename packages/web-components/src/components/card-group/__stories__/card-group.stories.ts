@@ -281,7 +281,7 @@ export const Default = ({ parameters }) => {
 };
 
 export const withCardInCard = ({ parameters }) => {
-  const { cards, tagGroup, media, gridMode } = parameters?.props?.CardGroup ?? {};
+  const { cards, tagGroup, media, gridMode } = parameters?.props?.withCardInCard ?? {};
   const allCards: object[] = [];
   for (let i = 0; i < cards; i++) {
     allCards.push(cardInCardItems(i, tagGroup, media, gridMode));
@@ -311,7 +311,7 @@ withCardInCard.story = {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      CardGroup: ({ groupId }) => ({
+      withCardInCard: ({ groupId }) => ({
         media: boolean('Add media:', false, groupId),
         tagGroup: boolean('Add tags:', false, groupId),
         gridMode: select('Grid mode:', gridModes, GRID_MODE.NARROW, groupId),
@@ -320,7 +320,7 @@ withCardInCard.story = {
     },
     propsSet: {
       default: {
-        CardGroup: {
+        withCardInCard: {
           media: false,
           tagGroup: false,
           gridMode: 'narrow',

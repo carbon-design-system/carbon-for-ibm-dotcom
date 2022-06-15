@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -85,6 +85,16 @@ Default.story = {
         ctaCopy: textNullable('CTA copy:', 'Register for Think. Free', groupId),
         imageWidth: select('Image width:', imageWidthOptions, '4-col', groupId),
       }),
+    },
+    propsSet: {
+      default: {
+        UniversalBanner: {
+          heading: 'Hybrid cloud and AI for smarter business',
+          copy: 'Las Vegas, June 15-18, 2025',
+          ctaCopy: 'Register for Think. Free',
+          imageWidth: '4-col',
+        },
+      },
     },
   },
 };

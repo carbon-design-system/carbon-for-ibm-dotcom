@@ -131,6 +131,16 @@ export const CardsWithMedia = ({ parameters }) => {
 
 CardsWithImages.story = {
   name: 'Cards with images',
+  parameters: {
+    ...readme.parameters,
+    propsSet: {
+      default: {
+        Carousel: {
+          cardSize: 4,
+        },
+      },
+    },
+  },
 };
 
 CardsWithVideos.story = {
@@ -140,6 +150,13 @@ CardsWithVideos.story = {
     percy: {
       skip: true,
     },
+    propsSet: {
+      default: {
+        Carousel: {
+          cardSize: 4,
+        },
+      },
+    },
   },
 };
 
@@ -147,6 +164,13 @@ CardsWithMedia.story = {
   name: 'Cards with Media',
   parameters: {
     ...readme.parameters,
+    propsSet: {
+      default: {
+        Carousel: {
+          cardSize: 4,
+        },
+      },
+    },
   },
 };
 

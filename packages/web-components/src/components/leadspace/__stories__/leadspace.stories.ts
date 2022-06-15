@@ -22,6 +22,30 @@ import readme from './README.stories.mdx';
 import leadspaceImg from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import { LEADSPACE_SIZE } from '../defs';
 
+const getAriaLabel = type => {
+  switch (type) {
+    case 'ArrowDown20':
+      return 'anchor link';
+    case 'Pdf20':
+      return 'pdf link';
+    default:
+      return '';
+  }
+};
+
+const iconMap = {
+  ArrowRight20: ArrowRight20({ slot: 'icon' }),
+  ArrowDown20: ArrowDown20({ slot: 'icon' }),
+  Pdf20: Pdf20({ slot: 'icon' }),
+};
+
+const iconOptions = {
+  None: null,
+  'Arrow Right': 'ArrowRight20',
+  'Arrow Down': 'ArrowDown20',
+  PDF: 'Pdf20',
+};
+
 const navigationOptions = ['with Tag group (using Tag link)', 'with Breadcrumbs', 'none'];
 
 const navigationWithTagGroup = html`
@@ -509,30 +533,23 @@ export const CenteredWithVideo = ({ parameters }) => {
 
 CenteredWithVideo.story = {
   name: 'Centered with video',
-};
-
-const getAriaLabel = type => {
-  switch (type) {
-    case 'ArrowDown20':
-      return 'anchor link';
-    case 'Pdf20':
-      return 'pdf link';
-    default:
-      return '';
-  }
-};
-
-const iconMap = {
-  ArrowRight20: ArrowRight20({ slot: 'icon' }),
-  ArrowDown20: ArrowDown20({ slot: 'icon' }),
-  Pdf20: Pdf20({ slot: 'icon' }),
-};
-
-const iconOptions = {
-  None: null,
-  'Arrow Right': 'ArrowRight20',
-  'Arrow Down': 'ArrowDown20',
-  PDF: 'Pdf20',
+  parameters: {
+    propsSet: {
+      default: {
+        LeadSpace: {
+          navElements: navigationOptions[2],
+          title: 'Heading can go on two lines max',
+          copy: 'Use this area for a short line of copy to support the title',
+          buttons: [
+            { href: 'https://example.com', copy: 'Button 1', renderIcon: iconOptions['Arrow Right'], label: '' },
+            { href: 'https://example.com', copy: 'Button 2', renderIcon: iconOptions['Arrow Right'], label: '' },
+          ],
+          alt: 'Image alt text',
+          defaultSrc: leadspaceImg,
+        },
+      },
+    },
+  },
 };
 
 export default {

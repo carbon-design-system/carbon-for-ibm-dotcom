@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -107,7 +107,7 @@ Default.story = {
 };
 
 export const Pictogram = ({ parameters }) => {
-  const { href, heading, copy, tagGroup, pictogramPlacement, cardStyles } = parameters?.props?.PictogramCard ?? {};
+  const { href, heading, copy, tagGroup, pictogramPlacement, cardStyles } = parameters?.props?.CardPictogram ?? {};
   return html`
     <dds-card
       pictogram-placement="${pictogramPlacement}"
@@ -174,7 +174,7 @@ Pictogram.story = {
     },
     propsSet: {
       default: {
-        PictogramCard: {
+        CardPictogram: {
           pictogramPlacement: 'top',
           heading: 'Aerospace and defence',
           copy: `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -188,7 +188,8 @@ Pictogram.story = {
 };
 
 export const Static = ({ parameters }) => {
-  const { image, alt, defaultSrc, outlinedCard, eyebrow, heading, copy, tagGroup, cta, ctaCopy } = parameters?.props?.Card ?? {};
+  const { image, alt, defaultSrc, outlinedCard, eyebrow, heading, copy, tagGroup, cta, ctaCopy } =
+    parameters?.props?.CardStatic ?? {};
   return html`
     <dds-card color-scheme=${outlinedCard ? 'light' : ''} ?border=${outlinedCard}>
       ${image
@@ -227,7 +228,7 @@ Static.story = {
   parameters: {
     ...readme.parameters,
     knobs: {
-      Card: ({ groupId }) => {
+      CardStatic: ({ groupId }) => {
         const image = boolean('Add image:', false, groupId);
         const eyebrow = textNullable('Eyebrow:', 'SPSS Statistics', groupId);
         const heading = textNullable('Heading:', 'Free trial', groupId);
@@ -257,7 +258,7 @@ Static.story = {
     },
     propsSet: {
       default: {
-        Card: {
+        CardStatic: {
           image: false,
           eyebrow: 'Industry',
           heading: 'Aerospace and defence',
@@ -275,7 +276,7 @@ Static.story = {
 };
 
 export const Logo = ({ parameters }) => {
-  const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } = parameters?.props?.Card ?? {};
+  const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } = parameters?.props?.CardLogo ?? {};
   return html`
     <dds-card border logo href=${ifNonNull(href || undefined)}>
       <dds-image-logo slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image-logo>
@@ -309,7 +310,7 @@ Logo.story = {
   parameters: {
     ...readme.parameters,
     knobs: {
-      Card: ({ groupId }) => ({
+      CardLogo: ({ groupId }) => ({
         alt: 'Image alt text',
         defaultSrc: logoMicrosoft2x1,
         tagGroup: boolean('Add tags', true, groupId),
@@ -325,14 +326,14 @@ Logo.story = {
     },
     propsSet: {
       default: {
-        Card: {
+        CardLogo: {
           image: false,
           eyebrow: 'Microsoft',
           heading: '',
           copy: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
           alt: 'Image alt text',
           defaultSrc: imgXlg4x3,
-          tagGroup: false,
+          tagGroup: true,
           href: 'https://example.com',
         },
       },

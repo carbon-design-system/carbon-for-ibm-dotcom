@@ -183,6 +183,21 @@ export const WithMediaFeatured = ({ parameters }) => {
 Default.story = {
   parameters: {
     gridContentClasses: 'bx--col-lg-10 bx--no-gutter',
+    propsSet: {
+      default: {
+        ContentItemHorizontal: {
+          eyebrow: 'Lorem ipsum',
+          heading: 'Aliquam condimentum',
+          copy: bodyCopy,
+          ctaType1: 'local',
+          ctaCopy1: 'Learn more',
+          href1: 'https://www.ibm.com',
+          ctaType2: 'external',
+          ctaCopy2: 'Microservices and containers',
+          href2: 'https://www.ibm.com',
+        },
+      },
+    },
   },
 };
 

@@ -143,6 +143,16 @@ export const WithImage = ({ parameters }) => {
 
 WithImage.story = {
   name: 'With image',
+  propsSet: {
+    default: {
+      ContentBlockSimple: {
+        heading: 'Curabitur malesuada varius mi eu posuere',
+        ctaStyle: 'text',
+        ctaType: 'local',
+        complementaryStyleSchemes: 'with-border',
+      },
+    },
+  },
 };
 
 export const WithVideo = ({ parameters }) => {
@@ -184,6 +194,16 @@ WithVideo.story = {
   name: 'With video',
   parameters: {
     gridContentClasses: 'bx--col-lg-12',
+    propsSet: {
+      default: {
+        ContentBlockSimple: {
+          heading: 'Curabitur malesuada varius mi eu posuere',
+          ctaStyle: 'text',
+          ctaType: 'local',
+          complementaryStyleSchemes: 'with-border',
+        },
+      },
+    },
   },
 };
 
@@ -237,6 +257,16 @@ WithLinkList.story = {
   name: 'With link list',
   parameters: {
     gridContentClasses: 'bx--col-lg-12',
+    propsSet: {
+      default: {
+        ContentBlockSimple: {
+          heading: 'Curabitur malesuada varius mi eu posuere',
+          ctaStyle: 'text',
+          ctaType: 'local',
+          complementaryStyleSchemes: 'with-border',
+        },
+      },
+    },
   },
 };
 
