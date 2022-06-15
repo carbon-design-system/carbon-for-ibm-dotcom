@@ -14,6 +14,15 @@
 @include structured-list;
 @include tags;
 
+@keyframes sticky-header-slide-in {
+  from {
+    top: -100%;
+  }
+  to {
+    top: var(--#{$dds-prefix}-sticky-header-height);
+  }
+}
+
 @mixin pricing-table {
   .#{$prefix}--pricing-table,
   :host(#{$dds-prefix}-pricing-table) {
@@ -54,6 +63,8 @@
 
     &.#{$prefix}--pricing-table-header-row--sticky {
       position: sticky;
+      animation: sticky-header-slide-in $duration--slow-01
+        motion(standard, productive);
       top: var(--#{$dds-prefix}-sticky-header-height);
       background-color: $ui-background;
       z-index: 1;
