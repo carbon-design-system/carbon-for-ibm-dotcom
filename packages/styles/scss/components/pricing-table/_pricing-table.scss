@@ -227,6 +227,8 @@
       ul,
       ol {
         @include carbon--type-style('body-long-01');
+
+        margin-top: $spacing-05;
       }
 
       ol,
@@ -253,10 +255,16 @@
 
       ul ul {
         @extend :host(#{$prefix}-unordered-list[slot='nested']);
+
+        margin-top: 0;
       }
 
       ul li {
         @extend ::slotted(#{$prefix}-list-item);
+      }
+
+      #{$prefix}-unordered-list {
+        margin-top: $spacing-05;
       }
     }
   }

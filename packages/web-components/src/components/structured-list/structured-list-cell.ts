@@ -91,7 +91,7 @@ class DDSStructuredListCell extends BXStructuredListCell {
       this.bodyContainer = this.shadowRoot?.querySelector(`.${prefix}--structured-list-cell-body`);
     }
 
-    const hasContent = this.childNodes;
+    const { childNodes } = this;
 
     // Remove all children in body on each update.
     while (this.bodyContainer?.firstChild) {
@@ -99,7 +99,7 @@ class DDSStructuredListCell extends BXStructuredListCell {
     }
 
     // Append a deeply-cloned node to keep nodes synced in light/shadow dom.
-    hasContent.forEach(e => {
+    childNodes.forEach(e => {
       this.bodyContainer?.append(e.cloneNode(true));
     });
   }
