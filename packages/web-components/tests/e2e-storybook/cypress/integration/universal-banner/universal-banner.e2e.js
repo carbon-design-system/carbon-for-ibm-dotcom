@@ -40,7 +40,7 @@ describe('dds-universal-banner | default', () => {
   it('should load the cta button and link with icon on mobile', () => {
     cy.get('dds-universal-banner')
       .shadow()
-      .find('dds-link-with-icon')
+      .find('.bx--universal-banner-icon')
       .should('not.be.visible');
 
     cy.get('dds-universal-banner dds-button-cta')
@@ -50,21 +50,16 @@ describe('dds-universal-banner | default', () => {
         expect($link.prop('href')).not.to.be.empty;
       });
 
-    cy.viewport(320, 780);
+    cy.viewport(1055, 780);
 
     cy.get('dds-universal-banner')
       .shadow()
-      .find('dds-link-with-icon')
+      .find('.bx--universal-banner-icon')
       .should('be.visible');
 
-    cy.get('dds-universal-banner')
-      .shadow()
-      .find('dds-link-with-icon')
-      .shadow()
-      .find('a')
-      .should($link => {
-        expect($link.prop('href')).not.to.be.empty;
-      });
+    cy.get('.bx--universal-banner-layout-container').should($link => {
+      expect($link.prop('href')).not.to.be.empty;
+    });
   });
 
   xit('should load an image only in larger breakpoints', () => {

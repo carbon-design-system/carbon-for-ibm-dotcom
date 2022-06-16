@@ -204,4 +204,12 @@
   .#{$prefix}--content-item__cta {
     margin-top: 0;
   }
+
+  ::slotted(#{$dds-prefix}-image-logo) {
+    /* stylelint-disable */
+    aspect-ratio: var(--logo-ratio);
+    /* stylelint-enable */
+    margin: 0;
+    max-width: $spacing-12;
+  }
 }
