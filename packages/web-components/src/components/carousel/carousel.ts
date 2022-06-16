@@ -19,6 +19,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import styles from './carousel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import DDSExpressiveModal from '../expressive-modal/expressive-modal';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -397,6 +398,9 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   @property({ attribute: false })
   formatStatus = ({ currentPage, pages }) => `${currentPage} / ${pages}`;
 
+  @property({ reflect: true, attribute: 'in-modal' })
+  inModal?: String;
+
   /**
    * Number of items per page.
    * If `--dds--carousel--page-size` CSS custom property is set to `<div class="bx--carousel__scroll-container">`
@@ -434,6 +438,16 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
+
+    const containingModal = this.closest(`${ddsPrefix}-expressive-modal`) as DDSExpressiveModal;
+    if (containingModal) {
+      this.inModal = '';
+
+      setTimeout(() => {
+        containingModal.modalBody!.style.overflow = 'hidden';
+        containingModal.modalBody!.style.width = 'var(--modal-vw)';
+      }, 0);
+    }
   }
 
   disconnectedCallback() {

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -60,11 +60,11 @@ const items = [
 ];
 
 const image = html`
-  <dds-image-with-caption slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum dolor sit amet.">
+  <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum dolor sit amet.">
     <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
     <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
     <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
-  </dds-image-with-caption>
+  </dds-image>
 `;
 
 export const Default = ({ parameters }) => {

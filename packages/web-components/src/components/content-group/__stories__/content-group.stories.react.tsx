@@ -21,7 +21,7 @@ import DDSContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-
 import DDSContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item';
 import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
 import DDSContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
-import DDSImageWithCaption from '@carbon/ibmdotcom-web-components/es/components-react/image-with-caption/image-with-caption';
+import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
 import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
@@ -35,7 +35,7 @@ import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const image = (
-  <DDSImageWithCaption slot="media" alt="Image alt text" default-src={imgLg16x9} heading="Lorem ipsum dolor sit amet.">
+  <DDSImage slot="media" alt="Image alt text" default-src={imgLg16x9} heading="Lorem ipsum dolor sit amet.">
     <DDSImageItem media="(min-width: 672px)" srcset={imgLg16x9}>
       {' '}
     </DDSImageItem>
@@ -45,7 +45,7 @@ const image = (
     <DDSImageItem media="(min-width: 320px)" srcset={imgSm16x9}>
       {' '}
     </DDSImageItem>
-  </DDSImageWithCaption>
+  </DDSImage>
 );
 
 export const Default = ({ parameters }) => {

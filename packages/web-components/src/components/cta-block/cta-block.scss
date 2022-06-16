@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2021
+// Copyright IBM Corp. 2020, 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -13,23 +13,24 @@
 
   display: block;
 
-  @include carbon--breakpoint('md') {
-    padding-bottom: $carbon--layout-03;
-  }
-
-  @include carbon--breakpoint('lg') {
-    padding-bottom: $carbon--layout-06;
-  }
-
-  &.#{$prefix}--cta-block__border {
-    border-bottom: 1px solid $ui-04;
-  }
-
   .#{$prefix}--content-layout {
     @include carbon--breakpoint('sm') {
       padding-left: $carbon--layout-01;
       padding-right: $carbon--layout-01;
     }
+
+    @include carbon--breakpoint('md') {
+      padding-bottom: $carbon--layout-03;
+    }
+
+    @include carbon--breakpoint('lg') {
+      padding-bottom: $carbon--layout-06;
+    }
+
+    &.#{$prefix}--content-layout--border {
+      border-bottom: 1px solid $ui-04;
+    }
+
     ::slotted([slot]) {
       margin-left: 0;
       margin-right: 0;
@@ -41,13 +42,24 @@
 
     margin-left: 0;
     padding-left: 0;
+    margin-block-end: $carbon--spacing-07;
+  }
+
+  .#{$prefix}--content-layout__body--tight {
+    .#{$prefix}--content-layout__link-list,
+    .#{$prefix}--helper-wrapper {
+      margin-block-start: 0;
+
+      @include carbon--breakpoint('md') {
+        margin-block-start: $carbon--spacing-07;
+      }
+    }
   }
 
   ::slotted(#{$dds-prefix}-content-block-copy) {
     @include dds--make-col(8, 12);
     @include carbon--type-style('expressive-heading-03', true);
 
-    display: inline-block;
     max-width: 640px;
     padding-left: 0;
 
@@ -60,20 +72,23 @@
     }
   }
 
-  ::slotted(#{$dds-prefix}-button-group) {
-    // <dds-content-block-paragraph> elements have too much bottom margin
-    margin-top: -#{$carbon--layout-01};
+  ::slotted(#{$dds-prefix}-button-group[slot='action']) {
+    margin-block-end: 0;
 
     @include carbon--breakpoint('lg') {
-      margin-top: 0;
+      margin-block-start: 0;
     }
   }
 
   ::slotted(#{$dds-prefix}-button-group:last-child) {
-    margin-bottom: 0;
+    margin-block-end: 0;
+  }
+
+  .#{$prefix}--content-layout__link-list {
+    margin-block-start: $carbon--spacing-07;
 
     @include carbon--breakpoint('md') {
-      margin-bottom: $carbon--layout-06;
+      margin-block-start: $carbon--spacing-10;
     }
   }
 
@@ -82,12 +97,12 @@
     padding-bottom: 0;
 
     @include carbon--breakpoint('md') {
-      margin-bottom: $carbon--layout-03;
+      margin-block-end: $carbon--layout-03;
     }
   }
 
-  ::slotted([slot='action']) {
-    margin-bottom: $carbon--spacing-10;
+  .#{$prefix}--helper-wrapper {
+    margin-top: $carbon--spacing-10;
   }
 }
 
@@ -137,7 +152,6 @@
 
   @include carbon--breakpoint('md') {
     grid-template-columns: repeat(2, 1fr);
-    row-gap: $carbon--spacing-10;
   }
 
   @include carbon--breakpoint('lg') {
@@ -159,10 +173,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-
-  @include carbon--breakpoint(md) {
-    padding-bottom: $carbon--spacing-10;
-  }
 
   ::slotted(#{$dds-prefix}-text-cta) {
     margin-left: 0;
@@ -193,5 +203,13 @@
 
   .#{$prefix}--content-item__cta {
     margin-top: 0;
+  }
+
+  ::slotted(#{$dds-prefix}-image-logo) {
+    /* stylelint-disable */
+    aspect-ratio: var(--logo-ratio);
+    /* stylelint-enable */
+    margin: 0;
+    max-width: $spacing-12;
   }
 }
