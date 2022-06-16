@@ -8,37 +8,26 @@
  */
 
 import { boolean, text } from '@storybook/addon-knobs';
-import { Provider } from 'react-redux';
 import React from 'react';
 import inPercy from '@percy-io/in-percy';
-import DDSVideoPlayerComposite from '../../../components-react/video-player/video-player-composite';
-import DDSVideoPlayerContainer, { store } from '../../../components-react/video-player/video-player-container';
+import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 import readme from './README.stories.react.mdx';
-
-const playingModes = {
-  inline: 'inline',
-  lightbox: 'lightbox',
-};
 
 export const Default = ({ parameters }) => {
   const { aspectRatio, caption, hideCaption, thumbnailUrl, customVideoDescription, videoId } =
     parameters?.props?.VideoPlayerComposite ?? {};
-  const { useMock } = parameters?.props?.Other ?? {};
-  return useMock ? (
-    <DDSVideoPlayerComposite
-      aspectRatio={aspectRatio}
-      caption={caption}
-      customVideoDescription={customVideoDescription}
-      hideCaption={hideCaption}
-      thumbnailUrl={thumbnailUrl}
-      videoId={videoId}
-      playingMode="inline"
-    />
-  ) : (
+  return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-8">
-          <DDSVideoPlayerContainer thumbnailUrl={thumbnailUrl} videoId={videoId} />
+          <DDSVideoPlayerContainer
+            aspectRatio={aspectRatio}
+            caption={caption}
+            hideCaption={hideCaption}
+            thumbnailUrl={thumbnailUrl}
+            customVideoDescription={customVideoDescription}
+            videoId={videoId}
+          />
         </div>
       </div>
     </div>
@@ -49,7 +38,6 @@ export default {
   title: 'Components/Video Player',
   parameters: {
     ...readme.parameters,
-    decorators: [story => <Provider store={store}>{story()}</Provider>],
     knobs: {
       VideoPlayerComposite: ({ groupId }) => ({
         caption: text('Custom caption (caption):', '', groupId),
