@@ -190,7 +190,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    * Optional custom video thumbnail
    */
   @property({ reflect: true, attribute: 'thumbnail-url' })
-  thumbnailUrl?: '';
+  thumbnail?: '';
 
   /**
    * The video thumbnail width.
@@ -239,13 +239,13 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
       mediaData = {},
       videoId,
       videoThumbnailWidth,
-      thumbnailUrl,
+      thumbnail,
       playingMode,
     } = this;
     const { [videoId]: currentVideoData = {} as MediaData } = mediaData;
     const { duration, name } = currentVideoData;
-    const thumbnail =
-      thumbnailUrl ||
+    const thumbnailUrl =
+      thumbnail ||
       KalturaPlayerAPI.getThumbnailUrl({
         mediaId: videoId,
         width: String(videoThumbnailWidth),
@@ -256,7 +256,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
         ?hide-caption=${hideCaption}
         name="${ifNonNull(caption || name)}"
         video-description="${ifNonNull(customVideoDescription)}"
-        thumbnail-url="${ifNonNull(thumbnail)}"
+        thumbnail-url="${ifNonNull(thumbnailUrl)}"
         video-id="${ifNonNull(videoId)}"
         aspect-ratio="${ifNonNull(aspectRatio)}"
         .formatCaption="${ifNonNull(formatCaption)}"
