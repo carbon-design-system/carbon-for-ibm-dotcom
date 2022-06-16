@@ -189,7 +189,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   /**
    * Optional custom video thumbnail
    */
-  @property({ reflect: true, attribute: 'thumbnail-url' })
+  @property({ reflect: true, attribute: 'thumbnail' })
   thumbnail?: '';
 
   /**
