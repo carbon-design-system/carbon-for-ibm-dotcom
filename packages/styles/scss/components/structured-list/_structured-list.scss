@@ -179,6 +179,10 @@
     padding-right: $carbon--layout-01;
     margin-left: -#{$carbon--layout-01};
     margin-right: -#{$carbon--layout-01};
+
+    .#{$prefix}--structured-list {
+      margin: 0;
+    }
   }
 
   .#{$prefix}--structured-list-cell-tooltip-icon,
