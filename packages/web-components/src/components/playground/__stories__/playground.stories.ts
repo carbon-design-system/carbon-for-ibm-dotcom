@@ -11,7 +11,7 @@ import { html } from 'lit-element';
 import { boolean, select } from '@storybook/addon-knobs';
 import styles from './playground.stories.scss';
 
-const savedOne = localStorage.getItem('savedComponent');
+const savedOne = localStorage.getItem('savedComponent') ? localStorage.getItem('savedComponent') : 'Background media';
 
 const specContext = require.context('../../', true, /\.stories\.ts$/);
 
