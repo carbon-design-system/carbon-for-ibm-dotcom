@@ -7,14 +7,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { html, property, customElement, LitElement } from 'lit-element';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import { html, property, customElement, LitElement, query } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
+import { baseFontSize, breakpoints } from '@carbon/layout';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './universal-banner.scss';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
+import DDSButtonCTA from '../cta/button-cta';
+import { icons as ctaIcons } from '../../component-mixins/cta/cta';
+
+const gridLgBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -27,16 +30,16 @@ const { prefix } = settings;
 @customElement(`${ddsPrefix}-universal-banner`)
 class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
   /**
-   * Saves the button CTA's copy to use in link-with-icon for the small breakpoint
-   */
-  @property()
-  buttonCopy;
-
-  /**
    * Saves the button CTA's href to use in link-with-icon for the small breakpoint
    */
   @property()
   buttonHref;
+
+  /**
+   * Saves the button CTA's type to properly set the icon at `sm` and `md` breakpoints.
+   */
+  @property()
+  ctaType;
 
   /**
    * `true` if there is an image.
@@ -50,6 +53,14 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
    */
   @property({ attribute: 'image-width', reflect: true, type: String })
   imageWidth;
+
+  private _breakpoint?: MediaQueryList;
+
+  @property({ type: Boolean })
+  private _shouldRenderAsLink = false;
+
+  @query(`.${prefix}--universal-banner-layout-container`)
+  private _linkWrapper;
 
   /**
    * Handles `slotchange` event on the cta `<slot>`.
@@ -73,20 +84,62 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
       .filter(elem => (elem as HTMLElement).matches?.((this.constructor as typeof DDSUniversalBanner).ctaButton));
 
     this.buttonHref = (hasContent[0] as HTMLElement)?.getAttribute('href');
-    this.buttonCopy = hasContent[0]?.textContent?.trim();
+    this.ctaType = (hasContent[0] as DDSButtonCTA)?.ctaType;
+  }
+
+  protected _handleResize() {
+    const { _breakpoint: breakpoint } = this;
+    this._shouldRenderAsLink = !breakpoint!.matches;
   }
 
   firstUpdated() {
     StickyHeader.global.banner = this;
+
+    this._breakpoint = window.matchMedia(`(min-width: ${gridLgBreakpoint}px)`);
+    this._breakpoint.addEventListener('change', this._handleResize.bind(this));
+    this._handleResize();
   }
 
-  updated() {
-    this.querySelector((this.constructor as typeof DDSUniversalBanner).ctaButton)?.removeAttribute('role');
+  updated(changedProperties) {
+    if (changedProperties.has('_shouldRenderAsLink')) {
+      const { _shouldRenderAsLink: shouldRenderAsLink, ctaType } = this;
+
+      if (shouldRenderAsLink && ctaType === 'external') {
+        setTimeout(() => {
+          this._linkWrapper.setAttribute('target', '_blank');
+        }, 0);
+      }
+    }
   }
 
-  render() {
+  /**
+   * Renders shadow dom within a static div
+   */
+  _renderAsStatic() {
     return html`
       <div class="${prefix}--universal-banner-layout-container">
+        ${this._renderInnerContents()}
+      </div>
+    `;
+  }
+
+  _renderAsLink() {
+    return html`
+      <a href="${this.buttonHref}" class="${prefix}--universal-banner-layout-container">
+        ${this._renderInnerContents()}
+      </a>
+    `;
+  }
+
+  _renderIcon() {
+    return html`
+      ${ctaIcons[this.ctaType]()}
+    `;
+  }
+
+  _renderInnerContents() {
+    return html`
+      <div class="${prefix}--universal-banner-content-wrapper">
         <div ?hidden="${!this.hasImage}" class="${prefix}--universal-banner-image-container">
           <slot name="image" @slotchange="${this._handleImageSlotChange}"></slot>
         </div>
@@ -98,11 +151,18 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
 
         <div class="${prefix}--universal-banner-cta-container">
           <slot name="cta" @slotchange="${this._handleButtonSlotChange}"></slot>
-          <dds-link-with-icon href="${ifNonNull(this.buttonHref)}">
-            ${this.buttonCopy}${ArrowRight20({ slot: 'icon' })}
-          </dds-link-with-icon>
+        </div>
+
+        <div class="${prefix}--universal-banner-icon">
+          ${this.ctaType ? this._renderIcon() : ''}
         </div>
       </div>
+    `;
+  }
+
+  render() {
+    return html`
+      ${this._shouldRenderAsLink ? this._renderAsLink() : this._renderAsStatic()}
     `;
   }
 
