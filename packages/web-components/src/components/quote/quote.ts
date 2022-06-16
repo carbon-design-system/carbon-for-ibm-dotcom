@@ -158,6 +158,20 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
   }
 
   render() {
+    if (this.colorScheme === QUOTE_COLOR_SCHEMES.INVERSE) {
+      return html`
+        <div class="${prefix}--callout__column">
+          <div class="${prefix}--callout__content">
+            <div class="${prefix}--quote__container">
+              <div class="${prefix}--quote__wrapper">
+                ${this._renderQuote()}${this._renderSource()}${this._renderFooter()}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
     return html`
       <div class="${prefix}--quote__container">
         <div class="${prefix}--quote__wrapper">
