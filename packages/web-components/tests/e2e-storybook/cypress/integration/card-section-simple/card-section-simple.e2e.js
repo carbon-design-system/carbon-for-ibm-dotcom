@@ -14,7 +14,6 @@
  */
 const _paths = {
   default: 'iframe.html?id=components-card-section-simple--default',
-  withCta: 'iframe.html?id=components-card-section-simple--with-cta',
 };
 
 /**
@@ -61,6 +60,18 @@ const _tests = {
       });
     });
   },
+  checkCTACard: () => {
+    cy.visit(`${_paths.default}&knob-With%20CTA:_CardSectionSimple=true`);
+    cy.get('dds-card-group-item')
+      .last()
+      .should('have.attr', 'color-scheme', 'inverse');
+  },
+  checkCardWithImages: () => {
+    cy.visit(`${_paths.default}&knob-With%20images:_CardSectionSimple=true`);
+    cy.get('dds-card-group-item > dds-image').each($img => {
+      cy.wrap($img).should('be.visible');
+    });
+  },
   checkThemes: () => {
     cy.carbonThemesScreenshot();
   },
@@ -76,20 +87,8 @@ describe('dds-card-section-simple | default (desktop)', () => {
   it('should load card as blocklink', _tests.checkForBlocklink);
   it('should load left-aligned section title', _tests.checkForTitlePosition);
   it('should load heading, copy, cta on each card', _tests.checkForCardContent);
-  it('should render correctly in all themes', _tests.checkThemes);
-  it('should check a11y', _tests.checkA11y);
-});
-
-describe('dds-card-section-simple | with cta (desktop)', () => {
-  beforeEach(() => {
-    cy.viewport(1280, 720);
-    cy.visit(`/${_paths.default}`);
-    cy.injectAxe();
-  });
-
-  it('should load card as blocklink', _tests.checkForBlocklink);
-  it('should load left-aligned section title', _tests.checkForTitlePosition);
-  it('should load heading, copy, cta on each card', _tests.checkForCardContent);
+  it('should check if CTA card rendered', _tests.checkCTACard);
+  it('should check if cards with images rendered', _tests.checkCardWithImages);
   it('should render correctly in all themes', _tests.checkThemes);
   it('should check a11y', _tests.checkA11y);
 });
@@ -104,20 +103,8 @@ describe('dds-card-section-simple | default (mobile)', () => {
   it('should load card as blocklink', _tests.checkForBlocklink);
   it('should load left-aligned section title', _tests.checkForTitlePosition);
   it('should load heading, copy, cta on each card', _tests.checkForCardContent);
-  it('should render correctly in all themes', _tests.checkThemes);
-  it('should check a11y', _tests.checkA11y);
-});
-
-describe('dds-card-section-simple | with cta (mobile)', () => {
-  beforeEach(() => {
-    cy.viewport(375, 720);
-    cy.visit(`/${_paths.default}`);
-    cy.injectAxe();
-  });
-
-  it('should load card as blocklink', _tests.checkForBlocklink);
-  it('should load left-aligned section title', _tests.checkForTitlePosition);
-  it('should load heading, copy, cta on each card', _tests.checkForCardContent);
+  it('should check if CTA card rendered', _tests.checkCTACard);
+  it('should check if cards with images rendered', _tests.checkCardWithImages);
   it('should render correctly in all themes', _tests.checkThemes);
   it('should check a11y', _tests.checkA11y);
 });
