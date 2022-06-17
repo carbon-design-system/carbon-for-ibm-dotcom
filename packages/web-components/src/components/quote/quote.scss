@@ -28,14 +28,16 @@
   @extend .#{$prefix}--link-with-icon;
 
   display: inline-block;
+}
+
+:host-context(#{$dds-prefix}-quote[color-scheme='inverse'])
   a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
+  color: $inverse-link;
+  outline-color: $inverse-focus-ui;
+  &:hover {
+    color: $blue-40;
+  }
+  &:active {
     color: $inverse-link;
-    outline-color: $inverse-focus-ui;
-    &:hover {
-      color: $blue-40;
-    }
-    &:active {
-      color: $inverse-link;
-    }
   }
 }
