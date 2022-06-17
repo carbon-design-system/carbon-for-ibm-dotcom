@@ -23,3 +23,19 @@
     margin: 1rem 0.5rem;
   }
 }
+
+:host(#{$dds-prefix}-quote-link-with-icon) {
+  @extend .#{$prefix}--link-with-icon;
+
+  display: inline-block;
+  a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
+    color: $inverse-link;
+    outline-color: $inverse-focus-ui;
+    &:hover {
+      color: $blue-40;
+    }
+    &:active {
+      color: $inverse-link;
+    }
+  }
+}
