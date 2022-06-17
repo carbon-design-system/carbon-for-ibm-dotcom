@@ -8,48 +8,51 @@
  */
 
 import { html } from 'lit-element';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import { boolean } from '@storybook/addon-knobs';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
+import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--005.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
 
-const defaultCardGroupItem = html`
-  <dds-card-group-item href="https://example.com">
-    <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-      Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-    </p>
-    <dds-card-cta-footer slot="footer">
-      ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-cta-footer>
-  </dds-card-group-item>
-`;
-
-export const Default = ({ parameters }) => {
-  const { heading, cards } = parameters?.props?.CardSectionSimple ?? {};
+const cardGroupItems = withImages => {
   return html`
-    <dds-card-section-simple>
-      <dds-content-section-heading>${ifNonNull(heading)}</dds-content-section-heading>
-      <dds-card-group>${cards}</dds-card-group>
-    </dds-card-section-simple>
+    <dds-card-group-item href="https://example.com" cta-type="local">
+      ${withImages
+        ? html`
+            <dds-image slot="image" alt="Image alt text" default-src="${imgLg4x3}"> </dds-image>
+          `
+        : ''}
+      <dds-card-eyebrow>Topic</dds-card-eyebrow>
+      <dds-card-heading>Natural Language Processing.</dds-card-heading>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+        Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+      </p>
+      <dds-card-cta-footer slot="footer"></dds-card-cta-footer>
+    </dds-card-group-item>
   `;
 };
 
-export const WithCTA = ({ parameters }) => {
-  const { heading, cards } = parameters?.props?.CardSectionSimple ?? {};
+export const Default = ({ parameters }) => {
+  const { heading, withImages, withCTA } = parameters?.props?.CardSectionSimple ?? {};
+  const cards: object[] = [];
+  for (let i = 0; i < 5; i++) {
+    cards.push(cardGroupItems(withImages));
+  }
   return html`
     <dds-card-section-simple>
       <dds-content-section-heading>${ifNonNull(heading)}</dds-content-section-heading>
       <dds-card-group>
         ${cards}
-        <dds-card-group-item href="https://example.com" color-scheme="inverse">
-          <dds-card-heading>Top level card link</dds-card-heading>
-          <dds-card-cta-footer slot="footer" color-scheme="inverse">
-            ${ArrowRight20({ slot: 'icon' })}
-          </dds-card-cta-footer>
-        </dds-card-group-item>
+        ${withCTA
+          ? html`
+              <dds-card-group-item href="https://example.com" color-scheme="inverse" cta-type="local">
+                <dds-card-heading>Top level card link</dds-card-heading>
+                <dds-card-cta-footer slot="footer" color-scheme="inverse"></dds-card-cta-footer>
+              </dds-card-group-item>
+            `
+          : ``}
       </dds-card-group>
     </dds-card-section-simple>
   `;
@@ -71,17 +74,16 @@ export default {
     hasStoryPadding: true,
     knobs: {
       CardSectionSimple: ({ groupId }) => ({
-        heading: textNullable('Heading (required)', 'Aliquam condimentum interdum', groupId),
-        cards: Array.from({
-          length: 5,
-        }).map(() => defaultCardGroupItem),
+        heading: textNullable('Heading (required):', 'Aliquam condimentum interdum', groupId),
+        withImages: boolean('With images:', false, groupId),
+        withCTA: boolean('With CTA:', false, groupId),
       }),
     },
     propsSet: {
       default: {
         CardSectionSimple: {
           heading: 'Aliquam condimentum interdum',
-          cards: [defaultCardGroupItem, defaultCardGroupItem, defaultCardGroupItem, defaultCardGroupItem, defaultCardGroupItem],
+          cards: [cardGroupItems, cardGroupItems, cardGroupItems, cardGroupItems, cardGroupItems],
         },
       },
     },

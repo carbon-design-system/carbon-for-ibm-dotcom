@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -36,16 +36,9 @@ import DDSLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-r
 import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 
 import readme from './README.stories.react.mdx';
-import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-horizontal/defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import { CTA_TYPE } from '../../cta/defs';
-
-const types = {
-  [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
-  [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
-};
 
 const mediaAlign = {
   [`Left`]: MEDIA_ALIGN.LEFT,
@@ -58,91 +51,38 @@ const mediaType = {
 };
 
 export const Default = ({ parameters }) => {
-  const { sectionHeading, align, type, alt, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
-    parameters?.props?.TabsExtendedMedia ?? {};
+  const { sectionHeading, align, type } = parameters?.props?.TabsExtendedMedia ?? {};
+  const tabs: any[] = [];
+
+  for (let i = 1; i < 5; i++) {
+    tabs.push(
+      <DDSTab label={`Tab ${i}`}>
+        <DDSContentItemHorizontalMedia align={align}>
+          {type === MEDIA_TYPE.IMAGE && <DDSImage slot="media" alt="Image alt text" default-src={imgLg16x9}></DDSImage>}
+          {type === MEDIA_TYPE.VIDEO && (
+            <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
+          )}
+          <DDSContentItemHeading>Tab heading {i}</DDSContentItemHeading>
+          <DDSContentItemHorizontalMediaCopy>
+            Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
+            hendrerit. Phasellus at elit sollicitudin.
+          </DDSContentItemHorizontalMediaCopy>
+          <DDSLinkList slot="footer" type="vertical">
+            <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
+              CTA {i}
+            </DDSLinkListItemCTA>
+            <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
+              Microservices and containers
+            </DDSLinkListItemCTA>
+          </DDSLinkList>
+        </DDSContentItemHorizontalMedia>
+      </DDSTab>
+    );
+  }
   return (
     <DDSTabsExtendedMedia>
       <DDSContentSectionHeading>{sectionHeading || undefined}</DDSContentSectionHeading>
-      <DDSTab label="First tab">
-        <DDSContentItemHorizontalMedia align={align}>
-          {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt={alt || undefined} default-src={imgLg16x9}></DDSImage> : ''}
-          {type === MEDIA_TYPE.VIDEO ? (
-            <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
-          ) : (
-            ''
-          )}
-          <DDSContentItemHeading>{heading}</DDSContentItemHeading>
-          <DDSContentItemHorizontalMediaCopy>{copy}</DDSContentItemHorizontalMediaCopy>
-          <DDSLinkList slot="footer" type="vertical">
-            <DDSLinkListItemCTA icon-placement={ICON_PLACEMENT.RIGHT} href={href1 || undefined} cta-type={ctaType1 || undefined}>
-              {ctaCopy1}
-            </DDSLinkListItemCTA>
-            <DDSLinkListItemCTA icon-placement={ICON_PLACEMENT.RIGHT} href={href2 || undefined} cta-type={ctaType2 || undefined}>
-              {ctaCopy2}
-            </DDSLinkListItemCTA>
-          </DDSLinkList>
-        </DDSContentItemHorizontalMedia>
-      </DDSTab>
-      <DDSTab label="Second tab">
-        <DDSContentItemHorizontalMedia align={align}>
-          {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt={alt || undefined} default-src={imgLg16x9}></DDSImage> : ''}
-          {type === MEDIA_TYPE.VIDEO ? (
-            <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
-          ) : (
-            ''
-          )}
-          <DDSContentItemHeading>{heading}</DDSContentItemHeading>
-          <DDSContentItemHorizontalMediaCopy>{copy}</DDSContentItemHorizontalMediaCopy>
-          <DDSLinkList slot="footer" type="vertical">
-            <DDSLinkListItemCTA icon-placement={ICON_PLACEMENT.RIGHT} href={href1 || undefined} cta-type={ctaType1 || undefined}>
-              {ctaCopy1}
-            </DDSLinkListItemCTA>
-            <DDSLinkListItemCTA icon-placement={ICON_PLACEMENT.RIGHT} href={href2 || undefined} cta-type={ctaType2 || undefined}>
-              {ctaCopy2}
-            </DDSLinkListItemCTA>
-          </DDSLinkList>
-        </DDSContentItemHorizontalMedia>
-      </DDSTab>
-      <DDSTab label="Third tab">
-        <DDSContentItemHorizontalMedia align={align}>
-          {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt={alt || undefined} default-src={imgLg16x9}></DDSImage> : ''}
-          {type === MEDIA_TYPE.VIDEO ? (
-            <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
-          ) : (
-            ''
-          )}
-          <DDSContentItemHeading>{heading}</DDSContentItemHeading>
-          <DDSContentItemHorizontalMediaCopy>{copy}</DDSContentItemHorizontalMediaCopy>
-          <DDSLinkList slot="footer" type="vertical">
-            <DDSLinkListItemCTA icon-placement={ICON_PLACEMENT.RIGHT} href={href1 || undefined} cta-type={ctaType1 || undefined}>
-              {ctaCopy1}
-            </DDSLinkListItemCTA>
-            <DDSLinkListItemCTA icon-placement={ICON_PLACEMENT.RIGHT} href={href2 || undefined} cta-type={ctaType2 || undefined}>
-              {ctaCopy2}
-            </DDSLinkListItemCTA>
-          </DDSLinkList>
-        </DDSContentItemHorizontalMedia>
-      </DDSTab>
-      <DDSTab label="Fourth tab">
-        <DDSContentItemHorizontalMedia align={align}>
-          {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt={alt || undefined} default-src={imgLg16x9}></DDSImage> : ''}
-          {type === MEDIA_TYPE.VIDEO ? (
-            <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
-          ) : (
-            ''
-          )}
-          <DDSContentItemHeading>{heading}</DDSContentItemHeading>
-          <DDSContentItemHorizontalMediaCopy>{copy}</DDSContentItemHorizontalMediaCopy>
-          <DDSLinkList slot="footer" type="vertical">
-            <DDSLinkListItemCTA icon-placement={ICON_PLACEMENT.RIGHT} href={href1 || undefined} cta-type={ctaType1 || undefined}>
-              {ctaCopy1}
-            </DDSLinkListItemCTA>
-            <DDSLinkListItemCTA icon-placement={ICON_PLACEMENT.RIGHT} href={href2 || undefined} cta-type={ctaType2 || undefined}>
-              {ctaCopy2}
-            </DDSLinkListItemCTA>
-          </DDSLinkList>
-        </DDSContentItemHorizontalMedia>
-      </DDSTab>
+      {tabs}
     </DDSTabsExtendedMedia>
   );
 };
@@ -151,21 +91,9 @@ Default.story = {
   parameters: {
     knobs: {
       TabsExtendedMedia: () => ({
-        sectionHeading: textNullable('Heading', 'Title heading'),
-        align: select('Alignment', mediaAlign, MEDIA_ALIGN.LEFT),
+        sectionHeading: textNullable('Heading', 'Section heading'),
+        align: select('Alignment (align)', mediaAlign, MEDIA_ALIGN.LEFT),
         type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
-        alt: textNullable('Image alt text', 'Lorem ipsum'),
-        heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
-        copy:
-          'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. ' +
-          'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
-          'Phasellus at elit sollicitudin.',
-        ctaType1: select('CTA 1 type (cta-type):', types, CTA_TYPE.LOCAL),
-        ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
-        href1: textNullable('CTA 1 href (cta-href):', 'https://www.ibm.com'),
-        ctaType2: select('CTA 2 type (cta-type):', types, CTA_TYPE.EXTERNAL),
-        ctaCopy2: textNullable('CTA 2 copy (cta-copy):', 'Microservices and containers'),
-        href2: textNullable('CTA 2 href (cta-href):', 'https://www.ibm.com'),
       }),
     },
   },
