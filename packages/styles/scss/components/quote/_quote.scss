@@ -125,7 +125,7 @@
     padding-left: $spacing-05;
     padding-right: $spacing-05;
 
-    ::slotted(#{$dds-prefix}-link-with-icon) {
+    ::slotted(#{$dds-prefix}-quote-link-with-icon) {
       margin-left: $spacing-05;
     }
   }
@@ -142,7 +142,7 @@
       padding-left: 0;
       padding-right: 0;
 
-      ::slotted(#{$dds-prefix}-link-with-icon) {
+      ::slotted(#{$dds-prefix}-quote-link-with-icon) {
         margin-left: 0;
         padding-left: $spacing-07;
         outline: transparent;
