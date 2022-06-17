@@ -19,7 +19,7 @@
 >
   <div class="bx--modal-content">
     <div
-      class="dds-ce--modal__hedaer--with-body"
+      class="dds-ce--modal__header--with-body"
       id="modal-header"
     >
       <slot name="header">
@@ -61,7 +61,7 @@
 >
   <div class="bx--modal-content">
     <div
-      class="dds-ce--modal__hedaer--with-body"
+      class="dds-ce--modal__header--with-body"
       id="modal-header"
     >
       <slot name="header">
@@ -144,7 +144,7 @@
 >
   <div class="bx--modal-content">
     <div
-      class="dds-ce--modal__hedaer--with-body"
+      class="dds-ce--modal__header--with-body"
       id="modal-header"
     >
       <slot name="header">
@@ -186,7 +186,7 @@
 >
   <div class="bx--modal-content">
     <div
-      class="dds-ce--modal__hedaer--with-body"
+      class="dds-ce--modal__header--with-body"
       id="modal-header"
     >
       <slot name="header">

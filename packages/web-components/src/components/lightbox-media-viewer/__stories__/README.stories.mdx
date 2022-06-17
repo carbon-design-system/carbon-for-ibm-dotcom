@@ -8,58 +8,66 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 # Lightbox Media Viewer
 
-> This launches a modal containing a video, and a description
+> This launches a modal containing an image or video, and a description
 > detailing the media content.
 
-## Getting started - Image viewer
+## Getting started
 
 ### JS (via import)
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-image-viewer.js';
+import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-media-viewer.js';
 
-// Opens the lightbox image viewer
+// Opens the modal containing the lightbox image viewer
 document.getElementById('my-lightbox').open = true;
 ```
 
-<Description markdown={`${cdnJs({ components: ['lightbox-image-viewer'] })}`} />
+<Description markdown={`${cdnJs({ components: ['lightbox-media-viewer'] })}`} />
 
 <Description markdown={`${cdnCss()}`} />
+
+## Using Images
 
 ### HTML
 
 ```html
 <dds-expressive-modal id="my-lightbox" expressive-size="full-width">
   <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
-  <dds-lightbox-image-viewer
+  <dds-lightbox-media-viewer
     alt="Image alt text"
     default-src="https://fpoimg.com/1280x720?text=16:9&bg_color=ee5396&text_color=161616"
     description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit."
     title="Curabitur malesuada varius mi eu posuere"
   >
-  </dds-lightbox-image-viewer>
+  </dds-lightbox-media-viewer>
 </dds-expressive-modal>
 ```
 
-## Getting started - Video player
-
-### JS (via import)
-
-```javascript
-import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player-container.js';
-
-// Opens the lightbox media viewer
-document.getElementById('my-video').open = true;
-```
-
-<Description markdown={`${cdnJs({ components: ['lightbox-video-player'] })}`} />
-
-<Description markdown={`${cdnCss()}`} />
+## Using Videos
 
 ### HTML
 
 ```html
-<dds-lightbox-video-player-container id="my-video" video-id="1_9h94wo6b"> </dds-lightbox-video-player-container>
+<dds-expressive-modal id="my-lightbox" expressive-size="full-width">
+  <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
+  <dds-lightbox-media-viewer id="my-video" video-id="1_9h94wo6b"></dds-lightbox-media-viewer>
+</dds-expressive-modal>
+```
+
+## Viewing multiple images/videos
+
+### HTML
+
+```html
+<dds-expressive-modal id="my-lightbox" expressive-size="full-width">
+  <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
+  <dds-carousel>
+    <dds-lightbox-media-viewer ... ></dds-lightbox-media-viewer>
+    <dds-lightbox-media-viewer ... ></dds-lightbox-media-viewer>
+    <dds-lightbox-media-viewer ... ></dds-lightbox-media-viewer>
+    <dds-lightbox-media-viewer ... ></dds-lightbox-media-viewer>
+  </dds-carousel>
+</dds-expressive-modal>
 ```
 
 ## Stable selectors
@@ -69,15 +77,13 @@ See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/t
 | Web Components selector                                | Compatibility selector                                     | Description |
 | ------------------------------------------------------ | ---------------------------------------------------------- | ----------- |
 | `<dds-expressive-modal>`                               | `data-autoid="dds--expressive-modal"`                      | Component   |
-| `::part(title)` in `<dds-lightbox-video-player>`       | `data-autoid="dds--Lightbox-media-viewer__content__title"` | Interactive |
-| `::part(description)` in `<dds-lightbox-video-player>` | `data-autoid="dds--Lightbox-media-viewer__content__desc"`  | Interactive |
+| `::part(title)` in `<dds-lightbox-media-viewer>`       | `data-autoid="dds--Lightbox-media-viewer__content__title"` | Interactive |
+| `::part(description)` in `<dds-lightbox-media-viewer>` | `data-autoid="dds--Lightbox-media-viewer__content__desc"`  | Interactive |
 
 ## Under the Hood
 
-### `<dds-lightbox-video-player>`
+### `<dds-lightbox-media-viewer>`
 
-`<dds-lightbox-video-player>` works as the video player in lightbox media viewer.
-
-<Props of="dds-lightbox-video-player" />
+<Props of="dds-lightbox-media-viewer" />
 
 <Description markdown={contributing} />
