@@ -678,7 +678,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
                 });
                 return html`
                   <li class="${itemClasses}" @click="${handleClickItem}" @keydown="${handleOnKeyDown}">
-                    <a aria-current="${ifDefined(!selected ? undefined : 'location')}" ?data-target="${name}" href="#${name}">
+                    <a aria-current="${ifDefined(!selected ? undefined : 'location')}" data-target="${name!}" href="#${name}">
                       ${title}
                     </a>
                   </li>
@@ -762,7 +762,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
                     });
                     return html`
                       <li class="${itemClasses}" @click="${handleClickItem}" @keydown="${handleOnKeyDown}">
-                        <a aria-current="${ifDefined(!selected ? undefined : 'location')}" ?data-target="${name}" href="#${name}">
+                        <a aria-current="${ifDefined(!selected ? undefined : 'location')}" data-target="${name!}" href="#${name}">
                           ${title}
                         </a>
                       </li>
