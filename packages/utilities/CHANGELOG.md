@@ -3,6 +3,126 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.35.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.35.0-rc.0...@carbon/ibmdotcom-utilities@1.35.0) (2022-06-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.35.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.34.0...@carbon/ibmdotcom-utilities@1.35.0-rc.0) (2022-06-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency carbon-components ([#8925](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8925)) ([d36320f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d36320f8460ede20d27557873edbcf7a661e77bd))
+
+
+### Features
+
+* **logo-grid:** add logoCount and logoRatio props ([#8905](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8905)) ([c519b06](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c519b06d80acbbb0ba37c5f0414d1c8a49c87873)), closes [#8848](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8848)
+
+
+
+
+
+# [1.34.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.34.0-rc.0...@carbon/ibmdotcom-utilities@1.34.0) (2022-05-20)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.34.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.33.1...@carbon/ibmdotcom-utilities@1.34.0-rc.0) (2022-05-06)
+
+
+### Features
+
+* **sticky header utility:** update storybook story & remove old dotcom-shell code ([#8684](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8684)) ([136a610](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/136a610)), closes [#8486](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8486) [#8472](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8472) [#8434](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8434)
+
+
+
+
+
+## [1.33.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.33.0...@carbon/ibmdotcom-utilities@1.33.1) (2022-05-04)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.33.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.33.0-rc.1...@carbon/ibmdotcom-utilities@1.33.0) (2022-04-25)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.33.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.33.0-rc.0...@carbon/ibmdotcom-utilities@1.33.0-rc.1) (2022-04-21)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.33.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.31.0...@carbon/ibmdotcom-utilities@1.33.0-rc.0) (2022-04-11)
+
+
+### Bug Fixes
+
+* **cloud-masthead:** remove extra spacing from masthead ([#8451](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8451)) ([6793b47](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6793b47))
+* **deps:** update dependency @carbon/telemetry to v0.1.0 ([#8481](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8481)) ([2a7a0c6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2a7a0c6))
+* **deps:** update dependency carbon-components to v10.54.0 ([#8408](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8408)) ([588981c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/588981c))
+* **deps:** update dependency carbon-components to v10.55.1 ([#8483](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8483)) ([579f9a4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/579f9a4))
+
+
+
+
+
+## [1.32.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.32.0...@carbon/ibmdotcom-utilities@1.32.1) (2022-04-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.32.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.32.0-rc.1...@carbon/ibmdotcom-utilities@1.32.0) (2022-03-28)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.32.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.32.0-rc.0...@carbon/ibmdotcom-utilities@1.32.0-rc.1) (2022-03-17)
+
+
+### Features
+
+* **scrolling-utility:** Add new utility to mimic dotcom-shell functionality ([#8434](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8434)) ([d06b45a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d06b45a))
+
+
+
+
+
+# [1.32.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.31.0...@carbon/ibmdotcom-utilities@1.32.0-rc.0) (2022-03-16)
+
+
+### Bug Fixes
+
+* **cloud-masthead:** remove extra spacing from masthead ([#8451](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8451)) ([6793b47](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6793b47))
+* **deps:** update dependency carbon-components to v10.54.0 ([#8408](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8408)) ([588981c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/588981c))
+
+
+
+
+
 # [1.31.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.31.0-rc.3...@carbon/ibmdotcom-utilities@1.31.0) (2022-02-28)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities

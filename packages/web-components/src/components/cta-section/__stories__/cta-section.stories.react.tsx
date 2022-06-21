@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -68,7 +68,7 @@ const contentItemTypeMap = {
           {elem.copy}
         </DDSTextCTA>
       ))}
-      <Desktop slot="media" width="48" height="48" viewBox="0 0 48 48" />
+      <Desktop slot="media" width="80" height="80" viewBox="0 0 32 32" />
     </DDSCTABlockItem>
   ),
   media: ({ heading, copy, links }) => (
@@ -144,17 +144,20 @@ export const WithContentItems = ({ parameters }) => {
   const { contentItemType, contentItemCount } = parameters?.props?.WithContentItems ?? {};
 
   return (
-    <DDSCTASection>
-      <DDSContentSectionHeading>Related products and services</DDSContentSectionHeading>
-      <DDSCTABlock _noBorder={!border}>
-        <DDSContentBlockHeading>{heading || undefined}</DDSContentBlockHeading>
-        <DDSContentBlockCopy>{copy}</DDSContentBlockCopy>
-        <DDSTextCTA slot="action" cta-type="local" icon-placement="right" href="example.com">
-          Browse tutorials
-        </DDSTextCTA>
-        {renderItems(contentItemType, contentItemCount)}
-      </DDSCTABlock>
-    </DDSCTASection>
+    <>
+      <DDSCTASection>
+        <DDSContentSectionHeading>Related products and services</DDSContentSectionHeading>
+        <DDSCTABlock _noBorder={!border}>
+          <DDSContentBlockHeading>{heading || undefined}</DDSContentBlockHeading>
+          <DDSContentBlockCopy>{copy}</DDSContentBlockCopy>
+          <DDSTextCTA slot="action" cta-type="local" icon-placement="right" href="example.com">
+            Browse tutorials
+          </DDSTextCTA>
+          {renderItems(contentItemType, contentItemCount)}
+        </DDSCTABlock>
+      </DDSCTASection>
+      <DDSLightboxVideoPlayerContainer></DDSLightboxVideoPlayerContainer>
+    </>
   );
 };
 

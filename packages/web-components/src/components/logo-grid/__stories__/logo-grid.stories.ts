@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,7 @@ import '../../content-block/content-block-heading';
 import '../logo-grid-item';
 import '../logo-grid-link';
 import '../../card/card-heading';
-import { boolean, text } from '@storybook/addon-knobs';
+import { boolean, text, select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import logos from './data/logos.js';
@@ -20,9 +20,10 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = ({ parameters }) => {
-  const { heading, logosGroup, hideBorder, showCta, ctaCopy, ctaHref } = parameters?.props?.LogoGrid ?? {};
+  const { heading, logoCount, logoRatio, logosGroup, hideBorder, showCta, ctaCopy, ctaHref } = parameters?.props?.LogoGrid ?? {};
+
   return html`
-    <dds-logo-grid ?hide-border="${hideBorder}">
+    <dds-logo-grid ?hide-border="${hideBorder}" logo-count="${logoCount}" logo-ratio="${logoRatio}">
       <dds-content-block-heading>
         ${heading}
       </dds-content-block-heading>
@@ -65,6 +66,13 @@ export default {
     knobs: {
       LogoGrid: ({ groupId }) => ({
         heading: textNullable('Heading (heading)', 'Our customers', groupId),
+        logoCount: select('Column count (logoCount)', { 'Default (3)': '3', '4': '4' }, '3', groupId),
+        logoRatio: select(
+          'Logo aspect ratio (logoRatio)',
+          { 'Default (4:3)': '4:3', '16:9': '16:9', '2:1': '2:1' },
+          '4:3',
+          groupId
+        ),
         logosGroup: logos,
         hideBorder: boolean('Hide border (hideBorder): Hide the bottom border', false, groupId),
         showCta: boolean('Display CTA:', false, groupId),
@@ -76,6 +84,8 @@ export default {
       default: {
         LogoGrid: {
           heading: 'Our customers',
+          logoCount: '3',
+          logoRatio: '4:3',
           logosGroup: logos,
           hideBorder: false,
           showCta: false,

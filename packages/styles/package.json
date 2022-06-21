@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-styles",
   "description": "Carbon for IBM.com Styles",
-  "version": "1.31.0",
+  "version": "1.35.0",
   "license": "Apache-2.0",
   "main": "dist/ibm-dotcom-styles.min.css",
   "module": "src/scss",
@@ -31,18 +31,18 @@
     "upgrade-carbon": "yarn upgrade-interactive @carbon/grid @carbon/import-once @carbon/layout @carbon/motion @carbon/themes @carbon/type carbon-components @carbon/icons-react --latest --exact"
   },
   "dependencies": {
-    "@carbon/grid": "10.42.0",
-    "@carbon/icons-react": "10.47.0",
+    "@carbon/grid": "10.43.1",
+    "@carbon/icons-react": "10.49.0",
     "@carbon/import-once": "10.7.0",
-    "@carbon/layout": "10.37.0",
+    "@carbon/layout": "10.37.1",
     "@carbon/motion": "10.29.0",
-    "@carbon/telemetry": "0.0.0-alpha.6",
-    "@carbon/themes": "10.52.0",
-    "@carbon/type": "10.42.0",
-    "carbon-components": "10.54.0"
+    "@carbon/telemetry": "0.1.0",
+    "@carbon/themes": "10.54.0",
+    "@carbon/type": "10.44.0",
+    "carbon-components": "10.57.2"
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.0",
+    "carbon-components-react": "7.57.1",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
@@ -50,6 +50,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-rtlcss": "^1.4.1",
     "gulp-sass": "^5.0.0",
+    "node-sass": "^5.0.0",
     "require-dir": "^1.2.0"
   },
   "sideEffects": false,

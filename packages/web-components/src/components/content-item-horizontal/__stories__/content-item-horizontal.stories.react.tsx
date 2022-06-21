@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,6 +22,9 @@ import DDSContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es
 /* eslint-disable max-len */
 // @ts-ignore
 import DDSContentItemHorizontalMedia from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media';
+/* eslint-disable max-len */
+// @ts-ignore
+import DDSContentItemHorizontalMediaFeatured from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-featured';
 /* eslint-disable max-len */
 // @ts-ignore
 import DDSContentItemHorizontalMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-copy';
@@ -63,6 +66,22 @@ const mediaType = {
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
 
+const bodyCopy = `Lorem ipsum *dolor* sit amet, [consectetur adipiscing](https://www.ibm.com) elit.
+Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aenean et ultricies est.\n
+- [list item](https://www.ibm.com)
+  - list item 1a
+1. list item 2
+   1. list item 2a
+`;
+
+const bodyCopyWithFeaturedMedia = `Lorem ipsum *dolor* sit amet, [consectetur
+  adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris
+  iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+  nulla quis,consequat libero.`;
+
 export const Default = ({ parameters }) => {
   const { eyebrow, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
     parameters?.props?.ContentItemHorizontal ?? {};
@@ -90,10 +109,7 @@ Default.story = {
       ContentItemHorizontal: () => ({
         eyebrow: textNullable('Eyebrow (eyebrow):', 'Lorem ipsum'),
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
-        copy:
-          'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. ' +
-          'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
-          'Phasellus at elit sollicitudin.',
+        copy: bodyCopy,
         ctaType1: select('CTA 1 type (cta-type)', types, CTA_TYPE.LOCAL),
         ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
         href1: textNullable('CTA 1 href (cta-href):', 'https://www.ibm.com'),
@@ -132,10 +148,7 @@ withThumbnail.story = {
     knobs: {
       ContentItemHorizontal: () => ({
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
-        copy:
-          'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. ' +
-          'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
-          'Phasellus at elit sollicitudin.',
+        copy: bodyCopy,
         alt: textNullable('Image alt text', 'Image alt text'),
         ctaType1: select('CTA 1 type (cta-type):', types, CTA_TYPE.LOCAL),
         ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
@@ -149,7 +162,7 @@ withThumbnail.story = {
 };
 
 export const withMedia = ({ parameters }) => {
-  const { align, type, alt, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
+  const { align, type, alt, heading, eyebrow, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
     parameters?.props?.ContentItemHorizontal ?? {};
   return (
     <DDSContentItemHorizontalMedia align={align}>
@@ -159,6 +172,7 @@ export const withMedia = ({ parameters }) => {
       ) : (
         ''
       )}
+      <DDSContentItemHorizontalEyebrow>{eyebrow}</DDSContentItemHorizontalEyebrow>
       <DDSContentItemHeading>{heading}</DDSContentItemHeading>
       <DDSContentItemHorizontalMediaCopy>{copy}</DDSContentItemHorizontalMediaCopy>
       <DDSLinkList slot="footer" type="vertical">
@@ -183,16 +197,60 @@ withMedia.story = {
         type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
         alt: textNullable('Image alt text', 'Image alt text'),
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
-        copy:
-          'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. ' +
-          'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
-          'Phasellus at elit sollicitudin.',
+        eyebrow: textNullable('Eyebrow label:', 'Lorem Ipsum'),
+        copy: bodyCopy,
         ctaType1: select('CTA 1 type (cta-type):', types, CTA_TYPE.LOCAL),
         ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
         href1: textNullable('CTA 1 href (cta-href):', 'https://www.ibm.com'),
         ctaType2: select('CTA 2 type (cta-type):', types, CTA_TYPE.EXTERNAL),
         ctaCopy2: textNullable('CTA 2 copy (cta-copy):', 'Microservices and containers'),
         href2: textNullable('CTA 2 href (cta-href):', 'https://www.ibm.com'),
+      }),
+    },
+  },
+};
+
+export const withFeaturedMedia = ({ parameters }) => {
+  const { type, alt, heading, eyebrow, copy, ctaCopy1, ctaCopy2 } = parameters?.props?.ContentItemHorizontal ?? {};
+  return (
+    <DDSContentItemHorizontalMediaFeatured>
+      {type === MEDIA_TYPE.IMAGE ? (
+        <DDSImage slot="media" alt={alt || undefined} default-src={imgLg16x9} heading="Lorem ipsum dolor sit amet"></DDSImage>
+      ) : (
+        ''
+      )}
+      {type === MEDIA_TYPE.VIDEO ? (
+        <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
+      ) : (
+        ''
+      )}
+      <DDSContentItemHorizontalEyebrow>{eyebrow}</DDSContentItemHorizontalEyebrow>
+      <DDSContentItemHeading>{heading}</DDSContentItemHeading>
+      <DDSContentItemHorizontalMediaCopy>{copy}</DDSContentItemHorizontalMediaCopy>
+      <DDSLinkList slot="footer" type="vertical">
+        <DDSLinkListItemCTA icon-placement={ICON_PLACEMENT.RIGHT} href="https://www.ibm.com" cta-type={CTA_TYPE.LOCAL}>
+          {ctaCopy1}
+        </DDSLinkListItemCTA>
+        <DDSLinkListItemCTA icon-placement={ICON_PLACEMENT.RIGHT} href="https://www.ibm.com" cta-type={CTA_TYPE.EXTERNAL}>
+          {ctaCopy2}
+        </DDSLinkListItemCTA>
+      </DDSLinkList>
+    </DDSContentItemHorizontalMediaFeatured>
+  );
+};
+
+withFeaturedMedia.story = {
+  name: 'With featured media',
+  parameters: {
+    gridContentClasses: 'bx--col-lg-10',
+    knobs: {
+      ContentItemHorizontal: () => ({
+        type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
+        eyebrow: textNullable('Eyebrow:', 'Lorem Ipsum'),
+        heading: textNullable('Heading:', 'Aliquam condimentum'),
+        copy: bodyCopyWithFeaturedMedia,
+        ctaCopy1: textNullable('CTA 1 copy:', 'Learn more'),
+        ctaCopy2: textNullable('CTA 2 copy:', 'Microservices and containers'),
       }),
     },
   },

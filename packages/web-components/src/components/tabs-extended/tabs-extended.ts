@@ -11,8 +11,8 @@ import settings from 'carbon-components/es/globals/js/settings';
 import { customElement, html, state, LitElement, TemplateResult, property } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import { classMap } from 'lit-html/directives/class-map';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ChevronRight20 from 'carbon-web-components/es/icons/chevron--right/20.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSTab from './tab';
 import styles from './tabs-extended.scss';
@@ -224,18 +224,17 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
             });
             return html`
               <li class="${classes}" data-target=".tab-${index}-default" role="tab" ?disabled="${disabled}">
-                <a
+                <button
                   tabindex="${active ? '0' : '-1'}"
                   id="tab-link-${index}-default"
                   class="${prefix}--tabs__nav-link"
-                  href="javascript:void(0)"
-                  role="tab"
+                  type="button"
                   aria-controls="tab-panel-${index}-default"
                   aria-selected="${active}"
                   @click="${e => this._handleClick(index, e)}"
                 >
                   <div><p>${label}</p></div>
-                </a>
+                </button>
               </li>
             `;
           })}

@@ -1,0 +1,107 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef as ImageProps } from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+
+# Image
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/image)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/image)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image.js';
+import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item.js';
+
+function App() {
+  return (
+  <DDSImage alt="Image alt text">
+    <DDSImageItem media="(min-width:672px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+    <DDSImageItem media="(min-width:400px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+    <DDSImageItem media="(min-width:320px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+  </DDSImage>
+  );
+}
+```
+
+## Image with caption
+
+As of Carbon for IBM.com v1.35.0, the caption functionality found in Image with caption has been merged within the basic Image component.
+Simply adding a `heading` attribute will display the caption underneath the image component.
+
+```javascript
+function App() {
+  return (
+  <DDSImage alt="Image alt text" heading={"This is a heading"}>
+    <DDSImageItem media="(min-width:672px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+    <DDSImageItem media="(min-width:400px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+    <DDSImageItem media="(min-width:320px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+  </DDSImage>
+  );
+}
+```
+
+## Opening image in Lightbox media viewer
+
+Likewise, the lightbox functionality from Image with caption can be used with the basic Image component.
+Simply adding the `lightbox` attribute boolean will ensure the user can click on the image and launch the media viewer in a lightbox modal.
+
+```javascript
+function App() {
+  return (
+  <DDSImage alt="Image alt text" lightbox={true}>
+    <DDSImageItem media="(min-width:672px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+    <DDSImageItem media="(min-width:400px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+    <DDSImageItem media="(min-width:320px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+  </DDSImage>
+  );
+}
+```
+
+A heading and copy can be added so that it can be displayed underneath the image in the lighbox media viewer upon clicking the original image.
+
+```javascript
+function App() {
+  return (
+  <DDSImage alt="Image alt text" lightbox={true} heading={"This is a heading"} copy={"This is a copy"}>
+    <DDSImageItem media="(min-width:672px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+    <DDSImageItem media="(min-width:400px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+    <DDSImageItem media="(min-width:320px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+    </DDSImageItem>
+  </DDSImage>
+  );
+}
+```
+
+## Props of Image
+
+<Props of={ImageProps} />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector | Compatibility selector | Description |
+| ----------------------- | ---------------------- | ----------- |
+| `<dds-image>`        | N/A                    | Component   |
+| `<dds-image-item>`        | N/A                    | Component   |
+
+<Description markdown={contributing} />

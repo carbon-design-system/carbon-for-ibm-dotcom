@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,7 +25,7 @@ const selectorTargets = `dds-content-block-heading,
    dds-feature-card-block-large,
    dds-image,
    .bx--image__img,
-   dds-image-with-caption,
+   dds-image,
    dds-card-cta,
    dds-callout-with-media,
    dds-content-item-horizontal,

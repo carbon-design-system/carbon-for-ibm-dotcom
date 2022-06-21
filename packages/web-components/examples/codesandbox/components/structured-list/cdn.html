@@ -1,0 +1,97 @@
+<!--
+@license
+Copyright IBM Corp. 2020
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+<head>
+  <title>@carbon/ibmdotcom-web-components example</title>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet"
+        href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css"/>
+  <link rel="stylesheet"
+        href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/grid.css"/>
+  <style type="text/css">
+    /* Suppress custom element until styles are loaded */
+    dds-structured-list:not(:defined) {
+      display: none;
+    }
+
+    body {
+      padding: 2rem;
+    }
+  </style>
+  <script type="module"
+          src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/structured-list.min.js"></script>
+</head>
+<body>
+<div class="bx--grid">
+  <div class="bx--row">
+    <div class="bx--col-sm-4 bx--col-lg-12">
+      <dds-structured-list>
+        <dds-structured-list-head>
+          <dds-structured-list-header-row>
+            <dds-structured-list-header-cell>Column A</dds-structured-list-header-cell>
+            <dds-structured-list-header-cell>Column B</dds-structured-list-header-cell>
+            <dds-structured-list-header-cell>Column C</dds-structured-list-header-cell>
+            <dds-structured-list-header-cell>Column D</dds-structured-list-header-cell>
+          </dds-structured-list-header-row>
+        </dds-structured-list-head>
+        <dds-structured-list-body>
+          <dds-structured-list-row>
+            <dds-structured-list-cell tooltip="Tooltip text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </dds-structured-list-cell>
+            <dds-structured-list-cell icon="checkmark">
+              Nunc dui magna, finibus id tortor sed, aliquet bibendum
+              augue.
+            </dds-structured-list-cell>
+            <dds-structured-list-celltags="Tag 1, Secondary Tag, Other">
+              Aenean posuere sem vel euismod dignissim.
+            </dds-structured-list-celltags=>
+            <dds-structured-list-cell>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+              augue. Aenean posuere sem vel euismod dignissim.
+            </dds-structured-list-cell>
+          </dds-structured-list-row>
+          <dds-structured-list-row>
+            <dds-structured-list-cell tooltip="Tooltip text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </dds-structured-list-cell>
+            <dds-structured-list-cell icon="checkmark">
+              Nunc dui magna, finibus id tortor sed, aliquet bibendum
+              augue.
+            </dds-structured-list-cell>
+            <dds-structured-list-celltags="Tag 1, Secondary Tag, Other">
+              Aenean posuere sem vel euismod dignissim.
+            </dds-structured-list-celltags=>
+            <dds-structured-list-cell>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+              augue. Aenean posuere sem vel euismod dignissim.
+            </dds-structured-list-cell>
+          </dds-structured-list-row>
+          <dds-structured-list-row>
+            <dds-structured-list-cell tooltip="Tooltip text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </dds-structured-list-cell>
+            <dds-structured-list-cell icon="checkmark">
+              Nunc dui magna, finibus id tortor sed, aliquet bibendum
+              augue.
+            </dds-structured-list-cell>
+            <dds-structured-list-celltags="Tag 1, Secondary Tag, Other">
+              Aenean posuere sem vel euismod dignissim.
+            </dds-structured-list-celltags=>
+            <dds-structured-list-cell>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+              augue. Aenean posuere sem vel euismod dignissim.
+            </dds-structured-list-cell>
+          </dds-structured-list-row>
+        </dds-structured-list-body>
+      </dds-structured-list>
+    </div>
+  </div>
+</div>
+</body>
+</html>

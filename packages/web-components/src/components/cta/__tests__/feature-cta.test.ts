@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -93,8 +93,17 @@ describe('dds-feature-cta', function() {
       await Promise.resolve(); // Update cycle that fires `slotchange` event
       await Promise.resolve(); // Update cycle for rendering upon `slotchange` event
       expect(
-        document.body.querySelector('dds-feature-cta')!.shadowRoot!.querySelector('dds-image[alt="video-name-foo"]')
-      ).toBeNull();
+        document.body
+          .querySelector('dds-feature-cta')!
+          .shadowRoot!.querySelector('dds-image[alt="video-name-foo"]')
+          ?.getBoundingClientRect().height
+      ).toBe(0);
+      expect(
+        document.body
+          .querySelector('dds-feature-cta')!
+          .querySelector('dds-image[alt="image-alt-foo"]')
+          ?.getBoundingClientRect().height
+      ).not.toEqual(0);
     });
   });
 

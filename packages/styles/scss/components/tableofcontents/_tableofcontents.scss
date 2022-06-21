@@ -97,6 +97,7 @@ $hover-transition-timing: 95ms;
     position: sticky;
     top: 0;
     z-index: 1;
+    padding-left: 0;
 
     @include carbon--breakpoint('lg') {
       position: inherit;
@@ -224,6 +225,10 @@ $hover-transition-timing: 95ms;
 
       > * {
         transform: translateY($layout-03);
+      }
+
+      &:focus {
+        outline: none;
       }
 
       @include carbon--breakpoint('lg') {

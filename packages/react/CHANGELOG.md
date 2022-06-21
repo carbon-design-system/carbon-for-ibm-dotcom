@@ -3,6 +3,211 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.35.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.35.0-rc.0...@carbon/ibmdotcom-react@1.35.0) (2022-06-17)
+
+
+
+# 1.35.0-rc.0 (2022-06-07)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.35.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.34.0...@carbon/ibmdotcom-react@1.35.0-rc.0) (2022-06-07)
+
+
+### Bug Fixes
+
+* **cta:** reorder csb styles ([#8948](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8948)) ([bfb3343](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bfb3343ae399f27b1d9eeac4b70228cba7dd1ce0))
+* **deps:** update dependency carbon-components ([#8925](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8925)) ([d36320f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d36320f8460ede20d27557873edbcf7a661e77bd))
+* **quote:** update max breakpoint corner bracket position ([#8907](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8907)) ([53f6cbe](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/53f6cbef52191720d9b95cf58e9498214853e6be)), closes [#8690](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8690)
+
+
+
+# 1.34.0 (2022-05-20)
+
+
+### Bug Fixes
+
+* **dotcom-shell:** remove padding top ([#8818](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8818)) ([da2ff39](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/da2ff398a2dc70cf128f5945a695cef6d4c22844)), closes [#8703](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8703)
+
+
+### Features
+
+* **background-media:** introducing react wrapper ([#8819](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8819)) ([6c13daf](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6c13dafd38d724059a933afa56663a9dded3715d)), closes [#8617](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8617)
+
+
+
+
+
+# [1.34.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.34.0-rc.0...@carbon/ibmdotcom-react@1.34.0) (2022-05-20)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.34.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.33.1...@carbon/ibmdotcom-react@1.34.0-rc.0) (2022-05-06)
+
+
+### Features
+
+* **video-player:** add alt prop in VideoPlayer component ([#8764](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8764)) ([7bf30ef](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7bf30ef))
+
+
+
+## 1.33.1 (2022-05-04)
+
+
+### Bug Fixes
+
+* **content-block:** add border to mixed and media ([#8779](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8779)) ([dfa1b5d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/dfa1b5d)), closes [#8287](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8287)
+* **e2e:** adding wait times for React storybook e2e percy snapshots ([#8758](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8758)) ([dc4475e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/dc4475e))
+* **masthead:** add optional chaining ([#8698](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8698)) ([e3413e5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e3413e5))
+* **masthead:** using better selector ([#8737](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8737)) ([739fb41](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/739fb41))
+* **table-of-contents:** add scroll behavior to react with toc wrapper ([#8676](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8676)) ([2f09beb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2f09beb)), closes [#7641](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7641)
+
+
+
+
+
+## [1.33.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.33.0...@carbon/ibmdotcom-react@1.33.1) (2022-05-04)
+
+
+
+# 1.33.0 (2022-04-25)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.33.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.33.0-rc.1...@carbon/ibmdotcom-react@1.33.0) (2022-04-25)
+
+
+
+# 1.33.0-rc.1 (2022-04-21)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.33.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.33.0-rc.0...@carbon/ibmdotcom-react@1.33.0-rc.1) (2022-04-21)
+
+
+### Bug Fixes
+
+* **vendor:** fix to pull direct source for internal vendor packages ([#8734](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8734)) ([be94613](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/be94613))
+
+
+
+
+
+# [1.33.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.31.0...@carbon/ibmdotcom-react@1.33.0-rc.0) (2022-04-11)
+
+
+### Bug Fixes
+
+* **axe-core:** resolved accessibility errors ([#8453](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8453)) ([8366418](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8366418)), closes [#8351](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8351) [#8353](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8353)
+* **axe-core:** update aria attribute errors ([#8689](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8689)) ([27838bf](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/27838bf)), closes [#8459](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8459)
+* **browserstack:** add axe-core npm dependencies ([#8354](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8354)) ([757514b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/757514b))
+* **CTA:** update button docs and codesandbox ([#8681](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8681)) ([97940a2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/97940a2))
+* **deps:** update dependency @carbon/telemetry to v0.1.0 ([#8481](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8481)) ([2a7a0c6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2a7a0c6))
+* **deps:** update dependency carbon-components to v10.54.0 ([#8408](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8408)) ([588981c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/588981c))
+* **deps:** update dependency carbon-components to v10.55.1 ([#8483](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8483)) ([579f9a4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/579f9a4))
+* **deps:** update dependency carbon-components-react to v7.54.0 ([#8409](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8409)) ([4a704d9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4a704d9))
+* **deps:** update dependency carbon-components-react to v7.54.2 ([#8460](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8460)) ([4f5ae2a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4f5ae2a))
+* **e2e:** fix to fixtures in e2e integration tests ([#8350](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8350)) ([47e207c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/47e207c))
+* **layout:** removed unneeded white background inline styles ([#8554](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8554)) ([4c37ec3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4c37ec3)), closes [#8294](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8294)
+* **masthead:** added menusection null checks ([#8324](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8324)) ([fdfe5ae](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/fdfe5ae)), closes [#8322](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8322)
+* **masthead:** aligned L1 sticky with wc ([#8398](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8398)) ([72bcf21](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/72bcf21)), closes [#8032](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8032)
+* **masthead:** fix search combobox `aria-expanded` value ([#8662](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8662)) ([28d4407](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/28d4407)), closes [#8473](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8473)
+* **masthead-search:** react searchNoRedirect prop doesn't work on enter ([#8516](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8516)) ([a176c21](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a176c21)), closes [#8334](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8334)
+* **table-of-contents:** Let VO interact with the destination content ([#8253](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8253)) ([c8f4c56](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c8f4c56))
+
+
+### Features
+
+* **accessibility-testing:** introduce cypress-axe-core ([#8233](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8233)) ([48fb0f5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/48fb0f5)), closes [#8063](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8063)
+
+
+
+
+
+## [1.32.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.32.0...@carbon/ibmdotcom-react@1.32.1) (2022-04-01)
+
+
+
+# 1.32.0 (2022-03-28)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.32.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.32.0-rc.1...@carbon/ibmdotcom-react@1.32.0) (2022-03-28)
+
+
+
+# 1.32.0-rc.1 (2022-03-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.32.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.32.0-rc.0...@carbon/ibmdotcom-react@1.32.0-rc.1) (2022-03-17)
+
+
+### Bug Fixes
+
+* **masthead-search:** react searchNoRedirect prop doesn't work on enter ([#8516](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8516)) ([#8541](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8541)) ([d1d1c95](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d1d1c95)), closes [#8334](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8334)
+* **plex:** replace `gstatic` font references with akamai ([#8502](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8502)) ([e0b3a51](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e0b3a51))
+
+
+### Features
+
+* **scrolling-utility:** Add new utility to mimic dotcom-shell functionality ([#8434](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8434)) ([d06b45a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d06b45a))
+
+
+
+# 1.32.0-rc.0 (2022-03-16)
+
+
+
+
+
+# [1.32.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.31.0...@carbon/ibmdotcom-react@1.32.0-rc.0) (2022-03-16)
+
+
+### Bug Fixes
+
+* **browserstack:** add axe-core npm dependencies ([#8354](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8354)) ([757514b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/757514b))
+* **deps:** update dependency carbon-components to v10.54.0 ([#8408](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8408)) ([588981c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/588981c))
+* **deps:** update dependency carbon-components-react to v7.54.0 ([#8409](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8409)) ([4a704d9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4a704d9))
+* **deps:** update dependency carbon-components-react to v7.54.2 ([#8460](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8460)) ([4f5ae2a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4f5ae2a))
+* **e2e:** fix to fixtures in e2e integration tests ([#8350](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8350)) ([47e207c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/47e207c))
+* **masthead:** added menusection null checks ([#8324](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8324)) ([fdfe5ae](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/fdfe5ae)), closes [#8322](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8322)
+* **masthead:** aligned L1 sticky with wc ([#8398](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8398)) ([72bcf21](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/72bcf21)), closes [#8032](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8032)
+* **table-of-contents:** Let VO interact with the destination content ([#8253](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8253)) ([c8f4c56](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c8f4c56))
+
+
+### Features
+
+* **accessibility-testing:** introduce cypress-axe-core ([#8233](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8233)) ([48fb0f5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/48fb0f5)), closes [#8063](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8063)
+
+
+
+
+
 # [1.31.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.31.0-rc.3...@carbon/ibmdotcom-react@1.31.0) (2022-02-28)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react
