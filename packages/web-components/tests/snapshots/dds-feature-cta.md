@@ -39,6 +39,12 @@
 ```
 <div class="bx--card bx--feature-card__card bx--tile">
   <slot name="image">
+    <dds-image
+      alt="video-name-foo"
+      data-autoid="dds--image"
+      slot="image"
+    >
+    </dds-image>
   </slot>
   <div class="bx--card__wrapper">
     <div class="bx--card__content">
