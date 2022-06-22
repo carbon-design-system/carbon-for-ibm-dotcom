@@ -239,7 +239,7 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
     firstUpdated() {
       window.requestAnimationFrame(() => {
         const button = this.querySelector('dds-video-player')?.shadowRoot?.querySelector('button');
-        if (!this.getAttribute('href')) {
+        if (!this.getAttribute('href') && this.getAttribute('video-id')) {
           this.setAttribute('href', `https://mediacenter.ibm.com/id/${this.getAttribute('video-id')}`);
         }
         this.transposeAttributes(button, ['href']);
