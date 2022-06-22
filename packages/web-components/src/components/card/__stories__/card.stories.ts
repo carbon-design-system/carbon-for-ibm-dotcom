@@ -155,7 +155,7 @@ Pictogram.story = {
   parameters: {
     ...readme.parameters,
     knobs: {
-      PictogramCard: ({ groupId }) => {
+      CardPictogram: ({ groupId }) => {
         const pictogramPlacement = select('Pictogram position:', pictogramPlacements, pictogramPlacements.top, groupId);
         const copy = textNullable(
           'Body copy:',
