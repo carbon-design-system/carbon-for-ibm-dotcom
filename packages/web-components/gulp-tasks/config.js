@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -41,9 +41,19 @@ module.exports = {
   sassDestDir: 'scss',
   tasksDir: 'gulp-tasks',
   testsDir: 'tests',
+  servicesCJSSrcDir: path.resolve(__dirname, '../../services/lib'),
+  servicesESSrcDir: path.resolve(__dirname, '../../services/es'),
+  servicesVendorSrcDir: path.resolve(__dirname, '../src/internal/vendor/@carbon/ibmdotcom-services'),
+  servicesVendorESDstDir: path.resolve(__dirname, '../es/internal/vendor/@carbon/ibmdotcom-services'),
+  servicesVendorCJSDstDir: path.resolve(__dirname, '../lib/internal/vendor/@carbon/ibmdotcom-services'),
   servicesStoreCJSSrcDir: path.resolve(path.dirname(require.resolve('@carbon/ibmdotcom-services-store/package.json')), 'lib'),
   servicesStoreESSrcDir: path.resolve(path.dirname(require.resolve('@carbon/ibmdotcom-services-store/package.json')), 'es'),
   servicesStoreVendorSrcDir: path.resolve(__dirname, '../src/internal/vendor/@carbon/ibmdotcom-services-store'),
   servicesStoreVendorESDstDir: path.resolve(__dirname, '../es/internal/vendor/@carbon/ibmdotcom-services-store'),
   servicesStoreVendorCJSDstDir: path.resolve(__dirname, '../lib/internal/vendor/@carbon/ibmdotcom-services-store'),
+  utilitiesCJSSrcDir: path.resolve(__dirname, '../../utilities/lib'),
+  utilitiesESSrcDir: path.resolve(__dirname, '../../utilities/es'),
+  utilitiesVendorSrcDir: path.resolve(__dirname, '../src/internal/vendor/@carbon/ibmdotcom-utilities'),
+  utilitiesVendorESDstDir: path.resolve(__dirname, '../es/internal/vendor/@carbon/ibmdotcom-utilities'),
+  utilitiesVendorCJSDstDir: path.resolve(__dirname, '../lib/internal/vendor/@carbon/ibmdotcom-utilities'),
 };

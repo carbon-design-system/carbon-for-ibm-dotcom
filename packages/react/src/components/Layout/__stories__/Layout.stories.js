@@ -100,7 +100,6 @@ export const Default = ({ parameters }) => {
                 [`bx--layout--sticky`]: stickyLeft,
               })}
               style={{
-                backgroundColor: 'white',
                 top: stickyOffset ? `${stickyOffset}px` : 0,
               }}>
               <h3>Column 1</h3>
@@ -199,10 +198,7 @@ export const Default = ({ parameters }) => {
                 <div
                   className={cx({
                     [`bx--layout--sticky`]: stickyRight,
-                  })}
-                  style={{
-                    backgroundColor: 'white',
-                  }}>
+                  })}>
                   <h3>Column 2.2</h3>
 
                   <ul className="bx--list--unordered">

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -42,8 +42,8 @@ const contentItemRow2 = html`
 
 export const Default = !DDS_CONTENT_BLOCK_HEADLINES
   ? undefined
-  : ({ parameters }) => {
-      const { heading, copy } = parameters?.props?.ContentBlockHeadlines ?? {};
+  : args => {
+      const { heading, copy } = args?.ContentBlockHeadlines ?? {};
       return html`
         <div class="bx--grid">
           <div class="bx--row">

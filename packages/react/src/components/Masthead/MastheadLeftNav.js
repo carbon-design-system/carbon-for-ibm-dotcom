@@ -6,7 +6,7 @@
  */
 import React, { useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import HeaderSideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderSideNavItems';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
@@ -227,7 +227,6 @@ const MastheadLeftNav = ({
           <a
             data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-productname`}
             href={platform.url}
-            aria-haspopup="true"
             className={cx(
               `${prefix}--side-nav__submenu`,
               `${prefix}--side-nav__submenu-platform`

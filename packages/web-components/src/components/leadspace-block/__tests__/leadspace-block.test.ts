@@ -13,20 +13,12 @@ import { Default, WithVideo } from '../__stories__/leadspace-block.stories';
 
 const DefaultTemplate = (props?) =>
   Default({
-    parameters: {
-      props: {
-        LeadSpaceBlock: props,
-      },
-    },
+    LeadSpaceBlock: props,
   });
 
 const WithVideoTemplate = (props?) =>
   WithVideo({
-    parameters: {
-      props: {
-        LeadSpaceBlock: props,
-      },
-    },
+    LeadSpaceBlock: props,
   });
 
 describe('dds-leadspace-block', function() {

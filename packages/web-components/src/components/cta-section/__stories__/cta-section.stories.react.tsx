@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -68,7 +68,7 @@ const contentItemTypeMap = {
           {elem.copy}
         </DDSTextCTA>
       ))}
-      <Desktop slot="media" width="48" height="48" viewBox="0 0 48 48" />
+      <Desktop slot="media" width="80" height="80" viewBox="0 0 32 32" />
     </DDSCTABlockItem>
   ),
   media: ({ heading, copy, links }) => (
@@ -108,8 +108,8 @@ const contentItemTypeOptions = {
   Media: 'media',
 };
 
-export const Simple = ({ parameters }) => {
-  const { heading, copy, border } = parameters?.props?.CTASection ?? {};
+export const Simple = args => {
+  const { heading, copy, border } = args?.CTASection ?? {};
 
   return (
     <>
@@ -130,31 +130,34 @@ export const Simple = ({ parameters }) => {
 Simple.story = {
   parameters: {
     knobs: {
-      CTASection: ({ groupId }) => ({
+      CTASection: () => ({
         heading: 'Optional title heading-05 color text-01',
         copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
-        border: boolean('CTA Block border', false, groupId),
+        border: boolean('CTA Block border', false),
       }),
     },
   },
 };
 
-export const WithContentItems = ({ parameters }) => {
-  const { heading, copy, border } = parameters?.props?.CTASection ?? {};
-  const { contentItemType, contentItemCount } = parameters?.props?.WithContentItems ?? {};
+export const WithContentItems = args => {
+  const { heading, copy, border } = args?.CTASection ?? {};
+  const { contentItemType, contentItemCount } = args?.WithContentItems ?? {};
 
   return (
-    <DDSCTASection>
-      <DDSContentSectionHeading>Related products and services</DDSContentSectionHeading>
-      <DDSCTABlock _noBorder={!border}>
-        <DDSContentBlockHeading>{heading || undefined}</DDSContentBlockHeading>
-        <DDSContentBlockCopy>{copy}</DDSContentBlockCopy>
-        <DDSTextCTA slot="action" cta-type="local" icon-placement="right" href="example.com">
-          Browse tutorials
-        </DDSTextCTA>
-        {renderItems(contentItemType, contentItemCount)}
-      </DDSCTABlock>
-    </DDSCTASection>
+    <>
+      <DDSCTASection>
+        <DDSContentSectionHeading>Related products and services</DDSContentSectionHeading>
+        <DDSCTABlock _noBorder={!border}>
+          <DDSContentBlockHeading>{heading || undefined}</DDSContentBlockHeading>
+          <DDSContentBlockCopy>{copy}</DDSContentBlockCopy>
+          <DDSTextCTA slot="action" cta-type="local" icon-placement="right" href="example.com">
+            Browse tutorials
+          </DDSTextCTA>
+          {renderItems(contentItemType, contentItemCount)}
+        </DDSCTABlock>
+      </DDSCTASection>
+      <DDSLightboxVideoPlayerContainer></DDSLightboxVideoPlayerContainer>
+    </>
   );
 };
 
@@ -162,24 +165,24 @@ WithContentItems.story = {
   name: 'With content items',
   parameters: {
     knobs: {
-      CTASection: ({ groupId }) => ({
+      CTASection: () => ({
         heading: 'Optional title heading-05 color text-01',
         copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
-        border: boolean('CTA Block border', false, groupId),
+        border: boolean('CTA Block border', false),
       }),
-      WithContentItems: ({ groupId }) => ({
+      WithContentItems: () => ({
         contentItemType:
-          contentItemTypeMap[select(`Content item type`, contentItemTypeOptions, contentItemTypeOptions.Text, groupId) ?? 0],
+          contentItemTypeMap[select(`Content item type`, contentItemTypeOptions, contentItemTypeOptions.Text) ?? 0],
         contentItemCount: Array.from({
-          length: number('Number of content items', 3, { min: 2, max: 6 }, groupId),
+          length: number('Number of content items', 3, { min: 2, max: 6 }),
         }),
       }),
     },
   },
 };
 
-export const WithLinkList = ({ parameters }) => {
-  const { heading, copy, border } = parameters?.props?.CTASection ?? {};
+export const WithLinkList = args => {
+  const { heading, copy, border } = args?.CTASection ?? {};
 
   return (
     <DDSCTASection>
@@ -220,10 +223,10 @@ WithLinkList.story = {
   name: 'With link list',
   parameters: {
     knobs: {
-      CTASection: ({ groupId }) => ({
+      CTASection: () => ({
         heading: 'Optional title heading-05 color text-01',
         copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
-        border: boolean('CTA Block border', false, groupId),
+        border: boolean('CTA Block border', false),
       }),
     },
   },

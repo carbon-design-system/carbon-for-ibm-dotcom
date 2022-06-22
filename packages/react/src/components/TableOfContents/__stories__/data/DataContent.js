@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,8 +19,7 @@ export const headings = [
 ];
 
 // eslint-disable-next-line max-len
-export const LOREM = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
-nisl.`;
+export const LOREM = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.`;
 
 const generateCopySections = n => [...Array(n)].map(() => <p>{LOREM}</p>);
 

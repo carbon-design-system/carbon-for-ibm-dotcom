@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -55,8 +55,8 @@ const buttonCTA = html`
   </dds-leadspace-block-cta>
 `;
 
-export const Default = ({ parameters }) => {
-  const { title, heading, copy } = parameters?.props?.LeadSpaceBlock ?? {};
+export const Default = args => {
+  const { title, heading, copy } = args?.LeadSpaceBlock ?? {};
   return html`
     <dds-leadspace-block>
       <dds-leadspace-block-heading>${title}</dds-leadspace-block-heading>
@@ -70,8 +70,8 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const WithVideo = ({ parameters }) => {
-  const { title, heading, copy } = parameters?.props?.LeadSpaceBlock ?? {};
+export const WithVideo = args => {
+  const { title, heading, copy } = args?.LeadSpaceBlock ?? {};
   return html`
     <dds-leadspace-block>
       <dds-leadspace-block-heading>${title}</dds-leadspace-block-heading>
@@ -111,9 +111,9 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      LeadSpaceBlock: ({ groupId }) => ({
-        title: text('title (title)', 'Continuous delivery', groupId),
-        heading: text('heading (required):', 'Innovate like a startup and scale for the enterprise ', groupId),
+      LeadSpaceBlock: () => ({
+        title: text('title (title)', 'Continuous delivery'),
+        heading: text('heading (required):', 'Innovate like a startup and scale for the enterprise '),
         copy: `Automate your software release process with continuous delivery (CD)—the most
             critical part of adopting DevOps. Build, test, and deploy code changes quickly,
             ensuring software is always ready for deployment.`,

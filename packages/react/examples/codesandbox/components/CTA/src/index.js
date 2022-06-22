@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,18 +26,19 @@ const ctaButton = {
   style: "button",
   buttons: [
     {
-      href: "#",
-      copy: "Button 3",
-      iconDescription: "video play icon",
+      type: "video",
+      href: "https://www.example.com",
+      copy: "Lorem Ipsum",
       media: {
         src: "1_9h94wo6b",
-        type: "video",
+        type: "video"
       },
     },
     {
+      type: "external",
       href: "https://www.example.com",
-      copy: "Button 1",
-      iconDescription: "right arrow icon",
+      copy: "Lorem Ipsum",
+      renderIcon: ArrowRight20
     },
   ],
 };

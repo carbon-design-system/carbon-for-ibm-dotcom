@@ -66,10 +66,12 @@ const contentItemTypeMap = {
           fill="none"
           stroke-linejoin="round"
           stroke-miterlimit="10"
-          stroke-width=".72"
-          d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,
-        0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
-        ></path>
+          stroke-width="1.10581"
+          d="M 44.211009,36.137939 H 3.7889912 c -1.7101623,0 -3.10938596,-1.365518
+          -3.10938596,-3.034485 V 7.3103341 c 0,-1.6689666 1.39922366,-3.0344847 3.10938596,-3.0344847 H 44.211009 c 1.710162,0
+          3.109386,1.3655181 3.109386,3.0344847 V 33.103454 c 0,1.668967 -1.399224,3.034485 -3.109386,3.034485 z m
+          -31.09386,7.586212 H 34.882851 M 24,36.137939 v 7.586212 M 0.67960524,28.551727 H 47.320395"
+        />
       </svg>
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       <dds-content-item-copy>${copy}</dds-content-item-copy>
@@ -112,8 +114,8 @@ const renderItems = (item, count) => {
   `;
 };
 
-export const Simple = ({ parameters }) => {
-  const { heading, copy, border } = parameters?.props?.CTASection ?? {};
+export const Simple = args => {
+  const { heading, copy, border } = args?.CTASection ?? {};
 
   return html`
     <dds-cta-section>
@@ -127,9 +129,9 @@ export const Simple = ({ parameters }) => {
   `;
 };
 
-export const WithContentItems = ({ parameters }) => {
-  const { heading, copy, border } = parameters?.props?.CTASection ?? {};
-  const { contentItemType, contentItemCount } = parameters?.props?.WithContentItems ?? {};
+export const WithContentItems = args => {
+  const { heading, copy, border } = args?.CTASection ?? {};
+  const { contentItemType, contentItemCount } = args?.WithContentItems ?? {};
 
   return html`
     <dds-cta-section>
@@ -149,11 +151,11 @@ WithContentItems.story = {
   name: 'With content items',
   parameters: {
     knobs: {
-      WithContentItems: ({ groupId }) => ({
+      WithContentItems: () => ({
         contentItemType:
-          contentItemTypeMap[select(`Content item type`, contentItemTypeOptions, contentItemTypeOptions.Text, groupId) ?? 0],
+          contentItemTypeMap[select(`Content item type`, contentItemTypeOptions, contentItemTypeOptions.Text) ?? 0],
         contentItemCount: Array.from({
-          length: number('Number of content items', 3, { min: 2, max: 6 }, groupId),
+          length: number('Number of content items', 3, { min: 2, max: 6 }),
         }),
       }),
     },
@@ -168,8 +170,8 @@ WithContentItems.story = {
   },
 };
 
-export const WithLinkList = ({ parameters }) => {
-  const { heading, copy, border } = parameters?.props?.CTASection ?? {};
+export const WithLinkList = args => {
+  const { heading, copy, border } = args?.CTASection ?? {};
 
   return html`
     <dds-cta-section>
@@ -228,10 +230,10 @@ export default {
   ],
   parameters: {
     knobs: {
-      CTASection: ({ groupId }) => ({
-        heading: textNullable('Heading (required)', 'Optional title heading-05 color text-01', groupId),
+      CTASection: () => ({
+        heading: textNullable('Heading (required)', 'Optional title heading-05 color text-01'),
         copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
-        border: boolean('CTA Block border', false, groupId),
+        border: boolean('CTA Block border', false),
       }),
     },
     propsSet: {

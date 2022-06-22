@@ -100,13 +100,9 @@ const legalLinksFoo: BasicLink[] = [
 
 const template = (props?) =>
   Default({
-    parameters: {
-      props: {
-        FooterComposite: props,
-        Other: {
-          useMock: true,
-        },
-      },
+    FooterComposite: props,
+    Other: {
+      useMock: true,
     },
   });
 

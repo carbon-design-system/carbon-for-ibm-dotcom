@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,6 +20,7 @@ import styles from './carousel.stories.scss';
 import readme from './README.stories.mdx';
 
 import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
+import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--004.jpg';
 
 const hrefDefault = 'https://www.ibm.com/standards/carbon';
 const headingDefault = 'Lorem ipsum dolor sit amet';
@@ -64,10 +65,9 @@ const CardWithLongHeading = ({
   </dds-card>
 `;
 
-const CardWithVideo = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault } = {}) => html`
+const CardWithVideo = ({ copy = copyDefault, href = hrefDefault } = {}) => html`
   <dds-video-cta-container>
     <dds-card-cta cta-type="video" href="${href}">
-      <dds-card-heading>${heading}</dds-card-heading>
       ${copy}
       <dds-card-cta-footer href="${href}">
         ${ArrowRight20({ slot: 'icon' })}
@@ -76,8 +76,8 @@ const CardWithVideo = ({ copy = copyDefault, heading = headingDefault, href = hr
   </dds-video-cta-container>
 `;
 
-export const Default = ({ parameters }) => {
-  const { cardSize } = parameters?.props?.Carousel ?? {};
+export const Default = args => {
+  const { cardSize } = args?.Carousel ?? {};
   const classes = classMap({
     [cardSize]: cardSize,
   });
@@ -88,8 +88,8 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const CardsWithImages = ({ parameters }) => {
-  const { cardSize } = parameters?.props?.Carousel ?? {};
+export const CardsWithImages = args => {
+  const { cardSize } = args?.Carousel ?? {};
   const classes = classMap({
     [cardSize]: cardSize,
   });
@@ -103,8 +103,8 @@ export const CardsWithImages = ({ parameters }) => {
   `;
 };
 
-export const CardsWithVideos = ({ parameters }) => {
-  const { cardSize } = parameters?.props?.Carousel ?? {};
+export const CardsWithVideos = args => {
+  const { cardSize } = args?.Carousel ?? {};
   const classes = classMap({
     [cardSize]: cardSize,
   });
@@ -112,6 +112,19 @@ export const CardsWithVideos = ({ parameters }) => {
     <dds-carousel class="${classes}">
       ${CardWithVideo({ href: '1_9h94wo6b' })} ${CardWithVideo({ href: '0_ibuqxqbe' })} ${CardWithVideo({ href: '1_9h94wo6b' })}
       ${CardWithVideo({ href: '0_ibuqxqbe' })} ${CardWithVideo({ href: '1_9h94wo6b' })} ${CardWithVideo({ href: '0_ibuqxqbe' })}
+    </dds-carousel>
+  `;
+};
+
+export const CardsWithMedia = args => {
+  const { cardSize } = args?.Carousel ?? {};
+  const classes = classMap({
+    [cardSize]: cardSize,
+  });
+  return html`
+    <dds-carousel class="${classes}">
+      ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '0_ibuqxqbe' })} ${Card({ image: imgLg4x3 })}
+      ${CardWithVideo({ href: '1_9h94wo6b' })} ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '0_ibuqxqbe' })}
     </dds-carousel>
   `;
 };
@@ -127,6 +140,13 @@ CardsWithVideos.story = {
     percy: {
       skip: true,
     },
+  },
+};
+
+CardsWithMedia.story = {
+  name: 'Cards with Media',
+  parameters: {
+    ...readme.parameters,
   },
 };
 

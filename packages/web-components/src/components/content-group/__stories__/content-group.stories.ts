@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,8 +19,8 @@ import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
-export const Default = ({ parameters }) => {
-  const { heading, showCopy, copy, cta, addChildren } = parameters?.props?.ContentGroup ?? {};
+export const Default = args => {
+  const { heading, showCopy, copy, cta, addChildren } = args?.ContentGroup ?? {};
   return html`
     <dds-content-group>
       <dds-content-group-heading>${heading}</dds-content-group-heading>

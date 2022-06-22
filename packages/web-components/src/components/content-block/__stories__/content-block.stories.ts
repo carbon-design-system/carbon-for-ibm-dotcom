@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -67,8 +67,8 @@ const image = html`
   </dds-image-with-caption>
 `;
 
-export const Default = ({ parameters }) => {
-  const { heading, copy, showCopy, addChildren, showCTA, border, aside } = parameters?.props?.ContentBlock ?? {};
+export const Default = args => {
+  const { heading, copy, showCopy, addChildren, showCTA, border, aside } = args?.ContentBlock ?? {};
   return html`
     <dds-content-block complementary-style-scheme="${border ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER : ''}">
       ${heading

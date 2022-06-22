@@ -10,7 +10,6 @@ import requireContext from 'require-context.macro';
 import addons from '@storybook/addons';
 import coreEvents from '@storybook/core-events';
 import { configure, addParameters, addDecorator } from '@storybook/react';
-import { withA11y } from '@storybook/addon-a11y';
 import { withKnobs } from '@storybook/addon-knobs';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
 // import decoratorKnobs from './decorator-knobs';
@@ -56,7 +55,6 @@ addParameters({
   },
 });
 
-addDecorator(withA11y);
 addDecorator(withKnobs);
 // addDecorator(decoratorKnobs);
 

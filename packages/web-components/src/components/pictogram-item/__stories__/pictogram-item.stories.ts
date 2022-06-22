@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,6 +12,7 @@ import '../index';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { select } from '@storybook/addon-knobs';
 import styles from './pictogram-item.stories.scss';
+import { COLOR_OPTIONS } from '../defs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
@@ -47,6 +48,7 @@ const Pattern = html`
     focusable="false"
     preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
     data-autoid="dds--pictogram-item__pictogram"
     aria-label="Pictogram description"
     width="64"
@@ -91,6 +93,7 @@ const Touch = html`
     focusable="false"
     preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
     data-autoid="dds--pictogram-item__pictogram"
     aria-label="Pictogram description"
     width="64"
@@ -144,10 +147,15 @@ const pictograms = {
   Pattern: 'Pattern',
 };
 
-export const Default = ({ parameters }) => {
-  const { heading, copy, href, linkCopy, pictogram } = parameters?.props?.PictogramItem ?? {};
+const pictogramColors = {
+  'Text color (default)': COLOR_OPTIONS.DEFAULT,
+  Blue: COLOR_OPTIONS.BLUE,
+};
+
+export const Default = args => {
+  const { heading, copy, href, linkCopy, pictogram, pictogramColor } = args?.PictogramItem ?? {};
   return html`
-    <dds-pictogram-item>
+    <dds-pictogram-item color="${pictogramColor}">
       ${pictogram?.src}
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       <dds-content-item-copy>${copy}</dds-content-item-copy>
@@ -178,18 +186,19 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      PictogramItem: ({ groupId }) => ({
-        heading: textNullable('Heading (heading):', 'Lorem ipsum dolor sit', groupId),
+      PictogramItem: () => ({
+        heading: textNullable('Heading (heading):', 'Lorem ipsum dolor sit'),
         copy:
           'Lorem ipsum dolor sit amet, ' +
           'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
           'Ut enim ad minim veniam\n',
-        href: textNullable('Link with Icon href:', 'https://example.com', groupId),
-        linkCopy: textNullable('Link with Icon copy:', 'Lorem ipsum dolor', groupId),
+        href: textNullable('Link with Icon href:', 'https://example.com'),
+        linkCopy: textNullable('Link with Icon copy:', 'Lorem ipsum dolor'),
         pictogram: {
-          src: selectPictogram(select('Pictogram (required)', pictograms, pictograms.Desktop, groupId)),
-          'aria-label': textNullable('Aria-label:', 'Pictogram description', groupId),
+          src: selectPictogram(select('Pictogram (required)', pictograms, pictograms.Desktop)),
+          'aria-label': textNullable('Aria-label:', 'Pictogram description'),
         },
+        pictogramColor: select('Pictogram color:', pictogramColors, COLOR_OPTIONS.DEFAULT),
       }),
     },
     propsSet: {
@@ -206,6 +215,7 @@ export default {
             src: pictograms.Desktop,
             'aria-label': 'Pictogram description',
           },
+          pictogramColor: COLOR_OPTIONS.DEFAULT,
         },
       },
     },

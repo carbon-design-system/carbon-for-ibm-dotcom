@@ -15,11 +15,7 @@ import { Default } from '../__stories__/expressive-modal.stories';
 
 const template = (props?) =>
   Default({
-    parameters: {
-      props: {
-        Modal: props,
-      },
-    },
+    Modal: props,
   });
 
 describe('dds-expressive-modal', function() {

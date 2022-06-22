@@ -9,9 +9,9 @@
 
 import { css, customElement, html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSCardCTA, { CTA_TYPE } from '../cta/card-cta';
 import './card-in-card-image';
 import styles from './card-in-card.scss';
@@ -49,8 +49,14 @@ class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
       linkNode.classList.add(`${prefix}--card-in-card`);
     }
 
-    if (this.querySelector(`${ddsPrefix}-card-in-card-image`)) {
-      (this.querySelector(`${ddsPrefix}-card-in-card-image`) as HTMLElement).onclick = () =>
+    const cardInCardImage = this.querySelector(`${ddsPrefix}-card-in-card-image`);
+    const cardInCardImageVideo = this.parentElement
+      ?.querySelector(`${ddsPrefix}-card-in-card`)
+      ?.shadowRoot?.querySelector('dds-card-in-card-image');
+
+    // fires the card cta footer when card image is clicked
+    if (cardInCardImage || cardInCardImageVideo) {
+      ((cardInCardImage as HTMLElement) || (cardInCardImageVideo as HTMLElement)).onclick = () =>
         this.querySelector(`${ddsPrefix}-card-cta-footer`)
           ?.shadowRoot?.querySelector(`a`)
           ?.click();
