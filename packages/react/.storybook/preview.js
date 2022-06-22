@@ -115,4 +115,9 @@ const reqDocs = requireContext('../docs', true, /\.stories\.mdx$/);
 configure(reqDocs, module);
 
 const reqComponents = requireContext('../src', true, /\.stories\.js$/);
+// const reqComponents = requireContext(
+//   '../src',
+//   true,
+//   /LinkWithIcon\.stories\.js$/
+// );
 configure(reqComponents, module);

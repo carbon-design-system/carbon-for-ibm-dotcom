@@ -59,7 +59,12 @@ const styleLoaders = [
 ];
 
 module.exports = {
-  stories: ['../src/**/*.stories.js', '../src/**/*.stories.mdx'],
+  stories: [
+    '../src/**/LinkWithIcon.stories.js',
+    '../src/**/LinkWithIcon.stories.mdx',
+    '../src/**/ButtonGroup.stories.js',
+    '../src/**/ButtonGroup.stories.mdx',
+  ],
   addons: [
     '@storybook/addon-a11y',
     // '@storybook/addon-actions',
@@ -73,7 +78,7 @@ module.exports = {
   core: {
     builder: 'webpack5',
   },
-  webpackFinal: async (config, { configType }) => {
+  webpack: async (config, { configType }) => {
     config.devtool = configType === 'DEVELOPMENT' ? 'source-map' : '';
     config.optimization = {
       ...config.optimization,

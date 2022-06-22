@@ -24,13 +24,13 @@ export default {
 };
 
 const props = () => ({
-  disabled: boolean('Disabled (disabled):', false,),
+  disabled: boolean('Disabled (disabled):', false),
   iconPlacement: select(
     'Icon placement (iconPlacement):',
     iconPlacement,
-    iconPlacement[1],
+    iconPlacement[1]
   ),
-  visited: boolean('Allow visited styles (visited):', false,),
+  visited: boolean('Allow visited styles (visited):', false),
 });
 
 export const Default = () => {
@@ -42,9 +42,7 @@ export const Default = () => {
         alignItems: 'center',
         flexDirection: 'column',
       }}>
-      <LinkWithIcon
-        href="https://www.example.com"
-        {...props()}>
+      <LinkWithIcon href="https://www.example.com" {...props()}>
         <span>Link text</span>
         {iconPlacement === 'left' ? <ArrowLeft20 /> : <ArrowRight20 />}
       </LinkWithIcon>
