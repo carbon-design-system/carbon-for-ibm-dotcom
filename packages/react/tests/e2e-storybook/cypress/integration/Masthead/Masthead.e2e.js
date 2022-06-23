@@ -34,7 +34,7 @@ describe('Masthead | default (desktop)', () => {
   });
 
   it('should load menu item with selected state', () => {
-    cy.get('[data-autoid="dds--masthead-default__l0-nav2"] a').then(
+    cy.get('[data-autoid="dds--masthead-default__l0-nav2"] a.bx--header__menu-item.bx--header__menu-title').then(
       $menuItem => {
         expect($menuItem).to.have.attr('data-selected', 'true');
       }
