@@ -66,7 +66,7 @@ export const Default = ({ parameters }) => {
 
   return html`
     <div class="${enableGridClasses ? `bx--grid` : ``} ${enableGridClasses && optionalClasses ? optionalClasses : ``}">
-      <div class="${enableGridClasses ? `bx--grid` : ``} ${enableGridClasses && optionalClasses ? optionalClasses : ``}">
+      <div class="${enableGridClasses ? `bx--row` : ``} ${enableGridClasses && optionalClasses ? optionalClasses : ``}">
         ${enableToC
           ? html`
               <dds-table-of-contents toc-layout=${horizontalToC ? 'horizontal' : ''}>
