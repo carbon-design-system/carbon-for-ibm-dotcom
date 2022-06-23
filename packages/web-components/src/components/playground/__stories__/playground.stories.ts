@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit-element';
-import { boolean, select } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 import styles from './playground.stories.scss';
 
 const savedOne = localStorage.getItem('savedComponent') ? localStorage.getItem('savedComponent') : 'Background media';
@@ -29,7 +29,7 @@ storyModules.forEach(e => {
 });
 
 export const Default = ({ parameters }) => {
-  const { component, enableToC, horizontalToC } = parameters?.props?.Playground ?? {};
+  const { component, enableToC, enableGridClasses, optionalClasses, horizontalToC } = parameters?.props?.Playground ?? {};
   const currentStory = componentStories[component];
 
   localStorage.setItem('savedComponent', component);
@@ -65,30 +65,34 @@ export const Default = ({ parameters }) => {
   }
 
   return html`
-    ${enableToC
-      ? html`
-          <dds-table-of-contents toc-layout=${horizontalToC ? 'horizontal' : ''}>
-            <a name="1" data-title="${component}"></a>
-            ${currentStory.Default({
-              parameters: {
-                props: storyParameters.props,
-              },
-            })}
-          </dds-table-of-contents>
-        `
-      : html`
-          ${storyArray.map(story => {
-            const variationTitle = story?.story?.name || Object.keys(story?.story?.parameters?.knobs || {})[0];
-            return html`
-              ${variationTitle || 'Default'}
-              ${story({
-                parameters: {
-                  props: storyParameters.props,
-                },
+    <div class="${enableGridClasses ? `bx--grid` : ``} ${enableGridClasses && optionalClasses ? optionalClasses : ``}">
+      <div class="${enableGridClasses ? `bx--grid` : ``} ${enableGridClasses && optionalClasses ? optionalClasses : ``}">
+        ${enableToC
+          ? html`
+              <dds-table-of-contents toc-layout=${horizontalToC ? 'horizontal' : ''}>
+                <a name="1" data-title="${component}"></a>
+                ${currentStory.Default({
+                  parameters: {
+                    props: storyParameters.props,
+                  },
+                })}
+              </dds-table-of-contents>
+            `
+          : html`
+              ${storyArray.map(story => {
+                const variationTitle = story?.story?.name || Object.keys(story?.story?.parameters?.knobs || {})[0];
+                return html`
+                  ${variationTitle || 'Default'}
+                  ${story({
+                    parameters: {
+                      props: storyParameters.props,
+                    },
+                  })}
+                `;
               })}
-            `;
-          })}
-        `}
+            `}
+      </div>
+    </div>
   `;
 };
 
@@ -110,6 +114,8 @@ export default {
       Playground: ({ groupId }) => ({
         component: select('Component:', componentList, savedOne, groupId),
         enableToC: boolean('Enable ToC:', false, groupId),
+        enableGridClasses: boolean('Enable grid classes:', true, groupId),
+        optionalClasses: text('Optional grid classes:', '', groupId),
         horizontalToC: boolean('ToC Horizontal:', false, groupId),
       }),
     },
