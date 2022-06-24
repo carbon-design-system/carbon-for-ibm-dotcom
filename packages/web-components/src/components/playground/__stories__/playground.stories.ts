@@ -64,35 +64,42 @@ export const Default = ({ parameters }) => {
     }
   }
 
+  const returnStory = storyArray.map(story => {
+    const variationTitle = story?.story?.name || Object.keys(story?.story?.parameters?.knobs || {})[0];
+    return html`
+      ${variationTitle || 'Default'}
+      ${story({
+        parameters: {
+          props: storyParameters.props,
+        },
+      })}
+    `;
+  });
+
   return html`
-    <div class="${enableGridClasses ? `bx--grid` : ``} ${enableGridClasses && optionalClasses ? optionalClasses : ``}">
-      <div class="${enableGridClasses ? `bx--row` : ``} ${enableGridClasses && optionalClasses ? optionalClasses : ``}">
-        ${enableToC
-          ? html`
-              <dds-table-of-contents toc-layout=${horizontalToC ? 'horizontal' : ''}>
-                <a name="1" data-title="${component}"></a>
-                ${currentStory.Default({
-                  parameters: {
-                    props: storyParameters.props,
-                  },
-                })}
-              </dds-table-of-contents>
-            `
-          : html`
-              ${storyArray.map(story => {
-                const variationTitle = story?.story?.name || Object.keys(story?.story?.parameters?.knobs || {})[0];
-                return html`
-                  ${variationTitle || 'Default'}
-                  ${story({
-                    parameters: {
-                      props: storyParameters.props,
-                    },
-                  })}
-                `;
-              })}
-            `}
-      </div>
-    </div>
+    ${enableToC
+      ? html`
+          <dds-table-of-contents toc-layout=${horizontalToC ? 'horizontal' : ''}>
+            <a name="1" data-title="${component}"></a>
+
+            <div class="${enableGridClasses ? `bx--grid` : ``}">
+              <div class="${enableGridClasses ? `bx--row` : ``}">
+                <div class="${enableGridClasses && optionalClasses ? optionalClasses : ``}">
+                  ${returnStory}
+                </div>
+              </div>
+            </div>
+          </dds-table-of-contents>
+        `
+      : html`
+          <div class="${enableGridClasses ? `bx--grid` : ``}">
+            <div class="${enableGridClasses ? `bx--row` : ``}">
+              <div class="${enableGridClasses && optionalClasses ? optionalClasses : ``}">
+                ${returnStory}
+              </div>
+            </div>
+          </div>
+        `}
   `;
 };
 
