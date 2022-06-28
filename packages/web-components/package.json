@@ -263,9 +263,6 @@
     "web-component-analyzer": "^1.0.0",
     "webpack": "^4.46.0"
   },
-  "peerDependencies": {
-    "typescript": "~4.3.5"
-  },
   "prettier": {
     "jsxBracketSameLine": true,
     "printWidth": 130,
