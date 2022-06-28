@@ -208,7 +208,7 @@ WithContentItems.story = {
       default: {
         WithContentItems: {
           contentItemType: contentItemTypeMap[contentItemTypeOptions.Text],
-          contentItemCount: Array(3).fill(undefined),
+          contentItemCount: Array(3),
         },
       },
     },

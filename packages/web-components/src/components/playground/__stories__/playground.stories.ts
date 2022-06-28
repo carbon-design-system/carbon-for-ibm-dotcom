@@ -121,9 +121,9 @@ export default {
       Playground: ({ groupId }) => ({
         component: select('Component:', componentList, savedOne, groupId),
         enableToC: boolean('Enable ToC:', false, groupId),
+        horizontalToC: boolean('ToC Horizontal:', false, groupId),
         enableGridClasses: boolean('Enable grid classes:', true, groupId),
         optionalClasses: text('Optional grid classes:', '', groupId),
-        horizontalToC: boolean('ToC Horizontal:', false, groupId),
       }),
     },
   },
