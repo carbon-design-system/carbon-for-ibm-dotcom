@@ -28,7 +28,7 @@ class CloudAccountAuthAPI {
         const status = root.digitalData.user.segment.isCloudLoggedOn;
         console.log('check auth status', status);
         return { user: status === true ? 'authenticated' : 'anonymous' };
-      }, 100);
+      }, 400);
     });
   }
 
