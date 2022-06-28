@@ -15,7 +15,11 @@ import root from 'window-or-global';
  * @private
  */
 function _checkFlag() {
-  return window.isAnalyticsLibLoaded;
+  return (
+    root.digitalData &&
+    root.digitalData.page &&
+    root.digitalData.page.isDataLayerReady
+  );
 }
 
 /**

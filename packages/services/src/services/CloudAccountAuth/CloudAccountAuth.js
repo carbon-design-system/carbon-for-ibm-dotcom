@@ -6,6 +6,7 @@
  */
 import axios from 'axios';
 import { DDOAPI } from '../DDO';
+import root from 'window-or-global';
 
 class CloudAccountAuthAPI {
   /**
@@ -23,9 +24,11 @@ class CloudAccountAuthAPI {
     console.log('in checkPersonalization method');
     return await DDOAPI.isReady().then(() => {
       console.log('check DDO', window.digitalData);
-      const status = window.digitalData.user.segment.isCloudLoggedOn;
-      console.log('check auth status', status);
-      return { user: status === true ? 'authenticated' : 'anonymous' };
+      setTimeout(() => {
+        const status = root.digitalData.user.segment.isCloudLoggedOn;
+        console.log('check auth status', status);
+        return { user: status === true ? 'authenticated' : 'anonymous' };
+      }, 100);
     });
   }
 
