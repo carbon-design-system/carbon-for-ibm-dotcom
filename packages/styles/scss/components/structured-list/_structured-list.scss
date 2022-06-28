@@ -88,9 +88,12 @@
       @extend .#{$prefix}--structured-list-row;
 
       background-color: $ui-03;
-      box-shadow: extended-box-shadow();
       color: $text-01;
       border-bottom: 1px solid $ui-03;
+
+      @include carbon--breakpoint-down('md') {
+        box-shadow: extended-box-shadow();
+      }
     }
 
     th {
@@ -174,11 +177,14 @@
   .#{$dds-prefix}--structured-list,
   :host(#{$dds-prefix}-structured-list) {
     display: block;
-    overflow: auto;
     padding-left: $carbon--layout-01;
     padding-right: $carbon--layout-01;
     margin-left: -#{$carbon--layout-01};
     margin-right: -#{$carbon--layout-01};
+
+    .#{$prefix}--structured-list {
+      margin: 0;
+    }
   }
 
   .#{$prefix}--structured-list-cell-tooltip-icon,
