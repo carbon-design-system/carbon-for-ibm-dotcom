@@ -11,7 +11,7 @@
 
 // Overridden column spanning
 @mixin structured-list-colspan($colNumber) {
-  &:nth-child(#{$colNumber}) {
+  ::slotted(*:nth-child(#{$colNumber})) {
     --cols: var(--col-span-#{$colNumber}, 2);
     --width: calc((var(--cols) / var(--max-cols)) * 100%);
 
@@ -20,7 +20,7 @@
   }
 
   @include carbon--breakpoint('md') {
-    &:nth-child(#{$colNumber}) {
+    ::slotted(*:nth-child(#{$colNumber})) {
       --cols: var(
         --col-span-md-#{$colNumber},
         var(--col-span-#{$colNumber}, 2)
@@ -33,7 +33,7 @@
   }
 
   @include carbon--breakpoint('lg') {
-    &:nth-child(#{$colNumber}) {
+    ::slotted(*:nth-child(#{$colNumber})) {
       --cols: var(
         --col-span-lg-#{$colNumber},
         var(
@@ -119,10 +119,29 @@
   :host(#{$dds-prefix}-structured-list-header-row),
   :host(#{$dds-prefix}-structured-list-row),
   :host(#{$dds-prefix}-structured-list-group) tr {
+    --max-cols: 4;
+
     @include carbon--breakpoint('sm') {
       @include carbon--make-row();
 
       flex-wrap: nowrap;
+    }
+
+    @include carbon--breakpoint('md') {
+      --max-cols: 8;
+    }
+
+    @include carbon--breakpoint('lg') {
+      --max-cols: 16;
+    }
+
+    @for $i from 1 through 8 {
+      @include structured-list-colspan(#{$i});
+    }
+
+    ::slotted(*:last-child) {
+      flex-grow: 1;
+      max-width: none;
     }
   }
 
@@ -142,34 +161,6 @@
 
     @include carbon--breakpoint('lg') {
       @include carbon--make-col(2, 16);
-    }
-  }
-
-  .#{$prefix}--structured-list-all-cells,
-  :host(#{$dds-prefix}-structured-list-header-cell),
-  :host(#{$dds-prefix}-structured-list-cell) {
-    --max-cols: 4;
-
-    @include carbon--breakpoint('md') {
-      --max-cols: 8;
-    }
-
-    @include carbon--breakpoint('lg') {
-      --max-cols: 16;
-    }
-
-    @include structured-list-colspan(1);
-    @include structured-list-colspan(2);
-    @include structured-list-colspan(3);
-    @include structured-list-colspan(4);
-    @include structured-list-colspan(5);
-    @include structured-list-colspan(6);
-    @include structured-list-colspan(7);
-    @include structured-list-colspan(8);
-
-    &:last-child {
-      flex-grow: 1;
-      max-width: none;
     }
   }
 
