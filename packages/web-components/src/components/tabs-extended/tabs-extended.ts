@@ -38,10 +38,13 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
    * Defines the active tab index.
    */
   @state()
-  private _activeTab: number = 0;
+  private _activeTabIndex: number = 0;
 
   @state()
   private _isLTR: boolean = true;
+
+  @property({ attribute: 'active-tab', reflect: true })
+  _activeTab: string = '0';
 
   /**
    * Handler for @slotChange, creates tabs from dds-tab components.
@@ -52,7 +55,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     const slottedNodes = (event.target as HTMLSlotElement).assignedNodes({ flatten: true });
     this._tabItems = slottedNodes.filter(node => node instanceof DDSTab) as DDSTab[];
     this._tabItems.forEach((tab, index) => {
-      this._activeTab = (tab as DDSTab).selected ? index : this._activeTab;
+      this._activeTabIndex = (tab as DDSTab).selected ? index : this._activeTabIndex;
     });
   }
 
@@ -62,7 +65,8 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   }
 
   private _setActiveItem(index: number) {
-    this._activeTab = index;
+    this._activeTabIndex = index;
+    this._activeTab = index.toString();
     const newTabLink = this.shadowRoot?.querySelector(`
     [role="tablist"] li[role="tab"]:nth-child(${index + 1}) .bx--tabs__nav-link`);
     if (newTabLink instanceof HTMLElement) {
@@ -72,7 +76,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
 
   private _handleTabListKeyDown(event: KeyboardEvent) {
     const { key } = event;
-    const { _activeTab: activeTab, _tabItems: tabItems, _isLTR: isLTR } = this;
+    const { _activeTabIndex: activeTab, _tabItems: tabItems, _isLTR: isLTR } = this;
     switch (key) {
       case 'ArrowRight':
         if (isLTR) {
@@ -147,9 +151,10 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
 
   updated() {
     this._isLTR = window.getComputedStyle(this).direction === 'ltr';
+    this._activeTabIndex = parseInt(this._activeTab, 10);
 
     this._tabItems.map((tab, index) => {
-      (tab as DDSTab).selected = index === this._activeTab;
+      (tab as DDSTab).selected = index === this._activeTabIndex;
       (tab as DDSTab).setIndex(index);
       const navLink = this.shadowRoot!.querySelectorAll(`.${prefix}--tabs__nav-link`)[index];
       const navText = navLink!.querySelector('div p');
@@ -170,7 +175,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
       <ul class="${prefix}--accordion">
         ${tabs.map((tab, index) => {
           const { disabled } = tab as DDSTab;
-          const active = index === this._activeTab;
+          const active = index === this._activeTabIndex;
           const label = (tab as DDSTab).getAttribute('label');
           const classes = classMap({
             'bx--accordion__item': true,
@@ -210,7 +215,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
         <ul class="${prefix}--tabs__nav ${prefix}--tabs__nav--hidden" role="tablist" @keydown="${this._handleTabListKeyDown}">
           ${tabs.map((tab, index) => {
             const { disabled } = tab as DDSTab;
-            const active = index === this._activeTab;
+            const active = index === this._activeTabIndex;
             const label = (tab as DDSTab).getAttribute('label');
             const classes = classMap({
               'bx--tabs__nav-item': true,

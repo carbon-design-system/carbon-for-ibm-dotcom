@@ -15,6 +15,7 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import readme from './README.stories.mdx';
 import styles from './cta-block.stories.scss';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import '../../tabs-extended/index';
 import '../index';
 import '../../link-list/index';
 
@@ -181,6 +182,56 @@ export const WithLinkList = ({ parameters }) => {
 
 WithLinkList.story = {
   name: 'With link list',
+};
+
+export const WithinTabs = ({ parameters }) => {
+  const { contentItemType, contentItemCount } = parameters?.props?.WithinTabs ?? {};
+
+  return html`
+    <dds-tabs-extended orientation="horizontal">
+      <dds-tab label="Tab 1" selected>
+        <dds-cta-block>
+          <dds-content-block-heading>Tab 1</dds-content-block-heading>
+          ${renderItems(contentItemType, contentItemCount)}
+        </dds-cta-block>
+      </dds-tab>
+      <dds-tab label="Tab 2">
+        <dds-cta-block>
+          <dds-content-block-heading>Tab 2</dds-content-block-heading>
+          ${renderItems(contentItemType, contentItemCount)}
+        </dds-cta-block>
+      </dds-tab>
+      <dds-tab label="Tab 3">
+        <dds-cta-block>
+          <dds-content-block-heading>Tab 3</dds-content-block-heading>
+          ${renderItems(contentItemType, contentItemCount)}
+        </dds-cta-block>
+      </dds-tab>
+    </dds-tabs-extended>
+  `;
+};
+
+WithinTabs.story = {
+  name: 'Within tabs',
+  parameters: {
+    knobs: {
+      WithinTabs: ({ groupId }) => ({
+        contentItemType:
+          contentItemTypeMap[select(`Content item type`, contentItemTypeOptions, contentItemTypeOptions.Text, groupId) ?? 0],
+        contentItemCount: Array.from({
+          length: number('Number of content items', 3, { min: 2, max: 6 }, groupId),
+        }),
+      }),
+    },
+    propsSet: {
+      default: {
+        WithinTabs: {
+          contentItemType: contentItemTypeMap[contentItemTypeOptions.Text],
+          contentItemCount: Array(3),
+        },
+      },
+    },
+  },
 };
 
 export default {
