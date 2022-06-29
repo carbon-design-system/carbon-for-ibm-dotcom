@@ -155,11 +155,11 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
       const comparison = a!.compareDocumentPosition(b!);
 
       /* eslint-disable no-bitwise */
-      if (comparison | PRECEDING) {
+      if (comparison & PRECEDING) {
         return 1;
       }
 
-      if (comparison | FOLLOWING) {
+      if (comparison & FOLLOWING) {
         return -1;
       }
       /* eslint-enable no-bitwise */
