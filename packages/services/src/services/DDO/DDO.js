@@ -18,7 +18,7 @@ function _checkFlag() {
   return (
     root.digitalData &&
     root.digitalData.page &&
-    root.digitalData.page.isDataLayerReady
+    root.digitalData.page.isDataLayerReady === true
   );
 }
 
