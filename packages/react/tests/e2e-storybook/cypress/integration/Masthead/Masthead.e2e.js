@@ -34,12 +34,13 @@ describe('Masthead | default (desktop)', () => {
   });
 
   it('should load menu item with selected state', () => {
-    cy.get('[data-autoid="dds--masthead__l0-nav"] .bx--header__menu-bar li a').each(
+    cy.get('.bx--header__menu-item').each(
       $menuItem => {
         if ($menuItem.attr('aria-label') === 'Consulting & Services') {
           expect($menuItem).to.have.attr('data-selected', 'true');
+        } else {
+          expect($menuItem).to.have.attr('data-selected', 'false');
         }
-        expect($menuItem).to.have.attr('data-selected', 'false');
       }
     );
 
