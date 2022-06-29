@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -99,48 +99,6 @@ describe('dds-table-of-contents', function() {
             <a name="1">Section - 1</a>
             <a name="2">Section - 2</a>
             <a name="3">Section - 3</a>
-          `,
-        }),
-        document.body
-      );
-      await Promise.resolve(); // Update cycle for the component
-      await Promise.resolve(); // The cycle where `slotchange` event is called
-      await Promise.resolve(); // Updating upon harvesting `<a>`s
-      expect(
-        Array.prototype.map.call(
-          document.body.querySelector('dds-table-of-contents')!.shadowRoot!.querySelectorAll('a[data-target]'),
-          elem => ({
-            target: elem.dataset.target,
-            hash: /(#.*)$/.exec((elem as HTMLAnchorElement).href)?.[1],
-            title: elem.textContent.trim(),
-          })
-        )
-      ).toEqual([
-        {
-          target: '1',
-          hash: '#1',
-          title: 'Section - 1',
-        },
-        {
-          target: '2',
-          hash: '#2',
-          title: 'Section - 2',
-        },
-        {
-          target: '3',
-          hash: '#3',
-          title: 'Section - 3',
-        },
-      ]);
-    });
-
-    it('should harvest the title from data-title', async function() {
-      render(
-        template({
-          children: html`
-            <a name="1" data-title="Section - 1"></a>
-            <a name="2" data-title="Section - 2"></a>
-            <a name="3" data-title="Section - 3"></a>
           `,
         }),
         document.body

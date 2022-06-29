@@ -1,14 +1,43 @@
 //
-// Copyright IBM Corp. 2020, 2021
+// Copyright IBM Corp. 2020, 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
 
 @import '@carbon/ibmdotcom-styles/scss/components/quote/quote';
+@import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/link-with-icon';
 
 :host(#{$dds-prefix}-quote-source-bottom-copy),
 :host(#{$dds-prefix}-quote-source-copy),
 :host(#{$dds-prefix}-quote-source-heading) {
   display: block;
+}
+
+:host(#{$dds-prefix}-quote) #{$dds-prefix}-hr {
+  margin: 1rem;
+  @include carbon--breakpoint('md') {
+    margin: 1rem 0;
+  }
+  @include carbon--breakpoint('lg') {
+    margin: 1rem 0.5rem;
+  }
+}
+
+:host(#{$dds-prefix}-quote-link-with-icon) {
+  @extend .#{$prefix}--link-with-icon;
+
+  display: inline-block;
+}
+
+:host-context(#{$dds-prefix}-quote[color-scheme='inverse'])
+  a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
+  color: $inverse-link;
+  outline-color: $inverse-focus-ui;
+  &:hover {
+    color: $blue-40;
+  }
+  &:active {
+    color: $inverse-link;
+  }
 }

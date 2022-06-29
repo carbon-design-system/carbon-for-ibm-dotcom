@@ -1,0 +1,57 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/logo-grid/logo-grid';
+
+# Logo Grid
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/logo-grid)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/logo-grid)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import DDSLogoGrid from '@carbon/ibmdotcom-web-components/es/components-react/logo-grid/logo-grid';
+import DDSLogoGridLink from '@carbon/ibmdotcom-web-components/es/components-react/logo-grid/logo-grid-link';
+import DDSLogoGridItem from '@carbon/ibmdotcom-web-components/es/components-react/logo-grid/logo-grid-item';
+
+
+function App() {
+  return (
+    <DDSLogoGrid>
+    <DDSContentBlockHeading>Our customers</DDSContentBlockHeading>
+    <DDSLogoGridItem default-src="https://fpoimg.com/288x216?text=Example%20Logo&bg_color=ee5396&text_color=161616" alt={""}></DDSLogoGridItem>
+    <DDSLogoGridLink href={"https://example.com"}>
+        <DDSCardLinkHeading>Lorem ipsum</DDSCardLinkHeading>
+        <DDSCardFooter>
+          <ArrowRight20 slot='icon'/>
+        </DDSCardFooter>
+      </DDSLogoGridLink>
+  </DDSLogoGrid>
+  );
+}
+```
+
+## Props
+
+<Props of={PropTypesRef} />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector | Compatibility selector | Description |
+| ----------------------- | ---------------------- | ----------- |
+| `<dds-logo-grid>`        | N/A                    | Component   |
+
+<Description markdown={contributing} />
