@@ -1,0 +1,534 @@
+# yaml-language-server: $schema=https://unpkg.com/@carbon-platform/schemas@v1/carbon-resources.schema.json
+library:
+  id: ibmdotcom-web-components
+  name: IBM.com Web Components
+  description: IBM.com web components
+  externalDocsUrl: www.ibm.com/standards/web/carbon-for-ibm-dotcom
+  inherits: ibmdotcom-styles
+  demoLinks:
+    - type: storybook
+      name: Storybook
+      action: link
+      url: https://www.ibm.com/standards/carbon/web-components
+assets:
+  back-to-top:
+    status: stable
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/back-to-top
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-back-to-top
+  button-group:
+    status:
+      key: stable
+      note: Additional usage guidelines are coming soon.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/button-group
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-button-group
+  callout-quote:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/callout-quote
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-callout-quote
+  callout-with-media:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/callout-with-media
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-callout-with-media
+  card:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/cards#card
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-card
+  card-in-card:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/cards#card-in-card
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-card-in-card
+  card-link:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/cards#card-link
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-card-link
+  feature-card:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/cards#feature-card
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-feature-card
+  card-group:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/card-group
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-card-group
+  card-section:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/card-section
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-card-section-simple
+  card-section-images:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/card-section#card-section-with-images
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-card-section-images
+  card-section-carousel:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/card-section-carousel
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-card-section-carousel
+  carousel:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/carousel
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-carousel
+  content-block:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-block
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-block
+  content-block-cards:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-block-cards
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-content-block-cards
+  content-block-horizontal:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-block-horizontal
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-block-horizontal
+  content-block-media:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-block-media
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-block-media
+  content-block-segmented:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-block-segmented
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-block-segmented
+  content-block-simple:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-block-simple
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-block-simple
+  content-group:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-group
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-group
+  content-group-banner:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-group-banner
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-group-banner
+  content-group-cards:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-group-cards
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-group-cards
+  content-group-pictograms:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-group-pictograms
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-group-pictograms
+  content-group-simple:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-group-simple
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-group-simple
+  content-item:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-item
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-item
+  content-item-horizontal:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-item-horizontal
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-item-horizontal
+  content-section:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-section
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-section
+  cta:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/cta
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-cta
+  cta-section:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/cta-block-and-section#cta-section
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-cta-section
+  dotcom-shell:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/dotcom-shell
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-dotcom-shell
+  expressive-modal:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/expressive-modal
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-expressive-modal
+  feature-section:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/feature-section
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-feature-section
+  filter-panel:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/filter-panel
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-filter-panel
+  footer:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/footer
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-footer
+  horizontal-rule:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/horizontal-rule
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-horizontal-rule
+  image:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/images#image
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-image
+  image-with-caption:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/images#image-with-caption
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-image-with-caption
+  language-selector:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/language-selector
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-footer--default-language-only
+  layout:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/layout
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-layout
+  lead-space:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/leadspace
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-lead-space
+  lead-space-block:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/lead-space-block
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-lead-space-block
+  lead-space-search:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/lead-space-search
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-lead-space-search
+  leaving-ibm-modal:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/leaving-ibm-modal
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-leaving-ibm
+  lightbox-media-viewer:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/lightbox-media-viewer
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-lightbox-media-viewer
+  link-list:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/link-list
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-link-list
+  link-list-section:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/link-list-section
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-link-list-section
+  link-with-icon:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/link-with-icon
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-link-with-icon
+  locale-modal:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/localemodal
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-locale-modal
+  logo-grid:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/logo-grid
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-logo-grid
+  masthead:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/masthead
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-masthead
+  pictogram-item:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/pictogram-item
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-pictogram-item
+  quote:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/quote
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-quote
+  table-of-contents:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/table-of-contents
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-table-of-contents
+  tabs-extended:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/tabs-extended#tabs-extended
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-tabs-extended
+  tabs-extended-media:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/tabs-extended#tabs-extended-media
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-tabs-extended-with-media
+  tag-link:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/tag-link
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-tag-link
+  universal-banner:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/universal-banner
+    status:
+      key: draft
+      note: This component is currently being worked on.
+    framework: web-component
+  video:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/video
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/story/components-video-player

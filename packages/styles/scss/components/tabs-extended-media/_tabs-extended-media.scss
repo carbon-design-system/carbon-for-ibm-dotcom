@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,8 +15,9 @@
 @mixin tabs-extended-media {
   :host(#{$dds-prefix}-tabs-extended-media) {
     margin: 0;
-    grid-column: 1 / span 16;
+    display: flex;
     overflow-x: hidden;
+
     @include carbon--breakpoint(sm) {
       padding-top: $carbon--spacing-07;
       padding-bottom: $carbon--spacing-12;
@@ -27,50 +28,38 @@
     }
 
     ::slotted([slot='heading']) {
-      grid-column: 1 / span 1;
-      grid-row: 1;
       margin-bottom: $carbon--spacing-09;
-      margin-left: $carbon--spacing-05;
-      margin-right: $carbon--spacing-05;
+      padding-left: $carbon--spacing-05;
+      padding-right: $carbon--spacing-05;
+
       @include carbon--breakpoint(lg) {
         padding-top: var(--cds-spacing-04, 0.75rem);
-        margin-left: 0;
-        margin-right: 0;
       }
     }
 
     .#{$prefix}--tabs-extended-media {
-      display: grid;
-      column-gap: $carbon--spacing-07;
-      @include carbon--breakpoint(sm) {
-        grid-template-columns: repeat(1, 1fr);
-      }
       @include carbon--breakpoint(lg) {
-        grid-template-columns: repeat(4, 1fr);
+        display: flex;
       }
     }
 
-    .#{$prefix}--tabs-extended {
-      @include carbon--breakpoint(sm) {
-        grid-column: 1 / span 1;
-        grid-row: 2;
-      }
+    .#{$prefix}--heading {
       @include carbon--breakpoint(lg) {
-        grid-column: 2 / span 3;
-        grid-row: 1;
+        flex: 0 0 25%;
       }
     }
 
     .#{$prefix}--tab-content {
-      padding: 0;
+      padding-left: $carbon--spacing-05;
+      padding-right: $carbon--spacing-05;
     }
 
     .#{$prefix}--accordion__content {
       margin-top: -$carbon--spacing-07;
       margin-bottom: $carbon--spacing-05;
       padding-bottom: 0;
-      padding-left: 0;
-      padding-right: 0;
+      padding-left: $carbon--spacing-05;
+      padding-right: $carbon--spacing-05;
 
       @include carbon--breakpoint(md) {
         margin-bottom: -$carbon--spacing-05;

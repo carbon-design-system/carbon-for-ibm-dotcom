@@ -1,0 +1,703 @@
+# yaml-language-server: $schema=https://unpkg.com/@carbon-platform/schemas@v1/carbon-resources.schema.json
+library:
+  id: ibmdotcom-styles
+  name: IBM.com Styles
+  description: IBM.com framework agnostic component styles
+  noIndex: true
+  externalDocsUrl: www.ibm.com/standards/web/carbon-for-ibm-dotcom
+assets:
+  back-to-top:
+    name: Back to top
+    description: Back to top is a sticky button that appears on long form pages. When triggered it scrolls the the user back to the top of the page.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/back-to-top
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/back-to-top.svg
+    tags:
+      - contextual-navigation
+  button-group:
+    name: Button group
+    description: The Button group component is to be utilized within IBM.com for grouping two or more Button components together and sets all buttons to the same width.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/button-group
+    status:
+      key: stable
+      note: Additional usage guidelines are coming soon.
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/button-group.svg
+    tags:
+      - form
+      - contextual-navigation
+  callout-quote:
+    name: Callout quote
+    description: Callout quote is a typographic layout that is used to highlight an impactful client statement or user testimonial.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/callout-quote
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/callout-quote.svg
+    tags:
+      - content-element
+      - content-block
+  callout-with-media:
+    name: Callout with media
+    description: Callout with media is used to feature a high value media asset such as a customer story.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/callout-with-media
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/callout-with-media.svg
+    tags:
+      - content-block
+      - media
+      - content-element
+  card:
+    name: Card
+    description: The Card component can be used in many different page types. The default design includes a heading and a call to action, and optional extras include an eyebrow, copy, and media. By adding and removing optional content, the card offers a wide range of design possibilities.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/cards#card
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/card.svg
+    tags:
+      - content-element
+      - contextual-navigation
+  card-in-card:
+    name: Card in card
+    description: Card in card shares the same functionality and text content requirements of a standard card, but requires a large media element. Card in card is often used in a Card group to as a featured card.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/cards#card-in-card
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/card-in-card.svg
+    tags:
+      - content-element
+      - contextual-navigation
+  card-link:
+    name: Card link
+    description: Unlike Card, which can be used as a standalone component, Card link should always be accompanied by contextual copy on the page. Card links contain a heading, an optional CTA (call-to-action), and optional body copy. The entire card is clickable.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/cards#card-link
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/card-link.svg
+    tags:
+      - content-element
+      - contextual-navigation
+  feature-card:
+    name: Feature card
+    description: "Feature card is used for highlighting a piece of content on page. It should be used sparingly to be effective. Feature card has two sizes: medium and large."
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/cards#feature-card
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/feature-card.svg
+    tags:
+      - content-block
+      - content-element
+      - media
+      - contextual-navigation
+  card-group:
+    name: Card group
+    description: Card group arranges cards in a grid and offers useful features that are applied to the group as a whole.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/card-group
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/card-group.svg
+    tags:
+      - content-block
+      - media
+      - content-element
+  card-section:
+    name: Card section
+    description: Card section is a collection of cards presented in a full-width section with a left-column header that responds to the grid.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/card-section
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/card-section.svg
+    tags:
+      - content-block
+  card-section-images:
+    name: Card section with images
+    description: Card section with images brings images into each card in the section. Like Card section, this component is used for presenting resources or links, but presents images instead of body copy in each card.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/card-section#card-section-with-images
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/card-section-images.svg
+    tags:
+      - content-block
+      - media
+      - contextual-navigation
+  card-section-carousel:
+    name: Card section carousel
+    description: Card section carousel is an exploratory component, meaning it allows users to browse or explore multiple pieces of content within the same area of the page.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/card-section-carousel
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/card-section-carousel.svg
+    tags:
+      - content-block
+      - media
+      - contextual-navigation
+  carousel:
+    name: Carousel
+    description: The carousel is an exploratory component, meaning it allows users to browse or explore multiple pieces of content within the same area of the page.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/carousel
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/carousel.svg
+    tags:
+      - content-block
+      - contextual-navigation
+      - media
+      - content-element
+  content-block:
+    name: Content block
+    description: Content block is a high-level layout component that acts as the main content unit used inside of a Content section to build web experiences on IBM dotcom. It encapsulates other content components (one or multiple content groups) and brings them together into a custom visual, which solves a specific problem for the user.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-block
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/content-block.svg
+    tags:
+      - content-block
+      - content-element
+  content-block-cards:
+    name: Content block cards
+    description: Content block cards is used to present small self-contained pieces of information as cards.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-block-cards
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/content-block-cards.svg
+    tags:
+      - content-block
+  content-block-horizontal:
+    name: Content block horizontal
+    description: Content block horizontal is used to highlight a group of more important pieces of content, such as products or solutions, with more visual weight.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-block-horizontal
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/content-block-horizontal.svg
+    tags:
+      - content-block
+  content-block-media:
+    name: Content block media
+    description: Content block media is used to present information with images in a group setting.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-block-media
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/content-block-media.svg
+    tags:
+      - content-block
+      - media
+  content-block-segmented:
+    name: Content block segmented
+    description: Content block segmented is a variation of Content block simple with the added ability to add subsections.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-block-segmented
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/content-block-segmented.svg
+    tags:
+      - content-block
+  content-block-simple:
+    name: Content block simple
+    description: Content block simple is typically used for the introductory section on a page.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-block-simple
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/content-block-simple.svg
+    tags:
+      - content-block
+  content-group:
+    name: Content group
+    description: Content group acts as a content unit, and is used inside a Content section or a Content block. It can contain basic content components (one or multiple content items of the same kind), bringing them together into highly-customized solutions for the user.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-group
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/content-group.svg
+    tags:
+      - content-block
+      - content-element
+  content-group-banner:
+    name: Content group banner
+    description: Content group banner is designed as a subtle callout, intended for tangential information or announcements that are supplementary to the page's main focus.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-group-banner
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/content-group-banner.svg
+    tags:
+      - content-block
+  content-group-cards:
+    name: Content group cards
+    description: Content group cards is used to present information through a group of cards with each acting as a call to action that drives to additional or supporting destinations. It is suitable for adding concise buckets of content and links to a long-form reading experience.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-group-cards
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/content-group-cards.svg
+    tags:
+      - content-block
+  content-group-pictograms:
+    name: Content group pictograms
+    description: Content group pictograms is used to present a group of information, each with a supporting pictogram.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-group-pictograms
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/content-group-pictograms.svg
+    tags:
+      - content-block
+      - media
+  content-group-simple:
+    name: Content group simple
+    description: Content group simple is an alternative form of a narrative layout where the content is broken up into smaller pieces to make it more digestible.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-group-simple
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/content-group-simple.svg
+    tags:
+      - content-block
+  content-item:
+    name: Content item
+    description: The Content item is a basic-level content component that acts as a primary content unit, and it is used inside a Content group to build web experiences on IBM dotcom pages. It can encapsulate basic content (a heading, a description, a media element – image or video – and a CTA) and brings them all together into a content component which solves a specific problem for the user.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-item
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/content-item.svg
+    tags:
+      - content-element
+  content-item-horizontal:
+    name: Content item horizontal
+    description: Content item horizontal component displays information in a horizontal orientation.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-item-horizontal
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/content-item-horizontal.svg
+    tags:
+      - content-block
+      - content-element
+  content-section:
+    name: Content section
+    description: Content section is a high-level content component that acts as the main content unit to build web page experiences for IBM.com. It encapsulates other content components (one or multiple Content blocks and/or Content groups) and brings them together, providing flexibility to create many different solutions for users.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-section
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/content-section.svg
+    tags:
+      - content-block
+  cta:
+    name: CTA
+    description: CTA stands for call to action. A CTA refers to the use of words or phrases that can compel an audience to act in a specific way.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/cta
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/call-to-action.svg
+    tags:
+      - content-element
+      - contextual-navigation
+  cta-section:
+    name: CTA section
+    description: CTA section builds off of CTA block and adds a content section heading in the left most columns. This component is typically used with the Table of contents horizontal.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/cta-block-and-section#cta-section
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/cta-section.svg
+    tags:
+      - content-block
+      - contextual-navigation
+  cta-block:
+    name: CTA block
+    description: CTA block combines a heading, copy and CTA(s), this component is typically used at the bottom of a page to guide the user towards the next step in their journey.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/cta-block-and-section#cta-block
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/cta-block.svg
+    tags:
+      - content-block
+      - contextual-navigation
+  dotcom-shell:
+    name: Dotcom shell
+    description: Dotcom shell includes the Masthead, and Footer components, all wrapped in a UI shell using Carbon's grid.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/dotcom-shell
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/dot-com-shell.svg
+    tags:
+      - shell
+  expressive-modal:
+    name: Expressive modal
+    description: Expressive modal is based on the Carbon modal component with slight styling updates to increase the padding and uses fixed buttons.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/expressive-modal
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/expressive-modal.svg
+    tags:
+      - form
+      - system-feedback
+  feature-section:
+    name: Feature section
+    description: Feature section is a dedicated section for a single story.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/feature-section
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/feature-section.svg
+    tags:
+      - content-block
+      - media
+  filter-panel:
+    name: Filter panel
+    description: The filter panel is a component that can be customized to provide categorized filters to help users trim down large amounts of content, data and/or search results.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/filter-panel
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/filter-panel.svg
+    tags:
+      - form
+      - input-control
+  footer:
+    name: Footer
+    description: The Footer is required on all IBM.com pages, it is placed at the bottom of a page and acts as the catch-all section that helps users navigate and provides corporate level general and legal information.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/footer
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/footer.svg
+    tags:
+      - structural-navigation
+      - shell
+  horizontal-rule:
+    name: Horizontal rule
+    description: The horizontal rule component is utilized for thematic breaks within the content.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/horizontal-rule
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/horizontal-rule.svg
+    tags:
+      - content-element
+  image:
+    name: Image
+    description: Image, at its core, is a wrapper that adds an image to the page. You have the option to pass multiple images to the image component to render at the various breakpoints. This is particularly useful if you want to render different images at different screen sizes.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/images#image
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/image.svg
+    tags:
+      - content-element
+      - media
+  image-with-caption:
+    name: Image with caption
+    description: With the Image with caption component, an image can include a caption beneath to provide more context. In addition, the image can be clicked to open a larger version of the image, using the Lightbox media viewer overlay.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/images#image-with-caption
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/image-with-caption.svg
+    tags:
+      - content-element
+      - media
+  language-selector:
+    name: Language selector
+    description: Language selector is for users to select their preferred language on a website. The content on the website will appear in the default language until the users reselect their preferred language then the page content will reload in the reselected language provided a translation is available.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/language-selector
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/language-selector.svg
+    tags:
+      - input-control
+  layout:
+    name: Layout
+    description:  The layout component is to be utilized within IBM.com for various abstract layout configurations.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/layout
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/layout.svg
+    tags:
+      - content-block
+  lead-space:
+    name: Lead space
+    description:  Lead space sets the context and also helps users understand what type of content they are going to find on the page. It is always positioned at the top.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/leadspace
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/lead-space.svg
+    tags:
+      - content-block
+  lead-space-block:
+    name: Lead space block
+    description:  Lead space block is an alternative to the Lead space, enabling a more productive first site of viewer engagement. Lead space — block is positioned at the top of a web page, with a purpose to orient the user when they land on a page, inform them of the content, and guide them to the first key piece of content on the page, whether it’s a crucial piece of information or a call-to-action button.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/lead-space-block
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/leadspace-block.svg
+    tags:
+      - content-block
+  lead-space-search:
+    name: Lead space search
+    description:  Lead space search provides a fast route to information discovery by including a prominent search option in the lead space. As the search is always positioned at the top, it is discoverable by users the moment they land on the page.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/lead-space-search
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/leads-pace-search.svg
+    tags:
+      - input-control
+      - content-block
+  leaving-ibm-modal:
+    name: Leaving IBM modal
+    description:  The Leaving IBM notice displays as an overlay when a user clicks an external link.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/leaving-ibm-modal
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/leaving-ibm.svg
+    tags:
+      - system-feedback
+  lightbox-media-viewer:
+    name: Lightbox media viewer
+    description:  Lightbox media viewer allows the user to view an image or video at a larger size within a modal.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/lightbox-media-viewer
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/lightbox-media-viewer.svg
+    tags:
+      - media
+  link-list:
+    name: Link list
+    description:  Link list is used for multiple CTAs, with options for vertical and horizontal lists and varying CTA styling.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/link-list
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/link-list.svg
+    tags:
+      - contextual-navigation
+  link-list-section:
+    name: Link list section
+    description:  Link list section is used for multiple CTAs, with options for vertical and horizontal lists and varying CTA styling.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/link-list-section
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/link-list-section.svg
+    tags:
+      - contextual-navigation
+      - content-element
+  link-with-icon:
+    name: Link with icon
+    description:  Link with icon is primarily used as a navigational element with an icon as an indicator to the destination or type of content being referenced. Link with icon should not be used within a paragraph.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/link-with-icon
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/link-with-icon.svg
+    tags:
+      - contextual-navigation
+  locale-modal:
+    name: Locale modal
+    description:  Locale modal is triggered after selecting the locale button and allows users to change geographic regions and languages, if available.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/localemodal
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/locale-modal.svg
+    tags:
+      - input-control
+      - contextual-navigation
+  logo-grid:
+    name: Logo grid
+    description: Logo grid is used to present a group of client or partner logos. Currently the logos are not clickable.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/logo-grid
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/logo-grid.svg
+    tags:
+      - content-block
+  masthead:
+    name: Masthead
+    description: Masthead is a fundamental navigational component for IBM.com that displays consistently at the top of each page. It also includes search and profile services for IBM.com.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/masthead
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/masthead.svg
+    tags:
+      - structural-navigation
+  pictogram-item:
+    name: Pictogram item
+    description: Pictogram item is used to communicate messages at a glance, afford interactivity, and simplify complex ideas.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/pictogram-item
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/pictogram-item.svg
+    tags:
+      - media
+  quote:
+    name: Quote
+    description: Quote is used to highlight an impactful client statement or user testimonial.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/quote
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/quote.svg
+    tags:
+      - content-element
+  table-of-contents:
+    name: Table of contents
+    description: The table of contents component allows users to quickly navigate through long pages by providing jump links to different sections of the content within a single page.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/table-of-contents
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/table-of-contents.svg
+    tags:
+      - data-display
+      - contextual-navigation
+  tabs-extended:
+    name: Tabs extended
+    description: On desktop, Tabs extended renders as tabs. On mobile, the component renders as an accordion, making it easy to read and access each section while scrolling.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/tabs-extended#tabs-extended
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/tab-extended.svg
+    tags:
+      - data-display
+      - content-block
+  tabs-extended-media:
+    name: Tabs extended media
+    description: Tabs extended provides an option to include media. It uses Content item horizontal with media to create an organized section for displaying content with media. This is useful especially when reducing page length is desired. Keep in mind that when using tabs, some content will be hidden until the user interacts with the component, so they should not be used for information that is considered critical.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/tabs-extended#tabs-extended-media
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/tab-extended-media.svg
+    tags:
+      - data-display
+      - content-element
+      - media
+  tag-link:
+    name: Tag link
+    description: Tag link is a clickable tag that links the topic to another page with more information.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/tag-link
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/tag-link.svg
+    tags:
+      - data-display
+      - structural-navigation
+  universal-banner:
+    name: Universal banner
+    description: Universal banner is used exclusively to feature global and critical announcements. It is the only component that can be positioned above the masthead.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/universal-banner
+    status:
+      key: draft
+      note: This component is currently being worked on.
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/universal-banner.svg
+    tags:
+      - system-feedback
+      - content-block
+  video:
+    name: Video
+    description: Video allows you to embed Kaltura videos from the media center in various ways throughout a page.
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/video
+    status: stable
+    type: component
+    platform: web
+    noIndex: true
+    thumbnailPath: ../../thumbnails/video-player.svg
+    tags:
+      - media

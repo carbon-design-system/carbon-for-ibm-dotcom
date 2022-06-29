@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,11 +11,11 @@ import { ifDefined } from 'lit-html/directives/if-defined';
 import settings from 'carbon-components/es/globals/js/settings';
 import Filter20 from 'carbon-web-components/es/icons/filter/20.js';
 import { property, customElement, html } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXSelect from 'carbon-web-components/es/components/select/select.js';
 import { INPUT_SIZE } from 'carbon-web-components/es/components/input/input';
 import { classMap } from 'lit-html/directives/class-map';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { filter } from '../../globals/internal/collection-helpers';
 import styles from './search-with-typeahead.scss';
 

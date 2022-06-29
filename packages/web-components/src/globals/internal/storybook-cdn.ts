@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,8 +24,9 @@ import packageJson from '../../../package.json';
 function _renderScript(components, tag, isRTL = false) {
   let scripts = '';
   const rtl = isRTL ? '.rtl' : '';
+  const rtlFolder = isRTL ? 'rtl/' : '';
   components.forEach(component => {
-    scripts += `<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/${tag}/${component}${rtl}.min.js"></script>\n`;
+    scripts += `<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/${tag}/${rtlFolder}${component}${rtl}.min.js"></script>\n`;
   });
   return scripts;
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,7 +13,7 @@
 
 @mixin image-with-caption {
   .#{$prefix}--image-with-caption,
-  :host(#{$dds-prefix}-image-with-caption) {
+  :host(#{$dds-prefix}-image)[heading] {
     display: block;
     margin-top: $carbon--spacing-07;
     margin-bottom: $carbon--spacing-07;
@@ -26,6 +26,7 @@
   }
 
   .#{$prefix}--image-with-caption__image {
+    display: block;
     width: 100%;
     padding: 0;
     position: relative;

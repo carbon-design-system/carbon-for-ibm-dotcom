@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,6 +23,16 @@ const {
   carbonComponentsReactVendorSrcDir,
   carbonComponentsReactVendorESDstDir,
   carbonComponentsReactVendorCJSDstDir,
+  servicesCJSSrcDir,
+  servicesESSrcDir,
+  servicesVendorSrcDir,
+  servicesVendorCJSDstDir,
+  servicesVendorESDstDir,
+  utilitiesCJSSrcDir,
+  utilitiesESSrcDir,
+  utilitiesVendorSrcDir,
+  utilitiesVendorCJSDstDir,
+  utilitiesVendorESDstDir,
 } = require('./config');
 
 const promisifyStream = promisify(asyncDone);
@@ -234,10 +244,68 @@ const carbonComponentsReactVendorCJSDst = () =>
     ])
     .pipe(gulp.dest(carbonComponentsReactVendorCJSDstDir));
 
+/**
+ * Generates `src/internal/vendor` contents.
+ */
+const servicesVendorSrc = () =>
+  gulp
+    .src([`${servicesESSrcDir}/**/*`, '!**/*-{test,story}.js'])
+    .pipe(gulp.dest(servicesVendorSrcDir));
+
+/**
+ * Generate `es/internal/vendor` contents.
+ */
+const servicesVendorESDst = () =>
+  gulp
+    .src([`${servicesESSrcDir}/**/*`, '!**/*-{test,story}.js'])
+    .pipe(gulp.dest(servicesVendorESDstDir));
+
+/**
+ * Generate `lib/internal/vendor` contents.
+ */
+const servicesVendorCJSDst = () =>
+  gulp
+    .src([`${servicesCJSSrcDir}/**/*`, '!**/*-{test,story}.js'])
+    .pipe(gulp.dest(servicesVendorCJSDstDir));
+
+/**
+ * Generates `src/internal/vendor` contents.
+ */
+const utilitiesVendorSrc = () =>
+  gulp
+    .src([`${utilitiesESSrcDir}/**/*`, '!**/*-{test,story}.js'])
+    .pipe(gulp.dest(utilitiesVendorSrcDir));
+
+/**
+ * Generate `es/internal/vendor` contents.
+ */
+const utilitiesVendorESDst = () =>
+  gulp
+    .src([`${utilitiesESSrcDir}/**/*`, '!**/*-{test,story}.js'])
+    .pipe(gulp.dest(utilitiesVendorESDstDir));
+
+/**
+ * Generate `lib/internal/vendor` contents.
+ */
+const utilitiesVendorCJSDst = () =>
+  gulp
+    .src([`${utilitiesCJSSrcDir}/**/*`, '!**/*-{test,story}.js'])
+    .pipe(gulp.dest(utilitiesVendorCJSDstDir));
+
 module.exports = {
   carbonComponentsReact: gulp.parallel(
     carbonComponentsReactVendorSrc,
     carbonComponentsReactVendorESDst,
     carbonComponentsReactVendorCJSDst
+  ),
+  servicesVendor: gulp.parallel(
+    servicesVendorSrc,
+    servicesVendorESDst,
+    servicesVendorCJSDst
+  ),
+  utilitiesVendor: gulp.parallel(
+    utilitiesVendorSrc,
+    utilitiesVendorESDst,
+    utilitiesVendorCJSDst
   ),
 };

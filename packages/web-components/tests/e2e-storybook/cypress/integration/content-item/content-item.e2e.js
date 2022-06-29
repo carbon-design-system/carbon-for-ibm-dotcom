@@ -118,7 +118,7 @@ const _tests = [
   () => {
     it('should support image and video media', () => {
       const media_types = {
-        image: 'dds-image-with-caption',
+        image: 'dds-image',
         video: 'dds-video-player-container',
       };
       Object.keys(media_types).forEach(type => {

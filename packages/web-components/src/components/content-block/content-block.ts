@@ -10,8 +10,8 @@
 import { Part } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map';
 import { html, customElement, property, state, LitElement, TemplateResult } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from './defs';
 import styles from './content-block.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -94,6 +94,14 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
   }
 
   /**
+   * Returns whether or not there is content to render in the body markup.
+   */
+  protected _hasBodyContent(): boolean {
+    const { _hasContent: hasContent, _hasCopy: hasCopy, _hasMedia: hasMedia, _hasFooter: hasFooter } = this;
+    return hasContent || hasCopy || hasMedia || hasFooter;
+  }
+
+  /**
    * Handles `slotchange` event.
    *
    * @param event The event.
@@ -110,9 +118,8 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
    * @returns The non-header, non-complementary contents.
    */
   protected _renderBody(): TemplateResult | string | void {
-    const { _hasContent: hasContent, _hasCopy: hasCopy, _hasMedia: hasMedia, _hasFooter: hasFooter } = this;
     return html`
-      <div ?hidden="${!hasContent && !hasCopy && !hasMedia && !hasFooter}" class="${prefix}--content-layout__body">
+      <div ?hidden="${!this._hasBodyContent()}" class="${prefix}--content-layout__body">
         ${this._renderCopy()}${this._renderInnerBody()}${this._renderFooter()}
       </div>
     `;

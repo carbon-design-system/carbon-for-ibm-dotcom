@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,6 +26,7 @@ import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-r
 import DDSCardInCard from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card';
 import DDSCardInCardImage from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card-image';
 import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
+import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
 import { Tag } from 'carbon-components-react';
 
 import imgSm4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
@@ -70,9 +71,15 @@ const tagGroupContent = (
   </DDSTagGroup>
 );
 
+const textCTAContent = (
+  <DDSTextCTA slot="footer" cta-type="local" href="https://example.com">
+    Learn more
+  </DDSTextCTA>
+);
+
 const imageContent = <DDSCardCTAImage slot="image" alt="Image alt text" defaultSrc={imgXlg4x3} />;
 
-const cardsDiffLengthPhrase = (index, tagGroup, media, gridMode, cardType) => {
+const cardsDiffLengthPhrase = (index, tagGroup, media, gridMode, cardType, addCta) => {
   const defaultCardGroupItem = (
     <DDSCardGroupItem
       cta-type={cardType === 'Card static' ? '' : 'local'}
@@ -83,7 +90,7 @@ const cardsDiffLengthPhrase = (index, tagGroup, media, gridMode, cardType) => {
       <DDSCardHeading>{index < 5 ? phraseArray[index] : 'Lorem ipsum dolor sit amet'}</DDSCardHeading>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.'</p>
       {tagGroup ? tagGroupContent : ''}
-      {cardType === 'Card static' ? '' : <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>}
+      {cardType === 'Card static' && addCta ? textCTAContent : <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>}
     </DDSCardGroupItem>
   );
 
@@ -99,7 +106,7 @@ const cardsDiffLengthPhrase = (index, tagGroup, media, gridMode, cardType) => {
   return media && index % 2 ? videoCardGroupItem : defaultCardGroupItem;
 };
 
-const longHeadingCardGroupItem = (tagGroup, media, gridMode, cardType) => {
+const longHeadingCardGroupItem = (tagGroup, media, gridMode, cardType, addCta) => {
   return (
     <DDSCardGroupItem
       cta-type={cardType === 'Card static' ? '' : 'local'}
@@ -113,7 +120,7 @@ const longHeadingCardGroupItem = (tagGroup, media, gridMode, cardType) => {
         Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
       {tagGroup ? tagGroupContent : ''}
-      {cardType === 'Card static' ? '' : <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>}
+      {cardType === 'Card static' && addCta ? textCTAContent : <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>}
     </DDSCardGroupItem>
   );
 };
@@ -168,7 +175,7 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
 };
 
 export const Default = ({ parameters }) => {
-  const { cards, cardType, media, tagGroup, cardsPerRow, gridMode, offset, cta } = parameters?.props?.CardGroup ?? {};
+  const { cards, cardType, media, tagGroup, cardsPerRow, gridMode, offset, cta, addCta } = parameters?.props?.CardGroup ?? {};
 
   const allCards: object[] = [];
 
@@ -177,9 +184,9 @@ export const Default = ({ parameters }) => {
   }
 
   if (cardType === 'Card - default') {
-    allCards.push(longHeadingCardGroupItem(tagGroup, media, gridMode, cardType));
+    allCards.push(longHeadingCardGroupItem(tagGroup, media, gridMode, cardType, addCta));
     for (let i = 1; i < cards; i++) {
-      allCards.push(cardsDiffLengthPhrase(i, tagGroup, media, gridMode, cardType));
+      allCards.push(cardsDiffLengthPhrase(i, tagGroup, media, gridMode, cardType, addCta));
     }
     if (cta) {
       allCards.push(
@@ -198,9 +205,9 @@ export const Default = ({ parameters }) => {
   }
 
   if (cardType === 'Card static') {
-    allCards.push(longHeadingCardGroupItem(tagGroup, media, gridMode, cardType));
+    allCards.push(longHeadingCardGroupItem(tagGroup, media, gridMode, cardType, addCta));
     for (let i = 1; i < cards; i++) {
-      allCards.push(cardsDiffLengthPhrase(i, tagGroup, media, gridMode, cardType));
+      allCards.push(cardsDiffLengthPhrase(i, tagGroup, media, gridMode, cardType, addCta));
     }
     if (cta) {
       allCards.push(
@@ -244,6 +251,7 @@ Default.story = {
         );
         const media = cardType === 'Card - default' || cardType === 'Card static' ? boolean('Add media:', false, groupId) : '';
         const tagGroup = cardType === 'Card - default' || cardType === 'Card static' ? boolean('Add tags:', false, groupId) : '';
+        const addCta = cardType === 'Card static' ? boolean('Add CTA Links:', false, groupId) : '';
         const cards = number('Number of cards:', 5, { min: 2, max: 6 }, groupId);
         const cardsPerRow = select('Cards per row:', cardsCol, cardsCol['3 cards per row (default)'], groupId);
         const gridMode =
@@ -256,6 +264,7 @@ Default.story = {
           cardType,
           media,
           tagGroup,
+          addCta,
           cards,
           cardsPerRow,
           gridMode,

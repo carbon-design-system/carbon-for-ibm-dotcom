@@ -11,15 +11,15 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import { classMap } from 'lit-html/directives/class-map';
 import { html, property, query, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import Close20 from 'carbon-web-components/es/icons/close/20.js';
 import Search20 from 'carbon-web-components/es/icons/search/20.js';
 import BXDropdown, { DROPDOWN_KEYBOARD_ACTION } from 'carbon-web-components/es/components/dropdown/dropdown.js';
 import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
-import SearchTypeaheadAPI from '@carbon/ibmdotcom-services/es/services/SearchTypeahead/SearchTypeahead';
 import { baseFontSize, breakpoints } from '@carbon/layout';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import SearchTypeaheadAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/SearchTypeahead/SearchTypeahead';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 import { DDS_SCOPED_SEARCH } from '../../globals/internal/feature-flags';
 import styles from './search-with-typeahead.scss';
@@ -529,7 +529,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
           class="${classes}"
           aria-haspopup="listbox"
           aria-owns="result-list"
-          aria-expanded="${Boolean(open)}"
+          aria-expanded="${Boolean(this.active)}"
           aria-label="${ifNonNull(searchLabel)}"
           @click=${handleClickInner}
           @keydown="${handleKeydownInner}"

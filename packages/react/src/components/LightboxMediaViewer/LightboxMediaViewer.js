@@ -1,20 +1,20 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 import React, { useEffect, useState, useRef } from 'react';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { ExpressiveModal } from '../ExpressiveModal';
 import { Image } from '../Image';
-import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
+import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import { ModalBody } from '../../internal/vendor/carbon-components-react/components/ComposedModal/ComposedModal';
 import PropTypes from 'prop-types';
-import removeHtmlTagEntities from '@carbon/ibmdotcom-utilities/es/utilities/removeHtmlTagEntities/removeHtmlTagEntities';
+import removeHtmlTagEntities from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/removeHtmlTagEntities/removeHtmlTagEntities';
 import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
-import uniqueid from '@carbon/ibmdotcom-utilities/es/utilities/uniqueid/uniqueid';
+import uniqueid from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/uniqueid/uniqueid';
 import { VideoPlayer } from '../VideoPlayer';
 
 const { stablePrefix } = ddsSettings;
@@ -49,20 +49,9 @@ const LightboxMediaViewer = ({ media, onClose, ...modalProps }) => {
     const { current: containerNode } = containerRef;
     const dialogNode = containerNode.querySelector('div[role="dialog"]');
     if (dialogNode && (media.title || videoData.title)) {
-      dialogNode.setAttribute('aria-labelledby', titleId);
+      dialogNode.setAttribute('aria-label', media.title || videoData.title);
     }
   }, [titleId, media.title, videoData.title]);
-
-  /**
-   * Adds aria-describedby attribute to dialog container with video description.
-   */
-  useEffect(() => {
-    const { current: containerNode } = containerRef;
-    const dialogNode = containerNode.querySelector('div[role="dialog"]');
-    if (dialogNode && (media.description || videoData.description)) {
-      dialogNode.setAttribute('aria-describedby', descriptionId);
-    }
-  }, [descriptionId, media.description, videoData.description]);
 
   useEffect(() => {
     let stale = false;

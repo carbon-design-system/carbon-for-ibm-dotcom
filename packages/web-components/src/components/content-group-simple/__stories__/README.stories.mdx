@@ -37,7 +37,7 @@ import '@carbon/ibmdotcom-web-components/es/components/content-group-simple/inde
 <dds-content-group-simple>
   <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
   <dds-content-group-copy>Lorem ipsum *dolor* sit amet</dds-content-group-copy>
-  <dds-image-with-caption
+  <dds-image
     slot="media"
     alt="Image alt text"
     default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
@@ -49,14 +49,14 @@ import '@carbon/ibmdotcom-web-components/es/components/content-group-simple/inde
     </dds-image-item>
     <dds-image-item media="(min-width: 320px)" srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616">
     </dds-image-item>
-  </dds-image-with-caption>
+  </dds-image>
   <dds-content-item copy="Lorem ipsum *dolor* sit amet">
     <dds-content-item-heading>Lorem ipsum dolor sit amet.</dds-content-item-heading>
   </dds-content-item>
   <dds-content-item copy="Lorem ipsum *dolor* sit amet">
     <dds-content-item-heading>Lorem ipsum dolor sit amet.</dds-content-item-heading>
   </dds-content-item>
-  <dds-card-link-cta slot="footer" href="https://www.ibm.com/" type="local">
+  <dds-card-link-cta slot="footer" href="https://www.ibm.com/" cta-type="local">
     <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
     <dds-card-cta-footer>
       <svg slot="icon" ...>

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -7,12 +7,12 @@
 
 import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { KalturaPlayer as KalturaPlayerAPI } from '@carbon/ibmdotcom-services/es/services';
 import LightboxMediaViewer from '../LightboxMediaViewer/LightboxMediaViewer';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
-import uniqueid from '@carbon/ibmdotcom-utilities/es/utilities/uniqueid/uniqueid';
+import uniqueid from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/uniqueid/uniqueid';
 import VideoImageOverlay from './VideoImageOverlay';
 
 const { stablePrefix } = ddsSettings;
@@ -30,6 +30,7 @@ const VideoPlayer = ({
   playingMode,
   caption,
   thumbnail,
+  alt,
 }) => {
   const [videoData, setVideoData] = useState({ description: '', name: '' });
 
@@ -80,6 +81,7 @@ const VideoPlayer = ({
           playingMode={playingMode}
           onClick={() => setEmbedVideo(true)}
           thumbnail={thumbnail}
+          alt={alt}
         />
       </div>
       <LightboxMediaViewer
@@ -104,6 +106,7 @@ const VideoPlayer = ({
           embedVideo={setEmbedVideo}
           playingMode={playingMode}
           thumbnail={thumbnail}
+          alt={alt}
         />
       )}
     </div>
@@ -111,7 +114,7 @@ const VideoPlayer = ({
 
   const videoCaption = `${caption || videoData.name} ${videoDuration}`;
   return (
-    <div aria-label={videoCaption} className={classnames}>
+    <div aria-label={videoCaption} role="region" className={classnames}>
       <div
         className={`${prefix}--video-player__video-container ${aspectRatioClass}`}
         data-autoid={`${stablePrefix}--video-player__video-${videoId}`}>
@@ -169,6 +172,11 @@ VideoPlayer.propTypes = {
    * Optional custom video thumbnail
    */
   thumbnail: PropTypes.string,
+
+  /**
+   * Optional custom alt text
+   */
+  alt: PropTypes.string,
 };
 
 VideoPlayer.defaultProps = {

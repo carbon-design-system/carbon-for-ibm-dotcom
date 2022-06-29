@@ -1,0 +1,53 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
+
+# Button Group
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/button-group)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/button-group)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import DDSButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
+import DDSButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+
+function App() {
+  return (
+    <DDSButtonGroup>
+      <DDSButtonGroupItem href="https://www.example.com">
+        <ArrowRight20 slot="icon" />
+        Button 1
+      </DDSButtonGroupItem>
+      <DDSButtonGroupItem href="https://www.example.com">
+        <ArrowRight20 slot="icon" />
+        Button 2
+      </DDSButtonGroupItem>
+    </DDSButtonGroup>
+  );
+}
+```
+
+## Props
+
+<Props of={PropTypesRef} />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector   | Compatibility selector                 | Description |
+| ------------------------- | -------------------------------------- | ----------- |
+| `<dds-button-group>`      | `data-autoid="dds--button-group"`      | Component   |
+| `<dds-button-group-item>` | `data-autoid="dds--button-group-item"` | Component   |
+
+<Description markdown={contributing} />

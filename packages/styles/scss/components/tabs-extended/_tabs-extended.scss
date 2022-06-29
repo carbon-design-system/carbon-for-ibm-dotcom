@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,7 +26,7 @@
 
       .#{$prefix}--tabs__nav-item {
         min-height: $spacing-09;
-        width: $spacing-13;
+        width: calc(100% / (12 / 2) - (#{$spacing-01} / 2));
         height: auto;
 
         p {
@@ -64,10 +64,29 @@
         height: auto;
         overflow: visible;
         white-space: normal;
+        background: none;
+        border: initial;
+        border-bottom: carbon--rem(2px) solid $ui-03;
+        display: inline-flex;
+        width: 100%;
+        text-align: left;
 
         &[hasTooltip] {
           @include tooltip--trigger('definition', top);
           @include tooltip--placement('definition', 'bottom', 'start');
+
+          &::before,
+          &::after {
+            display: none;
+          }
+
+          &:hover,
+          &:focus {
+            &::before,
+            &::after {
+              display: flex;
+            }
+          }
 
           &:focus {
             @include focus-outline('outline');
@@ -129,9 +148,6 @@
 
         .#{$prefix}--tabs__nav-link {
           width: auto;
-        }
-
-        a.#{$prefix}--tabs__nav-link {
           padding: 0;
           border-bottom: carbon--rem(2px) solid transparent;
         }
@@ -192,4 +208,65 @@
 
 @include exports('tabs-extended') {
   @include tabs-extended;
+}
+
+button.#{$prefix}--tabs__nav-link {
+  @include focus-outline('reset');
+
+  display: inline-block;
+  overflow: hidden;
+  width: calc(100% - #{$spacing-07});
+  height: rem(40px);
+  padding: $spacing-04 0;
+  border-bottom: 1px solid $ui-03;
+  margin: 0 $spacing-05;
+  color: $text-02;
+  font-weight: 400;
+  line-height: $spacing-05;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  transition: border $duration--fast-01 motion(standard, productive),
+    outline $duration--fast-01 motion(standard, productive);
+  white-space: nowrap;
+
+  &:focus,
+  &:active {
+    @include focus-outline('outline');
+
+    width: 100%;
+    padding-left: $spacing-05;
+    margin: 0;
+  }
+
+  @include carbon--breakpoint(md) {
+    width: rem(160px);
+    padding: $spacing-04 $spacing-05 $spacing-03;
+    border-bottom: $tab-underline-color;
+    margin: 0;
+    line-height: inherit;
+
+    &:focus,
+    &:active {
+      width: rem(160px);
+      border-bottom: carbon--rem(2px);
+    }
+  }
+}
+
+.#{$prefix}--tabs--container button.#{$prefix}--tabs__nav-link {
+  @include carbon--breakpoint(md) {
+    height: rem(48px);
+    padding: $spacing-03 $spacing-05;
+    border-bottom: none;
+  }
+}
+
+.#{$prefix}--tabs__nav-item--disabled button.#{$prefix}--tabs__nav-link:active {
+  border-bottom: $tab-underline-disabled;
+  outline: none;
+}
+
+.#{$prefix}--tabs__nav-item:not(.#{$prefix}--tabs__nav-item--selected):not(.#{$prefix}--tabs__nav-item--disabled):not(.#{$prefix}--tabs__nav-item--selected)
+  button.#{$prefix}--tabs__nav-link:active {
+  color: $text-02;
 }

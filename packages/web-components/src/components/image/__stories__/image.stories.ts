@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -32,11 +32,18 @@ const srcsets = {
 };
 
 export const Default = ({ parameters }) => {
-  const { alt, defaultSrc, border } = parameters?.props?.['dds-image'] ?? {};
+  const { alt, defaultSrc, heading, copy, border, lightbox } = parameters?.props?.['dds-image'] ?? {};
   // TODO: See if we can fix unwanted `&` to `&amp` conversion upon changing the select knob
   const srcset = srcsets[defaultSrc?.replace(/&amp;/, '&')];
   return html`
-    <dds-image alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" ?border=${border}>
+    <dds-image
+      alt="${ifNonNull(alt)}"
+      heading="${ifNonNull(heading)}"
+      default-src="${ifNonNull(defaultSrc)}"
+      ?border=${border}
+      ?lightbox="${lightbox}"
+      copy="${ifNonNull(copy)}"
+    >
       ${!srcset
         ? undefined
         : html`
@@ -69,7 +76,10 @@ export default {
       'dds-image': ({ groupId }) => ({
         alt: textNullable('Alt text', 'Image alt text', groupId),
         defaultSrc: select('Default image (default-src)', images, imgLg2x1, groupId),
+        lightbox: boolean('Lightbox (lightbox)', false, groupId),
         border: boolean('Border', false, groupId),
+        copy: textNullable('Copy (copy)', 'Lorem ipsum dolor sit amet', groupId),
+        heading: textNullable('Heading (heading)', 'This is a caption', groupId),
       }),
     },
     propsSet: {
@@ -78,6 +88,9 @@ export default {
           alt: 'Image alt text',
           defaultSrc: imgLg2x1,
           border: false,
+          lightbox: false,
+          copy: 'Lorem ipsum dolor sit amet',
+          heading: 'This is a caption',
         },
       },
     },

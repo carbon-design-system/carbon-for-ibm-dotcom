@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="180px" viewBox="0 0 320 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>link-list</title>
+    <defs>
+        <polygon id="path-1" points="5.0625 1.6875 4.6659375 2.0840625 6.7978125 4.21875 0.84375 4.21875 0.84375 4.78125 6.7978125 4.78125 4.6659375 6.9159375 5.0625 7.3125 7.875 4.5"></polygon>
+        <polygon id="path-3" points="5.0625 1.6875 4.6659375 2.0840625 6.7978125 4.21875 0.84375 4.21875 0.84375 4.78125 6.7978125 4.78125 4.6659375 6.9159375 5.0625 7.3125 7.875 4.5"></polygon>
+        <polygon id="path-5" points="5.0625 1.6875 4.6659375 2.0840625 6.7978125 4.21875 0.84375 4.21875 0.84375 4.78125 6.7978125 4.78125 4.6659375 6.9159375 5.0625 7.3125 7.875 4.5"></polygon>
+    </defs>
+    <g id="link-list" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-Copy-64" fill="#78A9FF" x="104" y="47" width="22" height="3"></rect>
+        <rect id="Rectangle-Copy-65" fill="#78A9FF" x="104" y="84" width="22" height="3"></rect>
+        <rect id="Rectangle-Copy-67" fill="#78A9FF" x="104" y="120" width="22" height="3"></rect>
+        <rect id="Rectangle-Copy-59" fill="#C6C6C6" x="104" y="32" width="41" height="3"></rect>
+        <line x1="98" y1="41" x2="222" y2="41" id="Path-4-Copy-4" stroke="#8D8D8D" stroke-width="0.9"></line>
+        <line x1="98" y1="77" x2="222" y2="77" id="Path-4-Copy-5" stroke="#8D8D8D" stroke-width="0.9"></line>
+        <line x1="98" y1="113" x2="222" y2="113" id="Path-4-Copy-6" stroke="#8D8D8D" stroke-width="0.9"></line>
+        <line x1="98" y1="149" x2="222" y2="149" id="Path-4-Copy-7" stroke="#8D8D8D" stroke-width="0.9"></line>
+        <g id="icons/arrows/ibm-forward-link-copy-11" transform="translate(104.000000, 64.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="icon-color" fill="#0F62FE" xlink:href="#path-1"></use>
+        </g>
+        <g id="icons/arrows/ibm-forward-link-copy-11" transform="translate(104.000000, 100.000000)">
+            <mask id="mask-4" fill="white">
+                <use xlink:href="#path-3"></use>
+            </mask>
+            <use id="icon-color" fill="#0F62FE" xlink:href="#path-3"></use>
+        </g>
+        <g id="icons/arrows/ibm-forward-link-copy-11" transform="translate(104.000000, 136.000000)">
+            <mask id="mask-6" fill="white">
+                <use xlink:href="#path-5"></use>
+            </mask>
+            <use id="icon-color" fill="#0F62FE" xlink:href="#path-5"></use>
+        </g>
+    </g>
+</svg>

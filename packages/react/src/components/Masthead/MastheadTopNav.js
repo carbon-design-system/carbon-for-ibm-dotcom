@@ -1,13 +1,13 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
 import HeaderMenuItem from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderMenuItem';
 import HeaderName from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderName';
@@ -28,6 +28,16 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
   const [overlay, setOverlay] = useState(false);
 
   const childLinkChecker = topNavProps.hasCurrentUrl();
+
+  useEffect(() => {
+    document
+      .querySelector(`.${prefix}--header__menu-bar`)
+      ?.setAttribute('role', 'menu');
+    document.querySelectorAll(`.${prefix}--header__menu-bar li`).forEach(e => {
+      e.setAttribute('role', 'menuitem');
+      e.querySelector('a').removeAttribute('role');
+    });
+  }, []);
 
   /**
    * Top masthead navigation

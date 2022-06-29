@@ -1,10 +1,13 @@
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { geolocation, ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
+import {
+  geolocation,
+  ipcinfoCookie,
+} from '../../../internal/vendor/@carbon/ibmdotcom-utilities';
 import digitalDataResponse from '../../DDO/__tests__/data/response.json';
 import LocaleAPI from '../Locale';
 import mockAxios from 'axios';
@@ -15,7 +18,7 @@ import root from 'window-or-global';
 const mockDigitalDataResponse = digitalDataResponse;
 
 jest.mock(
-  '@carbon/ibmdotcom-utilities/lib/utilities/ipcinfoCookie/ipcinfoCookie',
+  '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/ipcinfoCookie/ipcinfoCookie',
   () => ({
     get: jest.fn(() => ({ cc: 'us', lc: 'en' })),
     set: jest.fn(() => ({})),
@@ -23,7 +26,7 @@ jest.mock(
 );
 
 jest.mock(
-  '@carbon/ibmdotcom-utilities/lib/utilities/geolocation/geolocation',
+  '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/geolocation/geolocation',
   () => jest.fn(() => Promise.resolve('us'))
 );
 

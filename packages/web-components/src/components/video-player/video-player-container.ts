@@ -10,8 +10,8 @@
 import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
 import { customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
 import { MediaData, MediaPlayerAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
 import { loadMediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI';
@@ -239,7 +239,10 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
     firstUpdated() {
       window.requestAnimationFrame(() => {
         const button = this.querySelector('dds-video-player')?.shadowRoot?.querySelector('button');
-        this.transposeAttributes(button);
+        if (!this.getAttribute('href') && this.getAttribute('video-id')) {
+          this.setAttribute('href', `https://mediacenter.ibm.com/id/${this.getAttribute('video-id')}`);
+        }
+        this.transposeAttributes(button, ['href']);
       });
     }
 

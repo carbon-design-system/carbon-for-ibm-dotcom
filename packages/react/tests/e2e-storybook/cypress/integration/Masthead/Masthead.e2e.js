@@ -76,14 +76,14 @@ describe('Masthead | default (desktop)', () => {
 
   it('should have urls for the submenu items within the megamenu', () => {
     cy.get(
-      '[data-autoid="dds--masthead-default__l0-nav0"] a.bx--masthead__megamenu__category-sublink--highlighted'
+      '.bx--header__submenu a.bx--masthead__megamenu__category-sublink--highlighted'
     ).then($link => {
       const url = $link.prop('href');
       expect(url).not.to.be.empty;
     });
 
     cy.get(
-      '[data-autoid="dds--masthead-default__l0-nav0"] a.bx--masthead__megamenu__category-sublink'
+      '.bx--header__submenu a.bx--masthead__megamenu__category-sublink'
     ).then($link => {
       const url = $link.prop('href');
       expect(url).not.to.be.empty;

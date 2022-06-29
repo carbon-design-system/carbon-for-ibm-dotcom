@@ -1,16 +1,16 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import classnames from 'classnames';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
-import uniqueid from '@carbon/ibmdotcom-utilities/es/utilities/uniqueid/uniqueid';
+import uniqueid from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/uniqueid/uniqueid';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2019, 2021
+// Copyright IBM Corp. 2019, 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -14,215 +14,176 @@
   display: block;
   background-color: $ui-background;
 
+  .#{$prefix}--universal-banner-content-wrapper {
+    @include carbon--make-row;
+  }
+
   .#{$prefix}--universal-banner-layout-container {
-    display: grid;
-    grid-template-rows: 1fr;
+    @include carbon--make-container;
 
-    margin: 0 auto;
-    max-width: 99rem;
-
-    background-color: $ui-background;
     max-height: $spacing-13;
 
-    @include carbon--breakpoint('md') {
-      grid-template-columns: 2fr 1fr;
+    /* stylelint-disable selector-pseudo-class-no-unknown */
+    &:where(a) {
+      /* stylelint-enable selector-pseudo-class-no-unknown */
+      display: block;
+      text-decoration: none;
+      border: $spacing-01 solid transparent;
+
+      &:hover,
+      &:active {
+        background: $hover-ui;
+      }
+
+      &:focus,
+      &:active {
+        outline: carbon--rem(1px) solid $ui-background;
+        outline-offset: carbon--rem(-1px);
+        border-color: $focus;
+      }
     }
   }
 
   .#{$prefix}--universal-banner-text-container,
-  .#{$prefix}--universal-banner-cta-container {
-    padding-top: $spacing-05;
-    padding-bottom: $spacing-05;
+  .#{$prefix}--universal-banner-cta-container,
+  .#{$prefix}--universal-banner-icon {
+    padding-block: $spacing-05;
 
     @include carbon--breakpoint('lg') {
-      padding-top: $spacing-07;
-      padding-bottom: $spacing-07;
+      padding-block: $spacing-07;
     }
   }
 
   .#{$prefix}--universal-banner-image-container {
     max-height: $spacing-13;
-  }
+    padding-inline-end: $spacing-05;
+    position: relative;
 
-  &[has-image] {
-    ::slotted(#{$dds-prefix}-image) {
-      height: $spacing-13;
-    }
+    ::slotted(#{$dds-prefix}-universal-banner-image) {
+      position: absolute;
+      width: calc(100% + #{$spacing-05});
+      height: 100%;
+      inset-inline-end: 0;
+      inset-block-start: 0;
 
-    .#{$prefix}--universal-banner-layout-container {
-      @include carbon--breakpoint('sm') {
-        grid-template-columns: 1fr;
-
-        .#{$prefix}--universal-banner-text-container {
-          margin-left: $spacing-05;
-        }
-
-        .#{$prefix}--universal-banner-image-container {
-          display: none;
-        }
-      }
-
-      @include carbon--breakpoint('md') {
-        grid-template-columns: 2fr 1fr;
-
-        .#{$prefix}--universal-banner-text-container {
-          margin-left: $spacing-07;
-        }
-      }
-    }
-
-    &[image-width='4-col'] {
-      .#{$prefix}--universal-banner-layout-container {
-        @include carbon--breakpoint('lg') {
-          grid-template-columns: 1fr 2fr 1fr;
-
-          .#{$prefix}--universal-banner-image-container {
-            display: block;
-            margin-right: $spacing-03;
-          }
-
-          .#{$prefix}--universal-banner-text-container {
-            margin-left: $spacing-06;
-          }
-
-          .#{$prefix}--universal-banner-cta-container {
-            margin-left: calc(-1 * #{$spacing-03});
-          }
-        }
-
-        @include carbon--breakpoint('max') {
-          .#{$prefix}--universal-banner-image-container {
-            margin-right: $spacing-02;
-          }
-
-          .#{$prefix}--universal-banner-text-container {
-            margin-left: 1.75rem;
-          }
-
-          .#{$prefix}--universal-banner-cta-container {
-            margin-left: calc(-1 * #{$spacing-04});
-          }
-
-          ::slotted(#{$dds-prefix}-button-cta) {
-            width: calc(100% - #{$spacing-13});
-          }
-        }
-      }
-    }
-
-    &[image-width='8-col'] {
-      .#{$prefix}--universal-banner-layout-container {
-        @include carbon--breakpoint('lg') {
-          grid-template-columns: 2fr 1fr 1fr;
-
-          .#{$prefix}--universal-banner-image-container {
-            display: block;
-            margin-right: $spacing-05;
-          }
-
-          .#{$prefix}--universal-banner-text-container {
-            margin-left: $spacing-05;
-          }
-
-          .#{$prefix}--universal-banner-cta-container {
-            margin-left: calc(-1 * #{$spacing-03});
-          }
-
-          ::slotted(#{$dds-prefix}-universal-banner-heading) {
-            @include carbon--type-style('body-short-02');
-
-            font-weight: carbon--font-weight('semibold');
-          }
-
-          ::slotted(#{$dds-prefix}-universal-banner-copy) {
-            @include carbon--type-style('body-short-02');
-
-            margin-top: 0;
-          }
-        }
-
-        @include carbon--breakpoint('max') {
-          .#{$prefix}--universal-banner-cta-container {
-            margin-left: calc(-1 * #{$spacing-04});
-          }
-
-          ::slotted(#{$dds-prefix}-button-cta) {
-            width: calc(100% - #{$spacing-13});
-          }
-        }
+      @include carbon--breakpoint('max') {
+        width: 100%;
       }
     }
   }
 
   .#{$prefix}--universal-banner-text-container {
-    @include carbon--theme($carbon--theme--g100, true);
+    @include carbon--make-col(4, 4);
 
-    margin-left: $spacing-05;
+    padding-inline: $spacing-05;
+    max-width: calc(100% - (20px + #{$spacing-05}));
 
     @include carbon--breakpoint('md') {
-      margin-left: $spacing-07;
+      @include carbon--make-col(7, 8);
     }
 
     @include carbon--breakpoint('lg') {
-      margin-left: $spacing-07;
-    }
-
-    @include carbon--breakpoint('max') {
-      margin-left: $spacing-08;
-      margin-right: 3.5rem;
+      padding-inline-end: $spacing-09;
     }
   }
 
   .#{$prefix}--universal-banner-cta-container {
-    @include carbon--theme($carbon--theme--g100, true);
-
-    position: relative;
-    margin-left: $spacing-05;
-
-    @include carbon--breakpoint-down('md') {
-      padding-top: 0;
-    }
-
-    @include carbon--breakpoint('md') {
-      margin-left: $spacing-09;
-      margin-right: $spacing-07;
-    }
+    display: none;
 
     @include carbon--breakpoint('lg') {
-      margin-left: $spacing-11;
-      margin-right: $spacing-08;
+      @include carbon--make-col(4, 16);
     }
 
     @include carbon--breakpoint('xlg') {
-      margin-left: 6.25rem;
-      margin-right: 0;
+      @include carbon--make-col(3, 16);
     }
 
     @include carbon--breakpoint('max') {
-      margin-left: 7.5rem;
+      @include carbon--make-col(4, 16);
+    }
+  }
+
+  .#{$prefix}--universal-banner-icon {
+    width: calc(20px + #{$spacing-05});
+    padding-inline-end: $spacing-05;
+    color: $text-01;
+    text-align: right;
+
+    svg {
+      margin-top: $spacing-01;
+    }
+
+    @include carbon--breakpoint('md') {
+      @include carbon--make-col(1, 8);
+
+      padding-inline-end: 0;
+    }
+
+    @include carbon--breakpoint('lg') {
+      display: none;
+    }
+  }
+
+  &[has-image] {
+    .#{$prefix}--universal-banner-image-container {
+      display: none;
+    }
+  }
+
+  &[image-width='4-col'] {
+    .#{$prefix}--universal-banner-image-container {
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(4, 16);
+      }
+    }
+
+    .#{$prefix}--universal-banner-text-container {
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(7, 16);
+      }
+    }
+
+    .#{$prefix}--universal-banner-cta-container {
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col-offset(1, 16);
+      }
+    }
+  }
+
+  &[image-width='8-col'] {
+    .#{$prefix}--universal-banner-image-container {
+      @include carbon--make-col(8, 16);
+    }
+
+    .#{$prefix}--universal-banner-text-container {
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(4, 16);
+      }
+    }
+  }
+
+  &:not([has-image]) {
+    .#{$prefix}--universal-banner-text-container {
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(11, 16);
+      }
+    }
+
+    .#{$prefix}--universal-banner-cta-container {
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col-offset(1, 16);
+      }
     }
   }
 
   ::slotted(#{$dds-prefix}-button-cta) {
     @include carbon--theme($carbon--theme--g100, true);
 
-    width: calc(100% + #{$spacing-05});
+    width: 100%;
     display: block;
     max-width: 320px;
 
-    @include carbon--breakpoint-down('md') {
-      display: none;
-    }
-
-    @include carbon--breakpoint('lg') {
-      width: calc(100% + #{$spacing-06});
-    }
-
     @include carbon--breakpoint('xlg') {
-      width: calc(100% - #{$spacing-12});
-    }
-
-    @include carbon--breakpoint('max') {
       width: calc(100% + #{$spacing-05});
     }
   }
@@ -235,7 +196,7 @@
 }
 
 :host(#{$dds-prefix}-universal-banner-heading) {
-  @include carbon--type-style('expressive-paragraph-01', true);
+  @include carbon--type-style('expressive-heading-02', true);
 
   display: block;
   color: $text-01;
@@ -255,20 +216,14 @@
 }
 
 :host(#{$dds-prefix}-universal-banner-copy) {
-  @include carbon--type-style('expressive-heading-01', true);
+  @include carbon--type-style('body-short-02', true);
 
   display: block;
   color: $text-01;
-
-  margin-top: $spacing-03;
-
-  @include carbon--breakpoint('lg') {
-    margin-top: $spacing-05;
-  }
 }
 
 :host(#{$dds-prefix}-universal-banner-image) {
   .#{$prefix}--image__img {
-    object-fit: fill;
+    object-fit: cover;
   }
 }

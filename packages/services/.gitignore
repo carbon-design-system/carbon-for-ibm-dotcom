@@ -1,3 +1,6 @@
 .env
 coverage
 docs
+
+# Generated vendor files
+src/internal/vendor

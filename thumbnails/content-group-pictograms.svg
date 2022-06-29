@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="180px" viewBox="0 0 320 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>content-group-pictograms</title>
+    <g id="content-group-pictograms" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3" transform="translate(72.000000, 35.000000)">
+            <rect id="Rectangle" stroke="#C6C6C6" fill="#FFFFFF" x="0" y="0" width="176" height="110"></rect>
+            <g id="Group-4" transform="translate(47.000000, 8.000000)">
+                <g id="Group-2" fill="#8D8D8D">
+                    <rect id="Rectangle-Copy" x="0" y="0" width="60" height="4"></rect>
+                    <rect id="Rectangle-Copy-2" x="0" y="7" width="60" height="4"></rect>
+                    <rect id="Rectangle-Copy-3" x="0" y="14" width="39" height="4"></rect>
+                </g>
+                <g id="Group" transform="translate(0.000000, 28.000000)" fill="#C6C6C6">
+                    <rect id="Rectangle-Copy-4" x="21" y="0" width="61" height="2"></rect>
+                    <rect id="Rectangle-Copy-5" x="21" y="4" width="61" height="2"></rect>
+                    <circle id="Oval-Copy-6" cx="7" cy="7" r="7"></circle>
+                    <rect id="Rectangle-Copy-6" x="21" y="8" width="61" height="2"></rect>
+                    <rect id="Rectangle-Copy-8" x="21" y="12" width="39" height="2"></rect>
+                </g>
+                <g id="Group-Copy" transform="translate(0.000000, 50.000000)" fill="#C6C6C6">
+                    <rect id="Rectangle-Copy-4" x="21" y="0" width="61" height="2"></rect>
+                    <rect id="Rectangle-Copy-5" x="21" y="4" width="61" height="2"></rect>
+                    <circle id="Oval-Copy-6" cx="7" cy="7" r="7"></circle>
+                    <rect id="Rectangle-Copy-6" x="21" y="8" width="61" height="2"></rect>
+                    <rect id="Rectangle-Copy-8" x="21" y="12" width="39" height="2"></rect>
+                </g>
+                <g id="Group-Copy-2" transform="translate(0.000000, 72.000000)" fill="#C6C6C6">
+                    <rect id="Rectangle-Copy-4" x="21" y="0" width="61" height="2"></rect>
+                    <rect id="Rectangle-Copy-5" x="21" y="4" width="61" height="2"></rect>
+                    <circle id="Oval-Copy-6" cx="7" cy="7" r="7"></circle>
+                    <rect id="Rectangle-Copy-6" x="21" y="8" width="61" height="2"></rect>
+                    <rect id="Rectangle-Copy-8" x="21" y="12" width="39" height="2"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

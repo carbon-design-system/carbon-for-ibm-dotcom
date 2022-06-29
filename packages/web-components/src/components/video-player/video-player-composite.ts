@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,10 +9,10 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
 /* eslint-disable import/no-duplicates */
@@ -104,6 +104,24 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
     }
 
     this._setAutoplayPreference(this.isPlaying);
+  }
+
+  pauseAllVideos() {
+    const { embeddedVideos = {} } = this;
+
+    Object.keys(embeddedVideos).forEach(videoId => {
+      embeddedVideos[videoId].sendNotification('doPause');
+    });
+    this.isPlaying = false;
+  }
+
+  playAllVideos() {
+    const { embeddedVideos = {} } = this;
+
+    Object.keys(embeddedVideos).forEach(videoId => {
+      embeddedVideos[videoId].sendNotification('doPlay');
+    });
+    this.isPlaying = false;
   }
 
   /**

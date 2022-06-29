@@ -92,9 +92,6 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
   type = LINK_LIST_TYPE.DEFAULT;
 
   connectedCallback() {
-    if (!this.hasAttribute('role')) {
-      this.setAttribute('role', 'list');
-    }
     super.connectedCallback();
   }
 

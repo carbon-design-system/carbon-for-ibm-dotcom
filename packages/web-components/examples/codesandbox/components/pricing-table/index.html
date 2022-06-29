@@ -1,0 +1,111 @@
+<!--
+@license
+Copyright IBM Corp. 2022
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+<head>
+  <title>@carbon/ibmdotcom-web-components example</title>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet"
+        href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css"/>
+  <link rel="stylesheet"
+        href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/grid.css"/>
+  <style type="text/css">
+    /* Suppress custom element until styles are loaded */
+    dds-pricing-table:not(:defined) {
+      display: none;
+    }
+
+    body {
+      padding: 2rem;
+    }
+  </style>
+  <script src="src/index.js"></script>
+</head>
+<body>
+<div class="bx--grid">
+  <div class="bx--row">
+    <div class="bx--col-sm-4 bx--col-lg-12">
+      <dds-pricing-table highlight-column="2" highlight-label="Featured">
+        <dds-pricing-table-head>
+          <dds-pricing-table-header-row>
+            <dds-pricing-table-header-cell type="simple">Optional table header</dds-pricing-table-header-cell>
+            <dds-pricing-table-header-cell>
+              <dds-pricing-table-header-cell-headline>Variation 1</dds-pricing-table-header-cell-headline>
+              <dds-pricing-table-header-cell-caption>Starting at $X.XX per user</dds-pricing-table-header-cell-caption>
+              <dds-pricing-table-header-cell-tag href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/">Merchandising</dds-pricing-table-header-cell-tag>
+              <dds-pricing-table-header-cell-description>
+                Lorem ipsum dolor sit amet consectetur.
+                <bx-unordered-list>
+                  <bx-list-item>Lorem ipsum dolor</bx-list-item>
+                  <bx-list-item>sit amet</bx-list-item>
+                  <bx-list-item>consectetur retention adispiscing elit sed do eiusm Eiusmod tempor</bx-list-item>
+                </bx-unordered-list>
+              </dds-pricing-table-header-cell-description>
+              <dds-pricing-table-header-cell-cta cta-type="local" href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/">Call to action</dds-pricing-table-header-cell-cta>
+            </dds-pricing-table-header-cell>
+            <dds-pricing-table-header-cell>
+              <dds-pricing-table-header-cell-headline>Variation 2</dds-pricing-table-header-cell-headline>
+              <dds-pricing-table-header-cell-caption>Starting at $X.XX per user</dds-pricing-table-header-cell-caption>
+              <dds-pricing-table-header-cell-description>
+                Lorem ipsum dolor sit amet consectetur.
+                <bx-unordered-list>
+                  <bx-list-item>Lorem ipsum dolor</bx-list-item>
+                  <bx-list-item>sit amet</bx-list-item>
+                  <bx-list-item>consectetur retention adispiscing elit sed do eiusm Eiusmod tempor</bx-list-item>
+                </bx-unordered-list>
+              </dds-pricing-table-header-cell-description>
+              <dds-pricing-table-header-cell-cta cta-type="local" href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/">Call to action</dds-pricing-table-header-cell-cta>
+            </dds-pricing-table-header-cell>
+          </dds-pricing-table-header-row>
+        </dds-pricing-table-head>
+        <dds-pricing-table-body>
+          <dds-pricing-table-row>
+            <dds-pricing-table-header-cell scope="row">Row 1</dds-pricing-table-header-cell>
+            <dds-pricing-table-cell icon="checkmark">
+              <dds-pricing-table-cell-annotation>
+                Sed quis neque ultrices, convallis augue non, scelerisque massa.
+              </dds-pricing-table-cell-annotation>
+            </dds-pricing-table-cell>
+            <dds-pricing-table-cell>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+              augue. Aenean posuere sem vel euismod dignissim.
+              <dds-pricing-table-cell-annotation>
+                Sed quis neque ultrices, convallis augue non, scelerisque massa.
+              </dds-pricing-table-cell-annotation>
+            </dds-pricing-table-cell>
+          </dds-pricing-table-row>
+          <dds-pricing-table-row>
+            <dds-pricing-table-header-cell scope="row">Row 2</dds-pricing-table-header-cell>
+            <dds-pricing-table-cell icon="checkmark">
+            </dds-pricing-table-cell>
+            <dds-pricing-table-cell>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+              augue. Aenean posuere sem vel euismod dignissim.
+            </dds-pricing-table-cell>
+          </dds-pricing-table-row>
+          <dds-pricing-table-row>
+            <dds-pricing-table-header-cell scope="row">Row 3</dds-pricing-table-header-cell>
+            <dds-pricing-table-cell>
+              <dds-pricing-table-cell-annotation>
+                Sed quis neque ultrices, convallis augue non, scelerisque massa.
+              </dds-pricing-table-cell-annotation>
+            </dds-pricing-table-cell>
+            <dds-pricing-table-cell>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+              augue. Aenean posuere sem vel euismod dignissim.
+              <dds-pricing-table-cell-annotation>
+                Sed quis neque ultrices, convallis augue non, scelerisque massa.
+              </dds-pricing-table-cell-annotation>
+            </dds-pricing-table-cell>
+          </dds-pricing-table-row>
+        </dds-pricing-table-body>
+      </dds-pricing-table>
+    </div>
+  </div>
+</div>
+</body>
+</html>

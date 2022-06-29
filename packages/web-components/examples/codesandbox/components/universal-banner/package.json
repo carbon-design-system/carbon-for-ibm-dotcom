@@ -11,7 +11,7 @@
     "build": "parcel build *.html --no-minify --public-url ./"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-web-components": "canary"
+    "@carbon/ibmdotcom-web-components": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-0",

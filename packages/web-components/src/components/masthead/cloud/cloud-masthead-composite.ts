@@ -9,8 +9,8 @@
 
 import { customElement, html, property } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
+import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { globalInit } from '../../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import './cloud-button-cta';
 import './cloud-left-nav-item';
 import './cloud-masthead-global-bar';
@@ -74,10 +74,10 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
   unauthenticatedCtaButtons?: MastheadProfileItem[];
 
   /**
-   * The selected authentication method, either 'personalization' or 'api'.
+   * The selected authentication method, either 'cookie' or 'api'.
    */
   @property({ attribute: 'auth-method' })
-  authMethod = 'personalization';
+  authMethod = 'cookie';
 
   /**
    * The user authentication status.
@@ -264,7 +264,6 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
 
     // This is a temp fix until we figure out why we can't set styles to the :host(dds-cloud-masthead-container) in stylesheets
     this.style.zIndex = '900';
-    this.style.paddingTop = '48px';
   }
 
   render() {

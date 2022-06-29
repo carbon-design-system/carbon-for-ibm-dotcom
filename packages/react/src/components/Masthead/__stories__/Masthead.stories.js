@@ -12,7 +12,7 @@ import Masthead from '../Masthead';
 import mastheadKnobs from './data/Masthead.stories.knobs.js';
 import React from 'react';
 import readme from '../README.stories.mdx';
-import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
+import TranslationAPI from '../../../internal/vendor/@carbon/ibmdotcom-services/services/Translation/Translation';
 
 // For mocking in integration tests
 // TODO: See if `TranslationAPI.getTranslation()` call can be avoided when we use mock data

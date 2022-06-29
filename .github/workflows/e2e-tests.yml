@@ -14,11 +14,11 @@ jobs:
   web-components:
     strategy:
       matrix:
-        os: [ ubuntu-latest ]
+        os: [ macos-latest ]
         node-version: [ 14.x ]
         browser: [ chromium ]
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 60
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
@@ -43,10 +43,6 @@ jobs:
         if: matrix.browser == 'chromium'
         working-directory: packages/web-components
         run: yarn test:e2e-storybook:test:no-percy
-      - name: Run e2e tests (firefox)
-        if: matrix.browser == 'firefox'
-        working-directory: packages/web-components
-        run: yarn test:e2e-storybook:test:no-percy:firefox
   react:
     strategy:
       matrix:
@@ -73,7 +69,3 @@ jobs:
         if: matrix.browser == 'chromium'
         working-directory: packages/react
         run: yarn test:e2e-storybook:test:no-percy
-      - name: Run e2e tests (firefox)
-        if: matrix.browser == 'firefox'
-        working-directory: packages/react
-        run: yarn test:e2e-storybook:test:no-percy:firefox

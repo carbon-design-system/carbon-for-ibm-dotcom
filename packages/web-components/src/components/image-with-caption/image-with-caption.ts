@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,6 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import on from 'carbon-components/es/globals/js/misc/on';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
@@ -19,6 +18,8 @@ import '../image/image';
 import '../lightbox-media-viewer/lightbox-image-viewer';
 import '../button/button';
 import ZoomIn20 from 'carbon-web-components/es/icons/zoom--in/20';
+import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './image-with-caption.scss';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
@@ -177,4 +178,9 @@ class DDSImageWithCaption extends StableSelectorMixin(ModalRenderMixin(FocusMixi
   static styles = styles;
 }
 
-export default DDSImageWithCaption;
+export default deprecate(
+  /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
+  DDSImageWithCaption,
+  'The dds-image-with-caption component has been merged with the dds-image component ' +
+    'See dds-image documentation for more information.'
+);

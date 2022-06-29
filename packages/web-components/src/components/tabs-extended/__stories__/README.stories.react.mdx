@@ -29,6 +29,33 @@ function App() {
   <DDSTab label="Second tab">
     <p>Content for second tab goes here.</p>
   </DDSTab>
+  <DDSTab label="Third tab">
+    <p>Content for third tab goes here.</p>
+  </DDSTab>  
+</DDSTabsExtended>
+  );
+}
+```
+
+## Setting active tab
+
+To set a different default tab to be active upon load, set the `active-tab` attribute to the index of your desired tab.
+
+Here's an example targetting the third tab. Note that the indexing starts at 0, which means the third tab is the one at index 2.
+
+```javascript
+function App() {
+  return (
+<DDSTabsExtended active-tab='2'>
+  <DDSTab label="First tab">
+    <p>Content for first tab goes here.</p>
+  </DDSTab>
+  <DDSTab label="Second tab">
+    <p>Content for second tab goes here.</p>
+  </DDSTab>
+  <DDSTab label="Third tab">
+    <p>Content for third tab goes here.</p>
+  </DDSTab>  
 </DDSTabsExtended>
   );
 }

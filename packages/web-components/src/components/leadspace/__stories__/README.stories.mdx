@@ -52,18 +52,42 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
       </svg>
     </dds-button-group-item>
   </dds-button-group>
-  <dds-leadspace-image slot="image" class="bx--image" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
+  <dds-background-media mobile-position="bottom" opacity="100" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
     <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
     <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
-  </dds-leadspace-image>
+  </dds-background-media>
 </dds-leadspace>
 ```
 
-## Props
+## Using a background video
 
-<Props of="dds-leadspace" />
+It is possible to display a video instead of an image. To do so, use the `video-player-container` component within the `background-media` componet as such:
 
-## Using video player CTA
+```html
+    <dds-leadspace>
+      <dds-leadspace-heading>LeadSpace title</dds-leadspace-heading>
+      Leadspace copy
+      <dds-button-group slot="action">
+        <dds-button-group-item href="www.example.com">
+          Button 1
+          <svg ...>
+            ...
+          </svg>
+        </dds-button-group-item>
+        <dds-button-group-item href="www.example.com">
+          Button 2
+          <svg ...>
+            ...
+          </svg>
+        </dds-button-group-item>
+      </dds-button-group>
+      <dds-background-media mobile-position="bottom" opacity="100">
+        <dds-video-player-container video-id="1_9h94wo6b" background-mode="true"></dds-video-player-container>
+      </dds-background-media>
+    </dds-leadspace>
+```
+
+## Using video player CTA button
 
 If using the video player cta in the Leadspace, make sure to follow the guidelines in the [CTA documentation](/?path=/docs/components-cta--text#using-a-video-player). As the Leadspace reserves the "action" slot for its CTAs, make sure to include `slot='action'` as an attribute to `video-cta-container`:
 
@@ -73,12 +97,12 @@ If using the video player cta in the Leadspace, make sure to follow the guidelin
   LeadSpace copy
   <dds-video-cta-container slot="action">
     <dds-button-group slot="action">
-      <dds-button-group-item href="www.example.com">
+      <dds-button-cta cta-type='video' href="1_9h94wo6b">
         Button 1
         <svg ...>
           ...
         </svg>
-      </dds-button-group-item>
+      </dds-button-cta>
       <dds-button-group-item href="www.example.com">
         Button 2
         <svg ...>
@@ -87,12 +111,16 @@ If using the video player cta in the Leadspace, make sure to follow the guidelin
       </dds-button-group-item>
     </dds-button-group>
   </dds-video-cta-container>
-  <dds-leadspace-image slot="image" class="bx--image" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
+  <dds-background-media mobile-position="bottom" opacity="100" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
     <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
     <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
-  </dds-leadspace-image>
+  </dds-background-media>
 </dds-leadspace>
 ```
+
+## Props
+
+<Props of="dds-leadspace" />
 
 ## Stable selectors
 

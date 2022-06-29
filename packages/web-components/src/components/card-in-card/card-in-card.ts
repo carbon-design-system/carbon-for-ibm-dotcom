@@ -9,9 +9,9 @@
 
 import { css, customElement, html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSCardCTA, { CTA_TYPE } from '../cta/card-cta';
 import './card-in-card-image';
 import styles from './card-in-card.scss';

@@ -45,12 +45,11 @@ import '@carbon/ibmdotcom-web-components/es/components/content-group-simple/inde
   </dds-content-block-copy>
 
   <dds-content-group-cards>
-    <dds-content-group-heading>${heading}</dds-content-group-heading>
-    <dds-content-group-copy>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</dds-content-group-copy>
+    <dds-content-group-heading>Content group heading</dds-content-group-heading>
     <dds-content-group-cards-item href="www.ibm.com">
       <dds-card-heading>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</dds-card-heading>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <dds-card-footer icon-placement="left">
+      <dds-card-footer>
         <svg slot="icon" ...>
           ...
         </svg>
@@ -69,7 +68,7 @@ import '@carbon/ibmdotcom-web-components/es/components/content-group-simple/inde
 
   <dds-content-group-pictograms>
     <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
-    <dds-content-block-copy size="sm">Lorem ipsum *dolor* sit amet</dds-content-block-copy>
+    <dds-content-group-copy>Lorem ipsum *dolor* sit amet</dds-content-group-copy>
     <dds-pictogram-item>
       <svg slot="pictogram"...>
         ...
@@ -87,8 +86,8 @@ import '@carbon/ibmdotcom-web-components/es/components/content-group-simple/inde
 
   <dds-content-group-simple>
     <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
-    <dds-content-block-copy size="sm">Lorem ipsum *dolor* sit amet</dds-content-block-copy>
-    <dds-image-with-caption
+    <dds-content-group-copy>Lorem ipsum *dolor* sit amet</dds-content-group-copy>
+    <dds-image
       slot="media"
       alt="Image alt text"
       default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
@@ -100,19 +99,16 @@ import '@carbon/ibmdotcom-web-components/es/components/content-group-simple/inde
       </dds-image-item>
       <dds-image-item media="(min-width: 320px)" srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616">
       </dds-image-item>
-    </dds-image-with-caption>
+    </dds-image>
     <dds-content-item copy="Lorem ipsum *dolor* sit amet">
       <dds-content-item-heading>Lorem ipsum dolor sit amet.</dds-content-item-heading>
     </dds-content-item>
     <dds-content-item copy="Lorem ipsum *dolor* sit amet">
       <dds-content-item-heading>Lorem ipsum dolor sit amet.</dds-content-item-heading>
     </dds-content-item>
-    <dds-card-link-cta slot="footer" href="https://www.ibm.com/" type="local">
+    <dds-card-link-cta slot="footer" href="https://www.ibm.com/" cta-type="local">
       <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
       <dds-card-cta-footer>
-        <svg slot="icon" ...>
-          ...
-        </svg>
       </dds-card-cta-footer>
     </dds-card-link-cta>
   </dds-content-group-simple>
