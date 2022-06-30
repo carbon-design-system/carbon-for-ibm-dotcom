@@ -9,7 +9,7 @@
 
 import { ifDefined } from 'lit-html/directives/if-defined';
 import { html, property, state, query, customElement, LitElement } from 'lit-element';
-import 'wicg-inert';
+// import 'wicg-inert';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import CaretLeft20 from 'carbon-web-components/es/icons/caret--left/20.js';
