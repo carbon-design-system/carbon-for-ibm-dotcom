@@ -27,6 +27,7 @@ jobs:
   
   
   install-web-components:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ${{ matrix.os }}
     needs: install
     steps:
