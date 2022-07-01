@@ -26,21 +26,3 @@ jobs:
         run: yarn install --offline
   
   
-  install-web-components:
-    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
-    runs-on: ${{ matrix.os }}
-    needs: install
-    steps:
-      - name: Build project fhjvhjjhvhjvhjirst
-        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
-      - name: Set Cloud Masthead env var
-        uses: ./.github/actions/set-dotenv
-        with:
-          env-file: packages/web-components/.env
-        env:
-          DDS_CLOUD_MASTHEAD: true
-      - name: Build storybook
-        working-directory: packages/web-components
-        run: yarn build-storybook
-
-
