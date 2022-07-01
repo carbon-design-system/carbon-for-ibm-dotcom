@@ -58,37 +58,3 @@ jobs:
         if: matrix.browser == 'chromium'
         working-directory: packages/web-components
         run: yarn test:e2e-storybook:test:no-percy
-
-  install-react:
-    runs-on: ${{ matrix.os }}
-    needs: install
-    strategy:
-      matrix:
-        os: [ ubuntu-latest ]
-        node-version: [ 14.x ]
-        browser: [ chromium, firefox ]  
-    timeout-minutes: 60
-    steps:
-      - name: Build project
-        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
-      - name: Build storybook
-        working-directory: packages/react
-        run: yarn build-storybook
-
-
-  react-tests:
-    runs-on: ${{ matrix.os }}
-    needs: install-react
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ macos-latest ]
-        node-version: [ 14.x ]
-        browser: [ chromium ]
-        containers: [1, 2, 3, 4, 5]
-    timeout-minutes: 60
-    steps:
-      - name: Run e2e tests (chromium)
-        if: matrix.browser == 'chromium'
-        working-directory: packages/react
-        run: yarn test:e2e-storybook:test:no-percy  
