@@ -26,7 +26,6 @@ jobs:
   
   
   install-web-components:
-    runs-on: ${{ matrix.os }}
     needs: install
     steps:
       - name: Build project fhjvhjjhvhjvhjirst
