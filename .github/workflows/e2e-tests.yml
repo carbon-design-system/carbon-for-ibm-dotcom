@@ -29,7 +29,7 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --offline
-      - name: Build project fhjvhjjhvhjvhjirst
+      - name: Build project
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
       - name: Set Cloud Masthead env var
         uses: ./.github/actions/set-dotenv
@@ -52,6 +52,10 @@ jobs:
         containers: [1, 2, 3, 4, 5]
     steps:
       - name: Run e2e tests (chromium)
+        with:
+          # we have already installed all dependencies above
+          install: false
+          parallel: true
         if: matrix.browser == 'chromium'
         working-directory: packages/web-components
         run: yarn test:e2e-storybook:test:no-percy
