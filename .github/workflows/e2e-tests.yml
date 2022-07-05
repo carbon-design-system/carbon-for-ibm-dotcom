@@ -11,14 +11,15 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-
-  install:
+  
+  install-web-components:
     strategy:
       matrix:
-        os: [ macos-latest, ubuntu-latest ]
+        os: [ macos-latest ]
         node-version: [ 14.x ]
-        browser: [ chromium, firefox ]
+        browser: [ chromium ]
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
@@ -28,17 +29,6 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --offline
-  
-  
-  install-web-components:
-    strategy:
-      matrix:
-        os: [ macos-latest ]
-        node-version: [ 14.x ]
-        browser: [ chromium ]
-    runs-on: macos-latest
-    needs: install
-    steps:
       - name: Build project fhjvhjjhvhjvhjirst
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
       - name: Set Cloud Masthead env var
@@ -52,3 +42,18 @@ jobs:
         run: yarn build-storybook
 
 
+  web-components-tests:
+    runs-on: ubuntu-latest
+    needs: install-web-components
+    strategy:
+      fail-fast: false
+      matrix:
+        # run copies of the current job in parallel
+        containers: [1, 2, 3, 4, 5]
+    steps:
+        - name: Run e2e tests (chromium)
+        if: matrix.browser == 'chromium'
+        working-directory: packages/web-components
+        run: yarn test:e2e-storybook:test:no-percy
+
+#
