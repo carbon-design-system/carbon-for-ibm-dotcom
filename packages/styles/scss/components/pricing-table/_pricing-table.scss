@@ -113,6 +113,16 @@
     }
   }
 
+  .#{$prefix}--pricing-table-header-row,
+  .#{$prefix}--pricing-table-row,
+  :host(#{$dds-prefix}-pricing-table-header-row),
+  :host(#{$dds-prefix}-pricing-table-row) {
+    ::slotted(:last-child) {
+      flex-grow: none;
+      max-width: var(--width);
+    }
+  }
+
   .#{$prefix}--pricing-table-header-cell,
   .#{$prefix}--pricing-table-cell,
   .#{$prefix}--pricing-table-group th,
@@ -122,11 +132,6 @@
     @extend .#{$prefix}--structured-list-all-cells;
 
     padding-block-end: $carbon--spacing-05;
-
-    &:last-child {
-      flex-grow: none;
-      max-width: var(--width);
-    }
   }
 
   .#{$prefix}--pricing-table-header-cell,
