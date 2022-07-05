@@ -13,6 +13,11 @@ concurrency:
 jobs:
 
   install:
+    strategy:
+      matrix:
+        os: [ macos-latest, ubuntu-latest ]
+        node-version: [ 14.x ]
+        browser: [ chromium, firefox ]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
