@@ -52,8 +52,8 @@ jobs:
         containers: [1, 2, 3, 4, 5]
     steps:
       - name: Run e2e tests (chromium)
-      if: matrix.browser == 'chromium'
-      working-directory: packages/web-components
-      run: yarn test:e2e-storybook:test:no-percy
+        if: matrix.browser == 'chromium'
+        working-directory: packages/web-components
+        run: yarn test:e2e-storybook:test:no-percy
 
 #
