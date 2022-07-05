@@ -56,8 +56,8 @@ jobs:
           # we have already installed all dependencies above
           install: false
           parallel: true
-        if: matrix.browser == 'chromium'
-        working-directory: packages/web-components
-        run: yarn test:e2e-storybook:test:no-percy
+          if: matrix.browser == 'chromium'
+          working-directory: packages/web-components
+          run: yarn test:e2e-storybook:test:no-percy
 
 #
