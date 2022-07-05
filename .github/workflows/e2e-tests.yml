@@ -26,7 +26,12 @@ jobs:
   
   
   install-web-components:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ macos-latest ]
+        node-version: [ 14.x ]
+        browser: [ chromium ]
+    runs-on: macos-latest
     needs: install
     steps:
       - name: Build project fhjvhjjhvhjvhjirst
