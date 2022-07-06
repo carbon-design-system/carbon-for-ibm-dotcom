@@ -138,11 +138,13 @@ class DDSLocaleModal extends DDSExpressiveModal {
   protected _renderHeader() {
     const { closeButtonAssistiveText } = this;
     return html`
-      <dds-expressive-modal-header>
-        <dds-expressive-modal-close-button assistive-text="${ifNonNull(closeButtonAssistiveText)}">
-        </dds-expressive-modal-close-button>
-        <dds-expressive-modal-heading>${this._renderHeading()}</dds-expressive-modal-heading>
-      </dds-expressive-modal-header>
+      <div id="modal-header">
+        <dds-expressive-modal-header>
+          <dds-expressive-modal-close-button assistive-text="${ifNonNull(closeButtonAssistiveText)}">
+          </dds-expressive-modal-close-button>
+          <dds-expressive-modal-heading>${this._renderHeading()}</dds-expressive-modal-heading>
+        </dds-expressive-modal-header>
+      </div>
     `;
   }
 
