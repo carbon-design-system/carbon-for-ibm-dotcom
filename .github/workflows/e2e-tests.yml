@@ -27,8 +27,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
-      - name: Install dependencies
-        run: yarn install --offline
+      - name: Install
+        uses: cypress-io/github-action@v4
+        with:
+          runTests: false
       - name: Build project
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
       - name: Set Cloud Masthead env var
@@ -43,8 +45,7 @@ jobs:
       - name: Save build folder
         uses: actions/upload-artifact@v2
         with:
-          name: build
-          if-no-files-found: error
+          name: storybook-build
           path: packages/web-components/storybook-static
 
 
@@ -62,23 +63,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Download the build folders
         uses: actions/download-artifact@v2
         with:
-          name: build
-          path: build
+          name: storybook-build
       - name: 'UI Tests - Chrome'
         uses: cypress-io/github-action@v4
         with:
           # we have already installed all dependencies above
           install: false
-          start: yarn  test:e2e-storybook:test:no-percy
-          wait-on: 'http://localhost:8080'
+          working-directory: packages/web-components
+          start: yarn test:e2e-storybook:test:no-percy
+          wait-on: 'http://localhost:8081'
           wait-on-timeout: 120
           browser: chrome
           record: true
           parallel: true
-          group: 'UI - Chrome'
           spec: packages/web-components/tests/e2e-storybook/cypress/integration/*
 
 #
