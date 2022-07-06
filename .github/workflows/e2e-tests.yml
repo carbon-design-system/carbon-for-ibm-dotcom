@@ -50,6 +50,9 @@ jobs:
       matrix:
         # run copies of the current job in parallel
         containers: [1, 2, 3, 4, 5]
+        os: [ macos-latest ]
+        node-version: [ 14.x ]
+        browser: [ chromium ]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
