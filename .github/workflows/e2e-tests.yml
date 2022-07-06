@@ -45,7 +45,7 @@ jobs:
         with:
           name: build
           if-no-files-found: error
-          path: build
+          path: packages/web-components/storybook-static
 
 
   web-components-tests:
