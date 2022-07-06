@@ -62,9 +62,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Run e2e tests (chromium)
-        if: matrix.browser == 'chromium'
-        working-directory: packages/web-components
-        run: yarn test:e2e-storybook:test:no-percy
+      - name: Download the build folders
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: build
+      - name: 'UI Tests - Chrome'
+        uses: cypress-io/github-action@v4
+        with:
+          # we have already installed all dependencies above
+          install: false
+          start: yarn  test:e2e-storybook:test:no-percy
+          wait-on: 'http://localhost:8080'
+          wait-on-timeout: 120
+          browser: chrome
+          record: true
+          parallel: true
+          group: 'UI - Chrome'
+          spec: packages/web-components/tests/e2e-storybook/cypress/integration/*
 
 #
