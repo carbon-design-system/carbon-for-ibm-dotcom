@@ -40,6 +40,12 @@ jobs:
       - name: Build storybook
         working-directory: packages/web-components
         run: yarn build-storybook
+      - name: Save build folder
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          if-no-files-found: error
+          path: build
 
 
   web-components-tests:
@@ -59,6 +65,6 @@ jobs:
       - name: Run e2e tests (chromium)
         if: matrix.browser == 'chromium'
         working-directory: packages/web-components
-        run: yarn test:e2e-storybook:test:no-percy:parallel
+        run: yarn test:e2e-storybook:test:no-percy
 
 #
