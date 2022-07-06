@@ -1,10 +1,6 @@
 {
   "version": 2,
   "snapshot": {
-    "widths": [
-      375,
-      1280
-    ]
-  },
-  "enable-javascript": true
+    "enable-javascript": true
+  }
 }

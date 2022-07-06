@@ -53,7 +53,7 @@
     "test:unit:updateSnapshot": "jest -u",
     "test:a11y": "gulp test:a11y || true",
     "test-ssr": "yarn build && node ssr-tests/*.js",
-    "visual-snapshot": "yarn build-storybook && percy-storybook --widths=320,1280"
+    "visual-snapshot": "percy storybook ./storybook-static"
   },
   "peerDependencies": {
     "react": "^16.14.0 || ^17.0.2",
@@ -92,7 +92,7 @@
     "@percy/cypress": "^3.1.1",
     "@percy/dom": "^1.0.5",
     "@percy/sdk-utils": "^1.0.5",
-    "@percy/storybook": "^3.3.1",
+    "@percy/storybook": "~4.3.0",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^21.0.3",
     "@rollup/plugin-json": "^4.1.0",
