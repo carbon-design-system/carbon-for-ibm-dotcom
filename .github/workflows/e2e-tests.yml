@@ -35,7 +35,7 @@ jobs:
         with:
           path: |
             **/node_modules
-            node_modules/cypress/bin/cypress
+            /Users/runner/Library/Caches/Cypress
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
@@ -109,11 +109,13 @@ jobs:
         with:
           path: |
             **/node_modules
-            node_modules/cypress/bin/cypress
+            /Users/runner/Library/Caches/Cypress
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn
+
+      - run: node_modules/cypress/bin/cypress install
         
       - name: 'Run e2e tests (chromium)'
         uses: cypress-io/github-action@v4
