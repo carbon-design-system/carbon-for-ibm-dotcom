@@ -27,6 +27,20 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
+
+
+      - uses: actions/cache@v2
+        name: yarn-cache
+        id: yarn-cache
+        with:
+          path: |
+            **/node_modules
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn
+
+
       - name: Install dependencies
         uses: cypress-io/github-action@v4
         with:
@@ -69,17 +83,31 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: storybook-build
-      
-      - name: 'UI Tests - Chrome'
+
+
+      - uses: actions/cache@v2
+        name: yarn-cache
+        id: yarn-cache
+        with:
+          path: |
+            **/node_modules
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn
+        
+
+        
+      - name: 'Run e2e tests (chromium)'
         uses: cypress-io/github-action@v4
         with:
-          # we have already installed all dependencies above
           working-directory: packages/web-components
           install: false
           command: yarn test:e2e-storybook:test:no-percy
+          wait-on: 'http://localhost:8082'
+          wait-on-timeout: 120
           browser: chrome
           record: true
           parallel: true
-          spec: packages/web-components/tests/e2e-storybook/cypress/integration/*
 
 #
