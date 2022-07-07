@@ -27,10 +27,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
-      - name: Install
+      - name: Install dependencies
         uses: cypress-io/github-action@v4
         with:
           runTests: false
+          install-command: 'yarn install --offline'
       - name: Build project
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
       - name: Set Cloud Masthead env var
@@ -68,13 +69,14 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: storybook-build
+      
       - name: 'UI Tests - Chrome'
         uses: cypress-io/github-action@v4
         with:
           # we have already installed all dependencies above
-          install: false
           working-directory: packages/web-components
-          start: yarn test:e2e-storybook:test:no-percy
+          install: false
+          command: yarn test:e2e-storybook:test:no-percy
           wait-on: 'http://localhost:8081'
           wait-on-timeout: 120
           browser: chrome
