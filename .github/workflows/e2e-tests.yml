@@ -98,6 +98,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: storybook-build
+          path: packages/web-components/storybook-static
 
 
       # this retrieves the saved cache from the install job
