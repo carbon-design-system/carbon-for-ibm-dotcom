@@ -30,7 +30,7 @@ jobs:
 
 
       - uses: actions/cache@v2
-        name: yarn-cache
+        name: Yarn cache
         id: yarn-cache
         with:
           path: |
@@ -41,13 +41,29 @@ jobs:
             ${{ runner.os }}-yarn
 
 
-      - name: Install dependencies
-        uses: cypress-io/github-action@v4
-        with:
-          runTests: false
-          install-command: 'yarn install --offline'
+
+
+
+
+
+
+
+      - name: Installing cache
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn install --offline
+
+
       - name: Build project
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
+
+
+
+
+
+
+
+
       - name: Set Cloud Masthead env var
         uses: ./.github/actions/set-dotenv
         with:
@@ -65,7 +81,7 @@ jobs:
 
 
   web-components-tests:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     needs: install-web-components
     strategy:
       fail-fast: false
@@ -85,6 +101,7 @@ jobs:
           name: storybook-build
 
 
+      # this retrieves the saved cache from the install job
       - uses: actions/cache@v2
         name: yarn-cache
         id: yarn-cache
@@ -95,8 +112,6 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn
-        
-
         
       - name: 'Run e2e tests (chromium)'
         uses: cypress-io/github-action@v4
