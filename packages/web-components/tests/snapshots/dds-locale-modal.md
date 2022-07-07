@@ -12,13 +12,13 @@
   START
 </button>
 <div
-  aria-labelledby="modal-header"
+  aria-labelledby="dds--modal-header"
   class="bx--modal-container"
   role="dialog"
   tabindex="-1"
 >
   <div class="bx--modal-content">
-    <div id="modal-header">
+    <div id="dds--modal-header">
       <dds-expressive-modal-header data-autoid="dds--expressive-modal-header">
         <dds-expressive-modal-close-button data-autoid="dds--expressive-modal-close-button">
         </dds-expressive-modal-close-button>
@@ -55,13 +55,13 @@
   START
 </button>
 <div
-  aria-labelledby="modal-header"
+  aria-labelledby="dds--modal-header"
   class="bx--modal-container"
   role="dialog"
   tabindex="-1"
 >
   <div class="bx--modal-content">
-    <div id="modal-header">
+    <div id="dds--modal-header">
       <dds-expressive-modal-header data-autoid="dds--expressive-modal-header">
         <dds-expressive-modal-close-button data-autoid="dds--expressive-modal-close-button">
         </dds-expressive-modal-close-button>
@@ -104,13 +104,13 @@
   START
 </button>
 <div
-  aria-labelledby="modal-header"
+  aria-labelledby="dds--modal-header"
   class="bx--modal-container"
   role="dialog"
   tabindex="-1"
 >
   <div class="bx--modal-content">
-    <div id="modal-header">
+    <div id="dds--modal-header">
       <dds-expressive-modal-header
         data-autoid="dds--expressive-modal-header"
         slot="header"

@@ -355,7 +355,7 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
       [`${ddsPrefix}-ce--modal__header--with-body`]: hasHeader && (hasBody || hasFooter),
     });
     return html`
-      <div id="modal-header" class="${headerClasses}"><slot name="header"></slot></div>
+      <div id="${ddsPrefix}--modal-header" class="${headerClasses}"><slot name="header"></slot></div>
     `;
   }
 
@@ -429,11 +429,11 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
         class="${containerClasses}"
         tabindex="-1"
         role="dialog"
-        aria-labelledby="modal-header"
+        aria-labelledby="${ddsPrefix}--modal-header"
         @click="${handleClickContainer}"
         @slotchange="${handleSlotChange}"
       >
-        <div class="bx--modal-content">
+        <div class="${prefix}--modal-content">
           ${this._renderHeader()}${this._renderBody()}${this._renderFooter()}
         </div>
       </div>
