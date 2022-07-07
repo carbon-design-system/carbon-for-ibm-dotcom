@@ -137,16 +137,20 @@
   }
 
   .#{$prefix}--link-list__list--vertical {
-    ::slotted(#{$dds-prefix}-link-list-item),
-    ::slotted(#{$dds-prefix}-link-list-item-card),
-    ::slotted(#{$dds-prefix}-link-list-item-cta),
-    ::slotted(#{$dds-prefix}-link-list-item-card-cta),
     .#{$prefix}--link-list__list__CTA {
       margin-bottom: $carbon--spacing-05;
 
       &:last-of-type {
         margin-bottom: 0;
       }
+    }
+
+    ::slotted(*) {
+      margin-bottom: $carbon--spacing-05;
+    }
+
+    ::slotted(*:last-of-type) {
+      margin-bottom: 0;
     }
   }
 
