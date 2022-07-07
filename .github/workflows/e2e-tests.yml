@@ -49,7 +49,7 @@ jobs:
 
 
 
-      - name: Installing cache
+      - name: Installing dependencies (if not cached)
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install --offline
 
@@ -109,7 +109,7 @@ jobs:
         with:
           path: |
             **/node_modules
-            ~/.cache/Cypress
+            ~/Library/Caches/Cypress
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
