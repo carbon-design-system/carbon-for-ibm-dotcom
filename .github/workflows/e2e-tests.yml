@@ -15,7 +15,6 @@ jobs:
 
   web-components-tests:
     runs-on: macos-latest
-    needs: install-web-components
     strategy:
       fail-fast: false
       matrix:
