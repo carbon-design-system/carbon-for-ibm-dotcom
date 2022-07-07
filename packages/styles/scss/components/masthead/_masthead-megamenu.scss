@@ -148,11 +148,6 @@
       padding-bottom: 0;
     }
 
-    ::slotted(#{$dds-prefix}-megamenu-category-group),
-    .#{$prefix}--masthead__megamenu__category-group-shield {
-      margin-left: -1rem;
-    }
-
     .#{$prefix}--masthead__megamenu--hasHighlights {
       column-count: 3;
     }
@@ -169,7 +164,7 @@
 
   :host(#{$dds-prefix}-megamenu-category-group),
   .#{$prefix}--masthead__megamenu__category-group {
-    display: inline;
+    display: block;
 
     .#{$prefix}--masthead__megamenu__category-group-content {
       width: 100%;
