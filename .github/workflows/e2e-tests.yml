@@ -54,7 +54,6 @@ jobs:
 
 
       - name: Build project
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
 
 
