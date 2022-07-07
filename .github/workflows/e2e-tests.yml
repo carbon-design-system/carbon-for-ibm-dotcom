@@ -77,8 +77,6 @@ jobs:
           working-directory: packages/web-components
           install: false
           command: yarn test:e2e-storybook:test:no-percy
-          wait-on: 'http://localhost:8081'
-          wait-on-timeout: 120
           browser: chrome
           record: true
           parallel: true
