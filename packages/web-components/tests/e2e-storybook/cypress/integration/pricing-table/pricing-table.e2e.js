@@ -66,7 +66,7 @@ describe('dds-pricing-table | with subheaders (desktop)', () => {
 
         expect(headerBox.top).to.equal(tableBox.top);
         expect(bodyBox.top).to.equal(headerBox.bottom);
-      })
+      });
   });
 
   it('should hide header scroll description when stuck', () => {
@@ -81,6 +81,6 @@ describe('dds-pricing-table | with subheaders (desktop)', () => {
       .window()
       .scrollTo('top')
       .get(descriptions)
-      .should('be.visible')
+      .should('be.visible');
   });
 });
