@@ -128,6 +128,7 @@ jobs:
         with:
           working-directory: packages/web-components/tests/e2e-storybook
           config-file: packages/web-components/tests/e2e-storybook/cypress.json
+          start: yarn test:e2e-storybook:test
           install: false
           browser: chrome
           record: true
