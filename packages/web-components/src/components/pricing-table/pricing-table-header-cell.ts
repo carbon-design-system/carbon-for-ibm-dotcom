@@ -23,6 +23,31 @@ class DDSPricingTableHeaderCell extends StableSelectorMixin(DDSStructuredListHea
   @property({ reflect: true })
   type: PRICING_TABLE_HEADER_CELL_TYPES = PRICING_TABLE_HEADER_CELL_TYPES.COMPLEX;
 
+  @property()
+  private _ctaType?: String;
+
+  private _handleCTASlotChange = ({ target }) => {
+    const cta = target.assignedNodes()[0];
+
+    if (cta) {
+      this._ctaType = cta.getAttribute('cta-type').toLowerCase();
+    }
+  };
+
+  renderCTASlot() {
+    const { _ctaType: ctaType } = this;
+
+    return ctaType === 'video'
+      ? html`
+          <dds-video-cta-container>
+            <slot name="cta" @slotchange=${this._handleCTASlotChange}></slot>
+          </dds-video-cta-container>
+        `
+      : html`
+          <slot name="cta" @slotchange=${this._handleCTASlotChange}></slot>
+        `;
+  }
+
   render() {
     const { type } = this;
     const { tagWrapperSelector } = this.constructor as typeof DDSPricingTableHeaderCell;
@@ -45,7 +70,7 @@ class DDSPricingTableHeaderCell extends StableSelectorMixin(DDSStructuredListHea
               </div>
             </div>
             <div>
-              <slot name="cta"></slot>
+              ${this.renderCTASlot()}
             </div>
           </div>
         `
