@@ -84,7 +84,7 @@
     "test:e2e-storybook:test": "start-server-and-test 'yarn test:e2e-storybook:run' 8081 'percy exec --config tests/e2e-storybook/.percy.json -- cypress run --config-file tests/e2e-storybook/cypress.json'",
     "test:e2e-storybook:test:debug": "cross-env NODE_OPTIONS=--max-old-space-size=8192 start-server-and-test 'yarn test:e2e-storybook:run' 8081 'cypress open --config-file tests/e2e-storybook/cypress.json'",
     "test:e2e-storybook:test:no-percy": "cross-env NODE_OPTIONS=--max-old-space-size=8192 start-server-and-test 'yarn test:e2e-storybook:run' 8081 'cypress run --config-file tests/e2e-storybook/cypress.json'",
-    "test:e2e-storybook:test:no-percy:parallel": "cross-env NODE_OPTIONS=--max-old-space-size=8192 start-server-and-test 'yarn test:e2e-storybook:run' 8081 'cypress run --parallel --config-file tests/e2e-storybook/cypress.json'",
+    "test:e2e-storybook:test:no-percy:parallel": "cross-env NODE_OPTIONS=--max-old-space-size=8192 start-server-and-test 'yarn test:e2e-storybook:run' 8081 'cypress run --record --parallel --config-file tests/e2e-storybook/cypress.json'",
     "test:e2e-storybook:test:no-percy:firefox": "cross-env NODE_OPTIONS=--max-old-space-size=8192 start-server-and-test 'yarn test:e2e-storybook:run' 8081 'cypress run --config-file tests/e2e-storybook/cypress.json --browser firefox'",
     "test:e2e-storybook:test:no-percy:with-video": "start-server-and-test 'yarn test:e2e-storybook:run' 8081 'cypress run --config video=true,screenshotOnRunFailure=true --config-file tests/e2e-storybook/cypress.json'",
     "test:unit": "gulp test:unit",
