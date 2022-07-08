@@ -129,7 +129,7 @@ jobs:
           working-directory: packages/web-components
           spec: tests/e2e-storybook/cypress/integration/**/*.e2e.js
           install: false
-          command: yarn test:e2e-storybook:test:no-percy
+          command: yarn test:e2e-storybook:test:no-percy:parallel
           browser: chrome
           record: true
           parallel: true
