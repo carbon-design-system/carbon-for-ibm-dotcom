@@ -126,8 +126,8 @@ jobs:
       - name: 'Run e2e tests (chromium)'
         uses: cypress-io/github-action@v4
         with:
-          working-directory: packages/web-components/tests/e2e-storybook
-          config-file: packages/web-components/tests/e2e-storybook/cypress.json
+          working-directory: packages/web-components
+          config-file: tests/e2e-storybook/cypress.json
           start: yarn test:e2e-storybook:test
           install: false
           browser: chrome
