@@ -127,6 +127,7 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           working-directory: packages/web-components/tests/e2e-storybook
+          config-file: packages/web-components/tests/e2e-storybook/cypress.json
           install: false
           browser: chrome
           record: true
