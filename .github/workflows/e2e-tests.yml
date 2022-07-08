@@ -132,5 +132,7 @@ jobs:
           browser: chrome
           record: true
           parallel: true
+        env:
+          CYPRESS_CACHE_FOLDER: /Users/runner/Library/Caches/Cypress
 
 #
