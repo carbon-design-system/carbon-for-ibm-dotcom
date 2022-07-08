@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.35.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.35.0...@carbon/ibmdotcom-styles@1.35.1) (2022-07-08)
+
+
+### Bug Fixes
+
+* **masthead:** fixes megamenu item styles ([#9066](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9066)) ([#9077](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9077)) ([7212a47](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7212a473e675cbfb030c3a7a1b2070b04a3f07c2)), closes [#9065](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9065)
+
+
+
+
+
 # [1.35.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.35.0-rc.0...@carbon/ibmdotcom-styles@1.35.0) (2022-06-17)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
