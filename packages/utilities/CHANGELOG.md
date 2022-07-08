@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.36.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.35.0...@carbon/ibmdotcom-utilities@1.36.0-rc.0) (2022-07-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency isomorphic-dompurify to v0.20.0 ([#9037](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9037)) ([76b1798](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/76b179821f986dbe51c439f7ba4372a29c8a011e))
+
+
+### Features
+
+* **pricing-table:** add sticky header ([#8824](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8824)) ([40b94f7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/40b94f7b731e50bc24b5dab4bd3031aa2c97ea60)), closes [#8420](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8420)
+
+
+
+
+
 # [1.35.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.35.0-rc.0...@carbon/ibmdotcom-utilities@1.35.0) (2022-06-17)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities
