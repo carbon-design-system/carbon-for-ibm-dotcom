@@ -5,6 +5,8 @@ on:
     branches: [ main, release/* ]
   pull_request:
     branches: [ main, release/* ]
+  pull_request_target:
+    types: [opened,closed,synchronize]
 
 concurrency:
   group: e2e-tests-${{ github.ref }}
