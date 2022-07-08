@@ -4,12 +4,22 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.35.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.35.0...@carbon/ibmdotcom-react@1.35.1) (2022-07-08)
+# [1.36.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.35.0...@carbon/ibmdotcom-react@1.36.0-rc.0) (2022-07-08)
+
+
+### Bug Fixes
+
+* **masthead:** fixing expected selected item ([#9034](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9034)) ([1734a0a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1734a0a83e31cf654770a2e0b28582ea30d5601a))
 
 
 
 # 1.35.0 (2022-06-17)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react
+
+### Features
+
+* **pricing-table:** add sticky header ([#8824](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8824)) ([40b94f7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/40b94f7b731e50bc24b5dab4bd3031aa2c97ea60)), closes [#8420](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8420)
 
 
 
