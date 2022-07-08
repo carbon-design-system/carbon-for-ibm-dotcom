@@ -126,8 +126,7 @@ jobs:
       - name: 'Run e2e tests (chromium)'
         uses: cypress-io/github-action@v4
         with:
-          working-directory: packages/web-components
-          spec: tests/e2e-storybook
+          working-directory: packages/web-components/tests/e2e-storybook
           install: false
           browser: chrome
           record: true
