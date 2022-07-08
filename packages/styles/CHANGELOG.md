@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.36.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.35.0...@carbon/ibmdotcom-styles@1.36.0-rc.0) (2022-07-08)
+
+
+### Bug Fixes
+
+* **content-item-horizontal:** remove invalid selector ([#9070](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9070)) ([0666306](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0666306af34bc2332eb50f578f2021ff114b5248))
+* **link-list:** fix invalid slotted styles ([#9071](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9071)) ([0d4ff52](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0d4ff526af13413981c4d84ad6bc10c2dd8502c2))
+* **masthead:** fixes megamenu item styles ([#9066](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9066)) ([f81e090](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f81e090c2c818e47ba7d36c63e2d6a4dc5fb9e6c)), closes [#9065](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9065)
+* **pricing-table:** fix column width style regression ([#9051](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9051)) ([cd997eb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cd997ebba96261f0de83e2d8724b481b4761ab8f)), closes [#9049](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9049) [#9022](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9022)
+* **structured-list:** refactor table column layout styles ([#9023](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9023)) ([12afd68](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/12afd687cc3f26657aa4882b3b18e59b859fb8e5)), closes [#9022](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9022)
+* **structured-list:** remove margin-bottom in component shadowroot ([#9008](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9008)) ([6e111cf](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6e111cf954b48e366112eeed6f516bfd55e59fe5)), closes [#8963](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8963)
+
+
+### Features
+
+* **feature-cta:** support Kaltura video thumbnails ([#8940](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8940)) ([82d0029](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/82d0029a476f7f8eb49454a50eedc6c342fb0618)), closes [#8887](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8887)
+* **pricing-table:** add sticky header ([#8824](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8824)) ([40b94f7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/40b94f7b731e50bc24b5dab4bd3031aa2c97ea60)), closes [#8420](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8420)
+* **universal-banner:** Image resizing and design updates ([#8947](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8947)) ([3c29a0f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3c29a0f83c7944dd2e745f0f05973891c700bb2b)), closes [#8811](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8811)
+
+
+
+
+
 # [1.35.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.35.0-rc.0...@carbon/ibmdotcom-styles@1.35.0) (2022-06-17)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
