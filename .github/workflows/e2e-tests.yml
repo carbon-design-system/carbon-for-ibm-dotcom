@@ -127,9 +127,8 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           working-directory: packages/web-components
-          spec: tests/e2e-storybook/cypress/integration/**/*.e2e.js
+          spec: tests/e2e-storybook
           install: false
-          command: yarn test:e2e-storybook:test:no-percy:parallel
           browser: chrome
           record: true
           parallel: true
