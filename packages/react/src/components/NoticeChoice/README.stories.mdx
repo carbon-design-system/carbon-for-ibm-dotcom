@@ -1,0 +1,100 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../docs/contributing-license.md';
+import NoticeChoice from './NoticeChoice';
+
+# Notice Choice
+
+> The NoticeChoice component is to be utilized within IBM.com or IBM Authorized partnet websites.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/react/examples/codesandbox/components/NoticeChoice)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/react/examples/codesandbox/components/NoticeChoice)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+##### CSS
+
+```css
+// yourapplication.scss
+@import '@carbon/ibmdotcom-styles/scss/components/checkbox/checkbox';
+```
+
+> 💡 It's not mandatory to import above css if you have your own css.
+> styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/styles).
+
+##### JS
+
+```javascript
+/**
+ * Copyright IBM Corp. 2016, 2022
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { NoticeChoice } from '@carbon/ibmdotcom-react';
+
+import 'yourapplication.scss';
+
+const questionChoices = [1,2,3]
+const termsConditionLink = ``
+const locale = 'us-en'
+const country = 'US'
+const email = ''
+const classNames = ''
+const enableAllOptIn = false
+
+function App() {
+ return (
+    <NoticeChoice
+      questionChoices={questionChoices}
+      termsConditionLink={termsConditionLink}
+      locale={locale}
+      country={country}
+      onChange={onChange}
+      email={email}
+      classNames={classNames}
+      enableAllOptIn={enableAllOptIn}
+    />
+  );
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/styles#usage).
+
+```
+  SASS_PATH=node_modules:src
+```
+
+> 💡 Don't forget to import the logogrid styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/styles).
+
+##### OPTIONAL 💡
+
+In addition, direct ES module imports can be used to speed up build compilation
+and have less reliance on tree-shaking determinations from build scripts:
+
+```js
+import NoticeChoice from '@carbon/ibmdotcom-react/es/components/NoticeChoice/NoticeChoice';
+```
+
+## Props
+
+<Props of={NoticeChoice} />
+
+## Stable selectors
+
+| Name         | Description |
+| ------------ | ----------- |
+| `dds--nc`    | Component   |
+
+<Description markdown={contributing} />
