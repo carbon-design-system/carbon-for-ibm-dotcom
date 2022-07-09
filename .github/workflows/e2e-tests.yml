@@ -3,15 +3,16 @@ name: e2e-tests
 on:
   push:
     branches: [ main, release/* ]
-  pull_request:
-    branches: [ main, release/* ]
+  pull_request_target:
+    types: [opened,closed,synchronize]
 
 concurrency:
   group: e2e-tests-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  web-components:
+  
+  install-web-components:
     strategy:
       matrix:
         os: [ macos-latest ]
@@ -21,15 +22,51 @@ jobs:
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{github.event.pull_request.head.ref}}
+          repository: ${{github.event.pull_request.head.repo.full_name}}
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
-      - name: Install dependencies
+
+
+      - uses: actions/cache@v2
+        name: Yarn cache
+        id: yarn-cache
+        with:
+          path: |
+            **/node_modules
+            /Users/runner/Library/Caches/Cypress
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn
+
+
+
+
+
+
+
+
+
+      - name: Installing dependencies (if not cached)
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install --offline
+
+
       - name: Build project
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
+
+
+
+
+
+
+
+
       - name: Set Cloud Masthead env var
         uses: ./.github/actions/set-dotenv
         with:
@@ -39,33 +76,71 @@ jobs:
       - name: Build storybook
         working-directory: packages/web-components
         run: yarn build-storybook
-      - name: Run e2e tests (chromium)
-        if: matrix.browser == 'chromium'
-        working-directory: packages/web-components
-        run: yarn test:e2e-storybook:test:no-percy
-  react:
+      - name: Save build folder
+        uses: actions/upload-artifact@v2
+        with:
+          name: storybook-build
+          path: packages/web-components/storybook-static
+
+
+  web-components-tests:
+    runs-on: macos-latest
+    needs: install-web-components
     strategy:
+      fail-fast: false
       matrix:
-        os: [ ubuntu-latest ]
+        # run copies of the current job in parallel
+        containers: [1, 2, 3, 4, 5]
+        os: [ macos-latest ]
         node-version: [ 14.x ]
-        browser: [ chromium, firefox ]
-    runs-on: ${{ matrix.os }}
-    timeout-minutes: 60
+        browser: [ chromium ]
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{github.event.pull_request.head.ref}}
+          repository: ${{github.event.pull_request.head.repo.full_name}}
+
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
-      - name: Install dependencies
-        run: yarn install --offline
-      - name: Build project
-        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
-      - name: Build storybook
-        working-directory: packages/react
-        run: yarn build-storybook
-      - name: Run e2e tests (chromium)
-        if: matrix.browser == 'chromium'
-        working-directory: packages/react
-        run: yarn test:e2e-storybook:test:no-percy
+          cache: 'yarn'        
+
+      - name: Download the build folders
+        uses: actions/download-artifact@v2
+        with:
+          name: storybook-build
+          path: packages/web-components/storybook-static
+
+
+      # this retrieves the saved cache from the install job
+      - uses: actions/cache@v2
+        name: yarn-cache
+        id: yarn-cache
+        with:
+          path: |
+            **/node_modules
+            /Users/runner/Library/Caches/Cypress
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn
+
+      - run: yarn cypress install --force
+        
+      - name: 'Run e2e tests (chromium)'
+        uses: cypress-io/github-action@v4
+        with:
+          working-directory: packages/web-components
+          config-file: tests/e2e-storybook/cypress.json
+          start: yarn test:e2e-storybook:test
+          install: false
+          browser: chrome
+          record: true
+          parallel: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_CACHE_FOLDER: /Users/runner/Library/Caches/Cypress
+
+#
