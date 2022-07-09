@@ -310,7 +310,7 @@ export function NoticeChoice({
           option.checked === 'true' || option.checked === true
         );
         // console.log('option', option)
-        if (Object.prototype.isPrototypeOf.call(defaultValues, key)) {
+        if (Object.prototype.hasOwnProperty.call(defaultValues, key)) {
           newValues[key] = defaultValues[key];
         }
         const fieldName = `NC_CHECK_${key}`;

@@ -4,8 +4,6 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { apiPath, URX_PWS_LOOKUP, URX_PWS_LOOKUP_V3 } from './api-path';
-
 import axios from 'axios';
 
 export function transformEmailPreference(NC_HIDDEN_EMAIL) {
@@ -25,13 +23,12 @@ export default function services(formData, timeout = 10000) {
   });
 }
 export function checkPreferencesv3(emailAddress) {
-  const endpoint = apiPath(URX_PWS_LOOKUP_V3);
+  const endpoint = `https://www.ibm.com/account/apis/v2.0/pws/V3.0/lookup`;
   return new Promise((resolve, reject) => {
     if (emailAddress && emailAddress.indexOf('*****') > -1) {
       resolve('N');
     } else {
-      // debounce((emailAddress) => {
-      axios
+     axios
         .get(endpoint, {
           params: { emailAddress },
         })
@@ -42,7 +39,6 @@ export function checkPreferencesv3(emailAddress) {
           console.error(error); // eslint-disable-line no-console
           reject('N');
         });
-      // }, 500)
     }
   });
 }
@@ -61,6 +57,12 @@ export function checkPreferences(postData) {
       });
   });
 }
+=======
+    }
+  });
+}
+
+>>>>>>> a77d7089f (feat: notice & choice react component, a privacy complaince feature)
 export function loadContent(cc, lc, onSuccess = () => {}, onError = () => {}) {
   const script = document.createElement('script');
   script.async = false;
