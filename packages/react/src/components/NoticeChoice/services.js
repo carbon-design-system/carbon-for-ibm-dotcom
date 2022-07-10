@@ -28,7 +28,7 @@ export function checkPreferencesv3(emailAddress) {
     if (emailAddress && emailAddress.indexOf('*****') > -1) {
       resolve('N');
     } else {
-     axios
+      axios
         .get(endpoint, {
           params: { emailAddress },
         })
@@ -42,27 +42,6 @@ export function checkPreferencesv3(emailAddress) {
     }
   });
 }
-export function checkPreferences(postData) {
-  return new Promise((resolve, reject) => {
-    axios
-      .get(URX_PWS_LOOKUP, {
-        params: postData,
-      })
-      .then(response => {
-        resolve(response.data);
-      })
-      .catch(error => {
-        console.error(error); // eslint-disable-line no-console
-        reject(error);
-      });
-  });
-}
-=======
-    }
-  });
-}
-
->>>>>>> a77d7089f (feat: notice & choice react component, a privacy complaince feature)
 export function loadContent(cc, lc, onSuccess = () => {}, onError = () => {}) {
   const script = document.createElement('script');
   script.async = false;

@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean, object, select, text } from '@storybook/addon-knobs';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
 import NoticeChoice from '../NoticeChoice';
@@ -57,11 +56,7 @@ export default {
           'https://www.ibm.com/legal'
         ),
         classNames: text('classNames', `custom-class-by-app`),
-<<<<<<< HEAD
-        defaultValues: object('defaultValues', { EMAIL: false }),
-=======
         // defaultValues: object('defaultValues', { EMAIL: false }),
->>>>>>> a77d7089f (feat: notice & choice react component, a privacy complaince feature)
         enableAllOptIn: boolean('enableAllOptIn', false),
         bpidLegalText: text('bpidLegalText', ''),
       }),
@@ -85,10 +80,7 @@ export const Default = ({ parameters }) => {
     email,
     classNames,
     enableAllOptIn,
-<<<<<<< HEAD
-=======
     // defaultValues,
->>>>>>> a77d7089f (feat: notice & choice react component, a privacy complaince feature)
   } = parameters?.props?.NoticeChoice ?? {};
   // console.log('enableAllOptIn', enableAllOptIn);
   return (
@@ -104,10 +96,7 @@ export const Default = ({ parameters }) => {
             email={email}
             classNames={classNames}
             enableAllOptIn={enableAllOptIn}
-<<<<<<< HEAD
-=======
             // defaultValues={defaultValues}
->>>>>>> a77d7089f (feat: notice & choice react component, a privacy complaince feature)
           />
         </div>
       </div>
