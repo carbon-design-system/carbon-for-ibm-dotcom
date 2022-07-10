@@ -6,22 +6,6 @@
  */
 import axios from 'axios';
 
-export function transformEmailPreference(NC_HIDDEN_EMAIL) {
-  if (NC_HIDDEN_EMAIL === 'PERMISSION') {
-    return 'OPT_IN';
-  } else if (NC_HIDDEN_EMAIL === 'SUPPRESSION') {
-    return 'OPT_OUT';
-  } else {
-    return 'UNCHANGED';
-  }
-}
-export default function services(formData, timeout = 10000) {
-  return Promise.resolve({
-    status: 'Success',
-    formData,
-    timeout,
-  });
-}
 export function checkPreferencesv3(emailAddress) {
   const endpoint = `https://www.ibm.com/account/apis/v2.0/pws/V3.0/lookup`;
   return new Promise((resolve, reject) => {
