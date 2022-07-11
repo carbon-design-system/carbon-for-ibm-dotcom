@@ -133,6 +133,7 @@ class DDSDropdown extends BXDropdown {
     });
     const labelClasses = classMap({
       [`${prefix}--label`]: true,
+      [`${prefix}--visually-hidden`]: true,
       [`${prefix}--label--disabled`]: disabled,
     });
     const helperClasses = classMap({

@@ -277,6 +277,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
           ? html`
               <dds-language-selector-desktop
                 trigger-content="${languageSelectorLabel}"
+                label-text="${languageSelectorLabel}"
                 value="${selectedLanguage}"
                 clear-selection-label="${clearSelectionLabel}"
               >
@@ -335,6 +336,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
                   size="${size}"
                   slot="locale"
                   trigger-content="${languageSelectorLabel}"
+                  label-text="${languageSelectorLabel}"
                   value="${selectedLanguage}"
                   clear-selection-label="${clearSelectionLabel}"
                 >
