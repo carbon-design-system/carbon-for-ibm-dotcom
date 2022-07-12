@@ -182,7 +182,7 @@ Card.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-4 bx--no-gutter',
     knobs: {
       CardCTA: () => {
-        const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL);
+        const { ctaType } = Text.story.parameters.knobs.TextCTA();
         const noPoster = ctaType === CTA_TYPE.VIDEO ? boolean('No Video Poster', false) : null;
         const heading =
           ctaType === CTA_TYPE.VIDEO ? null : textNullable('Heading (heading):', 'Explore AI use cases in all industries');

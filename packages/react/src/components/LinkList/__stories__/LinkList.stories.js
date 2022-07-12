@@ -81,7 +81,7 @@ const props = {
       iconPlacement[0]
     ),
   }),
-}
+};
 
 export default {
   title: 'Components/Link list',
@@ -127,10 +127,7 @@ export const Horizontal = () => {
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-4">
-          <LinkList
-            style="horizontal"
-            {...props.horizontal()}
-          />
+          <LinkList style="horizontal" {...props.horizontal()} />
         </div>
       </div>
     </div>
@@ -165,10 +162,7 @@ export const Vertical = () => {
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4">
-          <LinkList
-            style="vertical"
-            {...props.vertical()}
-          />
+          <LinkList style="vertical" {...props.vertical()} />
         </div>
       </div>
     </div>
@@ -203,10 +197,7 @@ export const VerticalWithCards = () => {
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4">
-          <LinkList
-            style="vertical"
-            {...props.verticalWithCards()}
-          />
+          <LinkList style="vertical" {...props.verticalWithCards()} />
           <LinkList style="card" {...props.default()} />
         </div>
       </div>
