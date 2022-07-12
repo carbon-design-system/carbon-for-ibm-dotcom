@@ -10,6 +10,7 @@
 import { customElement, html, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import { CTA_TYPE } from '../cta/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSStructuredListHeaderCell from '../structured-list/structured-list-header-cell';
 import styles from './pricing-table.scss';
@@ -37,7 +38,7 @@ class DDSPricingTableHeaderCell extends StableSelectorMixin(DDSStructuredListHea
   renderCTASlot() {
     const { _ctaType: ctaType } = this;
 
-    return ctaType === 'video'
+    return ctaType === CTA_TYPE.VIDEO
       ? html`
           <dds-video-cta-container>
             <slot name="cta" @slotchange=${this._handleCTASlotChange}></slot>
