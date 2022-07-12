@@ -84,7 +84,7 @@
     "stylelint-prettier": "^1.1.1",
     "stylelint-scss": "^3.8.0",
     "through2": "^3.0.0",
-    "webpack": "^5.69.1"
+    "webpack": "^4.46.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.5.1"
