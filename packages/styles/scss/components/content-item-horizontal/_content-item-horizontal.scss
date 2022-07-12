@@ -284,10 +284,6 @@
   :host(#{$dds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])),
   .#{$prefix}--content-item-horizontal__item--copy {
     margin-bottom: $carbon--spacing-06;
-
-    p {
-      color: $text-01;
-    }
   }
 
   :host(#{$dds-prefix}-content-item-horizontal-thumbnail-copy)
