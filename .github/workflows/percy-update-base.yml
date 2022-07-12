@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        node-version: ['14.x']
+        node-version: ['16.x']
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 14.x
+      - name: Use Node.js 16.x
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
@@ -46,10 +46,10 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        node-version: [ '14.x' ]
+        node-version: [ '16.x' ]
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 14.x
+      - name: Use Node.js 16.x
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
@@ -74,10 +74,10 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        node-version: ['14.x']
+        node-version: ['16.x']
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 14.x
+      - name: Use Node.js 16.x
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
