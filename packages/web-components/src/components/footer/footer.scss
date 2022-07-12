@@ -301,6 +301,10 @@
   @include carbon--breakpoint-down('lg') {
     display: none;
   }
+
+  .#{$prefix}--label-visually-hidden {
+    visibility: hidden;
+  }
 }
 
 :host(#{$dds-prefix}-language-selector-desktop[size='micro']) {
