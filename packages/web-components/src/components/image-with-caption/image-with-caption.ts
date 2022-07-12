@@ -18,6 +18,7 @@ import '../image/image';
 import '../lightbox-media-viewer/lightbox-image-viewer';
 import '../button/button';
 import ZoomIn20 from 'carbon-web-components/es/icons/zoom--in/20';
+import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './image-with-caption.scss';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
@@ -177,5 +178,9 @@ class DDSImageWithCaption extends StableSelectorMixin(ModalRenderMixin(FocusMixi
   static styles = styles;
 }
 
-/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSImageWithCaption;
+export default deprecate(
+  /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
+  DDSImageWithCaption,
+  'The dds-image-with-caption component has been merged with the dds-image component ' +
+    'See dds-image documentation for more information.'
+);

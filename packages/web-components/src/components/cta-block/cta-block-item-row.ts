@@ -12,6 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import DDSTab from '../tabs-extended/tab';
 
 import styles from './cta-block.scss';
 
@@ -36,7 +37,7 @@ class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
   private _childItemHeadings: any[] = [];
 
   /**
-   * Array to hold the copy elements within child items.
+   * Array to hold the text copy elements within child items.
    */
   private _childItemCopies: any[] = [];
 
@@ -44,6 +45,15 @@ class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
    * The observer for the resize of the viewport.
    */
   private _observerResizeRoot: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+
+  /**
+   * A list of potential parent components that may be hide their content on
+   * first render. Lists event names that indicate the parent element
+   * visibility has changed keyed by component selector strings.
+   */
+  private _parentsThatHide = {
+    [`${ddsPrefix}-tab`]: DDSTab.eventTabSelected,
+  };
 
   /**
    * Cleans-up and creats the resize observer for the scrolling container.
@@ -92,31 +102,20 @@ class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
   protected _hasAction = false;
 
   /**
-   * `true` if there is a link list.
-   */
-  @state()
-  protected _hasLinkList = false;
-
-  /**
    * Handles `slotchange` event, also sets height to all headings to the tallest one.
    *
    * @param event The event.
    */
   protected _handleSlotChange(event: Event) {
     const { target } = event;
+    const { selectorItem, selectorItemHeading, selectorItemCopy } = this.constructor as typeof DDSCTABlockItemRow;
 
-    const childItems = (target as HTMLSlotElement)
-      .assignedNodes()
-      .filter(elem => (elem as HTMLElement).matches?.((this.constructor as typeof DDSCTABlockItemRow).selectorItem));
-    // retrieves all cta-section-item headings
+    const childItems = (target as HTMLSlotElement).assignedNodes().filter(elem => (elem as HTMLElement).matches?.(selectorItem));
+
     if (childItems) {
       childItems.forEach(e => {
-        this._childItemHeadings.push(
-          (e as HTMLElement).querySelector((this.constructor as typeof DDSCTABlockItemRow).selectorItemHeading)
-        );
-        this._childItemCopies.push(
-          (e as HTMLElement).querySelector((this.constructor as typeof DDSCTABlockItemRow).selectorItemCopy)
-        );
+        this._childItemHeadings.push((e as HTMLElement).querySelector(selectorItemHeading));
+        this._childItemCopies.push((e as HTMLElement).querySelector(selectorItemCopy));
       });
     }
 
@@ -129,12 +128,19 @@ class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
     `;
   }
 
-  /**
-   * Applies section attribute
-   */
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
+
+    // Reset heights when parents that can be hidden transition to a visible
+    // state.
+    Object.entries(this._parentsThatHide).forEach(([component, event]) => {
+      let target: Element | null | undefined = this.closest(component);
+      while (target) {
+        target.addEventListener(event, this._setSameHeight.bind(this));
+        target = target?.parentElement?.closest(component);
+      }
+    });
   }
 
   disconnectedCallback() {

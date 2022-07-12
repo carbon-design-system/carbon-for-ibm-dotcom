@@ -16,6 +16,7 @@ const types = {
   doubleAngle: 'doubleAngle',
   singleAngle: 'singleAngle',
   lowHighReversedDoubleCurved: 'lowHighReversedDoubleCurved',
+  cornerBracket: 'cornerBracket',
 };
 
 export default {

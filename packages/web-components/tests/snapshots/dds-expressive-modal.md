@@ -12,15 +12,15 @@
   START
 </button>
 <div
-  aria-labelledby="modal-header"
+  aria-labelledby="dds--modal-header"
   class="bx--modal-container"
   role="dialog"
   tabindex="-1"
 >
   <div class="bx--modal-content">
     <div
-      class="dds-ce--modal__hedaer--with-body"
-      id="modal-header"
+      class="dds-ce--modal__header--with-body"
+      id="dds--modal-header"
     >
       <slot name="header">
       </slot>
@@ -54,15 +54,15 @@
   START
 </button>
 <div
-  aria-labelledby="modal-header"
+  aria-labelledby="dds--modal-header"
   class="bx--modal-container"
   role="dialog"
   tabindex="-1"
 >
   <div class="bx--modal-content">
     <div
-      class="dds-ce--modal__hedaer--with-body"
-      id="modal-header"
+      class="dds-ce--modal__header--with-body"
+      id="dds--modal-header"
     >
       <slot name="header">
       </slot>
@@ -98,13 +98,13 @@
   START
 </button>
 <div
-  aria-labelledby="modal-header"
+  aria-labelledby="dds--modal-header"
   class="bx--modal-container"
   role="dialog"
   tabindex="-1"
 >
   <div class="bx--modal-content">
-    <div id="modal-header">
+    <div id="dds--modal-header">
       <slot name="header">
       </slot>
     </div>
@@ -137,15 +137,15 @@
   START
 </button>
 <div
-  aria-labelledby="modal-header"
+  aria-labelledby="dds--modal-header"
   class="bx--modal-container"
   role="dialog"
   tabindex="-1"
 >
   <div class="bx--modal-content">
     <div
-      class="dds-ce--modal__hedaer--with-body"
-      id="modal-header"
+      class="dds-ce--modal__header--with-body"
+      id="dds--modal-header"
     >
       <slot name="header">
       </slot>
@@ -179,15 +179,15 @@
   START
 </button>
 <div
-  aria-labelledby="modal-header"
+  aria-labelledby="dds--modal-header"
   class="bx--modal-container"
   role="dialog"
   tabindex="-1"
 >
   <div class="bx--modal-content">
     <div
-      class="dds-ce--modal__hedaer--with-body"
-      id="modal-header"
+      class="dds-ce--modal__header--with-body"
+      id="dds--modal-header"
     >
       <slot name="header">
       </slot>

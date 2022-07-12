@@ -94,6 +94,14 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
   }
 
   /**
+   * Returns whether or not there is content to render in the body markup.
+   */
+  protected _hasBodyContent(): boolean {
+    const { _hasContent: hasContent, _hasCopy: hasCopy, _hasMedia: hasMedia, _hasFooter: hasFooter } = this;
+    return hasContent || hasCopy || hasMedia || hasFooter;
+  }
+
+  /**
    * Handles `slotchange` event.
    *
    * @param event The event.
@@ -110,9 +118,8 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
    * @returns The non-header, non-complementary contents.
    */
   protected _renderBody(): TemplateResult | string | void {
-    const { _hasContent: hasContent, _hasCopy: hasCopy, _hasMedia: hasMedia, _hasFooter: hasFooter } = this;
     return html`
-      <div ?hidden="${!hasContent && !hasCopy && !hasMedia && !hasFooter}" class="${prefix}--content-layout__body">
+      <div ?hidden="${!this._hasBodyContent()}" class="${prefix}--content-layout__body">
         ${this._renderCopy()}${this._renderInnerBody()}${this._renderFooter()}
       </div>
     `;

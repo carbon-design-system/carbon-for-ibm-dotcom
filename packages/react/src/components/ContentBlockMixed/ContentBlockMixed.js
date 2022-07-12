@@ -20,7 +20,7 @@ const { prefix } = settings;
 /**
  * ContentBlockMixed Pattern.
  */
-const ContentBlockMixed = ({ heading, copy, cta, items, aside }) => {
+const ContentBlockMixed = ({ heading, copy, cta, items, aside, border }) => {
   const patterns = {
     ContentGroupCards,
     ContentGroupSimple,
@@ -35,7 +35,12 @@ const ContentBlockMixed = ({ heading, copy, cta, items, aside }) => {
     <div
       data-autoid={`${stablePrefix}--content-block-mixed`}
       className={`${prefix}--content-block-mixed`}>
-      <ContentBlock heading={heading} copy={copy} cta={cta} aside={aside}>
+      <ContentBlock
+        heading={heading}
+        copy={copy}
+        cta={cta}
+        aside={aside}
+        border={border}>
         {groups}
       </ContentBlock>
     </div>
@@ -275,6 +280,11 @@ ContentBlockMixed.propTypes = {
     items: PropTypes.element,
     border: PropTypes.bool,
   }),
+
+  /**
+   * border for content block.
+   */
+  border: PropTypes.bool,
 };
 
 export default ContentBlockMixed;

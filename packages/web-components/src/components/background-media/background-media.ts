@@ -168,7 +168,7 @@ class DDSBackgroundMedia extends DDSImage {
       this.gradientHidden = true;
     }
 
-    if (this.hasAttribute('default-src')) {
+    if (this.hasAttribute('default-src') && !this.videoId) {
       this.containsOnlyImages = true;
     }
   }

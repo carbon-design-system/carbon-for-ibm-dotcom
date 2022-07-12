@@ -24,7 +24,7 @@ import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/componen
 import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
 import DDSLeadspaceBlockMedia from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-media';
 import DDSLeadspaceBlockCTA from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-cta';
-import DDSImageWithCaption from '@carbon/ibmdotcom-web-components/es/components-react/image-with-caption/image-with-caption';
+import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import DDSLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
@@ -40,14 +40,11 @@ import readme from './README.stories.react.mdx';
 import styles from './leadspace-block.stories.scss';
 
 const image = (
-  <DDSImageWithCaption
-    alt="Image alt text"
-    default-src={imgLg16x9}
-    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+  <DDSImage alt="Image alt text" default-src={imgLg16x9} heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
     <DDSImageItem media="(min-width: 672px)" srcset={imgLg16x9} />
     <DDSImageItem media="(min-width: 400px)" srcset={imgMd16x9} />
     <DDSImageItem media="(min-width: 320px)" srcset={imgSm16x9} />
-  </DDSImageWithCaption>
+  </DDSImage>
 );
 
 const linkList = (
@@ -73,8 +70,8 @@ const buttonCTA = (
   </DDSLeadspaceBlockCTA>
 );
 
-export const Default = ({ parameters }) => {
-  const { title, heading, copy } = parameters?.props?.LeadSpaceBlock ?? {};
+export const Default = args => {
+  const { title, heading, copy } = args?.LeadSpaceBlock ?? {};
   return (
     <DDSLeadspaceBlock>
       <DDSLeadspaceBlockHeading>{title}</DDSLeadspaceBlockHeading>
@@ -88,8 +85,8 @@ export const Default = ({ parameters }) => {
   );
 };
 
-export const withVideo = ({ parameters }) => {
-  const { title, heading, copy } = parameters?.props?.LeadSpaceBlock ?? {};
+export const withVideo = args => {
+  const { title, heading, copy } = args?.LeadSpaceBlock ?? {};
   return (
     <DDSLeadspaceBlock>
       <DDSLeadspaceBlockHeading>{title}</DDSLeadspaceBlockHeading>

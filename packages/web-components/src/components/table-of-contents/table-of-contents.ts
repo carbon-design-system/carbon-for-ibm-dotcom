@@ -162,10 +162,16 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
   private _observerResizeMobileContainer: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
 
   /**
-   * The target `<a>`s harvested from the document.
+   * The target elements matching `[name]` harvested from the document.
    */
   @state()
-  private _targets: HTMLAnchorElement[] = [];
+  private _targets: HTMLElement[] = [];
+
+  /**
+   * The Element.tagName values that should never be used as a TOC target.
+   * Typically added here because these elements have their own `[name]` attribute.
+   */
+  private _tagNamesToAvoid = [`${ddsPrefix}-VIDEO-PLAYER`];
 
   /**
    * Boolean checking if page is RTL
@@ -305,22 +311,62 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
   };
 
   /**
+   * Watches for changes to content in the default slot.
+   */
+  private _contentMutationObserver = new MutationObserver(this._contentObserverCallback.bind(this));
+
+  /**
+   * Sets table of contents targets whenever any node tree mutation is observed.
+   */
+  private _contentObserverCallback() {
+    const shadowRoot = this.shadowRoot as ShadowRoot;
+    const defaultSlot = shadowRoot.querySelector(`.${prefix}--tableofcontents__content slot`) as HTMLSlotElement;
+    this._setTargets(Array.from(defaultSlot.assignedNodes()));
+  }
+
+  /**
+   * Sets targets used for generating the table of contents.
+   */
+  private _setTargets(nodes: Node[]) {
+    const { _tagNamesToAvoid: tagNamesToAvoid } = this;
+    const { selectorTarget } = this.constructor as typeof DDSTableOfContents;
+    this._targets = nodes.reduce((acc, node) => {
+      if (node instanceof HTMLElement) {
+        const descendants = node.querySelectorAll(selectorTarget) as NodeListOf<HTMLElement>;
+        const elems = [node, ...descendants].filter(
+          elem =>
+            // has inner text
+            elem.innerText.match(/[^\s\n\r]/g) &&
+            // has `name` attribute
+            elem.matches(selectorTarget) &&
+            // isn't explicity excluded
+            !tagNamesToAvoid.includes(elem.tagName)
+        );
+
+        acc.push(...(elems as HTMLElement[]));
+      }
+
+      return acc;
+    }, [] as HTMLElement[]);
+  }
+
+  /**
    * Handles `slotchange` event on the default `<slot>`.
    *
    * @param event The event.
    */
   private _handleSlotChange(event: Event) {
-    const { selectorTarget } = this.constructor as typeof DDSTableOfContents;
-    this._targets = (event.target as HTMLSlotElement).assignedNodes().reduce((acc, node) => {
-      if (node.nodeType === Node.ELEMENT_NODE) {
-        const elem = node as Element;
-        if (elem.matches(selectorTarget)) {
-          acc.push(elem as HTMLAnchorElement);
-        }
-        acc.push(...(elem.querySelectorAll(selectorTarget) as NodeListOf<HTMLAnchorElement>));
+    // Handle changes to immediate slotted children.
+    const slottedElements = (event.target as HTMLSlotElement).assignedNodes().filter(node => node instanceof HTMLElement);
+    this._setTargets(slottedElements as HTMLElement[]);
+
+    // Handle changes to slotted contents' children.
+    this._contentMutationObserver.disconnect();
+    (event.target as HTMLSlotElement).assignedNodes().forEach(node => {
+      if (node instanceof HTMLElement) {
+        this._contentMutationObserver.observe(node, { subtree: true, childList: true });
       }
-      return acc;
-    }, [] as HTMLAnchorElement[]);
+    });
   }
 
   /**
@@ -554,6 +600,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
   disconnectedCallback() {
     this._cleanAndCreateObserverResizeMobileContainer();
     this._cleanAndCreateIntersectionObserverContainer();
+    this._contentMutationObserver.disconnect();
     if (this._throttleScroll) {
       this._throttleScroll.cancel();
       this._throttleScroll = null;
@@ -631,7 +678,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
                 });
                 return html`
                   <li class="${itemClasses}" @click="${handleClickItem}" @keydown="${handleOnKeyDown}">
-                    <a aria-current="${ifDefined(!selected ? undefined : 'location')}" data-target="${name}" href="#${name}">
+                    <a aria-current="${ifDefined(!selected ? undefined : 'location')}" data-target="${name!}" href="#${name}">
                       ${title}
                     </a>
                   </li>
@@ -715,7 +762,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
                     });
                     return html`
                       <li class="${itemClasses}" @click="${handleClickItem}" @keydown="${handleOnKeyDown}">
-                        <a aria-current="${ifDefined(!selected ? undefined : 'location')}" data-target="${name}" href="#${name}">
+                        <a aria-current="${ifDefined(!selected ? undefined : 'location')}" data-target="${name!}" href="#${name}">
                           ${title}
                         </a>
                       </li>
@@ -742,7 +789,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
                     const name = item.getAttribute('name');
                     const title = (item.dataset.title ?? item.textContent ?? '').trim();
                     return html`
-                      <option class="${prefix}--tableofcontents__mobile__select__option" value="${name}">
+                      <option class="${prefix}--tableofcontents__mobile__select__option" value="${name!}">
                         ${title}
                       </option>
                     `;

@@ -14,7 +14,13 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/footer)
 > example implementation.
 
+### Footer (locale selector):
+
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/footer)
+
+### Footer (language selector):
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/footer-language-only)
 
 ## Getting started
 
@@ -70,9 +76,18 @@ The following attributes are needed:
 | ------------------------ | -------------------------------------- |
 | `language-selector-label`| `The input box placeholder`            |
 | `selected-language`      | `The initial selected language`        |
-| `localeList`             | `Object containing available languages`|
+| `langList`               | `Object containing available languages`|
 
 Example implementation:
+
+```html
+<dds-footer-container
+      size="regular"
+      language-selector-label="Choose a language"
+      clear-selection-label="Clear language selection"
+      selected-language="English"
+    ></dds-footer-container>
+```
 
 ```javascript
 const languageList = [
@@ -80,21 +95,6 @@ const languageList = [
   { id: 'nl', text: 'Dutch / Nederlands' },
   { id: 'en', text: 'English' },
 ];
-
-```
-
-```html
-<dds-footer-container
-	language="${ifNonNull(language)}"
-	lang-display="${ifNonNull(langDisplay)}"
-	size="${ifNonNull(size)}"
-  .localeList="${ifNonNull(languageList)}"
-	.legalLinks="${ifNonNull(legalLinks)}"
-	.links="${ifNonNull(links)}"
-	.localeList="${ifNonNull(localeList)}"
-	language-selector-label="${ifNonNull(languageSelectorLabel)}"
-	selected-language="${ifNonNull(selectedLanguage)}"
->
-</dds-footer-container>
+document.querySelector("dds-footer-container").langList = languageList;
 ```
 <Description markdown={contributing} />

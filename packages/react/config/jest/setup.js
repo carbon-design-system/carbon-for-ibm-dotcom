@@ -1,11 +1,13 @@
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 'use strict';
+
+import { TextDecoder, TextEncoder } from 'util';
 
 jest.unmock('promise');
 jest.unmock('whatwg-fetch');
@@ -21,6 +23,10 @@ global.window.location = {
   hostname: 'localhost',
   href: 'http://localhost',
 };
+
+// required for latest isomorphic-dompurify
+global.TextEncoder = TextEncoder;
+global.TextDecoder = TextDecoder;
 
 // mock matchMedia to resolve JSOM error
 Object.defineProperty(window, 'matchMedia', {

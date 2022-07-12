@@ -32,4 +32,5 @@ class DDSContentGroupPictograms extends DDSContentGroup {
   }
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSContentGroupPictograms;

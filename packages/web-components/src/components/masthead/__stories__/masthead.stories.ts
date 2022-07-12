@@ -223,14 +223,14 @@ export const withPlatform = args => {
           ></dds-masthead-composite>
         `
       : html`
-          <dds-masthead-composite
+          <dds-masthead-container
             platform="Platform"
             .platformUrl="${ifNonNull(platformData.url)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-          ></dds-masthead-composite>
+          ></dds-masthead-container>
         `}
   `;
 };

@@ -1,0 +1,52 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/feature-card/feature-card';
+
+# Feature card
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/feature-card)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/feature-card)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import DDSFeatureCard from '@carbon/ibmdotcom-web-components/es/components-react/feature-card/feature-card';
+import DDSFeatureCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/feature-card/feature-card-footer';
+import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import mediumImgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
+
+function App() {
+  return (
+    <DDSFeatureCard href="https://www.example.com">
+      <DDSImage alt="Image alt text" defaultSrc={mediumImgLg1x1} slot="image" />
+      <DDSCardHeading>Feature card heading</DDSCardHeading>
+      <DDSFeatureCardFooter>
+        <ArrowRight20 slot="icon" />
+      </DDSFeatureCardFooter>
+    </DDSFeatureCard>
+  );
+}
+```
+
+## Props
+
+<Props of={PropTypesRef} />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector | Compatibility selector            | Description |
+| ----------------------- | --------------------------------- | ----------- |
+| `<dds-feature-card>`    | `data-autoid="dds--feature-card"` | Component   |
+
+<Description markdown={contributing} />

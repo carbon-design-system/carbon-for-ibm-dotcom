@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.27.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/storybook-addon-theme@1.26.0...@carbon/storybook-addon-theme@1.27.0-rc.0) (2022-07-08)
+
+**Note:** Version bump only for package @carbon/storybook-addon-theme
+
+
+
+
+
+# [1.26.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/storybook-addon-theme@1.26.0-rc.0...@carbon/storybook-addon-theme@1.26.0) (2022-06-17)
+
+**Note:** Version bump only for package @carbon/storybook-addon-theme
+
+
+
+
+
+# [1.26.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/storybook-addon-theme@1.25.0...@carbon/storybook-addon-theme@1.26.0-rc.0) (2022-06-07)
+
+**Note:** Version bump only for package @carbon/storybook-addon-theme
+
+
+
+
+
+# [1.25.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/storybook-addon-theme/compare/@carbon/storybook-addon-theme@1.25.0-rc.0...@carbon/storybook-addon-theme@1.25.0) (2022-05-20)
+
+**Note:** Version bump only for package @carbon/storybook-addon-theme
+
+
+
+
+
+# [1.25.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/storybook-addon-theme/compare/@carbon/storybook-addon-theme@1.24.0...@carbon/storybook-addon-theme@1.25.0-rc.0) (2022-05-06)
+
+**Note:** Version bump only for package @carbon/storybook-addon-theme
+
+
+
+
+
 # [1.24.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/storybook-addon-theme/compare/@carbon/storybook-addon-theme@1.24.0-rc.1...@carbon/storybook-addon-theme@1.24.0) (2022-04-25)
 
 **Note:** Version bump only for package @carbon/storybook-addon-theme

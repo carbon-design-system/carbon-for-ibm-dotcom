@@ -150,13 +150,8 @@ export const WithMediaFeatured = args => {
     <dds-content-item-horizontal-media-featured>
       ${type === MEDIA_TYPE.IMAGE
         ? html`
-            <dds-image-with-caption
-              slot="media"
-              alt="Image alt text"
-              default-src="${imgLg16x9}"
-              heading="Lorem ipsum dolor sit amet"
-            >
-            </dds-image-with-caption>
+            <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum dolor sit amet">
+            </dds-image>
           `
         : null}
       ${type === MEDIA_TYPE.VIDEO

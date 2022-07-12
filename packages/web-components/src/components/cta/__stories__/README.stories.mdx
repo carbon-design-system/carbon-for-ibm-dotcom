@@ -40,7 +40,7 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 ### HTML
 
 ```html
-<dds-text-cta href="https://www.ibm.com/" type="local">
+<dds-text-cta href="https://www.ibm.com/" cta-type="local">
   Copy text
 </dds-text-cta>
 ```
@@ -100,8 +100,24 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta.js';
 ### HTML
 
 ```html
-<dds-card-cta href="https://www.ibm.com/" type="local">
+<dds-card-cta href="https://www.ibm.com/" cta-type="local">
   Copy text
+  <dds-card-cta-footer>
+    <svg
+      slot="icon"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+    >
+      <path
+        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+    </svg>
+  </dds-card-cta-footer>
 </dds-card-cta>
 ```
 
@@ -130,9 +146,24 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/card-link-cta.js';
 ### HTML
 
 ```html
-<dds-card-link-cta href="https://www.ibm.com/" type="local">
+<dds-card-link-cta href="https://www.ibm.com/" cta-type="local">
   <dds-card-link-heading>Heading text</dds-card-link-heading>
-  <p>Optional copy text</p>
+    <dds-card-cta-footer>
+      <svg
+        slot="icon"
+        focusable="false"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        aria-hidden="true"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+      >
+        <path
+          d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+      </svg>
+    </dds-card-cta-footer>
 </dds-card-link-cta>
 ```
 
@@ -162,7 +193,7 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/feature-cta.js';
 ### HTML
 
 ```html
-<dds-feature-cta href="https://www.ibm.com/" type="local">
+<dds-feature-cta href="https://www.ibm.com/" cta-type="local">
   <dds-card-heading>This is a heading</dds-card-heading>
   <dds-image
     slot="image"
@@ -170,20 +201,33 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/feature-cta.js';
     default-src="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616"
   >
   </dds-image>
+  <dds-feature-cta-footer>
+    <svg
+      slot="icon"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+    >
+      <path
+        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+    </svg>
+  </dds-feature-cta-footer>
 </dds-feature-cta>
 ```
 
 The Feature Card for CTA can also use the 'large' variation, but be sure to at least include an eyebrow and heading.
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/cta/feature-cta.js';
-import '@carbon/ibmdotcom-web-components/es/components/card/card-eyebrow.js';
-import '@carbon/ibmdotcom-web-components/es/components/card/card-heading.js';
-import '@carbon/ibmdotcom-web-components/es/components/image/image.js';
+import '@carbon/ibmdotcom-web-components/es/components/cta/feature-cta.js'
 ```
 
 ```html
-<dds-feature-cta size='large' href="https://www.ibm.com/" type="local">
+<dds-feature-cta size='large' href="https://www.ibm.com/" cta-type="local">
   <dds-card-eyebrow>This is an eyebrow</dds-card-eyebrow>
   <dds-card-heading>This is a heading</dds-card-heading>
   <dds-image
@@ -202,8 +246,8 @@ import '@carbon/ibmdotcom-web-components/es/components/image/image.js';
 ## Using a video player
 
 The `<dds-video-cta-container>` component lets you integrate `<dds-text-cta>`/`<dds-button-cta>`/`<dds-card-cta>`/`<dds-feature-cta>` with video player quickly.
-Only one `<dds-cta-container>` has to be put in application.
-Ensure that `<dds-cta-container>` contains all `<dds-text-cta>`/`<dds-button-cta>`/`<dds-card-cta>`/`<dds-feature-cta>`:
+Only one `<dds-video-cta-container>` has to be put in application.
+Ensure that `<dds-video-cta-container>` contains all `<dds-text-cta>`/`<dds-button-cta>`/`<dds-card-cta>`/`<dds-feature-cta>`:
 
 ### JS (via import)
 

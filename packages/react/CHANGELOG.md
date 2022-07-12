@@ -3,6 +3,111 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.35.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.35.0...@carbon/ibmdotcom-react@1.35.1) (2022-07-08)
+# [1.36.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.35.0...@carbon/ibmdotcom-react@1.36.0-rc.0) (2022-07-08)
+
+
+### Bug Fixes
+
+* **masthead:** fixing expected selected item ([#9034](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9034)) ([1734a0a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1734a0a83e31cf654770a2e0b28582ea30d5601a))
+
+
+
+# 1.35.0 (2022-06-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+### Features
+
+* **pricing-table:** add sticky header ([#8824](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8824)) ([40b94f7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/40b94f7b731e50bc24b5dab4bd3031aa2c97ea60)), closes [#8420](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8420)
+
+
+
+
+
+# [1.35.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.35.0-rc.0...@carbon/ibmdotcom-react@1.35.0) (2022-06-17)
+
+
+
+# 1.35.0-rc.0 (2022-06-07)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.35.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.34.0...@carbon/ibmdotcom-react@1.35.0-rc.0) (2022-06-07)
+
+
+### Bug Fixes
+
+* **cta:** reorder csb styles ([#8948](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8948)) ([bfb3343](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bfb3343ae399f27b1d9eeac4b70228cba7dd1ce0))
+* **deps:** update dependency carbon-components ([#8925](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8925)) ([d36320f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d36320f8460ede20d27557873edbcf7a661e77bd))
+* **quote:** update max breakpoint corner bracket position ([#8907](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8907)) ([53f6cbe](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/53f6cbef52191720d9b95cf58e9498214853e6be)), closes [#8690](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8690)
+
+
+
+# 1.34.0 (2022-05-20)
+
+
+### Bug Fixes
+
+* **dotcom-shell:** remove padding top ([#8818](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8818)) ([da2ff39](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/da2ff398a2dc70cf128f5945a695cef6d4c22844)), closes [#8703](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8703)
+
+
+### Features
+
+* **background-media:** introducing react wrapper ([#8819](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8819)) ([6c13daf](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6c13dafd38d724059a933afa56663a9dded3715d)), closes [#8617](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8617)
+
+
+
+
+
+# [1.34.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.34.0-rc.0...@carbon/ibmdotcom-react@1.34.0) (2022-05-20)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.34.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.33.1...@carbon/ibmdotcom-react@1.34.0-rc.0) (2022-05-06)
+
+
+### Features
+
+* **video-player:** add alt prop in VideoPlayer component ([#8764](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8764)) ([7bf30ef](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7bf30ef))
+
+
+
+## 1.33.1 (2022-05-04)
+
+
+### Bug Fixes
+
+* **content-block:** add border to mixed and media ([#8779](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8779)) ([dfa1b5d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/dfa1b5d)), closes [#8287](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8287)
+* **e2e:** adding wait times for React storybook e2e percy snapshots ([#8758](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8758)) ([dc4475e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/dc4475e))
+* **masthead:** add optional chaining ([#8698](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8698)) ([e3413e5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e3413e5))
+* **masthead:** using better selector ([#8737](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8737)) ([739fb41](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/739fb41))
+* **table-of-contents:** add scroll behavior to react with toc wrapper ([#8676](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8676)) ([2f09beb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2f09beb)), closes [#7641](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7641)
+
+
+
+
+
+## [1.33.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.33.0...@carbon/ibmdotcom-react@1.33.1) (2022-05-04)
+
+
+
+# 1.33.0 (2022-04-25)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
 # [1.33.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.33.0-rc.1...@carbon/ibmdotcom-react@1.33.0) (2022-04-25)
 
 

@@ -20,12 +20,7 @@ export const Default = args => {
     <dds-content-item>
       ${media === 'image'
         ? html`
-            <dds-image-with-caption
-              slot="media"
-              alt="Alt image text"
-              default-src="${imgLg16x9}"
-              heading="Image caption text"
-            ></dds-image-with-caption>
+            <dds-image slot="media" alt="Alt image text" default-src="${imgLg16x9}" heading="Image caption text"></dds-image>
           `
         : ``}
       ${media === 'video'

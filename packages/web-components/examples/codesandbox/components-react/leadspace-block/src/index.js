@@ -15,7 +15,7 @@ import DDSLeadspaceBlockContent from '@carbon/ibmdotcom-web-components/es/compon
 import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading.js';
 import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy.js';
 import DDSLeadspaceBlockMedia from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-media.js';
-import DDSImageWithCaption from '@carbon/ibmdotcom-web-components/es/components-react/image-with-caption/image-with-caption.js';
+import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image.js';
 import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item.js';
 import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list.js';
 import DDSLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading.js';
@@ -34,7 +34,7 @@ const App = () => (
       <DDSContentBlockHeading>Content Block Heading</DDSContentBlockHeading>
       <DDSContentBlockCopy>Content Block Copy</DDSContentBlockCopy>
       <DDSLeadspaceBlockMedia slot="media">
-        <DDSImageWithCaption
+        <DDSImage
           alt="Image alt text"
           default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
           heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
@@ -50,7 +50,7 @@ const App = () => (
             media="(min-width: 320px)"
             srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
           />
-        </DDSImageWithCaption>
+        </DDSImage>
       </DDSLeadspaceBlockMedia>
       <DDSLinkList type="end">
         <DDSLinkListHeading>Featured products</DDSLinkListHeading>

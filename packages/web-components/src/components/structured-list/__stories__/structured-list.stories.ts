@@ -10,7 +10,6 @@
 import { html } from 'lit-element';
 import readme from './README.stories.mdx';
 import '../index';
-import 'carbon-web-components/es/components/tooltip/index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = args => {

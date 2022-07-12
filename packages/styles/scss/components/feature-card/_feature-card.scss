@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -74,6 +74,7 @@ $fcb-breakpoint-up--lg: map-get(
 
     &:hover {
       ::slotted([slot='image']),
+      #{$dds-prefix}-image,
       .#{$prefix}--image {
         &::before {
           opacity: 0.08;
@@ -95,6 +96,7 @@ $fcb-breakpoint-up--lg: map-get(
     }
 
     ::slotted([slot='image']),
+    #{$dds-prefix}-image,
     .#{$prefix}--image {
       width: 100%;
       height: aspect-ratio(2, 1);
@@ -193,6 +195,7 @@ $fcb-breakpoint-up--lg: map-get(
     // image
 
     ::slotted([slot='image']),
+    #{$dds-prefix}-image,
     .#{$prefix}--image {
       @include carbon--breakpoint('md') {
         width: 50%;
@@ -275,6 +278,7 @@ $fcb-breakpoint-up--lg: map-get(
       }
 
       ::slotted([slot='image']),
+      #{$dds-prefix}-image,
       &__wrapper,
       .#{$prefix}--image {
         @include carbon--breakpoint('xlg') {

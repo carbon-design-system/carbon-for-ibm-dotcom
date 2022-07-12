@@ -17,6 +17,7 @@ import '../../link-list/index';
 import '../cta-section';
 import '../../video-player/video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
+import logoMicrosoft2x1 from '../../../../../storybook-images/assets/logos/logo-microsoft--2x1.png';
 
 import content from './content';
 
@@ -97,6 +98,19 @@ const contentItemTypeMap = {
       )}
     </dds-cta-block-item>
   `,
+  logo: ({ heading, copy, links }) => html`
+    <dds-cta-block-item>
+      <dds-image-logo slot="media" default-src="${logoMicrosoft2x1}"></dds-image-logo>
+      <dds-content-item-heading>${heading}</dds-content-item-heading>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      ${links.map(
+        elem =>
+          html`
+            <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="${elem.href}">${elem.copy}</dds-text-cta>
+          `
+      )}
+    </dds-cta-block-item>
+  `,
 };
 
 const contentItemTypeOptions = {
@@ -104,6 +118,7 @@ const contentItemTypeOptions = {
   Statistics: 'statistics',
   Pictogram: 'pictogram',
   Media: 'media',
+  Logo: 'logo',
 };
 
 const renderItems = (item, count) => {
@@ -115,14 +130,24 @@ const renderItems = (item, count) => {
 };
 
 export const Simple = args => {
-  const { heading, copy, border } = args?.CTASection ?? {};
+  const { heading, copy, showText, showCta, border } = args?.CTASection ?? {};
 
   return html`
     <dds-cta-section>
       <dds-cta-block ?no-border="${!border}">
         <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
-        <dds-content-block-copy>${copy}</dds-content-block-copy>
-        <dds-text-cta slot="action" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
+        ${showText
+          ? html`
+              <dds-content-block-copy>${ifNonNull(copy)}</dds-content-block-copy>
+            `
+          : ''}
+        ${showCta
+          ? html`
+              <dds-text-cta slot="action" cta-type="local" icon-placement="right" href="example.com"
+                >Browse tutorials</dds-text-cta
+              >
+            `
+          : ''}
       </dds-cta-block>
     </dds-cta-section>
     <dds-lightbox-video-player-container></dds-lightbox-video-player-container>
@@ -130,17 +155,29 @@ export const Simple = args => {
 };
 
 export const WithContentItems = args => {
-  const { heading, copy, border } = args?.CTASection ?? {};
-  const { contentItemType, contentItemCount } = args?.WithContentItems ?? {};
+  const { heading, copy, showText, showCta, border } = args?.CTASection ?? {};
+  const { contentItemType, contentItemCount, logoAspectRatio } = args?.WithContentItems ?? {};
+
+  const contentItem = contentItemTypeMap[contentItemType];
 
   return html`
-    <dds-cta-section>
+    <dds-cta-section logo-ratio="${ifNonNull(logoAspectRatio)}">
       <dds-content-section-heading>Related products and services</dds-content-section-heading>
       <dds-cta-block ?no-border="${!border}">
         <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
-        <dds-content-block-copy>${copy}</dds-content-block-copy>
-        <dds-text-cta slot="action" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
-        ${renderItems(contentItemType, contentItemCount)}
+        ${showText
+          ? html`
+              <dds-content-block-copy>${ifNonNull(copy)}</dds-content-block-copy>
+            `
+          : ''}
+        ${showCta
+          ? html`
+              <dds-text-cta slot="action" cta-type="local" icon-placement="right" href="example.com"
+                >Browse tutorials</dds-text-cta
+              >
+            `
+          : ''}
+        ${renderItems(contentItem, contentItemCount)}
       </dds-cta-block>
     </dds-cta-section>
     <dds-lightbox-video-player-container></dds-lightbox-video-player-container>
@@ -151,13 +188,19 @@ WithContentItems.story = {
   name: 'With content items',
   parameters: {
     knobs: {
-      WithContentItems: () => ({
-        contentItemType:
-          contentItemTypeMap[select(`Content item type`, contentItemTypeOptions, contentItemTypeOptions.Text) ?? 0],
-        contentItemCount: Array.from({
-          length: number('Number of content items', 3, { min: 2, max: 6 }),
-        }),
-      }),
+      WithContentItems: () => {
+        const contentItemType = select('Content item type', contentItemTypeOptions, contentItemTypeOptions.Text);
+
+        const logoAspectRatio =
+          contentItemType !== contentItemTypeOptions.Logo ? undefined : select('Logo aspect ratio', ['2:1', '1:1'], '2:1');
+        return {
+          contentItemType,
+          contentItemCount: Array.from({
+            length: number('Number of content items', 3, { min: 2, max: 6 }),
+          }),
+          logoAspectRatio,
+        };
+      },
     },
     propsSet: {
       default: {
@@ -171,15 +214,25 @@ WithContentItems.story = {
 };
 
 export const WithLinkList = args => {
-  const { heading, copy, border } = args?.CTASection ?? {};
+  const { heading, copy, showText, showCta, border } = args?.CTASection ?? {};
 
   return html`
     <dds-cta-section>
       <dds-content-section-heading>Related products and services</dds-content-section-heading>
       <dds-cta-block ?no-border="${!border}">
         <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
-        <dds-content-block-copy>${copy}</dds-content-block-copy>
-        <dds-text-cta slot="action" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
+        ${showText
+          ? html`
+              <dds-content-block-copy>${ifNonNull(copy)}</dds-content-block-copy>
+            `
+          : ''}
+        ${showCta
+          ? html`
+              <dds-text-cta slot="action" cta-type="local" icon-placement="right" href="example.com"
+                >Browse tutorials</dds-text-cta
+              >
+            `
+          : ''}
         <dds-link-list slot="link-list" type="end">
           <dds-link-list-heading>More ways to explore DevOps</dds-link-list-heading>
           <dds-link-list-item href="https://example.com">
@@ -232,7 +285,12 @@ export default {
     knobs: {
       CTASection: () => ({
         heading: textNullable('Heading (required)', 'Optional title heading-05 color text-01'),
-        copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
+        copy: textNullable(
+          'Copy text (optional)',
+          'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.'
+        ),
+        showText: boolean('Add Copy', true),
+        showCta: boolean('Add CTA', true),
         border: boolean('CTA Block border', false),
       }),
     },
@@ -241,6 +299,8 @@ export default {
         CTASection: {
           heading: 'Optional title heading-05 color text-01',
           copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
+          showText: true,
+          showCta: true,
           boolean: false,
         },
       },

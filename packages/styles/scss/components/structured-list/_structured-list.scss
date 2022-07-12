@@ -11,7 +11,7 @@
 
 // Overridden column spanning
 @mixin structured-list-colspan($colNumber) {
-  &:nth-child(#{$colNumber}) {
+  ::slotted(*:nth-child(#{$colNumber})) {
     --cols: var(--col-span-#{$colNumber}, 2);
     --width: calc((var(--cols) / var(--max-cols)) * 100%);
 
@@ -20,7 +20,7 @@
   }
 
   @include carbon--breakpoint('md') {
-    &:nth-child(#{$colNumber}) {
+    ::slotted(*:nth-child(#{$colNumber})) {
       --cols: var(
         --col-span-md-#{$colNumber},
         var(--col-span-#{$colNumber}, 2)
@@ -33,7 +33,7 @@
   }
 
   @include carbon--breakpoint('lg') {
-    &:nth-child(#{$colNumber}) {
+    ::slotted(*:nth-child(#{$colNumber})) {
       --cols: var(
         --col-span-lg-#{$colNumber},
         var(
@@ -88,9 +88,12 @@
       @extend .#{$prefix}--structured-list-row;
 
       background-color: $ui-03;
-      box-shadow: extended-box-shadow();
       color: $text-01;
       border-bottom: 1px solid $ui-03;
+
+      @include carbon--breakpoint-down('md') {
+        box-shadow: extended-box-shadow();
+      }
     }
 
     th {
@@ -116,10 +119,29 @@
   :host(#{$dds-prefix}-structured-list-header-row),
   :host(#{$dds-prefix}-structured-list-row),
   :host(#{$dds-prefix}-structured-list-group) tr {
+    --max-cols: 4;
+
     @include carbon--breakpoint('sm') {
       @include carbon--make-row();
 
       flex-wrap: nowrap;
+    }
+
+    @include carbon--breakpoint('md') {
+      --max-cols: 8;
+    }
+
+    @include carbon--breakpoint('lg') {
+      --max-cols: 16;
+    }
+
+    @for $i from 1 through 8 {
+      @include structured-list-colspan(#{$i});
+    }
+
+    ::slotted(*:last-child) {
+      flex-grow: 1;
+      max-width: none;
     }
   }
 
@@ -142,43 +164,18 @@
     }
   }
 
-  .#{$prefix}--structured-list-all-cells,
-  :host(#{$dds-prefix}-structured-list-header-cell),
-  :host(#{$dds-prefix}-structured-list-cell) {
-    --max-cols: 4;
-
-    @include carbon--breakpoint('md') {
-      --max-cols: 8;
-    }
-
-    @include carbon--breakpoint('lg') {
-      --max-cols: 16;
-    }
-
-    @include structured-list-colspan(1);
-    @include structured-list-colspan(2);
-    @include structured-list-colspan(3);
-    @include structured-list-colspan(4);
-    @include structured-list-colspan(5);
-    @include structured-list-colspan(6);
-    @include structured-list-colspan(7);
-    @include structured-list-colspan(8);
-
-    &:last-child {
-      flex-grow: 1;
-      max-width: none;
-    }
-  }
-
   // Internal components
   .#{$dds-prefix}--structured-list,
   :host(#{$dds-prefix}-structured-list) {
     display: block;
-    overflow: auto;
     padding-left: $carbon--layout-01;
     padding-right: $carbon--layout-01;
     margin-left: -#{$carbon--layout-01};
     margin-right: -#{$carbon--layout-01};
+
+    .#{$prefix}--structured-list {
+      margin: 0;
+    }
   }
 
   .#{$prefix}--structured-list-cell-tooltip-icon,

@@ -34,7 +34,7 @@ export const Default = args => {
     <dds-tabs-extended orientation="${ifNonNull(orientation)}">
       <dds-tab
         label="First tab with long text that wraps multiple lines. Lorem ipsum dolor sit amet consectetur adipiscing elit"
-        selected="true"
+        selected
       >
         <dds-content-block-media-content>
           <dds-content-item>
@@ -64,7 +64,7 @@ export const Default = args => {
       <dds-tab label="Fourth tab">
         <p>Content for fourth tab goes here.</p>
       </dds-tab>
-      <dds-tab label="Fifth tab" disabled="true">
+      <dds-tab label="Fifth tab" disabled>
         <p>Content for fifth tab goes here.</p>
       </dds-tab>
     </dds-tabs-extended>

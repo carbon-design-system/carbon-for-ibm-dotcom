@@ -11,8 +11,8 @@
     "@carbon/ibmdotcom-react": "latest",
     "@carbon/ibmdotcom-styles": "latest",
     "@carbon/icons-react": "10.49.0",
-    "react": "16.13.0",
-    "react-dom": "16.13.0"
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.10.0",

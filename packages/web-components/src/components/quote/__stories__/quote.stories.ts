@@ -12,6 +12,7 @@ import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import { QUOTE_TYPES, QUOTE_COLOR_SCHEMES } from '../quote';
 import '../index';
+import '../quote-link-with-icon';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 import readme from './README.stories.mdx';
@@ -30,9 +31,9 @@ export const Default = args => {
       <dds-quote-source-bottom-copy>
         ${sourceBottomCopy}
       </dds-quote-source-bottom-copy>
-      <dds-link-with-icon slot="footer" href="https://example.com">
+      <dds-quote-link-with-icon slot="footer" href="https://example.com">
         Link with Icon ${ArrowRight20({ slot: 'icon' })}
-      </dds-link-with-icon>
+      </dds-quote-link-with-icon>
     </dds-quote>
   `;
 };
@@ -57,7 +58,7 @@ export default {
     story => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-lg-10">
+          <div class="bx--col-lg-11">
             ${story()}
           </div>
         </div>

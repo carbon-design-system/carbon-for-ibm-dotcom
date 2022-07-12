@@ -74,10 +74,10 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
   unauthenticatedCtaButtons?: MastheadProfileItem[];
 
   /**
-   * The selected authentication method, either 'personalization' or 'api'.
+   * The selected authentication method, either 'cookie' or 'api'.
    */
   @property({ attribute: 'auth-method' })
-  authMethod = 'personalization';
+  authMethod = 'cookie';
 
   /**
    * The user authentication status.

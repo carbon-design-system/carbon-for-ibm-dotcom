@@ -14,10 +14,26 @@
 @include structured-list;
 @include tags;
 
+@keyframes sticky-header-slide-in {
+  from {
+    top: -100%;
+  }
+  to {
+    top: var(--#{$dds-prefix}-sticky-header-height);
+  }
+}
+
 @mixin pricing-table {
   .#{$prefix}--pricing-table,
   :host(#{$dds-prefix}-pricing-table) {
     @extend .#{$dds-prefix}--structured-list;
+
+    .#{$dds-prefix}-pricing-table-sentinel {
+      display: block;
+      height: 1px;
+      margin-top: -1px;
+      position: relative;
+    }
   }
 
   .#{$prefix}--pricing-table-group,
@@ -26,8 +42,49 @@
   }
 
   .#{$prefix}--pricing-table-header-row,
-  :host(#{$dds-prefix}-header-row) {
+  :host(#{$dds-prefix}-pricing-table-header-row) {
     @extend .#{$prefix}--structured-list-header-row;
+
+    box-shadow: none;
+    transition: top $duration--slow-01 motion(standard, productive),
+      box-shadow $duration--fast-02 motion(standard, productive);
+
+    // Pseudo full width background activated when row is sticky.
+    &::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      transition: $duration--slow-01 motion(standard, productive),
+        box-shadow 0 motion(standard, productive);
+    }
+
+    &.#{$prefix}--pricing-table-header-row--sticky {
+      position: sticky;
+      animation: sticky-header-slide-in $duration--slow-01
+        motion(standard, productive);
+      top: var(--#{$dds-prefix}-sticky-header-height);
+      background-color: $ui-background;
+      z-index: 1;
+
+      &::before {
+        @include carbon--breakpoint('md') {
+          width: 100vw;
+          left: calc(50% - 50vw);
+          right: calc(50% - 50vw);
+          background-color: $ui-background;
+          box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+          transition: $duration--fast-02 motion(standard, productive),
+            box-shadow $duration--slow-01 motion(standard, productive);
+        }
+      }
+
+      &::after {
+        background-color: transparent;
+      }
+    }
   }
 
   .#{$prefix}--pricing-table-header-row,
@@ -40,6 +97,10 @@
 
     position: relative;
 
+    /**
+     * Add pseudo border to ensure border extends to end of row even if there
+     * aren't enough cells to fill row width.
+     */
     &::after {
       content: '';
       display: block;
@@ -49,7 +110,16 @@
       width: 100%;
       height: 1px;
       background-color: $ui-03;
-      box-shadow: extended-box-shadow();
+    }
+  }
+
+  .#{$prefix}--pricing-table-header-row,
+  .#{$prefix}--pricing-table-row,
+  :host(#{$dds-prefix}-pricing-table-header-row),
+  :host(#{$dds-prefix}-pricing-table-row) {
+    ::slotted(:last-child) {
+      flex-grow: none;
+      max-width: var(--width);
     }
   }
 
@@ -62,12 +132,6 @@
     @extend .#{$prefix}--structured-list-all-cells;
 
     padding-block-end: $carbon--spacing-05;
-    border-bottom: 0;
-
-    &:last-child {
-      flex-grow: none;
-      max-width: var(--width);
-    }
   }
 
   .#{$prefix}--pricing-table-header-cell,
@@ -75,6 +139,7 @@
   :host(#{$dds-prefix}-pricing-table-header-cell),
   :host(#{$dds-prefix}-pricing-table-cell) {
     position: relative;
+    background-color: $ui-background;
 
     &.highlighted {
       background-color: $ui-01;
@@ -95,6 +160,52 @@
   .#{$prefix}--pricing-table-header-cell:not([scope='row']),
   :host(#{$dds-prefix}-pricing-table-header-cell:not([scope='row'])) {
     padding-block-end: $carbon--layout-06;
+    transition: padding-block-end $duration--slow-01
+      motion(standard, productive);
+
+    &.#{$prefix}--pricing-table-header-cell--sticky {
+      border-bottom-color: transparent;
+
+      &::after {
+        @include carbon--breakpoint-down('md') {
+          /**
+           * Mobile sticky header shadow must be set on cells since they extend
+           * beyond the width of their container.
+           */
+          $shadow-height: 6px;
+
+          content: '';
+          position: absolute;
+          height: $shadow-height;
+          left: 0;
+          right: 0;
+          bottom: $shadow-height * -1;
+          background: linear-gradient(rgba(0, 0, 0, 0.3), transparent);
+        }
+      }
+    }
+
+    &.#{$prefix}--pricing-table-header-cell--sticky[type='complex'] {
+      padding-block-end: $carbon--spacing-05;
+
+      .#{$prefix}--pricing-table-header-cell-tag-wrapper,
+      .#{$prefix}--pricing-table-cell-inner {
+        transition: $duration--slow-01 motion(standard, productive),
+          opacity $duration--fast-02 motion(standard, productive);
+      }
+
+      .#{$prefix}--pricing-table-header-cell-cta,
+      ::slotted(#{$dds-prefix}-pricing-table-header-cell-cta) {
+        margin-block-start: $carbon--spacing-05;
+      }
+    }
+
+    .#{$prefix}--pricing-table-header-cell-tag-wrapper,
+    .#{$prefix}--pricing-table-cell-inner {
+      transition: $duration--slow-01 motion(standard, productive),
+        opacity $duration--slow-01 motion(standard, productive)
+          $duration--slow-01;
+    }
 
     &.highlighted {
       position: relative;

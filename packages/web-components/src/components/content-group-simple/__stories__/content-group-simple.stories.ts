@@ -95,11 +95,11 @@ const items = [
 ];
 
 const image = ({ heading: imageHeading } = { heading: undefined }) => html`
-  <dds-image-with-caption slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="${ifNonNull(imageHeading)}">
+  <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="${ifNonNull(imageHeading)}">
     <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
     <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
     <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
-  </dds-image-with-caption>
+  </dds-image>
 `;
 
 export const Default = args => {

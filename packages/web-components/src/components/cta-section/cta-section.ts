@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, css } from 'lit-element';
+import { customElement, css, property } from 'lit-element';
+import parseAspectRatio from '@carbon/ibmdotcom-utilities/es/utilities/parseAspectRatio/parseAspectRatio';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-
 import styles from './cta-section.scss';
 import DDSContentSection from '../content-section/content-section';
 
@@ -23,6 +23,21 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-cta-section`)
 class DDSCTASection extends StableSelectorMixin(DDSContentSection) {
+  @property({ attribute: 'logo-ratio' })
+  logoRatio?;
+
+  updated(changedProperties) {
+    const { logoRatio } = this;
+    if (changedProperties.has('logoRatio')) {
+      if (logoRatio) {
+        const [w, h] = parseAspectRatio(logoRatio);
+        this.style.setProperty('--logo-ratio', `${w}/${h}`);
+      } else {
+        this.style.removeProperty('--logo-ratio');
+      }
+    }
+  }
+
   static get stableSelector() {
     return `${ddsPrefix}--cta-section`;
   }

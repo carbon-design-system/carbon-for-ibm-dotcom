@@ -53,9 +53,11 @@ class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * Button click scrolls to top
    */
-  // eslint-disable-next-line class-methods-use-this
   private _handleOnClick() {
     this.ownerDocument!.defaultView!.scrollTo({ top: 0, behavior: 'smooth' });
+    this.ownerDocument.body.tabIndex = 0;
+    this.ownerDocument.body.focus({ preventScroll: true });
+    this.ownerDocument.body.removeAttribute('tabindex');
   }
 
   /**

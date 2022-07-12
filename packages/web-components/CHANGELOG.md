@@ -3,6 +3,126 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.20.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.20.0...@carbon/ibmdotcom-web-components@1.20.1) (2022-07-08)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+# [1.21.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.20.0...@carbon/ibmdotcom-web-components@1.21.0-rc.0) (2022-07-08)
+
+
+### Bug Fixes
+
+* **background-media:** fix low-contrast focus state ([#9035](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9035)) ([c2e99ca](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c2e99ca87ef13274577df9ae7b861a0e47f6f82d)), closes [#8995](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8995)
+* **cta:** ensure href works again ([#9028](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9028)) ([6ac5f1a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6ac5f1a5cae30aae2f4d70ac7ec40c59edce44da))
+* **footer:** lang attribute for language list items ([#9000](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9000)) ([7e7afae](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7e7afae3ad55cc8ac3ff548490aa6d4e59de8292)), closes [#4889](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4889)
+* **lightbox-with-carousel:** fix focus wrapping logic & carousel focus movement ([#9004](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9004)) ([3bb5f39](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3bb5f39f7e773ff10b8ac7a35461549ade07dd45)), closes [#8994](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8994) [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/expressive-modal/expressive-modal.ts#L129](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/expressive-modal/expressive-modal.ts/issues/L129) [/github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/expressive-modal/expressive-modal.ts#L414-L417](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/src/components/expressive-modal/expressive-modal.ts/issues/L414-L417)
+* **locale-modal:** missing id for aria-labelledby ([#9062](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9062)) ([f469941](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f4699411307b84eade963c416df0a6efe13d9bde)), closes [#8997](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8997)
+* **strucutred-list:** include BXTooltip and BXTag in imports ([#8943](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8943)) ([01bc55f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/01bc55f382cdd05ed439a01d5665ffb0d069d1dd)), closes [#8938](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8938)
+* **table-of-contents:** prevent empty links ([#9021](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9021)) ([4bfd881](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4bfd881025e1505549c6c17de4ea4684960d59fd)), closes [#9018](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9018)
+
+
+### Features
+
+* **attribute-transpose:** introduced alt attribute transposing ([#8967](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8967)) ([6a036fc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6a036fc863c2bce441a0f572f7dd2f04af2455c6)), closes [#8436](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8436)
+* **cta-section:** add logo & aspect ratio support ([#8928](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8928)) ([6dc67c0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6dc67c0ebac648f19d4693ebdee10fa67b8964f3)), closes [#8849](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8849)
+* **cta:** add new cta types ([#8964](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8964)) ([408995a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/408995a48f74bc82d5494c049d6e3920fea756a2)), closes [#8785](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8785)
+* **feature-cta:** support Kaltura video thumbnails ([#8940](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8940)) ([82d0029](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/82d0029a476f7f8eb49454a50eedc6c342fb0618)), closes [#8887](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8887)
+* **logo-grid:** introducing react wrapper ([#8973](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8973)) ([9c5e0f4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9c5e0f4bc6a33b00447e5ac20a366ca3bb938351)), closes [#8649](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8649)
+* **masthead:** created react wrapper ([#9007](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9007)) ([6e2688d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6e2688dab36de5c0c212837ae66ec0f881e73f58)), closes [#8650](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8650)
+* **pricing-table:** add sticky header ([#8824](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8824)) ([40b94f7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/40b94f7b731e50bc24b5dab4bd3031aa2c97ea60)), closes [#8420](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8420)
+* **tabs:** introducing optional different default tab on load ([#9029](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9029)) ([adda599](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/adda599c7beebccaaf9933b8e5f0fa58c17751fa)), closes [#9013](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9013)
+* **universal-banner:** Image resizing and design updates ([#8947](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8947)) ([3c29a0f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3c29a0f83c7944dd2e745f0f05973891c700bb2b)), closes [#8811](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8811)
+* **video-player:** introduces react wrapper ([#9010](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9010)) ([53cae9b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/53cae9b0014d39abea92cd3305f75247bb082d49)), closes [#8657](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8657)
+
+
+
+
+
+# [1.20.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.20.0-rc.0...@carbon/ibmdotcom-web-components@1.20.0) (2022-06-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.20.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.19.0...@carbon/ibmdotcom-web-components@1.20.0-rc.0) (2022-06-07)
+
+
+### Bug Fixes
+
+* **back-to-top:** reset tab order on click ([#8906](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8906)) ([a5d805e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a5d805e58687616927b9a9322b08041081cf8a8f)), closes [#8230](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8230)
+* **card-group-static:** update storybook preview to include "Add CTA links" ([#8861](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8861)) ([88a1a06](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/88a1a06d2535c2641ed4252782d5760b13fb3509)), closes [/github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8782#issuecomment-1125446443](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8782/issues/issuecomment-1125446443)
+* **cta-block-item-row:** prevent 0px height elements when rendered in tabs ([#8881](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8881)) ([f98270f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f98270f83166d2d8bf21cab9f720d2f781af4d54)), closes [#8820](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8820) [/github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8820#issuecomment-1130400540](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8820/issues/issuecomment-1130400540)
+* **cta-block:** use correct spacing ([#8900](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8900)) ([b486f1a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b486f1aef998254bacbf0729937227c0a33dbc90)), closes [#8143](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8143)
+* **deps:** update dependency carbon-components ([#8925](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8925)) ([d36320f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d36320f8460ede20d27557873edbcf7a661e77bd))
+* **footer:** language selector styles ([#8821](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8821)) ([90e6e32](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/90e6e3273fdec6046f6cb2778e6eb391fdce9d6c)), closes [#7329](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7329)
+* **footer:** update docs and add language selector csb ([#8945](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8945)) ([85cb9a4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/85cb9a49b01d177421e80fa6a23f15d5b43766ea)), closes [#8660](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8660)
+* **toc:** update styles ([#8935](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8935)) ([10fba63](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/10fba6392bfd3384aa42cb7a4b4ddd0108a74784)), closes [#8930](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8930) [#8933](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8933)
+
+
+### Features
+
+* **background-media:** introducing react wrapper ([#8819](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8819)) ([6c13daf](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6c13dafd38d724059a933afa56663a9dded3715d)), closes [#8617](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8617)
+* **callout-with-media:** introducing react wrapper ([#8823](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8823)) ([3c9061b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3c9061b49ec0ff888d5366360406b7ec6046af84)), closes [#8615](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8615)
+* **content-block-horizontal:** introducing react wrapper ([#8828](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8828)) ([4a30526](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4a30526274fe2b14c536665aaefaba64fb999860)), closes [#8622](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8622)
+* **image:** merge image-with-caption with regular image ([#8919](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8919)) ([74689c1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/74689c1b638f5d14a8c9272c02dc63e761a6dd8b)), closes [#8839](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8839)
+* **lightbox-media-viewer:** add carousel functionality ([#8757](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8757)) ([c7e9d1c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c7e9d1c79c588777e1dc8876f4635c55529fbfc4)), closes [#6372](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6372)
+* **logo-grid:** add logoCount and logoRatio props ([#8905](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8905)) ([c519b06](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c519b06d80acbbb0ba37c5f0414d1c8a49c87873)), closes [#8848](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8848)
+* **pictogram-item:** react wrapper ([#8903](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8903)) ([3b4a5c6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3b4a5c6aecd3d1c3ca3edbb9d48bd563a90aa08d)), closes [#8651](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8651)
+* **Quote:** quote react wrapper ([#8899](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8899)) ([8065887](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8065887b042172545ed1a4727f42c6acb34e48ce)), closes [#8652](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8652)
+* **react-wrappers:** content-block-media/mixed ([#8817](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8817)) ([2414662](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2414662abef93bdabf5981a3ce78b452b109a6df)), closes [#8623](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8623) [#8624](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8624)
+
+
+
+
+
+# [1.19.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.19.0-rc.0...@carbon/ibmdotcom-web-components@1.19.0) (2022-05-20)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.19.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.18.1...@carbon/ibmdotcom-web-components@1.19.0-rc.0) (2022-05-06)
+
+
+### Bug Fixes
+
+* **callout-quote:** add ArrowRight icon import to codesandbox example ([#8749](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8749)) ([053ca30](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/053ca30))
+* **cloud-masthead:** revert - replace cookie auth with window object status ([#8792](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8792)) ([766d470](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/766d470))
+* **content-item-horizontal:** update wrapper story and readme ([#8724](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8724)) ([36478d7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/36478d7)), closes [#7268](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/7268)
+* **cta-section-content-items:** missing lightbox video player ([#8777](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8777)) ([335af95](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/335af95)), closes [#8306](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8306)
+* **github-actions:** remove xvfb for e2e integration tests ([#8718](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8718)) ([9bab468](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/9bab468))
+* **leadspace:** align stories and documentation for wc and wrapper ([#8750](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8750)) ([a8047cd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/a8047cd)), closes [#7150](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/7150)
+* **pricing-table:** use correct subheader bottom padding ([#8699](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8699)) ([8c8be5e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/8c8be5e)), closes [#8694](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8694)
+
+
+### Features
+
+* **content-block/item:** introducing react wrappers ([#8771](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8771)) ([f3e12bc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/f3e12bc)), closes [#8626](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8626) [#8631](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8631)
+* **cta:** add react wrapper ([#8805](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8805)) ([cf66a30](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/cf66a30))
+* **expressive-modal:** created react wrapper ([#8806](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8806)) ([6af5ad8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/6af5ad8))
+* **image/with-caption:** add wrapper stories and codesandbox ([#8723](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8723)) ([a958ab0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/a958ab0)), closes [#8641](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8641) [#8640](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8640)
+* **react-wrapper:** introduces `content-group/section` wrapper ([#8787](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8787)) ([9b20c83](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/9b20c83))
+* **react-wrapper:** introduces `feature-card` ([#8807](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8807)) ([d661add](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/d661add)), closes [#8637](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8637)
+* **sticky header utility:** update storybook story & remove old dotcom-shell code ([#8684](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8684)) ([136a610](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/136a610)), closes [#8486](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8486) [#8472](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8472) [#8434](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8434)
+
+
+
+
+
+## [1.18.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.18.0...@carbon/ibmdotcom-web-components@1.18.1) (2022-05-04)
+
+
+### Bug Fixes
+
+* **tabs-extended & table-of-contents:** ensure DOM updates are handled ([#8767](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8767)) ([c2db623](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/c2db623)), closes [#8751](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8751)
+
+
+
+
+
 # [1.18.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.18.0-rc.1...@carbon/ibmdotcom-web-components@1.18.0) (2022-04-25)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components

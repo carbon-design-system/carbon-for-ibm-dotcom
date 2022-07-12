@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,7 +20,7 @@
     @include hang;
 
     .#{$prefix}--link-with-icon__container {
-      padding-left: 1rem;
+      padding-left: $spacing-05;
       max-width: 80%;
     }
   }
@@ -39,10 +39,10 @@
     @include carbon--font-family('serif');
 
     word-break: break-word;
-    padding: 0 2rem $carbon--layout-03 2rem;
+    padding: 0 $spacing-07 $carbon--layout-03 $spacing-07;
 
     @include carbon--breakpoint('md') {
-      padding-bottom: $carbon--layout-04;
+      padding-bottom: $spacing-09;
       @include carbon--type-style('quotation-02', true);
     }
   }
@@ -72,11 +72,15 @@
     }
 
     @include carbon--breakpoint('md') {
-      left: -0.5rem;
+      left: calc(-1 * #{$spacing-03});
     }
 
     @include carbon--breakpoint('lg') {
-      left: -1rem;
+      left: calc(-1 * #{$spacing-05});
+    }
+
+    @include carbon--breakpoint('max') {
+      left: calc(-1 * #{$spacing-07});
     }
   }
 
@@ -88,48 +92,41 @@
     }
 
     max-width: 80%;
-    padding-bottom: $carbon--layout-04;
+    padding-bottom: $spacing-09;
   }
 
   :host(#{$dds-prefix}-quote-source-heading),
   .#{$prefix}--quote__source-heading {
-    padding-left: 1rem;
+    padding-left: $spacing-05;
     @include carbon--type-style(expressive-heading-02, true);
   }
 
   :host(#{$dds-prefix}-quote-source-copy),
   .#{$prefix}--quote__source-body {
-    padding-left: 1rem;
+    padding-left: $spacing-05;
     @include carbon--type-style(body-long-02, true);
   }
 
   :host(#{$dds-prefix}-quote-source-bottom-copy),
   .#{$prefix}--quote__source-optional-copy {
-    padding-left: 1rem;
+    padding-left: $spacing-05;
     @include carbon--type-style(body-long-02, true);
   }
 
-  .#{$prefix}--quote__inverse {
-    .#{$prefix}--link-with-icon__container .#{$prefix}--link,
-    ::slotted(#{$dds-prefix}-link-with-icon) {
-      color: $inverse-link;
-    }
-  }
-
   .#{$prefix}--quote__mark-closing {
-    margin-left: -0.25rem;
+    margin-left: calc(-1 * #{$spacing-02});
 
     @include carbon--breakpoint('md') {
-      margin-left: -0.5rem;
+      margin-left: calc(-1 * #{$spacing-03});
     }
   }
 
   :host(#{$dds-prefix}-quote) .#{$prefix}--quote__footer {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: $spacing-05;
+    padding-right: $spacing-05;
 
-    ::slotted(#{$dds-prefix}-link-with-icon) {
-      margin-left: 1rem;
+    ::slotted(#{$dds-prefix}-quote-link-with-icon) {
+      margin-left: $spacing-05;
     }
   }
 
@@ -139,6 +136,48 @@
 
     .#{$prefix}--quote__mark {
       color: $inverse-01;
+    }
+
+    .#{$prefix}--quote__footer {
+      padding-left: 0;
+      padding-right: 0;
+
+      ::slotted(#{$dds-prefix}-quote-link-with-icon) {
+        margin-left: 0;
+        padding-left: $spacing-07;
+        outline: transparent;
+      }
+    }
+  }
+
+  .#{$prefix}--callout__container,
+  :host(#{$dds-prefix}-callout) {
+    @include carbon--make-row;
+  }
+
+  .#{$prefix}--callout__column {
+    @include carbon--make-col-ready;
+  }
+
+  .#{$prefix}--callout__content {
+    @include carbon--breakpoint(sm) {
+      padding-top: $layout-03;
+    }
+
+    @include carbon--breakpoint(md) {
+      @include carbon--make-col-offset(1, 8);
+      @include carbon--make-col(6, 8);
+
+      padding-left: $spacing-02;
+      padding-right: $spacing-02;
+      padding-top: $layout-05;
+    }
+
+    @include carbon--breakpoint(lg) {
+      padding-left: $spacing-01;
+      padding-right: $spacing-01;
+      @include carbon--make-col-offset(1, 12);
+      @include carbon--make-col(10, 12);
     }
   }
 }

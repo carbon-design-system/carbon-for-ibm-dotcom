@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select, text } from '@storybook/addon-knobs';
+import { select, text, boolean } from '@storybook/addon-knobs';
 import ContentBlockMedia from '../ContentBlockMedia';
 import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--003.jpg';
@@ -35,12 +35,6 @@ const ctaProps = {
 const ctaChoices = {
   CTA: ctaProps,
   none: null,
-};
-
-const borderOptions = {
-  'Without border': false,
-  // eslint-disable-next-line max-len
-  'With border': true,
 };
 
 const simpleHeading = ContentGroupSimpleKnobs.heading;
@@ -113,12 +107,7 @@ Default.story = {
             ctaChoices.CTA,
             groupId
           ),
-          border: select(
-            'Container bottom border',
-            borderOptions,
-            borderOptions['With border'],
-            groupId
-          ),
+          border: boolean('Border (border)', false, groupId),
         };
       },
     },
@@ -133,7 +122,7 @@ Default.story = {
 };
 
 export const WithLinkList = ({ parameters }) => {
-  const { copy, headingKnob, items, ctaKnob, aside } =
+  const { copy, headingKnob, items, ctaKnob, aside, border } =
     parameters?.props?.ContentBlockMedia ?? {};
   return (
     <div className="bx--grid">
@@ -145,6 +134,7 @@ export const WithLinkList = ({ parameters }) => {
             items={items}
             cta={ctaKnob.cta}
             aside={aside}
+            border={border}
           />
         </div>
       </div>
@@ -230,12 +220,6 @@ WithLinkList.story = {
 
         const aside = {
           items: <LinkList style="card" {...linkListProps} />,
-          border: select(
-            'Container bottom border',
-            borderOptions,
-            borderOptions['With border'],
-            groupId
-          ),
         };
 
         return {
@@ -244,6 +228,7 @@ WithLinkList.story = {
           items,
           ctaKnob,
           aside,
+          border: boolean('Border (border)', false, groupId),
         };
       },
     },

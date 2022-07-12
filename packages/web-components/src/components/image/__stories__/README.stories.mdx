@@ -6,6 +6,10 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 > The image component is used to embed images within content and can display a
 > specific responsive image depending on viewport size.
+
+> The Image component leverages the image component, the lightbox media viewer
+> and can also display a caption for the image
+
 > Image items are used to change how the image behaves at different screen sizes.
 > Below you'll find an example with and without media query behaviors.
 
@@ -37,6 +41,51 @@ import '@carbon/ibmdotcom-web-components/es/components/image/index.js';
 
 // Example with media queries
 <dds-image alt="Image alt text">
+  <dds-image-item media="(min-wiidth:672px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+  </dds-image-item>
+  <dds-image-item media="(min-wiidth:400px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+  </dds-image-item>
+  <dds-image-item media="(min-wiidth:320px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+  </dds-image-item>
+</dds-image>
+```
+
+## Image with caption
+
+As of Carbon for IBM.com v1.35.0, the caption functionality found in Image with caption has been merged within the basic Image component.
+Simply adding a `heading` attribute will display the caption underneath the image component.
+
+```html
+<dds-image alt="Image alt text" heading="This is a heading">
+  <dds-image-item media="(min-wiidth:672px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+  </dds-image-item>
+  <dds-image-item media="(min-wiidth:400px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+  </dds-image-item>
+  <dds-image-item media="(min-wiidth:320px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+  </dds-image-item>
+</dds-image>
+```
+
+## Opening image in Lightbox media viewer
+
+Likewise, the lightbox functionality from Image with caption can be used with the basic Image component.
+Simply adding the `lightbox` attribute boolean will ensure the user can click on the image and launch the media viewer in a lightbox modal.
+
+```html
+<dds-image alt="Image alt text" lightbox="true">
+  <dds-image-item media="(min-wiidth:672px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+  </dds-image-item>
+  <dds-image-item media="(min-wiidth:400px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+  </dds-image-item>
+  <dds-image-item media="(min-wiidth:320px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+  </dds-image-item>
+</dds-image>
+```
+
+A heading and copy can be added so that it can be displayed underneath the image in the lighbox media viewer upon clicking the original image.
+
+```html
+<dds-image alt="Image alt text" lightbox="true" heading="This is a heading" copy="This is a copy">
   <dds-image-item media="(min-wiidth:672px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
   </dds-image-item>
   <dds-image-item media="(min-wiidth:400px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">

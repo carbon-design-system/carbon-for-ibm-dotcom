@@ -28,7 +28,7 @@ export const Default = args => {
     <DDSTabsExtended orientation={orientation || undefined}>
       <DDSTab
         label="First tab with long text that wraps multiple lines. Lorem ipsum dolor sit amet consectetur adipiscing elit"
-        selected="true">
+        selected={true}>
         <p>Content for first tab goes here.</p>
       </DDSTab>
       <DDSTab label="Second tab">
@@ -40,7 +40,7 @@ export const Default = args => {
       <DDSTab label="Fourth tab">
         <p>Content for fourth tab goes here.</p>
       </DDSTab>
-      <DDSTab label="Fifth tab" disabled="true">
+      <DDSTab label="Fifth tab" disabled={true}>
         <p>Content for fifth tab goes here.</p>
       </DDSTab>
     </DDSTabsExtended>

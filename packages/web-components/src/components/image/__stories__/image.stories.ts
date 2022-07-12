@@ -32,11 +32,18 @@ const srcsets = {
 };
 
 export const Default = args => {
-  const { alt, defaultSrc, border } = args?.['dds-image'] ?? {};
+  const { alt, defaultSrc, heading, copy, border, lightbox } = args?.['dds-image'] ?? {};
   // TODO: See if we can fix unwanted `&` to `&amp` conversion upon changing the select knob
   const srcset = srcsets[defaultSrc?.replace(/&amp;/, '&')];
   return html`
-    <dds-image alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" ?border=${border}>
+    <dds-image
+      alt="${ifNonNull(alt)}"
+      heading="${ifNonNull(heading)}"
+      default-src="${ifNonNull(defaultSrc)}"
+      ?border=${border}
+      ?lightbox="${lightbox}"
+      copy="${ifNonNull(copy)}"
+    >
       ${!srcset
         ? undefined
         : html`
@@ -69,7 +76,10 @@ export default {
       'dds-image': () => ({
         alt: textNullable('Alt text', 'Image alt text'),
         defaultSrc: select('Default image (default-src)', images, imgLg2x1),
+        lightbox: boolean('Lightbox (lightbox)', false),
         border: boolean('Border', false),
+        copy: textNullable('Copy (copy)', 'Lorem ipsum dolor sit amet'),
+        heading: textNullable('Heading (heading)', 'This is a caption'),
       }),
     },
     propsSet: {
@@ -78,6 +88,9 @@ export default {
           alt: 'Image alt text',
           defaultSrc: imgLg2x1,
           border: false,
+          lightbox: false,
+          copy: 'Lorem ipsum dolor sit amet',
+          heading: 'This is a caption',
         },
       },
     },

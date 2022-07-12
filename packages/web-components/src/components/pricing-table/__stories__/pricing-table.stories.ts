@@ -172,9 +172,9 @@ const renderBodyRow = (
 
 export const Default = !DDS_PRICING_TABLE
   ? undefined
-  : ({ parameters }) => {
+  : args => {
       const { colSpan1, colSpan2, colSpan3, colSpan4, highlightCol, highlightLabel, columnCount, heading } =
-        parameters?.props?.PricingTable ?? {};
+        args?.PricingTable ?? {};
       return html`
         <dds-pricing-table
           col-span-1="${colSpan1 ?? ''}"
@@ -195,9 +195,9 @@ export const Default = !DDS_PRICING_TABLE
 
 export const WithoutRowHeaders = !DDS_PRICING_TABLE
   ? undefined
-  : ({ parameters }) => {
+  : args => {
       const { colSpan1, colSpan2, colSpan3, colSpan4, highlightCol, highlightLabel, columnCount, heading } =
-        parameters?.props?.PricingTable ?? {};
+        args?.PricingTable ?? {};
       return html`
         <dds-pricing-table
           col-span-1="${colSpan1 ?? ''}"
@@ -224,9 +224,9 @@ if (WithoutRowHeaders) {
 
 export const WithSubheaders = !DDS_PRICING_TABLE
   ? undefined
-  : ({ parameters }) => {
+  : args => {
       const { colSpan1, colSpan2, colSpan3, colSpan4, columnCount, highlightCol, highlightLabel, heading } =
-        parameters?.props?.PricingTable ?? {};
+        args?.PricingTable ?? {};
       return html`
         <dds-pricing-table
           col-span-1="${colSpan1 ?? ''}"
@@ -268,15 +268,15 @@ export default !DDS_PRICING_TABLE
       parameters: {
         ...readme.parameters,
         knobs: {
-          PricingTable: ({ groupId }) => ({
-            heading: text('section heading', 'Optional section heading', groupId),
-            columnCount: number('number of columns', 3, { min: 1, max: 8 }, groupId),
-            highlightCol: number('highlighted column', 2, { min: 0, max: 8 }, groupId),
-            highlightLabel: text('highlighted label', 'Featured', groupId),
-            colSpan1: textNullable('col-span-1', '', groupId),
-            colSpan2: textNullable('col-span-2', '', groupId),
-            colSpan3: textNullable('col-span-3', '', groupId),
-            colSpan4: textNullable('col-span-4', '', groupId),
+          PricingTable: () => ({
+            heading: text('section heading', 'Optional section heading'),
+            columnCount: number('number of columns', 3, { min: 1, max: 8 }),
+            highlightCol: number('highlighted column', 2, { min: 0, max: 8 }),
+            highlightLabel: text('highlighted label', 'Featured'),
+            colSpan1: textNullable('col-span-1', ''),
+            colSpan2: textNullable('col-span-2', ''),
+            colSpan3: textNullable('col-span-3', ''),
+            colSpan4: textNullable('col-span-4', ''),
           }),
         },
       },

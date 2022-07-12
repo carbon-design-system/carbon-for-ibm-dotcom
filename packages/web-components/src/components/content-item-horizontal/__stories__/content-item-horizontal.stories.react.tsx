@@ -42,8 +42,6 @@ import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/li
 import DDSLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
 // @ts-ignore
 import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
-// @ts-ignore
-import DDSImageWithCaption from '@carbon/ibmdotcom-web-components/es/components-react/image-with-caption/image-with-caption';
 
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
 import { CTA_TYPE } from '../../cta/defs';
@@ -211,16 +209,12 @@ withMedia.story = {
   },
 };
 
-export const withFeaturedMedia = ({ parameters }) => {
-  const { type, alt, heading, eyebrow, copy, ctaCopy1, ctaCopy2 } = parameters?.props?.ContentItemHorizontal ?? {};
+export const withFeaturedMedia = args => {
+  const { type, alt, heading, eyebrow, copy, ctaCopy1, ctaCopy2 } = args?.ContentItemHorizontal ?? {};
   return (
     <DDSContentItemHorizontalMediaFeatured>
       {type === MEDIA_TYPE.IMAGE ? (
-        <DDSImageWithCaption
-          slot="media"
-          alt={alt || undefined}
-          default-src={imgLg16x9}
-          heading="Lorem ipsum dolor sit amet"></DDSImageWithCaption>
+        <DDSImage slot="media" alt={alt || undefined} default-src={imgLg16x9} heading="Lorem ipsum dolor sit amet"></DDSImage>
       ) : (
         ''
       )}

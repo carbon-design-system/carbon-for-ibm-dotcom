@@ -106,6 +106,24 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
     this._setAutoplayPreference(this.isPlaying);
   }
 
+  pauseAllVideos() {
+    const { embeddedVideos = {} } = this;
+
+    Object.keys(embeddedVideos).forEach(videoId => {
+      embeddedVideos[videoId].sendNotification('doPause');
+    });
+    this.isPlaying = false;
+  }
+
+  playAllVideos() {
+    const { embeddedVideos = {} } = this;
+
+    Object.keys(embeddedVideos).forEach(videoId => {
+      embeddedVideos[videoId].sendNotification('doPlay');
+    });
+    this.isPlaying = false;
+  }
+
   /**
    * `true` to autoplay the videos.
    */

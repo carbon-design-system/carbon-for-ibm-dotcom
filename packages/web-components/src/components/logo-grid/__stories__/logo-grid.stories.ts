@@ -12,7 +12,7 @@ import '../../content-block/content-block-heading';
 import '../logo-grid-item';
 import '../logo-grid-link';
 import '../../card/card-heading';
-import { boolean, text } from '@storybook/addon-knobs';
+import { boolean, text, select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import logos from './data/logos.js';
@@ -20,9 +20,10 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = args => {
-  const { heading, logosGroup, hideBorder, showCta, ctaCopy, ctaHref } = args?.LogoGrid ?? {};
+  const { heading, logoCount, logoRatio, logosGroup, hideBorder, showCta, ctaCopy, ctaHref } = args?.LogoGrid ?? {};
+
   return html`
-    <dds-logo-grid ?hide-border="${hideBorder}">
+    <dds-logo-grid ?hide-border="${hideBorder}" logo-count="${logoCount}" logo-ratio="${logoRatio}">
       <dds-content-block-heading>
         ${heading}
       </dds-content-block-heading>
@@ -65,6 +66,8 @@ export default {
     knobs: {
       LogoGrid: () => ({
         heading: textNullable('Heading (heading)', 'Our customers'),
+        logoCount: select('Column count (logoCount)', { 'Default (3)': '3', '4': '4' }, '3'),
+        logoRatio: select('Logo aspect ratio (logoRatio)', { 'Default (4:3)': '4:3', '16:9': '16:9', '2:1': '2:1' }, '4:3'),
         logosGroup: logos,
         hideBorder: boolean('Hide border (hideBorder): Hide the bottom border', false),
         showCta: boolean('Display CTA:', false),
@@ -76,6 +79,8 @@ export default {
       default: {
         LogoGrid: {
           heading: 'Our customers',
+          logoCount: '3',
+          logoRatio: '4:3',
           logosGroup: logos,
           hideBorder: false,
           showCta: false,

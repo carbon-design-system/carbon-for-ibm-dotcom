@@ -15,53 +15,15 @@ import '../feature-cta';
 import '../feature-cta-footer';
 import '../text-cta';
 import { html } from 'lit-element';
-import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20.js';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import Download20 from 'carbon-web-components/es/icons/download/20.js';
-import Launch20 from 'carbon-web-components/es/icons/launch/20.js';
-import PlayOutline20 from 'carbon-web-components/es/icons/play--outline/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select, boolean } from '@storybook/addon-knobs';
+import { icons as ctaIcons } from '../../../component-mixins/cta/cta';
 // eslint-disable-next-line sort-imports
 import { CTA_TYPE } from '../defs';
+import { hrefsForType, knobNamesForType, footerKnobNamesForType, typeOptions, types } from './ctaTypeConfig';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-
-const hrefsForType = {
-  [CTA_TYPE.REGULAR]: 'https://www.example.com',
-  [CTA_TYPE.LOCAL]: 'https://www.example.com',
-  [CTA_TYPE.JUMP]: '#example',
-  [CTA_TYPE.EXTERNAL]: 'https://www.example.com',
-  [CTA_TYPE.DOWNLOAD]: 'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
-  [CTA_TYPE.VIDEO]: '1_9h94wo6b',
-};
-
-const knobNamesForType = {
-  [CTA_TYPE.REGULAR]: 'Content link href (href)',
-  [CTA_TYPE.LOCAL]: 'Content link href (href)',
-  [CTA_TYPE.JUMP]: 'Anchor href (href)',
-  [CTA_TYPE.EXTERNAL]: 'Content link href (href)',
-  [CTA_TYPE.DOWNLOAD]: 'Download link href (href)',
-  [CTA_TYPE.VIDEO]: 'Video ID (href)',
-};
-
-const footerKnobNamesForType = {
-  [CTA_TYPE.REGULAR]: 'Content link href (href)',
-  [CTA_TYPE.LOCAL]: 'Content link href (href)',
-  [CTA_TYPE.JUMP]: 'Anchor href (href)',
-  [CTA_TYPE.EXTERNAL]: 'Content link href (href)',
-  [CTA_TYPE.DOWNLOAD]: 'Download link href (href)',
-  [CTA_TYPE.VIDEO]: 'Video ID (href)',
-};
-
-const types = {
-  [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
-  [`Jump (${CTA_TYPE.JUMP})`]: CTA_TYPE.JUMP,
-  [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
-  [`Download (${CTA_TYPE.DOWNLOAD})`]: CTA_TYPE.DOWNLOAD,
-  [`Video (${CTA_TYPE.VIDEO})`]: CTA_TYPE.VIDEO,
-};
 
 export const Text = args => {
   const { copy, ctaType, download, href, customVideoTitle, customVideoDescription } = args?.TextCTA ?? {};
@@ -83,10 +45,11 @@ Text.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
     knobs: {
       TextCTA: () => {
-        const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL);
+        const ctaType = select('CTA type (cta-type)', typeOptions, types[CTA_TYPE.LOCAL]);
         const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy (copy):', 'Lorem ipsum dolor sit amet');
-        const download =
-          ctaType !== CTA_TYPE.DOWNLOAD ? undefined : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
+        const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
+          ? undefined
+          : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
         const customVideoTitle = ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video title', 'Custom video title') : null;
 
         const customVideoDescription =
@@ -140,10 +103,11 @@ Button.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
     knobs: {
       ButtonCTA: () => {
-        const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL);
+        const ctaType = select('CTA type (cta-type)', typeOptions, types[CTA_TYPE.LOCAL]);
         const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text', 'Lorem ipsum dolor sit amet');
-        const download =
-          ctaType !== CTA_TYPE.DOWNLOAD ? undefined : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
+        const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
+          ? undefined
+          : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
         const customVideoTitle = ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video title', 'Custom video title') : null;
         const customVideoDescription =
           ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video description', 'This is a custom video description') : null;
@@ -207,11 +171,7 @@ export const Card = args => {
         video-description="${ifNonNull(customVideoDescription)}"
         href="${ifNonNull(footerHref)}"
       >
-        ${ctaType === 'local' ? footerCopy || ArrowRight20({ slot: 'icon' }) : ''}
-        ${ctaType === 'jump' ? footerCopy || ArrowDown20({ slot: 'icon' }) : ''}
-        ${ctaType === 'external' ? footerCopy || Launch20({ slot: 'icon' }) : ''}
-        ${ctaType === 'download' ? footerCopy || Download20({ slot: 'icon' }) : ''}
-        ${ctaType === 'video' ? footerCopy || PlayOutline20({ slot: 'icon' }) : ''}
+        ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
       </dds-card-cta-footer>
     </dds-card-cta>
   `;
@@ -292,11 +252,7 @@ export const CardLink = args => {
         video-description="${ifNonNull(customVideoDescription)}"
         href="${ifNonNull(footerHref)}"
       >
-        ${ctaType === 'local' ? footerCopy || ArrowRight20({ slot: 'icon' }) : ''}
-        ${ctaType === 'jump' ? footerCopy || ArrowDown20({ slot: 'icon' }) : ''}
-        ${ctaType === 'external' ? footerCopy || Launch20({ slot: 'icon' }) : ''}
-        ${ctaType === 'download' ? footerCopy || Download20({ slot: 'icon' }) : ''}
-        ${ctaType === 'video' ? footerCopy || PlayOutline20({ slot: 'icon' }) : ''}
+        ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
       </dds-card-cta-footer>
     </dds-card-link-cta>
   `;
@@ -308,10 +264,11 @@ CardLink.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-4 bx--no-gutter',
     knobs: {
       CardCTA: () => {
-        const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL);
+        const ctaType = select('CTA type (cta-type)', typeOptions, types[CTA_TYPE.LOCAL]);
         const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy (copy):', '');
-        const download =
-          ctaType !== CTA_TYPE.DOWNLOAD ? undefined : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
+        const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
+          ? undefined
+          : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
         const heading =
           ctaType === CTA_TYPE.VIDEO ? null : textNullable('Heading (heading):', 'Explore AI use cases in all industries');
         const customVideoTitle = ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video title', 'Custom video title') : null;
@@ -355,8 +312,9 @@ CardLink.story = {
 };
 
 export const Feature = args => {
-  const { heading, ctaType, download, href, customVideoTitle, customVideoDescription } = args?.FeatureCTA ?? {};
-  const { copy: footerCopy, download: footerDownload, href: footerHref } = args?.FeatureCTAFooter ?? {};
+  const { heading, ctaType, customThumbnail, download, href, customVideoTitle, customVideoDescription, noPoster } =
+    args?.FeatureCTA ?? {};
+  const { download: footerDownload, href: footerHref } = args?.FeatureCTAFooter ?? {};
   return html`
     <dds-feature-cta
       cta-type="${ifNonNull(ctaType)}"
@@ -364,9 +322,15 @@ export const Feature = args => {
       video-description="${ifNonNull(customVideoDescription)}"
       download="${ifNonNull(download)}"
       href="${ifNonNull(href)}"
+      ?no-poster=${noPoster}
     >
       <dds-card-heading>${heading}</dds-card-heading>
-      <dds-image slot="image" alt="Image alt text" default-src="${imgLg1x1}"> </dds-image>
+      ${ctaType !== CTA_TYPE.VIDEO || customThumbnail
+        ? html`
+            <dds-image slot="image" alt="Image alt text" default-src="${imgLg1x1}"> </dds-image>
+          `
+        : ''}
+
       <dds-feature-cta-footer
         cta-type="${ifNonNull(ctaType)}"
         download="${ifNonNull(footerDownload)}"
@@ -374,7 +338,6 @@ export const Feature = args => {
         video-description="${ifNonNull(customVideoDescription)}"
         href="${ifNonNull(footerHref)}"
       >
-        ${footerCopy}
       </dds-feature-cta-footer>
     </dds-feature-cta>
   `;
@@ -385,14 +348,17 @@ Feature.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
     knobs: {
       FeatureCTA: () => {
-        const ctaType = select('CTA type:', types, CTA_TYPE.LOCAL);
+        const ctaType = select('CTA type:', typeOptions, types[CTA_TYPE.LOCAL]);
         const heading =
           ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Heading', 'Explore AI uses cases in all industries');
-        const download =
-          ctaType !== CTA_TYPE.DOWNLOAD ? undefined : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
+        const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
+          ? undefined
+          : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
         const customVideoTitle = ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video title', 'Custom video title') : null;
         const customVideoDescription =
           ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video description', 'This is a custom video description') : null;
+        const customThumbnail = ctaType === CTA_TYPE.VIDEO ? boolean('Custom image', false) : null;
+        const noPoster = ctaType === CTA_TYPE.VIDEO ? boolean('No Video Poster', false) : null;
         return {
           heading,
           ctaType,
@@ -400,6 +366,9 @@ Feature.story = {
           customVideoTitle,
           customVideoDescription,
           href: hrefsForType[ctaType ?? CTA_TYPE.REGULAR],
+          thumbnail: null,
+          customThumbnail,
+          noPoster,
         };
       },
     },
@@ -412,6 +381,9 @@ Feature.story = {
           customVideoTitle: null,
           customVideoDescription: null,
           href: 'https://www.example.com',
+          thumbnail: null,
+          customThumbnail: false,
+          noPoster: false,
         },
       },
     },
