@@ -373,8 +373,8 @@ export function NoticeChoice({
   };
   let customPostText = postText;
   if (
-    FORM_PATH.indexOf('https://urxapistage.urx.origins.ibm.net') > -1 ||
-    FORM_PATH.indexOf('https://wwwstage.ibm.com') > -1
+    FORM_PATH.startsWith('https://urxapistage.urx.origins.ibm.net') ||
+    FORM_PATH.startsWith('https://wwwstage.ibm.com')
   ) {
     customPostText = customPostText.replace(
       `https://www.ibm.com/account/reg/`,
