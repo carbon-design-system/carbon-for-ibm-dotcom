@@ -75,9 +75,9 @@ module.exports = {
     '@carbon/storybook-addon-theme/es/register',
     // path.resolve(__dirname, 'addon-knobs-args'),
   ],
-  core: {
-    builder: 'webpack5',
-  },
+  // core: {
+  //   builder: 'webpack5',
+  // },
   webpack: async (config, { configType }) => {
     config.devtool = configType === 'DEVELOPMENT' ? 'source-map' : '';
     config.optimization = {
