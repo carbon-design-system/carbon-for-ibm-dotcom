@@ -2,7 +2,7 @@
   "name": "ibmdotcom-react-cardsectionsimple-example",
   "private": true,
   "version": "1.0.0",
-  "main": "index.html",
+  "main": "index.js",
   "scripts": {
     "start": "parcel serve -p 9000 index.html --no-hmr",
     "build": "parcel build index.html --public-url ./"
@@ -10,13 +10,13 @@
   "dependencies": {
     "@carbon/ibmdotcom-react": "latest",
     "@carbon/ibmdotcom-styles": "latest",
-    "@carbon/icons-react": "10.49.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.0",
-    "parcel-bundler": "1.12.3",
-    "sass": "^1.26.9"
-    }
+    "@parcel/transformer-sass": "2.6.2",
+    "buffer": "^6.0.3",
+    "parcel": "^2.6.2",
+    "process": "^0.11.10"
+  }
 }
