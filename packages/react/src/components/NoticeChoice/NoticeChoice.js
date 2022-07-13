@@ -20,7 +20,6 @@ import worldWideContent from './world-wide-content';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-const FORM_PATH = 'https://www.ibm.com/account/apis/v2.0/forms';
 const emailRegExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 export function NoticeChoice({
@@ -372,16 +371,6 @@ export function NoticeChoice({
     onChange(hiddenFieldName, checked ? 'PERMISSION' : 'SUPPRESSION');
   };
   let customPostText = postText;
-  if (
-    FORM_PATH.startsWith('https://urxapistage.urx.origins.ibm.net') ||
-    FORM_PATH.startsWith('https://wwwstage.ibm.com')
-  ) {
-    customPostText = customPostText.replace(
-      `https://www.ibm.com/account/reg/`,
-      `https://wwwstage.ibm.com/account/reg/`
-    );
-    customPostText = customPostText.replace(`urx-42537`, `urx-33276`);
-  }
   const ncHeading = useCallback(() => {
     return (
       <p
