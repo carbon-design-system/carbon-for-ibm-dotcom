@@ -304,6 +304,7 @@
 
   .#{$prefix}--label-visually-hidden {
     visibility: hidden;
+    height: 0;
   }
 }
 
