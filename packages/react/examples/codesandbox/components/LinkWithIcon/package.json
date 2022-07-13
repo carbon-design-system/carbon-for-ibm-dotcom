@@ -2,7 +2,6 @@
   "name": "ibmdotcom-react-linkwithicon-example",
   "private": true,
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "start": "parcel serve -p 9000 index.html --no-hmr",
     "build": "parcel build index.html --public-url ./"
@@ -10,6 +9,7 @@
   "dependencies": {
     "@carbon/ibmdotcom-react": "latest",
     "@carbon/ibmdotcom-styles": "latest",
+    "@carbon/icons-react": "10.49.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },

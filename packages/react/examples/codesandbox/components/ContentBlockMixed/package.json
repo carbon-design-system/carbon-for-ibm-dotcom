@@ -2,7 +2,6 @@
   "name": "ibmdotcom-react-contentblockmixed-example",
   "private": true,
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "start": "parcel serve -p 9000 index.html --no-hmr",
     "build": "parcel build index.html --public-url ./"
