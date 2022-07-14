@@ -136,7 +136,7 @@ export const createTests = path => [
         .find(selectors.annotationToggle)
         .then($toggle => $toggle[0].shadowRoot.querySelector('button'))
         .as('firstRowWithAnnotationsToggle')
-        .click()
+        .click({ force: true })
         .get('@firstRowWithAnnotations')
         .then($row => {
           const cells = getCellsWithAnnotations($row);
@@ -145,7 +145,7 @@ export const createTests = path => [
           });
         })
         .get('@firstRowWithAnnotationsToggle')
-        .click()
+        .click({ force: true })
         .get('@firstRowWithAnnotations')
         .then($row => {
           getCellsWithAnnotations($row).forEach(cell => {
