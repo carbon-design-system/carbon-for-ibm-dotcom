@@ -168,9 +168,12 @@ export const createTestsMobile = path => [
   () => {
     it('should scroll horizontally', () => {
       cy.visit(path)
-        .get(selectors.table)
-        .scrollTo('right');
-      cy.takeSnapshots();
+        .wait(1000)
+        .get(selectors.headerRow)
+        .find(selectors.headerCell)
+        .last()
+        .scrollIntoView()
+        .should('be.visible');
     });
   },
 ];
