@@ -9,7 +9,7 @@
 
 import { customElement, html, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSStructuredListHeaderCell from '../structured-list/structured-list-header-cell';
 import styles from './pricing-table.scss';

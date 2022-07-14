@@ -8,7 +8,7 @@
  */
 
 import { customElement, html, LitElement, property } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ChevronDown16 from 'carbon-web-components/es/icons/chevron--down/16';
 import Close16 from 'carbon-web-components/es/icons/close/16';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';

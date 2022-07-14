@@ -11,7 +11,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import { classMap } from 'lit-html/directives/class-map.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { html, query, customElement, property } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXDropdown from 'carbon-web-components/es/components/dropdown/dropdown';
 import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item';
 import ChevronDown16 from 'carbon-web-components/es/icons/chevron--down/16.js';
