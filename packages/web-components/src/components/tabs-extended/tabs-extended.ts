@@ -9,8 +9,8 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { customElement, html, state, LitElement, TemplateResult, property } from 'lit-element';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
-import { classMap } from 'lit-html/directives/class-map';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
+import { classMap } from 'lit-html/directives/class-map.js';
 import ChevronRight20 from 'carbon-web-components/es/icons/chevron--right/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ifDefined } from 'lit-html/directives/if-defined';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { html, property, state, query, customElement, LitElement } from 'lit-element';
 import 'wicg-inert';
 import settings from 'carbon-components/es/globals/js/settings.js';
