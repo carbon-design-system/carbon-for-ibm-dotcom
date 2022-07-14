@@ -21,7 +21,7 @@ import ModalRenderMixin from '../../globals/mixins/modal-render';
 import 'carbon-web-components/es/components/modal/modal-header';
 import 'carbon-web-components/es/components/modal/modal-close-button';
 import 'carbon-web-components/es/components/modal/modal-footer';
-import 'carbon-web-components/es/components/button/button';
+import 'carbon-web-components/es/components/button/button.js';
 import styles from './leaving-ibm.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;

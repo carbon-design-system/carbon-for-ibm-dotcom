@@ -13,12 +13,12 @@ import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-list
 import './filter-group';
 import './filter-modal-button';
 import './filter-modal-heading';
-import BXModal from 'carbon-web-components/es/components/modal/modal';
+import BXModal from 'carbon-web-components/es/components/modal/modal.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import './filter-modal-footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
-import 'carbon-web-components/es/components/checkbox/checkbox';
+import 'carbon-web-components/es/components/checkbox/checkbox.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

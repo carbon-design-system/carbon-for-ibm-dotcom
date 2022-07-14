@@ -20,7 +20,7 @@ import HostListener from 'carbon-web-components/es/globals/decorators/host-liste
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
-import 'carbon-web-components/es/components/checkbox/checkbox';
+import 'carbon-web-components/es/components/checkbox/checkbox.js';
 import DDSFilterGroupItem from './filter-group-item';
 import DDSFilterPanelCheckbox from './filter-panel-checkbox';
 import DDSFilterPanelInputSelect from './filter-panel-input-select';
