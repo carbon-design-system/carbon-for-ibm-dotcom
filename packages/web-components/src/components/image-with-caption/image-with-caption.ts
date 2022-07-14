@@ -17,7 +17,7 @@ import '../expressive-modal/expressive-modal-close-button';
 import '../image/image';
 import '../lightbox-media-viewer/lightbox-image-viewer';
 import '../button/button';
-import ZoomIn20 from 'carbon-web-components/es/icons/zoom--in/20';
+import ZoomIn20 from 'carbon-web-components/es/icons/zoom--in/20.js';
 import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './image-with-caption.scss';
