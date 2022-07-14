@@ -11,10 +11,10 @@ import PropTypes from 'prop-types';
 import React, { useEffect, FunctionComponent } from 'react';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { BUTTON_KIND } from 'carbon-web-components/es/components/button/button.js';
-import BXBtn from 'carbon-web-components/es/components-react/button/button';
-import BXModalCloseButton from 'carbon-web-components/es/components-react/modal/modal-close-button';
-import BXModalHeader from 'carbon-web-components/es/components-react/modal/modal-header';
-import BXModalFooter from 'carbon-web-components/es/components-react/modal/modal-footer';
+import BXBtn from 'carbon-web-components/es/components-react/button/button.js';
+import BXModalCloseButton from 'carbon-web-components/es/components-react/modal/modal-close-button.js';
+import BXModalHeader from 'carbon-web-components/es/components-react/modal/modal-header.js';
+import BXModalFooter from 'carbon-web-components/es/components-react/modal/modal-footer.js';
 import { LeavingIBMLabels, Translation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.

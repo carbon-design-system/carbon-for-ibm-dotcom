@@ -10,13 +10,13 @@
 import { customElement, html, LitElement, property, state, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import Filter from 'carbon-web-components/es/icons/filter/16';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import './filter-group';
 import './filter-panel';
 import './filter-panel-modal';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';

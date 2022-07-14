@@ -13,7 +13,7 @@ import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { html, query, customElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXDropdown from 'carbon-web-components/es/components/dropdown/dropdown.js';
-import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item';
+import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item.js';
 import ChevronDown16 from 'carbon-web-components/es/icons/chevron--down/16.js';
 import WarningFilled16 from 'carbon-web-components/es/icons/warning--filled/16.js';
 import { DROPDOWN_COLOR_SCHEME, DROPDOWN_KEYBOARD_ACTION, DROPDOWN_SIZE, DROPDOWN_TYPE, NAVIGATION_DIRECTION } from './defs';

@@ -9,7 +9,7 @@
 
 import { customElement, html, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import './filter-group';
 import './filter-modal-button';
 import './filter-modal-heading';

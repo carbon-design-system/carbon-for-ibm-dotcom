@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import BXStructuredListCell from 'carbon-web-components/es/components/structured-list/structured-list-cell';
+import BXStructuredListCell from 'carbon-web-components/es/components/structured-list/structured-list-cell.js';
 import { customElement, property, html } from 'lit-element';
 import Info16 from 'carbon-web-components/es/icons/information/16';
 import Checkmark20 from 'carbon-web-components/es/icons/checkmark/20';
