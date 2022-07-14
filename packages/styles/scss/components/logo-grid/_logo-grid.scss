@@ -129,7 +129,9 @@
     display: flex;
     align-items: stretch;
     justify-content: center;
-
+    @include carbon--breakpoint('sm') {
+      margin-bottom: $carbon--spacing-07;
+    }
     picture,
     img {
       width: 100%;
