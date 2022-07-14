@@ -8,7 +8,7 @@
  */
 
 import { customElement, html, LitElement, property, state, TemplateResult } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import Filter from 'carbon-web-components/es/icons/filter/16';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import { baseFontSize, breakpoints } from '@carbon/layout';

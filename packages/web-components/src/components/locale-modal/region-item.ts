@@ -8,7 +8,7 @@
  */
 
 import { html, property, customElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import BXLink from 'carbon-web-components/es/components/link/link';
 import Error20 from 'carbon-web-components/es/icons/error/20.js';

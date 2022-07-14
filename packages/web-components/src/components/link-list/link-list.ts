@@ -9,7 +9,7 @@
 
 import { classMap } from 'lit-html/directives/class-map.js';
 import { state, customElement, html, LitElement, property } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { LINK_LIST_TYPE, LINK_LIST_ITEM_TYPE } from './defs';

@@ -8,7 +8,7 @@
  */
 
 import { html, property, customElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import {
   formatVideoCaption,

@@ -8,7 +8,7 @@
  */
 
 import { customElement, html, property, LitElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import Close from 'carbon-web-components/es/icons/close/16';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';

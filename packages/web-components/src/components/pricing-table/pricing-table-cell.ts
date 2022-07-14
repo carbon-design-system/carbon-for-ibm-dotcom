@@ -8,7 +8,7 @@
  */
 
 import { customElement, html } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';

@@ -8,7 +8,7 @@
  */
 
 import { ifDefined } from 'lit-html/directives/if-defined.js';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import Filter20 from 'carbon-web-components/es/icons/filter/20.js';
 import { property, customElement, html } from 'lit-element';
 import BXSelect from 'carbon-web-components/es/components/select/select.js';

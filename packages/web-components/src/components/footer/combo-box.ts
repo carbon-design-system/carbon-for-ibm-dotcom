@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import { TemplateResult } from 'lit-html';
 import { html, property, query, customElement } from 'lit-element';
 import BXComboBoxItem from 'carbon-web-components/es/components/combo-box/combo-box-item';

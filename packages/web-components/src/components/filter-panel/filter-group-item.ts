@@ -8,7 +8,7 @@
  */
 
 import { customElement, property, query, state } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import BXAccordionItem from 'carbon-web-components/es/components/accordion/accordion-item';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './filter-panel.scss';
