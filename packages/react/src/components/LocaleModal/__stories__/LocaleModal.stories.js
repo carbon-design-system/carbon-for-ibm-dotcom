@@ -16,21 +16,19 @@ export default {
   title: 'Components/Locale modal',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      LocaleModal: () => ({
-        useMockData: boolean('Use mock data', inPercy()),
-      }),
-    },
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { useMockData } = parameters?.props?.LocaleModal ?? {};
+const props = () => ({
+  useMockData: boolean('Use mock data', inPercy()),
+});
+
+export const Default = () => {
   return (
     <LocaleModal
       isOpen
-      localeData={useMockData ? localeData : null}
-      localeDisplay={useMockData ? 'United States - English' : null}
+      localeData={props().useMockData ? localeData : null}
+      localeDisplay={props().useMockData ? 'United States - English' : null}
     />
   );
 };

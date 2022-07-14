@@ -11,17 +11,16 @@ import items from './data/items.json';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
+const props = () => ({
+  heading: text('Heading (heading):', 'Aliquam condimentum'),
+  items: items.items,
+  border: boolean('Has bottom border (border):', true),
+});
+
 export default {
   title: 'Components/Content block horizontal',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      ContentBlockHorizontal: ({ groupId }) => ({
-        heading: text('Heading (heading):', 'Aliquam condimentum', groupId),
-        items: items.items,
-        border: boolean('Has bottom border (border):', true, groupId),
-      }),
-    },
     propsSet: {
       default: {
         ContentBlockHorizontal: {
@@ -32,18 +31,12 @@ export default {
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { heading, items, border } =
-    parameters?.props?.ContentBlockHorizontal ?? {};
+export const Default = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
-          <ContentBlockHorizontal
-            heading={heading}
-            items={items}
-            border={border}
-          />
+          <ContentBlockHorizontal {...props()} />
         </div>
       </div>
     </div>

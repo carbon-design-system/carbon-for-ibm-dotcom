@@ -41,50 +41,36 @@ const mediaDataByType = {
   },
 };
 
+const props = () => {
+  const mediaType = select(
+    'mediaType (optional)',
+    ['image', 'video', 'none'],
+    'image'
+  );
+  return {
+    mediaData: mediaDataByType[mediaType],
+    mediaType: mediaType === 'none' ? undefined : mediaType,
+    heading: text('heading', 'Curabitur malesuada varius mi eu posuere'),
+    copy: text(
+      'copy',
+      'Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.\n      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales\n      nulla quis, *consequat* libero. Here are\n      some common categories:'
+    ),
+  };
+};
+
 export default {
   title: 'Components/Callout with media',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      CalloutWithMedia: ({ groupId }) => {
-        const mediaType = select(
-          'mediaType (optional)',
-          ['image', 'video', 'none'],
-          'image',
-          groupId
-        );
-        return {
-          mediaData: mediaDataByType[mediaType],
-          mediaType: mediaType === 'none' ? undefined : mediaType,
-          heading: text(
-            'heading',
-            'Curabitur malesuada varius mi eu posuere',
-            groupId
-          ),
-          copy: text(
-            'copy',
-            'Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.\n      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales\n      nulla quis, *consequat* libero. Here are\n      some common categories:',
-            groupId
-          ),
-        };
-      },
-    },
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { mediaData, mediaType, heading, copy } =
-    parameters?.props?.CalloutWithMedia ?? {};
+export const Default = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--offset-lg-4 bx--col-lg-12">
-          <CalloutWithMedia
-            mediaData={mediaData}
-            mediaType={mediaType}
-            heading={heading}
-            copy={copy}
-          />
+          <CalloutWithMedia {...props()} />
         </div>
       </div>
     </div>

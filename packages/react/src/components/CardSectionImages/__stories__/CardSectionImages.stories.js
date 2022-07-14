@@ -11,20 +11,15 @@ import React from 'react';
 import readme from '../README.stories.mdx';
 import { text } from '@storybook/addon-knobs';
 
+const props = () => ({
+  heading: text('Heading (heading):', 'Aliquam condimentum interdum'),
+  cards: cards.Images,
+});
+
 export default {
   title: 'Components/Card section images',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      CardSectionImages: ({ groupId }) => ({
-        heading: text(
-          'Heading (heading):',
-          'Aliquam condimentum interdum',
-          groupId
-        ),
-        cards: cards.Images,
-      }),
-    },
     propsSet: {
       default: {
         CardSectionImages: {
@@ -35,9 +30,8 @@ export default {
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { heading, cards } = parameters?.props?.CardSectionImages ?? {};
+export const Default = () => {
   const theme =
     document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
-  return <CardSectionImages heading={heading} theme={theme} cards={cards} />;
+  return <CardSectionImages {...props()} theme={theme} />;
 };

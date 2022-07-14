@@ -34,77 +34,73 @@ const linkListProps = {
   totalLinks: 2,
 };
 
-export default {
-  title: 'Components/Content block',
-  parameters: {
-    ...readme.parameters,
-    knobs: {
-      ContentBlock: () => {
-        return {
-          heading: text(
-            'Heading (heading)',
-            'What is the latest news in artificial intelligence?'
-          ),
-          copy: text(
-            'Copy (copy)',
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quam ante, mattis id pellentesque at, molestie et ipsum. Proin sodales est hendrerit maximus malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam at arcu ligula. Praesent faucibus est ligula, vitae finibus ante aliquet a.'
-          ),
-          aside: boolean('Aside (aside)', false),
-          addChildren: optionsKnob(
-            'Add children',
-            {
-              'Content group simple': 'Content group simple',
-            },
-            '',
-            { display: 'multi-select' }
-          ),
-          showCTA: boolean('CTA', true),
-          cta: {
-            cta: {
-              href: 'https://www.example.com',
-            },
-            style: 'card',
-            type: 'local',
-            heading: 'Learn more about natual language processing',
-          },
-          border: boolean('Border (border)', false),
-        };
-      },
+const props = () => {
+  // TODO options isn't working
+  const addChildren = optionsKnob(
+    'Add children',
+    {
+      'Content group simple': 'Content group simple',
     },
-  },
-};
-
-export const Default = ({ parameters }) => {
-  const { heading, cta, copy, addChildren, showCTA, border, aside } =
-    parameters?.props?.ContentBlock ?? {};
+    '',
+    { display: 'multi-select' }
+  );
+  const children = addChildren.includes('Content group simple') ? (
+    <ContentGroupSimple
+      mediaType="image"
+      mediaData={ContentGroupSimpleKnobs.mediaData.image}
+      heading="Natural language processing (NLP)"
+      items={ContentGroupSimpleKnobs.items}
+      copy={ContentGroupSimpleKnobs.copy}
+    />
+  ) : (
+    ''
+  );
   const asideItems = {
     items: <LinkList style="card" {...linkListProps} />,
     border: false,
   };
+  const showAside = boolean('Aside (aside)', false);
+  const aside = showAside ? asideItems : {};
+  const showCTA = boolean('CTA', true);
+  const cta = showCTA
+    ? {
+        cta: {
+          href: 'https://www.example.com',
+        },
+        style: 'card',
+        type: 'local',
+        heading: 'Learn more about natual language processing',
+      }
+    : {};
+  return {
+    heading: text(
+      'Heading (heading)',
+      'What is the latest news in artificial intelligence?'
+    ),
+    copy: text(
+      'Copy (copy)',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quam ante, mattis id pellentesque at, molestie et ipsum. Proin sodales est hendrerit maximus malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam at arcu ligula. Praesent faucibus est ligula, vitae finibus ante aliquet a.'
+    ),
+    children,
+    aside,
+    cta,
+    border: boolean('Border (border)', false),
+  };
+};
+
+export default {
+  title: 'Components/Content block',
+  parameters: {
+    ...readme.parameters,
+  },
+};
+
+export const Default = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story">
-          <ContentBlock
-            heading={heading}
-            copy={copy}
-            children={[
-              addChildren.includes('Content group simple') ? (
-                <ContentGroupSimple
-                  mediaType="image"
-                  mediaData={ContentGroupSimpleKnobs.mediaData.image}
-                  heading="Natural language processing (NLP)"
-                  items={ContentGroupSimpleKnobs.items}
-                  copy={ContentGroupSimpleKnobs.copy}
-                />
-              ) : (
-                ``
-              ),
-            ]}
-            cta={showCTA ? cta : ''}
-            border={border}
-            aside={aside ? asideItems : ''}
-          />
+          <ContentBlock {...props()} />
         </div>
       </div>
     </div>

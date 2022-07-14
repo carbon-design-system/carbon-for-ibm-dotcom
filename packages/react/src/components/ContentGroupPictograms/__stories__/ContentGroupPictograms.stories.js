@@ -53,63 +53,47 @@ const toggleCTA = item => {
   }
 };
 
+const props = () => {
+  const pictogramCount = number('Number of PictogramItems', 3, {});
+  const items = [];
+
+  for (let i = 0; i < pictogramCount; i++) {
+    items.push({
+      heading: text(
+        `Item ${i + 1} Heading (items.heading)`,
+        'Aliquam condimentum interdum'
+      ),
+      copy: text(
+        `Item ${i + 1} Copy (items.copy)`,
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.'
+      ),
+      cta: toggleCTA(boolean(`Item ${i + 1} CTA (items.cta)`, true)),
+      pictogram: {
+        src: selectPictogram(
+          select(
+            `Item ${i + 1} Pictogram (pictogram)`,
+            pictograms,
+            pictograms.TouchScreen
+          )
+        ),
+        'aria-label': 'Pictogram',
+      },
+    });
+  }
+  return {
+    heading: text('Pattern title (heading)', 'Lorem ipsum dolor sit amet'),
+    copy: text(
+      'Copy (copy)',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.'
+    ),
+    items,
+  };
+};
+
 export default {
   title: 'Components/Content group pictograms',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      ContentGroupPictograms: ({ groupId }) => {
-        const pictogramCount = number(
-          'Number of PictogramItems',
-          3,
-          {},
-          groupId
-        );
-        const items = [];
-
-        for (let i = 0; i < pictogramCount; i++) {
-          items.push({
-            heading: text(
-              `Item ${i + 1} Heading (items.heading)`,
-              'Aliquam condimentum interdum',
-              groupId
-            ),
-            copy: text(
-              `Item ${i + 1} Copy (items.copy)`,
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.',
-              groupId
-            ),
-            cta: toggleCTA(
-              boolean(`Item ${i + 1} CTA (items.cta)`, true, groupId)
-            ),
-            pictogram: {
-              src: selectPictogram(
-                select(
-                  `Item ${i + 1} Pictogram (pictogram)`,
-                  pictograms,
-                  pictograms.TouchScreen,
-                  groupId
-                )
-              ),
-              'aria-label': 'Pictogram',
-            },
-          });
-        }
-        return {
-          heading: text(
-            'Pattern title (heading)',
-            'Lorem ipsum dolor sit amet',
-            groupId
-          ),
-          copy: text(
-            'Copy (copy)',
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.',
-            groupId
-          ),
-          items,
-        };
-      },
-    },
     propsSet: {
       default: {
         ContentGroupPictograms: {
@@ -130,9 +114,7 @@ export default {
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { heading, copy, items } =
-    parameters?.props?.ContentGroupPictograms ?? {};
+export const Default = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
@@ -142,9 +124,7 @@ export const Default = ({ parameters }) => {
             `bx--col-lg-8`,
             `bx--offset-lg-4`
           )}
-          heading={heading}
-          copy={copy}
-          items={items}
+          {...props()}
         />
       </div>
     </div>

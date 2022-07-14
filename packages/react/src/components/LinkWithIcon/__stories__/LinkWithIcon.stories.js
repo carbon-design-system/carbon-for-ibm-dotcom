@@ -16,8 +16,6 @@ const iconPlacement = ['left', 'right'];
 
 export default {
   title: 'Components/Link with icon',
-  // component: LinkWithIcon,
-  // decorators: [withKnobs],
   parameters: {
     ...readme.parameters,
   },

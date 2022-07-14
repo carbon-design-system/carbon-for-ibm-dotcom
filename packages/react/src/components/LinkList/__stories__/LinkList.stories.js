@@ -104,23 +104,17 @@ export const Default = () => {
   );
 };
 
-// Default.story = {
-//   parameters: {
-//     knobs: {
-//       LinkList: () => ({
-//         heading: text('Heading (heading):', 'Tutorials'),
-//         items: items,
-//       }),
-//     },
-//     propsSet: {
-//       default: {
-//         LinkList: {
-//           items,
-//         },
-//       },
-//     },
-//   },
-// };
+Default.story = {
+  parameters: {
+    propsSet: {
+      default: {
+        LinkList: {
+          items,
+        },
+      },
+    },
+  },
+};
 
 export const Horizontal = () => {
   return (
@@ -134,28 +128,17 @@ export const Horizontal = () => {
   );
 };
 
-// Horizontal.story = {
-//   parameters: {
-//     knobs: {
-//       LinkList: () => ({
-//         heading: text('Heading (heading):', 'Tutorials'),
-//         items: items.slice(0, 2),
-//         iconPlacement: select(
-//           'Icon placement (iconPlacement):',
-//           iconPlacement,
-//           iconPlacement[1]
-//         ),
-//       }),
-//     },
-//     propsSet: {
-//       default: {
-//         LinkList: {
-//           items: items.slice(0, 2),
-//         },
-//       },
-//     },
-//   },
-// };
+Horizontal.story = {
+  parameters: {
+    propsSet: {
+      default: {
+        LinkList: {
+          items: items.slice(0, 2),
+        },
+      },
+    },
+  },
+};
 
 export const Vertical = () => {
   return (
@@ -169,28 +152,17 @@ export const Vertical = () => {
   );
 };
 
-// Vertical.story = {
-//   parameters: {
-//     knobs: {
-//       LinkList: () => ({
-//         heading: text('Heading (heading):', 'Tutorials'),
-//         items: items,
-//         iconPlacement: select(
-//           'Icon placement (iconPlacement):',
-//           iconPlacement,
-//           iconPlacement[0]
-//         ),
-//       }),
-//     },
-//     propsSet: {
-//       default: {
-//         LinkList: {
-//           items,
-//         },
-//       },
-//     },
-//   },
-// };
+Vertical.story = {
+  parameters: {
+    propsSet: {
+      default: {
+        LinkList: {
+          items,
+        },
+      },
+    },
+  },
+};
 
 export const VerticalWithCards = () => {
   return (
@@ -205,29 +177,18 @@ export const VerticalWithCards = () => {
   );
 };
 
-// VerticalWithCards.story = {
-//   name: 'Vertical with cards',
-//   parameters: {
-//     knobs: {
-//       LinkList: () => ({
-//         heading: text('Heading (heading):', 'Tutorials'),
-//         items: items,
-//         iconPlacement: select(
-//           'Icon placement (iconPlacement):',
-//           iconPlacement,
-//           iconPlacement[0]
-//         ),
-//       }),
-//     },
-//     propsSet: {
-//       default: {
-//         LinkList: {
-//           items,
-//         },
-//       },
-//     },
-//   },
-// };
+VerticalWithCards.story = {
+  name: 'Vertical with cards',
+  parameters: {
+    propsSet: {
+      default: {
+        LinkList: {
+          items,
+        },
+      },
+    },
+  },
+};
 
 export const EndOfSection = () => {
   return (
@@ -241,21 +202,15 @@ export const EndOfSection = () => {
   );
 };
 
-// EndOfSection.story = {
-//   name: 'End of section',
-//   parameters: {
-//     knobs: {
-//       LinkList: () => ({
-//         heading: text('Heading (heading):', 'Tutorials'),
-//         items,
-//       }),
-//     },
-//     propsSet: {
-//       default: {
-//         LinkList: {
-//           items,
-//         },
-//       },
-//     },
-//   },
-// };
+EndOfSection.story = {
+  name: 'End of section',
+  parameters: {
+    propsSet: {
+      default: {
+        LinkList: {
+          items,
+        },
+      },
+    },
+  },
+};

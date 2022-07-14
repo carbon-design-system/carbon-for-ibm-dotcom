@@ -12,45 +12,32 @@ import React from 'react';
 import readme from '../README.stories.mdx';
 import { text } from '@storybook/addon-knobs';
 
+const props = () => ({
+  heading: text('Heading', 'Aliquam condimentum'),
+  copy: text(
+    'Copy',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.'
+  ),
+  items: items.items,
+});
+
 export default !DDS_CONTENTBLOCK_HEADLINES
   ? undefined
   : {
       title: 'Components/Content block headlines',
       parameters: {
         ...readme.parameters,
-        knobs: {
-          ContentBlockHeadlines: ({ groupId }) => ({
-            heading: text('Heading', 'Aliquam condimentum', groupId),
-            copy: text(
-              'Copy',
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
-              groupId
-            ),
-            items: items.items,
-          }),
-        },
-        props: {
-          ContentBlockHeadlines: {
-            items: items.items,
-          },
-        },
       },
     };
 
 export const Default = !DDS_CONTENTBLOCK_HEADLINES
   ? undefined
-  : ({ parameters }) => {
-      const { heading, copy, items } =
-        parameters?.props?.ContentBlockHeadlines ?? {};
+  : () => {
       return (
         <div className="bx--grid">
           <div className="bx--row">
             <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
-              <ContentBlockHeadlines
-                heading={heading}
-                copy={copy}
-                items={items}
-              />
+              <ContentBlockHeadlines {...props()} />
             </div>
           </div>
         </div>

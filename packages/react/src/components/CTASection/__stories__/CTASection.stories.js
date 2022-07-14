@@ -12,6 +12,56 @@ import readme from '../README.stories.mdx';
 
 const types = ['local', 'external'];
 
+const props = {
+  default: () => ({
+    heading: text('ContentBlock | heading:', 'Take the next step'),
+    copy: text(
+      'ContentBlock | copy:',
+      `Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.`
+    ),
+    cta: {
+      style: 'button',
+      type: types[0],
+      buttons: [
+        {
+          type: select('ContentBlock | CTA type', types, types[0]),
+          copy: 'Secondary button',
+          href: 'https://example.com/',
+        },
+        {
+          type: select('ContentBlock | CTA type', types, types[0]),
+          copy: 'Primary button',
+          href: 'https://example.com/',
+        },
+      ],
+    },
+  }),
+  WithContentItems: () => ({
+    heading: text('Heading (heading):', 'Take the next step'),
+    copy: text(
+      'Copy (copy):',
+      `Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.`
+    ),
+    cta: {
+      style: 'button',
+      type: types[0],
+      buttons: [
+        {
+          type: select('CTA (type):', types, types[0]),
+          copy: 'Secondary button',
+          href: 'https://example.com/',
+        },
+        {
+          type: select('CTA (type):', types, types[0]),
+          copy: 'Primary button',
+          href: 'https://example.com/',
+        },
+      ],
+    },
+    items: contentItemsProps,
+  }),
+};
+
 const contentItemsProps = [
   {
     heading: 'Get connected',
@@ -41,21 +91,14 @@ export default {
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { heading, copy, cta, items } = parameters?.props?.CTASection ?? {};
+export const Default = () => {
   const theme =
     document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
-          <CTASection
-            heading={heading}
-            copy={copy}
-            theme={theme}
-            cta={cta}
-            items={items}
-          />
+          <CTASection {...props.default()} theme={theme} />
         </div>
       </div>
     </div>
@@ -64,32 +107,6 @@ export const Default = ({ parameters }) => {
 
 Default.story = {
   parameters: {
-    knobs: {
-      CTASection: ({ groupId }) => ({
-        heading: text('ContentBlock | heading:', 'Take the next step', groupId),
-        copy: text(
-          'ContentBlock | copy:',
-          `Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.`,
-          groupId
-        ),
-        cta: {
-          style: 'button',
-          type: types[0],
-          buttons: [
-            {
-              type: select('ContentBlock | CTA type', types, types[0], groupId),
-              copy: 'Secondary button',
-              href: 'https://example.com/',
-            },
-            {
-              type: select('ContentBlock | CTA type', types, types[0], groupId),
-              copy: 'Primary button',
-              href: 'https://example.com/',
-            },
-          ],
-        },
-      }),
-    },
     propsSet: {
       default: {
         CTASection: {
@@ -100,21 +117,14 @@ Default.story = {
   },
 };
 
-export const WithContentItems = ({ parameters }) => {
-  const { heading, copy, cta, items } = parameters?.props?.CTASection ?? {};
+export const WithContentItems = () => {
   const theme =
     document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
-          <CTASection
-            heading={heading}
-            copy={copy}
-            theme={theme}
-            cta={cta}
-            items={items}
-          />
+          <CTASection {...props.WithContentItems()} theme={theme} />
         </div>
       </div>
     </div>
@@ -124,33 +134,6 @@ export const WithContentItems = ({ parameters }) => {
 WithContentItems.story = {
   name: 'With content items',
   parameters: {
-    knobs: {
-      CTASection: ({ groupId }) => ({
-        heading: text('Heading (heading):', 'Take the next step', groupId),
-        copy: text(
-          'Copy (copy):',
-          `Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.`,
-          groupId
-        ),
-        cta: {
-          style: 'button',
-          type: types[0],
-          buttons: [
-            {
-              type: select('CTA (type):', types, types[0], groupId),
-              copy: 'Secondary button',
-              href: 'https://example.com/',
-            },
-            {
-              type: select('CTA (type):', types, types[0], groupId),
-              copy: 'Primary button',
-              href: 'https://example.com/',
-            },
-          ],
-        },
-        items: contentItemsProps,
-      }),
-    },
     percy: {
       skip: true,
     },

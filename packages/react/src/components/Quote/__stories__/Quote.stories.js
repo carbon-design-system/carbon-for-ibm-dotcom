@@ -18,59 +18,41 @@ const types = {
   lowHighReversedDoubleCurved: 'lowHighReversedDoubleCurved',
   cornerBracket: 'cornerBracket',
 };
+
+const props = () => ({
+  copy: text(
+    'Quote (copy): ',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
+  ),
+
+  markType: select('Quote Mark (markType):', types, types.doubleCurved),
+
+  source: {
+    heading: text(
+      'Quote Source Heading (source.heading): ',
+      'Lorem ipsum dolor sit amet'
+    ),
+    copy: text(
+      'Quote Source Copy (source.copy): ',
+      'consectetur adipiscing elit'
+    ),
+    copy2: text('Quote Source optional Copy (source.copy2)', 'IBM Cloud'),
+  },
+
+  cta: object('CTA Object:', {
+    copy: 'Link with Icon',
+    type: 'local',
+    href: 'https://example.com',
+  }),
+});
 export default {
   title: 'Components/Quote',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      Quote: ({ groupId }) => ({
-        copy: text(
-          'Quote (copy): ',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.',
-          groupId
-        ),
-
-        markType: select(
-          'Quote Mark (markType):',
-          types,
-          types.doubleCurved,
-          groupId
-        ),
-
-        source: {
-          heading: text(
-            'Quote Source Heading (source.heading): ',
-            'Lorem ipsum dolor sit amet',
-            groupId
-          ),
-          copy: text(
-            'Quote Source Copy (source.copy): ',
-            'consectetur adipiscing elit',
-            groupId
-          ),
-          copy2: text(
-            'Quote Source optional Copy (source.copy2)',
-            'IBM Cloud',
-            groupId
-          ),
-        },
-
-        cta: object(
-          'CTA Object:',
-          {
-            copy: 'Link with Icon',
-            type: 'local',
-            href: 'https://example.com',
-          },
-          groupId
-        ),
-      }),
-    },
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { markType, copy, source, cta } = parameters?.props?.Quote ?? {};
+export const Default = () => {
   const inverse =
     ['g90', 'g100'].indexOf(
       document.documentElement.getAttribute('storybook-carbon-theme')
@@ -79,13 +61,7 @@ export const Default = ({ parameters }) => {
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--offset-lg-4 bx--col-lg-12">
-          <Quote
-            markType={markType}
-            copy={copy}
-            source={source}
-            cta={cta}
-            inverse={inverse}
-          />
+          <Quote {...props()} inverse={inverse} />
         </div>
       </div>
     </div>

@@ -16,47 +16,39 @@ import settings from 'carbon-components/es/globals/js/settings';
 
 const { prefix } = settings;
 
+const props = () => ({
+  sources: [
+    {
+      src: img320,
+      breakpoint: 'sm',
+    },
+    {
+      src: img480,
+      breakpoint: 'md',
+    },
+    {
+      src: img960,
+      breakpoint: 'lg',
+    },
+  ],
+  alt: text('Image alt text (alt):', 'Image alt text'),
+  defaultSrc: text('Default image (defaultSrc):', img960),
+  border: boolean('Image border (border):', false),
+});
+
 export default {
   title: 'Components/Image',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      Image: ({ groupId }) => ({
-        image: [
-          {
-            src: img320,
-            breakpoint: 'sm',
-          },
-          {
-            src: img480,
-            breakpoint: 'md',
-          },
-          {
-            src: img960,
-            breakpoint: 'lg',
-          },
-        ],
-        alt: text('Image alt text (alt):', 'Image alt text', groupId),
-        defaultSrc: text('Default image (defaultSrc):', img960, groupId),
-        border: boolean('Image border (border):', false, groupId),
-      }),
-    },
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { image, alt, defaultSrc, border } = parameters?.props?.Image ?? {};
-
+export const Default = () => {
   return (
     <div className={`${prefix}--grid`}>
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-          <Image
-            sources={image}
-            defaultSrc={defaultSrc}
-            alt={alt}
-            border={border}
-          />
+          <Image {...props()} />
         </div>
       </div>
     </div>

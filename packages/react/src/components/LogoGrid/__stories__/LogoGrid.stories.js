@@ -49,29 +49,33 @@ const logos = [
   },
 ];
 
+const props = () => {
+  const showCta = boolean('Display CTA:', false);
+  const ctaHref = showCta
+    ? text('CTA Href (ctaHref):', 'http://local.url.com/')
+    : '';
+  const ctaCopy = showCta
+    ? text('CTA Copy (ctaCopy)', 'Lorem ipsum dolor sit amet')
+    : '';
+
+  return {
+    heading: text('Heading (heading)', 'Our customers'),
+    logosGroup: logos,
+    hideBorder: boolean(
+      'Hide border (hideBorder): Hide the bottom border',
+      false
+    ),
+    showCta,
+    ctaHref,
+    ctaCopy,
+  };
+};
+
 export default {
   title: 'Components/Logo grid',
   parameters: {
     ['carbon-theme']: { disabled: true },
     ...readme.parameters,
-    knobs: {
-      LogoGrid: ({ groupId }) => ({
-        heading: text('Heading (heading)', 'Our customers', groupId),
-        logosGroup: logos,
-        hideBorder: boolean(
-          'Hide border (hideBorder): Hide the bottom border',
-          false,
-          groupId
-        ),
-        showCta: boolean('Display CTA:', false, groupId),
-        ctaCopy: text(
-          'CTA Copy (ctaCopy)',
-          'Lorem ipsum dolor sit amet',
-          groupId
-        ),
-        ctaHref: text('CTA Href (ctaHref):', 'http://local.url.com/', groupId),
-      }),
-    },
     propsSet: {
       default: {
         LogoGrid: {
@@ -82,20 +86,12 @@ export default {
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { heading, logosGroup, hideBorder, showCta, ctaCopy, ctaHref } =
-    parameters?.props?.LogoGrid ?? {};
+export const Default = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2">
-          <LogoGrid
-            heading={heading}
-            logosGroup={logosGroup}
-            hideBorder={hideBorder}
-            ctaCopy={ctaCopy}
-            ctaHref={showCta && ctaHref}
-          />
+          <LogoGrid {...props()} />
         </div>
       </div>
     </div>
