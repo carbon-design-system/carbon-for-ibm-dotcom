@@ -28,8 +28,8 @@ const copy = `Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
   Curabitur pretium elit non blandit lobortis.
   Donec quis pretium odio, in dignissim sapien.`;
 
-export const Default = ({ parameters }) => {
-  const { orientation } = parameters?.props?.TabsExtended ?? {};
+export const Default = args => {
+  const { orientation } = args?.TabsExtended ?? {};
   return html`
     <dds-tabs-extended orientation="${ifNonNull(orientation)}">
       <dds-tab
@@ -88,8 +88,8 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      TabsExtended: ({ groupId }) => ({
-        orientation: select('Orientation (orientation):', orientationType, ORIENTATION.HORIZONTAL, groupId),
+      TabsExtended: () => ({
+        orientation: select('Orientation (orientation):', orientationType, ORIENTATION.HORIZONTAL),
       }),
     },
     propsSet: {

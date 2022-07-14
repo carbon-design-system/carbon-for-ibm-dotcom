@@ -12,11 +12,7 @@ import { Default } from '../__stories__/callout-quote.stories';
 
 const template = (props?) =>
   Default({
-    parameters: {
-      props: {
-        'dds-callout-quote': props,
-      },
-    },
+    'dds-callout-quote': props,
   });
 
 describe('dds-callout-quote', function() {

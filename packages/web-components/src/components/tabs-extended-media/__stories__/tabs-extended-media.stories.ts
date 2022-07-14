@@ -26,8 +26,8 @@ const mediaType = {
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
 
-export const Default = ({ parameters }) => {
-  const { sectionHeading, align, type } = parameters?.props?.TabsExtendedWithMedia ?? {};
+export const Default = args => {
+  const { sectionHeading, align, type } = args?.TabsExtendedWithMedia ?? {};
   const tabs: any[] = [];
 
   for (let i = 1; i < 5; i++) {

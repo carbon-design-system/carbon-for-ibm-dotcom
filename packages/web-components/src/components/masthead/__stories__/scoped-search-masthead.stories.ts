@@ -56,10 +56,10 @@ const scopeParameters = [
 
 export const Default = !DDS_SCOPED_SEARCH
   ? undefined
-  : ({ parameters }) => {
+  : args => {
       const { customProfileLogin, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch, navLinks } =
-        parameters?.props?.MastheadComposite ?? {};
-      const { useMock } = parameters?.props?.Other ?? {};
+        args?.MastheadComposite ?? {};
+      const { useMock } = args?.Other ?? {};
 
       return html`
         <style>
@@ -120,20 +120,15 @@ export default !DDS_SCOPED_SEARCH
         ...readme.parameters,
         knobs: {
           escapeHTML: false,
-          MastheadComposite: ({ groupId }) => ({
-            hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true', groupId),
-            hasSearch: boolean('show the search functionality (has-search)', true, groupId),
-            searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
-            selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services', groupId),
-            userStatus: select(
-              'The user authenticated status (user-status)',
-              userStatuses,
-              userStatuses.unauthenticated,
-              groupId
-            ),
+          MastheadComposite: () => ({
+            hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true'),
+            hasSearch: boolean('show the search functionality (has-search)', true),
+            searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM'),
+            selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services'),
+            userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
             customProfileLogin:
               DDS_CUSTOM_PROFILE_LOGIN &&
-              textNullable('custom profile login url (customProfileLogin)', 'https://www.example.com/', groupId),
+              textNullable('custom profile login url (customProfileLogin)', 'https://www.example.com/'),
           }),
         },
         props: (() => {

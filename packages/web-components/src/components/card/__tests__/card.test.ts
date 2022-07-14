@@ -13,11 +13,7 @@ import { Default } from '../__stories__/card.stories';
 
 const template = (props?) =>
   Default({
-    parameters: {
-      props: {
-        'dds-card': props,
-      },
-    },
+    'dds-card': props,
   });
 
 describe('dds-card', function() {

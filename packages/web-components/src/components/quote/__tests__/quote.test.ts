@@ -13,11 +13,7 @@ import { Default } from '../__stories__/quote.stories';
 
 const template = (props?) =>
   Default({
-    parameters: {
-      props: {
-        LinkWithIcon: props,
-      },
-    },
+    LinkWithIcon: props,
   });
 
 describe('dds-quote', function() {

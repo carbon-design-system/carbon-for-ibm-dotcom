@@ -129,8 +129,8 @@ const renderItems = (item, count) => {
   `;
 };
 
-export const Simple = ({ parameters }) => {
-  const { heading, copy, showText, showCta, border } = parameters?.props?.CTASection ?? {};
+export const Simple = args => {
+  const { heading, copy, showText, showCta, border } = args?.CTASection ?? {};
 
   return html`
     <dds-cta-section>
@@ -154,9 +154,9 @@ export const Simple = ({ parameters }) => {
   `;
 };
 
-export const WithContentItems = ({ parameters }) => {
-  const { heading, copy, showText, showCta, border } = parameters?.props?.CTASection ?? {};
-  const { contentItemType, contentItemCount, logoAspectRatio } = parameters?.props?.WithContentItems ?? {};
+export const WithContentItems = args => {
+  const { heading, copy, showText, showCta, border } = args?.CTASection ?? {};
+  const { contentItemType, contentItemCount, logoAspectRatio } = args?.WithContentItems ?? {};
 
   const contentItem = contentItemTypeMap[contentItemType];
 
@@ -188,17 +188,15 @@ WithContentItems.story = {
   name: 'With content items',
   parameters: {
     knobs: {
-      WithContentItems: ({ groupId }) => {
-        const contentItemType = select('Content item type', contentItemTypeOptions, contentItemTypeOptions.Text, groupId);
+      WithContentItems: () => {
+        const contentItemType = select('Content item type', contentItemTypeOptions, contentItemTypeOptions.Text);
 
         const logoAspectRatio =
-          contentItemType !== contentItemTypeOptions.Logo
-            ? undefined
-            : select('Logo aspect ratio', ['2:1', '1:1'], '2:1', groupId);
+          contentItemType !== contentItemTypeOptions.Logo ? undefined : select('Logo aspect ratio', ['2:1', '1:1'], '2:1');
         return {
           contentItemType,
           contentItemCount: Array.from({
-            length: number('Number of content items', 3, { min: 2, max: 6 }, groupId),
+            length: number('Number of content items', 3, { min: 2, max: 6 }),
           }),
           logoAspectRatio,
         };
@@ -215,8 +213,8 @@ WithContentItems.story = {
   },
 };
 
-export const WithLinkList = ({ parameters }) => {
-  const { heading, copy, showText, showCta, border } = parameters?.props?.CTASection ?? {};
+export const WithLinkList = args => {
+  const { heading, copy, showText, showCta, border } = args?.CTASection ?? {};
 
   return html`
     <dds-cta-section>
@@ -285,16 +283,15 @@ export default {
   ],
   parameters: {
     knobs: {
-      CTASection: ({ groupId }) => ({
-        heading: textNullable('Heading (required)', 'Optional title heading-05 color text-01', groupId),
+      CTASection: () => ({
+        heading: textNullable('Heading (required)', 'Optional title heading-05 color text-01'),
         copy: textNullable(
           'Copy text (optional)',
-          'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
-          groupId
+          'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.'
         ),
-        showText: boolean('Add Copy', true, groupId),
-        showCta: boolean('Add CTA', true, groupId),
-        border: boolean('CTA Block border', false, groupId),
+        showText: boolean('Add Copy', true),
+        showCta: boolean('Add CTA', true),
+        border: boolean('CTA Block border', false),
       }),
     },
     propsSet: {

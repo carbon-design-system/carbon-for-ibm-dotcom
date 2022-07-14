@@ -13,11 +13,7 @@ import { Default } from '../__stories__/card-in-card.stories';
 
 const template = (props?) =>
   Default({
-    parameters: {
-      props: {
-        'dds-card-in-card': props,
-      },
-    },
+    'dds-card-in-card': props,
   });
 
 describe('dds-card-in-card', function() {

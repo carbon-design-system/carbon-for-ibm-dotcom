@@ -68,60 +68,53 @@ const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean 
 `;
 
 /**
- * @param {object} options The options.
- * @param {string} options.groupId The knob group ID.
  * @returns {object} The knobs data.
  */
-const getBaseKnobs = ({ groupId }) => {
+const getBaseKnobs = () => {
   return {
     copy,
     heading: text(
       'Heading (required)',
-      'Curabitur malesuada varius mi eu posuere',
-      groupId
+      'Curabitur malesuada varius mi eu posuere'
     ),
     cta: {
       cta: {
         href: 'https://www.ibm.com',
       },
-      style: select('CTA style', ctaStyles, ctaStyles.card, groupId),
-      type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
+      style: select('CTA style', ctaStyles, ctaStyles.card),
+      type: select('CTA type', ctaTypes, ctaTypes.local),
       heading: 'Lorem ipsum dolor sit ametttt',
     },
   };
 };
 
+const props = {
+  default: () => {
+    const knobs = getBaseKnobs();
+    return {
+      ...knobs,
+    };
+  },
+  WithImage: () => {},
+};
+
 export default {
-  title: 'Components|Content block simple',
+  title: 'Components/Content block simple',
   parameters: {
     ...readme.parameters,
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { copy, heading, cta } = parameters?.props?.ContentBlockSimple ?? {};
+export const Default = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story">
-          <ContentBlockSimple copy={copy} heading={heading} cta={cta} />
+          <ContentBlockSimple {...props.default()} />
         </div>
       </div>
     </div>
   );
-};
-
-Default.story = {
-  parameters: {
-    knobs: {
-      ContentBlockSimple: ({ groupId }) => {
-        const knobs = getBaseKnobs({ groupId });
-        return {
-          ...knobs,
-        };
-      },
-    },
-  },
 };
 
 export const WithImage = ({ parameters }) => {

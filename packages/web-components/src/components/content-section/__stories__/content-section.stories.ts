@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -51,8 +51,8 @@ const card2 = html`
   </dds-content-group-cards-item>
 `;
 
-export const Default = ({ parameters }) => {
-  const { heading, copy, addChildren } = parameters?.props?.ContentSection ?? {};
+export const Default = args => {
+  const { heading, copy, addChildren } = args?.ContentSection ?? {};
   return html`
     <dds-content-section children-custom-class="bx--col-lg-8 bx--no-gutter">
       <dds-content-section-heading>${ifNonNull(heading)}</dds-content-section-heading>

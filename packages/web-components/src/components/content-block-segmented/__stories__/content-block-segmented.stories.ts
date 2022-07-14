@@ -74,8 +74,8 @@ const linkListItems = [
   'Explore AI use cases in all industries',
 ];
 
-export const Default = ({ parameters }) => {
-  const { heading, copy, ctaStyle, ctaType, complementaryStyleScheme } = parameters?.props?.ContentBlockSegmented ?? {};
+export const Default = args => {
+  const { heading, copy, ctaStyle, ctaType, complementaryStyleScheme } = args?.ContentBlockSegmented ?? {};
   return html`
     <dds-content-block-segmented complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
@@ -112,9 +112,9 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const withLinkList = ({ parameters }) => {
+export const withLinkList = args => {
   const { blockHeading, heading, copy, ctaStyle, ctaType, complementaryStyleScheme, totalLinks } =
-    parameters?.props?.ContentBlockSegmented ?? {};
+    args?.ContentBlockSegmented ?? {};
   return html`
     <dds-content-block-segmented complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${blockHeading}</dds-content-block-heading>

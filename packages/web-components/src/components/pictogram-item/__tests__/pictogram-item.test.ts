@@ -13,11 +13,7 @@ import { Default } from '../__stories__/pictogram-item.stories';
 
 const template = (props?) =>
   Default({
-    parameters: {
-      props: {
-        PictogramItem: props,
-      },
-    },
+    PictogramItem: props,
   });
 
 describe('dds-pictogram-item', function() {

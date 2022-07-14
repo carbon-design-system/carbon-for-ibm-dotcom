@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -42,8 +42,8 @@ const cardGroupItem = html`
 
 export const Default = !DDS_CONTENT_BLOCK_CARD_STATIC
   ? undefined
-  : ({ parameters }) => {
-      const { heading, itemHeading, itemCopy, href } = parameters?.props?.ContentBlockCards ?? {};
+  : args => {
+      const { heading, itemHeading, itemCopy, href } = args?.ContentBlockCards ?? {};
       return html`
         <dds-content-block-card-static>
           <dds-content-block-heading>${heading}</dds-content-block-heading>

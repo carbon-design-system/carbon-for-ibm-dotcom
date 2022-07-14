@@ -1,11 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { text, select } from '@storybook/addon-knobs';
+import { text, select, withKnobs } from '@storybook/addon-knobs';
 import LinkList from '../LinkList';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -49,21 +49,55 @@ const items = [
   },
 ];
 
+const props = {
+  default: () => ({
+    heading: text('Heading (heading):', 'Tutorials'),
+    items: items,
+  }),
+  horizontal: () => ({
+    heading: text('Heading (heading):', 'Tutorials'),
+    items: items.slice(0, 2),
+    iconPlacement: select(
+      'Icon placement (iconPlacement):',
+      iconPlacement,
+      iconPlacement[1]
+    ),
+  }),
+  vertical: () => ({
+    heading: text('Heading (heading):', 'Tutorials'),
+    items: items.slice(0, 2),
+    iconPlacement: select(
+      'Icon placement (iconPlacement):',
+      iconPlacement,
+      iconPlacement[0]
+    ),
+  }),
+  verticalWithCards: () => ({
+    heading: text('Heading (heading):', 'Tutorials'),
+    items: items,
+    iconPlacement: select(
+      'Icon placement (iconPlacement):',
+      iconPlacement,
+      iconPlacement[0]
+    ),
+  }),
+};
+
 export default {
-  title: 'Components|Link list',
+  title: 'Components/Link list',
+  component: LinkList,
+  decorators: [withKnobs],
   parameters: {
     ...readme.parameters,
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { heading, items } = parameters?.props?.LinkList ?? {};
-
+export const Default = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-3 bx--offset-lg-4">
-          <LinkList style="card" heading={heading} items={items} />
+          <LinkList style="card" {...props.default()} />
         </div>
       </div>
     </div>
@@ -72,12 +106,6 @@ export const Default = ({ parameters }) => {
 
 Default.story = {
   parameters: {
-    knobs: {
-      LinkList: ({ groupId }) => ({
-        heading: text('Heading (heading):', 'Tutorials', groupId),
-        items: items,
-      }),
-    },
     propsSet: {
       default: {
         LinkList: {
@@ -88,19 +116,12 @@ Default.story = {
   },
 };
 
-export const Horizontal = ({ parameters }) => {
-  const { heading, items, iconPlacement } = parameters?.props?.LinkList ?? {};
-
+export const Horizontal = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-4">
-          <LinkList
-            style="horizontal"
-            heading={heading}
-            items={items}
-            iconPlacement={iconPlacement}
-          />
+          <LinkList style="horizontal" {...props.horizontal()} />
         </div>
       </div>
     </div>
@@ -109,18 +130,6 @@ export const Horizontal = ({ parameters }) => {
 
 Horizontal.story = {
   parameters: {
-    knobs: {
-      LinkList: ({ groupId }) => ({
-        heading: text('Heading (heading):', 'Tutorials', groupId),
-        items: items.slice(0, 2),
-        iconPlacement: select(
-          'Icon placement (iconPlacement):',
-          iconPlacement,
-          iconPlacement[1],
-          groupId
-        ),
-      }),
-    },
     propsSet: {
       default: {
         LinkList: {
@@ -131,19 +140,12 @@ Horizontal.story = {
   },
 };
 
-export const Vertical = ({ parameters }) => {
-  const { heading, items, iconPlacement } = parameters?.props?.LinkList ?? {};
-
+export const Vertical = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4">
-          <LinkList
-            style="vertical"
-            iconPlacement={iconPlacement}
-            heading={heading}
-            items={items}
-          />
+          <LinkList style="vertical" {...props.vertical()} />
         </div>
       </div>
     </div>
@@ -152,18 +154,6 @@ export const Vertical = ({ parameters }) => {
 
 Vertical.story = {
   parameters: {
-    knobs: {
-      LinkList: ({ groupId }) => ({
-        heading: text('Heading (heading):', 'Tutorials', groupId),
-        items: items,
-        iconPlacement: select(
-          'Icon placement (iconPlacement):',
-          iconPlacement,
-          iconPlacement[0],
-          groupId
-        ),
-      }),
-    },
     propsSet: {
       default: {
         LinkList: {
@@ -174,20 +164,13 @@ Vertical.story = {
   },
 };
 
-export const VerticalWithCards = ({ parameters }) => {
-  const { heading, items, iconPlacement } = parameters?.props?.LinkList ?? {};
-
+export const VerticalWithCards = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4">
-          <LinkList
-            style="vertical"
-            iconPlacement={iconPlacement}
-            heading={heading}
-            items={items}
-          />
-          <LinkList style="card" heading={heading} items={items} />
+          <LinkList style="vertical" {...props.verticalWithCards()} />
+          <LinkList style="card" {...props.default()} />
         </div>
       </div>
     </div>
@@ -197,18 +180,6 @@ export const VerticalWithCards = ({ parameters }) => {
 VerticalWithCards.story = {
   name: 'Vertical with cards',
   parameters: {
-    knobs: {
-      LinkList: ({ groupId }) => ({
-        heading: text('Heading (heading):', 'Tutorials', groupId),
-        items: items,
-        iconPlacement: select(
-          'Icon placement (iconPlacement):',
-          iconPlacement,
-          iconPlacement[0],
-          groupId
-        ),
-      }),
-    },
     propsSet: {
       default: {
         LinkList: {
@@ -219,14 +190,12 @@ VerticalWithCards.story = {
   },
 };
 
-export const EndOfSection = ({ parameters }) => {
-  const { heading, items } = parameters?.props?.LinkList ?? {};
-
+export const EndOfSection = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-          <LinkList style="vertical-end" heading={heading} items={items} />
+          <LinkList style="vertical-end" {...props.default()} />
         </div>
       </div>
     </div>
@@ -236,12 +205,6 @@ export const EndOfSection = ({ parameters }) => {
 EndOfSection.story = {
   name: 'End of section',
   parameters: {
-    knobs: {
-      LinkList: ({ groupId }) => ({
-        heading: text('Heading (heading):', 'Tutorials', groupId),
-        items,
-      }),
-    },
     propsSet: {
       default: {
         LinkList: {

@@ -64,6 +64,7 @@ describe('dds-video-player', function() {
   it('should support hiding the caption', async function() {
     render(
       template({
+        thumbnailUrl: 'about:blank',
         hideCaption: true,
       }),
       document.body
@@ -77,6 +78,7 @@ describe('dds-video-player', function() {
       template({
         duration: 60,
         name: 'video-name-foo',
+        thumbnailUrl: 'about:blank',
         formatCaption({ duration, name }: { duration?: string; name: string }) {
           return `${name}-${duration}`;
         },

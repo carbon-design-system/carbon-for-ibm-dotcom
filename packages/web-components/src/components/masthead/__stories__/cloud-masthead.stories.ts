@@ -47,7 +47,7 @@ const urlObject = {
 
 export const Default = !DDS_CLOUD_MASTHEAD
   ? undefined
-  : ({ parameters }) => {
+  : args => {
       const {
         hasContact,
         hasProfile,
@@ -58,8 +58,8 @@ export const Default = !DDS_CLOUD_MASTHEAD
         navLinks,
         redirectPath,
         authMethod,
-      } = parameters?.props?.CloudMastheadComposite ?? {};
-      const { useMock } = parameters?.props?.Other ?? {};
+      } = args?.CloudMastheadComposite ?? {};
+      const { useMock } = args?.Other ?? {};
       return html`
         <style>
           ${styles}
@@ -123,17 +123,12 @@ export default !DDS_CLOUD_MASTHEAD
         'carbon-theme': { disabled: true },
         knobs: {
           escapeHTML: false,
-          CloudMastheadComposite: ({ groupId }) => ({
-            userStatus: select(
-              'The user authenticated status (user-status)',
-              ['authenticated', 'anonymous'],
-              'anonymous',
-              groupId
-            ),
-            hasContact: select('Contact us button visibility (has-contact)', ['true', 'false'], 'true', groupId),
-            selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Docs', groupId),
-            redirectPath: textNullable('redirect path (redirect-path)', '', groupId),
-            authMethod: select('auth method (auth-method)', ['cookie', 'api'], 'cookie', groupId),
+          CloudMastheadComposite: () => ({
+            userStatus: select('The user authenticated status (user-status)', ['authenticated', 'anonymous'], 'anonymous'),
+            hasContact: select('Contact us button visibility (has-contact)', ['true', 'false'], 'true'),
+            selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Docs'),
+            redirectPath: textNullable('redirect path (redirect-path)', ''),
+            authMethod: select('auth method (auth-method)', ['cookie', 'api'], 'cookie'),
           }),
         },
         props: (() => {

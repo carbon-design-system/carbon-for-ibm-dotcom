@@ -14,21 +14,17 @@ import { Default } from '../__stories__/button-group.stories';
 
 const template = () =>
   Default({
-    parameters: {
-      props: {
-        ButtonGroup: {
-          buttons: [
-            {
-              href: 'https://example.com',
-              copy: 'Lorem Ipsum',
-            },
-            {
-              href: 'https://example.com',
-              copy: 'Lorem Ipsum',
-            },
-          ],
+    ButtonGroup: {
+      buttons: [
+        {
+          href: 'https://example.com',
+          copy: 'Lorem Ipsum',
         },
-      },
+        {
+          href: 'https://example.com',
+          copy: 'Lorem Ipsum',
+        },
+      ],
     },
   });
 

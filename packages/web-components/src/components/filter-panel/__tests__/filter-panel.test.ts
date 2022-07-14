@@ -13,11 +13,7 @@ import { Default } from '../__stories__/filter-panel.stories';
 
 const template = (props?) =>
   Default({
-    parameters: {
-      props: {
-        'dds-filter-panel-composite': props,
-      },
-    },
+    'dds-filter-panel-composite': props,
   });
 
 describe('dds-filter-panel-composite', function() {

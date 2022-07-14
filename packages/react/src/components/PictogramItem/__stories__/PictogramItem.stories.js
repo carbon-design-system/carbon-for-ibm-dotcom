@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,37 +34,30 @@ const pictograms = {
   Pattern: 'Pattern',
 };
 
+const props = () => ({
+  heading: text('Heading (required)', 'Lorem ipsum dolor sit'),
+  copy: text(
+    'Copy (required)',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
+  ),
+  pictogram: {
+    src: selectPictogram(
+      select('Pictogram (required)', pictograms, pictograms.Desktop)
+    ),
+    'aria-label': text('Aria-label:', 'Pictogram description'),
+  },
+
+  cta: {
+    type: 'local',
+    href: 'https://www.example.com',
+    copy: 'Lorem ipsum dolor',
+  },
+});
+
 export default {
-  title: 'Components|Pictogram item',
+  title: 'Components/Pictogram item',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      PictogramItem: ({ groupId }) => ({
-        heading: text('Heading (required)', 'Lorem ipsum dolor sit', groupId),
-        copy: text(
-          'Copy (required)',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
-          groupId
-        ),
-        pictogram: {
-          src: selectPictogram(
-            select(
-              'Pictogram (required)',
-              pictograms,
-              pictograms.Desktop,
-              groupId
-            )
-          ),
-          'aria-label': text('Aria-label:', 'Pictogram description', groupId),
-        },
-
-        cta: {
-          type: 'local',
-          href: 'https://www.example.com',
-          copy: 'Lorem ipsum dolor',
-        },
-      }),
-    },
     propsSet: {
       default: {
         PictogramItem: {
@@ -77,19 +70,12 @@ export default {
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { heading, copy, pictogram, cta } =
-    parameters?.props?.PictogramItem ?? {};
+export const Default = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-          <PictogramItem
-            heading={heading}
-            copy={copy}
-            pictogram={pictogram}
-            cta={cta}
-          />
+          <PictogramItem {...props()} />
         </div>
       </div>
     </div>

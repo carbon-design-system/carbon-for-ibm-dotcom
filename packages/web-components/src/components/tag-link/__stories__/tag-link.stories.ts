@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,8 +13,8 @@ import readme from './README.stories.mdx';
 import '../tag-link';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
-export const Default = ({ parameters }) => {
-  const { copy, href } = parameters?.props?.TagLink ?? {};
+export const Default = args => {
+  const { copy, href } = args?.TagLink ?? {};
   return html`
     <dds-tag-link href=${ifNonNull(href || undefined)}>
       ${copy}

@@ -22,7 +22,7 @@ const layoutOptions = {
 };
 
 export default {
-  title: 'Components|Layout',
+  title: 'Components/Layout',
   parameters: {
     ...readme.parameters,
     knobs: {

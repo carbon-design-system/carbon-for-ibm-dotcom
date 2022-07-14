@@ -50,8 +50,8 @@ const mediaType = {
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
 
-export const Default = ({ parameters }) => {
-  const { sectionHeading, align, type } = parameters?.props?.TabsExtendedMedia ?? {};
+export const Default = args => {
+  const { sectionHeading, align, type } = args?.TabsExtendedMedia ?? {};
   const tabs: any[] = [];
 
   for (let i = 1; i < 5; i++) {
