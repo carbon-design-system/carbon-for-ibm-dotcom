@@ -10,7 +10,7 @@
 import { html, property, customElement, LitElement, state } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import on from 'carbon-components/es/globals/js/misc/on';
+import on from 'carbon-components/es/globals/js/misc/on.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import '../expressive-modal/expressive-modal';
