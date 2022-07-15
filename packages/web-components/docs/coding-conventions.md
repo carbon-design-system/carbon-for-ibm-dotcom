@@ -119,7 +119,7 @@ class BXModal extends HostListenerMixin(LitElement) {
 Sometimes we want to attach an event listener on a target that is not supported by `@HostListener()`. In such case, we can use [`on()` API from `carbon-components`](https://github.com/carbon-design-system/carbon/blob/v10.17.0/packages/components/src/globals/js/misc/on.js), like:
 
 ```typescript
-import on from 'carbon-components/es/globals/js/misc/on';
+import on from 'carbon-components/es/globals/js/misc/on.js';
 import Handle from '../../globals/internal/handle';
 
 ...
