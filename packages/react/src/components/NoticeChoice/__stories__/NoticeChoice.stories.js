@@ -7,6 +7,7 @@
 
 import { boolean, select, text } from '@storybook/addon-knobs';
 
+import { DDS_NOTICE_CHOICE } from '../../../internal/FeatureFlags';
 import NoticeChoice from '../NoticeChoice';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -37,69 +38,76 @@ const countryList = {
   Germany: 'DE',
   India: 'IN',
 };
-export default {
-  title: 'Components|Notice Choice',
-  parameters: {
-    ['carbon-theme']: { disabled: true },
-    ...readme.parameters,
-    knobs: {
-      NoticeChoice: () => ({
-        locale: select('Locale', locales, 'in-en'),
-        country: select('Country', countryList, 'IN'),
-        onChange: (field, value) => {
-          console.log('onChange callback triggered', field, value);
+export default !DDS_NOTICE_CHOICE
+  ? undefined
+  : {
+      title: 'Components|Notice Choice',
+      parameters: {
+        ['carbon-theme']: { disabled: true },
+        ...readme.parameters,
+        knobs: {
+          NoticeChoice: () => ({
+            locale: select('Locale', locales, 'in-en'),
+            country: select('Country', countryList, 'IN'),
+            onChange: (field, value) => {
+              console.log('onChange callback triggered', field, value);
+            },
+            questionChoices: select('Question Choices', questionChocies, [
+              1,
+              2,
+            ]),
+            email: text('Email', ''),
+            termsConditionLink: text(
+              'termsConditionLink',
+              'https://www.ibm.com/legal'
+            ),
+            classNames: text('classNames', `custom-class-by-app`),
+            // defaultValues: object('defaultValues', { EMAIL: false }),
+            enableAllOptIn: boolean('enableAllOptIn', false),
+            bpidLegalText: text('bpidLegalText', ''),
+          }),
         },
-        questionChoices: select('Question Choices', questionChocies, [1, 2]),
-        email: text('Email', ''),
-        termsConditionLink: text(
-          'termsConditionLink',
-          'https://www.ibm.com/legal'
-        ),
-        classNames: text('classNames', `custom-class-by-app`),
-        // defaultValues: object('defaultValues', { EMAIL: false }),
-        enableAllOptIn: boolean('enableAllOptIn', false),
-        bpidLegalText: text('bpidLegalText', ''),
-      }),
-    },
-    propsSet: {
-      default: {
-        NoticeChoice: {},
+        propsSet: {
+          default: {
+            NoticeChoice: {},
+          },
+        },
+        // argTypes: { onChange: { action: 'clicked' } },
       },
-    },
-    // argTypes: { onChange: { action: 'clicked' } },
-  },
-};
+    };
 
-export const Default = ({ parameters }) => {
-  const {
-    questionChoices,
-    termsConditionLink,
-    locale,
-    country,
-    onChange,
-    email,
-    classNames,
-    enableAllOptIn,
-    // defaultValues,
-  } = parameters?.props?.NoticeChoice ?? {};
-  // console.log('enableAllOptIn', enableAllOptIn);
-  return (
-    <div className="bx--grid" style={{ marginTop: '2rem' }}>
-      <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2">
-          <NoticeChoice
-            questionChoices={questionChoices}
-            termsConditionLink={termsConditionLink}
-            locale={locale}
-            country={country}
-            onChange={onChange}
-            email={email}
-            classNames={classNames}
-            enableAllOptIn={enableAllOptIn}
-            // defaultValues={defaultValues}
-          />
+export const Default = !DDS_NOTICE_CHOICE
+  ? undefined
+  : ({ parameters }) => {
+      const {
+        questionChoices,
+        termsConditionLink,
+        locale,
+        country,
+        onChange,
+        email,
+        classNames,
+        enableAllOptIn,
+        // defaultValues,
+      } = parameters?.props?.NoticeChoice ?? {};
+      // console.log('enableAllOptIn', enableAllOptIn);
+      return (
+        <div className="bx--grid" style={{ marginTop: '2rem' }}>
+          <div className="bx--row">
+            <div className="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2">
+              <NoticeChoice
+                questionChoices={questionChoices}
+                termsConditionLink={termsConditionLink}
+                locale={locale}
+                country={country}
+                onChange={onChange}
+                email={email}
+                classNames={classNames}
+                enableAllOptIn={enableAllOptIn}
+                // defaultValues={defaultValues}
+              />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  );
-};
+      );
+    };

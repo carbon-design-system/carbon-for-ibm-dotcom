@@ -11,7 +11,9 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import BPIDLegalText from './BPIDLegalText';
 import Checkbox from '../../internal/vendor/carbon-components-react/components/Checkbox';
 import countrySettings from './country-settings';
+import { DDS_NOTICE_CHOICE } from '../../internal/FeatureFlags.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import { getMappedValue } from './utils';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -380,7 +382,8 @@ export function NoticeChoice({
       />
     );
   }, [preText]);
-  return (
+  return featureFlag(
+    DDS_NOTICE_CHOICE,
     <section
       data-autoid={`${stablePrefix}--nc`}
       className={`${prefix}--nc ${classNames}`}>
