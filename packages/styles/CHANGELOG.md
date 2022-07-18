@@ -3,11 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.36.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.36.0-rc.0...@carbon/ibmdotcom-styles@1.36.0) (2022-07-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+## [1.35.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.35.0...@carbon/ibmdotcom-styles@1.35.1) (2022-07-08)
+
+
 # [1.36.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.35.0...@carbon/ibmdotcom-styles@1.36.0-rc.0) (2022-07-08)
 
 
 ### Bug Fixes
 
+* **masthead:** fixes megamenu item styles ([#9066](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9066)) ([#9077](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9077)) ([7212a47](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7212a473e675cbfb030c3a7a1b2070b04a3f07c2)), closes [#9065](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9065)
 * **content-item-horizontal:** remove invalid selector ([#9070](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9070)) ([0666306](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0666306af34bc2332eb50f578f2021ff114b5248))
 * **link-list:** fix invalid slotted styles ([#9071](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9071)) ([0d4ff52](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0d4ff526af13413981c4d84ad6bc10c2dd8502c2))
 * **masthead:** fixes megamenu item styles ([#9066](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9066)) ([f81e090](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f81e090c2c818e47ba7d36c63e2d6a4dc5fb9e6c)), closes [#9065](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9065)
