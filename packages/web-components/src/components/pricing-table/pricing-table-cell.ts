@@ -50,7 +50,7 @@ class DDSPricingTableCell extends HostListenerMixin(DDSStructuredListCell) {
     // Filter out annotations, which should be in the "annotation" slot but
     // sometimes appear as inside the default slot. Also filter out empty
     // text nodes.
-    const slotContents = defaultSlot.assignedNodes().filter(node => {
+    const slotContents = (defaultSlot?.assignedNodes() || []).filter(node => {
       const isAnnotation = node instanceof DDSPricingTableCellAnnotation;
       const isEmpty = node.textContent?.trim() === '';
 
