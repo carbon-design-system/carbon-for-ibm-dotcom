@@ -48,20 +48,19 @@ class DDSPricingTableCell extends StableSelectorMixin(HostListenerMixin(DDSStruc
         defaultSlot = slot;
       }
     });
-    if (defaultSlot instanceof HTMLSlotElement) {
-      // Filter out annotations, which should be in the "annotation" slot but
-      // sometimes appear as inside the default slot. Also filter out empty
-      // text nodes.
-      const slotContents = defaultSlot.assignedNodes().filter(node => {
-        const isAnnotation = node instanceof DDSPricingTableCellAnnotation;
-        const isEmpty = node.textContent?.trim() === '';
 
-        return !isAnnotation && !isEmpty;
-      });
+    // Filter out annotations, which should be in the "annotation" slot but
+    // sometimes appear as inside the default slot. Also filter out empty
+    // text nodes.
+    const slotContents = (defaultSlot?.assignedNodes() || []).filter(node => {
+      const isAnnotation = node instanceof DDSPricingTableCellAnnotation;
+      const isEmpty = node.textContent?.trim() === '';
 
-      if (slotContents.length === 0) {
-        this.classList.toggle('no-cell-content');
-      }
+      return !isAnnotation && !isEmpty;
+    });
+
+    if (slotContents.length === 0) {
+      this.classList.toggle('no-cell-content');
     }
   }
 
