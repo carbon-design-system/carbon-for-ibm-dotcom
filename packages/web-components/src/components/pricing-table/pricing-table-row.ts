@@ -9,6 +9,7 @@
 
 import { customElement, html, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSStructuredListRow from '../structured-list/structured-list-row';
 import styles from './pricing-table.scss';
 import { setColumnWidth } from './utils';
@@ -16,7 +17,7 @@ import { setColumnWidth } from './utils';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-row`)
-class DDSPricingTableRow extends DDSStructuredListRow {
+class DDSPricingTableRow extends StableSelectorMixin(DDSStructuredListRow) {
   @property()
   hasAnnotations: boolean = false;
 
