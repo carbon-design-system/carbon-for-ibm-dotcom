@@ -12,7 +12,6 @@ import coreEvents from '@storybook/core-events';
 import { configure, addParameters, addDecorator } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
-// import decoratorKnobs from './decorator-knobs';
 import theme from './theme';
 import Container from './Container';
 
@@ -56,34 +55,6 @@ addParameters({
 });
 
 addDecorator(withKnobs);
-// addDecorator(decoratorKnobs);
-
-// addDecorator((story, { parameters }) => {
-//   const { knobs, propsSet } = parameters;
-//   const { default: defaultProps } = propsSet ?? {};
-//   if (Object(defaultProps) === defaultProps) {
-//     if (!parameters.props) {
-//       parameters.props = {};
-//     }
-//     Object.keys(defaultProps).forEach(name => {
-//       Object.assign(
-//         (parameters.props[name] = parameters.props[name] || {}),
-//         defaultProps[name] ?? {}
-//       );
-//     });
-//   }
-//   if (Object(knobs) === knobs) {
-//     if (!parameters.props) {
-//       parameters.props = {};
-//     }
-//     Object.keys(knobs).forEach(name => {
-//       if (typeof knobs[name] === 'function') {
-//         parameters.props[name] = knobs[name]({ groupId: name });
-//       }
-//     });
-//   }
-//   return story();
-// });
 
 let preservedTheme;
 
@@ -113,9 +84,31 @@ const reqDocs = requireContext('../docs', true, /\.stories\.mdx$/);
 configure(reqDocs, module);
 
 const reqComponents = requireContext('../src', true, /\.stories\.js$/);
-// const reqComponents = requireContext(
-//   '../src',
-//   true,
-//   /LinkWithIcon\.stories\.js$/
-// );
 configure(reqComponents, module);
+
+// Reset knobs when changing stories to prevent them carrying over.
+// This can be removed when stories switch to controls.
+// https://github.com/storybookjs/addon-knobs/issues/19
+let currentPath;
+if (window.parent) {
+  const parentWindow = window.parent;
+  parentWindow.setInterval(function() {
+    const urlParams = new URLSearchParams(parentWindow.location.search);
+    const path = urlParams.get('path');
+    if (path && path !== currentPath) {
+      currentPath = path;
+
+      const knobButtons = parentWindow.document.querySelectorAll(
+        '#panel-tab-content button'
+      );
+      if (knobButtons) {
+        const resetButton = knobButtons[knobButtons.length - 1];
+        resetButton.click();
+      }
+    }
+    const knobLabel = parentWindow.document.querySelector(
+      '[id*="tabbutton-knobs-"]'
+    );
+    knobLabel.textContent = 'Knobs';
+  }, 100);
+}
