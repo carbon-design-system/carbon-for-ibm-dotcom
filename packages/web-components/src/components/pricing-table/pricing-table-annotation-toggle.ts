@@ -59,7 +59,7 @@ class DDSPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-highlight-label`;
+    return `${ddsPrefix}--pricing-table-annotation-toggle`;
   }
 
   static styles = styles;

@@ -9,12 +9,13 @@
 
 import { customElement, LitElement, property, html } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './pricing-table.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-cell-annotation`)
-class DDSPricingTableCellAnnotation extends LitElement {
+class DDSPricingTableCellAnnotation extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'annotation';
 
@@ -25,7 +26,7 @@ class DDSPricingTableCellAnnotation extends LitElement {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-group-annotation`;
+    return `${ddsPrefix}--pricing-table-cell-annotation`;
   }
 
   static styles = styles;
