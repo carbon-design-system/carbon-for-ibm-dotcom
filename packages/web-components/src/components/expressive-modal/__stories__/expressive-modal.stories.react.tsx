@@ -33,7 +33,7 @@ const sizes = {
 
 export const Default = args => {
   const { open, disableClose, size, onBeforeClose, onClose } = args?.Modal ?? {};
-  const { buttonContent } = args;
+  const { buttonContent } = args.Other;
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose?.(event);
     if (disableClose) {
