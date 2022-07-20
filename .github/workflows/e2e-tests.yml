@@ -54,7 +54,6 @@ jobs:
         env:
           DDS_CLOUD_MASTHEAD: true
           DDS_FLAGS_ALL: true
-
       - name: Build storybook
         working-directory: packages/web-components
         run: yarn build-storybook
