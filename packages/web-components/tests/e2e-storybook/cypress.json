@@ -1,5 +1,6 @@
 {
   "baseUrl": "http://localhost:8081",
+  "projectId": "2tfr3g",
   "browser": "chrome",
   "headless": true,
   "fixturesFolder": "tests/e2e-storybook/cypress/fixtures",

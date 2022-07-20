@@ -18,6 +18,5 @@ tests/e2e/cypress/screenshots
 tests/e2e/cypress/videos
 tests/e2e-storybook/cypress/screenshots
 tests/e2e-storybook/cypress/videos
-tests/e2e-storybook/cypress/fixtures/components.json
 /results
 /log

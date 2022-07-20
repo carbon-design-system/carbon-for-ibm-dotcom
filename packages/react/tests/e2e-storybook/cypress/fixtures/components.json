@@ -1,0 +1,242 @@
+[
+  {
+    "url": "path=/docs/components-back-to-top--default",
+    "name": "Back to top"
+  },
+  {
+    "url": "path=/docs/components-background-media--default",
+    "name": "Background media"
+  },
+  {
+    "url": "path=/docs/components-button-group--default",
+    "name": "Button group"
+  },
+  {
+    "url": "path=/docs/components-cta--text",
+    "name": "CTA"
+  },
+  {
+    "url": "path=/docs/components-cta-section--default",
+    "name": "CTA section"
+  },
+  {
+    "url": "path=/docs/components-callout-quote--default",
+    "name": "Callout quote"
+  },
+  {
+    "url": "path=/docs/components-callout-with-media--default",
+    "name": "Callout with media"
+  },
+  {
+    "url": "path=/docs/components-card--default",
+    "name": "Card"
+  },
+  {
+    "url": "path=/docs/components-card-group--default",
+    "name": "Card group"
+  },
+  {
+    "url": "path=/docs/components-card-in-card--default",
+    "name": "Card in card"
+  },
+  {
+    "url": "path=/docs/components-card-link--default",
+    "name": "Card link"
+  },
+  {
+    "url": "path=/docs/components-card-section-carousel--default",
+    "name": "Card section carousel"
+  },
+  {
+    "url": "path=/docs/components-card-section-images--default",
+    "name": "Card section images"
+  },
+  {
+    "url": "path=/docs/components-card-section-offset--default",
+    "name": "Card section offset"
+  },
+  {
+    "url": "path=/docs/components-card-section-simple--default",
+    "name": "Card section simple"
+  },
+  {
+    "url": "path=/docs/components-carousel--default",
+    "name": "Carousel"
+  },
+  {
+    "url": "path=/docs/components-content-block--default",
+    "name": "Content block"
+  },
+  {
+    "url": "path=/docs/components-content-block-cards--default",
+    "name": "Content block cards"
+  },
+  {
+    "url": "path=/docs/components-content-block-horizontal--default",
+    "name": "Content block horizontal"
+  },
+  {
+    "url": "path=/docs/components-content-block-media--default",
+    "name": "Content block media"
+  },
+  {
+    "url": "path=/docs/components-content-block-mixed--default",
+    "name": "Content block mixed"
+  },
+  {
+    "url": "path=/docs/components-content-block-segmented--default",
+    "name": "Content block segmented"
+  },
+  {
+    "url": "path=/docs/components-content-block-simple--default",
+    "name": "Content block simple"
+  },
+  {
+    "url": "path=/docs/components-content-group--default",
+    "name": "Content group"
+  },
+  {
+    "url": "path=/docs/components-content-group-banner--default",
+    "name": "Content group banner"
+  },
+  {
+    "url": "path=/docs/components-content-group-cards--default",
+    "name": "Content group cards"
+  },
+  {
+    "url": "path=/docs/components-content-group-pictograms--default",
+    "name": "Content group pictograms"
+  },
+  {
+    "url": "path=/docs/components-content-group-simple--default",
+    "name": "Content group simple"
+  },
+  {
+    "url": "path=/docs/components-content-item--default",
+    "name": "Content item"
+  },
+  {
+    "url": "path=/docs/components-content-item-horizontal--default",
+    "name": "Content item horizontal"
+  },
+  {
+    "url": "path=/docs/components-content-section--default",
+    "name": "Content section"
+  },
+  {
+    "url": "path=/docs/components-dotcom-shell--default",
+    "name": "Dotcom shell"
+  },
+  {
+    "url": "path=/docs/components-expressive-modal--default",
+    "name": "Expressive modal"
+  },
+  {
+    "url": "path=/docs/components-feature-card--default",
+    "name": "Feature card"
+  },
+  {
+    "url": "path=/docs/components-feature-section--default",
+    "name": "Feature section"
+  },
+  {
+    "url": "path=/docs/components-filter-panel--default",
+    "name": "Filter panel"
+  },
+  {
+    "url": "path=/docs/components-footer--default",
+    "name": "Footer"
+  },
+  {
+    "url": "path=/docs/components-horizontal-rule--default",
+    "name": "Horizontal rule"
+  },
+  {
+    "url": "path=/docs/components-image--default",
+    "name": "Image"
+  },
+  {
+    "url": "path=/docs/components-image-with-caption--default",
+    "name": "Image with caption"
+  },
+  {
+    "url": "path=/docs/components-layout--default",
+    "name": "Layout"
+  },
+  {
+    "url": "path=/docs/components-lead-space--tall-with-no-image",
+    "name": "Lead space"
+  },
+  {
+    "url": "path=/docs/components-lead-space-block--default",
+    "name": "Lead space block"
+  },
+  {
+    "url": "path=/docs/components-leaving-ibm--default",
+    "name": "Leaving IBM"
+  },
+  {
+    "url": "path=/docs/components-lightbox-media-viewer--default",
+    "name": "Lightbox media viewer"
+  },
+  {
+    "url": "path=/docs/components-link-list--default",
+    "name": "Link list"
+  },
+  {
+    "url": "path=/docs/components-link-with-icon--default",
+    "name": "Link with icon"
+  },
+  {
+    "url": "path=/docs/components-locale-modal--default",
+    "name": "Locale modal"
+  },
+  {
+    "url": "path=/docs/components-logo-grid--default",
+    "name": "Logo grid"
+  },
+  {
+    "url": "path=/docs/components-masthead--default",
+    "name": "Masthead"
+  },
+  {
+    "url": "path=/docs/components-pictogram-item--default",
+    "name": "Pictogram item"
+  },
+  {
+    "url": "path=/docs/components-quote--default",
+    "name": "Quote"
+  },
+  {
+    "url": "path=/docs/components-scroll-animations--default",
+    "name": "Scroll animations"
+  },
+  {
+    "url": "path=/docs/components-search-with-typeahead--default",
+    "name": "Search With Typeahead"
+  },
+  {
+    "url": "path=/docs/components-table-of-contents--default",
+    "name": "Table of contents"
+  },
+  {
+    "url": "path=/docs/components-tabs-extended--default",
+    "name": "Tabs extended"
+  },
+  {
+    "url": "path=/docs/components-tabs-extended-media--default",
+    "name": "Tabs extended media"
+  },
+  {
+    "url": "path=/docs/components-tag-group--default",
+    "name": "Tag group"
+  },
+  {
+    "url": "path=/docs/components-tag-link--default",
+    "name": "Tag link"
+  },
+  {
+    "url": "path=/docs/components-video-player--default",
+    "name": "Video player"
+  }
+]

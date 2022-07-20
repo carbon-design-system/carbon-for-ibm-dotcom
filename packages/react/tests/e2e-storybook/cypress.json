@@ -1,5 +1,6 @@
 {
   "baseUrl": "http://localhost:8082",
+  "projectId": "carbon-for-ibm-dotcom",
   "browser": "chrome",
   "headless": true,
   "fixturesFolder": "tests/e2e-storybook/cypress/fixtures",
