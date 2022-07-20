@@ -63,8 +63,8 @@ module.exports = {
   addons: [
     '@storybook/addon-a11y',
     // '@storybook/addon-actions',
-    // '@storybook/addon-docs',
-    // '@storybook/addon-links',
+    '@storybook/addon-docs',
+    '@storybook/addon-links',
     '@storybook/addon-knobs',
     '@storybook/addon-storysource',
     '@carbon/storybook-addon-theme/es/register',
