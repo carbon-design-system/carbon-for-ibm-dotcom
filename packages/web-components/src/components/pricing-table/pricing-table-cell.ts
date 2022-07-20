@@ -12,6 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSStructuredListCell from '../structured-list/structured-list-cell';
 import DDSPricingTableGroup from './pricing-table-group';
 import styles from './pricing-table.scss';
@@ -21,7 +22,7 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-cell`)
-class DDSPricingTableCell extends HostListenerMixin(DDSStructuredListCell) {
+class DDSPricingTableCell extends StableSelectorMixin(HostListenerMixin(DDSStructuredListCell)) {
   _parentGroup: DDSPricingTableGroup | null = this.closest(`${ddsPrefix}-pricing-table-group`);
 
   @HostListener('document:event-toggle-annotations')
@@ -47,10 +48,11 @@ class DDSPricingTableCell extends HostListenerMixin(DDSStructuredListCell) {
         defaultSlot = slot;
       }
     });
+
     // Filter out annotations, which should be in the "annotation" slot but
     // sometimes appear as inside the default slot. Also filter out empty
     // text nodes.
-    const slotContents = defaultSlot.assignedNodes().filter(node => {
+    const slotContents = (defaultSlot?.assignedNodes() || []).filter(node => {
       const isAnnotation = node instanceof DDSPricingTableCellAnnotation;
       const isEmpty = node.textContent?.trim() === '';
 
@@ -75,7 +77,7 @@ class DDSPricingTableCell extends HostListenerMixin(DDSStructuredListCell) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-group`;
+    return `${ddsPrefix}--pricing-table-cell`;
   }
 
   static styles = styles;

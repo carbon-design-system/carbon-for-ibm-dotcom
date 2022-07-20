@@ -2,10 +2,7 @@ name: snapshot-update
 
 on:
   push:
-    branches:
-      - main
-      - release/*
-      - chore/carbon-upgrade-*
+    branches: [ main, release/*, chore/carbon-upgrade-*, feat/storybook-6 ]
 
 concurrency:
   group: snapshot-update-${{ github.ref }}
