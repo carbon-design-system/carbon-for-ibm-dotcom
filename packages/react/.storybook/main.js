@@ -59,17 +59,12 @@ const styleLoaders = [
 ];
 
 module.exports = {
-  stories: [
-    '../src/**/LinkWithIcon.stories.js',
-    '../src/**/LinkWithIcon.stories.mdx',
-    '../src/**/ButtonGroup.stories.js',
-    '../src/**/ButtonGroup.stories.mdx',
-  ],
+  stories: ['../src/**/*.stories.js', '../src/**/*.stories.mdx'],
   addons: [
     '@storybook/addon-a11y',
     // '@storybook/addon-actions',
-    '@storybook/addon-docs',
-    '@storybook/addon-links',
+    // '@storybook/addon-docs',
+    // '@storybook/addon-links',
     '@storybook/addon-knobs',
     '@storybook/addon-storysource',
     '@carbon/storybook-addon-theme/es/register',

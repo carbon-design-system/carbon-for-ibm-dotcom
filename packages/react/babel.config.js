@@ -8,10 +8,10 @@
 module.exports = {
   presets: ['./scripts/env', '@babel/preset-react'],
   plugins: [
-    'dev-expression',
+    // 'dev-expression',
     'macros',
-    '@babel/plugin-syntax-dynamic-import',
-    '@babel/plugin-syntax-import-meta',
+    // '@babel/plugin-syntax-dynamic-import',
+    // '@babel/plugin-syntax-import-meta',
     ['@babel/plugin-proposal-class-properties', { loose: true }],
     ['@babel/plugin-proposal-private-methods', { loose: true }],
     '@babel/plugin-proposal-export-namespace-from',
