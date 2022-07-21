@@ -333,7 +333,6 @@ export function NoticeChoice({
     }
   }, [locale, changed, setDefaultSelections]);
   const checkBoxChange = (checked, id) => {
-    // event.preventDefault();
     const newValues = {
       ...values,
     };

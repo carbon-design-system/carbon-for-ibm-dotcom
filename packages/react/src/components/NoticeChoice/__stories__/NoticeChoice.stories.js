@@ -29,7 +29,7 @@ const locales = {
   'tr-tr': 'tr-tr',
   'in-en': 'in-en',
 };
-const questionChocies = {
+const questionChoices = {
   Email: [1],
   'Email + Phone': [1, 2],
   'Email + Phone + Postal': [1, 2, 3],
@@ -51,7 +51,7 @@ export default !DDS_NOTICE_CHOICE
             locale: select('Locale', locales, 'in-en'),
             country: select('Country', countryList, 'IN'),
             onChange: action('onChange'),
-            questionChoices: select('Question Choices', questionChocies, [
+            questionChoices: select('Question Choices', questionChoices, [
               1,
               2,
             ]),
