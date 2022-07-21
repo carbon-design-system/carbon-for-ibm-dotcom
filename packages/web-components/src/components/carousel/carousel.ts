@@ -7,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ifDefined } from 'lit-html/directives/if-defined';
 import { html, property, state, query, customElement, LitElement } from 'lit-element';
 import 'wicg-inert';
 import settings from 'carbon-components/es/globals/js/settings.js';
@@ -484,13 +483,21 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    * The assistive text for the button to go to next slide/group.
    */
   @property({ attribute: 'next-button-text' })
-  nextButtonText = 'Next';
+  nextButtonText?: string;
+
+  private get _defaultNextButtonText() {
+    return this.pageSize > 1 ? 'Next slide group' : 'Next slide';
+  }
+
+  private get _defaultPrevButtonText() {
+    return this.pageSize > 1 ? 'Previous slide group' : 'Previous slide';
+  }
 
   /**
    * The assistive text for the button to go to previous slide/group.
    */
   @property({ attribute: 'prev-button-text' })
-  prevButtonText = 'Previous';
+  prevButtonText?: string;
 
   /**
    * The current zero-based index of the left-most card.
@@ -523,25 +530,14 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     this._cleanAndCreateObserverResize({ create: true });
   }
 
-  protected updated(changedProperties) {
-    if (changedProperties.has('_pageSize')) {
-      // Update the default next/previous button text values.
-      if (!this.hasAttribute('next-button-text')) {
-        this.nextButtonText = (this._pageSize || 0) > 1 ? 'Next slide group' : 'Next slide';
-      }
-
-      if (!this.hasAttribute('prev-button-text')) {
-        this.prevButtonText = (this._pageSize || 0) > 1 ? 'Previous slide group' : 'Previous slide';
-      }
-    }
-  }
-
   render() {
     const { customPropertyPageSize } = this.constructor as typeof DDSCarousel;
     const {
       nextButtonText,
+      _defaultNextButtonText: defaultNextButtonText,
       pageSize,
       prevButtonText,
+      _defaultPrevButtonText: defaultPrevButtonText,
       start,
       _contentsBaseWidth: contentsBaseWidth,
       _gap: gap,
@@ -576,8 +572,8 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
           ?disabled="${pagesBefore === 0}"
           @click="${handleClickPrevButton}"
-          aria-label="${ifDefined(prevButtonText)}"
-          title="${ifDefined(prevButtonText)}"
+          aria-label="${prevButtonText || defaultPrevButtonText}"
+          title="${prevButtonText || defaultPrevButtonText}"
         >
           ${CaretLeft20()}
         </button>
@@ -587,8 +583,8 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
           ?disabled="${pagesSince <= 1}"
           @click="${handleClickNextButton}"
-          aria-label="${ifDefined(nextButtonText)}"
-          title="${ifDefined(nextButtonText)}"
+          aria-label="${nextButtonText || defaultNextButtonText}"
+          title="${nextButtonText || defaultNextButtonText}"
         >
           ${CaretRight20()}
         </button>
