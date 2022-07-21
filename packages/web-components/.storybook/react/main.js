@@ -9,7 +9,7 @@
 
 'use strict';
 
-const { addons, managerWebpack, webpackFinal } = require('../main');
+const { addons, core, managerWebpack, webpackFinal } = require('../main');
 const { readFile, writeFile } = require('fs');
 const path = require('path');
 const { promisify } = require('util');
@@ -98,7 +98,11 @@ class CreateReactCustomElementTypeProxyPlugin {
 module.exports = {
   stories: ['../../src/**/*.stories.react.tsx', '../../src/**/*.stories.react.mdx'],
   addons,
+  core,
   managerWebpack,
+  resolve: {
+    plugins: [new CreateReactCustomElementTypeProxyPlugin()],
+  },
   webpackFinal(config, mode) {
     const massagedConfig = webpackFinal(config, mode);
     if (!massagedConfig.resolve.extensions) {
@@ -110,7 +114,6 @@ module.exports = {
     if (!massagedConfig.resolve.plugins) {
       massagedConfig.resolve.plugins = [];
     }
-    massagedConfig.resolve.plugins.push(new CreateReactCustomElementTypeProxyPlugin());
     massagedConfig.module.rules = deepReplace(
       massagedConfig.module.rules,
       (value, key) =>
