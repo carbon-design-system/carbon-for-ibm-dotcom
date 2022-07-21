@@ -10,7 +10,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 const rtlcss = require('rtlcss');
 
 const NODE_ENV = 'development';
@@ -82,13 +81,6 @@ module.exports = {
         minSize: 30 * 1024,
         maxSize: 1024 * 1024,
       },
-      minimizer: [
-        new TerserPlugin({
-          terserOptions: {
-            mangle: false,
-          },
-        }),
-      ],
     };
 
     config.module.rules.push({

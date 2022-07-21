@@ -12,7 +12,6 @@
 const path = require('path');
 const sass = require('node-sass');
 const webpack = require('webpack');
-const TerserPlugin = require('terser-webpack-plugin');
 const rtlcss = require('rtlcss');
 const deepReplace = require('../../../tasks/deep-replace');
 const { getPaths } = deepReplace;
@@ -61,13 +60,6 @@ module.exports = {
           minSize: 30 * 1024,
           maxSize: 1024 * 1024,
         },
-        minimizer: [
-          new TerserPlugin({
-            terserOptions: {
-              mangle: false,
-            },
-          }),
-        ],
       };
     }
 
