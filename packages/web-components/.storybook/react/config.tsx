@@ -13,7 +13,7 @@ import coreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
 import { configure, addDecorator, addParameters } from '@storybook/react'; // eslint-disable-line import/first
 import { withKnobs } from '@storybook/addon-knobs';
-import BXSkipToContent from 'carbon-web-components/es/components-react/skip-to-content/skip-to-content';
+import BXSkipToContent from 'carbon-web-components/es/components-react/skip-to-content/skip-to-content.js';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
 import theme from './theme';
 import getSimpleStorySort from '../get-simple-story-sort';

@@ -8,8 +8,8 @@
  */
 
 import { customElement, property, query, html } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { slow01 } from '@carbon/motion/es/index';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';

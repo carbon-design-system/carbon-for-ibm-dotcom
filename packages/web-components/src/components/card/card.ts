@@ -8,8 +8,8 @@
  */
 
 import { html, property, state, customElement, TemplateResult, query } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
-import BXLink from 'carbon-web-components/es/components/link/link';
+import settings from 'carbon-components/es/globals/js/settings.js';
+import BXLink from 'carbon-web-components/es/components/link/link.js';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { BASIC_COLOR_SCHEME } from '../../globals/defs';

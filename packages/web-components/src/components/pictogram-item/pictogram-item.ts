@@ -8,7 +8,7 @@
  */
 
 import { property, customElement, html } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { COLOR_OPTIONS } from './defs';
 import DDSContentItem from '../content-item/content-item';

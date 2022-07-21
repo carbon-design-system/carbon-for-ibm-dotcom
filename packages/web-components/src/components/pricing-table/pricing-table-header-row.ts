@@ -8,7 +8,8 @@
  */
 
 import { customElement, html } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import DDSStructuredListHeaderRow from '../structured-list/structured-list-header-row';
 import DDSPricingTableHeaderCell from './pricing-table-header-cell';
@@ -20,7 +21,7 @@ import DDSPricingTable from './pricing-table';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-header-row`)
-class DDSPricingTableHeaderRow extends DDSStructuredListHeaderRow {
+class DDSPricingTableHeaderRow extends StableSelectorMixin(DDSStructuredListHeaderRow) {
   /**
    * Array full of tag wrapper elements within header cells.
    */

@@ -8,7 +8,7 @@
  */
 
 import { html, property, customElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import BXHeaderName from 'carbon-web-components/es/components/ui-shell/header-name.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { customElement, html } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './logo-grid.scss';
 import DDSImage from '../image/image';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
