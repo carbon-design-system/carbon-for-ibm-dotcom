@@ -95,7 +95,35 @@ const props = {
       ...knobs,
     };
   },
-  WithImage: () => {},
+  withLinkList: () => {
+    const linkListProps = {
+      heading: text('Link list heading (heading):', 'Tutorials'),
+      items: [
+        {
+          type: 'local',
+          copy: 'Containerization A Complete Guide',
+          cta: {
+            href: 'https://ibm.com',
+          },
+        },
+        {
+          type: 'external',
+          copy: 'Why should you use microservices and containers',
+          cta: {
+            href: 'https://ibm.com',
+          },
+        },
+      ],
+    };
+    const knobs = getBaseKnobs();
+    return {
+      ...knobs,
+      aside: {
+        items: <LinkList style="card" {...linkListProps} />,
+        border: boolean('border', false),
+      },
+    };
+  },
 };
 
 export default {
@@ -117,18 +145,15 @@ export const Default = () => {
   );
 };
 
-export const WithImage = ({ parameters }) => {
-  const { copy, heading, cta } = parameters?.props?.ContentBlockSimple ?? {};
+export const WithImage = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story">
           <ContentBlockSimple
-            copy={copy}
-            heading={heading}
+            {...props.default()}
             mediaType="image"
             mediaData={image}
-            cta={cta}
           />
         </div>
       </div>
@@ -138,30 +163,17 @@ export const WithImage = ({ parameters }) => {
 
 WithImage.story = {
   name: 'With image',
-  parameters: {
-    knobs: {
-      ContentBlockSimple: ({ groupId }) => {
-        const knobs = getBaseKnobs({ groupId });
-        return {
-          ...knobs,
-        };
-      },
-    },
-  },
 };
 
-export const WithVideo = ({ parameters }) => {
-  const { copy, heading, cta } = parameters?.props?.ContentBlockSimple ?? {};
+export const WithVideo = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story">
           <ContentBlockSimple
-            copy={copy}
-            heading={heading}
+            {...props.default()}
             mediaType="video"
             mediaData={video}
-            cta={cta}
           />
         </div>
       </div>
@@ -175,31 +187,18 @@ WithVideo.story = {
     percy: {
       skip: true,
     },
-    knobs: {
-      ContentBlockSimple: ({ groupId }) => {
-        const knobs = getBaseKnobs({ groupId });
-        return {
-          ...knobs,
-        };
-      },
-    },
   },
 };
 
-export const WithLinkList = ({ parameters }) => {
-  const { copy, heading, cta, aside } =
-    parameters?.props?.ContentBlockSimple ?? {};
+export const WithLinkList = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story">
           <ContentBlockSimple
-            copy={copy}
-            heading={heading}
+            {...props.withLinkList()}
             mediaType="image"
             mediaData={image}
-            cta={cta}
-            aside={aside}
           />
         </div>
       </div>
@@ -209,37 +208,4 @@ export const WithLinkList = ({ parameters }) => {
 
 WithLinkList.story = {
   name: 'With link list',
-  parameters: {
-    knobs: {
-      ContentBlockSimple: ({ groupId }) => {
-        const linkListProps = {
-          heading: text('Link list heading (heading):', 'Tutorials', groupId),
-          items: [
-            {
-              type: 'local',
-              copy: 'Containerization A Complete Guide',
-              cta: {
-                href: 'https://ibm.com',
-              },
-            },
-            {
-              type: 'external',
-              copy: 'Why should you use microservices and containers',
-              cta: {
-                href: 'https://ibm.com',
-              },
-            },
-          ],
-        };
-        const knobs = getBaseKnobs({ groupId });
-        return {
-          ...knobs,
-          aside: {
-            items: <LinkList style="card" {...linkListProps} />,
-            border: boolean('border', false, groupId),
-          },
-        };
-      },
-    },
-  },
 };
