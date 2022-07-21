@@ -7,6 +7,7 @@
 
 import { boolean, select, text } from '@storybook/addon-knobs';
 
+import { action } from '@storybook/addon-actions';
 import { DDS_NOTICE_CHOICE } from '../../../internal/FeatureFlags';
 import NoticeChoice from '../NoticeChoice';
 import React from 'react';
@@ -34,7 +35,7 @@ const questionChocies = {
   'Email + Phone + Postal': [1, 2, 3],
 };
 const countryList = {
-  'Unites state': 'US',
+  'Unites States': 'US',
   Germany: 'DE',
   India: 'IN',
 };
@@ -49,9 +50,7 @@ export default !DDS_NOTICE_CHOICE
           NoticeChoice: () => ({
             locale: select('Locale', locales, 'in-en'),
             country: select('Country', countryList, 'IN'),
-            onChange: (field, value) => {
-              console.log('onChange callback triggered', field, value);
-            },
+            onChange: action('onChange'),
             questionChoices: select('Question Choices', questionChocies, [
               1,
               2,
@@ -62,7 +61,6 @@ export default !DDS_NOTICE_CHOICE
               'https://www.ibm.com/legal'
             ),
             classNames: text('classNames', `custom-class-by-app`),
-            // defaultValues: object('defaultValues', { EMAIL: false }),
             enableAllOptIn: boolean('enableAllOptIn', false),
             bpidLegalText: text('bpidLegalText', ''),
           }),
@@ -72,7 +70,6 @@ export default !DDS_NOTICE_CHOICE
             NoticeChoice: {},
           },
         },
-        // argTypes: { onChange: { action: 'clicked' } },
       },
     };
 
@@ -88,9 +85,7 @@ export const Default = !DDS_NOTICE_CHOICE
         email,
         classNames,
         enableAllOptIn,
-        // defaultValues,
       } = parameters?.props?.NoticeChoice ?? {};
-      // console.log('enableAllOptIn', enableAllOptIn);
       return (
         <div className="bx--grid" style={{ marginTop: '2rem' }}>
           <div className="bx--row">
@@ -104,7 +99,6 @@ export const Default = !DDS_NOTICE_CHOICE
                 email={email}
                 classNames={classNames}
                 enableAllOptIn={enableAllOptIn}
-                // defaultValues={defaultValues}
               />
             </div>
           </div>

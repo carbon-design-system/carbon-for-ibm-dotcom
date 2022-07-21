@@ -32,8 +32,6 @@ describe('NoticeChoice', () => {
         enableAllOptIn={enableAllOptIn}
       />
     );
-    // noticeChoice.instance().setLoaded(true)
-    // console.log(noticeChoice.debug());
     expect(noticeChoice.find('.bx--nc')).toHaveLength(1);
     expect(noticeChoice.find('.bx--nc__pre-text')).toHaveLength(1);
     expect(noticeChoice.find('.bx--checkbox-group')).toHaveLength(1);

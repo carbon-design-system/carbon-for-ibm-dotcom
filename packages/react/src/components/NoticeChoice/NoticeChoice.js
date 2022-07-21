@@ -13,7 +13,7 @@ import Checkbox from '../../internal/vendor/carbon-components-react/components/C
 import countrySettings from './country-settings';
 import { DDS_NOTICE_CHOICE } from '../../internal/FeatureFlags.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
+import featureFlag from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/featureflag/featureflag';
 import { getMappedValue } from './utils';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -40,7 +40,6 @@ export function NoticeChoice({
   const [changed, setChanged] = useState(false);
   const [preText, setPreText] = useState('');
   const [postText, setPostText] = useState('');
-  // const [termsText, setTermsText] = useState('');
   const [checkboxes, setCheckboxes] = useState();
   const [ncData, setNcData] = useState();
   const [optInContent, setOptInContent] = useState();
@@ -57,7 +56,6 @@ export function NoticeChoice({
 
   useEffect(() => {
     if (optInContent) {
-      // console.log('*********optInContent', optInContent);
       countryChangeAction();
     }
   }, [optInContent, countryChangeAction]);
@@ -79,7 +77,6 @@ export function NoticeChoice({
       };
   }, [locale]);
   useEffect(() => {
-    // console.log('*********locale', locale);
     loadECMData();
   }, [locale, loadECMData]);
 
@@ -119,7 +116,6 @@ export function NoticeChoice({
             onChange('NC_CHECK_EMAIL', false);
             onChange('NC_HIDDEN_EMAIL', null);
           } else if (response === 'N') {
-            console.log('Calling setDefaultSelections from emailChanged');
             setDefaultSelections();
           }
         });
@@ -140,29 +136,13 @@ export function NoticeChoice({
     }
   }, [email, emailChanged]);
 
-  //TODO need to fund why required. Following useEffect required to make default selection.
-  // useEffect(() => {
-  //   // const previousKeys = previousCheckboxes && Object.keys(previousCheckboxes);
-  //   // const currentKeys = checkboxes && Object.keys(checkboxes);
-  //     // if (!isEqual(previousKeys, currentKeys)) {
-  //     if(checkboxes){
-  //       console.log('Calling setDefaultSelections from checkboxesUseEffect');
-  //       console.log('*********checkboxes', checkboxes);
-  //       setDefaultSelections();
-  //     }
-  // }, [checkboxes, setDefaultSelections]);
-
   useEffect(() => {
     if (values && !loaded) {
-      // console.log('*********values', values);
       setLoaded(true);
     }
   }, [values, loaded]);
   useEffect(() => {
-    // if (!isEqual(previousNcData, ncData)) {
-    // createElements();
     if (ncData) {
-      // console.log('*********ncData', ncData);
       const buildCheckboxes = OptInContent => {
         const fieldElements = {};
         const fieldCollections = {
@@ -198,14 +178,11 @@ export function NoticeChoice({
       };
       try {
         const OptInContent = ncData.OptInContent;
-        // console.error('OptInContent....', OptInContent);
         const newCheckboxes = buildCheckboxes(OptInContent);
         setPreText(OptInContent.preText);
         setPostText(getPostText());
         defaultPreText.current = OptInContent.preText;
         setCheckboxes(newCheckboxes);
-        //TODO check if possible to call it from here
-        // setDefaultSelections();
       } catch (e) {
         console.log('Unable to build checkboxes', e);
       }
@@ -310,7 +287,6 @@ export function NoticeChoice({
         newValues[key] = !!(
           option.checked === 'true' || option.checked === true
         );
-        // console.log('option', option)
         if (Object.prototype.hasOwnProperty.call(defaultValues, key)) {
           newValues[key] = defaultValues[key];
         }
@@ -319,7 +295,6 @@ export function NoticeChoice({
         onChange(fieldName, newValues[key]);
         onChange(hiddenFieldName, newValues[key] ? 'OPT_IN' : null);
       });
-      // console.log('*********setDefaultSelectionsCalled..', newValues)
       setValues(newValues);
     }
   }, [
@@ -354,7 +329,6 @@ export function NoticeChoice({
        * @description
        * change checkbox checked option based on new country.
        */
-      // console.log('Calling setDefaultSelections from countryChangeAction');
       setDefaultSelections();
     }
   }, [locale, changed, setDefaultSelections]);
