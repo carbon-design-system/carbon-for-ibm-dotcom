@@ -51,7 +51,7 @@ const props = {
       cardsCol['3 cards per row (Default)']
     ),
   }),
-  WithImagesAndCTA: () => ({
+  withImagesAndCTA: () => ({
     cards: Array.from({
       length: number('Number of cards', 5, {}),
     }).map(_ => cardWithImages),
