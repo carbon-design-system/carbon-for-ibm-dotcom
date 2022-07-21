@@ -8,9 +8,9 @@
  */
 
 import { customElement, html, LitElement, property } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
-import Reset from 'carbon-web-components/es/icons/reset/16';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
+import settings from 'carbon-components/es/globals/js/settings.js';
+import Reset from 'carbon-web-components/es/icons/reset/16.js';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
