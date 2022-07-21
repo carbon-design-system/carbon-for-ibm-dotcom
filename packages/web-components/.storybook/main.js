@@ -23,12 +23,15 @@ const useRtl = process.env.STORYBOOK_USE_RTL === 'true';
 module.exports = {
   stories: ['../src/**/*.stories.ts', '../src/**/*.stories.mdx'],
   addons: [
+    '@storybook/addon-knobs',
     '@storybook/addon-storysource',
     '@storybook/addon-docs',
-    '@storybook/addon-knobs',
     '@carbon/storybook-addon-theme/es/register',
     path.resolve(__dirname, 'addon-knobs-args'),
   ],
+  core: {
+    builder: 'webpack5',
+  },
   managerWebpack(config) {
     // `@storybook/react` NPM installation seems to add `@babel/preset-react` automatically
     config.plugins.push(
@@ -48,7 +51,7 @@ module.exports = {
     return config;
   },
   webpackFinal(config, mode) {
-    config.devtool = useStyleSourceMap ? 'source-map' : '';
+    config.devtool = useStyleSourceMap ? 'source-map' : false;
 
     if (mode === 'PRODUCTION') {
       config.optimization = {
@@ -60,7 +63,6 @@ module.exports = {
         },
         minimizer: [
           new TerserPlugin({
-            sourceMap: useStyleSourceMap,
             terserOptions: {
               mangle: false,
             },

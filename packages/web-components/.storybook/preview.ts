@@ -97,6 +97,9 @@ if (module.hot) {
   });
 }
 
+// Reset knobs when changing stories to prevent them carrying over.
+// This can be removed when stories switch to controls.
+// https://github.com/storybookjs/addon-knobs/issues/19
 let currentPath;
 if (window.parent) {
   const parentWindow = window.parent;
@@ -112,5 +115,7 @@ if (window.parent) {
         (resetButton as HTMLElement)?.click();
       }
     }
+    const knobLabel = parentWindow.document.querySelector('[id*="tabbutton-knobs-"]');
+    (knobLabel as HTMLElement).textContent = 'Knobs';
   }, 100);
 }

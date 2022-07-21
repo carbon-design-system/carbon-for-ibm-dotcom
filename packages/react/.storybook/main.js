@@ -74,7 +74,7 @@ module.exports = {
     builder: 'webpack5',
   },
   webpack: async (config, { configType }) => {
-    config.devtool = configType === 'DEVELOPMENT' ? 'source-map' : '';
+    config.devtool = configType === 'DEVELOPMENT' ? 'source-map' : false;
     config.optimization = {
       ...config.optimization,
       splitChunks: {
@@ -84,7 +84,6 @@ module.exports = {
       },
       minimizer: [
         new TerserPlugin({
-          sourceMap: useStyleSourceMap,
           terserOptions: {
             mangle: false,
           },
