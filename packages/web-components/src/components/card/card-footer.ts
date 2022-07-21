@@ -8,8 +8,8 @@
  */
 
 import { html, property, state, query, customElement, TemplateResult } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSLinkWithIcon, { ICON_PLACEMENT } from '../link-with-icon/link-with-icon';
 import { BASIC_COLOR_SCHEME } from '../../globals/defs';
 import styles from './card.scss';
