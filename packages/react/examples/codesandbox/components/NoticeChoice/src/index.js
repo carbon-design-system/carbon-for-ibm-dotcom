@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 import "./styles.scss";
-import React, { useState } from "react";
-import ReactDom from "react-dom";
-import { NoticeChoice } from "@carbon/ibmdotcom-react";
 
-console.log('NoticeChoice', NoticeChoice);
+import React, { useState } from "react";
+
+import { NoticeChoice } from "@carbon/ibmdotcom-react";
+import ReactDom from "react-dom";
 
 const questionChoices = [1, 2, 3]
 const termsConditionLink = ``
