@@ -31,6 +31,31 @@ const MIN_DISTANCE_TRAVELLED = 75; // min distance traveled to be considered swi
 const headingBottomMargin = 64; // tag constants used for same height calculations
 
 /**
+ * Miniumum percentage of a slide being visible for it to be interactable.
+ */
+const minIntersectionRatio = 0.75;
+
+/**
+ * IntersectionObserver callback.
+ * Carousel items with more than `minIntersectionRatio` visible will interactable.
+ *
+ * @param {IntersectionObserverEntry[]} entries Array of observed intersections.
+ */
+function onIntersect(entries) {
+  entries.forEach(entry => {
+    const { target, isIntersecting, intersectionRatio } = entry;
+
+    if (isIntersecting && intersectionRatio > minIntersectionRatio) {
+      target.inert = false;
+      target.setAttribute('aria-hidden', false);
+    } else {
+      target.inert = true;
+      target.setAttribute('aria-hidden', true);
+    }
+  });
+}
+
+/**
  * Carousel.
  *
  * @element dds-carousel
@@ -96,6 +121,17 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    * The observer for the resize of the viewport.
    */
   private _observerResizeRoot: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+
+  private _intersectionThresholdDifference = Math.max(0.5, minIntersectionRatio) - Math.min(0.5, minIntersectionRatio);
+
+  /**
+   *  IntersectionObserver to watch carousel contents.
+   *  As items cross the minIntersectionRatio `inert` and `aria-hidden` are toggled.
+   */
+  private _intersectionObserver = new IntersectionObserver(onIntersect, {
+    root: this._contentsNode,
+    threshold: [0.5 + this._intersectionThresholdDifference, 0.5 - this._intersectionThresholdDifference],
+  });
 
   /**
    * The page size that is explicitly set.
@@ -271,6 +307,12 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
     this._childItems = (event.target as HTMLSlotElement).assignedNodes().filter(node => node instanceof HTMLElement);
 
+    this._intersectionObserver.disconnect();
+
+    this._childItems.forEach(item => {
+      this._intersectionObserver.observe(item);
+    });
+
     // retrieve item heading, eyebrows, and footers to set same height
     if (this._childItems) {
       this._childItems
@@ -330,15 +372,24 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     this._setSameHeight();
   };
 
+  private get _getStatus() {
+    const { start, pageSize, _total: total } = this;
+    // Copes with the condition where `start % pageSize` is non-zero
+    const pagesBefore = Math.ceil(start / pageSize);
+    const pagesSince = Math.ceil((total - start) / pageSize);
+    return { currentPage: Math.ceil(start / pageSize) + 1, pages: pagesBefore + pagesSince };
+  }
+
   /**
    * @returns Page status text.
    */
   private _renderStatus() {
-    const { start, pageSize, formatStatus, _total: total } = this;
-    // Copes with the condition where `start % pageSize` is non-zero
-    const pagesBefore = Math.ceil(start / pageSize);
-    const pagesSince = Math.ceil((total - start) / pageSize);
-    return formatStatus({ currentPage: Math.ceil(start / pageSize) + 1, pages: pagesBefore + pagesSince });
+    const { formatStatus, formatAnnouncement, _getStatus: status } = this;
+
+    return html`
+      ${formatStatus(status)}
+      <span class="bx--visually-hidden" aria-live="polite">${formatAnnouncement(status)}</span>
+    `;
   }
 
   private _setSameHeight = () => {
@@ -403,10 +454,15 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   }
 
   /**
-   * The formatter for the pagination status. Should be changed upon the locale the UI is rendered with.
+   * The formatters for the pagination status & aria-live announcement.
+   * Should be changed with the locale in which the UI is rendered.
    */
   @property({ attribute: false })
   formatStatus = ({ currentPage, pages }) => `${currentPage} / ${pages}`;
+
+  @property({ attribute: false })
+  formatAnnouncement = ({ currentPage, pages }) =>
+    `Current ${this.pageSize > 1 ? 'slide group' : 'slide'}: ${currentPage} of ${pages}`;
 
   /**
    * Number of items per page.
@@ -425,16 +481,16 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   }
 
   /**
-   * The assistive text for the button to go to next page.
+   * The assistive text for the button to go to next slide/group.
    */
   @property({ attribute: 'next-button-text' })
-  nextButtonText = 'Next page';
+  nextButtonText = 'Next';
 
   /**
-   * The assistive text for the button to go to previous page.
+   * The assistive text for the button to go to previous slide/group.
    */
   @property({ attribute: 'prev-button-text' })
-  prevButtonText = 'Previous page';
+  prevButtonText = 'Previous';
 
   /**
    * The current zero-based index of the left-most card.
@@ -468,17 +524,15 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   }
 
   protected updated(changedProperties) {
-    if (changedProperties.has('start')) {
-      const { _childItems: childItems, start, pageSize } = this;
+    if (changedProperties.has('_pageSize')) {
+      // Update the default next/previous button text values.
+      if (!this.hasAttribute('next-button-text')) {
+        this.nextButtonText = (this._pageSize || 0) > 1 ? 'Next slide group' : 'Next slide';
+      }
 
-      childItems.forEach(item => {
-        const index = childItems.indexOf(item);
-        if (index < start || index > start + pageSize - 1) {
-          item.inert = true;
-        } else {
-          item.inert = false;
-        }
-      });
+      if (!this.hasAttribute('prev-button-text')) {
+        this.prevButtonText = (this._pageSize || 0) > 1 ? 'Previous slide group' : 'Previous slide';
+      }
     }
   }
 
