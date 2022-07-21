@@ -66,44 +66,36 @@ const defaultItems = [
   },
 ];
 
+const props = () => ({
+  title: 'Continuous delivery',
+  copy: `Automate your software release process with continuous delivery (CD)—the most
+      critical part of adopting DevOps. Build, test, and deploy code changes quickly,
+      ensuring software is always ready for deployment.`,
+  heading: text(
+    'Heading (required):',
+    'Innovate like a startup and scale for the enterprise '
+  ),
+  items: {
+    heading: text('Link list heading (heading):', 'Featured products'),
+    items: defaultItems,
+  },
+  cta: {
+    style: 'button',
+    type: 'local',
+    buttons: [
+      {
+        type: select('CTA type (type):', types, types[0]),
+        copy: text('CTA copy (copy):', 'Contact sales'),
+        href: 'https://example.com/',
+      },
+    ],
+  },
+});
+
 export default {
   title: 'Components/Lead space block',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      LeadSpaceBlock: ({ groupId }) => {
-        return {
-          title: 'Continuous delivery',
-          copy: `Automate your software release process with continuous delivery (CD)—the most
-            critical part of adopting DevOps. Build, test, and deploy code changes quickly,
-            ensuring software is always ready for deployment.`,
-          heading: text(
-            'Heading (required):',
-            'Innovate like a startup and scale for the enterprise ',
-            groupId
-          ),
-          items: {
-            heading: text(
-              'Link list heading (heading):',
-              'Featured products',
-              groupId
-            ),
-            items: defaultItems,
-          },
-          cta: {
-            style: 'button',
-            type: 'local',
-            buttons: [
-              {
-                type: select('CTA type (type):', types, types[0], groupId),
-                copy: text('CTA copy (copy):', 'Contact sales', groupId),
-                href: 'https://example.com/',
-              },
-            ],
-          },
-        };
-      },
-    },
     propsSet: {
       default: {
         LeadSpaceBlock: {
@@ -118,44 +110,24 @@ export default {
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { title, copy, heading, items, cta } =
-    parameters?.props?.LeadSpaceBlock ?? {};
+export const Default = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-          <LeadSpaceBlock
-            title={title}
-            copy={copy}
-            heading={heading}
-            mediaType="image"
-            mediaData={image}
-            items={items}
-            cta={cta}
-          />
+          <LeadSpaceBlock mediaType="image" mediaData={image} {...props()} />
         </div>
       </div>
     </div>
   );
 };
 
-export const WithVideo = ({ parameters }) => {
-  const { title, copy, heading, items, cta } =
-    parameters?.props?.LeadSpaceBlock ?? {};
+export const WithVideo = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-          <LeadSpaceBlock
-            title={title}
-            copy={copy}
-            heading={heading}
-            mediaType="video"
-            mediaData={video}
-            items={items}
-            cta={cta}
-          />
+          <LeadSpaceBlock mediaType="video" mediaData={video} {...props()} />
         </div>
       </div>
     </div>
