@@ -11,30 +11,28 @@ import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720
 import React from 'react';
 import readme from '../README.stories.mdx';
 
+const props = () => ({
+  heading: text('Heading (heading):', 'Natural language understanding'),
+  media: select('Media type:', ['none', 'image', 'video'], 'none'),
+  copy: text(
+    'Copy (copy):',
+    'This area of NLP takes "real world" text and applies a symbolic ' +
+      'system for a machine to interpret its meaning, using formal logic; structures ' +
+      'that describe the various relationships between concepts (ontologies); and other semantic tools.'
+  ),
+  ctaStyle: select('CTA style', ['text', 'button'], 'text'),
+  ctaCopy: text('CTA copy', 'Learn more about NLP'),
+});
+
 export default {
   title: 'Components/Content item',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      ContentItem: () => ({
-        heading: text('Heading (heading):', 'Natural language understanding'),
-        media: select('Media type:', ['none', 'image', 'video'], 'none'),
-        copy: text(
-          'Copy (copy):',
-          'This area of NLP takes "real world" text and applies a symbolic ' +
-            'system for a machine to interpret its meaning, using formal logic; structures ' +
-            'that describe the various relationships between concepts (ontologies); and other semantic tools.'
-        ),
-        ctaStyle: select('CTA style', ['text', 'button'], 'text'),
-        ctaCopy: text('CTA copy', 'Learn more about NLP'),
-      }),
-    },
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { heading, media, copy, ctaStyle, ctaCopy } =
-    parameters?.props?.ContentItem ?? {};
+export const Default = () => {
+  const { heading, media, copy, ctaStyle, ctaCopy } = props() ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">
