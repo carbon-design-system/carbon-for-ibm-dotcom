@@ -32,59 +32,59 @@ describe('LightboxMediaViewer | default', () => {
     cy.viewport(1280, 780);
   });
 
-  it('should check a11y', () => {
-    cy.visit(_defaultPath);
-    cy.injectAxe();
-    cy.checkAxeA11y();
-  });
+  // it('should check a11y', () => {
+  //   cy.visit(_defaultPath);
+  //   cy.injectAxe();
+  //   cy.checkAxeA11y();
+  // });
 
-  it('should render with all elements', () => {
-    cy.visit(`/${_defaultPath}`);
+  // it('should render with all elements', () => {
+  //   cy.visit(`/${_defaultPath}`);
 
-    cy.waitUntil(() => cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]')
-      .contains('Curabitur malesuada varius mi eu posuere')
-    );
+  //   cy.waitUntil(() => cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]')
+  //     .contains('Curabitur malesuada varius mi eu posuere')
+  //   );
 
-    cy.get('.bx--image__img')
-      .should('be.visible')
-      .then(() => {
-        cy.get('[data-autoid="dds--image__longdescription"]').should(
-          'have.length',
-          1
-        );
-        cy.get('[data-autoid="dds--lightbox-media-viewer__content__desc"]')
-          .should('be.visible')
-          .then(() => {
-            _tests.checkMediaMetadata();
+  //   cy.get('.bx--image__img')
+  //     .should('be.visible')
+  //     .then(() => {
+  //       cy.get('[data-autoid="dds--image__longdescription"]').should(
+  //         'have.length',
+  //         1
+  //       );
+  //       cy.get('[data-autoid="dds--lightbox-media-viewer__content__desc"]')
+  //         .should('be.visible')
+  //         .then(() => {
+  //           _tests.checkMediaMetadata();
 
-            cy.takeSnapshots();
-          });
-      });
-  });
+  //           cy.takeSnapshots();
+  //         });
+  //     });
+  // });
 
-  it('should align elements', () => {
-    cy.visit(`/${_defaultPath}`);
+  // it('should align elements', () => {
+  //   cy.visit(`/${_defaultPath}`);
 
-    cy.waitUntil(() => cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]')
-      .contains('Curabitur malesuada varius mi eu posuere')
-    );
+  //   cy.waitUntil(() => cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]')
+  //     .contains('Curabitur malesuada varius mi eu posuere')
+  //   );
 
-    cy.get('.bx--image__img')
-      .should('be.visible')
-      .then(() => {
-        cy.get('[data-autoid="dds--image__longdescription"]').then($image => {
-          expect($image[0].getBoundingClientRect().left).to.equal(64);
-        });
+  //   cy.get('.bx--image__img')
+  //     .should('be.visible')
+  //     .then(() => {
+  //       cy.get('[data-autoid="dds--image__longdescription"]').then($image => {
+  //         expect($image[0].getBoundingClientRect().left).to.equal(64);
+  //       });
 
-        cy.get('.bx--lightbox-media-viewer__content').then($content => {
-          expect($content[0].getBoundingClientRect().right).to.equal(1280 - 64);
-        });
-      });
-  });
+  //       cy.get('.bx--lightbox-media-viewer__content').then($content => {
+  //         expect($content[0].getBoundingClientRect().right).to.equal(1280 - 64);
+  //       });
+  //     });
+  // });
 
   it('should verify the image size 1:1', () => {
     cy.visit(
-      `/${_defaultPath}&knob-Image_LightboxMediaViewer=static/media/fpo--1x1--720x720--002.7158188a.jpg`
+      `${_defaultPath}&knob-Image=https://fpoimg.com/720x720?text=1:1`
     );
 
     cy.waitUntil(() => cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]')
@@ -102,7 +102,7 @@ describe('LightboxMediaViewer | default', () => {
 
   it('should verify the image size 2:1', () => {
     cy.visit(
-      `/${_defaultPath}&knob-Image_LightboxMediaViewer=static/media/fpo--2x1--1312x656--002.80107d00.jpg`
+      `${_defaultPath}&knob-Image=https://fpoimg.com/1312x656?text=2:1`
     );
 
     cy.waitUntil(() => cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]')

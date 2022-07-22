@@ -56,11 +56,11 @@ const miscCTAData = {
       },
     };
   },
-  feature({ type, customVideoTitle, customVideoDescription }) {
+  feature({ featureHeading, type, customVideoTitle, customVideoDescription }) {
     return {
       heading: copy[0],
       card: {
-        heading: copy[1],
+        heading: featureHeading || copy[1],
         cta: {
           type: type,
           href: urlBy[type],
@@ -260,6 +260,7 @@ const props = {
       featureHeading,
       type,
       ...miscCTAData['feature']({
+        featureHeading,
         type,
         customVideoTitle,
         customVideoDescription,
@@ -304,8 +305,8 @@ Card.story = {
 };
 
 export const Feature = () => {
-  if (props.card().type !== 'video') {
-    props.card().heading = props.feature().featureHeading;
+  if (props.feature().type !== 'video') {
+    props.feature().card.heading = props.feature().featureHeading;
   }
 
   return wrapper(

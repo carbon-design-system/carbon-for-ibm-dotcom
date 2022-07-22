@@ -113,7 +113,7 @@ describe('dds-filter-panel | (desktop)', () => {
   it('should only add view all button when enough filters are present', () => {
     let filterCount;
 
-    cy.visit(`${_path}&knob-Filter%20cutoff_FilterPanel=1&knob-Max%20filters_FilterPanel=1`)
+    cy.visit(`${_path}&knob-Filter%20cutoff=1&knob-Max%20filters=1`)
       .get(_selector)
       .shadow()
       .find('dds-filter-group-item')
@@ -126,7 +126,7 @@ describe('dds-filter-panel | (desktop)', () => {
       .get('@filterGroupItem')
       .find('dds-filter-panel-checkbox')
       .then(checkboxes => (filterCount = checkboxes.length));
-    cy.visit(`${_path}&knob-Max%20filters_FilterPanel=${filterCount}`)
+    cy.visit(`${_path}&knob-Max%20filters=${filterCount}`)
       .get(_selector)
       .shadow()
       .find('dds-filter-group-item')
@@ -139,7 +139,7 @@ describe('dds-filter-panel | (desktop)', () => {
   it('should support custom view all button text', () => {
     let customText = 'Foo button';
 
-    cy.visit(`${_path}&knob-View%20all%20text_FilterPanel=${customText}`)
+    cy.visit(`${_path}&knob-View%20all%20text=${customText}`)
       .get(_selector)
       .shadow()
       .find('dds-filter-group-item')
@@ -278,7 +278,7 @@ describe('dds-filter-panel | (mobile)', () => {
   it('should only add view all button when enough filters are present', () => {
     let filterCount;
 
-    cy.visit(`${_path}&knob-Filter%20cutoff_FilterPanel=1&knob-Max%20filters_FilterPanel=1`)
+    cy.visit(`${_path}&knob-Filter%20cutoff=1&knob-Max%20filters=1`)
       .get(_selector)
       .find('.bx--filter-button')
       .click()
@@ -293,7 +293,7 @@ describe('dds-filter-panel | (mobile)', () => {
       .get('@filterGroupItem')
       .find('dds-filter-panel-checkbox')
       .then(checkboxes => (filterCount = checkboxes.length));
-    cy.visit(`${_path}&knob-Max%20filters_FilterPanel=${filterCount}`)
+    cy.visit(`${_path}&knob-Max%20filters=${filterCount}`)
       .get(_selector)
       .find('.bx--filter-button')
       .click()
@@ -308,7 +308,7 @@ describe('dds-filter-panel | (mobile)', () => {
   it('should support custom view all button text', () => {
     let customText = 'Foo button';
 
-    cy.visit(`${_path}&knob-View%20all%20text_FilterPanel=${customText}`)
+    cy.visit(`${_path}&knob-View%20all%20text=${customText}`)
       .get(_selector)
       .find('.bx--filter-button')
       .click()
