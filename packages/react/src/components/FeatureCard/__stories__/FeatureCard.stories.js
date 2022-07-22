@@ -24,16 +24,86 @@ export default {
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { card } = parameters?.props?.FeatureCard ?? {};
+const props = {
+  default: () => {
+    const knobs = {
+      card: {
+        heading: text(
+          'Card heading:',
+          'Explore AI use cases in all industries'
+        ),
+        image: {
+          defaultSrc: mediumImgLg1x1,
+          alt: 'Image alt text',
+        },
+        cta: {
+          href: 'https://www.example.com',
+          icon: {
+            src: ArrowRight20,
+          },
+        },
+      },
+    };
+    return knobs;
+  },
+  large: () => {
+    const knobs = {
+      card: {
+        eyebrow: text('Card eyebrow:', 'This is an eyebrow'),
+        heading: text(
+          'Card heading:',
+          'Explore AI use cases in all industries'
+        ),
+        copy: text(
+          'Card copy:',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        ),
+        cta: {
+          href: 'https://www.example.com',
+          icon: {
+            src: ArrowRight20,
+          },
+        },
+        image: {
+          sources: [
+            {
+              src: imgSm2x1,
+              breakpoint: 'sm',
+            },
+            {
+              src: imgMd2x1,
+              breakpoint: 'md',
+            },
+            {
+              src: imgLg1x1,
+              breakpoint: 991,
+            },
+            {
+              src: imgXlg2x1,
+              breakpoint: 'lg',
+            },
+            {
+              src: imgMax1x1,
+              breakpoint: 'xlg',
+            },
+          ],
+          defaultSrc: imgXlg2x1,
+          alt: 'Image alt text',
+        },
+      },
+    };
+    return knobs;
+  },
+};
 
+export const Default = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div
           style={{ paddingTop: '20px' }}
           className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-          <FeatureCard card={card} size={'medium'} />
+          <FeatureCard size={'medium'} {...props.default()} />
         </div>
       </div>
     </div>
@@ -42,42 +112,16 @@ export const Default = ({ parameters }) => {
 
 Default.story = {
   name: 'Medium',
-  parameters: {
-    ...readme.parameters,
-    knobs: {
-      FeatureCard: ({ groupId }) => ({
-        card: {
-          heading: text(
-            'Card heading:',
-            'Explore AI use cases in all industries',
-            groupId
-          ),
-          image: {
-            defaultSrc: mediumImgLg1x1,
-            alt: 'Image alt text',
-          },
-          cta: {
-            href: 'https://www.example.com',
-            icon: {
-              src: ArrowRight20,
-            },
-          },
-        },
-      }),
-    },
-  },
 };
 
-export const Large = ({ parameters }) => {
-  const { card } = parameters?.props?.FeatureCard ?? {};
-
+export const Large = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div
           style={{ paddingTop: '20px' }}
           className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
-          <FeatureCard card={card} size={'large'} />
+          <FeatureCard size={'large'} {...props.large()} />
         </div>
       </div>
     </div>
@@ -87,54 +131,5 @@ export const Large = ({ parameters }) => {
 Large.story = {
   parameters: {
     ...readme.parameters,
-    knobs: {
-      FeatureCard: ({ groupId }) => ({
-        card: {
-          eyebrow: text('Card eyebrow:', 'This is an eyebrow', groupId),
-          heading: text(
-            'Card heading:',
-            'Explore AI use cases in all industries',
-            groupId
-          ),
-          copy: text(
-            'Card copy:',
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            groupId
-          ),
-          cta: {
-            href: 'https://www.example.com',
-            icon: {
-              src: ArrowRight20,
-            },
-          },
-          image: {
-            sources: [
-              {
-                src: imgSm2x1,
-                breakpoint: 'sm',
-              },
-              {
-                src: imgMd2x1,
-                breakpoint: 'md',
-              },
-              {
-                src: imgLg1x1,
-                breakpoint: 991,
-              },
-              {
-                src: imgXlg2x1,
-                breakpoint: 'lg',
-              },
-              {
-                src: imgMax1x1,
-                breakpoint: 'xlg',
-              },
-            ],
-            defaultSrc: imgXlg2x1,
-            alt: 'Image alt text',
-          },
-        },
-      }),
-    },
   },
 };
