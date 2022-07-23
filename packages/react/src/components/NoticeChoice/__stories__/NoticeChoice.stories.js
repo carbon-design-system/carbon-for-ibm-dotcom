@@ -44,7 +44,6 @@ export default !DDS_NOTICE_CHOICE
   : {
       title: 'Components|Notice Choice',
       parameters: {
-        ['carbon-theme']: { disabled: true },
         ...readme.parameters,
         knobs: {
           NoticeChoice: () => ({
