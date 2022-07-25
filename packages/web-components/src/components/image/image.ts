@@ -64,12 +64,23 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
   }
 
   /**
-   * `true` handles re-opening after model is closed
-   *
-   * @private
+   * The handler of `${ddsPrefix}-expressive-modal-toggle` event.
    */
-  private _handleClick() {
-    this.open = true;
+  private _handleLightboxToggle() {
+    this.open = !this.open;
+  }
+
+  /**
+   * Click handler that initiates lightbox toggling
+   */
+  private _requestLightboxStateToggle() {
+    this.dispatchEvent(
+      new CustomEvent((this.constructor as typeof DDSImage).eventToggleModal, {
+        composed: true,
+        cancelable: true,
+        bubbles: false,
+      })
+    );
   }
 
   /**
@@ -137,19 +148,23 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
   }
 
   connectedCallback() {
-    const inLightboxTabs = Boolean(this.closestComposed(`${ddsPrefix}-tabs-extended[lightbox]`));
+    const hasModalOverride = Boolean(this.closestComposed((this.constructor as typeof DDSImage).selectorModalOverride));
 
-    if (inLightboxTabs) this._disableModal = true;
+    if (hasModalOverride) this._disableModal = true;
     super.connectedCallback();
-    this.modalRenderRoot = this.createModalRenderRoot(); // Creates modal render root up-front to hook the event listener
-    // Manually hooks the event listeners on the modal render root to make the event names configurable
 
-    if (!inLightboxTabs) {
+    // Creates modal render root up-front to hook the event listener.
+    this.modalRenderRoot = this.createModalRenderRoot();
+
+    if (!hasModalOverride) {
+      // Manually hooks the event listeners on the modal render root to make the event names configurable.
       this._hCloseModal = on(
         this.modalRenderRoot,
         (this.constructor as typeof DDSImage).eventCloseModal,
         this._handleCloseModal as EventListener
       );
+
+      this.addEventListener((this.constructor as typeof DDSImage).eventToggleModal, this._handleLightboxToggle.bind(this));
     }
   }
 
@@ -201,14 +216,19 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
   }
 
   render() {
-    const { heading, launchLightboxButtonAssistiveText, lightbox, _handleClick: handleClick } = this;
+    const {
+      heading,
+      launchLightboxButtonAssistiveText,
+      lightbox,
+      _requestLightboxStateToggle: requestLightboxStateToggle,
+    } = this;
     return html`
       ${lightbox
         ? html`
             <button
               class="${prefix}--image-with-caption__image"
               aria-label="${ifNonNull(launchLightboxButtonAssistiveText)}"
-              @click="${handleClick}"
+              @click="${requestLightboxStateToggle}"
             >
               ${this.renderImage()}
               <div class="${prefix}--image-with-caption__zoom-button">
@@ -234,6 +254,20 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
    */
   static get eventCloseModal() {
     return `${ddsPrefix}-expressive-modal-closed`;
+  }
+
+  /**
+   * The name of the custom event fired to request the `open` state be toggled.
+   */
+  static get eventToggleModal() {
+    return `${ddsPrefix}-expressive-modal-toggle`;
+  }
+
+  /**
+   * Returns selector string of components that can override this component's modal to implement it's own handling.
+   */
+  static get selectorModalOverride() {
+    return [`${ddsPrefix}-tabs-extended[lightbox]`].join(', ');
   }
 
   /**

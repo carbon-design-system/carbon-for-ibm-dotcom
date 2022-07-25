@@ -10,11 +10,29 @@
 import { html } from 'lit-element';
 import '../index';
 import '../../card-group/index';
+import '../../image/index';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
+import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
+import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--005.jpg';
+import imgMd2x1 from '../../../../../storybook-images/assets/480/fpo--2x1--480x240--005.jpg';
+import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--005.jpg';
+import imgSm2x1 from '../../../../../storybook-images/assets/320/fpo--2x1--320x160--005.jpg';
 import { ORIENTATION } from '../defs';
 import readme from './README.stories.mdx';
+
+const images = {
+  '2x1': {
+    default: imgLg2x1,
+    srcsets: [imgSm2x1, imgMd2x1, imgLg2x1],
+  },
+  '16x9': {
+    default: imgLg16x9,
+    srcsets: [imgSm16x9, imgMd16x9, imgLg16x9],
+  },
+};
 
 const orientationType = {
   [`horizontal`]: ORIENTATION.HORIZONTAL,
@@ -67,6 +85,35 @@ export const Default = ({ parameters }) => {
       <dds-tab label="Fifth tab" disabled>
         <p>Content for fifth tab goes here.</p>
       </dds-tab>
+    </dds-tabs-extended>
+  `;
+};
+
+const renderLightboxTab = i => {
+  const aspectRatio = i % 2 ? '16x9' : '2x1';
+  const img = images[aspectRatio];
+
+  return html`
+    <dds-tab label="Tab ${i}">
+      <dds-image
+        alt="demo image for tab ${i}"
+        heading="Demo heading #${i}"
+        default-src="${img.default}"
+        copy="${ifNonNull(copy)}"
+        lightbox
+      >
+        <dds-image-item media="(min-width: 672px)" srcset="${img.srcsets[2]}"> </dds-image-item>
+        <dds-image-item media="(min-width: 400px)" srcset="${img.srcsets[1]}"> </dds-image-item>
+        <dds-image-item media="(min-width: 320px)" srcset="${img.srcsets[0]}"> </dds-image-item>
+      </dds-image>
+    </dds-tab>
+  `;
+};
+
+export const WithLightbox = () => {
+  return html`
+    <dds-tabs-extended lightbox>
+      ${[...Array(5)].map((_tab, i) => renderLightboxTab(i + 1))}
     </dds-tabs-extended>
   `;
 };

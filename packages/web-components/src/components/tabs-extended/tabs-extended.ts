@@ -11,12 +11,15 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import { customElement, html, state, LitElement, TemplateResult, property } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 import { classMap } from 'lit-html/directives/class-map.js';
+import on from 'carbon-components/es/globals/js/misc/on.js';
 import ChevronRight20 from 'carbon-web-components/es/icons/chevron--right/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSTab from './tab';
 import styles from './tabs-extended.scss';
 import { ORIENTATION } from './defs';
+import Handle from '../../globals/internal/handle';
+import ModalRenderMixin from '../../globals/mixins/modal-render';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -27,7 +30,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-tabs-extended
  */
 @customElement(`${ddsPrefix}-tabs-extended`)
-class DDSTabsExtended extends StableSelectorMixin(LitElement) {
+class DDSTabsExtended extends ModalRenderMixin(StableSelectorMixin(LitElement)) {
   /**
    * Child tab components.
    */
@@ -45,6 +48,33 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
 
   @property({ attribute: 'active-tab', reflect: true })
   _activeTab: string = '0';
+
+  @property({ attribute: 'lightbox', type: Boolean, reflect: true })
+  lightbox = false;
+
+  /**
+   * `true` if the modal should be open.
+   */
+  @property({ type: Boolean, reflect: true })
+  open = false;
+
+  /**
+   * The handler of `${ddsPrefix}-expressive-modal-closed` event from `<dds-expressive-modal>`.
+   */
+  private _handleCloseModal = () => {
+    this.open = false;
+  };
+
+  /**
+   * The handle for the listener of `${ddsPrefix}-expressive-modal-closed` event.
+   */
+  private _hCloseModal: Handle | null = null;
+
+  private _handleLightboxToggle() {
+    if (!this.lightbox) return;
+
+    this.open = !this.open;
+  }
 
   /**
    * Handler for @slotChange, creates tabs from dds-tab components.
@@ -259,6 +289,49 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   @property({ attribute: 'orientation', reflect: true })
   orientation = ORIENTATION.HORIZONTAL;
 
+  renderModal() {
+    const { lightbox, open } = this;
+    return !lightbox
+      ? undefined
+      : html`
+          <dds-expressive-modal ?open="${open}" expressive-size="full-width">
+            <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
+            <h1>TAB MODAL: TESTING</h1>
+          </dds-expressive-modal>
+        `;
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+
+    if (this.lightbox) {
+      // Creates modal render root up-front to hook the event listener.
+      this.createModalRenderRoot();
+
+      // Manually hooks the event listeners on the modal render root to make the event names configurable.
+      setTimeout(() => {
+        this._hCloseModal = on(
+          this.modalRenderRoot,
+          (this.constructor as typeof DDSTabsExtended).eventCloseModal,
+          this._handleCloseModal as EventListener
+        );
+      }, 0);
+
+      this.addEventListener(
+        (this.constructor as typeof DDSTabsExtended).eventToggleModal,
+        this._handleLightboxToggle.bind(this),
+        { capture: true }
+      );
+    }
+  }
+
+  disconnectedCallback() {
+    if (this._hCloseModal) {
+      this._hCloseModal = this._hCloseModal.release();
+    }
+    super.disconnectedCallback();
+  }
+
   render() {
     return html`
       <div class="${this._getOrientationClass()}">
@@ -268,6 +341,20 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
         </div>
       </div>
     `;
+  }
+
+  /**
+   * The name of the custom event fired after the modal is closed upon a user gesture.
+   */
+  static get eventCloseModal() {
+    return `${ddsPrefix}-expressive-modal-closed`;
+  }
+
+  /**
+   * The name of the custom event fired to request the `open` state be toggled.
+   */
+  static get eventToggleModal() {
+    return `${ddsPrefix}-expressive-modal-toggle`;
   }
 
   static get stableSelector() {
