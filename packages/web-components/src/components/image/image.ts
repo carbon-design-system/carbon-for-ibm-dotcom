@@ -150,13 +150,14 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
   connectedCallback() {
     const hasModalOverride = Boolean(this.closestComposed((this.constructor as typeof DDSImage).selectorModalOverride));
 
-    if (hasModalOverride) this._disableModal = true;
+    if (!this.lightbox || hasModalOverride) this._disableModal = true;
+
     super.connectedCallback();
 
     // Creates modal render root up-front to hook the event listener.
     this.modalRenderRoot = this.createModalRenderRoot();
 
-    if (!hasModalOverride) {
+    if (this.lightbox && !hasModalOverride) {
       // Manually hooks the event listeners on the modal render root to make the event names configurable.
       this._hCloseModal = on(
         this.modalRenderRoot,

@@ -302,6 +302,8 @@ class DDSTabsExtended extends ModalRenderMixin(StableSelectorMixin(LitElement)) 
   }
 
   connectedCallback() {
+    if (!this.lightbox) this._disableModal = true;
+
     super.connectedCallback();
 
     if (this.lightbox) {
