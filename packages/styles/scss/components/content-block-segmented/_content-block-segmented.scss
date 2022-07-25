@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -63,7 +63,19 @@
   :host(#{$dds-prefix}-content-block-segmented)
     .#{$prefix}--content-block__children
     .#{$prefix}--content-block-segmented__media
-    ::slotted(:not([slot])),
+    ::slotted(:not([slot])) {
+    display: block;
+    margin-top: $carbon--layout-05;
+    margin-bottom: $carbon--layout-05;
+  }
+
+  :host(#{$dds-prefix}-content-block-segmented)
+    .#{$prefix}--content-block__children
+    .#{$prefix}--content-block-segmented__media
+    ::slotted(:not([slot]):last-of-type) {
+    margin-bottom: 0;
+  }
+
   .#{$prefix}--content-block-segmented .#{$prefix}--content-group {
     display: block;
     margin-top: $carbon--layout-05;

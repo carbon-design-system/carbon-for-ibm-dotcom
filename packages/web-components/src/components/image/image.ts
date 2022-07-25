@@ -8,16 +8,16 @@
  */
 
 import { html, property, customElement, LitElement, state } from 'lit-element';
-import { classMap } from 'lit-html/directives/class-map';
-import settings from 'carbon-components/es/globals/js/settings';
-import on from 'carbon-components/es/globals/js/misc/on';
+import { classMap } from 'lit-html/directives/class-map.js';
+import settings from 'carbon-components/es/globals/js/settings.js';
+import on from 'carbon-components/es/globals/js/misc/on.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-close-button';
 import '../lightbox-media-viewer/lightbox-image-viewer';
 import '../button/button';
-import ZoomIn20 from 'carbon-web-components/es/icons/zoom--in/20';
+import ZoomIn20 from 'carbon-web-components/es/icons/zoom--in/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './image.scss';
 import ModalRenderMixin from '../../globals/mixins/modal-render';

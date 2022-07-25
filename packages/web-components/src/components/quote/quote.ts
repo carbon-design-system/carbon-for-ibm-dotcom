@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { customElement, html, LitElement, property } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './quote.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { QUOTE_TYPES, QUOTE_COLOR_SCHEMES } from './defs';
