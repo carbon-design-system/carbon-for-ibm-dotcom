@@ -42,6 +42,8 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
   @state()
   private _images: HTMLElement[] = [];
 
+  _disableModal = false;
+
   /**
    * Handles `slotchange` event.
    */
@@ -135,14 +137,20 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
   }
 
   connectedCallback() {
+    const inLightboxTabs = Boolean(this.closestComposed(`${ddsPrefix}-tabs-extended[lightbox]`));
+
+    if (inLightboxTabs) this._disableModal = true;
     super.connectedCallback();
     this.modalRenderRoot = this.createModalRenderRoot(); // Creates modal render root up-front to hook the event listener
     // Manually hooks the event listeners on the modal render root to make the event names configurable
-    this._hCloseModal = on(
-      this.modalRenderRoot,
-      (this.constructor as typeof DDSImage).eventCloseModal,
-      this._handleCloseModal as EventListener
-    );
+
+    if (!inLightboxTabs) {
+      this._hCloseModal = on(
+        this.modalRenderRoot,
+        (this.constructor as typeof DDSImage).eventCloseModal,
+        this._handleCloseModal as EventListener
+      );
+    }
   }
 
   disconnectedCallback() {

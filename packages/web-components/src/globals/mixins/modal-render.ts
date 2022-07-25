@@ -62,6 +62,10 @@ const ModalRenderMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       }
     }
 
+    closestComposed(selector) {
+      return closestComposed(this, selector);
+    }
+
     /**
      * @returns The template of the modal.
      */
