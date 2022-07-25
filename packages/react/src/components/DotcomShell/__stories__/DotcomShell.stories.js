@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean, select, object } from '@storybook/addon-knobs';
+import { boolean, select, text, object } from '@storybook/addon-knobs';
 import Content from './data/content';
 import DotcomShell from '../DotcomShell';
 import { Micro as footerMicroStory } from '../../Footer/__stories__/Footer.stories.js';
@@ -22,18 +22,46 @@ const footerTypeOptions = {
   micro: 'micro',
 };
 
+const mastheadKnobs = () => {
+  return {
+    hasProfile: boolean(
+      'show the profile functionality (hasProfile)',
+      true,
+      'Masthead'
+    ),
+    hasSearch: boolean(
+      'show the search functionality (hasSearch)',
+      true,
+      'Masthead'
+    ),
+    placeHolderText: text(
+      'search placeholder (placeHolderText)',
+      'Search all of IBM',
+      'Masthead'
+    ),
+    initialSearchTerm: text(
+      'initial search term (initialSearchTerm)',
+      '',
+      'Masthead'
+    ),
+    selectedMenuItem: text(
+      'selected menu item (selectedMenuItem)',
+      'Consulting & Services',
+      'Masthead'
+    ),
+  };
+};
+
 const props = {
   default: () => {
-    const { Masthead: mastheadKnobs } = mastheadStory.story.parameters.knobs;
-    const disableLocaleButton = boolean(
-      'hide the locale button (disableLocaleButton)',
-      false,
-      'Footer'
-    );
     return {
-      mastheadProps: mastheadKnobs({ groupId: 'Masthead' }),
+      mastheadProps: mastheadKnobs(),
       footerProps: {
-        disableLocaleButton,
+        disableLocaleButton: boolean(
+          'hide the locale button (disableLocaleButton)',
+          false,
+          'Footer'
+        ),
         type: select(
           'Footer (footerProps): sets the type of footer (type)',
           footerTypeOptions,
