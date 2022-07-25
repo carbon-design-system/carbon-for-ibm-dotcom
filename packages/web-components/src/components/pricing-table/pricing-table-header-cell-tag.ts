@@ -8,7 +8,7 @@
  */
 
 import { customElement, property } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSTagLink from '../tag-link/tag-link';
 import styles from './pricing-table.scss';

@@ -7277,10 +7277,10 @@ capture-exit@^2.0.0:
   dependencies:
     rsvp "^4.8.4"
 
-carbon-components-react@7.57.1:
-  version "7.57.1"
-  resolved "https://registry.yarnpkg.com/carbon-components-react/-/carbon-components-react-7.57.1.tgz#d59b079300ded3f721f0a42beed6721afccaa3d6"
-  integrity sha512-7B1MQWfiN7oNONvdCX3ROFDu1Smu2DvILyH3JQupPF7rmqtPEvJH/zH33xNU8t4oSwT4tkigDM42/War7Ewyxw==
+carbon-components-react@7.57.3:
+  version "7.57.3"
+  resolved "https://registry.yarnpkg.com/carbon-components-react/-/carbon-components-react-7.57.3.tgz#a5681f8953a5af8a9ce19257910371f4fcade100"
+  integrity sha512-YqMF3ptloQoo7w0RemvFYI2JpKcFnN33v5ogvR/kbKX55/W5QvpxMnx3/1041hID+JOxPmhLJ1whtLAPPBZzEg==
   dependencies:
     "@babel/runtime" "^7.16.7"
     "@carbon/feature-flags" "^0.7.0"
