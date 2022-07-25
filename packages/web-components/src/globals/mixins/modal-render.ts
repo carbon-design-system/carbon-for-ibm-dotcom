@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,6 +34,11 @@ const closestComposed = (elem: Element, selector: string) => {
  */
 const ModalRenderMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
   abstract class ModalRenderMixinImpl extends Base {
+    /**
+     * If `true`, this compenent does not create its own modal.
+     */
+    _disableModal = false;
+
     /**
      * `true` if this component is disconnected from render tree after creation.
      *
@@ -79,11 +84,14 @@ const ModalRenderMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * @returns The render root of the modal.
      */
     createModalRenderRoot(): Element | null | void {
-      const { container, ownerDocument: doc } = this;
-      const div = doc!.createElement('div');
-      div.style.display = 'contents'; // Prevents render-root `<div>` from being rendered
-      container.appendChild(div);
-      return div;
+      const { container, ownerDocument: doc, _disableModal: disabled } = this;
+      if (!disabled) {
+        const div = doc!.createElement('div');
+        div.style.display = 'contents'; // Prevents render-root `<div>` from being rendered
+        container.appendChild(div);
+        return div;
+      }
+      return null;
     }
 
     connectedCallback() {
