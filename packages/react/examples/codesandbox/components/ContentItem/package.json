@@ -2,9 +2,10 @@
   "name": "ibmdotcom-react-contentitem-example",
   "private": true,
   "version": "1.0.0",
+  "homepage": "./",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && mv build dist"
+    "build": "BUILD_PATH='./dist' react-scripts build"
   },
   "dependencies": {
     "@carbon/ibmdotcom-react": "latest",
