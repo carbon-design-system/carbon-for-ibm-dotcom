@@ -29,6 +29,7 @@ const SORT_ORDER = [
 ];
 
 addParameters({
+  layout: 'fullscreen',
   options: {
     name: `Carbon for IBM.com React`,
     url: 'https://github.com/carbon-design-system/carbon-for-ibm-dotcom',

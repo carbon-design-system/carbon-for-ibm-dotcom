@@ -59,7 +59,7 @@ describe('dds-feature-section (desktop)', () => {
   });
 
   it('should have image on the left and content on the right side (media align: left)', () => {
-    cy.visit(`/${_path}&knob-Media%20Alignment_dds-feature-section=left`);
+    cy.visit(`/${_path}&knob-Media%20Alignment=left`);
     // content takes the right half
     cy.get('dds-feature-section')
       .shadow()
@@ -107,7 +107,7 @@ describe('dds-feature-section (desktop)', () => {
   });
 
   it('should be able to customize card link from local to external', () => {
-    cy.visit(`/${_path}&knob-CTA%20type%20(cta-type)_dds-feature-section=external`);
+    cy.visit(`/${_path}&knob-CTA%20type%20(cta-type)=external`);
 
     cy.get('dds-feature-section-card-link  > dds-card-cta-footer')
       .shadow()
@@ -155,7 +155,7 @@ describe('dds-feature-section (mobile)', () => {
   });
 
   it('should have content on the bottom and image on the top (media align: left)', () => {
-    cy.visit(`/${_path}&knob-Media%20Alignment_dds-feature-section=left`);
+    cy.visit(`/${_path}&knob-Media%20Alignment=left`);
 
     cy.wait(500);
 
