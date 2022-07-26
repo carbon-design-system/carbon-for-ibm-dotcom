@@ -8,10 +8,8 @@
 import { boolean, select, text, object } from '@storybook/addon-knobs';
 import Content from './data/content';
 import DotcomShell from '../DotcomShell';
-import { Micro as footerMicroStory } from '../../Footer/__stories__/Footer.stories.js';
-import { Default as footerStory } from '../../Footer/__stories__/Footer.stories.js';
-import { WithL1 as l1Story } from '../../Masthead/__stories__/Masthead.stories.js';
 import languageItems from '../../Footer/__data__/language-items.json';
+import mastheadLinks from '../../Masthead/__stories__/data/MastheadLinks';
 import { Default as mastheadStory } from '../../Masthead/__stories__/Masthead.stories.js';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -24,6 +22,7 @@ const footerTypeOptions = {
 
 const mastheadKnobs = () => {
   return {
+    navigation: 'default',
     hasProfile: boolean(
       'show the profile functionality (hasProfile)',
       true,
@@ -46,7 +45,7 @@ const mastheadKnobs = () => {
     ),
     selectedMenuItem: text(
       'selected menu item (selectedMenuItem)',
-      'Consulting & Services',
+      `Consulting & Services`,
       'Masthead'
     ),
   };
@@ -74,15 +73,19 @@ const props = {
 
   defaultLanguageOnly: () => {
     const languageOnly = true;
-    const { Masthead: mastheadKnobs } = mastheadStory.story.parameters.knobs;
-    const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
     return {
-      mastheadProps: mastheadKnobs({ groupId: 'Masthead' }),
+      mastheadProps: mastheadKnobs(),
       footerProps: {
-        ...footerKnobs({ groupId: 'Footer' }),
         disableLocaleButton: boolean(
           'hide the locale button (disableLocaleButton)',
-          false
+          false,
+          'Footer'
+        ),
+        type: select(
+          'Footer (footerProps): sets the type of footer (type)',
+          footerTypeOptions,
+          footerTypeOptions.default,
+          'Footer'
         ),
         languageOnly,
         languageItems: !languageOnly
@@ -94,39 +97,41 @@ const props = {
   },
 
   searchOpenByDefault: () => {
-    const { Masthead: mastheadKnobs } = mastheadStory.story.parameters.knobs;
-    const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
     return {
       mastheadProps: {
-        ...mastheadKnobs({ groupId: 'Masthead' }),
+        ...mastheadKnobs(),
         searchOpenOnload: true,
       },
       footerProps: {
-        ...footerKnobs({ groupId: 'Footer' }),
         disableLocaleButton: boolean(
           'hide the locale button (disableLocaleButton)',
-          false
+          false,
+          'Footer'
+        ),
+        type: select(
+          'Footer (footerProps): sets the type of footer (type)',
+          footerTypeOptions,
+          footerTypeOptions.default,
+          'Footer'
         ),
       },
     };
   },
 
   withPlatform: () => {
-    const { Masthead: mastheadKnobs } = mastheadStory.story.parameters.knobs;
-    const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
     return {
       mastheadProps: {
-        ...mastheadKnobs({ groupId: 'Masthead' }),
+        ...mastheadKnobs(),
         platform: {
           name: 'IBM Cloud',
           url: 'https://www.ibm.com/cloud',
         },
       },
       footerProps: {
-        ...footerKnobs({ groupId: 'Footer' }),
         disableLocaleButton: boolean(
           'hide the locale button (disableLocaleButton)',
-          false
+          false,
+          'Footer'
         ),
       },
     };
@@ -134,14 +139,13 @@ const props = {
 
   shortFooter: () => {
     const { Masthead: mastheadKnobs } = mastheadStory.story.parameters.knobs;
-    const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
     return {
-      mastheadProps: mastheadKnobs({ groupId: 'Masthead' }),
+      mastheadProps: mastheadKnobs(),
       footerProps: {
-        ...footerKnobs({ groupId: 'Footer' }),
         disableLocaleButton: boolean(
           'hide the locale button (disableLocaleButton)',
-          false
+          false,
+          'Footer'
         ),
         type: 'short',
       },
@@ -151,15 +155,14 @@ const props = {
   shortFooterLanguageOnly: () => {
     const languageOnly = true;
     const { Masthead: mastheadKnobs } = mastheadStory.story.parameters.knobs;
-    const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
     return {
-      mastheadProps: mastheadKnobs({ groupId: 'Masthead' }),
+      mastheadProps: mastheadKnobs(),
       footerProps: {
-        ...footerKnobs({ groupId: 'Footer' }),
         type: 'short',
         disableLocaleButton: boolean(
           'hide the locale button (disableLocaleButton)',
-          false
+          false,
+          'Footer'
         ),
         languageOnly,
         languageItems: !languageOnly
@@ -171,17 +174,14 @@ const props = {
   },
 
   microFooter: () => {
-    const { Masthead: mastheadKnobs } = mastheadStory.story.parameters.knobs;
-    const { Footer: footerKnobs } = footerMicroStory.story.parameters.knobs;
-    const disableLocaleButton = boolean(
-      'hide the locale button (disableLocaleButton)',
-      false
-    );
     return {
-      mastheadProps: mastheadKnobs({ groupId: 'Masthead' }),
+      mastheadProps: mastheadKnobs(),
       footerProps: {
-        ...footerKnobs({ groupId: 'Footer' }),
-        disableLocaleButton,
+        disableLocaleButton: boolean(
+          'hide the locale button (disableLocaleButton)',
+          false,
+          'Footer'
+        ),
         type: 'micro',
       },
     };
@@ -189,28 +189,49 @@ const props = {
 
   microFooterLanguageOnly: () => {
     const languageOnly = true;
-    const { Masthead: mastheadKnobs } = mastheadStory.story.parameters.knobs;
-    const { Footer: footerKnobs } = footerMicroStory.story.parameters.knobs;
     return {
-      mastheadProps: mastheadKnobs({ groupId: 'Masthead' }),
+      mastheadProps: mastheadKnobs(),
       footerProps: {
-        ...footerKnobs({ groupId: 'Footer' }),
         type: 'micro',
         languageOnly,
         languageItems: !languageOnly
           ? undefined
           : object('language dropdown items (languageItems)', languageItems),
         languageInitialItem: { id: 'en', text: 'English' },
+        footerProps: {
+          disableLocaleButton: boolean(
+            'hide the locale button (disableLocaleButton)',
+            false,
+            'Footer'
+          ),
+        },
       },
     };
   },
 
   withL1: () => {
-    const { Masthead: mastheadKnobs } = l1Story.story.parameters.knobs;
     return {
-      platform: mastheadKnobs.l1Platform,
       mastheadProps: {
-        ...mastheadKnobs({ groupId: 'Masthead' }),
+        platform: {
+          name: 'Stock Charts',
+          url: 'https://www.example.com',
+        },
+        hasProfile: boolean(
+          'show the profile functionality (hasProfile)',
+          true
+        ),
+        hasSearch: boolean('show the search functionality (hasSearch)', true),
+        placeHolderText: text(
+          'search placeholder (placeHolderText)',
+          'Search all of IBM'
+        ),
+        mastheadL1Data: {
+          navigationL1: mastheadLinks,
+        },
+        selectedMenuItem: text(
+          'selected menu item (selectedMenuItem)',
+          'Lorem ipsum dolor sit amet'
+        ),
       },
     };
   },
