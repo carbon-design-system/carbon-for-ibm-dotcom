@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,7 +14,11 @@ const program = require('commander');
 
 program
   .option('-f, --tagFrom <git tag from>', 'Git tag range from')
-  .option('-t, --tagTo <git tag to>', 'Git tag range from');
+  .option('-t, --tagTo <git tag to>', 'Git tag range from')
+  .option(
+    '-v, --wcVersion <web components release version>',
+    'Web Components release version'
+  );
 
 /**
  * Stores the arguments
@@ -36,6 +40,13 @@ const { tagFrom } = args;
  * @type {string}
  */
 const { tagTo } = args;
+
+/**
+ * Web Components release version (-v)
+ *
+ * @type {string}
+ */
+const { wcVersion } = args;
 
 /**
  * Uses a delimiter for splitting the comments into an array
@@ -102,6 +113,11 @@ function _getCommitSubject(str) {
 function getChangelog(pkgName, folder) {
   // Stores the changelog
   let changelog = `## ${pkgName}\n`;
+
+  // Set Web Components version next to package name
+  if (pkgName === 'Web Components') {
+    changelog = `## ${pkgName} (${wcVersion})\n`;
+  }
 
   // Stores the list of features
   const features = {};
