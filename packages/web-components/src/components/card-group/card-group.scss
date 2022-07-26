@@ -28,6 +28,7 @@
   ::slotted(#{$dds-prefix}-card-group-item[empty]),
   ::slotted(#{$dds-prefix}-card-group-card-link-item[empty]) {
     background-color: transparent;
+    outline: none;
   }
 }
 
