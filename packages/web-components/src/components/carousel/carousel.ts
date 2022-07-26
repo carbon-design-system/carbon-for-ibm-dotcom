@@ -220,7 +220,21 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    */
   private _handleClickNextButton() {
     const { pageSize, start, _total: total } = this;
-    this.start = Math.min(start + pageSize, total - 1);
+    const prevSlide = start;
+    const currentSlide = Math.min(start + pageSize, total - 1);
+    this.start = currentSlide;
+
+    this.dispatchEvent(
+      new CustomEvent((this.constructor as typeof DDSCarousel).eventCarouselNavigated, {
+        bubbles: true,
+        composed: true,
+        cancelable: false,
+        detail: {
+          prevSlide,
+          currentSlide,
+        },
+      })
+    );
   }
 
   /**
@@ -228,7 +242,22 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    */
   private _handleClickPrevButton() {
     const { pageSize, start } = this;
-    this.start = Math.max(start - pageSize, 0);
+
+    const prevSlide = start;
+    const currentSlide = Math.max(start - pageSize, 0);
+    this.start = currentSlide;
+
+    this.dispatchEvent(
+      new CustomEvent((this.constructor as typeof DDSCarousel).eventCarouselNavigated, {
+        bubbles: true,
+        composed: true,
+        cancelable: false,
+        detail: {
+          prevSlide,
+          currentSlide,
+        },
+      })
+    );
   }
 
   /**
@@ -556,6 +585,10 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    */
   static get eventVideoTitleUpdated() {
     return `${ddsPrefix}-card-cta-video-title-updated`;
+  }
+
+  static get eventCarouselNavigated() {
+    return `${ddsPrefix}-carousel-navigated`;
   }
 
   /**

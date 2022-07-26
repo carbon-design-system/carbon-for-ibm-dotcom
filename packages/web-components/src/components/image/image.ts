@@ -18,6 +18,7 @@ import '../expressive-modal/expressive-modal-close-button';
 import '../lightbox-media-viewer/lightbox-image-viewer';
 import '../button/button';
 import ZoomIn20 from 'carbon-web-components/es/icons/zoom--in/20.js';
+import { ifDefined } from 'lit-html/directives/if-defined';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './image.scss';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
@@ -169,6 +170,14 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
     }
   }
 
+  firstUpdated() {
+    const modalHandler = this.closestComposed((this.constructor as typeof DDSImage).selectorModalOverride);
+
+    if (modalHandler) {
+      modalHandler.addModalContents(this);
+    }
+  }
+
   disconnectedCallback() {
     if (this._hCloseModal) {
       this._hCloseModal = this._hCloseModal.release();
@@ -187,7 +196,13 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
       <slot @slotchange="${handleSlotChange}"></slot>
       <picture>
         ${images.map(
-          image => html`<source media="${image.getAttribute('media')}" srcset="${image.getAttribute('srcset')}"></source>`
+          image =>
+            html`
+              <source
+                media="${ifDefined(image.getAttribute('media')) || ''}"
+                srcset="${ifDefined(image.getAttribute('srcset') || '')}"
+              />
+            `
         )}
         <img class="${imgClasses}" src="${defaultSrc}" alt="${alt}" aria-describedby="long-description" loading="lazy" />
       </picture>
@@ -198,20 +213,26 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
     `;
   }
 
+  renderModalInnerContents() {
+    const { alt, copy, defaultSrc, heading } = this;
+    return html`
+      <dds-lightbox-image-viewer
+        alt="${ifNonNull(alt)}"
+        default-src="${ifNonNull(defaultSrc)}"
+        description="${ifNonNull(copy)}"
+        title="${ifNonNull(heading)}"
+      ></dds-lightbox-image-viewer>
+    `;
+  }
+
   renderModal() {
-    const { alt, copy, defaultSrc, heading, lightbox, open } = this;
+    const { lightbox, open } = this;
     return !lightbox
       ? undefined
       : html`
           <dds-expressive-modal ?open="${open}" expressive-size="full-width">
             <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
-            <dds-lightbox-image-viewer
-              alt="${ifNonNull(alt)}"
-              default-src="${ifNonNull(defaultSrc)}"
-              description="${ifNonNull(copy)}"
-              title="${ifNonNull(heading)}"
-            >
-            </dds-lightbox-image-viewer>
+            ${this.renderModalInnerContents()}
           </dds-expressive-modal>
         `;
   }

@@ -16,6 +16,7 @@ import ChevronRight20 from 'carbon-web-components/es/icons/chevron--right/20.js'
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSTab from './tab';
+import DDSCarousel from '../carousel/carousel';
 import styles from './tabs-extended.scss';
 import { ORIENTATION } from './defs';
 import Handle from '../../globals/internal/handle';
@@ -23,6 +24,24 @@ import ModalRenderMixin from '../../globals/mixins/modal-render';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
+
+/* eslint-disable no-bitwise */
+const PRECEDING = Node.DOCUMENT_POSITION_PRECEDING | Node.DOCUMENT_POSITION_CONTAINS;
+const FOLLOWING = Node.DOCUMENT_POSITION_FOLLOWING | Node.DOCUMENT_POSITION_CONTAINED_BY;
+
+function sortElementsInDom(elements: HTMLElement[]) {
+  return elements.sort((a, b) => {
+    const comparison = a!.compareDocumentPosition(b!);
+    if (comparison & PRECEDING) return 1;
+    if (comparison & FOLLOWING) return -1;
+    return 0;
+  });
+}
+/* eslint-enable no-bitwise */
+
+interface overriddenModalComponent extends HTMLElement {
+  renderModalInnerContents: Function;
+}
 
 /**
  * A component to present content inside a tabbed layout.
@@ -58,17 +77,59 @@ class DDSTabsExtended extends ModalRenderMixin(StableSelectorMixin(LitElement)) 
   @property({ type: Boolean, reflect: true })
   open = false;
 
+  private _overriddenModalComponents: HTMLElement[] = [];
+
+  /**
+   * Adds a component that has its modal overridden by this tab group.
+   *
+   * @param newComponent The overridden component.
+   */
+  addModalContents(newComponent) {
+    // Don't include content duplicated into our shadow DOM.
+    if (newComponent.getRootNode() === this.shadowRoot) return;
+
+    const { _overriddenModalComponents: oldComponents } = this;
+    const allOverridden = [...oldComponents, newComponent];
+
+    this._overriddenModalComponents = sortElementsInDom(allOverridden);
+
+    this.requestUpdate();
+  }
+
+  /**
+   * Removes a component from the group of overriden components.
+   *
+   * @param componentToRemove component to remove.
+   */
+  removeModalContents(componentToRemove) {
+    const { _overriddenModalComponents: oldComponents } = this;
+    this._overriddenModalComponents = oldComponents.filter(component => component === componentToRemove);
+
+    this.requestUpdate();
+  }
+
   /**
    * The handler of `${ddsPrefix}-expressive-modal-closed` event from `<dds-expressive-modal>`.
    */
   private _handleCloseModal = () => {
+    const { _activeTab: activeTab, _tabItems: tabItems } = this;
     this.open = false;
+
+    tabItems[activeTab].shadowRoot.querySelector('[role="tabpanel"]').focus();
   };
 
   /**
    * The handle for the listener of `${ddsPrefix}-expressive-modal-closed` event.
    */
   private _hCloseModal: Handle | null = null;
+
+  private _handleCarouselNavigation = event => {
+    const { currentSlide } = event.detail;
+
+    this._activeTab = currentSlide;
+  };
+
+  private _hCarouselNav: Handle | null = null;
 
   private _handleLightboxToggle() {
     if (!this.lightbox) return;
@@ -290,13 +351,16 @@ class DDSTabsExtended extends ModalRenderMixin(StableSelectorMixin(LitElement)) 
   orientation = ORIENTATION.HORIZONTAL;
 
   renderModal() {
-    const { lightbox, open } = this;
+    const { lightbox, open, _overriddenModalComponents: overriddenComponents, _activeTabIndex: activeTabIndex } = this;
     return !lightbox
       ? undefined
       : html`
           <dds-expressive-modal ?open="${open}" expressive-size="full-width">
             <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
-            <h1>TAB MODAL: TESTING</h1>
+            <h1 slot="header">Modal Header (required for accessibility)</h1>
+            <dds-carousel start=${activeTabIndex} page-size="1">
+              ${overriddenComponents.map(comp => (comp as overriddenModalComponent).renderModalInnerContents())}
+            </dds-carousel>
           </dds-expressive-modal>
         `;
   }
@@ -317,6 +381,12 @@ class DDSTabsExtended extends ModalRenderMixin(StableSelectorMixin(LitElement)) 
           (this.constructor as typeof DDSTabsExtended).eventCloseModal,
           this._handleCloseModal as EventListener
         );
+
+        this._hCarouselNav = on(
+          this.modalRenderRoot,
+          DDSCarousel.eventCarouselNavigated,
+          this._handleCarouselNavigation as EventListener
+        );
       }, 0);
 
       this.addEventListener(
@@ -331,6 +401,11 @@ class DDSTabsExtended extends ModalRenderMixin(StableSelectorMixin(LitElement)) 
     if (this._hCloseModal) {
       this._hCloseModal = this._hCloseModal.release();
     }
+
+    if (this._hCarouselNav) {
+      this._hCarouselNav = this._hCarouselNav.release();
+    }
+
     super.disconnectedCallback();
   }
 
