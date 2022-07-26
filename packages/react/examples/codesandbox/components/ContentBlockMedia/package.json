@@ -2,21 +2,31 @@
   "name": "ibmdotcom-react-contentblockmedia-example",
   "private": true,
   "version": "1.0.0",
-  "main": "index.html",
+  "homepage": "./",
   "scripts": {
-    "start": "parcel serve -p 9000 index.html --no-hmr",
-    "build": "parcel build index.html --public-url ./"
+    "start": "react-scripts start",
+    "build": "BUILD_PATH='./dist' react-scripts build"
   },
   "dependencies": {
     "@carbon/ibmdotcom-react": "latest",
     "@carbon/ibmdotcom-styles": "latest",
-    "@carbon/icons-react": "10.49.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.0",
-    "parcel-bundler": "1.12.3",
-    "sass": "^1.26.9"
-    }
+    "react-scripts": "4.0.3",
+    "sass": "^1.53.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
