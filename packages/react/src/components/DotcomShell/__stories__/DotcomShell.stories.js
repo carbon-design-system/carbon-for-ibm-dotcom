@@ -10,7 +10,6 @@ import Content from './data/content';
 import DotcomShell from '../DotcomShell';
 import languageItems from '../../Footer/__data__/language-items.json';
 import mastheadLinks from '../../Masthead/__stories__/data/MastheadLinks';
-import { Default as mastheadStory } from '../../Masthead/__stories__/Masthead.stories.js';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
