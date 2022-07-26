@@ -1,5 +1,5 @@
 /**
- Copyright IBM Corp. 2016, 2021
+ Copyright IBM Corp. 2016, 2022
 
  This source code is licensed under the Apache-2.0 license found in the
  LICENSE file in the root directory of this source tree.
@@ -7,9 +7,7 @@
 
 import './styles.scss';
 
-import React from 'react';
 import ReactDom from 'react-dom';
-
 import { ContentItem } from '@carbon/ibmdotcom-react/es/components/ContentItem';
 
 const App = () => (
@@ -31,4 +29,4 @@ const App = () => (
   </div>
 );
 
-ReactDom.render(<App/>, document.getElementById('app'));
+ReactDom.render(<App />, document.getElementById('app'));

@@ -189,7 +189,7 @@ The Web Components community has made the React core team aware of above [issue]
 The `carbon-web-components` library implements a variant of the proposal, called [`createReactCustomElementType()`](https://github.com/carbon-design-system/carbon-web-components/blob/v1.11.0/src/globals/wrappers/createReactCustomElementType.ts). This example creates a React component, `BXDropdown`, from the `<bx-dropdown>` custom element:
 
 ```javascript
-import createCustomElementType, { booleanSerializer } from 'carbon-web-components/es/globals/wrappers/createCustomElementType';
+import createCustomElementType, { booleanSerializer } from 'carbon-web-components/es/globals/wrappers/createCustomElementType.js';
 
 const BXDropdown = createCustomElementType('bx-dropdown', {
   disabled: {
