@@ -138,7 +138,6 @@ const props = {
   },
 
   shortFooter: () => {
-    const { Masthead: mastheadKnobs } = mastheadStory.story.parameters.knobs;
     return {
       mastheadProps: mastheadKnobs(),
       footerProps: {
@@ -154,7 +153,6 @@ const props = {
 
   shortFooterLanguageOnly: () => {
     const languageOnly = true;
-    const { Masthead: mastheadKnobs } = mastheadStory.story.parameters.knobs;
     return {
       mastheadProps: mastheadKnobs(),
       footerProps: {
