@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map';
+import { classMap } from 'lit-html/directives/class-map.js';
 import { html, customElement, property, state, query, LitElement, TemplateResult, SVGTemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import on from 'carbon-components/es/globals/js/misc/on';
+import on from 'carbon-components/es/globals/js/misc/on.js';
 import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
@@ -19,6 +19,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { EXPRESSIVE_MODAL_SIZE, EXPRESSIVE_MODAL_MODE } from './defs';
 import DDSExpressiveModalCloseButton from './expressive-modal-close-button';
 import styles from './expressive-modal.scss';
+import DDSCarousel from '../carousel/carousel';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -38,7 +39,7 @@ const WITHIN = Node.DOCUMENT_POSITION_CONTAINED_BY;
  * @returns `true` if one of the attempts is successful, `false` otherwise.
  */
 function tryFocusElems(
-  elems: NodeListOf<HTMLElement> | HTMLElement[],
+  elems: NodeListOf<HTMLElement> | [HTMLElement],
   reverse: boolean = false,
   fallback: HTMLElement | null = null
 ) {
@@ -124,9 +125,48 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
   private _launcher: Element | null = null;
 
   /**
-   * Collection of all focusable elements within this component or its shadowRoot.
+   * Collection of elements to search for focusable elements.
    */
-  private _focusableElements: HTMLElement[] = [];
+  hasFocusableElements: [DDSExpressiveModal | DDSCarousel] = [this];
+
+  /**
+   * Returns all focusable elements within this component and its shadowroot
+   */
+  get focusableElements() {
+    const { selectorCloseButton, selectorTabbable: selectorTabbableForModal } = this.constructor as typeof DDSExpressiveModal;
+    return [
+      ...Array.from((this.shadowRoot?.querySelectorAll(selectorCloseButton) as NodeListOf<HTMLElement>) || []),
+      ...Array.from(this.querySelectorAll(selectorTabbableForModal) as NodeListOf<HTMLElement>),
+    ];
+  }
+
+  private get _focusableElements() {
+    const { hasFocusableElements } = this;
+
+    const focusableElements: [HTMLElement?] = [];
+
+    hasFocusableElements.forEach(el => {
+      if (el.focusableElements) {
+        focusableElements.push(...el.focusableElements);
+      }
+    });
+
+    return Array.from(new Set(focusableElements)).sort((a, b) => {
+      const comparison = a!.compareDocumentPosition(b!);
+
+      /* eslint-disable no-bitwise */
+      if (comparison & PRECEDING) {
+        return 1;
+      }
+
+      if (comparison & FOLLOWING) {
+        return -1;
+      }
+      /* eslint-enable no-bitwise */
+
+      return 0;
+    });
+  }
 
   /**
    * Node to track focus going outside of modal content.
@@ -188,12 +228,12 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
 
     if (focusFromWithin) {
       if (target === startSentinelNode) {
-        tryFocusElems(focusableElements, true, this);
+        tryFocusElems(focusableElements as [HTMLElement], true, this);
       } else if (target === endSentinelNode) {
-        tryFocusElems(focusableElements, false, this);
+        tryFocusElems(focusableElements as [HTMLElement], false, this);
       }
     } else {
-      tryFocusElems(focusableElements, false, this);
+      tryFocusElems(focusableElements as [HTMLElement], false, this);
     }
   };
 
@@ -221,9 +261,9 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
     // If focusing outside of `this`, cycle focus
     if (!relatedTargetIsContained && !(relatedTarget === this)) {
       if (positionToPrevious & PRECEDING) {
-        tryFocusElems(focusableElements, true, this);
+        tryFocusElems(focusableElements as [HTMLElement], true, this);
       } else if (positionToPrevious & FOLLOWING) {
-        tryFocusElems(focusableElements, false, this);
+        tryFocusElems(focusableElements as [HTMLElement], false, this);
       }
     }
   };
@@ -315,7 +355,7 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
       [`${ddsPrefix}-ce--modal__header--with-body`]: hasHeader && (hasBody || hasFooter),
     });
     return html`
-      <div id="modal-header" class="${headerClasses}"><slot name="header"></slot></div>
+      <div id="${ddsPrefix}--modal-header" class="${headerClasses}"><slot name="header"></slot></div>
     `;
   }
 
@@ -389,11 +429,11 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
         class="${containerClasses}"
         tabindex="-1"
         role="dialog"
-        aria-labelledby="modal-header"
+        aria-labelledby="${ddsPrefix}--modal-header"
         @click="${handleClickContainer}"
         @slotchange="${handleSlotChange}"
       >
-        <div class="bx--modal-content">
+        <div class="${prefix}--modal-content">
           ${this._renderHeader()}${this._renderBody()}${this._renderFooter()}
         </div>
       </div>
@@ -409,12 +449,8 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
 
   async updated(changedProperties) {
     const { _focusableElements: focusableElements, size } = this;
-    const { selectorCloseButton, selectorTabbable: selectorTabbableForModal } = this.constructor as typeof DDSExpressiveModal;
+    const { selectorCloseButton } = this.constructor as typeof DDSExpressiveModal;
 
-    this._focusableElements = [
-      ...Array.from((this.shadowRoot?.querySelectorAll(selectorCloseButton) as NodeListOf<HTMLElement>) || []),
-      ...Array.from(this.querySelectorAll(selectorTabbableForModal) as NodeListOf<HTMLElement>),
-    ];
     if (changedProperties.has('size')) {
       const closeButton = this.querySelector(selectorCloseButton);
       if (closeButton) {
@@ -433,10 +469,9 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
           // where its first update/render cycle that makes it focusable happens after `<bx-modal>`'s first update/render cycle
           (primaryFocusNode as HTMLElement).focus();
         } else {
-          tryFocusElems(focusableElements, true, this);
+          tryFocusElems(focusableElements as [HTMLElement], true, this);
         }
       } else if (this._launcher && typeof (this._launcher as HTMLElement).focus === 'function') {
-        this._focusableElements = [];
         (this._launcher as HTMLElement).focus();
         this.ownerDocument.body.style.overflow = '';
         this._launcher = null;

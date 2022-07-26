@@ -39,8 +39,8 @@ import './legal-nav-item';
 import './legal-nav-cookie-preferences-placeholder';
 import './language-selector-desktop';
 import './language-selector-mobile';
-import 'carbon-web-components/es/components/combo-box/combo-box-item';
-import 'carbon-web-components/es/components/select/select-item';
+import 'carbon-web-components/es/components/combo-box/combo-box-item.js';
+import 'carbon-web-components/es/components/select/select-item.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -277,6 +277,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
           ? html`
               <dds-language-selector-desktop
                 trigger-content="${languageSelectorLabel}"
+                label-text="${languageSelectorLabel}"
                 value="${selectedLanguage}"
                 clear-selection-label="${clearSelectionLabel}"
               >
@@ -335,6 +336,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
                   size="${size}"
                   slot="locale"
                   trigger-content="${languageSelectorLabel}"
+                  label-text="${languageSelectorLabel}"
                   value="${selectedLanguage}"
                   clear-selection-label="${clearSelectionLabel}"
                 >

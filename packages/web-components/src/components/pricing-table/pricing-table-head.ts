@@ -8,14 +8,15 @@
  */
 
 import { customElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSStructuredListHead from '../structured-list/structured-list-head';
 import styles from './pricing-table.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-head`)
-class DDSPricingTableHead extends DDSStructuredListHead {
+class DDSPricingTableHead extends StableSelectorMixin(DDSStructuredListHead) {
   static get stableSelector() {
     return `${ddsPrefix}--pricing-table-head`;
   }

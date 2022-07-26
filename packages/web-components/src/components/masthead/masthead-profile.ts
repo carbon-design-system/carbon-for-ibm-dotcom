@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ifDefined } from 'lit-html/directives/if-defined';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { html, property, query, customElement, LitElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import User20 from 'carbon-web-components/es/icons/user/20.js';
 import UserOnline20 from 'carbon-web-components/es/icons/user--online/20.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';

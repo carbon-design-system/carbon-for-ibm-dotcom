@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-services",
   "description": "Carbon for IBM.com Services",
-  "version": "1.35.0",
+  "version": "1.36.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.0",
-    "@carbon/ibmdotcom-utilities": "1.35.0",
+    "@carbon/ibmdotcom-utilities": "1.36.0",
     "@carbon/telemetry": "0.1.0",
     "axios": "^0.27.2",
     "marked": "^4.0.10",
@@ -61,7 +61,7 @@
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
     "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
     "@babel/plugin-syntax-import-meta": "^7.2.0",
-    "@babel/plugin-transform-runtime": "7.18.2",
+    "@babel/plugin-transform-runtime": "7.18.5",
     "@babel/preset-env": "^7.4.3",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^21.0.3",
