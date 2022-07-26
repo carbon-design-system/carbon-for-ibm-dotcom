@@ -11,7 +11,7 @@ import cx from 'classnames';
 import React, { StrictMode } from 'react';
 import coreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
-import { configure } from '@storybook/react'; // eslint-disable-line import/first
+import { configure, addParameters } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import BXSkipToContent from 'carbon-web-components/es/components-react/skip-to-content/skip-to-content';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
@@ -23,7 +23,8 @@ if (process.env.STORYBOOK_CARBON_CUSTOM_ELEMENTS_USE_RTL === 'true') {
   document.documentElement.setAttribute('dir', 'rtl');
 }
 
-export const parameters = {
+addParameters({
+  layout: 'fullscreen',
   options: {
     showRoots: true,
     storySort: getSimpleStorySort([
@@ -38,7 +39,7 @@ export const parameters = {
     ]),
     theme: theme,
   },
-};
+});
 
 let preservedTheme;
 export const decorators = [

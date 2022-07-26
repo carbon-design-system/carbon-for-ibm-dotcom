@@ -10,7 +10,7 @@
 import { html } from 'lit-html'; // eslint-disable-line import/first
 import { classMap } from 'lit-html/directives/class-map';
 import 'carbon-web-components/es/components/skip-to-content/skip-to-content.js';
-import { configure, setCustomElements } from '@storybook/web-components'; // eslint-disable-line import/first
+import { addParameters, configure, setCustomElements } from '@storybook/web-components'; // eslint-disable-line import/first
 import coreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
 import { withKnobs } from '@storybook/addon-knobs';
@@ -26,7 +26,8 @@ if (process.env.STORYBOOK_USE_RTL === 'true') {
 
 setCustomElements(customElements);
 
-export const parameters = {
+addParameters({
+  layout: 'fullscreen',
   options: {
     showRoots: true,
     storySort: getSimpleStorySort([
@@ -42,7 +43,7 @@ export const parameters = {
     ]),
     theme: theme,
   },
-};
+});
 
 let preservedTheme;
 export const decorators = [
@@ -52,6 +53,7 @@ export const decorators = [
     const classes = classMap({
       'dds-story-padding': hasStoryPadding,
     });
+
     return html`
       <style>
         ${containerStyles}

@@ -13,7 +13,7 @@
  */
 const _paths = {
   default: 'iframe.html?id=components-cta--feature',
-  types: 'iframe.html?id=components-cta--feature&knob-CTA%20type:_CTA=',
+  types: 'iframe.html?id=components-cta--feature&knob-CTA%20type:=',
 };
 
 /**
@@ -142,7 +142,7 @@ const _tests = {
     const customTextInput = 'Lorem Ipsum Dolor Sit Amet.';
 
     const knobs = new URLSearchParams({
-      'knob-Heading:_CTA': customTextInput,
+      'knob-Heading:': customTextInput,
     });
 
     cy.get('.bx--card__heading')

@@ -11,20 +11,24 @@ describe('Storybook Docs | grab component list', () => {
      * grab all components and get their href values which contain
      * url to the corresponding docs
      */
-    const components = cy.get('a[id*="explorercomponents"]');
+    cy.get('div[id="components"] button').click();
 
     let docs = [];
 
-    components.each($component => {
-      const docsPath = $component.prop('href');
-      const name = $component.prop('title');
+    cy.get('button[id^="components-"]').each($el => {
+      cy.get($el)
+      .click()
+      .then( ([copy]) => {
+        const name = copy.innerText.trim();
+        const docsPath = $el[0].nextSibling.firstChild.href;
 
-      if (docsPath) {
-        const url = docsPath.split('?')[1].replace('path=/story', 'path=/docs');
-        docs.push({ url, name });
-      }
-    });
-
+        if (docsPath) {
+          const url = docsPath.split('?')[1].replace('path=/story', 'path=/docs');
+          docs.push({ url, name });
+        }
+      });
+    })
+    
     cy.writeFile('tests/e2e-storybook/cypress/fixtures/components.json', docs);
   });
 });

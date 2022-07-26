@@ -161,14 +161,14 @@ const _tests = {
   },
   checkImageRenders: path => {
     it('should render with image', () => {
-      cy.visit(`${path}&knob-Add%20image:_Card=true`);
+      cy.visit(`${path}&knob-Add%20image:=true`);
       cy.get(_selectors.image).should('have.length', 1);
       cy.takeSnapshots();
     });
   },
   checkTagGroupRenders: path => {
     it('should render with tag group', () => {
-      cy.visit(`${path}&knob-Add%20tags:_Card=true`);
+      cy.visit(`${path}&knob-Add%20tags:=true`);
       cy.get(_selectors.tagGroup).should('have.length', 1);
       cy.takeSnapshots();
     });
@@ -219,7 +219,7 @@ const _tests = {
       });
     } else {
       it('should check for pictogram at the bottom with text showing on hover', () => {
-        cy.visit(`/${_pathPictogram}&knob-Pictogram%20position:_PictogramCard=bottom`);
+        cy.visit(`/${_pathPictogram}&knob-Pictogram%20position:=bottom`);
 
         cy.get('dds-card').should('have.attr', 'pictogram-placement', 'bottom');
         cy.get('dds-card svg').then($content => {
@@ -248,7 +248,7 @@ const _tests = {
 
 describe('dds-card | default (desktop)', () => {
   beforeEach(() => {
-    cy.visit(`${_path}&knob-Body%20copy:_Card=copy`);
+    cy.visit(`${_path}&knob-Body%20copy:=copy`);
     cy.injectAxe();
     cy.viewport(1280, 780);
   });
@@ -258,8 +258,8 @@ describe('dds-card | default (desktop)', () => {
   _tests.checkTabbableCard();
   _tests.checkImageRenders(_path);
   _tests.checkTagGroupRenders(_path);
-  _tests.checkInverseRenders(`${_path}&knob-Card%20style:_Card=Inverse%20card`);
-  _tests.checkOutlineRenders(`${_path}&knob-Card%20style:_Card=Outlined%20card`);
+  _tests.checkInverseRenders(`${_path}&knob-Card%20style:=Inverse%20card`);
+  _tests.checkOutlineRenders(`${_path}&knob-Card%20style:=Outlined%20card`);
   it('should render correctly in all themes', _tests.screenshotThemes);
   it('should check a11y', _tests.checkA11y);
 });
@@ -274,15 +274,15 @@ describe('dds-card | pictogram (desktop)', () => {
   _tests.checkClickableCard(true);
   _tests.pictogramPosition('top');
   _tests.pictogramPosition('bottom');
-  _tests.checkInverseRenders(`${_pathPictogram}&knob-Card%20style:_PictogramCard=Inverse%20card`);
-  _tests.checkOutlineRenders(`${_pathPictogram}&knob-Card%20style:_PictogramCard=Outlined%20card`);
+  _tests.checkInverseRenders(`${_pathPictogram}&knob-Card%20style:=Inverse%20card`);
+  _tests.checkOutlineRenders(`${_pathPictogram}&knob-Card%20style:=Outlined%20card`);
   it('should render correctly in all themes', _tests.screenshotThemes);
   it('should check a11y', _tests.checkA11y);
 });
 
 describe('dds-card | static (desktop)', () => {
   beforeEach(() => {
-    cy.visit(`${_pathStatic}&knob-Add%20CTA:_Card=true`);
+    cy.visit(`${_pathStatic}&knob-Add%20CTA:=true`);
     cy.injectAxe();
     cy.viewport(1280, 780);
   });
@@ -291,7 +291,7 @@ describe('dds-card | static (desktop)', () => {
   _tests.checkClickableCard();
   _tests.checkImageRenders(_pathStatic);
   _tests.checkTagGroupRenders(_pathStatic);
-  _tests.checkOutlineRenders(`${_pathStatic}&knob-Outlined%20card_Card=true`);
+  _tests.checkOutlineRenders(`${_pathStatic}&knob-Outlined%20card=true`);
   it('should render correctly in all themes', _tests.screenshotThemes);
   it('should check a11y', _tests.checkA11y);
 });
