@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.36.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.36.0-rc.0...@carbon/ibmdotcom-utilities@1.36.0) (2022-07-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+## [1.35.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.35.0...@carbon/ibmdotcom-utilities@1.35.1) (2022-07-08)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+# [1.36.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.35.0...@carbon/ibmdotcom-utilities@1.36.0-rc.0) (2022-07-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency isomorphic-dompurify to v0.20.0 ([#9037](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9037)) ([76b1798](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/76b179821f986dbe51c439f7ba4372a29c8a011e))
+
+
+### Features
+
+* **pricing-table:** add sticky header ([#8824](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8824)) ([40b94f7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/40b94f7b731e50bc24b5dab4bd3031aa2c97ea60)), closes [#8420](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8420)
+
+
+
+
+
+# [1.35.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.35.0-rc.0...@carbon/ibmdotcom-utilities@1.35.0) (2022-06-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.35.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.34.0...@carbon/ibmdotcom-utilities@1.35.0-rc.0) (2022-06-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency carbon-components ([#8925](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8925)) ([d36320f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d36320f8460ede20d27557873edbcf7a661e77bd))
+
+
+### Features
+
+* **logo-grid:** add logoCount and logoRatio props ([#8905](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8905)) ([c519b06](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c519b06d80acbbb0ba37c5f0414d1c8a49c87873)), closes [#8848](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8848)
+
+
+
+
+
 # [1.34.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.34.0-rc.0...@carbon/ibmdotcom-utilities@1.34.0) (2022-05-20)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities

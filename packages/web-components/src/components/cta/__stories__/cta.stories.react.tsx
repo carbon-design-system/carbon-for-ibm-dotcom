@@ -25,49 +25,10 @@ import DDSFeatureCTAFooter from '@carbon/ibmdotcom-web-components/es/components-
 import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
 
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import ArrowDown20 from '@carbon/icons-react/es/arrow--down/20.js';
-import Download20 from '@carbon/icons-react/es/download/20.js';
-import Launch20 from '@carbon/icons-react/es/launch/20.js';
-import PlayOutline20 from '@carbon/icons-react/es/play--outline/20.js';
 import readme from './README.stories.react.mdx';
+import { hrefsForType, knobNamesForType, footerKnobNamesForType, typeOptions, types } from './ctaTypeConfig';
 import { CTA_TYPE } from '../defs';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
-
-const hrefsForType = {
-  [CTA_TYPE.REGULAR]: 'https://www.example.com',
-  [CTA_TYPE.LOCAL]: 'https://www.example.com',
-  [CTA_TYPE.JUMP]: '#example',
-  [CTA_TYPE.EXTERNAL]: 'https://www.example.com',
-  [CTA_TYPE.DOWNLOAD]: 'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
-  [CTA_TYPE.VIDEO]: '1_9h94wo6b',
-};
-
-const knobNamesForType = {
-  [CTA_TYPE.REGULAR]: 'Content link href (href)',
-  [CTA_TYPE.LOCAL]: 'Content link href (href)',
-  [CTA_TYPE.JUMP]: 'Anchor href (href)',
-  [CTA_TYPE.EXTERNAL]: 'Content link href (href)',
-  [CTA_TYPE.DOWNLOAD]: 'Download link href (href)',
-  [CTA_TYPE.VIDEO]: 'Video ID (href)',
-};
-
-const footerKnobNamesForType = {
-  [CTA_TYPE.REGULAR]: 'Content link href (href)',
-  [CTA_TYPE.LOCAL]: 'Content link href (href)',
-  [CTA_TYPE.JUMP]: 'Anchor href (href)',
-  [CTA_TYPE.EXTERNAL]: 'Content link href (href)',
-  [CTA_TYPE.DOWNLOAD]: 'Download link href (href)',
-  [CTA_TYPE.VIDEO]: 'Video ID (href)',
-};
-
-const types = {
-  [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
-  [`Jump (${CTA_TYPE.JUMP})`]: CTA_TYPE.JUMP,
-  [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
-  [`Download (${CTA_TYPE.DOWNLOAD})`]: CTA_TYPE.DOWNLOAD,
-  [`Video (${CTA_TYPE.VIDEO})`]: CTA_TYPE.VIDEO,
-};
 
 export const Text = ({ parameters }) => {
   const { copy, ctaType, download, href, customVideoTitle, customVideoDescription } = parameters?.props?.TextCTA ?? {};
@@ -88,7 +49,7 @@ Text.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
     knobs: {
       TextCTA: ({ groupId }) => {
-        const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL, groupId);
+        const ctaType = select('CTA type (cta-type)', typeOptions, types[CTA_TYPE.LOCAL], groupId);
         const copy = ctaType === CTA_TYPE.VIDEO ? undefined : text('Copy (copy):', 'Lorem ipsum dolor sit amet', groupId);
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD ? undefined : text('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
@@ -134,7 +95,7 @@ Button.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
     knobs: {
       ButtonCTA: ({ groupId }) => {
-        const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL, groupId);
+        const ctaType = select('CTA type (cta-type)', typeOptions, types[CTA_TYPE.LOCAL], groupId);
         const copy = ctaType === CTA_TYPE.VIDEO ? undefined : text('Copy (copy):', 'Lorem ipsum dolor sit amet', groupId);
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD ? undefined : text('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
@@ -160,7 +121,6 @@ export const Card = ({ parameters }) => {
   const {
     heading,
     copy,
-    footerCopy,
     ctaType,
     download,
     href,
@@ -187,13 +147,7 @@ export const Card = ({ parameters }) => {
         video-name={customVideoTitle || undefined}
         video-description={customVideoDescription || undefined}
         download={footerDownload || undefined}
-        href={footerHref || undefined}>
-        {ctaType === 'local' ? footerCopy || <ArrowRight20 slot="icon" /> : ''}
-        {ctaType === 'jump' ? footerCopy || <ArrowDown20 slot="icon" /> : ''}
-        {ctaType === 'external' ? footerCopy || <Launch20 slot="icon" /> : ''}
-        {ctaType === 'download' ? footerCopy || <Download20 slot="icon" /> : ''}
-        {ctaType === 'video' ? footerCopy || <PlayOutline20 slot="icon" /> : ''}
-      </DDSCardCTAFooter>
+        href={footerHref || undefined}></DDSCardCTAFooter>
     </DDSCardCTA>
   );
 };
@@ -228,18 +182,8 @@ Card.story = {
 };
 
 export const CardLink = ({ parameters }) => {
-  const {
-    heading,
-    copy,
-    footerCopy,
-    ctaType,
-    download,
-    footerDownload,
-    href,
-    footerHref,
-    customVideoTitle,
-    customVideoDescription,
-  } = parameters?.props?.CardCTA ?? {};
+  const { heading, copy, ctaType, download, footerDownload, href, footerHref, customVideoTitle, customVideoDescription } =
+    parameters?.props?.CardCTA ?? {};
   return (
     <DDSCardLinkCTA
       cta-type={ctaType || undefined}
@@ -254,13 +198,7 @@ export const CardLink = ({ parameters }) => {
         video-name={customVideoTitle || undefined}
         video-description={customVideoDescription || undefined}
         download={footerDownload || undefined}
-        href={footerHref || undefined}>
-        {ctaType === 'local' ? footerCopy || <ArrowRight20 slot="icon" /> : ''}
-        {ctaType === 'jump' ? footerCopy || <ArrowDown20 slot="icon" /> : ''}
-        {ctaType === 'external' ? footerCopy || <Launch20 slot="icon" /> : ''}
-        {ctaType === 'download' ? footerCopy || <Download20 slot="icon" /> : ''}
-        {ctaType === 'video' ? footerCopy || <PlayOutline20 slot="icon" /> : ''}
-      </DDSCardCTAFooter>
+        href={footerHref || undefined}></DDSCardCTAFooter>
     </DDSCardLinkCTA>
   );
 };
@@ -270,7 +208,7 @@ CardLink.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-4 bx--no-gutter',
     knobs: {
       CardCTA: ({ groupId }) => {
-        const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL, groupId);
+        const ctaType = select('CTA type (cta-type)', typeOptions, types[CTA_TYPE.LOCAL], groupId);
         const copy = ctaType === CTA_TYPE.VIDEO ? undefined : text('Copy (copy):', '', groupId);
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD ? undefined : text('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
@@ -329,7 +267,7 @@ Feature.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
     knobs: {
       FeatureCTA: ({ groupId }) => {
-        const ctaType = select('CTA type:', types, CTA_TYPE.LOCAL, groupId);
+        const ctaType = select('CTA type:', typeOptions, types[CTA_TYPE.LOCAL], groupId);
         const heading =
           ctaType === CTA_TYPE.VIDEO ? undefined : text('Heading', 'Explore AI uses cases in all industries', groupId);
         const download =

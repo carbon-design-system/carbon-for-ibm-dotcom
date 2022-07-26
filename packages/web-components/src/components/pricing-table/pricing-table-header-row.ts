@@ -8,18 +8,20 @@
  */
 
 import { customElement, html } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import DDSStructuredListHeaderRow from '../structured-list/structured-list-header-row';
 import DDSPricingTableHeaderCell from './pricing-table-header-cell';
 import styles from './pricing-table.scss';
 import { setColumnWidth } from './utils';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from './defs';
+import DDSPricingTable from './pricing-table';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-header-row`)
-class DDSPricingTableHeaderRow extends DDSStructuredListHeaderRow {
+class DDSPricingTableHeaderRow extends StableSelectorMixin(DDSStructuredListHeaderRow) {
   /**
    * Array full of tag wrapper elements within header cells.
    */
@@ -28,25 +30,41 @@ class DDSPricingTableHeaderRow extends DDSStructuredListHeaderRow {
   /**
    * Observer that watches for viewport resizes.
    */
-  private _resizeObserver: any | null = null;
+  // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+  // @ts-ignore
+  private _resizeObserver: ResizeObserver | null = null;
 
+  /**
+   * Takes actions whenever the viewport is resized.
+   */
   private _createResizeObserver() {
     // TODO: Wait for `.d.ts` update to support `ResizeObserver`
     // @ts-ignore
-    this._resizeObserver = new ResizeObserver(this._setSameHeight);
+    this._resizeObserver = new ResizeObserver(() => {
+      if (!(this.closest(`${ddsPrefix}-pricing-table`) as DDSPricingTable)?.isSticky) {
+        this._setSameHeight();
+      }
+    });
     this._resizeObserver.observe(this.ownerDocument!.documentElement);
   }
 
+  /**
+   * Safely disconnects and removes the resize observer.
+   */
   private _cleanResizeObserver() {
-    this._resizeObserver.disconnect();
+    // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+    // @ts-ignore
+    if (this._resizeObserver instanceof ResizeObserver) {
+      this._resizeObserver.disconnect();
+    }
     this._resizeObserver = null;
   }
 
-  private _setSameHeight = () => {
+  private _setSameHeight() {
     window.requestAnimationFrame(() => {
       sameHeight(this._tagWrappers);
     });
-  };
+  }
 
   protected _handleSlotChange(e) {
     setColumnWidth(this);

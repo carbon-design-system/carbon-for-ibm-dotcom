@@ -17,6 +17,7 @@ import '../../link-list/index';
 import '../cta-section';
 import '../../video-player/video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
+import logoMicrosoft2x1 from '../../../../../storybook-images/assets/logos/logo-microsoft--2x1.png';
 
 import content from './content';
 
@@ -97,6 +98,19 @@ const contentItemTypeMap = {
       )}
     </dds-cta-block-item>
   `,
+  logo: ({ heading, copy, links }) => html`
+    <dds-cta-block-item>
+      <dds-image-logo slot="media" default-src="${logoMicrosoft2x1}"></dds-image-logo>
+      <dds-content-item-heading>${heading}</dds-content-item-heading>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      ${links.map(
+        elem =>
+          html`
+            <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="${elem.href}">${elem.copy}</dds-text-cta>
+          `
+      )}
+    </dds-cta-block-item>
+  `,
 };
 
 const contentItemTypeOptions = {
@@ -104,6 +118,7 @@ const contentItemTypeOptions = {
   Statistics: 'statistics',
   Pictogram: 'pictogram',
   Media: 'media',
+  Logo: 'logo',
 };
 
 const renderItems = (item, count) => {
@@ -141,10 +156,12 @@ export const Simple = ({ parameters }) => {
 
 export const WithContentItems = ({ parameters }) => {
   const { heading, copy, showText, showCta, border } = parameters?.props?.CTASection ?? {};
-  const { contentItemType, contentItemCount } = parameters?.props?.WithContentItems ?? {};
+  const { contentItemType, contentItemCount, logoAspectRatio } = parameters?.props?.WithContentItems ?? {};
+
+  const contentItem = contentItemTypeMap[contentItemType];
 
   return html`
-    <dds-cta-section>
+    <dds-cta-section logo-ratio="${ifNonNull(logoAspectRatio)}">
       <dds-content-section-heading>Related products and services</dds-content-section-heading>
       <dds-cta-block ?no-border="${!border}">
         <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
@@ -160,7 +177,7 @@ export const WithContentItems = ({ parameters }) => {
               >
             `
           : ''}
-        ${renderItems(contentItemType, contentItemCount)}
+        ${renderItems(contentItem, contentItemCount)}
       </dds-cta-block>
     </dds-cta-section>
     <dds-lightbox-video-player-container></dds-lightbox-video-player-container>
@@ -171,13 +188,21 @@ WithContentItems.story = {
   name: 'With content items',
   parameters: {
     knobs: {
-      WithContentItems: ({ groupId }) => ({
-        contentItemType:
-          contentItemTypeMap[select(`Content item type`, contentItemTypeOptions, contentItemTypeOptions.Text, groupId) ?? 0],
-        contentItemCount: Array.from({
-          length: number('Number of content items', 3, { min: 2, max: 6 }, groupId),
-        }),
-      }),
+      WithContentItems: ({ groupId }) => {
+        const contentItemType = select('Content item type', contentItemTypeOptions, contentItemTypeOptions.Text, groupId);
+
+        const logoAspectRatio =
+          contentItemType !== contentItemTypeOptions.Logo
+            ? undefined
+            : select('Logo aspect ratio', ['2:1', '1:1'], '2:1', groupId);
+        return {
+          contentItemType,
+          contentItemCount: Array.from({
+            length: number('Number of content items', 3, { min: 2, max: 6 }, groupId),
+          }),
+          logoAspectRatio,
+        };
+      },
     },
     propsSet: {
       default: {

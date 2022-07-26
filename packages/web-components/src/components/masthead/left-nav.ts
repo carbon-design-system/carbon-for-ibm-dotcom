@@ -9,7 +9,7 @@
 
 import findLast from 'lodash-es/findLast.js';
 import { html, query, property, customElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import BXSideNav, { SIDE_NAV_USAGE_MODE } from 'carbon-web-components/es/components/ui-shell/side-nav.js';

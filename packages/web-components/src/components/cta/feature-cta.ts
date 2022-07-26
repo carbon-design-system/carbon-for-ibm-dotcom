@@ -8,7 +8,10 @@
  */
 
 import { property, customElement, html } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import {
   formatVideoCaption,
   formatVideoDuration,
@@ -29,6 +32,7 @@ import '../image/image';
 
 export { CTA_TYPE };
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -57,10 +61,27 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
     this.captionHeading = caption;
 
     return html`
-      <div class="bx--card__copy">
+      <div class="${prefix}--card__copy">
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </div>
     `;
+  }
+
+  protected _renderImage() {
+    const { ctaType, noPoster, thumbnail, videoName, videoThumbnailUrl } = this;
+    const image =
+      ctaType !== CTA_TYPE.VIDEO || noPoster
+        ? undefined
+        : html`
+            <dds-image alt="${ifNonNull(videoName)}" default-src="${ifNonNull(thumbnail || videoThumbnailUrl)}" slot="image">
+              ${PlayVideo({ slot: 'icon' })}
+            </dds-image>
+          `;
+    return noPoster
+      ? undefined
+      : html`
+          <slot name="image" @slotchange="${this._handleSlotChange}">${image}</slot>
+        `;
   }
 
   /**
@@ -90,6 +111,18 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
   formatVideoDuration = formatVideoDuration;
 
   /**
+   * Set `true` if Poster Video Image should not be shown.
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'no-poster' })
+  noPoster = false;
+
+  /**
+   * Optional custom video thumbnail
+   */
+  @property({ reflect: true, attribute: 'thumbnail' })
+  thumbnail?: '';
+
+  /**
    * The video duration.
    */
   @property({ type: Number, attribute: 'video-duration' })
@@ -109,9 +142,8 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
 
   /**
    * The video thumbnail URL.
-   * Feature CTA does not support video thumbnail, and this property should never be set.
    */
-  videoThumbnailUrl?: never;
+  videoThumbnailUrl?: string;
 
   updated(changedProperties) {
     super.updated(changedProperties);

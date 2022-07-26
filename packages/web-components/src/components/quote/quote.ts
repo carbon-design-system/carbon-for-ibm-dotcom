@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { customElement, html, LitElement, property } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './quote.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { QUOTE_TYPES, QUOTE_COLOR_SCHEMES } from './defs';
@@ -158,6 +158,20 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
   }
 
   render() {
+    if (this.colorScheme === QUOTE_COLOR_SCHEMES.INVERSE) {
+      return html`
+        <div class="${prefix}--callout__column">
+          <div class="${prefix}--callout__content">
+            <div class="${prefix}--quote__container">
+              <div class="${prefix}--quote__wrapper">
+                ${this._renderQuote()}${this._renderSource()}${this._renderFooter()}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
     return html`
       <div class="${prefix}--quote__container">
         <div class="${prefix}--quote__wrapper">

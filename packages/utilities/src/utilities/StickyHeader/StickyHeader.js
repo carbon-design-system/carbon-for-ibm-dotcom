@@ -19,6 +19,7 @@ class StickyHeader {
   constructor() {
     this.ownerDocument = root.document;
     this._banner = undefined;
+    this._cumulativeHeight = 0;
     this._hasBanner = false;
     this._lastScrollPosition = 0;
     this._leadspaceWithSearch = undefined;
@@ -44,6 +45,14 @@ class StickyHeader {
       root.stickyHeader = new StickyHeader();
     }
     return root.stickyHeader;
+  }
+
+  static get customPropertyName() {
+    return `--${ddsPrefix}-sticky-header-height`;
+  }
+
+  get height() {
+    return this._cumulativeHeight;
   }
 
   /**
@@ -205,6 +214,8 @@ class StickyHeader {
       _leadspaceWithSearchStickyThreshold: leadspaceSearchThreshold,
     } = StickyHeader.global;
 
+    const { customPropertyName } = this.constructor;
+
     if (localeModal && localeModal.hasAttribute('open')) return;
 
     const newY = window.scrollY;
@@ -327,6 +338,15 @@ class StickyHeader {
         leadspaceSearchInput.removeAttribute('large');
       }
     }
+
+    // Set internal property for use in scripts
+    this._cumulativeHeight = cumulativeOffset;
+
+    // Set custom property for use in stylesheets
+    root.document.documentElement.style.setProperty(
+      customPropertyName,
+      `${this._cumulativeHeight}px`
+    );
   }
 }
 

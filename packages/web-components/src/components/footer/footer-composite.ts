@@ -39,8 +39,8 @@ import './legal-nav-item';
 import './legal-nav-cookie-preferences-placeholder';
 import './language-selector-desktop';
 import './language-selector-mobile';
-import 'carbon-web-components/es/components/combo-box/combo-box-item';
-import 'carbon-web-components/es/components/select/select-item';
+import 'carbon-web-components/es/components/combo-box/combo-box-item.js';
+import 'carbon-web-components/es/components/select/select-item.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -128,7 +128,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
    * @internal
    */
   @property({ attribute: false })
-  langList?: string[];
+  langList?: { id: string; text: string }[];
 
   /**
    * The language to show in the UI.
@@ -277,20 +277,26 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
           ? html`
               <dds-language-selector-desktop
                 trigger-content="${languageSelectorLabel}"
+                label-text="${languageSelectorLabel}"
                 value="${selectedLanguage}"
                 clear-selection-label="${clearSelectionLabel}"
               >
                 ${langList?.map(
                   language => html`
-                    <bx-combo-box-item value="${ifNonNull(language)}">${ifNonNull(language)}</bx-combo-box-item>
+                    <bx-combo-box-item value="${ifNonNull(language.text)}" lang="${ifNonNull(language.id)}"
+                      >${ifNonNull(language.text)}</bx-combo-box-item
+                    >
                   `
                 )}
               </dds-language-selector-desktop>
               <dds-language-selector-mobile value="${selectedLanguage}" placeholder="${selectedLanguage}">
                 ${langList?.map(
                   language => html`
-                    <bx-select-item label="${ifNonNull(language)}" value="${ifNonNull(language)}"
-                      >${ifNonNull(language)}</bx-select-item
+                    <bx-select-item
+                      label="${ifNonNull(language.text)}"
+                      value="${ifNonNull(language.text)}"
+                      lang="${ifNonNull(language.id)}"
+                      >${ifNonNull(language.text)}</bx-select-item
                     >
                   `
                 )}
@@ -330,12 +336,15 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
                   size="${size}"
                   slot="locale"
                   trigger-content="${languageSelectorLabel}"
+                  label-text="${languageSelectorLabel}"
                   value="${selectedLanguage}"
                   clear-selection-label="${clearSelectionLabel}"
                 >
                   ${langList?.map(
                     language => html`
-                      <bx-combo-box-item value="${ifNonNull(language)}">${ifNonNull(language)}</bx-combo-box-item>
+                      <bx-combo-box-item value="${ifNonNull(language.text)}" lang="${ifNonNull(language.id)}"
+                        >${ifNonNull(language.text)}</bx-combo-box-item
+                      >
                     `
                   )}
                 </dds-language-selector-desktop>
@@ -347,8 +356,11 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
                 >
                   ${langList?.map(
                     language => html`
-                      <bx-select-item label="${ifNonNull(language)}" value="${ifNonNull(language)}"
-                        >${ifNonNull(language)}</bx-select-item
+                      <bx-select-item
+                        label="${ifNonNull(language.text)}"
+                        value="${ifNonNull(language.text)}"
+                        lang="${ifNonNull(language.id)}"
+                        >${ifNonNull(language.text)}</bx-select-item
                       >
                     `
                   )}
