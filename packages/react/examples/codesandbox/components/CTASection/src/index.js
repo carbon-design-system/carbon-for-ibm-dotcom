@@ -1,5 +1,5 @@
 /**
- Copyright IBM Corp. 2016, 2021
+ Copyright IBM Corp. 2016, 2022
 
  This source code is licensed under the Apache-2.0 license found in the
  LICENSE file in the root directory of this source tree.
@@ -7,9 +7,8 @@
 
 import './styles.scss';
 
-import React from 'react';
 import ReactDom from 'react-dom';
-import { CTASection } from '@carbon/ibmdotcom-react';
+import { CTASection } from '@carbon/ibmdotcom-react/es/components/CTASection';
 
 const heading = 'Take the next step';
 const copy =
@@ -57,10 +56,10 @@ const App = () => (
   <div className="bx--grid">
     <div className="bx--row">
       <div className="bx--col-sm-4 bx--col-lg-16">
-        <CTASection heading={heading} copy={copy} cta={cta} items={items}/>
+        <CTASection heading={heading} copy={copy} cta={cta} items={items} />
       </div>
     </div>
   </div>
 );
 
-ReactDom.render(<App/>, document.getElementById('app'));
+ReactDom.render(<App />, document.getElementById('app'));
