@@ -447,7 +447,7 @@ NoticeChoice.propTypes = {
    * enableAllOptIn, only true in some specific cases.
    * if true, then by default all checkexes will be unchecked inrespective of country law.
    */
-  enableAllOptIn: PropTypes.oneOf([true, false]),
+  enableAllOptIn: PropTypes.bool,
   /**
    * bpidLegalText, applicable when the form data may shared with business partner.
    * bpid should preset in the host page query string.
