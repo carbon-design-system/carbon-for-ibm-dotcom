@@ -1,23 +1,19 @@
 /**
-  Copyright IBM Corp. 2016, 2021
+  Copyright IBM Corp. 2016, 2022
 
   This source code is licensed under the Apache-2.0 license found in the
   LICENSE file in the root directory of this source tree.
  */
 
-import "./styles.scss";
+import './styles.scss';
 
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
-import React from "react";
-import ReactDom from "react-dom";
-
-import { ContentBlockMedia } from "@carbon/ibmdotcom-react";
+import ReactDom from 'react-dom';
+import { ContentBlockMedia } from "@carbon/ibmdotcom-react/es/components/ContentBlockMedia";
 
 const App = () => (
   <div className="bx--grid">
     <div className="bx--row">
       <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
-
         <ContentBlockMedia
           copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean
               et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
@@ -145,4 +141,4 @@ const App = () => (
   </div>
 );
 
-ReactDom.render(<App />, document.getElementById("app"));
+ReactDom.render(<App />, document.getElementById('app'));
