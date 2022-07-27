@@ -587,6 +587,9 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     return `${ddsPrefix}-card-cta-video-title-updated`;
   }
 
+  /**
+   * The name of the custom event fired when the carousel navigation buttons are clicked.
+   */
   static get eventCarouselNavigated() {
     return `${ddsPrefix}-carousel-navigated`;
   }
