@@ -1,16 +1,15 @@
 /**
-  Copyright IBM Corp. 2016, 2020
+  Copyright IBM Corp. 2016, 2022
 
   This source code is licensed under the Apache-2.0 license found in the
   LICENSE file in the root directory of this source tree.
  */
 
-import "./styles.scss";
+import './styles.scss';
 
-import cards from "./cards.json";
-import React from "react";
-import ReactDom from "react-dom";
-import { ContentBlockCards } from "@carbon/ibmdotcom-react";
+import cards from './cards.json';
+import ReactDom from 'react-dom';
+import { ContentBlockCards } from '@carbon/ibmdotcom-react/es/components/ContentBlockCards';
 
 const App = () => (
   <div className="bx--grid">
@@ -35,4 +34,4 @@ const App = () => (
   </div>
 );
 
-ReactDom.render(<App />, document.getElementById("app"));
+ReactDom.render(<App />, document.getElementById('app'));
