@@ -187,7 +187,6 @@ export function NoticeChoice({
         console.log('Unable to build checkboxes', e);
       }
     }
-    // }
   }, [
     ncData,
     termsConditionLink,
@@ -226,7 +225,6 @@ export function NoticeChoice({
   // end of useEffect
   const resetToWorldWideContent = () => {
     try {
-      // console.log('worldWideContent', worldWideContent)
       window.NoticeChoice = window.NoticeChoice || {};
       window.NoticeChoice.Content = worldWideContent;
     } catch (e) {
