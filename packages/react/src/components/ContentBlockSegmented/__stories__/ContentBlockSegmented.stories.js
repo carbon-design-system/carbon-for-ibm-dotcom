@@ -113,7 +113,6 @@ const getBaseKnobs = () => {
 };
 
 /**
-
  * @returns {object} The knobs data.
  */
 const getCTAKnobs = () => {

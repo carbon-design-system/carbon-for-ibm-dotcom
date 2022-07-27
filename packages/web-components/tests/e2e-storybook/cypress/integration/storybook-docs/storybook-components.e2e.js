@@ -17,18 +17,18 @@ describe('Storybook Docs | grab component list', () => {
 
     cy.get('button[id^="components-"]').each($el => {
       cy.get($el)
-      .click()
-      .then( ([copy]) => {
-        const name = copy.innerText.trim();
-        const docsPath = $el[0].nextSibling.firstChild.href;
+        .click()
+        .then(([copy]) => {
+          const name = copy.innerText.trim();
+          const docsPath = $el[0].nextSibling.firstChild.href;
 
-        if (docsPath) {
-          const url = docsPath.split('?')[1].replace('path=/story', 'path=/docs');
-          docs.push({ url, name });
-        }
-      });
-    })
-    
+          if (docsPath) {
+            const url = docsPath.split('?')[1].replace('path=/story', 'path=/docs');
+            docs.push({ url, name });
+          }
+        });
+    });
+
     cy.writeFile('tests/e2e-storybook/cypress/fixtures/components.json', docs);
   });
 });
