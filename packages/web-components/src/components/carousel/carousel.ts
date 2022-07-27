@@ -460,8 +460,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   formatStatus = ({ currentPage, pages }) => `${currentPage} / ${pages}`;
 
   @property({ attribute: false })
-  formatAnnouncement = ({ currentPage, pages }) =>
-    `Current ${this.pageSize > 1 ? 'slide group' : 'slide'}: ${currentPage} of ${pages}`;
+  formatAnnouncement = ({ currentPage, pages }) => `Slide ${currentPage} of ${pages}. Showing ${this.pageSize} items.`;
 
   /**
    * Number of items per page.
