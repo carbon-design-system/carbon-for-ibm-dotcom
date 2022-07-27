@@ -485,13 +485,9 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   @property({ attribute: 'next-button-text' })
   nextButtonText?: string;
 
-  private get _defaultNextButtonText() {
-    return this.pageSize > 1 ? 'Next slide group' : 'Next slide';
-  }
+  private _defaultNextButtonText = 'next';
 
-  private get _defaultPrevButtonText() {
-    return this.pageSize > 1 ? 'Previous slide group' : 'Previous slide';
-  }
+  private _defaultPrevButtonText = 'previous';
 
   /**
    * The assistive text for the button to go to previous slide/group.
