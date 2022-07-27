@@ -386,7 +386,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     const { formatStatus, formatAnnouncement, _getStatus: status } = this;
 
     return html`
-      ${formatStatus(status)}
+      <span aria-hidden="true">${formatStatus(status)}</span>
       <span class="bx--visually-hidden" aria-live="polite">${formatAnnouncement(status)}</span>
     `;
   }
