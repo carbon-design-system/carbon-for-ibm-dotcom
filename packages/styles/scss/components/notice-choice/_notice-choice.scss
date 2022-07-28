@@ -1,0 +1,23 @@
+/**
+ * Copyright IBM Corp. 2016, 2022
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@mixin notice-choice {
+  .#{$prefix}--nc {
+    max-width: 640px;
+    p,
+    .#{$prefix}--checkbox-group {
+      margin-bottom: 1.5rem;
+    }
+    a {
+      color: $link-01;
+    }
+  }
+}
+
+@include exports('notice-choice') {
+  @include notice-choice;
+}
