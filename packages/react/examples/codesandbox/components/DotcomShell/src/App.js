@@ -1,14 +1,13 @@
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import "./styles.scss";
-import React from "react";
+import './styles.scss';
 import content from "./data/content";
-import { DotcomShell } from "@carbon/ibmdotcom-react";
+import { DotcomShell } from "@carbon/ibmdotcom-react/es/components/DotcomShell";
 
 export default function App() {
   return (

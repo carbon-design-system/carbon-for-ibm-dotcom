@@ -5,12 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import "./styles.scss";
+import './styles.scss';
 
 import ArrowRight20 from "@carbon/icons-react/es/arrow--right/20";
-import { CTA } from "@carbon/ibmdotcom-react";
-import React from "react";
-import ReactDom from "react-dom";
+import { CTA } from "@carbon/ibmdotcom-react/es/components/CTA";
+import ReactDom from 'react-dom';
 
 const ctaLocal = {
   style: "text",
@@ -73,7 +72,7 @@ const App = () => (
       <div className="bx--col-sm-4 bx--col-lg-10">
         <h4>Text CTA</h4>
         <CTA type="local" {...ctaLocal} />
-        <CTA type="video" {...ctaLocal} id="cta-video"/>
+        <CTA type="video" {...ctaLocal} id="cta-video" />
       </div>
     </div>
     <div className="bx--row">
@@ -97,4 +96,4 @@ const App = () => (
   </div>
 );
 
-ReactDom.render(<App />, document.getElementById("app"));
+ReactDom.render(<App />, document.getElementById('app'));

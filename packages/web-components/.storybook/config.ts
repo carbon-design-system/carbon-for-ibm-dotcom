@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit-html'; // eslint-disable-line import/first
-import { classMap } from 'lit-html/directives/class-map';
+import { classMap } from 'lit-html/directives/class-map.js';
 import 'carbon-web-components/es/components/skip-to-content/skip-to-content.js';
 import { configure, addDecorator, addParameters, setCustomElements } from '@storybook/web-components'; // eslint-disable-line import/first
 import coreEvents from '@storybook/core-events';
