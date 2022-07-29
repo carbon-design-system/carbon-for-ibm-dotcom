@@ -35,26 +35,6 @@ const headingBottomMargin = 64; // tag constants used for same height calculatio
 const minIntersectionRatio = 0.75;
 
 /**
- * IntersectionObserver callback.
- * Carousel items with more than `minIntersectionRatio` visible will interactable.
- *
- * @param {IntersectionObserverEntry[]} entries Array of observed intersections.
- */
-function onIntersect(entries) {
-  entries.forEach(entry => {
-    const { target, isIntersecting, intersectionRatio } = entry;
-
-    if (isIntersecting && intersectionRatio > minIntersectionRatio) {
-      target.inert = false;
-      target.setAttribute('aria-hidden', false);
-    } else {
-      target.inert = true;
-      target.setAttribute('aria-hidden', true);
-    }
-  });
-}
-
-/**
  * Carousel.
  *
  * @element dds-carousel
@@ -68,6 +48,12 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    */
   @query(`.${prefix}--carousel__scroll-contents`)
   private _contentsNode?: HTMLElement;
+
+  /**
+   * The node whose text content is announced to screen readers on change.
+   */
+  @query('[aria-live]')
+  private _announcementNode!: HTMLElement;
 
   /**
    * The width of the scroll contents area node, excluding one of overflowed contents.
@@ -127,10 +113,41 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    *  IntersectionObserver to watch carousel contents.
    *  As items cross the minIntersectionRatio `inert` and `aria-hidden` are toggled.
    */
-  private _intersectionObserver = new IntersectionObserver(onIntersect, {
+  private _intersectionObserver = new IntersectionObserver(this._onIntersect.bind(this), {
     root: this._contentsNode,
     threshold: [0.5 + this._intersectionThresholdDifference, 0.5 - this._intersectionThresholdDifference],
   });
+
+  private _intersectionTimeout?;
+
+  /**
+   * IntersectionObserver callback.
+   * Carousel items with more than `minIntersectionRatio` visible will interactable.
+   *
+   * @param {IntersectionObserverEntry[]} entries Array of observed intersections.
+   */
+  private _onIntersect(entries) {
+    const { _announcementNode: announcementNode, formatAnnouncement, _getStatus: status, _intersectionTimeout: timeout } = this;
+
+    // Mark off-screen slides as [inert]
+    entries.forEach(entry => {
+      const { target, isIntersecting, intersectionRatio } = entry;
+
+      if (isIntersecting && intersectionRatio > minIntersectionRatio) {
+        target.inert = false;
+        target.setAttribute('aria-hidden', false);
+      } else {
+        target.inert = true;
+        target.setAttribute('aria-hidden', true);
+      }
+    });
+
+    // Wait for slide action to finish, then announce slide information
+    clearTimeout(timeout);
+    this._intersectionTimeout = setTimeout(() => {
+      announcementNode.innerText = formatAnnouncement(status);
+    }, 100);
+  }
 
   /**
    * The page size that is explicitly set.
@@ -379,18 +396,6 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     return { currentPage: Math.ceil(start / pageSize) + 1, pages: pagesBefore + pagesSince };
   }
 
-  /**
-   * @returns Page status text.
-   */
-  private _renderStatus() {
-    const { formatStatus, formatAnnouncement, _getStatus: status } = this;
-
-    return html`
-      <span aria-hidden="true">${formatStatus(status)}</span>
-      <span class="${prefix}--visually-hidden" aria-live="polite">${formatAnnouncement(status)}</span>
-    `;
-  }
-
   private _setSameHeight = () => {
     // check if items are not null before using sameHeight
 
@@ -460,7 +465,11 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   formatStatus = ({ currentPage, pages }) => `${currentPage} / ${pages}`;
 
   @property({ attribute: false })
-  formatAnnouncement = ({ currentPage, pages }) => `Slide ${currentPage} of ${pages}. Showing ${this.pageSize} items.`;
+  formatAnnouncement = ({ currentPage, pages }) => {
+    const visibleItemsCount = this._childItems.filter(item => !item.matches('[inert]')).length;
+
+    return `Slide ${currentPage} of ${pages}. Showing ${visibleItemsCount} items.`;
+  };
 
   /**
    * Number of items per page.
@@ -538,6 +547,8 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
       _gap: gap,
       _pageSize: pageSizeExplicit,
       _total: total,
+      _getStatus: status,
+      formatStatus,
       _handleClickNextButton: handleClickNextButton,
       _handleClickPrevButton: handleClickPrevButton,
       _handleScrollFocus: handleScrollFocus,
@@ -572,7 +583,8 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         >
           ${CaretLeft20()}
         </button>
-        ${this._renderStatus()}
+        <span aria-hidden="true">${formatStatus(status)}</span>
+        <span class="${prefix}--visually-hidden" aria-live="polite"></span>
         <button
           part="next-button"
           class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
