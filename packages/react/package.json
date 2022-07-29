@@ -33,6 +33,7 @@
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "doctoc": "doctoc --title '## Table of Contents' docs",
+    "preinstall": "node ./scripts/deprecation-notice.js",
     "postinstall": "carbon-telemetry collect --install",
     "start": "yarn storybook",
     "storybook": "start-storybook -p 9000",
