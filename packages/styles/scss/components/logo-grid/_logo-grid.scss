@@ -123,6 +123,10 @@
     /* stylelint-enable */
     padding-left: $carbon--grid-gutter--condensed / 2;
     padding-right: $carbon--grid-gutter--condensed / 2;
+    @include carbon--breakpoint('sm') {
+      padding-left: $carbon--grid-gutter / 2;
+      padding-right: $carbon--grid-gutter / 2;
+    }
   }
 
   :host(#{$dds-prefix}-logo-grid-item) {
@@ -152,6 +156,9 @@
   .#{$prefix}--content-layout--logo-grid {
     width: 100%;
     margin-bottom: $layout-07;
+    @include carbon--breakpoint('sm') {
+      margin-bottom: $layout-03;
+    }
   }
 
   :host(#{$dds-prefix}-logo-grid-link) ::slotted(svg) {
