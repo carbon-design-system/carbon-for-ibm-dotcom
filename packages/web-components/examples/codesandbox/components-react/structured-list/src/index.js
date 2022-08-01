@@ -34,13 +34,16 @@ const App = () => (
         <DDSStructuredListRow>
           <DDSStructuredListCell>Row 1</DDSStructuredListCell>
           <DDSStructuredListCell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+            augue. Aenean posuere sem vel euismod dignissim.
           </DDSStructuredListCell>
           <DDSStructuredListCell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+            augue. Aenean posuere sem vel euismod dignissim.
           </DDSStructuredListCell>
           <DDSStructuredListCell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+            augue. Aenean posuere sem vel euismod dignissim.
           </DDSStructuredListCell>
         </DDSStructuredListRow>
       </DDSStructuredListGroup>
@@ -48,13 +51,16 @@ const App = () => (
         <DDSStructuredListRow>
           <DDSStructuredListCell>Row 2</DDSStructuredListCell>
           <DDSStructuredListCell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+            augue. Aenean posuere sem vel euismod dignissim.
           </DDSStructuredListCell>
           <DDSStructuredListCell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+            augue. Aenean posuere sem vel euismod dignissim.
           </DDSStructuredListCell>
           <DDSStructuredListCell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+            augue. Aenean posuere sem vel euismod dignissim.
           </DDSStructuredListCell>
         </DDSStructuredListRow>
       </DDSStructuredListGroup>
@@ -62,13 +68,16 @@ const App = () => (
         <DDSStructuredListRow>
           <DDSStructuredListCell>Row 3</DDSStructuredListCell>
           <DDSStructuredListCell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+            augue. Aenean posuere sem vel euismod dignissim.
           </DDSStructuredListCell>
           <DDSStructuredListCell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+            augue. Aenean posuere sem vel euismod dignissim.
           </DDSStructuredListCell>
           <DDSStructuredListCell>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum
+            augue. Aenean posuere sem vel euismod dignissim.
           </DDSStructuredListCell>
         </DDSStructuredListRow>
       </DDSStructuredListGroup>
