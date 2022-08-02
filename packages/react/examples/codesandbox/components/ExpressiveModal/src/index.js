@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -7,11 +7,11 @@
 
 import './styles.scss';
 
-import { ButtonGroup, ExpressiveModal } from '@carbon/ibmdotcom-react';
+import { ButtonGroup } from '@carbon/ibmdotcom-react/es/components/ButtonGroup';
+import { ExpressiveModal } from '@carbon/ibmdotcom-react/es/components/ExpressiveModal';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { ModalBody } from 'carbon-components-react';
-import React from 'react';
-import ReactDom from "react-dom";
+import ReactDom from 'react-dom';
 
 function StoryContent({ title, paragraph, button }) {
   return (
@@ -49,4 +49,4 @@ const App = () => (
   </div>
 );
 
-ReactDom.render(<App/>, document.getElementById("app"));
+ReactDom.render(<App />, document.getElementById('app'));
