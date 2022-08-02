@@ -222,10 +222,6 @@ module.exports = {
             },
           },
         ],
-      },
-      {
-        test: /\.(jpe?g|png|gif)(\?[a-z0-9=.]+)?$/,
-        loader: 'file-loader',
       }
     );
 
