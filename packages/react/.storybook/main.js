@@ -59,20 +59,21 @@ const styleLoaders = [
 ];
 
 module.exports = {
-  stories: ['../src/**/*.stories.js', '../src/**/*.stories.mdx'],
+  stories: [
+    '../docs',
+    // "../src/**/*.stories.mdx",
+    // // "../src/stories/*.stories.@(js|jsx|ts|tsx)",
+    '../src/**/*.stories.@(js|jsx|ts|tsx)',
+  ],
   addons: [
     '@storybook/addon-a11y',
-    // '@storybook/addon-actions',
-    '@storybook/addon-docs',
     '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
     '@storybook/addon-knobs',
-    '@storybook/addon-storysource',
     '@carbon/storybook-addon-theme/es/register',
-    // path.resolve(__dirname, 'addon-knobs-args'),
   ],
-  // core: {
-  //   builder: 'webpack5',
-  // },
+  framework: '@storybook/react',
   webpack: async (config, { configType }) => {
     config.devtool = configType === 'DEVELOPMENT' ? 'source-map' : '';
     config.optimization = {
