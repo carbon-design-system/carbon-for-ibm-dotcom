@@ -22,7 +22,6 @@ function normalizeBrowser(browser) {
       chrome: `Chrome${process.env.TRAVIS ? '_Travis' : ''}`,
       firefox: 'Firefox',
       safari: 'Safari',
-      ie: 'IE',
     }[browser.toLowerCase()] || browser
   );
 }
@@ -37,34 +36,27 @@ const reServices = /^@carbon\/ibmdotcom-services/i;
 
 module.exports = function setupKarma(config) {
   const { browsers, collectCoverage, noPruneShapshot, specs, random, updateSnapshot, verbose } = config.customConfig;
-
   config.set({
     basePath: '..',
-
     browsers: (browsers.length > 0 ? browsers : ['ChromeHeadless']).map(normalizeBrowser),
-
-    frameworks: ['jasmine', 'snapshot'],
-
+    frameworks: ['jasmine', 'snapshot', 'webpack'],
     client: {
       jasmine: {
         random: !!random,
       },
     },
-
-    files: ['src/polyfills/index.ts', 'tests/utils/snapshot.js', 'tests/snapshots/**/*.md'].concat(
+    files: ['src/polyfills/index.ts', 'tests/utils/snapshot.js', 'tests/snapshots/**/*.md', 'tests/global-variables.js'].concat(
       specs.length > 0 ? specs : ['tests/karma-test-shim.js']
     ),
-
     preprocessors: {
       'src/**/*.[jt]s': ['webpack', 'sourcemap'], // For generatoring coverage report for untested files
       'tests/karma-test-shim.js': ['webpack', 'sourcemap'],
       'tests/utils/**/*.js': ['webpack', 'sourcemap'],
       'tests/snapshots/**/*.md': ['snapshot'],
     },
-
     webpack: {
       mode: 'development',
-      devtool: 'inline-source-maps',
+      devtool: process.env.NODE_ENV === 'dev' ? 'inline-source-maps' : false,
       resolve: {
         extensions: ['.js', '.ts'],
       },
@@ -76,7 +68,7 @@ module.exports = function setupKarma(config) {
           },
           {
             test: /[\\/]styles[\\/]icons[\\/]/i,
-            use: [require.resolve('../tools/svg-result-ibmdotcom-icon-loader')],
+            use: [require.resolve('../tools/svg-result-ibmdotcom-icon-loader.js')],
           },
           {
             test: /\.ts$/,
@@ -118,7 +110,7 @@ module.exports = function setupKarma(config) {
             test: /\.scss$/,
             sideEffects: true,
             use: [
-              require.resolve('../tools/css-result-loader'),
+              require.resolve('../tools/css-result-loader.js'),
               {
                 loader: 'postcss-loader',
                 options: {
@@ -154,10 +146,9 @@ module.exports = function setupKarma(config) {
           },
         ],
       },
-
       plugins: [
         new webpack.DefinePlugin({
-          'process.env.NODE_ENV': JSON.stringify('test'),
+          'process.env.NODE_ENV': JSON.stringify('development'),
           'process.env.DDS_CLOUD_MASTHEAD': JSON.stringify('true'),
         }),
         new webpack.NormalModuleReplacementPlugin(reServices, resource => {
@@ -166,18 +157,15 @@ module.exports = function setupKarma(config) {
         }),
       ],
     },
-
     webpackMiddleware: {
       noInfo: !verbose,
     },
-
     customLaunchers: {
       Chrome_Travis: {
         base: 'ChromeHeadless',
         flags: ['--no-sandbox'],
       },
     },
-
     plugins: [
       require('karma-jasmine'),
       require('karma-spec-reporter'),
@@ -188,11 +176,9 @@ module.exports = function setupKarma(config) {
       require('karma-chrome-launcher'),
       require('karma-firefox-launcher'),
       require('karma-safari-launcher'),
-      require('karma-ie-launcher'),
+      // require('karma-ie-launcher'),
     ],
-
     reporters: ['spec', ...(!collectCoverage ? [] : ['coverage-istanbul'])],
-
     coverageIstanbulReporter: {
       reports: ['html', 'text'],
       dir: path.join(__dirname, 'coverage'),
@@ -200,7 +186,6 @@ module.exports = function setupKarma(config) {
       fixWebpackSourcePaths: true,
       verbose,
     },
-
     snapshot: {
       prune: !noPruneShapshot,
       update: updateSnapshot,
@@ -208,18 +193,12 @@ module.exports = function setupKarma(config) {
         return path.resolve(basePath, `tests/snapshots/${suiteName}.md`);
       },
     },
-
     port: 9876,
-
     colors: true,
-
     browserNoActivityTimeout: 60000,
-
     autoWatch: true,
     autoWatchBatchDelay: 400,
-
     logLevel: verbose ? config.LOG_DEBUG : config.LOG_INFO,
-
     concurrency: Infinity,
   });
 };
