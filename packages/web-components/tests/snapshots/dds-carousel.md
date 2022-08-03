@@ -16,20 +16,27 @@
 </div>
 <div class="bx--carousel__navigation">
   <button
-    aria-label="Previous page"
+    aria-label="previous"
     class="bx--btn bx--btn--icon-only bx--btn--secondary bx--carousel__navigation__btn"
     disabled=""
     part="prev-button"
-    title="Previous page"
+    title="previous"
   >
   </button>
-  1 / 0
+  <span aria-hidden="true">
+    1 / 0
+  </span>
+  <span
+    aria-live="polite"
+    class="bx--visually-hidden"
+  >
+  </span>
   <button
-    aria-label="Next page"
+    aria-label="next"
     class="bx--btn bx--btn--icon-only bx--btn--secondary bx--carousel__navigation__btn"
     disabled=""
     part="next-button"
-    title="Next page"
+    title="next"
   >
   </button>
 </div>
