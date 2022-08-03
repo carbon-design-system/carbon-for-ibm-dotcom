@@ -7,9 +7,9 @@
 describe('Storybook Docs | grab component list', () => {
   it('should grab docs url from all Storybook components', () => {
     cy.visit('/');
-    
+
     let docs = [];
-    
+
     /**
      * grab all components and get their href values which contain
      * url to the corresponding docs
