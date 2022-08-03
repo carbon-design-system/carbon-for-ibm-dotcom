@@ -61,6 +61,11 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   public isSticky: boolean = false;
 
   /**
+   * The width of the pricing table.
+   */
+  private _elementWidth?: number;
+
+  /**
    * Node to track focus going outside of modal content.
    */
   @query('#start-sentinel')
@@ -165,9 +170,15 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   private _createResizeObserver() {
     // TODO: Wait for `.d.ts` update to support `ResizeObserver`
     // @ts-ignore
-    this._resizeObserver = new ResizeObserver(() => {
-      this._cleanIntersectionObservers();
-      this._createIntersectionObservers();
+    this._resizeObserver = new ResizeObserver(entries => {
+      entries.forEach(entry => {
+        // Only reset intersection observers when element width changes.
+        if (this._elementWidth !== entry.contentRect.width) {
+          this._elementWidth = entry.contentRect.width;
+          this._cleanIntersectionObservers();
+          this._createIntersectionObservers();
+        }
+      });
     });
     this._resizeObserver.observe(this);
   }
