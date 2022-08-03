@@ -26,6 +26,7 @@ const SORT_ORDER = [
 export const parameters = {
   layout: 'fullscreen',
   controls: { disabled: true },
+  actions: { disabled: true },
   options: {
     storySort(lhs, rhs) {
       const [lhsId, lhsMeta] = lhs;

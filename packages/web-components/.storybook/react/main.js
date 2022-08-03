@@ -96,8 +96,9 @@ class CreateReactCustomElementTypeProxyPlugin {
 }
 
 module.exports = {
-  stories: ['../../src/**/*.stories.react.tsx', '../../src/**/*.stories.react.mdx'],
+  stories: ['../../docs/*.mdx', '../../src/**/*.stories.react.tsx', '../../src/**/*.stories.react.mdx'],
   addons,
+  framework: '@storybook/react',
   managerWebpack,
   webpackFinal(config, mode) {
     const massagedConfig = webpackFinal(config, mode);

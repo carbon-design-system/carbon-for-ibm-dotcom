@@ -11,11 +11,9 @@ import cx from 'classnames';
 import React, { StrictMode } from 'react';
 import coreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
-import { configure, addParameters } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import BXSkipToContent from 'carbon-web-components/es/components-react/skip-to-content/skip-to-content';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
-import theme from './theme';
 import getSimpleStorySort from '../get-simple-story-sort';
 import containerStyles from './container.scss'; // eslint-disable-line import/first
 
@@ -23,10 +21,9 @@ if (process.env.STORYBOOK_CARBON_CUSTOM_ELEMENTS_USE_RTL === 'true') {
   document.documentElement.setAttribute('dir', 'rtl');
 }
 
-addParameters({
+export const parameters = {
   layout: 'fullscreen',
   options: {
-    showRoots: true,
     storySort: getSimpleStorySort([
       'overview-getting-started--page',
       'overview-building-for-ibm-dotcom--page',
@@ -37,9 +34,10 @@ addParameters({
       'overview-contributing-to-the-web-components-package--page',
       'overview-breaking-changes--page',
     ]),
-    theme: theme,
   },
-});
+  controls: { disabled: true },
+  actions: { disabled: true },
+};
 
 let preservedTheme;
 export const decorators = [
@@ -80,20 +78,9 @@ addons.getChannel().on(CURRENT_THEME, theme => {
   }
 });
 
-const reqDocs = require.context('../../docs', true, /\.stories\.mdx$/);
-configure(reqDocs, module);
-
-const reqComponents = require.context('../../src/components', true, /\.stories\.react\.[jt]sx$/);
-configure(reqComponents, module);
-
-if (module.hot) {
-  module.hot.accept(reqComponents.id, () => {
-    const currentLocationHref = window.location.href;
-    window.history.pushState(null, '', currentLocationHref);
-    window.location.reload();
-  });
-}
-
+// Reset knobs when changing stories to prevent them carrying over.
+// This can be removed when stories switch to controls.
+// https://github.com/storybookjs/addon-knobs/issues/19
 let currentPath;
 if (window.parent) {
   const parentWindow = window.parent;
@@ -106,8 +93,12 @@ if (window.parent) {
       const knobButtons = parentWindow.document.querySelectorAll('#panel-tab-content button');
       if (knobButtons) {
         const resetButton = knobButtons[knobButtons.length - 1];
-        (resetButton as HTMLElement).click();
+        (resetButton as HTMLElement)?.click();
       }
+    }
+    const knobLabel = parentWindow.document.querySelector('[id*="tabbutton-knobs-"]');
+    if (knobLabel) {
+      (knobLabel as HTMLElement).textContent = 'Knobs';
     }
   }, 100);
 }
