@@ -84,6 +84,54 @@
     @include carbon--type-style('expressive-heading-02', true);
   }
 
+  :host(#{$dds-prefix}-card-group-item),
+  :host(#{$dds-prefix}-card-group-card-link-item) {
+    padding-bottom: 1px;
+    padding-right: 1px;
+
+    &[border] {
+      border: none;
+    }
+
+    &[empty] {
+      display: none;
+      background-color: $ui-background;
+      outline: 1px solid $ui-background;
+
+      @include carbon--breakpoint('md') {
+        display: block;
+      }
+
+      .#{$prefix}--card__wrapper {
+        height: 100%;
+      }
+
+      .#{$prefix}--card,
+      .#{$prefix}--card__wrapper,
+      &:hover .#{$prefix}--card__wrapper {
+        background: transparent;
+      }
+
+      &[border],
+      &[border]:hover {
+        .#{$prefix}--card__wrapper {
+          background: $ui-background;
+        }
+      }
+    }
+
+    &[pattern-background] {
+      .#{$prefix}--card {
+        border-bottom: 1px solid $ui-03;
+      }
+
+      .#{$prefix}--card,
+      .#{$prefix}--card__wrapper {
+        background: $ui-background;
+      }
+    }
+  }
+
   // React card focus outline
   .#{$prefix}--card-group__card {
     &:focus-within {
