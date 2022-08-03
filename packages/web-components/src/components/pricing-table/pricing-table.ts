@@ -198,7 +198,20 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
           entries.forEach(entry => {
             const { isIntersecting, boundingClientRect } = entry;
 
-            if (!isIntersecting && boundingClientRect.top <= stuckElementsHeight && !this.isSticky) {
+            const bottomOfHeaderIsWithinViewport = () => {
+              const headerBottomPosition =
+                (this.headerRow as DDSPricingTableHeaderRow).getBoundingClientRect().bottom + window.scrollY;
+              const windowBottomPosition = window.innerHeight + window.scrollY;
+
+              return headerBottomPosition < windowBottomPosition;
+            };
+
+            if (
+              !isIntersecting &&
+              boundingClientRect.top <= stuckElementsHeight &&
+              !this.isSticky &&
+              bottomOfHeaderIsWithinViewport()
+            ) {
               this._setSticky(true);
             } else if (isIntersecting && this.isSticky) {
               this._setSticky(false);
