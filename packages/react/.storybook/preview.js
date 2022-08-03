@@ -6,14 +6,10 @@
  */
 
 import React from 'react';
-import requireContext from 'require-context.macro';
 import addons from '@storybook/addons';
-import coreEvents from '@storybook/core-events';
-import { configure, addParameters, addDecorator } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
-import theme from './theme';
 import Container from './Container';
+import { knob } from '@storybook/addon-knobs';
 
 const SORT_ORDER_GROUP = ['Overview', 'Components'];
 
@@ -27,10 +23,11 @@ const SORT_ORDER = [
   'overview-breaking-changes--page',
 ];
 
-addParameters({
+export const parameters = {
+  layout: 'fullscreen',
+  controls: { disabled: true },
+  actions: { disabled: true },
   options: {
-    name: `Carbon for IBM.com React`,
-    url: 'https://github.com/carbon-design-system/carbon-for-ibm-dotcom',
     storySort(lhs, rhs) {
       const [lhsId, lhsMeta] = lhs;
       const [rhsId, rhsMeta] = rhs;
@@ -50,27 +47,25 @@ addParameters({
       }
       return 0;
     },
-    theme,
   },
-});
-
-addDecorator(withKnobs);
+};
 
 let preservedTheme;
 
-addDecorator((story, { parameters }) => {
-  const root = document.documentElement;
-  if (parameters['carbon-theme']?.disabled) {
-    root.setAttribute('storybook-carbon-theme', '');
-  } else {
-    root.setAttribute('storybook-carbon-theme', preservedTheme || '');
-  }
-  return story();
-});
-
-addDecorator((story, { parameters }) => (
-  <Container story={story} parameters={parameters} />
-));
+export const decorators = [
+  (story, { parameters }) => {
+    const root = document.documentElement;
+    if (parameters['carbon-theme']?.disabled) {
+      root.setAttribute('storybook-carbon-theme', '');
+    } else {
+      root.setAttribute('storybook-carbon-theme', preservedTheme || '');
+    }
+    return story();
+  },
+  (story, { parameters }) => {
+    return <Container story={story} parameters={parameters}></Container>;
+  },
+];
 
 addons.getChannel().on(CURRENT_THEME, theme => {
   document.documentElement.setAttribute(
@@ -79,12 +74,6 @@ addons.getChannel().on(CURRENT_THEME, theme => {
   );
   addons.getChannel().emit(coreEvents.FORCE_RE_RENDER);
 });
-
-const reqDocs = requireContext('../docs', true, /\.stories\.mdx$/);
-configure(reqDocs, module);
-
-const reqComponents = requireContext('../src', true, /\.stories\.js$/);
-configure(reqComponents, module);
 
 // Reset knobs when changing stories to prevent them carrying over.
 // This can be removed when stories switch to controls.
@@ -103,12 +92,14 @@ if (window.parent) {
       );
       if (knobButtons) {
         const resetButton = knobButtons[knobButtons.length - 1];
-        resetButton.click();
+        if (resetButton) resetButton.click();
       }
     }
     const knobLabel = parentWindow.document.querySelector(
       '[id*="tabbutton-knobs-"]'
     );
-    knobLabel.textContent = 'Knobs';
+    if (knobLabel) {
+      knobLabel.textContent = 'Knobs';
+    }
   }, 100);
 }

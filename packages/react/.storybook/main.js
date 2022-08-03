@@ -58,16 +58,17 @@ const styleLoaders = [
 ];
 
 module.exports = {
-  stories: ['../src/**/*.stories.js', '../src/**/*.stories.mdx'],
+  stories: [
+    '../docs/*.mdx',
+    '../src/**/*.stories.js',
+    '../src/**/*.stories.mdx',
+  ],
   addons: [
-    '@storybook/addon-knobs',
-    '@storybook/addon-a11y',
-    // '@storybook/addon-actions',
-    '@storybook/addon-docs',
     '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-knobs',
     '@storybook/addon-storysource',
     '@carbon/storybook-addon-theme/es/register',
-    // path.resolve(__dirname, 'addon-knobs-args'),
   ],
   core: {
     builder: 'webpack5',

@@ -96,9 +96,10 @@ class CreateReactCustomElementTypeProxyPlugin {
 }
 
 module.exports = {
-  stories: ['../../src/**/*.stories.react.tsx', '../../src/**/*.stories.react.mdx'],
+  stories: ['../../docs/*.mdx', '../../src/**/*.stories.react.tsx', '../../src/**/*.stories.react.mdx'],
   addons,
   core,
+  framework: '@storybook/react',
   managerWebpack,
   resolve: {
     plugins: [new CreateReactCustomElementTypeProxyPlugin()],

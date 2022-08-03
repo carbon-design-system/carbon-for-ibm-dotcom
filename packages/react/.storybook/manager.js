@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// import '@storybook/addon-a11y/register';
-// import '@storybook/addon-knobs/register';
-// import '@storybook/addon-storysource/register';
-// import '@storybook/addon-links/register';
-// import '@storybook/addon-options/register';
-// import '@carbon/storybook-addon-theme/es/register';
+import { addons } from '@storybook/addons';
+import yourTheme from './theme';
+
+addons.setConfig({
+  theme: yourTheme,
+});

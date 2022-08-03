@@ -9,26 +9,19 @@
 
 import { html } from 'lit-html'; // eslint-disable-line import/first
 import { classMap } from 'lit-html/directives/class-map';
-import 'carbon-web-components/es/components/skip-to-content/skip-to-content.js';
-import { addDecorator, addParameters, configure, setCustomElements } from '@storybook/web-components'; // eslint-disable-line import/first
 import coreEvents from '@storybook/core-events';
+
 import addons from '@storybook/addons';
+
 import { withKnobs } from '@storybook/addon-knobs';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
-import customElements from '../custom-elements.json';
-import theme from './theme';
 import getSimpleStorySort from './get-simple-story-sort';
+
 import containerStyles from './container.scss'; // eslint-disable-line import/first
 
-if (process.env.STORYBOOK_USE_RTL === 'true') {
-  document.documentElement.setAttribute('dir', 'rtl');
-}
-
-setCustomElements(customElements);
-
-addParameters({
+export const parameters = {
+  layout: 'fullscreen',
   options: {
-    showRoots: true,
     storySort: getSimpleStorySort([
       'overview-getting-started--page',
       'overview-building-for-ibm-dotcom--page',
@@ -40,39 +33,42 @@ addParameters({
       'overview-contributing-to-the-web-components-package--page',
       'overview-breaking-changes--page',
     ]),
-    theme: theme,
   },
-});
+  controls: { disabled: true },
+  actions: { disabled: true },
+};
 
 let preservedTheme;
-addDecorator((story, { parameters }) => {
-  const result = story();
-  const { hasStoryPadding } = parameters;
-  const classes = classMap({
-    'dds-story-padding': hasStoryPadding,
-  });
-  return html`
-    <style>
-      ${containerStyles}
-    </style>
-    <bx-skip-to-content href="#main-content">Skip to main content</bx-skip-to-content>
-    <div id="main-content" name="main-content" data-floating-menu-container data-modal-container role="main" class="${classes}">
-      ${result}
-    </div>
-  `;
-});
+export const decorators = [
+  (story, { parameters }) => {
+    const result = story();
+    const { hasStoryPadding } = parameters;
+    const classes = classMap({
+      'dds-story-padding': hasStoryPadding,
+    });
 
-addDecorator(withKnobs);
-addDecorator((story, { parameters }) => {
-  const root = document.documentElement;
-  root.toggleAttribute('storybook-carbon-theme-prevent-reload', parameters['carbon-theme']?.preventReload);
-  if (parameters['carbon-theme']?.disabled) {
-    root.setAttribute('storybook-carbon-theme', '');
-  } else {
-    root.setAttribute('storybook-carbon-theme', preservedTheme || '');
-  }
-  return story();
-});
+    return html`
+      <style>
+        ${containerStyles}
+      </style>
+      <bx-skip-to-content href="#main-content">Skip to main content</bx-skip-to-content>
+      <div id="main-content" name="main-content" data-floating-menu-container data-modal-container role="main" class="${classes}">
+        ${result}
+      </div>
+    `;
+  },
+  withKnobs,
+  (story, { parameters }) => {
+    const root = document.documentElement;
+    root.toggleAttribute('storybook-carbon-theme-prevent-reload', parameters['carbon-theme']?.preventReload);
+    if (parameters['carbon-theme']?.disabled) {
+      root.setAttribute('storybook-carbon-theme', '');
+    } else {
+      root.setAttribute('storybook-carbon-theme', preservedTheme || '');
+    }
+    return story();
+  },
+];
 
 addons.getChannel().on(CURRENT_THEME, theme => {
   document.documentElement.setAttribute('storybook-carbon-theme', (preservedTheme = theme));
@@ -81,20 +77,6 @@ addons.getChannel().on(CURRENT_THEME, theme => {
     addons.getChannel().emit(coreEvents.FORCE_RE_RENDER);
   }
 });
-
-const reqDocs = require.context('../docs', true, /\.stories\.mdx$/);
-configure(reqDocs, module);
-
-const reqComponents = require.context('../src/components', true, /\.stories\.[jt]s$/);
-configure(reqComponents, module);
-
-if (module.hot) {
-  module.hot.accept(reqComponents.id, () => {
-    const currentLocationHref = window.location.href;
-    window.history.pushState(null, '', currentLocationHref);
-    window.location.reload();
-  });
-}
 
 // Reset knobs when changing stories to prevent them carrying over.
 // This can be removed when stories switch to controls.
@@ -115,6 +97,8 @@ if (window.parent) {
       }
     }
     const knobLabel = parentWindow.document.querySelector('[id*="tabbutton-knobs-"]');
-    (knobLabel as HTMLElement).textContent = 'Knobs';
+    if (knobLabel) {
+      (knobLabel as HTMLElement).textContent = 'Knobs';
+    }
   }, 100);
 }
