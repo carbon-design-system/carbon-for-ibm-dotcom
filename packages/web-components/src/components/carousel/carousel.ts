@@ -561,40 +561,47 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     const pagesSince = Math.ceil((total - start) / pageSize);
     // Use another div from the host `<dds-carousel>` to reflect private state
     return html`
-      <div
-        class="${prefix}--carousel__scroll-container"
-        @scroll="${handleScrollFocus}"
-        @touchstart="${handleTouchStartEvent}"
-        @touchend="${handleTouchEndEvent}"
-        style="${ifNonNull(pageSizeExplicit == null ? null : `${customPropertyPageSize}: ${pageSizeExplicit}`)}"
-      >
-        <div class="${prefix}--carousel__scroll-contents" style="left:${(-start * (contentsBaseWidth + gap)) / pageSize}px">
-          <slot @slotchange="${handleSlotChange}"></slot>
+      <div role="region" aria-labelledby="carousel-title">
+        <div id="carousel-title">
+          <slot name="title">
+            <span class="bx--visually-hidden" aria-hidden="true">Carousel</span>
+          </slot>
         </div>
-      </div>
-      <div class="${prefix}--carousel__navigation">
-        <button
-          part="prev-button"
-          class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
-          ?disabled="${pagesBefore === 0}"
-          @click="${handleClickPrevButton}"
-          aria-label="${prevButtonText || defaultPrevButtonText}"
-          title="${prevButtonText || defaultPrevButtonText}"
+        <div
+          class="${prefix}--carousel__scroll-container"
+          @scroll="${handleScrollFocus}"
+          @touchstart="${handleTouchStartEvent}"
+          @touchend="${handleTouchEndEvent}"
+          style="${ifNonNull(pageSizeExplicit == null ? null : `${customPropertyPageSize}: ${pageSizeExplicit}`)}"
         >
-          ${CaretLeft20()}
-        </button>
-        <span aria-hidden="true">${formatStatus(status)}</span>
-        <span class="${prefix}--visually-hidden" aria-live="polite"></span>
-        <button
-          part="next-button"
-          class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
-          ?disabled="${pagesSince <= 1}"
-          @click="${handleClickNextButton}"
-          aria-label="${nextButtonText || defaultNextButtonText}"
-          title="${nextButtonText || defaultNextButtonText}"
-        >
-          ${CaretRight20()}
-        </button>
+          <div class="${prefix}--carousel__scroll-contents" style="left:${(-start * (contentsBaseWidth + gap)) / pageSize}px">
+            <slot @slotchange="${handleSlotChange}"></slot>
+          </div>
+        </div>
+        <nav aria-label="Carousel Navigation" class="${prefix}--carousel__navigation">
+          <button
+            part="prev-button"
+            class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
+            ?disabled="${pagesBefore === 0}"
+            @click="${handleClickPrevButton}"
+            aria-label="${prevButtonText || defaultPrevButtonText}"
+            title="${prevButtonText || defaultPrevButtonText}"
+          >
+            ${CaretLeft20()}
+          </button>
+          <span aria-hidden="true">${formatStatus(status)}</span>
+          <span class="${prefix}--visually-hidden" aria-live="polite"></span>
+          <button
+            part="next-button"
+            class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
+            ?disabled="${pagesSince <= 1}"
+            @click="${handleClickNextButton}"
+            aria-label="${nextButtonText || defaultNextButtonText}"
+            title="${nextButtonText || defaultNextButtonText}"
+          >
+            ${CaretRight20()}
+          </button>
+        </nav>
       </div>
     `;
   }
