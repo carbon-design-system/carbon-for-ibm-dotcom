@@ -16,6 +16,7 @@ import CaretRight20 from 'carbon-web-components/es/icons/caret--right/20.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
+import { slow01 } from '@carbon/motion';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import styles from './carousel.scss';
@@ -144,9 +145,13 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
     // Wait for slide action to finish, then announce slide information
     clearTimeout(timeout);
+
+    // Delay should equal the design token in the carousel's styles.
+    const delay = parseInt(slow01, 10);
+
     this._intersectionTimeout = setTimeout(() => {
-      announcementNode.innerText = formatAnnouncement(status);
-    }, 100);
+      announcementNode.innerText = `${announcementNode.innerText} --- ${formatAnnouncement(status)}`;
+    }, delay);
   }
 
   /**
