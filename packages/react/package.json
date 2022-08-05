@@ -33,7 +33,7 @@
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "doctoc": "doctoc --title '## Table of Contents' docs",
-    "preinstall": "node ./scripts/deprecation-notice.js",
+    "preinstall": "echo \"⛔️⛔️⛔️ATTENTION: @carbon/ibmdotcom-react package will be deprecated in Carbon for IBM.com V2. This package will fall into maintaince-mode only; we will make updates only for potential security issues and high severity bugs. Head to https://www.ibm.com/standards/carbon/developing/frameworks/react for more details.⛔️⛔️⛔️\"",
     "postinstall": "carbon-telemetry collect --install",
     "start": "yarn storybook",
     "storybook": "start-storybook -p 9000",
