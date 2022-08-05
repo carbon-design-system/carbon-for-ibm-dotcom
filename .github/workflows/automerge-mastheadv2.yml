@@ -5,7 +5,7 @@ on:
       - 'main'
 
 concurrency:
-  group: automerge-${{ github.ref }}
+  group: automerge-mastheadv2-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
