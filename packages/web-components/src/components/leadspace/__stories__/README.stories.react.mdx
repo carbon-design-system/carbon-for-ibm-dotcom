@@ -18,12 +18,14 @@ Here's a quick example to get you started.
 
 ```javascript
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSLeadspace from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace';
-import DDSLeadspaceHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace-heading';
-import DDSLeadspaceImage from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace-image';
+import DDSBackgroundMedia from '@carbon/ibmdotcom-web-components/es/components-react/background-media/background-media';
+import DDSButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
 import DDSButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
 import DDSButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item';
+import DDSLeadspace from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace';
+import DDSLeadspaceHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace-heading';
 import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
+import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 
 function App() {
   return (
@@ -40,10 +42,69 @@ function App() {
           Button 2
         </DDSButtonGroupItem>
       </DDSButtonGroup>
-      <DDSLeadspaceImage slot="image" default-src="https://picsum.photos/id/1076/1056/480" className="bx--image" alt="Image alt text">
+      <DDSBackgroundMedia default-src="https://picsum.photos/id/1076/1056/480" alt="Image alt text" opacity='100'>
         <DDSImageItem media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></DDSImageItem>
         <DDSImageItem media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></DDSImageItem>
-      </DDSLeadspaceImage>
+      </DDSBackgroundMedia>
+    </DDSLeadspace>
+  );
+}
+```
+
+## Using a background video
+
+It is possible to display a video instead of an image. To do so, use the `video-player-container` component within the `background-media` componet as such:
+
+```javascript
+function App() {
+  return (
+    <DDSLeadspace size="tall">
+      <DDSLeadspaceHeading>Heading can go on two lines max</DDSLeadspaceHeading>
+      Use this area for a short line of copy to support the title
+      <DDSButtonGroup slot="action">
+        <DDSButtonGroupItem href="https://www.example.com">
+          <ArrowRight20 slot="icon" />
+          Button 1
+        </DDSButtonGroupItem>
+        <DDSButtonGroupItem href="https://www.example.com">
+          <ArrowRight20 slot="icon" />
+          Button 2
+        </DDSButtonGroupItem>
+      </DDSButtonGroup>
+      <DDSBackgroundMedia mobilePosition='bottom' alt="Image alt text" opacity='100'>
+          <DDSVideoPlayerContainer video-id="1_9h94wo6b" background-mode="true"></DDSVideoPlayerContainer>
+      </DDSBackgroundMedia>
+    </DDSLeadspace>
+  );
+}
+```
+
+## Using video player CTA button
+
+If using the video player cta in the Leadspace, make sure to follow the guidelines in the [CTA documentation](/?path=/docs/components-cta--text#using-a-video-player). As the Leadspace reserves the "action" slot for its CTAs, make sure to include `slot='action'` as an attribute to `video-cta-container`:
+
+```javascript
+function App() {
+  return (
+    <DDSLeadspace size="tall">
+      <DDSLeadspaceHeading>Heading can go on two lines max</DDSLeadspaceHeading>
+      Use this area for a short line of copy to support the title
+      <DDSVideoCTAContainer slot='action'>
+        <DDSButtonGroup slot="action">
+          <DDSButtonCTA cta-type='video' href="1_9h94wo6b">
+            <ArrowRight20 slot="icon" />
+            Button 1
+          </DDSButtonCTA>
+          <DDSButtonGroupItem href="https://www.example.com">
+            <ArrowRight20 slot="icon" />
+            Button 2
+          </DDSButtonGroupItem>
+        </DDSButtonGroup>
+      </DDSVideoCTAContainer>
+      <DDSBackgroundMedia default-src="https://picsum.photos/id/1076/1056/480" alt="Image alt text" opacity='100'>
+        <DDSImageItem media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></DDSImageItem>
+        <DDSImageItem media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></DDSImageItem>
+      </DDSBackgroundMedia>
     </DDSLeadspace>
   );
 }

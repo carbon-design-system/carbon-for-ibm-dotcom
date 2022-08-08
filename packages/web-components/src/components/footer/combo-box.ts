@@ -1,18 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2021
+ * Copyright IBM Corp. 2019, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import { TemplateResult } from 'lit-html';
 import { html, property, query, customElement } from 'lit-element';
-import BXComboBoxItem from 'carbon-web-components/es/components/combo-box/combo-box-item';
+import BXComboBoxItem from 'carbon-web-components/es/components/combo-box/combo-box-item.js';
 import Close16 from 'carbon-web-components/es/icons/close/16.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 import DDSDropdown, { DROPDOWN_KEYBOARD_ACTION } from './dropdown';
 
@@ -154,6 +154,7 @@ class DDSComboBox extends DDSDropdown {
         placeholder="${triggerContent}"
         .value=${filterInputValue}
         role="combobox"
+        aria-expanded="${this.open}"
         aria-labelledby="assistiveStatus"
         aria-controls="menu-body"
         aria-autocomplete="list"

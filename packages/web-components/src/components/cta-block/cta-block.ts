@@ -8,8 +8,9 @@
  */
 
 import { customElement, html, state, property, TemplateResult } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { classMap } from 'lit-html/directives/class-map.js';
+import settings from 'carbon-components/es/globals/js/settings.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 import styles from './cta-block.scss';
@@ -55,8 +56,14 @@ class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
    */
   updated(changedProperties) {
     if (changedProperties.has('_noBorder')) {
-      this.classList.toggle(`${prefix}--cta-block__border`, !this._noBorder);
+      const layoutWrapper = (this.shadowRoot as ShadowRoot).querySelector(`.${prefix}--content-layout`);
+      layoutWrapper?.classList.toggle(`${prefix}--content-layout--border`, !this._noBorder);
     }
+  }
+
+  protected _hasBodyContent(): boolean {
+    const { _hasLinkList, _hasAction } = this;
+    return _hasLinkList || _hasAction || super._hasBodyContent();
   }
 
   /**
@@ -84,7 +91,7 @@ class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
   protected _renderActions(): TemplateResult | string | void {
     const { _hasAction: hasAction, _handleSlotChange: handleSlotChange } = this;
     return html`
-      <div ?hidden="${!hasAction}" class="${prefix}--content-item__cta">
+      <div ?hidden="${!hasAction}" class="${prefix}--content-layout__cta">
         <slot name="action" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
@@ -94,12 +101,45 @@ class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
    * @returns The main content.
    */
   protected _renderContent(): TemplateResult | string | void {
-    const { _hasContent: hasContent, _handleSlotChange: handleSlotChange } = this;
+    const { _hasAction, _hasCopy, _hasLinkList, _hasContent, _handleSlotChange } = this;
+    const classes = classMap({
+      [`${prefix}--helper-wrapper`]: true,
+      [`${prefix}--helper-wrapper--less-space`]: !_hasAction && !_hasCopy && !_hasLinkList,
+    });
     return html`
-      <div ?hidden="${!hasContent}" class="${prefix}--helper-wrapper">
+      <div ?hidden="${!_hasContent}" class="${classes}">
         <div class="${prefix}--content-item-wrapper">
-          <slot @slotchange="${handleSlotChange}"></slot>
+          <slot @slotchange="${_handleSlotChange}"></slot>
         </div>
+      </div>
+    `;
+  }
+
+  /**
+   * @returns The non-header, non-complementary contents.
+   */
+  protected _renderBody(): TemplateResult | string | void {
+    const { _hasCopy, _hasAction, _hasLinkList, _hasContent } = this;
+    const classes = classMap({
+      [`${prefix}--content-layout__body`]: true,
+      [`${prefix}--content-layout__body--tight`]: !_hasCopy && !_hasAction && (_hasLinkList || _hasContent),
+    });
+
+    return html`
+      <div ?hidden="${!this._hasBodyContent()}" class="${classes}">
+        ${this._renderCopy()}${this._renderInnerBody()}
+      </div>
+    `;
+  }
+
+  /**
+   * @returns The copy content.
+   */
+  protected _renderCopy(): TemplateResult | string | void {
+    const { _hasCopy: hasCopy, _handleSlotChange: handleSlotChange } = this;
+    return html`
+      <div ?hidden="${!hasCopy}" class="${prefix}--content-layout__copy">
+        <slot name="copy" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
   }
@@ -118,20 +158,12 @@ class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
    * @returns The link list content.
    */
   protected _renderLinkList(): TemplateResult | string | void {
-    const { _handleSlotChange: handleSlotChange } = this;
+    const { _hasLinkList: hasLinkList, _handleSlotChange: handleSlotChange } = this;
     return html`
-      <slot name="link-list" @slotchange="${handleSlotChange}"></slot>
+      <div ?hidden="${!hasLinkList}" class="${prefix}--content-layout__link-list">
+        <slot name="link-list" @slotchange="${handleSlotChange}"></slot>
+      </div>
     `;
-  }
-
-  /**
-   * @returns The footer content.
-   */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderFooter(): TemplateResult | string | void {
-    // Note: The CTA content of `<dds-cta-section>` is rendered above the main content, instead of as a footer.
-    // The slot name reflects that (`action`)
-    return undefined;
   }
 
   static get stableSelector() {

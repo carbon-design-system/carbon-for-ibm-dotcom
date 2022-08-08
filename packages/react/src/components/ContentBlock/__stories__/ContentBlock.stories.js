@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -42,23 +42,23 @@ export default {
       ContentBlock: () => {
         return {
           heading: text(
-            'Heading:',
+            'Heading (heading)',
             'What is the latest news in artificial intelligence?'
           ),
           copy: text(
-            'Copy:',
+            'Copy (copy)',
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quam ante, mattis id pellentesque at, molestie et ipsum. Proin sodales est hendrerit maximus malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam at arcu ligula. Praesent faucibus est ligula, vitae finibus ante aliquet a.'
           ),
-          aside: boolean('Aside:', false),
+          aside: boolean('Aside (aside)', false),
           addChildren: optionsKnob(
-            'Add children:',
+            'Add children',
             {
               'Content group simple': 'Content group simple',
             },
             '',
             { display: 'multi-select' }
           ),
-          showCTA: boolean('CTA:', true),
+          showCTA: boolean('CTA', true),
           cta: {
             cta: {
               href: 'https://www.example.com',
@@ -67,7 +67,7 @@ export default {
             type: 'local',
             heading: 'Learn more about natual language processing',
           },
-          border: boolean('Border: ', false),
+          border: boolean('Border (border)', false),
         };
       },
     },

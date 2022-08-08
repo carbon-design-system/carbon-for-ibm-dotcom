@@ -1,24 +1,24 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { customElement, html, property } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import settings from 'carbon-components/es/globals/js/settings';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
+import settings from 'carbon-components/es/globals/js/settings.js';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import './filter-group';
 import './filter-modal-button';
 import './filter-modal-heading';
-import BXModal from 'carbon-web-components/es/components/modal/modal';
+import BXModal from 'carbon-web-components/es/components/modal/modal.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import './filter-modal-footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
-import 'carbon-web-components/es/components/checkbox/checkbox';
+import 'carbon-web-components/es/components/checkbox/checkbox.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="180px" viewBox="0 0 320 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>card-section-images</title>
+    <g id="card-section-images" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(72.000000, 24.000000)">
+            <rect id="Rectangle-Copy-14" stroke="#C6C6C6" fill="#FFFFFF" x="0" y="0" width="176" height="132"></rect>
+            <g id="Group-2" transform="translate(4.000000, 8.000000)" fill="#8D8D8D">
+                <rect id="Rectangle-Copy" x="0" y="0" width="28" height="4"></rect>
+                <rect id="Rectangle-Copy-2" x="0" y="6" width="28" height="4"></rect>
+            </g>
+            <g id="Group-4" transform="translate(45.000000, 8.000000)">
+                <rect id="Rectangle-Copy-21" fill="#C6C6C6" x="0" y="0" width="43" height="33"></rect>
+                <rect id="Rectangle-Copy-22" fill="#F4F4F4" x="0" y="33" width="43" height="22"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="0" y="0" width="43" height="55"></rect>
+            </g>
+            <g id="Group-4-Copy-3" transform="translate(45.000000, 63.000000)">
+                <rect id="Rectangle-Copy-21" fill="#C6C6C6" x="0" y="0" width="43" height="33"></rect>
+                <rect id="Rectangle-Copy-22" fill="#F4F4F4" x="0" y="33" width="43" height="22"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="0" y="0" width="43" height="55"></rect>
+            </g>
+            <g id="Group-4-Copy" transform="translate(88.000000, 8.000000)">
+                <rect id="Rectangle-Copy-21" fill="#C6C6C6" x="0" y="0" width="43" height="33"></rect>
+                <rect id="Rectangle-Copy-22" fill="#F4F4F4" x="0" y="33" width="43" height="22"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="0" y="0" width="43" height="55"></rect>
+            </g>
+            <g id="Group-4-Copy-4" transform="translate(88.000000, 63.000000)">
+                <rect id="Rectangle-Copy-21" fill="#C6C6C6" x="0" y="0" width="43" height="33"></rect>
+                <rect id="Rectangle-Copy-22" fill="#F4F4F4" x="0" y="33" width="43" height="22"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="0" y="0" width="43" height="55"></rect>
+            </g>
+            <g id="Group-4-Copy-2" transform="translate(131.000000, 8.000000)">
+                <rect id="Rectangle-Copy-21" fill="#C6C6C6" x="0" y="0" width="43" height="33"></rect>
+                <rect id="Rectangle-Copy-22" fill="#F4F4F4" x="0" y="33" width="43" height="22"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="0" y="0" width="43" height="55"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

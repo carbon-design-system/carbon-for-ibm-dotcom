@@ -10,7 +10,6 @@
   "integrationFolder": "tests/cdn-build/cypress/integration",
   "supportFile": "tests/cdn-build/cypress/support/index.js",
   "pluginsFile": "tests/cdn-build/cypress/plugins/index.js",
-  "nodeVersion": "system",
   "includeShadowDom": true,
   "testFiles": "**/*.e2e.js",
   "pageLoadTimeout": 90000,

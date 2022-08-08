@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,11 +10,11 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, FunctionComponent } from 'react';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { BUTTON_KIND } from 'carbon-web-components/es/components/button/button';
-import BXBtn from 'carbon-web-components/es/components-react/button/button';
-import BXModalCloseButton from 'carbon-web-components/es/components-react/modal/modal-close-button';
-import BXModalHeader from 'carbon-web-components/es/components-react/modal/modal-header';
-import BXModalFooter from 'carbon-web-components/es/components-react/modal/modal-footer';
+import { BUTTON_KIND } from 'carbon-web-components/es/components/button/button.js';
+import BXBtn from 'carbon-web-components/es/components-react/button/button.js';
+import BXModalCloseButton from 'carbon-web-components/es/components-react/modal/modal-close-button.js';
+import BXModalHeader from 'carbon-web-components/es/components-react/modal/modal-header.js';
+import BXModalFooter from 'carbon-web-components/es/components-react/modal/modal-footer.js';
 import { LeavingIBMLabels, Translation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.

@@ -1,0 +1,36 @@
+{
+  "name": "ibmdotcom-react-notice-choice-example",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "webpack serve"
+  },
+  "dependencies": {
+    "@carbon/ibmdotcom-react": "latest",
+    "@carbon/ibmdotcom-styles": "latest",
+    "carbon-components": "~10.23.0",
+    "lit-element": "^2.5.1",
+    "lit-html": "^1.4.1",
+    "lodash-es": "^4.17.0",
+    "prop-types": "^15.7.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "react-redux": "^7.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-react": "^7.10.0",
+    "@types/lodash-es": "^4.17.0",
+    "@types/react": "^16.9.0",
+    "babel-loader": "^8.2.0",
+    "css-loader": "2.1.1",
+    "dotenv-webpack": "8.0.0",
+    "html-webpack-plugin": "^4.5.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^4.0.0",
+    "webpack-cli": "^4.0.0",
+    "webpack-dev-server": "^3.11.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^6.0.6"
+  }
+}

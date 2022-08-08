@@ -16,16 +16,16 @@ import React, {
 import Autosuggest from 'react-autosuggest';
 import Close20 from '@carbon/icons-react/es/close/20';
 import cx from 'classnames';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import escapeRegExp from '@carbon/ibmdotcom-utilities/es/utilities/escaperegexp/escaperegexp';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import escapeRegExp from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/escaperegexp/escaperegexp';
 import HeaderGlobalAction from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderGlobalAction';
-import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
+import LocaleAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/Locale/Locale';
 import MastheadSearchInput from './MastheadSearchInput';
 import MastheadSearchSuggestion from './MastheadSearchSuggestion';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
 import Search20 from '@carbon/icons-react/es/search/20';
-import SearchTypeaheadAPI from '@carbon/ibmdotcom-services/es/services/SearchTypeahead/SearchTypeahead';
+import SearchTypeaheadAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/SearchTypeahead/SearchTypeahead';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -156,11 +156,15 @@ const MastheadSearch = forwardRef(
     // Sets aria-labelledby to suggestions list to suppress a11y errors.
     // Autosuggest package does not provide method to add attribute to this element.
     useEffect(() => {
-      const suggestionsList = document.querySelector(
-        '.react-autosuggest__suggestions-list'
+      const suggestionsListContainer = document.getElementById(
+        'react-autowhatever-1'
       );
-      suggestionsList &&
-        suggestionsList.setAttribute('aria-labelledby', 'react-autowhatever-1');
+
+      suggestionsListContainer &&
+        suggestionsListContainer.setAttribute(
+          'aria-labelledby',
+          `${prefix}--header__search--input`
+        );
     });
 
     useEffect(() => {
@@ -271,6 +275,27 @@ const MastheadSearch = forwardRef(
     }
 
     /**
+     * Custom onKeyDown event handlers
+     *
+     * @param {event} event The callback event
+     */
+    function onKeyDown(event) {
+      switch (event.key) {
+        case 'Enter': {
+          // Disables Enter key if searchNoRirect is true
+          if (rest.searchNoRedirect) {
+            onSearchNoRedirect(event, state.val);
+            event.preventDefault();
+          }
+          // Disable search on enter key if the search field is empty
+          if (!state.val) {
+            event.preventDefault();
+          }
+        }
+      }
+    }
+
+    /**
      * When the input field changes, we set the new val to our state
      *
      * @param {event} event The callback event
@@ -296,10 +321,12 @@ const MastheadSearch = forwardRef(
       placeholder: placeHolderText,
       value: state.val,
       onChange,
+      onKeyDown,
       className: `${prefix}--header__search--input`,
       'aria-label': placeHolderText,
       role: 'combobox',
-      'aria-expanded': !!state.suggestions.length,
+      'aria-expanded': isSearchActive,
+      id: `${prefix}--header__search--input`,
     };
 
     /**
@@ -543,9 +570,7 @@ const MastheadSearch = forwardRef(
 
     /* eslint-disable react/prop-types */
     const renderSuggestionsContainer = ({ containerProps, children }) => (
-      <div {...containerProps} aria-labelledby="react-autowhatever-1">
-        {children}
-      </div>
+      <div {...containerProps}>{children}</div>
     );
 
     return (

@@ -99,7 +99,7 @@ Cypress.Commands.add('checkAxeA11y', (context, additionalRules) => {
     context || null,
     {
       rules: rules,
-      includedImpacts: ['critical']
+      includedImpacts: ['moderate', 'critical', 'serious']
     },
     terminalLog,
     true

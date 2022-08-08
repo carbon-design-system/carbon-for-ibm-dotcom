@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,15 +23,11 @@ import readme from './README.stories.mdx';
 import styles from './leadspace-block.stories.scss';
 
 const image = html`
-  <dds-image-with-caption
-    alt="Image alt text"
-    default-src="${imgLg16x9}"
-    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  >
+  <dds-image alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
     <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
     <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
     <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
-  </dds-image-with-caption>
+  </dds-image>
 `;
 
 const linkList = html`

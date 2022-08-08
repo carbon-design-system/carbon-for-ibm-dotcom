@@ -28,14 +28,10 @@ import DDSFilterPanelHeading from '@carbon/ibmdotcom-web-components/es/component
 import DDSFilterPanelInputSelect from '@carbon/ibmdotcom-web-components/es/components-react/filter-panel/filter-panel-input-select';
 import DDSFilterPanelInputSelectItem from '@carbon/ibmdotcom-web-components/es/components-react/filter-panel/filter-panel-input-select-item';
 
-<Description markdown={`${cdnJs({ components: ['filter-panel'] })}`} />
-
-<Description markdown={`${cdnCss()}`} />
-
 function App() {
   return (
     <DDSFilterPanelComposite>
-      <DDSFilterPanelHeading slot="heading">{heading}</DDSFilterPanelHeading>
+      <DDSFilterPanelHeading slot="heading">Filter</DDSFilterPanelHeading>
       <DDSFilterGroup>
         <DDSFilterGroupItem title-text="Product types">
           <DDSFilterPanelCheckbox value="API">API</DDSFilterPanelCheckbox>

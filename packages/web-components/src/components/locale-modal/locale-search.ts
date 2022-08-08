@@ -8,9 +8,9 @@
  */
 
 import { html, property, state, query, customElement, LitElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import { INPUT_SIZE } from 'carbon-web-components/es/components/input/input.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import ThrottedInputMixin from '../../globals/mixins/throttled-input';
 import { forEach } from '../../globals/internal/collection-helpers';
 import DDSSearch, { SEARCH_COLOR_SCHEME } from '../search/search';

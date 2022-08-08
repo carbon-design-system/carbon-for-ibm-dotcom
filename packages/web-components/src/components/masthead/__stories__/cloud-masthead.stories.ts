@@ -9,7 +9,7 @@
 
 import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
-import on from 'carbon-components/es/globals/js/misc/on';
+import on from 'carbon-components/es/globals/js/misc/on.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
 import DDSLeftNav from '../left-nav';
@@ -133,7 +133,7 @@ export default !DDS_CLOUD_MASTHEAD
             hasContact: select('Contact us button visibility (has-contact)', ['true', 'false'], 'true', groupId),
             selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Docs', groupId),
             redirectPath: textNullable('redirect path (redirect-path)', '', groupId),
-            authMethod: select('auth method (auth-method)', ['personalization', 'api'], 'personalization', groupId),
+            authMethod: select('auth method (auth-method)', ['cookie', 'api'], 'cookie', groupId),
           }),
         },
         props: (() => {
@@ -155,7 +155,7 @@ export default !DDS_CLOUD_MASTHEAD
               hasContact: true,
               selectedMenuItem: 'Docs',
               redirectPath: '',
-              authMethod: 'personalization',
+              authMethod: 'cookie',
               navLinks: links,
             },
           },

@@ -13,20 +13,27 @@
 @import '../image-with-caption/image-with-caption';
 @import '../../internal/content-block/content-block';
 
-@mixin leadspace-block {
-  :host(#{$dds-prefix}-leadspace-block),
-  .#{$prefix}--leadspace-block {
-    ::slotted(#{$dds-prefix}-leadspace-block-content),
-    .#{$prefix}--content-block {
-      padding-top: 0;
-      padding-bottom: $layout-01;
+%leadspace-block-padding {
+  padding-top: 0;
+  padding-bottom: $layout-01;
 
-      @include carbon--breakpoint('md') {
-        padding-bottom: $layout-06;
-      }
-      @include carbon--breakpoint('lg') {
-        padding-bottom: $layout-07;
-      }
+  @include carbon--breakpoint('md') {
+    padding-bottom: $layout-06;
+  }
+  @include carbon--breakpoint('lg') {
+    padding-bottom: $layout-07;
+  }
+}
+
+@mixin leadspace-block {
+  :host(#{$dds-prefix}-leadspace-block)
+    ::slotted(#{$dds-prefix}-leadspace-block-content) {
+    @extend %leadspace-block-padding;
+  }
+
+  .#{$prefix}--leadspace-block {
+    .#{$prefix}--content-block {
+      @extend %leadspace-block-padding;
 
       .#{$prefix}--image-with-caption {
         margin-bottom: 0;
@@ -108,7 +115,7 @@
       padding-top: $spacing-05;
     }
 
-    ::slotted(#{$dds-prefix}-image-with-caption),
+    ::slotted(#{$dds-prefix}-image),
     .#{$prefix}--image-with-caption {
       margin-top: 0;
       margin-bottom: 0;

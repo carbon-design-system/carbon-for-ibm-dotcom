@@ -13,7 +13,7 @@ import { settings } from 'carbon-components';
 /**
  * @param {Element} elem An element.
  * @param {string[]} props CSS property names.
- * @returns {Object<string, any>}
+ * @returns {object<string, any>}
  *   The key-value pair of CSS property name/value.
  *   Used primary for integration testing.
  */
@@ -55,11 +55,6 @@ export default class Container extends Component {
         <div data-floating-menu-container="" role="main" className={classes}>
           {story()}
         </div>
-        <input
-          aria-label="input-text-offleft"
-          type="text"
-          className={`${prefix}--visually-hidden`}
-        />
       </React.StrictMode>
     );
   }

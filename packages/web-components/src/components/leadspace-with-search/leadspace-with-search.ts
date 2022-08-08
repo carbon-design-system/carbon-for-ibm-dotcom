@@ -1,21 +1,22 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { customElement, property, html, LitElement } from 'lit-element';
-import { classMap } from 'lit-html/directives/class-map';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
+import { classMap } from 'lit-html/directives/class-map.js';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import '../horizontal-rule/horizontal-rule';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leadspace-with-search.scss';
 import { ADJACENT_THEMES } from './defs';
+import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -97,6 +98,10 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
     });
   }
 
+  protected firstUpdated() {
+    StickyHeader.global.leadspaceWithSearch = this;
+  }
+
   render() {
     return html`
       <div class="${prefix}--content-layout">
@@ -107,8 +112,10 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
         </div>
       </div>
       <div class="${this._getSearchClass()}">
-        <slot name="search"></slot>
-        <div class="${prefix}--sticky-header">${this._heading}</div>
+        <div class="${prefix}--search-container-inner">
+          <div class="${prefix}--sticky-header">${this._heading}</div>
+          <slot name="search"></slot>
+        </div>
       </div>
       <slot name="hr"></slot>
       ${this._contents.map(e => {

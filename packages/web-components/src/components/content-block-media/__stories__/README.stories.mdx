@@ -25,7 +25,7 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/content-block-media/index.js';
 
 // with image
-import '@carbon/ibmdotcom-web-components/es/components/image-with-caption/index.js';
+import '@carbon/ibmdotcom-web-components/es/components/image/index.js';
 
 ```
 
@@ -49,7 +49,7 @@ import '@carbon/ibmdotcom-web-components/es/components/image-with-caption/index.
     <dds-content-group-heading>
       Lorem ipsum dolor sit amet
     </dds-content-group-heading>
-    <dds-image-with-caption
+    <dds-image
       slot="media"
       alt="Image alt text"
       default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
@@ -70,7 +70,7 @@ import '@carbon/ibmdotcom-web-components/es/components/image-with-caption/index.
         srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
       >
       </dds-image-item>
-    </dds-image-with-caption>
+    </dds-image>
     <dds-content-item>
       <dds-content-item-heading>Lorem ipsum dolor sit amet.</dds-content-item-heading>
       <dds-content-item-copy>
@@ -79,10 +79,10 @@ import '@carbon/ibmdotcom-web-components/es/components/image-with-caption/index.
         Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
       </dds-content-item-copy>
     </dds-content-item>
-    <dds-card-link slot="footer" href="https://example.com">
-      <p>Lorem ipsum dolor sit amet</p>
-      <dds-card-footer></dds-card-footer>
-    </dds-card-link>
+    <dds-card-link-cta slot="footer" href="https://example.com" cta-type="local">
+      <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
+      <dds-card-cta-footer></dds-card-cta-footer>
+    </dds-card-link-cta>
   </dds-content-block-media-content>
 </dds-content-block-media>
 ```
@@ -95,7 +95,7 @@ import '@carbon/ibmdotcom-web-components/es/components/image-with-caption/index.
 import '@carbon/ibmdotcom-web-components/es/components/content-block-media/index.js';
 
 // with image
-import '@carbon/ibmdotcom-web-components/es/components/image-with-caption/index.js';
+import '@carbon/ibmdotcom-web-components/es/components/image/index.js';
 
 // with aside content
 import '@carbon/ibmdotcom-web-components/es/components/link-list/index.js';
@@ -117,7 +117,7 @@ import '@carbon/ibmdotcom-web-components/es/components/link-list/index.js';
       <dds-content-group-heading>
         Lorem ipsum dolor sit amet
       </dds-content-group-heading>
-      <dds-image-with-caption
+      <dds-image
         slot="media"
         alt="Image alt text"
         default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
@@ -138,7 +138,7 @@ import '@carbon/ibmdotcom-web-components/es/components/link-list/index.js';
           srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
         >
         </dds-image-item>
-      </dds-image-with-caption>
+      </dds-image>
       <dds-content-item>
         <dds-content-item-heading>Lorem ipsum dolor sit amet.</dds-content-item-heading>
         <dds-content-item-copy>
@@ -147,9 +147,9 @@ import '@carbon/ibmdotcom-web-components/es/components/link-list/index.js';
           Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
         </dds-content-item-copy>
       </dds-content-item>
-      <dds-card-link slot="footer" href="https://example.com">
-        <p>Lorem ipsum dolor sit amet</p>
-        <dds-card-footer></dds-card-footer>
+      <dds-card-link-cta slot="footer" href="https://example.com" cta-type="local">
+        <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
+        <dds-card-cta-footer></dds-card-footer>
       </dds-card-link>
     </dds-content-block-media-content>
 

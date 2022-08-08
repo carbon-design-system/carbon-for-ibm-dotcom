@@ -150,7 +150,7 @@ LICENSE file in the root directory of this source tree.
             consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
             sollicitudin, sodales nulla quis, consequat libero.
           </dds-content-group-copy>
-          <dds-image-with-caption
+          <dds-image
             slot="media"
             alt="Image alt text"
             default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
@@ -171,9 +171,9 @@ LICENSE file in the root directory of this source tree.
               srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616"
             >
             </dds-image-item>
-          </dds-image-with-caption>
-          <dds-card-cta slot="footer" href="https://www.ibm.com/" type="local">
-            Lorem ipsum dolor sit amet
+          </dds-image>
+          <dds-card-link-cta slot="footer" href="https://www.ibm.com/" cta-type="local">
+            <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
             <dds-card-cta-footer>
               <svg
                 slot="icon"
@@ -188,7 +188,7 @@ LICENSE file in the root directory of this source tree.
                 <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
               </svg>
             </dds-card-cta-footer>
-          </dds-card-cta>
+          </dds-card-link-cta>
         </dds-content-group-simple>
       </dds-content-block-mixed>
     </div>

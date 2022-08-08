@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="180px" viewBox="0 0 320 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>tab-extended</title>
+    <g id="tab-extended" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(55.000000, 68.000000)" fill-rule="nonzero">
+            <g id="Group-4">
+                <g id="Group" transform="translate(0.000000, 9.000000)">
+                    <g id="Tab-2" fill="#E0E0E0">
+                        <rect id="bar" x="0" y="0" width="209.6" height="3"></rect>
+                    </g>
+                    <g id="Tab-1-Copy" transform="translate(0.210000, 0.000000)" fill="#0F62FE">
+                        <rect id="bar" x="0" y="0" width="41.6" height="3"></rect>
+                    </g>
+                </g>
+                <g id="Group-3" transform="translate(7.000000, 0.000000)">
+                    <rect id="Rectangle-Copy-7" fill="#A8A8A8" x="0" y="0" width="20" height="3.28571429"></rect>
+                    <rect id="Rectangle-Copy-8" fill="#C6C6C6" x="44" y="0" width="20" height="3.28571429"></rect>
+                    <rect id="Rectangle-Copy-9" fill="#C6C6C6" x="88" y="0" width="20" height="3.28571429"></rect>
+                    <rect id="Rectangle-Copy-10" fill="#C6C6C6" x="132" y="0" width="20" height="3.28571429"></rect>
+                    <rect id="Rectangle-Copy-11" fill="#C6C6C6" x="176" y="0" width="20" height="3.28571429"></rect>
+                </g>
+            </g>
+            <g id="Group-2" transform="translate(7.000000, 20.285714)" fill="#C6C6C6">
+                <rect id="Rectangle-Copy-4" x="0" y="0" width="134.714286" height="3.28571429"></rect>
+                <rect id="Rectangle-Copy-5" x="0" y="6.57142857" width="134.714286" height="3.28571429"></rect>
+                <rect id="Rectangle-Copy-6" x="0" y="13.1428571" width="134.714286" height="3.28571429"></rect>
+                <rect id="Rectangle-Copy-7" x="0" y="19.7142857" width="67.3571429" height="3.28571429"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

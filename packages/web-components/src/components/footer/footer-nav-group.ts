@@ -8,9 +8,9 @@
  */
 
 import { html, property, state, customElement, LitElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import ChevronRight16 from 'carbon-web-components/es/icons/chevron--right/16.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import Handle from '../../globals/internal/handle';
 import styles from './footer.scss';

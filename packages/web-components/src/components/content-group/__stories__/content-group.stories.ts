@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,7 @@
 import '../index';
 import '../../content-item/index';
 import '../../cta/text-cta';
-import '../../image-with-caption/index';
+import '../../image/index';
 import { html } from 'lit-element';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
@@ -45,11 +45,11 @@ export const Default = ({ parameters }) => {
         ? html`
             <dds-content-item>
               <dds-content-item-heading>Natural language understanding</dds-content-item-heading>
-              <dds-image-with-caption slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Image caption text">
+              <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Image caption text">
                 <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
                 <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
                 <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
-              </dds-image-with-caption>
+              </dds-image>
               <dds-content-item-copy
                 >This area of NLP takes "real world" text and applies a symbolic system for a machine to interpret its meaning,
                 using formal logic; structures that describe the various relationships between concepts (ontologies); and other

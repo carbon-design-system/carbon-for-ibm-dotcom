@@ -1,0 +1,201 @@
+//
+// Copyright IBM Corp. 2019, 2022
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../globals/imports';
+@import '../../globals/vars';
+@import 'carbon-web-components/scss/components/structured-list/structured-list';
+
+// Overridden column spanning
+@mixin structured-list-colspan($colNumber) {
+  ::slotted(*:nth-child(#{$colNumber})) {
+    --cols: var(--col-span-#{$colNumber}, 2);
+    --width: calc((var(--cols) / var(--max-cols)) * 100%);
+
+    max-width: var(--width);
+    flex: 0 0 var(--width);
+  }
+
+  @include carbon--breakpoint('md') {
+    ::slotted(*:nth-child(#{$colNumber})) {
+      --cols: var(
+        --col-span-md-#{$colNumber},
+        var(--col-span-#{$colNumber}, 2)
+      );
+      --width: calc((var(--cols) / var(--max-cols)) * 100%);
+
+      max-width: var(--width);
+      flex: 0 0 var(--width);
+    }
+  }
+
+  @include carbon--breakpoint('lg') {
+    ::slotted(*:nth-child(#{$colNumber})) {
+      --cols: var(
+        --col-span-lg-#{$colNumber},
+        var(
+          --col-span-md-#{$colNumber},
+          var(--col-span-#{$colNumber}, var(--default-cols, 2))
+        )
+      );
+      --width: calc((var(--cols) / var(--max-cols)) * 100%);
+
+      max-width: var(--width);
+      flex: 0 0 var(--width);
+    }
+  }
+}
+
+@function extended-box-shadow($begin: 1, $end: 20) {
+  $value: null;
+
+  @for $i from $begin through $end {
+    $new-value: ($i * 50vw) 0 $ui-03;
+    $value: append($value, $new-value);
+
+    @if $i != $end {
+      $value: append($value, #{','});
+    }
+  }
+
+  @return $value;
+}
+
+@mixin structured-list {
+  // Inherited Table Styles
+  .#{$prefix}--structured-list-header-row,
+  :host(#{$dds-prefix}-structured-list-header-row) {
+    border-bottom: none;
+  }
+
+  .#{$prefix}--structured-list-header-cell,
+  :host(#{$dds-prefix}-structured-list-header-cell) {
+    @extend .#{$prefix}--structured-list-th;
+
+    padding-inline: $spacing-05;
+    padding-block-end: $spacing-05;
+    border-bottom: 1px solid $ui-03;
+  }
+
+  .#{$prefix}--structured-list-group,
+  :host(#{$dds-prefix}-structured-list-group) {
+    display: contents;
+
+    tr {
+      @extend .#{$prefix}--structured-list-row;
+
+      background-color: $ui-03;
+      color: $text-01;
+      border-bottom: 1px solid $ui-03;
+
+      @include carbon--breakpoint-down('md') {
+        box-shadow: extended-box-shadow();
+      }
+    }
+
+    th {
+      @extend .#{$prefix}--structured-list-td;
+
+      color: $text-01;
+      text-align: left;
+      font-weight: bold;
+      padding-inline: $spacing-05;
+    }
+  }
+
+  .#{$prefix}--structured-list-cell,
+  :host(#{$dds-prefix}-structured-list-cell) {
+    @extend .#{$prefix}--structured-list-td;
+
+    padding-inline: $spacing-05;
+    border-bottom: 1px solid $ui-03;
+  }
+
+  // Default Carbon Rows/Columns
+  .#{$prefix}--structured-list-all-rows,
+  :host(#{$dds-prefix}-structured-list-header-row),
+  :host(#{$dds-prefix}-structured-list-row),
+  :host(#{$dds-prefix}-structured-list-group) tr {
+    --max-cols: 4;
+
+    @include carbon--breakpoint('sm') {
+      @include carbon--make-row();
+
+      flex-wrap: nowrap;
+    }
+
+    @include carbon--breakpoint('md') {
+      --max-cols: 8;
+    }
+
+    @include carbon--breakpoint('lg') {
+      --max-cols: 16;
+    }
+
+    @for $i from 1 through 8 {
+      @include structured-list-colspan(#{$i});
+    }
+
+    ::slotted(*:last-child) {
+      flex-grow: 1;
+      max-width: none;
+    }
+  }
+
+  .#{$prefix}--structured-list-all-cells,
+  :host(#{$dds-prefix}-structured-list-header-cell),
+  :host(#{$dds-prefix}-structured-list-cell),
+  :host(#{$dds-prefix}-structured-list-group) td {
+    height: auto;
+
+    @include carbon--breakpoint('sm') {
+      @include carbon--make-col(2, 4);
+    }
+
+    @include carbon--breakpoint('md') {
+      @include carbon--make-col(2, 8);
+    }
+
+    @include carbon--breakpoint('lg') {
+      @include carbon--make-col(2, 16);
+    }
+  }
+
+  // Internal components
+  .#{$dds-prefix}--structured-list,
+  :host(#{$dds-prefix}-structured-list) {
+    display: block;
+    padding-left: $carbon--layout-01;
+    padding-right: $carbon--layout-01;
+    margin-left: -#{$carbon--layout-01};
+    margin-right: -#{$carbon--layout-01};
+
+    .#{$prefix}--structured-list {
+      margin: 0;
+    }
+  }
+
+  .#{$prefix}--structured-list-cell-tooltip-icon,
+  :host(#{$dds-prefix}-structured-list-cell) #{$prefix}-tooltip-icon {
+    display: inline-flex;
+    vertical-align: sub;
+
+    svg {
+      fill: $icon-02;
+    }
+  }
+
+  .#{$prefix}--structured-list-cell[icon],
+  :host(#{$dds-prefix}-structured-list-cell[icon]) {
+    &[icon='checkmark'] {
+      color: $support-02;
+    }
+  }
+}
+
+@include exports('structured-list') {
+  @include structured-list;
+}

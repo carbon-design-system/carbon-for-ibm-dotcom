@@ -10,6 +10,8 @@
   "supportFile": "tests/e2e/cypress/support/index.js",
   "pluginsFile": "tests/e2e/cypress/plugins/index.js",
   "includeShadowDom": true,
+  "screenshotOnRunFailure": false,
+  "video": false,
   "testFiles": "**/*.e2e.js",
   "pageLoadTimeout": 90000,
   "defaultCommandTimeout": 90000,

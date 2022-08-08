@@ -123,6 +123,8 @@ const _tests = {
           .then(sidebar => {
             expect(sidebar.offset().top).to.be.greaterThan(0);
             if (pos === 'bottom') {
+              cy.wait(3000);
+
               cy.takeSnapshots(
                 'desktop',
                 {},
@@ -182,6 +184,8 @@ const _tests = {
               section.offset().top === 0 || window.scrollY === maxScrollVal;
             expect(sectionScrolledTo).to.be.true;
             if (i === 1) {
+              cy.wait(3000);
+
               cy.takeSnapshots(
                 'mobile',
                 {},
@@ -219,6 +223,8 @@ const _tests = {
           .then(mobileNav => {
             expect(mobileNav.offset().top).to.be.greaterThan(-1);
             if (pos === 'bottom') {
+              cy.wait(3000);
+
               cy.takeSnapshots(
                 'mobile',
                 {},

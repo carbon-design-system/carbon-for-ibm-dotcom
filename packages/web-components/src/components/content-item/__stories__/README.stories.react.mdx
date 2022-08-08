@@ -1,0 +1,50 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import markdownContents from '../../../../docs/markdown-contents.md';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item';
+
+# Content item
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/content-item)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/content-item)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import DDSContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item';
+import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import DDSContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
+import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
+
+const App = () => (
+	<DDSContentItem>
+		<DDSContentItemHeading>Heading</DDSContentItemHeading>
+		<DDSContentItemCopy>Copy</DDSContentItemCopy>
+		<DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">CTA text</DDSTextCTA>
+	</DDSContentItem>
+);
+```
+
+## Props
+
+<Props of="dds-content-item" />
+<Description markdown={markdownContents} />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector      | Compatibility selector                     | Description |
+| ---------------------------- | ------------------------------------------ | ----------- |
+| `<dds-content-item>`         | `data-autoid="dds--content-item"`          | Component   |
+| `<dds-content-item-copy>`    | `data-autoid="dds--content-item__copy"`    | Component   |
+| `<dds-content-item-heading>` | `data-autoid="dds--content-item__heading"` | Component   |
+
+<Description markdown={contributing} />

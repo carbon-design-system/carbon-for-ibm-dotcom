@@ -8,19 +8,10 @@
 import DOMPurify from 'isomorphic-dompurify';
 import { marked } from 'marked';
 import settings from 'carbon-components/es/globals/js/settings';
+import striptags from 'striptags';
+
 const { prefix } = settings;
-
-const _htmlTagRegex = /<.*?>/g;
 const _cleanStringRegex = /\n|\s{2,}|&;/g;
-
-/**
- * Removes any html tags from a string and keeps inner text if any
- *
- * @param {string} str String to be checked for html tags
- * @returns {string} String with html tags stripped out
- * @private
- */
-const _removeHtmlTags = str => str.replace(_htmlTagRegex, '');
 
 /**
  * Cleans string by replacing multiple spaces with a single space
@@ -51,7 +42,7 @@ function markdownToHtml(
   str,
   { allowHtml = false, renderer = {}, customTags } = {}
 ) {
-  let converted = allowHtml ? str : _removeHtmlTags(str);
+  let converted = allowHtml ? str : striptags(str);
 
   /**
    * Custom rendering options to add Carbon styles

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,7 +34,7 @@ describe('dds-masthead-*', () => {
       const promiseNavigation = page.waitForNavigation();
       await page.click('dds-megamenu-link-with-icon:first-of-type');
       await promiseNavigation;
-      expect(await page.evaluate(() => window.location.href)).toMatch(/https:\/\/www.ibm.com\/[^ ]*/);
+      expect(await page.evaluate(() => window.location.href)).toMatch('https://www.ibm.com');
     });
 
     it('should support showing/hiding the search box', async () => {
@@ -56,7 +56,7 @@ describe('dds-masthead-*', () => {
       await page.click('dds-left-nav-menu[title*="Products"]');
       await page.click('dds-left-nav-menu[title="Industries"]');
       await page.click('dds-left-nav-menu-item[title="Healthcare"]');
-      expect(await page.evaluate(() => window.location.href)).toMatch(/https:\/\/www.ibm.com\/industries\/healthcare/);
+      expect(await page.evaluate(() => window.location.href)).toMatch('https://www.ibm.com/industries/healthcare');
     });
   });
 });

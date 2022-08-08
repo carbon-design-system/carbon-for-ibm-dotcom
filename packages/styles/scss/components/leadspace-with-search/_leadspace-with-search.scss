@@ -87,6 +87,7 @@
   }
 
   :host(#{$dds-prefix}-leadspace-with-search) {
+    display: block;
     position: relative;
 
     &[has-image] {
@@ -121,6 +122,7 @@
         margin: 0 calc(50% - 50vw);
         width: 100vw;
         top: 0;
+        // Puts background underneath all static elements
         z-index: -1;
       }
     }
@@ -174,9 +176,12 @@
 
     .#{$prefix}--search-container {
       position: relative;
-      display: grid;
       padding-bottom: $spacing-10;
       z-index: 11;
+      transform: translateY(0);
+      transition-property: transform;
+      transition-timing-function: motion(entrance, productive);
+      transition-duration: 0s;
 
       @include carbon--breakpoint-down('md') {
         margin: 0 $spacing-05;
@@ -209,27 +214,19 @@
       .#{$prefix}--sticky-header {
         @include carbon--type-style('expressive-heading-01');
 
-        opacity: 0;
-        transition: all $duration--fast-02 motion(entrance, productive);
-
-        transform: translate(-29%, calc(#{$spacing-12} * -1));
-
-        @include carbon--breakpoint-down('lg') {
-          display: none;
-        }
-
-        @include carbon--breakpoint('xlg') {
-          transform: translate(-28%, calc(#{$spacing-12} * -1));
-        }
+        display: none;
+        align-self: center;
       }
 
       &::before {
+        top: 0;
         right: calc(50% - 50vw);
         content: '';
         background-color: $ui-background;
         position: absolute;
         width: 100vw;
         height: 100%;
+        z-index: -1;
       }
     }
 
@@ -285,13 +282,35 @@
     }
 
     &[sticky-search] {
-      .#{$prefix}--search-container > .#{$prefix}--sticky-header {
-        opacity: 1;
-        z-index: 2;
-        transform: translate(-29%, $spacing-07);
+      .#{$prefix}--search-container {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        padding: $spacing-05 0;
+        margin: 0;
+        transform: translateY(-100%);
+      }
+
+      .#{$prefix}--search-container-inner {
+        @include carbon--make-container;
+        @include carbon--make-row;
+
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .#{$prefix}--sticky-header {
+        @include carbon--breakpoint('lg') {
+          @include carbon--make-col(4, 16);
+        }
+      }
+
+      ::slotted(#{$dds-prefix}-search-with-typeahead) {
+        @include carbon--make-col(4, 4);
 
         @include carbon--breakpoint('lg') {
-          transform: translate(-28%, $spacing-05);
+          @include carbon--make-col(10, 16);
         }
       }
 

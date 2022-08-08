@@ -5,26 +5,31 @@
  * LICENSE file in the root directory of this source tree.
  */
 import axios from 'axios';
-import { DDOAPI } from '../DDO';
-import root from 'window-or-global';
+import Cookies from 'js-cookie';
+
+/**
+ * The cookie name for determining user login status for cloud.ibm.com.
+ *
+ * @type {string}
+ * @private
+ */
+const _cookieName = 'com.ibm.cloud.iam.LoggedIn.prod';
 
 class CloudAccountAuthAPI {
   /**
-   * retrieve the cloud login status via window object status
-   * gets the full digitalData (DDO) object.
+   * retrieve the cloud login status via cookie
    *
    * @example
    * import { cloudAccountAuthentication } from '@carbon/ibmdotcom-utilities';
    *
-   * const status = cloudAccountAuthentication.checkPersonalization();
+   * const status = cloudAccountAuthentication.checkCookie();
    *
    * @returns {string} string determining login status
    */
-  static async checkPersonalization() {
-    return await DDOAPI.isReady().then(() => {
-      const status = root.digitalData?.user?.segment?.isCloudLoggedOn;
-      return { user: status === true ? 'authenticated' : 'anonymous' };
-    });
+  static checkCookie() {
+    const cloudLogin = Cookies.get(_cookieName);
+
+    return { user: cloudLogin === '1' ? 'authenticated' : 'anonymous' };
   }
 
   /**

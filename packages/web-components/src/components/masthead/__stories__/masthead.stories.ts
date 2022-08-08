@@ -9,7 +9,7 @@
 
 import { html } from 'lit-element';
 import { boolean, select } from '@storybook/addon-knobs';
-import on from 'carbon-components/es/globals/js/misc/on';
+import on from 'carbon-components/es/globals/js/misc/on.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -224,14 +224,14 @@ export const withPlatform = ({ parameters }) => {
           ></dds-masthead-composite>
         `
       : html`
-          <dds-masthead-composite
+          <dds-masthead-container
             platform="Platform"
             .platformUrl="${ifNonNull(platformData.url)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-          ></dds-masthead-composite>
+          ></dds-masthead-container>
         `}
   `;
 };

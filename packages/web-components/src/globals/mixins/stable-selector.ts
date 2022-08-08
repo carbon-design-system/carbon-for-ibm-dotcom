@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,6 +21,13 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * @private
      */
     linkNode;
+
+    /**
+     * The string array element containing the alternate attributes to target
+     *
+     * @private
+     */
+    altAttributes;
 
     /**
      * Mutation observer to watch for attribute changes
@@ -52,9 +59,11 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * Function to transpose any data-* attributes to the anchor tag in the shadow dom.
      *
      * @param linkNodeArg optional argument to pass in custom element to target instead of an anchor link
+     * @param altAttributesArg optional argument to target additional attributes to transpose
      */
-    transposeAttributes(linkNodeArg?) {
+    transposeAttributes(linkNodeArg?, altAttributesArg?) {
       this.linkNode = linkNodeArg;
+      this.altAttributes = altAttributesArg;
       if (!this.linkNode) {
         this.querySelectorAll('*').forEach(e => {
           const anchor = e.shadowRoot?.querySelector('a');
@@ -64,11 +73,14 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         });
       }
       this.linkNode = this.linkNode || this.shadowRoot?.querySelector('a');
-      const dataAttributes = [].filter.call(
+      const scrapedAttributes = [].filter.call(
         this.attributes,
-        at => /^data-/.test((at as any).name) && (at as any).name !== 'data-autoid'
+        at =>
+          (/^data-/.test((at as any).name) && (at as any).name !== 'data-autoid') ||
+          (this.altAttributes && this.altAttributes.includes((at as any).name))
       );
-      dataAttributes.forEach(e => {
+
+      scrapedAttributes.forEach(e => {
         if (this.linkNode) {
           this.linkNode?.setAttribute((e as any).name, (e as any).value);
         }

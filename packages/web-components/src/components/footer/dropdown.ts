@@ -1,19 +1,19 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2021
+ * Copyright IBM Corp. 2019, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import settings from 'carbon-components/es/globals/js/settings';
-import { classMap } from 'lit-html/directives/class-map';
-import { ifDefined } from 'lit-html/directives/if-defined';
+import settings from 'carbon-components/es/globals/js/settings.js';
+import { classMap } from 'lit-html/directives/class-map.js';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { html, query, customElement, property } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import BXDropdown from 'carbon-web-components/es/components/dropdown/dropdown';
-import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import BXDropdown from 'carbon-web-components/es/components/dropdown/dropdown.js';
+import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item.js';
 import ChevronDown16 from 'carbon-web-components/es/icons/chevron--down/16.js';
 import WarningFilled16 from 'carbon-web-components/es/icons/warning--filled/16.js';
 import { DROPDOWN_COLOR_SCHEME, DROPDOWN_KEYBOARD_ACTION, DROPDOWN_SIZE, DROPDOWN_TYPE, NAVIGATION_DIRECTION } from './defs';
@@ -133,6 +133,7 @@ class DDSDropdown extends BXDropdown {
     });
     const labelClasses = classMap({
       [`${prefix}--label`]: true,
+      [`${prefix}--label-visually-hidden`]: true,
       [`${prefix}--label--disabled`]: disabled,
     });
     const helperClasses = classMap({
@@ -172,7 +173,6 @@ class DDSDropdown extends BXDropdown {
         <slot name="label-text" @slotchange="${handleSlotchangeLabelText}">${labelText}</slot>
       </label>
       <div
-        role="listbox"
         class="${classes}"
         ?data-invalid=${invalid}
         @click=${handleClickInner}
@@ -182,7 +182,7 @@ class DDSDropdown extends BXDropdown {
         ${validityIcon}
         <div
           part="trigger-button"
-          role="${ifDefined(!shouldTriggerBeFocusable ? undefined : 'button')}"
+          role="button"
           class="${prefix}--list-box__field"
           tabindex="${ifDefined(!shouldTriggerBeFocusable ? undefined : '0')}"
           aria-labelledby="trigger-label"

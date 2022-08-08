@@ -1,0 +1,67 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block.js';
+
+# Content Block Horizontal
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/content-block-horizontal)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/content-block-horizontal)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import DDSContentBlockHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-block-horizontal/content-block-horizontal';
+import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import DDSContentItemHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal';
+import DDSContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-eyebrow';
+import DDSContentItemHorizontalCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-copy';
+
+import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import DDSLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+
+function App() {
+  return (
+    <DDSContentBlockHorizontal>
+      <DDSContentBlockHeading>Lorem ipsum dolor sit amet</DDSContentBlockHeading>
+      <DDSContentItemHorizontal>
+        <DDSContentItemHorizontalEyebrow>Lorem ipsum</DDSContentItemHorizontalEyebrow>
+        <DDSContentItemHeading>Aliquam condimentum</DDSContentItemHeading>
+        <DDSContentItemHorizontalCopy>{copy}</DDSContentItemHorizontalCopy>
+        <DDSLinkList slot="footer" type="vertical">
+          <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
+            Link text
+          </DDSLinkListItemCTA>
+          <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
+            External link text
+          </DDSLinkListItemCTA>
+        </DDSLinkList>
+      </DDSContentItemHorizontal>
+    </DDSContentBlockHorizontal>
+  );
+}
+```
+
+## Props
+
+<Props of={PropTypesRef} />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector                 | Compatibility selector                            | Description |
+| --------------------------------------- | ------------------------------------------------- | ----------- |
+| `<dds-content-block-horizontal>`        | `data-autoid="dds--content-block-simple"`         | Component   |
+| `<dds-content-block-heading>`           | `data-autoid="dds--content-block__heading"`       | Component   |
+| `<dds-content-item-horizontal>`         | `data-autoid="dds--content-item-horizontal"`      | Component   |
+| `<dds-content-item-horizontal-copy>`    | `data-autoid="dds--content-item-horizontal-copy"` | Component   |
+
+<Description markdown={contributing} />

@@ -19,7 +19,7 @@ import imgXlg4x3 from '../../../../../../storybook-images/assets/1312/fpo--4x3--
 
 import leadspaceImg from '../../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
 
-const image = html`
+export const image = html`
   <dds-image-with-caption
     alt="Image alt text"
     default-src="${imgLg16x9}"
@@ -31,7 +31,7 @@ const image = html`
   </dds-image-with-caption>
 `;
 
-const contentBlockSegmentedItems = html`
+export const contentBlockSegmentedItems = html`
   <dds-content-block-segmented-item>
     <dds-content-group-heading>A scelerisque purus semper eget duis at tellus. </dds-content-group-heading>
     <dds-content-item-copy
@@ -50,7 +50,7 @@ const contentBlockSegmentedItems = html`
   </dds-content-block-segmented-item>
 `;
 
-const contentBlockSegmentedItemsWithImage = html`
+export const contentBlockSegmentedItemsWithImage = html`
   <dds-content-block-segmented-item>
     <dds-content-group-heading>A scelerisque purus semper eget duis at tellus. </dds-content-group-heading>
     <dds-content-item-copy
@@ -63,7 +63,7 @@ const contentBlockSegmentedItemsWithImage = html`
   </dds-content-block-segmented-item>
 `;
 
-const contentItemHorizontal = html`
+export const contentItemHorizontal = html`
   <dds-content-item-horizontal>
     <dds-content-item-horizontal-eyebrow>Lorem ipsum</dds-content-item-horizontal-eyebrow>
     <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
@@ -82,7 +82,18 @@ const contentItemHorizontal = html`
   </dds-content-item-horizontal>
 `;
 
-const cardGroupItems = html`
+export const universalBanner = srcImage => html`
+  <dds-universal-banner image-width="4-col">
+    <dds-universal-banner-image slot="image" default-src="${srcImage}"></dds-universal-banner-image>
+    <dds-universal-banner-heading slot="heading">heading</dds-universal-banner-heading>
+    <dds-universal-banner-copy slot="copy">copy</dds-universal-banner-copy>
+    <dds-button-cta slot="cta" cta-type="local" kind="tertiary" href="https://www.example.com">
+      cta copy
+    </dds-button-cta>
+  </dds-universal-banner>
+`;
+
+export const cardGroupItems = html`
   <dds-card-group-item href="https://example.com">
     <dds-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-image>
     <dds-card-eyebrow>Topic</dds-card-eyebrow>
@@ -93,7 +104,7 @@ const cardGroupItems = html`
   </dds-card-group-item>
 `;
 
-const contentLeadspace = html`
+export const contentLeadspace = html`
   <dds-leadspace size="medium" gradient-style-scheme="true" alt="" default-src="${leadspaceImg}">
     <dds-leadspace-heading>Leadspace Title</dds-leadspace-heading>
     Use this area for a short line of copy to support the title
@@ -107,7 +118,23 @@ const contentLeadspace = html`
   </dds-leadspace>
 `;
 
-const tocContent = html`
+export const contentLeadspaceSearch = html`
+  <dds-leadspace-with-search adjacent-theme="white-and-g10" scroll-behavior>
+    <dds-leadspace-with-search-heading>Find a product</dds-leadspace-with-search-heading>
+    <dds-leadspace-with-search-content>
+      <dds-leadspace-with-search-content-heading
+        >Innovate like a startup, scale for the enterprise</dds-leadspace-with-search-content-heading
+      >
+      <dds-leadspace-with-search-content-copy>
+        Automate your software release process with continuous delivery (CD)—the most critical part of adopting DevOps. Build,
+        test, and deploy code changes quickly, ensuring software is always ready for deployment.
+      </dds-leadspace-with-search-content-copy>
+    </dds-leadspace-with-search-content>
+    <dds-search-with-typeahead slot="search" leadspace-search active should-remain-open></dds-search-with-typeahead>
+  </dds-leadspace-with-search>
+`;
+
+export const tocContent = html`
   <a name="1" data-title="Lorem ipsum dolor sit amet"></a>
   <dds-leadspace-block>
     <dds-leadspace-block-heading>Lorem ipsum dolor sit amet</dds-leadspace-block-heading>
@@ -303,19 +330,7 @@ export const StoryContentNoToC = () =>
   html`
     <div class="dds-ce-demo-devenv--ui-shell-content" style='padding-right:1rem'>
       <div class="bx--grid bx--col-lg-8">
-        <dds-leadspace-with-search adjacent-theme='white-and-g10' scroll-behavior>
-          <dds-leadspace-block-heading slot='heading'>Find a product</dds-leadspace-block-heading>
-          <dds-leadspace-block-content slot='content'>
-            <dds-leadspace-search-block-heading>Innovate like a startup, scale for the enterprise</dds-leadspace-search-block-heading>
-            <dds-leadspace-search-block-copy
-              >Automate your software release process with continuous
-              delivery (CD)—the most critical part of adopting DevOps.
-              Build, test, and deploy code changes quickly, ensuring
-              software is always ready for deployment.
-            </dds-leadspace-search-block-copy>
-          </dds-leadspace-block-content>
-          <dds-search-with-typeahead slot='search' leadspace-search active should-remain-open></dds-search-with-typeahead>
-        </dds-leadspace-with-search>
+        ${contentLeadspaceSearch}
 
         <dds-content-block-segmented>
           <dds-content-block-heading>Pharetra pharetra massa massa ultricies mi quis.</dds-content-block-heading>

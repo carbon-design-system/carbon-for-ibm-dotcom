@@ -6,31 +6,25 @@
  */
 
 import CloudAccountAuthAPI from '../CloudAccountAuth';
-import root from 'window-or-global';
 
-describe('CloudAccountAuth personalization utility', () => {
-  beforeEach(function() {
-    root.digitalData = {
-      page: {
-        isDataLayerReady: true,
-      },
-      user: {
-        segment: {
-          isCloudLoggedOn: true,
-        },
-      },
-    };
-  });
+describe('CloudAccountAuth cookie utility', () => {
+  it('should fetch the CloudAccountAuth cookie and return the authenticated string', () => {
+    Object.defineProperty(window.document, 'cookie', {
+      writable: true,
+      value: 'com.ibm.cloud.iam.LoggedIn.prod=1',
+    });
 
-  it('should fetch the personalization window boolean and return the authenticated string', async () => {
-    const loginStatus = await CloudAccountAuthAPI.checkPersonalization();
+    const loginStatus = CloudAccountAuthAPI.checkCookie();
     expect(loginStatus).toStrictEqual({ user: 'authenticated' });
   });
 
-  it('should fetch the personalization window boolean and return the anonymous string', async () => {
-    root.digitalData.user.segment.isCloudLoggedOn = false;
+  it('should fetch the CloudAccountAuth cookie and return the anonymous string', () => {
+    Object.defineProperty(window.document, 'cookie', {
+      writable: true,
+      value: 'com.ibm.cloud.iam.LoggedIn.prod=0',
+    });
 
-    const loginStatus = await CloudAccountAuthAPI.checkPersonalization();
+    const loginStatus = CloudAccountAuthAPI.checkCookie();
     expect(loginStatus).toStrictEqual({ user: 'anonymous' });
   });
 });

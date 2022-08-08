@@ -1,7 +1,7 @@
 //
 // @license
 //
-// Copyright IBM Corp. 2020, 2021
+// Copyright IBM Corp. 2020, 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -97,6 +97,24 @@
     svg {
       margin: auto;
     }
+  }
+}
+
+:host(#{$dds-prefix}-carousel[in-modal]) {
+  padding: 0 0 $spacing-05;
+  width: 100%;
+  height: 100%;
+
+  @include carbon--breakpoint(md) {
+    padding-bottom: 0;
+  }
+
+  .#{$prefix}--carousel__scroll-container {
+    flex-grow: 1;
+  }
+
+  .#{$prefix}--carousel__scroll-contents {
+    height: 100%;
   }
 }
 

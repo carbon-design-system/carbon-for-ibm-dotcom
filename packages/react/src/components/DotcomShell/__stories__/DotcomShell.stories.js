@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -56,9 +56,7 @@ export const Default = ({ parameters }) => {
   return (
     <DotcomShell mastheadProps={mastheadProps} footerProps={footerProps}>
       <main id="main-content">
-        <div style={{ paddingTop: '6rem' }}>
-          <Content withL1={!!mastheadProps.mastheadL1Data} />
-        </div>
+        <Content withL1={!!mastheadProps.mastheadL1Data} />
       </main>
     </DotcomShell>
   );

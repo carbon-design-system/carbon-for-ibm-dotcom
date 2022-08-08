@@ -8,9 +8,9 @@
  */
 
 import { customElement, html, svg, property, LitElement } from 'lit-element';
-import { classMap } from 'lit-html/directives/class-map';
-import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { classMap } from 'lit-html/directives/class-map.js';
+import settings from 'carbon-components/es/globals/js/settings.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { LEADSPACE_TYPE, LEADSPACE_GRADIENT_STYLE_SCHEME, LEADSPACE_SIZE } from './defs';
 import styles from './leadspace.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';

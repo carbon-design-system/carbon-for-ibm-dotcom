@@ -8,9 +8,9 @@
  */
 
 import { customElement, property, query, state } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import BXAccordionItem from 'carbon-web-components/es/components/accordion/accordion-item';
+import settings from 'carbon-components/es/globals/js/settings.js';
+import BXAccordionItem from 'carbon-web-components/es/components/accordion/accordion-item.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './filter-panel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSFilterPanelComposite from './filter-panel-composite';

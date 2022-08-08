@@ -1,15 +1,14 @@
 /**
-  Copyright IBM Corp. 2016, 2020
+  Copyright IBM Corp. 2016, 2022
 
   This source code is licensed under the Apache-2.0 license found in the
   LICENSE file in the root directory of this source tree.
  */
 
-import "./styles.scss";
+import './styles.scss';
 
-import React from "react";
-import ReactDom from "react-dom";
-import { LeadSpaceBlock } from "@carbon/ibmdotcom-react";
+import ReactDom from 'react-dom';
+import { LeadSpaceBlock } from "@carbon/ibmdotcom-react/es/components/LeadSpaceBlock";
 
 const title = "Continuous delivery";
 const heading = "Innovate like a startup and scale for the enterprise ";
@@ -93,4 +92,4 @@ const App = () => (
   </div>
 );
 
-ReactDom.render(<App />, document.getElementById("app"));
+ReactDom.render(<App />, document.getElementById('app'));

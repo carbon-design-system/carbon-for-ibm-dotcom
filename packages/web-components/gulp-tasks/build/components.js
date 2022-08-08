@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -51,6 +51,7 @@ async function _buildComponents({ mode = 'development', dir = 'ltr' } = {}) {
         dir: config.bundleDestDir,
         // FIXME: Figure out how to handle `process.env` without build toolstack
         banner: 'let process = { env: {} };',
+        chunkFileNames: `${dir === 'rtl' ? 'rtl/' : ''}[name].js`,
       });
     })
     .catch(err => {

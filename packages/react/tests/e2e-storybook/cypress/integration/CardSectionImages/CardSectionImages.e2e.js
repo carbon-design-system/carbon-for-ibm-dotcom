@@ -72,12 +72,16 @@ describe('dds-card-section-images | default (desktop)', () => {
         );
       });
 
+    cy.wait(3000);
+
     cy.takeSnapshots();
   });
 
   it('should load correctly in all themes', () => {
     cy.visit(`/${_pathDefault}`);
     cy.viewport(1280, 780);
+
+    cy.wait(3000);
 
     cy.carbonThemesScreenshot();
   });
@@ -137,12 +141,16 @@ describe('dds-card-section-images | default (mobile)', () => {
         );
       });
 
+    cy.wait(3000);
+
     cy.takeSnapshots('mobile');
   });
 
   it('should load correctly in all themes', () => {
     cy.visit(`/${_pathDefault}`);
     cy.viewport(320, 780);
+
+    cy.wait(3000);
 
     cy.carbonThemesScreenshot(
       {},

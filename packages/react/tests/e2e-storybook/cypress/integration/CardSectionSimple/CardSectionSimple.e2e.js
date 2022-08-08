@@ -64,6 +64,8 @@ const _tests = {
     });
   },
   checkThemes: () => {
+    cy.wait(3000);
+
     cy.carbonThemesScreenshot();
   },
 };
