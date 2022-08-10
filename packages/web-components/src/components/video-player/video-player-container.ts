@@ -9,7 +9,7 @@
 
 import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
 import { customElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';

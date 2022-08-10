@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -63,3 +63,11 @@ export const DDS_CONTENTBLOCK_HEADLINES =
  */
 export const DDS_LEADSPACE_WITH_SEARCH =
   process.env.DDS_LEADSPACE_WITH_SEARCH === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines if notice choice will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_NOTICE_CHOICE =
+  process.env.DDS_NOTICE_CHOICE === 'true' || DDS_FLAGS_ALL || false;

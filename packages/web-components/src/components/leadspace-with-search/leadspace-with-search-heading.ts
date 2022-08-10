@@ -8,7 +8,7 @@
  */
 
 import { customElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSLeadspaceBlockHeading from '../leadspace-block/leadspace-block-heading';
 import styles from './leadspace-with-search.scss';

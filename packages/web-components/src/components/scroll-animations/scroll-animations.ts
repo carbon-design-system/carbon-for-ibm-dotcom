@@ -9,7 +9,7 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import { breakpoints } from '@carbon/layout';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { forEach } from '../../globals/internal/collection-helpers';

@@ -15,13 +15,6 @@
 :host(#{$dds-prefix}-card-group) {
   background: none;
 
-  /* stylelint-disable-next-line selector-type-no-unknown */
-  #{$dds-prefix}-card-group-item[empty],
-  #{$dds-prefix}-card-group-card-link-item[empty] {
-    background-color: $ui-background;
-    outline: 1px solid $ui-background;
-  }
-
   ::slotted(#{$dds-prefix}-card-group-item) {
     background-color: $decorative-01;
   }
@@ -35,6 +28,7 @@
   ::slotted(#{$dds-prefix}-card-group-item[empty]),
   ::slotted(#{$dds-prefix}-card-group-card-link-item[empty]) {
     background-color: transparent;
+    outline: none;
   }
 }
 
@@ -50,56 +44,5 @@
   ::slotted(#{$dds-prefix}-card-group-item),
   ::slotted(#{$dds-prefix}-card-group-card-link-item) {
     background-color: transparent;
-  }
-}
-
-:host(#{$dds-prefix}-card-group-item),
-:host(#{$dds-prefix}-card-group-card-link-item) {
-  padding-bottom: 1px;
-  padding-right: 1px;
-
-  &:hover {
-    background: none;
-  }
-
-  &[border] {
-    border: none;
-  }
-
-  &[empty] {
-    display: none;
-
-    @include carbon--breakpoint('md') {
-      display: block;
-    }
-
-    .#{$prefix}--card__wrapper {
-      height: 100%;
-    }
-
-    .#{$prefix}--card,
-    .#{$prefix}--card__wrapper,
-    &:hover,
-    &:hover .#{$prefix}--card__wrapper {
-      background: transparent;
-    }
-
-    &[border],
-    &[border]:hover {
-      .#{$prefix}--card__wrapper {
-        background: $ui-background;
-      }
-    }
-  }
-
-  &[pattern-background] {
-    .#{$prefix}--card {
-      border-bottom: 1px solid $ui-03;
-    }
-
-    .#{$prefix}--card,
-    .#{$prefix}--card__wrapper {
-      background: $ui-background;
-    }
   }
 }
