@@ -236,7 +236,7 @@ export const Short = () => {
   );
 };
 
-ShortWithAdjunctLegalLinks.story = {
+Short.story = {
   parameters: {
     percy: {
       name: 'Components|Footer: Short',

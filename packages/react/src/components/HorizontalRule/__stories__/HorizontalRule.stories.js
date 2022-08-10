@@ -71,9 +71,9 @@ export const Default = () => {
       <div className="bx--grid bx--no-gutter" style={{ marginBottom: '50px' }}>
         <div className="bx--row">
           <div className="bx--col">
-            {...props.Other()}
+            {props.Other().words}
             <HorizontalRule {...props.HorizontalRule()} />
-            {...props.Other()}
+            {props.Other().words}
           </div>
         </div>
       </div>
@@ -84,9 +84,9 @@ export const Default = () => {
             <h3>
               <b>Horizontal Rule in Grid with Gutter</b>
             </h3>
-            {...props.Other()}
+            {props.Other().words}
             <HorizontalRule {...props.HorizontalRule()} />
-            {...props.Other()}
+            {props.Other().words}
           </div>
         </div>
       </div>
