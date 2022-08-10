@@ -50,6 +50,13 @@ export const DDS_SCOPED_SEARCH: boolean = process!.env.DDS_SCOPED_SEARCH === 'tr
 export const DDS_CLOUD_MASTHEAD: boolean = process!.env.DDS_CLOUD_MASTHEAD === 'true' || DDS_FLAGS_ALL || false;
 
 /**
+ * Enables Masthead v2 Components
+ *
+ * @type {boolean}
+ */
+export const DDS_MASTHEAD_V2: boolean = process!.env.DDS_MASTHEAD_V2 === 'true' || DDS_FLAGS_ALL || false;
+
+/**
  * Enables custom profile login url in Masthead
  *
  * @type {boolean}
