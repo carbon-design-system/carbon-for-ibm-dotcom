@@ -249,6 +249,9 @@ export default {
   title: 'Components/Content block segmented',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Content block segmented: Default',
+    },
   },
 };
 
@@ -291,6 +294,9 @@ export const WithLinkList = () => {
 WithLinkList.story = {
   name: 'With link list',
   parameters: {
+    percy: {
+      name: 'Components|Content block segmented: With link list',
+    },
     propsSet: {
       default: {
         ContentBlockSegmented: {

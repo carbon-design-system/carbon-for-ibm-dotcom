@@ -153,6 +153,9 @@ export default {
   title: 'Components/Masthead',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Masthead: Default',
+    },
   },
 };
 
@@ -178,6 +181,9 @@ WithCustomNavigation.story = {
     knobs: {
       escapeHTML: false,
     },
+    percy: {
+      name: 'Components|Masthead: With custom navigation',
+    },
   },
 };
 
@@ -189,6 +195,9 @@ SearchOpenOnload.story = {
   name: 'Search open onload',
   parameters: {
     knobs: { escapeHTML: false },
+    percy: {
+      name: 'Components|Masthead: Search open onload',
+    },
   },
 };
 
@@ -200,6 +209,9 @@ WithPlatform.story = {
     knobs: {
       escapeHTML: false,
     },
+    percy: {
+      name: 'Components|Masthead: With platform',
+    },
   },
 };
 
@@ -210,6 +222,9 @@ WithL1.story = {
   parameters: {
     knobs: {
       escapeHTML: false,
+    },
+    percy: {
+      name: 'Components|Masthead: With L1',
     },
   },
 };
@@ -223,6 +238,9 @@ WithAlternateLogoAndTooltip.story = {
   parameters: {
     knobs: {
       escapeHTML: false,
+    },
+    percy: {
+      name: 'Components|Masthead: With alternate logo and tooltip',
     },
   },
 };

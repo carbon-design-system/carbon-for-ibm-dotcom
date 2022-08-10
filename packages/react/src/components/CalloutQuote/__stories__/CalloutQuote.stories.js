@@ -49,6 +49,9 @@ export default {
   title: 'Components/Callout quote',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Callout quote: Default',
+    },
   },
 };
 

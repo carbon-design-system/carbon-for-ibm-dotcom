@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { text, select, withKnobs } from '@storybook/addon-knobs';
+import { text, select } from '@storybook/addon-knobs';
 import LinkList from '../LinkList';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -65,7 +65,7 @@ const props = {
   }),
   vertical: () => ({
     heading: text('Heading (heading):', 'Tutorials'),
-    items: items.slice(0, 2),
+    items: items.slice(0, 3),
     iconPlacement: select(
       'Icon placement (iconPlacement):',
       iconPlacement,
@@ -85,10 +85,11 @@ const props = {
 
 export default {
   title: 'Components/Link list',
-  component: LinkList,
-  decorators: [withKnobs],
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Link list: Default',
+    },
   },
 };
 
@@ -130,6 +131,9 @@ export const Horizontal = () => {
 
 Horizontal.story = {
   parameters: {
+    percy: {
+      name: 'Components|Link list: Horizontal',
+    },
     propsSet: {
       default: {
         LinkList: {
@@ -154,6 +158,9 @@ export const Vertical = () => {
 
 Vertical.story = {
   parameters: {
+    percy: {
+      name: 'Components|Link list: Vertical',
+    },
     propsSet: {
       default: {
         LinkList: {
@@ -180,6 +187,9 @@ export const VerticalWithCards = () => {
 VerticalWithCards.story = {
   name: 'Vertical with cards',
   parameters: {
+    percy: {
+      name: 'Components|Link list: Vertical with cards',
+    },
     propsSet: {
       default: {
         LinkList: {
@@ -205,6 +215,9 @@ export const EndOfSection = () => {
 EndOfSection.story = {
   name: 'End of section',
   parameters: {
+    percy: {
+      name: 'Components|Link list: End of section',
+    },
     propsSet: {
       default: {
         LinkList: {

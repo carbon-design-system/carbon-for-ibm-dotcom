@@ -282,6 +282,11 @@ export const Text = () => {
 
 Text.story = {
   name: 'Text',
+  parameters: {
+    percy: {
+      name: 'Components|CTA: Text',
+    },
+  },
 };
 
 export const Button = () => {
@@ -290,6 +295,11 @@ export const Button = () => {
 
 Button.story = {
   name: 'Button',
+  parameters: {
+    percy: {
+      name: 'Components|CTA: Button',
+    },
+  },
 };
 
 export const Card = () => {
@@ -302,6 +312,11 @@ export const Card = () => {
 
 Card.story = {
   name: 'Card',
+  parameters: {
+    percy: {
+      name: 'Components|CTA: Card',
+    },
+  },
 };
 
 export const Feature = () => {
@@ -318,4 +333,9 @@ export const Feature = () => {
 
 Feature.story = {
   name: 'Feature',
+  parameters: {
+    percy: {
+      name: 'Components|CTA: Feature',
+    },
+  },
 };

@@ -88,6 +88,9 @@ export default {
   title: 'Components/CTA section',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|CTA section: Default',
+    },
   },
 };
 

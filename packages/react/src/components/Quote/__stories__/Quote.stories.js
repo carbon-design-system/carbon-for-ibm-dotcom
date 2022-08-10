@@ -49,6 +49,9 @@ export default {
   title: 'Components/Quote',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Quote: Default',
+    },
   },
 };
 

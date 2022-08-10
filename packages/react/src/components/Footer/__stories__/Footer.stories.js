@@ -17,6 +17,7 @@ import readme from '../README.stories.mdx';
 
 const props = {
   default: () => ({
+    type: 'default',
     languageInitialItem: { id: 'en', text: 'English' },
     disableLocaleButton: boolean(
       'hide the locale button (disableLocaleButton)',
@@ -26,6 +27,7 @@ const props = {
   defaultLanguageOnly: () => {
     const languageOnly = true;
     return {
+      type: 'default',
       languageOnly,
       items: !languageOnly
         ? undefined
@@ -125,6 +127,9 @@ export default {
   parameters: {
     ...readme.parameters,
     'carbon-theme': { disabled: true },
+    percy: {
+      name: 'Components|Footer: Default',
+    },
   },
 };
 
@@ -194,6 +199,11 @@ export const DefaultWithAdjunctLegalLinks = () => {
 
 DefaultWithAdjunctLegalLinks.story = {
   name: 'Default with adjunct legal links',
+  parameters: {
+    percy: {
+      name: 'Components|Footer: Default with adjunct legal links',
+    },
+  },
 };
 
 export const DefaultLanguageOnly = () => {
@@ -206,6 +216,11 @@ export const DefaultLanguageOnly = () => {
 
 DefaultLanguageOnly.story = {
   name: 'Default language only',
+  parameters: {
+    percy: {
+      name: 'Components|Footer: Default language only',
+    },
+  },
 };
 
 /**
@@ -219,6 +234,14 @@ export const Short = () => {
       <Default {...props.short()} />
     </div>
   );
+};
+
+ShortWithAdjunctLegalLinks.story = {
+  parameters: {
+    percy: {
+      name: 'Components|Footer: Short',
+    },
+  },
 };
 
 /**
@@ -236,6 +259,11 @@ export const ShortWithAdjunctLegalLinks = () => {
 
 ShortWithAdjunctLegalLinks.story = {
   name: 'Short with adjunct legal links',
+  parameters: {
+    percy: {
+      name: 'Components|Footer: Short with adjunct legal links',
+    },
+  },
 };
 
 /**
@@ -253,6 +281,11 @@ export const ShortLanguageOnly = () => {
 
 ShortLanguageOnly.story = {
   name: 'Short language only',
+  parameters: {
+    percy: {
+      name: 'Components|Footer: Short language only',
+    },
+  },
 };
 
 /**
@@ -266,6 +299,14 @@ export const Micro = () => {
       <Default {...props.micro()} />
     </div>
   );
+};
+
+Micro.story = {
+  parameters: {
+    percy: {
+      name: 'Components|Footer: Micro',
+    },
+  },
 };
 
 /**
@@ -283,4 +324,9 @@ export const MicroLanguageOnly = () => {
 
 MicroLanguageOnly.story = {
   name: 'Micro language only',
+  parameters: {
+    percy: {
+      name: 'Components|Footer: Micro language only',
+    },
+  },
 };

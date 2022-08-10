@@ -54,23 +54,24 @@ const props = {
   },
   staticProps: () => {
     const image =
-      (boolean('Add image:', false) && {
+      (boolean('Add image:', false, 'staticID') && {
         defaultSrc: imgXlg4x3,
         alt: 'Image alt text',
       }) ||
       undefined;
-    const eyebrow = text('Eyebrow:', 'SPSS Statistics');
-    const heading = text('Heading:', 'Free trial');
+    const eyebrow = text('Eyebrow:', 'SPSS Statistics', 'staticID');
+    const heading = text('Heading:', 'Free trial', 'staticID');
     const copy = text(
       'Body copy:',
-      'Enjoy full SPSS Statistics capabilities including all add-ons. All trial registrants are restricted to one free trial per computer per user.'
+      'Enjoy full SPSS Statistics capabilities including all add-ons. All trial registrants are restricted to one free trial per computer per user.',
+      'staticID'
     );
-    const cta = boolean('Add CTA:', false);
-    const outlinedCard = boolean('Outlined card:', true);
+    const cta = boolean('Add CTA:', false, 'staticID');
+    const outlinedCard = boolean('Outlined card:', true, 'staticID');
     return {
       image,
-      eyebrow,
-      heading,
+      eyebrow: eyebrow,
+      heading: heading,
       copy,
       light: outlinedCard,
       border: outlinedCard,
@@ -92,6 +93,9 @@ export default {
   title: 'Components/Card',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Card: Default',
+    },
   },
 };
 
@@ -133,5 +137,8 @@ CardStatic.story = {
   name: 'Card static',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Card: Card static',
+    },
   },
 };
