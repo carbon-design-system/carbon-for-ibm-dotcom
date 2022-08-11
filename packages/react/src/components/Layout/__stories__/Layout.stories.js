@@ -22,7 +22,7 @@ const layoutOptions = {
 };
 
 const props = {
-  'Layout 1-3': {
+  'Layout 1-3': () => ({
     marginTop: select('Top Margin', layoutOptions, layoutOptions['layout-03']),
     marginBottom: select(
       'Bottom Margin',
@@ -30,16 +30,16 @@ const props = {
       layoutOptions['layout-06']
     ),
     stickyOffset: number('Sticky offset (in pixels)', 0, {}),
-  },
-  'Layout 2-1': {
+  }),
+  'Layout 2-1': () => ({
     border: boolean('Optional border:', false),
-  },
-  'Story content 1-3': {
+  }),
+  'Story content 1-3': () => ({
     'data-sticky': select('Sticky left column', [true, false], true),
-  },
-  'Story content 2-2': {
+  }),
+  'Story content 2-2': () => ({
     'data-sticky': select('Sticky right column', [true, false], true),
-  },
+  }),
 };
 
 export default {
@@ -53,10 +53,10 @@ export default {
 };
 
 export const Default = () => {
-  const { marginTop, marginBottom, stickyOffset } = props['Layout 1-3'] ?? {};
+  const { marginTop, marginBottom, stickyOffset } = props['Layout 1-3']() ?? {};
   const { border } = props['Layout 2-1'] ?? {};
-  const { 'data-sticky': stickyLeft } = props['Story content 1-3'] ?? {};
-  const { 'data-sticky': stickyRight } = props['Story content 2-2'] ?? {};
+  const { 'data-sticky': stickyLeft } = props['Story content 1-3']() ?? {};
+  const { 'data-sticky': stickyRight } = props['Story content 2-2']() ?? {};
 
   return (
     <>

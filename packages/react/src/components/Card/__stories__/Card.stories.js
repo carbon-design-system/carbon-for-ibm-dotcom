@@ -54,7 +54,7 @@ const props = {
   },
   staticProps: () => {
     const image =
-      (boolean('Add image:', false, 'staticID') && {
+      (boolean('Add image:', false) && {
         defaultSrc: imgXlg4x3,
         alt: 'Image alt text',
       }) ||
@@ -67,7 +67,7 @@ const props = {
       'staticID'
     );
     const cta = boolean('Add CTA:', false, 'staticID');
-    const outlinedCard = boolean('Outlined card:', true, 'staticID');
+    const outlinedCard = boolean('Outlined card:', true);
     return {
       image,
       eyebrow: eyebrow,
