@@ -21,6 +21,9 @@ export default {
   title: 'Components/Content block horizontal',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Content block horizontal: Default',
+    },
     propsSet: {
       default: {
         ContentBlockHorizontal: {

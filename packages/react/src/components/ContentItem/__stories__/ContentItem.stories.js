@@ -16,7 +16,7 @@ const props = () => ({
   media: select('Media type:', ['none', 'image', 'video'], 'none'),
   copy: text(
     'Copy (copy):',
-    'This area of NLP takes "real world" text and applies a symbolic ' +
+    'This area of NLP takes “real world” text and applies a symbolic ' +
       'system for a machine to interpret its meaning, using formal logic; structures ' +
       'that describe the various relationships between concepts (ontologies); and other semantic tools.'
   ),
@@ -28,6 +28,9 @@ export default {
   title: 'Components/Content item',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Content item: Default',
+    },
   },
 };
 

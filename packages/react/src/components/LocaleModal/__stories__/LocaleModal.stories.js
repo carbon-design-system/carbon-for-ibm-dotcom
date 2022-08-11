@@ -16,6 +16,9 @@ export default {
   title: 'Components/Locale modal',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Locale modal: Default',
+    },
   },
 };
 

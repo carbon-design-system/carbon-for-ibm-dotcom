@@ -157,6 +157,9 @@ export default {
   title: 'Components/Content block mixed',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Content block mixed: Default',
+    },
   },
 };
 
@@ -204,6 +207,9 @@ export const WithLinkList = () => {
 WithLinkList.story = {
   name: 'With link list',
   parameters: {
+    percy: {
+      name: 'Components|Content block mixed: With link list',
+    },
     propsSet: {
       default: {
         ContentBlockMixed: {

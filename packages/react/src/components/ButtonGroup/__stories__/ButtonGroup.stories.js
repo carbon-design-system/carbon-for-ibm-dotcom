@@ -41,6 +41,9 @@ export default {
   title: 'Components/Button group',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Button group: Default',
+    },
     propsSet: {
       default: {
         ButtonGroup: {

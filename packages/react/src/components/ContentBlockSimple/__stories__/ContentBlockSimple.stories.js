@@ -130,6 +130,9 @@ export default {
   title: 'Components/Content block simple',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Content block simple: Default',
+    },
   },
 };
 
@@ -163,6 +166,11 @@ export const WithImage = () => {
 
 WithImage.story = {
   name: 'With image',
+  parameters: {
+    percy: {
+      name: 'Components|Content block simple: With image',
+    },
+  },
 };
 
 export const WithVideo = () => {
@@ -208,4 +216,9 @@ export const WithLinkList = () => {
 
 WithLinkList.story = {
   name: 'With link list',
+  parameters: {
+    percy: {
+      name: 'Components|Content block simple: With link list',
+    },
+  },
 };

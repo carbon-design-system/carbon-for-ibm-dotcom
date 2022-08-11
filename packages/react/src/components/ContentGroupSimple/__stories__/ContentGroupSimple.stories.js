@@ -29,6 +29,9 @@ export default {
   title: 'Components/Content group simple',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Content group simple: Default',
+    },
     propsSet: {
       default: {
         ContentGroupSimple: {

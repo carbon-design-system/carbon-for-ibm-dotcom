@@ -40,6 +40,9 @@ export default {
   title: 'Components/Image',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Image: Default',
+    },
   },
 };
 

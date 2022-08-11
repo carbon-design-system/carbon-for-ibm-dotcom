@@ -94,6 +94,9 @@ export default {
   title: 'Components/Content group pictograms',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Content group pictograms: Default',
+    },
     propsSet: {
       default: {
         ContentGroupPictograms: {
