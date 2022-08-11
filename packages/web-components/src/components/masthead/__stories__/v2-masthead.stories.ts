@@ -12,10 +12,10 @@ import { select } from '@storybook/addon-knobs';
 import on from 'carbon-components/es/globals/js/misc/on.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
-import DDSLeftNav from '../../masthead/left-nav';
-import '../../masthead/masthead-container';
-import '../../masthead/cloud/cloud-masthead-container';
-import styles from './masthead-v2.stories.scss';
+import DDSLeftNav from '../left-nav';
+import '../masthead-container';
+import '../cloud/cloud-masthead-container';
+import styles from './masthead.stories.scss';
 import { mastheadLinks as links } from './links';
 import { authenticatedProfileItems, unauthenticatedProfileItems } from './profile-items';
 import readme from './README.stories.mdx';
@@ -67,6 +67,7 @@ export const Default = !DDS_MASTHEAD_V2
         ${useMock
           ? html`
               <dds-cloud-masthead-composite
+                platform="${ifNonNull(platformData.name)}"
                 .platformUrl="${ifNonNull(platformData.url)}"
                 selected-menu-item="${ifNonNull(selectedMenuItem)}"
                 has-contact="${hasContact}"
@@ -83,6 +84,7 @@ export const Default = !DDS_MASTHEAD_V2
             `
           : html`
               <dds-cloud-masthead-container
+                platform="${ifNonNull(platformData.name)}"
                 .platformUrl="${ifNonNull(urlObject)}"
                 selected-menu-item="${ifNonNull(selectedMenuItem)}"
                 has-contact="${hasContact}"
@@ -102,7 +104,7 @@ export const Default = !DDS_MASTHEAD_V2
 export default !DDS_MASTHEAD_V2
   ? undefined
   : {
-      title: 'Components/Masthead v2',
+      title: 'Components/Masthead V2',
       decorators: [
         story => {
           if (!(window as any)._hPageShow) {
