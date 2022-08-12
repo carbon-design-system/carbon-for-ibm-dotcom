@@ -15,6 +15,7 @@ import 'carbon-web-components/es/components/tooltip/index.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from '../defs';
 import { DDS_PRICING_TABLE } from '../../../globals/internal/feature-flags';
+import styles from './pricing-table.stories.scss';
 
 enum CELL_TYPES {
   TEXT = 'text',
@@ -296,6 +297,9 @@ export default !DDS_PRICING_TABLE
       },
       decorators: [
         story => html`
+          <style>
+            ${styles}
+          </style>
           <div class="bx--grid">
             <div class="bx--row">
               <div class="bx--col-lg-16">
