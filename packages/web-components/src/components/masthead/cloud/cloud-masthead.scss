@@ -45,12 +45,8 @@
   }
 
   .#{$prefix}--btn--ghost {
-    color: $text-02;
-
-    &:hover,
-    &:focus {
-      color: $text-01;
-    }
+    color: $link-01;
+    @include carbon--type-style('body-short-02');
   }
 }
 

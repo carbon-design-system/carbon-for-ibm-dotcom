@@ -271,8 +271,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
       activateSearch,
       authenticatedProfileItems,
       authenticatedCtaButtons,
-      contactUsButton,
-      hasContact,
+      hasProfile,
       platform,
       platformUrl,
       inputTimeout,
@@ -338,61 +337,27 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           ?open="${openSearchDropdown}"
           placeholder="${ifNonNull(searchPlaceholder)}"
         ></dds-search-with-typeahead>
-        ${authenticated
-          ? html`
-              <dds-cloud-masthead-global-bar>
-                <dds-cloud-masthead-profile>
+
+        <dds-cloud-masthead-global-bar ?has-search-active=${activateSearch}>
+          ${hasProfile === 'false'
+            ? ''
+            : html`
+                <dds-masthead-profile ?authenticated="${authenticated}">
                   ${profileItems?.map(
                     ({ title, url }) =>
                       html`
-                        <dds-cloud-button-cta href="${ifNonNull(url)}" kind="ghost">${title}</dds-cloud-button-cta>
+                        <dds-masthead-profile-item href="${ifNonNull(url)}">${title}</dds-masthead-profile-item>
                       `
                   )}
-                </dds-cloud-masthead-profile>
-                ${hasContact === 'false'
-                  ? ''
-                  : html`
-                      <dds-cloud-button-cta kind="ghost" data-ibm-contact="contact-link"
-                        ><span>${contactUsButton?.title}</span></dds-cloud-button-cta
-                      >
-                    `}
-                ${ctaButtons?.map(
-                  ({ title, url }) =>
-                    html`
-                      <dds-cloud-button-cta href="${ifNonNull(url)}" class="console" kind="ghost">${title}</dds-cloud-button-cta>
-                    `
-                )}
-              </dds-cloud-masthead-global-bar>
-            `
-          : html`
-              <dds-cloud-masthead-global-bar>
-                ${hasContact === 'false'
-                  ? ''
-                  : html`
-                      <dds-cloud-button-cta kind="ghost" data-ibm-contact="contact-link"
-                        ><span>${contactUsButton?.title}</span></dds-cloud-button-cta
-                      >
-                    `}
-                ${profileItems?.map(
-                  ({ title, url }) =>
-                    html`
-                      <dds-cloud-button-cta
-                        href="${url === 'https://cloud.ibm.com/login' && this.redirectPath
-                          ? ifNonNull(`${url}?redirect=${encodeURIComponent(this.redirectPath)}`)
-                          : ifNonNull(url)}"
-                        kind="ghost"
-                        >${title}</dds-cloud-button-cta
-                      >
-                    `
-                )}
-                ${ctaButtons?.map(
-                  ({ title, url }) =>
-                    html`
-                      <dds-cloud-button-cta href="${ifNonNull(url)}" kind="primary">${title}</dds-cloud-button-cta>
-                    `
-                )}
-              </dds-cloud-masthead-global-bar>
-            `}
+                </dds-masthead-profile>
+              `}
+          ${ctaButtons?.map(
+            ({ title, url }) =>
+              html`
+                <dds-cloud-button-cta href="${ifNonNull(url)}" kind="ghost">${title}</dds-cloud-button-cta>
+              `
+          )}
+        </dds-cloud-masthead-global-bar>
         ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
         <dds-megamenu-overlay></dds-megamenu-overlay>
       </dds-masthead>

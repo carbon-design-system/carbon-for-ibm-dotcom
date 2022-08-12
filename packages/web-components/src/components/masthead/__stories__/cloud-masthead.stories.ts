@@ -26,8 +26,8 @@ import { DDS_CLOUD_MASTHEAD } from '../../../globals/internal/feature-flags';
  * platform knob data
  */
 const platformData = {
-  name: 'IBM Cloud',
-  url: 'https://www.ibm.com/cloud',
+  name: null,
+  url: null,
 };
 
 const urlObject = {
@@ -67,7 +67,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
         ${useMock
           ? html`
               <dds-cloud-masthead-composite
-                platform="Cloud"
+                platform="${ifNonNull(platformData.name)}"
                 .platformUrl="${ifNonNull(platformData.url)}"
                 selected-menu-item="${ifNonNull(selectedMenuItem)}"
                 has-contact="${hasContact}"
@@ -84,7 +84,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
             `
           : html`
               <dds-cloud-masthead-container
-                platform="Cloud"
+                platform="${ifNonNull(platformData.name)}"
                 .platformUrl="${ifNonNull(urlObject)}"
                 selected-menu-item="${ifNonNull(selectedMenuItem)}"
                 has-contact="${hasContact}"
