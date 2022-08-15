@@ -94,7 +94,7 @@ export const createTests = path => [
   () => {
     it('should support customizable label for highlighted column', () => {
       const customLabel = 'Lorem ipsum';
-      cy.visit(`${path}&knob-highlighted%20label_PricingTable=${customLabel}`)
+      cy.visit(`${path}&knob-highlighted%20label=${customLabel}`)
         .get(selectors.highlightLabel)
         .should('have.text', customLabel);
     });
