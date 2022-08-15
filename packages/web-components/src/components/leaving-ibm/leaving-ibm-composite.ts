@@ -8,19 +8,19 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
-import LeavingIBMModal from './leaving-ibm-modal';
+import BXModal from 'carbon-web-components/es/components/modal/modal.js';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { LeavingIBMLabels, Translation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import './leaving-ibm-modal-body';
 import './leaving-ibm-modal-heading';
 import './leaving-ibm-modal-supplemental';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
-import 'carbon-web-components/es/components/modal/modal-header';
-import 'carbon-web-components/es/components/modal/modal-close-button';
-import 'carbon-web-components/es/components/modal/modal-footer';
-import 'carbon-web-components/es/components/button/button';
+import 'carbon-web-components/es/components/modal/modal-header.js';
+import 'carbon-web-components/es/components/modal/modal-close-button.js';
+import 'carbon-web-components/es/components/modal/modal-footer.js';
+import 'carbon-web-components/es/components/button/button.js';
 import styles from './leaving-ibm.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -101,7 +101,7 @@ class DDSLeavingIbmComposite extends HostListenerMixin(ModalRenderMixin(LitEleme
     }
   };
 
-  @HostListener(`document:${LeavingIBMModal.eventClose}`)
+  @HostListener(`document:${BXModal.eventClose}`)
   protected handleEventClose = (): void => {
     this.open = false;
     this.href = '';

@@ -11,7 +11,7 @@ import { html, TemplateResult } from 'lit-element';
 import { number, text } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
-import 'carbon-web-components/es/components/tooltip/index';
+import 'carbon-web-components/es/components/tooltip/index.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from '../defs';
 import { DDS_PRICING_TABLE } from '../../../globals/internal/feature-flags';

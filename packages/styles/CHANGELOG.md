@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.37.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.37.0-rc.0...@carbon/ibmdotcom-styles@1.37.0-rc.1) (2022-08-05)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.37.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.36.0...@carbon/ibmdotcom-styles@1.37.0-rc.0) (2022-07-29)
+
+
+### Bug Fixes
+
+* **card-group:** apply empty card styles in extended components ([#9168](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9168)) ([af03394](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/af033940a8c1888a9bcc028591cde0d13551c94e)), closes [#9147](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9147)
+* **styles:** removes invalid selectors ([#9095](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9095)) ([e505546](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e505546aa5dbf17b30c220cd175e895e384cdb16))
+
+
+### Features
+
+* **notice-choice:** React notice choice ([#9081](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9081)) ([7c476bd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7c476bd42887fe9f5ea76ce06c6be2c76d997121))
+
+
+
+## 1.35.1 (2022-07-08)
+
+
+### Bug Fixes
+
+* **masthead:** fixes megamenu item styles ([#9066](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9066)) ([#9077](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9077)) ([7212a47](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7212a473e675cbfb030c3a7a1b2070b04a3f07c2)), closes [#9065](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9065)
+
+
+
+
+
+>>>>>>> 914088a0a6c52eea23826ddc092f157690b68e77
 # [1.36.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.36.0-rc.0...@carbon/ibmdotcom-styles@1.36.0) (2022-07-18)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
