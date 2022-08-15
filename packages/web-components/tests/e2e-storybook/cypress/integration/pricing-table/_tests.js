@@ -58,7 +58,7 @@ export const createTests = path => [
         .then(([copy]) => {
           defaultHeading = copy.innerText.trim();
         })
-        .visit(`${path}&knob-section%20heading_PricingTable=${customHeadingInput}`)
+        .visit(`${path}&knob-section%20heading=${customHeadingInput}`)
         .get(selectors.table)
         .find(headerCellSimple)
         .should(([copy]) => {
