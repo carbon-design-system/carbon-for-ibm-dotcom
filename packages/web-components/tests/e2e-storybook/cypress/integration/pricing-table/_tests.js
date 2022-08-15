@@ -103,7 +103,7 @@ export const createTests = path => [
     it('should render customizable number of columns', () => {
       const numberOfColumns = 5;
 
-      cy.visit(`${path}&knob-number%20of%20columns_PricingTable=${numberOfColumns}`)
+      cy.visit(`${path}&knob-number%20of%20columns=${numberOfColumns}`)
         .get(selectors.headerRow)
         .find(selectors.headerCell)
         .should('have.length', numberOfColumns)
