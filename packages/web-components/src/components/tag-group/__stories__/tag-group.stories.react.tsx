@@ -15,7 +15,7 @@ import DDSTagLink from '@carbon/ibmdotcom-web-components/es/components-react/tag
 // @ts-ignore
 import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
 import { Tag } from 'carbon-components-react';
-import 'carbon-web-components/es/components/tag/tag';
+import 'carbon-web-components/es/components/tag/tag.js';
 import readme from './README.stories.react.mdx';
 
 const tagTitles = ['Cloud', 'Blockchain', 'Supply chain', 'Watson health', 'IT Infrastructure', 'WebSphere'];

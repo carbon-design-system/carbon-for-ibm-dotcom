@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.22.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.22.0-rc.0...@carbon/ibmdotcom-web-components@1.22.0-rc.1) (2022-08-05)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.22.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.21.0...@carbon/ibmdotcom-web-components@1.22.0-rc.0) (2022-07-29)
+
+
+### Bug Fixes
+
+* add file extensions in web-components package ([#9089](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9089)) ([6edd2ee](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6edd2ee825a37214110ef025a4db30486ccf615e)), closes [#9069](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9069)
+* **card-group:** apply empty card styles in extended components ([#9168](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9168)) ([af03394](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/af033940a8c1888a9bcc028591cde0d13551c94e)), closes [#9147](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9147)
+* **footer:** ensure label has descriptive text ([#9086](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9086)) ([ac36f09](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ac36f09f4761070aecf9787606fe20886d7f542b)), closes [#8998](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8998)
+
+
+
+## 1.35.1 (2022-07-08)
+
+
+
+
+
+>>>>>>> 914088a0a6c52eea23826ddc092f157690b68e77
 # [1.21.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.21.0-rc.0...@carbon/ibmdotcom-web-components@1.21.0) (2022-07-18)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components

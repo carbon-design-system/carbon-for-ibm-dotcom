@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.37.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.37.0-rc.0...@carbon/ibmdotcom-react@1.37.0-rc.1) (2022-08-05)
+
+
+
+# 1.37.0-rc.0 (2022-07-29)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.37.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.36.0...@carbon/ibmdotcom-react@1.37.0-rc.0) (2022-07-29)
+
+
+### Features
+
+* **notice-choice:** React notice choice ([#9081](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9081)) ([7c476bd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7c476bd42887fe9f5ea76ce06c6be2c76d997121))
+
+
+
+# 1.36.0 (2022-07-18)
+
+
+
+## 1.35.1 (2022-07-08)
+
+
+
+
+
+>>>>>>> 914088a0a6c52eea23826ddc092f157690b68e77
 # [1.36.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.36.0-rc.0...@carbon/ibmdotcom-react@1.36.0) (2022-07-18)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import { customElement, LitElement, html } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -16,6 +16,11 @@ import styles from './structured-list.scss';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
 
+/**
+ * StructuredList
+ *
+ * @element dds-structured-list
+ */
 @customElement(`${ddsPrefix}-structured-list`)
 class DDSStructuredList extends StableSelectorMixin(LitElement) {
   private _listMutationObserver = new MutationObserver(this._setColumnSpans.bind(this));
@@ -67,4 +72,5 @@ class DDSStructuredList extends StableSelectorMixin(LitElement) {
   static styles = styles;
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSStructuredList;

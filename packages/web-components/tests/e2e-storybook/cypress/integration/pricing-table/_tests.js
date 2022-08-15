@@ -58,7 +58,11 @@ export const createTests = path => [
         .then(([copy]) => {
           defaultHeading = copy.innerText.trim();
         })
+<<<<<<< HEAD
         .visit(`${path}&knob-section%20heading=${customHeadingInput}`)
+=======
+        .visit(`${path}&knob-section%20heading_PricingTable=${customHeadingInput}`)
+>>>>>>> 914088a0a6c52eea23826ddc092f157690b68e77
         .get(selectors.table)
         .find(headerCellSimple)
         .should(([copy]) => {
@@ -78,7 +82,11 @@ export const createTests = path => [
         expect(highlightedCell).to.have.class('highlighted');
       };
 
+<<<<<<< HEAD
       cy.visit(`${path}&knob-highlighted%20column=${highlightedCol}`)
+=======
+      cy.visit(`${path}&knob-highlighted%20column_PricingTable=${highlightedCol}`)
+>>>>>>> 914088a0a6c52eea23826ddc092f157690b68e77
         .get(selectors.headerRow)
         .then($headerRow => {
           checkHighlight($headerRow[0]);
@@ -94,7 +102,11 @@ export const createTests = path => [
   () => {
     it('should support customizable label for highlighted column', () => {
       const customLabel = 'Lorem ipsum';
+<<<<<<< HEAD
       cy.visit(`${path}&knob-highlighted%20label=${customLabel}`)
+=======
+      cy.visit(`${path}&knob-highlighted%20label_PricingTable=${customLabel}`)
+>>>>>>> 914088a0a6c52eea23826ddc092f157690b68e77
         .get(selectors.highlightLabel)
         .should('have.text', customLabel);
     });
@@ -103,7 +115,11 @@ export const createTests = path => [
     it('should render customizable number of columns', () => {
       const numberOfColumns = 5;
 
+<<<<<<< HEAD
       cy.visit(`${path}&knob-number%20of%20columns=${numberOfColumns}`)
+=======
+      cy.visit(`${path}&knob-number%20of%20columns_PricingTable=${numberOfColumns}`)
+>>>>>>> 914088a0a6c52eea23826ddc092f157690b68e77
         .get(selectors.headerRow)
         .find(selectors.headerCell)
         .should('have.length', numberOfColumns)

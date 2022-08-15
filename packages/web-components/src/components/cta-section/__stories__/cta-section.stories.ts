@@ -100,7 +100,7 @@ const contentItemTypeMap = {
   `,
   logo: ({ heading, copy, links }) => html`
     <dds-cta-block-item>
-      <dds-image-logo slot="media" default-src="${logoMicrosoft2x1}"></dds-image-logo>
+      <dds-image-logo alt="Microsoft logo" slot="media" default-src="${logoMicrosoft2x1}"></dds-image-logo>
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       <dds-content-item-copy>${copy}</dds-content-item-copy>
       ${links.map(

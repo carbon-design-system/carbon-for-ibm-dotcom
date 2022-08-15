@@ -8,9 +8,9 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import ChevronLeft20 from 'carbon-web-components/es/icons/chevron--left/20.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
