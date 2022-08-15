@@ -52,24 +52,22 @@ module.exports = {
   webpackFinal(config, mode) {
     config.devtool = useStyleSourceMap ? 'source-map' : '';
 
-    if (mode === 'PRODUCTION') {
-      config.optimization = {
-        ...config.optimization,
-        splitChunks: {
-          chunks: 'all',
-          minSize: 30 * 1024,
-          maxSize: 1024 * 1024,
-        },
-        minimizer: [
-          new TerserPlugin({
-            sourceMap: useStyleSourceMap,
-            terserOptions: {
-              mangle: false,
-            },
-          }),
-        ],
-      };
-    }
+    config.optimization = {
+      ...config.optimization,
+      splitChunks: {
+        chunks: 'all',
+        minSize: 30 * 1024,
+        maxSize: 1024 * 1024,
+      },
+      minimizer: [
+        new TerserPlugin({
+          sourceMap: useStyleSourceMap,
+          terserOptions: {
+            mangle: false,
+          },
+        }),
+      ],
+    };
 
     // Uses our own option for `@babel/preset-env`
     config.module.rules = deepReplace(
