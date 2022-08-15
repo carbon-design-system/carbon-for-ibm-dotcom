@@ -1,0 +1,138 @@
+[percy] Percy has started!
+[percy] Processing 135 snapshots...
+[percy] Snapshot taken: Components/Background media: With Video
+[percy] Snapshot taken: Components/Button group: Default
+[percy] Snapshot taken: Components/Card group: Default
+[percy] Snapshot taken: Components/Background media: With Default Source
+[percy] Snapshot taken: Components/Background media: Default
+[percy] Snapshot taken: Components/Callout with media: Default
+[percy] Snapshot taken: Components/Callout quote: Default
+[percy] Snapshot taken: Components/Card in card: Default
+[percy] Snapshot taken: Components/Card group: With card in card
+[percy] Snapshot taken: Components/Back to top: Default
+[percy] Snapshot taken: Components/Card: Default
+[percy] Snapshot taken: Components/Card link: Default
+[percy] Snapshot taken: Components/Card: Static
+[percy] Snapshot taken: Components/Card section carousel: Default
+[percy] Snapshot taken: Components/Card section simple: Default
+[percy] Snapshot taken: Components/Card: Pictogram
+[percy] Snapshot taken: Components/Carousel: Default
+[percy] Snapshot taken: Components/Card: Logo
+[percy] Snapshot taken: Components/Carousel: Cards with images
+[percy] Snapshot taken: Components/Card section offset: Default
+[percy] Snapshot taken: Components/Content block horizontal: Default
+[percy] Snapshot taken: Components/Content block cards: Default
+[percy] Snapshot taken: Components/Content block cards: With images
+[percy] Snapshot taken: Components/Content block segmented: Default
+[percy] Snapshot taken: Components/Content block segmented: With link list
+[percy] Snapshot taken: Components/Carousel: Cards with Media
+[percy] Snapshot taken: Components/Content block media: Default
+[percy] Snapshot taken: Components/Content block media: With link list
+[percy] Snapshot taken: Components/Content block mixed: Default
+[percy] Snapshot taken: Components/Content block mixed: With link list
+[percy] Snapshot taken: Components/Content group banner: Default
+[percy] Snapshot taken: Components/Content block: Default
+[percy] Snapshot taken: Components/Content block simple: Default
+[percy] Snapshot taken: Components/Content block simple: With video
+[percy] Snapshot taken: Components/Content group cards: Default
+[percy] Snapshot taken: Components/Content block simple: With image
+[percy] Snapshot taken: Components/Content block simple: With link list
+[percy] Snapshot taken: Components/Content group: Default
+[percy] Snapshot taken: Components/Content group pictograms: Default
+[percy] Snapshot taken: Components/Content group simple: Default
+[percy] Snapshot taken: Components/Content item: Default
+[percy] Snapshot taken: Components/Content item horizontal: With media
+[percy] Snapshot taken: Components/Content item horizontal: With featured media
+[percy] Snapshot taken: Components/Content item horizontal: Default
+[percy] Snapshot taken: Components/Content section: Default
+[percy] Snapshot taken: Components/CTA block: With content items
+[percy] Snapshot taken: Components/CTA block: Default
+[percy] Snapshot taken: Components/CTA block: With link list
+[percy] Snapshot taken: Components/Content item horizontal: With thumbnail
+[percy] Snapshot taken: Components/CTA block: Within tabs
+[percy] Snapshot taken: Components/CTA: Text
+[percy] Snapshot taken: Components/CTA: Card
+[percy] Snapshot taken: Components/CTA section: Simple
+[percy] Snapshot taken: Components/CTA section: With link list
+[percy] Snapshot taken: Components/CTA section: With content items
+[percy] Snapshot taken: Components/CTA: Button
+[percy] Snapshot taken: Components/CTA: Card link
+[percy] Snapshot taken: Components/CTA: Feature
+[percy] Snapshot taken: Components/Dotcom shell: Default
+[percy] Snapshot taken: Components/Dotcom shell: Default footer language only
+[percy] Snapshot taken: Components/Dotcom shell: With micro footer
+[percy] Snapshot taken: Components/Dotcom shell: With short footer
+[percy] Snapshot taken: Components/Dotcom shell: Search open onload
+[percy] Snapshot taken: Components/Dotcom shell: With short footer language only
+[percy] Snapshot taken: Components/Dotcom shell: With platform
+[percy] Snapshot taken: Components/Dotcom shell: With micro footer language only
+[percy] Snapshot taken: Components/Dotcom shell: Without Shell (Fallback Utility)
+[percy] Snapshot taken: Components/Dotcom shell: With L1
+[percy] Snapshot taken: Components/Dotcom shell: With Lead space search
+[percy] Snapshot taken: Components/Dotcom shell: With Universal banner
+[percy] Snapshot taken: Components/Expressive modal: Default
+[percy] Snapshot taken: Components/Filter panel: Default
+[percy] Snapshot taken: Components/Feature card: Medium
+[percy] Snapshot taken: Components/Footer: Default
+[percy] Snapshot taken: Components/Footer: Short
+[percy] Snapshot taken: Components/Footer: Default with adjunct legal links
+[percy] Snapshot taken: Components/Footer: Default language only
+[percy] Snapshot taken: Components/Feature card: Large
+[percy] Snapshot taken: Components/Footer: Short with adjunct legal links
+[percy] Snapshot taken: Components/Feature section: Default
+[percy] Snapshot taken: Components/Image: Default
+[percy] Snapshot taken: Components/Horizontal rule: Default
+[percy] Snapshot taken: Components/Layout: Default
+[percy] Snapshot taken: Components/Footer: Micro
+[percy] Snapshot taken: Components/Footer: Micro language only
+[percy] Snapshot taken: Components/Footer: Short language only
+[percy] Snapshot taken: Components/Lead space search: Default
+[percy] Snapshot taken: Components/Lead space search: With image
+[percy] Snapshot taken: Components/Lead space block: With video
+[percy] Snapshot taken: Components/Lead space block: Default
+[percy] Snapshot taken: Components/Lead space: Super
+[percy] Snapshot taken: Components/Lead space: Medium
+[percy] Snapshot taken: Components/Lead space: Tall
+[percy] Snapshot taken: Components/Lead space: Tall with video
+[percy] Snapshot taken: Components/Lead space: Short
+[percy] Snapshot taken: Components/Lead space: Tall with image
+[percy] Snapshot taken: Components/Lead space: Super with image
+[percy] Snapshot taken: Components/Lead space: Super with video
+[percy] Snapshot taken: Components/Lead space: Medium with image
+[percy] Snapshot taken: Components/Lead space: Medium with video
+[percy] Snapshot taken: Components/Lead space: Centered
+[percy] Snapshot taken: Components/Leaving IBM: Default
+[percy] Snapshot taken: Components/Link list: Horizontal
+[percy] Snapshot taken: Components/Lead space: Short with video
+[percy] Snapshot taken: Components/Link list: Default
+[percy] Snapshot taken: Components/Link list section: Default
+[percy] Snapshot taken: Components/Lead space: Centered with video
+[percy] Snapshot taken: Components/Lead space: Short with image
+[percy] Snapshot taken: Components/Link list: Vertical
+[percy] Snapshot taken: Components/Lead space: Centered with image
+[percy] Snapshot taken: Components/Link list: End of section
+[percy] Snapshot taken: Components/Locale modal: Default
+[percy] Snapshot taken: Components/Masthead: Search open onload
+[percy] Snapshot taken: Components/Masthead: Default
+[percy] Snapshot taken: Components/Masthead: With platform
+[percy] Snapshot taken: Components/Masthead: With custom typeahead
+[percy] Snapshot taken: Components/Link with icon: Default
+[percy] Snapshot taken: Components/Masthead: With L1
+[percy] Snapshot taken: Components/Logo grid: Default
+[percy] Snapshot taken: Components/Masthead: With alternate logo and tooltip
+[percy] Snapshot taken: Components/Search with typeahead: Default
+[percy] Snapshot taken: Components/Search with typeahead: Alternate
+[percy] Snapshot taken: Components/Structured list: With subheaders
+[percy] Snapshot taken: Components/Quote: Default
+[percy] Snapshot taken: Components/Structured list: Default
+[percy] Snapshot taken: Components/Pictogram item: Default
+[percy] Snapshot taken: Components/Structured list: With complex content
+[percy] Snapshot taken: Components/Structured list: With row headers
+[percy] Snapshot taken: Components/Table of contents: Default
+[percy] Snapshot taken: Components/Table of contents: Horizontal
+[percy] Snapshot taken: Components/Tag link: Default
+[percy] Snapshot taken: Components/Tag group: Default
+[percy] Snapshot taken: Components/Universal banner: Default
+[percy] Snapshot taken: Components/Tabs extended: Default
+[percy] Snapshot taken: Components/Tabs extended - with media: Default
+[percy] Finalized build #11227: https://percy.io/538fc19a/Carbon-for-IBM.com-Web-Components/builds/20601017
