@@ -37,6 +37,9 @@ export default !DDS_LEADSPACE_WITH_SEARCH
       title: 'Components/Lead space with search',
       parameters: {
         ...readme.parameters,
+        percy: {
+          skip: true,
+        },
       },
     };
 

@@ -33,38 +33,36 @@ const weights = {
   thick: 'thick',
 };
 
+const props = {
+  HorizontalRule: () => ({
+    type: select('type (type)', types, types.solid),
+    size: select('size (size)', sizes, sizes.fluid),
+    contrast: select(
+      'contrast (contrast)',
+      contrasts,
+      contrasts['medium-contrast']
+    ),
+    weight: select('weight (weight)', weights, weights.thin),
+  }),
+  Other: () => ({
+    words: text(
+      'text',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    ),
+  }),
+};
+
 export default {
   title: 'Components/Horizontal rule',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      HorizontalRule: ({ groupId }) => ({
-        type: select('type (type)', types, types.solid, groupId),
-        size: select('size (size)', sizes, sizes.fluid, groupId),
-        contrast: select(
-          'contrast (contrast)',
-          contrasts,
-          contrasts['medium-contrast'],
-          groupId
-        ),
-        weight: select('weight (weight)', weights, weights.thin, groupId),
-      }),
-      Other: ({ groupId }) => ({
-        words: text(
-          'text',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          groupId
-        ),
-      }),
+    percy: {
+      name: 'Components|Horizontal rule: Default',
     },
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { type, size, contrast, weight } =
-    parameters?.props?.HorizontalRule ?? {};
-  const { words } = parameters?.props?.Other ?? {};
-
+export const Default = () => {
   return (
     <div>
       <h3>
@@ -73,14 +71,9 @@ export const Default = ({ parameters }) => {
       <div className="bx--grid bx--no-gutter" style={{ marginBottom: '50px' }}>
         <div className="bx--row">
           <div className="bx--col">
-            {words}
-            <HorizontalRule
-              type={type}
-              size={size}
-              contrast={contrast}
-              weight={weight}
-            />
-            {words}
+            {props.Other().words}
+            <HorizontalRule {...props.HorizontalRule()} />
+            {props.Other().words}
           </div>
         </div>
       </div>
@@ -91,14 +84,9 @@ export const Default = ({ parameters }) => {
             <h3>
               <b>Horizontal Rule in Grid with Gutter</b>
             </h3>
-            {words}
-            <HorizontalRule
-              type={type}
-              size={size}
-              contrast={contrast}
-              weight={weight}
-            />
-            {words}
+            {props.Other().words}
+            <HorizontalRule {...props.HorizontalRule()} />
+            {props.Other().words}
           </div>
         </div>
       </div>

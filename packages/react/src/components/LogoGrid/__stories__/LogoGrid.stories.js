@@ -76,6 +76,9 @@ export default {
   parameters: {
     ['carbon-theme']: { disabled: true },
     ...readme.parameters,
+    percy: {
+      name: 'Components|Logo grid: Default',
+    },
     propsSet: {
       default: {
         LogoGrid: {

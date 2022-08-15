@@ -21,6 +21,9 @@ export default {
   title: 'Components/Feature card',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Feature card: Default',
+    },
   },
 };
 
@@ -112,6 +115,11 @@ export const Default = () => {
 
 Default.story = {
   name: 'Medium',
+  parameters: {
+    percy: {
+      name: 'Components|Feature card: Medium',
+    },
+  },
 };
 
 export const Large = () => {
@@ -131,5 +139,8 @@ export const Large = () => {
 Large.story = {
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Feature card: Large',
+    },
   },
 };

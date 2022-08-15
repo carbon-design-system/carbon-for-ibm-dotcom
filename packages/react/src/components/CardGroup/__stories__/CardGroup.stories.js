@@ -223,6 +223,11 @@ export const WithImages = () => {
 
 WithImages.story = {
   name: 'With images',
+  parameters: {
+    percy: {
+      name: 'Components|Card group: With images',
+    },
+  },
 };
 
 export const WithImagesAndCTA = () => {
@@ -246,4 +251,9 @@ export const WithImagesAndCTA = () => {
 
 WithImagesAndCTA.story = {
   name: 'With images and CTA',
+  parameters: {
+    percy: {
+      name: 'Components|Card group: With images and CTA',
+    },
+  },
 };

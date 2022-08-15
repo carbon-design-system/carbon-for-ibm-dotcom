@@ -62,6 +62,9 @@ export default {
   title: 'Components/Callout with media',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Callout with media: Default',
+    },
   },
 };
 

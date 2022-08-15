@@ -92,6 +92,9 @@ export default {
   title: 'Components/Content block',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Content block: Default',
+    },
   },
 };
 

@@ -41,6 +41,9 @@ export default {
   title: 'Components/Image with caption',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Image with caption: Default',
+    },
   },
 };
 

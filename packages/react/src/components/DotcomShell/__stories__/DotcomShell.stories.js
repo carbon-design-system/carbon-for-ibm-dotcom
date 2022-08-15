@@ -239,6 +239,9 @@ export default {
   parameters: {
     ...readme.parameters,
     'carbon-theme': { disabled: true },
+    percy: {
+      name: 'Components|Dotcom shell: Default',
+    },
   },
 };
 
@@ -278,6 +281,9 @@ DefaultLanguageOnly.story = {
     knobs: {
       escapeHTML: false,
     },
+    percy: {
+      name: 'Components|Dotcom shell: Default (footer language only)',
+    },
   },
 };
 
@@ -300,6 +306,9 @@ SearchOpenByDefault.story = {
   parameters: {
     knobs: {
       escapeHTML: false,
+    },
+    percy: {
+      name: 'Components|Dotcom shell: Search open',
     },
   },
 };
@@ -324,6 +333,9 @@ WithPlatform.story = {
     knobs: {
       escapeHTML: false,
     },
+    percy: {
+      name: 'Components|Dotcom shell: With platform',
+    },
   },
 };
 
@@ -346,6 +358,9 @@ ShortFooter.story = {
   parameters: {
     knobs: {
       escapeHTML: false,
+    },
+    percy: {
+      name: 'Components|Dotcom shell: With short footer',
     },
   },
 };
@@ -370,6 +385,9 @@ ShortFooterLanguageOnly.story = {
     knobs: {
       escapeHTML: false,
     },
+    percy: {
+      name: 'Components|Dotcom shell: With short footer (language only)',
+    },
   },
 };
 
@@ -392,6 +410,9 @@ MicroFooter.story = {
   parameters: {
     knobs: {
       escapeHTML: false,
+    },
+    percy: {
+      name: 'Components|Dotcom shell: With micro footer',
     },
   },
 };
@@ -416,6 +437,9 @@ MicroFooterLanguageOnly.story = {
     knobs: {
       escapeHTML: false,
     },
+    percy: {
+      name: 'Components|Dotcom shell: With micro footer (language only)',
+    },
   },
 };
 
@@ -437,6 +461,9 @@ WithL1.story = {
   parameters: {
     knobs: {
       escapeHTML: false,
+    },
+    percy: {
+      name: 'Components|Dotcom shell: With L1',
     },
   },
 };

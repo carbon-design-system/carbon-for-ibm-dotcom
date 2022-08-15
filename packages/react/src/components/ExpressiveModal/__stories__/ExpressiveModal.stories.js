@@ -57,6 +57,9 @@ export default {
   parameters: {
     ...readme.parameters,
     'carbon-theme': { disabled: true },
+    percy: {
+      name: 'Components|Expressive modal: Default',
+    },
   },
 };
 
@@ -85,4 +88,12 @@ export const Expanded = () => {
       </ModalBody>
     </ExpressiveModal>
   );
+};
+
+Expanded.story = {
+  parameters: {
+    percy: {
+      name: 'Components|Expressive modal: Expanded',
+    },
+  },
 };

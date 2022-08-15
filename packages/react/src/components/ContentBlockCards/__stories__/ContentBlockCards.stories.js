@@ -101,6 +101,9 @@ export const WithImages = () => {
 WithImages.story = {
   name: 'With images',
   parameters: {
+    percy: {
+      name: 'Components|Content block cards: With images',
+    },
     propsSet: {
       default: {
         ContentBlockCards: {

@@ -18,6 +18,9 @@ export default {
   title: 'Components/Link with icon',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Link with icon: Default',
+    },
   },
 };
 
