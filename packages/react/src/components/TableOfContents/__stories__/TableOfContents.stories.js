@@ -76,6 +76,9 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Table of contents: Default',
+    },
   },
 };
 

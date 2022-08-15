@@ -191,7 +191,7 @@ describe('Card | Default (desktop)', () => {
 describe('Card | Static (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
-    cy.visit(`${_pathStatic}&knob-Add%20CTA:=true`);
+    cy.visit(`${_pathStatic}&knob-Add%20CTA:_staticID=true`);
     cy.injectAxe();
   });
 

@@ -20,6 +20,9 @@ export default {
   title: 'Components/Content group cards',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Content group cards: Default',
+    },
   },
 };
 

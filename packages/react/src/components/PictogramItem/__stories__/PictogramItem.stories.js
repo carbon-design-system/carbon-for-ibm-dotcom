@@ -58,6 +58,9 @@ export default {
   title: 'Components/Pictogram item',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Pictogram item: Default',
+    },
     propsSet: {
       default: {
         PictogramItem: {

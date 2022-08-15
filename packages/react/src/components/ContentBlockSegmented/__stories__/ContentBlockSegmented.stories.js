@@ -249,6 +249,9 @@ export default {
   title: 'Components/Content block segmented',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Content block segmented: Default',
+    },
   },
 };
 
@@ -257,7 +260,11 @@ export const Default = () => {
     <div className={`${prefix}--grid`}>
       <div className="bx--row">
         <div className="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4">
-          <ContentBlockSegmented {...props.default()} />
+          <ContentBlockSegmented
+            {...props.default()}
+            mediaType="image"
+            mediaData={image}
+          />
         </div>
       </div>
     </div>
@@ -281,7 +288,11 @@ export const WithLinkList = () => {
     <div className={`${prefix}--grid`}>
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
-          <ContentBlockSegmented {...props.WithLinkList()} />
+          <ContentBlockSegmented
+            {...props.WithLinkList()}
+            mediaType="image"
+            mediaData={image}
+          />
         </div>
       </div>
     </div>
@@ -291,6 +302,9 @@ export const WithLinkList = () => {
 WithLinkList.story = {
   name: 'With link list',
   parameters: {
+    percy: {
+      name: 'Components|Content block segmented: With link list',
+    },
     propsSet: {
       default: {
         ContentBlockSegmented: {

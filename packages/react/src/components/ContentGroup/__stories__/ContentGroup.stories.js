@@ -83,6 +83,9 @@ export default {
   title: 'Components/Content group',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Content group: Default',
+    },
   },
 };
 

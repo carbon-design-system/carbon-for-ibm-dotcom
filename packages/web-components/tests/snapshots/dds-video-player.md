@@ -17,6 +17,7 @@
 </div>
 <div class="bx--video-player__video-caption">
 </div>
+
 ```
 
 #### `should render with various attributes`

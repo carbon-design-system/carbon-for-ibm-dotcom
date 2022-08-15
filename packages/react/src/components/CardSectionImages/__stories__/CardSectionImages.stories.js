@@ -20,6 +20,9 @@ export default {
   title: 'Components/Card section images',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Card section images: Default',
+    },
     propsSet: {
       default: {
         CardSectionImages: {

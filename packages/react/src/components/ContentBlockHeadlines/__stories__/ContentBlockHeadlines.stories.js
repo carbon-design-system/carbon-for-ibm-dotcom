@@ -27,6 +27,9 @@ export default !DDS_CONTENTBLOCK_HEADLINES
       title: 'Components/Content block headlines',
       parameters: {
         ...readme.parameters,
+        percy: {
+          skip: true,
+        },
       },
     };
 

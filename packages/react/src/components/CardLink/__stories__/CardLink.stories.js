@@ -35,6 +35,9 @@ export default {
   title: 'Components/Card link',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Card link: Default',
+    },
   },
 };
 

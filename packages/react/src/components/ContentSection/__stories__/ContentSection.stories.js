@@ -36,7 +36,7 @@ const props = {
       ),
       copy: text(
         'Copy:',
-        "AI features for understanding speech can be trained for a specific speaker's voice."
+        'AI features for understanding speech can be trained for a specific speaker’s voice.'
       ),
       addChildren: optionsKnob(
         'Add children:',
@@ -56,6 +56,9 @@ export default {
   title: 'Components/Content section',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Content section: Default',
+    },
   },
 };
 
@@ -64,6 +67,11 @@ export const Default = () => {
   return (
     <ContentSection
       {...props.default()}
+      cta={{
+        href: 'https://www.example.com',
+        type: 'local',
+        copy: 'Link action',
+      }}
       childrenCustomClassName={'bx--col-lg-8'}
       children={
         addChildren.length > 0

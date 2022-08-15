@@ -259,6 +259,9 @@ export default {
   title: 'Components/Lead space',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Lead space: Default',
+    },
   },
 };
 
@@ -270,6 +273,11 @@ export const TallWithNoImage = args => (
 
 TallWithNoImage.story = {
   name: 'Tall',
+  parameters: {
+    percy: {
+      name: 'Components|Lead space: Tall',
+    },
+  },
 };
 
 export const TallWithImage = args => {
@@ -296,6 +304,11 @@ export const TallWithImage = args => {
 
 TallWithImage.story = {
   name: 'Tall with image',
+  parameters: {
+    percy: {
+      name: 'Components|Lead space: Tall with image',
+    },
+  },
 };
 
 export const Centered = () => {
@@ -310,6 +323,11 @@ export const Centered = () => {
 
 Centered.story = {
   name: 'Centered',
+  parameters: {
+    percy: {
+      name: 'Components|Lead space: Centered',
+    },
+  },
 };
 
 export const CenteredWithImage = () => {
@@ -352,12 +370,22 @@ export const CenteredWithImage = () => {
 
 CenteredWithImage.story = {
   name: 'Centered with image',
+  parameters: {
+    percy: {
+      name: 'Components|Lead space: Centered with image',
+    },
+  },
 };
 
-export const Medium = () => <TallWithNoImage />;
+export const Medium = () => <TallWithNoImage {...props.medium()} />;
 
 Medium.story = {
   name: 'Medium',
+  parameters: {
+    percy: {
+      name: 'Components|Lead space: Medium',
+    },
+  },
 };
 
 export const MediumWithImage = () => (
@@ -366,12 +394,22 @@ export const MediumWithImage = () => (
 
 MediumWithImage.story = {
   name: 'Medium with image',
+  parameters: {
+    percy: {
+      name: 'Components|Lead space: Medium with image',
+    },
+  },
 };
 
 export const Super = () => <TallWithNoImage {...props.super()} />;
 
 Super.story = {
   name: 'Super',
+  parameters: {
+    percy: {
+      name: 'Components|Lead space: Super',
+    },
+  },
 };
 
 export const SuperWithImage = () => (
@@ -380,4 +418,9 @@ export const SuperWithImage = () => (
 
 SuperWithImage.story = {
   name: 'Super with image',
+  parameters: {
+    percy: {
+      name: 'Components|Lead space: Super with image',
+    },
+  },
 };

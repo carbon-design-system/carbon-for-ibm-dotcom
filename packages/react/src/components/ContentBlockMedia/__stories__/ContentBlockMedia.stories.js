@@ -175,6 +175,9 @@ export const Default = () => {
 
 Default.story = {
   parameters: {
+    percy: {
+      name: 'Components|Content block media: Default',
+    },
     propsSet: {
       default: {
         ContentBlockMedia: {
@@ -200,6 +203,9 @@ export const WithLinkList = () => {
 WithLinkList.story = {
   name: 'With link list',
   parameters: {
+    percy: {
+      name: 'Components|Content block media: With link list',
+    },
     propsSet: {
       default: {
         ContentBlockMedia: {

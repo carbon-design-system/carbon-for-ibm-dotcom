@@ -96,6 +96,9 @@ export default {
   title: 'Components/Lead space block',
   parameters: {
     ...readme.parameters,
+    percy: {
+      name: 'Components|Lead space block: Default',
+    },
     propsSet: {
       default: {
         LeadSpaceBlock: {
@@ -132,4 +135,12 @@ export const WithVideo = () => {
       </div>
     </div>
   );
+};
+
+WithVideo.story = {
+  parameters: {
+    percy: {
+      name: 'Components|Lead space block: With Video',
+    },
+  },
 };
