@@ -78,7 +78,7 @@ export const createTests = path => [
         expect(highlightedCell).to.have.class('highlighted');
       };
 
-      cy.visit(`${path}&knob-highlighted%20column_PricingTable=${highlightedCol}`)
+      cy.visit(`${path}&knob-highlighted%20column=${highlightedCol}`)
         .get(selectors.headerRow)
         .then($headerRow => {
           checkHighlight($headerRow[0]);
