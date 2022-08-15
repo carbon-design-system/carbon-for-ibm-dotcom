@@ -1419,7 +1419,7 @@
     "@carbon/import-once" "^10.7.0"
     "@carbon/layout" "^10.37.0"
 
-"@carbon/icon-helpers@10.32.0":
+"@carbon/icon-helpers@10.32.0", "@carbon/icon-helpers@^10.32.0":
   version "10.32.0"
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.32.0.tgz#700c3ffbe6350cf481f174c0fb06c9a4269a5248"
   integrity sha512-t5kAnx0STZhUo6F0cLnnecKHYg2I7w84i53XiKZz3FGqiEZLFMpljKnQDe6/I7VNwzgBq0PN1dlDhZ8qqKXj5Q==
@@ -1428,11 +1428,6 @@
   version "10.28.0"
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.28.0.tgz#702f1bb055c6c2bc203cdd44582ebd3d2801eaaf"
   integrity sha512-hf4fjouzr3jCvh5lTWJt87ABWmoq+3ck0/OOLpxUZLfhumTLRW+8H1Ctz0ldQh5mhmFaPNQUifll6tGI5bkmTw==
-
-"@carbon/icon-helpers@^10.31.0":
-  version "10.31.0"
-  resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.31.0.tgz#6b53d67164ddc8fa6770194821c4082e66de557e"
-  integrity sha512-1H7J+mapu1mWS8exIsHuwDMGg0QfCQpz3ho9g/vTGJAhB/s3aPAVBx0yfswB92SLzznriDflSaIHZAi6vshpUg==
 
 "@carbon/icons-react@10.49.0", "@carbon/icons-react@^10.49.0":
   version "10.49.0"
@@ -1473,12 +1468,12 @@
   resolved "https://registry.yarnpkg.com/@carbon/motion/-/motion-11.0.0.tgz#2a6e4175ac0a29e9b9a9a83750deae46a0eeedb3"
   integrity sha512-3KYZJEALeYq99EF/LyIbfa8NvkWeZAeAjlqlYGmCCs8rDihaX97NQ4QgfMT9kwzjD/3sEjV5CTmvI2CJJw0RfA==
 
-"@carbon/pictograms-react@11.28.0":
-  version "11.28.0"
-  resolved "https://registry.yarnpkg.com/@carbon/pictograms-react/-/pictograms-react-11.28.0.tgz#32990e91ce4d97ebe635f484bc320d334ccd9deb"
-  integrity sha512-UOzuDMLOeM95mTOGoEqxQFKy2N7KjmRvzAHDltM/D7fWIEv/tRU/EvdSWDNBD6bZdHdPn24srkUrPbVCxGUyOA==
+"@carbon/pictograms-react@11.29.0":
+  version "11.29.0"
+  resolved "https://registry.yarnpkg.com/@carbon/pictograms-react/-/pictograms-react-11.29.0.tgz#89673e8f349e546601bbb83c97cafee1bab5fb4b"
+  integrity sha512-CnnbFVFuE8OmUzCnq0Ewqg/eAC2HQpO8qxWJq9tKaoq6p6NReE0U4JGhpFz4PKsZznmauTaatS5R10avIBOHPQ==
   dependencies:
-    "@carbon/icon-helpers" "^10.31.0"
+    "@carbon/icon-helpers" "^10.32.0"
     "@carbon/telemetry" "0.1.0"
     prop-types "^15.7.2"
 
