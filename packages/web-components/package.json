@@ -138,7 +138,7 @@
     "@babel/template": "^7.8.0",
     "@babel/traverse": "^7.8.0",
     "@carbon/ibmdotcom-services-store": "1.37.0-rc.1",
-    "@carbon/icon-helpers": "10.31.0",
+    "@carbon/icon-helpers": "10.32.0",
     "@carbon/icons": "10.48.0",
     "@carbon/type": "10.44.0",
     "@open-wc/semantic-dom-diff": "^0.15.0",
