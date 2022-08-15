@@ -88,6 +88,15 @@ class DDSPricingTableHeaderRow extends StableSelectorMixin(DDSStructuredListHead
     }, []);
 
     this._setSameHeight();
+
+    const { eventSlotChange } = this.constructor as typeof DDSPricingTableHeaderRow;
+    this.dispatchEvent(
+      new CustomEvent(eventSlotChange, {
+        bubbles: true,
+        cancelable: true,
+        composed: true,
+      })
+    );
   }
 
   connectedCallback() {
@@ -108,6 +117,10 @@ class DDSPricingTableHeaderRow extends StableSelectorMixin(DDSStructuredListHead
 
   static get stableSelector() {
     return `${ddsPrefix}--pricing-table-header-row`;
+  }
+
+  static get eventSlotChange() {
+    return `${ddsPrefix}-pricing-table-header-row-slot-change`;
   }
 
   static styles = styles;
