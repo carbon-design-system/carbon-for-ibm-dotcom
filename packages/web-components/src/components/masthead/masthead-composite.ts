@@ -164,14 +164,10 @@ class DDSMastheadComposite extends LitElement {
    * @param layout layout selection to render the megamenu with
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _renderMegaMenu(sections, _parentKey, layout: MEGAMENU_LAYOUT_SCHEME = MEGAMENU_LAYOUT_SCHEME.LISTING) {
-    const renderMap = new Map([
-      [MEGAMENU_LAYOUT_SCHEME.LISTING, this._renderMegaMenuListing.bind(this)],
-      [MEGAMENU_LAYOUT_SCHEME.TABBED, this._renderMegaMenuTabbed.bind(this)],
-    ]);
-
-    if (renderMap.has(layout)) {
-      return (renderMap.get(layout) as Function)(sections, _parentKey);
+  protected _renderMegaMenu(sections, _parentKey, layout: MEGAMENU_LAYOUT_SCHEME = MEGAMENU_LAYOUT_SCHEME.LIST) {
+    const { _megamenuRenderMap } = this;
+    if (_megamenuRenderMap.has(layout)) {
+      return (_megamenuRenderMap.get(layout) as Function)(sections, _parentKey);
     }
     return this._renderMegaMenuTabbed(sections, _parentKey);
   }
@@ -704,6 +700,16 @@ class DDSMastheadComposite extends LitElement {
    * @internal
    */
   _setLanguage?: (language: string) => void;
+
+  /**
+   * Map of megamenu layout options to corresponding render methods.
+   *
+   * @internal
+   */
+  _megamenuRenderMap = new Map([
+    [MEGAMENU_LAYOUT_SCHEME.LIST, this._renderMegaMenuListing.bind(this)],
+    [MEGAMENU_LAYOUT_SCHEME.TAB, this._renderMegaMenuTabbed.bind(this)],
+  ]);
 
   /**
    * `true` if there is a profile.

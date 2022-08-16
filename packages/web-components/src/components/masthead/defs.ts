@@ -51,6 +51,6 @@ export enum MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME {
  * The layout options for rendering a megamenu
  */
 export enum MEGAMENU_LAYOUT_SCHEME {
-  TABBED = 'tabbed',
-  LISTING = 'listing',
+  TAB = 'tab',
+  LIST = 'list',
 }
