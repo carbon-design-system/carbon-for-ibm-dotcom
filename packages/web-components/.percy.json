@@ -11,5 +11,9 @@
   "upload": {
     "files": "**/*.{png,jpg,jpeg}",
     "ignore": ""
+  },
+  "network-idle-timeout": 250,
+  "launch-options": {
+    "timeout": 40000
   }
 }
