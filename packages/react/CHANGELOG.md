@@ -34,7 +34,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
->>>>>>> 914088a0a6c52eea23826ddc092f157690b68e77
 # [1.36.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.36.0-rc.0...@carbon/ibmdotcom-react@1.36.0) (2022-07-18)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react

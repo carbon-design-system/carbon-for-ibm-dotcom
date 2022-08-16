@@ -19,7 +19,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
->>>>>>> 914088a0a6c52eea23826ddc092f157690b68e77
 # [1.26.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/eslint-plugin-ibmdotcom-import-rules@1.26.0-rc.0...@carbon/eslint-plugin-ibmdotcom-import-rules@1.26.0) (2022-07-18)
 
 **Note:** Version bump only for package @carbon/eslint-plugin-ibmdotcom-import-rules

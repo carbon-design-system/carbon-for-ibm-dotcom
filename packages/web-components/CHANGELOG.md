@@ -28,7 +28,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
->>>>>>> 914088a0a6c52eea23826ddc092f157690b68e77
 # [1.21.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.21.0-rc.0...@carbon/ibmdotcom-web-components@1.21.0) (2022-07-18)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
