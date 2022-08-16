@@ -7,5 +7,9 @@
     ],
     "min-height": 800,
     "enable-javascript": true
+  },
+  "upload": {
+    "files": "**/*.{png,jpg,jpeg}",
+    "ignore": ""
   }
 }
