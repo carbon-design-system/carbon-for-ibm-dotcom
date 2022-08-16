@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, property, TemplateResult } from 'lit-element';
+import { customElement, html, property } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
@@ -24,14 +24,10 @@ import './cloud-megamenu-right-navigation';
 import './cloud-megamenu-category-heading';
 import './cloud-megamenu-category-link';
 import './cloud-megamenu-category-link-group';
-import {
-  MastheadMenuItem,
-  MastheadProfileItem,
-} from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+import { MastheadProfileItem } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/cloudAccountAuthAPI';
 import styles from './cloud-masthead.scss';
 import DDSMastheadComposite, { NAV_ITEMS_RENDER_TARGET } from '../masthead-composite';
-import { DDSMegamenuLayout } from './defs';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -91,101 +87,6 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
    */
   @property({ type: String, reflect: false, attribute: 'redirect-path' })
   redirectPath? = '';
-
-  /**
-   *  Render MegaMenu content in listing layout.
-   *
-   * @param sections menu section data object
-   * @param parentKey parent key
-   */
-  protected _renderMegaMenuListing(sections, parentKey) {
-    return super._renderMegaMenu(sections, parentKey);
-  }
-
-  /**
-   *  Render MegaMenu content in tabbed layout.
-   *
-   * @param sections menu section data object
-   * @param parentKey parent key
-   */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderMegaMenuTabbed(sections, parentKey) {
-    let viewAllLink;
-    type menuItem = MastheadMenuItem & { itemKey: String };
-    const sortedMenuItems: menuItem[] = [];
-    sections[0].menuItems?.forEach((item, i) => {
-      if (item.megaPanelViewAll) {
-        viewAllLink = item;
-        return viewAllLink;
-      }
-
-      return sortedMenuItems.push({ ...item, itemKey: `${parentKey}-${i}` });
-    });
-
-    return html`
-      <dds-cloud-megamenu>
-        <dds-cloud-megamenu-left-navigation
-          view-all-href="${ifNonNull(viewAllLink?.url)}"
-          view-all-title="${ifNonNull(viewAllLink?.title)}"
-        >
-          <dds-cloud-megamenu-tabs value="${sortedMenuItems[0]?.title}">
-            ${sortedMenuItems.map(item => {
-              return html`
-                <dds-cloud-megamenu-tab id="tab-${item.itemKey}" target="panel-${item.itemKey}" value="${item.title}"
-                  >${item.title}</dds-cloud-megamenu-tab
-                >
-              `;
-            })}
-          </dds-cloud-megamenu-tabs>
-        </dds-cloud-megamenu-left-navigation>
-        <dds-cloud-megamenu-right-navigation>
-          ${sortedMenuItems.map(item => {
-            return html`
-              <div id="panel-${item.itemKey}" role="tabpanel" aria-labelledby="tab-${item.itemKey}" hidden>
-                <dds-cloud-megamenu-category-heading
-                  href="${item.megapanelContent?.headingUrl}"
-                  title="${item.megapanelContent?.headingTitle}"
-                  >${item.megapanelContent?.description}</dds-cloud-megamenu-category-heading
-                >
-                <dds-cloud-megamenu-category-link-group>
-                  ${item?.megapanelContent?.quickLinks?.links.map(
-                    link =>
-                      html`
-                        <dds-cloud-megamenu-category-link href="${link.url}" title="${link.title}"
-                          >${link.description}</dds-cloud-megamenu-category-link
-                        >
-                      `
-                  )}
-                </dds-cloud-megamenu-category-link-group>
-              </div>
-            `;
-          })}
-        </dds-cloud-megamenu-right-navigation>
-      </dds-cloud-megamenu>
-    `;
-  }
-
-  /**
-   *  Render MegaMenu content
-   *
-   * @param sections menu section data object
-   * @param parentKey parent key
-   */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderMegaMenu(sections, parentKey, layout: DDSMegamenuLayout) {
-    let htmlResult: TemplateResult | undefined;
-    switch (layout) {
-      case DDSMegamenuLayout.LISTING:
-        htmlResult = this._renderMegaMenuListing(sections, parentKey);
-        break;
-      case DDSMegamenuLayout.TABBED:
-        htmlResult = this._renderMegaMenuTabbed(sections, parentKey);
-        break;
-      default:
-        htmlResult = this._renderMegaMenuTabbed(sections, parentKey);
-    }
-    return htmlResult;
-  }
 
   /**
    * Renders the left nav menus sections
@@ -284,16 +185,6 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         ${items}
       </dds-left-nav-menu-section>
     `;
-  }
-
-  /**
-   * Need to override so we can add layout conditions.
-   *
-   * @param param0 foo
-   * @returns foo
-   */
-  protected _renderNavItems({ selectedMenuItem, target, hasL1 }) {
-    return super._renderNavItems({ selectedMenuItem, target, hasL1 });
   }
 
   firstUpdated() {

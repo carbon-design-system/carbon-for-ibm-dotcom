@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -45,4 +45,12 @@ export enum MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME {
    * For left (highlighted) section layout.
    */
   LEFT_SECTION = 'left-section',
+}
+
+/**
+ * The layout options for rendering a megamenu
+ */
+export enum MEGAMENU_LAYOUT_SCHEME {
+  TABBED = 'tabbed',
+  LISTING = 'listing',
 }

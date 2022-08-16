@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, customElement, LitElement, TemplateResult } from 'lit-element';
 import { nothing } from 'lit-html';
 import ArrowRight16 from 'carbon-web-components/es/icons/arrow--right/16.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
@@ -60,6 +60,7 @@ import './left-nav-overlay';
 import '../search-with-typeahead/search-with-typeahead';
 import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
+import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -157,13 +158,99 @@ class DDSMastheadComposite extends LitElement {
   }
 
   /**
-   *  Render MegaMenu content
+   * Render MegaMenu content
+   *
+   * @param sections menu section data object
+   * @param _parentKey parent key
+   * @param layout layout selection to render the megamenu with
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderMegaMenu(sections, _parentKey, layout: MEGAMENU_LAYOUT_SCHEME) {
+    let htmlResult: TemplateResult | undefined;
+    switch (layout) {
+      case MEGAMENU_LAYOUT_SCHEME.LISTING:
+        htmlResult = this._renderMegaMenuListing(sections, _parentKey);
+        break;
+      case MEGAMENU_LAYOUT_SCHEME.TABBED:
+        htmlResult = this._renderMegaMenuTabbed(sections, _parentKey);
+        break;
+      default:
+        htmlResult = this._renderMegaMenuTabbed(sections, _parentKey);
+    }
+    return htmlResult;
+  }
+
+  /**
+   *  Render MegaMenu content in tabbed layout.
+   *
+   * @param sections menu section data object
+   * @param parentKey parent key
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderMegaMenuTabbed(sections, parentKey) {
+    let viewAllLink;
+    type menuItem = MastheadMenuItem & { itemKey: String };
+    const sortedMenuItems: menuItem[] = [];
+    sections[0].menuItems?.forEach((item, i) => {
+      if (item.megaPanelViewAll) {
+        viewAllLink = item;
+        return viewAllLink;
+      }
+
+      return sortedMenuItems.push({ ...item, itemKey: `${parentKey}-${i}` });
+    });
+
+    return html`
+      <dds-cloud-megamenu>
+        <dds-cloud-megamenu-left-navigation
+          view-all-href="${ifNonNull(viewAllLink?.url)}"
+          view-all-title="${ifNonNull(viewAllLink?.title)}"
+        >
+          <dds-cloud-megamenu-tabs value="${sortedMenuItems[0]?.title}">
+            ${sortedMenuItems.map(item => {
+              return html`
+                <dds-cloud-megamenu-tab id="tab-${item.itemKey}" target="panel-${item.itemKey}" value="${item.title}"
+                  >${item.title}</dds-cloud-megamenu-tab
+                >
+              `;
+            })}
+          </dds-cloud-megamenu-tabs>
+        </dds-cloud-megamenu-left-navigation>
+        <dds-cloud-megamenu-right-navigation>
+          ${sortedMenuItems.map(item => {
+            return html`
+              <div id="panel-${item.itemKey}" role="tabpanel" aria-labelledby="tab-${item.itemKey}" hidden>
+                <dds-cloud-megamenu-category-heading
+                  href="${item.megapanelContent?.headingUrl}"
+                  title="${item.megapanelContent?.headingTitle}"
+                  >${item.megapanelContent?.description}</dds-cloud-megamenu-category-heading
+                >
+                <dds-cloud-megamenu-category-link-group>
+                  ${item?.megapanelContent?.quickLinks?.links.map(
+                    link =>
+                      html`
+                        <dds-cloud-megamenu-category-link href="${link.url}" title="${link.title}"
+                          >${link.description}</dds-cloud-megamenu-category-link
+                        >
+                      `
+                  )}
+                </dds-cloud-megamenu-category-link-group>
+              </div>
+            `;
+          })}
+        </dds-cloud-megamenu-right-navigation>
+      </dds-cloud-megamenu>
+    `;
+  }
+
+  /**
+   * Render MegaMenu content in listing layout.
    *
    * @param sections menu section data object
    * @param _parentKey parent menu key (used for the cloud-masthead-composite component)
    */
   // eslint-disable-next-line
-  protected _renderMegaMenu(sections, _parentKey, layout?: string) {
+  protected _renderMegaMenuListing(sections, _parentKey) {
     const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
     const hasHighlights = highlightedItems.length !== 0;
     return html`
@@ -538,7 +625,7 @@ class DDSMastheadComposite extends LitElement {
 
             let sections;
             if (link.hasMegapanel) {
-              sections = this._renderMegaMenu(menuSections, i, megamenuLayout);
+              sections = this._renderMegaMenu(menuSections, i, megamenuLayout as MEGAMENU_LAYOUT_SCHEME);
             } else {
               sections = menuSections
                 // eslint-disable-next-line no-use-before-define
