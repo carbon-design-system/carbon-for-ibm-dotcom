@@ -590,6 +590,7 @@ class DDSMastheadComposite extends LitElement {
    * @param options The options.
    * @param [options.selectedMenuItem] The selected nav item.
    * @param options.target The target of rendering navigation items.
+   * @param options.hasL1 If an L1 menu is present
    * @returns The nav items.
    */
   protected _renderNavItems({
@@ -614,7 +615,7 @@ class DDSMastheadComposite extends LitElement {
       return !menu
         ? undefined
         : menu.map((link, i) => {
-            const { menuSections = [], title, titleEnglish, url, megamenuLayout } = link;
+            const { menuSections = [], title, titleEnglish, url, megamenuLayout, hasMegapanel } = link;
             let selected;
 
             if (selectedMenuItem) {
@@ -623,26 +624,7 @@ class DDSMastheadComposite extends LitElement {
               selected = hasChildLink(menuSections, currentUrlPath);
             }
 
-            let sections;
-            if (link.hasMegapanel) {
-              sections = this._renderMegaMenu(menuSections, i, megamenuLayout as MEGAMENU_LAYOUT_SCHEME);
-            } else {
-              sections = menuSections
-                // eslint-disable-next-line no-use-before-define
-                .reduce((acc: typeof menuItems, { menuItems }) => acc.concat(menuItems), [])
-                .map(
-                  ({ title: menuItemTitle, url: menuItemUrl }, j) =>
-                    html`
-                      <dds-top-nav-menu-item
-                        ?active="${selectedMenuItem ? selected : menuItemUrl === currentUrlPath}"
-                        href="${menuItemUrl}"
-                        title="${menuItemTitle}"
-                        data-autoid="${autoid}-nav--subnav-col${i}-item${j}"
-                      ></dds-top-nav-menu-item>
-                    `
-                );
-            }
-            if (sections.length === 0) {
+            if (menuSections.length === 0) {
               return html`
                 <dds-top-nav-item
                   ?active="${selectedMenuItem ? selected : url === currentUrlPath}"
@@ -652,7 +634,8 @@ class DDSMastheadComposite extends LitElement {
                 ></dds-top-nav-item>
               `;
             }
-            if (link.hasMegapanel) {
+
+            if (hasMegapanel) {
               return html`
                 <dds-megamenu-top-nav-menu
                   ?active="${selected}"
@@ -660,7 +643,7 @@ class DDSMastheadComposite extends LitElement {
                   trigger-content="${title}"
                   data-autoid="${autoid}-nav--nav${i}"
                 >
-                  ${sections}
+                  ${this._renderMegaMenu(menuSections, i, megamenuLayout as MEGAMENU_LAYOUT_SCHEME)}
                 </dds-megamenu-top-nav-menu>
               `;
             }
@@ -671,7 +654,20 @@ class DDSMastheadComposite extends LitElement {
                 trigger-content="${title}"
                 data-autoid="${autoid}-nav--nav${i}"
               >
-                ${sections}
+                ${menuSections
+                  // eslint-disable-next-line no-use-before-define
+                  .reduce((acc: typeof menuItems, { menuItems }) => acc.concat(menuItems), [])
+                  .map(
+                    ({ title: menuItemTitle, url: menuItemUrl }, j) =>
+                      html`
+                        <dds-top-nav-menu-item
+                          ?active="${selectedMenuItem ? selected : menuItemUrl === currentUrlPath}"
+                          href="${menuItemUrl}"
+                          title="${menuItemTitle}"
+                          data-autoid="${autoid}-nav--subnav-col${i}-item${j}"
+                        ></dds-top-nav-menu-item>
+                      `
+                  )}
               </dds-top-nav-menu>
             `;
           });
