@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,127 +13,103 @@ import { Tall, TallWithImage, Centered, CenteredWithImage, Medium, MediumWithIma
 
 const TallTemplate = (props?) =>
   Tall({
-    parameters: {
-      props: {
-        LeadSpace: {
-          ...props,
-          buttons: [
-            {
-              href: 'https://example.com',
-              copy: 'button 1',
-            },
-            {
-              href: 'https://example.com',
-              copy: 'button 2',
-            },
-          ],
+    LeadSpace: {
+      ...props,
+      buttons: [
+        {
+          href: 'https://example.com',
+          copy: 'button 1',
         },
-      },
+        {
+          href: 'https://example.com',
+          copy: 'button 2',
+        },
+      ],
     },
   });
 
 const TallWithImageTemplate = (props?) =>
   TallWithImage({
-    parameters: {
-      props: {
-        LeadSpace: {
-          ...props,
-          buttons: [
-            {
-              href: 'https://example.com',
-              copy: 'button 1',
-            },
-            {
-              href: 'https://example.com',
-              copy: 'button 2',
-            },
-          ],
+    LeadSpace: {
+      ...props,
+      buttons: [
+        {
+          href: 'https://example.com',
+          copy: 'button 1',
         },
-      },
+        {
+          href: 'https://example.com',
+          copy: 'button 2',
+        },
+      ],
     },
   });
 
 const CenteredTemplate = (props?) =>
   Centered({
-    parameters: {
-      props: {
-        LeadSpace: {
-          ...props,
-          buttons: [
-            {
-              href: 'https://example.com',
-              copy: 'button 1',
-            },
-            {
-              href: 'https://example.com',
-              copy: 'button 2',
-            },
-          ],
+    LeadSpace: {
+      ...props,
+      buttons: [
+        {
+          href: 'https://example.com',
+          copy: 'button 1',
         },
-      },
+        {
+          href: 'https://example.com',
+          copy: 'button 2',
+        },
+      ],
     },
   });
 
 const CenteredWithImageTemplate = (props?) =>
   CenteredWithImage({
-    parameters: {
-      props: {
-        LeadSpace: {
-          ...props,
-          buttons: [
-            {
-              href: 'https://example.com',
-              copy: 'button 1',
-            },
-            {
-              href: 'https://example.com',
-              copy: 'button 2',
-            },
-          ],
+    LeadSpace: {
+      ...props,
+      buttons: [
+        {
+          href: 'https://example.com',
+          copy: 'button 1',
         },
-      },
+        {
+          href: 'https://example.com',
+          copy: 'button 2',
+        },
+      ],
     },
   });
 
 const MediumTemplate = (props?) =>
   Medium({
-    parameters: {
-      props: {
-        LeadSpace: {
-          ...props,
-          buttons: [
-            {
-              href: 'https://example.com',
-              copy: 'button 1',
-            },
-            {
-              href: 'https://example.com',
-              copy: 'button 2',
-            },
-          ],
+    LeadSpace: {
+      ...props,
+      buttons: [
+        {
+          href: 'https://example.com',
+          copy: 'button 1',
         },
-      },
+        {
+          href: 'https://example.com',
+          copy: 'button 2',
+        },
+      ],
     },
   });
 
 const MediumWithImageTemplate = (props?) =>
   MediumWithImage({
-    parameters: {
-      props: {
-        LeadSpace: {
-          ...props,
-          buttons: [
-            {
-              href: 'https://example.com',
-              copy: 'button 1',
-            },
-            {
-              href: 'https://example.com',
-              copy: 'button 2',
-            },
-          ],
+    LeadSpace: {
+      ...props,
+      buttons: [
+        {
+          href: 'https://example.com',
+          copy: 'button 1',
         },
-      },
+        {
+          href: 'https://example.com',
+          copy: 'button 2',
+        },
+      ],
     },
   });
 

@@ -2,9 +2,14 @@
   "version": 2,
   "snapshot": {
     "widths": [
-      375,
+      320,
       1280
-    ]
+    ],
+    "min-height": 800,
+    "enable-javascript": true
   },
-  "enable-javascript": true
+  "upload": {
+    "files": "**/*.{png,jpg,jpeg}",
+    "ignore": ""
+  }
 }

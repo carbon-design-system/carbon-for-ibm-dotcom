@@ -17,8 +17,8 @@ const tagTitles = ['Cloud', 'Blockchain', 'Supply chain', 'Watson health', 'IT I
 
 const tagTypeOptions = ['Tag Link', 'Carbon tag'];
 
-export const Default = ({ parameters }) => {
-  const { tagType } = parameters?.props?.TagGroup ?? {};
+export const Default = args => {
+  const { tagType } = args?.TagGroup ?? {};
   return html`
     <dds-tag-group>
       ${tagTitles.map(title =>
@@ -55,8 +55,8 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      TagGroup: ({ groupId }) => ({
-        tagType: select('Tag Type:', tagTypeOptions, 'Tag Link', groupId),
+      TagGroup: () => ({
+        tagType: select('Tag Type:', tagTypeOptions, 'Tag Link'),
       }),
     },
     propsSet: {

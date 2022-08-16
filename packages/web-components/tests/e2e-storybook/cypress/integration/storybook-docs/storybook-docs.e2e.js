@@ -12,7 +12,7 @@ describe('storybook docs | default', () => {
   components.forEach(component => {
     it(`should load Storybook Docs tab for ${component.name} without exceptions`, () => {
       cy.viewport(1280, 720);
-      cy.visit(`/?path=/docs/components-${component.url}--default`);
+      cy.visit(`/?${component.url}`);
 
       cy.wait(1000);
 

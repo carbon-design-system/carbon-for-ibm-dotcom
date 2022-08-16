@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,30 +26,24 @@ const iconOptions = {
   PDF: 'Pdf20',
 };
 
+const props = () => ({
+  buttons: Array.from({
+    length: number('Number of buttons', 2, {}),
+  }).map((_, i) => ({
+    href: text(`Link ${i + 1}`, `https://example.com`),
+    copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+    renderIcon:
+      iconMap[select(`Icon ${i + 1}`, iconOptions, iconOptions['Default'])],
+  })),
+});
+
 export default {
-  title: 'Components|Button group',
+  title: 'Components/Button group',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      ButtonGroup: ({ groupId }) => ({
-        buttons: Array.from({
-          length: number('Number of buttons', 2, {}, groupId),
-        }).map((_, i) => ({
-          href: text(`Link ${i + 1}`, `https://example.com`, groupId),
-          copy: text(`Button ${i + 1}`, `Button ${i + 1}`, groupId),
-          renderIcon:
-            iconMap[
-              select(
-                `Icon ${i + 1}`,
-                iconOptions,
-                iconOptions['Default'],
-                groupId
-              )
-            ],
-        })),
-      }),
+    percy: {
+      name: 'Components|Button group: Default',
     },
-
     propsSet: {
       default: {
         ButtonGroup: {
@@ -69,8 +63,7 @@ export default {
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { buttons } = parameters?.props?.ButtonGroup ?? {};
+export const Default = () => {
   return (
     <div
       className="bx-grid"
@@ -83,14 +76,14 @@ export const Default = ({ parameters }) => {
       </div>
       <div className="bx--row">
         <div className="bx--col-lg-16 bx--col-md-6 bx--col-sm-16">
-          <ButtonGroup buttons={buttons} />
+          <ButtonGroup {...props()} />
         </div>
       </div>
       <div style={{ paddingTop: '20px' }}>
         This button group is not using the grid, so the buttons won't shrink
         according to the text size
       </div>
-      <ButtonGroup buttons={buttons} />
+      <ButtonGroup {...props()} />
     </div>
   );
 };

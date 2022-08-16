@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -118,13 +118,6 @@ describe('dds-video-player-container', function() {
   });
 
   describe('Handling API call results', function() {
-    it('should support starting the spinner for embedding video data', function() {
-      videoPlayerContainer._setRequestEmbedVideoInProgress('video-id-foo', Promise.resolve('kwidget-foo'));
-      expect(convertValue(videoPlayerContainer._requestsEmbedVideo)).toEqual({
-        'video-id-foo': 'PROMISE',
-      });
-    });
-
     it('should support setting the error in embedding video data', function() {
       videoPlayerContainer._setErrorRequestEmbedVideo('video-id-foo', new Error('error-embedvideo'));
       expect(convertValue(videoPlayerContainer._requestsEmbedVideo)).toEqual({
@@ -136,6 +129,13 @@ describe('dds-video-player-container', function() {
       videoPlayerContainer._setEmbeddedVideo('video-id-foo', 'kwidget-foo');
       expect(convertValue(videoPlayerContainer.embeddedVideos)).toEqual({
         'video-id-foo': 'kwidget-foo',
+      });
+    });
+
+    it('should support starting the spinner for embedding video data', function() {
+      videoPlayerContainer._setRequestEmbedVideoInProgress('video-id-foo', Promise.resolve('kwidget-foo'));
+      expect(convertValue(videoPlayerContainer._requestsEmbedVideo)).toEqual({
+        'video-id-foo': 'PROMISE',
       });
     });
   });

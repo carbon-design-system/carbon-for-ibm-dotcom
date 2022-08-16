@@ -67,8 +67,8 @@ const image = html`
   </dds-image>
 `;
 
-export const Default = ({ parameters }) => {
-  const { heading, copy, showCopy, addChildren, showCTA, border, aside } = parameters?.props?.ContentBlock ?? {};
+export const Default = args => {
+  const { heading, copy, showCopy, addChildren, showCTA, border, aside } = args?.ContentBlock ?? {};
   return html`
     <dds-content-block complementary-style-scheme="${border ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER : ''}">
       ${heading

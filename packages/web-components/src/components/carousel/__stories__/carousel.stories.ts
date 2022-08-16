@@ -76,8 +76,8 @@ const CardWithVideo = ({ copy = copyDefault, href = hrefDefault } = {}) => html`
   </dds-video-cta-container>
 `;
 
-export const Default = ({ parameters }) => {
-  const { cardSize } = parameters?.props?.Carousel ?? {};
+export const Default = args => {
+  const { cardSize } = args?.Carousel ?? {};
   const classes = classMap({
     [cardSize]: cardSize,
   });
@@ -88,8 +88,8 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const CardsWithImages = ({ parameters }) => {
-  const { cardSize } = parameters?.props?.Carousel ?? {};
+export const CardsWithImages = args => {
+  const { cardSize } = args?.Carousel ?? {};
   const classes = classMap({
     [cardSize]: cardSize,
   });
@@ -103,8 +103,8 @@ export const CardsWithImages = ({ parameters }) => {
   `;
 };
 
-export const CardsWithVideos = ({ parameters }) => {
-  const { cardSize } = parameters?.props?.Carousel ?? {};
+export const CardsWithVideos = args => {
+  const { cardSize } = args?.Carousel ?? {};
   const classes = classMap({
     [cardSize]: cardSize,
   });
@@ -116,8 +116,8 @@ export const CardsWithVideos = ({ parameters }) => {
   `;
 };
 
-export const CardsWithMedia = ({ parameters }) => {
-  const { cardSize } = parameters?.props?.Carousel ?? {};
+export const CardsWithMedia = args => {
+  const { cardSize } = args?.Carousel ?? {};
   const classes = classMap({
     [cardSize]: cardSize,
   });
