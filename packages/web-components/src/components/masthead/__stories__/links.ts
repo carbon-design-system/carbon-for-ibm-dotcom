@@ -1049,6 +1049,7 @@ const mastheadLinks: MastheadLink[] = [
     url: '',
     hasMenu: true,
     hasMegapanel: true,
+    megamenuLayout: 'listing',
     menuSections: [
       {
         heading: '',

@@ -163,7 +163,7 @@ class DDSMastheadComposite extends LitElement {
    * @param _parentKey parent menu key (used for the cloud-masthead-composite component)
    */
   // eslint-disable-next-line
-  protected _renderMegaMenu(sections, _parentKey) {
+  protected _renderMegaMenu(sections, _parentKey, layout?: string) {
     const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
     const hasHighlights = highlightedItems.length !== 0;
     return html`
@@ -527,7 +527,7 @@ class DDSMastheadComposite extends LitElement {
       return !menu
         ? undefined
         : menu.map((link, i) => {
-            const { menuSections = [], title, titleEnglish, url } = link;
+            const { menuSections = [], title, titleEnglish, url, megamenuLayout } = link;
             let selected;
 
             if (selectedMenuItem) {
@@ -538,7 +538,7 @@ class DDSMastheadComposite extends LitElement {
 
             let sections;
             if (link.hasMegapanel) {
-              sections = this._renderMegaMenu(menuSections, i);
+              sections = this._renderMegaMenu(menuSections, i, megamenuLayout);
             } else {
               sections = menuSections
                 // eslint-disable-next-line no-use-before-define

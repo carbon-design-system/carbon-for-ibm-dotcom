@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, property } from 'lit-element';
+import { customElement, html, property, TemplateResult } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
@@ -31,6 +31,7 @@ import {
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/cloudAccountAuthAPI';
 import styles from './cloud-masthead.scss';
 import DDSMastheadComposite, { NAV_ITEMS_RENDER_TARGET } from '../masthead-composite';
+import { DDSMegamenuLayout } from './defs';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -92,13 +93,23 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
   redirectPath? = '';
 
   /**
-   *  Render MegaMenu content
+   *  Render MegaMenu content in listing layout.
+   *
+   * @param sections menu section data object
+   * @param parentKey parent key
+   */
+  protected _renderMegaMenuListing(sections, parentKey) {
+    return super._renderMegaMenu(sections, parentKey);
+  }
+
+  /**
+   *  Render MegaMenu content in tabbed layout.
    *
    * @param sections menu section data object
    * @param parentKey parent key
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _renderMegaMenu(sections, parentKey) {
+  protected _renderMegaMenuTabbed(sections, parentKey) {
     let viewAllLink;
     type menuItem = MastheadMenuItem & { itemKey: String };
     const sortedMenuItems: menuItem[] = [];
@@ -152,6 +163,28 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         </dds-cloud-megamenu-right-navigation>
       </dds-cloud-megamenu>
     `;
+  }
+
+  /**
+   *  Render MegaMenu content
+   *
+   * @param sections menu section data object
+   * @param parentKey parent key
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderMegaMenu(sections, parentKey, layout: DDSMegamenuLayout) {
+    let htmlResult: TemplateResult | undefined;
+    switch (layout) {
+      case DDSMegamenuLayout.LISTING:
+        htmlResult = this._renderMegaMenuListing(sections, parentKey);
+        break;
+      case DDSMegamenuLayout.TABBED:
+        htmlResult = this._renderMegaMenuTabbed(sections, parentKey);
+        break;
+      default:
+        htmlResult = this._renderMegaMenuTabbed(sections, parentKey);
+    }
+    return htmlResult;
   }
 
   /**
@@ -251,6 +284,16 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         ${items}
       </dds-left-nav-menu-section>
     `;
+  }
+
+  /**
+   * Need to override so we can add layout conditions.
+   *
+   * @param param0 foo
+   * @returns foo
+   */
+  protected _renderNavItems({ selectedMenuItem, target, hasL1 }) {
+    return super._renderNavItems({ selectedMenuItem, target, hasL1 });
   }
 
   firstUpdated() {
