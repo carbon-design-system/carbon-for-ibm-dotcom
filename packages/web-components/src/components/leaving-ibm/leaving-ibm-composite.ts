@@ -13,6 +13,7 @@ import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-list
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { LeavingIBMLabels, Translation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+import './leaving-ibm-modal';
 import './leaving-ibm-modal-body';
 import './leaving-ibm-modal-heading';
 import './leaving-ibm-modal-supplemental';
