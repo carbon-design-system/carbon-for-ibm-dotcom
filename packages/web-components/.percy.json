@@ -13,7 +13,9 @@
     "ignore": ""
   },
   "network-idle-timeout": 250,
-  "launch-options": {
-    "timeout": 40000
+  "discovery": {
+    "launch-options": {
+      "timeout": 40000
+    }
   }
 }
