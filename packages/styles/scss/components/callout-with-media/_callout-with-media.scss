@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2016, 2021
+// Copyright IBM Corp. 2016, 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -93,6 +93,10 @@
     .#{$prefix}--video-player__video-caption {
       padding-top: $spacing-03;
     }
+  }
+
+  :host(#{$dds-prefix}-callout-with-media-image) .#{$prefix}--image__img {
+    max-width: 100%;
   }
 }
 @include exports('callout-with-media') {

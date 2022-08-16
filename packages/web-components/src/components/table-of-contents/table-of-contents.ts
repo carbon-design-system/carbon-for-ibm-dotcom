@@ -8,15 +8,15 @@
  */
 
 import { nothing } from 'lit-html';
-import { classMap } from 'lit-html/directives/class-map';
-import { ifDefined } from 'lit-html/directives/if-defined';
+import { classMap } from 'lit-html/directives/class-map.js';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { html, property, state, query, queryAll, customElement, LitElement } from 'lit-element';
 import CaretLeft20 from 'carbon-web-components/es/icons/caret--left/20.js';
 import CaretRight20 from 'carbon-web-components/es/icons/caret--right/20.js';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import TableOfContents20 from 'carbon-web-components/es/icons/table-of-contents/20.js';
 import throttle from 'lodash-es/throttle.js';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
@@ -171,7 +171,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
    * The Element.tagName values that should never be used as a TOC target.
    * Typically added here because these elements have their own `[name]` attribute.
    */
-  private _tagNamesToAvoid = [`${ddsPrefix}-VIDEO-PLAYER`];
+  private _tagNamesToAvoid = [`${ddsPrefix}-video-player`];
 
   /**
    * Boolean checking if page is RTL
@@ -333,15 +333,14 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
     this._targets = nodes.reduce((acc, node) => {
       if (node instanceof HTMLElement) {
         const descendants = node.querySelectorAll(selectorTarget) as NodeListOf<HTMLElement>;
-        const elems = [node, ...descendants].filter(
-          elem =>
-            // has inner text
-            elem.innerText.match(/[^\s\n\r]/g) &&
-            // has `name` attribute
-            elem.matches(selectorTarget) &&
-            // isn't explicity excluded
-            !tagNamesToAvoid.includes(elem.tagName)
-        );
+        const elems = [node, ...descendants].filter(elem => {
+          const notWhiteSpace = /[^\s\n\r]/g;
+          const hasTitle = elem.innerText.match(notWhiteSpace) || elem.dataset.title?.match(notWhiteSpace);
+          const hasNameAttr = elem.matches(selectorTarget);
+          const notExcluded = !tagNamesToAvoid.includes(elem.tagName.toLowerCase());
+
+          return hasTitle && hasNameAttr && notExcluded;
+        });
 
         acc.push(...(elems as HTMLElement[]));
       }
