@@ -8,7 +8,7 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings.js';
-import { customElement, html } from 'lit-element';
+import { customElement, html, property } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSTabsExtended from '../tabs-extended/tabs-extended';
 import styles from './tabs-extended-media.scss';
@@ -23,12 +23,22 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-tabs-extended-media`)
 class DDSTabsExtendedMedia extends DDSTabsExtended {
+  /**
+   * `true` if section heading should be shown.
+   */
+  @property({ attribute: 'section-heading', reflect: true })
+  sectionHeading = 'false';
+
   render() {
     return html`
       <div class="${prefix}--tabs-extended-media">
-        <div class="${prefix}--heading">
-          <slot name="heading"></slot>
-        </div>
+        ${this.sectionHeading === 'true'
+          ? html`
+              <div class="${prefix}--heading">
+                <slot name="heading"></slot>
+              </div>
+            `
+          : undefined}
         <div class="${prefix}--tabs-extended">
           ${this._renderAccordion()} ${this._renderTabs()}
           <div class="${prefix}--tab-content">
