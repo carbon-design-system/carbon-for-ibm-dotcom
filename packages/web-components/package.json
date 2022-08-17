@@ -90,7 +90,7 @@
     "test:unit:updateSnapshot": "gulp test:unit --update-snapshot",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "upgrade-carbon": "yarn upgrade-interactive carbon-components carbon-web-components @carbon/icon-helpers @carbon/icons --latest --exact",
-    "visual-snapshot": "yarn build-storybook && percy storybook ./storybook-static",
+    "visual-snapshot": "yarn build-storybook && percy storybook ./storybook-static --verbose",
     "wca": "web-component-analyzer analyze src --outFile custom-elements.json"
   },
   "resolutions": {
