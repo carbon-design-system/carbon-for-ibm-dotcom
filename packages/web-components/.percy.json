@@ -8,14 +8,14 @@
     "min-height": 800,
     "enable-javascript": true
   },
+  "storybook": {
+    "waitForTimeout": 10000
+  },
   "upload": {
     "files": "**/*.{png,jpg,jpeg}",
     "ignore": ""
   },
   "discovery": {
-    "network-idle-timeout": 250,
-    "launch-options": {
-      "timeout": 40000
-    }
+    "network-idle-timeout": 250
   }
 }
