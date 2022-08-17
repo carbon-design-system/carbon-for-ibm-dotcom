@@ -8,6 +8,11 @@
       "min-height": 800,
       "enable-javascript": true
     },
-    "network-idle-timeout": 250
+    "discovery": {
+      "network-idle-timeout": 250,
+      "launch-options": {
+        "timeout": 40000
+      }
+    }
 }
   
