@@ -9,10 +9,7 @@
       "enable-javascript": true
     },
     "discovery": {
-      "network-idle-timeout": 250,
-      "launch-options": {
-        "timeout": 40000
-      }
+      "network-idle-timeout": 250
     }
 }
   
