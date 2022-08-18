@@ -203,34 +203,42 @@
     p,
     a,
     .#{$prefix}--link-with-icon {
+      width: 100%;
+    }
+
+    p,
+    a,
+    .#{$prefix}--link-with-icon,
+    ::slotted(span),
+    span {
+      @include carbon--type-style(heading-03, true);
+
+      color: $text-02;
       padding: 6px $spacing-05;
       text-decoration: none;
-      width: 100%;
-
-      @include type-style('expressive-heading-01');
+      margin-block-end: $spacing-06;
     }
 
     ::slotted(span),
     span {
-      color: $text-01;
-
       flex: inherit;
     }
 
+    ::slotted(svg),
     svg {
-      color: $link-01;
+      fill: $text-02;
       min-width: $spacing-05;
     }
 
     &:visited,
     &:hover {
-      color: $text-01;
+      color: $text-02;
     }
   }
 
   :host(#{$dds-prefix}-megamenu-category-link) a,
   .#{$prefix}--masthead__megamenu__category-sublink {
-    @include type-style('body-long-01');
+    @include type-style('body-short-01');
 
     color: $text-02;
     text-decoration: none;

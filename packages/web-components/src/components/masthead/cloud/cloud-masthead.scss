@@ -208,7 +208,7 @@
     p {
       @include carbon--type-style('expressive-heading-01');
 
-      color: $text-01;
+      color: $text-02;
     }
 
     span {
@@ -234,7 +234,7 @@
 :host(#{$dds-prefix}-cloud-megamenu-category-heading) {
   display: block;
   padding: 0 $spacing-05;
-  margin-bottom: $spacing-07;
+  margin-bottom: $spacing-06;
   width: 66.66%;
 
   @include carbon--breakpoint('lg') {
@@ -242,18 +242,20 @@
   }
 
   h2 {
+    @include carbon--type-style(heading-03, true);
+
     display: flex;
     margin-bottom: $spacing-03;
 
     a {
-      color: $text-01;
+      color: $text-02;
       text-decoration: none;
       align-self: center;
 
       svg {
         margin: 0 $spacing-03;
         padding-top: $spacing-02;
-        fill: $link-01;
+        fill: $text-02;
 
         /* stylelint-disable-next-line comment-whitespace-inside */
         /*!rtl:raw:
@@ -263,10 +265,6 @@
 
       &:hover {
         text-decoration: underline;
-
-        svg {
-          fill: $hover-primary-text;
-        }
       }
 
       &:focus {

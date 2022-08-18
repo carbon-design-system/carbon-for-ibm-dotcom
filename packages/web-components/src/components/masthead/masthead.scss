@@ -123,6 +123,7 @@
 :host(#{$dds-prefix}-cloud-masthead-profile) {
   background-color: $ui-background;
   width: $spacing-09;
+
   a.#{$prefix}--header__menu-item {
     @include masthead-top-nav-link;
 

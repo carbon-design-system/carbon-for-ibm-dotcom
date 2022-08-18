@@ -8,7 +8,7 @@
  */
 
 import { html, customElement, LitElement, property } from 'lit-element';
-import ArrowRight32 from 'carbon-web-components/es/icons/arrow--right/32.js';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './cloud-masthead.scss';
 
@@ -35,7 +35,7 @@ class DDSCloudMegaMenuCategoryHeading extends LitElement {
 
   render() {
     return html`
-      <h2><a href="${this.href}">${this.title} ${ArrowRight32()}</a></h2>
+      <h2><a href="${this.href}">${this.title} ${ArrowRight20()}</a></h2>
       <span><slot></slot></span>
     `;
   }
