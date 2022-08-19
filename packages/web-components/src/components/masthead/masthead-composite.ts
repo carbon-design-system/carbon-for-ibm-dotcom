@@ -9,6 +9,7 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import { nothing } from 'lit-html';
+import { ifDefined } from 'lit-html/directives/if-defined';
 import ArrowRight16 from 'carbon-web-components/es/icons/arrow--right/16.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { unsafeSVG } from 'lit-html/directives/unsafe-svg.js';
@@ -28,6 +29,7 @@ import { UNAUTHENTICATED_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
 import { DDS_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
 import './masthead';
+import './masthead-button-cta';
 import './masthead-logo';
 import './masthead-l1';
 import './masthead-l1-name';
@@ -653,6 +655,18 @@ class DDSMastheadComposite extends LitElement {
   authenticatedProfileItems?: MastheadProfileItem[];
 
   /**
+   * The cta buttons for authenticated state.
+   */
+  @property({ attribute: false })
+  authenticatedCtaButtons?: MastheadProfileItem[];
+
+  /**
+   * Text for Contact us button
+   */
+  @property({ attribute: false })
+  contactUsButton?: MastheadProfileItem;
+
+  /**
    * The platform name.
    */
   @property()
@@ -743,6 +757,12 @@ class DDSMastheadComposite extends LitElement {
    */
   @property({ attribute: false })
   unauthenticatedProfileItems?: MastheadProfileItem[];
+
+  /**
+   * The cta buttons for authenticated state.
+   */
+  @property({ attribute: false })
+  unauthenticatedCtaButtons?: MastheadProfileItem[];
 
   /**
    * Specify translation endpoint if not using default dds endpoint.
@@ -841,6 +861,8 @@ class DDSMastheadComposite extends LitElement {
     const {
       activateSearch,
       authenticatedProfileItems,
+      authenticatedCtaButtons,
+      contactUsButton,
       currentSearchResults,
       customTypeaheadAPI,
       customProfileLogin,
@@ -862,11 +884,14 @@ class DDSMastheadComposite extends LitElement {
       skipToContentText,
       skipToContentHref,
       unauthenticatedProfileItems,
+      unauthenticatedCtaButtons,
       userStatus,
       l1Data,
       hasContact,
     } = this;
     const authenticated = userStatus !== UNAUTHENTICATED_STATUS;
+
+    const ctaButtons = authenticated ? authenticatedCtaButtons : unauthenticatedCtaButtons;
 
     let profileItems;
     if (DDS_CUSTOM_PROFILE_LOGIN && customProfileLogin && !authenticated) {
@@ -948,7 +973,7 @@ class DDSMastheadComposite extends LitElement {
           ${hasContact === 'false'
             ? ''
             : html`
-                <dds-masthead-contact></dds-masthead-contact>
+                <dds-masthead-contact trigger-label="${ifDefined(contactUsButton?.title)}"></dds-masthead-contact>
               `}
           ${hasProfile === 'false'
             ? ''
@@ -962,6 +987,14 @@ class DDSMastheadComposite extends LitElement {
                   )}
                 </dds-masthead-profile>
               `}
+          ${ctaButtons?.map(
+            ({ title, url }) =>
+              html`
+                <dds-masthead-button-cta href="${ifNonNull(url)}" kind="ghost">
+                  ${title}
+                </dds-masthead-button-cta>
+              `
+          )}
         </dds-masthead-global-bar>
         ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
         <dds-megamenu-overlay></dds-megamenu-overlay>

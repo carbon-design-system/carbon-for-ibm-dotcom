@@ -18,6 +18,7 @@
 @import 'carbon-web-components/scss/components/ui-shell/side-nav';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu';
 @import '../../globals/scss/box-sizing';
+@import '../cta/cta.scss';
 
 :host(#{$dds-prefix}-masthead-menu-button) {
   @extend :host(#{$prefix}-header-menu-button);
@@ -40,6 +41,37 @@
     @include carbon--breakpoint-down('md') {
       display: none;
     }
+  }
+}
+
+:host(#{$dds-prefix}-masthead-button-cta) {
+  @extend :host(#{$dds-prefix}-button-cta);
+
+  margin: 0;
+  padding-right: 0;
+
+  &.console .#{$prefix}--btn--ghost {
+    border-left: 1px solid $button-separator;
+    color: $link-02;
+  }
+
+  .#{$prefix}--btn {
+    padding: calc(0.875rem - 3px) carbon--rem(15px);
+  }
+
+  .#{$prefix}--btn--ghost {
+    color: $text-02;
+
+    &:hover,
+    &:focus {
+      color: $text-01;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-masthead-global-bar) ::slotted(#{$dds-prefix}-masthead-button-cta) {
+  @include carbon--breakpoint-down('md') {
+    display: none;
   }
 }
 
@@ -101,6 +133,8 @@
 
 :host(#{$dds-prefix}-masthead-global-bar) {
   @extend .#{$prefix}--header__global;
+
+  flex: none;
 
   &[has-search-active] {
     @include carbon--breakpoint-down('md') {
