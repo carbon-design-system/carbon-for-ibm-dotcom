@@ -32,6 +32,7 @@ import './masthead-logo';
 import './masthead-l1';
 import './masthead-l1-name';
 import './masthead-menu-button';
+import './masthead-contact';
 import './masthead-global-bar';
 import './masthead-profile';
 import './masthead-profile-item';
@@ -797,6 +798,12 @@ class DDSMastheadComposite extends LitElement {
   @property({ attribute: 'user-status' })
   userStatus = UNAUTHENTICATED_STATUS;
 
+  /**
+   * `true` if Contact us should be shown.
+   */
+  @property({ type: String, reflect: true, attribute: 'has-contact' })
+  hasContact = 'true';
+
   createRenderRoot() {
     // We render child elements of `<dds-masthead-container>` by ourselves
     return this;
@@ -857,6 +864,7 @@ class DDSMastheadComposite extends LitElement {
       unauthenticatedProfileItems,
       userStatus,
       l1Data,
+      hasContact,
     } = this;
     const authenticated = userStatus !== UNAUTHENTICATED_STATUS;
 
@@ -937,6 +945,11 @@ class DDSMastheadComposite extends LitElement {
               ></dds-search-with-typeahead>
             `}
         <dds-masthead-global-bar ?has-search-active=${activateSearch}>
+          ${hasContact === 'false'
+            ? ''
+            : html`
+                <dds-masthead-contact></dds-masthead-contact>
+              `}
           ${hasProfile === 'false'
             ? ''
             : html`

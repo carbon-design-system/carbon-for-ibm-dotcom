@@ -120,6 +120,7 @@
 }
 
 :host(#{$dds-prefix}-masthead-profile),
+:host(#{$dds-prefix}-masthead-contact),
 :host(#{$dds-prefix}-cloud-masthead-profile) {
   background-color: $ui-background;
   width: $spacing-09;
@@ -238,6 +239,7 @@
 :host(#{$dds-prefix}-top-nav-menu),
 :host(#{$dds-prefix}-megamenu-top-nav-menu),
 :host(#{$dds-prefix}-masthead-profile),
+:host(#{$dds-prefix}-masthead-contact),
 :host(#{$dds-prefix}-cloud-masthead-profile) {
   @extend :host(#{$prefix}-header-menu);
 
@@ -249,6 +251,7 @@
 
 :host(#{$dds-prefix}-top-nav-menu),
 :host(#{$dds-prefix}-masthead-profile),
+:host(#{$dds-prefix}-masthead-contact),
 :host(#{$dds-prefix}-cloud-masthead-profile) {
   .#{$prefix}--header__menu-title[aria-expanded='true'] + .#{$prefix}--header__menu {
     background-color: $ui-background;
