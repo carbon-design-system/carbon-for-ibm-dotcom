@@ -9,6 +9,8 @@
 
 import { customElement, property, query, html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { slow01 } from '@carbon/motion/es/index';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
@@ -27,7 +29,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 const animationTiming = Number(slow01.substring(0, slow01.indexOf('ms')));
 
 @customElement(`${ddsPrefix}-pricing-table`)
-class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
+class DDSPricingTable extends HostListenerMixin(StableSelectorMixin(DDSStructuredList)) {
   @property({ reflect: true, attribute: 'highlight-column' })
   highlightColumn?: number;
 
@@ -59,6 +61,11 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
    * Tracks whether the row is set to sticky.
    */
   public isSticky: boolean = false;
+
+  /**
+   * The width of the pricing table.
+   */
+  private _elementWidth?: number;
 
   /**
    * Node to track focus going outside of modal content.
@@ -165,9 +172,15 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
   private _createResizeObserver() {
     // TODO: Wait for `.d.ts` update to support `ResizeObserver`
     // @ts-ignore
-    this._resizeObserver = new ResizeObserver(() => {
-      this._cleanIntersectionObservers();
-      this._createIntersectionObservers();
+    this._resizeObserver = new ResizeObserver(entries => {
+      entries.forEach(entry => {
+        // Only reset intersection observers when element width changes.
+        if (this._elementWidth !== entry.contentRect.width) {
+          this._elementWidth = entry.contentRect.width;
+          this._cleanIntersectionObservers();
+          this._createIntersectionObservers();
+        }
+      });
     });
     this._resizeObserver.observe(this);
   }
@@ -198,7 +211,20 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
           entries.forEach(entry => {
             const { isIntersecting, boundingClientRect } = entry;
 
-            if (!isIntersecting && boundingClientRect.top <= stuckElementsHeight && !this.isSticky) {
+            const bottomOfHeaderIsWithinViewport = () => {
+              const headerBottomPosition =
+                (this.headerRow as DDSPricingTableHeaderRow).getBoundingClientRect().bottom + window.scrollY;
+              const windowBottomPosition = window.innerHeight + window.scrollY;
+
+              return headerBottomPosition < windowBottomPosition;
+            };
+
+            if (
+              !isIntersecting &&
+              boundingClientRect.top <= stuckElementsHeight &&
+              !this.isSticky &&
+              bottomOfHeaderIsWithinViewport()
+            ) {
               this._setSticky(true);
             } else if (isIntersecting && this.isSticky) {
               this._setSticky(false);
@@ -333,6 +359,26 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
     }
   }
 
+  /**
+   * Collect and store references to current header elements.
+   */
+  protected _getHeaderElements() {
+    this.head = undefined;
+    this.headerRow = undefined;
+    this.headerCells = undefined;
+
+    const head = this.querySelector(`${ddsPrefix}-pricing-table-head`);
+    if (head instanceof DDSPricingTableHead) {
+      this.head = head;
+    }
+
+    const headerRow = head?.querySelector(`${ddsPrefix}-pricing-table-header-row`);
+    if (headerRow instanceof DDSPricingTableHeaderRow) {
+      this.headerRow = headerRow;
+      this.headerCells = Array.from(headerRow.children) as DDSPricingTableHeaderCell[];
+    }
+  }
+
   protected _renderHighlightLabel(): DDSPricingTableHighlightLabel {
     const { highlightLabel } = this;
     const element = this.ownerDocument.createElement(
@@ -377,19 +423,21 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
       });
   }
 
+  /**
+   * Host listener for updating header element references when cells are
+   * updated.
+   *
+   * @protected
+   */
+  @HostListener('document:eventHeaderRowSlotchange')
+  protected _handleHeaderRowSlotChange = () => {
+    this._getHeaderElements();
+  };
+
   updated(): void {
     const { highlightColumn } = this;
 
-    const head = this.querySelector(`${ddsPrefix}-pricing-table-head`);
-    if (head instanceof DDSPricingTableHead) {
-      this.head = head;
-    }
-
-    const headerRow = head?.querySelector(`${ddsPrefix}-pricing-table-header-row`);
-    if (headerRow instanceof DDSPricingTableHeaderRow) {
-      this.headerRow = headerRow;
-      this.headerCells = Array.from(headerRow.children) as DDSPricingTableHeaderCell[];
-    }
+    this._getHeaderElements();
 
     if (highlightColumn) {
       this._unhighlightCells(
@@ -444,6 +492,13 @@ class DDSPricingTable extends StableSelectorMixin(DDSStructuredList) {
 
   static get cellStickyClass() {
     return `${prefix}--pricing-table-header-cell--sticky`;
+  }
+
+  /**
+   * The name of the custom event captured when the header row's slot changes.
+   */
+  static get eventHeaderRowSlotchange() {
+    return DDSPricingTableHeaderRow.eventSlotChange;
   }
 
   static styles = styles;
