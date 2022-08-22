@@ -19,6 +19,11 @@ import getSimpleStorySort from './get-simple-story-sort';
 
 import containerStyles from './container.scss'; // eslint-disable-line import/first
 
+import { setCustomElements } from '@storybook/web-components';
+import customElementsMetadata from '../custom-elements.json';
+
+setCustomElements(customElementsMetadata);
+
 export const parameters = {
   layout: 'fullscreen',
   options: {
