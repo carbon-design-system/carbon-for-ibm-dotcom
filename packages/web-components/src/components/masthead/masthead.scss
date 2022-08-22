@@ -60,11 +60,12 @@
   }
 
   .#{$prefix}--btn--ghost {
-    color: $text-02;
+    color: $link-01;
+    @include carbon--type-style('body-short-02');
 
     &:hover,
     &:focus {
-      color: $text-01;
+      color: $link-02;
     }
   }
 }
@@ -161,6 +162,7 @@
   a.#{$prefix}--header__menu-item {
     @include masthead-top-nav-link;
 
+    color: $icon-01;
     justify-content: center;
     padding: 0;
   }
