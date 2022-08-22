@@ -86,7 +86,7 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@carbon/icons-react": "10.49.0",
-    "@carbon/pictograms-react": "11.29.0",
+    "@carbon/pictograms-react": "11.30.0",
     "@carbon/storybook-addon-theme": "1.28.0",
     "@percy-io/in-percy": "^0.1.11",
     "@percy/cli": "^1.0.5",
