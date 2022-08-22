@@ -245,8 +245,13 @@
     padding: 6px $spacing-05;
     display: block;
 
+    &:visited {
+      color: $text-02;
+    }
+
     &:hover,
-    &:active {
+    &:active,
+    &:hover:visited {
       color: $text-01;
     }
   }
@@ -257,16 +262,14 @@
 
     width: 100%;
 
+    a {
+      width: 100%;
+      padding: 7px $spacing-05;
+    }
+
     span {
       flex: inherit;
     }
-  }
-
-  .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
-  :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-sublink']
-    a {
-    width: 100%;
-    padding: 7px $spacing-05;
   }
 
   :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='view-all'],

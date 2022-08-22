@@ -28,6 +28,7 @@ import { UNAUTHENTICATED_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
 import { DDS_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
 import './masthead';
+import './masthead-button-cta';
 import './masthead-logo';
 import './masthead-l1';
 import './masthead-l1-name';
@@ -39,10 +40,14 @@ import './megamenu';
 import './megamenu-top-nav-menu';
 import './megamenu-left-navigation';
 import './megamenu-category-link';
+import './megamenu-category-link-group';
 import './megamenu-category-group';
 import './megamenu-category-group-copy';
+import './megamenu-category-heading';
 import './megamenu-link-with-icon';
 import './megamenu-overlay';
+import './megamenu-tab';
+import './megamenu-tabs';
 import './skip-to-content';
 import './top-nav';
 import './top-nav-l1';
@@ -169,7 +174,7 @@ class DDSMastheadComposite extends LitElement {
     if (_megamenuRenderMap.has(layout)) {
       return (_megamenuRenderMap.get(layout) as Function)(sections, _parentKey);
     }
-    return this._renderMegaMenuTabbed(sections, _parentKey);
+    return this._renderMegaMenuListing(sections, _parentKey);
   }
 
   /**
@@ -193,45 +198,45 @@ class DDSMastheadComposite extends LitElement {
     });
 
     return html`
-      <dds-cloud-megamenu>
-        <dds-cloud-megamenu-left-navigation
+      <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.TAB}">
+        <dds-megamenu-left-navigation
           view-all-href="${ifNonNull(viewAllLink?.url)}"
           view-all-title="${ifNonNull(viewAllLink?.title)}"
         >
-          <dds-cloud-megamenu-tabs value="${sortedMenuItems[0]?.title}">
+          <dds-megamenu-tabs value="${sortedMenuItems[0]?.title}">
             ${sortedMenuItems.map(item => {
               return html`
-                <dds-cloud-megamenu-tab id="tab-${item.itemKey}" target="panel-${item.itemKey}" value="${item.title}"
-                  >${item.title}</dds-cloud-megamenu-tab
+                <dds-megamenu-tab id="tab-${item.itemKey}" target="panel-${item.itemKey}" value="${item.title}"
+                  >${item.title}</dds-megamenu-tab
                 >
               `;
             })}
-          </dds-cloud-megamenu-tabs>
-        </dds-cloud-megamenu-left-navigation>
-        <dds-cloud-megamenu-right-navigation>
+          </dds-megamenu-tabs>
+        </dds-megamenu-left-navigation>
+        <dds-megamenu-right-navigation data-foo="bar" style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB}">
           ${sortedMenuItems.map(item => {
             return html`
               <div id="panel-${item.itemKey}" role="tabpanel" aria-labelledby="tab-${item.itemKey}" hidden>
-                <dds-cloud-megamenu-category-heading
+                <dds-megamenu-category-heading
                   href="${item.megapanelContent?.headingUrl}"
                   title="${item.megapanelContent?.headingTitle}"
-                  >${item.megapanelContent?.description}</dds-cloud-megamenu-category-heading
+                  >${item.megapanelContent?.description}</dds-megamenu-category-heading
                 >
-                <dds-cloud-megamenu-category-link-group>
+                <dds-megamenu-category-link-group>
                   ${item?.megapanelContent?.quickLinks?.links.map(
                     link =>
                       html`
-                        <dds-cloud-megamenu-category-link href="${link.url}" title="${link.title}"
-                          >${link.description}</dds-cloud-megamenu-category-link
+                        <dds-megamenu-category-link href="${link.url}" title="${link.title}"
+                          >${link.description}</dds-megamenu-category-link
                         >
                       `
                   )}
-                </dds-cloud-megamenu-category-link-group>
+                </dds-megamenu-category-link-group>
               </div>
             `;
           })}
-        </dds-cloud-megamenu-right-navigation>
-      </dds-cloud-megamenu>
+        </dds-megamenu-right-navigation>
+      </dds-megamenu>
     `;
   }
 
@@ -246,7 +251,7 @@ class DDSMastheadComposite extends LitElement {
     const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
     const hasHighlights = highlightedItems.length !== 0;
     return html`
-      <dds-megamenu>
+      <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.LIST}">
         ${hasHighlights
           ? html`
               <dds-megamenu-left-navigation>

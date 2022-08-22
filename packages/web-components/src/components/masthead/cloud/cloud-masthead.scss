@@ -95,7 +95,8 @@
     bottom: 0;
     width: 100%;
     height: carbon--rem(48px);
-    background: linear-gradient(rgba(255, 255, 255, 0.001), $ui-background); /* transparent keyword is broken in Safari */
+    background: linear-gradient(rgba(255, 255, 255, 0.001), $ui-background);
+    /* transparent keyword is broken in Safari */
   }
 
   .#{$prefix}--masthead__megamenu__container {
@@ -208,7 +209,7 @@
     p {
       @include carbon--type-style('expressive-heading-01');
 
-      color: $text-02;
+      color: $text-01;
     }
 
     span {
@@ -234,7 +235,7 @@
 :host(#{$dds-prefix}-cloud-megamenu-category-heading) {
   display: block;
   padding: 0 $spacing-05;
-  margin-bottom: $spacing-06;
+  margin-bottom: $spacing-07;
   width: 66.66%;
 
   @include carbon--breakpoint('lg') {
@@ -242,20 +243,18 @@
   }
 
   h2 {
-    @include carbon--type-style(heading-03, true);
-
     display: flex;
     margin-bottom: $spacing-03;
 
     a {
-      color: $text-02;
+      color: $text-01;
       text-decoration: none;
       align-self: center;
 
       svg {
         margin: 0 $spacing-03;
         padding-top: $spacing-02;
-        fill: $text-02;
+        fill: $link-01;
 
         /* stylelint-disable-next-line comment-whitespace-inside */
         /*!rtl:raw:
@@ -265,6 +264,10 @@
 
       &:hover {
         text-decoration: underline;
+
+        svg {
+          fill: $hover-primary-text;
+        }
       }
 
       &:focus {

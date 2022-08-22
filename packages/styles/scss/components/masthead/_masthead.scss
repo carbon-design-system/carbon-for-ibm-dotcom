@@ -173,6 +173,7 @@ $search-transition-timing: 95ms;
   :host(#{$dds-prefix}-cloud-masthead-container) {
     z-index: 900;
     padding-top: $carbon--layout-04;
+    position: relative;
   }
 
   .#{$prefix}--masthead,
@@ -216,10 +217,6 @@ $search-transition-timing: 95ms;
     visibility: visible;
     opacity: 1;
     height: 100vh;
-  }
-
-  :host(#{$dds-prefix}-megamenu-link-with-icon) {
-    @extend .#{$prefix}--link-with-icon;
   }
 
   .#{$prefix}--masthead--sticky.#{$prefix}--masthead--sticky__l1 {

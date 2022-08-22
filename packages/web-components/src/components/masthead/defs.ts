@@ -45,6 +45,11 @@ export enum MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME {
    * For left (highlighted) section layout.
    */
   LEFT_SECTION = 'left-section',
+
+  /**
+   * For tabbed megamenus.
+   */
+  TAB = 'tab',
 }
 
 /**
