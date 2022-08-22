@@ -6,6 +6,10 @@
 
 ```
 <div class="bx--tabs-extended-media">
+  <div class="bx--heading">
+    <slot name="heading">
+    </slot>
+  </div>
   <div class="bx--tabs-extended">
     <ul class="bx--accordion">
     </ul>
@@ -29,6 +33,10 @@
 
 ```
 <div class="bx--tabs-extended-media">
+  <div class="bx--heading">
+    <slot name="heading">
+    </slot>
+  </div>
   <div class="bx--tabs-extended">
     <ul class="bx--accordion">
     </ul>
