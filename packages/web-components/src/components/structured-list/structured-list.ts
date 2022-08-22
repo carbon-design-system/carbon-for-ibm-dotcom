@@ -16,6 +16,11 @@ import styles from './structured-list.scss';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
 
+/**
+ * StructuredList
+ *
+ * @element dds-structured-list
+ */
 @customElement(`${ddsPrefix}-structured-list`)
 class DDSStructuredList extends StableSelectorMixin(LitElement) {
   private _listMutationObserver = new MutationObserver(this._setColumnSpans.bind(this));
@@ -67,4 +72,5 @@ class DDSStructuredList extends StableSelectorMixin(LitElement) {
   static styles = styles;
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSStructuredList;

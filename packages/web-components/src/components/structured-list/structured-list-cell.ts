@@ -18,6 +18,11 @@ import styles from './structured-list.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+/**
+ * StructuredListCell
+ *
+ * @element dds-structured-list-cell
+ */
 @customElement(`${ddsPrefix}-structured-list-cell`)
 class DDSStructuredListCell extends BXStructuredListCell {
   parentGroup: DDSStructuredListGroup | null = this.closest(`${ddsPrefix}-structured-list-group`);
@@ -92,4 +97,5 @@ class DDSStructuredListCell extends BXStructuredListCell {
   static styles = styles;
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSStructuredListCell;

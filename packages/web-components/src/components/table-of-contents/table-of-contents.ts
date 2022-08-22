@@ -171,7 +171,7 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
    * The Element.tagName values that should never be used as a TOC target.
    * Typically added here because these elements have their own `[name]` attribute.
    */
-  private _tagNamesToAvoid = [`${ddsPrefix}-VIDEO-PLAYER`];
+  private _tagNamesToAvoid = [`${ddsPrefix}-video-player`];
 
   /**
    * Boolean checking if page is RTL
@@ -333,15 +333,14 @@ class DDSTableOfContents extends HostListenerMixin(StableSelectorMixin(LitElemen
     this._targets = nodes.reduce((acc, node) => {
       if (node instanceof HTMLElement) {
         const descendants = node.querySelectorAll(selectorTarget) as NodeListOf<HTMLElement>;
-        const elems = [node, ...descendants].filter(
-          elem =>
-            // has inner text
-            elem.innerText.match(/[^\s\n\r]/g) &&
-            // has `name` attribute
-            elem.matches(selectorTarget) &&
-            // isn't explicity excluded
-            !tagNamesToAvoid.includes(elem.tagName)
-        );
+        const elems = [node, ...descendants].filter(elem => {
+          const notWhiteSpace = /[^\s\n\r]/g;
+          const hasTitle = elem.innerText.match(notWhiteSpace) || elem.dataset.title?.match(notWhiteSpace);
+          const hasNameAttr = elem.matches(selectorTarget);
+          const notExcluded = !tagNamesToAvoid.includes(elem.tagName.toLowerCase());
+
+          return hasTitle && hasNameAttr && notExcluded;
+        });
 
         acc.push(...(elems as HTMLElement[]));
       }
