@@ -27,7 +27,7 @@ class DDSTabsExtendedMedia extends DDSTabsExtended {
    * `true` if section heading should be shown.
    */
   @property({ attribute: 'section-heading', reflect: true })
-  sectionHeading = 'false';
+  sectionHeading = 'true';
 
   render() {
     return html`
