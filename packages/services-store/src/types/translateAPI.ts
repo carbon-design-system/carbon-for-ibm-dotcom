@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -235,7 +235,7 @@ export interface TranslateAPIState {
   /**
    * The requests for the translation data, keyed by the language.
    */
-  requestsTranslation?: { [language: string]: Promise<Translation> };
+  requestsTranslation?: { [language: string]: Promise<Translation> | string; endpoint: string };
 
   /**
    * The status of whether requests for the translation data are in progress, keyed by the language.

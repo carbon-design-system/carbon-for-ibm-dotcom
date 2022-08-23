@@ -835,7 +835,7 @@ class DDSMastheadComposite extends LitElement {
   }
 
   updated(changedProperties) {
-    if (changedProperties.has('language')) {
+    if (changedProperties.has('language') || changedProperties.has('dataEndpoint')) {
       const { language, dataEndpoint } = this;
       if (language) {
         this._setLanguage?.(language);
