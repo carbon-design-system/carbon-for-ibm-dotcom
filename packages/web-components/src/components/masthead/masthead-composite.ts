@@ -615,7 +615,7 @@ class DDSMastheadComposite extends LitElement {
    *
    * @internal
    */
-  _loadUserStatus?: () => void;
+  _loadUserStatus?: (authMethod?: string) => void;
 
   /**
    * The placeholder for `setLanguage()` Redux action that will be mixed in.
@@ -816,6 +816,12 @@ class DDSMastheadComposite extends LitElement {
   @property({ type: String, reflect: true, attribute: 'has-contact' })
   hasContact = 'true';
 
+  /**
+   * The selected authentication method, either 'cookie' or 'api'.
+   */
+  @property({ attribute: 'auth-method' })
+  authMethod = 'profile-api';
+
   createRenderRoot() {
     // We render child elements of `<dds-masthead-container>` by ourselves
     return this;
@@ -828,7 +834,7 @@ class DDSMastheadComposite extends LitElement {
       this._setLanguage?.(language);
     }
     this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
-    this._loadUserStatus?.();
+    this._loadUserStatus?.(this.authMethod);
 
     // This is a temp fix until we figure out why we can't set styles to the :host(dds-masthead-container) in stylesheets
     this.style.zIndex = '900';
