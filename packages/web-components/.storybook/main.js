@@ -69,11 +69,6 @@ module.exports = {
       ],
     };
 
-    // TODO: remove if percy doesn't change
-    config.performance = {
-      maxAssetSize: 1024 * 1024,
-    };
-
     // Uses our own option for `@babel/preset-env`
     config.module.rules = deepReplace(
       config.module.rules,
