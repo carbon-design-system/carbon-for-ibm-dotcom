@@ -3,11 +3,12 @@
 
 
 "@actions/core@^1.2.0":
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/@actions/core/-/core-1.6.0.tgz#0568e47039bfb6a9170393a73f3b7eb3b22462cb"
-  integrity sha512-NB1UAZomZlCV/LmJqkLhNTqtKfFXJZAUPcfl/zqG7EfsQdeUJtaWO98SGbuQ3pydJ3fHl2CvI/51OKYlCYYcaw==
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/@actions/core/-/core-1.9.1.tgz#97c0201b1f9856df4f7c3a375cdcdb0c2a2f750b"
+  integrity sha512-5ad+U2YGrmmiw6du20AQW5XuWo7UKN2052FjSV7MX+Wfjf8sCqcsZe62NfgHys4QI4/Y+vQvLKYL8jWtA1ZBTA==
   dependencies:
-    "@actions/http-client" "^1.0.11"
+    "@actions/http-client" "^2.0.1"
+    uuid "^8.3.2"
 
 "@actions/core@^1.2.3":
   version "1.8.0"
@@ -36,6 +37,13 @@
   integrity sha512-G4JjJ6f9Hb3Zvejj+ewLLKLf99ZC+9v+yCxoYf9vSyH+WkzPLB2LuUtRMGNkooMqdugGBFStIKXOuvH1W+EctA==
   dependencies:
     tunnel "0.0.6"
+
+"@actions/http-client@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@actions/http-client/-/http-client-2.0.1.tgz#873f4ca98fe32f6839462a6f046332677322f99c"
+  integrity sha512-PIXiMVtz6VvyaRsGY268qvj57hXQEpsYogYOu2nrQhlf+XCGmZstmuZBbAybUl1nQGnvS1k1eEsQ69ZoD7xlSw==
+  dependencies:
+    tunnel "^0.0.6"
 
 "@actions/io@^1.0.1":
   version "1.0.2"
@@ -1468,10 +1476,10 @@
   resolved "https://registry.yarnpkg.com/@carbon/motion/-/motion-11.0.0.tgz#2a6e4175ac0a29e9b9a9a83750deae46a0eeedb3"
   integrity sha512-3KYZJEALeYq99EF/LyIbfa8NvkWeZAeAjlqlYGmCCs8rDihaX97NQ4QgfMT9kwzjD/3sEjV5CTmvI2CJJw0RfA==
 
-"@carbon/pictograms-react@11.29.0":
-  version "11.29.0"
-  resolved "https://registry.yarnpkg.com/@carbon/pictograms-react/-/pictograms-react-11.29.0.tgz#89673e8f349e546601bbb83c97cafee1bab5fb4b"
-  integrity sha512-CnnbFVFuE8OmUzCnq0Ewqg/eAC2HQpO8qxWJq9tKaoq6p6NReE0U4JGhpFz4PKsZznmauTaatS5R10avIBOHPQ==
+"@carbon/pictograms-react@11.30.0":
+  version "11.30.0"
+  resolved "https://registry.yarnpkg.com/@carbon/pictograms-react/-/pictograms-react-11.30.0.tgz#8b75fe9619a8fe4524c1fe73b8cde4f84d0b83ec"
+  integrity sha512-cRVCqqD6Y2rBBMwvqKzuexVVZeEPEUfq+t6ATa+cbQOhxh4Yj1ZZr6r+FxKn4yvcb0D0LwjqC0/ThvxeYglcYw==
   dependencies:
     "@carbon/icon-helpers" "^10.32.0"
     "@carbon/telemetry" "0.1.0"
@@ -23044,7 +23052,7 @@ tunnel-agent@~0.4.1:
   resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.4.3.tgz#6373db76909fe570e08d73583365ed828a74eeeb"
   integrity sha1-Y3PbdpCf5XDgjXNYM2Xtgop07us=
 
-tunnel@0.0.6:
+tunnel@0.0.6, tunnel@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/tunnel/-/tunnel-0.0.6.tgz#72f1314b34a5b192db012324df2cc587ca47f92c"
   integrity sha512-1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg==
