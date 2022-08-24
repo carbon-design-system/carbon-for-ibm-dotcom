@@ -569,7 +569,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
       <div role="region" aria-labelledby="carousel-title">
         <div id="carousel-title">
           <slot name="title">
-            <span class="bx--visually-hidden" aria-hidden="true">Carousel</span>
+            <span class="bx--visually-hidden">Carousel</span>
           </slot>
         </div>
         <div
