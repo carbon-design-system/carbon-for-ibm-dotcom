@@ -15,14 +15,14 @@ import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports,import/no-duplicates
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
-import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
+// import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const image = html`
   <dds-callout-with-media-image
     alt="Image alt text"
-    default-src="${imgLg16x9}"
+    default-src="https://dummyimage.com/600x400/000/fff"
     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   >
   </dds-callout-with-media-image>

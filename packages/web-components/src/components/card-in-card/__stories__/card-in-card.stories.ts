@@ -17,9 +17,9 @@ import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { boolean } from '@storybook/addon-knobs';
 
-import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
-import imgMd16x9 from '../../../../../storybook-images/assets/960/fpo--16x9--960x540--005.jpg';
-import imgSm4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
+// import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
+// import imgMd16x9 from '../../../../../storybook-images/assets/960/fpo--16x9--960x540--005.jpg';
+// import imgSm4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
 
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -39,9 +39,9 @@ export const Default = args => {
   return html`
     <dds-card-in-card href=${ifNonNull(href || undefined)}>
       <dds-card-in-card-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
-        <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}"> </dds-image-item>
-        <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}"> </dds-image-item>
-        <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}"> </dds-image-item>
+        <dds-image-item media="(min-width: 1312px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
+        <dds-image-item media="(min-width: 672px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
+        <dds-image-item media="(min-width: 320px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
       </dds-card-in-card-image>
       <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
       <dds-card-heading>${heading}</dds-card-heading>
@@ -72,7 +72,7 @@ export default {
       'dds-card-in-card': () => {
         const video = boolean('video', false);
         const alt = video ? undefined : textNullable('Image alt text (alt):', 'Image alt text');
-        const defaultSrc = video ? undefined : textNullable('Image src (defaultSrc):', imgSm4x3);
+        const defaultSrc = video ? undefined : textNullable('Image src (defaultSrc):', 'https://dummyimage.com/600x400/000/fff');
         const heading = video
           ? undefined
           : textNullable('Card Heading (heading):', 'Standard Bank Group prepares to embrace Africa’s AI opportunity');
@@ -92,7 +92,7 @@ export default {
         'dds-card-in-card': {
           video: false,
           alt: 'Image alt text',
-          defaultSrc: imgSm4x3,
+          defaultSrc: 'https://dummyimage.com/600x400/000/fff',
           heading: 'Standard Bank Group prepares to embrace Africa’s AI opportunity',
           href: 'https://example.com',
           eyebrow: 'Label',

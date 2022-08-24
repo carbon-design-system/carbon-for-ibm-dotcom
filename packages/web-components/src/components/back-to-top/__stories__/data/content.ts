@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -7,8 +7,8 @@
 
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import imgLg1x1 from '../../../../../../storybook-images/assets/960/fpo--1x1--960x960--006.jpg';
-import leadspaceImg from '../../../../../../storybook-images/assets/leadspace/leadspaceMax2.jpg';
+// import imgLg1x1 from '../../../../../../storybook-images/assets/960/fpo--1x1--960x960--006.jpg';
+// import leadspaceImg from '../../../../../../storybook-images/assets/leadspace/leadspaceMax2.jpg';
 
 const copy = `Many organizations are engaging in open source technology to optimize their Linux environment.
 The ability to integrate open systems with traditional or hybrid cloud IT infrastructure has a profound effect
@@ -21,7 +21,7 @@ const StoryContent = () =>
       size="medium"
       gradient-style-scheme=""
       alt="Image alt text"
-      default-src="${leadspaceImg}"
+      default-src="https://dummyimage.com/600x400/000/fff"
       data-autoid="dds--leadspace"
     >
       <dds-leadspace-heading role="heading" aria-level="1" slot="heading"
@@ -59,9 +59,14 @@ const StoryContent = () =>
             <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path></svg
         ></dds-button-group-item>
       </dds-button-group>
-      <dds-leadspace-image slot="image" alt="Image alt text" default-src="${leadspaceImg}" data-autoid="dds--image">
-        <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
-        <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
+      <dds-leadspace-image
+        slot="image"
+        alt="Image alt text"
+        default-src="https://dummyimage.com/600x400/000/fff"
+        data-autoid="dds--image"
+      >
+        <dds-image-item media="(min-width: 672px)" srcset="https://dummyimage.com/600x400/000/fff"></dds-image-item>
+        <dds-image-item media="(min-width: 0)" srcset="https://dummyimage.com/600x400/000/fff"></dds-image-item>
       </dds-leadspace-image>
     </dds-leadspace>
     <main>
@@ -148,7 +153,7 @@ const StoryContent = () =>
             <dds-content-group-simple>
               <dds-content-group-heading>See how it works</dds-content-group-heading>
               <dds-feature-card href="https://example.com">
-                <dds-image slot="image" alt="Feature card image" default-src="${imgLg1x1}"></dds-image>
+                <dds-image slot="image" alt="Feature card image" default-src="https://dummyimage.com/600x400/000/fff"></dds-image>
                 <dds-card-heading
                   >Discover how innovative companies are using open source technology to ignite collaboration</dds-card-heading
                 >

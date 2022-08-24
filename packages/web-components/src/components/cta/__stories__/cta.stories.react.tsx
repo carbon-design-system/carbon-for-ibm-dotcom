@@ -28,7 +28,7 @@ import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components
 import readme from './README.stories.react.mdx';
 import { hrefsForType, knobNamesForType, footerKnobNamesForType, typeOptions, types } from './ctaTypeConfig';
 import { CTA_TYPE } from '../defs';
-import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
+// import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
 
 export const Text = args => {
   const { copy, ctaType, download, href, customVideoTitle, customVideoDescription } = args?.TextCTA ?? {};
@@ -239,7 +239,7 @@ export const Feature = args => {
       download={download || undefined}
       href={href || undefined}>
       <DDSCardHeading>{heading}</DDSCardHeading>
-      <DDSImage slot="image" alt="Image alt text" default-src={imgLg1x1} />
+      <DDSImage slot="image" alt="Image alt text" default-src="https://dummyimage.com/600x400/000/fff" />
       <DDSFeatureCTAFooter
         cta-type={ctaType || undefined}
         video-name={customVideoTitle || undefined}

@@ -17,17 +17,17 @@ import '../index';
 import styles from './lightbox-media-viewer.stories.scss';
 import readme from './README.stories.mdx';
 
-import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--002.jpg';
-import imgXlg2x1 from '../../../../../storybook-images/assets/1312/fpo--2x1--1312x656--002.jpg';
-import imgMax16x9 from '../../../../../storybook-images/assets/1584/fpo--16x9--1312x738--002.jpg';
-import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
+// import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--002.jpg';
+// import imgXlg2x1 from '../../../../../storybook-images/assets/1312/fpo--2x1--1312x656--002.jpg';
+// import imgMax16x9 from '../../../../../storybook-images/assets/1584/fpo--16x9--1312x738--002.jpg';
+// import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 
 const images = {
   none: null,
-  '720 x 720 (1:1)': imgLg1x1,
-  '1312 x 656 (2:1)': imgXlg2x1,
-  '1312 x 738 (16:9)': imgXlg16x9,
-  '1584 x 738 (16:9)': imgMax16x9,
+  '720 x 720 (1:1)': 'https://dummyimage.com/600x400/000/fff',
+  '1312 x 656 (2:1)': 'https://dummyimage.com/600x400/000/fff',
+  '1312 x 738 (16:9)': 'https://dummyimage.com/600x400/000/fff',
+  '1584 x 738 (16:9)': 'https://dummyimage.com/600x400/000/fff',
 };
 
 const videos = {
@@ -92,7 +92,7 @@ Default.story = {
       default: {
         LightboxMedia: {
           alt: 'Image alt text',
-          defaultSrc: imgXlg2x1,
+          defaultSrc: 'https://dummyimage.com/600x400/000/fff',
           description: `
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.

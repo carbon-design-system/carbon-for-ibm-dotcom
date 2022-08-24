@@ -16,10 +16,10 @@ import { html } from 'lit-element';
 import { select, number, boolean } from '@storybook/addon-knobs';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 // eslint-disable-next-line sort-imports
-import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
-import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
-import imgMd16x9 from '../../../../../storybook-images/assets/960/fpo--16x9--960x540--005.jpg';
-import imgSm4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
+// import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
+// import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
+// import imgMd16x9 from '../../../../../storybook-images/assets/960/fpo--16x9--960x540--005.jpg';
+// import imgSm4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
 import { GRID_MODE } from '../defs';
 import styles from './card-group.stories.scss';
 
@@ -69,7 +69,7 @@ const textCTAContent = html`
 `;
 
 const imageContent = html`
-  <dds-card-cta-image slot="image" alt="Image Alt Text" default-src="${imgXlg4x3}"></dds-card-cta-image>
+  <dds-card-cta-image slot="image" alt="Image Alt Text" default-src="https://dummyimage.com/600x400/000/fff"></dds-card-cta-image>
 `;
 
 const cardsDiffLengthPhrase = (index, tagGroup, media, gridMode, cardType, addCta) => {
@@ -289,10 +289,10 @@ export const withCardInCard = args => {
   return html`
     <dds-video-cta-container>
       <dds-card-in-card href="https://example.com" cta-type="local" grid-mode="${ifNonNull(gridMode)}">
-        <dds-card-in-card-image slot="image" alt="Image alt text" default-src="${imgSm4x3}">
-          <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}"> </dds-image-item>
-          <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}"> </dds-image-item>
-          <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}"> </dds-image-item>
+        <dds-card-in-card-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/600x400/000/fff">
+          <dds-image-item media="(min-width: 1312px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
+          <dds-image-item media="(min-width: 672px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
+          <dds-image-item media="(min-width: 320px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
         </dds-card-in-card-image>
         <dds-card-eyebrow>Label</dds-card-eyebrow>
         <dds-card-heading>Standard Bank Group prepares to embrace Africa’s AI opportunity</dds-card-heading>

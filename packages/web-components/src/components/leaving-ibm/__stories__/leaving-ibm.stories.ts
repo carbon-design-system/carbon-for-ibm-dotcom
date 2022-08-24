@@ -11,7 +11,7 @@ import { html } from 'lit-element';
 import { text, select } from '@storybook/addon-knobs';
 import Launch20 from 'carbon-web-components/es/icons/launch/20.js';
 import styles from './leaving-ibm.stories.scss';
-import mediumImgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
+// import mediumImgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
 import '../index';
 
 import readme from './README.stories.mdx';
@@ -51,7 +51,7 @@ export const Default = args => {
     ${ctaType === 'Feature Card'
       ? html`
           <dds-feature-card href="${href}" data-leaving-ibm>
-            <dds-image slot="image" alt="Image alt text" default-src="${mediumImgLg1x1}"></dds-image>
+            <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/600x400/000/fff"></dds-image>
             <dds-card-heading>${ctaText}</dds-card-heading>
             <dds-feature-card-footer>
               ${Launch20({ slot: 'icon' })}

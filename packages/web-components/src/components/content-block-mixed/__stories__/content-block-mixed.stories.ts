@@ -17,9 +17,9 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
-import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
-import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--001.jpg';
-import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--001.jpg';
+// import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
+// import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--001.jpg';
+// import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--001.jpg';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import styles from './content-block-mixed.stories.scss';
@@ -66,10 +66,15 @@ const complementaryStyleSchemes = {
 };
 
 const image = ({ heading: imageHeading } = { heading: undefined }) => html`
-  <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="${ifNonNull(imageHeading)}">
-    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
-    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
-    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
+  <dds-image
+    slot="media"
+    alt="Image alt text"
+    default-src="https://dummyimage.com/600x400/000/fff"
+    heading="${ifNonNull(imageHeading)}"
+  >
+    <dds-image-item media="(min-width: 672px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
+    <dds-image-item media="(min-width: 400px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
   </dds-image>
 `;
 

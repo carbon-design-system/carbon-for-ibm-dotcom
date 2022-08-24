@@ -11,7 +11,7 @@ import { html } from 'lit-element';
 import { boolean } from '@storybook/addon-knobs';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
-import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--005.jpg';
+// import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--005.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
 
@@ -20,7 +20,7 @@ const cardGroupItems = withImages => {
     <dds-card-group-item href="https://example.com" cta-type="local">
       ${withImages
         ? html`
-            <dds-image slot="image" alt="Image alt text" default-src="${imgLg4x3}"> </dds-image>
+            <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/600x400/000/fff"> </dds-image>
           `
         : ''}
       <dds-card-eyebrow>Topic</dds-card-eyebrow>

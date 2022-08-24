@@ -12,23 +12,31 @@ import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select, boolean } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports
-import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
-import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
-import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--005.jpg';
-import imgMd2x1 from '../../../../../storybook-images/assets/480/fpo--2x1--480x240--005.jpg';
-import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--005.jpg';
-import imgSm2x1 from '../../../../../storybook-images/assets/320/fpo--2x1--320x160--005.jpg';
+// import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
+// import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
+// import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--005.jpg';
+// import imgMd2x1 from '../../../../../storybook-images/assets/480/fpo--2x1--480x240--005.jpg';
+// import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--005.jpg';
+// import imgSm2x1 from '../../../../../storybook-images/assets/320/fpo--2x1--320x160--005.jpg';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const images = {
-  '2:1': imgLg2x1,
-  '16:9': imgLg16x9,
+  '2:1': 'https://dummyimage.com/600x400/000/fff',
+  '16:9': 'https://dummyimage.com/600x400/000/fff',
 };
 
 const srcsets = {
-  '2:1': [imgSm2x1, imgMd2x1, imgLg2x1],
-  '16:9': [imgSm16x9, imgMd16x9, imgLg16x9],
+  '2:1': [
+    'https://dummyimage.com/600x400/000/fff',
+    'https://dummyimage.com/600x400/000/fff',
+    'https://dummyimage.com/600x400/000/fff',
+  ],
+  '16:9': [
+    'https://dummyimage.com/600x400/000/fff',
+    'https://dummyimage.com/600x400/000/fff',
+    'https://dummyimage.com/600x400/000/fff',
+  ],
 };
 
 export const Default = args => {
@@ -75,7 +83,7 @@ export default {
     knobs: {
       'dds-image': () => ({
         alt: textNullable('Alt text', 'Image alt text'),
-        defaultSrc: select('Default image (default-src)', images, imgLg2x1),
+        defaultSrc: select('Default image (default-src)', images, 'https://dummyimage.com/600x400/000/fff'),
         lightbox: boolean('Lightbox (lightbox)', false),
         border: boolean('Border', false),
         copy: textNullable('Copy (copy)', 'Lorem ipsum dolor sit amet'),
@@ -86,7 +94,7 @@ export default {
       default: {
         'dds-image': {
           alt: 'Image alt text',
-          defaultSrc: imgLg2x1,
+          defaultSrc: 'https://dummyimage.com/600x400/000/fff',
           border: false,
           lightbox: false,
           copy: 'Lorem ipsum dolor sit amet',

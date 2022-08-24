@@ -15,7 +15,7 @@ import { boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
+// import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 import logoMicrosoft2x1 from '../../../../../storybook-images/assets/logos/logo-microsoft--2x1.png';
 import { PICTOGRAM_PLACEMENT } from '../defs';
 import readme from './README.stories.mdx';
@@ -80,7 +80,7 @@ Default.story = {
         heading: textNullable('Heading:', 'Aerospace and defence'),
         copy: textNullable('Body copy:', ''),
         alt: 'Image alt text',
-        defaultSrc: imgXlg4x3,
+        defaultSrc: 'https://dummyimage.com/600x400/000/fff',
         tagGroup: boolean('Add tags:', false),
         href: 'https://example.com',
         footer: textNullable('CTA:', 'Learn more'),
@@ -95,7 +95,7 @@ Default.story = {
           heading: 'Aerospace and defence',
           copy: '',
           alt: 'Image alt text',
-          defaultSrc: imgXlg4x3,
+          defaultSrc: 'https://dummyimage.com/600x400/000/fff',
           tagGroup: false,
           href: 'https://example.com',
           footer: 'Learn more',
@@ -241,7 +241,7 @@ Static.story = {
         const outlinedCard = boolean('Outlined card:', true);
         return {
           alt: 'Image alt text',
-          defaultSrc: imgXlg4x3,
+          defaultSrc: 'https://dummyimage.com/600x400/000/fff',
           image,
           eyebrow,
           heading,
@@ -261,7 +261,7 @@ Static.story = {
           heading: 'Aerospace and defence',
           copy: '',
           alt: 'Image alt text',
-          defaultSrc: imgXlg4x3,
+          defaultSrc: 'https://dummyimage.com/600x400/000/fff',
           tagGroup: false,
           cta: false,
           ctaCopy: 'Sign up for the trial',
@@ -328,7 +328,7 @@ Logo.story = {
           heading: '',
           copy: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
           alt: 'Image alt text',
-          defaultSrc: imgXlg4x3,
+          defaultSrc: 'https://dummyimage.com/600x400/000/fff',
           tagGroup: false,
           href: 'https://example.com',
         },

@@ -11,23 +11,23 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import logosGroup from '../../../logo-grid/__stories__/data/logos.js';
 import { TOC_TYPES } from '../../../table-of-contents/defs';
 
-import imgSm16x9 from '../../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
-import imgMd16x9 from '../../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
-import imgLg16x9 from '../../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
-import imgLg1x1 from '../../../../../../storybook-images/assets/720/fpo--1x1--720x720--005.jpg';
-import imgXlg4x3 from '../../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
+// import imgSm16x9 from '../../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
+// import imgMd16x9 from '../../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
+// import imgLg16x9 from '../../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
+// import imgLg1x1 from '../../../../../../storybook-images/assets/720/fpo--1x1--720x720--005.jpg';
+// import imgXlg4x3 from '../../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 
-import leadspaceImg from '../../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
+// import leadspaceImg from '../../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
 
 export const image = html`
   <dds-image-with-caption
     alt="Image alt text"
-    default-src="${imgLg16x9}"
+    default-src="https://dummyimage.com/600x400/000/fff"
     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   >
-    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
-    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
-    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 672px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
+    <dds-image-item media="(min-width: 400px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
   </dds-image-with-caption>
 `;
 
@@ -95,7 +95,7 @@ export const universalBanner = srcImage => html`
 
 export const cardGroupItems = html`
   <dds-card-group-item href="https://example.com">
-    <dds-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-image>
+    <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/600x400/000/fff"> </dds-image>
     <dds-card-eyebrow>Topic</dds-card-eyebrow>
     <dds-card-heading>Natural Language Processing.</dds-card-heading>
     <dds-card-cta-footer slot="footer">
@@ -105,15 +105,15 @@ export const cardGroupItems = html`
 `;
 
 export const contentLeadspace = html`
-  <dds-leadspace size="medium" gradient-style-scheme="true" alt="" default-src="${leadspaceImg}">
+  <dds-leadspace size="medium" gradient-style-scheme="true" alt="" default-src="https://dummyimage.com/600x400/000/fff">
     <dds-leadspace-heading>Leadspace Title</dds-leadspace-heading>
     Use this area for a short line of copy to support the title
     <dds-button-group slot="action">
       <dds-button-group-item aria-label="" href="">test</dds-button-group-item>
     </dds-button-group>
-    <dds-image slot="image" class="bx--image" alt="" default-src="${leadspaceImg}">
-      <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
-      <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
+    <dds-image slot="image" class="bx--image" alt="" default-src="https://dummyimage.com/600x400/000/fff">
+      <dds-image-item media="(min-width: 672px)" srcset="https://dummyimage.com/600x400/000/fff"></dds-image-item>
+      <dds-image-item media="(min-width: 0)" srcset="https://dummyimage.com/600x400/000/fff"></dds-image-item>
     </dds-image>
   </dds-leadspace>
 `;
@@ -176,12 +176,12 @@ export const tocContent = html`
   </dds-content-block-segmented>
   <dds-feature-card size='large' href="https://example.com">
     <dds-image slot="image" alt="Image alt text"
-                default-src="${imgLg1x1}"
+                default-src="https://dummyimage.com/600x400/000/fff"
     >
       </dds-image-item>
       <dds-image-item
         media="(min-width: 991px)"
-        srcset="${imgLg1x1}"
+        srcset="https://dummyimage.com/600x400/000/fff"
       >
     </dds-image>
     <dds-card-eyebrow>scelerisque purus</dds-card-eyebrow>
@@ -339,12 +339,12 @@ export const StoryContentNoToC = () =>
 
         <dds-feature-card size='large' href="https://example.com">
           <dds-image slot="image" alt="Image alt text"
-                      default-src="${imgLg1x1}"
+                      default-src="https://dummyimage.com/600x400/000/fff"
           >
             </dds-image-item>
             <dds-image-item
               media="(min-width: 991px)"
-              srcset="${imgLg1x1}"
+              srcset="https://dummyimage.com/600x400/000/fff"
             >
           </dds-image>
           <dds-card-eyebrow>scelerisque purus</dds-card-eyebrow>

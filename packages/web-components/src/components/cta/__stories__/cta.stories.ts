@@ -21,7 +21,7 @@ import { icons as ctaIcons } from '../../../component-mixins/cta/cta';
 // eslint-disable-next-line sort-imports
 import { CTA_TYPE } from '../defs';
 import { hrefsForType, knobNamesForType, footerKnobNamesForType, typeOptions, types } from './ctaTypeConfig';
-import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
+// import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
@@ -327,7 +327,7 @@ export const Feature = args => {
       <dds-card-heading>${heading}</dds-card-heading>
       ${ctaType !== CTA_TYPE.VIDEO || customThumbnail
         ? html`
-            <dds-image slot="image" alt="Image alt text" default-src="${imgLg1x1}"> </dds-image>
+            <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/600x400/000/fff"> </dds-image>
           `
         : ''}
 
