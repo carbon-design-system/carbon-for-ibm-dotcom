@@ -14,6 +14,11 @@ import styles from './structured-list.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+/**
+ * StructuredListHead
+ *
+ * @element dds-structured-list-head
+ */
 @customElement(`${ddsPrefix}-structured-list-head`)
 class DDSStructuredListHead extends BXStructuredListHead {
   connectedCallback() {
@@ -23,4 +28,5 @@ class DDSStructuredListHead extends BXStructuredListHead {
   static styles = styles;
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSStructuredListHead;

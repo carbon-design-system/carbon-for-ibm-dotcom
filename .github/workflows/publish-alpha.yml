@@ -1,0 +1,36 @@
+name: publish-alpha (Publish Alpha release to NPM)
+
+on:
+  push:
+    branches:
+      - feat/masthead-v2
+
+concurrency:
+  group: publish-alpha-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
+    runs-on: ubuntu-20.04
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install --offline
+      - name: Build project
+        run: yarn build
+      - name: Set NPM token
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_API_KEY }}" >> .npmrc
+      - name: Run Lerna
+        run: yarn lerna publish --canary minor --preid alpha.${{github.run_id}} --dist-tag alpha --force-publish --no-push --no-git-tag-version --yes
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+        if: failure()
