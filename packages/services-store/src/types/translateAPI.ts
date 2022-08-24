@@ -79,7 +79,7 @@ export interface MastheadLink {
   url?: string;
   hasMenu?: boolean;
   hasMegapanel?: boolean;
-  megamenuLayout?: string;
+  megamenuLayout?: 'tab' | 'list';
   menuSections?: MastheadMenuSection[];
 }
 

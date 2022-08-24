@@ -204,6 +204,8 @@
     a,
     .#{$prefix}--link-with-icon {
       width: 100%;
+      padding: carbon--rem(6px) $spacing-05;
+      margin-block-end: $spacing-06;
     }
 
     p,
@@ -214,9 +216,7 @@
       @include carbon--type-style(heading-03, true);
 
       color: $text-02;
-      padding: 6px $spacing-05;
       text-decoration: none;
-      margin-block-end: $spacing-06;
     }
 
     ::slotted(span),
@@ -242,7 +242,7 @@
 
     color: $text-02;
     text-decoration: none;
-    padding: 6px $spacing-05;
+    padding: carbon--rem(6px) $spacing-05;
     display: block;
 
     &:visited {
@@ -264,7 +264,7 @@
 
     a {
       width: 100%;
-      padding: 7px $spacing-05;
+      padding: carbon--rem(7px) $spacing-05;
     }
 
     span {
