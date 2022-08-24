@@ -9,6 +9,7 @@
 
 import { html, property, customElement } from 'lit-element';
 import BXLink from 'carbon-web-components/es/components/link/link.js';
+import Launch16 from 'carbon-web-components/es/icons/launch/16.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSMegaMenu from './megamenu';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
@@ -33,12 +34,28 @@ class DDSMegaMenuCategoryLink extends BXLink {
   title = '';
 
   /**
+   * Maps target value to icons.
+   */
+  protected _targetMap = new Map([['external', Launch16()]]);
+
+  /**
+   * Renders an icon based on target value.
+   */
+  protected _renderIcon() {
+    const { target, _targetMap } = this;
+    return _targetMap.has(target) ? _targetMap.get(target) : undefined;
+  }
+
+  /**
    * @returns The inner content.
    */
   protected _renderInner() {
     const { title } = this;
     return html`
-      <p>${title}</p>
+      <p>
+        <span>${title}${this._renderIcon()}</span>
+        <slot name="icon" @slotchange="${this._handleSlotChange}"></slot>
+      </p>
       <span><slot></slot></span>
     `;
   }

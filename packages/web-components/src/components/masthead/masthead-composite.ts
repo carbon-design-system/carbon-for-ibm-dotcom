@@ -213,7 +213,7 @@ class DDSMastheadComposite extends LitElement {
             })}
           </dds-megamenu-tabs>
         </dds-megamenu-left-navigation>
-        <dds-megamenu-right-navigation data-foo="bar" style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB}">
+        <dds-megamenu-right-navigation style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB}">
           ${sortedMenuItems.map(item => {
             return html`
               <div id="panel-${item.itemKey}" role="tabpanel" aria-labelledby="tab-${item.itemKey}" hidden>
@@ -226,9 +226,9 @@ class DDSMastheadComposite extends LitElement {
                   ${item?.megapanelContent?.quickLinks?.links.map(
                     link =>
                       html`
-                        <dds-megamenu-category-link href="${link.url}" title="${link.title}"
-                          >${link.description}</dds-megamenu-category-link
-                        >
+                        <dds-megamenu-category-link href="${link.url}" title="${link.title}" target="${link?.target}">
+                          ${link.description}
+                        </dds-megamenu-category-link>
                       `
                   )}
                 </dds-megamenu-category-link-group>

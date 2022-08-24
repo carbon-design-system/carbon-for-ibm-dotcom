@@ -17,6 +17,7 @@ export interface BasicLink {
   highlightedLink?: boolean;
   url?: string;
   description?: string;
+  target?: string;
 }
 
 /**
