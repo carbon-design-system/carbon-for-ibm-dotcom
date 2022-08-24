@@ -79,7 +79,7 @@ export const WithVideo = args => {
         <dds-content-block-heading>${heading}</dds-content-block-heading>
         <dds-content-block-copy>${copy}</dds-content-block-copy>
         <dds-leadspace-block-media slot="media"
-          ><dds-video-player-container video-id="1_9h94wo6b"></dds-video-player-container
+          ><dds-video-player-container video-id="#"></dds-video-player-container
         ></dds-leadspace-block-media>
         ${linkList} ${buttonCTA}
       </dds-leadspace-block-content>

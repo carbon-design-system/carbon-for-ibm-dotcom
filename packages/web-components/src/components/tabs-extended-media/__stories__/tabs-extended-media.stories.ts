@@ -40,7 +40,7 @@ export const Default = args => {
             `}
           ${type === MEDIA_TYPE.VIDEO &&
             html`
-              <dds-content-item-horizontal-media-video video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
+              <dds-content-item-horizontal-media-video video-id="#"></dds-content-item-horizontal-media-video>
             `}
           <dds-content-item-heading>Tab heading ${i}</dds-content-item-heading>
           <dds-content-item-horizontal-media-copy

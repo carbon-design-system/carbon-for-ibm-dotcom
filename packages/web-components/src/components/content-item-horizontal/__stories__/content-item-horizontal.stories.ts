@@ -118,7 +118,7 @@ export const WithMedia = args => {
         : null}
       ${type === MEDIA_TYPE.VIDEO
         ? html`
-            <dds-content-item-horizontal-media-video video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
+            <dds-content-item-horizontal-media-video video-id="#"></dds-content-item-horizontal-media-video>
           `
         : null}
       <dds-content-item-horizontal-eyebrow>${eyebrow}</dds-content-item-horizontal-eyebrow>
@@ -161,7 +161,7 @@ export const WithMediaFeatured = args => {
         : null}
       ${type === MEDIA_TYPE.VIDEO
         ? html`
-            <dds-content-item-horizontal-media-video video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
+            <dds-content-item-horizontal-media-video video-id="#"></dds-content-item-horizontal-media-video>
           `
         : null}
       <dds-content-item-horizontal-eyebrow>${eyebrow}</dds-content-item-horizontal-eyebrow>

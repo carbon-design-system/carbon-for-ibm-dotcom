@@ -153,7 +153,7 @@ export const WithVideo = args => {
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading><h2>${heading}</h2></dds-content-block-heading>
       <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
-      <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
+      <dds-video-player-container slot="media" video-id="#"></dds-video-player-container>
       ${ctaStyle === 'card-link'
         ? html`
             <dds-card-link-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">

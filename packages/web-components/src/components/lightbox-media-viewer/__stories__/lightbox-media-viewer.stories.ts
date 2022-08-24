@@ -131,7 +131,7 @@ export const WithCarousel = args => {
       <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
       <dds-carousel page-size="1">
         <dds-lightbox-media-viewer
-          video-id="${videos['Speed of AI Test Video']}"
+          video-id="#"
           title="Praesent at erat."
           description="
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at erat eu lectus elementum hendrerit sed sed lacus.

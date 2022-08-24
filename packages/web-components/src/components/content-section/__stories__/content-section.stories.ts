@@ -62,7 +62,7 @@ export const Default = args => {
             <dds-content-block-simple>
               <dds-content-block-heading>What’s the latest news in artificial intelligence?</dds-content-block-heading>
               <dds-content-block-copy size="sm">${blockCopy}</dds-content-block-copy>
-              <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
+              <dds-video-player-container slot="media" video-id="#"></dds-video-player-container>
               <dds-text-cta slot="footer" cta-type="jump" href="https://www.ibm.com">Jump to AI ethics and trust</dds-text-cta>
             </dds-content-block-simple>
           `

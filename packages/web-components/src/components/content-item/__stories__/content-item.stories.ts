@@ -30,7 +30,7 @@ export const Default = args => {
         : ``}
       ${media === 'video'
         ? html`
-            <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
+            <dds-video-player-container slot="media" video-id="#"></dds-video-player-container>
           `
         : ''}
       <dds-content-item-heading>${heading}</dds-content-item-heading>
