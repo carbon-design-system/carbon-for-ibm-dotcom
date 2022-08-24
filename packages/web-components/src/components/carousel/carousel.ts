@@ -150,7 +150,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     const delay = parseInt(slow01, 10);
 
     this._intersectionTimeout = setTimeout(() => {
-      announcementNode.innerText = `${announcementNode.innerText} --- ${formatAnnouncement(status)}`;
+      announcementNode.innerText = formatAnnouncement(status);
     }, delay);
   }
 
