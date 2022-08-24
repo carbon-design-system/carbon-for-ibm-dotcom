@@ -48,7 +48,7 @@
   @extend :host(#{$dds-prefix}-button-cta);
 
   margin: 0;
-  padding-right: 0;
+  padding-inline-end: 0;
 
   &.console .#{$prefix}--btn--ghost {
     border-left: 1px solid $button-separator;
