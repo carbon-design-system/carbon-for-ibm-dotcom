@@ -26,7 +26,7 @@ export default function reducer(
 ): TranslateAPIState {
   switch (action.type) {
     case TRANSLATE_API_ACTION.SET_REQUEST_TRANSLATION_IN_PROGRESS: {
-      const { language, request } = action as ReturnType<
+      const { language, request, endpoint } = action as ReturnType<
         typeof setRequestTranslationInProgress
       >;
       return {
@@ -38,6 +38,7 @@ export default function reducer(
         requestsTranslation: {
           ...(state.requestsTranslation || {}),
           [language]: request,
+          endpoint,
         },
       };
     }
@@ -58,7 +59,7 @@ export default function reducer(
       };
     }
     case TRANSLATE_API_ACTION.SET_TRANSLATION: {
-      const { language, translation } = action as ReturnType<
+      const { language, translation, endpoint } = action as ReturnType<
         typeof setTranslation
       >;
       return {
@@ -71,6 +72,7 @@ export default function reducer(
         requestsTranslation: {
           ...(state.requestsTranslation || {}),
           [language]: Promise.resolve(translation),
+          endpoint,
         },
         translations: {
           ...(state.translations || {}),

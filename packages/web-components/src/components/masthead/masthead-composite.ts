@@ -9,12 +9,13 @@
 
 import { html, property, LitElement, TemplateResult } from 'lit-element';
 import { nothing, render } from 'lit-html';
+import { ifDefined } from 'lit-html/directives/if-defined';
+import { unsafeSVG } from 'lit-html/directives/unsafe-svg.js';
+import root from 'window-or-global';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
-import { unsafeSVG } from 'lit-html/directives/unsafe-svg.js';
-import root from 'window-or-global';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import MastheadLogoAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/MastheadLogo/MastheadLogo';
@@ -31,9 +32,12 @@ import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigat
 import { DDS_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
 import DDSMastheadLogo from './masthead-logo';
 import './masthead';
+import './masthead-button-cta';
+import './masthead-logo';
 import './masthead-l1';
 import './masthead-l1-name';
 import './masthead-menu-button';
+import './masthead-contact';
 import './masthead-global-bar';
 import './masthead-profile';
 import './masthead-profile-item';
@@ -697,7 +701,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    *
    * @internal
    */
-  _loadUserStatus?: () => void;
+  _loadUserStatus?: (authMethod?: string) => void;
 
   /**
    * The placeholder for `setLanguage()` Redux action that will be mixed in.
@@ -737,6 +741,18 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   authenticatedProfileItems?: MastheadProfileItem[];
 
   /**
+   * The cta buttons for authenticated state.
+   */
+  @property({ attribute: false })
+  authenticatedCtaButtons?: MastheadProfileItem[];
+
+  /**
+   * Text for Contact us button
+   */
+  @property({ attribute: false })
+  contactUsButton?: MastheadProfileItem;
+
+  /**
    * The platform name.
    */
   @property()
@@ -747,14 +763,6 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    */
   @property({ attribute: false })
   platformUrl?;
-
-  /**
-   * The brand name.
-   *
-   * @deprecated brandName use platform instead
-   */
-  @property({ attribute: 'brand-name' })
-  brandName!: string;
 
   /**
    * The search results to show in the UI.
@@ -835,6 +843,12 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   unauthenticatedProfileItems?: MastheadProfileItem[];
 
   /**
+   * The cta buttons for authenticated state.
+   */
+  @property({ attribute: false })
+  unauthenticatedCtaButtons?: MastheadProfileItem[];
+
+  /**
    * Specify translation endpoint if not using default dds endpoint.
    */
   @property({ attribute: 'data-endpoint' })
@@ -888,6 +902,18 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   @property({ attribute: 'user-status' })
   userStatus = UNAUTHENTICATED_STATUS;
 
+  /**
+   * `true` if Contact us should be shown.
+   */
+  @property({ type: String, reflect: true, attribute: 'has-contact' })
+  hasContact = 'true';
+
+  /**
+   * The selected authentication method, either 'cookie' or 'api'.
+   */
+  @property({ attribute: 'auth-method' })
+  authMethod = 'profile-api';
+
   createRenderRoot() {
     // We render child elements of `<dds-masthead-container>` by ourselves
     return this;
@@ -900,25 +926,18 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       this._setLanguage?.(language);
     }
     this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
-    this._loadUserStatus?.();
+    this._loadUserStatus?.(this.authMethod);
 
     this.style.zIndex = '900';
   }
 
   updated(changedProperties) {
-    if (changedProperties.has('language')) {
+    if (changedProperties.has('language') || changedProperties.has('dataEndpoint')) {
       const { language, dataEndpoint } = this;
       if (language) {
         this._setLanguage?.(language);
         this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
       }
-    }
-    if (changedProperties.has('brandName')) {
-      this.platform = this.brandName;
-      // eslint-disable-next-line no-console
-      console.warn(
-        '`brand-name` will be deprecated in the future use `platform` instead.'
-      );
     }
   }
 
@@ -926,6 +945,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     const {
       activateSearch,
       authenticatedProfileItems,
+      authenticatedCtaButtons,
+      contactUsButton,
       currentSearchResults,
       customTypeaheadAPI,
       customProfileLogin,
@@ -947,10 +968,14 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       skipToContentText,
       skipToContentHref,
       unauthenticatedProfileItems,
+      unauthenticatedCtaButtons,
       userStatus,
       l1Data,
+      hasContact,
     } = this;
     const authenticated = userStatus !== UNAUTHENTICATED_STATUS;
+
+    const ctaButtons = authenticated ? authenticatedCtaButtons : unauthenticatedCtaButtons;
 
     let profileItems;
     if (DDS_CUSTOM_PROFILE_LOGIN && customProfileLogin && !authenticated) {
@@ -1050,6 +1075,11 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                 )}"></dds-search-with-typeahead>
             `}
         <dds-masthead-global-bar ?has-search-active=${activateSearch}>
+          ${hasContact === 'false'
+            ? ''
+            : html`
+                <dds-masthead-contact trigger-label="${ifDefined(contactUsButton?.title)}"></dds-masthead-contact>
+              `}
           ${hasProfile === 'false'
             ? ''
             : html`
@@ -1064,6 +1094,14 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                   )}
                 </dds-masthead-profile>
               `}
+          ${ctaButtons?.map(
+            ({ title, url }) =>
+              html`
+                <dds-masthead-button-cta href="${ifNonNull(url)}" kind="ghost">
+                  ${title}
+                </dds-masthead-button-cta>
+              `
+          )}
         </dds-masthead-global-bar>
         ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
         <dds-megamenu-overlay></dds-megamenu-overlay>

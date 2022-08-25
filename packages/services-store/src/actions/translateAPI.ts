@@ -24,12 +24,14 @@ import {
  */
 export function setRequestTranslationInProgress(
   language: string,
-  request: Promise<Translation>
+  request: Promise<Translation>,
+  endpoint
 ) {
   return {
     type: TRANSLATE_API_ACTION.SET_REQUEST_TRANSLATION_IN_PROGRESS,
     language,
     request,
+    endpoint,
   };
 }
 
@@ -52,11 +54,12 @@ export function setErrorRequestTranslation(language: string, error: Error) {
  * @param translation The translation data from the REST call.
  * @returns A Redux action to set the given translation data.
  */
-export function setTranslation(language: string, translation: Translation) {
+export function setTranslation(language: string, translation: Translation, endpoint) {
   return {
     type: TRANSLATE_API_ACTION.SET_TRANSLATION,
     language,
     translation,
+    endpoint,
   };
 }
 
@@ -87,9 +90,11 @@ export function loadTranslation(
     const effectiveLanguage: string =
       language ?? (await dispatch(loadLanguage() as any));
     const { requestsTranslation = {} } = getState().translateAPI ?? {};
-    const { [effectiveLanguage]: requestTranslation } = requestsTranslation;
-    if (requestTranslation) {
-      return requestTranslation;
+    if (requestsTranslation?.[effectiveLanguage]) {
+      const requestTranslation = requestsTranslation?.[effectiveLanguage];
+      if (requestTranslation && requestTranslation.endpoint === dataEndpoint) {
+        return requestTranslation;
+      }
     }
     const [primary, country] = effectiveLanguage.split('-');
     const promiseTranslation: Promise<Translation> =
@@ -101,10 +106,10 @@ export function loadTranslation(
         dataEndpoint
       );
     dispatch(
-      setRequestTranslationInProgress(effectiveLanguage, promiseTranslation)
+      setRequestTranslationInProgress(effectiveLanguage, promiseTranslation, dataEndpoint)
     );
     try {
-      dispatch(setTranslation(effectiveLanguage, await promiseTranslation));
+      dispatch(setTranslation(effectiveLanguage, await promiseTranslation, dataEndpoint));
     } catch (error) {
       dispatch(setErrorRequestTranslation(effectiveLanguage, error as Error));
     }

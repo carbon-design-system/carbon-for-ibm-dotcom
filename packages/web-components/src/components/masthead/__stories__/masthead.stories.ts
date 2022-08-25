@@ -25,6 +25,12 @@ import {
 import { DDS_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
 import readme from './README.stories.mdx';
 
+const endpoints = {
+  default: null,
+  'masthead v2': '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2',
+  'cloud masthead': '/common/carbon-for-ibm-dotcom/translations/cloud-masthead',
+};
+
 const userStatuses = {
   authenticated: 'test.user@ibm.com',
   unauthenticated: UNAUTHENTICATED_STATUS,
@@ -98,6 +104,7 @@ async function customTypeaheadApiFunction(searchVal) {
 
 export const Default = (args) => {
   const {
+    endpoint,
     customProfileLogin,
     platform,
     hasProfile,
@@ -131,6 +138,7 @@ export const Default = (args) => {
         `
       : html`
           <dds-masthead-container
+            data-endpoint="${ifNonNull(endpoint)}"
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -146,6 +154,7 @@ export const Default = (args) => {
 
 export const WithCustomTypeahead = (args) => {
   const {
+    endpoint,
     customProfileLogin,
     navLinks,
     platform,
@@ -193,6 +202,7 @@ export const WithCustomTypeahead = (args) => {
         `
       : html`
           <dds-masthead-container
+            data-endpoint="${ifNonNull(endpoint)}"
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -213,6 +223,7 @@ WithCustomTypeahead.story = {
 
 export const searchOpenOnload = (args) => {
   const {
+    endpoint,
     customProfileLogin,
     platform,
     selectedMenuItem,
@@ -230,7 +241,7 @@ export const searchOpenOnload = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
-            activate-search="true"
+            activate-search
             platform="${ifNonNull(platformData.name)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -247,7 +258,8 @@ export const searchOpenOnload = (args) => {
         `
       : html`
           <dds-masthead-container
-            activate-search="true"
+            data-endpoint="${ifNonNull(endpoint)}"
+            activate-search
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -267,6 +279,7 @@ searchOpenOnload.story = {
 
 export const withPlatform = (args) => {
   const {
+    endpoint,
     selectedMenuItem,
     userStatus,
     navLinks,
@@ -297,6 +310,7 @@ export const withPlatform = (args) => {
         `
       : html`
           <dds-masthead-container
+            data-endpoint="${ifNonNull(endpoint)}"
             platform="Platform"
             .platformUrl="${ifNonNull(platformData.url)}"
             user-status="${ifNonNull(userStatus)}"
@@ -349,6 +363,7 @@ withPlatform.story = {
 
 export const withL1 = (args) => {
   const {
+    endpoint,
     selectedMenuItem,
     userStatus,
     navLinks,
@@ -378,6 +393,7 @@ export const withL1 = (args) => {
         `
       : html`
           <dds-masthead-container
+            data-endpoint="${ifNonNull(endpoint)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             has-profile="${hasProfile}"
@@ -430,6 +446,7 @@ withL1.story = {
 
 export const withAlternateLogoAndTooltip = (args) => {
   const {
+    endpoint,
     selectedMenuItem,
     userStatus,
     navLinks,
@@ -462,6 +479,7 @@ export const withAlternateLogoAndTooltip = (args) => {
         `
       : html`
           <dds-masthead-container
+            data-endpoint="${ifNonNull(endpoint)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
@@ -599,6 +617,11 @@ export default {
     knobs: {
       escapeHTML: false,
       MastheadComposite: () => ({
+        endpoint: select(
+          'Masthead data (data-endpoint)',
+          endpoints,
+          endpoints.default
+        ),
         hasProfile: select(
           'show the profile functionality (has-profile)',
           ['true', 'false'],
