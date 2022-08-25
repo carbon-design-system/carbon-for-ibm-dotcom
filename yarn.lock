@@ -1506,20 +1506,20 @@
   resolved "https://registry.yarnpkg.com/@carbon/telemetry/-/telemetry-0.1.0.tgz#57b331cd5a855b4abbf55457456da8211624d879"
   integrity sha512-kNWt0bkgPwGW0i5h7HFuljbKRXPvIhsKbB+1tEURAYLXoJg9iJLF1eGvWN5iVoFCS2zje4GR3OGOsvvKVe7Hlg==
 
-"@carbon/themes@10.54.0":
-  version "10.54.0"
-  resolved "https://registry.yarnpkg.com/@carbon/themes/-/themes-10.54.0.tgz#2d310382298bf711eef18757acbab19f16b1b345"
-  integrity sha512-Q//XENDqFcgJbide0QbaAvAOKg/u3HIR3na0DsmoWtX4ZWrSz8zpUdvN8Yy9ybJBg1dT+IOfNCdjjhjbCVikKA==
+"@carbon/themes@10.55.0":
+  version "10.55.0"
+  resolved "https://registry.yarnpkg.com/@carbon/themes/-/themes-10.55.0.tgz#f97eb71687633764b3e5bdd2b46b8b8d8438e54a"
+  integrity sha512-P0BZr/dA8Xh/jEEV4szSqToMIZ0TE8dMs/kzaQIdrV4IXo/hFSsNFXAjakffjzOPVMzihzMvyDcbFbG/R7geVw==
   dependencies:
     "@carbon/colors" "^10.37.0"
     "@carbon/layout" "^10.37.0"
-    "@carbon/type" "^10.44.0"
+    "@carbon/type" "^10.45.0"
     color "^3.1.2"
 
-"@carbon/type@10.44.0", "@carbon/type@^10.44.0":
-  version "10.44.0"
-  resolved "https://registry.yarnpkg.com/@carbon/type/-/type-10.44.0.tgz#f70944fe25b225d2dc44cea31fa2e7a400d4772c"
-  integrity sha512-sLe4e9gu2QuM8k6PrXWc9xWpH6W9Q/FJ+/IHNFpx+8zBLkBsM6dbf4o76Zw9OcV2HuAA+8K3JOpZJ4r76fw8kg==
+"@carbon/type@10.45.0", "@carbon/type@^10.45.0":
+  version "10.45.0"
+  resolved "https://registry.yarnpkg.com/@carbon/type/-/type-10.45.0.tgz#78d388a2b8b45e427de1dfab7328625899b737ab"
+  integrity sha512-ObeozCPbGJveztkz30avGoGlNsFsRtQ8RUpOCaCqa7PPN9hXjN2wonlwdOGExSbUqHVHkwONJQlNSwWnJlE9PA==
   dependencies:
     "@carbon/grid" "^10.43.0"
     "@carbon/import-once" "^10.7.0"
@@ -7293,10 +7293,10 @@ capture-exit@^2.0.0:
   dependencies:
     rsvp "^4.8.4"
 
-carbon-components-react@7.57.4:
-  version "7.57.4"
-  resolved "https://registry.yarnpkg.com/carbon-components-react/-/carbon-components-react-7.57.4.tgz#6e005e59f6ab09586e136b08b99dd93f06f4c446"
-  integrity sha512-Wm7aVmJahAgr6uMFYGiiStm1cPPETR5BHW0foLbkeQNiKoZ302HVqLFhpmYFWsMbiSWsRXqtchsBcwOeV3WtGA==
+carbon-components-react@7.59.0:
+  version "7.59.0"
+  resolved "https://registry.yarnpkg.com/carbon-components-react/-/carbon-components-react-7.59.0.tgz#f4978d2860ec7a80f96f6ed453fcb24bb3f04240"
+  integrity sha512-wulSKpbqAhG+1wUawy1uPHnfXRyZ0HIOc3hH6tGRoTIN73gkPPnbWYSv3BP9DaXwQH1u/RSAP+Og3AOaktyGMA==
   dependencies:
     "@babel/runtime" "^7.16.7"
     "@carbon/feature-flags" "^0.7.0"
@@ -7333,6 +7333,16 @@ carbon-components@10.57.2:
   version "10.57.2"
   resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.57.2.tgz#e6a6e011126c9fb82846697a7f00f79c3bfb6d0b"
   integrity sha512-p4BwtZ6KRznWacT0wzC6chEl/K1QD0MyMnfAEsxNIzQKSeTv5NhPaO4BH4BjYut6VoFDs1d71i2njkJdhx1aHw==
+  dependencies:
+    "@carbon/telemetry" "0.1.0"
+    flatpickr "4.6.1"
+    lodash.debounce "^4.0.8"
+    warning "^3.0.0"
+
+carbon-components@10.58.0:
+  version "10.58.0"
+  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.58.0.tgz#d4e69279816e17df25ed2df2cb87535323fee16e"
+  integrity sha512-PlEyUBEtpNGdfw0IvJsmpCzUEXbZ8m24ab9dX9cv3JiY4KyeawmGb2dIA5WP7izsbPhc/8dqgmvtT81nTGC26w==
   dependencies:
     "@carbon/telemetry" "0.1.0"
     flatpickr "4.6.1"
