@@ -19,9 +19,9 @@ import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/co
 // eslint-disable-next-line import/no-duplicates
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
 import { CTA_STYLE, CTA_TYPE } from '../../cta/defs';
-// import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
-// import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
-// import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
+import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
+import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
+import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
@@ -65,10 +65,10 @@ const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean 
 
 // TODO: Replace with <dds-image-with-caption>
 const image = html`
-  <dds-image slot="media" alt="Image alt text" default-src="https://dummyimage.com/600x400/000/fff">
-    <dds-image-item media="(min-width: 672px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
-    <dds-image-item media="(min-width: 400px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
-    <dds-image-item media="(min-width: 320px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
+  <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}">
+    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
   </dds-image>
 `;
 

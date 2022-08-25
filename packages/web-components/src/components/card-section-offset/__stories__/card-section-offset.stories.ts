@@ -14,7 +14,7 @@ import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
 import { CTA_TYPE } from '../../cta/defs';
-// import image from '../../../../../storybook-images/assets/card-section-offset/background-media.jpg';
+import image from '../../../../../storybook-images/assets/card-section-offset/background-media.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const ctaTypes = {
@@ -111,7 +111,7 @@ export default {
             length: 3,
           }).map(() => defaultCardGroupItem),
           alt: textNullable('Alt text', 'Image alt text'),
-          defaultSrc: textNullable('Default image (default-src)', 'https://dummyimage.com/600x400/000/fff'),
+          defaultSrc: textNullable('Default image (default-src)', image),
         };
       },
     },
@@ -125,7 +125,7 @@ export default {
           href: 'https://www.example.com',
           cards: [defaultCardGroupItem, defaultCardGroupItem, defaultCardGroupItem],
           alt: 'Image alt text',
-          defaultSrc: 'https://dummyimage.com/600x400/000/fff',
+          defaultSrc: image,
         },
       },
     },

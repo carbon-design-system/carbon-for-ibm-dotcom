@@ -18,8 +18,8 @@ import '../../image/image';
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
 import { CTA_TYPE } from '../../cta/defs';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../defs';
-// import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
-// import imgMd4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--004.jpg';
+import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
+import imgMd4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--004.jpg';
 
 const types = {
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
@@ -101,7 +101,7 @@ export const WithThumbnail = args => {
           ${ctaCopy2}
         </dds-link-list-item-cta>
       </dds-link-list>
-      <dds-image slot="thumbnail" alt="${ifNonNull(alt)}" default-src="https://dummyimage.com/600x400/000/fff"></dds-image>
+      <dds-image slot="thumbnail" alt="${ifNonNull(alt)}" default-src="${imgMd4x3}"></dds-image>
     </dds-content-item-horizontal>
   `;
 };
@@ -113,7 +113,7 @@ export const WithMedia = args => {
     <dds-content-item-horizontal-media align="${align}">
       ${type === MEDIA_TYPE.IMAGE
         ? html`
-            <dds-image slot="media" alt="${ifNonNull(alt)}" default-src="https://dummyimage.com/600x400/000/fff"></dds-image>
+            <dds-image slot="media" alt="${ifNonNull(alt)}" default-src="${imgLg16x9}"></dds-image>
           `
         : null}
       ${type === MEDIA_TYPE.VIDEO
@@ -150,12 +150,7 @@ export const WithMediaFeatured = args => {
     <dds-content-item-horizontal-media-featured>
       ${type === MEDIA_TYPE.IMAGE
         ? html`
-            <dds-image
-              slot="media"
-              alt="Image alt text"
-              default-src="https://dummyimage.com/600x400/000/fff"
-              heading="Lorem ipsum dolor sit amet"
-            >
+            <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum dolor sit amet">
             </dds-image>
           `
         : null}

@@ -13,7 +13,7 @@ import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-horizontal/defs';
-// import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
+import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const mediaAlign = {
@@ -36,7 +36,7 @@ export const Default = args => {
         <dds-content-item-horizontal-media align="${align}">
           ${type === MEDIA_TYPE.IMAGE &&
             html`
-              <dds-image slot="media" alt="Image alt text" default-src="https://dummyimage.com/600x400/000/fff"></dds-image>
+              <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}"></dds-image>
             `}
           ${type === MEDIA_TYPE.VIDEO &&
             html`

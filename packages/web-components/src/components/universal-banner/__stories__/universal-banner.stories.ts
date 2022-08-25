@@ -13,12 +13,12 @@ import '../index';
 import readme from './README.stories.mdx';
 
 // eslint-disable-next-line sort-imports
-// import img4Col from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-image.jpg';
-// import img8Col from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-image.jpg';
-// import img4ColLg from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-lg.jpg';
-// import img8ColLg from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-lg.jpg';
-// import img4ColXlg from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-xlg.jpg';
-// import img8ColXlg from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-xlg.jpg';
+import img4Col from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-image.jpg';
+import img8Col from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-image.jpg';
+import img4ColLg from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-lg.jpg';
+import img8ColLg from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-lg.jpg';
+import img4ColXlg from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-xlg.jpg';
+import img8ColXlg from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-xlg.jpg';
 
 // import StoryContent from '../../back-to-top/__stories__/data/content';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -30,21 +30,13 @@ const imageWidthOptions = {
 };
 
 const images = {
-  '4-col': 'https://dummyimage.com/600x400/000/fff',
-  '8-col': 'https://dummyimage.com/600x400/000/fff',
+  '4-col': img4Col,
+  '8-col': img8Col,
 };
 
 const srcsets = {
-  '4-col': [
-    'https://dummyimage.com/600x400/000/fff',
-    'https://dummyimage.com/600x400/000/fff',
-    'https://dummyimage.com/600x400/000/fff',
-  ],
-  '8-col': [
-    'https://dummyimage.com/600x400/000/fff',
-    'https://dummyimage.com/600x400/000/fff',
-    'https://dummyimage.com/600x400/000/fff',
-  ],
+  '4-col': [img4ColLg, img4ColXlg, img4Col],
+  '8-col': [img8ColLg, img8ColXlg, img8Col],
 };
 
 export const Default = args => {

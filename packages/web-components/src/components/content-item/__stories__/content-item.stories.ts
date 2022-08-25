@@ -12,7 +12,7 @@ import '../index';
 import { select, boolean } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-// import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
+import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 
 export const Default = args => {
   const { heading, media, copy, showCopy, ctaStyle, ctaCopy } = args?.ContentItem ?? {};
@@ -20,12 +20,7 @@ export const Default = args => {
     <dds-content-item>
       ${media === 'image'
         ? html`
-            <dds-image
-              slot="media"
-              alt="Alt image text"
-              default-src="https://dummyimage.com/600x400/000/fff"
-              heading="Image caption text"
-            ></dds-image>
+            <dds-image slot="media" alt="Alt image text" default-src="${imgLg16x9}" heading="Image caption text"></dds-image>
           `
         : ``}
       ${media === 'video'

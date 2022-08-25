@@ -19,7 +19,7 @@ import '../index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
-// import leadspaceImg from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
+import leadspaceImg from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import { LEADSPACE_SIZE } from '../defs';
 
 const navigationOptions = ['with Tag group (using Tag link)', 'with Breadcrumbs', 'none'];
@@ -68,7 +68,7 @@ export const Super = args => {
 
 export const SuperWithImage = args => {
   const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = args?.LeadSpace ?? {};
-  const image = defaultSrc || 'https://dummyimage.com/600x400/000/fff';
+  const image = defaultSrc || leadspaceImg;
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.SUPER}"
@@ -159,7 +159,7 @@ export const Tall = args => {
 
 export const TallWithImage = args => {
   const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = args?.LeadSpace ?? {};
-  const image = defaultSrc || 'https://dummyimage.com/600x400/000/fff';
+  const image = defaultSrc || leadspaceImg;
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.TALL}"
@@ -250,7 +250,7 @@ export const Medium = args => {
 
 export const MediumWithImage = args => {
   const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = args?.LeadSpace ?? {};
-  const image = defaultSrc || 'https://dummyimage.com/600x400/000/fff';
+  const image = defaultSrc || leadspaceImg;
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.MEDIUM}"
@@ -350,7 +350,7 @@ Short.story = {
 
 export const ShortWithImage = args => {
   const { alt, defaultSrc, gradientStyleScheme, title, navElements } = args?.LeadSpace ?? {};
-  const image = defaultSrc || 'https://dummyimage.com/600x400/000/fff';
+  const image = defaultSrc || leadspaceImg;
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.SHORT}"
@@ -379,7 +379,7 @@ ShortWithImage.story = {
         navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
         title: text('title (title):', 'A short headline can go on multiple lines in this leadspace'),
         alt: text('Image alt text (alt):', 'Image alt text'),
-        defaultSrc: text('Default image (defaultSrc):', 'https://dummyimage.com/600x400/000/fff'),
+        defaultSrc: text('Default image (defaultSrc):', leadspaceImg),
       }),
     },
     propsSet: {
@@ -388,7 +388,7 @@ ShortWithImage.story = {
           navElements: navigationOptions[2],
           title: 'A short headline can go multiple lines',
           alt: 'Image alt text',
-          defaultSrc: 'https://dummyimage.com/600x400/000/fff',
+          defaultSrc: leadspaceImg,
         },
       },
     },
@@ -441,7 +441,7 @@ export const Centered = args => {
 
 export const CenteredWithImage = args => {
   const { alt, defaultSrc, gradient, title, copy, buttons, navElements } = args?.LeadSpace ?? {};
-  const image = defaultSrc || 'https://dummyimage.com/600x400/000/fff';
+  const image = defaultSrc || leadspaceImg;
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.NONE}"
@@ -565,7 +565,7 @@ export default {
           };
         }),
         alt: text('Image alt text (alt):', 'Image alt text'),
-        defaultSrc: text('Default image (defaultSrc):', 'https://dummyimage.com/600x400/000/fff'),
+        defaultSrc: text('Default image (defaultSrc):', leadspaceImg),
       }),
     },
     propsSet: {
@@ -579,7 +579,7 @@ export default {
             { href: 'https://example.com', copy: 'Button 2', renderIcon: iconOptions['Arrow Right'], label: '' },
           ],
           alt: 'Image alt text',
-          defaultSrc: 'https://dummyimage.com/600x400/000/fff',
+          defaultSrc: leadspaceImg,
         },
       },
     },

@@ -11,9 +11,9 @@ import '../index';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { text, select, number } from '@storybook/addon-knobs';
-// import imgMax from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
-// import imgLg16x9 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
-// import imgSm4x3 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--4x3--480x360--005.jpg';
+import imgMax from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
+import imgLg16x9 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
+import imgSm4x3 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--4x3--480x360--005.jpg';
 import { GRADIENT_DIRECTION } from '../defs';
 import readme from './README.stories.mdx';
 
@@ -29,14 +29,14 @@ export const Default = args => {
       gradient-direction="${ifNonNull(gradientDirection)}"
       mobile-position="bottom"
       alt="${ifNonNull(alt)}"
-      default-src="https://dummyimage.com/600x400/000/fff"
+      default-src="${imgMax}"
       opacity="${ifNonNull(backgroundOpacity)}"
     >
-      <dds-image-item media="(min-width: 1584px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
-      <dds-image-item media="(min-width: 1312px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
-      <dds-image-item media="(min-width: 672px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
-      <dds-image-item media="(min-width: 320px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
-      <dds-image-item media="(min-width: 0px)" srcset="https://dummyimage.com/600x400/000/fff"> </dds-image-item>
+      <dds-image-item media="(min-width: 1584px)" srcset="${imgMax}"> </dds-image-item>
+      <dds-image-item media="(min-width: 1312px)" srcset="${imgLg16x9}"> </dds-image-item>
+      <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
+      <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}"> </dds-image-item>
+      <dds-image-item media="(min-width: 0px)" srcset="${imgSm4x3}"> </dds-image-item>
     </dds-background-media>
   `;
 };
@@ -63,7 +63,7 @@ export const WithDefaultSource = args => {
       gradient-direction="${ifNonNull(gradientDirection)}"
       mobile-position="bottom"
       alt="${ifNonNull(alt)}"
-      default-src="https://dummyimage.com/600x400/000/fff"
+      default-src="${imgMax}"
       opacity="${ifNonNull(backgroundOpacity)}"
     >
     </dds-background-media>
@@ -94,7 +94,7 @@ export default {
           GRADIENT_DIRECTION.LEFT_TO_RIGHT
         ),
         alt: text('Image alt text (alt):', 'Image alt text'),
-        defaultSrc: text('Default image (default-src)', 'https://dummyimage.com/600x400/000/fff'),
+        defaultSrc: text('Default image (default-src)', imgMax),
         backgroundOpacity: number('Background Opacity', 100, { range: true, min: 0, max: 100 }),
       }),
     },
@@ -103,7 +103,7 @@ export default {
         'dds-background-media': {
           gradientDirection: 'left-to-right',
           alt: 'Image alt text',
-          defaultSrc: 'https://dummyimage.com/600x400/000/fff',
+          defaultSrc: imgMax,
           backgroundOpacity: '100',
         },
       },
