@@ -1032,8 +1032,7 @@ class DDSMastheadComposite extends LitElement {
           : html`
               <dds-top-nav-name href="${ifNonNull(platformAltUrl)}">${platform}</dds-top-nav-name>
             `}
-        ${(!l1Data &&
-          navLinks &&
+        ${(navLinks &&
           html`
             <dds-top-nav
               selected-menu-item=${selectedMenuItem}
