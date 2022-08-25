@@ -612,6 +612,7 @@
     width: 100%;
     height: carbon--rem(48px);
     background: linear-gradient(transparent, $ui-background);
+    pointer-events: none;
   }
 
   .#{$prefix}--masthead__megamenu__container {
