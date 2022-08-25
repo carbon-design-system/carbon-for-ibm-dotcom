@@ -1019,8 +1019,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                 >${platform}</dds-top-nav-name
               >
             `}
-        ${(!l1Data &&
-          navLinks &&
+        ${(navLinks &&
           html`
             <dds-top-nav
               selected-menu-item=${selectedMenuItem}
