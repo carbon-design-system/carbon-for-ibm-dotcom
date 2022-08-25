@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,11 +18,12 @@ import { Translation, TRANSLATE_API_ACTION, TranslateAPIState } from '../types/t
  * @returns A Redux action to set the state that the REST call for translation data for the given language that is in progress.
  * @private
  */
-export function setRequestTranslationInProgress(language: string, request: Promise<Translation>) {
+export function setRequestTranslationInProgress(language: string, request: Promise<Translation>, endpoint) {
   return {
     type: TRANSLATE_API_ACTION.SET_REQUEST_TRANSLATION_IN_PROGRESS,
     language,
     request,
+    endpoint,
   };
 }
 
@@ -45,11 +46,12 @@ export function setErrorRequestTranslation(language: string, error: Error) {
  * @param translation The translation data from the REST call.
  * @returns A Redux action to set the given translation data.
  */
-export function setTranslation(language: string, translation: Translation) {
+export function setTranslation(language: string, translation: Translation, endpoint) {
   return {
     type: TRANSLATE_API_ACTION.SET_TRANSLATION,
     language,
     translation,
+    endpoint,
   };
 }
 
@@ -74,9 +76,11 @@ export function loadTranslation(
     // TODO: Can we go without casts without making `LocaleAPI` types a hard-dependency?
     const effectiveLanguage: string = language ?? (await dispatch(loadLanguage() as any));
     const { requestsTranslation = {} } = getState().translateAPI ?? {};
-    const { [effectiveLanguage]: requestTranslation } = requestsTranslation;
-    if (requestTranslation) {
-      return requestTranslation;
+    if (requestsTranslation?.[effectiveLanguage]) {
+      const requestTranslation = requestsTranslation?.[effectiveLanguage];
+      if (requestTranslation && requestTranslation.endpoint === dataEndpoint) {
+        return requestTranslation;
+      }
     }
     const [primary, country] = effectiveLanguage.split('-');
     const promiseTranslation: Promise<Translation> = TranslateAPI.getTranslation(
@@ -86,11 +90,11 @@ export function loadTranslation(
       },
       dataEndpoint
     );
-    dispatch(setRequestTranslationInProgress(effectiveLanguage, promiseTranslation));
+    dispatch(setRequestTranslationInProgress(effectiveLanguage, promiseTranslation, dataEndpoint));
     try {
-      dispatch(setTranslation(effectiveLanguage, await promiseTranslation));
+      dispatch(setTranslation(effectiveLanguage, await promiseTranslation, dataEndpoint));
     } catch (error) {
-      dispatch(setErrorRequestTranslation(effectiveLanguage, error));
+      dispatch(setErrorRequestTranslation(effectiveLanguage, error as Error));
     }
     return promiseTranslation;
   };

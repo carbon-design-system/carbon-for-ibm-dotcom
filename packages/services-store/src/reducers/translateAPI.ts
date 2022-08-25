@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,7 +23,7 @@ import {
 export default function reducer(state: TranslateAPIState = {}, action: TranslateAPIActions): TranslateAPIState {
   switch (action.type) {
     case TRANSLATE_API_ACTION.SET_REQUEST_TRANSLATION_IN_PROGRESS: {
-      const { language, request } = action as ReturnType<typeof setRequestTranslationInProgress>;
+      const { language, request, endpoint } = action as ReturnType<typeof setRequestTranslationInProgress>;
       return {
         ...state,
         requestsTranslationInProgress: {
@@ -33,6 +33,7 @@ export default function reducer(state: TranslateAPIState = {}, action: Translate
         requestsTranslation: {
           ...(state.requestsTranslation || {}),
           [language]: request,
+          endpoint,
         },
       };
     }
@@ -51,7 +52,7 @@ export default function reducer(state: TranslateAPIState = {}, action: Translate
       };
     }
     case TRANSLATE_API_ACTION.SET_TRANSLATION: {
-      const { language, translation } = action as ReturnType<typeof setTranslation>;
+      const { language, translation, endpoint } = action as ReturnType<typeof setTranslation>;
       return {
         ...state,
         // If application sets language data without making a REST call, mark the request as resolved already
@@ -62,6 +63,7 @@ export default function reducer(state: TranslateAPIState = {}, action: Translate
         requestsTranslation: {
           ...(state.requestsTranslation || {}),
           [language]: Promise.resolve(translation),
+          endpoint,
         },
         translations: {
           ...(state.translations || {}),

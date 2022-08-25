@@ -82,9 +82,12 @@ export function mapStateToProps(state: MastheadContainerState): MastheadContaine
   const { request } = profileAPI ?? {};
   return pickBy(
     {
-      authenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedin,
       navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
+      authenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedin,
       unauthenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedout,
+      authenticatedCtaButtons: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedin.ctaButtons,
+      unauthenticatedCtaButtons: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedout.ctaButtons,
+      contactUsButton: !language ? undefined : translations?.[language]?.masthead?.contact,
       userStatus: request?.user,
       language,
     },

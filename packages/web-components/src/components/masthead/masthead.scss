@@ -18,6 +18,7 @@
 @import 'carbon-web-components/scss/components/ui-shell/side-nav';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu';
 @import '../../globals/scss/box-sizing';
+@import '../cta/cta.scss';
 
 :host(#{$dds-prefix}-masthead-menu-button) {
   @extend :host(#{$prefix}-header-menu-button);
@@ -40,6 +41,38 @@
     @include carbon--breakpoint-down('md') {
       display: none;
     }
+  }
+}
+
+:host(#{$dds-prefix}-masthead-button-cta) {
+  @extend :host(#{$dds-prefix}-button-cta);
+
+  margin: 0;
+  padding-inline-end: 0;
+
+  &.console .#{$prefix}--btn--ghost {
+    border-left: 1px solid $button-separator;
+    color: $link-02;
+  }
+
+  .#{$prefix}--btn {
+    padding: calc(0.875rem - 3px) carbon--rem(15px);
+  }
+
+  .#{$prefix}--btn--ghost {
+    color: $link-01;
+    @include carbon--type-style('body-short-02');
+
+    &:hover,
+    &:focus {
+      color: $link-02;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-masthead-global-bar) ::slotted(#{$dds-prefix}-masthead-button-cta) {
+  @include carbon--breakpoint-down('md') {
+    display: none;
   }
 }
 
@@ -102,6 +135,8 @@
 :host(#{$dds-prefix}-masthead-global-bar) {
   @extend .#{$prefix}--header__global;
 
+  flex: none;
+
   &[has-search-active] {
     @include carbon--breakpoint-down('md') {
       display: none;
@@ -120,12 +155,14 @@
 }
 
 :host(#{$dds-prefix}-masthead-profile),
+:host(#{$dds-prefix}-masthead-contact),
 :host(#{$dds-prefix}-cloud-masthead-profile) {
   background-color: $ui-background;
   width: $spacing-09;
   a.#{$prefix}--header__menu-item {
     @include masthead-top-nav-link;
 
+    color: $icon-01;
     justify-content: center;
     padding: 0;
   }
@@ -238,6 +275,7 @@
 :host(#{$dds-prefix}-top-nav-menu),
 :host(#{$dds-prefix}-megamenu-top-nav-menu),
 :host(#{$dds-prefix}-masthead-profile),
+:host(#{$dds-prefix}-masthead-contact),
 :host(#{$dds-prefix}-cloud-masthead-profile) {
   @extend :host(#{$prefix}-header-menu);
 
@@ -249,6 +287,7 @@
 
 :host(#{$dds-prefix}-top-nav-menu),
 :host(#{$dds-prefix}-masthead-profile),
+:host(#{$dds-prefix}-masthead-contact),
 :host(#{$dds-prefix}-cloud-masthead-profile) {
   .#{$prefix}--header__menu-title[aria-expanded='true'] + .#{$prefix}--header__menu {
     background-color: $ui-background;
