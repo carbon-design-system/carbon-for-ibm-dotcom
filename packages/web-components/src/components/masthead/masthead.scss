@@ -49,6 +49,38 @@
   }
 }
 
+:host(#{$dds-prefix}-masthead-button-cta) {
+  @extend :host(#{$dds-prefix}-button-cta);
+
+  margin: 0;
+  padding-inline-end: 0;
+
+  &.console .#{$prefix}--btn--ghost {
+    border-left: 1px solid $button-separator;
+    color: $link-02;
+  }
+
+  .#{$prefix}--btn {
+    padding: calc(0.875rem - 3px) carbon--rem(15px);
+  }
+
+  .#{$prefix}--btn--ghost {
+    color: $link-01;
+    @include carbon--type-style('body-short-02');
+
+    &:hover,
+    &:focus {
+      color: $link-02;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-masthead-global-bar) ::slotted(#{$dds-prefix}-masthead-button-cta) {
+  @include carbon--breakpoint-down('md') {
+    display: none;
+  }
+}
+
 :host(#{$dds-prefix}-masthead-logo) {
   @extend :host(#{$prefix}-header-name);
   @include masthead-logo;
@@ -155,6 +187,7 @@
 }
 
 :host(#{$dds-prefix}-masthead-profile),
+:host(#{$dds-prefix}-masthead-contact),
 :host(#{$dds-prefix}-cloud-masthead-profile) {
   background-color: $ui-background;
   width: $spacing-09;
@@ -162,6 +195,7 @@
   a.#{$prefix}--header__menu-item {
     @include masthead-top-nav-link;
 
+    color: $icon-01;
     justify-content: center;
     padding: 0;
   }
@@ -274,6 +308,7 @@
 :host(#{$dds-prefix}-top-nav-menu),
 :host(#{$dds-prefix}-megamenu-top-nav-menu),
 :host(#{$dds-prefix}-masthead-profile),
+:host(#{$dds-prefix}-masthead-contact),
 :host(#{$dds-prefix}-cloud-masthead-profile) {
   @extend :host(#{$prefix}-header-menu);
 
@@ -285,6 +320,7 @@
 
 :host(#{$dds-prefix}-top-nav-menu),
 :host(#{$dds-prefix}-masthead-profile),
+:host(#{$dds-prefix}-masthead-contact),
 :host(#{$dds-prefix}-cloud-masthead-profile) {
   .#{$prefix}--header__menu-title[aria-expanded='true'] + .#{$prefix}--header__menu {
     background-color: $ui-background;
@@ -563,31 +599,6 @@
 :host(#{$dds-prefix}-masthead-search-composite),
 :host(#{$dds-prefix}-masthead-search-container) {
   display: contents;
-}
-
-:host(#{$dds-prefix}-masthead-button-cta) {
-  @extend :host(#{$dds-prefix}-button-cta);
-
-  margin: 0;
-  padding-right: 0;
-
-  &.console .#{$prefix}--btn--ghost {
-    border-left: 1px solid $button-separator;
-    color: $link-02;
-  }
-
-  .#{$prefix}--btn {
-    padding: calc(0.875rem - 3px) carbon--rem(15px);
-  }
-
-  .#{$prefix}--btn--ghost {
-    color: $text-02;
-
-    &:hover,
-    &:focus {
-      color: $text-01;
-    }
-  }
 }
 
 :host(#{$dds-prefix}-megamenu),
