@@ -126,7 +126,7 @@ export const SuperWithVideo = args => {
         })}
       </dds-button-group>
       <dds-background-media mobile-position="bottom" opacity="100">
-        <dds-video-player-container video-id="#" background-mode="true"></dds-video-player-container>
+        <dds-video-player-container video-id="1_9h94wo6b" background-mode="true"></dds-video-player-container>
       </dds-background-media>
     </dds-leadspace>
   `;
@@ -217,7 +217,7 @@ export const TallWithVideo = args => {
         })}
       </dds-button-group>
       <dds-background-media mobile-position="bottom" opacity="100">
-        <dds-video-player-container video-id="#" background-mode="true"></dds-video-player-container>
+        <dds-video-player-container video-id="1_9h94wo6b" background-mode="true"></dds-video-player-container>
       </dds-background-media>
     </dds-leadspace>
   `;
@@ -308,7 +308,7 @@ export const MediumWithVideo = args => {
         })}
       </dds-button-group>
       <dds-background-media mobile-position="bottom" opacity="100">
-        <dds-video-player-container video-id="#" background-mode="true"></dds-video-player-container>
+        <dds-video-player-container video-id="1_9h94wo6b" background-mode="true"></dds-video-player-container>
       </dds-background-media>
     </dds-leadspace>
   `;
@@ -408,7 +408,7 @@ export const ShortWithVideo = args => {
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       <dds-background-media mobile-position="bottom" opacity="100">
-        <dds-video-player-container video-id="#" background-mode="true"></dds-video-player-container>
+        <dds-video-player-container video-id="1_9h94wo6b" background-mode="true"></dds-video-player-container>
       </dds-background-media>
     </dds-leadspace>
   `;
@@ -501,7 +501,7 @@ export const CenteredWithVideo = args => {
         })}
       </dds-button-group>
       <dds-background-media mobile-position="bottom" opacity="100">
-        <dds-video-player-container video-id="#" background-mode="true"></dds-video-player-container>
+        <dds-video-player-container video-id="1_9h94wo6b" background-mode="true"></dds-video-player-container>
       </dds-background-media>
     </dds-leadspace>
   `;

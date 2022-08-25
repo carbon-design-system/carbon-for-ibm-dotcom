@@ -117,7 +117,7 @@ export const Default = args => {
       ${mediaType === 'Image' ? image({ heading: groupHeading }) : ``}
       ${mediaType === 'Video'
         ? html`
-            <dds-video-player-container slot="media" video-id="#"></dds-video-player-container>
+            <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
           `
         : ``}
       ${items.map(

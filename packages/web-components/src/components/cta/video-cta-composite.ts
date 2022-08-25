@@ -182,7 +182,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
         video-cta-lightbox="true"
         custom-video-name="${ifNonNull(videoName)}"
         custom-video-description="${ifNonNull(videoDescription)}"
-        video-id="#"
+        video-id="${ifNonNull(activeVideoId)}"
         .embeddedVideos="${ifNonNull(embeddedVideos)}"
         .mediaData="${ifNonNull(mediaData)}"
         ._embedMedia="${ifNonNull(embedMedia)}"

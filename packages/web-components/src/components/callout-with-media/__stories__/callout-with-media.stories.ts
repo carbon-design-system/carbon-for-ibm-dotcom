@@ -29,7 +29,7 @@ const image = html`
 `;
 
 const video = html`
-  <dds-callout-with-media-video video-id="#"></dds-callout-with-media-video>
+  <dds-callout-with-media-video video-id="0_uka1msg4"></dds-callout-with-media-video>
 `;
 
 export const Default = args => {

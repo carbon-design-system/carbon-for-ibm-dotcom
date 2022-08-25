@@ -69,7 +69,7 @@ const contentItemCopy =
   'elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.';
 
 const video = html`
-  <dds-video-player-container slot="media" video-id="#"></dds-video-player-container>
+  <dds-video-player-container slot="media" video-id="0_uka1msg4"></dds-video-player-container>
 `;
 
 const linkListItems = [

@@ -70,7 +70,7 @@ export const Default = args => {
         ? html`
             <dds-content-item>
               <dds-content-item-heading>Natural language understanding</dds-content-item-heading>
-              <dds-video-player-container slot="media" video-id="#"></dds-video-player-container>
+              <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
               <dds-content-item-copy
                 >This area of NLP takes "real world" text and applies a symbolic system for a machine to interpret its meaning,
                 using formal logic; structures that describe the various relationships between concepts (ontologies); and other
