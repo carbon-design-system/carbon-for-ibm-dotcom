@@ -71,6 +71,7 @@ export const defaultWithAdjunctLegalLinks = ({ parameters }) => {
   const { props = {} } = parameters;
   props.FooterComposite = {
     ...(props.FooterComposite || {}),
+    disableLocaleButton: false,
     size: FOOTER_SIZE.REGULAR,
   };
   return base({ parameters });
@@ -104,7 +105,7 @@ export const defaultLanguageOnly = ({ parameters }) => {
     selectedLanguage: 'English',
     adjunctLinks: [],
   };
-  return <div className="default-language-only">${base({ parameters })}</div>;
+  return <div className="default-language-only">{base({ parameters })}</div>;
 };
 
 defaultLanguageOnly.story = {
@@ -258,12 +259,19 @@ export default {
     knobs: {
       FooterComposite: ({ groupId }) => ({
         disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
-        langDisplay: 'United States - English',
-        legalLinks: mockLegalLinks,
-        adjunctLinks: mockLegalLinks,
-        links: mockLinks,
-        localeList: mockLocaleList,
       }),
+    },
+    propsSet: {
+      default: {
+        FooterComposite: {
+          disableLocaleButton: false,
+          langDisplay: 'United States - English',
+          legalLinks: mockLegalLinks,
+          adjunctLinks: mockLegalLinks,
+          links: mockLinks,
+          localeList: mockLocaleList,
+        },
+      },
     },
   },
   excludeStories: ['base'],
