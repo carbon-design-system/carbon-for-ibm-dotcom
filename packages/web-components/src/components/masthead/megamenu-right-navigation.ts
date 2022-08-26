@@ -53,7 +53,7 @@ class DDSMegaMenuRightNavigation extends LitElement {
     return classMap({
       [`${prefix}--masthead__megamenu--hasHighlights`]: this.styleScheme === MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION,
       [`${prefix}--masthead__megamenu--hasViewAllLink`]: this.viewAllHref,
-      [`${prefix}--masthead__megamenu__categories`]: true,
+      [`${prefix}--masthead__megamenu__categories`]: this.styleScheme !== MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB,
     });
   }
 

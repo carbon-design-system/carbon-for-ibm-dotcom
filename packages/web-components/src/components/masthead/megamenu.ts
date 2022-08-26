@@ -7,11 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement, LitElement } from 'lit-element';
+import { html, customElement, LitElement, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
+import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -23,6 +24,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-megamenu`)
 class DDSMegaMenu extends StableSelectorMixin(LitElement) {
+  @property({ reflect: true })
+  layout?: MEGAMENU_LAYOUT_SCHEME;
+
   render() {
     return html`
       <div class="${prefix}--masthead__megamenu__container">

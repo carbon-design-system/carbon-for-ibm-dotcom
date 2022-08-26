@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,9 +18,9 @@ export { CTA_TYPE };
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * Cloud Button CTA.
+ * Masthead Button CTA.
  *
- * @element dds-cloud-button-cta
+ * @element dds--masthead-button-cta
  */
 @customElement(`${ddsPrefix}-masthead-button-cta`)
 class DDSMastheadButtonCTA extends DDSButtonExpressive {
