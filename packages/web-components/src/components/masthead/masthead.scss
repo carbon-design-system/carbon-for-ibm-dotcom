@@ -20,6 +20,11 @@
 @import '../../globals/scss/box-sizing';
 @import '../cta/cta.scss';
 
+:host(#{$dds-prefix}-masthead-container),
+#{$dds-prefix}-masthead-container {
+  position: relative;
+}
+
 :host(#{$dds-prefix}-masthead-menu-button) {
   @extend :host(#{$prefix}-header-menu-button);
 
@@ -105,11 +110,30 @@
 
 :host(#{$dds-prefix}-top-nav-name) {
   outline: none;
+  position: relative;
   z-index: 1;
   background: $ui-background;
 
   a.#{$prefix}--header__name {
     @include masthead-top-nav-name;
+
+    margin-left: 0;
+
+    @include carbon--breakpoint-down(800px) {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    @include carbon--breakpoint('lg') {
+      margin-left: 0;
+    }
+
+    @include carbon--breakpoint('xlg') {
+      margin-left: $carbon--spacing-05;
+      position: relative;
+    }
   }
 }
 
@@ -135,7 +159,15 @@
 :host(#{$dds-prefix}-masthead-global-bar) {
   @extend .#{$prefix}--header__global;
 
+  background-color: $ui-background;
   flex: none;
+  z-index: 0;
+
+  ::slotted(#{$dds-prefix}-button-cta) {
+    @include carbon--breakpoint-down('md') {
+      display: none;
+    }
+  }
 
   &[has-search-active] {
     @include carbon--breakpoint-down('md') {
@@ -159,6 +191,7 @@
 :host(#{$dds-prefix}-cloud-masthead-profile) {
   background-color: $ui-background;
   width: $spacing-09;
+
   a.#{$prefix}--header__menu-item {
     @include masthead-top-nav-link;
 
@@ -294,6 +327,10 @@
     background-color: $ui-background;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
     bottom: -1px;
+
+    @include carbon--breakpoint-down('md') {
+      width: 100vw;
+    }
   }
 }
 
@@ -323,6 +360,10 @@
 
     &:hover {
       color: $text-01;
+    }
+
+    svg {
+      fill: $icon-02;
     }
   }
 }
@@ -442,6 +483,26 @@
 
 :host(#{$dds-prefix}-left-nav-item) {
   @extend :host(#{$prefix}-side-nav-link);
+
+  a.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
+    color: $text-02;
+
+    &:hover,
+    &:focus {
+      color: $text-01;
+    }
+  }
+
+  &:last-child {
+    a.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
+      color: $link-01;
+
+      &:hover,
+      &:focus {
+        color: $link-02;
+      }
+    }
+  }
 }
 
 :host(#{$dds-prefix}-left-nav-menu) {
@@ -557,4 +618,212 @@
 :host(#{$dds-prefix}-masthead-search-composite),
 :host(#{$dds-prefix}-masthead-search-container) {
   display: contents;
+}
+
+:host(#{$dds-prefix}-megamenu),
+.#{$prefix}--masthead__megamenu {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: carbon--rem(48px);
+    background: linear-gradient(transparent, $ui-background);
+    pointer-events: none;
+  }
+
+  .#{$prefix}--masthead__megamenu__container {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .#{$prefix}--masthead__megamenu__container--row {
+    // Override flex-direction: column set in _masthead-megamenu.scss.
+    @include carbon--breakpoint-between(960px, 1055px) {
+      flex-direction: inherit;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-megamenu[layout='tab']) ::slotted(#{$dds-prefix}-megamenu-left-navigation) {
+  @include carbon--make-col(4, 16);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: carbon--rem(1px) solid $ui-03;
+  padding-block-start: 0;
+
+  @include carbon--breakpoint('md') {
+    min-height: carbon--rem(580px);
+  }
+
+  @include carbon--breakpoint('xlg') {
+    min-height: carbon--rem(475px);
+  }
+}
+
+:host(#{$dds-prefix}-megamenu-right-navigation[style-scheme='tab']) {
+  @include carbon--make-col(12, 16);
+
+  display: flex;
+  flex-direction: column;
+  padding-top: $spacing-06;
+  margin-bottom: $spacing-07;
+}
+
+:host(#{$dds-prefix}-megamenu-tabs) {
+  display: flex;
+  flex-direction: column;
+  margin-top: carbon--rem(18px);
+  margin-bottom: carbon--rem(18px);
+
+  .#{$prefix}--tabs-trigger {
+    display: none;
+  }
+}
+
+:host(#{$dds-prefix}-megamenu-tab) {
+  outline: 0;
+
+  button {
+    @include carbon--type-style(body-short-01);
+
+    color: $text-02;
+    width: 100%;
+    border: none;
+    text-align: left;
+    padding: carbon--rem(6px) $spacing-05;
+    background-color: $ui-background;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      color: $text-01;
+    }
+
+    &:hover {
+      background-color: $hover-ui;
+    }
+
+    &:focus {
+      outline: carbon--rem(2px) solid $focus;
+      outline-offset: carbon--rem(-2px);
+    }
+  }
+}
+
+:host(#{$dds-prefix}-megamenu-tab)[selected] button {
+  background-color: $selected-ui;
+  color: $text-01;
+}
+
+:host(#{$dds-prefix}-megamenu-category-link-group) {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: flex-start;
+}
+
+:host(#{$dds-prefix}-megamenu-category-link[layout='tab']) {
+  width: 100%;
+  max-width: 50%;
+  outline: 0;
+
+  @include carbon--breakpoint('xlg') {
+    max-width: 33.33%;
+  }
+
+  a {
+    display: block;
+    padding: $spacing-04 $spacing-05;
+    height: 100%;
+
+    p {
+      @include carbon--type-style('expressive-heading-01');
+
+      color: $text-02;
+
+      svg {
+        margin-inline-start: $spacing-03;
+        padding-block-start: $spacing-01; /* shrink SVG with padding to match font-size */
+      }
+    }
+
+    > span {
+      @include carbon--type-style(body-short-01);
+
+      color: $text-02;
+      display: block;
+      width: 90%;
+    }
+
+    &:hover {
+      text-decoration: none;
+      background-color: $hover-ui;
+    }
+
+    &:focus {
+      outline: carbon--rem(2px) solid $focus;
+      outline-offset: carbon--rem(-2px);
+    }
+  }
+}
+
+:host(#{$dds-prefix}-megamenu-category-heading) {
+  display: block;
+  padding: 0 $spacing-05;
+  margin-bottom: $spacing-06;
+  width: 66.66%;
+
+  @include carbon--breakpoint('lg') {
+    width: auto;
+  }
+
+  h2 {
+    @include carbon--type-style(heading-03, true);
+
+    display: flex;
+    margin-bottom: $spacing-03;
+
+    a {
+      color: $text-02;
+      text-decoration: none;
+      align-self: center;
+
+      svg {
+        margin: 0 $spacing-03;
+        padding-top: $spacing-02;
+        fill: $text-02;
+
+        /* stylelint-disable-next-line comment-whitespace-inside */
+        /*!rtl:raw:
+        transform: scaleX(-1);
+        */
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:focus {
+        outline: carbon--rem(2px) solid $focus;
+        outline-offset: carbon--rem(-2px);
+      }
+    }
+  }
+
+  span {
+    display: block;
+    @include carbon--type-style(body-short-01);
+
+    color: $text-02;
+
+    @include carbon--breakpoint('lg') {
+      width: 40%;
+    }
+  }
 }

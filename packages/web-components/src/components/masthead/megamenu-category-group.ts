@@ -9,7 +9,7 @@
 
 import { html, LitElement, property } from 'lit-element';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
-import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
+import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
@@ -49,7 +49,7 @@ class DDSMegaMenuCategoryGroup extends LitElement {
                   href="${ifNonNull(href)}"
                   style-scheme="category-headline"
                   title="${title}">
-                  <span>${title}</span>${ArrowRight16({ slot: 'icon' })}
+                  <span>${title}</span>${ArrowRight20({ slot: 'icon' })}
                 </dds-megamenu-link-with-icon>
               `
             : html`

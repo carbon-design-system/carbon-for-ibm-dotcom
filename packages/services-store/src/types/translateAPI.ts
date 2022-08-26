@@ -17,6 +17,7 @@ export interface BasicLink {
   highlightedLink?: boolean;
   url?: string;
   description?: string;
+  target?: string;
 }
 
 /**
@@ -78,6 +79,7 @@ export interface MastheadLink {
   url?: string;
   hasMenu?: boolean;
   hasMegapanel?: boolean;
+  megamenuLayout?: 'tab' | 'list';
   menuSections?: MastheadMenuSection[];
 }
 

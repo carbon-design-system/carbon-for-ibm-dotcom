@@ -316,7 +316,6 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
       language,
       openSearchDropdown,
       searchPlaceholder,
-      selectedMenuItem,
       unauthenticatedProfileItems,
       unauthenticatedCtaButtons,
       userStatus,
@@ -355,7 +354,6 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                     >
                   `}
               ${this._renderNavItems({
-                selectedMenuItem,
                 target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV,
                 hasL1: !!l1Data,
               })}
@@ -392,7 +390,6 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                 cloud
                 menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
                 ${this._renderNavItems({
-                  selectedMenuItem,
                   target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
                   hasL1: false,
                 })}
@@ -488,7 +485,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                 )}
               </dds-cloud-masthead-global-bar>
             `}
-        ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
+        ${!l1Data ? undefined : this._renderL1()}
         <dds-megamenu-overlay></dds-megamenu-overlay>
       </dds-masthead>
     `;
