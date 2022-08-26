@@ -2,7 +2,7 @@
 library:
   id: ibmdotcom-react
   name: IBM.com React
-  description: IBM.com React components and patterns
+  description: Create web experiences that adhere to IBM's web standards.
   externalDocsUrl: www.ibm.com/standards/web/carbon-for-ibm-dotcom
   inherits: ibmdotcom-styles
   demoLinks:

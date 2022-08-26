@@ -2,7 +2,7 @@
 library:
   id: ibmdotcom-utilities
   name: IBM.com Utilities
-  description: IBM.com ES6 utility classes
+  description: Apply JavaScript ES6 utility classes that adhere to IBM's web standards.
   externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities
   noIndex: true
 assets:

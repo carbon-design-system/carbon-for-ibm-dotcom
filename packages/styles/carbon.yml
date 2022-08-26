@@ -2,7 +2,7 @@
 library:
   id: ibmdotcom-styles
   name: IBM.com Styles
-  description: IBM.com framework agnostic component styles
+  description: Apply framework-agnostic styles to any IBM.com component.
   noIndex: true
   externalDocsUrl: www.ibm.com/standards/web/carbon-for-ibm-dotcom
 assets:
@@ -511,7 +511,7 @@ assets:
     type: component
     platform: web
     noIndex: true
-    thumbnailPath: ../../thumbnails/leads-pace-search.svg
+    thumbnailPath: ../../thumbnails/lead-space-search.svg
     tags:
       - input-control
       - content-block

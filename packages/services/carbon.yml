@@ -2,7 +2,7 @@
 library:
   id: ibmdotcom-services
   name: IBM.com Services
-  description: IBM.com ES6 service classes
+  description: Apply JavaScript ES6 service classes that adhere to IBM's web standards.
   noIndex: true
   externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/services
 assets:
