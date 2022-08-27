@@ -41,7 +41,7 @@
   "dependencies": {
     "@carbon/ibmdotcom-services": "1.37.0",
     "@carbon/ibmdotcom-utilities": "1.37.0",
-    "carbon-components": "10.57.2",
+    "carbon-components": "10.58.0",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.0",
     "redux-thunk": "^2.3.0",
