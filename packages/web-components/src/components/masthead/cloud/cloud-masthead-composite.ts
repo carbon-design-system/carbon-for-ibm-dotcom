@@ -29,6 +29,7 @@ import {
   MastheadProfileItem,
 } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/cloudAccountAuthAPI';
+import { MASTHEAD_AUTH_METHOD } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import styles from './cloud-masthead.scss';
 import DDSMastheadComposite, { NAV_ITEMS_RENDER_TARGET } from '../masthead-composite';
 
@@ -77,7 +78,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
    * The selected authentication method, either 'cookie' or 'api'.
    */
   @property({ attribute: 'auth-method' })
-  authMethod = 'cookie';
+  authMethod = MASTHEAD_AUTH_METHOD.COOKIE;
 
   /**
    * The user authentication status.

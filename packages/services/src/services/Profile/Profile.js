@@ -1,10 +1,11 @@
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 /**
  * @constant {string | string} Host for the profile status API call
@@ -28,6 +29,14 @@ const _version = (process && process.env.PROFILE_VERSION) || 'v1';
  * @private
  */
 const _endpoint = `${_host}/${_version}/mgmt/idaas/user/status/`;
+
+/**
+ * The cookie name for determining user login status for cloud.ibm.com.
+ *
+ * @type {string}
+ * @private
+ */
+const _cookieName = 'com.ibm.cloud.iam.LoggedIn.prod';
 
 /**
  * Profile API class with methods for checking user authentication for ibm.com
@@ -58,6 +67,44 @@ class ProfileAPI {
         console.log('Failed Profile Network Call', error);
         return { user: 'Unauthenticated' };
       });
+  }
+
+  /**
+   * retrieve the cloud login status via cookie
+   *
+   *
+   * @returns {string} string determining login status
+   */
+  static checkCloudCookie() {
+    const cloudLogin = Cookies.get(_cookieName);
+
+    console.log('Cloud Cookie', cloudLogin);
+
+    return { user: cloudLogin === '1' ? 'authenticated' : 'anonymous' };
+  }
+
+  /**
+   * retrieve the cloud login status via api
+   *
+   *
+   * @returns {string} string determining login status
+   */
+  static async checkCloudDocsAPI() {
+    const cloudLogin = await axios
+      .get('/api/v6/selected-account?profile=true', {
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+      .then(response => {
+        return response.status === 200 ? 'authenticated' : 'anonymous';
+      })
+      .catch(error => {
+        console.error(error);
+        return 'anonymous';
+      });
+
+    return { user: cloudLogin };
   }
 }
 
