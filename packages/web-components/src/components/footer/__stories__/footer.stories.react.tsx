@@ -52,7 +52,7 @@ export const base = ({ parameters }) => {
       language-selector-label={languageSelectorLabel}
       clear-selection-label={clearSelectionLabel}
       selected-language={selectedLanguage}
-      disable-locale-button={disableLocaleButton === false ? null : true}></DDSFooterContainer>
+      disable-locale-button={disableLocaleButton !== true && null}></DDSFooterContainer>
   );
 };
 
