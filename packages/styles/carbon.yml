@@ -252,7 +252,7 @@ assets:
       - content-element
   content-group-banner:
     name: Content group banner
-    description: Content group banner is designed as a subtle callout, intended for tangential information or announcements that are supplementary to the page's main focus.
+    description: Content group banner is designed as a subtle callout, intended for tangential information or announcements that are supplementary to the page’s main focus.
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-group-banner
     status: stable
     type: component
@@ -367,7 +367,7 @@ assets:
       - contextual-navigation
   dotcom-shell:
     name: Dotcom shell
-    description: Dotcom shell includes the Masthead, and Footer components, all wrapped in a UI shell using Carbon's grid.
+    description: Dotcom shell includes the Masthead, and Footer components, all wrapped in a UI shell using Carbon’s grid.
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/dotcom-shell
     status: stable
     type: component
