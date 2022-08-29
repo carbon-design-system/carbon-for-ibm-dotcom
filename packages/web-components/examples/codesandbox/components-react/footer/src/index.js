@@ -14,11 +14,10 @@ import './index.css';
 
 const App = () => (
   <DDSFooterContainer
-  lang-display='United States - English'
-  language-selector-label='Choose a language'
-  clear-selection-label='Clear language selection'
-  selected-language='English'
-></DDSFooterContainer>
+    lang-display="United States - English"
+    language-selector-label="Choose a language"
+    clear-selection-label="Clear language selection"
+    selected-language="English"></DDSFooterContainer>
 );
 
 render(<App />, document.getElementById('root'));
