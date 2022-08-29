@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-services-store",
   "private": true,
-  "version": "1.37.0",
+  "version": "1.38.0-rc.0",
   "description": "Redux store for Carbon for IBM.com Services",
   "license": "Apache-2.0",
   "main": "lib/store.js",
@@ -39,8 +39,8 @@
     "prettier": "^1.19.0"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "1.37.0",
-    "@carbon/ibmdotcom-utilities": "1.37.0",
+    "@carbon/ibmdotcom-services": "1.38.0-rc.0",
+    "@carbon/ibmdotcom-utilities": "1.38.0-rc.0",
     "carbon-components": "10.57.2",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.0",
