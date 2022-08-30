@@ -349,7 +349,6 @@
 :host(#{$dds-prefix}-top-nav-menu-item),
 :host(#{$dds-prefix}-masthead-profile-item) {
   .#{$prefix}--header__menu-arrow {
-    fill: $text-01;
     width: 20px;
     height: 20px;
   }
@@ -357,12 +356,12 @@
   a.#{$prefix}--header__menu-item {
     @include masthead-top-nav-link;
 
-    &:hover {
-      color: $text-01;
-    }
-
     svg {
       fill: $icon-02;
+    }
+
+    &:hover {
+      color: $text-01;
     }
   }
 }
@@ -723,11 +722,10 @@
     display: block;
     padding: $spacing-04 $spacing-05;
     height: 100%;
+    color: $text-02;
 
     p {
       @include carbon--type-style('expressive-heading-01');
-
-      color: $text-02;
 
       svg {
         margin-inline-start: $spacing-03;
@@ -738,7 +736,6 @@
     > span {
       @include carbon--type-style(body-short-01);
 
-      color: $text-02;
       display: block;
       width: 90%;
     }
@@ -751,6 +748,15 @@
     &:focus {
       outline: carbon--rem(2px) solid $focus;
       outline-offset: carbon--rem(-2px);
+    }
+
+    &:active,
+    &:hover {
+      color: $text-01;
+
+      svg {
+        fill: $icon-01;
+      }
     }
   }
 }
@@ -776,17 +782,6 @@
       text-decoration: none;
       align-self: center;
 
-      svg {
-        margin: 0 $spacing-03;
-        padding-top: $spacing-02;
-        fill: $text-02;
-
-        /* stylelint-disable-next-line comment-whitespace-inside */
-        /*!rtl:raw:
-        transform: scaleX(-1);
-        */
-      }
-
       &:hover {
         text-decoration: underline;
       }
@@ -796,12 +791,36 @@
         outline-offset: carbon--rem(-2px);
       }
     }
+
+    svg {
+      position: relative;
+      top: $spacing-01;
+      margin: 0 $spacing-03;
+      fill: $icon-02;
+
+      /* stylelint-disable-next-line comment-whitespace-inside */
+      /*!rtl:raw:
+        transform: scaleX(-1);
+        */
+    }
+
+    &:active,
+    &:hover {
+      a,
+      ~ span {
+        color: $text-01;
+      }
+
+      svg {
+        fill: $icon-01;
+      }
+    }
   }
 
   span {
-    display: block;
     @include carbon--type-style(body-short-01);
 
+    display: block;
     color: $text-02;
 
     @include carbon--breakpoint('lg') {
