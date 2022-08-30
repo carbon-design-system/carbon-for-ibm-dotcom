@@ -781,6 +781,7 @@
       color: $text-02;
       text-decoration: none;
       align-self: center;
+      display: flex;
 
       &:hover {
         text-decoration: underline;
@@ -794,9 +795,10 @@
 
     svg {
       position: relative;
-      top: $spacing-01;
+      top: $spacing-02;
       margin: 0 $spacing-03;
       fill: $icon-02;
+      flex-shrink: 0;
 
       /* stylelint-disable-next-line comment-whitespace-inside */
       /*!rtl:raw:
@@ -817,7 +819,7 @@
     }
   }
 
-  span {
+  > span {
     @include carbon--type-style(body-short-01);
 
     display: block;
