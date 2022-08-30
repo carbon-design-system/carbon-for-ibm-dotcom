@@ -78,8 +78,6 @@ class ProfileAPI {
   static checkCloudCookie() {
     const cloudLogin = Cookies.get(_cookieName);
 
-    //console.log('Cloud Cookie', cloudLogin);
-
     return { user: cloudLogin === '1' ? 'authenticated' : 'anonymous' };
   }
 

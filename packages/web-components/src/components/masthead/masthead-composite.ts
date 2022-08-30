@@ -912,7 +912,7 @@ class DDSMastheadComposite extends LitElement {
   hasContact = 'true';
 
   /**
-   * The selected authentication method, either profile-api (default), 'cookie', 'docs-api'.
+   * The selected authentication method, either `profile-api` (default), `cookie`, or `docs-api`.
    */
   @property({ attribute: 'auth-method' })
   authMethod = MASTHEAD_AUTH_METHOD.DEFAULT;

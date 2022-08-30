@@ -9,7 +9,7 @@
 
 import { ThunkAction } from 'redux-thunk';
 import ProfileAPI from '@carbon/ibmdotcom-services/es/services/Profile/Profile.js';
-import { UserStatus, PROFILE_API_ACTION, ProfileAPIState } from '../types/profileAPI';
+import { UserStatus, PROFILE_API_ACTION, ProfileAPIState, MASTHEAD_AUTH_METHOD } from '../types/profileAPI';
 
 /**
  * @param error An error from the JSONP call for user authentication status.
@@ -60,10 +60,10 @@ export function loadUserStatus(
   return async dispatch => {
     let promiseStatus: Promise<UserStatus>;
     switch (authMethod) {
-      case 'cookie':
+      case MASTHEAD_AUTH_METHOD.COOKIE:
         promiseStatus = ProfileAPI.checkCloudCookie();
         break;
-      case 'docs-api':
+      case MASTHEAD_AUTH_METHOD.DOCS_API:
         promiseStatus = ProfileAPI.checkCloudDocsAPI();
         break;
       default:
