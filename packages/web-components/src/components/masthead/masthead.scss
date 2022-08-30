@@ -621,30 +621,31 @@
     overflow-y: scroll;
     overflow-x: hidden;
   }
+}
 
+:host(#{$dds-prefix}-megamenu[layout='tab']) {
   .#{$prefix}--masthead__megamenu__container--row {
-    // Override flex-direction: column set in _masthead-megamenu.scss.
-    @include carbon--breakpoint-between(960px, 1055px) {
+    @include carbon--breakpoint('md') {
       flex-direction: inherit;
     }
   }
-}
 
-:host(#{$dds-prefix}-megamenu[layout='tab']) ::slotted(#{$dds-prefix}-megamenu-left-navigation) {
-  @include carbon--make-col(4, 16);
+  ::slotted(#{$dds-prefix}-megamenu-left-navigation) {
+    @include carbon--make-col(4, 16);
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-right: carbon--rem(1px) solid $ui-03;
-  padding-block-start: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: carbon--rem(1px) solid $ui-03;
+    padding-block-start: 0;
 
-  @include carbon--breakpoint('md') {
-    min-height: carbon--rem(580px);
-  }
+    @include carbon--breakpoint('md') {
+      min-height: carbon--rem(580px);
+    }
 
-  @include carbon--breakpoint('xlg') {
-    min-height: carbon--rem(475px);
+    @include carbon--breakpoint('xlg') {
+      min-height: carbon--rem(475px);
+    }
   }
 }
 
