@@ -55,7 +55,7 @@ export type ProfileAPIActions =
  * @returns A Redux action that sends a REST call for user authentication status.
  */
 export function loadUserStatus(
-  authMethod: string
+  authMethod: MASTHEAD_AUTH_METHOD
 ): ThunkAction<Promise<UserStatus>, { profileAPI: ProfileAPIState }, void, ProfileAPIActions> {
   return async dispatch => {
     let promiseStatus: Promise<UserStatus>;

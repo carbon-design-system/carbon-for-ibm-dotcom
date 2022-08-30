@@ -116,7 +116,7 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const WithV2Data = ({ parameters }) => {
+export const withV2Data = ({ parameters }) => {
   const { customProfileLogin, hasProfile, hasSearch, searchPlaceholder, userStatus, navLinks, hasContact } =
     parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
@@ -155,7 +155,11 @@ export const WithV2Data = ({ parameters }) => {
   `;
 };
 
-export const WithCloudData = ({ parameters }) => {
+withV2Data.story = {
+  name: 'With v2 Data',
+};
+
+export const withCloudData = ({ parameters }) => {
   const { customProfileLogin, hasSearch, selectedMenuItem, searchPlaceholder, navLinks } =
     parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
