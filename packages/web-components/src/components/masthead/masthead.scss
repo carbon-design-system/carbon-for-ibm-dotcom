@@ -724,7 +724,7 @@
     height: 100%;
     color: $text-02;
 
-    p {
+    div {
       @include carbon--type-style('expressive-heading-01');
 
       svg {
