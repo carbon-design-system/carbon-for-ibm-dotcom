@@ -11,10 +11,7 @@
 >
   <div id="carousel-title">
     <slot name="title">
-      <span
-        aria-hidden="true"
-        class="bx--visually-hidden"
-      >
+      <span class="bx--visually-hidden">
         Carousel
       </span>
     </slot>
