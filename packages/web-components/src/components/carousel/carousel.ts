@@ -242,7 +242,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   private _handleFocus = async ({ target }: FocusEvent) => {
     const containsCurrent = target !== this && this.contains(target as HTMLElement);
     let currentItemIndex = 0;
-    Array.from(this.children).forEach((carouselItem, index) => {
+    Array.from(this._childItems).forEach((carouselItem, index) => {
       if (carouselItem.contains(target as HTMLElement)) {
         currentItemIndex = index;
       }
@@ -326,7 +326,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     }
     this._updateGap();
 
-    this._childItems = (event.target as HTMLSlotElement).assignedNodes().filter(node => node instanceof HTMLElement);
+    this._childItems = (event.target as HTMLSlotElement).assignedElements();
 
     this._intersectionObserver.disconnect();
 
