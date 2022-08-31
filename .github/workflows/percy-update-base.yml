@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - release/*
+      - feat/masthead-v2
 
 concurrency:
   group: percy-update-base-${{ github.ref }}
