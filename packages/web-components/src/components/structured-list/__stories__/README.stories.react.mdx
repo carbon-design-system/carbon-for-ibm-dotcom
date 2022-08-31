@@ -1,0 +1,99 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/structured-list/structured-list';
+
+# Structured List
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/structured-list)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/structured-list)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS (via import)
+
+```javascript
+import DDSStructuredList from '@carbon/ibmdotcom-web-components/es/components-react/structured-list/structured-list';
+import DDSStructuredListHead from '@carbon/ibmdotcom-web-components/es/components-react/structured-list/structured-list-head';
+import DDSStructuredListHeaderRow from '@carbon/ibmdotcom-web-components/es/components-react/structured-list/structured-list-header-row';
+import DDSStructuredListHeaderCell from '@carbon/ibmdotcom-web-components/es/components-react/structured-list/structured-list-header-cell';
+import DDSStructuredListBody from '@carbon/ibmdotcom-web-components/es/components-react/structured-list/structured-list-body';
+import DDSStructuredListGroup from '@carbon/ibmdotcom-web-components/es/components-react/structured-list/structured-list-group';
+import DDSStructuredListRow from '@carbon/ibmdotcom-web-components/es/components-react/structured-list/structured-list-row';
+import DDSStructuredListCell from '@carbon/ibmdotcom-web-components/es/components-react/structured-list/structured-list-cell';
+
+function App = () => (
+  <DDSStructuredList>
+    <DDSStructuredListHead>
+      <DDSStructuredListHeaderRow>
+        <DDSStructuredListHeaderCell>Column A</DDSStructuredListHeaderCell>
+        <DDSStructuredListHeaderCell>Column B</DDSStructuredListHeaderCell>
+        <DDSStructuredListHeaderCell>Column C</DDSStructuredListHeaderCell>
+        <DDSStructuredListHeaderCell>Column D</DDSStructuredListHeaderCell>
+      </DDSStructuredListHeaderRow>
+    </DDSStructuredListHead>
+    <DDSStructuredListBody>
+      <DDSStructuredListGroup title="Group 1">
+        <DDSStructuredListRow>
+          <DDSStructuredListCell>Row 1</DDSStructuredListCell>
+          <DDSStructuredListCell>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim.
+          </DDSStructuredListCell>
+          <DDSStructuredListCell>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim.
+          </DDSStructuredListCell>
+          <DDSStructuredListCell>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim.
+          </DDSStructuredListCell>
+        </DDSStructuredListRow>
+      </DDSStructuredListGroup>
+      <DDSStructuredListGroup title="Group 2">
+        <DDSStructuredListRow>
+          <DDSStructuredListCell>Row 2</DDSStructuredListCell>
+          <DDSStructuredListCell>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim.
+          </DDSStructuredListCell>
+          <DDSStructuredListCell>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim.
+          </DDSStructuredListCell>
+          <DDSStructuredListCell>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim.
+          </DDSStructuredListCell>
+        </DDSStructuredListRow>
+      </DDSStructuredListGroup>
+      <DDSStructuredListGroup title="Group 3">
+        <DDSStructuredListRow>
+          <DDSStructuredListCell>Row 3</DDSStructuredListCell>
+          <DDSStructuredListCell>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim.
+          </DDSStructuredListCell>
+          <DDSStructuredListCell>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim.
+          </DDSStructuredListCell>
+          <DDSStructuredListCell>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim.
+          </DDSStructuredListCell>
+        </DDSStructuredListRow>
+      </DDSStructuredListGroup>
+    </DDSStructuredListBody>
+  </DDSStructuredList>
+);
+```
+
+## Props
+
+<Props of={PropTypesRef} />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector     | Compatibility selector                   | Description |
+| --------------------------- | ---------------------------------------- | ----------- |
+| `<dds-structured-list>`     | `data-autoid="dds--structured-list"`     | Component   |
+
+<Description markdown={contributing} />
