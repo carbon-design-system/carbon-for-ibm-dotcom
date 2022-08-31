@@ -9,13 +9,9 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSLocaleModalContainer  from '@carbon/ibmdotcom-web-components/es/components-react/locale-modal/locale-modal-container.js';
+import DDSLocaleModalContainer from '@carbon/ibmdotcom-web-components/es/components-react/locale-modal/locale-modal-container.js';
 import './index.css';
 
-const App = () => (
-  <DDSLocaleModalContainer
-  lang-display='United States - English'
-  open></DDSLocaleModalContainer>
-);
+const App = () => <DDSLocaleModalContainer lang-display="United States - English" open></DDSLocaleModalContainer>;
 
 render(<App />, document.getElementById('root'));
