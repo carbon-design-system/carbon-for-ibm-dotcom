@@ -2314,6 +2314,12 @@ const mastheadLinks: MastheadLink[] = [
                   },
                 ],
               },
+              feature: {
+                heading: '',
+                imageUrl: '',
+                linkTitle: '',
+                linkUrl: '',
+              },
             },
           },
           {
@@ -2364,6 +2370,12 @@ const mastheadLinks: MastheadLink[] = [
                     description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: '',
+                linkTitle: '',
+                linkUrl: '',
               },
             },
           },
@@ -2422,6 +2434,12 @@ const mastheadLinks: MastheadLink[] = [
                   },
                 ],
               },
+              feature: {
+                heading: '',
+                imageUrl: '',
+                linkTitle: '',
+                linkUrl: '',
+              },
             },
           },
           {
@@ -2454,6 +2472,12 @@ const mastheadLinks: MastheadLink[] = [
                     description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: '',
+                linkTitle: '',
+                linkUrl: '',
               },
             },
           },
@@ -2518,6 +2542,12 @@ const mastheadLinks: MastheadLink[] = [
                   },
                 ],
               },
+              feature: {
+                heading: '',
+                imageUrl: '',
+                linkTitle: '',
+                linkUrl: '',
+              },
             },
           },
           {
@@ -2530,40 +2560,6 @@ const mastheadLinks: MastheadLink[] = [
               description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
-                categoryGrouping: [
-                  {
-                    headingLevel2: 'Prepare',
-                    headingLevel2English: 'Prepare',
-                    headingLevel2Description: '',
-                    linkTitles: [
-                      'Security Strategy',
-                      'GRC',
-                      'Risk Management',
-                      'Offensive Security Services',
-                      'Penetration Testing',
-                      'Adversary Simulation',
-                    ],
-                  },
-                  {
-                    headingLevel2: 'Protect',
-                    headingLevel2English: 'Protect',
-                    headingLevel2Description: '',
-                    linkTitles: [
-                      'Cloud',
-                      'Data',
-                      'Applications',
-                      'Identity and Access',
-                      'Managed Security Services',
-                      'Managed Infrastructure and Endpoint Security',
-                    ],
-                  },
-                  {
-                    headingLevel2: 'Respond',
-                    headingLevel2English: 'Respond',
-                    headingLevel2Description: '',
-                    linkTitles: ['Threat managment', 'Threat intelligence', 'Virtual SOC', 'Managed Detection and Response'],
-                  },
-                ],
                 links: [
                   {
                     title: 'Security Strategy',
@@ -2663,6 +2659,12 @@ const mastheadLinks: MastheadLink[] = [
                   },
                 ],
               },
+              feature: {
+                heading: '',
+                imageUrl: '',
+                linkTitle: '',
+                linkUrl: '',
+              },
             },
           },
           {
@@ -2701,6 +2703,12 @@ const mastheadLinks: MastheadLink[] = [
                     description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: '',
+                linkTitle: '',
+                linkUrl: '',
               },
             },
           },
@@ -2777,6 +2785,12 @@ const mastheadLinks: MastheadLink[] = [
                   },
                 ],
               },
+              feature: {
+                heading: '',
+                imageUrl: '',
+                linkTitle: '',
+                linkUrl: '',
+              },
             },
           },
           {
@@ -2839,6 +2853,12 @@ const mastheadLinks: MastheadLink[] = [
                     description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: '',
+                linkTitle: '',
+                linkUrl: '',
               },
             },
           },
