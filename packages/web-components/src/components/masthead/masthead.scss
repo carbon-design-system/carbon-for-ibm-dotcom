@@ -774,7 +774,7 @@
   h2 {
     @include carbon--type-style(heading-03, true);
 
-    display: flex;
+    display: inline-block;
     margin-bottom: $spacing-03;
 
     a {
