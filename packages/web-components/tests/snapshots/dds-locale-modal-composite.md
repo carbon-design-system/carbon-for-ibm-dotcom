@@ -10,7 +10,10 @@
   data-autoid="dds--locale-modal"
   header-title="Select geographic area"
 >
-  <dds-regions data-autoid="dds--regions">
+  <dds-regions
+    data-autoid="dds--regions"
+    title="Select geographic area"
+  >
   </dds-regions>
   <dds-locale-search
     availability-label-text="This page is available in the following locations and languages"
@@ -35,7 +38,10 @@
   lang-display="lang-display-foo"
   open=""
 >
-  <dds-regions data-autoid="dds--regions">
+  <dds-regions
+    data-autoid="dds--regions"
+    title="header-title-foo"
+  >
     <dds-region-item name="region-name-foo">
     </dds-region-item>
     <dds-region-item name="region-name-bar">

@@ -2,7 +2,7 @@
 library:
   id: ibmdotcom-utilities
   name: IBM.com Utilities
-  description: IBM.com ES6 utility classes
+  description: Apply JavaScript ES6 utility classes that adhere to IBM’s web standards.
   externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities
   noIndex: true
 assets:
@@ -85,7 +85,7 @@ assets:
       - utility
   format-video-duration:
     name: formatVideoDuration
-    description: The default g11n formatter for video duration. Components using this function should have a mechanism to allow translators to replace it with one accomodating the preferences of specific locale, or to replace it with general-purpose g11n formatting library. (e.g. moment, though it's too big for us to make it a hard dependency)
+    description: The default g11n formatter for video duration. Components using this function should have a mechanism to allow translators to replace it with one accomodating the preferences of specific locale, or to replace it with general-purpose g11n formatting library. (e.g. moment, though it’s too big for us to make it a hard dependency)
     type: function
     platform: web
     status: stable
@@ -96,7 +96,7 @@ assets:
       - utility
   geolocation:
     name: geolocation
-    description: Utility to retrieve user's country code based on their IP address
+    description: Utility to retrieve user’s country code based on their IP address
     type: function
     platform: web
     status: stable
