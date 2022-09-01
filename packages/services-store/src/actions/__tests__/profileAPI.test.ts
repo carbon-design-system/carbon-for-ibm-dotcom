@@ -15,6 +15,7 @@ import {
   UNAUTHENTICATED_STATUS,
   PROFILE_API_ACTION,
   ProfileAPIState,
+  MASTHEAD_AUTH_METHOD
 } from '../../types/profileAPI';
 import convertValue from '../../../tests/utils/convert-value';
 import { loadUserStatus, setUserStatus } from '../profileAPI';
@@ -43,7 +44,7 @@ describe('Redux actions for `ProfileAPI`', () => {
       user: UNAUTHENTICATED_STATUS,
     });
     const store = mockStore();
-    await store.dispatch(loadUserStatus());
+    await store.dispatch(loadUserStatus(MASTHEAD_AUTH_METHOD.DEFAULT));
     expect(convertValue(store.getActions())).toEqual([
       {
         type: PROFILE_API_ACTION.SET_REQUEST_USER_STATUS_IN_PROGRESS,
@@ -63,7 +64,7 @@ describe('Redux actions for `ProfileAPI`', () => {
     const store = mockStore();
     let caught;
     try {
-      await store.dispatch(loadUserStatus());
+      await store.dispatch(loadUserStatus(MASTHEAD_AUTH_METHOD.DEFAULT));
     } catch (error) {
       caught = error;
     }

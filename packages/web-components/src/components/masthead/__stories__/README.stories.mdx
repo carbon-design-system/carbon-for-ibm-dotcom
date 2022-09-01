@@ -2,8 +2,6 @@ import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-
-
 # Masthead
 
 > The masthead component is a required navigational pattern for IBM.com that
@@ -23,22 +21,59 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/masthead-l1)
 
 ## Getting Started
+
 ##### Note: Masthead uses the Carbon White theme by design. Using other themes will not change the Masthead color scheme.
 
 ### JS (via import)
 
-```javascript
+````javascript
 import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container.js';
-```
-
-<Description markdown={`${cdnJs({ components: ['masthead'] })}`} />
-
+```<Description markdown={`\${cdnJs({ components: ['masthead'] })}`} />
 <Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
 ```html
 <dds-masthead-container></dds-masthead-container>
+````
+
+#### Adopting Masthead v2 with new data endpoint
+
+###### JS (via CDN):
+
+```html
+// Alpha tag using changes from the feature branch (feat/masthead-v2)
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/alpha/masthead.min.js"></script>
+```
+
+###### Markup:
+
+```html
+<dds-masthead-container
+  data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2"
+  auth-method="profile-api"
+  has-contact="false"
+></dds-masthead-container>
+```
+
+#### Adopting Masthead v2 with Cloud data endpoint
+
+###### JS (via CDN):
+
+```html
+// Alpha tag using changes from the feature branch (feat/masthead-v2)
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/alpha/masthead.min.js"></script>
+```
+
+###### Markup:
+
+```html
+<dds-masthead-container
+  data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"
+  platform="Cloud"
+  auth-method="cookie"
+  has-contact="true"
+></dds-masthead-container>
 ```
 
 #### Setting Platform
@@ -59,9 +94,9 @@ This property has to be set via javascript.
 ```
 
 ```javascript
-const singleUrl = "https://www.example.com";
+const singleUrl = 'https://www.example.com';
 
-document.getElementById("masthead-container").platformUrl = singleUrl;
+document.getElementById('masthead-container').platformUrl = singleUrl;
 ```
 
 ###### Setting multiple platform URLs with an object:
@@ -81,7 +116,7 @@ const urlObject = {
   },
 };
 
-document.getElementById("masthead-container").platformUrl = urlObject;
+document.getElementById('masthead-container').platformUrl = urlObject;
 ```
 
 ```html
@@ -121,16 +156,26 @@ To set a custom endpoint for the translation service to fetch from, set either t
 ```
 
 ### Setting the active menu item
+
 The active menu item receives a unique style treatment to indicate where the current page is within the navigation hierarchy.
 
 ##### Manually
+
 Manually set the active item by using the `selected-menu-item` property. See [the Props table](#props).
 
 ##### Automatically
+
 The first menu item whose `href` value matches the browser window's current URL will automatically be marked active if the `selected-menu-item` property has not been set.
 
 If no other menu items are marked active and the optional `platformUrl` property has been set, the platform link will be marked active.
 
+### Understanding the different authentication method types
+
+The `<dds-masthead-container>` and `<dds-masthead-composite>` components both expose the `auth-method` property which allows the adopters to define the authentication method based on their content ecosystems and renders the ultity menu items (located on the top right-hand area) based on the defined auth method. See below for more context on each available value.
+
+- `auth-method="profile-api"` - The default authentication method used on the global masthead to display links to the MyIBM profile.
+- `auth-method="cookie"` - This authentication method checks for the cookie name value return from the `cloud.ibm.com` console application (eg. `com.ibm.cloud.iam.LoggedIn.prod`) and see if it returns `1` or `0`. This method is designed and intended for "Cloud" web segment usage only.
+- `auth-method="docs-api"` - This authentication method checks against the console API user login response. This method is designed and intended for Cloud Docs (https://cloud.ibm.com) team usage only.
 
 ## Using custom search with typeahead API
 
@@ -145,18 +190,14 @@ First, add the `custom-typeahead-api` attribute into the masthead and set it to 
 As an example, we will be using the IBM Docs API to fetch the data, retrieving an array of result suggestions.
 
 ```javascript
-  async function customTypeaheadApiFunction(searchVal) {
-    return fetch(
-      `https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=en&categories=&limit=6`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        let searchResults = [
-          data.hints,
-        ];
-        return searchResults;
-      });
-  }
+async function customTypeaheadApiFunction(searchVal) {
+  return fetch(`https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=en&categories=&limit=6`)
+    .then(response => response.json())
+    .then(data => {
+      let searchResults = [data.hints];
+      return searchResults;
+    });
+}
 ```
 
 To query the current masthead search input, we need to create an event listener to listen for the `dds-search-with-typeahead-input` event.
@@ -164,10 +205,10 @@ Once captured, we need to call our asynchronous function to fetch the custom API
 a new custom event `dds-custom-typeahead-api-results` needs to be dispatched containing the results for the component to render the search suggestions.
 
 ```javascript
-  document.addEventListener('dds-search-with-typeahead-input', async (e) => { 
-    const results = await customTypeaheadApiFunction(e.detail.value);
-    document.dispatchEvent(new CustomEvent('dds-custom-typeahead-api-results', { detail: results}));
-  })
+document.addEventListener('dds-search-with-typeahead-input', async e => {
+  const results = await customTypeaheadApiFunction(e.detail.value);
+  document.dispatchEvent(new CustomEvent('dds-custom-typeahead-api-results', { detail: results }));
+});
 ```
 
 ### Grouped Search
@@ -178,33 +219,32 @@ As before, create a function that fetches the query and make sure to include a J
 and the array of retrieved section suggestions in `items`. In the example below, the section `Product pages` is added to the
 results array.
 
-
 ```javascript
-  async function customTypeaheadApiFunction(searchVal) {
-    return fetch(
-      `https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=en&categories=&limit=6`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        let searchResults = [
-          data.hints,
+async function customTypeaheadApiFunction(searchVal) {
+  return fetch(`https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=en&categories=&limit=6`)
+    .then(response => response.json())
+    .then(data => {
+      let searchResults = [
+        data.hints,
 
-          // optional category results fetched from API
-          {
-            title: "Product pages",
-            items: data.products
-          }
-        ];
-        return searchResults;
-      });
-  }
+        // optional category results fetched from API
+        {
+          title: 'Product pages',
+          items: data.products,
+        },
+      ];
+      return searchResults;
+    });
+}
 ```
 
-As mentioned above, the two events `dds-search-with-typeahead-input` and `dds-custom-typeahead-api-results` must be handled for 
+As mentioned above, the two events `dds-search-with-typeahead-input` and `dds-custom-typeahead-api-results` must be handled for
 suggestions to be rendered -- the same code for the event listener can be reused.
 
 #### Note
+
 The API results must match the following structure:
+
 ```javascript
 [
   ['result 1', 'result 2', 'result 3'],
@@ -218,6 +258,7 @@ The API results must match the following structure:
   }
 ]
 ```
+
 Note that only the first array element is necessary to render the basic search suggestions, the following JSON objects are optional Grouped sections.
 
 ## Scoped search
@@ -305,11 +346,10 @@ See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/t
 | `<dds-masthead-menu-button>`                                                              | `data-autoid="dds--masthead__hamburger"`                                 | Interactive |
 | `<dds-top-nav-name>`                                                                      | `data-autoid="dds--masthead__platform-name"`                             | Interactive |
 | `<dds-top-nav>`                                                                           | `data-autoid="dds--masthead__l0-nav"`                                    | Component   |
-| `<dds-top-nav-menu trigger-content="${item}">` and `<dds-top-nav-item title="${item}">`   | `data-autoid="dds--masthead__l0-nav--nav${item}"`                       | Interactive |
+| `<dds-top-nav-menu trigger-content="${item}">` and `<dds-top-nav-item title="${item}">`   | `data-autoid="dds--masthead__l0-nav--nav${item}"`                        | Interactive |
 | `<dds-top-nav-menu-item title="${item}">`                                                 | `data-autoid="dds--masthead__l0-nav--subnav-col${item}-item${item}"`     | Interactive |
 | `<dds-left-nav>`                                                                          | `data-autoid="dds--masthead__l0-sidenav"`                                | Component   |
-| `<dds-left-nav-menu trigger-content="${item}">` and `<dds-left-nav-item title="${item}">` | `data-autoid="dds--masthead__l0-sidenav--nav${item}"`                   | Interactive |
+| `<dds-left-nav-menu trigger-content="${item}">` and `<dds-left-nav-item title="${item}">` | `data-autoid="dds--masthead__l0-sidenav--nav${item}"`                    | Interactive |
 | `<dds-left-nav-menu-item title="${item}">`                                                | `data-autoid="dds--masthead__l0-sidenav--subnav-col${item}-item${item}"` | Interactive |
-
 
 <Description markdown={contributing} />

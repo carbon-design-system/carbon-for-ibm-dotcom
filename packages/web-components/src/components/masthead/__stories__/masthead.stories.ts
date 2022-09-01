@@ -17,19 +17,13 @@ import DDSLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
 import { mastheadLinks as links, mastheadL1Data, logoData } from './links';
-import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import {
-  authenticatedProfileItems,
-  unauthenticatedProfileItems,
-} from './profile-items';
+  UNAUTHENTICATED_STATUS,
+  MASTHEAD_AUTH_METHOD,
+} from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+import { authenticatedProfileItems, unauthenticatedProfileItems } from './profile-items';
 import { DDS_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
 import readme from './README.stories.mdx';
-
-const endpoints = {
-  default: null,
-  'masthead v2': '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2',
-  'cloud masthead': '/common/carbon-for-ibm-dotcom/translations/cloud-masthead',
-};
 
 const userStatuses = {
   authenticated: 'test.user@ibm.com',
@@ -104,7 +98,6 @@ async function customTypeaheadApiFunction(searchVal) {
 
 export const Default = (args) => {
   const {
-    endpoint,
     customProfileLogin,
     platform,
     hasProfile,
@@ -113,6 +106,7 @@ export const Default = (args) => {
     searchPlaceholder,
     userStatus,
     navLinks,
+    authMethod,
   } = args?.MastheadComposite ?? {};
   const { useMock } = args?.Other ?? {};
   return html`
@@ -131,14 +125,13 @@ export const Default = (args) => {
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .navLinks="${navLinks}"
-            .unauthenticatedProfileItems="${ifNonNull(
-              unauthenticatedProfileItems
-            )}"
-            custom-profile-login="${customProfileLogin}"></dds-masthead-composite>
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+            custom-profile-login="${customProfileLogin}"
+            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"
+          ></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
-            data-endpoint="${ifNonNull(endpoint)}"
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -147,7 +140,91 @@ export const Default = (args) => {
             .navLinks="${navLinks}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            custom-profile-login="${customProfileLogin}"></dds-masthead-container>
+            custom-profile-login="${customProfileLogin}"
+            auth-method="${authMethod}"
+          ></dds-masthead-container>
+        `}
+  `;
+};
+
+export const withV2Data = ({ parameters }) => {
+  const { customProfileLogin, hasProfile, hasSearch, searchPlaceholder, userStatus, navLinks, hasContact } =
+    parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
+  return html`
+    <style>
+      ${styles}
+    </style>
+    ${useMock
+      ? html`
+          <dds-masthead-composite
+            user-status="${ifNonNull(userStatus)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            .navLinks="${navLinks}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+            custom-profile-login="${customProfileLogin}"
+            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"
+            has-contact="${hasContact}"
+          ></dds-masthead-composite>
+        `
+      : html`
+          <dds-masthead-container
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2"
+            user-status="${ifNonNull(userStatus)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            .navLinks="${navLinks}"
+            has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            custom-profile-login="${customProfileLogin}"
+            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"
+            has-contact="${hasContact}"
+          ></dds-masthead-container>
+        `}
+  `;
+};
+
+withV2Data.story = {
+  name: 'With v2 Data',
+};
+
+export const withCloudData = ({ parameters }) => {
+  const { customProfileLogin, hasSearch, selectedMenuItem, searchPlaceholder, navLinks } =
+    parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
+  return html`
+    <style>
+      ${styles}
+    </style>
+    ${useMock
+      ? html`
+          <dds-masthead-composite
+            platform="Cloud"
+            .platformUrl="${ifNonNull(platformData.url)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            ?has-search="${hasSearch}"
+            .navLinks="${navLinks}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+            custom-profile-login="${customProfileLogin}"
+            auth-method="${MASTHEAD_AUTH_METHOD.COOKIE}"
+          ></dds-masthead-composite>
+        `
+      : html`
+          <dds-masthead-container
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"
+            platform="Cloud"
+            .platformUrl="${ifNonNull(platformData.url)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            .navLinks="${navLinks}"
+            ?has-search="${hasSearch}"
+            custom-profile-login="${customProfileLogin}"
+            auth-method="${MASTHEAD_AUTH_METHOD.COOKIE}"
+          ></dds-masthead-container>
         `}
   `;
 };
@@ -617,17 +694,17 @@ export default {
     knobs: {
       escapeHTML: false,
       MastheadComposite: () => ({
-        endpoint: select(
-          'Masthead data (data-endpoint)',
-          endpoints,
-          endpoints.default
-        ),
         hasProfile: select(
           'show the profile functionality (has-profile)',
           ['true', 'false'],
           'true'
         ),
         hasSearch: boolean('show the search functionality (has-search)', true),
+        hasContact: select(
+          'Contact us button visibility (has-contact)',
+          ['true', 'false'],
+          'true'
+        ),
         searchPlaceholder: textNullable(
           'search placeholder (searchPlaceholder)',
           'Search all of IBM'

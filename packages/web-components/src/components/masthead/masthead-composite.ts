@@ -27,7 +27,11 @@ import {
   MastheadProfileItem,
   Translation,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-import { UNAUTHENTICATED_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+import {
+  UNAUTHENTICATED_STATUS,
+  CLOUD_UNAUTHENTICATED_STATUS,
+  MASTHEAD_AUTH_METHOD,
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
 import { DDS_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
 import DDSMastheadLogo from './masthead-logo';
@@ -974,22 +978,22 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   searchPlaceholder?: string;
 
   /**
-   * The user authentication status.
-   */
-  @property({ attribute: 'user-status' })
-  userStatus = UNAUTHENTICATED_STATUS;
-
-  /**
    * `true` if Contact us should be shown.
    */
   @property({ type: String, reflect: true, attribute: 'has-contact' })
   hasContact = 'true';
 
   /**
-   * The selected authentication method, either 'cookie' or 'api'.
+   * The selected authentication method, either `profile-api` (default), `cookie`, or `docs-api`.
    */
   @property({ attribute: 'auth-method' })
-  authMethod = 'profile-api';
+  authMethod = MASTHEAD_AUTH_METHOD.DEFAULT;
+
+  /**
+   * The user authentication status.
+   */
+  @property({ attribute: 'user-status' })
+  userStatus = this.authMethod === MASTHEAD_AUTH_METHOD.DEFAULT ? UNAUTHENTICATED_STATUS : CLOUD_UNAUTHENTICATED_STATUS;
 
   createRenderRoot() {
     // We render child elements of `<dds-masthead-container>` by ourselves
@@ -1050,7 +1054,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       l1Data,
       hasContact,
     } = this;
-    const authenticated = userStatus !== UNAUTHENTICATED_STATUS;
+    const authenticated = userStatus !== UNAUTHENTICATED_STATUS && userStatus !== CLOUD_UNAUTHENTICATED_STATUS;
 
     const ctaButtons = authenticated ? authenticatedCtaButtons : unauthenticatedCtaButtons;
 
