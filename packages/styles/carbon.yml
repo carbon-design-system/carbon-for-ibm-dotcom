@@ -2,9 +2,18 @@
 library:
   id: ibmdotcom-styles
   name: IBM.com Styles
-  description: IBM.com framework agnostic component styles
+  description: Apply framework-agnostic styles to any IBM.com component.
   noIndex: true
   externalDocsUrl: www.ibm.com/standards/web/carbon-for-ibm-dotcom
+  designKits:
+    ibm-dotcom-white-figma:
+      $ref: https://unpkg.com/@carbon-platform/resources/carbon.yml#/designKits/ibm-dotcom-white-figma
+    ibm-dotcom-g10-figma:
+      $ref: https://unpkg.com/@carbon-platform/resources/carbon.yml#/designKits/ibm-dotcom-g10-figma
+    ibm-dotcom-g90-figma:
+      $ref: https://unpkg.com/@carbon-platform/resources/carbon.yml#/designKits/ibm-dotcom-g90-figma
+    ibm-dotcom-g100-figma:
+      $ref: https://unpkg.com/@carbon-platform/resources/carbon.yml#/designKits/ibm-dotcom-g100-figma
 assets:
   back-to-top:
     name: Back to top
@@ -252,7 +261,7 @@ assets:
       - content-element
   content-group-banner:
     name: Content group banner
-    description: Content group banner is designed as a subtle callout, intended for tangential information or announcements that are supplementary to the page's main focus.
+    description: Content group banner is designed as a subtle callout, intended for tangential information or announcements that are supplementary to the page’s main focus.
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-group-banner
     status: stable
     type: component
@@ -367,7 +376,7 @@ assets:
       - contextual-navigation
   dotcom-shell:
     name: Dotcom shell
-    description: Dotcom shell includes the Masthead, and Footer components, all wrapped in a UI shell using Carbon's grid.
+    description: Dotcom shell includes the Masthead, and Footer components, all wrapped in a UI shell using Carbon’s grid.
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/dotcom-shell
     status: stable
     type: component
@@ -511,7 +520,7 @@ assets:
     type: component
     platform: web
     noIndex: true
-    thumbnailPath: ../../thumbnails/leads-pace-search.svg
+    thumbnailPath: ../../thumbnails/lead-space-search.svg
     tags:
       - input-control
       - content-block
