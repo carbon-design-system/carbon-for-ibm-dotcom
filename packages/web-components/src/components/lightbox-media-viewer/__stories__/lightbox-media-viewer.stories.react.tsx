@@ -177,8 +177,8 @@ export const WithCarousel = ({ parameters }) => {
             default-src={images['1312 x 738 (16:9)']}
             alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             title="In ac luctus mauris."
-            description="Aenean vel sem velit. Mauris malesuada eleifend leo vel interdum. In eu aliquet lacus, 
-            eu feugiat turpis."></DDSLightboxMediaViewer>
+            description="Aenean vel sem velit. Mauris malesuada eleifend leo vel interdum. 
+            In eu aliquet lacus, eu feugiat turpis."></DDSLightboxMediaViewer>
         </DDSCarousel>
       </DDSExpressiveModal>
     </>
