@@ -20,6 +20,8 @@
 @import '../../globals/scss/box-sizing';
 @import '../cta/cta.scss';
 
+$breakpoint--desktop-nav: 960px;
+
 :host(#{$dds-prefix}-masthead-container),
 #{$dds-prefix}-masthead-container {
   position: relative;
@@ -119,7 +121,7 @@
 
     margin-left: 0;
 
-    @include carbon--breakpoint-down(800px) {
+    @include carbon--breakpoint-down($breakpoint--desktop-nav) {
       display: flex;
       position: absolute;
       top: 0;
@@ -214,14 +216,14 @@
   display: none;
   background-color: $ui-background;
 
-  @include carbon--breakpoint(800px) {
+  @include carbon--breakpoint($breakpoint--desktop-nav) {
     flex: 1;
     display: flex;
     align-items: stretch;
   }
 
   .#{$prefix}--header__nav {
-    @include carbon--breakpoint(800px) {
+    @include carbon--breakpoint($breakpoint--desktop-nav) {
       display: block;
       position: absolute;
     }
@@ -270,30 +272,6 @@
   .#{$dds-prefix}-ce--header__nav-caret-container--hidden {
     position: absolute;
     visibility: hidden;
-  }
-}
-
-:host(#{$dds-prefix}-top-nav)[cloud],
-:host(#{$dds-prefix}-top-nav-l1)[cloud] {
-  @include carbon--breakpoint(800px) {
-    display: none;
-  }
-
-  @include carbon--breakpoint(960px) {
-    flex: 1;
-    display: flex;
-    align-items: stretch;
-  }
-
-  .#{$prefix}--header__nav {
-    @include carbon--breakpoint(800px) {
-      display: none;
-    }
-
-    @include carbon--breakpoint(960px) {
-      display: block;
-      position: absolute;
-    }
   }
 }
 
@@ -435,18 +413,7 @@
     display: block;
   }
 
-  @include carbon--breakpoint(800px) {
-    display: none;
-  }
-}
-
-:host(#{$dds-prefix}-masthead-menu-button)[cloud],
-:host(#{$dds-prefix}-left-nav)[cloud] {
-  @include carbon--breakpoint('md') {
-    display: block;
-  }
-
-  @include carbon--breakpoint(960px) {
+  @include carbon--breakpoint($breakpoint--desktop-nav) {
     display: none;
   }
 }
@@ -576,15 +543,7 @@
   @extend .#{$prefix}--side-nav__overlay;
 
   &[active] {
-    @include carbon--breakpoint-down(800px) {
-      @include left-nav-overlay;
-    }
-  }
-}
-
-:host(#{$dds-prefix}-left-nav-overlay)[cloud] {
-  &[active] {
-    @include carbon--breakpoint-down(960px) {
+    @include carbon--breakpoint-down($breakpoint--desktop-nav) {
       @include left-nav-overlay;
     }
   }
