@@ -148,7 +148,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
         lang-display="${ifNonNull(langDisplay)}"
         ?open="${open}"
       >
-        <dds-regions>
+        <dds-regions title="${ifNonNull(headerTitle)}">
           ${regionList?.map(({ countryList, name }) => {
             return html`
               <dds-region-item

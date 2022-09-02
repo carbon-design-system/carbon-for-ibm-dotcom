@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.23.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.22.0...@carbon/ibmdotcom-web-components@1.23.0-rc.0) (2022-08-29)
+
+
+### Bug Fixes
+
+* **cta-section:** add alt text to story ([#9206](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9206)) ([8c6c301](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8c6c301a72ee119d269d43479f4221ee591d9e1c)), closes [#9107](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9107)
+* **pricing-table:** accessibility QA updates ([#9205](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9205)) ([ee6c707](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ee6c707065cdc7699c99410eefa8240d870295de)), closes [#9159](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9159) [#9162](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9162) [#9159](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9159) [#9162](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9162)
+* **tabs-extended:** adjust story to use card-cta-footer ([#9299](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9299)) ([b6b0793](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b6b0793d56b1f86483b0af6656a2d8bcc35618da)), closes [#9234](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9234)
+* **tabs-extended:** move aria-selected to li elem with tab role ([#9277](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9277)) ([f319506](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f3195069fc6ca001a0a4fc6348783bba6c525e34)), closes [#9230](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9230)
+
+
+### Features
+
+* **content-block:** added complementary wrapper ([#9253](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9253)) ([9ba05f4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9ba05f4d4d7906e1c23238f9498daeb3d8f1664d))
+* **dotcom-shell:** generate react wrapper ([#9220](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9220)) ([e22ee10](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e22ee10e05956feb545aee35eb6b056322ee4fab))
+* **structured-list:** introduce react wrapper ([#9200](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9200)) ([1ebb4f6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1ebb4f6c66373d1ce8cd2e7c8eb18ac16ee2ec04)), closes [#8494](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8494)
+* **tabs-extended-with-media:** make section heading optional ([#9265](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9265)) ([6365946](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/63659465c731315ba431828eacab0e07a708c5c5)), closes [#8691](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8691)
+
+
+
+
+
 # [1.22.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.22.0-rc.1...@carbon/ibmdotcom-web-components@1.22.0) (2022-08-17)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
