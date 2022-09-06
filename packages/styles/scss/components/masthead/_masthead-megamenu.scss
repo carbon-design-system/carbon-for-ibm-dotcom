@@ -240,7 +240,7 @@
 
   :host(#{$dds-prefix}-megamenu-category-link) a,
   .#{$prefix}--masthead__megamenu__category-sublink {
-    @include type-style('body-short-01');
+    @include type-style('body-long-01');
 
     color: $text-02;
     text-decoration: none;
@@ -259,10 +259,8 @@
   }
 
   .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
-  :host(
-      #{$dds-prefix}-megamenu-link-with-icon
-    )[style-scheme='category-sublink'] {
-    @include type-style('body-short-01');
+  :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-sublink'] {
+    @include type-style('body-long-01');
 
     width: 100%;
 

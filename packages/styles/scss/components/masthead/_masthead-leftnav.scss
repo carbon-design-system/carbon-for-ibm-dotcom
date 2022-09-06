@@ -449,28 +449,6 @@
     width: 100%;
   }
 
-  .#{$prefix}--masthead__side-nav__last-highlighted,
-  :host(#{$dds-prefix}-left-nav-menu-item[last-highlighted]),
-  :host(#{$dds-prefix}-left-nav-menu[last-highlighted]) {
-    border-bottom: 1px solid $ui-04;
-  }
-
-  :host(#{$dds-prefix}-left-nav-menu[last-highlighted])
-    .#{$prefix}--side-nav__submenu
-    .#{$prefix}--side-nav__submenu-content,
-  .#{$prefix}--masthead__side-nav__last-highlighted
-    .#{$prefix}--side-nav__submenu-content,
-  .#{$prefix}--side-nav__menu-item.#{$prefix}--masthead__side-nav__last-highlighted
-    .#{$prefix}--side-nav__link,
-  :host(dds-left-nav-menu-section)
-    .#{$prefix}--masthead__side-nav--submemu-back
-    .#{$prefix}--side-nav__link
-    .#{$prefix}--side-nav__link-text,
-  :host(#{$dds-prefix}-left-nav-menu-item[last-highlighted])
-    .#{$prefix}--side-nav__link {
-    border-bottom: none;
-  }
-
   .#{$prefix}--side-nav__submenu-platform {
     flex-direction: row;
 
