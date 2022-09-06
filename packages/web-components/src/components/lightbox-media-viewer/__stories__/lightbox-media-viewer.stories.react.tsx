@@ -163,19 +163,19 @@ export const WithCarousel = args => {
             title="Fusce scelerisque sit amet ex finibus"
             description="
               Integer interdum facilisis lacus quis lobortis. Mauris vestibulum rhoncus libero nec dictum. Maecenas mi ipsum,
-              ornare at sem in, cursus vestibulum mauris. Proin suscipit leo sit amet ipsum hendrerit viverra. 
-              Sed a varius sapien. Nam sit amet felis congue, porttitor turpis at, gravida dolor. Lorem ipsum dolor sit amet, 
-              consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia 
+              ornare at sem in, cursus vestibulum mauris. Proin suscipit leo sit amet ipsum hendrerit viverra.
+              Sed a varius sapien. Nam sit amet felis congue, porttitor turpis at, gravida dolor. Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
               curae; Curabitur tempor ante magna, sit amet pulvinar odio vehicula in. Vivamus placerat aliquam sem vitae mattis.
-              Etiam eget tempor ante, convallis tempor dui. Proin sodales congue dictum. Proin arcu nisl, ultricies eu dolor ut, 
-              posuere placerat arcu. Fusce placerat purus vel libero consectetur, id fringilla ex egestas. Vestibulum ante ipsum 
+              Etiam eget tempor ante, convallis tempor dui. Proin sodales congue dictum. Proin arcu nisl, ultricies eu dolor ut,
+              posuere placerat arcu. Fusce placerat purus vel libero consectetur, id fringilla ex egestas. Vestibulum ante ipsum
               primis in faucibus orci luctus et ultrices posuere cubilia curae; In sodales faucibus mi vel ultricies.
             "></DDSLightboxMediaViewer>
           <DDSLightboxMediaViewer
             default-src={images['1312 x 738 (16:9)']}
             alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             title="In ac luctus mauris."
-            description="Aenean vel sem velit. Mauris malesuada eleifend leo vel interdum. In eu aliquet lacus, 
+            description="Aenean vel sem velit. Mauris malesuada eleifend leo vel interdum. In eu aliquet lacus,
             eu feugiat turpis."></DDSLightboxMediaViewer>
         </DDSCarousel>
       </DDSExpressiveModal>
