@@ -117,7 +117,7 @@ export const Default = ({ parameters }) => {
 };
 
 export const withV2Data = ({ parameters }) => {
-  const { customProfileLogin, hasProfile, hasSearch, searchPlaceholder, userStatus, navLinks, hasContact } =
+  const { customProfileLogin, hasProfile, hasSearch, searchPlaceholder, userStatus, navLinks, hasContact, platform } =
     parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -142,6 +142,7 @@ export const withV2Data = ({ parameters }) => {
       : html`
           <dds-masthead-container
             data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2"
+            platform="${ifNonNull(platform)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .navLinks="${navLinks}"
@@ -160,7 +161,7 @@ withV2Data.story = {
 };
 
 export const withCloudData = ({ parameters }) => {
-  const { customProfileLogin, hasSearch, selectedMenuItem, searchPlaceholder, navLinks } =
+  const { customProfileLogin, hasSearch, selectedMenuItem, searchPlaceholder, navLinks, platform } =
     parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -185,7 +186,7 @@ export const withCloudData = ({ parameters }) => {
       : html`
           <dds-masthead-container
             data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"
-            platform="Cloud"
+            platform="${platform || 'Cloud'}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
