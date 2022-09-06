@@ -1,0 +1,44 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef as LocaleModalProps } from '@carbon/ibmdotcom-web-components/es/components-react/locale-modal/locale-modal-composite';
+
+# Locale modal
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/locale-modal)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/locale-modal)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import DDSLocaleModalContainer from '@carbon/ibmdotcom-web-components/es/components-react/locale-modal/locale-modal-container.js';
+
+function App() {
+  return (
+    <DDSLocaleModalContainer
+      lang-display='United States — English';
+      open
+      localeList={localeList}></DDSLocaleModalContainer>
+  );
+}
+```
+
+## Props of Locale modal
+
+<Props of={LocaleModalProps} />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector        | Compatibility selector | Description |
+| ------------------------------ | ---------------------- | ----------- |
+| `<dds-locale-modal-container>` | N/A                    | Component   |
+
+<Description markdown={contributing} />
