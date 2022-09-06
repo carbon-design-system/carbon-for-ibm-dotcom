@@ -19,28 +19,28 @@ import './index.css';
 
 const App = () => (
   <DDSLinkListSection>
-  <DDSLinkListHeading>Link list section heading</DDSLinkListHeading>
-  <DDSLinkList>
-    <DDSLinkListItem href="https://example.com">
-      Learn more about Kubernetes and automating deployment <ArrowRight20 slot="icon" />
-    </DDSLinkListItem>
-    <DDSLinkListItem href="https://example.com">
-      Containerization A Complete Guide <ArrowRight20 slot="icon" />
-    </DDSLinkListItem>
-    <DDSLinkListItem href="https://example.com">
-      Microservices and containers <ArrowRight20 slot="icon" />
-    </DDSLinkListItem>
-    <DDSLinkListItem href="https://example.com">
-      Learn more about Kubernetes <ArrowRight20 slot="icon" />
-    </DDSLinkListItem>
-    <DDSLinkListItem href="https://example.com">
-      Containerization A Complete Guide <ArrowRight20 slot="icon" />
-    </DDSLinkListItem>
-    <DDSLinkListItem href="https://example.com">
-      Microservices and containers <ArrowRight20 slot="icon" />
-    </DDSLinkListItem>
-  </DDSLinkList>
-</DDSLinkListSection>
+    <DDSLinkListHeading>Link list section heading</DDSLinkListHeading>
+    <DDSLinkList>
+      <DDSLinkListItem href="https://example.com">
+        Learn more about Kubernetes and automating deployment <ArrowRight20 slot="icon" />
+      </DDSLinkListItem>
+      <DDSLinkListItem href="https://example.com">
+        Containerization A Complete Guide <ArrowRight20 slot="icon" />
+      </DDSLinkListItem>
+      <DDSLinkListItem href="https://example.com">
+        Microservices and containers <ArrowRight20 slot="icon" />
+      </DDSLinkListItem>
+      <DDSLinkListItem href="https://example.com">
+        Learn more about Kubernetes <ArrowRight20 slot="icon" />
+      </DDSLinkListItem>
+      <DDSLinkListItem href="https://example.com">
+        Containerization A Complete Guide <ArrowRight20 slot="icon" />
+      </DDSLinkListItem>
+      <DDSLinkListItem href="https://example.com">
+        Microservices and containers <ArrowRight20 slot="icon" />
+      </DDSLinkListItem>
+    </DDSLinkList>
+  </DDSLinkListSection>
 );
 
 render(<App />, document.getElementById('root'));
