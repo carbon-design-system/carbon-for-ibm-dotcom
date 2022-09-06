@@ -245,7 +245,6 @@ export function NoticeChoice({
     }
     return postText;
   }, [ncData, termsConditionLink, locale]);
-
   // Email changed
   useEffect(() => {
     if (email) {
@@ -316,26 +315,121 @@ export function NoticeChoice({
     getOptionByQuestion,
     getPostText,
   ]);
-
-  // end of useEffect
-  const resetToWorldWideContent = () => {
-    try {
-      window.NoticeChoice = window.NoticeChoice || {};
-      window.NoticeChoice.Content = worldWideContent;
-    } catch (e) {
-      console.log('unable to set worldWideContent', e);
+  const getPostText = useCallback(() => {
+    const OptInContent = ncData.OptInContent;
+    const OtherPreferences = ncData.OtherPreferences;
+    let postText = OptInContent.postText;
+    if (termsConditionLink) {
+      let originalValue = OtherPreferences.trailPrivacyText;
+      const matchedValue = originalValue.match(/<tc>.*<\/tc>/g);
+      if (matchedValue) {
+        const anrTagHtml = matchedValue[0].replace(/<tc>|<\/tc>/g, '');
+        const link = `<a href='${termsConditionLink}' target='_blank' class='ibm-tooltip' >${anrTagHtml}</a>`;
+        const reg = new RegExp('<tc>' + anrTagHtml + '</tc>', 'g');
+        postText = originalValue.replace(reg, link);
+      }
     }
-  };
-  const getNcContentFromWindow = () => {
-    let Content;
+    // replace default privacy link
     try {
-      Content = window.NoticeChoice.Content;
+      const { cc, lc } = getMappedValue(locale);
+      postText = postText.replaceAll(
+        'www.ibm.com/privacy/zz/en/',
+        `www.ibm.com/${cc}-${lc}/privacy`
+      );
     } catch (e) {
-      Content = worldWideContent;
+      console.log('unable to replace privacy link locale code.');
     }
-    return Content;
-  };
+    return postText;
+  }, [ncData, termsConditionLink, locale]);
+  const getOptionByQuestion = useCallback(
+    (question, OptInContentValue) => {
+      let OptInContent = OptInContentValue;
+      if (!OptInContent) {
+        OptInContent = ncData.OptInContent;
+      }
+      let option;
+      switch (question) {
+        case 'EMAIL': {
+          option = OptInContent.fourQuestionApp[0];
+          break;
+        }
+        case 'PHONE': {
+          option = OptInContent.fourQuestionApp[1];
+          break;
+        }
+        case 'POSTAL': {
+          option = OptInContent.fourQuestionApp[2];
+          break;
+        }
+        default: {
+          option = OptInContent.fourQuestionApp[0];
+          break;
+        }
+      }
+      return option;
+    },
+    [ncData]
+  );
 
+  /**
+   * If the `enableAllOptIn` variable is false, then for each key in the `checkboxes` object, set the
+   * value of the `newValues` object to the value defined in the notice choice content, or if the
+   * `defaultValues` object has a property with the same name as the key, then set the value of the
+   * `newValues` object to the value of the `defaultValues` object's property
+   */
+  const setDefaultSelections = useCallback(() => {
+    if (!enableAllOptIn && checkboxes) {
+      const newValues = { ...values };
+      Object.keys(checkboxes).forEach(key => {
+        const option = getOptionByQuestion(key, optInContent);
+        newValues[key] = !!(
+          option.checked === 'true' || option.checked === true
+        );
+        if (Object.prototype.hasOwnProperty.call(defaultValues, key)) {
+          newValues[key] = defaultValues[key];
+        }
+        const fieldName = `NC_CHECK_${key}`;
+        const hiddenFieldName = `NC_HIDDEN_${key}`;
+        onChange(fieldName, newValues[key]);
+        onChange(hiddenFieldName, newValues[key] ? 'OPT_IN' : null);
+      });
+      setValues(newValues);
+    }
+  }, [
+    values,
+    checkboxes,
+    enableAllOptIn,
+    defaultValues,
+    onChange,
+    getOptionByQuestion,
+    optInContent,
+  ]);
+  /**
+   * The function is called when the user changes the country. It checks if the country is English,
+   * and if so, it sets the pre-text to the default pre-text
+   */
+  const countryChangeAction = useCallback(() => {
+    const splitValue = locale.split('-', 2);
+    const ncData = getNcContentFromWindow();
+    if (splitValue[1] === 'en') {
+      let preText = defaultPreText.current;
+      if (ncData.OtherPreferences.englishNoticeText !== '') {
+        preText = ncData.OtherPreferences.englishNoticeText;
+      }
+      setPreText(preText);
+    }
+    /**
+     * @description if the user already interacted with the checkboxes,
+     * skip country default selection.
+     */
+    if (!changed) {
+      /**
+       * @description
+       * change checkbox checked option based on new country.
+       */
+      setDefaultSelections();
+    }
+  }, [locale, changed, setDefaultSelections]);
   const checkBoxChange = (checked, id) => {
     const newValues = {
       ...values,
