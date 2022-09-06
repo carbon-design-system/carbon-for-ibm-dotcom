@@ -130,4 +130,5 @@ class DDSFooterContainer extends ConnectMixin<
   mapDispatchToProps
 )(DDSFooterComposite) {}
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSFooterContainer;
