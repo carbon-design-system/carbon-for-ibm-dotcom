@@ -1,0 +1,131 @@
+<!--
+@license
+
+Copyright IBM Corp. 2021
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>@carbon/ibmdotcom-web-components example with React</title>
+    <!-- Americas -->
+<link rel="alternate" hreflang="en-ag" href="iframe.html?id=components-dotcom-shell--default&cc=ag&lc=en" />
+<link rel="alternate" hreflang="en-ai" href="iframe.html?id=components-dotcom-shell--default&cc=ai&lc=en" />
+<link rel="alternate" hreflang="en-aw" href="iframe.html?id=components-dotcom-shell--default&cc=aw&lc=en" />
+<link rel="alternate" hreflang="en-bb" href="iframe.html?id=components-dotcom-shell--default&cc=bb&lc=en" />
+<link rel="alternate" hreflang="en-bm" href="iframe.html?id=components-dotcom-shell--default&cc=bm&lc=en" />
+<link rel="alternate" hreflang="en-bs" href="iframe.html?id=components-dotcom-shell--default&cc=bs&lc=en" />
+<link rel="alternate" hreflang="en-ca" href="iframe.html?id=components-dotcom-shell--default&cc=ca&lc=en" />
+<link rel="alternate" hreflang="en-cw" href="iframe.html?id=components-dotcom-shell--default&cc=cw&lc=en" />
+<link rel="alternate" hreflang="en-dm" href="iframe.html?id=components-dotcom-shell--default&cc=dm&lc=en" />
+<link rel="alternate" hreflang="en-gd" href="iframe.html?id=components-dotcom-shell--default&cc=gd&lc=en" />
+<link rel="alternate" hreflang="en-gy" href="iframe.html?id=components-dotcom-shell--default&cc=gy&lc=en" />
+<link rel="alternate" hreflang="en-jm" href="iframe.html?id=components-dotcom-shell--default&cc=jm&lc=en" />
+<link rel="alternate" hreflang="en-ky" href="iframe.html?id=components-dotcom-shell--default&cc=ky&lc=en" />
+<link rel="alternate" hreflang="en-ms" href="iframe.html?id=components-dotcom-shell--default&cc=ms&lc=en" />
+<link rel="alternate" hreflang="en-tc" href="iframe.html?id=components-dotcom-shell--default&cc=tc&lc=en" />
+<link rel="alternate" hreflang="en-tt" href="iframe.html?id=components-dotcom-shell--default&cc=tt&lc=en" />
+<link rel="alternate" hreflang="en-us" href="iframe.html?id=components-dotcom-shell--default&cc=us&lc=en" />
+<link rel="alternate" hreflang="en-vc" href="iframe.html?id=components-dotcom-shell--default&cc=vc&lc=en" />
+<link rel="alternate" hreflang="en-vg" href="iframe.html?id=components-dotcom-shell--default&cc=vg&lc=en" />
+<link rel="alternate" hreflang="es-ar" href="iframe.html?id=components-dotcom-shell--default&cc=ar&lc=es" />
+<link rel="alternate" hreflang="es-bo" href="iframe.html?id=components-dotcom-shell--default&cc=bo&lc=es" />
+<link rel="alternate" hreflang="es-cl" href="iframe.html?id=components-dotcom-shell--default&cc=cl&lc=es" />
+<link rel="alternate" hreflang="es-co" href="iframe.html?id=components-dotcom-shell--default&cc=co&lc=es" />
+<link rel="alternate" hreflang="es-cr" href="iframe.html?id=components-dotcom-shell--default&cc=cr&lc=es" />
+<link rel="alternate" hreflang="es-ec" href="iframe.html?id=components-dotcom-shell--default&cc=ec&lc=es" />
+<link rel="alternate" hreflang="es-mx" href="iframe.html?id=components-dotcom-shell--default&cc=mx&lc=es" />
+<link rel="alternate" hreflang="es-pe" href="iframe.html?id=components-dotcom-shell--default&cc=pe&lc=es" />
+<link rel="alternate" hreflang="es-py" href="iframe.html?id=components-dotcom-shell--default&cc=py&lc=es" />
+<link rel="alternate" hreflang="es-uy" href="iframe.html?id=components-dotcom-shell--default&cc=uy&lc=es" />
+<link rel="alternate" hreflang="es-ve" href="iframe.html?id=components-dotcom-shell--default&cc=ve&lc=es" />
+<link rel="alternate" hreflang="fr-ca" href="iframe.html?id=components-dotcom-shell--default&cc=ca&lc=fr" />
+<link rel="alternate" hreflang="pt-br" href="iframe.html?id=components-dotcom-shell--default&cc=br&lc=pt" />
+<link rel="alternate" hreflang="x-defult" href="iframe.html?id=components-dotcom-shell--default&cc=us&lc=en" />
+
+<!-- Asia Pacific -->
+<link rel="alternate" hreflang="en-au" href="iframe.html?id=components-dotcom-shell--default&cc=au&lc=en" />
+<link rel="alternate" hreflang="en-bd" href="iframe.html?id=components-dotcom-shell--default&cc=bd&lc=en" />
+<link rel="alternate" hreflang="en-hk" href="iframe.html?id=components-dotcom-shell--default&cc=hk&lc=en" />
+<link rel="alternate" hreflang="en-id" href="iframe.html?id=components-dotcom-shell--default&cc=id&lc=en" />
+<link rel="alternate" hreflang="en-in" href="iframe.html?id=components-dotcom-shell--default&cc=in&lc=en" />
+<link rel="alternate" hreflang="en-kh" href="iframe.html?id=components-dotcom-shell--default&cc=kh&lc=en" />
+<link rel="alternate" hreflang="en-kn" href="iframe.html?id=components-dotcom-shell--default&cc=kn&lc=en" />
+<link rel="alternate" hreflang="en-lc" href="iframe.html?id=components-dotcom-shell--default&cc=lc&lc=en" />
+<link rel="alternate" hreflang="en-lk" href="iframe.html?id=components-dotcom-shell--default&cc=lk&lc=en" />
+<link rel="alternate" hreflang="en-my" href="iframe.html?id=components-dotcom-shell--default&cc=my&lc=en" />
+<link rel="alternate" hreflang="en-np" href="iframe.html?id=components-dotcom-shell--default&cc=np&lc=en" />
+<link rel="alternate" hreflang="en-nz" href="iframe.html?id=components-dotcom-shell--default&cc=nz&lc=en" />
+<link rel="alternate" hreflang="en-ph" href="iframe.html?id=components-dotcom-shell--default&cc=ph&lc=en" />
+<link rel="alternate" hreflang="en-sg" href="iframe.html?id=components-dotcom-shell--default&cc=sg&lc=en" />
+<link rel="alternate" hreflang="en-th" href="iframe.html?id=components-dotcom-shell--default&cc=th&lc=en" />
+<link rel="alternate" hreflang="en-vn" href="iframe.html?id=components-dotcom-shell--default&cc=vn&lc=en" />
+<link rel="alternate" hreflang="ja-jp" href="iframe.html?id=components-dotcom-shell--default&cc=jp&lc=ja" />
+<link rel="alternate" hreflang="ko-kr" href="iframe.html?id=components-dotcom-shell--default&cc=kr&lc=ko" />
+<link rel="alternate" hreflang="zh-cn" href="iframe.html?id=components-dotcom-shell--default&cc=cn&lc=zh" />
+<link rel="alternate" hreflang="zh-tw" href="iframe.html?id=components-dotcom-shell--default&cc=tw&lc=zh" />
+
+<!-- Middle East and Africa -->
+<link rel="alternate" hreflang="ar-ae" href="iframe.html?id=components-dotcom-shell--default&cc=ae&lc=ar" />
+<link rel="alternate" hreflang="ar-sa" href="iframe.html?id=components-dotcom-shell--default&cc=sa&lc=ar" />
+<link rel="alternate" hreflang="en-ae" href="iframe.html?id=components-dotcom-shell--default&cc=ae&lc=en" />
+<link rel="alternate" hreflang="en-af" href="iframe.html?id=components-dotcom-shell--default&cc=af&lc=en" />
+<link rel="alternate" hreflang="en-bh" href="iframe.html?id=components-dotcom-shell--default&cc=bh&lc=en" />
+<link rel="alternate" hreflang="en-bn" href="iframe.html?id=components-dotcom-shell--default&cc=bn&lc=en" />
+<link rel="alternate" hreflang="en-bw" href="iframe.html?id=components-dotcom-shell--default&cc=bw&lc=en" />
+<link rel="alternate" hreflang="en-eg" href="iframe.html?id=components-dotcom-shell--default&cc=eg&lc=en" />
+<link rel="alternate" hreflang="en-et" href="iframe.html?id=components-dotcom-shell--default&cc=et&lc=en" />
+<link rel="alternate" hreflang="en-gh" href="iframe.html?id=components-dotcom-shell--default&cc=gh&lc=en" />
+<link rel="alternate" hreflang="en-il" href="iframe.html?id=components-dotcom-shell--default&cc=il&lc=en" />
+<link rel="alternate" hreflang="en-iq" href="iframe.html?id=components-dotcom-shell--default&cc=iq&lc=en" />
+<link rel="alternate" hreflang="en-jo" href="iframe.html?id=components-dotcom-shell--default&cc=jo&lc=en" />
+<link rel="alternate" hreflang="en-ke" href="iframe.html?id=components-dotcom-shell--default&cc=ke&lc=en" />
+<link rel="alternate" hreflang="en-kw" href="iframe.html?id=components-dotcom-shell--default&cc=kw&lc=en" />
+<link rel="alternate" hreflang="en-lb" href="iframe.html?id=components-dotcom-shell--default&cc=lb&lc=en" />
+<link rel="alternate" hreflang="en-ly" href="iframe.html?id=components-dotcom-shell--default&cc=ly&lc=en" />
+<link rel="alternate" hreflang="en-mw" href="iframe.html?id=components-dotcom-shell--default&cc=mw&lc=en" />
+<link rel="alternate" hreflang="en-na" href="iframe.html?id=components-dotcom-shell--default&cc=na&lc=en" />
+<link rel="alternate" hreflang="en-ng" href="iframe.html?id=components-dotcom-shell--default&cc=ng&lc=en" />
+<link rel="alternate" hreflang="en-om" href="iframe.html?id=components-dotcom-shell--default&cc=om&lc=en" />
+<link rel="alternate" hreflang="en-pk" href="iframe.html?id=components-dotcom-shell--default&cc=pk&lc=en" />
+<link rel="alternate" hreflang="en-qa" href="iframe.html?id=components-dotcom-shell--default&cc=qa&lc=en" />
+<link rel="alternate" hreflang="en-sa" href="iframe.html?id=components-dotcom-shell--default&cc=sa&lc=en" />
+<link rel="alternate" hreflang="en-sl" href="iframe.html?id=components-dotcom-shell--default&cc=sl&lc=en" />
+<link rel="alternate" hreflang="en-sr" href="iframe.html?id=components-dotcom-shell--default&cc=sr&lc=en" />
+<link rel="alternate" hreflang="en-tz" href="iframe.html?id=components-dotcom-shell--default&cc=tz&lc=en" />
+<link rel="alternate" hreflang="en-ug" href="iframe.html?id=components-dotcom-shell--default&cc=ug&lc=en" />
+<link rel="alternate" hreflang="en-ye" href="iframe.html?id=components-dotcom-shell--default&cc=ye&lc=en" />
+<link rel="alternate" hreflang="en-za" href="iframe.html?id=components-dotcom-shell--default&cc=za&lc=en" />
+<link rel="alternate" hreflang="en-zm" href="iframe.html?id=components-dotcom-shell--default&cc=zm&lc=en" />
+<link rel="alternate" hreflang="en-zw" href="iframe.html?id=components-dotcom-shell--default&cc=zw&lc=en" />
+<link rel="alternate" hreflang="fr-bf" href="iframe.html?id=components-dotcom-shell--default&cc=bf&lc=fr" />
+<link rel="alternate" hreflang="fr-cd" href="iframe.html?id=components-dotcom-shell--default&cc=cd&lc=fr" />
+<link rel="alternate" hreflang="fr-cg" href="iframe.html?id=components-dotcom-shell--default&cc=cg&lc=fr" />
+<link rel="alternate" hreflang="fr-ci" href="iframe.html?id=components-dotcom-shell--default&cc=ci&lc=fr" />
+<link rel="alternate" hreflang="fr-cm" href="iframe.html?id=components-dotcom-shell--default&cc=cm&lc=fr" />
+<link rel="alternate" hreflang="fr-dz" href="iframe.html?id=components-dotcom-shell--default&cc=dz&lc=fr" />
+<link rel="alternate" hreflang="fr-ga" href="iframe.html?id=components-dotcom-shell--default&cc=ga&lc=fr" />
+<link rel="alternate" hreflang="fr-ma" href="iframe.html?id=components-dotcom-shell--default&cc=ma&lc=fr" />
+<link rel="alternate" hreflang="fr-mg" href="iframe.html?id=components-dotcom-shell--default&cc=mg&lc=fr" />
+<link rel="alternate" hreflang="fr-mu" href="iframe.html?id=components-dotcom-shell--default&cc=mu&lc=fr" />
+<link rel="alternate" hreflang="fr-ne" href="iframe.html?id=components-dotcom-shell--default&cc=ne&lc=fr" />
+<link rel="alternate" hreflang="fr-sc" href="iframe.html?id=components-dotcom-shell--default&cc=sc&lc=fr" />
+<link rel="alternate" hreflang="fr-sn" href="iframe.html?id=components-dotcom-shell--default&cc=sn&lc=fr" />
+<link rel="alternate" hreflang="fr-td" href="iframe.html?id=components-dotcom-shell--default&cc=td&lc=fr" />
+<link rel="alternate" hreflang="fr-tn" href="iframe.html?id=components-dotcom-shell--default&cc=tn&lc=fr" />
+<link rel="alternate" hreflang="pt-ao" href="iframe.html?id=components-dotcom-shell--default&cc=ao&lc=pt" />
+<link rel="alternate" hreflang="pt-mz" href="iframe.html?id=components-dotcom-shell--default&cc=mz&lc=pt" />
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
