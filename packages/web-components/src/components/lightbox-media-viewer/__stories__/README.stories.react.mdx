@@ -1,0 +1,94 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/lightbox-media-viewer/lightbox-media-viewer';
+
+# Lightbox Media Viewer
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/lightbox-media-viewer)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/lightbox-media-viewer)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS (with images)
+
+```javascript
+import DDSExpressiveModal from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal';
+import DDSExpressiveModalCloseButton from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal-close-button';
+import DDSLightboxMediaViewer from '@carbon/ibmdotcom-web-components/es/components-react/lightbox-media-viewer/lightbox-media-viewer';
+
+function App() {
+  return (
+  <DDSExpressiveModal id="my-lightbox" expressive-size="full-width">
+    <DDSExpressiveModalCloseButton></DDSExpressiveModalCloseButton>
+    <DDSLightboxMediaViewer
+      alt="Image alt text"
+      default-src="https://fpoimg.com/1280x720?text=16:9&bg_color=ee5396&text_color=161616"
+      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit."
+      title="Curabitur malesuada varius mi eu posuere"
+    >
+    </DDSLightboxMediaViewer>
+  </DDSExpressiveModal>
+  );
+}
+```
+
+### JS (with videos)
+
+```javascript
+import DDSExpressiveModal from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal';
+import DDSExpressiveModalCloseButton from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal-close-button';
+import DDSLightboxMediaViewer from '@carbon/ibmdotcom-web-components/es/components-react/lightbox-media-viewer/lightbox-media-viewer';
+
+function App() {
+  return (
+  <DDSExpressiveModal id="my-lightbox" expressive-size="full-width">
+    <DDSExpressiveModalCloseButton></DDSExpressiveModalCloseButton>
+    <DDSLightboxMediaViewer id="my-video" video-id="1_9h94wo6b"></DDSLightboxMediaViewer>
+  </DDSExpressiveModal>
+  );
+}
+```
+
+### JS (multiple images/videos)
+
+```javascript
+import DDSExpressiveModal from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal';
+import DDSExpressiveModalCloseButton from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal-close-button';
+import DDSLightboxMediaViewer from '@carbon/ibmdotcom-web-components/es/components-react/lightbox-media-viewer/lightbox-media-viewer';
+import DDSCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel';
+
+function App() {
+  return (
+  <DDSExpressiveModal id="my-lightbox" expressive-size="full-width">
+    <DDSExpressiveModalCloseButton></DDSExpressiveModalCloseButton>
+    <DDSCarousel>
+      <DDSLightboxMediaViewer ... ></DDSLightboxMediaViewer>
+      <DDSLightboxMediaViewer ... ></DDSLightboxMediaViewer>
+      <DDSLightboxMediaViewer ... ></DDSLightboxMediaViewer>
+      <DDSLightboxMediaViewer ... ></DDSLightboxMediaViewer>
+    </DDSCarousel>
+  </DDSExpressiveModal>
+  );
+}
+```
+
+## Props
+
+<Props of={PropTypesRef} />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector                                | Compatibility selector                                     | Description |
+| ------------------------------------------------------ | ---------------------------------------------------------- | ----------- |
+| `<dds-expressive-modal>`                               | `data-autoid="dds--expressive-modal"`                      | Component   |
+| `::part(title)` in `<dds-lightbox-media-viewer>`       | `data-autoid="dds--Lightbox-media-viewer__content__title"` | Interactive |
+| `::part(description)` in `<dds-lightbox-media-viewer>` | `data-autoid="dds--Lightbox-media-viewer__content__desc"`  | Interactive |
+
+<Description markdown={contributing} />
