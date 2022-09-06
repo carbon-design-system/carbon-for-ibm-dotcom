@@ -9,11 +9,10 @@
 
 import { html, customElement, LitElement, property } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
-import './megamenu-link-with-icon';
+import './megamenu-category-heading';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -44,9 +43,8 @@ class DDSMegaMenuCategoryGroup extends LitElement {
         <div class="${prefix}--masthead__megamenu__category-group-content">
           ${href
             ? html`
-                <dds-megamenu-link-with-icon href="${ifNonNull(href)}" style-scheme="category-headline" title="${title}">
-                  <span>${title}</span>${ArrowRight20({ slot: 'icon' })}
-                </dds-megamenu-link-with-icon>
+                <dds-megamenu-category-heading href="${ifNonNull(href)}" style-scheme="category-headline" title="${title}">
+                </dds-megamenu-category-heading>
               `
             : html`
                 <div class="${prefix}--masthead__megamenu__category-headline">
