@@ -1,0 +1,89 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+
+# Leadspace
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/link-list)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/link-list)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import DDSLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
+import DDSLinkListItemCard from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item-card';
+import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
+import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
+
+function App() {
+  return (
+    <DDSLinkList type="default">
+      <DDSLinkListHeading>Tutorial</DDSLinkListHeading>
+      <DDSLinkListItemCard href="https://example.com">
+        <p>Learn more about Kubernetes</p>
+        <DDSCardFooter>
+          <ArrowRight20 slot="icon" />
+        </DDSCardFooter>
+      </DDSLinkListItemCard>
+      <DDSLinkListItemCard href="https://example.com">
+        <p>Containerization A Complete Guide</p>
+        <DDSCardFooter>
+          <ArrowRight20 slot="icon" />
+        </DDSCardFooter>
+      </DDSLinkListItemCard>
+    </DDSLinkList>
+  );
+}
+```
+
+## Using video CTA type
+
+If using the video CTA type in `Link list` component, make sure wrap the component within the `DDSVideoCTAContainer`.
+
+```javascript
+function App() {
+  return (
+    <DDSVideoCTAContainer>
+      <DDSLinkList type="default">
+        <DDSLinkListHeading>Tutorial</DDSLinkListHeading>
+        <DDSLinkListItemCard href="https://example.com">
+          <p>Learn more about Kubernetes</p>
+          <DDSCardFooter>
+            <ArrowRight20 slot="icon" />
+          </DDSCardFooter>
+        </DDSLinkListItemCard>
+        <DDSLinkListItemCard href="https://example.com">
+          <p>Containerization A Complete Guide</p>
+          <DDSCardFooter>
+            <ArrowRight20 slot="icon" />
+          </DDSCardFooter>
+        </DDSLinkListItemCard>
+      </DDSLinkList>
+    </DDSVideoCTAContainer>
+  );
+}
+```
+
+## Props
+
+<Props of={PropTypesRef} />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector | Compatibility selector         | Description |
+| ----------------------- | ------------------------------ | ----------- |
+| `<dds-link-list>`       | `data-autoid="dds--link-list"` | Component   |
+
+<Description markdown={contributing} />
