@@ -74,4 +74,5 @@ class DDSLightboxImageViewer extends DDSLightboxMediaViewerBody {
   title = '';
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSLightboxImageViewer;

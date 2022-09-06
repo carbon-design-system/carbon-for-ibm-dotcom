@@ -1,0 +1,89 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/card-section-simple/card-section-simple';
+
+# Card Section Simple
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/card-section-simple)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/card-section-simple)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import DDSCardSectionSimple from '@carbon/ibmdotcom-web-components/es/components-react/card-section-simple/card-section-simple';
+import DDSContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading';
+import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
+import DDSCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item';
+import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+
+function App() {
+  return (
+    <DDSCardSectionSimple>
+      <DDSContentSectionHeading>Aliquam condimentum interdum</DDSContentSectionHeading>
+      <DDSCardGroup>
+        <DDSCardGroupItem href="https://example.com" cta-type="local">
+          <DDSCardHeading>Nunc convallis lobortis</DDSCardHeading>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+            Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+          </p>
+          <DDSCardCTAFooter slot="footer">
+          </DDSCardCTAFooter>
+        </DDSCardGroupItem>
+      </DDSCardGroup>
+    </DDSCardSectionSimple>
+  );
+}
+```
+
+### JS (with images)
+
+```javascript
+import DDSCardSectionSimple from '@carbon/ibmdotcom-web-components/es/components-react/card-section-simple/card-section-simple';
+import DDSContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading';
+import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
+import DDSCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item';
+import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+
+function App() {
+  return (
+    <DDSCardSectionSimple>
+      <DDSContentSectionHeading>Aliquam condimentum interdum</DDSContentSectionHeading>
+      <DDSCardGroup>
+        <DDSCardGroupItem href="https://example.com" cta-type="local">
+          <DDSImage slot="image" alt="Image alt text" default-src="https://dummyimage.com/1056x792/ee5396/161616&amp;text=4:3" />
+          <DDSCardEyebrow>Topic<DDSCardEyebrow/>
+          <DDSCardHeading>Natural Language Processing.</DDSCardHeading>
+          <DDSCardCTAFooter slot="footer">
+          </DDSCardCTAFooter>
+        </DDSCardGroupItem>
+      </DDSCardGroup>
+    </DDSCardSectionSimple>
+  );
+}
+```
+
+## Props
+
+<Props of={PropTypesRef} />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector | Compatibility selector | Description |
+| ----------------------- | ---------------------- | ----------- |
+| `<DDSCardSectionSimple>`       | N/A                    | Component   |
+
+<Description markdown={contributing} />
