@@ -31,10 +31,10 @@ import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/
 // @ts-ignore
 import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
 
-import { ICON_PLACEMENT } from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
+import { CTA_TYPE } from '../../cta/defs';
+import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.react.mdx';
-import { CTA_TYPE } from '../../cta/defs';
 
 const hrefsForType = {
   [CTA_TYPE.REGULAR]: 'https://www.example.com',
