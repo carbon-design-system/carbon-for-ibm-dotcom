@@ -631,7 +631,7 @@ $breakpoint--desktop-nav: 960px;
   outline: 0;
 
   button {
-    @include carbon--type-style(body-short-01);
+    @include carbon--type-style(body-long-01);
 
     color: $text-02;
     width: 100%;
