@@ -20,22 +20,22 @@ import './index.css';
 
 const App = () => (
   <DDSVideoCTAContainer>
-  <DDSLinkList type="default">
-    <DDSLinkListHeading>Tutorial</DDSLinkListHeading>
-    <DDSLinkListItemCard href="https://example.com">
-      <p>Learn more about Kubernetes</p>
-      <DDSCardFooter>
-        <ArrowRight20 slot="icon" />
-      </DDSCardFooter>
-    </DDSLinkListItemCard>
-    <DDSLinkListItemCard href="https://example.com">
-      <p>Containerization A Complete Guide</p>
-      <DDSCardFooter>
-        <ArrowRight20 slot="icon" />
-      </DDSCardFooter>
-    </DDSLinkListItemCard>
-  </DDSLinkList>
-</DDSVideoCTAContainer>
+    <DDSLinkList type="default">
+      <DDSLinkListHeading>Tutorial</DDSLinkListHeading>
+      <DDSLinkListItemCard href="https://example.com">
+        <p>Learn more about Kubernetes</p>
+        <DDSCardFooter>
+          <ArrowRight20 slot="icon" />
+        </DDSCardFooter>
+      </DDSLinkListItemCard>
+      <DDSLinkListItemCard href="https://example.com">
+        <p>Containerization A Complete Guide</p>
+        <DDSCardFooter>
+          <ArrowRight20 slot="icon" />
+        </DDSCardFooter>
+      </DDSLinkListItemCard>
+    </DDSLinkList>
+  </DDSVideoCTAContainer>
 );
 
 render(<App />, document.getElementById('root'));
