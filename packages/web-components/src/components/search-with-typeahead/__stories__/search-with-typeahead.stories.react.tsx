@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,9 +14,14 @@ import React from 'react';
 import DDSSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
 /* eslint-enable max-len */
 import readme from './README.stories.react.mdx';
+import styles from '../../carousel/__stories__/carousel.stories.scss';
 
 export const Default = () => {
-  return <DDSSearchWithTypeahead should-remain-open={true} active={true}></DDSSearchWithTypeahead>;
+  return <DDSSearchWithTypeahead></DDSSearchWithTypeahead>;
+};
+
+export const Alternate = () => {
+  return <DDSSearchWithTypeahead leadspace-search></DDSSearchWithTypeahead>;
 };
 
 Default.story = {};
@@ -25,7 +30,14 @@ export default {
   title: 'Components/Search with typeahead',
   decorators: [
     story => {
-      return <>{story()}</>;
+      return (
+        <>
+          <style>{styles.cssText}</style>
+          <div className="bx--grid">
+            <div className="bx--row">{story()}</div>
+          </div>
+        </>
+      );
     },
   ],
   parameters: {
