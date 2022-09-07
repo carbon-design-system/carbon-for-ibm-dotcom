@@ -8,9 +8,9 @@
  */
 
 import { customElement } from 'lit-element';
+import BXButton from 'carbon-web-components/es/components/button/button';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { CTA_TYPE } from '../cta/defs';
-import DDSButtonExpressive from '../button/button';
 import styles from './masthead.scss';
 
 export { CTA_TYPE };
@@ -23,8 +23,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds--masthead-button-cta
  */
 @customElement(`${ddsPrefix}-masthead-button-cta`)
-class DDSMastheadButtonCTA extends DDSButtonExpressive {
+class DDSMastheadButtonCTA extends BXButton {
   static styles = styles;
+
+  connectedCallback() {
+    super.connectedCallback();
+  }
 }
 
 export default DDSMastheadButtonCTA;
