@@ -1,0 +1,67 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/link-list-section/link-list-section';
+
+# Link list section
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/link-list-section)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/link-list-section)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import DDSLinkListSection from '@carbon/ibmdotcom-web-components/es/components-react/link-list-section/link-list-section';
+import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import DDSLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
+import DDSLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
+
+function App() {
+  return (
+    <DDSLinkListSection>
+      <DDSLinkListHeading>Link list section heading</DDSLinkListHeading>
+      <DDSLinkList>
+        <DDSLinkListItem href="https://example.com">
+          Learn more about Kubernetes and automating deployment <ArrowRight20 slot="icon" />
+        </DDSLinkListItem>
+        <DDSLinkListItem href="https://example.com">
+          Containerization A Complete Guide <ArrowRight20 slot="icon" />
+        </DDSLinkListItem>
+        <DDSLinkListItem href="https://example.com">
+          Microservices and containers <ArrowRight20 slot="icon" />
+        </DDSLinkListItem>
+        <DDSLinkListItem href="https://example.com">
+          Learn more about Kubernetes <ArrowRight20 slot="icon" />
+        </DDSLinkListItem>
+        <DDSLinkListItem href="https://example.com">
+          Containerization A Complete Guide <ArrowRight20 slot="icon" />
+        </DDSLinkListItem>
+        <DDSLinkListItem href="https://example.com">
+          Microservices and containers <ArrowRight20 slot="icon" />
+        </DDSLinkListItem>
+      </DDSLinkList>
+    </DDSLinkListSection>
+  );
+}
+```
+
+## Props
+
+<Props of={PropTypesRef} />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector  | Compatibility selector | Description |
+| ------------------------ | ---------------------- | ----------- |
+| `<dds-link-list-section` | N/A                    | Component   |
+
+<Description markdown={contributing} />
