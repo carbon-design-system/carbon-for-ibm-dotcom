@@ -9,6 +9,7 @@
 
 'use strict';
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const sass = require('node-sass');
 const webpack = require('webpack');
@@ -61,9 +62,10 @@ module.exports = {
       },
       minimizer: [
         new TerserPlugin({
+          minify: TerserPlugin.esbuildMinify,
           sourceMap: useStyleSourceMap,
           terserOptions: {
-            mangle: false,
+            minify: true,
           },
         }),
       ],
@@ -194,6 +196,9 @@ module.exports = {
         use: [
           'cache-loader',
           require.resolve('../tools/css-result-loader'),
+          {
+            loader: process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
+          },
           {
             loader: 'postcss-loader',
             options: {
