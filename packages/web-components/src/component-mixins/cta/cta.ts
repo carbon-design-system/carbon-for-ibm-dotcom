@@ -140,6 +140,17 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
           // eslint-disable-next-line no-console
           console.warn(`\`download\` property used with a CTA data item besides \`type: download|pdf\` (\`type: ${ctaType}\`).`);
         }
+
+        const contactMethods = {
+          [CTA_TYPE.EMAIL]: 'email-link',
+          [CTA_TYPE.SCHEDULE]: 'scheduler-link',
+          [CTA_TYPE.CHAT]: 'chat-link',
+          [CTA_TYPE.CALL]: 'phone-link',
+        };
+
+        if (Object.keys(contactMethods).includes(ctaType)) {
+          linkNode.dataset.ibmContact = contactMethods[ctaType];
+        }
       }
       // TODO: See why `linkNode` can possibly be `null`
       if (linkNode && linkNode.nodeName === 'A') {
