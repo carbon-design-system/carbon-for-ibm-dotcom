@@ -228,7 +228,7 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
       try {
         this._setEmbeddedVideo(videoId, await promiseEmbedVideo);
       } catch (error) {
-        this._setErrorRequestEmbedVideo(videoId, error);
+        this._setErrorRequestEmbedVideo(videoId, error as Error);
       }
       return promiseEmbedVideo;
     };
