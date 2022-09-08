@@ -103,7 +103,7 @@
     "@carbon/layout": "10.37.0",
     "@carbon/motion": "^11.0.0",
     "@carbon/telemetry": "0.1.0",
-    "carbon-components": "10.58.0",
+    "carbon-components": "10.58.1",
     "carbon-web-components": "1.21.0",
     "lit-element": "2.5.1",
     "lit-html": "1.4.1",
@@ -143,10 +143,10 @@
     "@carbon/type": "10.45.0",
     "@open-wc/semantic-dom-diff": "^0.15.0",
     "@percy-io/in-percy": "0.1.11",
-    "@percy/cli": "~1.9.0",
+    "@percy/cli": "~1.10.0",
     "@percy/cypress": "~3.1.1",
-    "@percy/dom": "~1.9.0",
-    "@percy/sdk-utils": "~1.9.0",
+    "@percy/dom": "~1.10.0",
+    "@percy/sdk-utils": "~1.10.0",
     "@percy/storybook": "~3.3.1",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^21.0.3",
@@ -258,13 +258,13 @@
     "temp": "^0.9.0",
     "terser-webpack-plugin": "^4.2.3",
     "through2": "^3.0.0",
-    "typescript": "~4.3.5",
+    "typescript": "~4.8.0",
     "url-loader": "^4.1.1",
     "web-component-analyzer": "^1.0.0",
     "webpack": "^4.46.0"
   },
   "peerDependencies": {
-    "typescript": "~4.3.5"
+    "typescript": "~4.8.0"
   },
   "prettier": {
     "jsxBracketSameLine": true,

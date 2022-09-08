@@ -193,9 +193,14 @@ class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
   @property()
   thumbnail = '';
 
+  /**
+   * The name of the custom event fired before this modal is being closed upon a user gesture.
+   * Cancellation of this event stops the user-initiated action of closing this modal.
+   */
   static get eventBeforeModalClose() {
     return `${ddsPrefix}-expressive-modal-beingclosed`;
   }
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSLightboxMediaViewer;
