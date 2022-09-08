@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -51,10 +51,30 @@ const card2 = html`
   </dds-content-group-cards-item>
 `;
 
+const hrefDefault = 'https://www.ibm.com/standards/carbon';
+const headingDefault = 'Lorem ipsum dolor sit amet';
+const copyDefault = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
+const copyOdd = `
+  ${copyDefault}
+  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+`;
+
+const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault } = {}) => html`
+  <dds-card href="${ifNonNull(href)}">
+    <dds-card-heading>${heading}</dds-card-heading>
+    ${copy}
+    <dds-card-footer>
+      ${ArrowRight20({ slot: 'icon' })}
+    </dds-card-footer>
+  </dds-card>
+`;
+
 export const Default = ({ parameters }) => {
   const { heading, copy, addChildren } = parameters?.props?.ContentSection ?? {};
+  const classExceptions = addChildren.includes('Carousel') || addChildren.includes('Card group');
+  const classes = classExceptions ? '' : 'bx--col-lg-8 bx--no-gutter';
   return html`
-    <dds-content-section children-custom-class="bx--col-lg-8 bx--no-gutter">
+    <dds-content-section children-custom-class="${classes}">
       <dds-content-section-heading>${ifNonNull(heading)}</dds-content-section-heading>
       <dds-content-section-copy>${ifNonNull(copy)}</dds-content-section-copy>
       ${addChildren.includes('Content block simple')
@@ -67,15 +87,45 @@ export const Default = ({ parameters }) => {
             </dds-content-block-simple>
           `
         : ``}
-      ${addChildren.includes('Content group cards')
+      ${addChildren.includes('Card group')
         ? html`
-            <dds-content-group-cards>
-              <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
-              <dds-content-group-copy>Lorem ipsum dolor sit amet.</dds-content-group-copy>
+            <dds-card-group>
               ${card1}${card2}${card1}${card2}
-            </dds-content-group-cards>
+              <dds-card-group> </dds-card-group
+            ></dds-card-group>
           `
         : ``}
+      ${addChildren.includes('Link list')
+        ? html`
+            <dds-link-list>
+              <dds-link-list-item href="https://example.com">
+                Learn more about Kubernetes and automating deployment ${ArrowRight20({ slot: 'icon' })}
+              </dds-link-list-item>
+              <dds-link-list-item href="https://example.com">
+                Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+              </dds-link-list-item>
+              <dds-link-list-item href="https://example.com">
+                Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+              </dds-link-list-item>
+              <dds-link-list-item href="https://example.com">
+                Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
+              </dds-link-list-item>
+              <dds-link-list-item href="https://example.com">
+                Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+              </dds-link-list-item>
+              <dds-link-list-item href="https://example.com">
+                Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+              </dds-link-list-item>
+            </dds-link-list>
+          `
+        : ``}
+      ${addChildren.includes('Carousel')
+        ? html`
+            <dds-carousel>
+              ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({ copy: copyOdd })}${Card()}
+            </dds-carousel>
+          `
+        : ''}
       <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com">Link action</dds-text-cta>
     </dds-content-section>
   `;
@@ -108,10 +158,12 @@ export default {
           'Add children:',
           {
             'Content block simple': 'Content block simple',
-            'Content group cards': 'Content group cards',
+            'Card group': 'Card group',
+            'Link list': 'Link list',
+            Carousel: 'Carousel',
           },
           '',
-          { display: 'multi-select' }
+          { display: 'select' }
         ),
       }),
     },
