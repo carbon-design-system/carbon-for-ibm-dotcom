@@ -33,6 +33,8 @@ const mockTranslation: Partial<Translation> = {
   },
 };
 
+const endpoint = '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2';
+
 describe('Redux reducers for `LocaleAPI`', () => {
   it('should return the state unmodified for unknown action', () => {
     const state = {
@@ -51,6 +53,7 @@ describe('Redux reducers for `LocaleAPI`', () => {
           type: TRANSLATE_API_ACTION.SET_REQUEST_TRANSLATION_IN_PROGRESS,
           language: 'lang-foo',
           request,
+          endpoint,
         })
       )
     ).toEqual({
@@ -59,6 +62,7 @@ describe('Redux reducers for `LocaleAPI`', () => {
       },
       requestsTranslation: {
         'lang-foo': 'PROMISE',
+        endpoint,
       },
     });
   });
@@ -89,6 +93,7 @@ describe('Redux reducers for `LocaleAPI`', () => {
           type: TRANSLATE_API_ACTION.SET_TRANSLATION,
           language: 'lang-foo',
           translation: mockTranslation as Translation,
+          endpoint,
         })
       )
     ).toEqual({
@@ -97,6 +102,7 @@ describe('Redux reducers for `LocaleAPI`', () => {
       },
       requestsTranslation: {
         'lang-foo': 'PROMISE',
+        endpoint,
       },
       translations: {
         'lang-foo': mockTranslation,

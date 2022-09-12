@@ -6,6 +6,8 @@
 
 ```
 <dds-masthead-global-bar data-autoid="dds--masthead-global-bar">
+  <dds-masthead-contact data-autoid="dds--masthead-profile">
+  </dds-masthead-contact>
   <dds-masthead-profile data-autoid="dds--masthead-profile">
     <dds-masthead-profile-item href="https://idaas.iam.ibm.com/idaas/oidc/endpoint/default/authorize?response_type=token&client_id=v18loginprod&state=http%3A%2F%2Flocalhost%3A9876%2Fcontext.html&redirect_uri=https%3A%2F%2Fmyibm.ibm.com%2FOIDCHandler.html&scope=openid">
       Log in
@@ -19,6 +21,8 @@
 
 ```
 <dds-masthead-global-bar data-autoid="dds--masthead-global-bar">
+  <dds-masthead-contact data-autoid="dds--masthead-profile">
+  </dds-masthead-contact>
   <dds-masthead-profile
     authenticated=""
     data-autoid="dds--masthead-profile"
@@ -117,7 +121,10 @@
 ####   `should render the megamenu`
 
 ```
-<dds-megamenu data-autoid="dds--masthead__megamenu">
+<dds-megamenu
+  data-autoid="dds--masthead__megamenu"
+  layout="list"
+>
   <dds-megamenu-left-navigation>
     <dds-megamenu-category-group
       data-autoid="dds--masthead__l0-nav-list0"

@@ -146,24 +146,32 @@ $search-transition-timing: 95ms;
   color: $text-02;
   white-space: nowrap;
 
+  > svg {
+    fill: $icon-02;
+  }
+
   &:hover {
     background-color: $hover-ui;
     cursor: pointer;
-    color: $text-01;
+  }
+
+  &:active {
+    background-color: $selected-ui;
+  }
+
+  &:active,
+  &:hover {
+    color: $icon-01;
+
     > svg {
-      fill: currentColor;
+      fill: $icon-01;
     }
   }
 
   &:active,
   &:focus {
-    background-color: $selected-ui;
     outline: 2px solid $interactive-01;
     outline-offset: -2px;
-    color: $text-01;
-    > svg {
-      fill: $text-01;
-    }
   }
 }
 
@@ -173,6 +181,7 @@ $search-transition-timing: 95ms;
   :host(#{$dds-prefix}-cloud-masthead-container) {
     z-index: 900;
     padding-top: $carbon--layout-04;
+    position: relative;
   }
 
   .#{$prefix}--masthead,
@@ -216,10 +225,6 @@ $search-transition-timing: 95ms;
     visibility: visible;
     opacity: 1;
     height: 100vh;
-  }
-
-  :host(#{$dds-prefix}-megamenu-link-with-icon) {
-    @extend .#{$prefix}--link-with-icon;
   }
 
   .#{$prefix}--masthead--sticky.#{$prefix}--masthead--sticky__l1 {
@@ -390,14 +395,17 @@ $search-transition-timing: 95ms;
     .#{$prefix}--header__menu-title[aria-expanded='true'] {
       z-index: 0;
       background-color: $ui-01;
+
       + .#{$prefix}--header__menu {
         background-color: $ui-02;
         box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
         bottom: -1px;
         width: rem(256px);
+
         li {
           @include masthead-top-nav-menu-item;
         }
+
         .#{$prefix}--header__menu-item {
           border: none;
           position: relative;
@@ -445,19 +453,13 @@ $search-transition-timing: 95ms;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    > {
-      svg {
-        position: relative;
-        fill: $icon-02;
-      }
-    }
+
     &:hover {
       background-color: $hover-ui;
       transition-duration: $search-transition-timing;
-      > {
-        svg {
-          fill: $icon-01;
-        }
+
+      > svg {
+        fill: $icon-01;
       }
     }
 
@@ -465,6 +467,11 @@ $search-transition-timing: 95ms;
     &:active {
       border-color: $focus;
       background-color: $hover-ui;
+    }
+
+    > svg {
+      position: relative;
+      fill: $icon-02;
     }
 
     .#{$prefix}--overflow-menu {

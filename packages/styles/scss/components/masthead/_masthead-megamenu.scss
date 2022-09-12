@@ -203,28 +203,36 @@
     p,
     a,
     .#{$prefix}--link-with-icon {
-      padding: 6px $spacing-05;
-      text-decoration: none;
       width: 100%;
+      padding: carbon--rem(6px) $spacing-05;
+      margin-block-end: $spacing-06;
+    }
 
-      @include type-style('expressive-heading-01');
+    p,
+    a,
+    .#{$prefix}--link-with-icon,
+    ::slotted(span),
+    span {
+      @include carbon--type-style(heading-03, true);
+
+      color: $text-02;
+      text-decoration: none;
     }
 
     ::slotted(span),
     span {
-      color: $text-01;
-
       flex: inherit;
     }
 
+    ::slotted(svg),
     svg {
-      color: $link-01;
+      fill: $text-02;
       min-width: $spacing-05;
     }
 
     &:visited,
     &:hover {
-      color: $text-01;
+      color: $text-02;
     }
   }
 
@@ -234,31 +242,34 @@
 
     color: $text-02;
     text-decoration: none;
-    padding: 6px $spacing-05;
+    padding: carbon--rem(6px) $spacing-05;
     display: block;
 
+    &:visited {
+      color: $text-02;
+    }
+
     &:hover,
-    &:active {
+    &:active,
+    &:hover:visited {
       color: $text-01;
     }
   }
 
   .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
   :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-sublink'] {
-    @include type-style('body-short-01');
+    @include type-style('body-long-01');
 
     width: 100%;
+
+    a {
+      width: 100%;
+      padding: carbon--rem(7px) $spacing-05;
+    }
 
     span {
       flex: inherit;
     }
-  }
-
-  .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
-  :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-sublink']
-    a {
-    width: 100%;
-    padding: 7px $spacing-05;
   }
 
   :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='view-all'],

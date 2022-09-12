@@ -29,6 +29,7 @@ import {
   MastheadProfileItem,
 } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/cloudAccountAuthAPI';
+import { MASTHEAD_AUTH_METHOD } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import styles from './cloud-masthead.scss';
 import DDSMastheadComposite, { NAV_ITEMS_RENDER_TARGET } from '../masthead-composite';
 
@@ -77,7 +78,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
    * The selected authentication method, either 'cookie' or 'api'.
    */
   @property({ attribute: 'auth-method' })
-  authMethod = 'cookie';
+  authMethod = MASTHEAD_AUTH_METHOD.COOKIE;
 
   /**
    * The user authentication status.
@@ -283,7 +284,6 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
       language,
       openSearchDropdown,
       searchPlaceholder,
-      selectedMenuItem,
       unauthenticatedProfileItems,
       unauthenticatedCtaButtons,
       userStatus,
@@ -308,7 +308,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           : html`
               <dds-left-nav-name href="${ifNonNull(platformAltUrl)}">${platform}</dds-left-nav-name>
             `}
-        ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV, hasL1: !!l1Data })}
+        ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV, hasL1: !!l1Data })}
       </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-masthead-menu-button
@@ -328,7 +328,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           ? undefined
           : html`
               <dds-top-nav cloud menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
-                ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: false })}
+                ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: false })}
               </dds-top-nav>
             `}
         <dds-search-with-typeahead
@@ -393,7 +393,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                 )}
               </dds-cloud-masthead-global-bar>
             `}
-        ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
+        ${!l1Data ? undefined : this._renderL1()}
         <dds-megamenu-overlay></dds-megamenu-overlay>
       </dds-masthead>
     `;
