@@ -12,7 +12,7 @@ import './index.scss';
 window.digitalData = {
   page: {
     category: {
-      primaryCategory: ''
+      primaryCategory: '',
     },
     pageInfo: {
       effectiveDate: '06-14-2022',
@@ -39,12 +39,12 @@ window.digitalData = {
           translation: {
             languageCode: 'en',
             regionCode: 'AU',
-          }
-        }
+          },
+        },
       },
       hotjar: {
-        enable: false
-      }
-    }
+        enable: false,
+      },
+    },
   },
 };
