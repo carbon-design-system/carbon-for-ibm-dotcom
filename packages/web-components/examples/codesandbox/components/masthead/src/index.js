@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '../../../../../es/components/masthead/masthead-container.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container.js';
 import './index.scss';
 
 /**
