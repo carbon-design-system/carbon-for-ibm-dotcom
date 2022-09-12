@@ -386,4 +386,5 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
   }
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSFooterComposite;

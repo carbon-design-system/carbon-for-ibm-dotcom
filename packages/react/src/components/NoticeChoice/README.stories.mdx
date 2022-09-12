@@ -7,12 +7,15 @@ import NoticeChoice from './NoticeChoice';
 > The NoticeChoice component is to be utilized within IBM.com or IBM Authorized partnet websites.
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/react/examples/codesandbox/components/NoticeChoice)
+> [CodeSandbox](https://codesandbox.io/s/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/react/examples/codesandbox/components/NoticeChoice)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/react/examples/codesandbox/components/NoticeChoice)
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/react/examples/codesandbox/components/NoticeChoice)
 
 ## Getting started
+
+The NoticeChoice component is to be utilized within IBM.com or IBM Authorized partner websites and is required on all registration forms.  Please note that this service displays the proper notice and choice content and uses country and user information to determine whether to pre-check the boxes.  It does NOT save the results of the user’s selection.  You must use [MRS API](https://w3.ibm.com/w3publisher/mrs/mrsaas-api) to store the interaction along with the users choices.
+
 
 Here's a quick example to get you started.
 
@@ -72,18 +75,19 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 Add the following line in your `.env` file at the root of your project.
 [See more details](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/styles#usage).
 
+#### Feature Flags
+
+To utilize the following features, set the following variables to `true` within
+your `.env` file or your application build settings.
+
+```
+DDS_NOTICE_CHOICE=true
+```
+
 ```
   SASS_PATH=node_modules:src
 ```
 
-##### OPTIONAL 💡
-
-In addition, direct ES module imports can be used to speed up build compilation
-and have less reliance on tree-shaking determinations from build scripts:
-
-```js
-import NoticeChoice from '@carbon/ibmdotcom-react/es/components/NoticeChoice/NoticeChoice';
-```
 
 ## Props
 

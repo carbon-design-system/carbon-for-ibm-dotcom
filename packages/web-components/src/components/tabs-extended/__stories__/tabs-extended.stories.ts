@@ -44,9 +44,9 @@ export const Default = args => {
 
           <dds-card-link-cta slot="footer" href="https://example.com">
             <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
-            <dds-card-footer>
+            <dds-card-cta-footer>
               ${ArrowRight20({ slot: 'icon' })}
-            </dds-card-footer>
+            </dds-card-cta-footer>
           </dds-card-link-cta>
         </dds-content-block-media-content>
       </dds-tab>
