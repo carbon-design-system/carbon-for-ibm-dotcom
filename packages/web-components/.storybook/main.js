@@ -21,7 +21,7 @@ const useStyleSourceMap = process.env.STORYBOOK_USE_STYLE_SOURCEMAP === 'true';
 const useRtl = process.env.STORYBOOK_USE_RTL === 'true';
 
 module.exports = {
-  stories: ['../docs/*.mdx', '../src/**/*.stories.ts', '../src/**/*.stories.mdx'],
+  stories: ['../docs/*.mdx', '../src/**/*.stories.ts'],
   addons: [
     '@storybook/addon-storysource',
     '@storybook/addon-links',
@@ -30,6 +30,10 @@ module.exports = {
     '@carbon/storybook-addon-theme/es/register',
     path.resolve(__dirname, 'addon-knobs-args'),
   ],
+  features: {
+    storyStoreV7: true,
+    buildStoriesJson: true,
+  },
   framework: '@storybook/web-components',
   managerWebpack(config) {
     // `@storybook/react` NPM installation seems to add `@babel/preset-react` automatically
