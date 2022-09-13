@@ -32,6 +32,19 @@ class DDSMasthead extends StableSelectorMixin(LitElement) {
     StickyHeader.global.masthead = this;
   }
 
+  /**
+   * Re-initializes masthead component with StickyHeader class in case of L1 addition/removal.
+   */
+  handleL1Change({ target }) {
+    const L1Navs = (target as HTMLSlotElement)
+      .assignedElements()
+      .filter(element => element.tagName.toLowerCase() === `${ddsPrefix}-masthead-l1`);
+
+    if (L1Navs.length) {
+      StickyHeader.global.masthead = this;
+    }
+  }
+
   render() {
     return html`
       <div class="${prefix}--masthead__l0">
@@ -46,7 +59,7 @@ class DDSMasthead extends StableSelectorMixin(LitElement) {
           <slot name="profile"></slot>
         </div>
       </div>
-      <slot name="masthead-l1"></slot>
+      <slot name="masthead-l1" @slotchange=${this.handleL1Change}></slot>
     `;
   }
 
