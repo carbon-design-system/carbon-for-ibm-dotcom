@@ -13,7 +13,10 @@ import Launch20 from 'carbon-web-components/es/icons/launch/20.js';
 import styles from './leaving-ibm.stories.scss';
 import mediumImgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
 import '../index';
-
+import '../../link-with-icon/index';
+import '../../button-group/index';
+import '../../card-link/index';
+import '../../feature-card/index';
 import readme from './README.stories.mdx';
 
 export const Default = args => {

@@ -16,6 +16,8 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../index';
+import '../../background-media/index';
+import '../../video-player/video-player-container';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 

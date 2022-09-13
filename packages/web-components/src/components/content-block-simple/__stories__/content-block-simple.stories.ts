@@ -8,6 +8,7 @@
  */
 
 import '../index';
+import '../../cta/index';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
