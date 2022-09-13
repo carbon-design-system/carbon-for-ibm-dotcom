@@ -51,15 +51,15 @@ import '../../callout-with-media/callout-with-media';
 import '../../callout-with-media/callout-with-media-copy';
 import '../../callout-with-media/callout-with-media-video';
 import readme from './README.stories.mdx';
-// import {
-// StoryContent,
-// StoryContentNoToC,
-// universalBanner as StoryUniversalBanner,
-// tocContent,
-// contentLeadspaceSearch,
-// } from './data/content';
+import {
+  StoryContent,
+  // StoryContentNoToC,
+  universalBanner as StoryUniversalBanner,
+  tocContent,
+  contentLeadspaceSearch,
+} from './data/content';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
-// import { TOC_TYPES } from '../../table-of-contents/defs';
+import { TOC_TYPES } from '../../table-of-contents/defs';
 
 // eslint-disable-next-line sort-imports
 import img4Col from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-image.jpg';
@@ -1142,7 +1142,7 @@ export const WithoutShell = args => {
     <style>
       ${mastheadStyles}
     </style>
-    ${universalBanner ? '' : ''}
+    ${universalBanner ? StoryUniversalBanner(images['4-col']) : ''}
     ${masthead === 'L0'
       ? html`
           <dds-masthead-container id="masthead-container"></dds-masthead-container>
@@ -1153,15 +1153,26 @@ export const WithoutShell = args => {
     <main class="bx--content dds-ce-demo--ui-shell-content">
       ${leadspaceSearch
         ? html`
-            <div class="bx--grid bx--col-lg-8"></div>
+            <div class="bx--grid bx--col-lg-8">
+              ${contentLeadspaceSearch}
+            </div>
           `
         : ''}
       ${tocLayout === 'none'
         ? html`
-            <div class="bx--grid bx--col-lg-8"></div>
+            <div class="bx--grid bx--col-lg-8">
+              ${tocContent}
+            </div>
           `
         : ''}
-      ${tocLayout === null ? '' : ''} ${tocLayout === 'horizontal' ? '' : ''}
+      ${tocLayout === null ? StoryContent() : ''}
+      ${tocLayout === 'horizontal'
+        ? StoryContent({
+            l1: false,
+            leadspace: true,
+            tocLayout: TOC_TYPES.HORIZONTAL,
+          })
+        : ''}
     </main>
   `;
 };
