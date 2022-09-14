@@ -10,7 +10,7 @@
 import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
-import '../tag-group';
+import '../index';
 import 'carbon-web-components/es/components/tag/tag.js';
 
 const tagTitles = ['Cloud', 'Blockchain', 'Supply chain', 'Watson health', 'IT Infrastructure', 'WebSphere'];

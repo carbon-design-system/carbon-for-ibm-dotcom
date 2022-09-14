@@ -9,6 +9,7 @@
 
 import { html } from 'lit-element';
 import '../index';
+import '../../content-block-media/index';
 import '../../card-group/index';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';

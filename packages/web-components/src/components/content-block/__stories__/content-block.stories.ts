@@ -8,6 +8,8 @@
  */
 
 import '../index';
+import '../../cta/index';
+import '../../card-link/index';
 import { html } from 'lit-element';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';

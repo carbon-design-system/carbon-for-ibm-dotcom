@@ -16,7 +16,6 @@ import 'carbon-web-components/es/components/skip-to-content/skip-to-content.js';
 
 import { withKnobs } from '@storybook/addon-knobs';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
-import getSimpleStorySort from './get-simple-story-sort';
 
 import containerStyles from './container.scss'; // eslint-disable-line import/first
 
@@ -27,19 +26,24 @@ setCustomElements(customElementsMetadata);
 
 export const parameters = {
   layout: 'fullscreen',
-  // options: {
-  //   storySort: getSimpleStorySort([
-  //     'overview-getting-started--page',
-  //     'overview-building-for-ibm-dotcom--page',
-  //     'overview-carbon-cdn-style-helpers--page',
-  //     'overview-stable-selectors--page',
-  //     'overview-using-server-side-template--page',
-  //     'overview-enable-right-to-left-rtl--page',
-  //     'overview-feature-flags--page',
-  //     'overview-contributing-to-the-web-components-package--page',
-  //     'overview-breaking-changes--page',
-  //   ]),
-  // },
+  options: {
+    storySort: {
+      order: [
+        'Overview',
+        [
+          'Getting started',
+          'Building for IBM(dotcom)',
+          'Carbon CDN style helpers',
+          'Stable selectors',
+          'Enable right-to-left (RTL)',
+          'Feature flags',
+          'Contributing to the Web Components package',
+          'Breaking Changes',
+        ],
+        'Components',
+      ],
+    },
+  },
   controls: { disabled: true },
   actions: { disabled: true },
 };

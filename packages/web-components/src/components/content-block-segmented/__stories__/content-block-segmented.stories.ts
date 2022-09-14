@@ -10,6 +10,7 @@
 import '../index';
 import '../../video-player/video-player-container';
 import '../../link-list/index';
+import '../../cta/index';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';

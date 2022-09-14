@@ -15,7 +15,9 @@ import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import '../../card/index';
-import '../carousel';
+import '../../cta/index';
+import '../../image/index';
+import '../index';
 import styles from './carousel.stories.scss';
 import readme from './README.stories.mdx';
 

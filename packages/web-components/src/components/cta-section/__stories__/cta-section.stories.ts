@@ -14,9 +14,10 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../link-list/index';
-import '../cta-section';
+import '../index';
 import '../../video-player/video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
+import '../../content-section/index';
 import logoMicrosoft2x1 from '../../../../../storybook-images/assets/logos/logo-microsoft--2x1.png';
 
 import content from './content';

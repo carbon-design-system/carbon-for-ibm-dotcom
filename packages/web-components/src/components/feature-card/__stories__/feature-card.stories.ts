@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '../../card/card-heading';
+import '../../card/index';
+import '../../image/image';
 import '../index';
 
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';

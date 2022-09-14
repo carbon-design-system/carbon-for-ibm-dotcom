@@ -12,6 +12,7 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { optionsKnob } from '@storybook/addon-knobs';
 import '../index';
+import '../../cta/text-cta';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 

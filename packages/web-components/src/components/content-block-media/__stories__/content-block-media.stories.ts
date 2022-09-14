@@ -8,8 +8,7 @@
  */
 
 import '../index';
-import '../../cta/card-link-cta';
-import '../../cta/feature-cta';
+import '../../cta/index';
 import '../../link-list/link-list';
 import '../../link-list/link-list-heading';
 import { html } from 'lit-element';
