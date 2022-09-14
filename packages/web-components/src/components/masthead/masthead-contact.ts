@@ -36,7 +36,6 @@ class DDSMastheadContact extends DDSMastheadProfile {
     return html`
       <a
         href="javascript:void 0"
-        data-ibm-contact="contact-link"
         class="${prefix}--header__menu-item ${prefix}--header__menu-title"
         aria-label="${ifDefined(triggerLabel)}"
         @click=${handleClick}

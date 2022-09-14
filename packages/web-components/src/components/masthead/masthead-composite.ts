@@ -1157,7 +1157,10 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           ${hasContact === 'false'
             ? ''
             : html`
-                <dds-masthead-contact trigger-label="${ifDefined(contactUsButton?.title)}"></dds-masthead-contact>
+                <dds-masthead-contact
+                  data-ibm-contact="contact-link"
+                  trigger-label="${ifDefined(contactUsButton?.title)}"
+                ></dds-masthead-contact>
               `}
           ${hasProfile === 'false'
             ? ''
