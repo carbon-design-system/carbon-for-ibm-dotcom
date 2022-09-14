@@ -80,7 +80,7 @@ const images = {
  */
 const menuItems = ['Products & Solutions', 'Services & Consulting', 'Learn & Support', 'Explore more'];
 
-export const Default = ({ parameters }) => {
+export const Default = args => {
   const {
     platform,
     hasProfile,
@@ -96,7 +96,7 @@ export const Default = ({ parameters }) => {
     links: footerLinks,
     localeList,
     disableLocaleButton,
-  } = parameters?.props?.DotcomShell ?? {};
+  } = args?.DotcomShell ?? {};
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
@@ -122,7 +122,7 @@ export const Default = ({ parameters }) => {
   );
 };
 
-export const DefaultFooterLanguageOnly = ({ parameters }) => {
+export const DefaultFooterLanguageOnly = args => {
   const {
     platform,
     hasProfile,
@@ -136,8 +136,8 @@ export const DefaultFooterLanguageOnly = ({ parameters }) => {
     legalLinks,
     links: footerLinks,
     localeList,
-  } = parameters?.props?.DotcomShell ?? {};
-  const { langList, disableLocaleButton } = parameters?.props?.FooterComposite ?? {};
+  } = args?.DotcomShell ?? {};
+  const { langList, disableLocaleButton } = args?.FooterComposite ?? {};
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
@@ -170,15 +170,15 @@ DefaultFooterLanguageOnly.story = {
   name: 'Default footer language only',
   parameters: {
     knobs: {
-      FooterComposite: ({ groupId }) => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
-        langList: object('langlist', mockLangList, groupId),
+      FooterComposite: () => ({
+        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false),
+        langList: object('langlist', mockLangList),
       }),
     },
   },
 };
 
-export const searchOpenOnload = ({ parameters }) => {
+export const searchOpenOnload = args => {
   const {
     platform,
     hasProfile,
@@ -193,7 +193,7 @@ export const searchOpenOnload = ({ parameters }) => {
     links: footerLinks,
     localeList,
     disableLocaleButton,
-  } = parameters?.props?.DotcomShell ?? {};
+  } = args?.DotcomShell ?? {};
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
@@ -225,7 +225,7 @@ searchOpenOnload.story = {
   name: 'Search open onload',
 };
 
-export const withPlatform = ({ parameters }) => {
+export const withPlatform = args => {
   const {
     hasProfile,
     userStatus,
@@ -239,7 +239,7 @@ export const withPlatform = ({ parameters }) => {
     links: footerLinks,
     localeList,
     disableLocaleButton,
-  } = parameters?.props?.DotcomShell ?? {};
+  } = args?.DotcomShell ?? {};
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
@@ -270,18 +270,18 @@ withPlatform.story = {
   name: 'With platform',
   parameters: {
     knobs: {
-      MastheadComposite: ({ groupId }) => ({
-        hasProfile: boolean('show the profile functionality (profile)', true, groupId),
-        hasSearch: boolean('show the search functionality (search)', true, groupId),
-        searchPlaceholder: text('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
-        selectedMenuItem: text('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
+      MastheadComposite: () => ({
+        hasProfile: boolean('show the profile functionality (profile)', true),
+        hasSearch: boolean('show the search functionality (search)', true),
+        searchPlaceholder: text('search placeholder (searchPlaceholder)', 'Search all of IBM'),
+        selectedMenuItem: text('selected menu item (selected-menu-item)', 'Services & Consulting'),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
       }),
     },
   },
 };
 
-export const withShortFooter = ({ parameters }) => {
+export const withShortFooter = args => {
   const {
     platform,
     hasProfile,
@@ -296,7 +296,7 @@ export const withShortFooter = ({ parameters }) => {
     links: footerLinks,
     localeList,
     disableLocaleButton,
-  } = parameters?.props?.DotcomShell ?? {};
+  } = args?.DotcomShell ?? {};
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
@@ -326,7 +326,7 @@ withShortFooter.story = {
   name: 'With short footer',
 };
 
-export const withShortFooterLanguageOnly = ({ parameters }) => {
+export const withShortFooterLanguageOnly = args => {
   const {
     platform,
     hasProfile,
@@ -340,9 +340,9 @@ export const withShortFooterLanguageOnly = ({ parameters }) => {
     legalLinks,
     links: footerLinks,
     localeList,
-  } = parameters?.props?.DotcomShell ?? {};
+  } = args?.DotcomShell ?? {};
 
-  const { langList, disableLocaleButton } = parameters?.props?.FooterComposite ?? {};
+  const { langList, disableLocaleButton } = args?.FooterComposite ?? {};
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
@@ -377,15 +377,15 @@ withShortFooterLanguageOnly.story = {
   name: 'With short footer language only',
   parameters: {
     knobs: {
-      FooterComposite: ({ groupId }) => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
-        langList: object('langlist', mockLangList, groupId),
+      FooterComposite: () => ({
+        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false),
+        langList: object('langlist', mockLangList),
       }),
     },
   },
 };
 
-export const withMicroFooter = ({ parameters }) => {
+export const withMicroFooter = args => {
   const {
     platform,
     hasProfile,
@@ -400,7 +400,7 @@ export const withMicroFooter = ({ parameters }) => {
     links: footerLinks,
     localeList,
     disableLocaleButton,
-  } = parameters?.props?.DotcomShell ?? {};
+  } = args?.DotcomShell ?? {};
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
@@ -430,7 +430,7 @@ withMicroFooter.story = {
   name: 'With micro footer',
 };
 
-export const withMicroFooterLanguageOnly = ({ parameters }) => {
+export const withMicroFooterLanguageOnly = args => {
   const {
     platform,
     hasProfile,
@@ -444,9 +444,9 @@ export const withMicroFooterLanguageOnly = ({ parameters }) => {
     legalLinks,
     links: footerLinks,
     localeList,
-  } = parameters?.props?.DotcomShell ?? {};
+  } = args?.DotcomShell ?? {};
 
-  const { langList, disableLocaleButton } = parameters?.props?.FooterComposite ?? {};
+  const { langList, disableLocaleButton } = args?.FooterComposite ?? {};
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
@@ -480,15 +480,15 @@ withMicroFooterLanguageOnly.story = {
   name: 'With micro footer language only',
   parameters: {
     knobs: {
-      FooterComposite: ({ groupId }) => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
-        langList: object('langlist', mockLangList, groupId),
+      FooterComposite: () => ({
+        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false),
+        langList: object('langlist', mockLangList),
       }),
     },
   },
 };
 
-export const withL1 = ({ parameters }) => {
+export const withL1 = args => {
   const {
     hasProfile,
     userStatus,
@@ -502,7 +502,7 @@ export const withL1 = ({ parameters }) => {
     links: footerLinks,
     localeList,
     disableLocaleButton,
-  } = parameters?.props?.DotcomShell ?? {};
+  } = args?.DotcomShell ?? {};
   const contentConfig = {
     l1: true,
     leadspace: false,
@@ -536,18 +536,18 @@ withL1.story = {
   name: 'With L1',
   parameters: {
     knobs: {
-      DotcomShell: ({ groupId }) => ({
-        hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
-        hasSearch: boolean('show the search functionality (has-search)', true, groupId),
-        searchPlaceholder: text('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
-        selectedMenuItem: text('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
+      DotcomShell: () => ({
+        hasProfile: boolean('show the profile functionality (has-profile)', true),
+        hasSearch: boolean('show the search functionality (has-search)', true),
+        searchPlaceholder: text('search placeholder (searchPlaceholder)', 'Search all of IBM'),
+        selectedMenuItem: text('selected menu item (selected-menu-item)', 'Services & Consulting'),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
       }),
     },
   },
 };
 
-export const WithHorizontalTOC = ({ parameters }) => {
+export const WithHorizontalTOC = args => {
   const {
     platform,
     hasProfile,
@@ -563,7 +563,7 @@ export const WithHorizontalTOC = ({ parameters }) => {
     links: footerLinks,
     localeList,
     disableLocaleButton,
-  } = parameters?.props?.DotcomShell ?? {};
+  } = args?.DotcomShell ?? {};
   const contentConfig = {
     l1: false,
     leadspace: true,
@@ -601,7 +601,7 @@ WithHorizontalTOC.story = {
   },
 };
 
-export const WithLeadspaceSearch = ({ parameters }) => {
+export const WithLeadspaceSearch = args => {
   const {
     platform,
     hasProfile,
@@ -617,7 +617,7 @@ export const WithLeadspaceSearch = ({ parameters }) => {
     links: footerLinks,
     localeList,
     disableLocaleButton,
-  } = parameters?.props?.DotcomShell ?? {};
+  } = args?.DotcomShell ?? {};
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
@@ -651,7 +651,7 @@ WithLeadspaceSearch.story = {
   },
 };
 
-export const WithUniversalBanner = ({ parameters }) => {
+export const WithUniversalBanner = args => {
   const {
     platform,
     hasProfile,
@@ -671,7 +671,7 @@ export const WithUniversalBanner = ({ parameters }) => {
     heading,
     copy,
     ctaCopy,
-  } = parameters?.props?.DotcomShell ?? {};
+  } = args?.DotcomShell ?? {};
 
   const bannerHeading = document.querySelector('dds-universal-banner-heading');
   const bannerCopy = document.querySelector('dds-universal-banner-copy');
@@ -720,23 +720,23 @@ WithUniversalBanner.story = {
   name: 'With Universal banner',
   parameters: {
     knobs: {
-      DotcomShell: ({ groupId }) => ({
-        hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
-        hasSearch: boolean('show the search functionality (has-search)', true, groupId),
-        searchPlaceholder: text('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
-        selectedMenuItem: text('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
-        heading: text('Universal banner heading:', 'Hybrid cloud and AI for smarter business', groupId),
-        copy: text('Universal banner copy (optional):', 'Las Vegas, June 15-18, 2025', groupId),
-        ctaCopy: text('Universal banner CTA copy:', 'Register for Think. Free', groupId),
-        imageWidth: select('Universal banner image width:', imageWidthOptions, '4-col', groupId),
+      DotcomShell: () => ({
+        hasProfile: boolean('show the profile functionality (has-profile)', true),
+        hasSearch: boolean('show the search functionality (has-search)', true),
+        searchPlaceholder: text('search placeholder (searchPlaceholder)', 'Search all of IBM'),
+        selectedMenuItem: text('selected menu item (selected-menu-item)', 'Services & Consulting'),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
+        heading: text('Universal banner heading:', 'Hybrid cloud and AI for smarter business'),
+        copy: text('Universal banner copy (optional):', 'Las Vegas, June 15-18, 2025'),
+        ctaCopy: text('Universal banner CTA copy:', 'Register for Think. Free'),
+        imageWidth: select('Universal banner image width:', imageWidthOptions, '4-col'),
       }),
     },
   },
 };
 
-export const WithoutShell = ({ parameters }) => {
-  const { masthead, universalBanner, leadspaceSearch, tocLayout } = parameters?.props?.DotcomShell ?? {};
+export const WithoutShell = args => {
+  const { masthead, universalBanner, leadspaceSearch, tocLayout } = args?.DotcomShell ?? {};
 
   return (
     <>
@@ -761,11 +761,11 @@ WithoutShell.story = {
   name: 'Without Shell (Fallback Utility)',
   parameters: {
     knobs: {
-      DotcomShell: ({ groupId }) => ({
-        masthead: select('Masthead Version', ['L0', 'L1'], 'L0', groupId),
-        universalBanner: boolean('Has Universal Banner', false, groupId),
-        leadspaceSearch: boolean('Has Leadspace With Search', false, groupId),
-        tocLayout: select('Table of Contents Layout', { Vertical: null, Horizontal: 'horizontal', None: 'none' }, null, groupId),
+      DotcomShell: () => ({
+        masthead: select('Masthead Version', ['L0', 'L1'], 'L0'),
+        universalBanner: boolean('Has Universal Banner', false),
+        leadspaceSearch: boolean('Has Leadspace With Search', false),
+        tocLayout: select('Table of Contents Layout', { Vertical: null, Horizontal: 'horizontal', None: 'none' }, null),
       }),
     },
   },
@@ -790,15 +790,15 @@ export default {
     ...readme.parameters,
     knobs: {
       escapeHTML: false,
-      DotcomShell: ({ groupId }) => ({
-        platform: select('Platform (platform)', { none: null, platform: platformData.name }, null, groupId),
-        hasProfile: boolean('Show profile in masthead (profile)', true, groupId),
-        hasSearch: boolean('Show search in masthead (search)', true, groupId),
-        searchPlaceholder: text('Search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
-        selectedMenuItem: select('Selected menu item (selected-menu-item)', menuItems, menuItems[1], groupId),
-        userStatus: select('User authentication (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
-        disableLocaleButton: boolean('Locale button (disable-locale-button)', false, groupId),
-        footerSize: select('Footer size (footer-size)', footerSizes, FOOTER_SIZE.REGULAR, groupId),
+      DotcomShell: () => ({
+        platform: select('Platform (platform)', { none: null, platform: platformData.name }, null),
+        hasProfile: boolean('Show profile in masthead (profile)', true),
+        hasSearch: boolean('Show search in masthead (search)', true),
+        searchPlaceholder: text('Search placeholder (searchPlaceholder)', 'Search all of IBM'),
+        selectedMenuItem: select('Selected menu item (selected-menu-item)', menuItems, menuItems[1]),
+        userStatus: select('User authentication (user-status)', userStatuses, userStatuses.unauthenticated),
+        disableLocaleButton: boolean('Locale button (disable-locale-button)', false),
+        footerSize: select('Footer size (footer-size)', footerSizes, FOOTER_SIZE.REGULAR),
       }),
     },
   },

@@ -107,14 +107,11 @@ Default.story = {
 export default {
   title: 'Components/Tabs extended media',
   decorators: [
-    (story, { parameters }) => {
+    (story, args) => {
       return (
         <div className="bx--grid">
           <div className="bx--row">
-            <div
-              className={`${
-                parameters?.props?.TabsExtendedMedia?.sectionHeading ? `bx--col-lg-16` : `bx--col-lg-12`
-              } bx--no-gutter`}>
+            <div className={`${args?.TabsExtendedMedia?.sectionHeading ? `bx--col-lg-16` : `bx--col-lg-12`} bx--no-gutter`}>
               {story()}
             </div>
           </div>

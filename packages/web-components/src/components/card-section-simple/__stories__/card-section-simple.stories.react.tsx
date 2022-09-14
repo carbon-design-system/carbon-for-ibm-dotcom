@@ -40,8 +40,8 @@ const cardGroupItems = withImages => {
   );
 };
 
-export const Default = ({ parameters }) => {
-  const { heading, withImages, withCTA } = parameters?.props?.CardSectionSimple ?? {};
+export const Default = args => {
+  const { heading, withImages, withCTA } = args?.CardSectionSimple ?? {};
   const cards: object[] = [];
   for (let i = 0; i < 5; i++) {
     cards.push(cardGroupItems(withImages));
@@ -67,10 +67,10 @@ export const Default = ({ parameters }) => {
 Default.story = {
   parameters: {
     knobs: {
-      CardSectionSimple: ({ groupId }) => ({
-        heading: text('Heading (required):', 'Aliquam condimentum interdum', groupId),
-        withImages: boolean('With images:', false, groupId),
-        withCTA: boolean('With CTA:', false, groupId),
+      CardSectionSimple: () => ({
+        heading: text('Heading (required):', 'Aliquam condimentum interdum'),
+        withImages: boolean('With images:', false),
+        withCTA: boolean('With CTA:', false),
       }),
     },
   },
