@@ -517,6 +517,7 @@ class DDSMastheadComposite extends LitElement {
           if (level2Items.length !== 0) {
             menu.push(
               this._renderLeftNavMenuSections({
+                ctas: undefined,
                 menuItems: level2Items,
                 isSubmenu: true,
                 showBackButton: true,
@@ -541,6 +542,7 @@ class DDSMastheadComposite extends LitElement {
         if (level1Items.length !== 0) {
           menu.push(
             this._renderLeftNavMenuSections({
+              ctas: undefined,
               menuItems: level1Items,
               heading: elem.menuSections[0]?.heading,
               isSubmenu: true,
