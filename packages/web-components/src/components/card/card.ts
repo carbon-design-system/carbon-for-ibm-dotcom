@@ -62,15 +62,12 @@ class DDSCard extends StableSelectorMixin(BXLink) {
    * Handles `slotchange` event.
    */
   protected _handleSlotChange({ target }: Event) {
-    const { pictogramPlacement: currentPictogramPlacement } = this;
-    const { dataset, name } = target as HTMLSlotElement;
-    const { pictogramPlacement } = dataset;
-    if ((!this._hasCopy && currentPictogramPlacement) || pictogramPlacement === currentPictogramPlacement) {
-      const hasContent = (target as HTMLSlotElement)
-        .assignedNodes()
-        .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
-      this[slotExistencePropertyNames[name] || '_hasCopy'] = hasContent;
-    }
+    const { name } = target as HTMLSlotElement;
+    const hasContent = (target as HTMLSlotElement)
+      .assignedNodes()
+      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+    this[slotExistencePropertyNames[name]] = hasContent;
+    this._hasCopy = hasContent;
   }
 
   /**
