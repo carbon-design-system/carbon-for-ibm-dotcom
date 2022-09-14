@@ -735,9 +735,10 @@ $breakpoint--desktop-nav: 960px;
 
     display: inline-block;
     margin-bottom: $spacing-03;
+    color: $text-02;
 
     a {
-      color: $text-02;
+      color: inherit;
       text-decoration: none;
       align-self: center;
       display: flex;
@@ -765,8 +766,8 @@ $breakpoint--desktop-nav: 960px;
         */
     }
 
-    &:active,
-    &:hover {
+    &[data-has-href]:active,
+    &[data-has-href]:hover {
       a,
       ~ span {
         color: $text-01;
