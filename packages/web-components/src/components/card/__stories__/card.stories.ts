@@ -75,16 +75,16 @@ Default.story = {
     ...readme.parameters,
     knobs: {
       Card: () => ({
-        image: boolean('Add image:', false),
-        eyebrow: textNullable('Eyebrow:', 'Industry'),
-        heading: textNullable('Heading:', 'Aerospace and defence'),
-        copy: textNullable('Body copy:', ''),
+        image: boolean('Add image:', false, 'Default'),
+        eyebrow: textNullable('Eyebrow:', 'Industry', 'Default'),
+        heading: textNullable('Heading:', 'Aerospace and defence', 'Default'),
+        copy: textNullable('Body copy:', '', 'Default'),
         alt: 'Image alt text',
         defaultSrc: imgXlg4x3,
-        tagGroup: boolean('Add tags:', false),
+        tagGroup: boolean('Add tags:', false, 'Default'),
         href: 'https://example.com',
-        footer: textNullable('CTA:', 'Learn more'),
-        cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none'),
+        footer: textNullable('CTA:', 'Learn more', 'Default'),
+        cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none', 'Default'),
       }),
     },
     propsSet: {
@@ -156,18 +156,19 @@ Pictogram.story = {
     ...readme.parameters,
     knobs: {
       PictogramCard: () => {
-        const pictogramPlacement = select('Pictogram position:', pictogramPlacements, pictogramPlacements.top);
+        const pictogramPlacement = select('Pictogram position:', pictogramPlacements, pictogramPlacements.top, 'pictogram');
         const copy = textNullable(
           'Body copy:',
           `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-           Ut enim ad minim veniam, quis nostrud exercitation.`
+           Ut enim ad minim veniam, quis nostrud exercitation.`,
+          'pictogram'
         );
         return {
           pictogramPlacement,
-          heading: textNullable('Heading:', 'Aerospace and defence'),
+          heading: textNullable('Heading:', 'Aerospace and defence', 'pictogram'),
           copy,
           href: 'https://example.com',
-          cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none'),
+          cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none', 'pictogram'),
         };
       },
     },
@@ -227,18 +228,19 @@ Static.story = {
     ...readme.parameters,
     knobs: {
       Card: () => {
-        const image = boolean('Add image:', false);
-        const eyebrow = textNullable('Eyebrow:', 'SPSS Statistics');
-        const heading = textNullable('Heading:', 'Free trial');
+        const image = boolean('Add image:', false, 'static');
+        const eyebrow = textNullable('Eyebrow:', 'SPSS Statistics', 'static');
+        const heading = textNullable('Heading:', 'Free trial', 'static');
         const copy = textNullable(
           'Body copy:',
           'Enjoy full SPSS Statistics capabilities including all add-ons. ' +
-            'All trial registrants are restricted to one free trial per computer per user.'
+            'All trial registrants are restricted to one free trial per computer per user.',
+          'static'
         );
-        const tagGroup = boolean('Add tags:', false);
-        const cta = boolean('Add CTA:', false);
-        const ctaCopy = cta ? textNullable('CTA copy:', 'Sign up for the trial') : '';
-        const outlinedCard = boolean('Outlined card:', true);
+        const tagGroup = boolean('Add tags:', false, 'static');
+        const cta = boolean('Add CTA:', false, 'static');
+        const ctaCopy = cta ? textNullable('CTA copy:', 'Sign up for the trial', 'static') : '';
+        const outlinedCard = boolean('Outlined card:', true, 'static');
         return {
           alt: 'Image alt text',
           defaultSrc: imgXlg4x3,
@@ -310,12 +312,13 @@ Logo.story = {
       Card: () => ({
         alt: 'Image alt text',
         defaultSrc: logoMicrosoft2x1,
-        tagGroup: boolean('Add tags', true),
-        eyebrow: textNullable('Card Eyebrow:', 'Microsoft'),
-        heading: textNullable('Card Heading (optional):', ''),
+        tagGroup: boolean('Add tags', true, 'logo'),
+        eyebrow: textNullable('Card Eyebrow:', 'Microsoft', 'logo'),
+        heading: textNullable('Card Heading (optional):', '', 'logo'),
         copy: textNullable(
           'Card body copy:',
-          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          'logo'
         ),
         href: 'https://example.com',
       }),
