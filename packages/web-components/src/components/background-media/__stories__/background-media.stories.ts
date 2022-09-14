@@ -8,6 +8,7 @@
  */
 
 import '../index';
+import '../../video-player/video-player-container';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { text, select, number } from '@storybook/addon-knobs';
