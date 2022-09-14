@@ -33,9 +33,31 @@ class DDSMegaMenuCategoryHeading extends LitElement {
   @property({ reflect: true })
   title = '';
 
-  render() {
+  /**
+   * Render category heading as link.
+   */
+  protected renderLink() {
     return html`
-      <h2><a href="${this.href}">${this.title} ${ArrowRight20()}</a></h2>
+      <a href="${this.href}">${this.title} ${ArrowRight20()}</a>
+    `;
+  }
+
+  /**
+   * Render category heading as plain text.
+   */
+  protected renderPlain() {
+    return html`
+      ${this.title}
+    `;
+  }
+
+  render() {
+    const hasHref = Boolean(this.href);
+
+    return html`
+      <h2 ?data-has-href="${Boolean(hasHref)}">
+        ${hasHref ? this.renderLink() : this.renderPlain()}
+      </h2>
       <span><slot></slot></span>
     `;
   }
