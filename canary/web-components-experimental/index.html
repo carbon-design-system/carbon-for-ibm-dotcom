@@ -1,9 +1,13 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Storybook</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>html, body {
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><title>Webpack App</title><meta name="viewport" content="width=device-width,initial-scale=1"/><style>html, body {
     overflow: hidden;
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
+  }
+
+  * {
+    box-sizing: border-box;
   }</style><script>/* globals window */
   /* eslint-disable no-underscore-dangle */
   try {
@@ -13,7 +17,27 @@
   } catch (e) {
     // eslint-disable-next-line no-console
     console.warn('unable to connect to top frame for connecting dev tools');
-  }</script><meta name="keywords" content="ibm.com, design, system, design system, styleguide, style, guide, components, library, pattern, kit, component, cloud, Web Components, Custom Elements"><meta name="description" content="This is the Web Components (custom elements) implementation of Carbon for IBM.com."><meta property="og:title" content="Carbon for IBM.com Web Components"><meta property="og:site_name" content="Carbon for IBM.com Web Components"><meta property="og:description" content="This is the Web Components (custom elements) implementation of Carbon for IBM.com."><meta property="og:image" content="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/i/carbon-for-ibmcom-wc.png"><script>document.title = 'Carbon for IBM.com Web Components';</script><style>@font-face {
+  }
+
+  window.onerror = function onerror(message, source, line, column, err) {
+    if (window.CONFIG_TYPE !== 'DEVELOPMENT') return;
+    // eslint-disable-next-line no-var, vars-on-top
+    var xhr = new window.XMLHttpRequest();
+    xhr.open('POST', '/runtime-error');
+    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    xhr.send(
+      JSON.stringify({
+        /* eslint-disable object-shorthand */
+        message: message,
+        source: source,
+        line: line,
+        column: column,
+        error: err && { message: err.message, name: err.name, stack: err.stack },
+        origin: 'manager',
+        /* eslint-enable object-shorthand */
+      })
+    );
+  };</script><meta name="keywords" content="ibm.com, design, system, design system, styleguide, style, guide, components, library, pattern, kit, component, cloud, Web Components, Custom Elements"/><meta name="description" content="This is the Web Components (custom elements) implementation of Carbon for IBM.com."/><meta property="og:title" content="Carbon for IBM.com Web Components"/><meta property="og:site_name" content="Carbon for IBM.com Web Components"/><meta property="og:description" content="This is the Web Components (custom elements) implementation of Carbon for IBM.com."/><meta property="og:image" content="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/i/carbon-for-ibmcom-wc.png"/><script>document.title = 'Carbon for IBM.com Web Components';</script><style>@font-face {
     font-weight: 400;
     font-family: 'IBM Plex Sans';
     font-style: normal;
@@ -34,4 +58,20 @@
   }</style><style>#root[hidden],
       #docs-root[hidden] {
         display: none !important;
-      }</style></head><body><div id="root"></div><div id="docs-root"></div><script>window['DOCS_MODE'] = false;</script><script src="runtime~main.f6145a39c2e3eb089a89.bundle.js"></script><script src="vendors~main.da40b5b025534b500454.bundle.js"></script><script src="main.c1bada5c5896c5c919e4.bundle.js"></script></body></html>
+      }</style></head><body><div id="root"></div><div id="docs-root"></div><script>window['CONFIG_TYPE'] = "PRODUCTION";
+          
+      
+          
+            window['LOGLEVEL'] = "info";
+          
+      
+          
+            window['FEATURES'] = {"postcss":true,"emotionAlias":false,"warnOnLegacyHierarchySeparator":true,"buildStoriesJson":true,"storyStoreV7":true,"modernInlineRender":false,"breakingChangesV7":false,"interactionsDebugger":false,"babelModeV7":false,"argTypeTargetsV7":false,"previewMdx2":false};
+          
+      
+          
+      
+          
+      
+          
+            window['DOCS_MODE'] = false;</script><script src="runtime~main.78fe715930f6062d45c6.manager.bundle.js"></script><script src="vendors~main.639dbe19d360ad66b2e5.manager.bundle.js"></script><script src="main.744bf91775a61eb42ed0.manager.bundle.js"></script></body></html>
