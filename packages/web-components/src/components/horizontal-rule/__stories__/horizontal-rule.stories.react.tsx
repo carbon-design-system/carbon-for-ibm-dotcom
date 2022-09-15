@@ -38,19 +38,19 @@ const weights = {
   thick: 'thick',
 };
 
-export const Default = ({ parameters }) => {
-  const { type, size, contrast, weight } = parameters?.props?.HorizontalRule ?? {};
+export const Default = args => {
+  const { type, size, contrast, weight } = args?.HorizontalRule ?? {};
   return <DDSHorizontalRule type={type} size={size} contrast={contrast} weight={weight}></DDSHorizontalRule>;
 };
 
 Default.story = {
   parameters: {
     knobs: {
-      HorizontalRule: ({ groupId }) => ({
-        type: select('Type (type):', types, types.solid, groupId),
-        size: select('Size (size):', sizes, sizes.fluid, groupId),
-        contrast: select('Contrast (contrast):', contrasts, contrasts['medium-contrast'], groupId),
-        weight: select('Weight (weight):', weights, weights.thin, groupId),
+      HorizontalRule: () => ({
+        type: select('Type (type):', types, types.solid),
+        size: select('Size (size):', sizes, sizes.fluid),
+        contrast: select('Contrast (contrast):', contrasts, contrasts['medium-contrast']),
+        weight: select('Weight (weight):', weights, weights.thin),
       }),
     },
     propsSet: {

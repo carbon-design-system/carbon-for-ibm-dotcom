@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -64,6 +64,7 @@ describe('dds-video-player', function() {
   it('should support hiding the caption', async function() {
     render(
       template({
+        thumbnailUrl: 'about:blank',
         hideCaption: true,
       }),
       document.body
@@ -77,6 +78,7 @@ describe('dds-video-player', function() {
       template({
         duration: 60,
         name: 'video-name-foo',
+        thumbnailUrl: 'about:blank',
         formatCaption({ duration, name }: { duration?: string; name: string }) {
           return `${name}-${duration}`;
         },
