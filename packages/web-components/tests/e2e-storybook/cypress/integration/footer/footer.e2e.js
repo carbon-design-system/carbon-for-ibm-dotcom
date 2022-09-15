@@ -85,7 +85,7 @@ describe('dds-footer | default (desktop)', () => {
       .each($link => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
-      })
+      });
 
     cy.takeSnapshots();
   });
@@ -193,7 +193,7 @@ describe('dds-footer | default (mobile)', () => {
       .each($link => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
-      })
+      });
 
     cy.takeSnapshots('mobile');
   });
