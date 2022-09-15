@@ -14,22 +14,22 @@ describe('Storybook Docs | grab component list', () => {
      * grab all components and get their href values which contain
      * url to the corresponding docs
      */
-    cy.get('button[id^="components-"]')
-      .each($el => {
-        const win = $el[0].ownerDocument.defaultView;
-        if (win.getComputedStyle($el[0]).getPropertyValue('display') !== 'none') {
-          cy.get($el).click()
-            .then(([copy]) => {
-              const name = copy.innerText.trim();
-              const docsPath = $el[0].nextSibling.firstChild.href;
+    cy.get('button[id^="components-"]').each($el => {
+      const win = $el[0].ownerDocument.defaultView;
+      if (win.getComputedStyle($el[0]).getPropertyValue('display') !== 'none') {
+        cy.get($el)
+          .click()
+          .then(([copy]) => {
+            const name = copy.innerText.trim();
+            const docsPath = $el[0].nextSibling.firstChild.href;
 
-              if (docsPath) {
-                const url = docsPath.split('?')[1].replace('path=/story', 'path=/docs');
-                docs.push({ url, name });
-              }
-            });
-        }
-      });
+            if (docsPath) {
+              const url = docsPath.split('?')[1].replace('path=/story', 'path=/docs');
+              docs.push({ url, name });
+            }
+          });
+      }
+    });
 
     cy.writeFile('tests/e2e-storybook/cypress/fixtures/components.json', docs);
   });

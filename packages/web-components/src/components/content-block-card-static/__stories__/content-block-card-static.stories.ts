@@ -78,6 +78,9 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
+    percy: {
+      skip: true,
+    },
     knobs: {
       ContentBlockCards: () => ({
         heading: textNullable('Heading (heading):', 'Ways to buy'),

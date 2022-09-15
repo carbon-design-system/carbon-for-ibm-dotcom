@@ -68,6 +68,9 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
+    percy: {
+      skip: true,
+    },
     knobs: {
       ContentBlockHeadlines: () => ({
         heading: textNullable('Heading (required)', 'Aliquam condimentum'),

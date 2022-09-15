@@ -116,6 +116,9 @@ export default {
   parameters: {
     ...readme.parameters,
     'carbon-theme': { disabled: true },
+    percy: {
+      skip: true,
+    },
     knobs: {
       escapeHTML: false,
       CloudMastheadComposite: () => ({

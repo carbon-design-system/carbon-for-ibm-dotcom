@@ -256,6 +256,9 @@ export default {
   title: 'Components/Pricing Table',
   parameters: {
     ...readme.parameters,
+    percy: {
+      skip: true,
+    },
     knobs: {
       PricingTable: () => ({
         heading: text('section heading', 'Optional section heading'),
