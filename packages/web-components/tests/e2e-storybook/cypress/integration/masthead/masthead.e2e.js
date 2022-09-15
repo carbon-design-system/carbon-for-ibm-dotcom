@@ -37,56 +37,15 @@ describe('dds-masthead | default (desktop)', () => {
   });
 
   it('should load menu item with selected state', () => {
-    cy.get('dds-megamenu-top-nav-menu:nth-child(3)').then($menuItem => {
+    cy.get('dds-megamenu-top-nav-menu:nth-child(2)').then($menuItem => {
       expect($menuItem).to.have.attr('active');
     });
 
     cy.takeSnapshots();
   });
 
-  it('should render 5 menu items', () => {
-    cy.get('dds-megamenu-top-nav-menu').should('have.length', 5);
-  });
-
-  it('should be a link - first nav item', () => {
+  it('should load a megamenu with links', () => {
     cy.get('dds-megamenu-top-nav-menu:nth-child(1)')
-      .shadow()
-      .find('a')
-      .then($link => {
-        const url = $link.prop('href');
-        expect(url).not.to.be.empty;
-      });
-  });
-
-  it('should load the megamenu - second nav item', () => {
-    cy.get('dds-megamenu-top-nav-menu:nth-child(2)')
-      .shadow()
-      .find('a')
-      .click();
-
-    cy.takeSnapshots();
-  });
-
-  it('should load the megamenu - third nav item', () => {
-    cy.get('dds-megamenu-top-nav-menu:nth-child(3)')
-      .shadow()
-      .find('a')
-      .click();
-
-    cy.takeSnapshots();
-  });
-
-  it('should load the megamenu - fourth nav item', () => {
-    cy.get('dds-megamenu-top-nav-menu:nth-child(4)')
-      .shadow()
-      .find('a')
-      .click();
-
-    cy.takeSnapshots();
-  });
-
-  it('should load the megamenu - fifth nav item', () => {
-    cy.get('dds-megamenu-top-nav-menu:nth-child(5)')
       .shadow()
       .find('a')
       .click();
@@ -96,17 +55,7 @@ describe('dds-masthead | default (desktop)', () => {
 
   it('should have urls for the submenu items within the megamenu', () => {
     cy.get(
-      'dds-megamenu-top-nav-menu:nth-child(2) > dds-megamenu >  dds-megamenu-right-navigation >  dds-megamenu-category-group > dds-megamenu-category-link:nth-child(1)'
-    )
-      .shadow()
-      .find('a')
-      .then($link => {
-        const url = $link.prop('href');
-        expect(url).not.to.be.empty;
-      });
-
-    cy.get(
-      'dds-megamenu-top-nav-menu:nth-child(2) > dds-megamenu >  dds-megamenu-left-navigation >  dds-megamenu-category-group > dds-megamenu-link-with-icon'
+      'dds-megamenu-top-nav-menu:nth-child(1) > dds-megamenu >  dds-megamenu-right-navigation >  dds-megamenu-category-group > dds-megamenu-category-link:nth-child(1)'
     )
       .shadow()
       .find('a')
@@ -183,7 +132,7 @@ describe('dds-masthead | default (mobile)', () => {
       .find('button')
       .click();
 
-    cy.get('dds-left-nav-menu-section:nth-child(2) > dds-left-nav-menu:nth-child(1)')
+    cy.get('dds-left-nav-menu-section:nth-child(1) > dds-left-nav-menu:nth-child(1)')
       .shadow()
       .find('button')
       .click();

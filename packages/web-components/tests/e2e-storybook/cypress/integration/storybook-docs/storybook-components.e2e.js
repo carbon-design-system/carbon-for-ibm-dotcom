@@ -4,30 +4,24 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-describe('Storybook Docs | grab component list', () => {
+xdescribe('Storybook Docs | grab component list', () => {
   it('should grab docs url from all Storybook components', () => {
     cy.visit('/');
-
-    let docs = [];
-
     /**
      * grab all components and get their href values which contain
      * url to the corresponding docs
      */
-    cy.get('button[id^="components-"]').each($el => {
-      const win = $el[0].ownerDocument.defaultView;
-      if (win.getComputedStyle($el[0]).getPropertyValue('display') !== 'none') {
-        cy.get($el)
-          .click()
-          .then(([copy]) => {
-            const name = copy.innerText.trim();
-            const docsPath = $el[0].nextSibling.firstChild.href;
+    const components = cy.get('a[id*="explorercomponents"]');
 
-            if (docsPath) {
-              const url = docsPath.split('?')[1].replace('path=/story', 'path=/docs');
-              docs.push({ url, name });
-            }
-          });
+    let docs = [];
+
+    components.each($component => {
+      const docsPath = $component.prop('href');
+      const name = $component.prop('title');
+
+      if (docsPath) {
+        const url = docsPath.split('?')[1].replace('path=/story', 'path=/docs');
+        docs.push({ url, name });
       }
     });
 
