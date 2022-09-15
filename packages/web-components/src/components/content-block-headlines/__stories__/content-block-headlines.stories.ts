@@ -11,7 +11,6 @@ import { html } from 'lit-element';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
-import { DDS_CONTENT_BLOCK_HEADLINES } from '../../../globals/internal/feature-flags';
 
 const contentItemRow1 = html`
   <dds-content-block-headlines-item>
@@ -40,58 +39,54 @@ const contentItemRow2 = html`
   </dds-content-block-headlines-item>
 `;
 
-export const Default = !DDS_CONTENT_BLOCK_HEADLINES
-  ? undefined
-  : args => {
-      const { heading, copy } = args?.ContentBlockHeadlines ?? {};
-      return html`
-        <div class="bx--grid">
-          <div class="bx--row">
-            <div class="bx--col-lg-12 bx--no-gutter">
-              <dds-content-block-headlines>
-                <dds-content-block-heading>${heading}</dds-content-block-heading>
-                <dds-content-block-copy>${copy}</dds-content-block-copy>
-                ${contentItemRow1} ${contentItemRow1} ${contentItemRow2} ${contentItemRow1}
-              </dds-content-block-headlines>
-            </div>
-          </div>
+export const Default = args => {
+  const { heading, copy } = args?.ContentBlockHeadlines ?? {};
+  return html`
+    <div class="bx--grid">
+      <div class="bx--row">
+        <div class="bx--col-lg-12 bx--no-gutter">
+          <dds-content-block-headlines>
+            <dds-content-block-heading>${heading}</dds-content-block-heading>
+            <dds-content-block-copy>${copy}</dds-content-block-copy>
+            ${contentItemRow1} ${contentItemRow1} ${contentItemRow2} ${contentItemRow1}
+          </dds-content-block-headlines>
         </div>
-      `;
-    };
+      </div>
+    </div>
+  `;
+};
 
-export default !DDS_CONTENT_BLOCK_HEADLINES
-  ? undefined
-  : {
-      title: 'Components/Content block headlines',
-      decorators: [
-        story => html`
-          <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-block-headlines">
-            ${story()}
-          </div>
-        `,
-      ],
-      parameters: {
-        ...readme.parameters,
-        hasStoryPadding: true,
-        knobs: {
-          ContentBlockHeadlines: () => ({
-            heading: textNullable('Heading (required)', 'Aliquam condimentum'),
-            copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+export default {
+  title: 'Components/Content block headlines',
+  decorators: [
+    story => html`
+      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-block-headlines">
+        ${story()}
+      </div>
+    `,
+  ],
+  parameters: {
+    ...readme.parameters,
+    hasStoryPadding: true,
+    knobs: {
+      ContentBlockHeadlines: () => ({
+        heading: textNullable('Heading (required)', 'Aliquam condimentum'),
+        copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
               Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
               nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing
               elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.`,
-          }),
-        },
-        propsSet: {
-          default: {
-            ContentBlockHeadlines: {
-              heading: 'Aliquam condimentum',
-              copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      }),
+    },
+    propsSet: {
+      default: {
+        ContentBlockHeadlines: {
+          heading: 'Aliquam condimentum',
+          copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
               Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
               nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing
               elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.`,
-            },
-          },
         },
       },
-    };
+    },
+  },
+};
