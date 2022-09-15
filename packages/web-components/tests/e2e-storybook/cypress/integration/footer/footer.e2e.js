@@ -31,7 +31,7 @@ describe('dds-footer | default (desktop)', () => {
   });
 
   it('should check a11y', () => {
-    cy.checkAxeA11y('dds-footer', ['list']);
+    cy.checkAxeA11y();
   });
 
   it('should have interactable url for IBM logo', () => {
@@ -79,8 +79,8 @@ describe('dds-footer | default (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should load all the 38 interactable navigation links', () => {
-    cy.get(`dds-footer-nav-item`).should('have.length', 38);
+  it('should load all the 40 interactable navigation links', () => {
+    cy.get(`dds-footer-nav-item`).should('have.length', 40);
 
     cy.get('dds-footer-nav-item')
       .shadow()
@@ -149,8 +149,8 @@ describe('dds-footer | Default language only (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should load all the 38 interactable navigation links', () => {
-    cy.get(`dds-footer-nav-item`).should('have.length', 38);
+  it('should load all the 40 interactable navigation links', () => {
+    cy.get(`dds-footer-nav-item`).should('have.length', 40);
 
     cy.get('dds-footer-nav-item')
       .shadow()
@@ -229,8 +229,8 @@ describe('dds-footer | default (mobile)', () => {
     cy.takeSnapshots();
   });
 
-  it('should load all the 38 interactable navigation links', () => {
-    cy.get(`dds-footer-nav-item`).should('have.length', 38);
+  it('should load all the 40 interactable navigation links', () => {
+    cy.get(`dds-footer-nav-item`).should('have.length', 40);
 
     cy.get('dds-footer-nav-item')
       .shadow()
@@ -285,8 +285,8 @@ describe('dds-footer | Default language only (mobile)', () => {
     cy.takeSnapshots('mobile');
   });
 
-  it('should load all the 38 interactable navigation links', () => {
-    cy.get(`dds-footer-nav-item`).should('have.length', 38);
+  it('should load all the 40 interactable navigation links', () => {
+    cy.get(`dds-footer-nav-item`).should('have.length', 40);
 
     cy.get('dds-footer-nav-item')
       .shadow()
