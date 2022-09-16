@@ -6,25 +6,25 @@
  */
 
 /* eslint-disable cypress/no-unnecessary-waiting */
-describe('storybook docs | default', () => {
-  const components = require('../../fixtures/components.json');
+xdescribe('storybook docs | default', () => {
+  // const components = require('../../fixtures/components.json');
 
-  components.forEach(component => {
-    it(`should load Storybook Docs tab for ${component.name} without exceptions`, () => {
-      cy.viewport(1280, 720);
-      cy.visit(`/?path=/docs/components-${component.url}--default`);
+  // components.forEach(component => {
+  it(`should load Storybook Docs tab for components without exceptions`, () => {
+    cy.viewport(1280, 720);
+    cy.visit(`/?${component.url}`);
 
-      cy.wait(1000);
+    cy.wait(1000);
 
-      const iframe = cy
-        .get('iframe')
-        .its('0.contentDocument.body')
-        .should('be.visible')
-        .then(cy.wrap);
+    const iframe = cy
+      .get('iframe')
+      .its('0.contentDocument.body')
+      .should('be.visible')
+      .then(cy.wrap);
 
-      iframe.within({}, $iframe => {
-        cy.get('code[id="error-stack"]').should('be.empty');
-      });
+    iframe.within({}, $iframe => {
+      cy.get('code[id="error-stack"]').should('be.empty');
     });
   });
+  // });
 });
