@@ -6,7 +6,10 @@
 
 ```
 <dds-masthead-global-bar data-autoid="dds--masthead-global-bar">
-  <dds-masthead-contact data-autoid="dds--masthead-profile">
+  <dds-masthead-contact
+    data-autoid="dds--masthead-profile"
+    data-ibm-contact="contact-link"
+  >
   </dds-masthead-contact>
   <dds-masthead-profile data-autoid="dds--masthead-profile">
     <dds-masthead-profile-item href="https://idaas.iam.ibm.com/idaas/oidc/endpoint/default/authorize?response_type=token&client_id=v18loginprod&state=http%3A%2F%2Flocalhost%3A9876%2Fcontext.html&redirect_uri=https%3A%2F%2Fmyibm.ibm.com%2FOIDCHandler.html&scope=openid">
@@ -21,7 +24,10 @@
 
 ```
 <dds-masthead-global-bar data-autoid="dds--masthead-global-bar">
-  <dds-masthead-contact data-autoid="dds--masthead-profile">
+  <dds-masthead-contact
+    data-autoid="dds--masthead-profile"
+    data-ibm-contact="contact-link"
+  >
   </dds-masthead-contact>
   <dds-masthead-profile
     authenticated=""
