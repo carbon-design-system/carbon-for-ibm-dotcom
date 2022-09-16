@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,27 +15,26 @@ import readme from '../README.stories.mdx';
 const iconPlacement = ['left', 'right'];
 
 export default {
-  title: 'Components|Link with icon',
+  title: 'Components/Link with icon',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      LinkWithIcon: ({ groupId }) => ({
-        disabled: boolean('Disabled (disabled):', false, groupId),
-        iconPlacement: select(
-          'Icon placement (iconPlacement):',
-          iconPlacement,
-          iconPlacement[1],
-          groupId
-        ),
-        visited: boolean('Allow visited styles (visited):', false, groupId),
-      }),
+    percy: {
+      name: 'Components|Link with icon: Default',
     },
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { disabled, iconPlacement, visited } =
-    parameters?.props?.LinkWithIcon ?? {};
+const props = () => ({
+  disabled: boolean('Disabled (disabled):', false),
+  iconPlacement: select(
+    'Icon placement (iconPlacement):',
+    iconPlacement,
+    iconPlacement[1]
+  ),
+  visited: boolean('Allow visited styles (visited):', false),
+});
+
+export const Default = () => {
   return (
     <div
       style={{
@@ -44,11 +43,7 @@ export const Default = ({ parameters }) => {
         alignItems: 'center',
         flexDirection: 'column',
       }}>
-      <LinkWithIcon
-        href="https://www.example.com"
-        {...(disabled && { disabled })}
-        {...(visited && { visited })}
-        iconPlacement={iconPlacement}>
+      <LinkWithIcon href="https://www.example.com" {...props()}>
         <span>Link text</span>
         {iconPlacement === 'left' ? <ArrowLeft20 /> : <ArrowRight20 />}
       </LinkWithIcon>

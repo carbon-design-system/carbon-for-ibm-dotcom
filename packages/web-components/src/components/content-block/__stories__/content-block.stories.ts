@@ -8,6 +8,8 @@
  */
 
 import '../index';
+import '../../cta/index';
+import '../../card-link/index';
 import { html } from 'lit-element';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
@@ -67,8 +69,8 @@ const image = html`
   </dds-image>
 `;
 
-export const Default = ({ parameters }) => {
-  const { heading, copy, showCopy, addChildren, showCTA, border, aside } = parameters?.props?.ContentBlock ?? {};
+export const Default = args => {
+  const { heading, copy, showCopy, addChildren, showCTA, border, aside } = args?.ContentBlock ?? {};
   return html`
     <dds-content-block complementary-style-scheme="${border ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER : ''}">
       ${heading

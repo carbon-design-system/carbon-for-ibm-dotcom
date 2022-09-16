@@ -22,8 +22,8 @@ const tagTitles = ['Cloud', 'Blockchain', 'Supply chain', 'Watson health', 'IT I
 
 const tagTypeOptions = ['Tag Link', 'Carbon tag'];
 
-export const Default = ({ parameters }) => {
-  const { tagType } = parameters?.props?.TagGroup ?? {};
+export const Default = args => {
+  const { tagType } = args?.TagGroup ?? {};
   return (
     <DDSTagGroup>
       {tagType === tagTypeOptions[0]
@@ -36,8 +36,8 @@ export const Default = ({ parameters }) => {
 Default.story = {
   parameters: {
     knobs: {
-      TagGroup: ({ groupId }) => ({
-        tagType: select('Tag Type:', tagTypeOptions, 'Tag Link', groupId),
+      TagGroup: () => ({
+        tagType: select('Tag Type:', tagTypeOptions, 'Tag Link'),
       }),
     },
   },

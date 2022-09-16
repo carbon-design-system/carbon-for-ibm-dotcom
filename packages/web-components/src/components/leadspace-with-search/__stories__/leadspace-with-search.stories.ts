@@ -35,8 +35,8 @@ const observer = new MutationObserver(mutations => {
 });
 observer.observe(htmlElement, { attributes: true });
 
-export const Default = ({ parameters }) => {
-  const { theme, heading, subheading, paragraph } = parameters?.props?.LeadspaceWithSearch ?? {};
+export const Default = args => {
+  const { theme, heading, subheading, paragraph } = args?.LeadspaceWithSearch ?? {};
   const secondTheme = theme.split('-')[2];
   return html`
     <dds-leadspace-with-search adjacent-theme="${theme}">
@@ -53,8 +53,8 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const WithImage = ({ parameters }) => {
-  const { theme, heading, subheading, paragraph } = parameters?.props?.LeadspaceWithSearch ?? {};
+export const WithImage = args => {
+  const { theme, heading, subheading, paragraph } = args?.LeadspaceWithSearch ?? {};
   const secondTheme = theme.split('-')[2];
   return html`
     <dds-leadspace-with-search adjacent-theme="${theme}">
@@ -106,11 +106,11 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      LeadspaceWithSearch: ({ groupId }) => ({
-        heading: text('Heading:', 'Find a product', groupId),
+      LeadspaceWithSearch: () => ({
+        heading: text('Heading:', 'Find a product'),
         subheading: 'Innovate like a startup, scale for the enterprise',
-        paragraph: text('Paragraph:', '', groupId),
-        theme: select(`Adjacent theme`, adjacentThemes, adjacentThemes.Monotheme, groupId) ?? 0,
+        paragraph: text('Paragraph:', ''),
+        theme: select(`Adjacent theme`, adjacentThemes, adjacentThemes.Monotheme) ?? 0,
       }),
     },
     propsSet: {

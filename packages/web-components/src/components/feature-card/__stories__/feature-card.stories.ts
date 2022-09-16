@@ -1,13 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import '../../card/card-heading';
+import '../../card/index';
+import '../../image/image';
 import '../index';
 
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
@@ -24,8 +25,8 @@ import imgXlg2x1 from '../../../../../storybook-images/assets/1312/fpo--2x1--131
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
-export const Medium = ({ parameters }) => {
-  const { heading, href } = parameters?.props?.['dds-feature-card'] ?? {};
+export const Medium = args => {
+  const { heading, href } = args?.['dds-feature-card'] ?? {};
   return html`
     <dds-feature-card href=${ifNonNull(href || undefined)}>
       <dds-image slot="image" alt="Image alt text" default-src="${mediumImgLg1x1}"></dds-image>
@@ -37,8 +38,8 @@ export const Medium = ({ parameters }) => {
   `;
 };
 
-export const Large = ({ parameters }) => {
-  const { eyebrow, heading, copy, href } = parameters?.props?.['dds-feature-card'] ?? {};
+export const Large = args => {
+  const { eyebrow, heading, copy, href } = args?.['dds-feature-card'] ?? {};
   return html`
     <dds-feature-card size="large" href=${ifNonNull(href || undefined)}>
       <dds-image slot="image" default-src="${ifNonNull(imgLg1x1)}">
@@ -62,16 +63,15 @@ Large.story = {
   parameters: {
     storyGrid: 'bx--col-lg-12',
     knobs: {
-      'dds-feature-card': ({ groupId }) => ({
-        eyebrow: textNullable('Card Eyebrow (required) (eyebrow):', 'This is an eyebrow', groupId),
-        heading: textNullable('Card Heading (heading):', 'Explore AI use cases in all industries', groupId),
+      'dds-feature-card': () => ({
+        eyebrow: textNullable('Card Eyebrow (required) (eyebrow):', 'This is an eyebrow'),
+        heading: textNullable('Card Heading (heading):', 'Explore AI use cases in all industries'),
         copy: textNullable(
           'Card copy (copy):',
           `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua.`,
-          groupId
+          dolore magna aliqua.`
         ),
-        href: textNullable('Card Href (href):', 'https://example.com', groupId),
+        href: textNullable('Card Href (href):', 'https://example.com'),
       }),
     },
     propsSet: {
