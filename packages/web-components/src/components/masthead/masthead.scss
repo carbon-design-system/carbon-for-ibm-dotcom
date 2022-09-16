@@ -496,7 +496,7 @@ $breakpoint--desktop-nav: 960px;
   }
 
   a.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
-    @include carbon--type-style(body-short-01, true);
+    @include carbon--type-style(body-short-02, true);
 
     color: $link-01;
     display: flex;
