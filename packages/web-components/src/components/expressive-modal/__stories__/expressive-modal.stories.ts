@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,9 +25,9 @@ const sizes = {
   [`One that takes full width (${EXPRESSIVE_MODAL_SIZE.FULL_WIDTH})`]: EXPRESSIVE_MODAL_SIZE.FULL_WIDTH,
 };
 
-export const Default = ({ parameters }) => {
-  const { open, disableClose, size, onBeforeClose, onClose } = parameters?.props?.Modal ?? {};
-  const { buttonContent } = parameters?.props?.Other ?? {};
+export const Default = args => {
+  const { open, disableClose, size, onBeforeClose, onClose } = args?.Modal ?? {};
+  const { buttonContent } = args?.Other ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose?.(event);
     if (disableClose) {
@@ -69,19 +69,18 @@ export default {
   parameters: {
     ...readme.parameters,
     knobs: {
-      Modal: ({ groupId }) => ({
-        open: boolean('Open (open)', true, groupId),
+      Modal: () => ({
+        open: boolean('Open (open)', true),
         disableClose: boolean(
           'Disable user-initiated close action (Call event.preventDefault() in dds-expressive-modal-beingclosed event)',
-          false,
-          groupId
+          false
         ),
-        size: select('Modal size (size)', sizes, null, groupId),
+        size: select('Modal size (size)', sizes, null),
         onBeforeClose: action('dds-expressive-modal-beingclosed'),
         onClose: action('dds-expressive-modal-closed'),
       }),
-      Other: ({ groupId }) => ({
-        buttonContent: textNullable('Button content', 'Lorem ipsum dolor', groupId),
+      Other: () => ({
+        buttonContent: textNullable('Button content', 'Lorem ipsum dolor'),
       }),
     },
     propsSet: {

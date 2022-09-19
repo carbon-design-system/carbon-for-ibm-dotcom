@@ -95,8 +95,8 @@ const image = ({ heading: imageHeading } = { heading: undefined }) => (
   </DDSImage>
 );
 
-export const Default = ({ parameters }) => {
-  const { heading, copy: groupCopy, cardsGroupHeading, ctaType } = parameters?.props?.ContentBlockMixed ?? {};
+export const Default = args => {
+  const { heading, copy: groupCopy, cardsGroupHeading, ctaType } = args?.ContentBlockMixed ?? {};
   const headingComponent = document.querySelector('dds-content-block-heading');
 
   if (headingComponent) {
@@ -161,9 +161,9 @@ export const Default = ({ parameters }) => {
   );
 };
 
-export const withLinkList = ({ parameters }) => {
+export const withLinkList = args => {
   const { heading, copy: groupCopy, cardsGroupHeading, complementaryStyleScheme, ctaType, linkListHeading } =
-    parameters?.props?.ContentBlockMixed ?? {};
+    args?.ContentBlockMixed ?? {};
   const headingComponent = document.querySelector('dds-content-block-heading');
 
   if (headingComponent) {
@@ -244,8 +244,8 @@ withLinkList.story = {
   parameters: {
     gridContentClasses: 'bx--col-lg-12',
     knobs: {
-      ContentBlockMixed: ({ groupId }) => ({
-        heading: text('Heading (heading)', 'Lorem ipsum dolor sit amet', groupId),
+      ContentBlockMixed: () => ({
+        heading: text('Heading (heading)', 'Lorem ipsum dolor sit amet'),
         copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
           Phasellus at elit sollicitudin, sodales nulla quis, consequat
@@ -253,18 +253,13 @@ withLinkList.story = {
           Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
           Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
           `,
-        cardsGroupHeading: text(
-          'Cards group heading (heading)',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          groupId
-        ),
-        ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId),
-        linkListHeading: text('Link list heading (heading)', 'Tutorials', groupId),
+        cardsGroupHeading: text('Cards group heading (heading)', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
+        ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
+        linkListHeading: text('Link list heading (heading)', 'Tutorials'),
         complementaryStyleScheme: select(
           'Complementary style scheme (complementary-style-scheme)',
           complementaryStyleSchemes,
-          null,
-          groupId
+          null
         ),
       }),
     },
@@ -289,8 +284,8 @@ export default {
     gridContentClasses: 'bx--col-lg-8',
     hasStoryPadding: true,
     knobs: {
-      ContentBlockMixed: ({ groupId }) => ({
-        heading: text('Heading (heading)', 'Lorem ipsum dolor sit amet', groupId),
+      ContentBlockMixed: () => ({
+        heading: text('Heading (heading)', 'Lorem ipsum dolor sit amet'),
         copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
           Phasellus at elit sollicitudin, sodales nulla quis, consequat
@@ -298,12 +293,8 @@ export default {
           Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
           Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
           `,
-        cardsGroupHeading: text(
-          'Cards group heading (heading)',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          groupId
-        ),
-        ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId),
+        cardsGroupHeading: text('Cards group heading (heading)', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'),
+        ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
       }),
     },
   },

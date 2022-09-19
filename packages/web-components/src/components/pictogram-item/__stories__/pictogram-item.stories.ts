@@ -152,8 +152,8 @@ const pictogramColors = {
   Blue: COLOR_OPTIONS.BLUE,
 };
 
-export const Default = ({ parameters }) => {
-  const { heading, copy, href, linkCopy, pictogram, pictogramColor } = parameters?.props?.PictogramItem ?? {};
+export const Default = args => {
+  const { heading, copy, href, linkCopy, pictogram, pictogramColor } = args?.PictogramItem ?? {};
   return html`
     <dds-pictogram-item color="${pictogramColor}">
       ${pictogram?.src}
@@ -186,19 +186,19 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      PictogramItem: ({ groupId }) => ({
-        heading: textNullable('Heading (heading):', 'Lorem ipsum dolor sit', groupId),
+      PictogramItem: () => ({
+        heading: textNullable('Heading (heading):', 'Lorem ipsum dolor sit'),
         copy:
           'Lorem ipsum dolor sit amet, ' +
           'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
           'Ut enim ad minim veniam\n',
-        href: textNullable('Link with Icon href:', 'https://example.com', groupId),
-        linkCopy: textNullable('Link with Icon copy:', 'Lorem ipsum dolor', groupId),
+        href: textNullable('Link with Icon href:', 'https://example.com'),
+        linkCopy: textNullable('Link with Icon copy:', 'Lorem ipsum dolor'),
         pictogram: {
-          src: selectPictogram(select('Pictogram (required)', pictograms, pictograms.Desktop, groupId)),
-          'aria-label': textNullable('Aria-label:', 'Pictogram description', groupId),
+          src: selectPictogram(select('Pictogram (required)', pictograms, pictograms.Desktop)),
+          'aria-label': textNullable('Aria-label:', 'Pictogram description'),
         },
-        pictogramColor: select('Pictogram color:', pictogramColors, COLOR_OPTIONS.DEFAULT, groupId),
+        pictogramColor: select('Pictogram color:', pictogramColors, COLOR_OPTIONS.DEFAULT),
       }),
     },
     propsSet: {

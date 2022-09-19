@@ -12,6 +12,7 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { optionsKnob } from '@storybook/addon-knobs';
 import '../index';
+import '../../cta/text-cta';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
@@ -69,8 +70,8 @@ const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault
   </dds-card>
 `;
 
-export const Default = ({ parameters }) => {
-  const { heading, copy, addChildren } = parameters?.props?.ContentSection ?? {};
+export const Default = args => {
+  const { heading, copy, addChildren } = args?.ContentSection ?? {};
   const classExceptions = addChildren.includes('Carousel') || addChildren.includes('Card group');
   const classes = classExceptions ? '' : 'bx--col-lg-8 bx--no-gutter';
   return html`

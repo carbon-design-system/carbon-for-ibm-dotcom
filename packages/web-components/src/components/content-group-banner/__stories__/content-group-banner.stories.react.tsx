@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -46,8 +46,8 @@ const types = {
   [`Video (${CTA_TYPE.VIDEO})`]: CTA_TYPE.VIDEO,
 };
 
-export const Default = ({ parameters }) => {
-  const { heading, iconPlacement, ctaType, href, download } = parameters?.props?.ContentGroupBanner ?? {};
+export const Default = args => {
+  const { heading, iconPlacement, ctaType, href, download } = args?.ContentGroupBanner ?? {};
   return !ctaType ? (
     <DDSContentGroupBanner>
       <DDSContentGroupHeading>{heading}</DDSContentGroupHeading>
@@ -86,22 +86,16 @@ export const Default = ({ parameters }) => {
 Default.story = {
   parameters: {
     knobs: {
-      ContentGroupBanner: ({ groupId }) => {
-        const heading = textNullable(
-          'Heading (heading)',
-          'Accelerate application development efforts with IBM Product Name',
-          groupId
-        );
-        const ctaType = select('CTA type (cta-type)', types, null, groupId);
+      ContentGroupBanner: () => {
+        const heading = textNullable('Heading (heading)', 'Accelerate application development efforts with IBM Product Name');
+        const ctaType = select('CTA type (cta-type)', types, null);
         const download =
-          ctaType !== CTA_TYPE.DOWNLOAD
-            ? undefined
-            : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
+          ctaType !== CTA_TYPE.DOWNLOAD ? undefined : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
         return {
           heading,
           ctaType,
           download,
-          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.LOCAL], hrefsForType[ctaType ?? CTA_TYPE.LOCAL], groupId),
+          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.LOCAL], hrefsForType[ctaType ?? CTA_TYPE.LOCAL]),
         };
       },
     },

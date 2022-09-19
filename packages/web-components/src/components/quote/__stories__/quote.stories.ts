@@ -17,8 +17,8 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 
 import readme from './README.stories.mdx';
 
-export const Default = ({ parameters }) => {
-  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy, colorScheme } = parameters?.props?.Quote ?? {};
+export const Default = args => {
+  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy, colorScheme } = args?.Quote ?? {};
   return html`
     <dds-quote color-scheme="${colorScheme}" mark-type="${quoteMark}">
       ${copy}
@@ -69,18 +69,17 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      Quote: ({ groupId }) => ({
+      Quote: () => ({
         copy: textNullable(
           'Quote (copy):',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ' +
-            'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.',
-          groupId
+            'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
         ),
-        quoteMark: select('Quote Mark (markType):', types, types.doubleCurved, groupId),
-        sourceHeading: textNullable('Source heading (source-heading slot)', 'Lorem ipsum dolor sit amet', groupId),
-        sourceCopy: textNullable('Source copy (source-copy slot)', 'consectetur adipiscing elit', groupId),
-        sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud', groupId),
-        colorScheme: select('Color Scheme (color-scheme)', colorSchemes, colorSchemes.regular, groupId),
+        quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
+        sourceHeading: textNullable('Source heading (source-heading slot)', 'Lorem ipsum dolor sit amet'),
+        sourceCopy: textNullable('Source copy (source-copy slot)', 'consectetur adipiscing elit'),
+        sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud'),
+        colorScheme: select('Color Scheme (color-scheme)', colorSchemes, colorSchemes.regular),
       }),
     },
     propsSet: {

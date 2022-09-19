@@ -12,6 +12,8 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import { boolean, select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
+import '../../content-item-horizontal/index';
+import '../../image/index';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-horizontal/defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -26,8 +28,8 @@ const mediaType = {
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
 
-export const Default = ({ parameters }) => {
-  const { sectionHeading, sectionHeadingText, align, type } = parameters?.props?.TabsExtendedWithMedia ?? {};
+export const Default = args => {
+  const { sectionHeading, sectionHeadingText, align, type } = args?.TabsExtendedWithMedia ?? {};
   const tabs: any[] = [];
 
   for (let i = 1; i < 5; i++) {
@@ -97,12 +99,10 @@ Default.story = {
 export default {
   title: 'Components/Tabs extended - with media',
   decorators: [
-    (story, { parameters }) => html`
+    (story, { args }) => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div
-            class="${parameters?.props?.TabsExtendedWithMedia?.sectionHeading ? `bx--col-lg-16` : `bx--col-lg-12`} bx--no-gutter"
-          >
+          <div class="${args?.TabsExtendedWithMedia?.sectionHeading ? `bx--col-lg-16` : `bx--col-lg-12`} bx--no-gutter">
             ${story()}
           </div>
         </div>

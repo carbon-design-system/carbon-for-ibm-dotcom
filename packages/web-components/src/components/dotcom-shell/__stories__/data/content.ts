@@ -11,6 +11,21 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import logosGroup from '../../../logo-grid/__stories__/data/logos.js';
 import { TOC_TYPES } from '../../../table-of-contents/defs';
 
+import '../../../card/index';
+import '../../../cta/index';
+import '../../../card-group/index';
+import '../../../content-block/index';
+import '../../../content-block-segmented/index';
+import '../../../content-item-horizontal/index';
+import '../../../leadspace/index';
+import '../../../image/index';
+import '../../../leadspace-block/index';
+import '../../../link-list/index';
+import '../../../quote/index';
+import '../../../cta-block/index';
+import '../../../callout-quote/index';
+import '../../../callout-with-media/index';
+
 import imgSm16x9 from '../../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
 import imgMd16x9 from '../../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
 import imgLg16x9 from '../../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
@@ -20,15 +35,11 @@ import imgXlg4x3 from '../../../../../../storybook-images/assets/1312/fpo--4x3--
 import leadspaceImg from '../../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
 
 export const image = html`
-  <dds-image-with-caption
-    alt="Image alt text"
-    default-src="${imgLg16x9}"
-    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  >
+  <dds-image alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
     <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
     <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
     <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
-  </dds-image-with-caption>
+  </dds-image>
 `;
 
 export const contentBlockSegmentedItems = html`
@@ -143,8 +154,7 @@ export const tocContent = html`
         Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
       </dds-content-block-heading>
       <dds-content-block-copy slot="copy"
-      >Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-        ut aliquip ex ea commodo consequat.
+        >Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
       </dds-content-block-copy>
       <dds-leadspace-block-media slot="media">
         <dds-video-player-container video-id="1_9h94wo6b"></dds-video-player-container>
@@ -162,9 +172,12 @@ export const tocContent = html`
         </dds-link-list-item>
       </dds-link-list>
       <dds-leadspace-block-cta>
-        <dds-button-group-item href="www.ibm.com">Contact sales ${ArrowRight20({
-          slot: 'icon',
-        })}</dds-button-group-item>
+        <dds-button-group-item href="www.ibm.com"
+          >Contact sales
+          ${ArrowRight20({
+            slot: 'icon',
+          })}</dds-button-group-item
+        >
       </dds-leadspace-block-cta>
     </dds-leadspace-block-content>
   </dds-leadspace-block>
@@ -174,15 +187,9 @@ export const tocContent = html`
     <dds-content-block-heading>Pharetra pharetra massa massa ultricies mi quis.</dds-content-block-heading>
     ${Array.from([1, 2]).map(() => contentBlockSegmentedItems)}
   </dds-content-block-segmented>
-  <dds-feature-card size='large' href="https://example.com">
-    <dds-image slot="image" alt="Image alt text"
-                default-src="${imgLg1x1}"
-    >
-      </dds-image-item>
-      <dds-image-item
-        media="(min-width: 991px)"
-        srcset="${imgLg1x1}"
-      >
+  <dds-feature-card size="large" href="https://example.com">
+    <dds-image slot="image" alt="Image alt text" default-src="${imgLg1x1}">
+      <dds-image-item media="(min-width: 991px)" srcset="${imgLg1x1}"></dds-image-item>
     </dds-image>
     <dds-card-eyebrow>scelerisque purus</dds-card-eyebrow>
     <dds-card-heading>Elementum nibh tellus molestie nunc?</dds-card-heading>
@@ -194,8 +201,7 @@ export const tocContent = html`
 
   <a name="3" data-title="Elementum nibh tellus molestie nunc non."></a>
   <dds-content-block-segmented>
-    <dds-content-block-heading>Elementum nibh tellus molestie nunc non.
-    </dds-content-block-heading>
+    <dds-content-block-heading>Elementum nibh tellus molestie nunc non. </dds-content-block-heading>
     ${Array.from([1, 2]).map(() => contentBlockSegmentedItemsWithImage)}
     <dds-card-cta slot="footer" cta-type="local" href="https://example.com">
       Lorem ipsum dolor
@@ -206,18 +212,17 @@ export const tocContent = html`
   <dds-callout-with-media>
     <dds-content-block-heading slot="heading">Mauris ultrices eros in cursus</dds-content-block-heading>
     <dds-callout-with-media-copy size="sm"
-    >Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat.
-      In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in.
-      Vel facilisis volutpat est velit egestas dui.
+      >Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat. In est ante in nibh
+      mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in. Vel facilisis volutpat est velit egestas dui.
     </dds-callout-with-media-copy>
     <dds-callout-with-media-video video-id="1_9h94wo6b"></dds-callout-with-media-video>
   </dds-callout-with-media>
 
   <a name="4" data-title="Tincidunt ornare massa"></a>
-  <dds-content-group-horizontal>
+  <dds-content-block-horizontal>
     <dds-content-block-heading>Tincidunt ornare massa</dds-content-block-heading>
     ${Array.from([1, 2]).map(() => contentItemHorizontal)}
-  </dds-content-group-horizontal>
+  </dds-content-block-horizontal>
 
   <a name="5" data-title="Lobortis elementum nibh tellus"></a>
   <dds-logo-grid ?hide-border="true">
@@ -256,8 +261,10 @@ export const tocContent = html`
   <a name="7" data-title="Duis aute irure dolor in reprehenderit"></a>
   <dds-cta-block no-border>
     <dds-content-block-heading>Take the next step</dds-content-block-heading>
-    <dds-content-block-copy>Want to discuss your options with a DevOps expert? <br />
-      Contact our sales team to evaluate your needs.</dds-content-block-copy>
+    <dds-content-block-copy
+      >Want to discuss your options with a DevOps expert? <br />
+      Contact our sales team to evaluate your needs.</dds-content-block-copy
+    >
     <dds-button-group slot="action">
       <dds-button-group-item href="https://example.com">
         Secondary Button ${ArrowRight20({ slot: 'icon' })}
@@ -270,7 +277,7 @@ export const tocContent = html`
       <dds-cta-block-item>
         <dds-content-item-heading>Get connected</dds-content-item-heading>
         <dds-content-item-copy
-        >IBM DevOps partners have a wide range of expertise. Find one to build the right solution for
+          >IBM DevOps partners have a wide range of expertise. Find one to build the right solution for
           you.</dds-content-item-copy
         >
         <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">
@@ -328,7 +335,7 @@ export const StoryContent = (
 
 export const StoryContentNoToC = () =>
   html`
-    <div class="dds-ce-demo-devenv--ui-shell-content" style='padding-right:1rem'>
+    <div class="dds-ce-demo-devenv--ui-shell-content" style="padding-right:1rem">
       <div class="bx--grid bx--col-lg-8">
         ${contentLeadspaceSearch}
 
@@ -337,15 +344,9 @@ export const StoryContentNoToC = () =>
           ${Array.from([1, 2]).map(() => contentBlockSegmentedItems)}
         </dds-content-block-segmented>
 
-        <dds-feature-card size='large' href="https://example.com">
-          <dds-image slot="image" alt="Image alt text"
-                      default-src="${imgLg1x1}"
-          >
-            </dds-image-item>
-            <dds-image-item
-              media="(min-width: 991px)"
-              srcset="${imgLg1x1}"
-            >
+        <dds-feature-card size="large" href="https://example.com">
+          <dds-image slot="image" alt="Image alt text" default-src="${imgLg1x1}">
+            <dds-image-item media="(min-width: 991px)" srcset="${imgLg1x1}"></dds-image-item>
           </dds-image>
           <dds-card-eyebrow>scelerisque purus</dds-card-eyebrow>
           <dds-card-heading>Elementum nibh tellus molestie nunc?</dds-card-heading>
@@ -356,8 +357,7 @@ export const StoryContentNoToC = () =>
         </dds-feature-card>
 
         <dds-content-block-segmented>
-          <dds-content-block-heading>Elementum nibh tellus molestie nunc non.
-          </dds-content-block-heading>
+          <dds-content-block-heading>Elementum nibh tellus molestie nunc non. </dds-content-block-heading>
           ${Array.from([1, 2]).map(() => contentBlockSegmentedItemsWithImage)}
           <dds-card-cta slot="footer" cta-type="local" href="https://example.com">
             Lorem ipsum dolor
@@ -368,17 +368,16 @@ export const StoryContentNoToC = () =>
         <dds-callout-with-media>
           <dds-content-block-heading slot="heading">Mauris ultrices eros in cursus</dds-content-block-heading>
           <dds-callout-with-media-copy size="sm"
-          >Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat.
-            In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in.
-            Vel facilisis volutpat est velit egestas dui.
+            >Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat. In est ante in nibh
+            mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in. Vel facilisis volutpat est velit egestas dui.
           </dds-callout-with-media-copy>
           <dds-callout-with-media-video video-id="1_9h94wo6b"></dds-callout-with-media-video>
         </dds-callout-with-media>
 
-        <dds-content-group-horizontal>
+        <dds-content-block-horizontal>
           <dds-content-block-heading>Tincidunt ornare massa</dds-content-block-heading>
           ${Array.from([1, 2]).map(() => contentItemHorizontal)}
-        </dds-content-group-horizontal>
+        </dds-content-block-horizontal>
 
         <dds-logo-grid ?hide-border="true">
           <dds-content-block-heading>Lobortis elementum nibh tellus</dds-content-block-heading>
@@ -415,8 +414,10 @@ export const StoryContentNoToC = () =>
 
         <dds-cta-block no-border>
           <dds-content-block-heading>Take the next step</dds-content-block-heading>
-          <dds-content-block-copy>Want to discuss your options with a DevOps expert? <br />
-            Contact our sales team to evaluate your needs.</dds-content-block-copy>
+          <dds-content-block-copy
+            >Want to discuss your options with a DevOps expert? <br />
+            Contact our sales team to evaluate your needs.</dds-content-block-copy
+          >
 
           <dds-button-group slot="action">
             <dds-button-group-item href="https://example.com">
@@ -431,7 +432,7 @@ export const StoryContentNoToC = () =>
             <dds-cta-block-item>
               <dds-content-item-heading>Get connected</dds-content-item-heading>
               <dds-content-item-copy
-              >IBM DevOps partners have a wide range of expertise. Find one to build the right solution for
+                >IBM DevOps partners have a wide range of expertise. Find one to build the right solution for
                 you.</dds-content-item-copy
               >
               <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">
@@ -449,7 +450,8 @@ export const StoryContentNoToC = () =>
           </dds-cta-block-item-row>
         </dds-cta-block>
       </div>
-    </div>`;
+    </div>
+  `;
 
 export default { StoryContent, StoryContentNoToC };
 /* eslint-enable max-len */
