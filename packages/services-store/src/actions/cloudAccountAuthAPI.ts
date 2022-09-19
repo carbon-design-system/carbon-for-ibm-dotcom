@@ -64,7 +64,7 @@ export function loadUserStatus(
     try {
       dispatch(setUserStatus(await promiseStatus));
     } catch (error) {
-      dispatch(setErrorRequestUserStatus(error));
+      dispatch(setErrorRequestUserStatus(error as Error));
       throw error;
     }
     return promiseStatus;

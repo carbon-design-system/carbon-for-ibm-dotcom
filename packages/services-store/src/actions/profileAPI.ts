@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -61,7 +61,7 @@ export function loadUserStatus(): ThunkAction<Promise<UserStatus>, { profileAPI:
     try {
       dispatch(setUserStatus(await promiseStatus));
     } catch (error) {
-      dispatch(setErrorRequestUserStatus(error));
+      dispatch(setErrorRequestUserStatus(error as Error));
       throw error;
     }
     return promiseStatus;
