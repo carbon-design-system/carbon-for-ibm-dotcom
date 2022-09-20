@@ -22,4 +22,8 @@
       padding: 0 $spacing-05;
     }
   }
+
+  ::slotted(#{$dds-prefix}-content-block-simple) {
+    padding: $spacing-10;
+  }
 }
