@@ -9,7 +9,11 @@
 
 import { ActionCreatorsMapObject, Dispatch, bindActionCreators } from 'redux';
 import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
-import { LeavingIBMLabels, MiscLabels, TranslateAPIState } from '../../../../services-store/src/types/translateAPI';
+import {
+  LeavingIBMLabels,
+  MiscLabels,
+  TranslateAPIState,
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
 import { loadTranslation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
 import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.d';
 import { setLanguage } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
