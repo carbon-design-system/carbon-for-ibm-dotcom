@@ -35,8 +35,8 @@ const colorSchemes = {
   [`${QUOTE_COLOR_SCHEMES.INVERSE}`]: QUOTE_COLOR_SCHEMES.INVERSE,
 };
 
-export const Default = ({ parameters }) => {
-  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy, colorScheme } = parameters?.props?.Quote ?? {};
+export const Default = args => {
+  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy, colorScheme } = args?.Quote ?? {};
   return (
     <DDSQuote color-scheme={colorScheme} mark-type={quoteMark}>
       {copy}
@@ -53,13 +53,13 @@ export const Default = ({ parameters }) => {
 Default.story = {
   parameters: {
     knobs: {
-      Quote: ({ groupId }) => ({
-        copy: textNullable('Quote (copy):', 'Bringing together the technology and expertise for a new way to create', groupId),
-        quoteMark: select('Quote Mark (markType):', types, types.doubleCurved, groupId),
-        sourceHeading: textNullable('Source heading (source-heading slot)', 'John Doe', groupId),
-        sourceCopy: textNullable('Source copy (source-copy slot)', 'Senior Vice President', groupId),
-        sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud', groupId),
-        colorScheme: select('Color Scheme (color-scheme)', colorSchemes, colorSchemes.regular, groupId),
+      Quote: () => ({
+        copy: textNullable('Quote (copy):', 'Bringing together the technology and expertise for a new way to create'),
+        quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
+        sourceHeading: textNullable('Source heading (source-heading slot)', 'John Doe'),
+        sourceCopy: textNullable('Source copy (source-copy slot)', 'Senior Vice President'),
+        sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud'),
+        colorScheme: select('Color Scheme (color-scheme)', colorSchemes, colorSchemes.regular),
       }),
     },
     propsSet: {

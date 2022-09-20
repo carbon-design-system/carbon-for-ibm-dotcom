@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,24 +11,24 @@ import React from 'react';
 import readme from '../README.stories.mdx';
 import { text } from '@storybook/addon-knobs';
 
-/**
- * @param {object} options The options.
- * @param {string} options.groupId The knob group ID.
- * @returns {object} The knobs data.
- */
-const getBaseKnobs = ({ groupId }) => {
-  return {
-    heading: text(
-      'Heading (heading):',
-      'Aliquam condimentum interdum',
-      groupId
-    ),
+const props = {
+  default: () => ({
+    heading: text('Heading (heading):', 'Aliquam condimentum interdum'),
     cards: cards.Simple,
-  };
+  }),
+  withCTA: () => ({
+    ...props.default(),
+    cta: {
+      heading: 'Top level card link',
+      cta: {
+        href: 'https://www.example.com',
+      },
+    },
+  }),
 };
 
 export default {
-  title: 'Components|Card section simple',
+  title: 'Components/Card section simple',
   parameters: {
     ...readme.parameters,
     percy: {
@@ -37,58 +37,20 @@ export default {
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { heading, cards } = parameters?.props?.CardSectionSimple ?? {};
+export const Default = () => {
   const theme =
     document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
-  return <CardSectionSimple heading={heading} theme={theme} cards={cards} />;
+  return <CardSectionSimple {...props.default()} theme={theme} />;
 };
 
-Default.story = {
-  parameters: {
-    knobs: {
-      CardSectionSimple: ({ groupId }) => {
-        const knobs = getBaseKnobs({ groupId });
-
-        return {
-          ...knobs,
-        };
-      },
-    },
-  },
-};
-
-export const WithCTA = ({ parameters }) => {
-  const { heading, cards, cta } = parameters?.props?.CardSectionSimple ?? {};
+export const WithCTA = () => {
   const theme =
     document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
-  return (
-    <CardSectionSimple
-      heading={heading}
-      theme={theme}
-      cards={cards}
-      cta={cta}
-    />
-  );
+  return <CardSectionSimple {...props.withCTA()} theme={theme} />;
 };
 
 WithCTA.story = {
   parameters: {
-    knobs: {
-      CardSectionSimple: ({ groupId }) => {
-        const knobs = getBaseKnobs({ groupId });
-
-        return {
-          ...knobs,
-          cta: {
-            heading: 'Top level card link',
-            cta: {
-              href: 'https://www.example.com',
-            },
-          },
-        };
-      },
-    },
     propsSet: {
       default: {
         CardSectionSimple: {

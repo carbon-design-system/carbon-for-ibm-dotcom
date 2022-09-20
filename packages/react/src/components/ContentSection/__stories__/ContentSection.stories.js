@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,43 +27,46 @@ const video = {
   showCaption: true,
 };
 
+const props = {
+  default: () => {
+    const knobs = {
+      heading: text(
+        'Heading:',
+        'Speech recognition (statistical Artificial Intelligence)'
+      ),
+      copy: text(
+        'Copy:',
+        'AI features for understanding speech can be trained for a specific speaker’s voice.'
+      ),
+      addChildren: optionsKnob(
+        'Add children:',
+        {
+          'Content block simple': 'Content block simple',
+          'Content group cards': 'Content group cards',
+        },
+        '',
+        { display: 'multi-select' }
+      ),
+    };
+    return knobs;
+  },
+};
+
 export default {
-  title: 'Components|Content section',
+  title: 'Components/Content section',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      ContentSection: () => {
-        return {
-          heading: text(
-            'Heading:',
-            'Speech recognition (statistical Artificial Intelligence)'
-          ),
-          copy: text(
-            'Copy:',
-            "AI features for understanding speech can be trained for a specific speaker's voice."
-          ),
-          addChildren: optionsKnob(
-            'Add children:',
-            {
-              'Content block simple': 'Content block simple',
-              'Content group cards': 'Content group cards',
-            },
-            '',
-            { display: 'multi-select' }
-          ),
-        };
-      },
+    percy: {
+      name: 'Components|Content section: Default',
     },
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { heading, copy, addChildren } =
-    parameters?.props?.ContentSection ?? {};
+export const Default = () => {
+  const { addChildren } = props?.default() ?? {};
   return (
     <ContentSection
-      heading={heading}
-      copy={copy}
+      {...props.default()}
       cta={{
         href: 'https://www.example.com',
         type: 'local',

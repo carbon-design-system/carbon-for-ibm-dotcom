@@ -95,8 +95,8 @@ const items = [
   },
 ];
 
-export const Default = ({ parameters }) => {
-  const { heading, copy, showCopy, addChildren, showCTA, border, aside } = parameters?.props?.ContentBlock ?? {};
+export const Default = args => {
+  const { heading, copy, showCopy, addChildren, showCTA, border, aside } = args?.ContentBlock ?? {};
   return (
     <DDSContentBlock complementaryStyleScheme={border ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER : ''}>
       {heading ? <DDSContentBlockHeading>What is the latest news in artificial intelligence?</DDSContentBlockHeading> : ''}

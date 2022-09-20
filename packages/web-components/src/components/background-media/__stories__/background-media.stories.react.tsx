@@ -26,8 +26,8 @@ const gradientDirections = {
   [`Top to Bottom`]: GRADIENT_DIRECTION.TOP_TO_BOTTOM,
 };
 
-export const Default = ({ parameters }) => {
-  const { alt, gradientDirection, backgroundOpacity } = parameters?.props?.['dds-background-media'] ?? {};
+export const Default = args => {
+  const { alt, gradientDirection, backgroundOpacity } = args?.['dds-background-media'] ?? {};
   return (
     <DDSBackgroundMedia
       gradient-direction={gradientDirection}
@@ -54,8 +54,8 @@ export const Default = ({ parameters }) => {
   );
 };
 
-export const WithVideo = ({ parameters }) => {
-  const { gradientDirection, backgroundOpacity } = parameters?.props?.['dds-background-media'] ?? {};
+export const WithVideo = args => {
+  const { gradientDirection, backgroundOpacity } = args?.['dds-background-media'] ?? {};
   return (
     <div style={{ height: '70vh' }}>
       <DDSBackgroundMedia gradient-direction={gradientDirection} mobile-position="bottom" opacity={backgroundOpacity}>
@@ -65,8 +65,8 @@ export const WithVideo = ({ parameters }) => {
   );
 };
 
-export const WithDefaultSource = ({ parameters }) => {
-  const { alt, gradientDirection, backgroundOpacity } = parameters?.props?.['dds-background-media'] ?? {};
+export const WithDefaultSource = args => {
+  const { alt, gradientDirection, backgroundOpacity } = args?.['dds-background-media'] ?? {};
   return (
     <DDSBackgroundMedia
       gradient-direction={gradientDirection}
@@ -92,16 +92,15 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      'dds-background-media': ({ groupId }) => ({
+      'dds-background-media': () => ({
         gradientDirection: select(
           'Gradient Direction (gradient-direction):',
           gradientDirections,
-          GRADIENT_DIRECTION.LEFT_TO_RIGHT,
-          groupId
+          GRADIENT_DIRECTION.LEFT_TO_RIGHT
         ),
-        alt: text('Image alt text (alt):', 'Image alt text', groupId),
-        defaultSrc: text('Default image (default-src)', imgMax, groupId),
-        backgroundOpacity: number('Background Opacity', 100, { range: true, min: 0, max: 100 }, groupId),
+        alt: text('Image alt text (alt):', 'Image alt text'),
+        defaultSrc: text('Default image (default-src)', imgMax),
+        backgroundOpacity: number('Background Opacity', 100, { range: true, min: 0, max: 100 }),
       }),
     },
     propsSet: {

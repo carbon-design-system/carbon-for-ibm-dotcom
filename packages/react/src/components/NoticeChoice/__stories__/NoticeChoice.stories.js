@@ -6,7 +6,6 @@
  */
 
 import { boolean, select, text } from '@storybook/addon-knobs';
-
 import { action } from '@storybook/addon-actions';
 import { DDS_NOTICE_CHOICE } from '../../../internal/FeatureFlags';
 import NoticeChoice from '../NoticeChoice';
@@ -39,30 +38,27 @@ const countryList = {
   Germany: 'DE',
   India: 'IN',
 };
+
+const props = () => ({
+  locale: select('Locale', locales, 'in-en'),
+  country: select('Country', countryList, 'IN'),
+  onChange: action('onChange'),
+  questionChoices: select('Question Choices', questionChoices, [1, 2]),
+  email: text('Email', ''),
+  termsConditionLink: text('termsConditionLink', 'https://www.ibm.com/legal'),
+  classNames: text('classNames', `custom-class-by-app`),
+  enableAllOptIn: boolean('enableAllOptIn', false),
+  bpidLegalText: text('bpidLegalText', ''),
+});
+
 export default !DDS_NOTICE_CHOICE
   ? undefined
   : {
-      title: 'Components|Notice Choice',
+      title: 'Components/Notice Choice',
       parameters: {
         ...readme.parameters,
-        knobs: {
-          NoticeChoice: () => ({
-            locale: select('Locale', locales, 'in-en'),
-            country: select('Country', countryList, 'IN'),
-            onChange: action('onChange'),
-            questionChoices: select('Question Choices', questionChoices, [
-              1,
-              2,
-            ]),
-            email: text('Email', ''),
-            termsConditionLink: text(
-              'termsConditionLink',
-              'https://www.ibm.com/legal'
-            ),
-            classNames: text('classNames', `custom-class-by-app`),
-            enableAllOptIn: boolean('enableAllOptIn', false),
-            bpidLegalText: text('bpidLegalText', ''),
-          }),
+        percy: {
+          name: 'Components|Notice choice rule: Default',
         },
         propsSet: {
           default: {
@@ -74,31 +70,12 @@ export default !DDS_NOTICE_CHOICE
 
 export const Default = !DDS_NOTICE_CHOICE
   ? undefined
-  : ({ parameters }) => {
-      const {
-        questionChoices,
-        termsConditionLink,
-        locale,
-        country,
-        onChange,
-        email,
-        classNames,
-        enableAllOptIn,
-      } = parameters?.props?.NoticeChoice ?? {};
+  : () => {
       return (
         <div className="bx--grid" style={{ marginTop: '2rem' }}>
           <div className="bx--row">
             <div className="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2">
-              <NoticeChoice
-                questionChoices={questionChoices}
-                termsConditionLink={termsConditionLink}
-                locale={locale}
-                country={country}
-                onChange={onChange}
-                email={email}
-                classNames={classNames}
-                enableAllOptIn={enableAllOptIn}
-              />
+              <NoticeChoice {...props()} />
             </div>
           </div>
         </div>

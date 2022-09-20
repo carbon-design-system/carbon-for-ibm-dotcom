@@ -1,8 +1,7 @@
 name: automerge
 on:
   push:
-    branches:
-      - 'release/*'
+    branches: [ release/* ]
 
 concurrency:
   group: automerge-${{ github.ref }}
