@@ -1480,7 +1480,7 @@
     "@carbon/import-once" "^10.7.0"
     "@carbon/layout" "^10.37.1"
 
-"@carbon/icon-helpers@10.33.0", "@carbon/icon-helpers@^10.28.0", "@carbon/icon-helpers@^10.32.0":
+"@carbon/icon-helpers@10.33.0", "@carbon/icon-helpers@^10.28.0", "@carbon/icon-helpers@^10.33.0":
   version "10.33.0"
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.33.0.tgz#6b9e467529c7f950fe87a6f45ae0efdcb9b55a26"
   integrity sha512-cdax+RiemAnrATgxL5zyCsD5CV1rJAVTjORXyKxhKSu9Fw6AFJEovJLR9+QQBbPaj/QNTB4o7mJ3YD15LLlB2w==
@@ -1524,12 +1524,12 @@
   resolved "https://registry.yarnpkg.com/@carbon/motion/-/motion-11.4.0.tgz#2aa6c28291b08c45c8d02e32d64660ca885e3fc7"
   integrity sha512-3cpCRZ36KYiIJUEPtuOOT6vV9W/8mLtAeZblifKHKr7FGDT1NUULzHxE72eFYz1nN5ZYSOl9mIq5HWzaNoh6iQ==
 
-"@carbon/pictograms-react@11.31.0":
-  version "11.31.0"
-  resolved "https://registry.yarnpkg.com/@carbon/pictograms-react/-/pictograms-react-11.31.0.tgz#8f68045555532a81c39519a4685b133862b5d5b0"
-  integrity sha512-fzO+bSuWcHGOxsHFvJ/SIQHkLCwmGtmelWmpRDH59H49xi3ujA2ZiCqsWiMohs/rFmTPYiSZ5eE9ApJgLalgVw==
+"@carbon/pictograms-react@11.32.0":
+  version "11.32.0"
+  resolved "https://registry.yarnpkg.com/@carbon/pictograms-react/-/pictograms-react-11.32.0.tgz#d58384088b55f403bd113e1deafa526de1c8b948"
+  integrity sha512-KPyRpaPkoLf2SSHpQHgdqDRuWQjnsrfJSaaD+8BTNPKx6x6IImKO1nDtdQvWgPjqnDe/xnBcXAiTbh/krRuddw==
   dependencies:
-    "@carbon/icon-helpers" "^10.32.0"
+    "@carbon/icon-helpers" "^10.33.0"
     "@carbon/telemetry" "0.1.0"
     prop-types "^15.7.2"
 
