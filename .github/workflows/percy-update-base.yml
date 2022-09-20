@@ -2,7 +2,7 @@ name: percy-update-base
 
 on:
   push:
-    branches: [ main, release/* ]
+    branches: [ main, release/*, chore/import-cwc-repo ]
 
 concurrency:
   group: percy-update-base-${{ github.ref }}
