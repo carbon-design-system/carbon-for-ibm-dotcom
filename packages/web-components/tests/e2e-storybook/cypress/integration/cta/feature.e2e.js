@@ -13,7 +13,7 @@
  */
 const _paths = {
   default: 'iframe.html?id=components-cta--feature',
-  types: 'iframe.html?id=components-cta--feature&knob-CTA%20type:_FeatureCTA=',
+  types: 'iframe.html?id=components-cta--feature&knob-CTA%20type:=',
 };
 
 /**
@@ -134,7 +134,7 @@ const _tests = {
     const customTextInput = 'Lorem Ipsum Dolor Sit Amet.';
 
     const knobs = new URLSearchParams({
-      'knob-Heading_FeatureCTA': customTextInput,
+      'knob-Heading': customTextInput,
     });
 
     cy.get('dds-card-heading')
