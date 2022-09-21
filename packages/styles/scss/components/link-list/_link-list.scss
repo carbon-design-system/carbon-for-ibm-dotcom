@@ -84,8 +84,7 @@
 
   :host(#{$dds-prefix}-link-list-item-card-cta) {
     ::slotted(#{$dds-prefix}-card-cta-footer) {
-      @include carbon--breakpoint-down('md') {
-        align-self: center;
+      @include carbon--breakpoint-down('lg') {
         margin-top: 0;
       }
     }
