@@ -11,6 +11,10 @@ import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { optionsKnob } from '@storybook/addon-knobs';
+import '../../card-group/index';
+import '../../carousel/index';
+import '../../content-group-cards/index';
+import '../../content-block-simple/index';
 import '../index';
 import '../../cta/text-cta';
 import readme from './README.stories.mdx';
@@ -72,8 +76,7 @@ const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault
 
 export const Default = args => {
   const { heading, copy, addChildren } = args?.ContentSection ?? {};
-  const classExceptions = addChildren.includes('Carousel') || addChildren.includes('Card group');
-  const classes = classExceptions ? '' : 'bx--col-lg-8 bx--no-gutter';
+  const classes = addChildren.includes('Content block simple') ? 'bx--col-lg-16 bx--no-gutter' : '';
   return html`
     <dds-content-section children-custom-class="${classes}">
       <dds-content-section-heading>${ifNonNull(heading)}</dds-content-section-heading>
@@ -92,8 +95,7 @@ export const Default = args => {
         ? html`
             <dds-card-group>
               ${card1}${card2}${card1}${card2}
-              <dds-card-group> </dds-card-group
-            ></dds-card-group>
+            </dds-card-group>
           `
         : ``}
       ${addChildren.includes('Link list')
