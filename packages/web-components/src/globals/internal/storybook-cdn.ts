@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// import packageJson from '../../../package.json';
+import packageJson from '../../../package.json';
 
 /* eslint-disable import/prefer-default-export,max-len */
 
@@ -56,8 +56,7 @@ export const cdnJs = ({ components }) => {
 
 \`\`\`html
 // SPECIFIC VERSION (available starting v1.6.0)
-// TODO: see why packageJson version doesn't work
-${_renderScript(components, `version/v`)}
+${_renderScript(components, `version/v${packageJson.version}`)}
 
 // LATEST tag
 ${_renderScript(components, 'tag/v1/latest')}
@@ -76,8 +75,7 @@ ${_renderScript(components, 'tag/v1/next')}
 
 \`\`\`html
 // SPECIFIC VERSION (available starting v1.6.0)
-// TODO: see why packageJson version doesn't work
-${_renderScript(components, `version/v$`, true)}
+${_renderScript(components, `version/v${packageJson.version}`, true)}
 
 // LATEST tag
 ${_renderScript(components, 'tag/v1/latest', true)}
@@ -103,8 +101,7 @@ in your application's style bundle, this can be included via CDN:
 
 \`\`\`html
 // SPECIFIC VERSION (available starting v1.6.0)
-// TODO: see why packageJson version doesn't work
-${_renderStyle(components, `version/v`)}
+${_renderStyle(components, `version/v${packageJson.version}`)}
 
 // LATEST tag
 ${_renderStyle(components, 'tag/v1/latest')}
