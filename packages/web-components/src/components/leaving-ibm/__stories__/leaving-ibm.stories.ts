@@ -12,12 +12,15 @@ import { text, select } from '@storybook/addon-knobs';
 import Launch20 from 'carbon-web-components/es/icons/launch/20.js';
 import styles from './leaving-ibm.stories.scss';
 import mediumImgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
-import '../leaving-ibm-container';
-
+import '../index';
+import '../../link-with-icon/index';
+import '../../button-group/index';
+import '../../card-link/index';
+import '../../feature-card/index';
 import readme from './README.stories.mdx';
 
-export const Default = ({ parameters }) => {
-  const { href, ctaText, ctaType } = parameters?.props?.['leaving-ibm'] ?? {};
+export const Default = args => {
+  const { href, ctaText, ctaType } = args?.['leaving-ibm'] ?? {};
   return html`
     <dds-leaving-ibm-container></dds-leaving-ibm-container>
 
@@ -83,10 +86,10 @@ export default {
   parameters: {
     ...readme.parameters,
     knobs: {
-      'leaving-ibm': ({ groupId }) => ({
-        ctaText: text('CTA text', 'Learn more about Carbon', groupId),
-        href: text('href (href)', 'https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/', groupId),
-        ctaType: select('CTA type:', ctaTypes, ctaTypes[0], groupId),
+      'leaving-ibm': () => ({
+        ctaText: text('CTA text', 'Learn more about Carbon'),
+        href: text('href (href)', 'https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/'),
+        ctaType: select('CTA type:', ctaTypes, ctaTypes[0]),
       }),
     },
     propsSet: {

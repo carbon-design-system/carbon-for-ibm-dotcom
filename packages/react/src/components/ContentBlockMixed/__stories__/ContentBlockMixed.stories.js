@@ -80,26 +80,95 @@ const simpleTypes = ContentGroupSimpleKnobs.types;
 const simpleMediaType = simpleTypes.image;
 const simpleItems = ContentGroupSimpleKnobs.items;
 
-export default {
-  title: 'Components|Content block mixed',
-  parameters: {
-    ...readme.parameters,
+const props = {
+  default: () => {
+    const items = [
+      {
+        type: 'ContentGroupCards',
+        heading: text(
+          'Card group heading (heading):',
+          ContentGroupCardsKnobs.heading
+        ),
+        items: ContentGroupCardsKnobs.items,
+      },
+      {
+        type: 'ContentGroupPictograms',
+        heading: text('Pictogram group heading (heading):', pictogramHeading),
+        items: pictogramItems,
+      },
+      {
+        type: 'ContentGroupSimple',
+        mediaType: simpleMediaType,
+        mediaData: simpleMediaData.image,
+        heading: text('Simple group heading (heading):', simpleHeading),
+        items: simpleItems,
+      },
+    ];
+
+    return {
+      heading: heading,
+      copy: copy,
+      cta: {
+        cta: {
+          href: 'https://www.ibm.com',
+        },
+        style: 'card',
+        type: select('CTA type', ctaTypes, ctaTypes.local),
+        heading: 'Lorem ipsum dolor sit ametttt',
+      },
+      items,
+      border: boolean('Border (border)', false),
+    };
+  },
+  WithLinkList: () => {
+    const linkListProps = {
+      heading: text('link list heading:', 'Tutorials'),
+      items: [
+        {
+          type: 'local',
+          copy: 'Containerization A Complete Guide',
+          cta: {
+            href: 'https://ibm.com',
+          },
+        },
+        {
+          type: 'external',
+          copy: 'Why should you use microservices and containers',
+          cta: {
+            href: 'https://ibm.com',
+          },
+        },
+      ],
+    };
+
+    const aside = {
+      items: <LinkList style="card" {...linkListProps} />,
+    };
+
+    return {
+      ...props.default(),
+      aside,
+      border: boolean('Border (border)', false),
+    };
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { cta, items, border } = parameters?.props?.ContentBlockMixed ?? {};
+export default {
+  title: 'Components/Content block mixed',
+  parameters: {
+    ...readme.parameters,
+    percy: {
+      name: 'Components|Content block mixed: Default',
+    },
+  },
+};
+
+export const Default = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-          <ContentBlockMixed
-            heading={heading}
-            copy={copy}
-            cta={cta}
-            items={items}
-            border={border}
-          />
+          <ContentBlockMixed {...props.default()} />
         </div>
       </div>
     </div>
@@ -108,54 +177,6 @@ export const Default = ({ parameters }) => {
 
 Default.story = {
   parameters: {
-    knobs: {
-      ContentBlockMixed: ({ groupId }) => {
-        const items = [
-          {
-            type: 'ContentGroupCards',
-            heading: text(
-              'Card group heading (heading):',
-              ContentGroupCardsKnobs.heading,
-              groupId
-            ),
-            items: ContentGroupCardsKnobs.items,
-          },
-          {
-            type: 'ContentGroupPictograms',
-            heading: text(
-              'Pictogram group heading (heading):',
-              pictogramHeading,
-              groupId
-            ),
-            items: pictogramItems,
-          },
-          {
-            type: 'ContentGroupSimple',
-            mediaType: simpleMediaType,
-            mediaData: simpleMediaData.image,
-            heading: text(
-              'Simple group heading (heading):',
-              simpleHeading,
-              groupId
-            ),
-            items: simpleItems,
-          },
-        ];
-
-        return {
-          cta: {
-            cta: {
-              href: 'https://www.ibm.com',
-            },
-            style: 'card',
-            type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
-            heading: 'Lorem ipsum dolor sit ametttt',
-          },
-          items,
-          border: boolean('Border (border)', false, groupId),
-        };
-      },
-    },
     propsSet: {
       default: {
         ContentBlockMixed: {
@@ -171,21 +192,12 @@ Default.story = {
   },
 };
 
-export const WithLinkList = ({ parameters }) => {
-  const { cta, items, aside, border } =
-    parameters?.props?.ContentBlockMixed ?? {};
+export const WithLinkList = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
-          <ContentBlockMixed
-            heading={heading}
-            copy={copy}
-            cta={cta}
-            items={items}
-            aside={aside}
-            border={border}
-          />
+          <ContentBlockMixed {...props.WithLinkList()} />
         </div>
       </div>
     </div>
@@ -195,42 +207,8 @@ export const WithLinkList = ({ parameters }) => {
 WithLinkList.story = {
   name: 'With link list',
   parameters: {
-    knobs: {
-      ContentBlockMixed: ({ groupId }) => {
-        const knobs = Default.story.parameters.knobs.ContentBlockMixed({
-          groupId,
-        });
-
-        const linkListProps = {
-          heading: text('link list heading:', 'Tutorials', groupId),
-          items: [
-            {
-              type: 'local',
-              copy: 'Containerization A Complete Guide',
-              cta: {
-                href: 'https://ibm.com',
-              },
-            },
-            {
-              type: 'external',
-              copy: 'Why should you use microservices and containers',
-              cta: {
-                href: 'https://ibm.com',
-              },
-            },
-          ],
-        };
-
-        const aside = {
-          items: <LinkList style="card" {...linkListProps} />,
-        };
-
-        return {
-          ...knobs,
-          aside,
-          border: boolean('Border (border)', false, groupId),
-        };
-      },
+    percy: {
+      name: 'Components|Content block mixed: With link list',
     },
     propsSet: {
       default: {

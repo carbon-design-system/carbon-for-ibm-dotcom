@@ -1,7 +1,6 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
-import LeavingIbmComposite from '../../../components-react/leaving-ibm/leaving-ibm-composite';
-import filterDocgenInfoProps from '../../../../.storybook/react/filterDocgenInfoProps';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/leaving-ibm/leaving-ibm-composite.js';
 
 # Leaving IBM
 
@@ -20,26 +19,33 @@ Here's a quick example to get you started.
 > 💡 `Provider` is only in the context of the example, and can be swapped out with other implementations based on the application setup.
 
 ```javascript
-import { Provider } from 'react-redux';
-import DDSLeavingIbmContainer, { store } from '@carbon/ibmdotcom-web-components/es/components-react/leaving-ibm/leaving-ibm-container.js';
+import DDSLeavingIBMContainer from '@carbon/ibmdotcom-web-components/es/components-react/leaving-ibm/leaving-ibm-container';
+import DDSLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
+import Launch20 from '@carbon/icons-react/es/launch/20';
 
 function App() {
   return (
-    <Provider store={store}>
-      <DDSLeavingIbmContainer href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/" open="true" />
-    </Provider>
+    // Add component to
+    <DDSLeavingIBMContainer />
+
+    ...
+
+    // Trigger modal on click
+    <DDSLinkWithIcon iconPlacement="right" href={href} data-leaving-ibm>
+      Learn more about the Carbon Design System
+      <Launch20 slot="icon" />
+    </DDSLinkWithIcon>
   );
 }
 ```
 
-> 💡 The modal state must be set manually by the triggering element. Alternatively, the component could be placed in a reusable function or component if multiple external links are present.
-> See available custom events available to the modal [here](https://web-components.carbondesignsystem.com/?path=/docs/components-modal--default#bx-modal-attributes-and-properties).
+> 💡 Give your link the `data-leaving-ibm` attribute to trigger the modal on click. Alternatively, you can use the [custom events available to the modal](https://web-components.carbondesignsystem.com/?path=/docs/components-modal--default#bx-modal-attributes-and-properties) to create custom triggering behavior.
 
 ## Props
 
-### `<DDSLeavingIbmContainer>`
+### `<DDSLeavingIbmComposite>`
 
-<Props of={filterDocgenInfoProps(LeavingIbmComposite)} />
+<Props of={PropTypesRef} />
 
 ## Stable selectors
 
