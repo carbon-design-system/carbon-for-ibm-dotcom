@@ -180,6 +180,9 @@ const MastheadSearch = forwardRef(
       abortController.abort();
       (async () => {
         const response = await LocaleAPI.getLang();
+        state.lc = response.lc;
+        state.cc = response.cc;
+
         if (!abortController.signal.aborted && response) {
           dispatch({ type: 'setLc', payload: { lc: response.lc } });
           dispatch({ type: 'setCc', payload: { cc: response.cc } });
@@ -188,7 +191,7 @@ const MastheadSearch = forwardRef(
       return () => {
         abortController.abort();
       };
-    }, []);
+    }, [state]);
 
     /**
      * Event handlers to toggle visiblity of search
