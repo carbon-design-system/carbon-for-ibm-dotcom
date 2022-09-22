@@ -62,6 +62,22 @@ $breakpoint--desktop-nav: 960px;
     color: $link-02;
   }
 
+  &:first-of-type {
+    .#{$prefix}--btn--ghost::before {
+      @include carbon--breakpoint-up(800px) {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: carbon--rem(24px);
+        width: carbon--rem(1px);
+        background-color: $button-separator;
+      }
+    }
+  }
+
   .#{$prefix}--btn {
     padding: calc(0.875rem - 3px) carbon--rem(15px);
   }
@@ -475,8 +491,27 @@ $breakpoint--desktop-nav: 960px;
   @extend :host(#{$prefix}-side-nav-menu);
 }
 
-:host(#{$dds-prefix}-left-nav-menu-item) {
+:host(#{$dds-prefix}-left-nav-menu-item),
+:host(#{$dds-prefix}-left-nav-cta-item) {
   @extend :host(#{$prefix}-side-nav-menu-item);
+}
+
+:host(#{$dds-prefix}-left-nav-cta-item) {
+  @include carbon--breakpoint(md) {
+    display: none;
+  }
+
+  a.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
+    @include carbon--type-style(body-short-02, true);
+
+    color: $link-01;
+    display: flex;
+    justify-content: space-between;
+
+    > svg {
+      flex-shrink: 0;
+    }
+  }
 }
 
 :host(#{$dds-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,

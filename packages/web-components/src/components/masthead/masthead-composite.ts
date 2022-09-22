@@ -65,6 +65,13 @@ import './top-nav-item';
 import './top-nav-menu';
 import './top-nav-menu-item';
 import './left-nav';
+import './left-nav-cta-item';
+import './left-nav-name';
+import './left-nav-menu';
+import './left-nav-menu-section';
+import './left-nav-menu-item';
+import './left-nav-menu-category-heading';
+import './left-nav-overlay';
 import '../search-with-typeahead/search-with-typeahead';
 import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
@@ -353,6 +360,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * Renders the left nav menus sections
    *
    * @param object heading heading of menu section
+   * @param object.ctas cta items
    * @param object.menuItems menu items
    * @param object.heading heading heading of menu section
    * @param object.isSubmenu determines whether menu section is a submenu section
@@ -363,6 +371,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderLeftNavMenuSections({
+    ctas,
     menuItems,
     heading = '',
     isSubmenu = false,
@@ -402,6 +411,16 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           >
         `
       );
+    }
+
+    if (ctas) {
+      ctas.forEach(cta => {
+        items.push(html`
+          <dds-left-nav-cta-item href="${ifNonNull(cta.url)}">
+            ${cta.title}
+          </dds-left-nav-cta-item>
+        `);
+      });
     }
 
     return html`
@@ -476,7 +495,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderLeftNav(menuItems, autoid) {
-    const { selectedMenuItem } = this;
+    const { selectedMenuItem, ctaButtons } = this;
+
     const menu: any[] = [];
     const selectedItemUrl = this._selectedLeftNavItems();
     const level0Items = menuItems.map((elem, i) => {
@@ -535,6 +555,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           if (level2Items.length !== 0) {
             menu.push(
               this._renderLeftNavMenuSections({
+                ctas: undefined,
                 menuItems: level2Items,
                 isSubmenu: true,
                 showBackButton: true,
@@ -563,6 +584,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         if (level1Items.length !== 0) {
           menu.push(
             this._renderLeftNavMenuSections({
+              ctas: undefined,
               menuItems: level1Items,
               heading: elem.menuSections[0]?.heading,
               isSubmenu: true,
@@ -592,6 +614,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
 
     return html`
       ${this._renderLeftNavMenuSections({
+        ctas: ctaButtons,
         menuItems: level0Items,
         sectionId: '-1, -1',
       })}
@@ -995,6 +1018,16 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   @property({ attribute: 'user-status' })
   userStatus = this.authMethod === MASTHEAD_AUTH_METHOD.DEFAULT ? UNAUTHENTICATED_STATUS : CLOUD_UNAUTHENTICATED_STATUS;
 
+  get userIsAuthenticated(): boolean {
+    const { userStatus } = this;
+    return userStatus !== UNAUTHENTICATED_STATUS && userStatus !== CLOUD_UNAUTHENTICATED_STATUS;
+  }
+
+  get ctaButtons(): MastheadProfileItem[] | undefined {
+    const { userIsAuthenticated, authenticatedCtaButtons, unauthenticatedCtaButtons } = this;
+    return userIsAuthenticated ? authenticatedCtaButtons : unauthenticatedCtaButtons;
+  }
+
   createRenderRoot() {
     // We render child elements of `<dds-masthead-container>` by ourselves
     return this;
@@ -1026,7 +1059,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     const {
       activateSearch,
       authenticatedProfileItems,
-      authenticatedCtaButtons,
+      ctaButtons,
       contactUsButton,
       currentSearchResults,
       customTypeaheadAPI,
@@ -1035,6 +1068,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       platformUrl,
       hasProfile,
       inputTimeout,
+      userIsAuthenticated,
       mastheadAssistiveText,
       menuBarAssistiveText,
       menuButtonAssistiveTextActive,
@@ -1049,25 +1083,20 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       skipToContentText,
       skipToContentHref,
       unauthenticatedProfileItems,
-      unauthenticatedCtaButtons,
-      userStatus,
       l1Data,
       hasContact,
     } = this;
-    const authenticated = userStatus !== UNAUTHENTICATED_STATUS && userStatus !== CLOUD_UNAUTHENTICATED_STATUS;
-
-    const ctaButtons = authenticated ? authenticatedCtaButtons : unauthenticatedCtaButtons;
 
     let profileItems;
-    if (DDS_CUSTOM_PROFILE_LOGIN && customProfileLogin && !authenticated) {
-      profileItems = unauthenticatedProfileItems?.map((item) => {
+    if (DDS_CUSTOM_PROFILE_LOGIN && customProfileLogin && !userIsAuthenticated) {
+      profileItems = unauthenticatedProfileItems?.map(item => {
         if (item?.id === 'signin') {
           return { ...item, url: customProfileLogin };
         }
         return item;
       });
     } else {
-      profileItems = authenticated
+      profileItems = userIsAuthenticated
         ? authenticatedProfileItems
         : unauthenticatedProfileItems;
     }
@@ -1165,7 +1194,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           ${hasProfile === 'false'
             ? ''
             : html`
-                <dds-masthead-profile ?authenticated="${authenticated}">
+                <dds-masthead-profile ?authenticated="${userIsAuthenticated}">
                   ${profileItems?.map(
                     ({ title, url }) =>
                       html`
