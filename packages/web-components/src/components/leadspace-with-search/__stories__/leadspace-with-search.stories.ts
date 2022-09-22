@@ -41,7 +41,7 @@ export const Default = args => {
   const subheadingComponent = document.querySelector('dds-leadspace-with-search-content-heading');
 
   if (subheadingComponent) {
-    document.querySelector('dds-leadspace-with-search-content-heading')!.shadowRoot!.innerHTML = subheading;
+    subheadingComponent!.shadowRoot!.innerHTML = subheading;
   }
   return html`
     <dds-leadspace-with-search adjacent-theme="${theme}">
@@ -65,7 +65,7 @@ export const WithImage = args => {
   const subheadingComponent = document.querySelector('dds-leadspace-with-search-content-heading');
 
   if (subheadingComponent) {
-    document.querySelector('dds-leadspace-with-search-content-heading')!.shadowRoot!.innerHTML = subheading;
+    subheadingComponent!.shadowRoot!.innerHTML = subheading;
   }
 
   return html`
