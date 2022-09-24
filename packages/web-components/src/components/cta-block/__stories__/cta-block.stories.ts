@@ -74,6 +74,12 @@ export const Default = args => {
   const { heading, border, copy, renderIcon } = args?.CTABlock ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
+  const headingComponent = document.querySelector('dds-content-block-heading');
+
+  if (headingComponent) {
+    headingComponent!.shadowRoot!.innerHTML = heading;
+  }
+
   return html`
     <dds-cta-block ?no-border=${!border}>
       <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
@@ -95,6 +101,12 @@ export const WithContentItems = args => {
   const { heading, border, copy, renderIcon } = args?.CTABlock ?? {};
   const { contentItemType, contentItemCount } = args?.WithContentItems ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
+
+  const headingComponent = document.querySelector('dds-content-block-heading');
+
+  if (headingComponent) {
+    headingComponent!.shadowRoot!.innerHTML = heading;
+  }
 
   return html`
     <dds-cta-block ?no-border=${!border}>
@@ -138,11 +150,17 @@ WithContentItems.story = {
 };
 
 export const WithLinkList = args => {
-  const { heading, copy, renderIcon } = args?.CTABlock ?? {};
+  const { border, heading, copy, renderIcon } = args?.CTABlock ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
+  const headingComponent = document.querySelector('dds-content-block-heading');
+
+  if (headingComponent) {
+    headingComponent!.shadowRoot!.innerHTML = heading;
+  }
+
   return html`
-    <dds-cta-block>
+    <dds-cta-block ?no-border=${!border}>
       <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
       <dds-content-block-copy>${ifNonNull(copy)}</dds-content-block-copy>
 
@@ -215,6 +233,7 @@ WithinTabs.story = {
   name: 'Within tabs',
   parameters: {
     knobs: {
+      CTABlock: () => ({}),
       WithinTabs: () => ({
         contentItemType:
           contentItemTypeMap[select(`Content item type`, contentItemTypeOptions, contentItemTypeOptions.Text) ?? 0],

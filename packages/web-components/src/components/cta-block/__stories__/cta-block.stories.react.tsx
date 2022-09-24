@@ -85,8 +85,14 @@ export const Default = args => {
   const { heading, border, copy, renderIcon } = args?.CTABlock ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
+  const headingComponent = document.querySelector('dds-content-block-heading');
+
+  if (headingComponent) {
+    headingComponent!.shadowRoot!.innerHTML = heading;
+  }
+
   return (
-    <DDSCTABlock no-border={!border}>
+    <DDSCTABlock no-border={!border || null}>
       <DDSContentBlockHeading>{heading || null}</DDSContentBlockHeading>
       <DDSContentBlockCopy>{copy}</DDSContentBlockCopy>
       <DDSButtonGroup slot="action">
@@ -106,8 +112,14 @@ export const WithContentItems = args => {
   const { contentItemType, contentItemCount } = args?.WithContentItems ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
+  const headingComponent = document.querySelector('dds-content-block-heading');
+
+  if (headingComponent) {
+    headingComponent!.shadowRoot!.innerHTML = heading;
+  }
+
   return (
-    <DDSCTABlock no-border={!border}>
+    <DDSCTABlock no-border={!border || null}>
       <DDSContentBlockHeading>{heading || null}</DDSContentBlockHeading>
       <DDSContentBlockCopy>{copy || null}</DDSContentBlockCopy>
 
@@ -141,11 +153,17 @@ WithContentItems.story = {
 };
 
 export const WithLinkList = args => {
-  const { heading, copy, renderIcon } = args?.CTABlock ?? {};
+  const { border, heading, copy, renderIcon } = args?.CTABlock ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
+  const headingComponent = document.querySelector('dds-content-block-heading');
+
+  if (headingComponent) {
+    headingComponent!.shadowRoot!.innerHTML = heading;
+  }
+
   return (
-    <DDSCTABlock>
+    <DDSCTABlock no-border={!border || null}>
       <DDSContentBlockHeading>{heading || null}</DDSContentBlockHeading>
       <DDSContentBlockCopy>{copy}</DDSContentBlockCopy>
       <DDSButtonGroup slot="action">
@@ -217,6 +235,7 @@ WithinTabs.story = {
   name: 'Within tabs',
   parameters: {
     knobs: {
+      CTABlock: () => ({}),
       WithinTabs: () => ({
         contentItemType:
           contentItemTypeMap[select(`Content item type`, contentItemTypeOptions, contentItemTypeOptions.Text) ?? 0],
