@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -33,7 +33,7 @@ const ConnectMixin = <
 
     _handleChangeStoreState(state: TState) {
       const props = mapStateToProps(state);
-      Object.keys(props).forEach(name => {
+      Object.keys(props as any).forEach(name => {
         const old = this[name];
         const current = props[name];
         if (!Object.is(old, current)) {

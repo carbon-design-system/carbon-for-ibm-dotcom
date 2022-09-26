@@ -104,4 +104,5 @@ class DDSLocaleModalContainer extends ConnectMixin<
   mapDispatchToProps
 )(DDSLocaleModalComposite) {}
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSLocaleModalContainer;

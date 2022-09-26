@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import React from 'react';
-import { select } from '@storybook/addon-knobs';
+import { select, boolean } from '@storybook/addon-knobs';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
@@ -50,8 +50,8 @@ const mediaType = {
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
 
-export const Default = ({ parameters }) => {
-  const { sectionHeading, align, type } = parameters?.props?.TabsExtendedMedia ?? {};
+export const Default = args => {
+  const { sectionHeading, sectionHeadingText, align, type } = args?.TabsExtendedMedia ?? {};
   const tabs: any[] = [];
 
   for (let i = 1; i < 5; i++) {
@@ -80,8 +80,8 @@ export const Default = ({ parameters }) => {
     );
   }
   return (
-    <DDSTabsExtendedMedia>
-      <DDSContentSectionHeading>{sectionHeading || undefined}</DDSContentSectionHeading>
+    <DDSTabsExtendedMedia section-heading={sectionHeading}>
+      <DDSContentSectionHeading>{sectionHeadingText || undefined}</DDSContentSectionHeading>
       {tabs}
     </DDSTabsExtendedMedia>
   );
@@ -90,11 +90,16 @@ export const Default = ({ parameters }) => {
 Default.story = {
   parameters: {
     knobs: {
-      TabsExtendedMedia: () => ({
-        sectionHeading: textNullable('Heading', 'Section heading'),
-        align: select('Alignment (align)', mediaAlign, MEDIA_ALIGN.LEFT),
-        type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
-      }),
+      TabsExtendedMedia: () => {
+        const sectionHeading = boolean('Section heading', true);
+        const sectionHeadingText = sectionHeading && textNullable('Heading', 'Section heading');
+        return {
+          sectionHeading,
+          sectionHeadingText,
+          align: select('Alignment (align)', mediaAlign, MEDIA_ALIGN.LEFT),
+          type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
+        };
+      },
     },
   },
 };
@@ -102,11 +107,13 @@ Default.story = {
 export default {
   title: 'Components/Tabs extended media',
   decorators: [
-    story => {
+    (story, args) => {
       return (
         <div className="bx--grid">
           <div className="bx--row">
-            <div className="bx--col-lg-16 bx--no-gutter">{story()}</div>
+            <div className={`${args?.TabsExtendedMedia?.sectionHeading ? `bx--col-lg-16` : `bx--col-lg-12`} bx--no-gutter`}>
+              {story()}
+            </div>
           </div>
         </div>
       );
