@@ -43,46 +43,57 @@ const iconMap = {
 };
 
 const iconOptions = {
-  Default: null,
   'Arrow Right': 'ArrowRight20',
   'External Launch': 'Launch20',
 };
 
-const contentItemTypeMap = {
-  text: ({ heading, copy, links }) => (
-    <DDSCTABlockItem>
-      <DDSContentItemHeading>{heading}</DDSContentItemHeading>
-      <DDSContentItemCopy>{copy}</DDSContentItemCopy>
-      {links.map(elem => (
-        <DDSTextCTA slot="footer" cta-type="local" icon-placement="right" href={elem.href}>
-          {elem.copy}
-        </DDSTextCTA>
-      ))}
-    </DDSCTABlockItem>
+const renderCTA = {
+  text: renderIcon => (
+    <DDSTextCTA slot="action" cta-type={renderIcon === iconMap.Launch20 ? 'external' : 'local'} href="https://example.com">
+      CTA text link
+    </DDSTextCTA>
   ),
-  button: ({ heading, copy }) => (
-    <DDSCTABlockItem>
-      <DDSContentItemHeading>{heading}</DDSContentItemHeading>
-      <DDSContentItemCopy>{copy}</DDSContentItemCopy>
-      <DDSButtonGroup slot="footer">
-        <DDSButtonCTA cta-type="local">Button 1</DDSButtonCTA>
-        <DDSButtonCTA cta-type="local">Button 2</DDSButtonCTA>
-      </DDSButtonGroup>
-    </DDSCTABlockItem>
+  button: renderIcon => (
+    <DDSButtonCTA slot="action" cta-type={renderIcon === iconMap.Launch20 ? 'external' : 'local'} href="https://example.com">
+      CTA text link
+    </DDSButtonCTA>
+  ),
+  buttonGroup: (renderIcon, target) => (
+    <DDSButtonGroup slot="action">
+      <DDSButtonGroupItem target={target} href="https://example.com">
+        Secondary Button {renderIcon}
+      </DDSButtonGroupItem>
+      <DDSButtonGroupItem target={target} href="https://example.com">
+        Primary Button {renderIcon}
+      </DDSButtonGroupItem>
+    </DDSButtonGroup>
   ),
 };
 
-const contentItemTypeOptions = {
+const ctaTypeOptions = {
   Text: 'text',
   Button: 'button',
+  'Button group': 'buttonGroup',
 };
+
+const contentItemTextCTA = ({ heading, copy, links }) => (
+  <DDSCTABlockItem>
+    <DDSContentItemHeading>{heading}</DDSContentItemHeading>
+    <DDSContentItemCopy>{copy}</DDSContentItemCopy>
+    {links.map(elem => (
+      <DDSTextCTA slot="footer" cta-type="local" icon-placement="right" href={elem.href}>
+        {elem.copy}
+      </DDSTextCTA>
+    ))}
+  </DDSCTABlockItem>
+);
 
 const renderItems = (item, count) => (
   <DDSCTABlockItemRow no-border>{count.map((_, index) => item({ ...content[index] }))}</DDSCTABlockItemRow>
 );
 
 export const Default = args => {
-  const { heading, border, copy, renderIcon } = args?.CTABlock ?? {};
+  const { heading, border, copy, renderIcon, cta } = args?.CTABlock ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
   const headingComponent = document.querySelector('dds-content-block-heading');
@@ -95,20 +106,13 @@ export const Default = args => {
     <DDSCTABlock no-border={!border || null}>
       <DDSContentBlockHeading>{heading || null}</DDSContentBlockHeading>
       <DDSContentBlockCopy>{copy}</DDSContentBlockCopy>
-      <DDSButtonGroup slot="action">
-        <DDSButtonGroupItem target={target} href="https://example.com">
-          Secondary Button {renderIcon}
-        </DDSButtonGroupItem>
-        <DDSButtonGroupItem target={target} href="https://example.com">
-          Primary Button {renderIcon}
-        </DDSButtonGroupItem>
-      </DDSButtonGroup>
+      {renderCTA[cta](renderIcon, target)}
     </DDSCTABlock>
   );
 };
 
 export const WithContentItems = args => {
-  const { heading, border, copy, renderIcon } = args?.CTABlock ?? {};
+  const { heading, border, copy, renderIcon, cta } = args?.CTABlock ?? {};
   const { contentItemType, contentItemCount } = args?.WithContentItems ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
@@ -122,16 +126,7 @@ export const WithContentItems = args => {
     <DDSCTABlock no-border={!border || null}>
       <DDSContentBlockHeading>{heading || null}</DDSContentBlockHeading>
       <DDSContentBlockCopy>{copy || null}</DDSContentBlockCopy>
-
-      <DDSButtonGroup slot="action">
-        <DDSButtonGroupItem target={target} href="https://example.com">
-          Secondary Button {renderIcon}
-        </DDSButtonGroupItem>
-        <DDSButtonGroupItem target={target} href="https://example.com">
-          Primary Button {renderIcon}
-        </DDSButtonGroupItem>
-      </DDSButtonGroup>
-
+      {renderCTA[cta](renderIcon, target)}
       {renderItems(contentItemType, contentItemCount)}
     </DDSCTABlock>
   );
@@ -142,8 +137,7 @@ WithContentItems.story = {
   parameters: {
     knobs: {
       WithContentItems: () => ({
-        contentItemType:
-          contentItemTypeMap[select(`Content item type`, contentItemTypeOptions, contentItemTypeOptions.Text) ?? 0],
+        contentItemType: contentItemTextCTA,
         contentItemCount: Array.from({
           length: number('Number of content items', 3, { min: 2, max: 6 }),
         }),
@@ -153,7 +147,7 @@ WithContentItems.story = {
 };
 
 export const WithLinkList = args => {
-  const { border, heading, copy, renderIcon } = args?.CTABlock ?? {};
+  const { border, heading, copy, renderIcon, cta } = args?.CTABlock ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
   const headingComponent = document.querySelector('dds-content-block-heading');
@@ -166,14 +160,7 @@ export const WithLinkList = args => {
     <DDSCTABlock no-border={!border || null}>
       <DDSContentBlockHeading>{heading || null}</DDSContentBlockHeading>
       <DDSContentBlockCopy>{copy}</DDSContentBlockCopy>
-      <DDSButtonGroup slot="action">
-        <DDSButtonGroupItem target={target} href="https://example.com">
-          Secondary Button {renderIcon}
-        </DDSButtonGroupItem>
-        <DDSButtonGroupItem target={target} href="https://example.com">
-          Primary Button {renderIcon}
-        </DDSButtonGroupItem>
-      </DDSButtonGroup>
+      {renderCTA[cta](renderIcon, target)}
 
       <DDSLinkList slot="link-list" type="end">
         <DDSLinkListHeading>More ways to explore DevOps</DDSLinkListHeading>
@@ -237,8 +224,7 @@ WithinTabs.story = {
     knobs: {
       CTABlock: () => ({}),
       WithinTabs: () => ({
-        contentItemType:
-          contentItemTypeMap[select(`Content item type`, contentItemTypeOptions, contentItemTypeOptions.Text) ?? 0],
+        contentItemType: contentItemTextCTA,
         contentItemCount: Array.from({
           length: number('Number of content items', 3, { min: 2, max: 6 }),
         }),
@@ -271,7 +257,8 @@ export default {
         heading: text('Heading (required)', 'Take the next step'),
         border: boolean('Border', false),
         copy: 'Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.',
-        renderIcon: iconMap[select(`Icon`, iconOptions, iconOptions.Default) ?? 0],
+        cta: select('CTA type', ctaTypeOptions, ctaTypeOptions['Button group']),
+        renderIcon: iconMap[select(`Icon`, iconOptions, iconOptions['Arrow Right']) ?? 0],
       }),
     },
   },
