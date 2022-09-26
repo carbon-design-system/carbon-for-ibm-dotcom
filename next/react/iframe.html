@@ -1,7 +1,55 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Storybook</title><meta name="viewport" content="width=device-width,initial-scale=1"><base target="_parent"><style>:not(.sb-show-main) > .sb-main,
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Webpack App</title><meta name="viewport" content="width=device-width,initial-scale=1"><base target="_parent"><style>/* While we aren't showing the main block yet, but still preparing, we want everything the user
+     has rendered, which may or may not be in #root, to be display none */
+  .sb-show-preparing-story:not(.sb-show-main) > :not(.sb-preparing-story) {
+    display: none;
+  }
+
+  .sb-show-preparing-docs:not(.sb-show-main) > :not(.sb-preparing-docs) {
+    display: none;
+  }
+
+  /* Hide our own blocks when we aren't supposed to be showing them */
+  :not(.sb-show-preparing-story) > .sb-preparing-story,
+  :not(.sb-show-preparing-docs) > .sb-preparing-docs,
   :not(.sb-show-nopreview) > .sb-nopreview,
   :not(.sb-show-errordisplay) > .sb-errordisplay {
     display: none;
+  }
+
+  .sb-show-main.sb-main-centered {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .sb-show-main.sb-main-centered #root {
+    box-sizing: border-box;
+    margin: auto;
+    padding: 1rem;
+    max-height: 100%; /* Hack for centering correctly in IE11 */
+  }
+
+  /* Vertical centering fix for IE11 */
+  @media screen and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .sb-show-main.sb-main-centered:after {
+      content: '';
+      min-height: inherit;
+      font-size: 0;
+    }
+  }
+
+  .sb-show-main.sb-main-fullscreen {
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+
+  .sb-show-main.sb-main-padded {
+    margin: 0;
+    padding: 1rem;
+    display: block;
+    box-sizing: border-box;
   }
 
   .sb-wrapper {
@@ -11,7 +59,8 @@
     left: 0;
     right: 0;
     padding: 20px;
-    font-family: "Nunito Sans", -apple-system, ".SFNSText-Regular", "San Francisco", BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Nunito Sans', -apple-system, '.SFNSText-Regular', 'San Francisco',
+      BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow: auto;
   }
@@ -34,7 +83,7 @@
     margin: auto;
     padding: 30px;
     border-radius: 10px;
-    background: rgba(0,0,0,0.03);
+    background: rgba(0, 0, 0, 0.03);
   }
 
   .sb-nopreview_heading {
@@ -52,11 +101,212 @@
     padding: 10px;
     background: #000;
     color: #eee;
-    font-family: "Operator Mono", "Fira Code Retina", "Fira Code", "FiraCode-Retina", "Andale Mono", "Lucida Console", Consolas, Monaco, monospace;
+    font-family: 'Operator Mono', 'Fira Code Retina', 'Fira Code', 'FiraCode-Retina', 'Andale Mono',
+      'Lucida Console', Consolas, Monaco, monospace;
   }
 
   .sb-errordisplay pre {
     white-space: pre-wrap;
+  }
+
+  @-webkit-keyframes sb-rotate360 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes sb-rotate360 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes sb-glow {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+  @keyframes sb-glow {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+
+  /* We display the preparing loaders *over* the rendering story */
+  .sb-preparing-story,
+  .sb-preparing-docs {
+    background-color: white;
+    /* Maximum possible z-index. It would be better to use stacking contexts to ensure it's always
+    on top, but this isn't possible as it would require making CSS changes that could affect user code */
+    z-index: 2147483647;
+  }
+
+  .sb-loader {
+    -webkit-animation: sb-rotate360 0.7s linear infinite;
+    animation: sb-rotate360 0.7s linear infinite;
+    border-color: rgba(97, 97, 97, 0.29);
+    border-radius: 50%;
+    border-style: solid;
+    border-top-color: #646464;
+    border-width: 2px;
+    display: inline-block;
+    height: 32px;
+    left: 50%;
+    margin-left: -16px;
+    margin-top: -16px;
+    mix-blend-mode: difference;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    transition: all 200ms ease-out;
+    vertical-align: top;
+    width: 32px;
+    z-index: 4;
+  }
+
+  .sb-previewBlock {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 3px 0;
+    margin: 25px auto 40px;
+    max-width: 600px;
+  }
+
+  .sb-previewBlock_header {
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 -1px 0 0 inset;
+    display: flex;
+    gap: 14px;
+    height: 40px;
+    padding: 0 12px;
+  }
+
+  .sb-previewBlock_icon {
+    -webkit-animation: sb-glow 1.5s ease-in-out infinite;
+    animation: sb-glow 1.5s ease-in-out infinite;
+    background: #e6e6e6;
+    height: 14px;
+    width: 14px;
+  }
+  .sb-previewBlock_icon:last-child {
+    margin-left: auto;
+  }
+
+  .sb-previewBlock_body {
+    -webkit-animation: sb-glow 1.5s ease-in-out infinite;
+    animation: sb-glow 1.5s ease-in-out infinite;
+    height: 182px;
+    position: relative;
+  }
+
+  .sb-argstableBlock {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 13px;
+    line-height: 20px;
+    margin: 25px auto 40px;
+    max-width: 600px;
+    text-align: left;
+    width: 100%;
+  }
+  .sb-argstableBlock th:first-of-type,
+  .sb-argstableBlock td:first-of-type {
+    padding-left: 20px;
+  }
+  .sb-argstableBlock th:nth-of-type(2),
+  .sb-argstableBlock td:nth-of-type(2) {
+    width: 35%;
+  }
+  .sb-argstableBlock th:nth-of-type(3),
+  .sb-argstableBlock td:nth-of-type(3) {
+    width: 15%;
+  }
+  .sb-argstableBlock th:last-of-type,
+  .sb-argstableBlock td:last-of-type {
+    width: 25%;
+    padding-right: 20px;
+  }
+  .sb-argstableBlock th span,
+  .sb-argstableBlock td span {
+    -webkit-animation: sb-glow 1.5s ease-in-out infinite;
+    animation: sb-glow 1.5s ease-in-out infinite;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    box-shadow: none;
+    color: transparent;
+  }
+  .sb-argstableBlock th {
+    padding: 10px 15px;
+  }
+
+  .sb-argstableBlock-body {
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 3px 1px, rgba(0, 0, 0, 0.065) 0 0 0 1px;
+  }
+  .sb-argstableBlock-body tr {
+    background: transparent;
+    overflow: hidden;
+  }
+  .sb-argstableBlock-body tr:not(:first-child) {
+    border-top: 1px solid #e6e6e6;
+  }
+  .sb-argstableBlock-body tr:first-child td:first-child {
+    border-top-left-radius: 4px;
+  }
+  .sb-argstableBlock-body tr:first-child td:last-child {
+    border-top-right-radius: 4px;
+  }
+  .sb-argstableBlock-body tr:last-child td:first-child {
+    border-bottom-left-radius: 4px;
+  }
+  .sb-argstableBlock-body tr:last-child td:last-child {
+    border-bottom-right-radius: 4px;
+  }
+  .sb-argstableBlock-body td {
+    background: #fff;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    vertical-align: top;
+  }
+  .sb-argstableBlock-body td:not(:first-of-type) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .sb-argstableBlock-body button {
+    -webkit-animation: sb-glow 1.5s ease-in-out infinite;
+    animation: sb-glow 1.5s ease-in-out infinite;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: transparent;
+    display: inline;
+    font-size: 12px;
+    line-height: 1;
+    padding: 10px 16px;
+  }
+
+  .sb-argstableBlock-summary {
+    margin-top: 4px;
+  }
+
+  .sb-argstableBlock-code {
+    margin-right: 4px;
+    margin-bottom: 4px;
+    padding: 2px 5px;
   }</style><script>/* globals window */
   /* eslint-disable no-underscore-dangle */
   try {
@@ -68,7 +318,27 @@
   } catch (e) {
     // eslint-disable-next-line no-console
     console.warn('unable to connect to top frame for connecting dev tools');
-  }</script><link rel="alternate" hreflang="en-ag" href="iframe.html?id=components-dotcom-shell--default&cc=ag&lc=en"><link rel="alternate" hreflang="en-ai" href="iframe.html?id=components-dotcom-shell--default&cc=ai&lc=en"><link rel="alternate" hreflang="en-aw" href="iframe.html?id=components-dotcom-shell--default&cc=aw&lc=en"><link rel="alternate" hreflang="en-bb" href="iframe.html?id=components-dotcom-shell--default&cc=bb&lc=en"><link rel="alternate" hreflang="en-bm" href="iframe.html?id=components-dotcom-shell--default&cc=bm&lc=en"><link rel="alternate" hreflang="en-bs" href="iframe.html?id=components-dotcom-shell--default&cc=bs&lc=en"><link rel="alternate" hreflang="en-ca" href="iframe.html?id=components-dotcom-shell--default&cc=ca&lc=en"><link rel="alternate" hreflang="en-cw" href="iframe.html?id=components-dotcom-shell--default&cc=cw&lc=en"><link rel="alternate" hreflang="en-dm" href="iframe.html?id=components-dotcom-shell--default&cc=dm&lc=en"><link rel="alternate" hreflang="en-gd" href="iframe.html?id=components-dotcom-shell--default&cc=gd&lc=en"><link rel="alternate" hreflang="en-gy" href="iframe.html?id=components-dotcom-shell--default&cc=gy&lc=en"><link rel="alternate" hreflang="en-jm" href="iframe.html?id=components-dotcom-shell--default&cc=jm&lc=en"><link rel="alternate" hreflang="en-ky" href="iframe.html?id=components-dotcom-shell--default&cc=ky&lc=en"><link rel="alternate" hreflang="en-ms" href="iframe.html?id=components-dotcom-shell--default&cc=ms&lc=en"><link rel="alternate" hreflang="en-tc" href="iframe.html?id=components-dotcom-shell--default&cc=tc&lc=en"><link rel="alternate" hreflang="en-tt" href="iframe.html?id=components-dotcom-shell--default&cc=tt&lc=en"><link rel="alternate" hreflang="en-us" href="iframe.html?id=components-dotcom-shell--default&cc=us&lc=en"><link rel="alternate" hreflang="en-vc" href="iframe.html?id=components-dotcom-shell--default&cc=vc&lc=en"><link rel="alternate" hreflang="en-vg" href="iframe.html?id=components-dotcom-shell--default&cc=vg&lc=en"><link rel="alternate" hreflang="es-ar" href="iframe.html?id=components-dotcom-shell--default&cc=ar&lc=es"><link rel="alternate" hreflang="es-bo" href="iframe.html?id=components-dotcom-shell--default&cc=bo&lc=es"><link rel="alternate" hreflang="es-cl" href="iframe.html?id=components-dotcom-shell--default&cc=cl&lc=es"><link rel="alternate" hreflang="es-co" href="iframe.html?id=components-dotcom-shell--default&cc=co&lc=es"><link rel="alternate" hreflang="es-cr" href="iframe.html?id=components-dotcom-shell--default&cc=cr&lc=es"><link rel="alternate" hreflang="es-ec" href="iframe.html?id=components-dotcom-shell--default&cc=ec&lc=es"><link rel="alternate" hreflang="es-mx" href="iframe.html?id=components-dotcom-shell--default&cc=mx&lc=es"><link rel="alternate" hreflang="es-pe" href="iframe.html?id=components-dotcom-shell--default&cc=pe&lc=es"><link rel="alternate" hreflang="es-py" href="iframe.html?id=components-dotcom-shell--default&cc=py&lc=es"><link rel="alternate" hreflang="es-uy" href="iframe.html?id=components-dotcom-shell--default&cc=uy&lc=es"><link rel="alternate" hreflang="es-ve" href="iframe.html?id=components-dotcom-shell--default&cc=ve&lc=es"><link rel="alternate" hreflang="fr-ca" href="iframe.html?id=components-dotcom-shell--default&cc=ca&lc=fr"><link rel="alternate" hreflang="pt-br" href="iframe.html?id=components-dotcom-shell--default&cc=br&lc=pt"><link rel="alternate" hreflang="x-defult" href="iframe.html?id=components-dotcom-shell--default&cc=us&lc=en"><link rel="alternate" hreflang="en-au" href="iframe.html?id=components-dotcom-shell--default&cc=au&lc=en"><link rel="alternate" hreflang="en-bd" href="iframe.html?id=components-dotcom-shell--default&cc=bd&lc=en"><link rel="alternate" hreflang="en-hk" href="iframe.html?id=components-dotcom-shell--default&cc=hk&lc=en"><link rel="alternate" hreflang="en-id" href="iframe.html?id=components-dotcom-shell--default&cc=id&lc=en"><link rel="alternate" hreflang="en-in" href="iframe.html?id=components-dotcom-shell--default&cc=in&lc=en"><link rel="alternate" hreflang="en-kh" href="iframe.html?id=components-dotcom-shell--default&cc=kh&lc=en"><link rel="alternate" hreflang="en-kn" href="iframe.html?id=components-dotcom-shell--default&cc=kn&lc=en"><link rel="alternate" hreflang="en-lc" href="iframe.html?id=components-dotcom-shell--default&cc=lc&lc=en"><link rel="alternate" hreflang="en-lk" href="iframe.html?id=components-dotcom-shell--default&cc=lk&lc=en"><link rel="alternate" hreflang="en-my" href="iframe.html?id=components-dotcom-shell--default&cc=my&lc=en"><link rel="alternate" hreflang="en-np" href="iframe.html?id=components-dotcom-shell--default&cc=np&lc=en"><link rel="alternate" hreflang="en-nz" href="iframe.html?id=components-dotcom-shell--default&cc=nz&lc=en"><link rel="alternate" hreflang="en-ph" href="iframe.html?id=components-dotcom-shell--default&cc=ph&lc=en"><link rel="alternate" hreflang="en-sg" href="iframe.html?id=components-dotcom-shell--default&cc=sg&lc=en"><link rel="alternate" hreflang="en-th" href="iframe.html?id=components-dotcom-shell--default&cc=th&lc=en"><link rel="alternate" hreflang="en-vn" href="iframe.html?id=components-dotcom-shell--default&cc=vn&lc=en"><link rel="alternate" hreflang="ja-jp" href="iframe.html?id=components-dotcom-shell--default&cc=jp&lc=ja"><link rel="alternate" hreflang="ko-kr" href="iframe.html?id=components-dotcom-shell--default&cc=kr&lc=ko"><link rel="alternate" hreflang="zh-cn" href="iframe.html?id=components-dotcom-shell--default&cc=cn&lc=zh"><link rel="alternate" hreflang="zh-tw" href="iframe.html?id=components-dotcom-shell--default&cc=tw&lc=zh"><link rel="alternate" hreflang="ar-ae" href="iframe.html?id=components-dotcom-shell--default&cc=ae&lc=ar"><link rel="alternate" hreflang="ar-sa" href="iframe.html?id=components-dotcom-shell--default&cc=sa&lc=ar"><link rel="alternate" hreflang="en-ae" href="iframe.html?id=components-dotcom-shell--default&cc=ae&lc=en"><link rel="alternate" hreflang="en-af" href="iframe.html?id=components-dotcom-shell--default&cc=af&lc=en"><link rel="alternate" hreflang="en-bh" href="iframe.html?id=components-dotcom-shell--default&cc=bh&lc=en"><link rel="alternate" hreflang="en-bn" href="iframe.html?id=components-dotcom-shell--default&cc=bn&lc=en"><link rel="alternate" hreflang="en-bw" href="iframe.html?id=components-dotcom-shell--default&cc=bw&lc=en"><link rel="alternate" hreflang="en-eg" href="iframe.html?id=components-dotcom-shell--default&cc=eg&lc=en"><link rel="alternate" hreflang="en-et" href="iframe.html?id=components-dotcom-shell--default&cc=et&lc=en"><link rel="alternate" hreflang="en-gh" href="iframe.html?id=components-dotcom-shell--default&cc=gh&lc=en"><link rel="alternate" hreflang="en-il" href="iframe.html?id=components-dotcom-shell--default&cc=il&lc=en"><link rel="alternate" hreflang="en-iq" href="iframe.html?id=components-dotcom-shell--default&cc=iq&lc=en"><link rel="alternate" hreflang="en-jo" href="iframe.html?id=components-dotcom-shell--default&cc=jo&lc=en"><link rel="alternate" hreflang="en-ke" href="iframe.html?id=components-dotcom-shell--default&cc=ke&lc=en"><link rel="alternate" hreflang="en-kw" href="iframe.html?id=components-dotcom-shell--default&cc=kw&lc=en"><link rel="alternate" hreflang="en-lb" href="iframe.html?id=components-dotcom-shell--default&cc=lb&lc=en"><link rel="alternate" hreflang="en-ly" href="iframe.html?id=components-dotcom-shell--default&cc=ly&lc=en"><link rel="alternate" hreflang="en-mw" href="iframe.html?id=components-dotcom-shell--default&cc=mw&lc=en"><link rel="alternate" hreflang="en-na" href="iframe.html?id=components-dotcom-shell--default&cc=na&lc=en"><link rel="alternate" hreflang="en-ng" href="iframe.html?id=components-dotcom-shell--default&cc=ng&lc=en"><link rel="alternate" hreflang="en-om" href="iframe.html?id=components-dotcom-shell--default&cc=om&lc=en"><link rel="alternate" hreflang="en-pk" href="iframe.html?id=components-dotcom-shell--default&cc=pk&lc=en"><link rel="alternate" hreflang="en-qa" href="iframe.html?id=components-dotcom-shell--default&cc=qa&lc=en"><link rel="alternate" hreflang="en-sa" href="iframe.html?id=components-dotcom-shell--default&cc=sa&lc=en"><link rel="alternate" hreflang="en-sl" href="iframe.html?id=components-dotcom-shell--default&cc=sl&lc=en"><link rel="alternate" hreflang="en-sr" href="iframe.html?id=components-dotcom-shell--default&cc=sr&lc=en"><link rel="alternate" hreflang="en-tz" href="iframe.html?id=components-dotcom-shell--default&cc=tz&lc=en"><link rel="alternate" hreflang="en-ug" href="iframe.html?id=components-dotcom-shell--default&cc=ug&lc=en"><link rel="alternate" hreflang="en-ye" href="iframe.html?id=components-dotcom-shell--default&cc=ye&lc=en"><link rel="alternate" hreflang="en-za" href="iframe.html?id=components-dotcom-shell--default&cc=za&lc=en"><link rel="alternate" hreflang="en-zm" href="iframe.html?id=components-dotcom-shell--default&cc=zm&lc=en"><link rel="alternate" hreflang="en-zw" href="iframe.html?id=components-dotcom-shell--default&cc=zw&lc=en"><link rel="alternate" hreflang="fr-bf" href="iframe.html?id=components-dotcom-shell--default&cc=bf&lc=fr"><link rel="alternate" hreflang="fr-cd" href="iframe.html?id=components-dotcom-shell--default&cc=cd&lc=fr"><link rel="alternate" hreflang="fr-cg" href="iframe.html?id=components-dotcom-shell--default&cc=cg&lc=fr"><link rel="alternate" hreflang="fr-ci" href="iframe.html?id=components-dotcom-shell--default&cc=ci&lc=fr"><link rel="alternate" hreflang="fr-cm" href="iframe.html?id=components-dotcom-shell--default&cc=cm&lc=fr"><link rel="alternate" hreflang="fr-dz" href="iframe.html?id=components-dotcom-shell--default&cc=dz&lc=fr"><link rel="alternate" hreflang="fr-ga" href="iframe.html?id=components-dotcom-shell--default&cc=ga&lc=fr"><link rel="alternate" hreflang="fr-ma" href="iframe.html?id=components-dotcom-shell--default&cc=ma&lc=fr"><link rel="alternate" hreflang="fr-mg" href="iframe.html?id=components-dotcom-shell--default&cc=mg&lc=fr"><link rel="alternate" hreflang="fr-mu" href="iframe.html?id=components-dotcom-shell--default&cc=mu&lc=fr"><link rel="alternate" hreflang="fr-ne" href="iframe.html?id=components-dotcom-shell--default&cc=ne&lc=fr"><link rel="alternate" hreflang="fr-sc" href="iframe.html?id=components-dotcom-shell--default&cc=sc&lc=fr"><link rel="alternate" hreflang="fr-sn" href="iframe.html?id=components-dotcom-shell--default&cc=sn&lc=fr"><link rel="alternate" hreflang="fr-td" href="iframe.html?id=components-dotcom-shell--default&cc=td&lc=fr"><link rel="alternate" hreflang="fr-tn" href="iframe.html?id=components-dotcom-shell--default&cc=tn&lc=fr"><link rel="alternate" hreflang="pt-ao" href="iframe.html?id=components-dotcom-shell--default&cc=ao&lc=pt"><link rel="alternate" hreflang="pt-mz" href="iframe.html?id=components-dotcom-shell--default&cc=mz&lc=pt"><link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/themes.css"><script>window.digitalData = window.digitalData || {
+  }
+
+  window.onerror = function onerror(message, source, line, column, err) {
+    if (window.CONFIG_TYPE !== 'DEVELOPMENT') return;
+    // eslint-disable-next-line no-var, vars-on-top
+    var xhr = new window.XMLHttpRequest();
+    xhr.open('POST', '/runtime-error');
+    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    xhr.send(
+      JSON.stringify({
+        /* eslint-disable object-shorthand */
+        message: message,
+        source: source,
+        line: line,
+        column: column,
+        error: err && { message: err.message, name: err.name, stack: err.stack },
+        origin: 'preview',
+        /* eslint-enable object-shorthand */
+      })
+    );
+  };</script><link rel="alternate" hreflang="en-ag" href="iframe.html?id=components-dotcom-shell--default&cc=ag&lc=en"><link rel="alternate" hreflang="en-ai" href="iframe.html?id=components-dotcom-shell--default&cc=ai&lc=en"><link rel="alternate" hreflang="en-aw" href="iframe.html?id=components-dotcom-shell--default&cc=aw&lc=en"><link rel="alternate" hreflang="en-bb" href="iframe.html?id=components-dotcom-shell--default&cc=bb&lc=en"><link rel="alternate" hreflang="en-bm" href="iframe.html?id=components-dotcom-shell--default&cc=bm&lc=en"><link rel="alternate" hreflang="en-bs" href="iframe.html?id=components-dotcom-shell--default&cc=bs&lc=en"><link rel="alternate" hreflang="en-ca" href="iframe.html?id=components-dotcom-shell--default&cc=ca&lc=en"><link rel="alternate" hreflang="en-cw" href="iframe.html?id=components-dotcom-shell--default&cc=cw&lc=en"><link rel="alternate" hreflang="en-dm" href="iframe.html?id=components-dotcom-shell--default&cc=dm&lc=en"><link rel="alternate" hreflang="en-gd" href="iframe.html?id=components-dotcom-shell--default&cc=gd&lc=en"><link rel="alternate" hreflang="en-gy" href="iframe.html?id=components-dotcom-shell--default&cc=gy&lc=en"><link rel="alternate" hreflang="en-jm" href="iframe.html?id=components-dotcom-shell--default&cc=jm&lc=en"><link rel="alternate" hreflang="en-ky" href="iframe.html?id=components-dotcom-shell--default&cc=ky&lc=en"><link rel="alternate" hreflang="en-ms" href="iframe.html?id=components-dotcom-shell--default&cc=ms&lc=en"><link rel="alternate" hreflang="en-tc" href="iframe.html?id=components-dotcom-shell--default&cc=tc&lc=en"><link rel="alternate" hreflang="en-tt" href="iframe.html?id=components-dotcom-shell--default&cc=tt&lc=en"><link rel="alternate" hreflang="en-us" href="iframe.html?id=components-dotcom-shell--default&cc=us&lc=en"><link rel="alternate" hreflang="en-vc" href="iframe.html?id=components-dotcom-shell--default&cc=vc&lc=en"><link rel="alternate" hreflang="en-vg" href="iframe.html?id=components-dotcom-shell--default&cc=vg&lc=en"><link rel="alternate" hreflang="es-ar" href="iframe.html?id=components-dotcom-shell--default&cc=ar&lc=es"><link rel="alternate" hreflang="es-bo" href="iframe.html?id=components-dotcom-shell--default&cc=bo&lc=es"><link rel="alternate" hreflang="es-cl" href="iframe.html?id=components-dotcom-shell--default&cc=cl&lc=es"><link rel="alternate" hreflang="es-co" href="iframe.html?id=components-dotcom-shell--default&cc=co&lc=es"><link rel="alternate" hreflang="es-cr" href="iframe.html?id=components-dotcom-shell--default&cc=cr&lc=es"><link rel="alternate" hreflang="es-ec" href="iframe.html?id=components-dotcom-shell--default&cc=ec&lc=es"><link rel="alternate" hreflang="es-mx" href="iframe.html?id=components-dotcom-shell--default&cc=mx&lc=es"><link rel="alternate" hreflang="es-pe" href="iframe.html?id=components-dotcom-shell--default&cc=pe&lc=es"><link rel="alternate" hreflang="es-py" href="iframe.html?id=components-dotcom-shell--default&cc=py&lc=es"><link rel="alternate" hreflang="es-uy" href="iframe.html?id=components-dotcom-shell--default&cc=uy&lc=es"><link rel="alternate" hreflang="es-ve" href="iframe.html?id=components-dotcom-shell--default&cc=ve&lc=es"><link rel="alternate" hreflang="fr-ca" href="iframe.html?id=components-dotcom-shell--default&cc=ca&lc=fr"><link rel="alternate" hreflang="pt-br" href="iframe.html?id=components-dotcom-shell--default&cc=br&lc=pt"><link rel="alternate" hreflang="x-defult" href="iframe.html?id=components-dotcom-shell--default&cc=us&lc=en"><link rel="alternate" hreflang="en-au" href="iframe.html?id=components-dotcom-shell--default&cc=au&lc=en"><link rel="alternate" hreflang="en-bd" href="iframe.html?id=components-dotcom-shell--default&cc=bd&lc=en"><link rel="alternate" hreflang="en-hk" href="iframe.html?id=components-dotcom-shell--default&cc=hk&lc=en"><link rel="alternate" hreflang="en-id" href="iframe.html?id=components-dotcom-shell--default&cc=id&lc=en"><link rel="alternate" hreflang="en-in" href="iframe.html?id=components-dotcom-shell--default&cc=in&lc=en"><link rel="alternate" hreflang="en-kh" href="iframe.html?id=components-dotcom-shell--default&cc=kh&lc=en"><link rel="alternate" hreflang="en-kn" href="iframe.html?id=components-dotcom-shell--default&cc=kn&lc=en"><link rel="alternate" hreflang="en-lc" href="iframe.html?id=components-dotcom-shell--default&cc=lc&lc=en"><link rel="alternate" hreflang="en-lk" href="iframe.html?id=components-dotcom-shell--default&cc=lk&lc=en"><link rel="alternate" hreflang="en-my" href="iframe.html?id=components-dotcom-shell--default&cc=my&lc=en"><link rel="alternate" hreflang="en-np" href="iframe.html?id=components-dotcom-shell--default&cc=np&lc=en"><link rel="alternate" hreflang="en-nz" href="iframe.html?id=components-dotcom-shell--default&cc=nz&lc=en"><link rel="alternate" hreflang="en-ph" href="iframe.html?id=components-dotcom-shell--default&cc=ph&lc=en"><link rel="alternate" hreflang="en-sg" href="iframe.html?id=components-dotcom-shell--default&cc=sg&lc=en"><link rel="alternate" hreflang="en-th" href="iframe.html?id=components-dotcom-shell--default&cc=th&lc=en"><link rel="alternate" hreflang="en-vn" href="iframe.html?id=components-dotcom-shell--default&cc=vn&lc=en"><link rel="alternate" hreflang="ja-jp" href="iframe.html?id=components-dotcom-shell--default&cc=jp&lc=ja"><link rel="alternate" hreflang="ko-kr" href="iframe.html?id=components-dotcom-shell--default&cc=kr&lc=ko"><link rel="alternate" hreflang="zh-cn" href="iframe.html?id=components-dotcom-shell--default&cc=cn&lc=zh"><link rel="alternate" hreflang="zh-tw" href="iframe.html?id=components-dotcom-shell--default&cc=tw&lc=zh"><link rel="alternate" hreflang="ar-ae" href="iframe.html?id=components-dotcom-shell--default&cc=ae&lc=ar"><link rel="alternate" hreflang="ar-sa" href="iframe.html?id=components-dotcom-shell--default&cc=sa&lc=ar"><link rel="alternate" hreflang="en-ae" href="iframe.html?id=components-dotcom-shell--default&cc=ae&lc=en"><link rel="alternate" hreflang="en-af" href="iframe.html?id=components-dotcom-shell--default&cc=af&lc=en"><link rel="alternate" hreflang="en-bh" href="iframe.html?id=components-dotcom-shell--default&cc=bh&lc=en"><link rel="alternate" hreflang="en-bn" href="iframe.html?id=components-dotcom-shell--default&cc=bn&lc=en"><link rel="alternate" hreflang="en-bw" href="iframe.html?id=components-dotcom-shell--default&cc=bw&lc=en"><link rel="alternate" hreflang="en-eg" href="iframe.html?id=components-dotcom-shell--default&cc=eg&lc=en"><link rel="alternate" hreflang="en-et" href="iframe.html?id=components-dotcom-shell--default&cc=et&lc=en"><link rel="alternate" hreflang="en-gh" href="iframe.html?id=components-dotcom-shell--default&cc=gh&lc=en"><link rel="alternate" hreflang="en-il" href="iframe.html?id=components-dotcom-shell--default&cc=il&lc=en"><link rel="alternate" hreflang="en-iq" href="iframe.html?id=components-dotcom-shell--default&cc=iq&lc=en"><link rel="alternate" hreflang="en-jo" href="iframe.html?id=components-dotcom-shell--default&cc=jo&lc=en"><link rel="alternate" hreflang="en-ke" href="iframe.html?id=components-dotcom-shell--default&cc=ke&lc=en"><link rel="alternate" hreflang="en-kw" href="iframe.html?id=components-dotcom-shell--default&cc=kw&lc=en"><link rel="alternate" hreflang="en-lb" href="iframe.html?id=components-dotcom-shell--default&cc=lb&lc=en"><link rel="alternate" hreflang="en-ly" href="iframe.html?id=components-dotcom-shell--default&cc=ly&lc=en"><link rel="alternate" hreflang="en-mw" href="iframe.html?id=components-dotcom-shell--default&cc=mw&lc=en"><link rel="alternate" hreflang="en-na" href="iframe.html?id=components-dotcom-shell--default&cc=na&lc=en"><link rel="alternate" hreflang="en-ng" href="iframe.html?id=components-dotcom-shell--default&cc=ng&lc=en"><link rel="alternate" hreflang="en-om" href="iframe.html?id=components-dotcom-shell--default&cc=om&lc=en"><link rel="alternate" hreflang="en-pk" href="iframe.html?id=components-dotcom-shell--default&cc=pk&lc=en"><link rel="alternate" hreflang="en-qa" href="iframe.html?id=components-dotcom-shell--default&cc=qa&lc=en"><link rel="alternate" hreflang="en-sa" href="iframe.html?id=components-dotcom-shell--default&cc=sa&lc=en"><link rel="alternate" hreflang="en-sl" href="iframe.html?id=components-dotcom-shell--default&cc=sl&lc=en"><link rel="alternate" hreflang="en-sr" href="iframe.html?id=components-dotcom-shell--default&cc=sr&lc=en"><link rel="alternate" hreflang="en-tz" href="iframe.html?id=components-dotcom-shell--default&cc=tz&lc=en"><link rel="alternate" hreflang="en-ug" href="iframe.html?id=components-dotcom-shell--default&cc=ug&lc=en"><link rel="alternate" hreflang="en-ye" href="iframe.html?id=components-dotcom-shell--default&cc=ye&lc=en"><link rel="alternate" hreflang="en-za" href="iframe.html?id=components-dotcom-shell--default&cc=za&lc=en"><link rel="alternate" hreflang="en-zm" href="iframe.html?id=components-dotcom-shell--default&cc=zm&lc=en"><link rel="alternate" hreflang="en-zw" href="iframe.html?id=components-dotcom-shell--default&cc=zw&lc=en"><link rel="alternate" hreflang="fr-bf" href="iframe.html?id=components-dotcom-shell--default&cc=bf&lc=fr"><link rel="alternate" hreflang="fr-cd" href="iframe.html?id=components-dotcom-shell--default&cc=cd&lc=fr"><link rel="alternate" hreflang="fr-cg" href="iframe.html?id=components-dotcom-shell--default&cc=cg&lc=fr"><link rel="alternate" hreflang="fr-ci" href="iframe.html?id=components-dotcom-shell--default&cc=ci&lc=fr"><link rel="alternate" hreflang="fr-cm" href="iframe.html?id=components-dotcom-shell--default&cc=cm&lc=fr"><link rel="alternate" hreflang="fr-dz" href="iframe.html?id=components-dotcom-shell--default&cc=dz&lc=fr"><link rel="alternate" hreflang="fr-ga" href="iframe.html?id=components-dotcom-shell--default&cc=ga&lc=fr"><link rel="alternate" hreflang="fr-ma" href="iframe.html?id=components-dotcom-shell--default&cc=ma&lc=fr"><link rel="alternate" hreflang="fr-mg" href="iframe.html?id=components-dotcom-shell--default&cc=mg&lc=fr"><link rel="alternate" hreflang="fr-mu" href="iframe.html?id=components-dotcom-shell--default&cc=mu&lc=fr"><link rel="alternate" hreflang="fr-ne" href="iframe.html?id=components-dotcom-shell--default&cc=ne&lc=fr"><link rel="alternate" hreflang="fr-sc" href="iframe.html?id=components-dotcom-shell--default&cc=sc&lc=fr"><link rel="alternate" hreflang="fr-sn" href="iframe.html?id=components-dotcom-shell--default&cc=sn&lc=fr"><link rel="alternate" hreflang="fr-td" href="iframe.html?id=components-dotcom-shell--default&cc=td&lc=fr"><link rel="alternate" hreflang="fr-tn" href="iframe.html?id=components-dotcom-shell--default&cc=tn&lc=fr"><link rel="alternate" hreflang="pt-ao" href="iframe.html?id=components-dotcom-shell--default&cc=ao&lc=pt"><link rel="alternate" hreflang="pt-mz" href="iframe.html?id=components-dotcom-shell--default&cc=mz&lc=pt"><link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/themes.css"><script>window.digitalData = window.digitalData || {
     page: {
       category: {
         primaryCategory: '',
@@ -130,4 +400,24 @@
   }</style><style>#root[hidden],
       #docs-root[hidden] {
         display: none !important;
-      }</style></head><body><div class="sb-nopreview sb-wrapper"><div class="sb-nopreview_main"><h1 class="sb-nopreview_heading sb-heading">No Preview</h1><p>Sorry, but you either have no stories or none are selected somehow.</p><ul><li>Please check the Storybook config.</li><li>Try reloading the page.</li></ul><p>If the problem persists, check the browser console, or the terminal you've run Storybook from.</p></div></div><div class="sb-errordisplay sb-wrapper"><pre id="error-message" class="sb-heading"></pre><pre class="sb-errordisplay_code"><code id="error-stack"></code></pre></div><div id="root"></div><div id="docs-root"></div><script src="runtime~main.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~493df0b3.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~9722bd1d.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~b06fc878.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~83adc5b3.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~14a00a11.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~f1c385b6.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~5a7020ff.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~7785363a.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~31bdc912.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~7dc9af61.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~8b0e3bab.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~0f1ee03e.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~061fc00e.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~59165b02.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~7e637bf3.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~69092965.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~196bd92f.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~723a339f.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~598291c7.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~33da95a2.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~ed7c6e94.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~45b6c34d.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~5b0bcb4a.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~a353122d.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~4db64d31.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~041b8ad5.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~361f037c.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~afc82783.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~d22b2c9c.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~7bbec8b8.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~bdc480fb.78556c5c89151f3aa9eb.bundle.js"></script><script src="vendors~main~73424ab8.78556c5c89151f3aa9eb.bundle.js"></script><script src="main~493df0b3.78556c5c89151f3aa9eb.bundle.js"></script><script src="main~51699ebf.78556c5c89151f3aa9eb.bundle.js"></script><script src="main~c98f95f3.78556c5c89151f3aa9eb.bundle.js"></script><script src="main~dcdef632.78556c5c89151f3aa9eb.bundle.js"></script><script src="main~c05f84c2.78556c5c89151f3aa9eb.bundle.js"></script><script src="main~b59217a9.78556c5c89151f3aa9eb.bundle.js"></script><script src="main~ad45398f.78556c5c89151f3aa9eb.bundle.js"></script><script src="main~25bf6133.78556c5c89151f3aa9eb.bundle.js"></script><script src="main~e8f40822.78556c5c89151f3aa9eb.bundle.js"></script><script src="main~432c8694.78556c5c89151f3aa9eb.bundle.js"></script><script src="main~49389370.78556c5c89151f3aa9eb.bundle.js"></script></body></html>
+      }</style></head><body><div class="sb-preparing-story sb-wrapper"><div class="sb-loader"></div></div><div class="sb-preparing-docs sb-wrapper"><div class="sb-previewBlock"><div class="sb-previewBlock_header"><div class="sb-previewBlock_icon"></div><div class="sb-previewBlock_icon"></div><div class="sb-previewBlock_icon"></div><div class="sb-previewBlock_icon"></div></div><div class="sb-previewBlock_body"><div class="sb-loader"></div></div></div><table aria-hidden="true" class="sb-argstableBlock"><thead class="sb-argstableBlock-head"><tr><th><span>Name</span></th><th><span>Description</span></th><th><span>Default</span></th><th><span>Control</span></th></tr></thead><tbody class="sb-argstableBlock-body"><tr><td><span>propertyName</span><span title="Required">*</span></td><td><div><span>This is a short description</span></div><div class="sb-argstableBlock-summary"><div><span class="sb-argstableBlock-code">summary</span></div></div></td><td><div><span class="sb-argstableBlock-code">defaultValue</span></div></td><td><button>Set string</button></td></tr><tr><td><span>propertyName</span><span>*</span></td><td><div><span>This is a short description</span></div><div class="sb-argstableBlock-summary"><div><span class="sb-argstableBlock-code">summary</span></div></div></td><td><div><span class="sb-argstableBlock-code">defaultValue</span></div></td><td><button>Set string</button></td></tr><tr><td><span>propertyName</span><span>*</span></td><td><div><span>This is a short description</span></div><div class="sb-argstableBlock-summary"><div><span class="sb-argstableBlock-code">summary</span></div></div></td><td><div><span class="sb-argstableBlock-code">defaultValue</span></div></td><td><button>Set string</button></td></tr></tbody></table></div><div class="sb-nopreview sb-wrapper"><div class="sb-nopreview_main"><h1 class="sb-nopreview_heading sb-heading">No Preview</h1><p>Sorry, but you either have no stories or none are selected somehow.</p><ul><li>Please check the Storybook config.</li><li>Try reloading the page.</li></ul><p>If the problem persists, check the browser console, or the terminal you've run Storybook from.</p></div></div><div class="sb-errordisplay sb-wrapper"><pre id="error-message" class="sb-heading"></pre><pre class="sb-errordisplay_code"><code id="error-stack"></code></pre></div><div id="root"></div><div id="docs-root"></div><script>window['CONFIG_TYPE'] = "PRODUCTION";
+          
+      
+          
+            window['LOGLEVEL'] = "info";
+          
+      
+          
+            window['FRAMEWORK_OPTIONS'] = {};
+          
+      
+          
+      
+          
+            window['FEATURES'] = {"postcss":true,"emotionAlias":false,"warnOnLegacyHierarchySeparator":true,"buildStoriesJson":false,"storyStoreV7":false,"modernInlineRender":false,"breakingChangesV7":false,"interactionsDebugger":false,"babelModeV7":false,"argTypeTargetsV7":false,"previewMdx2":false};
+          
+      
+          
+      
+          
+            window['STORIES'] = [{"titlePrefix":"","directory":"./docs","files":"*.mdx","importPathMatcher":"^\\.[\\\\/](?:docs\\/(?!\\.)(?=.)[^/]*?\\.mdx)$"},{"titlePrefix":"","directory":"./src","files":"**/*.stories.js","importPathMatcher":"^\\.[\\\\/](?:src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.js)$"},{"titlePrefix":"","directory":"./src","files":"**/*.stories.mdx","importPathMatcher":"^\\.[\\\\/](?:src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.mdx)$"}];</script><script src="runtime~main.396b82ed.iframe.bundle.js"></script><script src="vendors~main~2c73ae97.5a8089c3.iframe.bundle.js"></script><script src="vendors~main~8f89dc1d.c64d35f4.iframe.bundle.js"></script><script src="vendors~main~b06fc878.70700706.iframe.bundle.js"></script><script src="vendors~main~14a00a11.d49935ba.iframe.bundle.js"></script><script src="vendors~main~f1c385b6.b5353f10.iframe.bundle.js"></script><script src="vendors~main~5a7020ff.9a5c88e8.iframe.bundle.js"></script><script src="vendors~main~7785363a.17a68b50.iframe.bundle.js"></script><script src="vendors~main~31bdc912.facf28d6.iframe.bundle.js"></script><script src="vendors~main~7dc9af61.250223e1.iframe.bundle.js"></script><script src="vendors~main~8b0e3bab.7c49270e.iframe.bundle.js"></script><script src="vendors~main~0f1ee03e.d4afc201.iframe.bundle.js"></script><script src="vendors~main~061fc00e.26159475.iframe.bundle.js"></script><script src="vendors~main~59165b02.072b0cf6.iframe.bundle.js"></script><script src="vendors~main~7e637bf3.efbcd818.iframe.bundle.js"></script><script src="vendors~main~69092965.70de87c3.iframe.bundle.js"></script><script src="vendors~main~196bd92f.e0389d2d.iframe.bundle.js"></script><script src="vendors~main~723a339f.c755a474.iframe.bundle.js"></script><script src="vendors~main~598291c7.9273c306.iframe.bundle.js"></script><script src="vendors~main~33da95a2.cddc0d79.iframe.bundle.js"></script><script src="vendors~main~45b6c34d.935cc788.iframe.bundle.js"></script><script src="vendors~main~dd551892.64287884.iframe.bundle.js"></script><script src="vendors~main~5b0bcb4a.586a0698.iframe.bundle.js"></script><script src="vendors~main~a353122d.0e86c29f.iframe.bundle.js"></script><script src="vendors~main~a67cd57f.4e3f1030.iframe.bundle.js"></script><script src="vendors~main~041b8ad5.2bca6211.iframe.bundle.js"></script><script src="vendors~main~d88e64ba.4d83e0e6.iframe.bundle.js"></script><script src="vendors~main~bdc480fb.b9f361bf.iframe.bundle.js"></script><script src="vendors~main~6bfcf475.c58c14d9.iframe.bundle.js"></script><script src="vendors~main~8dcafd2e.620c0e9e.iframe.bundle.js"></script><script src="main~493df0b3.8341f9c1.iframe.bundle.js"></script><script src="main~51699ebf.e9cdf122.iframe.bundle.js"></script><script src="main~7181f674.44f8bd89.iframe.bundle.js"></script><script src="main~17c351d0.60b2e0bd.iframe.bundle.js"></script><script src="main~b8f0d581.4db5ad44.iframe.bundle.js"></script><script src="main~dcdef632.386d2a61.iframe.bundle.js"></script><script src="main~c05f84c2.c448858e.iframe.bundle.js"></script><script src="main~5f02d9f4.9ad5bed3.iframe.bundle.js"></script><script src="main~8767ba48.1279d730.iframe.bundle.js"></script><script src="main~276aeded.58f7da27.iframe.bundle.js"></script><script src="main~b59217a9.0005b121.iframe.bundle.js"></script><script src="main~25bf6133.f3964f23.iframe.bundle.js"></script><script src="main~e8f40822.ea41f728.iframe.bundle.js"></script><script src="main~76ba48e6.945cdc00.iframe.bundle.js"></script><script src="main~432c8694.f1189757.iframe.bundle.js"></script></body></html>
