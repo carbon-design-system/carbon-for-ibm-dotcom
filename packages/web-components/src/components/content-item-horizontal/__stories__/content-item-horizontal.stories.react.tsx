@@ -82,9 +82,9 @@ const bodyCopyWithFeaturedMedia = `Lorem ipsum *dolor* sit amet, [consectetur
   iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
   nulla quis,consequat libero.`;
 
-export const Default = ({ parameters }) => {
-  const { eyebrow, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
-    parameters?.props?.ContentItemHorizontal ?? {};
+export const Default = args => {
+  const { eyebrow, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } = args?.ContentItemHorizontal ?? {};
+
   return (
     <DDSContentItemHorizontal>
       <DDSContentItemHorizontalEyebrow>{eyebrow}</DDSContentItemHorizontalEyebrow>
@@ -121,9 +121,8 @@ Default.story = {
   },
 };
 
-export const withThumbnail = ({ parameters }) => {
-  const { alt, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
-    parameters?.props?.ContentItemHorizontal ?? {};
+export const withThumbnail = args => {
+  const { alt, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } = args?.ContentItemHorizontal ?? {};
   return (
     <DDSContentItemHorizontal thumbnail>
       <DDSContentItemHeading>{heading}</DDSContentItemHeading>
@@ -161,9 +160,9 @@ withThumbnail.story = {
   },
 };
 
-export const withMedia = ({ parameters }) => {
+export const withMedia = args => {
   const { align, type, alt, heading, eyebrow, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
-    parameters?.props?.ContentItemHorizontal ?? {};
+    args?.ContentItemHorizontal ?? {};
   return (
     <DDSContentItemHorizontalMedia align={align}>
       {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt={alt || undefined} default-src={imgLg16x9}></DDSImage> : ''}
@@ -210,8 +209,8 @@ withMedia.story = {
   },
 };
 
-export const withFeaturedMedia = ({ parameters }) => {
-  const { type, alt, heading, eyebrow, copy, ctaCopy1, ctaCopy2 } = parameters?.props?.ContentItemHorizontal ?? {};
+export const withFeaturedMedia = args => {
+  const { type, alt, heading, eyebrow, copy, ctaCopy1, ctaCopy2 } = args?.ContentItemHorizontal ?? {};
   return (
     <DDSContentItemHorizontalMediaFeatured>
       {type === MEDIA_TYPE.IMAGE ? (

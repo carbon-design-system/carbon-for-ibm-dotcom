@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.38.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.38.0-rc.0...@carbon/ibmdotcom-styles@1.38.0) (2022-09-13)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.38.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.37.0...@carbon/ibmdotcom-styles@1.38.0-rc.0) (2022-08-29)
+
+
+### Bug Fixes
+
+* **callout-with-media-image:** constrain image width ([#9216](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9216)) ([320b30a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/320b30afd62521c65497aa785f70c9b1c09ccb4c))
+* **logo-grid:** adding bottom margin to logo-grid-item, resolves [#9005](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9005) ([#9100](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9100)) ([50c2321](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/50c23215f40baadc5f84713c1ac1063684fd63e4))
+
+
+
+
+
 # [1.37.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.37.0-rc.1...@carbon/ibmdotcom-styles@1.37.0) (2022-08-17)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

@@ -9,6 +9,7 @@
 
 import { html } from 'lit-element';
 import '../index';
+import '../../content-block-media/index';
 import '../../card-group/index';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
@@ -28,8 +29,8 @@ const copy = `Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
   Curabitur pretium elit non blandit lobortis.
   Donec quis pretium odio, in dignissim sapien.`;
 
-export const Default = ({ parameters }) => {
-  const { orientation } = parameters?.props?.TabsExtended ?? {};
+export const Default = args => {
+  const { orientation } = args?.TabsExtended ?? {};
   return html`
     <dds-tabs-extended orientation="${ifNonNull(orientation)}">
       <dds-tab
@@ -44,9 +45,9 @@ export const Default = ({ parameters }) => {
 
           <dds-card-link-cta slot="footer" href="https://example.com">
             <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
-            <dds-card-footer>
+            <dds-card-cta-footer>
               ${ArrowRight20({ slot: 'icon' })}
-            </dds-card-footer>
+            </dds-card-cta-footer>
           </dds-card-link-cta>
         </dds-content-block-media-content>
       </dds-tab>
@@ -88,8 +89,8 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      TabsExtended: ({ groupId }) => ({
-        orientation: select('Orientation (orientation):', orientationType, ORIENTATION.HORIZONTAL, groupId),
+      TabsExtended: () => ({
+        orientation: select('Orientation (orientation):', orientationType, ORIENTATION.HORIZONTAL),
       }),
     },
     propsSet: {

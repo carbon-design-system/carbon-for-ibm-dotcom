@@ -9,9 +9,11 @@
 
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { select } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
+import '../../content-item-horizontal/index';
+import '../../image/index';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-horizontal/defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -26,8 +28,8 @@ const mediaType = {
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
 
-export const Default = ({ parameters }) => {
-  const { sectionHeading, align, type } = parameters?.props?.TabsExtendedWithMedia ?? {};
+export const Default = args => {
+  const { sectionHeading, sectionHeadingText, align, type } = args?.TabsExtendedWithMedia ?? {};
   const tabs: any[] = [];
 
   for (let i = 1; i < 5; i++) {
@@ -61,8 +63,8 @@ export const Default = ({ parameters }) => {
   }
 
   return html`
-    <dds-tabs-extended-media>
-      <dds-content-section-heading>${ifNonNull(sectionHeading)}</dds-content-section-heading>
+    <dds-tabs-extended-media section-heading=${sectionHeading}>
+      <dds-content-section-heading>${ifNonNull(sectionHeadingText)}</dds-content-section-heading>
       ${tabs}
     </dds-tabs-extended-media>
   `;
@@ -71,11 +73,16 @@ export const Default = ({ parameters }) => {
 Default.story = {
   parameters: {
     knobs: {
-      TabsExtendedWithMedia: () => ({
-        sectionHeading: textNullable('Heading', 'Section heading'),
-        align: select('Alignment (align)', mediaAlign, MEDIA_ALIGN.LEFT),
-        type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
-      }),
+      TabsExtendedWithMedia: () => {
+        const sectionHeading = boolean('Section heading', true);
+        const sectionHeadingText = sectionHeading && textNullable('Heading', 'Section heading');
+        return {
+          sectionHeading,
+          sectionHeadingText,
+          align: select('Alignment (align)', mediaAlign, MEDIA_ALIGN.LEFT),
+          type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
+        };
+      },
     },
     propsSet: {
       default: {
@@ -92,10 +99,10 @@ Default.story = {
 export default {
   title: 'Components/Tabs extended - with media',
   decorators: [
-    story => html`
+    (story, { args }) => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-lg-16 bx--no-gutter">
+          <div class="${args?.TabsExtendedWithMedia?.sectionHeading ? `bx--col-lg-16` : `bx--col-lg-12`} bx--no-gutter">
             ${story()}
           </div>
         </div>

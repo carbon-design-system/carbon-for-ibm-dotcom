@@ -1,0 +1,60 @@
+# Layout
+
+> The Layout style mixins and classes are to be utilized within IBM.com for
+> various abstract layout configurations.
+
+## Getting started
+
+Here's a quick example to get you started.
+
+##### CSS
+
+```css
+// yourapplication.scss
+@import '@carbon/grid/scss/grid.scss';
+@import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
+```
+
+##### JS
+
+```js
+function App() {
+  return (
+    <div className="bx--grid bx--layout--top-layout-03 bx--layout--bottom-layout-06">
+      <div className="bx--row">
+        <div className="bx--layout-1-3">
+          <div className="bx--layout--sticky" style={{ top: '50px' }}>
+            <h3>Column 1 (layout 1-3)</h3>
+            <p style={{ 'padding-bottom': '1rem' }}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+              aliqua. Ac turpis egestas maecenas pharetra convallis posuere.
+            </p>
+          </div>
+        </div>
+        <div className="bx--layout-2-3">
+          <div>
+            <h3>Column 2</h3>
+            <p style={{ 'padding-bottom': '1rem' }}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+              aliqua. Ac turpis egestas maecenas pharetra convallis posuere.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+#### Modifiers
+
+Use these modifiers with `.bx--layout` class.
+
+| Class                                                              | Description             |
+| ------------------------------------------------------------------ | ----------------------- |
+| `.bx--layout--top-layout-01` to `.bx--layout--top-layout-07`       | Top spacing modifier    |
+| `.bx--layout--bottom-layout-01` to `.bx--layout--bottom-layout-07` | Bottom spacing modifier |
+| `.bx--layout--border`                                              | Border modifier         |
+| `.bx--layout--sticky`                                              | Sticky column modifier  |
+| `.bx--layout-2-3`                                                  | 2-3 column modifier     |
+| `.bx--layout-1-3`                                                  | 1-3 column modifier     |
