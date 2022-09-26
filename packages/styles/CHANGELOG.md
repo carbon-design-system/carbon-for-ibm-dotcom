@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.39.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.38.0-rc.0...@carbon/ibmdotcom-styles@1.39.0-rc.0) (2022-09-26)
+
+
+### Bug Fixes
+
+* **link-list:** ensure icon stays on top ([#9405](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9405)) ([1c411ea](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1c411ea2c20b8b56120e3865eeaeb62d121181aa)), closes [#8977](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8977)
+* **toc:** update sm spacing ([#9306](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9306)) ([89ee480](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/89ee480491a5810ffe47da29d349031cc2b48401)), closes [#8976](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8976)
+
+
+
+
+
 # [1.38.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.38.0-rc.0...@carbon/ibmdotcom-styles@1.38.0) (2022-09-13)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
