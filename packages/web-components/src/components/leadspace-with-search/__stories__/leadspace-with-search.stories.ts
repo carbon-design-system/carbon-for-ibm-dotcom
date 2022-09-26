@@ -38,6 +38,11 @@ observer.observe(htmlElement, { attributes: true });
 export const Default = args => {
   const { theme, heading, subheading, paragraph } = args?.LeadspaceWithSearch ?? {};
   const secondTheme = theme.split('-')[2];
+  const subheadingComponent = document.querySelector('dds-leadspace-with-search-content-heading');
+
+  if (subheadingComponent) {
+    subheadingComponent!.shadowRoot!.innerHTML = subheading;
+  }
   return html`
     <dds-leadspace-with-search adjacent-theme="${theme}">
       <dds-leadspace-with-search-heading>${heading}</dds-leadspace-with-search-heading>
@@ -56,6 +61,13 @@ export const Default = args => {
 export const WithImage = args => {
   const { theme, heading, subheading, paragraph } = args?.LeadspaceWithSearch ?? {};
   const secondTheme = theme.split('-')[2];
+
+  const subheadingComponent = document.querySelector('dds-leadspace-with-search-content-heading');
+
+  if (subheadingComponent) {
+    subheadingComponent!.shadowRoot!.innerHTML = subheading;
+  }
+
   return html`
     <dds-leadspace-with-search adjacent-theme="${theme}">
       <dds-background-media gradient-direction="left-to-right" mobile-position="bottom" default-src="${image}" slot="image">
@@ -108,7 +120,7 @@ export default {
     knobs: {
       LeadspaceWithSearch: () => ({
         heading: text('Heading:', 'Find a product'),
-        subheading: 'Innovate like a startup, scale for the enterprise',
+        subheading: text('Subheading', 'Innovate like a startup, scale for the enterprise'),
         paragraph: text('Paragraph:', ''),
         theme: select(`Adjacent theme`, adjacentThemes, adjacentThemes.Monotheme) ?? 0,
       }),
