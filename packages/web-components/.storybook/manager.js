@@ -15,6 +15,7 @@ addons.setConfig({
 const CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR = `
 button[id^="components-pricing-table"],
 button[id^="components-content-block-headlines"],
+button[id^="components-masthead-with-scoped-search"],
 button[id^="components-cloud-masthead"],
 button[id^="components-content-block-card-static"] {
   display: none !important
@@ -23,6 +24,7 @@ button[id^="components-content-block-card-static"] {
 
 if (
   process.env.DDS_FLAGS_ALL ||
+  process.env.DDS_SCOPED_SEARCH ||
   process.env.DDS_CLOUD_MASTHEAD ||
   process.env.DDS_CONTENT_BLOCK_HEADLINES ||
   process.env.DDS_CONTENT_BLOCK_CARD_STATIC ||
