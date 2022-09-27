@@ -94,8 +94,8 @@ export default {
     gridContentClasses: 'bx--col-lg-8',
     hasStoryPadding: true,
     knobs: {
-      ContentBlockMixed: ({ groupId }) => ({
-        heading: textNullable('Heading (heading)', 'Lorem ipsum dolor sit amet', groupId),
+      ContentBlockMixed: () => ({
+        heading: textNullable('Heading (heading)', 'Lorem ipsum dolor sit amet'),
         copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
           Phasellus at elit sollicitudin, sodales nulla quis, consequat
@@ -105,10 +105,9 @@ export default {
           `,
         cardsGroupHeading: textNullable(
           'Cards group heading (heading)',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          groupId
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
         ),
-        ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId),
+        ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
       }),
     },
     propsSet: {
@@ -130,8 +129,8 @@ export default {
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { heading, copy: groupCopy, cardsGroupHeading, ctaType } = parameters?.props?.ContentBlockMixed ?? {};
+export const Default = args => {
+  const { heading, copy: groupCopy, cardsGroupHeading, ctaType } = args?.ContentBlockMixed ?? {};
   return html`
     <dds-content-block-mixed>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
@@ -217,9 +216,9 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const WithLinkList = ({ parameters }) => {
+export const WithLinkList = args => {
   const { heading, copy: groupCopy, cardsGroupHeading, complementaryStyleScheme, ctaType, linkListHeading } =
-    parameters?.props?.ContentBlockMixed ?? {};
+    args?.ContentBlockMixed ?? {};
   return html`
     <dds-content-block-mixed complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
@@ -321,8 +320,8 @@ WithLinkList.story = {
   parameters: {
     gridContentClasses: 'bx--col-lg-12',
     knobs: {
-      ContentBlockMixed: ({ groupId }) => ({
-        heading: textNullable('Heading (heading)', 'Lorem ipsum dolor sit amet', groupId),
+      ContentBlockMixed: () => ({
+        heading: textNullable('Heading (heading)', 'Lorem ipsum dolor sit amet'),
         copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
           Phasellus at elit sollicitudin, sodales nulla quis, consequat
@@ -332,16 +331,14 @@ WithLinkList.story = {
           `,
         cardsGroupHeading: textNullable(
           'Cards group heading (heading)',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          groupId
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
         ),
-        ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId),
-        linkListHeading: textNullable('Link list heading (heading)', 'Tutorials', groupId),
+        ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
+        linkListHeading: textNullable('Link list heading (heading)', 'Tutorials'),
         complementaryStyleScheme: select(
           'Complementary style scheme (complementary-style-scheme)',
           complementaryStyleSchemes,
-          null,
-          groupId
+          null
         ),
       }),
     },
