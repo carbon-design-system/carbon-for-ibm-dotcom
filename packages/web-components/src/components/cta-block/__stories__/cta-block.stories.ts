@@ -27,40 +27,51 @@ const iconMap = {
 };
 
 const iconOptions = {
-  Default: null,
   'Arrow Right': 'ArrowRight20',
   'External Launch': 'Launch20',
 };
 
-const contentItemTypeMap = {
-  text: ({ heading, copy, links }) => html`
-    <dds-cta-block-item>
-      <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
-      ${links.map(
-        elem =>
-          html`
-            <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="${elem.href}">${elem.copy}</dds-text-cta>
-          `
-      )}
-    </dds-cta-block-item>
+const renderCTA = {
+  text: renderIcon => html`
+    <dds-text-cta slot="action" cta-type=${renderIcon === iconMap.Launch20 ? 'external' : 'local'} href="https://example.com"
+      >CTA text link</dds-text-cta
+    >
   `,
-  button: ({ heading, copy }) => html`
-    <dds-cta-block-item>
-      <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
-      <dds-button-group slot="footer">
-        <dds-button-cta cta-type="local">Button 1</dds-button-cta>
-        <dds-button-cta cta-type="local">Button 2</dds-button-cta>
-      </dds-button-group>
-    </dds-cta-block-item>
+  button: renderIcon => html`
+    <dds-button-cta slot="action" cta-type=${renderIcon === iconMap.Launch20 ? 'external' : 'local'} href="https://example.com"
+      >CTA Button link</dds-button-cta
+    >
+  `,
+  buttonGroup: (renderIcon, target) => html`
+    <dds-button-group slot="action">
+      <dds-button-group-item target="${target}" href="https://example.com">
+        Secondary Button ${renderIcon}
+      </dds-button-group-item>
+      <dds-button-group-item target="${target}" href="https://example.com">
+        Primary button ${renderIcon}
+      </dds-button-group-item>
+    </dds-button-group>
   `,
 };
 
-const contentItemTypeOptions = {
+const ctaTypeOptions = {
   Text: 'text',
   Button: 'button',
+  'Button group': 'buttonGroup',
 };
+
+const contentItemTextCTA = ({ heading, copy, links }) => html`
+  <dds-cta-block-item>
+    <dds-content-item-heading>${heading}</dds-content-item-heading>
+    <dds-content-item-copy>${copy}</dds-content-item-copy>
+    ${links.map(
+      elem =>
+        html`
+          <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="${elem.href}">${elem.copy}</dds-text-cta>
+        `
+    )}
+  </dds-cta-block-item>
+`;
 
 const renderItems = (item, count) => {
   return html`
@@ -70,46 +81,41 @@ const renderItems = (item, count) => {
   `;
 };
 
-export const Default = ({ parameters }) => {
-  const { heading, border, copy, renderIcon } = parameters?.props?.CTABlock ?? {};
+export const Default = args => {
+  const { heading, border, copy, renderIcon, cta } = args?.CTABlock ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
+
+  const headingComponent = document.querySelector('dds-content-block-heading');
+
+  if (headingComponent) {
+    headingComponent!.shadowRoot!.innerHTML = heading;
+  }
 
   return html`
     <dds-cta-block ?no-border=${!border}>
       <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
       <dds-content-block-copy>${copy}</dds-content-block-copy>
-
-      <dds-button-group slot="action">
-        <dds-button-group-item target="${target}" href="https://example.com">
-          Secondary Button ${renderIcon}
-        </dds-button-group-item>
-        <dds-button-group-item target="${target}" href="https://example.com">
-          Primary button ${renderIcon}
-        </dds-button-group-item>
-      </dds-button-group>
+      ${renderCTA[cta](renderIcon, target)}
     </dds-cta-block>
   `;
 };
 
-export const WithContentItems = ({ parameters }) => {
-  const { heading, border, copy, renderIcon } = parameters?.props?.CTABlock ?? {};
-  const { contentItemType, contentItemCount } = parameters?.props?.WithContentItems ?? {};
+export const WithContentItems = args => {
+  const { heading, border, copy, renderIcon, cta } = args?.CTABlock ?? {};
+  const { contentItemType, contentItemCount } = args?.WithContentItems ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
+
+  const headingComponent = document.querySelector('dds-content-block-heading');
+
+  if (headingComponent) {
+    headingComponent!.shadowRoot!.innerHTML = heading;
+  }
 
   return html`
     <dds-cta-block ?no-border=${!border}>
       <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
       <dds-content-block-copy>${ifNonNull(copy)}</dds-content-block-copy>
-
-      <dds-button-group slot="action">
-        <dds-button-group-item target="${target}" href="https://example.com">
-          Secondary Button ${renderIcon}
-        </dds-button-group-item>
-        <dds-button-group-item target="${target}" href="https://example.com">
-          Primary button ${renderIcon}
-        </dds-button-group-item>
-      </dds-button-group>
-      ${renderItems(contentItemType, contentItemCount)}
+      ${renderCTA[cta](renderIcon, target)} ${renderItems(contentItemType, contentItemCount)}
     </dds-cta-block>
   `;
 };
@@ -118,18 +124,17 @@ WithContentItems.story = {
   name: 'With content items',
   parameters: {
     knobs: {
-      WithContentItems: ({ groupId }) => ({
-        contentItemType:
-          contentItemTypeMap[select(`Content item type`, contentItemTypeOptions, contentItemTypeOptions.Text, groupId) ?? 0],
+      WithContentItems: () => ({
+        contentItemType: contentItemTextCTA,
         contentItemCount: Array.from({
-          length: number('Number of content items', 3, { min: 2, max: 6 }, groupId),
+          length: number('Number of content items', 3, { min: 2, max: 6 }),
         }),
       }),
     },
     propsSet: {
       default: {
         WithContentItems: {
-          contentItemType: contentItemTypeMap[contentItemTypeOptions.Text],
+          contentItemType: contentItemTextCTA,
           contentItemCount: Array(3),
         },
       },
@@ -137,23 +142,22 @@ WithContentItems.story = {
   },
 };
 
-export const WithLinkList = ({ parameters }) => {
-  const { heading, copy, renderIcon } = parameters?.props?.CTABlock ?? {};
+export const WithLinkList = args => {
+  const { border, heading, copy, renderIcon, cta } = args?.CTABlock ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
+  const headingComponent = document.querySelector('dds-content-block-heading');
+
+  if (headingComponent) {
+    headingComponent!.shadowRoot!.innerHTML = heading;
+  }
+
   return html`
-    <dds-cta-block>
+    <dds-cta-block ?no-border=${!border}>
       <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
       <dds-content-block-copy>${ifNonNull(copy)}</dds-content-block-copy>
 
-      <dds-button-group slot="action">
-        <dds-button-group-item target="${target}" href="https://example.com">
-          Secondary Button ${renderIcon}
-        </dds-button-group-item>
-        <dds-button-group-item target="${target}" href="https://example.com">
-          Primary button ${renderIcon}
-        </dds-button-group-item>
-      </dds-button-group>
+      ${renderCTA[cta](renderIcon, target)}
 
       <dds-link-list slot="link-list" type="end">
         <dds-link-list-heading>More ways to explore DevOps</dds-link-list-heading>
@@ -184,8 +188,8 @@ WithLinkList.story = {
   name: 'With link list',
 };
 
-export const WithinTabs = ({ parameters }) => {
-  const { contentItemType, contentItemCount } = parameters?.props?.WithinTabs ?? {};
+export const WithinTabs = args => {
+  const { contentItemType, contentItemCount } = args?.WithinTabs ?? {};
 
   return html`
     <dds-tabs-extended orientation="horizontal">
@@ -215,18 +219,18 @@ WithinTabs.story = {
   name: 'Within tabs',
   parameters: {
     knobs: {
-      WithinTabs: ({ groupId }) => ({
-        contentItemType:
-          contentItemTypeMap[select(`Content item type`, contentItemTypeOptions, contentItemTypeOptions.Text, groupId) ?? 0],
+      CTABlock: () => ({}),
+      WithinTabs: () => ({
+        contentItemType: contentItemTextCTA,
         contentItemCount: Array.from({
-          length: number('Number of content items', 3, { min: 2, max: 6 }, groupId),
+          length: number('Number of content items', 3, { min: 2, max: 6 }),
         }),
       }),
     },
     propsSet: {
       default: {
         WithinTabs: {
-          contentItemType: contentItemTypeMap[contentItemTypeOptions.Text],
+          contentItemType: contentItemTextCTA,
           contentItemCount: Array(3),
         },
       },
@@ -252,11 +256,12 @@ export default {
   ],
   parameters: {
     knobs: {
-      CTABlock: ({ groupId }) => ({
-        heading: textNullable('Heading (required)', 'Take the next step', groupId),
-        border: boolean('Border', false, groupId),
+      CTABlock: () => ({
+        heading: textNullable('Heading (required)', 'Take the next step'),
+        border: boolean('Border', false),
         copy: 'Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.',
-        renderIcon: iconMap[select(`Icon`, iconOptions, iconOptions.Default, groupId) ?? 0],
+        cta: select('CTA type', ctaTypeOptions, ctaTypeOptions['Button group']),
+        renderIcon: iconMap[select(`Icon`, iconOptions, iconOptions['Arrow Right']) ?? 0],
       }),
     },
     ...readme.parameters,
@@ -266,8 +271,9 @@ export default {
         CTABlock: {
           heading: 'Take the next step',
           border: false,
+          cta: 'buttonGroup',
           copy: 'Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.',
-          renderIcon: iconOptions.Default,
+          renderIcon: iconOptions['Arrow Right'],
         },
       },
     },

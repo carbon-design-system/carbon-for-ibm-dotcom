@@ -50,8 +50,8 @@ const mediaType = {
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
 
-export const Default = ({ parameters }) => {
-  const { sectionHeading, sectionHeadingText, align, type } = parameters?.props?.TabsExtendedMedia ?? {};
+export const Default = args => {
+  const { sectionHeading, sectionHeadingText, align, type } = args?.TabsExtendedMedia ?? {};
   const tabs: any[] = [];
 
   for (let i = 1; i < 5; i++) {
@@ -107,14 +107,11 @@ Default.story = {
 export default {
   title: 'Components/Tabs extended media',
   decorators: [
-    (story, { parameters }) => {
+    (story, args) => {
       return (
         <div className="bx--grid">
           <div className="bx--row">
-            <div
-              className={`${
-                parameters?.props?.TabsExtendedMedia?.sectionHeading ? `bx--col-lg-16` : `bx--col-lg-12`
-              } bx--no-gutter`}>
+            <div className={`${args?.TabsExtendedMedia?.sectionHeading ? `bx--col-lg-16` : `bx--col-lg-12`} bx--no-gutter`}>
               {story()}
             </div>
           </div>

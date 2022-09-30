@@ -104,23 +104,9 @@ describe('dds-footer | Short (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should load footer legal navigation with clickable links', () => {
+  it('should load clickable legal links', () => {
     cy.get('dds-legal-nav')
       .find('dds-legal-nav-item')
-      .each($link => {
-        const url = $link.prop('href');
-        expect(url).not.to.be.empty;
-      });
-
-    cy.takeSnapshots();
-  });
-
-  it('should load all 4 interactable legal links', () => {
-    cy.get(`dds-legal-nav-item`).should('have.length', 4);
-
-    cy.get('dds-legal-nav-item')
-      .shadow()
-      .find('a')
       .each($link => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
@@ -136,18 +122,6 @@ describe('dds-footer | Short language only (desktop)', () => {
     cy.viewport(1280, 780);
 
     cy.waitUntil(() => cy.get('[data-autoid="dds--footer-legal-nav"]').should('not.be.empty'));
-  });
-
-  it('should load IBM logo and and be interactive', () => {
-    const footerLogo = cy.get('dds-footer-logo');
-    footerLogo.should('have.length', 1);
-    footerLogo
-      .shadow()
-      .find('a')
-      .each($link => {
-        const url = $link.prop('href');
-        expect(url).not.to.be.empty;
-      });
   });
 
   it('should load language selector dropdown and be interactive', () => {
@@ -243,7 +217,7 @@ describe('dds-footer | Short (mobile)', () => {
     cy.takeSnapshots('mobile');
   });
 
-  it('should load footer legal navigation with clickable links', () => {
+  it('should load clickable legal links', () => {
     cy.get('dds-legal-nav')
       .find('dds-legal-nav-item')
       .each($link => {

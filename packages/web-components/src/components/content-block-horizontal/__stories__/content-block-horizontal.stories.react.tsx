@@ -47,8 +47,8 @@ const linkListItem = (
   </DDSContentItemHorizontal>
 );
 
-export const Default = ({ parameters }) => {
-  const { heading, border } = parameters?.props?.ContentBlockHorizontal ?? {};
+export const Default = args => {
+  const { heading, border } = args?.ContentBlockHorizontal ?? {};
   const headingElement = document.querySelector('dds-content-block-heading');
 
   if (headingElement) {
@@ -78,9 +78,9 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      ContentBlockHorizontal: ({ groupId }) => ({
-        heading: textNullable('Heading (heading):', 'Aliquam condimentum', groupId),
-        border: boolean('Bottom Border (border):', true, groupId),
+      ContentBlockHorizontal: () => ({
+        heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
+        border: boolean('Bottom Border (border):', true),
       }),
     },
   },
