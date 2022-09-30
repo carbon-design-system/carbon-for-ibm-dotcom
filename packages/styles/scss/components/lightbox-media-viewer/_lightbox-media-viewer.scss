@@ -136,6 +136,11 @@
         @include carbon--make-col-ready;
         @include carbon--make-col(12, 16);
 
+        width: auto;
+        flex: none;
+        /* stylelint-disable-next-line property-no-unknown */
+        aspect-ratio: 16 / 9;
+
         .#{$prefix}--image {
           height: 100%;
         }
