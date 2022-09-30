@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,8 +13,8 @@ import '../index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
-export const Default = ({ parameters }) => {
-  const { heading } = parameters?.props?.LinkListSection ?? {};
+export const Default = args => {
+  const { heading } = args?.LinkListSection ?? {};
   return html`
     <dds-link-list-section>
       <dds-link-list-heading>${heading}</dds-link-list-heading>
@@ -57,8 +57,8 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      LinkListSection: ({ groupId }) => {
-        const heading = textNullable('Link list section heading:', 'Lorem ipsum dolor sit amet', groupId);
+      LinkListSection: () => {
+        const heading = textNullable('Link list section heading:', 'Lorem ipsum dolor sit amet');
         return {
           heading,
         };

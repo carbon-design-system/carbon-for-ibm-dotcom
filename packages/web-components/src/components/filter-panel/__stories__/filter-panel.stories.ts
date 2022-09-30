@@ -12,8 +12,8 @@ import { text, select, number } from '@storybook/addon-knobs';
 import '../index';
 import readme from './README.stories.mdx';
 
-export const Default = ({ parameters }) => {
-  const { heading, filterCutoff, maxFilters, viewAllText, gridKnobs } = parameters?.props?.FilterPanel ?? {};
+export const Default = args => {
+  const { heading, filterCutoff, maxFilters, viewAllText, gridKnobs } = args?.FilterPanel ?? {};
 
   const filterPanelHeading = document.querySelector('dds-filter-panel-heading');
   if (filterPanelHeading) {
@@ -118,12 +118,12 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      FilterPanel: ({ groupId }) => ({
-        heading: text('heading', 'Filter', groupId),
-        filterCutoff: number('Filter cutoff', 5, {}, groupId),
-        maxFilters: number('Max filters', 7, {}, groupId),
-        viewAllText: text('View all text', 'View all', groupId),
-        gridKnobs: select('Grid alignment', ['3 columns', '4 columns'], '4 columns', groupId),
+      FilterPanel: () => ({
+        heading: text('heading', 'Filter'),
+        filterCutoff: number('Filter cutoff', 5, {}),
+        maxFilters: number('Max filters', 7, {}),
+        viewAllText: text('View all text', 'View all'),
+        gridKnobs: select('Grid alignment', ['3 columns', '4 columns'], '4 columns'),
       }),
     },
     propsSet: {

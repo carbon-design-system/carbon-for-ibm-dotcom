@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.39.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.38.0-rc.0...@carbon/ibmdotcom-react@1.39.0-rc.0) (2022-09-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency classnames to v2.3.2 ([#9383](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9383)) ([d631df2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d631df2e2c1494254315d69c24333fd21a0452ea))
+* **masthead:** search locale fix ([#9372](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9372)) ([ab8fbd3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ab8fbd3476f9ddbda3c0d95638dd3a7f1a490116)), closes [#9364](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9364)
+* **notice-choice:** missing build script for tests ([#9380](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9380)) ([18db362](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/18db362f0381d09bd3549a9d1da46d9f5552decd))
+
+
+
+
+
+# [1.38.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.38.0-rc.0...@carbon/ibmdotcom-react@1.38.0) (2022-09-13)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
 # [1.38.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.37.0...@carbon/ibmdotcom-react@1.38.0-rc.0) (2022-08-29)
 
 

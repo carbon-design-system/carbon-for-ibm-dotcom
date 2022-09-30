@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.24.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.23.0-rc.0...@carbon/ibmdotcom-web-components@1.24.0-rc.0) (2022-09-26)
+
+
+### Bug Fixes
+
+* **locale-modal:** add title to regions list ([#9309](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9309)) ([86732cd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/86732cd07c0367b46fd3ed251991b5dd9bf0b04a)), closes [#8855](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8855)
+* **scoped-search:** experimental storybook6 ([#9418](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9418)) ([fdec709](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/fdec7097aa98f375b59d809beb0eb035c8707ecc))
+
+
+### Features
+
+* **card-section-simple:** create react wrapper ([#9308](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9308)) ([76fb726](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/76fb726cec35a80c5d5fec1d6f93d8d12cc6994f)), closes [#8619](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8619) [#8618](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8618)
+* **content-block-cards:** react wrapper ([#9331](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9331)) ([033e305](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/033e305ac582cd6b6e631730bf546e258b6011c7)), closes [#8621](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8621)
+* **dotcom-shell:** create react wrapper ([#9352](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9352)) ([cd4e1be](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cd4e1beba3fbf040e79647307f730ff91bcd2aab)), closes [#8635](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8635)
+* **footer:** create footer react wrapper ([#9301](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9301)) ([a42475c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a42475c2c3d76fc6f0d20316b28f3139418ea919)), closes [#8638](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8638)
+* **layout:** add react wrapper story ([#9363](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9363)) ([1558deb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1558debb240582295228f6ce60f9815b56f9cdb7))
+* **lightbox-media-viewer:** add react wrapper ([#9322](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9322)) ([bc7d28c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bc7d28cee4c35b62d30090b17e7098a9de3ea2d8)), closes [#8644](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8644)
+* **link-list-section:** create react wrapper story ([#9339](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9339)) ([728d719](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/728d71986adf135d27b097d674e12a2b4fd2ba7b)), closes [#8645](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8645)
+* **link-list:** add react wrapper story ([#9335](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9335)) ([d891723](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d891723eb1fea95c84dd77ea1be4fad15acc45ce)), closes [#8647](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8647)
+* **locale-modal:** create React Wrapper ([#9318](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9318)) ([a42d550](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a42d550dc03398f2348022dbeebd7caa73b1f399)), closes [#8648](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8648)
+* **search-with-typeahead:** update react wrapper ([#9336](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9336)) ([30ca6a6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/30ca6a6bce0c9d2714ebee059b0535a6dd6c1674)), closes [#8653](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8653)
+
+
+
+
+
+# [1.23.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.23.0-rc.0...@carbon/ibmdotcom-web-components@1.23.0) (2022-09-13)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
 # [1.23.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.22.0...@carbon/ibmdotcom-web-components@1.23.0-rc.0) (2022-08-29)
 
 
