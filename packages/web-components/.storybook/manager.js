@@ -12,24 +12,30 @@ addons.setConfig({
   theme: yourTheme,
 });
 
-const CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR = `
-button[id^="components-pricing-table"],
-button[id^="components-content-block-headlines"],
-button[id^="components-masthead-with-scoped-search"],
-button[id^="components-cloud-masthead"],
-button[id^="components-content-block-card-static"] {
-  display: none !important
-}
-`;
+// Map feature flags to component sidebar selectors.
+const config = {
+  DDS_PRICING_TABLE: 'button[id ^= "components-pricing-table"]',
+  DDS_CONTENT_BLOCK_HEADLINES: 'button[id ^= "components-content-block-headlines"]',
+  DDS_SCOPED_SEARCH: 'button[id ^= "components-masthead-with-scoped-search"]',
+  DDS_CLOUD_MASTHEAD: 'button[id ^= "components-cloud-masthead"]',
+  DDS_CONTENT_BLOCK_CARD_STATIC: 'button[id ^= "components-content-block-card-static"]',
+};
+const configKeys = Object.keys(config);
+const configValues = Object.values(config);
+let CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR = '';
 
-if (
-  !process.env.DDS_FLAGS_ALL &&
-  !process.env.DDS_SCOPED_SEARCH &&
-  !process.env.DDS_CLOUD_MASTHEAD &&
-  !process.env.DDS_CONTENT_BLOCK_HEADLINES &&
-  !process.env.DDS_CONTENT_BLOCK_CARD_STATIC &&
-  !process.env.DDS_PRICING_TABLE
-) {
+// Build string of CSS rules.
+if (!process.env.DDS_FLAGS_ALL) {
+  for (let i = 0; i < configKeys.length; i++) {
+    let flag = configKeys[i];
+    if (!process.env[flag]) {
+      CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR += `${configValues[i]} { display: none !important; }\n`;
+    }
+  }
+}
+
+// Inject any CSS rules into the page.
+if (CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR.length) {
   const head = document.head || document.getElementsByTagName('head')[0];
   const style = document.createElement('style');
   head.appendChild(style);
