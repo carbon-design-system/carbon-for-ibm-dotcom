@@ -7,9 +7,9 @@
 
 /* eslint-disable cypress/no-unnecessary-waiting */
 xdescribe('storybook docs | default', () => {
-  const components = require('../../fixtures/components.json');
+  // const components = require('../../fixtures/components.json');
 
-  components.forEach(component => {
+  // components.forEach(component => {
     it(`should load Storybook Docs tab for ${component.name} without exceptions`, () => {
       cy.viewport(1280, 720);
       cy.visit(`/?${component.url}`);
@@ -26,5 +26,5 @@ xdescribe('storybook docs | default', () => {
         cy.get('code[id="error-stack"]').should('be.empty');
       });
     });
-  });
+  // });
 });
