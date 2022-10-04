@@ -23,11 +23,11 @@ button[id^="components-content-block-card-static"] {
 `;
 
 if (
-  !process.env.DDS_FLAGS_ALL ||
-  !process.env.DDS_SCOPED_SEARCH ||
-  !process.env.DDS_CLOUD_MASTHEAD ||
-  !process.env.DDS_CONTENT_BLOCK_HEADLINES ||
-  !process.env.DDS_CONTENT_BLOCK_CARD_STATIC ||
+  !process.env.DDS_FLAGS_ALL &&
+  !process.env.DDS_SCOPED_SEARCH &&
+  !process.env.DDS_CLOUD_MASTHEAD &&
+  !process.env.DDS_CONTENT_BLOCK_HEADLINES &&
+  !process.env.DDS_CONTENT_BLOCK_CARD_STATIC &&
   !process.env.DDS_PRICING_TABLE
 ) {
   const head = document.head || document.getElementsByTagName('head')[0];
