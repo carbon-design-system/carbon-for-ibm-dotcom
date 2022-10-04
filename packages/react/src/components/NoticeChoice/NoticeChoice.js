@@ -47,6 +47,7 @@ export function NoticeChoice({
     cclc: `${worldWideContent.cc_name}-${worldWideContent.cc_lang}`,
   });
   const [prefChange, setPrefChange] = useState(false);
+  const [fetchedPref, setFetchedPref] = useState('');
   const [values, setValues] = useState({
     EMAIL: false,
     PHONE: false,
@@ -140,14 +141,14 @@ export function NoticeChoice({
      * @description if the user already interacted with the checkboxes,
      * skip country default selection.
      */
-    if (!changed) {
+    if (!changed && !fetchedPref) {
       /**
        * @description
        * change checkbox checked option based on new country.
        */
       setDefaultSelections();
     }
-  }, [locale, changed, setDefaultSelections]);
+  }, [locale, setDefaultSelections, changed, fetchedPref]);
 
   useEffect(() => {
     if (optInContent.cclc) {
@@ -206,7 +207,15 @@ export function NoticeChoice({
     email => {
       if (prefChange === false) {
         checkPreferencesv3(email).then(response => {
-          if (response === 'S') {
+          if (
+            response === 'S' &&
+            JSON.stringify(values) !==
+              JSON.stringify({
+                ...values,
+                EMAIL: false,
+              })
+          ) {
+            setFetchedPref(email);
             setValues({
               ...values,
               EMAIL: false,
@@ -249,14 +258,20 @@ export function NoticeChoice({
   // Email changed
   useEffect(() => {
     if (email) {
-      // Handle throttle using debounce approach.
-      if (emailRegExp.test(email)) {
-        setTimeout(() => {
-          emailChanged(email);
-        }, 1000);
+      if (email !== fetchedPref) {
+        // Handle throttle using debounce approach.
+        if (emailRegExp.test(email)) {
+          setTimeout(() => {
+            emailChanged(email);
+          }, 1000);
+        }
+      }
+    } else {
+      if (fetchedPref) {
+        setFetchedPref('');
       }
     }
-  }, [email, emailChanged]);
+  }, [email, emailChanged, fetchedPref]);
 
   useEffect(() => {
     if (values && !loaded) {
