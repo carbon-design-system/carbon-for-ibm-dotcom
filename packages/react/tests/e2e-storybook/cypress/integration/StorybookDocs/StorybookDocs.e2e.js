@@ -6,7 +6,7 @@
  */
 
 /* eslint-disable cypress/no-unnecessary-waiting */
-describe('storybook docs | default', () => {
+xdescribe('storybook docs | default', () => {
   const components = require('../../fixtures/components.json');
 
   components.forEach(component => {
