@@ -16,6 +16,7 @@ import AudioPlayerVolumeControl from './AudioPlayerVolumeControl';
 import cx from 'classnames';
 import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import featureFlag from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/featureflag/featureflag';
 
 import { KalturaPlayer as KalturaPlayerAPI } from '@carbon/ibmdotcom-services/es/services';
 
@@ -33,14 +34,14 @@ const { prefix } = settings;
 /**
  * AudioPlayer component.
  */
-const AudioPlayer = ({
+export function AudioPlayer({
   audioId,
   customClassName,
   autoPlay,
   showCaptionMenu,
   showPlaybackRateMenu,
   availablePlaybackRates,
-}) => {
+}) {
   const [audioData, setAudioData] = useState({ duration: 0 });
 
   const [displayVolumeControl, setDisplayVolumeControl] = useState(false);
@@ -149,7 +150,8 @@ const AudioPlayer = ({
 
   const classnames = cx(`${prefix}--audio-player`, customClassName);
 
-  return (
+  return featureFlag(
+    DDS_AUDIO_PLAYER,
     <div className={classnames}>
       <div
         className={`${prefix}--audio-player__embedded-player`}
@@ -212,7 +214,7 @@ const AudioPlayer = ({
       )}
     </div>
   );
-};
+}
 
 AudioPlayer.propTypes = {
   /**
@@ -253,4 +255,4 @@ AudioPlayer.defaultProps = {
   availablePlaybackRates: [1, 1.5, 2],
 };
 
-export default !DDS_AUDIO_PLAYER ? undefined : AudioPlayer;
+export default AudioPlayer;
