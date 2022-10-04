@@ -6,7 +6,6 @@
  */
 
 import ContentBlockHeadlines from '../ContentBlockHeadlines';
-import { DDS_CONTENTBLOCK_HEADLINES } from '../../../internal/FeatureFlags';
 import items from './data/items.json';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -21,28 +20,24 @@ const props = () => ({
   items: items.items,
 });
 
-export default !DDS_CONTENTBLOCK_HEADLINES
-  ? undefined
-  : {
-      title: 'Components/Content block headlines',
-      parameters: {
-        ...readme.parameters,
-        percy: {
-          skip: true,
-        },
-      },
-    };
+export default {
+  title: 'Components/Content block headlines',
+  parameters: {
+    ...readme.parameters,
+    percy: {
+      skip: true,
+    },
+  },
+};
 
-export const Default = !DDS_CONTENTBLOCK_HEADLINES
-  ? undefined
-  : () => {
-      return (
-        <div className="bx--grid">
-          <div className="bx--row">
-            <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
-              <ContentBlockHeadlines {...props()} />
-            </div>
-          </div>
+export const Default = () => {
+  return (
+    <div className="bx--grid">
+      <div className="bx--row">
+        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
+          <ContentBlockHeadlines {...props()} />
         </div>
-      );
-    };
+      </div>
+    </div>
+  );
+};
