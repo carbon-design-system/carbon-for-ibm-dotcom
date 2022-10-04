@@ -122,11 +122,7 @@ class DDSMastheadComposite extends LitElement {
     const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(this.logoData);
     const { tooltip, svg } = this.logoData;
     return html`
-      <dds-masthead-logo
-        ?hide-logo="${this.activateSearch}"
-        ?hasTooltip="${tooltip}"
-        aria-label="${ifNonNull(tooltip)}"
-        tabIndex="0"
+      <dds-masthead-logo ?hide-logo="${this.activateSearch}" ?hasTooltip="${tooltip}" aria-label="${ifNonNull(tooltip)}"
         >${useAlternateLogo ? unsafeSVG(svg) : nothing}</dds-masthead-logo
       >
     `;
