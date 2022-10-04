@@ -10,7 +10,7 @@ xdescribe('storybook docs | default', () => {
   // const components = require('../../fixtures/components.json');
 
   // components.forEach(component => {
-    it(`should load Storybook Docs tab for ${component.name} without exceptions`, () => {
+    it(`should load Storybook Docs tab for components without exceptions`, () => {
       cy.viewport(1280, 720);
       cy.visit(`/?${component.url}`);
 
