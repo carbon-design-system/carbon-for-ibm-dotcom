@@ -237,9 +237,6 @@
 
     @include carbon--breakpoint('sm') {
       .#{$prefix}--card__CTA {
-        // @include hang;
-        // padding-left: 0;
-        // padding-right: 0;
         margin-left: -($carbon--spacing-05);
       }
     }
