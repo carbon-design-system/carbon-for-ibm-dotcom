@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -82,9 +82,9 @@ const SideNavMenuSection = ({
                   'li:last-of-type button'
                 ) || e.target.parentElement.querySelector('li:last-of-type a');
               return lastMenuItem.focus();
-            }}
-            aria-hidden={true}
-          />
+            }}>
+            content
+          </button>
           <SideNavMenuBackButton
             ref={backButtonRef}
             onBackClick={onBackClick}
@@ -124,9 +124,9 @@ const SideNavMenuSection = ({
               .querySelector('button[isbackbutton="true"]')
               .focus();
           }
-        }}
-        aria-hidden={true}
-      />
+        }}>
+        content
+      </button>
     </div>
   );
 };
