@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -39,8 +39,8 @@ const srcsets = {
   '8-col': [img8ColLg, img8ColXlg, img8Col],
 };
 
-export const Default = ({ parameters }) => {
-  const { heading, copy, ctaCopy, imageWidth } = parameters?.props?.UniversalBanner ?? {};
+export const Default = args => {
+  const { heading, copy, ctaCopy, imageWidth } = args?.UniversalBanner ?? {};
 
   const bannerHeading = document.querySelector('dds-universal-banner-heading');
   const bannerCopy = document.querySelector('dds-universal-banner-copy');
@@ -79,11 +79,11 @@ Default.story = {
   parameters: {
     ...readme.parameters,
     knobs: {
-      UniversalBanner: ({ groupId }) => ({
-        heading: textNullable('Heading:', 'Hybrid cloud and AI for smarter business', groupId),
-        copy: text('Copy (optional):', 'Las Vegas, June 15-18, 2025', groupId),
-        ctaCopy: textNullable('CTA copy:', 'Register for Think. Free', groupId),
-        imageWidth: select('Image width:', imageWidthOptions, '4-col', groupId),
+      UniversalBanner: () => ({
+        heading: textNullable('Heading:', 'Hybrid cloud and AI for smarter business'),
+        copy: text('Copy (optional):', 'Las Vegas, June 15-18, 2025'),
+        ctaCopy: textNullable('CTA copy:', 'Register for Think. Free'),
+        imageWidth: select('Image width:', imageWidthOptions, '4-col'),
       }),
     },
   },

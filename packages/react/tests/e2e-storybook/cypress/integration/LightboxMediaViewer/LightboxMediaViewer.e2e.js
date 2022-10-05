@@ -84,7 +84,7 @@ describe('LightboxMediaViewer | default', () => {
 
   it('should verify the image size 1:1', () => {
     cy.visit(
-      `/${_defaultPath}&knob-Image_LightboxMediaViewer=static/media/fpo--1x1--720x720--002.7158188a.jpg`
+      `${_defaultPath}&knob-Image=https://fpoimg.com/720x720?text=1:1`
     );
 
     cy.waitUntil(() => cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]')
@@ -102,7 +102,7 @@ describe('LightboxMediaViewer | default', () => {
 
   it('should verify the image size 2:1', () => {
     cy.visit(
-      `/${_defaultPath}&knob-Image_LightboxMediaViewer=static/media/fpo--2x1--1312x656--002.80107d00.jpg`
+      `${_defaultPath}&knob-Image=https://fpoimg.com/1312x656?text=2:1`
     );
 
     cy.waitUntil(() => cy.get('[data-autoid="dds--lightbox-media-viewer__content__title"]')

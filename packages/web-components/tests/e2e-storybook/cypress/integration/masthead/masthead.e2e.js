@@ -44,39 +44,8 @@ describe('dds-masthead | default (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should render 4 menu items', () => {
-    cy.get('dds-megamenu-top-nav-menu').should('have.length', 4);
-  });
-
-  it('should load the megamenu - first nav item', () => {
+  it('should load a megamenu with links', () => {
     cy.get('dds-megamenu-top-nav-menu:nth-child(1)')
-      .shadow()
-      .find('a')
-      .click();
-
-    cy.takeSnapshots();
-  });
-
-  it('should load the megamenu - second nav item', () => {
-    cy.get('dds-megamenu-top-nav-menu:nth-child(2)')
-      .shadow()
-      .find('a')
-      .click();
-
-    cy.takeSnapshots();
-  });
-
-  it('should load the megamenu - third nav item', () => {
-    cy.get('dds-megamenu-top-nav-menu:nth-child(3)')
-      .shadow()
-      .find('a')
-      .click();
-
-    cy.takeSnapshots();
-  });
-
-  it('should load the megamenu - fourth nav item', () => {
-    cy.get('dds-megamenu-top-nav-menu:nth-child(4)')
       .shadow()
       .find('a')
       .click();
@@ -87,16 +56,6 @@ describe('dds-masthead | default (desktop)', () => {
   it('should have urls for the submenu items within the megamenu', () => {
     cy.get(
       'dds-megamenu-top-nav-menu:nth-child(1) > dds-megamenu >  dds-megamenu-right-navigation >  dds-megamenu-category-group > dds-megamenu-category-link:nth-child(1)'
-    )
-      .shadow()
-      .find('a')
-      .then($link => {
-        const url = $link.prop('href');
-        expect(url).not.to.be.empty;
-      });
-
-    cy.get(
-      'dds-megamenu-top-nav-menu:nth-child(1) > dds-megamenu >  dds-megamenu-left-navigation >  dds-megamenu-category-group > dds-megamenu-link-with-icon'
     )
       .shadow()
       .find('a')

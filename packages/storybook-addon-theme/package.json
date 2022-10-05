@@ -1,7 +1,7 @@
 {
   "name": "@carbon/storybook-addon-theme",
   "private": true,
-  "version": "1.29.0",
+  "version": "1.30.0-rc.0",
   "description": "Storybook add-on for Carbon theme chooser",
   "license": "Apache-2.0",
   "main": "es/index.js",

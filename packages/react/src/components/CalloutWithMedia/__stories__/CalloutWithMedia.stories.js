@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -41,50 +41,39 @@ const mediaDataByType = {
   },
 };
 
+const props = () => {
+  const mediaType = select(
+    'mediaType (optional)',
+    ['image', 'video', 'none'],
+    'image'
+  );
+  return {
+    mediaData: mediaDataByType[mediaType],
+    mediaType: mediaType === 'none' ? undefined : mediaType,
+    heading: text('heading', 'Curabitur malesuada varius mi eu posuere'),
+    copy: text(
+      'copy',
+      'Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.\n      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales\n      nulla quis, *consequat* libero. Here are\n      some common categories:'
+    ),
+  };
+};
+
 export default {
-  title: 'Components|Callout with media',
+  title: 'Components/Callout with media',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      CalloutWithMedia: ({ groupId }) => {
-        const mediaType = select(
-          'mediaType (optional)',
-          ['image', 'video', 'none'],
-          'image',
-          groupId
-        );
-        return {
-          mediaData: mediaDataByType[mediaType],
-          mediaType: mediaType === 'none' ? undefined : mediaType,
-          heading: text(
-            'heading',
-            'Curabitur malesuada varius mi eu posuere',
-            groupId
-          ),
-          copy: text(
-            'copy',
-            'Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.\n      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales\n      nulla quis, *consequat* libero. Here are\n      some common categories:',
-            groupId
-          ),
-        };
-      },
+    percy: {
+      name: 'Components|Callout with media: Default',
     },
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { mediaData, mediaType, heading, copy } =
-    parameters?.props?.CalloutWithMedia ?? {};
+export const Default = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--offset-lg-4 bx--col-lg-12">
-          <CalloutWithMedia
-            mediaData={mediaData}
-            mediaType={mediaType}
-            heading={heading}
-            copy={copy}
-          />
+          <CalloutWithMedia {...props()} />
         </div>
       </div>
     </div>
