@@ -83,7 +83,7 @@ const SideNavMenuSection = ({
                 ) || e.target.parentElement.querySelector('li:last-of-type a');
               return lastMenuItem.focus();
             }}>
-            content
+            focus trapping button
           </button>
           <SideNavMenuBackButton
             ref={backButtonRef}
@@ -125,7 +125,7 @@ const SideNavMenuSection = ({
               .focus();
           }
         }}>
-        content
+        focus trapping button
       </button>
     </div>
   );
