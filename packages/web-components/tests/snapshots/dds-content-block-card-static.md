@@ -10,7 +10,7 @@
     color-scheme=""
     cta-type=""
     data-autoid="dds--card-group-item"
-    pictogram-placement="top"
+    pictogram-placement=""
     size=""
   >
   </dds-card-group-item>
@@ -66,7 +66,7 @@
     color-scheme=""
     cta-type=""
     data-autoid="dds--card-group-item"
-    pictogram-placement="top"
+    pictogram-placement=""
     size=""
   >
     heading-foo
@@ -81,7 +81,7 @@
       cta-type=""
       data-autoid="dds--card-group-item"
       href="https://example.com"
-      pictogram-placement="top"
+      pictogram-placement=""
       size=""
     >
       <dds-card-heading

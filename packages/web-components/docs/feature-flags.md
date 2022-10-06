@@ -113,7 +113,7 @@ import { DDS_MY_FEATURE } from '../../../internal/feature-flags';
 
 export const Default = !DDS_MY_FEATURE
   ? undefined
-  : ({ parameters }) => {
+  : args => {
       ...
     };
 
