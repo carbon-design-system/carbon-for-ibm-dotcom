@@ -183,6 +183,11 @@ class DDSFilterPanelInputSelect extends FocusMixin(
         ?.querySelector(`.${prefix}--input-container__heading`)
         ?.setAttribute('aria-expanded', String(Boolean(this.isOpen)));
     }
+    if (this._items.length) {
+      this.shadowRoot
+        ?.querySelector(`.${prefix}--input-container__heading`)
+        ?.setAttribute('aria-expanded', String(Boolean(this.isOpen)));
+    }
   }
 
   render() {
