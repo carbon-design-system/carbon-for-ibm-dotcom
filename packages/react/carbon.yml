@@ -3,7 +3,7 @@ library:
   id: ibmdotcom-react
   name: IBM.com React
   description: Create web experiences that adhere to IBM’s web standards.
-  externalDocsUrl: www.ibm.com/standards/web/carbon-for-ibm-dotcom
+  externalDocsUrl: https://www.ibm.com/standards/web/carbon-for-ibm-dotcom
   inherits: ibmdotcom-styles
   demoLinks:
     - type: storybook
