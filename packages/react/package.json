@@ -26,8 +26,8 @@
   "scripts": {
     "build": "yarn clean && gulp vendor && node scripts/build.js",
     "build-storybook": "cross-env BABEL_ENV=es build-storybook",
-    "build-storybook:experimental": "cross-env DDS_FLAGS_ALL=true BABEL_ENV=es build-storybook -o storybook-static-experimental",
-    "build-storybook:rtl": "cross-env STORYBOOK_USE_RTL=true BABEL_ENV=es build-storybook -o storybook-static-rtl",
+    "build-storybook:experimental": "cross-env DDS_FLAGS_ALL=true build-storybook -o storybook-static-experimental",
+    "build-storybook:rtl": "cross-env STORYBOOK_USE_RTL=true build-storybook -o storybook-static-rtl",
     "ci-check": "yarn test-ssr && yarn test:unit",
     "clean": "rimraf src/internal/vendor es lib umd storybook-static",
     "contributors:add": "all-contributors add",
