@@ -38,13 +38,15 @@ describe('dds-masthead | default (desktop)', () => {
 
   it('should load menu item with selected state', () => {
     let selectedState = false;
-    cy.get('dds-megamenu-top-nav-menu').each($menuItem => {
-      if($menuItem.attr('active') !== undefined){
-        selectedState = true
-      }
-    }).then(() => {
-      expect(selectedState).to.be.true;
-    })
+    cy.get('dds-megamenu-top-nav-menu')
+      .each($menuItem => {
+        if ($menuItem.attr('active') !== undefined) {
+          selectedState = true;
+        }
+      })
+      .then(() => {
+        expect(selectedState).to.be.true;
+      });
 
     cy.takeSnapshots();
   });
