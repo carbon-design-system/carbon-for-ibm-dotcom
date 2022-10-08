@@ -14153,14 +14153,14 @@ isobject@^4.0.0:
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-4.0.0.tgz#3f1c9155e73b192022a80819bacd0343711697b0"
   integrity sha512-S/2fF5wH8SJA/kmwr6HYhK/RI/OkhD84k8ntalo0iJjZikgq1XFvR5M8NPT1x5F7fBwCG3qHfnzeP/Vh/ZxCUA==
 
-isomorphic-dompurify@0.22.0:
-  version "0.22.0"
-  resolved "https://registry.yarnpkg.com/isomorphic-dompurify/-/isomorphic-dompurify-0.22.0.tgz#bb4f2d9216dabf257ab6c44771b7f3ef73818a5f"
-  integrity sha512-DDXg2CBjaKAGCHq0bGFWKZpkZoieoV/YptsJylFq/7vznBjIvJx853MGFwAZaFALZnyaeK0+WbhYNf/R1FxiVQ==
+isomorphic-dompurify@0.23.0:
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/isomorphic-dompurify/-/isomorphic-dompurify-0.23.0.tgz#226f3434760c22734366b27f3c4420f7006b93c0"
+  integrity sha512-4XrxStdPTMkHE8mwOY7EDeBWABDoZnKAkxzikNq5Z8d40XwGRKbHK6jz+vBENfyPlgndg0OD1PB06vamrynIiA==
   dependencies:
     "@types/dompurify" "^2.3.4"
     dompurify "^2.4.0"
-    jsdom "^20.0.0"
+    jsdom "^20.0.1"
 
 isomorphic-unfetch@^3.1.0:
   version "3.1.0"
@@ -15170,7 +15170,7 @@ jsdom@^15.2.1:
     ws "^7.0.0"
     xml-name-validator "^3.0.0"
 
-jsdom@^20.0.0:
+jsdom@^20.0.1:
   version "20.0.1"
   resolved "https://registry.yarnpkg.com/jsdom/-/jsdom-20.0.1.tgz#d95b4a3b6e1eec6520aa01d9d908eade8c6ba153"
   integrity sha512-pksjj7Rqoa+wdpkKcLzQRHhJCEE42qQhl/xLMUKHgoSejaKOdaXEAnqs6uDNwMl/fciHTzKeR8Wm8cw7N+g98A==
