@@ -14,6 +14,7 @@ import './content-item-horizontal-media';
 import './content-item-horizontal-media-copy';
 import './content-item-horizontal-thumbnail-copy';
 import './content-item-horizontal-media-featured';
+import './content-item-horizontal-media-video';
 import '../content-item/content-item-heading';
 import '../cta/index';
 import '../link-list/link-list';

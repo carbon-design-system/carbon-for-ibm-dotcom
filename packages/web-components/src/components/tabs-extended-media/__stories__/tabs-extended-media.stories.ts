@@ -36,14 +36,16 @@ export const Default = args => {
     tabs.push(html`
       <dds-tab label="Tab ${i}">
         <dds-content-item-horizontal-media align="${align}">
-          ${type === MEDIA_TYPE.IMAGE &&
-            html`
-              <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}"></dds-image>
-            `}
-          ${type === MEDIA_TYPE.VIDEO &&
-            html`
-              <dds-content-item-horizontal-media-video video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
-            `}
+          ${type === MEDIA_TYPE.IMAGE
+            ? html`
+                <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}"></dds-image>
+              `
+            : ``}
+          ${type === MEDIA_TYPE.VIDEO
+            ? html`
+                <dds-content-item-horizontal-media-video video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
+              `
+            : ``}
           <dds-content-item-heading>Tab heading ${i}</dds-content-item-heading>
           <dds-content-item-horizontal-media-copy
             >Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
