@@ -61,7 +61,7 @@ export const Default = () => {
   return (
     <div className="bx--grid bx--content-group-story">
       <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-4">
+        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
           <ContentItemHorizontal {...props()} />
         </div>
       </div>

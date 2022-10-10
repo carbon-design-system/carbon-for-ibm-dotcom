@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,10 +21,6 @@
     @include carbon--breakpoint('lg') {
       padding-top: $layout-05;
       padding-bottom: $layout-05;
-    }
-
-    ::slotted(#{$dds-prefix}-content-item-horizontal) {
-      padding-bottom: $layout-01;
     }
   }
 
