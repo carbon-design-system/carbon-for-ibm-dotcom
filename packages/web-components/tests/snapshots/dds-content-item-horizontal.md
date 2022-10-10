@@ -21,6 +21,8 @@
     <slot name="footer">
     </slot>
   </div>
+  <slot name="media">
+  </slot>
 </div>
 
 ```
@@ -44,6 +46,8 @@
     <slot name="footer">
     </slot>
   </div>
+  <slot name="media">
+  </slot>
 </div>
 
 ```
