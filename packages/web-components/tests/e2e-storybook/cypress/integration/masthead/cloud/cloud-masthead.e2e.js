@@ -61,7 +61,6 @@ describe('dds-masthead | cloud platform (desktop)', () => {
       .shadow()
       .find('a')
       .then($link => {
-        debugger;
         const url = $link.prop('href');
         expect(url).to.eq('https://www.example.com/custom-href');
       });
