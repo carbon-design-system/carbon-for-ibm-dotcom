@@ -45,8 +45,9 @@ describe('dds-masthead | cloud platform (desktop)', () => {
   });
 
   it('should support custom url for IBM logo', () => {
-    cy.intercept(`https://1.www.s81c.com/common/carbon-for-ibm-dotcom/translations/cloud-masthead/*`, { fixture: 'translation-custom-logo.json' })
-      .as('endpointInterceptor');
+    cy.intercept(`https://1.www.s81c.com/common/carbon-for-ibm-dotcom/translations/cloud-masthead/*`, {
+      fixture: 'translation-custom-logo.json',
+    }).as('endpointInterceptor');
 
     cy.get('dds-cloud-masthead-container')
       .then(([masthead]) => {
@@ -62,7 +63,7 @@ describe('dds-masthead | cloud platform (desktop)', () => {
       .then($link => {
         debugger;
         const url = $link.prop('href');
-        expect(url).to.eq("https://www.example.com/custom-href");
+        expect(url).to.eq('https://www.example.com/custom-href');
       });
   });
 
