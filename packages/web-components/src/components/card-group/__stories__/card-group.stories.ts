@@ -208,7 +208,7 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
 };
 
 export const Default = args => {
-  const { cards, cardType, media, tagGroup, cardsPerRow, gridMode, offset, cta, addCta } = args?.CardGroup ?? {};
+  const { cards, cardType, media, tagGroup, cardsPerRow, gridMode, offset, cta, addCta } = args ?? {};
 
   const classes = classMap({
     [cardsPerRow]: cardsPerRow,
@@ -333,6 +333,7 @@ withCardInCard.story = {
 
 export default {
   title: 'Components/Card group',
+  component: 'dds-card-group',
   decorators: [
     story => html`
       <style>
@@ -349,6 +350,53 @@ export default {
       </div>
     `,
   ],
+  argTypes: {
+    cardType: {
+      control: { type: 'select' },
+      options: ['Card - default', 'Card - pictogram', 'Card static', 'Card link'],
+      defaultValue: 'Card - default',
+      description: 'Select the type of card for Card Group:',
+    },
+    media: {
+      control: 'boolean',
+      defaultValue: false,
+      if: { arg: 'cardType', eq: 'Card - default' },
+    },
+    tagGroup: {
+      control: 'boolean',
+      defaultValue: false,
+    },
+    addCTA: {
+      control: 'boolean',
+      defaultValue: false,
+      if: { arg: 'cardType', eq: 'Card static' },
+    },
+    cards: {
+      control: { type: 'number', min: 2, max: 6 },
+      defaultValue: 5,
+    },
+    cardsPerRow: {
+      control: { type: 'select' },
+      options: cardsCol,
+      defaultValue: cardsCol['3 cards per row (default)'],
+    },
+    gridMode: {
+      control: { type: 'select' },
+      options: cardsCol,
+      defaultValue: cardsCol['3 cards per row (default)'],
+      if: { arg: 'cardType', eq: 'Card - default' },
+    },
+    offset: {
+      control: { type: 'radio' },
+      options: ['0', '1'],
+      defaultValue: '0',
+    },
+    addCTACard: {
+      control: 'boolean',
+      defaultValue: false,
+      if: { arg: 'media', eq: false },
+    },
+  },
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,

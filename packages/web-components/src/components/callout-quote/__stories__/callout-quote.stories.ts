@@ -11,10 +11,10 @@ import '../index';
 import '../callout-link-with-icon';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import { html } from 'lit-element';
-import { select } from '@storybook/addon-knobs';
+// import { select } from '@storybook/addon-knobs';
 import { QUOTE_TYPES } from '../../quote/quote';
 import readme from './README.stories.mdx';
-import textNullable from '../../../../.storybook/knob-text-nullable';
+// import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const types = {
   [`${QUOTE_TYPES.DEFAULT}`]: QUOTE_TYPES.DEFAULT,
@@ -26,7 +26,7 @@ const types = {
 };
 
 export const Default = args => {
-  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } = args?.CalloutQuote ?? {};
+  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } = args ?? {};
   return html`
     <dds-callout-quote mark-type="${quoteMark}">
       ${copy}
@@ -48,6 +48,7 @@ export const Default = args => {
 
 export default {
   title: 'Components/Callout quote',
+  components: 'dds-callout-quote',
   decorators: [
     story => html`
       <div class="bx--grid">
@@ -59,22 +60,47 @@ export default {
       </div>
     `,
   ],
+  argTypes: {
+    copy: {
+      control: 'text',
+      defaultValue:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ' +
+        'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.',
+    },
+    quoteMark: {
+      control: { type: 'select' },
+      options: types,
+      defaultValue: types.doubleCurved,
+    },
+    sourceHeading: {
+      control: 'text',
+      defaultValue: 'Lorem ipsum dolor sit amet',
+    },
+    sourceCopy: {
+      control: 'text',
+      defaultValue: 'consectetur adipiscing elit',
+    },
+    sourceBottomCopy: {
+      control: 'text',
+      defaultValue: 'IBM Cloud',
+    },
+  },
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      CalloutQuote: () => ({
-        copy: textNullable(
-          'Quote (copy):',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ' +
-            'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
-        ),
-        quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
-        sourceHeading: textNullable('Source heading (source-heading slot)', 'Lorem ipsum dolor sit amet'),
-        sourceCopy: textNullable('Source copy (source-copy slot)', 'consectetur adipiscing elit'),
-        sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud'),
-      }),
-    },
+    // knobs: {
+    //   CalloutQuote: () => ({
+    //     copy: textNullable(
+    //       'Quote (copy):',
+    //       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ' +
+    //         'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
+    //     ),
+    //     quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
+    //     sourceHeading: textNullable('Source heading (source-heading slot)', 'Lorem ipsum dolor sit amet'),
+    //     sourceCopy: textNullable('Source copy (source-copy slot)', 'consectetur adipiscing elit'),
+    //     sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud'),
+    //   }),
+    // },
     propsSet: {
       default: {
         CalloutQuote: {
