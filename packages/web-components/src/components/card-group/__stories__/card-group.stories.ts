@@ -11,9 +11,10 @@ import { classMap } from 'lit-html/directives/class-map.js';
 import '../../card/index';
 import '../../card-in-card/index';
 import '../index';
-import '../../cta/video-cta-container';
+import '../../cta/index';
+import '../../tag-group/index';
+import 'carbon-web-components/es/components/tag/tag.js';
 import { html } from 'lit-element';
-import { select, number, boolean } from '@storybook/addon-knobs';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 // eslint-disable-next-line sort-imports
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
@@ -97,7 +98,7 @@ const cardsDiffLengthPhrase = (index, tagGroup, media, gridMode, cardType, addCt
   const videoCardGroupItem = html`
     <dds-card-group-item cta-type="video" href="1_9h94wo6b" color-scheme=${gridMode === 'border' ? 'light' : null}>
       <dds-card-eyebrow>Topic</dds-card-eyebrow>
-      ${tagGroup ? tagGroupContent : ''}
+      ${tagGroup.defaultTagGroup ? tagGroupContent : ''}
       <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b"> </dds-card-cta-footer>
     </dds-card-group-item>
   `;
@@ -157,9 +158,9 @@ const pictogramCard = gridMode => html`
       <path
         id="desktop_1_"
         d="M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26
-  c1.302,0,2.36,1.059,2.36,2.36v17c0,1.302-1.059,2.36-2.36,2.36H16.36v4.279H23V29.36z M1.36,19.36V22c0,
-  0.904,0.736,1.64,1.64,1.64h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,
-  18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z"
+   c1.302,0,2.36,1.059,2.36,2.36v17c0,1.302-1.059,2.36-2.36,2.36H16.36v4.279H23V29.36z M1.36,19.36V22c0,
+   0.904,0.736,1.64,1.64,1.64h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,
+   18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z"
       />
     </svg>
   </dds-card-group-item>
@@ -208,10 +209,10 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
 };
 
 export const Default = args => {
-  const { cards, cardType, media, tagGroup, cardsPerRow, gridMode, offset, cta, addCta } = args?.CardGroup ?? {};
+  const { cards, cardType, media, tagGroup, offset, cta, addCta } = args ?? {};
 
   const classes = classMap({
-    [cardsPerRow]: cardsPerRow,
+    [args['cards-per-row']]: args['cards-per-row'],
   });
 
   const allCards: object[] = [];
@@ -221,11 +222,11 @@ export const Default = args => {
   }
 
   if (cardType === 'Card - default') {
-    allCards.push(longHeadingCardGroupItem(tagGroup, media, gridMode, cardType, addCta));
+    allCards.push(longHeadingCardGroupItem(tagGroup.defaultTagGroup, media.defaultMedia, args['grid-mode'], cardType, addCta));
     for (let i = 1; i < cards; i++) {
-      allCards.push(cardsDiffLengthPhrase(i, tagGroup, media, gridMode, cardType, addCta));
+      allCards.push(cardsDiffLengthPhrase(i, tagGroup.defaultTagGroup, media.defaultMedia, args['grid-mode'], cardType, addCta));
     }
-    if (cta) {
+    if (cta.defaultCTA) {
       allCards.push(
         html`
           <dds-card-group-item cta-type="local" href="https://example.com" color-scheme="inverse">
@@ -239,16 +240,16 @@ export const Default = args => {
 
   if (cardType === 'Card - pictogram') {
     for (let i = 0; i < cards; i++) {
-      allCards.push(pictogramCard(gridMode));
+      allCards.push(pictogramCard(args['grid-mode']));
     }
   }
 
   if (cardType === 'Card static') {
-    allCards.push(longHeadingCardGroupItem(tagGroup, media, gridMode, cardType, addCta));
+    allCards.push(longHeadingCardGroupItem(tagGroup.staticTagGroup, media.staticMedia, args['grid-mode'], cardType, addCta));
     for (let i = 1; i < cards; i++) {
-      allCards.push(cardsDiffLengthPhrase(i, tagGroup, media, gridMode, cardType, addCta));
+      allCards.push(cardsDiffLengthPhrase(i, tagGroup.staticTagGroup, media.staticMedia, args['grid-mode'], cardType, addCta));
     }
-    if (cta) {
+    if (cta.staticCTA) {
       allCards.push(
         html`
           <dds-card-group-item cta-type="local" href="https://example.com" color-scheme="inverse">
@@ -266,13 +267,13 @@ export const Default = args => {
     }
   }
 
-  const colCount = cardsPerRow[cardsPerRow.length - 1];
+  const colCount = args['cards-per-row'][args['cards-per-row'].length - 1];
 
   return html`
     <dds-card-group
       cards-per-row="${colCount}"
       class="${classes}"
-      grid-mode=${setGridMode[cardType] || gridMode}
+      grid-mode=${setGridMode[cardType] || args['grid-mode']}
       ?pictograms=${cardType === 'Card - pictogram'}
     >
       ${allCards}
@@ -281,14 +282,14 @@ export const Default = args => {
 };
 
 export const withCardInCard = args => {
-  const { cards, tagGroup, media, gridMode } = args?.CardGroup ?? {};
+  const { cards, tagGroup, media } = args ?? {};
   const allCards: object[] = [];
   for (let i = 0; i < cards; i++) {
-    allCards.push(cardInCardItems(i, tagGroup, media, gridMode));
+    allCards.push(cardInCardItems(i, tagGroup, media, args['grid-mode']));
   }
   return html`
     <dds-video-cta-container>
-      <dds-card-in-card href="https://example.com" cta-type="local" grid-mode="${ifNonNull(gridMode)}">
+      <dds-card-in-card href="https://example.com" cta-type="local" grid-mode="${ifNonNull(args['grid-mode'])}">
         <dds-card-in-card-image slot="image" alt="Image alt text" default-src="${imgSm4x3}">
           <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}"> </dds-image-item>
           <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}"> </dds-image-item>
@@ -298,11 +299,67 @@ export const withCardInCard = args => {
         <dds-card-heading>Standard Bank Group prepares to embrace Africa’s AI opportunity</dds-card-heading>
         <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-in-card>
-      <dds-card-group grid-mode="${ifNonNull(gridMode)}">
+      <dds-card-group grid-mode="${ifNonNull(args['grid-mode'])}">
         ${allCards}
       </dds-card-group>
     </dds-video-cta-container>
   `;
+};
+
+withCardInCard.argTypes = {
+  media: {
+    control: 'boolean',
+    defaultValue: false,
+  },
+  tagGroup: {
+    control: 'boolean',
+    defaultValue: false,
+  },
+  cardType: {
+    table: {
+      disable: true,
+    },
+  },
+  defaultMedia: {
+    table: {
+      disable: true,
+    },
+  },
+  staticMedia: {
+    table: {
+      disable: true,
+    },
+  },
+  defaultTagGroup: {
+    table: {
+      disable: true,
+    },
+  },
+  staticTagGroup: {
+    table: {
+      disable: true,
+    },
+  },
+  offset: {
+    table: {
+      disable: true,
+    },
+  },
+  defaultCTA: {
+    table: {
+      disable: true,
+    },
+  },
+  staticCTA: {
+    table: {
+      disable: true,
+    },
+  },
+  'cards-per-row': {
+    table: {
+      disable: true,
+    },
+  },
 };
 
 withCardInCard.story = {
@@ -310,14 +367,6 @@ withCardInCard.story = {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      CardGroup: () => ({
-        media: boolean('Add media:', false),
-        tagGroup: boolean('Add tags:', false),
-        gridMode: select('Grid mode:', gridModes, GRID_MODE.NARROW),
-        cards: number('Number of cards', 5, { min: 2, max: 6 }),
-      }),
-    },
     propsSet: {
       default: {
         CardGroup: {
@@ -333,56 +382,122 @@ withCardInCard.story = {
 
 export default {
   title: 'Components/Card group',
+  component: 'dds-card-group',
   decorators: [
-    story => html`
-      <style>
-        ${styles}
-      </style>
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-12 bx--no-gutter">
-            <dds-video-cta-container>
-              ${story()}
-            </dds-video-cta-container>
+    (story, { args }) => {
+      const { defaultMedia, staticMedia, defaultTagGroup, staticTagGroup, defaultCTA, staticCTA, ...restArgs } = args;
+      // Combine the multiple args into one, before passing to the component
+      const media = { defaultMedia, staticMedia };
+      const cta = { defaultCTA, staticCTA };
+      const tagGroup = { defaultTagGroup, staticTagGroup };
+      return html`
+        <style>
+          ${styles}
+        </style>
+        <div class="bx--grid">
+          <div class="bx--row">
+            <div class="bx--col-lg-12 bx--no-gutter">
+              <dds-video-cta-container>
+                ${story({ args: { media, cta, tagGroup, ...restArgs } })}
+              </dds-video-cta-container>
+            </div>
           </div>
         </div>
-      </div>
-    `,
+      `;
+    },
   ],
+  argTypes: {
+    cardType: {
+      control: { type: 'select' },
+      options: ['Card - default', 'Card - pictogram', 'Card static', 'Card link'],
+      defaultValue: 'Card - default',
+      description: 'Select the type of card for Card Group:',
+    },
+    defaultMedia: {
+      name: 'media',
+      control: 'boolean',
+      defaultValue: false,
+      if: { arg: 'cardType', eq: 'Card - default' },
+    },
+    staticMedia: {
+      name: 'media',
+      control: 'boolean',
+      defaultValue: false,
+      if: { arg: 'cardType', eq: 'Card static' },
+    },
+    defaultTagGroup: {
+      name: 'tag group',
+      control: 'boolean',
+      defaultValue: false,
+      if: { arg: 'cardType', eq: 'Card - default' },
+    },
+    staticTagGroup: {
+      name: 'tag group',
+      control: 'boolean',
+      defaultValue: false,
+      if: { arg: 'cardType', eq: 'Card static' },
+    },
+    addCta: {
+      control: 'boolean',
+      defaultValue: false,
+      if: { arg: 'cardType', eq: 'Card static' },
+    },
+    cards: {
+      control: { type: 'number', min: 2, max: 6 },
+      defaultValue: 5,
+    },
+    'cards-per-row': {
+      control: { type: 'select' },
+      options: cardsCol,
+      defaultValue: cardsCol['3 cards per row (default)'],
+    },
+    'grid-mode': {
+      control: { type: 'select' },
+      options: gridModes,
+      defaultValue: gridModes['Collapsed (1px)'],
+      if: { arg: 'cardType', eq: 'Card - default' },
+    },
+    offset: {
+      control: { type: 'radio' },
+      options: ['0', '1'],
+      defaultValue: '0',
+    },
+    defaultCTA: {
+      name: 'CTA',
+      control: 'boolean',
+      defaultValue: false,
+      if: { arg: 'cardType', eq: 'Card - default' },
+    },
+    staticCTA: {
+      name: 'CTA',
+      control: 'boolean',
+      defaultValue: false,
+      if: { arg: 'cardType', eq: 'Card static' },
+    },
+    pictograms: {
+      table: {
+        disable: true,
+      },
+    },
+    cardsPerRow: {
+      table: {
+        disable: true,
+      },
+    },
+    gridMode: {
+      table: {
+        disable: true,
+      },
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      CardGroup: () => {
-        const cardType = select(
-          'Card type:',
-          ['Card - default', 'Card - pictogram', 'Card static', 'Card link'],
-          'Card - default'
-        );
-        const media = cardType === 'Card - default' || cardType === 'Card static' ? boolean('Add media:', false) : '';
-        const tagGroup = cardType === 'Card - default' || cardType === 'Card static' ? boolean('Add tags:', false) : '';
-        const addCta = cardType === 'Card static' ? boolean('Add CTA Links:', false) : '';
-        const cards = number('Number of cards:', 5, { min: 2, max: 6 });
-        const cardsPerRow = select('Cards per row:', cardsCol, cardsCol['3 cards per row (default)']);
-        const gridMode =
-          cardType === 'Card static' || cardType === 'Card link'
-            ? ''
-            : select('Grid mode:', gridModes, gridModes['Collapsed (1px)']);
-        const offset = select('Offset:', ['0', '1'], '0');
-        const cta = media ? '' : boolean('Add CTA card:', false);
-        return {
-          cardType,
-          media,
-          tagGroup,
-          addCta,
-          cards,
-          cardsPerRow,
-          gridMode,
-          offset,
-          cta,
-        };
-      },
-    },
     propsSet: {
       default: {
         CardGroup: {
