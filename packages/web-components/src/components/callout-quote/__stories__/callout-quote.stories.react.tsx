@@ -8,7 +8,6 @@
  */
 
 import React from 'react';
-import { select } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
@@ -17,7 +16,6 @@ import DDSCalloutLinkWithIcon from '@carbon/ibmdotcom-web-components/es/componen
 import DDSQuoteSourceHeading from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-heading';
 import DDSQuoteSourceCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-copy';
 import DDSQuoteSourceBottomCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-bottom-copy';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 import { QUOTE_TYPES } from '../../quote/quote';
 import readme from './README.stories.react.mdx';
 
@@ -31,7 +29,7 @@ const types = {
 };
 
 export const Default = args => {
-  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } = args?.CalloutQuote ?? {};
+  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } = args ?? {};
   return (
     <DDSCalloutQuote mark-type={quoteMark}>
       {copy}
@@ -46,26 +44,29 @@ export const Default = args => {
 };
 
 Default.story = {
-  parameters: {
-    knobs: {
-      CalloutQuote: () => ({
-        copy: textNullable('Quote (copy):', 'Bringing together the technology and expertise for a new way to create'),
-        quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
-        sourceHeading: textNullable('Source heading (source-heading slot)', 'John Doe'),
-        sourceCopy: textNullable('Source copy (source-copy slot)', 'Senior Vice President'),
-        sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud'),
-      }),
+  argTypes: {
+    copy: {
+      control: 'text',
+      defaultValue:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ' +
+        'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.',
     },
-    propsSet: {
-      default: {
-        CalloutQuote: {
-          copy: 'Bringing together the technology and expertise for a new way to create',
-          quoteMark: 'double-curved',
-          sourceHeading: 'John Doe',
-          sourceCopy: 'Senior Vice President',
-          sourceButtonCopy: 'IBM Cloud',
-        },
-      },
+    quoteMark: {
+      control: { type: 'select' },
+      options: types,
+      defaultValue: types.doubleCurved,
+    },
+    sourceHeading: {
+      control: 'text',
+      defaultValue: 'Lorem ipsum dolor sit amet',
+    },
+    sourceCopy: {
+      control: 'text',
+      defaultValue: 'consectetur adipiscing elit',
+    },
+    sourceBottomCopy: {
+      control: 'text',
+      defaultValue: 'IBM Cloud',
     },
   },
 };
