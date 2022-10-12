@@ -7,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { number, select, text } from '@storybook/addon-knobs';
 import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
@@ -27,14 +26,14 @@ const gradientDirections = {
 };
 
 export const Default = args => {
-  const { alt, gradientDirection, backgroundOpacity } = args?.['dds-background-media'] ?? {};
+  const { alt, opacity } = args ?? {};
   return (
     <DDSBackgroundMedia
-      gradient-direction={gradientDirection}
+      gradient-direction={args['gradient-direction']}
       mobile-position="bottom"
       alt={alt}
       default-src={imgMax}
-      opacity={backgroundOpacity}>
+      opacity={opacity}>
       <DDSImageItem media="(min-width: 1584px)" srcset={imgMax}>
         {' '}
       </DDSImageItem>
@@ -55,10 +54,10 @@ export const Default = args => {
 };
 
 export const WithVideo = args => {
-  const { gradientDirection, backgroundOpacity } = args?.['dds-background-media'] ?? {};
+  const { opacity } = args ?? {};
   return (
     <div style={{ height: '70vh' }}>
-      <DDSBackgroundMedia gradient-direction={gradientDirection} mobile-position="bottom" opacity={backgroundOpacity}>
+      <DDSBackgroundMedia gradient-direction={args['gradient-direction']} mobile-position="bottom" opacity={opacity}>
         <DDSVideoPlayerContainer video-id="1_9h94wo6b" background-mode="true"></DDSVideoPlayerContainer>
       </DDSBackgroundMedia>
     </div>
@@ -66,19 +65,20 @@ export const WithVideo = args => {
 };
 
 export const WithDefaultSource = args => {
-  const { alt, gradientDirection, backgroundOpacity } = args?.['dds-background-media'] ?? {};
+  const { alt, opacity } = args ?? {};
   return (
     <DDSBackgroundMedia
-      gradient-direction={gradientDirection}
+      gradient-direction={args['gradient-direction']}
       mobile-position="bottom"
       alt={alt}
       default-src={imgMax}
-      opacity={backgroundOpacity}></DDSBackgroundMedia>
+      opacity={opacity}></DDSBackgroundMedia>
   );
 };
 
 export default {
   title: 'Components/Background media',
+  component: DDSBackgroundMedia,
   decorators: [
     story => (
       <div className="bx--grid">
@@ -88,30 +88,134 @@ export default {
       </div>
     ),
   ],
+  argTypes: {
+    'gradient-direction': {
+      control: { type: 'radio' },
+      options: gradientDirections,
+      defaultValue: GRADIENT_DIRECTION.LEFT_TO_RIGHT,
+    },
+    opacity: {
+      control: { type: 'range', min: 0, max: 100 },
+      defaultValue: 100,
+    },
+    alt: {
+      table: {
+        disable: true,
+      },
+    },
+    'default-src': {
+      table: {
+        disable: true,
+      },
+    },
+    'launch-lightbox-button-assistive-text': {
+      table: {
+        disable: true,
+      },
+    },
+    'mobile-position': {
+      table: {
+        disable: true,
+      },
+    },
+    backgroundOpacity: {
+      table: {
+        disable: true,
+      },
+    },
+    border: {
+      table: {
+        disable: true,
+      },
+    },
+    containsOnlyImages: {
+      table: {
+        disable: true,
+      },
+    },
+    copy: {
+      table: {
+        disable: true,
+      },
+    },
+    defaultSrc: {
+      table: {
+        disable: true,
+      },
+    },
+    gradientDirection: {
+      table: {
+        disable: true,
+      },
+    },
+    gradientHidden: {
+      table: {
+        disable: true,
+      },
+    },
+    heading: {
+      table: {
+        disable: true,
+      },
+    },
+    launchLightboxButtonAssistiveText: {
+      table: {
+        disable: true,
+      },
+    },
+    lightbox: {
+      table: {
+        disable: true,
+      },
+    },
+    mobilePosition: {
+      table: {
+        disable: true,
+      },
+    },
+    open: {
+      table: {
+        disable: true,
+      },
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
+    },
+    videoId: {
+      table: {
+        disable: true,
+      },
+    },
+    videoIsPlaying: {
+      table: {
+        disable: true,
+      },
+    },
+    videoPlayer: {
+      table: {
+        disable: true,
+      },
+    },
+    icon: {
+      table: {
+        disable: true,
+      },
+    },
+    'icon-description': {
+      table: {
+        disable: true,
+      },
+    },
+    'long-description': {
+      table: {
+        disable: true,
+      },
+    },
+  },
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      'dds-background-media': () => ({
-        gradientDirection: select(
-          'Gradient Direction (gradient-direction):',
-          gradientDirections,
-          GRADIENT_DIRECTION.LEFT_TO_RIGHT
-        ),
-        alt: text('Image alt text (alt):', 'Image alt text'),
-        defaultSrc: text('Default image (default-src)', imgMax),
-        backgroundOpacity: number('Background Opacity', 100, { range: true, min: 0, max: 100 }),
-      }),
-    },
-    propsSet: {
-      default: {
-        'dds-background-media': {
-          gradientDirection: 'left-to-right',
-          alt: 'Image alt text',
-          defaultSrc: imgMax,
-          backgroundOpacity: '100',
-        },
-      },
-    },
   },
 };

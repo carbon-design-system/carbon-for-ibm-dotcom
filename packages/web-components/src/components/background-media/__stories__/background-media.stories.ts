@@ -11,7 +11,6 @@ import '../index';
 import '../../video-player/video-player-container';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-// import { text, select, number } from '@storybook/addon-knobs';
 import imgMax from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import imgLg16x9 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
 import imgSm4x3 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--4x3--480x360--005.jpg';
@@ -85,7 +84,6 @@ export default {
       </div>
     `,
   ],
-
   argTypes: {
     'gradient-direction': {
       control: { type: 'radio' },
@@ -211,28 +209,10 @@ export default {
         disable: true,
       },
     },
-    // advanced: { control: 'boolean' },
-    // // below are only included when advanced is true
-    // margin: { control: 'number', if: { arg: 'advanced' } },
-    // padding: { control: 'number', if: { arg: 'advanced' } },
-    // cornerRadius: { control: 'number', if: { arg: 'advanced' } },
   },
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: { disabled: true },
-    // knobs: {
-    //   'dds-background-media': () => ({
-    //     gradientDirection: select(
-    //       'Gradient Direction (gradient-direction):',
-    //       gradientDirections,
-    //       GRADIENT_DIRECTION.LEFT_TO_RIGHT
-    //     ),
-    //     alt: text('Image alt text (alt):', 'Image alt text'),
-    //     defaultSrc: text('Default image (default-src)', imgMax),
-    //     backgroundOpacity: number('Background Opacity', 100, { range: true, min: 0, max: 100 }),
-    //   }),
-    // },
     propsSet: {
       default: {
         'dds-background-media': {

@@ -40,7 +40,18 @@ export const parameters = {
       ],
     },
   },
-  controls: { disabled: true },
+  controls: {
+    // https://storybook.js.org/docs/react/essentials/controls#show-full-documentation-for-each-property
+    expanded: true,
+
+    // https://storybook.js.org/docs/react/essentials/controls#specify-initial-preset-color-swatches
+    // presetColors: [],
+
+    // https://storybook.js.org/docs/react/essentials/controls#sorting-controls
+    // sort: 'alpha',
+
+    hideNoControlsWarning: true,
+  },
   actions: { disabled: true },
 };
 

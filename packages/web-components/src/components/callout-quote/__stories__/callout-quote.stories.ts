@@ -11,10 +11,8 @@ import '../index';
 import '../callout-link-with-icon';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import { html } from 'lit-element';
-// import { select } from '@storybook/addon-knobs';
 import { QUOTE_TYPES } from '../../quote/quote';
 import readme from './README.stories.mdx';
-// import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const types = {
   [`${QUOTE_TYPES.DEFAULT}`]: QUOTE_TYPES.DEFAULT,
@@ -88,19 +86,6 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    // knobs: {
-    //   CalloutQuote: () => ({
-    //     copy: textNullable(
-    //       'Quote (copy):',
-    //       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ' +
-    //         'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
-    //     ),
-    //     quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
-    //     sourceHeading: textNullable('Source heading (source-heading slot)', 'Lorem ipsum dolor sit amet'),
-    //     sourceCopy: textNullable('Source copy (source-copy slot)', 'consectetur adipiscing elit'),
-    //     sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud'),
-    //   }),
-    // },
     propsSet: {
       default: {
         CalloutQuote: {

@@ -58,7 +58,6 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    controls: { disabled: true },
     knobs: {
       ButtonGroup: () => ({
         buttons: Array.from({

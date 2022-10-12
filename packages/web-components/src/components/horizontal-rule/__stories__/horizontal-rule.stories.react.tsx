@@ -7,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select } from '@storybook/addon-knobs';
 import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
@@ -39,35 +38,13 @@ const weights = {
 };
 
 export const Default = args => {
-  const { type, size, contrast, weight } = args?.HorizontalRule ?? {};
+  const { type, size, contrast, weight } = args ?? {};
   return <DDSHorizontalRule type={type} size={size} contrast={contrast} weight={weight}></DDSHorizontalRule>;
-};
-
-Default.story = {
-  parameters: {
-    knobs: {
-      HorizontalRule: () => ({
-        type: select('Type (type):', types, types.solid),
-        size: select('Size (size):', sizes, sizes.fluid),
-        contrast: select('Contrast (contrast):', contrasts, contrasts['medium-contrast']),
-        weight: select('Weight (weight):', weights, weights.thin),
-      }),
-    },
-    propsSet: {
-      default: {
-        HorizontalRule: {
-          type: types.solid,
-          size: sizes.fluid,
-          contrast: contrasts['medium-contrast'],
-          weight: weights.thin,
-        },
-      },
-    },
-  },
 };
 
 export default {
   title: 'Components/Horizontal Rule',
+  component: DDSHorizontalRule,
   decorators: [
     story => {
       return (
@@ -82,6 +59,28 @@ export default {
       );
     },
   ],
+  argTypes: {
+    type: {
+      control: { type: 'select' },
+      options: types,
+      defaultValue: types.solid,
+    },
+    size: {
+      control: { type: 'select' },
+      options: sizes,
+      defaultValue: sizes.fluid,
+    },
+    contrast: {
+      control: { type: 'select' },
+      options: contrasts,
+      defaultValue: contrasts['medium-contrast'],
+    },
+    weight: {
+      control: { type: 'select' },
+      options: weights,
+      defaultValue: weights.thin,
+    },
+  },
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,

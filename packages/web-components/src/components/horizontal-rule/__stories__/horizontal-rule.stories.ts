@@ -14,7 +14,7 @@ import '../horizontal-rule';
 import readme from './README.stories.mdx';
 
 export const Default = args => {
-  const { type, size, contrast, weight } = args?.HorizontalRule ?? {};
+  const { type, size, contrast, weight } = args ?? {};
   return html`
     <dds-hr type="${ifNonNull(type)}" size="${ifNonNull(size)}" contrast="${ifNonNull(contrast)}" weight="${ifNonNull(weight)}">
     </dds-hr>
@@ -46,6 +46,29 @@ const weights = {
 
 export default {
   title: 'Components/Horizontal rule',
+  component: 'dds-hr',
+  argTypes: {
+    type: {
+      control: { type: 'select' },
+      options: types,
+      defaultValue: types.solid,
+    },
+    size: {
+      control: { type: 'select' },
+      options: sizes,
+      defaultValue: sizes.fluid,
+    },
+    contrast: {
+      control: { type: 'select' },
+      options: contrasts,
+      defaultValue: contrasts['medium-contrast'],
+    },
+    weight: {
+      control: { type: 'select' },
+      options: weights,
+      defaultValue: weights.thin,
+    },
+  },
   decorators: [
     story => html`
       <div class="bx--grid bx--grid--condensed">
