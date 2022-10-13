@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { DDS_LEADSPACE_WITH_SEARCH } from '../../../internal/FeatureFlags';
 import LeadspaceWithSearch from '../LeadspaceWithSearch';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -31,20 +30,16 @@ const props = () => ({
   },
 });
 
-export default !DDS_LEADSPACE_WITH_SEARCH
-  ? undefined
-  : {
-      title: 'Components/Lead space with search',
-      parameters: {
-        ...readme.parameters,
-        percy: {
-          skip: true,
-        },
-      },
-    };
+export default {
+  title: 'Components/Lead space with search',
+  parameters: {
+    ...readme.parameters,
+    percy: {
+      skip: true,
+    },
+  },
+};
 
-export const Default = !DDS_LEADSPACE_WITH_SEARCH
-  ? undefined
-  : () => {
-      return <LeadspaceWithSearch {...props()} />;
-    };
+export const Default = () => {
+  return <LeadspaceWithSearch {...props()} />;
+};
