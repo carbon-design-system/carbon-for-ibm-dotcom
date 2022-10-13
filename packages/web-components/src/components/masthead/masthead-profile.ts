@@ -115,7 +115,6 @@ class DDSMastheadProfile extends HostListenerMixin(FocusMixin(StableSelectorMixi
         tabindex="0"
         class="${prefix}--header__menu-item ${prefix}--header__menu-title"
         href="javascript:void 0"
-        aria-haspopup="menu"
         aria-expanded="${String(Boolean(expanded))}"
         aria-label="${ifDefined(triggerLabel)}"
         @click=${handleClick}
