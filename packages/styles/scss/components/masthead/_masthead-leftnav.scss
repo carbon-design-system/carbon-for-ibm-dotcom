@@ -12,9 +12,6 @@
 @mixin masthead-sidenav {
   .#{$prefix}--masthead__focus {
     opacity: 0;
-    padding: 0;
-    height: 0;
-    width: 0;
     border: none;
     position: absolute;
   }
