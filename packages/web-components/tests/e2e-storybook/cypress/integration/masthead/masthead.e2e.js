@@ -37,15 +37,22 @@ describe('dds-masthead | default (desktop)', () => {
   });
 
   it('should load menu item with selected state', () => {
-    cy.get('dds-megamenu-top-nav-menu:nth-child(2)').then($menuItem => {
-      expect($menuItem).to.have.attr('active');
-    });
+    let selectedState = false;
+    cy.get('dds-megamenu-top-nav-menu')
+      .each($menuItem => {
+        if ($menuItem.attr('active') !== undefined) {
+          selectedState = true;
+        }
+      })
+      .then(() => {
+        expect(selectedState).to.be.true;
+      });
 
     cy.takeSnapshots();
   });
 
   it('should load a megamenu with links', () => {
-    cy.get('dds-megamenu-top-nav-menu:nth-child(1)')
+    cy.get('dds-megamenu-top-nav-menu:nth-child(2)')
       .shadow()
       .find('a')
       .click();
@@ -55,7 +62,7 @@ describe('dds-masthead | default (desktop)', () => {
 
   it('should have urls for the submenu items within the megamenu', () => {
     cy.get(
-      'dds-megamenu-top-nav-menu:nth-child(1) > dds-megamenu >  dds-megamenu-right-navigation >  dds-megamenu-category-group > dds-megamenu-category-link:nth-child(1)'
+      'dds-megamenu-top-nav-menu:nth-child(2) > dds-megamenu >  dds-megamenu-right-navigation >  dds-megamenu-category-group > dds-megamenu-category-link:nth-child(1)'
     )
       .shadow()
       .find('a')
@@ -132,7 +139,7 @@ describe('dds-masthead | default (mobile)', () => {
       .find('button')
       .click();
 
-    cy.get('dds-left-nav-menu-section:nth-child(1) > dds-left-nav-menu:nth-child(1)')
+    cy.get('dds-left-nav-menu-section:nth-child(1) > dds-left-nav-menu:nth-child(2)')
       .shadow()
       .find('button')
       .click();
