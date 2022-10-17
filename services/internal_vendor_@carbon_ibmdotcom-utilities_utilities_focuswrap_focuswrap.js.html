@@ -27,24 +27,20 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" &amp;&amp; o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i &lt; len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" &amp;&amp; arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i &amp;&amp; _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n &amp;&amp; _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 /**
  * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+
 import on from 'carbon-components/es/globals/js/misc/on';
+
 /**
  * Fires the given event if focus goes out of the given element.
  *
@@ -55,26 +51,21 @@ import on from 'carbon-components/es/globals/js/misc/on';
  * @param {string} [eventRequestFocusWrap=dds-request-focus-wrap] The event name.
  * @returns {Function} The handle to remove the event handler.
  */
-
 function focuswrap(element, sentinelNodes) {
   var eventRequestFocusWrap = arguments.length > 2 &amp;&amp; arguments[2] !== undefined ? arguments[2] : 'dds-request-focus-wrap';
   return on(element, 'focusout', function handleFocusout(event) {
     var _event$currentTarget$, _event$currentTarget$2;
-
     var target = event.target,
-        relatedTarget = event.relatedTarget;
-
+      relatedTarget = event.relatedTarget;
     var _sentinelNodes = _slicedToArray(sentinelNodes, 2),
-        startSentinelNode = _sentinelNodes[0],
-        endSentinelNode = _sentinelNodes[1];
-
+      startSentinelNode = _sentinelNodes[0],
+      endSentinelNode = _sentinelNodes[1];
     var oldContains = target &amp;&amp; target !== this &amp;&amp; (event.currentTarget.contains(target) || ((_event$currentTarget$ = event.currentTarget.host) === null || _event$currentTarget$ === void 0 ? void 0 : _event$currentTarget$.contains(target))) &amp;&amp; sentinelNodes.indexOf(target) &lt; 0;
-    var currentContains = relatedTarget &amp;&amp; relatedTarget !== this &amp;&amp; (event.currentTarget.contains(relatedTarget) || ((_event$currentTarget$2 = event.currentTarget.host) === null || _event$currentTarget$2 === void 0 ? void 0 : _event$currentTarget$2.contains(relatedTarget))) &amp;&amp; sentinelNodes.indexOf(relatedTarget) &lt; 0; // FF fires `focusout` event even if the page itself is losing focus (e.g. upon following outside link).
+    var currentContains = relatedTarget &amp;&amp; relatedTarget !== this &amp;&amp; (event.currentTarget.contains(relatedTarget) || ((_event$currentTarget$2 = event.currentTarget.host) === null || _event$currentTarget$2 === void 0 ? void 0 : _event$currentTarget$2.contains(relatedTarget))) &amp;&amp; sentinelNodes.indexOf(relatedTarget) &lt; 0;
+    // FF fires `focusout` event even if the page itself is losing focus (e.g. upon following outside link).
     // In such case, we do nothing.
-
     if (oldContains &amp;&amp; !currentContains &amp;&amp; relatedTarget) {
       var comparisonResult = target.compareDocumentPosition(relatedTarget);
-
       if (relatedTarget === startSentinelNode) {
         comparisonResult = Node.DOCUMENT_POSITION_PRECEDING;
       } else if (relatedTarget === endSentinelNode) {
@@ -82,7 +73,6 @@ function focuswrap(element, sentinelNodes) {
       } else {
         comparisonResult = -1;
       }
-
       element.dispatchEvent(new CustomEvent(eventRequestFocusWrap, {
         bubbles: true,
         cancelable: false,
@@ -94,7 +84,6 @@ function focuswrap(element, sentinelNodes) {
     }
   });
 }
-
 export default focuswrap;</code></pre>
         </article>
     </section>
@@ -111,7 +100,7 @@ export default focuswrap;</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Mon Oct 17 2022 19:19:52 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Mon Oct 17 2022 21:54:24 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
