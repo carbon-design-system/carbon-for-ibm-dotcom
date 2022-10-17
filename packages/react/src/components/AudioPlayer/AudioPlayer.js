@@ -12,20 +12,14 @@ import AudioPlayerPlayButton from './AudioPlayerPlayButton';
 import AudioPlayerScrubber from './AudioPlayerScrubber';
 import AudioPlayerThumbnail from './AudioPlayerThumbnail';
 import AudioPlayerVolumeControl from './AudioPlayerVolumeControl';
-
 import cx from 'classnames';
 import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import featureFlag from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/featureflag/featureflag';
-
 import { KalturaPlayer as KalturaPlayerAPI } from '@carbon/ibmdotcom-services/es/services';
-
 import PropTypes from 'prop-types';
-
 import root from 'window-or-global';
-
 import settings from 'carbon-components/es/globals/js/settings';
-
 import uniqueid from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/uniqueid/uniqueid';
 
 const { stablePrefix } = ddsSettings;
@@ -41,16 +35,15 @@ export function AudioPlayer({
   showCaptionMenu,
   showPlaybackRateMenu,
   availablePlaybackRates,
+  ...other
 }) {
   const [audioData, setAudioData] = useState({ duration: 0 });
-
   const [displayVolumeControl, setDisplayVolumeControl] = useState(false);
-
   const audioPlayerId = uniqueid(`audio-player__audio-${audioId}-`);
   const uniqueAudioPlayerId = `${prefix}--${audioPlayerId}`;
-
   const [kalturaDigitalPlayer, setKalturaDigitalPlayer] = useState(false); // The KDP Object
   const [availableCaptions, setAvailableCaptions] = useState({}); // All Available Captions
+
   /**
    * The current state of the player
    *
@@ -174,6 +167,8 @@ export function AudioPlayer({
         audioTime={audioTime}
         setAudioTime={setAudioTime}
         setDisplayVolumeControl={setDisplayVolumeControl}
+        rewindHelperText={other.rewindHelperText}
+        forwardHelperText={other.forwardHelperText}
       />
 
       <AudioPlayerVolumeControl
@@ -202,6 +197,7 @@ export function AudioPlayer({
             availableCaptions={availableCaptions}
             audioCaption={audioCaption}
             setAudioCaption={setAudioCaption}
+            closedCaptionsHelperText={other.closedCaptionsHelperText}
           />
 
           {availableCaptions?.[audioCaption] && (
