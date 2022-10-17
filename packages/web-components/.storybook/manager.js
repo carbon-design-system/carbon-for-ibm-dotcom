@@ -12,26 +12,34 @@ addons.setConfig({
   theme: yourTheme,
 });
 
-// Map feature flags to component sidebar selectors.
-const config = {
-  DDS_PRICING_TABLE: 'button[id ^= "components-pricing-table"]',
-  DDS_CONTENT_BLOCK_HEADLINES: 'button[id ^= "components-content-block-headlines"]',
-  DDS_SCOPED_SEARCH: 'button[id ^= "components-masthead-with-scoped-search"]',
-  DDS_CLOUD_MASTHEAD: 'button[id ^= "components-cloud-masthead"]',
-  DDS_CONTENT_BLOCK_CARD_STATIC: 'button[id ^= "components-content-block-card-static"]',
+/**
+ * Conditionally generate CSS to hide a component based on its corresponding
+ * feature flag environment variable.
+ *
+ * @param {*} envVar
+ *   Environment variable to check.
+ * @param {*} cssId
+ *   CSS ID for selector.
+ * @returns
+ */
+const cssToHide = (envVar, cssId) => {
+  return envVar !== 'true' ? `button[id^="${cssId}"] { display: none !important; }\n` : '';
 };
-const configKeys = Object.keys(config);
-const configValues = Object.values(config);
-let CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR = '';
 
 // Build string of CSS rules.
+let CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR = '';
 if (!process.env.DDS_FLAGS_ALL) {
-  for (let i = 0; i < configKeys.length; i++) {
-    let flag = configKeys[i];
-    if (!process.env[flag]) {
-      CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR += `${configValues[i]} { display: none !important; }\n`;
-    }
-  }
+  CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR += cssToHide(process.env.DDS_CLOUD_MASTHEAD, 'components-cloud-masthead');
+  CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR += cssToHide(
+    process.env.DDS_CONTENT_BLOCK_HEADLINES,
+    'components-content-block-headlines'
+  );
+  CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR += cssToHide(
+    process.env.DDS_CONTENT_BLOCK_CARD_STATIC,
+    'components-content-block-card-static'
+  );
+  CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR += cssToHide(process.env.DDS_PRICING_TABLE, 'components-pricing-table');
+  CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR += cssToHide(process.env.DDS_SCOPED_SEARCH, 'components-masthead-with-scoped-search');
 }
 
 // Inject any CSS rules into the page.
