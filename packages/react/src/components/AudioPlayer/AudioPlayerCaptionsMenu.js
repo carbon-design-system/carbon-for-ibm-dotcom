@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,6 +23,7 @@ const AudioPlayerCaptionsMenu = ({
   audioCaption,
   setAudioCaption,
   setDisplayVolumeControl,
+  closedCaptionsHelperText,
 }) => {
   const hasCaptions = () => {
     return Object.keys(availableCaptions).length > 0;
@@ -42,7 +43,7 @@ const AudioPlayerCaptionsMenu = ({
             renderIcon={ClosedCaptionFilled32}
             direction="top"
             flipped={true}
-            iconDescription="Closed Captions"
+            iconDescription={closedCaptionsHelperText}
             selectorPrimaryFocus={`.${prefix}--audio-player__button-for-closed-caption-${audioCaption.toLowerCase()}`}
             onOpen={() => setDisplayVolumeControl(false)}>
             <OverflowMenuItem
@@ -100,6 +101,10 @@ AudioPlayerCaptionsMenu.propTypes = {
    */
   audioCaption: PropTypes.string.isRequired,
   /**
+   * The helper text label for the closed captions button
+   */
+  closedCaptionsHelperText: PropTypes.string,
+  /**
    * The state setter for the current selected caption language
    */
   setAudioCaption: PropTypes.func.isRequired,
@@ -113,6 +118,7 @@ AudioPlayerCaptionsMenu.defaultProps = {
   kalturaDigitalPlayer: false,
   availableCaptions: [],
   audioCaption: '',
+  closedCaptionsHelperText: 'Closed captions',
 };
 
 export default !DDS_AUDIO_PLAYER ? undefined : AudioPlayerCaptionsMenu;
