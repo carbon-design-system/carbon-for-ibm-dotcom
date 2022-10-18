@@ -89,10 +89,11 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private async _handleRequestVideoData(event: CustomEvent) {
     const { href, videoName: customVideoName, videoDescription } = event.detail;
-    (event.target as VideoCTAMixinImpl).videoThumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
+    const videoThumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
       mediaId: href,
       width: (event?.target as HTMLElement)?.offsetWidth,
     });
+    (event.target as VideoCTAMixinImpl).videoThumbnailUrl = videoThumbnailUrl;
     const videoData = await this._loadVideoData?.(href);
     if (videoData) {
       const { duration, name } = videoData;
@@ -101,6 +102,19 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
       (event.target as VideoCTAMixinImpl).videoName = videoName;
       (event.target as VideoCTAMixinImpl).videoDescription = videoDescription;
       (event.target as VideoCTAMixinImpl).videoDuration = duration;
+
+      const videoInfo = new CustomEvent(`${ddsPrefix}-cta-request-additional-video-data`, {
+        bubbles: true,
+        cancelable: true,
+        composed: true,
+        detail: {
+          videoName,
+          videoDuration: duration,
+          videoThumbnailUrl,
+        },
+      });
+
+      this.dispatchEvent(videoInfo);
     }
   }
 
@@ -216,6 +230,13 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
    */
   static get eventCloseLightbox() {
     return `${ddsPrefix}-expressive-modal-closed`;
+  }
+
+  /**
+   * The name of the custom event fired when there is a user gesture to run the action.
+   */
+  static get eventRequestAdditionalVideoData() {
+    return `${ddsPrefix}-cta-request-additional-video-data`;
   }
 
   /**

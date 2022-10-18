@@ -73,7 +73,7 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
       ctaType !== CTA_TYPE.VIDEO || noPoster
         ? undefined
         : html`
-            <dds-image alt="${ifNonNull(videoName)}" default-src="${ifNonNull(thumbnail || videoThumbnailUrl)}" slot="image">
+            <dds-image alt="${ifNonNull(videoName)}" default-src="${ifNonNull(videoThumbnailUrl || thumbnail)}" slot="image">
               ${PlayVideo({ slot: 'icon' })}
             </dds-image>
           `;
@@ -158,10 +158,11 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
         (footer as DDSFeatureCTAFooter).videoDescription = videoDescription;
       }
     }
-    if (changedProperties.has('captionHeading')) {
-      (this.querySelector(
-        (this.constructor as typeof DDSFeatureCTA).selectorHeading
-      ) as HTMLElement)!.innerText = this.captionHeading;
+
+    const heading = this.querySelector((this.constructor as typeof DDSFeatureCTA).selectorHeading) as HTMLElement;
+
+    if (changedProperties.has('captionHeading') && heading) {
+      heading!.innerText = this.captionHeading;
     }
   }
 

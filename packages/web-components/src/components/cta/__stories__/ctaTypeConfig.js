@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { CTA_TYPE } from '../defs';
+import { CTA_STYLE, CTA_TYPE } from '../defs';
 
 export const hrefsForType = {
   [CTA_TYPE.REGULAR]: 'https://www.example.com',
@@ -54,6 +54,14 @@ export const typeOptions = {
   [`Video (${CTA_TYPE.VIDEO})`]: CTA_TYPE.VIDEO,
   [`PDF (${CTA_TYPE.PDF})`]: CTA_TYPE.PDF,
   [`Blog (${CTA_TYPE.BLOG})`]: CTA_TYPE.BLOG,
+};
+
+export const styleOptions = {
+  [`Text`]: CTA_STYLE.TEXT,
+  [`Button`]: CTA_STYLE.BUTTON,
+  [`Card`]: CTA_STYLE.CARD,
+  [`Card link`]: CTA_STYLE.CARDLINK,
+  [`Feature`]: CTA_STYLE.FEATURE,
 };
 
 export const types = {
