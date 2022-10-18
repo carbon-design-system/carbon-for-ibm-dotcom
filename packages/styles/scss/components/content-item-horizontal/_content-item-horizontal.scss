@@ -268,7 +268,7 @@
     max-width: 100%;
     grid-column: 1 / span 4;
     @include carbon--breakpoint(md) {
-      grid-column: 6 / span 3;
+      grid-column: 5 / span 4;
     }
     @include carbon--breakpoint(lg) {
       grid-column: 9 / span 4;
