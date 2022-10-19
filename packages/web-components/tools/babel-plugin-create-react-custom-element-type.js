@@ -224,8 +224,8 @@ function createMetadataVisitor(api) {
 
         // Use fs.readFile() method to read the parent file
         fs.readFile(parentFileName, 'utf8', (_errParent, parentData) => {
-          const firstIndex = parentData.indexOf('export var propTypes') + 'export var propTypes = {'.length;
-          const secondIndex = parentData.indexOf('}', firstIndex);
+          const firstIndex = parentData?.indexOf('export var propTypes') + 'export var propTypes = {'.length;
+          const secondIndex = parentData?.indexOf('}', firstIndex);
           // Gets parent props from ES folder as string
           if (secondIndex > firstIndex + 1) {
             let copy = parentData.slice(firstIndex, secondIndex);
