@@ -10,7 +10,7 @@
 <picture>
   <img
     alt=""
-    aria-describedby="long-description"
+    aria-describedby="image-caption long-description"
     class="bx--image__img"
     loading="lazy"
     src=""
@@ -36,7 +36,7 @@
 <picture>
   <img
     alt=""
-    aria-describedby="long-description"
+    aria-describedby="image-caption long-description"
     class="bx--image__img"
     loading="lazy"
     src=""
