@@ -88,6 +88,9 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
       [`${prefix}--side-nav__submenu`]: true,
       [`${prefix}--masthead__side-nav--submemu--selected`]: active,
     });
+
+    const isSubitem = this.parentElement?.hasAttribute('is-submenu') || false;
+
     return html`
       <div class="${prefix}--side-nav__item">
         <button
@@ -97,6 +100,9 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
           aria-expanded="${String(Boolean(expanded))}"
           class="${buttonClasses}"
           @click=${handleClickExpando}
+          data-attribute1="HeaderNav"
+          data-attribute2="${isSubitem ? 'TabHdline' : 'L0'}"
+          data-attribute3="${title}"
         >
           <div class="${prefix}--side-nav__submenu-content">
             <span class="${prefix}--side-nav__submenu-title">${title}</span>
