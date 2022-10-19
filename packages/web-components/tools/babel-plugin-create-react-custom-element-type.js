@@ -236,12 +236,12 @@ function createMetadataVisitor(api) {
 
             // Gets original component file
             fs.readFile(currentFileName, 'utf8', (_errOriginal, originalData) => {
-              if (originalData.length && !originalData.includes(copy) && !copy.includes('.assign')) {
+              if (originalData?.length && !originalData?.includes(copy) && !copy?.includes('.assign')) {
                 const originalSplit = originalData.split('\n');
                 const index =
-                  originalSplit.indexOf('export var propTypes = {') !== -1
-                    ? originalSplit.indexOf('export var propTypes = {')
-                    : originalSplit.indexOf('export var propTypes = {};');
+                  originalSplit?.indexOf('export var propTypes = {') !== -1
+                    ? originalSplit?.indexOf('export var propTypes = {')
+                    : originalSplit?.indexOf('export var propTypes = {};');
 
                 // Combines parent props with original props
                 if (originalSplit[index] === 'export var propTypes = {};') {
@@ -256,7 +256,7 @@ function createMetadataVisitor(api) {
 
                 // Checks that nothing else was copied after the final line
                 const lastString = 'export default Component;';
-                const lastIndex = output.indexOf(lastString);
+                const lastIndex = output?.indexOf(lastString);
                 const finalOutput = output.slice(0, lastIndex + lastString.length);
 
                 // Outputs combined props to ES file
