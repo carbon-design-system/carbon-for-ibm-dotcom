@@ -259,7 +259,7 @@ describe('dds-masthead | default (mobile)', () => {
             checkAnalyticsAttributes(link, {
               "data-attribute1": "headerNav",
               "data-attribute2": "FlatItem",
-              "data-attribute3": section.attr('title'),
+              "data-attribute3": item.attr('title'),
             });
           })
       })
