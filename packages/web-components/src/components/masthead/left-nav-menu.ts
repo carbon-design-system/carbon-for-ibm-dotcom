@@ -100,7 +100,7 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
           aria-expanded="${String(Boolean(expanded))}"
           class="${buttonClasses}"
           @click=${handleClickExpando}
-          data-attribute1="HeaderNav"
+          data-attribute1="headerNav"
           data-attribute2="${isSubitem ? 'TabHdline' : 'L0'}"
           data-attribute3="${title}"
         >
