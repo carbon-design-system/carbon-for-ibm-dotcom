@@ -127,11 +127,6 @@
   // React
   .#{$prefix}--content-item-horizontal__col:first-of-type,
   .#{$prefix}--content-item-horizontal__col:last-of-type {
-    @include carbon--breakpoint(md) {
-      @include carbon--make-col-ready;
-      @include carbon--make-col(4, 12);
-    }
-
     :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
       @include carbon--make-col(4, 4);
 
@@ -159,12 +154,7 @@
   .#{$prefix}--content-item-horizontal__col:last-of-type {
     display: flex;
     flex-direction: column;
-
-    @include carbon--breakpoint(md) {
-      @include carbon--make-col(6, 12);
-
-      display: flex;
-    }
+    width: 100%;
 
     @include carbon--breakpoint(lg) {
       @include carbon--make-col(8, 12);
@@ -263,15 +253,25 @@
     padding-left: 0;
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal[thumbnail])
-    .#{$prefix}--content-item-horizontal__col--2 {
-    max-width: 100%;
-    grid-column: 1 / span 4;
-    @include carbon--breakpoint(md) {
-      grid-column: 5 / span 4;
+  :host(#{$dds-prefix}-content-item-horizontal[thumbnail]) {
+    .#{$prefix}--content-item-horizontal__body-wrapper {
+      grid-column: 1 / span 4;
+      max-width: 100%;
+
+      @include carbon--breakpoint(lg) {
+        grid-column: 1 / span 8;
+        display: contents;
+      }
     }
-    @include carbon--breakpoint(lg) {
-      grid-column: 9 / span 4;
+    .#{$prefix}--content-item-horizontal__col--2 {
+      max-width: 100%;
+      grid-column: 1 / span 4;
+      @include carbon--breakpoint(md) {
+        grid-column: 5 / span 4;
+      }
+      @include carbon--breakpoint(lg) {
+        grid-column: 9 / span 4;
+      }
     }
   }
 
