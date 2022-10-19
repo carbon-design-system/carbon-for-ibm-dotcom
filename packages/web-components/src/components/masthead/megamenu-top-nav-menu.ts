@@ -110,7 +110,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   firstUpdated() {
     this._menuNode.removeAttribute('role');
     this._cleanAndCreateObserverResize({ create: true });
-    this._setAnaltyicsAttributes();
+    this._setAnalyticsAttributes();
 
     if (this.hasAttribute('role') && this.getAttribute('role') === 'listitem') {
       this.removeAttribute('role');
@@ -179,7 +179,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
     }
 
     if (changedProperties.has('menuLabel')) {
-      this._setAnaltyicsAttributes();
+      this._setAnalyticsAttributes();
     }
   }
 
