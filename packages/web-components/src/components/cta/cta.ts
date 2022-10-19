@@ -29,7 +29,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 /* eslint-disable babel/no-unused-expressions */
 @customElement(`${ddsPrefix}-cta`)
-class DDSCTA extends HostListenerMixin(StableSelectorMixin(LitElement)) {
+class DDSCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   @property({ attribute: 'cta-style' })
   ctaStyle = 'text';
 
@@ -170,4 +170,4 @@ class DDSCTA extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCTA;
+export default DDSCTAHead;

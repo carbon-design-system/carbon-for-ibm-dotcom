@@ -58,7 +58,11 @@ export const Default = args => {
       const headingComponent =
         childCta?.shadowRoot?.querySelector('dds-card-heading') || childCta?.querySelector('dds-card-heading');
       headingComponent && !duration ? (duration = headingComponent!.textContent!.match(/\((.*)\)/)?.pop()) : null;
-      headingComponent && duration ? (headingComponent!.textContent = `${customVideoTitle} (${duration})`) : customVideoTitle;
+      if (headingComponent?.textContent) {
+        duration
+          ? (headingComponent!.textContent = `${customVideoTitle} (${duration})`)
+          : (headingComponent!.textContent = customVideoTitle);
+      }
       childCta && noPoster ? childCta?.setAttribute('no-poster', '') : childCta?.removeAttribute('no-poster');
     }
 
@@ -69,12 +73,17 @@ export const Default = args => {
             .shadowRoot!.querySelector('span')!
             .textContent!.match(/\((.*)\)/)
             ?.pop());
-      childCta ? (childCta!.shadowRoot!.querySelector('span')!.textContent = `${customVideoTitle} (${duration})`) : null;
+      const spanComponent = childCta!.shadowRoot!.querySelector('span');
+      spanComponent && duration
+        ? (spanComponent.textContent = `${customVideoTitle} (${duration})`)
+        : (spanComponent!.textContent = customVideoTitle);
     }
 
     if (ctaStyle === 'button' && childCta) {
       duration ? null : (duration = childCta.textContent!.match(/\((.*)\)/)?.pop());
-      childCta ? (childCta.textContent = `${customVideoTitle} (${duration})`) : null;
+      childCta && duration
+        ? (childCta.textContent = `${customVideoTitle} (${duration})`)
+        : ((childCta as HTMLElement).innerText = customVideoTitle);
     }
   }
 
