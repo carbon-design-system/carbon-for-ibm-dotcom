@@ -88,7 +88,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
     this.style.setProperty(customPropertyViewportWidth, `${contentRect.width}px`);
   };
 
-  private _setAnaltyicsAttributes() {
+  private _setAnalyticsAttributes() {
     const { _triggerNode: trigger } = this;
 
     trigger!.setAttribute('data-attribute1', 'headerNav');
