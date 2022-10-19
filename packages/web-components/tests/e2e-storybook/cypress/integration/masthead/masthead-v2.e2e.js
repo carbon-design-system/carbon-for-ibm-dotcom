@@ -23,14 +23,14 @@ function checkAnalyticsAttributes(element, attributes) {
   Object.entries(attributes).forEach(([attr, value]) => {
     expect(element.hasAttribute(attr)).to.be.true;
     expect(element.getAttribute(attr)).to.equal(value);
-  })
+  });
 }
 
 describe('dds-masthead | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780)
-    .visit(`/${_pathDefault}`)
-    .injectAxe();
+      .visit(`/${_pathDefault}`)
+      .injectAxe();
 
     cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
   });
@@ -54,28 +54,26 @@ describe('dds-masthead | default (desktop)', () => {
   });
 
   it('should load the megamenus', () => {
-    cy.get('dds-megamenu-top-nav-menu')
-      .each($topItem => {
-        cy.get($topItem)
-          .shadow()
-          .find('a')
-          .click()
-          .takeSnapshots()
-      });
+    cy.get('dds-megamenu-top-nav-menu').each($topItem => {
+      cy.get($topItem)
+        .shadow()
+        .find('a')
+        .click()
+        .takeSnapshots();
+    });
   });
 
   it('should have urls for link elements', () => {
-    cy.get('dds-megamenu-category-link, dds-megamenu-category-heading')
-      .each($linkItem => {
-        cy.get($linkItem)
-          .shadow()
-          .then(([shadowHost]) => {
-            const link = shadowHost.querySelector('a');
-            if (link) {
-              expect(link.href.trim()).not.to.be.empty;
-            }
-          })
-      });
+    cy.get('dds-megamenu-category-link, dds-megamenu-category-heading').each($linkItem => {
+      cy.get($linkItem)
+        .shadow()
+        .then(([shadowHost]) => {
+          const link = shadowHost.querySelector('a');
+          if (link) {
+            expect(link.href.trim()).not.to.be.empty;
+          }
+        });
+    });
   });
 
   it('should open the login menu with 2 items', () => {
@@ -123,11 +121,11 @@ describe('dds-masthead | default (desktop)', () => {
           .find('a')
           .then(([link]) => {
             checkAnalyticsAttributes(link, {
-              "data-attribute1": "headerNav",
-              "data-attribute2": "L0",
-              "data-attribute3": item.attr('menu-label'),
+              'data-attribute1': 'headerNav',
+              'data-attribute2': 'L0',
+              'data-attribute3': item.attr('menu-label'),
             });
-          })
+          });
       })
 
       .get('dds-megamenu-tab')
@@ -137,11 +135,11 @@ describe('dds-masthead | default (desktop)', () => {
           .find('button')
           .then(([button]) => {
             checkAnalyticsAttributes(button, {
-              "data-attribute1": "headerNav",
-              "data-attribute2": "TabHdline",
-              "data-attribute3": item.attr('value'),
+              'data-attribute1': 'headerNav',
+              'data-attribute2': 'TabHdline',
+              'data-attribute3': item.attr('value'),
             });
-          })
+          });
       })
 
       .get('dds-megamenu-category-heading[href^="http"]')
@@ -151,11 +149,11 @@ describe('dds-masthead | default (desktop)', () => {
           .find('a')
           .then(([link]) => {
             checkAnalyticsAttributes(link, {
-              "data-attribute1": "headerNav",
-              "data-attribute2": "FlatHdline",
-              "data-attribute3": item.attr('title'),
+              'data-attribute1': 'headerNav',
+              'data-attribute2': 'FlatHdline',
+              'data-attribute3': item.attr('title'),
             });
-          })
+          });
       })
 
       .get('dds-megamenu-category-link')
@@ -165,13 +163,13 @@ describe('dds-masthead | default (desktop)', () => {
           .find('a')
           .then(([link]) => {
             checkAnalyticsAttributes(link, {
-              "data-attribute1": "headerNav",
-              "data-attribute2": "FlatItem",
-              "data-attribute3": item.attr('title'),
+              'data-attribute1': 'headerNav',
+              'data-attribute2': 'FlatItem',
+              'data-attribute3': item.attr('title'),
             });
-          })
-      })
-  })
+          });
+      });
+  });
 });
 
 describe('dds-masthead | default (mobile)', () => {
@@ -219,21 +217,21 @@ describe('dds-masthead | default (mobile)', () => {
             // Top-level items
             if (!menu.get(0).parentElement.hasAttribute('is-submenu')) {
               checkAnalyticsAttributes(button, {
-                "data-attribute1": "headerNav",
-                "data-attribute2": "L0",
-                "data-attribute3": menu.attr('title'),
+                'data-attribute1': 'headerNav',
+                'data-attribute2': 'L0',
+                'data-attribute3': menu.attr('title'),
               });
             }
 
             // Secondary-level items
             else {
               checkAnalyticsAttributes(button, {
-                "data-attribute1": "headerNav",
-                "data-attribute2": "TabHdline",
-                "data-attribute3": menu.attr('title'),
+                'data-attribute1': 'headerNav',
+                'data-attribute2': 'TabHdline',
+                'data-attribute3': menu.attr('title'),
               });
             }
-          })
+          });
       })
 
       .get('dds-left-nav-menu-section[titleurl^="http"]')
@@ -243,11 +241,11 @@ describe('dds-masthead | default (mobile)', () => {
           .find('a')
           .then(([link]) => {
             checkAnalyticsAttributes(link, {
-              "data-attribute1": "headerNav",
-              "data-attribute2": "FlatHdline",
-              "data-attribute3": section.attr('title'),
+              'data-attribute1': 'headerNav',
+              'data-attribute2': 'FlatHdline',
+              'data-attribute3': section.attr('title'),
             });
-          })
+          });
       })
 
       .get('dds-left-nav-menu-item')
@@ -257,13 +255,11 @@ describe('dds-masthead | default (mobile)', () => {
           .find('a')
           .then(([link]) => {
             checkAnalyticsAttributes(link, {
-              "data-attribute1": "headerNav",
-              "data-attribute2": "FlatItem",
-              "data-attribute3": item.attr('title'),
+              'data-attribute1': 'headerNav',
+              'data-attribute2': 'FlatItem',
+              'data-attribute3': item.attr('title'),
             });
-          })
-      })
-
-
-  })
+          });
+      });
+  });
 });
