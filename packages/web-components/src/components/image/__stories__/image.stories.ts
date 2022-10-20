@@ -32,7 +32,7 @@ const srcsets = {
 };
 
 export const Default = args => {
-  const { alt, defaultSrc, heading, copy, border, lightbox } = args?.['dds-image'] ?? {};
+  const { alt, defaultSrc, heading, copy, border, lightbox, longDescription } = args?.['dds-image'] ?? {};
   // TODO: See if we can fix unwanted `&` to `&amp` conversion upon changing the select knob
   const srcset = srcsets[defaultSrc?.replace(/&amp;/, '&')];
   return html`
@@ -44,6 +44,11 @@ export const Default = args => {
       ?lightbox="${lightbox}"
       copy="${ifNonNull(copy)}"
     >
+      ${!longDescription
+        ? undefined
+        : html`
+            <div slot="long-description">${longDescription}</div>
+          `}
       ${!srcset
         ? undefined
         : html`
@@ -80,6 +85,10 @@ export default {
         border: boolean('Border', false),
         copy: textNullable('Copy (copy)', 'Lorem ipsum dolor sit amet'),
         heading: textNullable('Heading (heading)', 'This is a caption'),
+        longDescription: textNullable(
+          'Long Description',
+          'Optional long descriptive text that is visually hidden to help screen reader users.'
+        ),
       }),
     },
     propsSet: {
@@ -91,6 +100,7 @@ export default {
           lightbox: false,
           copy: 'Lorem ipsum dolor sit amet',
           heading: 'This is a caption',
+          longDescription: 'Optional long descriptive text that is visually hidden to help screen reader users.',
         },
       },
     },

@@ -45,10 +45,10 @@ const types = {
 };
 
 export const Default = args => {
-  const { eyebrow, heading, copy, href, ctaType, mediaAlign, defaultSrc } = args?.FeatureSection ?? {};
+  const { alt, eyebrow, heading, copy, href, ctaType, mediaAlign, defaultSrc } = args?.FeatureSection ?? {};
   return (
     <DDSFeatureSection media-alignment={mediaAlign}>
-      <DDSImage slot="image" default-src={defaultSrc}>
+      <DDSImage slot="image" default-src={defaultSrc} alt={alt}>
         <DDSImageItem media="(min-width: 1584px)" srcset={imgXlg1x1}></DDSImageItem>
         <DDSImageItem media="(min-width: 1056px)" srcset={imgLg1x1}></DDSImageItem>
         <DDSImageItem media="(min-width: 672px)" srcset={imgMd4x3}></DDSImageItem>
