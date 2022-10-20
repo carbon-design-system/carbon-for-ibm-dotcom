@@ -37,6 +37,7 @@ const countryList = {
   'Unites States': 'US',
   Germany: 'DE',
   India: 'IN',
+  China: 'CN',
 };
 
 const props = () => ({
