@@ -99,9 +99,11 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
       const { duration, name } = videoData;
       const videoName = customVideoName || name;
 
-      (event.target as VideoCTAMixinImpl).videoName = videoName;
-      (event.target as VideoCTAMixinImpl).videoDescription = videoDescription;
-      (event.target as VideoCTAMixinImpl).videoDuration = duration;
+      if (event.target as VideoCTAMixinImpl) {
+        (event.target as VideoCTAMixinImpl).videoName = videoName || customVideoName;
+        (event.target as VideoCTAMixinImpl).videoDescription = videoDescription;
+        (event.target as VideoCTAMixinImpl).videoDuration = duration;
+      }
 
       const videoInfo = new CustomEvent(`${ddsPrefix}-cta-request-additional-video-data`, {
         bubbles: true,
