@@ -26,7 +26,7 @@ class DDSTopNavMenu extends BXHeaderMenu {
    * The trigger button.
    */
   @query('[part="trigger"]')
-  private _triggerNode?: HTMLAnchorElement;
+  protected _triggerNode?: HTMLAnchorElement;
 
   /**
    * `true` if this submenu should be in its active state.

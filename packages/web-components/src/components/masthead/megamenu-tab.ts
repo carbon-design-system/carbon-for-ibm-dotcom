@@ -24,9 +24,17 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-megamenu-tab`)
 class DDSMegaMenuTab extends BXTab {
   render() {
-    const { disabled, selected } = this;
+    const { disabled, selected, value } = this;
     return html`
-      <button class="${prefix}--tabs__nav-link" role="tab" ?disabled="${disabled}" aria-selected="${Boolean(selected)}">
+      <button
+        class="${prefix}--tabs__nav-link"
+        role="tab"
+        ?disabled="${disabled}"
+        aria-selected="${Boolean(selected)}"
+        data-attribute1="headerNav"
+        data-attribute2="TabHdline"
+        data-attribute3="${value}"
+      >
         <slot></slot>
       </button>
     `;

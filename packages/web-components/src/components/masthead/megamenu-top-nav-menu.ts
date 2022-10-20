@@ -124,6 +124,14 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
     });
   }
 
+  private _setAnalyticsAttributes() {
+    const { _triggerNode: trigger } = this;
+
+    trigger!.setAttribute('data-attribute1', 'headerNav');
+    trigger!.setAttribute('data-attribute2', 'L0');
+    trigger!.setAttribute('data-attribute3', this.menuLabel);
+  }
+
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
@@ -138,6 +146,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   firstUpdated() {
     this._menuNode.removeAttribute('role');
     this._cleanAndCreateObserverResize({ create: true });
+    this._setAnalyticsAttributes();
 
     if (this.hasAttribute('role') && this.getAttribute('role') === 'listitem') {
       this.removeAttribute('role');
@@ -241,6 +250,10 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
           this._requestMegaMenuRenderUpdate();
         }, 500);
       }
+    }
+
+    if (changedProperties.has('menuLabel')) {
+      this._setAnalyticsAttributes();
     }
   }
 
