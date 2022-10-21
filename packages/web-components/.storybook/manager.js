@@ -22,30 +22,24 @@ addons.setConfig({
  *   CSS ID for selector.
  * @returns
  */
-const cssToHide = (envVar, cssId) => {
+const getCss = (envVar, cssId) => {
   return envVar !== 'true' ? `button[id^="${cssId}"] { display: none !important; }\n` : '';
 };
 
 // Build string of CSS rules.
-let CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR = '';
+let css = '';
 if (!process.env.DDS_FLAGS_ALL) {
-  CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR += cssToHide(process.env.DDS_CLOUD_MASTHEAD, 'components-cloud-masthead');
-  CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR += cssToHide(
-    process.env.DDS_CONTENT_BLOCK_HEADLINES,
-    'components-content-block-headlines'
-  );
-  CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR += cssToHide(
-    process.env.DDS_CONTENT_BLOCK_CARD_STATIC,
-    'components-content-block-card-static'
-  );
-  CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR += cssToHide(process.env.DDS_PRICING_TABLE, 'components-pricing-table');
-  CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR += cssToHide(process.env.DDS_SCOPED_SEARCH, 'components-masthead-with-scoped-search');
+  css += getCss(process.env.DDS_CLOUD_MASTHEAD, 'components-cloud-masthead');
+  css += getCss(process.env.DDS_CONTENT_BLOCK_HEADLINES, 'components-content-block-headlines');
+  css += getCss(process.env.DDS_CONTENT_BLOCK_CARD_STATIC, 'components-content-block-card-static');
+  css += getCss(process.env.DDS_PRICING_TABLE, 'components-pricing-table');
+  css += getCss(process.env.DDS_SCOPED_SEARCH, 'components-masthead-with-scoped-search');
 }
 
 // Inject any CSS rules into the page.
-if (CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR.length) {
+if (css.length) {
   const head = document.head || document.getElementsByTagName('head')[0];
   const style = document.createElement('style');
   head.appendChild(style);
-  style.appendChild(document.createTextNode(CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR));
+  style.appendChild(document.createTextNode(css));
 }
