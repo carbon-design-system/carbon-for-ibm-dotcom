@@ -196,8 +196,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-headline'],
-  .#{$prefix}--masthead__megamenu__category-headline {
+  :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-headline'] {
     width: 100%;
 
     p,
@@ -312,8 +311,6 @@
 
   :host(#{$dds-prefix}-megamenu-category-link) a,
   :host(#{$dds-prefix}-megamenu-link-with-icon) a,
-  .#{$prefix}--masthead__megamenu__category-headline
-    .#{$prefix}--link-with-icon,
   .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
   .#{$prefix}--masthead__megamenu__view-all-cta .#{$prefix}--link-with-icon,
   .#{$prefix}--masthead__megamenu__category-sublink {
