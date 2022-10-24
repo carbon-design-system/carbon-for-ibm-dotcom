@@ -59,6 +59,7 @@ class DDSMegaMenuRightNavigation extends LitElement {
 
   render() {
     return html`
+      <slot name="heading"></slot>
       <div class="${this._getClassNames()}">
         <slot></slot>
       </div>

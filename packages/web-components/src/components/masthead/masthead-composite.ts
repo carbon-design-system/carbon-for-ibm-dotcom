@@ -249,6 +249,11 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   // eslint-disable-next-line
   protected _renderMegaMenuListing(sections, _parentKey) {
     const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
+    const heading = {
+      headingUrl: 'https://www.example.com',
+      headingTitle: 'Demo Heading Title',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    };
     const hasHighlights = highlightedItems.length !== 0;
     return html`
       <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.LIST}">
@@ -300,19 +305,28 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           view-all-href="${ifNonNull(viewAllLink?.url)}"
           view-all-title="${ifNonNull(viewAllLink?.title)}"
         >
-          ${menu.map((item, j) => {
-            const autoid = `${ddsPrefix}--masthead__l0-nav-list${j + highlightedItems.length}`;
-            return html`
-              <dds-megamenu-category-group data-autoid="${autoid}" href="${ifDefined(item.url)}" title="${item.title}">
-                ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
-                  return html`
-                    <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${ifDefined(url)}">
-                    </dds-megamenu-category-link>
-                  `;
-                })}
-              </dds-megamenu-category-group>
-            `;
-          })}
+          ${heading
+            ? html`
+                <dds-megamenu-category-heading href="${heading?.headingUrl}" title="${heading?.headingTitle}" slot="heading">
+                  ${heading?.description}
+                </dds-megamenu-category-heading>
+              `
+            : null}
+          <div>
+            ${menu.map((item, j) => {
+              const autoid = `${ddsPrefix}--masthead__l0-nav-list${j + highlightedItems.length}`;
+              return html`
+                <dds-megamenu-category-group data-autoid="${autoid}" href="${ifDefined(item.url)}" title="${item.title}">
+                  ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
+                    return html`
+                      <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${ifDefined(url)}">
+                      </dds-megamenu-category-link>
+                    `;
+                  })}
+                </dds-megamenu-category-group>
+              `;
+            })}
+          </div>
         </dds-megamenu-right-navigation>
       </dds-megamenu>
     `;

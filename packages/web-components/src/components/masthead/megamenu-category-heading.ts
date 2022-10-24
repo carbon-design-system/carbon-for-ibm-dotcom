@@ -8,7 +8,7 @@
  */
 
 import { html, customElement, LitElement, property } from 'lit-element';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import ArrowRight32 from 'carbon-web-components/es/icons/arrow--right/32.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 
@@ -39,7 +39,7 @@ class DDSMegaMenuCategoryHeading extends LitElement {
   protected renderLink() {
     return html`
       <a href="${this.href}" data-attribute1="headerNav" data-attribute2="FlatHdline" data-attribute3="${this.title}">
-        ${this.title} ${ArrowRight20()}
+        ${this.title} ${ArrowRight32()}
       </a>
     `;
   }
