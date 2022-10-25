@@ -438,7 +438,7 @@ const mastheadL1Data: MastheadL1 = {
  */
 const mastheadLinks: MastheadLink[] = [
   {
-    title: 'Products',
+    title: 'Mock Products',
     titleEnglish: 'Products',
     url: '',
     hasMenu: true,
@@ -2861,7 +2861,7 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'What is...',
               headingUrl: 'https://www.ibm.com/cloud/learn?lnk=hpmls_buwi',
-              description: '',
+              description: 'Lorem ipsum dolor sit amet',
               quickLinks: {
                 title: '',
                 links: [
@@ -2948,6 +2948,7 @@ const mastheadLinks: MastheadLink[] = [
           {
             title: 'Training',
             titleEnglish: 'Training',
+            highlighted: true,
             url: 'https://www.ibm.com/training/?lnk=hpmls_butr',
             megapanelContent: {
               headingTitle: 'Training',
