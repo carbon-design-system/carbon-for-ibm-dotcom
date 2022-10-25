@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: services/SearchTypeahead/SearchTypeahead.js</title>
+    <title>JSDoc: Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/parseAspectRatio/parseAspectRatio.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: services/SearchTypeahead/SearchTypeahead.js</h1>
+    <h1 class="page-title">Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/parseAspectRatio/parseAspectRatio.js</h1>
 
     
 
@@ -26,71 +26,39 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Copyright IBM Corp. 2020, 2022
+            <pre class="prettyprint source linenums"><code>function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol &amp;&amp; "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj &amp;&amp; "function" == typeof Symbol &amp;&amp; obj.constructor === Symbol &amp;&amp; obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+/**
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import axios from 'axios';
-import { LocaleAPI } from '../Locale';
+
 /**
- * @constant {string | string} Host for the API calls
- * @private
- */
-const _host =
-  (process &amp;&amp; process.env.SEARCH_TYPEAHEAD_API) || 'https://www-api.ibm.com';
-/**
- * @constant {string | string} API version
- * @private
- */
-const _version = (process &amp;&amp; process.env.SEARCH_TYPEAHEAD_VERSION) || 'v1';
-/**
- * SearchTypeahead endpoint
+ * Utility to parse aspect ratios into width &amp; height values
  *
- * @type {string}
- * @private
+ * @example
+ * import {parseAspectRatio} from '@carbon/ibmdotcom-utilities';
+ *
+ * const [width, height] = parseAspectRatio('16x9');
+ *
+ * @param {string} aspectRatioString string in format &lt;integer>&lt;separator>&lt;integer>
+ * @returns {Array} [widthInt, heightInt]
  */
-const _endpoint = `${_host}/search/typeahead/${_version}`;
-/**
- * SearchTypeahead API class with methods of fetching search results for
- * ibm.com
- */
-class SearchTypeaheadAPI {
-  /**
-   * Gets search results
-   *
-   * @param {string} query Query string to pass to the service
-   * @returns {Promise&lt;any>} Response data from ibm search
-   * @example
-   * import { SearchTypeaheadAPI } from '@carbon/ibmdotcom-services';
-   *
-   * async function getResults(query) {
-   *   const response = await SearchTypeaheadAPI.getResults(query);
-   *   return response;
-   * }
-   */
-  static async getResults(query, appid = '') {
-    const lang = await LocaleAPI.getLang();
-    const urlQuery = [
-      `lang=${lang.lc}${lang.cc ? `&amp;cc=${lang.cc}` : ''}`,
-      `query=${encodeURIComponent(query)}`,
-      `${appid ? `appid=${appid}` : ''}`,
-    ]
-      .filter(item => item)
-      .join('&amp;');
-    const url = `${_endpoint}?${urlQuery}`;
-    return await axios
-      .get(url, {
-        headers: {
-          'Content-Type': 'application/json; charset=utf-8',
-        },
-      })
-      .then(response => response.data.response);
+
+function parseAspectRatio(aspectRatioString) {
+  if (typeof aspectRatioString !== 'string') {
+    throw new TypeError("parseAspectRatio expected a string but was given a ".concat(_typeof(aspectRatioString)));
   }
+  var parsed = aspectRatioString.split(/[^0-9]{1}/).filter(function (i) {
+    return i;
+  });
+  if (parsed.length !== 2) {
+    throw new RangeError("Parsed aspect ratio should have a length of 2, but had ".concat(parsed.length, " instead"));
+  }
+  return parsed;
 }
-export default SearchTypeaheadAPI;
-</code></pre>
+export default parseAspectRatio;</code></pre>
         </article>
     </section>
 
