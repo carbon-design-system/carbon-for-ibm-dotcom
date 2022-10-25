@@ -26,4 +26,11 @@
   ::slotted(#{$dds-prefix}-content-block-simple) {
     padding-bottom: $spacing-10;
   }
+
+  ::slotted(#{$dds-prefix}-link-list) {
+    @include carbon--breakpoint-down(md) {
+      display: block;
+      margin: 0 $spacing-05;
+    }
+  }
 }
