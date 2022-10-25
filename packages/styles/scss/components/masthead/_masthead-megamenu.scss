@@ -108,6 +108,8 @@
   :host(#{$dds-prefix}-megamenu),
   :host(#{$dds-prefix}-cloud-megamenu),
   .#{$prefix}--masthead__megamenu {
+    @include box-shadow;
+
     display: block;
     overflow-y: overlay;
     overflow-x: hidden;
@@ -117,11 +119,10 @@
       outline: none;
     }
 
-    @include box-shadow;
-
     .#{$prefix}--masthead__megamenu__container {
-      width: 100vw;
       @include carbon--make-container;
+
+      width: 100vw;
 
       .#{$prefix}--masthead__megamenu__container--row {
         @include carbon--make-row;
@@ -155,9 +156,9 @@
 
   .#{$prefix}--masthead__megamenu__copy,
   :host(#{$dds-prefix}-megamenu-category-group-copy) {
-    display: block;
     @include type-style('body-long-01');
 
+    display: block;
     color: $text-02;
     padding: rem(6px) $spacing-05 rem(10px);
   }
@@ -339,10 +340,16 @@
 
   :host(#{$dds-prefix}-megamenu-left-navigation),
   .#{$prefix}--masthead__megamenu__highlight-section {
+    @include carbon--make-col(4, 16);
+
     min-height: 100%;
     padding-top: rem(18px);
     border-right: carbon--rem(1px) solid $ui-03;
-    @include carbon--make-col(4, 16);
+
+    // Shift border left without breaking Carbon grid alignment.
+    margin-inline-end: $spacing-05;
+    padding-inline-start: $spacing-05;
+    margin-inline-start: calc(#{$spacing-05} * -1);
   }
 
   @include carbon--breakpoint-between(800px, 1055px) {
@@ -352,11 +359,12 @@
 
     :host(#{$dds-prefix}-megamenu-left-navigation),
     .#{$prefix}--masthead__megamenu__highlight-section {
+      @include carbon--make-col(8, 8);
+
       border-right: none;
       border-bottom: carbon--rem(1px) solid $ui-03;
       column-count: 2;
       column-gap: 0;
-      @include carbon--make-col(8, 8);
     }
 
     :host(#{$dds-prefix}-megamenu-right-navigation),
