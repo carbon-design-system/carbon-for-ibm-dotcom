@@ -85,6 +85,7 @@ export function mapStateToProps(state: MastheadContainerState): MastheadContaine
       authenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedin,
       navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
       unauthenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedout,
+      logoData: !language ? undefined : translations?.[language]?.masthead?.logo,
       userStatus: request?.user,
       language,
     },
