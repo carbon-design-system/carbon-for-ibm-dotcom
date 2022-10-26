@@ -14,6 +14,8 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import 'carbon-web-components/es/components/modal/modal-close-button.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
+import '../../carousel/index';
+import '../../expressive-modal/index';
 import styles from './lightbox-media-viewer.stories.scss';
 import readme from './README.stories.mdx';
 
