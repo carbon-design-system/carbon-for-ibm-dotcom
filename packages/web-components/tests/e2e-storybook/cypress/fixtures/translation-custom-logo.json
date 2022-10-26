@@ -1,0 +1,1336 @@
+{
+  "mastheadNav": {
+    "links": [
+      {
+        "title": "Products",
+        "titleEnglish": "Products",
+        "url": "",
+        "hasMenu": true,
+        "hasMegapanel": true,
+        "megamenuLayout": "tab",
+        "menuSections": [
+          {
+            "heading": "",
+            "menuItems": [
+              {
+                "title": "AI / Machine learning",
+                "titleEnglish": "AI / Machine learning",
+                "url": "https://www.ibm.com/cloud/ai",
+                "megapanelContent": {
+                  "headingTitle": "AI / Machine learning",
+                  "headingUrl": "https://www.ibm.com/cloud/ai",
+                  "description": "Leverage IBM Watson® for natural-language processing, visual recognition and machine learning",
+                  "quickLinks": {
+                    "title": "",
+                    "links": [
+                      {
+                        "title": "IBM Watson Assistant",
+                        "titleEnglish": "IBM IBM Watson Assistant",
+                        "url": "https://www.ibm.com/cloud/watson-assistant",
+                        "description": "Virtual agents customizable to any domain"
+                      },
+                      {
+                        "title": "IBM Watson Discovery",
+                        "titleEnglish": "IBM Watson Discovery",
+                        "url": "https://www.ibm.com/cloud/watson-discovery",
+                        "description": "Search and analytics engine that adapts to custom domains"
+                      },
+                      {
+                        "title": "IBM Watson Knowledge Catalog",
+                        "titleEnglish": "IBM Watson Knowledge Catalog",
+                        "url": "https://www.ibm.com/cloud/watson-knowledge-catalog",
+                        "description": "SaaS for AI data management"
+                      },
+                      {
+                        "title": "IBM Watson Knowledge Studio",
+                        "titleEnglish": "IBM Watson Knowledge Studio",
+                        "url": "https://www.ibm.com/cloud/watson-knowledge-studio",
+                        "description": "Visual interface to teach Watson domain-specific knowledge"
+                      },
+                      {
+                        "title": "IBM Watson Language Translator",
+                        "titleEnglish": "IBM Watson Language Translator",
+                        "url": "https://www.ibm.com/cloud/watson-language-translator",
+                        "description": "API for translation with domain-specific models"
+                      },
+                      {
+                        "title": "IBM Watson Machine Learning",
+                        "titleEnglish": "IBM Watson Machine Learning",
+                        "url": "https://www.ibm.com/cloud/machine-learning",
+                        "description": "Infrastructure for running AI models at scale"
+                      },
+                      {
+                        "title": "IBM Watson Natural Language Classifier",
+                        "titleEnglish": "IBM Watson Natural Language Classifier",
+                        "url": "https://www.ibm.com/cloud/watson-natural-language-classifier",
+                        "description": "Visual tool and API for text classification"
+                      },
+                      {
+                        "title": "IBM Watson Natural Language Understanding",
+                        "titleEnglish": "IBM Watson Discovery",
+                        "url": "https://www.ibm.com/cloud/watson-natural-language-understanding",
+                        "description": "API for text analysis and metadata extraction"
+                      },
+                      {
+                        "title": "IBM Watson OpenScale",
+                        "titleEnglish": "IBM Watson OpenScale",
+                        "url": "https://www.ibm.com/cloud/watson-openscale",
+                        "description": "Dashboard to monitor model fairness, explainability, drift"
+                      },
+                      {
+                        "title": "IBM Watson Speech to Text",
+                        "titleEnglish": "IBM Watson Speech to Text",
+                        "url": "https://www.ibm.com/cloud/watson-speech-to-text",
+                        "description": "API for real-time speech recognition and transcription"
+                      },
+                      {
+                        "title": "IBM Watson Studio",
+                        "titleEnglish": "IBM Watson Studio",
+                        "url": "https://www.ibm.com/cloud/watson-studio",
+                        "description": "IDE to build, run and manage AI models"
+                      },
+                      {
+                        "title": "IBM Watson Text to Speech",
+                        "titleEnglish": "IBM Watson Text to Speech",
+                        "url": "https://www.ibm.com/cloud/watson-text-to-speech",
+                        "description": "API for real-time text to speech conversion"
+                      }
+                    ]
+                  },
+                  "feature": {
+                    "heading": "",
+                    "imageUrl": "",
+                    "linkTitle": "",
+                    "linkUrl": ""
+                  }
+                }
+              },
+              {
+                "title": "Analytics",
+                "titleEnglish": "Analytics",
+                "url": "https://www.ibm.com/cloud/analytics",
+                "megapanelContent": {
+                  "headingTitle": "Analytics",
+                  "headingUrl": "https://www.ibm.com/cloud/analytics",
+                  "description": "Aggregate and analyze large datasets",
+                  "quickLinks": {
+                    "title": "",
+                    "links": [
+                      {
+                        "title": "IBM Analytics Engine",
+                        "titleEnglish": "Analytics Engine",
+                        "url": "https://www.ibm.com/cloud/analytics-engine",
+                        "description": "PaaS to build analytics applications on Apache Spark and Hadoop "
+                      },
+                      {
+                        "title": "IBM Db2 Warehouse on Cloud",
+                        "titleEnglish": "IBM Db2 Warehouse on Cloud",
+                        "url": "https://www.ibm.com/cloud/db2-warehouse-on-cloud",
+                        "description": "Managed data warehouse on IBM Cloud or AWS"
+                      },
+                      {
+                        "title": "IBM InfoSphere® Information Server on Cloud",
+                        "titleEnglish": "IBM InfoSphere® Information Server on Cloud",
+                        "url": "https://www.ibm.com/cloud/information-server",
+                        "description": "Data integration suite for ETL, governance and anlaysis"
+                      },
+                      {
+                        "title": "IBM Master Data Management on Cloud",
+                        "titleEnglish": "IBM Master Data Management on Cloud",
+                        "url": "https://www.ibm.com/cloud/mdm",
+                        "description": "Managed master data storage"
+                      },
+                      {
+                        "title": "IBM SQL Query",
+                        "titleEnglish": "IBM SQL Query",
+                        "url": "https://www.ibm.com/cloud/sql-query",
+                        "description": "Query tool for IBM Cloud Object Storage"
+                      },
+                      {
+                        "title": "IBM Streaming Analytics",
+                        "titleEnglish": "Streaming Analytics",
+                        "url": "https://www.ibm.com/cloud/streaming-analytics",
+                        "description": "Dashboard for real-time analysis of data streams"
+                      }
+                    ]
+                  },
+                  "feature": {
+                    "heading": "",
+                    "imageUrl": "",
+                    "linkTitle": "",
+                    "linkUrl": ""
+                  }
+                }
+              },
+              {
+                "title": "Automation",
+                "titleEnglish": "Automation",
+                "url": "https://www.ibm.com/cloud/automation",
+                "megapanelContent": {
+                  "headingTitle": "Automation",
+                  "headingUrl": "https://www.ibm.com/cloud/automation",
+                  "description": "Automate workflows from IT operations to business processes",
+                  "quickLinks": {
+                    "title": "",
+                    "links": [
+                      {
+                        "title": "IBM Cloud Pak for Business Automation",
+                        "titleEnglish": "IBM Cloud Pak for Business Automation",
+                        "url": "https://www.ibm.com/cloud/cloud-pak-for-automation",
+                        "description": "Operations management software with AI insights"
+                      },
+                      {
+                        "title": "IBM Cloud Pak for Integration",
+                        "titleEnglish": "IBM Cloud Pak for Integration",
+                        "url": "https://www.ibm.com/cloud/cloud-pak-for-integration",
+                        "description": "Tools to connect all of your apps, data and events"
+                      },
+                      {
+                        "title": "IBM Cloud Pak for Network Automation",
+                        "titleEnglish": "IBM Cloud Pak for Network Automation",
+                        "url": "https://www.ibm.com/cloud/cloud-pak-for-network-automation",
+                        "description": "Management software for telco network operations"
+                      },
+                      {
+                        "title": "IBM Cloud Pak for Watson AIOps",
+                        "titleEnglish": "IBM Cloud Pak for Watson AIOps",
+                        "url": "https://www.ibm.com/cloud/cloud-pak-for-watson-aiops",
+                        "description": "DevOps management tool with AI analysis and recommendations"
+                      }
+                    ]
+                  },
+                  "feature": {
+                    "heading": "",
+                    "imageUrl": "",
+                    "linkTitle": "",
+                    "linkUrl": ""
+                  }
+                }
+              },
+              {
+                "title": "Blockchain",
+                "titleEnglish": "Blockchain",
+                "url": "",
+                "megapanelContent": {
+                  "headingTitle": "Blockchain",
+                  "headingUrl": "",
+                  "description": "Build applications on an immutable blockchain ledger",
+                  "quickLinks": {
+                    "title": "",
+                    "links": [
+                      {
+                        "title": "IBM Blockchain Platform",
+                        "titleEnglish": "IBM Blockchain Platform",
+                        "url": "https://www.ibm.com/cloud/blockchain-platform",
+                        "description": "Blockchain SDK based on Hyperledger Fabric  "
+                      }
+                    ]
+                  },
+                  "feature": {
+                    "heading": "",
+                    "imageUrl": "",
+                    "linkTitle": "",
+                    "linkUrl": ""
+                  }
+                }
+              },
+              {
+                "title": "Compute",
+                "titleEnglish": "Compute",
+                "url": "https://www.ibm.com/cloud/compute",
+                "megapanelContent": {
+                  "headingTitle": "Compute",
+                  "headingUrl": "https://www.ibm.com/cloud/compute",
+                  "description": "Run workloads on cloud infrastructure",
+                  "quickLinks": {
+                    "title": "",
+                    "links": [
+                      {
+                        "title": "Cloud Foundry",
+                        "titleEnglish": "Cloud Foundry",
+                        "url": "https://www.ibm.com/cloud/cloud-foundry",
+                        "description": "PaaS for Java, Node, PHP, Python, Ruby, Swift and Go apps"
+                      },
+                      {
+                        "title": "IBM Bare Metal Servers",
+                        "titleEnglish": "IBM Bare Metal Servers",
+                        "url": "https://www.ibm.com/cloud/bare-metal-servers",
+                        "description": "Dedicated hardware for maximum performance"
+                      },
+                      {
+                        "title": "IBM Cloud Code Engine",
+                        "titleEnglish": "IBM Cloud Code Engine",
+                        "url": "https://www.ibm.com/cloud/code-engine",
+                        "description": "Serverless container hosting platform as a service"
+                      },
+                      {
+                        "title": "IBM Cloud for VMware Solutions",
+                        "titleEnglish": "IBM Cloud for VMware Solutions",
+                        "url": "https://www.ibm.com/cloud/vmware",
+                        "description": "Hosting for virtualized workloads"
+                      },
+                      {
+                        "title": "IBM Cloud Functions",
+                        "titleEnglish": "IBM Cloud Functions",
+                        "url": "https://www.ibm.com/cloud/functions",
+                        "description": "Serverless function runtime based on Apache OpenWhisk"
+                      },
+                      {
+                        "title": "IBM Hyper Protect Virtual Servers",
+                        "titleEnglish": "IBM Hyper Protect Virtual Servers",
+                        "url": "https://www.ibm.com/cloud/hyper-protect-virtual-servers",
+                        "description": "Virtual servers for workloads with sensitive data"
+                      },
+                      {
+                        "title": "IBM Power Systems Virtual Servers",
+                        "titleEnglish": "IBM Power Systems Virtual Servers",
+                        "url": "https://www.ibm.com/cloud/power-virtual-server",
+                        "description": "Power Systems Virtual Servers"
+                      },
+                      {
+                        "title": "IBM WebSphere Application Server on Cloud",
+                        "titleEnglish": "IBM WebSphere Application Server on Cloud",
+                        "url": "https://www.ibm.com/cloud/websphere-application-platform",
+                        "description": "Runtime and SDK for Java applications"
+                      },
+                      {
+                        "title": "VMware Horizon on Cloud",
+                        "titleEnglish": "VMware Horizon on Cloud",
+                        "url": "https://www.ibm.com/cloud/horizon",
+                        "description": "Virtual desktops, in the cloud and managed"
+                      },
+                      {
+                        "title": "Virtual Servers",
+                        "titleEnglish": "Virtual Servers",
+                        "url": "https://www.ibm.com/cloud/virtual-servers",
+                        "description": "Virtual servers for easy scaling and configuration"
+                      },
+                      {
+                        "title": "IBM Cloud Virtual Server for VPC",
+                        "titleEnglish": "IBM Cloud Virtual Server for VPC",
+                        "url": "https://www.ibm.com/cloud/vpc",
+                        "description": "Virtual servers with enhanced network security"
+                      },
+                      {
+                        "title": "IBM Cloud Virtual Servers for Classic Infrastructure",
+                        "titleEnglish": "IBM Cloud Virtual Servers for Classic Infrastructure",
+                        "url": "https://www.ibm.com/cloud/virtual-servers",
+                        "description": "Virtual servers with the most flexible configuration options"
+                      }
+                    ]
+                  },
+                  "feature": {
+                    "heading": "",
+                    "imageUrl": "",
+                    "linkTitle": "",
+                    "linkUrl": ""
+                  }
+                }
+              },
+              {
+                "title": "Containers",
+                "titleEnglish": "Containers",
+                "url": "",
+                "megapanelContent": {
+                  "headingTitle": "Containers",
+                  "headingUrl": "https://www.ibm.com/cloud/containers",
+                  "description": "Deploy applications consistently across environments",
+                  "quickLinks": {
+                    "title": "",
+                    "links": [
+                      {
+                        "title": "Container registry",
+                        "titleEnglish": "Container registry",
+                        "url": "https://www.ibm.com/cloud/container-registry",
+                        "description": "SaaS for container storage and management"
+                      },
+                      {
+                        "title": "IBM Cloud Kubernetes Service",
+                        "titleEnglish": "IBM Cloud Kubernetes Service",
+                        "url": "https://www.ibm.com/cloud/kubernetes-service",
+                        "description": "Container hosting with self-healing and horizontal scaling"
+                      },
+                      {
+                        "title": "Istio",
+                        "titleEnglish": "Istio",
+                        "url": "https://www.ibm.com/cloud/istio",
+                        "description": "A service mesh for microservices in Kubernetes clusters"
+                      },
+                      {
+                        "title": "Red Hat® OpenShift® on Cloud",
+                        "titleEnglish": "Red Hat® OpenShift® on Cloud",
+                        "url": "https://www.ibm.com/cloud/openshift",
+                        "description": "Container hosting on managed Red Hat Linux servers"
+                      }
+                    ]
+                  },
+                  "feature": {
+                    "heading": "",
+                    "imageUrl": "",
+                    "linkTitle": "",
+                    "linkUrl": ""
+                  }
+                }
+              },
+              {
+                "title": "Databases",
+                "titleEnglish": "Databases",
+                "url": "https://www.ibm.com/cloud/databases",
+                "megapanelContent": {
+                  "headingTitle": "Databases",
+                  "headingUrl": "https://www.ibm.com/cloud/databases",
+                  "description": "Store, query and analyze structured data",
+                  "quickLinks": {
+                    "title": "",
+                    "links": [
+                      {
+                        "title": "IBM Cloud Databases for Elasticsearch",
+                        "titleEnglish": "IBM Cloud Databases for Elasticsearch",
+                        "url": "https://www.ibm.com/cloud/databases-for-elasticsearch",
+                        "description": "Managed JSON document store for full-text search"
+                      },
+                      {
+                        "title": "IBM Cloud Databases for EnterpriseDB",
+                        "titleEnglish": "IBM Cloud Databases for EnterpriseDB",
+                        "url": "https://www.ibm.com/cloud/databases-for-enterprisedb",
+                        "description": "Managed SQL database"
+                      },
+                      {
+                        "title": "IBM Cloud Databases for etcd",
+                        "titleEnglish": "IBM Cloud Databases for etcd",
+                        "url": "https://www.ibm.com/cloud/databases-for-etcd",
+                        "description": "Managed distributed key-value store"
+                      },
+                      {
+                        "title": "IBM Cloud Databases for MongoDB",
+                        "titleEnglish": "IBM Cloud Databases for MongoDB",
+                        "url": "https://www.ibm.com/cloud/databases-for-mongodb",
+                        "description": "Managed NoSQL JSON document store"
+                      },
+                      {
+                        "title": "IBM Cloud Databases for PostgreSQL",
+                        "titleEnglish": "IBM Cloud Databases for PostgreSQL",
+                        "url": "https://www.ibm.com/cloud/databases-for-postgresql",
+                        "description": "Managed SQL database"
+                      },
+                      {
+                        "title": "IBM Cloud Databases for Redis",
+                        "titleEnglish": "IBM Cloud Databases for Redis",
+                        "url": "https://www.ibm.com/cloud/databases-for-redis",
+                        "description": "Managed in-memory key value store"
+                      },
+                      {
+                        "title": "IBM Cloudant®",
+                        "titleEnglish": "IBM Cloudant®",
+                        "url": "https://www.ibm.com/cloud/cloudant",
+                        "description": "Managed PCI-compliant JSON document store on CouchDB"
+                      },
+                      {
+                        "title": "IBM Db2 Warehouse on Cloud",
+                        "titleEnglish": "IBM Db2 Warehouse on Cloud",
+                        "url": "https://www.ibm.com/cloud/db2-warehouse-on-cloud",
+                        "description": "Managed data warehouse on IBM Cloud or AWS"
+                      },
+                      {
+                        "title": "IBM Db2® on Cloud",
+                        "titleEnglish": "IBM Db2® on Cloud",
+                        "url": "https://www.ibm.com/cloud/db2-on-cloud",
+                        "description": "Managed SQL database"
+                      },
+                      {
+                        "title": "IBM Hyper Protect DBaaS",
+                        "titleEnglish": "IBM Hyper Protect DBaaS",
+                        "url": "https://www.ibm.com/cloud/hyper-protect-dbaas",
+                        "description": "Managed PostgreSQL and MongoDB for sensitive data"
+                      },
+                      {
+                        "title": "IBM Informix® on Cloud",
+                        "titleEnglish": "IBM Informix® on Cloud",
+                        "url": "https://www.ibm.com/cloud/informix",
+                        "description": "Managed DB for time series, spatial, NoSQL and SQL data"
+                      }
+                    ]
+                  },
+                  "feature": {
+                    "heading": "",
+                    "imageUrl": "",
+                    "linkTitle": "",
+                    "linkUrl": ""
+                  }
+                }
+              },
+              {
+                "title": "Developer tools",
+                "titleEnglish": "Developer tools",
+                "url": "https://www.ibm.com/cloud/devops",
+                "megapanelContent": {
+                  "headingTitle": "Developer tools",
+                  "headingUrl": "https://www.ibm.com/cloud/devops",
+                  "description": "Manage infrastructure, environments and deployments",
+                  "quickLinks": {
+                    "title": "",
+                    "links": [
+                      {
+                        "title": "HPCaaS from Rescale",
+                        "titleEnglish": "HPCaaS from Rescale",
+                        "url": "https://www.ibm.com/cloud/hpcaas-from-rescale",
+                        "description": "Solutions for CPU and GPU intensive cloud workloads "
+                      },
+                      {
+                        "title": "IBM Cloud CLI",
+                        "titleEnglish": "IBM Cloud CLI",
+                        "url": "https://www.ibm.com/cloud/cli",
+                        "description": "A CLI to manage your IBM Cloud"
+                      },
+                      {
+                        "title": "IBM Cloud Continuous Delivery",
+                        "titleEnglish": "IBM Cloud Continuous Delivery",
+                        "url": "https://www.ibm.com/cloud/continuous-delivery",
+                        "description": "UI and CLI based DevOps workflows based on Tekton Pipelines"
+                      },
+                      {
+                        "title": "IBM Cloud Developer Console for Apple",
+                        "titleEnglish": "IBM Cloud Developer Console for Apple",
+                        "url": "https://www.ibm.com/cloud/apple-developer",
+                        "description": "Guides and SDKs to speed up development for iOS apps"
+                      },
+                      {
+                        "title": "IBM Cloud Messages for RabbitMQ",
+                        "titleEnglish": "IBM Cloud Messages for RabbitMQ",
+                        "url": "https://www.ibm.com/cloud/messages-for-rabbitmq",
+                        "description": "Managed message broker"
+                      },
+                      {
+                        "title": "IBM Cloud SQL Query",
+                        "titleEnglish": "IBM Cloud SQL Query",
+                        "url": "https://www.ibm.com/cloud/sql-query",
+                        "description": "Query tool for IBM Cloud Object Storage"
+                      },
+                      {
+                        "title": "Tekton",
+                        "titleEnglish": "Tekton",
+                        "url": "https://www.ibm.com/cloud/tekton    ",
+                        "description": "Kubernetes-native CI and CD pipelines"
+                      }
+                    ]
+                  },
+                  "feature": {
+                    "heading": "",
+                    "imageUrl": "",
+                    "linkTitle": "",
+                    "linkUrl": ""
+                  }
+                }
+              },
+              {
+                "title": "IBM Cloud Paks",
+                "titleEnglish": "IBM Cloud Paks",
+                "url": "",
+                "megapanelContent": {
+                  "headingTitle": "IBM Cloud Paks",
+                  "headingUrl": "https://www.ibm.com/cloud/paks",
+                  "description": "Integrated and certified applications on Red Hat OpenShift",
+                  "quickLinks": {
+                    "title": "",
+                    "links": [
+                      {
+                        "title": "IBM Cloud Pak for Business Automation",
+                        "titleEnglish": "IBM Cloud Pak for Business Automation",
+                        "url": "https://www.ibm.com/cloud/cloud-pak-for-automation",
+                        "description": "Operations management software with AI insights"
+                      },
+                      {
+                        "title": "IBM Cloud Pak for Data",
+                        "titleEnglish": "IBM Cloud Pak for Data",
+                        "url": "https://www.ibm.com/products/cloud-pak-for-data",
+                        "description": "Tools for data analysis, organization and management"
+                      },
+                      {
+                        "title": "IBM Cloud Pak for Integration",
+                        "titleEnglish": "IBM Cloud Pak for Integration",
+                        "url": "https://www.ibm.com/cloud/cloud-pak-for-integration",
+                        "description": "Tools to connect all of your apps, data and events"
+                      },
+                      {
+                        "title": "IBM Cloud Pak for Network Automation",
+                        "titleEnglish": "IBM Cloud Pak for Network Automation",
+                        "url": "https://www.ibm.com/cloud/cloud-pak-for-network-automation",
+                        "description": "Management software for telco network operations"
+                      },
+                      {
+                        "title": "IBM Cloud Pak for Security",
+                        "titleEnglish": "IBM Cloud Pak for Security",
+                        "url": "https://www.ibm.com/products/cloud-pak-for-security ",
+                        "description": "Security auditing, reporting, analysis and governance"
+                      },
+                      {
+                        "title": "IBM Cloud Pak for Watson AIOps",
+                        "titleEnglish": "IBM Cloud Pak for Watson AIOps",
+                        "url": "https://www.ibm.com/cloud/cloud-pak-for-watson-aiops",
+                        "description": "DevOps management tool with AI analysis and recommendations"
+                      }
+                    ]
+                  },
+                  "feature": {
+                    "heading": "",
+                    "imageUrl": "",
+                    "linkTitle": "",
+                    "linkUrl": ""
+                  }
+                }
+              },
+              {
+                "title": "Integration",
+                "titleEnglish": "Integration",
+                "url": "https://www.ibm.com/cloud/integration",
+                "megapanelContent": {
+                  "headingTitle": "Integration",
+                  "headingUrl": "https://www.ibm.com/cloud/integration",
+                  "description": "Integrate your apps through APIs, messaging and networking tools",
+                  "quickLinks": {
+                    "title": "",
+                    "links": [
+                      {
+                        "title": "IBM API Connect®",
+                        "titleEnglish": "IBM API Connect®",
+                        "url": "https://www.ibm.com/cloud/api-connect",
+                        "description": "A toolkit to rapidly create, secure and manage APIs"
+                      },
+                      {
+                        "title": "IBM App Connect",
+                        "titleEnglish": "IBM App Connect",
+                        "url": "https://www.ibm.com/cloud/app-connect",
+                        "description": "Codeless connectors for your data, apps and APIs"
+                      },
+                      {
+                        "title": "IBM Aspera® on Cloud",
+                        "titleEnglish": "IBM Aspera® on Cloud",
+                        "url": "https://www.ibm.com/cloud/aspera",
+                        "description": "UI and CLI to rapidly move large files"
+                      },
+                      {
+                        "title": "IBM Cloud for Skytap Solutions",
+                        "titleEnglish": "IBM Cloud for Skytap Solutions",
+                        "url": "https://www.ibm.com/cloud/skytap",
+                        "description": "Virtualization for x86, AIX, System i and Power applications"
+                      },
+                      {
+                        "title": "Event Streams",
+                        "titleEnglish": "Event Streams",
+                        "url": "https://www.ibm.com/cloud/event-streams",
+                        "description": "PaaS stream processing based on Apache Kafka"
+                      },
+                      {
+                        "title": "IBM Cloud Pak for Integration",
+                        "titleEnglish": "IBM Cloud Pak for Integration",
+                        "url": "https://www.ibm.com/cloud/cloud-pak-for-integration",
+                        "description": "Tools to connect all of your apps, data and events"
+                      },
+                      {
+                        "title": "IBM Event Streams",
+                        "titleEnglish": "IBM Event Streams",
+                        "url": "https://www.ibm.com/cloud/event-streams",
+                        "description": "PaaS stream processing based on Apache Kafka"
+                      },
+                      {
+                        "title": "IBM Lift",
+                        "titleEnglish": "IBM Lift",
+                        "url": "https://www.ibm.com/cloud/lift",
+                        "description": "Toolkit to migrate on-premises data to the cloud"
+                      },
+                      {
+                        "title": "IBM MQ on Cloud",
+                        "titleEnglish": "IBM MQ on Cloud",
+                        "url": "https://www.ibm.com/cloud/mq",
+                        "description": "Managed message broker"
+                      },
+                      {
+                        "title": "Secure gateway",
+                        "titleEnglish": "Secure gateway",
+                        "url": "https://www.ibm.com/cloud/secure-gateway",
+                        "description": "Secure tunnels between cloud and external environments"
+                      }
+                    ]
+                  },
+                  "feature": {
+                    "heading": "",
+                    "imageUrl": "",
+                    "linkTitle": "",
+                    "linkUrl": ""
+                  }
+                }
+              },
+              {
+                "title": "Internet of things",
+                "titleEnglish": "Internet of things",
+                "url": "https://www.ibm.com/cloud/internet-of-things",
+                "megapanelContent": {
+                  "headingTitle": "IoT",
+                  "headingUrl": "https://www.ibm.com/cloud/internet-of-things",
+                  "description": "Connect and manage edge devices",
+                  "quickLinks": {
+                    "title": "",
+                    "links": [
+                      {
+                        "title": "IBM Edge Application Manager",
+                        "titleEnglish": "IBM Edge Application Manager   ",
+                        "url": "https://www.ibm.com/cloud/edge-computing",
+                        "description": "An autonomous management platform for edge computing"
+                      },
+                      {
+                        "title": "IBM Watson IoT® Platform",
+                        "titleEnglish": "IBM Watson IoT® Platform   ",
+                        "url": "https://www.ibm.com/cloud/watson-iot-platform",
+                        "description": "SaaS for device management, monitoring and data storage"
+                      }
+                    ]
+                  },
+                  "feature": {
+                    "heading": "",
+                    "imageUrl": "",
+                    "linkTitle": "",
+                    "linkUrl": ""
+                  }
+                }
+              },
+              {
+                "title": "Logging and monitoring",
+                "titleEnglish": "Logging and monitoring",
+                "url": "",
+                "megapanelContent": {
+                  "headingTitle": "Logging and monitoring",
+                  "headingUrl": "",
+                  "description": "Log and analyze activity in your infrastructure",
+                  "quickLinks": {
+                    "title": "",
+                    "links": [
+                      {
+                        "title": "IBM Cloud Activity Tracker",
+                        "titleEnglish": "IBM Cloud Activity Tracker",
+                        "url": "https://www.ibm.com/cloud/activity-tracker",
+                        "description": "Dashboard to monitor and analyze events in IBM Cloud"
+                      },
+                      {
+                        "title": "IBM Cloud Log Analysis",
+                        "titleEnglish": "IBM Cloud Log Analysis",
+                        "url": "https://www.ibm.com/cloud/log-analysis",
+                        "description": "Analysis dashboard for system and application logs"
+                      },
+                      {
+                        "title": "IBM Cloud Monitoring",
+                        "titleEnglish": "IBM Cloud Monitoring",
+                        "url": "https://www.ibm.com/cloud/sysdig",
+                        "description": "Managed dashboard for Kubernetes devops"
+                      },
+                      {
+                        "title": "IBM Cloud Pak for Watson AIOps",
+                        "titleEnglish": "IBM Cloud Pak for Watson AIOps",
+                        "url": "https://www.ibm.com/cloud/cloud-pak-for-watson-aiops",
+                        "description": "DevOps management tool with AI analysis and recommendations"
+                      }
+                    ]
+                  },
+                  "feature": {
+                    "heading": "",
+                    "imageUrl": "",
+                    "linkTitle": "",
+                    "linkUrl": ""
+                  }
+                }
+              },
+              {
+                "title": "Mobile",
+                "titleEnglish": "Mobile",
+                "url": "https://www.ibm.com/cloud/mobile",
+                "megapanelContent": {
+                  "headingTitle": "Mobile",
+                  "headingUrl": "https://www.ibm.com/cloud/mobile",
+                  "description": "Build mobile applications",
+                  "quickLinks": {
+                    "title": "",
+                    "links": [
+                      {
+                        "title": "IBM Mobile Foundation",
+                        "titleEnglish": "IBM Mobile Foundation",
+                        "url": "https://www.ibm.com/cloud/mobile-foundation",
+                        "description": "An SDK and runtime middleware for mobile applications"
+                      },
+                      {
+                        "title": "IBM Push Notifications",
+                        "titleEnglish": "IBM Push Notifications",
+                        "url": "https://www.ibm.com/cloud/push-notifications",
+                        "description": "An SDK and APIs to send push notifications"
+                      }
+                    ]
+                  },
+                  "feature": {
+                    "heading": "",
+                    "imageUrl": "",
+                    "linkTitle": "",
+                    "linkUrl": ""
+                  }
+                }
+              },
+              {
+                "title": "Networking",
+                "titleEnglish": "Networking",
+                "url": "https://www.ibm.com/cloud/network",
+                "megapanelContent": {
+                  "headingTitle": "Networking",
+                  "headingUrl": "https://www.ibm.com/cloud/network",
+                  "description": "Run and manage public, private and virtual networks",
+                  "quickLinks": {
+                    "title": "",
+                    "links": [
+                      {
+                        "title": "Domain name services",
+                        "titleEnglish": "Domain name services",
+                        "url": "https://www.ibm.com/cloud/dns",
+                        "description": "Public and private DNS and domain registration"
+                      },
+                      {
+                        "title": "IBM Cloud Content Delivery Network",
+                        "titleEnglish": "IBM Cloud Content Delivery Network",
+                        "url": "https://www.ibm.com/cloud/cdn",
+                        "description": "Content caching and delivery on the Akamai network"
+                      },
+                      {
+                        "title": "IBM Cloud Direct Link",
+                        "titleEnglish": "IBM Cloud Direct Link",
+                        "url": "https://www.ibm.com/cloud/direct-link",
+                        "description": "Physical or virtual private connections to IBM Cloud"
+                      },
+                      {
+                        "title": "IBM Cloud Internet Services",
+                        "titleEnglish": "IBM Cloud Internet Services",
+                        "url": "https://www.ibm.com/cloud/dns",
+                        "description": "Load balancing and CDN solution"
+                      },
+                      {
+                        "title": "Load balancer",
+                        "titleEnglish": "Load balancer",
+                        "url": "https://www.ibm.com/cloud/load-balancer",
+                        "description": "Traffic flow management for cloud applications"
+                      },
+                      {
+                        "title": "Network appliances",
+                        "titleEnglish": "Network appliances",
+                        "url": "https://www.ibm.com/cloud/network-appliances",
+                        "description": "Physical and virtual routers, firewalls, VPNs and more"
+                      },
+                      {
+                        "title": "Network security",
+                        "titleEnglish": "Network security",
+                        "url": "https://www.ibm.com/cloud/network-security",
+                        "description": "Hardware and software firewalls, network security group management"
+                      }
+                    ]
+                  },
+                  "feature": {
+                    "heading": "",
+                    "imageUrl": "",
+                    "linkTitle": "",
+                    "linkUrl": ""
+                  }
+                }
+              },
+              {
+                "title": "Quantum",
+                "titleEnglish": "Quantum",
+                "url": "https://cloud.ibm.com/quantum",
+                "megapanelContent": {
+                  "headingTitle": "Quantum",
+                  "headingUrl": "https://cloud.ibm.com/quantum",
+                  "description": "Run code on cutting-edge quantum systems and simulators",
+                  "quickLinks": {
+                    "title": "",
+                    "links": [
+                      {
+                        "title": "Qiskit Runtime",
+                        "titleEnglish": "Qiskit Runtime",
+                        "url": "https://cloud.ibm.com/catalog/services/quantum-computing",
+                        "description": "Low-latency execution environment for quantum programs"
+                      },
+                      {
+                        "title": "Qiskit",
+                        "titleEnglish": "Qiskit",
+                        "url": "https://www.qiskit.org/",
+                        "description": "Python SDK for open-source quantum development"
+                      }
+                    ]
+                  },
+                  "feature": {
+                    "heading": "",
+                    "imageUrl": "",
+                    "linkTitle": "",
+                    "linkUrl": ""
+                  }
+                }
+              },
+              {
+                "title": "Security",
+                "titleEnglish": "Security",
+                "url": "https://www.ibm.com/cloud/security",
+                "megapanelContent": {
+                  "headingTitle": "Security",
+                  "headingUrl": "https://www.ibm.com/cloud/security",
+                  "description": "Secure your cloud resources and simplify regulatory compliance",
+                  "quickLinks": {
+                    "title": "",
+                    "links": [
+                      {
+                        "title": "IBM Cloud App ID",
+                        "titleEnglish": "IBM Cloud App ID",
+                        "url": "https://www.ibm.com/cloud/app-id",
+                        "description": "Compliant authentication, authorization and user data SaaS"
+                      },
+                      {
+                        "title": "IBM Cloud Certificate Manager",
+                        "titleEnglish": "IBM Cloud Certificate Manager",
+                        "url": "https://www.ibm.com/cloud/certificate-manager",
+                        "description": "Certificate management for cloud resources"
+                      },
+                      {
+                        "title": "IBM Cloud Data Shield",
+                        "titleEnglish": "IBM Cloud Data Shield",
+                        "url": "https://www.ibm.com/cloud/data-shield",
+                        "description": "Runtime encryption for data-in-use protection on Kubernetes clusters"
+                      },
+                      {
+                        "title": "IBM Cloud Hardware Security Module",
+                        "titleEnglish": "Hardware Security Module",
+                        "url": "https://www.ibm.com/cloud/hardware-security-module",
+                        "description": "Tamper-resistant hardware to store and process cryptographic keys"
+                      },
+                      {
+                        "title": "IBM Cloud Secrets Manager",
+                        "titleEnglish": "IBM Cloud Secrets Manager",
+                        "url": "https://www.ibm.com/cloud/secrets-manager",
+                        "description": "Single-tenant, dedicated instance to manage your secrets"
+                      },
+                      {
+                        "title": "IBM Cloud Security Advisor",
+                        "titleEnglish": "IBM Cloud Security Advisor",
+                        "url": "https://www.ibm.com/cloud/security-advisor",
+                        "description": "Dashboard for security management, analysis and remediation"
+                      },
+                      {
+                        "title": "IBM Cloud Security and Compliance Center",
+                        "titleEnglish": "IBM Cloud Security and Compliance Center",
+                        "url": "https://www.ibm.com/cloud/security-and-compliance-center",
+                        "description": "SaaS to define and audit the compliance posture of your cloud"
+                      },
+                      {
+                        "title": "IBM Hyper Protect Crypto Services",
+                        "titleEnglish": "IBM Hyper Protect Crypto Services",
+                        "url": "https://www.ibm.com/cloud/hyper-protect-crypto",
+                        "description": "Cloud hardware to store and process cryptographic keys"
+                      },
+                      {
+                        "title": "IBM Key Protect",
+                        "titleEnglish": "IBM Key Protect",
+                        "url": "https://www.ibm.com/cloud/key-protect",
+                        "description": "Encryption key provisioning and storage for IBM Cloud apps"
+                      },
+                      {
+                        "title": "Network security",
+                        "titleEnglish": "Network security",
+                        "url": "https://www.ibm.com/cloud/network-security",
+                        "description": "Hardware and software firewalls, network security group management"
+                      },
+                      {
+                        "title": "SSL certificates",
+                        "titleEnglish": "SSL certificates",
+                        "url": "https://www.ibm.com/cloud/ssl-certificates",
+                        "description": "Certificates for cloud resources"
+                      }
+                    ]
+                  },
+                  "feature": {
+                    "heading": "",
+                    "imageUrl": "",
+                    "linkTitle": "",
+                    "linkUrl": ""
+                  }
+                }
+              },
+              {
+                "title": "Storage",
+                "titleEnglish": "Storage",
+                "url": "https://www.ibm.com/cloud/storage",
+                "megapanelContent": {
+                  "headingTitle": "Storage",
+                  "headingUrl": "https://www.ibm.com/cloud/storage",
+                  "description": "Store, migrate and back up your data",
+                  "quickLinks": {
+                    "title": "",
+                    "links": [
+                      {
+                        "title": "IBM Cloud Backup",
+                        "titleEnglish": "IBM Cloud Backup",
+                        "url": "https://www.ibm.com/cloud/backup",
+                        "description": "Fully encrypted backup and recovery across multiple datacenters "
+                      },
+                      {
+                        "title": "IBM Cloud Block Storage",
+                        "titleEnglish": "IBM Cloud Block Storage",
+                        "url": "https://www.ibm.com/cloud/block-storage",
+                        "description": "The lowest latency, highest redundancy data storage option"
+                      },
+                      {
+                        "title": "IBM Cloud File Storage",
+                        "titleEnglish": "IBM Cloud File Storage     ",
+                        "url": "https://www.ibm.com/cloud/file-storage",
+                        "description": "The simplest solution for data organized into files and folders"
+                      },
+                      {
+                        "title": "IBM Cloud Mass Data Migration",
+                        "titleEnglish": "IBM Cloud Mass Data Migration",
+                        "url": "https://www.ibm.com/cloud/mass-data-migration",
+                        "description": "Secure hardware to physically ship petabytes of data to IBM Cloud"
+                      },
+                      {
+                        "title": "IBM Cloud Object Storage",
+                        "titleEnglish": "IBM Cloud Object Storage",
+                        "url": "https://www.ibm.com/cloud/object-storage",
+                        "description": "Unstructured cloud data storage with an API frontend"
+                      }
+                    ]
+                  },
+                  "feature": {
+                    "heading": "",
+                    "imageUrl": "",
+                    "linkTitle": "",
+                    "linkUrl": ""
+                  }
+                }
+              },
+              {
+                "title": "View all products",
+                "titleEnglish": "View all products",
+                "url": "https://www.ibm.com/cloud/products",
+                "megaPanelViewAll": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "masthead": {
+    "logo": {
+      "href": "https://www.example.com/custom-href"
+    },
+    "search": {
+      "btnSearchClosed": "Open IBM search field",
+      "btnSearchOpen": "Search all of IBM",
+      "btnClose": "Close IBM search field",
+      "placeHolderText": "Search all of IBM"
+    },
+    "contact": {
+      "title": "Contact us"
+    },
+    "profileMenu": {
+      "signedout": {
+        "iconLabel": "User Profile",
+        "links": [
+          {
+            "title": "Log in",
+            "url": "https://cloud.ibm.com/login"
+          }
+        ],
+        "ctaButtons": [
+          {
+            "title": "Create IBM Cloud account",
+            "url": "https://cloud.ibm.com/registration"
+          }
+        ]
+      },
+      "signedin": {
+        "iconLabel": "User Profile: Logged in",
+        "links": [
+          {
+            "title": "Profile",
+            "url": "https://cloud.ibm.com/user"
+          },
+          {
+            "title": "Catalog",
+            "url": "https://cloud.ibm.com/catalog"
+          },
+          {
+            "title": "Billing and usage",
+            "url": "https://cloud.ibm.com/billing"
+          },
+          {
+            "title": "Log out",
+            "url": "https://cloud.ibm.com/logout"
+          }
+        ],
+        "ctaButtons": [
+          {
+            "title": "Console",
+            "url": "https://cloud.ibm.com/"
+          }
+        ]
+      }
+    }
+  },
+  "profileMenu": {
+    "signedout": [
+      {
+        "id": "signin",
+        "title": "Log in",
+        "url": "https://cloud.ibm.com/login"
+      }
+    ],
+    "signedin": [
+      {
+        "title": "Profile",
+        "url": "https://cloud.ibm.com/user"
+      },
+      {
+        "title": "Catalog",
+        "url": "https://cloud.ibm.com/catalog"
+      },
+      {
+        "title": "Billing and usage",
+        "url": "https://cloud.ibm.com/billing"
+      },
+      {
+        "id": "signout",
+        "title": "Log out",
+        "url": "https://cloud.ibm.com/logout"
+      }
+    ]
+  },
+  "marketplace": {
+    "title": "Products",
+    "url": ""
+  },
+  "footerMenu": [
+    {
+      "title": "Why IBM Cloud",
+      "links": [
+        {
+          "title": "Why IBM Cloud",
+          "url": "https://www.ibm.com/cloud/why-ibm"
+        },
+        {
+          "title": "Hybrid Cloud approach",
+          "url": "https://www.ibm.com/cloud/hybrid"
+        },
+        {
+          "title": "Trust and security",
+          "url": "https://www.ibm.com/cloud/security"
+        },
+        {
+          "title": "Open Cloud",
+          "url": "https://www.ibm.com/cloud/open"
+        },
+        {
+          "title": "Data centers",
+          "url": "https://www.ibm.com/cloud/data-centers"
+        },
+        {
+          "title": "Case studies",
+          "url": "https://www.ibm.com/cloud/case-studies"
+        }
+      ]
+    },
+    {
+      "title": "Products and Solutions",
+      "links": [
+        {
+          "title": "Cloud Paks",
+          "url": "https://www.ibm.com/cloud/paks"
+        },
+        {
+          "title": "Cloud pricing",
+          "url": "https://www.ibm.com/cloud/pricing"
+        },
+        {
+          "title": "View all products",
+          "url": "https://www.ibm.com/cloud/products"
+        },
+        {
+          "title": "View all solutions",
+          "url": "https://www.ibm.com/cloud/solutions"
+        }
+      ]
+    },
+    {
+      "title": "Learn about",
+      "links": [
+        {
+          "title": "What is Hybrid Cloud?",
+          "url": "https://www.ibm.com/cloud/learn/hybrid-cloud"
+        },
+        {
+          "title": "What is Cloud Computing?",
+          "url": "https://www.ibm.com/cloud/learn/cloud-computing"
+        },
+        {
+          "title": "What is Confidential Computing?",
+          "url": "https://www.ibm.com/cloud/learn/confidential-computing"
+        },
+        {
+          "title": "What is a Data Lake?",
+          "url": "https://www.ibm.com/analytics/data-lake"
+        },
+        {
+          "title": "What is a Data Warehouse?",
+          "url": "https://www.ibm.com/cloud/learn/data-warehouse"
+        },
+        {
+          "title": "What is Machine Learning?",
+          "url": "https://www.ibm.com/cloud/learn/machine-learning"
+        },
+        {
+          "title": "What is DevOps?",
+          "url": "https://www.ibm.com/cloud/learn/devops-a-complete-guide"
+        },
+        {
+          "title": "What is Kubernetes?",
+          "url": "https://www.ibm.com/cloud/learn/kubernetes"
+        },
+        {
+          "title": "What is Microservices?",
+          "url": "https://www.ibm.com/cloud/learn/microservices"
+        }
+      ]
+    },
+    {
+      "title": "Resources",
+      "links": [
+        {
+          "title": "Get started",
+          "url": "https://www.ibm.com/cloud/get-started"
+        },
+        {
+          "title": "Docs",
+          "url": "https://cloud.ibm.com/docs"
+        },
+        {
+          "title": "Architectures",
+          "url": "https://www.ibm.com/cloud/architecture"
+        },
+        {
+          "title": "IBM Garage",
+          "url": "https://www.ibm.com/garage"
+        },
+        {
+          "title": "Training and Certifications",
+          "url": "https://www.ibm.com/training/cloud"
+        },
+        {
+          "title": "Partners",
+          "url": "https://www.ibm.com/cloud/partners"
+        },
+        {
+          "title": "Cloud blog",
+          "url": "https://www.ibm.com/cloud/blog"
+        },
+        {
+          "title": "Hybrid Cloud careers",
+          "url": "https://www.ibm.com/employment/hybridcloud"
+        },
+        {
+          "title": "My Cloud account",
+          "url": "https://cloud.ibm.com/login"
+        }
+      ]
+    }
+  ],
+  "footerThin": [
+    {
+      "title": "Contact IBM",
+      "url": "https://www.ibm.com/contact/us/en/?lnk=flg-cont-usen"
+    },
+    {
+      "title": "Privacy",
+      "url": "https://www.ibm.com/privacy/us/en/?lnk=flg-priv-usen"
+    },
+    {
+      "title": "Terms of use",
+      "url": "https://www.ibm.com/us-en/legal?lnk=flg-tous-usen"
+    },
+    {
+      "title": "Accessibility",
+      "url": "https://www.ibm.com/accessibility/us/en/?lnk=flg-acce-usen"
+    },
+    {
+      "title": "Cookie preferences",
+      "url": "https://www.ibm.com/us-en?ar=1#"
+    }
+  ],
+  "localeSelector": {
+    "localVersions": "Localized versions of this page",
+    "homepages": "Worldwide ibm.com home pages"
+  },
+  "socialFollow": {
+    "title": "Follow IBM",
+    "links": [
+      {
+        "linkClass": "ibm-linkedin-encircled-link",
+        "title": "LinkedIn",
+        "url": "https://www.linkedin.com/company/ibm"
+      },
+      {
+        "linkClass": "ibm-twitter-encircled-link",
+        "title": "Twitter",
+        "url": "https://www.twitter.com/ibm"
+      },
+      {
+        "linkClass": "ibm-instagram-encircled-link",
+        "title": "Instagram",
+        "url": "https://www.instagram.com/ibm"
+      }
+    ]
+  },
+  "socialSharing": [
+    {
+      "id": "facebook",
+      "title": "Facebook",
+      "url": "https://www.facebook.com/sharer.php?u=%{URL}&t=%{TITLE}"
+    },
+    {
+      "id": "twitter",
+      "title": "Twitter",
+      "url": "https://twitter.com/?status=%{URL}%20-%20%{TITLE}"
+    },
+    {
+      "id": "linkedin",
+      "title": "Linked In",
+      "url": "https://www.linkedin.com/shareArticle?mini=true&url=%{URL}&title=%{TITLE}"
+    }
+  ],
+  "leaving": {
+    "LEAVING001": "Leaving the IBM Web site",
+    "LEAVING002": "You are now leaving IBM.com and going to an external 3rd party site. Unless otherwise stated, the 3rd party's site Terms and Privacy Policy will apply, and may differ from IBM's.",
+    "LEAVING003": "The link you requested or were directed to is",
+    "LEAVING004": "Notice"
+  },
+  "misc": {
+    "backtotop": "Back to top",
+    "cancelText": "Cancel",
+    "close": "Close",
+    "cookiePrefs": "Cookie preferences",
+    "continueText": "Continue",
+    "editProfile": "Edit profile",
+    "emailThisPage": "E-mail this page",
+    "feedback": "Feedback",
+    "mpScopedSearh": "Products",
+    "withinMp": "Products",
+    "next": "Next",
+    "noresults": "No results found",
+    "prev": "Previous",
+    "resultsNav": "Use down and up arrow keys to navigate through the results.",
+    "search": "Search",
+    "selectCountry": "Select a country/region",
+    "sharePage": "Share this page",
+    "signin": "Sign in",
+    "signout": "Sign out",
+    "sitenav": "Site navigation",
+    "welcomeback": "Welcome back"
+  }
+}
