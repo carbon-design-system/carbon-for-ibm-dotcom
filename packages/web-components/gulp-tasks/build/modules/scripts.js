@@ -41,7 +41,8 @@ function scripts() {
           plugins: [
             ['@babel/plugin-transform-runtime', { useESModules: true, version: '7.3.0' }],
             '@babel/plugin-syntax-dynamic-import',
-            babelPluginResourceJSPaths],
+            babelPluginResourceJSPaths,
+          ],
         })
       )
       // Avoids generating `.js` from interface-only `.ts` files

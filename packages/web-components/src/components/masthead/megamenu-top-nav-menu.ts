@@ -177,7 +177,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
           this.megaMenu = this.querySelector('dds-megamenu') as DDSMegaMenu;
         }
 
-        this.megaMenu.remove();
+        this.megaMenu?.remove();
         doc.body.style.marginRight = '0px';
         doc.body.style.overflow = ``;
         if (cloudMasthead) {
