@@ -166,6 +166,7 @@ module.exports = {
             ],
           },
         },
+        require.resolve('../../tools/react-docgen-custom-element-type-loader'),
       ],
     });
     return massagedConfig;
