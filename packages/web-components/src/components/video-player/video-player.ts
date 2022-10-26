@@ -24,7 +24,7 @@ import '../image/image';
 import styles from './video-player.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSVideoPlayerContainer from './video-player-container';
-import DDSTab from '../tabs-extended/tab';
+import ParentVisibilityMixin from '../../component-mixins/parent-visibility/parent-visibility';
 
 export { VIDEO_PLAYER_CONTENT_STATE };
 export { VIDEO_PLAYER_PLAYING_MODE };
@@ -38,7 +38,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-video-player
  */
 @customElement(`${ddsPrefix}-video-player`)
-class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
+class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(ParentVisibilityMixin(LitElement))) {
   /**
    * The video player's mode showing Inline or Lightbox.
    */
@@ -102,6 +102,10 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
         width: String(this.offsetWidth),
       });
     }
+  }
+
+  public _onParentVisible() {
+    this._updateThumbnailUrl();
   }
 
   /**
@@ -193,32 +197,10 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
   @property({ attribute: 'aspect-ratio' })
   aspectRatio?: string;
 
-  /**
-   * A list of potential parent components that may be hide their content on
-   * first render. Lists event names that indicate the parent element
-   * visibility has changed keyed by component selector strings.
-   */
-  private _parentsThatHide = {
-    [`${ddsPrefix}-tab`]: DDSTab.eventTabSelected,
-  };
-
   createRenderRoot() {
     return this.attachShadow({
       mode: 'open',
       delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
-    });
-  }
-
-  connectedCallback(): void {
-    super.connectedCallback();
-    // Update thumbnail when parents that can be hidden transition to a visible
-    // state.
-    Object.entries(this._parentsThatHide).forEach(([component, event]) => {
-      let target: Element | null | undefined = this.closest(component);
-      while (target) {
-        target.addEventListener(event, this._updateThumbnailUrl.bind(this));
-        target = target?.parentElement?.closest(component);
-      }
     });
   }
 
