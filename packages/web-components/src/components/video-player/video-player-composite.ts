@@ -214,7 +214,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    * The video thumbnail width.
    */
   @property({ type: Number, attribute: 'video-thumbnail-width' })
-  videoThumbnailWidth = 655;
+  videoThumbnailWidth = 3;
 
   connectedCallback() {
     super.connectedCallback();

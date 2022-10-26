@@ -24,6 +24,7 @@ import '../image/image';
 import styles from './video-player.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSVideoPlayerContainer from './video-player-container';
+import DDSTab from '../tabs-extended/tab';
 
 export { VIDEO_PLAYER_CONTENT_STATE };
 export { VIDEO_PLAYER_PLAYING_MODE };
@@ -192,10 +193,32 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
   @property({ attribute: 'aspect-ratio' })
   aspectRatio?: string;
 
+  /**
+   * A list of potential parent components that may be hide their content on
+   * first render. Lists event names that indicate the parent element
+   * visibility has changed keyed by component selector strings.
+   */
+  private _parentsThatHide = {
+    [`${ddsPrefix}-tab`]: DDSTab.eventTabSelected,
+  };
+
   createRenderRoot() {
     return this.attachShadow({
       mode: 'open',
       delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
+    });
+  }
+
+  connectedCallback(): void {
+    super.connectedCallback();
+    // Update thumbnail when parents that can be hidden transition to a visible
+    // state.
+    Object.entries(this._parentsThatHide).forEach(([component, event]) => {
+      let target: Element | null | undefined = this.closest(component);
+      while (target) {
+        target.addEventListener(event, this._updateThumbnailUrl.bind(this));
+        target = target?.parentElement?.closest(component);
+      }
     });
   }
 
