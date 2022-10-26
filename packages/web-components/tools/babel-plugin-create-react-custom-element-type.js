@@ -243,11 +243,17 @@ function createMetadataVisitor(api) {
                     ? originalSplit?.indexOf('export var propTypes = {')
                     : originalSplit?.indexOf('export var propTypes = {};');
 
-                // Combines parent props with original props
                 if (originalSplit[index] === 'export var propTypes = {};') {
                   originalSplit[index] = originalSplit[index].slice(0, -2) + copy + originalSplit[index].slice(-2);
                 } else {
-                  if (copy !== '' && copy.slice(-1) !== ',') {
+                  // checks if copy exists and if the copy ends with a comma or needs to add one
+                  if (
+                    copy !== '' &&
+                    copy
+                      .split('\n')
+                      .slice(-2)[0]
+                      .slice(-1) !== ','
+                  ) {
                     copy += ',';
                   }
                   originalSplit.splice(index + 1, 0, copy);
