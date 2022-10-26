@@ -52,35 +52,6 @@
 
 ## `Rendering nav items`
 
-####   `should render the given nav items to the top`
-
-```
-<dds-top-nav
-  data-autoid="dds--masthead__l0-nav"
-  selected-menu-item="undefined"
->
-  <dds-top-nav-item
-    data-autoid="dds--masthead__l0-nav--nav0"
-    href="https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/foo"
-    title="item-title-foo"
-  >
-  </dds-top-nav-item>
-  <dds-top-nav-menu
-    data-autoid="dds--masthead__l0-nav--nav1"
-    menu-label="menu-title-foo"
-    trigger-content="menu-title-foo"
-  >
-    <dds-top-nav-menu-item
-      data-autoid="dds--masthead__l0-nav--subnav-col1-item0"
-      href="https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/bar"
-      title="menu-item-title-bar"
-    >
-    </dds-top-nav-menu-item>
-  </dds-top-nav-menu>
-</dds-top-nav>
-
-```
-
 ####   `should render the given nav items to the left`
 
 ```
@@ -124,6 +95,34 @@
 
 ```
 
+####   `should render the given nav items to the top`
+
+```
+<dds-top-nav
+  data-autoid="dds--masthead__l0-nav"
+  selected-menu-item="undefined"
+>
+  <dds-top-nav-item
+    data-autoid="dds--masthead__l0-nav--nav0"
+    href="https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/foo"
+    title="item-title-foo"
+  >
+  </dds-top-nav-item>
+  <dds-top-nav-menu
+    data-autoid="dds--masthead__l0-nav--nav1"
+    menu-label="menu-title-foo"
+    trigger-content="menu-title-foo"
+  >
+    <dds-top-nav-menu-item
+      data-autoid="dds--masthead__l0-nav--subnav-col1-item0"
+      href="https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/bar"
+      title="menu-item-title-bar"
+    >
+    </dds-top-nav-menu-item>
+  </dds-top-nav-menu>
+</dds-top-nav>
+```
+
 ####   `should render the megamenu`
 
 ```
@@ -162,6 +161,5 @@
     </dds-megamenu-category-group>
   </dds-megamenu-right-navigation>
 </dds-megamenu>
-
 ```
 
