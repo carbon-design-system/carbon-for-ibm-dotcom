@@ -212,7 +212,7 @@ function createMetadataVisitor(api) {
       const metadata = getPropertyMetadata(path);
 
       // Checks if the current component extends a local dotcom component
-      if (context.parentDescriptorSource && !context.parentDescriptorSource.includes('carbon-web-components')) {
+      if (!context?.parentDescriptorSource?.includes('carbon-web-components')) {
         // Gets parent path at ES components/react folder
         let parentFileName = context.parentDescriptorSource
           .replace('..', '/es/components-react')
