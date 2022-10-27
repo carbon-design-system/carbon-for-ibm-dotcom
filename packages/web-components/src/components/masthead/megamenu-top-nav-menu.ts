@@ -11,6 +11,7 @@ import { customElement, query, state } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
+import DDSTopNav from './top-nav';
 import DDSTopNavMenu from './top-nav-menu';
 import DDSMegaMenuOverlay from './megamenu-overlay';
 import styles from './masthead.scss';
@@ -144,16 +145,18 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
           (item as DDSMegaMenuOverlay).active = this.expanded;
         });
 
-        import('./megamenu-left-navigation');
-        import('./megamenu-category-link');
-        import('./megamenu-category-link-group');
-        import('./megamenu-category-group');
-        import('./megamenu-category-group-copy');
-        import('./megamenu-category-heading');
-        import('./megamenu-link-with-icon');
-        import('./megamenu-overlay');
-        import('./megamenu-tab');
-        import('./megamenu-tabs');
+        if (!(this.parentElement as DDSTopNav).importedMegamenu) {
+          import('./megamenu-left-navigation');
+          import('./megamenu-category-link');
+          import('./megamenu-category-link-group');
+          import('./megamenu-category-group');
+          import('./megamenu-category-group-copy');
+          import('./megamenu-category-heading');
+          import('./megamenu-link-with-icon');
+          import('./megamenu-overlay');
+          import('./megamenu-tab');
+          import('./megamenu-tabs');
+        }
 
         if (cloudMasthead) {
           if (doc.body.classList.contains('ibm-masthead-sticky') && doc.body.classList.contains('ibm-masthead-sticky-showing')) {
