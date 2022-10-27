@@ -2,7 +2,7 @@ name: percy-update-base
 
 on:
   push:
-    branches: [ main, release/* , feat/masthead-v2 ]
+    branches: [ main, release/* , feat/masthead-v2-dev ]
 
 concurrency:
   group: percy-update-base-${{ github.ref }}
