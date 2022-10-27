@@ -154,14 +154,6 @@
     }
 
     .#{$prefix}--content-item-horizontal__row {
-      + .#{$prefix}--content-item-horizontal__row {
-        // margin-block-start: $carbon--spacing-05;
-
-        @include carbon--breakpoint(md) {
-          // margin-block-start: $carbon--spacing-07;
-        }
-      }
-
       .#{$prefix}--content-item-horizontal__col {
         &:last-of-type {
           @include carbon--breakpoint-down(md) {
