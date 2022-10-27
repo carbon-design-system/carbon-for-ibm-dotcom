@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: services/VideoPlayer/VideoPlayer.js</title>
+    <title>JSDoc: Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/parseAspectRatio/parseAspectRatio.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: services/VideoPlayer/VideoPlayer.js</h1>
+    <h1 class="page-title">Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/parseAspectRatio/parseAspectRatio.js</h1>
 
     
 
@@ -26,66 +26,39 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Copyright IBM Corp. 2020, 2022
+            <pre class="prettyprint source linenums"><code>function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol &amp;&amp; "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj &amp;&amp; "function" == typeof Symbol &amp;&amp; obj.constructor === Symbol &amp;&amp; obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+/**
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
-import KalturaPlayerAPI from '../KalturaPlayer/KalturaPlayer';
-
 /**
- * @deprecated in favor of KalturaPlayerAPI
- * VideoPlayerAPI class with methods of checking script state and
- * embed video meta data and api data
+ * Utility to parse aspect ratios into width &amp; height values
  *
- * In order to set the Partner ID/UIConf ID, set the following environment
- * variables:
+ * @example
+ * import {parseAspectRatio} from '@carbon/ibmdotcom-utilities';
  *
- * - KALTURA_PARTNER_ID (or REACT_APP_KALTURA_PARTNER_ID)
- * - KALTURA_UICONF_ID (or REACT_APP_KALTURA_UICONF_ID)
+ * const [width, height] = parseAspectRatio('16x9');
+ *
+ * @param {string} aspectRatioString string in format &lt;integer>&lt;separator>&lt;integer>
+ * @returns {Array} [widthInt, heightInt]
  */
-class VideoPlayerAPI extends KalturaPlayerAPI {
-  /**
-   * Gets the embed meta data
-   *
-   * @param {string} videoId  The videoId we're embedding the placeholder for.
-   * @param {string} targetId The targetId the ID where we're putting the placeholder.
-   * @param {boolean} autoPlay Determine whether to autoplay on load of video.
-   * @returns {object}  object
-   *
-   * @example
-   * import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
-   *
-   * function embedMyVideo() {
-   *   const elem = document.getElementById('foo');
-   *   const videoid = '12345';
-   *   VideoPlayerAPI.embedVideo(videoid, elem);
-   * }
-   */
-  static async embedVideo(videoId, targetId, autoPlay) {
-    await KalturaPlayerAPI.embedMedia(videoId, targetId, autoPlay);
-  }
 
-  /**
-   * Convert media duration from milliseconds and seconds to HH:MM:SS
-   *
-   * @param {string} duration video duration in milliseconds
-   * @param {boolean} fromMilliseconds the duration argument is expressed in milliseconds rather than seconds
-   * @returns {string} converted duration
-   */
-  static getVideoDuration(duration, fromMilliseconds) {
-    return KalturaPlayerAPI.getMediaDuration(duration, fromMilliseconds);
+function parseAspectRatio(aspectRatioString) {
+  if (typeof aspectRatioString !== 'string') {
+    throw new TypeError("parseAspectRatio expected a string but was given a ".concat(_typeof(aspectRatioString)));
   }
+  var parsed = aspectRatioString.split(/[^0-9]{1}/).filter(function (i) {
+    return i;
+  });
+  if (parsed.length !== 2) {
+    throw new RangeError("Parsed aspect ratio should have a length of 2, but had ".concat(parsed.length, " instead"));
+  }
+  return parsed;
 }
-
-export default deprecate(
-  VideoPlayerAPI,
-  'The VideoPlayerAPI service has been deprecated in favor of the KalturaPlayerAPI service.'
-);
-</code></pre>
+export default parseAspectRatio;</code></pre>
         </article>
     </section>
 
