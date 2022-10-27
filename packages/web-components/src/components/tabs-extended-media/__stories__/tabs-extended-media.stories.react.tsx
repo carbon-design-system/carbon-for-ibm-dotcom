@@ -58,9 +58,11 @@ export const Default = args => {
     tabs.push(
       <DDSTab label={`Tab ${i}`}>
         <DDSContentItemHorizontalMedia align={align}>
-          {type === MEDIA_TYPE.IMAGE && <DDSImage slot="media" alt="Image alt text" default-src={imgLg16x9}></DDSImage>}
-          {type === MEDIA_TYPE.VIDEO && (
+          {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt="Image alt text" default-src={imgLg16x9}></DDSImage> : ``}
+          {type === MEDIA_TYPE.VIDEO ? (
             <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
+          ) : (
+            ``
           )}
           <DDSContentItemHeading>Tab heading {i}</DDSContentItemHeading>
           <DDSContentItemHorizontalMediaCopy>
