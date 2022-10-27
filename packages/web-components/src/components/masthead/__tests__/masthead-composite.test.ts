@@ -90,24 +90,10 @@ describe('dds-masthead-composite', function () {
       ).toBe(0);
     });
 
-    it('should render the given nav items to the top', async function () {
+    it('should render the given nav items to the left', async function() {
       render(template({ navLinks: navLinksFoo }), document.body);
       await Promise.resolve();
-      expect(
-        document.body
-          .querySelector('dds-masthead-composite')!
-          .querySelector('dds-top-nav')
-      ).toMatchSnapshot();
-    });
-
-    it('should render the given nav items to the left', async function () {
-      render(template({ navLinks: navLinksFoo }), document.body);
-      await Promise.resolve();
-      expect(
-        document.body
-          .querySelector('dds-masthead-composite')!
-          .querySelector('dds-left-nav')
-      ).toMatchSnapshot();
+      expect(document.body.querySelector('dds-masthead-composite')!.querySelector('dds-left-nav')).toMatchSnapshot();
     });
   });
 
