@@ -12,26 +12,41 @@ addons.setConfig({
   theme: yourTheme,
 });
 
-const CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR = `
-button[id^="components-audio-player"],
-button[id^="components-content-block-headlines"],
-button[id^="components-leadspace-with-search"],
-button[id^="components-notice-choice"] {
-  display: none !important
-}
-`;
+/**
+ * Conditionally generate CSS to hide a component based on its corresponding
+ * feature flag environment variable.
+ *
+ * @param {*} envVar
+ *   Environment variable to check.
+ * @param {*} cssId
+ *   CSS ID for selector.
+ * @returns
+ */
+const getCss = (envVar, cssId) => {
+  return envVar !== 'true'
+    ? `button[id^="${cssId}"] { display: none !important; }\n`
+    : '';
+};
 
-if (
-  !process.env.DDS_FLAGS_ALL &&
-  !process.env.DDS_AUDIO_PLAYER &&
-  !process.env.DDS_CONTENT_BLOCK_HEADLINES &&
-  !process.env.DDS_LEADSPACE_WITH_SEARCH &&
-  !process.env.DDS_NOTICE_CHOICE
-) {
+// Build string of CSS rules.
+let css = '';
+if (!process.env.DDS_FLAGS_ALL) {
+  css += getCss(process.env.DDS_AUDIO_PLAYER, 'components-audio-player');
+  css += getCss(
+    process.env.DDS_CONTENT_BLOCK_HEADLINES,
+    'components-content-block-headlines'
+  );
+  css += getCss(
+    process.env.DDS_LEADSPACE_WITH_SEARCH,
+    'components-lead-space-with-search'
+  );
+  css += getCss(process.env.DDS_NOTICE_CHOICE, 'components-notice-choice');
+}
+
+// Inject any CSS rules into the page.
+if (css.length) {
   const head = document.head || document.getElementsByTagName('head')[0];
   const style = document.createElement('style');
   head.appendChild(style);
-  style.appendChild(
-    document.createTextNode(CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR)
-  );
+  style.appendChild(document.createTextNode(css));
 }
