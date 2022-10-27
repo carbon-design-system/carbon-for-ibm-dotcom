@@ -7,10 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, query, state } from 'lit-element';
+import { customElement, property, query, state } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
+import DDSMegaMenu from './megamenu';
 import DDSTopNav from './top-nav';
 import DDSTopNavMenu from './top-nav-menu';
 import DDSMegaMenuOverlay from './megamenu-overlay';
@@ -26,6 +27,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-megamenu-top-nav-menu`)
 class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
+  /**
+   * The megamenu component
+   */
+  @property()
+  megaMenu!: DDSMegaMenu;
+
   /**
    * The menu ul node.
    */
@@ -144,6 +151,18 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
           (item as DDSMegaMenuOverlay).active = this.expanded;
         });
+
+        if (!this.megaMenu) {
+          this.dispatchEvent(
+            new CustomEvent('dds-megamenu-top-nav-menu-active', {
+              bubbles: true,
+              cancelable: true,
+              composed: true,
+            })
+          );
+        } else {
+          this.append(this.megaMenu);
+        }
 
         if (!(this.parentElement as DDSTopNav).importedMegamenu) {
           import('./megamenu-left-navigation');
