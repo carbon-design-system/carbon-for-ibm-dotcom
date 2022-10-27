@@ -76,6 +76,9 @@ import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+// Magic Number: 960px matches masthead.scss's `$breakpoint--desktop-nav`.
+const layoutBreakpoint = window.matchMedia(`(max-width: 960px)`);
+
 /**
  * Rendering target for masthead navigation items.
  */
@@ -113,7 +116,7 @@ class DDSMastheadComposite extends LitElement {
         ${!title
           ? undefined
           : html`
-              <dds-masthead-l1-name title="${title}" aria-selected="${isSelected}" url="${url}"></dds-masthead-l1-name>
+              <dds-masthead-l1-name title="${title}" aria-selected="${isSelected}" url="${ifDefined(url)}"></dds-masthead-l1-name>
             `}
         <dds-top-nav-l1 selected-menu-item=${selectedMenuItem}
           >${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: true })}</dds-top-nav-l1
@@ -713,6 +716,11 @@ class DDSMastheadComposite extends LitElement {
   _hasAutoSelectedItems = false;
 
   /**
+   * Whether the nav should load as `left-nav` or `top-nav`
+   */
+  _isMobileVersion = layoutBreakpoint.matches;
+
+  /**
    * The placeholder for `loadTranslation()` Redux action that will be mixed in.
    *
    * @internal
@@ -970,6 +978,12 @@ class DDSMastheadComposite extends LitElement {
 
     // This is a temp fix until we figure out why we can't set styles to the :host(dds-masthead-container) in stylesheets
     this.style.zIndex = '900';
+
+    // Allows conditional rendering of left/top navs.
+    layoutBreakpoint.addEventListener('change', () => {
+      this._isMobileVersion = layoutBreakpoint.matches;
+      this.requestUpdate();
+    });
   }
 
   updated(changedProperties) {
@@ -984,6 +998,7 @@ class DDSMastheadComposite extends LitElement {
 
   render() {
     const {
+      _isMobileVersion: isMobileVersion,
       activateSearch,
       authenticatedProfileItems,
       ctaButtons,
@@ -1034,46 +1049,54 @@ class DDSMastheadComposite extends LitElement {
     }
 
     return html`
-      <dds-left-nav-overlay></dds-left-nav-overlay>
-      <dds-left-nav>
-        ${!platform
-          ? undefined
-          : html`
-              <dds-left-nav-name href="${ifNonNull(platformAltUrl)}">${platform}</dds-left-nav-name>
-            `}
-        ${!l1Data?.title
-          ? undefined
-          : html`
-              <dds-left-nav-name href="${ifNonNull(l1Data.url)}">${l1Data.title}</dds-left-nav-name>
-            `}
-        ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV, hasL1: !!l1Data })}
-      </dds-left-nav>
+      ${isMobileVersion
+        ? html`
+            <dds-left-nav-overlay></dds-left-nav-overlay>
+            <dds-left-nav>
+              ${!platform
+                ? undefined
+                : html`
+                    <dds-left-nav-name href="${ifNonNull(platformAltUrl)}">${platform}</dds-left-nav-name>
+                  `}
+              ${!l1Data?.title
+                ? undefined
+                : html`
+                    <dds-left-nav-name href="${ifNonNull(l1Data.url)}">${l1Data.title}</dds-left-nav-name>
+                  `}
+              ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV, hasL1: !!l1Data })}
+            </dds-left-nav>
+          `
+        : ''}
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-skip-to-content href="${skipToContentHref}" link-assistive-text="${skipToContentText}"></dds-skip-to-content>
-        <dds-masthead-menu-button
-          button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
-          button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
-          ?hide-menu-button="${activateSearch}"
-        >
-        </dds-masthead-menu-button>
 
+        ${isMobileVersion
+          ? html`
+              <dds-masthead-menu-button
+                button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
+                button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
+                ?hide-menu-button="${activateSearch}"
+              >
+              </dds-masthead-menu-button>
+            `
+          : ''}
         ${this._renderLogo()}
         ${!platform || l1Data
           ? undefined
           : html`
               <dds-top-nav-name href="${ifNonNull(platformAltUrl)}">${platform}</dds-top-nav-name>
             `}
-        ${(navLinks &&
-          html`
-            <dds-top-nav
-              selected-menu-item=${selectedMenuItem}
-              menu-bar-label="${ifNonNull(menuBarAssistiveText)}"
-              ?hideNav="${activateSearch}"
-            >
-              ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: false })}
-            </dds-top-nav>
-          `) ||
-          undefined}
+        ${navLinks && !isMobileVersion
+          ? html`
+              <dds-top-nav
+                selected-menu-item=${selectedMenuItem}
+                menu-bar-label="${ifNonNull(menuBarAssistiveText)}"
+                ?hideNav="${activateSearch}"
+              >
+                ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: false })}
+              </dds-top-nav>
+            `
+          : ''}
         ${!hasSearch
           ? undefined
           : html`
