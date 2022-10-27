@@ -143,6 +143,18 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
           (item as DDSMegaMenuOverlay).active = this.expanded;
         });
+
+        import('./megamenu-left-navigation');
+        import('./megamenu-category-link');
+        import('./megamenu-category-link-group');
+        import('./megamenu-category-group');
+        import('./megamenu-category-group-copy');
+        import('./megamenu-category-heading');
+        import('./megamenu-link-with-icon');
+        import('./megamenu-overlay');
+        import('./megamenu-tab');
+        import('./megamenu-tabs');
+
         if (cloudMasthead) {
           if (doc.body.classList.contains('ibm-masthead-sticky') && doc.body.classList.contains('ibm-masthead-sticky-showing')) {
             cloudMasthead.style.marginRight = `${this._scrollBarWidth}px`;

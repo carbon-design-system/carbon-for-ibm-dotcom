@@ -44,16 +44,6 @@ import './masthead-profile';
 import './masthead-profile-item';
 import './megamenu';
 import './megamenu-top-nav-menu';
-import './megamenu-left-navigation';
-import './megamenu-category-link';
-import './megamenu-category-link-group';
-import './megamenu-category-group';
-import './megamenu-category-group-copy';
-import './megamenu-category-heading';
-import './megamenu-link-with-icon';
-import './megamenu-overlay';
-import './megamenu-tab';
-import './megamenu-tabs';
 import './skip-to-content';
 import './top-nav';
 import './top-nav-l1';
@@ -228,15 +218,19 @@ class DDSMastheadComposite extends LitElement {
             return html`
               <div id="panel-${item.itemKey}" role="tabpanel" aria-labelledby="tab-${item.itemKey}" hidden>
                 <dds-megamenu-category-heading
-                  href="${item.megapanelContent?.headingUrl}"
-                  title="${item.megapanelContent?.headingTitle}"
+                  href="${ifDefined(item.megapanelContent?.headingUrl)}"
+                  title="${ifDefined(item.megapanelContent?.headingTitle)}"
                   >${item.megapanelContent?.description}</dds-megamenu-category-heading
                 >
                 <dds-megamenu-category-link-group>
                   ${item?.megapanelContent?.quickLinks?.links.map(
                     link =>
                       html`
-                        <dds-megamenu-category-link href="${link.url}" title="${link.title}" target="${link?.target}">
+                        <dds-megamenu-category-link
+                          href="${ifDefined(link.url)}"
+                          title="${link.title}"
+                          target="${ifDefined(link?.target)}"
+                        >
                           ${link.description}
                         </dds-megamenu-category-link>
                       `
@@ -272,7 +266,7 @@ class DDSMastheadComposite extends LitElement {
                 ${highlightedItems.map((item, i) => {
                   const autoid = `${ddsPrefix}--masthead__l0-nav-list${i}`;
                   return html`
-                    <dds-megamenu-category-group data-autoid="${autoid}" href="${item.url}" title="${item.title}">
+                    <dds-megamenu-category-group data-autoid="${autoid}" href="${ifDefined(item.url)}" title="${item.title}">
                       <dds-megamenu-category-group-copy>${item.megapanelContent?.description}</dds-megamenu-category-group-copy>
                       ${item.megapanelContent?.quickLinks?.links.map(({ title, url, highlightedLink }, key) => {
                         return html`
@@ -280,7 +274,7 @@ class DDSMastheadComposite extends LitElement {
                             ? html`
                                 <dds-megamenu-link-with-icon
                                   data-autoid="${autoid}-item${key}"
-                                  href="${url}"
+                                  href="${ifDefined(url)}"
                                   style-scheme="category-sublink"
                                   title="${title}"
                                 >
@@ -288,7 +282,11 @@ class DDSMastheadComposite extends LitElement {
                                 </dds-megamenu-link-with-icon>
                               `
                             : html`
-                                <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${url}">
+                                <dds-megamenu-category-link
+                                  data-autoid="${autoid}-item${key}"
+                                  title="${title}"
+                                  href="${ifDefined(url)}"
+                                >
                                 </dds-megamenu-category-link>
                               `}
                         `;
@@ -309,10 +307,10 @@ class DDSMastheadComposite extends LitElement {
           ${menu.map((item, j) => {
             const autoid = `${ddsPrefix}--masthead__l0-nav-list${j + highlightedItems.length}`;
             return html`
-              <dds-megamenu-category-group data-autoid="${autoid}" href="${item.url}" title="${item.title}">
+              <dds-megamenu-category-group data-autoid="${autoid}" href="${ifDefined(item.url)}" title="${item.title}">
                 ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
                   return html`
-                    <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${url}">
+                    <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${ifDefined(url)}">
                     </dds-megamenu-category-link>
                   `;
                 })}
