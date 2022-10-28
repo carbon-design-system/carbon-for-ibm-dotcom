@@ -85,9 +85,11 @@ describe('dds-masthead | default (desktop)', () => {
   });
 
   it('should have urls for the submenu items within the megamenu', () => {
-    cy.get(
-      'dds-megamenu-top-nav-menu:nth-child(1) > dds-megamenu >  dds-megamenu-right-navigation >  dds-megamenu-category-group > dds-megamenu-category-link:nth-child(1)'
-    )
+    cy.get('dds-megamenu-top-nav-menu:nth-child(2)')
+      .click()
+      .get(
+        'dds-megamenu-top-nav-menu:nth-child(1) > dds-megamenu >  dds-megamenu-right-navigation >  dds-megamenu-category-group > dds-megamenu-category-link:nth-child(1)'
+      )
       .shadow()
       .find('a')
       .then($link => {

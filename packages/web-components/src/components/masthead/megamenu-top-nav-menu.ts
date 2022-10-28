@@ -185,6 +185,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
           masthead.style.marginRight = `${this._scrollBarWidth}px`;
         }
       } else {
+        this.megaMenu?.remove();
         doc.body.style.marginRight = '0px';
         doc.body.style.overflow = ``;
         if (cloudMasthead) {

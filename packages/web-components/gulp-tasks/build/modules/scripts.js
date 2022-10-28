@@ -38,7 +38,11 @@ function scripts() {
         babel({
           presets: ['@babel/preset-modules', '@babel/preset-env'],
           // `version: '7.3.0'` ensures `@babel/plugin-transform-runtime` is applied to decorator helper
-          plugins: [['@babel/plugin-transform-runtime', { useESModules: true, version: '7.3.0' }], babelPluginResourceJSPaths],
+          plugins: [
+            ['@babel/plugin-transform-runtime', { useESModules: true, version: '7.3.0' }],
+            '@babel/plugin-syntax-dynamic-import',
+            babelPluginResourceJSPaths,
+          ],
         })
       )
       // Avoids generating `.js` from interface-only `.ts` files
