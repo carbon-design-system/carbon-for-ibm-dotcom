@@ -435,12 +435,14 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
 
     // Update the values in the adopted stylesheet to comply with CSP no-inline-styles rules.
     if (changedProperties.has('_currentScrollPosition')) {
-      const dynamicStyles = this.shadowRoot?.adoptedStyleSheets[1];
+      const dynamicStyles = this.shadowRoot?.adoptedStyleSheets?.at(1);
 
-      const [ltr, rtl] = Array.from(dynamicStyles?.cssRules || []);
+      if (dynamicStyles) {
+        const [ltr, rtl] = Array.from(dynamicStyles?.cssRules || []);
 
-      (ltr as CSSStyleRule).style.left = `-${this._currentScrollPosition}px`;
-      (rtl as CSSStyleRule).style.right = `-${this._currentScrollPosition}px`;
+        (ltr as CSSStyleRule).style.left = `-${this._currentScrollPosition}px`;
+        (rtl as CSSStyleRule).style.right = `-${this._currentScrollPosition}px`;
+      }
     }
   }
 
