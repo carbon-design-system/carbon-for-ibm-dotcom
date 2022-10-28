@@ -27,15 +27,17 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 function _defineProperties(target, props) { for (var i = 0; i &lt; props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 /**
  * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import ddsSettings from '../settings/settings.js';
 import root from 'window-or-global';
@@ -43,9 +45,11 @@ import settings from 'carbon-components/es/globals/js/settings';
 var prefix = settings.prefix;
 var ddsPrefix = ddsSettings.stablePrefix;
 var gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
+
 var StickyHeader = /*#__PURE__*/function () {
   function StickyHeader() {
     _classCallCheck(this, StickyHeader);
+
     this.ownerDocument = root.document;
     this._banner = undefined;
     this._cumulativeHeight = 0;
@@ -65,15 +69,13 @@ var StickyHeader = /*#__PURE__*/function () {
     this._resizeObserver = new ResizeObserver(this._handleResize.bind(this));
     root.addEventListener('scroll', this._throttledHandler.bind(this));
   }
-
   /**
    * Create (if needed) and return the globally-scoped instance of `this`.
    */
+
+
   _createClass(StickyHeader, [{
-    key: "height",
-    get: function get() {
-      return this._cumulativeHeight;
-    }
+    key: "_validateComponent",
 
     /**
      * Compares the tag name of the component provided to what we expect it to be
@@ -83,10 +85,9 @@ var StickyHeader = /*#__PURE__*/function () {
      * @throws {TypeError} Throws error if component tag name doesn't match expected string
      * @returns {boolean} Returns true if component tag name matches expected string
      */
-  }, {
-    key: "_validateComponent",
     value: function _validateComponent(component, expected) {
       var received = component.tagName.toLowerCase();
+
       if (received !== expected) {
         throw new TypeError("".concat(expected, " expected, ").concat(received, " provided"));
       } else {
@@ -99,6 +100,7 @@ var StickyHeader = /*#__PURE__*/function () {
       var toc = this._tableOfContents;
       var tocRoot = toc.shadowRoot;
       var desktopSelector = ".".concat(ddsPrefix, "-ce--table-of-contents__items-container");
+
       if (window.outerWidth > gridBreakpoint) {
         if (toc.layout === 'horizontal') {
           this._tableOfContentsInnerBar = tocRoot.querySelector(".".concat(prefix, "--tableofcontents__navbar"));
@@ -111,11 +113,196 @@ var StickyHeader = /*#__PURE__*/function () {
       }
     }
   }, {
+    key: "_throttledHandler",
+
+    /**
+     * Rate-limits the scroll event handler
+     */
+    value: function _throttledHandler() {
+      var _this = this;
+
+      if (!this._throttled) {
+        this._throttled = true;
+
+        this._handleScroll();
+
+        setTimeout(function () {
+          _this._throttled = false;
+        }, 20);
+      }
+    }
+  }, {
+    key: "_handleResize",
+    value: function _handleResize() {
+      var hasBanner = this._hasBanner,
+          masthead = this._masthead,
+          toc = this._tableOfContents,
+          tocLayout = this._tableOfContentsLayout,
+          leadspaceSearchBar = this._leadspaceSearchBar;
+
+      if (toc &amp;&amp; masthead) {
+        this._tableOfContentsStickyUpdate();
+
+        if (window.innerWidth >= gridBreakpoint &amp;&amp; tocLayout !== 'horizontal' &amp;&amp; !hasBanner) {
+          masthead.style.top = '0';
+        } else {
+          // This has to happen after the tocStickyUpdate method.
+          var tocInner = this._tableOfContentsInnerBar;
+
+          if (masthead.offsetTop === 0) {
+            tocInner.style.top = "".concat(masthead.offsetHeight, "px");
+          }
+        }
+
+        this._handleScroll();
+      }
+
+      if (leadspaceSearchBar) {
+        this._leadspaceWithSearchStickyThreshold = parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) - 16;
+      }
+    }
+  }, {
+    key: "_handleScroll",
+    value: function _handleScroll() {
+      var _StickyHeader$global = StickyHeader.global,
+          oldY = _StickyHeader$global._lastScrollPosition,
+          banner = _StickyHeader$global._banner,
+          masthead = _StickyHeader$global._masthead,
+          mastheadL0 = _StickyHeader$global._mastheadL0,
+          mastheadL1 = _StickyHeader$global._mastheadL1,
+          localeModal = _StickyHeader$global._localeModal,
+          toc = _StickyHeader$global._tableOfContents,
+          tocInner = _StickyHeader$global._tableOfContentsInnerBar,
+          leadspaceSearch = _StickyHeader$global._leadspaceWithSearch,
+          leadspaceSearchBar = _StickyHeader$global._leadspaceWithSearchBar,
+          leadspaceSearchInput = _StickyHeader$global._leadspaceWithSearchInput,
+          leadspaceSearchThreshold = _StickyHeader$global._leadspaceWithSearchStickyThreshold;
+      var customPropertyName = this.constructor.customPropertyName;
+      if (localeModal &amp;&amp; localeModal.hasAttribute('open')) return;
+      var newY = window.scrollY;
+      this._lastScrollPosition = newY;
+      /**
+       * maxScrollaway is a calculated value matching the height of all components
+       * that are allowed to hide above the viewport.
+       *
+       * We should only have one sticky header showing as the page scrolls down.
+       *
+       * Items that stick, in order
+       * - L0
+       * - L1
+       * - The TOC in horizontal bar form
+       * - The leadspace with search (if no TOC)
+       */
+
+      var maxScrollaway = 0; // Calculate maxScrollaway values based on TOC positon
+
+      var tocIsAtTop = false;
+      var tocShouldStick = false;
+
+      if (tocInner) {
+        tocIsAtTop = tocInner.getBoundingClientRect().top &lt;= (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1;
+        tocShouldStick = toc.layout === 'horizontal' || window.innerWidth &lt; gridBreakpoint;
+
+        if (masthead &amp;&amp; tocIsAtTop &amp;&amp; (tocShouldStick || mastheadL1)) {
+          maxScrollaway += masthead.offsetHeight;
+
+          if (mastheadL1 &amp;&amp; !tocShouldStick) {
+            maxScrollaway -= mastheadL1.offsetHeight;
+          }
+        } else if (mastheadL0 &amp;&amp; mastheadL1) {
+          maxScrollaway += mastheadL0.offsetHeight;
+        }
+      } // Calculate maxScrollaway values based on leadspace search position
+
+
+      if (!tocInner &amp;&amp; leadspaceSearchBar) {
+        var searchIsAtTop = leadspaceSearchBar.getBoundingClientRect().top &lt;= (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1;
+
+        if (masthead &amp;&amp; searchIsAtTop) {
+          maxScrollaway += masthead.offsetHeight;
+        }
+      }
+      /**
+       * Cumulative offset is a calculated value used to set the `top` property of
+       * components that stick to the top of the viewport.
+       *
+       * This value is equal to the difference between the previous scrollY and
+       * the current scrollY values, but is positively and negatively limited.
+       *
+       * Positive limit: 0
+       *   all elements visible, starting at the top of the viewport.
+       *
+       * Negative limit: maxScrollaway * -1
+       *   all elements that should be hidden are positioned above the viewport
+       *   with the elements that should be visible starting at the top of the
+       *   viewport.
+       */
+
+
+      var cumulativeOffset = masthead ? Math.max(Math.min(masthead.offsetTop + oldY - newY, 0), maxScrollaway * -1) : Math.max(Math.min(oldY - newY, 0), maxScrollaway * -1);
+
+      if (banner) {
+        cumulativeOffset += Math.max(banner.offsetHeight - newY, 0);
+      }
+
+      if (masthead) {
+        masthead.style.transition = 'none';
+        masthead.style.top = "".concat(cumulativeOffset, "px");
+        cumulativeOffset += masthead.offsetHeight;
+      }
+
+      if (tocInner) {
+        tocInner.style.transition = 'none';
+        tocInner.style.top = "".concat(cumulativeOffset, "px");
+        cumulativeOffset += tocInner.offsetHeight;
+      }
+
+      if (!tocInner &amp;&amp; leadspaceSearchBar) {
+        var searchShouldBeSticky = leadspaceSearch.getBoundingClientRect().bottom &lt;= leadspaceSearchThreshold;
+        var searchIsSticky = leadspaceSearch.hasAttribute('sticky-search');
+
+        if (searchShouldBeSticky) {
+          if (!searchIsSticky) {
+            leadspaceSearch.style.paddingBottom = "".concat(leadspaceSearchBar.offsetHeight, "px");
+            leadspaceSearch.setAttribute('sticky-search', '');
+            leadspaceSearchInput.setAttribute('large', '');
+            window.requestAnimationFrame(function () {
+              leadspaceSearchBar.style.transitionDuration = '110ms';
+              leadspaceSearchBar.style.transform = 'translateY(0)';
+            });
+          }
+
+          leadspaceSearchBar.style.top = "".concat(cumulativeOffset, "px");
+          cumulativeOffset += leadspaceSearchBar.offsetHeight;
+        }
+
+        if (!searchShouldBeSticky &amp;&amp; searchIsSticky) {
+          leadspaceSearch.removeAttribute('sticky-search');
+          leadspaceSearch.style.paddingBottom = '';
+          leadspaceSearchBar.style.top = '';
+          leadspaceSearchBar.style.transitionDuration = '';
+          leadspaceSearchBar.style.transform = '';
+          leadspaceSearchInput.removeAttribute('large');
+        }
+      } // Set internal property for use in scripts
+
+
+      this._cumulativeHeight = cumulativeOffset; // Set custom property for use in stylesheets
+
+      root.document.documentElement.style.setProperty(customPropertyName, "".concat(this._cumulativeHeight, "px"));
+    }
+  }, {
+    key: "height",
+    get: function get() {
+      return this._cumulativeHeight;
+    }
+  }, {
     key: "banner",
     set: function set(component) {
       if (this._validateComponent(component, "".concat(ddsPrefix, "-universal-banner"))) {
         this._banner = component;
         this.hasBanner = true;
+
         if (this._masthead) {
           this._masthead.setAttribute('with-banner', '');
         }
@@ -154,170 +341,11 @@ var StickyHeader = /*#__PURE__*/function () {
     set: function set(component) {
       if (this._validateComponent(component, "".concat(ddsPrefix, "-table-of-contents"))) {
         this._tableOfContents = component;
+
         this._tableOfContentsStickyUpdate();
+
         this._resizeObserver.observe(this._tableOfContents);
       }
-    }
-
-    /**
-     * Rate-limits the scroll event handler
-     */
-  }, {
-    key: "_throttledHandler",
-    value: function _throttledHandler() {
-      var _this = this;
-      if (!this._throttled) {
-        this._throttled = true;
-        this._handleScroll();
-        setTimeout(function () {
-          _this._throttled = false;
-        }, 20);
-      }
-    }
-  }, {
-    key: "_handleResize",
-    value: function _handleResize() {
-      var hasBanner = this._hasBanner,
-        masthead = this._masthead,
-        toc = this._tableOfContents,
-        tocLayout = this._tableOfContentsLayout,
-        leadspaceSearchBar = this._leadspaceSearchBar;
-      if (toc &amp;&amp; masthead) {
-        this._tableOfContentsStickyUpdate();
-        if (window.innerWidth >= gridBreakpoint &amp;&amp; tocLayout !== 'horizontal' &amp;&amp; !hasBanner) {
-          masthead.style.top = '0';
-        } else {
-          // This has to happen after the tocStickyUpdate method.
-          var tocInner = this._tableOfContentsInnerBar;
-          if (masthead.offsetTop === 0) {
-            tocInner.style.top = "".concat(masthead.offsetHeight, "px");
-          }
-        }
-        this._handleScroll();
-      }
-      if (leadspaceSearchBar) {
-        this._leadspaceWithSearchStickyThreshold = parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) - 16;
-      }
-    }
-  }, {
-    key: "_handleScroll",
-    value: function _handleScroll() {
-      var _StickyHeader$global = StickyHeader.global,
-        oldY = _StickyHeader$global._lastScrollPosition,
-        banner = _StickyHeader$global._banner,
-        masthead = _StickyHeader$global._masthead,
-        mastheadL0 = _StickyHeader$global._mastheadL0,
-        mastheadL1 = _StickyHeader$global._mastheadL1,
-        localeModal = _StickyHeader$global._localeModal,
-        toc = _StickyHeader$global._tableOfContents,
-        tocInner = _StickyHeader$global._tableOfContentsInnerBar,
-        leadspaceSearch = _StickyHeader$global._leadspaceWithSearch,
-        leadspaceSearchBar = _StickyHeader$global._leadspaceWithSearchBar,
-        leadspaceSearchInput = _StickyHeader$global._leadspaceWithSearchInput,
-        leadspaceSearchThreshold = _StickyHeader$global._leadspaceWithSearchStickyThreshold;
-      var customPropertyName = this.constructor.customPropertyName;
-      if (localeModal &amp;&amp; localeModal.hasAttribute('open')) return;
-      var newY = window.scrollY;
-      this._lastScrollPosition = newY;
-
-      /**
-       * maxScrollaway is a calculated value matching the height of all components
-       * that are allowed to hide above the viewport.
-       *
-       * We should only have one sticky header showing as the page scrolls down.
-       *
-       * Items that stick, in order
-       * - L0
-       * - L1
-       * - The TOC in horizontal bar form
-       * - The leadspace with search (if no TOC)
-       */
-      var maxScrollaway = 0;
-
-      // Calculate maxScrollaway values based on TOC positon
-      var tocIsAtTop = false;
-      var tocShouldStick = false;
-      if (tocInner) {
-        tocIsAtTop = tocInner.getBoundingClientRect().top &lt;= (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1;
-        tocShouldStick = toc.layout === 'horizontal' || window.innerWidth &lt; gridBreakpoint;
-        if (masthead &amp;&amp; tocIsAtTop &amp;&amp; (tocShouldStick || mastheadL1)) {
-          maxScrollaway += masthead.offsetHeight;
-          if (mastheadL1 &amp;&amp; !tocShouldStick) {
-            maxScrollaway -= mastheadL1.offsetHeight;
-          }
-        } else if (mastheadL0 &amp;&amp; mastheadL1) {
-          maxScrollaway += mastheadL0.offsetHeight;
-        }
-      }
-
-      // Calculate maxScrollaway values based on leadspace search position
-      if (!tocInner &amp;&amp; leadspaceSearchBar) {
-        var searchIsAtTop = leadspaceSearchBar.getBoundingClientRect().top &lt;= (masthead ? masthead.offsetTop + masthead.offsetHeight : 0) + 1;
-        if (masthead &amp;&amp; searchIsAtTop) {
-          maxScrollaway += masthead.offsetHeight;
-        }
-      }
-
-      /**
-       * Cumulative offset is a calculated value used to set the `top` property of
-       * components that stick to the top of the viewport.
-       *
-       * This value is equal to the difference between the previous scrollY and
-       * the current scrollY values, but is positively and negatively limited.
-       *
-       * Positive limit: 0
-       *   all elements visible, starting at the top of the viewport.
-       *
-       * Negative limit: maxScrollaway * -1
-       *   all elements that should be hidden are positioned above the viewport
-       *   with the elements that should be visible starting at the top of the
-       *   viewport.
-       */
-      var cumulativeOffset = masthead ? Math.max(Math.min(masthead.offsetTop + oldY - newY, 0), maxScrollaway * -1) : Math.max(Math.min(oldY - newY, 0), maxScrollaway * -1);
-      if (banner) {
-        cumulativeOffset += Math.max(banner.offsetHeight - newY, 0);
-      }
-      if (masthead) {
-        masthead.style.transition = 'none';
-        masthead.style.top = "".concat(cumulativeOffset, "px");
-        cumulativeOffset += masthead.offsetHeight;
-      }
-      if (tocInner) {
-        tocInner.style.transition = 'none';
-        tocInner.style.top = "".concat(cumulativeOffset, "px");
-        cumulativeOffset += tocInner.offsetHeight;
-      }
-      if (!tocInner &amp;&amp; leadspaceSearchBar) {
-        var searchShouldBeSticky = leadspaceSearch.getBoundingClientRect().bottom &lt;= leadspaceSearchThreshold;
-        var searchIsSticky = leadspaceSearch.hasAttribute('sticky-search');
-        if (searchShouldBeSticky) {
-          if (!searchIsSticky) {
-            leadspaceSearch.style.paddingBottom = "".concat(leadspaceSearchBar.offsetHeight, "px");
-            leadspaceSearch.setAttribute('sticky-search', '');
-            leadspaceSearchInput.setAttribute('large', '');
-            window.requestAnimationFrame(function () {
-              leadspaceSearchBar.style.transitionDuration = '110ms';
-              leadspaceSearchBar.style.transform = 'translateY(0)';
-            });
-          }
-          leadspaceSearchBar.style.top = "".concat(cumulativeOffset, "px");
-          cumulativeOffset += leadspaceSearchBar.offsetHeight;
-        }
-        if (!searchShouldBeSticky &amp;&amp; searchIsSticky) {
-          leadspaceSearch.removeAttribute('sticky-search');
-          leadspaceSearch.style.paddingBottom = '';
-          leadspaceSearchBar.style.top = '';
-          leadspaceSearchBar.style.transitionDuration = '';
-          leadspaceSearchBar.style.transform = '';
-          leadspaceSearchInput.removeAttribute('large');
-        }
-      }
-
-      // Set internal property for use in scripts
-      this._cumulativeHeight = cumulativeOffset;
-
-      // Set custom property for use in stylesheets
-      root.document.documentElement.style.setProperty(customPropertyName, "".concat(this._cumulativeHeight, "px"));
     }
   }], [{
     key: "global",
@@ -325,6 +353,7 @@ var StickyHeader = /*#__PURE__*/function () {
       if (!Object.prototype.hasOwnProperty.call(root, 'stickyHeader')) {
         root.stickyHeader = new StickyHeader();
       }
+
       return root.stickyHeader;
     }
   }, {
@@ -333,8 +362,10 @@ var StickyHeader = /*#__PURE__*/function () {
       return "--".concat(ddsPrefix, "-sticky-header-height");
     }
   }]);
+
   return StickyHeader;
 }();
+
 export default StickyHeader;</code></pre>
         </article>
     </section>
@@ -345,13 +376,13 @@ export default StickyHeader;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="ibmdotcom.module_settings.html">settings</a></li></ul><h3>Classes</h3><ul><li><a href="AnalyticsAPI.html">AnalyticsAPI</a></li><li><a href="DDOAPI.html">DDOAPI</a></li><li><a href="KalturaPlayerAPI.html">KalturaPlayerAPI</a></li><li><a href="LocaleAPI.html">LocaleAPI</a></li><li><a href="MarketingSearchAPI.html">MarketingSearchAPI</a></li><li><a href="MastheadLogoAPI.html">MastheadLogoAPI</a></li><li><a href="ProfileAPI.html">ProfileAPI</a></li><li><a href="SearchTypeaheadAPI.html">SearchTypeaheadAPI</a></li><li><a href="TranslationAPI.html">TranslationAPI</a></li><li><a href="VideoPlayerAPI.html">VideoPlayerAPI</a></li></ul><h3>Global</h3><ul><li><a href="global.html#altlangs">altlangs</a></li><li><a href="global.html#calculateTotalWidth">calculateTotalWidth</a></li><li><a href="global.html#decodeString">decodeString</a></li><li><a href="global.html#escapeRegExp">escapeRegExp</a></li><li><a href="global.html#focuswrap">focuswrap</a></li><li><a href="global.html#formatVideoCaption">formatVideoCaption</a></li><li><a href="global.html#formatVideoDuration">formatVideoDuration</a></li><li><a href="global.html#geolocation">geolocation</a></li><li><a href="global.html#globalInit">globalInit</a></li><li><a href="global.html#ipcinfoCookie">ipcinfoCookie</a></li><li><a href="global.html#loadNonLatinPlex">loadNonLatinPlex</a></li><li><a href="global.html#markdownToHtml">markdownToHtml</a></li><li><a href="global.html#parseAspectRatio">parseAspectRatio</a></li><li><a href="global.html#removeHtmlTagEntities">removeHtmlTagEntities</a></li><li><a href="global.html#sameHeight">sameHeight</a></li><li><a href="global.html#serialize">serialize</a></li><li><a href="global.html#smoothScroll">smoothScroll</a></li><li><a href="global.html#stripHTML">stripHTML</a></li><li><a href="global.html#uniqueid">uniqueid</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="ibmdotcom.module_settings.html">settings</a></li></ul><h3>Classes</h3><ul><li><a href="AnalyticsAPI.html">AnalyticsAPI</a></li><li><a href="DDOAPI.html">DDOAPI</a></li><li><a href="KalturaPlayerAPI.html">KalturaPlayerAPI</a></li><li><a href="LocaleAPI.html">LocaleAPI</a></li><li><a href="MarketingSearchAPI.html">MarketingSearchAPI</a></li><li><a href="MastheadLogoAPI.html">MastheadLogoAPI</a></li><li><a href="ProfileAPI.html">ProfileAPI</a></li><li><a href="SearchTypeaheadAPI.html">SearchTypeaheadAPI</a></li><li><a href="TranslationAPI.html">TranslationAPI</a></li><li><a href="VideoPlayerAPI.html">VideoPlayerAPI</a></li></ul><h3>Global</h3><ul><li><a href="global.html#altlangs">altlangs</a></li><li><a href="global.html#calculateTotalWidth">calculateTotalWidth</a></li><li><a href="global.html#decodeString">decodeString</a></li><li><a href="global.html#escapeRegExp">escapeRegExp</a></li><li><a href="global.html#focuswrap">focuswrap</a></li><li><a href="global.html#formatVideoCaption">formatVideoCaption</a></li><li><a href="global.html#formatVideoDuration">formatVideoDuration</a></li><li><a href="global.html#geolocation">geolocation</a></li><li><a href="global.html#globalInit">globalInit</a></li><li><a href="global.html#ipcinfoCookie">ipcinfoCookie</a></li><li><a href="global.html#loadNonLatinPlex">loadNonLatinPlex</a></li><li><a href="global.html#markdownToHtml">markdownToHtml</a></li><li><a href="global.html#removeHtmlTagEntities">removeHtmlTagEntities</a></li><li><a href="global.html#sameHeight">sameHeight</a></li><li><a href="global.html#serialize">serialize</a></li><li><a href="global.html#smoothScroll">smoothScroll</a></li><li><a href="global.html#stripHTML">stripHTML</a></li><li><a href="global.html#uniqueid">uniqueid</a></li><li><a href="global.html#value">value</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Fri Oct 28 2022 14:28:52 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Fri Oct 28 2022 19:10:28 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
