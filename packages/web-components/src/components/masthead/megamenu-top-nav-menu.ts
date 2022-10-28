@@ -104,6 +104,26 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
     trigger!.setAttribute('data-attribute3', this.menuLabel);
   }
 
+  private async _requestMegaMenuRenderUpdate() {
+    return new Promise((resolve: Function): void => {
+      this.dispatchEvent(
+        new CustomEvent('dds-megamenu-top-nav-menu-toggle', {
+          bubbles: true,
+          cancelable: true,
+          composed: true,
+          detail: {
+            active: this.expanded,
+            resolveFn: resolve,
+          },
+        })
+      );
+
+      setTimeout(() => {
+        resolve();
+      }, 5000);
+    });
+  }
+
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
@@ -125,9 +145,24 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
     }
   }
 
-  updated(changedProperties) {
+  async updated(changedProperties) {
     super.updated(changedProperties);
     if (changedProperties.has('expanded')) {
+      // Import needed subcomponents on first expansion
+      if (!(this.parentElement as DDSTopNav).importedMegamenu) {
+        await import('./megamenu-left-navigation');
+        await import('./megamenu-category-link');
+        await import('./megamenu-category-link-group');
+        await import('./megamenu-category-group');
+        await import('./megamenu-category-group-copy');
+        await import('./megamenu-category-heading');
+        await import('./megamenu-link-with-icon');
+        await import('./megamenu-overlay');
+        await import('./megamenu-tab');
+        await import('./megamenu-tabs');
+        (this.parentElement as DDSTopNav).importedMegamenu = true;
+      }
+
       const doc = this.getRootNode() as Document;
       forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
         (item as DDSMegaMenuOverlay).active = this.expanded;
@@ -146,36 +181,15 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         ?.shadowRoot?.querySelector('.bx--masthead__l0');
 
       if (this.expanded) {
+        // Ask masthead-composite to render megamenu.
+        // Pause further execution until the render is complete.
+        await this._requestMegaMenuRenderUpdate();
+
         doc.body.style.marginRight = `${this._scrollBarWidth}px`;
         doc.body.style.overflow = `hidden`;
         forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
           (item as DDSMegaMenuOverlay).active = this.expanded;
         });
-
-        if (!this.megaMenu) {
-          this.dispatchEvent(
-            new CustomEvent('dds-megamenu-top-nav-menu-active', {
-              bubbles: true,
-              cancelable: true,
-              composed: true,
-            })
-          );
-        } else {
-          this.append(this.megaMenu);
-        }
-
-        if (!(this.parentElement as DDSTopNav).importedMegamenu) {
-          import('./megamenu-left-navigation');
-          import('./megamenu-category-link');
-          import('./megamenu-category-link-group');
-          import('./megamenu-category-group');
-          import('./megamenu-category-group-copy');
-          import('./megamenu-category-heading');
-          import('./megamenu-link-with-icon');
-          import('./megamenu-overlay');
-          import('./megamenu-tab');
-          import('./megamenu-tabs');
-        }
 
         if (cloudMasthead) {
           if (doc.body.classList.contains('ibm-masthead-sticky') && doc.body.classList.contains('ibm-masthead-sticky-showing')) {
@@ -185,8 +199,6 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
           masthead.style.marginRight = `${this._scrollBarWidth}px`;
         }
       } else {
-        const megamenu = this.megaMenu || this.querySelector(`${ddsPrefix}-megamenu`) || undefined;
-        megamenu?.remove();
         doc.body.style.marginRight = '0px';
         doc.body.style.overflow = ``;
         if (cloudMasthead) {
@@ -211,6 +223,12 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
             }
           }, 0);
         }
+
+        // Ask masthead-composite to un-render megamenu.
+        // Wait long enough for the transition to end.
+        setTimeout(() => {
+          this._requestMegaMenuRenderUpdate();
+        }, 500);
       }
     }
 
