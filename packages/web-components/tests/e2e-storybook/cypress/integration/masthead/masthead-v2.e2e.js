@@ -69,7 +69,8 @@ describe('dds-masthead | default (desktop)', () => {
         .shadow()
         .find('a')
         .click()
-        .get('dds-megamenu-category-link, dds-megamenu-category-heading').each($linkItem => {
+        .get('dds-megamenu-category-link, dds-megamenu-category-heading')
+        .each($linkItem => {
           cy.get($linkItem)
             .shadow()
             .then(([shadowHost]) => {
@@ -120,48 +121,47 @@ describe('dds-masthead | default (desktop)', () => {
   });
 
   it('should load analyics attributes throughout menu', () => {
-    cy.get('dds-megamenu-top-nav-menu')
-      .each(item => {
-        cy.get(item)
-          .shadow()
-          .find('a')
-          .then(([link]) => {
-            checkAnalyticsAttributes(link, {
-              'data-attribute1': 'headerNav',
-              'data-attribute2': 'L0',
-              'data-attribute3': item.attr('menu-label'),
-            });
-          })
-          .click()
-          .get('dds-megamenu-tab, dds-megamenu-category-heading[href^="http"]')
-          .each(item => {
-            cy.get(item)
-              .shadow()
-              .find('button, a')
-              .then(([button]) => {
-                const isTab = button.matches('button');
-                checkAnalyticsAttributes(button, {
-                  'data-attribute1': 'headerNav',
-                  'data-attribute2': isTab ? 'TabHdline' : 'FlatHdline',
-                  'data-attribute3': isTab ? item.attr('value') : item.attr('title'),
-                });
-              });
-          })
-
-          .get('dds-megamenu-category-link')
-          .each(item => {
-            cy.get(item)
-              .shadow()
-              .find('a')
-              .then(([link]) => {
-                checkAnalyticsAttributes(link, {
-                  'data-attribute1': 'headerNav',
-                  'data-attribute2': 'FlatItem',
-                  'data-attribute3': item.attr('title'),
-                });
-              });
+    cy.get('dds-megamenu-top-nav-menu').each(item => {
+      cy.get(item)
+        .shadow()
+        .find('a')
+        .then(([link]) => {
+          checkAnalyticsAttributes(link, {
+            'data-attribute1': 'headerNav',
+            'data-attribute2': 'L0',
+            'data-attribute3': item.attr('menu-label'),
           });
-      })
+        })
+        .click()
+        .get('dds-megamenu-tab, dds-megamenu-category-heading[href^="http"]')
+        .each(item => {
+          cy.get(item)
+            .shadow()
+            .find('button, a')
+            .then(([button]) => {
+              const isTab = button.matches('button');
+              checkAnalyticsAttributes(button, {
+                'data-attribute1': 'headerNav',
+                'data-attribute2': isTab ? 'TabHdline' : 'FlatHdline',
+                'data-attribute3': isTab ? item.attr('value') : item.attr('title'),
+              });
+            });
+        })
+
+        .get('dds-megamenu-category-link')
+        .each(item => {
+          cy.get(item)
+            .shadow()
+            .find('a')
+            .then(([link]) => {
+              checkAnalyticsAttributes(link, {
+                'data-attribute1': 'headerNav',
+                'data-attribute2': 'FlatItem',
+                'data-attribute3': item.attr('title'),
+              });
+            });
+        });
+    });
   });
 });
 
