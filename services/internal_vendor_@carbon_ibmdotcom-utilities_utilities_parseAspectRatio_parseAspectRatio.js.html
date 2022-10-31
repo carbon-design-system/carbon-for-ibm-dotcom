@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/serialize/serialize.js</title>
+    <title>JSDoc: Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/parseAspectRatio/parseAspectRatio.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/serialize/serialize.js</h1>
+    <h1 class="page-title">Source: internal/vendor/@carbon/ibmdotcom-utilities/utilities/parseAspectRatio/parseAspectRatio.js</h1>
 
     
 
@@ -26,42 +26,39 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Copyright IBM Corp. 2020
+            <pre class="prettyprint source linenums"><code>function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol &amp;&amp; "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj &amp;&amp; "function" == typeof Symbol &amp;&amp; obj.constructor === Symbol &amp;&amp; obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+/**
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 /**
- * Converts a JSON object to a serialized string
+ * Utility to parse aspect ratios into width &amp; height values
  *
- * @param {object} obj Object to convert
- * @returns {string} Serialized string
  * @example
- * import { serialize } from '@carbon/ibmdotcom-utilities'
+ * import {parseAspectRatio} from '@carbon/ibmdotcom-utilities';
  *
- * const obj = {
- *  param1: 'one',
- *  param2: 'two',
- *  param3: 'three',
- * };
+ * const [width, height] = parseAspectRatio('16x9');
  *
- * const result = serialize(obj);
- * console.log(result); // param1=one&amp;param2=two&amp;param3=three
+ * @param {string} aspectRatioString string in format &lt;integer>&lt;separator>&lt;integer>
+ * @returns {Array} [widthInt, heightInt]
  */
-function serialize(obj) {
-  return Object.keys(obj).map(function (key) {
-    var value;
-    if (typeof obj[key] === 'string') {
-      value = encodeURIComponent(obj[key]);
-    } else {
-      value = encodeURIComponent(JSON.stringify(obj[key]));
-    }
-    return "".concat(encodeURIComponent(key), "=").concat(value);
-  }).join('&amp;');
+
+function parseAspectRatio(aspectRatioString) {
+  if (typeof aspectRatioString !== 'string') {
+    throw new TypeError("parseAspectRatio expected a string but was given a ".concat(_typeof(aspectRatioString)));
+  }
+  var parsed = aspectRatioString.split(/[^0-9]{1}/).filter(function (i) {
+    return i;
+  });
+  if (parsed.length !== 2) {
+    throw new RangeError("Parsed aspect ratio should have a length of 2, but had ".concat(parsed.length, " instead"));
+  }
+  return parsed;
 }
-export default serialize;</code></pre>
+export default parseAspectRatio;</code></pre>
         </article>
     </section>
 
