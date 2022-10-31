@@ -42,6 +42,9 @@ const TextCTA = ({
               title: videoTitle[0].title,
               duration: videoTitle[0].duration,
             })}
+            <span className="bx--visually-hidden">
+              {CTALogic.getDefaultLabel(type)}
+            </span>
           </span>
           <Icon />
         </LinkWithIcon>
@@ -55,6 +58,9 @@ const TextCTA = ({
       iconInline={otherProps.iconInline}
       {...(iconPlacement && { iconPlacement })}>
       <span>{otherProps.copy}</span>
+      <span className="bx--visually-hidden">
+        {CTALogic.getDefaultLabel(type)}
+      </span>
       {type !== 'default' && <Icon />}
     </LinkWithIcon>
   );
