@@ -258,6 +258,7 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
         )
         ?.querySelector(`${ddsPrefix}-masthead`);
       if (expanded && !this._importedSideNav) {
+        import('./left-nav-cta-item');
         import('./left-nav-name');
         import('./left-nav-menu');
         import('./left-nav-menu-section');

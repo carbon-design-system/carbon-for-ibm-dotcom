@@ -132,6 +132,26 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
     trigger!.setAttribute('data-attribute3', this.menuLabel);
   }
 
+  private async _requestMegaMenuRenderUpdate() {
+    return new Promise((resolve: Function): void => {
+      this.dispatchEvent(
+        new CustomEvent('dds-megamenu-top-nav-menu-toggle', {
+          bubbles: true,
+          cancelable: true,
+          composed: true,
+          detail: {
+            active: this.expanded,
+            resolveFn: resolve,
+          },
+        })
+      );
+
+      setTimeout(() => {
+        resolve();
+      }, 5000);
+    });
+  }
+
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
@@ -156,6 +176,21 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   async updated(changedProperties) {
     super.updated(changedProperties);
     if (changedProperties.has('expanded')) {
+      // Import needed subcomponents on first expansion
+      if (!(this.parentElement as DDSTopNav).importedMegamenu) {
+        await import('./megamenu-left-navigation');
+        await import('./megamenu-category-link');
+        await import('./megamenu-category-link-group');
+        await import('./megamenu-category-group');
+        await import('./megamenu-category-group-copy');
+        await import('./megamenu-category-heading');
+        await import('./megamenu-link-with-icon');
+        await import('./megamenu-overlay');
+        await import('./megamenu-tab');
+        await import('./megamenu-tabs');
+        (this.parentElement as DDSTopNav).importedMegamenu = true;
+      }
+
       const doc = this.getRootNode() as Document;
       forEach(
         doc.querySelectorAll(
@@ -191,16 +226,11 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         // Pause further execution until the render is complete.
         await this._requestMegaMenuRenderUpdate();
 
-        document.body.style.marginInlineStart = `${this._scrollBarWidth}px`;
-        document.body.style.overflow = 'hidden';
-        forEach(
-          doc.querySelectorAll(
-            (this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay
-          ),
-          (item) => {
-            (item as DDSMegaMenuOverlay).active = this.expanded;
-          }
-        );
+        doc.body.style.marginRight = `${this._scrollBarWidth}px`;
+        doc.body.style.overflow = `hidden`;
+        forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
+          (item as DDSMegaMenuOverlay).active = this.expanded;
+        });
 
         if (cloudMasthead) {
           if (

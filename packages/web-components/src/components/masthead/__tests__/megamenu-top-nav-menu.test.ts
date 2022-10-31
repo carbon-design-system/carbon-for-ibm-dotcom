@@ -33,18 +33,6 @@ describe('dds-megamenu-top-nav-menu', function () {
         ).active
       ).toBe(false);
     });
-
-    it('should show the overlay if expanded', async function () {
-      render(template({ expanded: true }), document.body);
-      await Promise.resolve();
-      expect(
-        (
-          document.body.querySelector(
-            'dds-megamenu-overlay'
-          ) as DDSMegaMenuOverlay
-        ).active
-      ).toBe(true);
-    });
   });
 
   afterEach(async function () {
