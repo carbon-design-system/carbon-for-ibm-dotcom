@@ -14,8 +14,8 @@ import getCssPropertyForRule from '../../utils/get-css-property-for-rule';
  * @private
  */
 const _paths = {
-  default: 'iframe.html?id=components-cta--card',
-  types: 'iframe.html?id=components-cta--card&knob-CTA%20type%20(cta-type)=',
+  default: 'iframe.html?id=components-cta--default&knob-CTA%20style%20(cta-style)=card',
+  types: 'iframe.html?id=components-cta--default&knob-CTA%20style%20(cta-style)=card-link&knob-CTA%20type%20(cta-type)=',
 };
 
 /**
@@ -44,7 +44,7 @@ const _tests = {
     let box;
 
     cy.visit(`/${_paths.default}`)
-      .get('dds-card-cta')
+      .get('dds-cta').shadow().find('dds-card-cta')
       .then(card => {
         const bcr = card[0].getBoundingClientRect();
 
@@ -57,7 +57,7 @@ const _tests = {
           centerY: bcr.top + bcr.height / 2,
         };
       })
-      .get('dds-card-cta-footer')
+      cy.get('dds-cta').shadow().find('dds-card-cta-footer')
       .then(footer => {
         // Since the link is in the shadowroot, we need to look there
         const root = footer[0].shadowRoot;
@@ -88,7 +88,8 @@ const _tests = {
     });
   },
   checkHoverStyles: () => {
-    cy.get('dds-card-cta').then(([card]) => {
+    cy.visit(`/${_paths.default}`)
+      .get('dds-cta').shadow().find('dds-card-cta').then(([card]) => {
       const sheets = card.shadowRoot.adoptedStylesheets;
 
       if (sheets) {

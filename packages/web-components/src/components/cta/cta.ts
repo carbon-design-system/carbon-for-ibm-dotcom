@@ -112,8 +112,9 @@ class DDSCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleButtonGroupupdate = async (event: FocusEvent) => {
     if (event) {
-      if (this.ctaStyle === 'button' && this.getAttribute('kind')) {
-        this.shadowRoot?.querySelector(`${ddsPrefix}-button-cta`)!.setAttribute('kind', this.getAttribute('kind')!);
+      const button = this.shadowRoot?.querySelector(`${ddsPrefix}-button-cta`)!;
+      if (this.ctaStyle === 'button' && button && this.getAttribute('kind')) {
+        button.setAttribute('kind', this?.getAttribute('kind')!);
       }
     }
   };

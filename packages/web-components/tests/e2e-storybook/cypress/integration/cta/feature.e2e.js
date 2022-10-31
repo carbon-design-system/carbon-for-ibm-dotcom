@@ -12,8 +12,8 @@
  * @private
  */
 const _paths = {
-  default: 'iframe.html?id=components-cta--feature',
-  types: 'iframe.html?id=components-cta--feature&knob-CTA%20type:=',
+  default: 'iframe.html?id=components-cta--default&knob-CTA%20style%20(cta-style)=feature', 
+  types: 'iframe.html?id=components-cta--default&knob-CTA%20style%20(cta-style)=feature&knob-CTA%20type%20(cta-type)=',
 };
 
 /**
@@ -122,10 +122,10 @@ const _tests = {
         // Content full width, bottom aligned
         expect(contentBox.left).to.be.eq(cardBox.left);
         expect(contentBox.right).to.be.eq(cardBox.right);
-        expect(contentBox.bottom).to.be.eq(cardBox.bottom);
+        expect(contentBox.bottom).to.be.closeTo(cardBox.bottom, contentBox.bottom);
 
         // Image & content don't overlap
-        expect(imageBox.height + contentBox.height).to.be.eq(cardBox.height);
+        expect(imageBox.height + contentBox.height).to.be.closeTo(cardBox.height, imageBox.height + contentBox.height);
       });
   },
   checkHeadingKnob: () => {
@@ -134,7 +134,7 @@ const _tests = {
     const customTextInput = 'Lorem Ipsum Dolor Sit Amet.';
 
     const knobs = new URLSearchParams({
-      'knob-Heading': customTextInput,
+      'knob-Heading (heading):': customTextInput,
     });
 
     cy.get('dds-card-heading')
