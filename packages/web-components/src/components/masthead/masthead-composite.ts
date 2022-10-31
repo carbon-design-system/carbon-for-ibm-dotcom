@@ -8,12 +8,14 @@
  */
 
 import { html, property, customElement, LitElement, TemplateResult } from 'lit-element';
-import { nothing } from 'lit-html';
+import { nothing, render } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
 import ArrowRight16 from 'carbon-web-components/es/icons/arrow--right/16.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { unsafeSVG } from 'lit-html/directives/unsafe-svg.js';
 import root from 'window-or-global';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import MastheadLogoAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/MastheadLogo/MastheadLogo';
@@ -44,16 +46,6 @@ import './masthead-profile';
 import './masthead-profile-item';
 import './megamenu';
 import './megamenu-top-nav-menu';
-import './megamenu-left-navigation';
-import './megamenu-category-link';
-import './megamenu-category-link-group';
-import './megamenu-category-group';
-import './megamenu-category-group-copy';
-import './megamenu-category-heading';
-import './megamenu-link-with-icon';
-import './megamenu-overlay';
-import './megamenu-tab';
-import './megamenu-tabs';
 import './skip-to-content';
 import './top-nav';
 import './top-nav-l1';
@@ -62,13 +54,6 @@ import './top-nav-item';
 import './top-nav-menu';
 import './top-nav-menu-item';
 import './left-nav';
-import './left-nav-cta-item';
-import './left-nav-name';
-import './left-nav-menu';
-import './left-nav-menu-section';
-import './left-nav-menu-item';
-import './left-nav-menu-category-heading';
-import './left-nav-overlay';
 import '../search-with-typeahead/search-with-typeahead';
 import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
@@ -100,7 +85,7 @@ export enum NAV_ITEMS_RENDER_TARGET {
  * @element dds-masthead-composite
  */
 @customElement(`${ddsPrefix}-masthead-composite`)
-class DDSMastheadComposite extends LitElement {
+class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Renders L1 menu based on l1Data
    *
@@ -228,15 +213,19 @@ class DDSMastheadComposite extends LitElement {
             return html`
               <div id="panel-${item.itemKey}" role="tabpanel" aria-labelledby="tab-${item.itemKey}" hidden>
                 <dds-megamenu-category-heading
-                  href="${item.megapanelContent?.headingUrl}"
-                  title="${item.megapanelContent?.headingTitle}"
+                  href="${ifDefined(item.megapanelContent?.headingUrl)}"
+                  title="${ifDefined(item.megapanelContent?.headingTitle)}"
                   >${item.megapanelContent?.description}</dds-megamenu-category-heading
                 >
                 <dds-megamenu-category-link-group>
                   ${item?.megapanelContent?.quickLinks?.links.map(
                     link =>
                       html`
-                        <dds-megamenu-category-link href="${link.url}" title="${link.title}" target="${link?.target}">
+                        <dds-megamenu-category-link
+                          href="${ifDefined(link.url)}"
+                          title="${link.title}"
+                          target="${ifDefined(link?.target)}"
+                        >
                           ${link.description}
                         </dds-megamenu-category-link>
                       `
@@ -272,7 +261,7 @@ class DDSMastheadComposite extends LitElement {
                 ${highlightedItems.map((item, i) => {
                   const autoid = `${ddsPrefix}--masthead__l0-nav-list${i}`;
                   return html`
-                    <dds-megamenu-category-group data-autoid="${autoid}" href="${item.url}" title="${item.title}">
+                    <dds-megamenu-category-group data-autoid="${autoid}" href="${ifDefined(item.url)}" title="${item.title}">
                       <dds-megamenu-category-group-copy>${item.megapanelContent?.description}</dds-megamenu-category-group-copy>
                       ${item.megapanelContent?.quickLinks?.links.map(({ title, url, highlightedLink }, key) => {
                         return html`
@@ -280,7 +269,7 @@ class DDSMastheadComposite extends LitElement {
                             ? html`
                                 <dds-megamenu-link-with-icon
                                   data-autoid="${autoid}-item${key}"
-                                  href="${url}"
+                                  href="${ifDefined(url)}"
                                   style-scheme="category-sublink"
                                   title="${title}"
                                 >
@@ -288,7 +277,11 @@ class DDSMastheadComposite extends LitElement {
                                 </dds-megamenu-link-with-icon>
                               `
                             : html`
-                                <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${url}">
+                                <dds-megamenu-category-link
+                                  data-autoid="${autoid}-item${key}"
+                                  title="${title}"
+                                  href="${ifDefined(url)}"
+                                >
                                 </dds-megamenu-category-link>
                               `}
                         `;
@@ -309,10 +302,10 @@ class DDSMastheadComposite extends LitElement {
           ${menu.map((item, j) => {
             const autoid = `${ddsPrefix}--masthead__l0-nav-list${j + highlightedItems.length}`;
             return html`
-              <dds-megamenu-category-group data-autoid="${autoid}" href="${item.url}" title="${item.title}">
+              <dds-megamenu-category-group data-autoid="${autoid}" href="${ifDefined(item.url)}" title="${item.title}">
                 ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
                   return html`
-                    <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${url}">
+                    <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${ifDefined(url)}">
                     </dds-megamenu-category-link>
                   `;
                 })}
@@ -671,6 +664,10 @@ class DDSMastheadComposite extends LitElement {
     }
 
     if (hasMegapanel) {
+      if (menuSections) {
+        this.megamenuSet[i] = this._renderMegaMenu(menuSections, i, megamenuLayout as MEGAMENU_LAYOUT_SCHEME);
+      }
+
       return html`
         <dds-megamenu-top-nav-menu
           ?active="${selected}"
@@ -678,7 +675,6 @@ class DDSMastheadComposite extends LitElement {
           trigger-content="${title}"
           data-autoid="${autoid}-nav--nav${i}"
         >
-          ${this._renderMegaMenu(menuSections, i, megamenuLayout as MEGAMENU_LAYOUT_SCHEME)}
         </dds-megamenu-top-nav-menu>
       `;
     }
@@ -707,6 +703,25 @@ class DDSMastheadComposite extends LitElement {
       </dds-top-nav-menu>
     `;
   }
+
+  /**
+   * Handles the rendering of the megamenu once it is active
+   *
+   * @param event The event.
+   */
+  @HostListener('eventMegamenuActive')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  protected _loadMegamenu = (event: CustomEvent) => {
+    const {
+      target,
+      detail: { active, resolveFn },
+    } = event;
+    const { autoid } = (target as HTMLElement).dataset;
+    const index = autoid?.slice(-1);
+    const currentMenu = this.megamenuSet[index!];
+    render(active ? currentMenu : nothing, target as HTMLElement);
+    resolveFn();
+  };
 
   /**
    * Whether or not a nav item has automatically been designated as "selected".
@@ -831,6 +846,12 @@ class DDSMastheadComposite extends LitElement {
    */
   @property({ attribute: 'masthead-assistive-text' })
   mastheadAssistiveText!: string;
+
+  /**
+   * The array containing all the megamenus to be loaded in.
+   */
+  @property()
+  megamenuSet: TemplateResult[] = [];
 
   /**
    * The `aria-label` attribute for the menu bar UI.
@@ -1146,6 +1167,13 @@ class DDSMastheadComposite extends LitElement {
         <dds-megamenu-overlay></dds-megamenu-overlay>
       </dds-masthead>
     `;
+  }
+
+  /**
+   * The name of the custom event fired when a top nav menu is clicked
+   */
+  static get eventMegamenuActive() {
+    return `${ddsPrefix}-megamenu-top-nav-menu-toggle`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
