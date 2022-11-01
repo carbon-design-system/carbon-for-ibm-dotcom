@@ -105,13 +105,7 @@ function getRollupConfig({ mode = 'development', dir = 'ltr', folders = ['dotcom
 
   folders.forEach(folder => {
     if (folder === 'cta') {
-      inputs[`button-cta${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/button-cta.ts`;
-      inputs[`card-cta${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/card-cta.ts`;
-      inputs[`card-link-cta${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/card-link-cta.ts`;
-      inputs[`link-list-item-card-cta${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/link-list-item-card-cta.ts`;
-      inputs[`link-list-item-cta${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/link-list-item-cta.ts`;
-      inputs[`feature-cta${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/feature-cta.ts`;
-      inputs[`text-cta${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/text-cta.ts`;
+      inputs[`cta${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/cta.ts`;
       inputs[`video-cta-container${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/video-cta-container.ts`;
     } else if (folder === 'lightbox-media-viewer') {
       inputs[
