@@ -49,6 +49,28 @@ describe('dds-masthead | default (desktop)', () => {
       });
   });
 
+  it('should support custom url for IBM logo', () => {
+    cy.intercept(`https://1.www.s81c.com/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2/*`, {
+      fixture: 'translation-custom-logo-v2.json',
+    }).as('endpointInterceptor');
+
+    cy.get('dds-masthead-container')
+      .then(([masthead]) => {
+        // Clear session storage to ensure we make a fetch request.
+        window.sessionStorage.clear();
+        // Re-trigger fetch.
+        masthead.language = 'us-en';
+      })
+      .wait(1000)
+      .get('dds-masthead-logo')
+      .shadow()
+      .find('a')
+      .then($link => {
+        const url = $link.prop('href');
+        expect(url).to.eq('https://www.example.com/custom-href');
+      });
+  });
+
   it('should render at least 1 menu item', () => {
     cy.get('dds-megamenu-top-nav-menu').should('have.length.greaterThan', 0);
   });
