@@ -12,7 +12,7 @@
  * @private
  */
 const _paths = {
-  default: 'iframe.html?id=components-cta--default&knob-CTA%20style%20(cta-style)=feature', 
+  default: 'iframe.html?id=components-cta--default&knob-CTA%20style%20(cta-style)=feature',
   types: 'iframe.html?id=components-cta--default&knob-CTA%20style%20(cta-style)=feature&knob-CTA%20type%20(cta-type)=',
 };
 
