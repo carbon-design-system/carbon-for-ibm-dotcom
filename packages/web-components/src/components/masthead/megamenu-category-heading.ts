@@ -38,7 +38,9 @@ class DDSMegaMenuCategoryHeading extends LitElement {
    */
   protected renderLink() {
     return html`
-      <a href="${this.href}">${this.title} ${ArrowRight20()}</a>
+      <a href="${this.href}" data-attribute1="headerNav" data-attribute2="FlatHdline" data-attribute3="${this.title}">
+        ${this.title} ${ArrowRight20()}
+      </a>
     `;
   }
 

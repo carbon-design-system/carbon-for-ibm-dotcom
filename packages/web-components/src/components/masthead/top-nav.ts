@@ -109,6 +109,13 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   hideNav = false;
 
   /**
+   * `true` if the megamenu has been opened once and thus imported.
+   * Used for lazy loading the megamenu.
+   */
+  @property({ type: Boolean })
+  importedMegamenu = false;
+
+  /**
    * The English title of the selected nav item.
    */
   @property({ attribute: 'selected-menu-item' })

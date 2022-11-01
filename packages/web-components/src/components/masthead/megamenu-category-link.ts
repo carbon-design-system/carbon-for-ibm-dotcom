@@ -8,6 +8,7 @@
  */
 
 import { html, property, customElement } from 'lit-element';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import BXLink from 'carbon-web-components/es/components/link/link.js';
 import Launch16 from 'carbon-web-components/es/icons/launch/16.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -57,6 +58,43 @@ class DDSMegaMenuCategoryLink extends BXLink {
         <slot name="icon" @slotchange="${this._handleSlotChange}"></slot>
       </div>
       <span><slot></slot></span>
+    `;
+  }
+
+  protected _renderLink() {
+    const {
+      download,
+      href,
+      hreflang,
+      linkRole,
+      ping,
+      rel,
+      target,
+      title,
+      type,
+      _classes: classes,
+      _handleClick: handleClick,
+    } = this;
+    return html`
+      <a
+        id="link"
+        class="${classes}"
+        part="link"
+        role="${ifNonNull(linkRole)}"
+        download="${ifNonNull(download)}"
+        href="${ifNonNull(href)}"
+        hreflang="${ifNonNull(hreflang)}"
+        ping="${ifNonNull(ping)}"
+        rel="${ifNonNull(rel)}"
+        target="${ifNonNull(target)}"
+        type="${ifNonNull(type)}"
+        @click="${ifNonNull(handleClick)}"
+        data-attribute1="headerNav"
+        data-attribute2="FlatItem"
+        data-attribute3="${title}"
+      >
+        ${this._renderInner()}
+      </a>
     `;
   }
 

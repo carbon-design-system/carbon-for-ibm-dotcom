@@ -45,36 +45,6 @@ const navLinksFoo: MastheadLink[] = [
   },
 ];
 
-const navLinksMegaMenu: MastheadLink[] = [
-  {
-    hasMegapanel: true,
-    title: 'menu-title',
-    menuSections: [
-      {
-        menuItems: [
-          {
-            highlighted: true,
-            title: 'menu-section-1-title',
-            url: 'https://www.ibm.com',
-            megapanelContent: {
-              feature: {},
-              quickLinks: { title: '', links: [{ title: 'category-link-1', url: 'https://www.ibm.com' }] },
-            },
-          },
-          {
-            title: 'menu-section-2-title',
-            url: 'https://www.ibm.com',
-            megapanelContent: {
-              feature: {},
-              quickLinks: { title: '', links: [{ title: 'category-link-2', url: 'https://www.ibm.com' }] },
-            },
-          },
-        ],
-      },
-    ],
-  },
-];
-
 describe('dds-masthead-composite', function() {
   const events = new EventManager();
 
@@ -103,22 +73,10 @@ describe('dds-masthead-composite', function() {
       expect(mastheadComposite!.querySelector('dds-left-nav')!.children.length).toBe(0);
     });
 
-    it('should render the given nav items to the top', async function() {
-      render(template({ navLinks: navLinksFoo }), document.body);
-      await Promise.resolve();
-      expect(document.body.querySelector('dds-masthead-composite')!.querySelector('dds-top-nav')).toMatchSnapshot();
-    });
-
     it('should render the given nav items to the left', async function() {
       render(template({ navLinks: navLinksFoo }), document.body);
       await Promise.resolve();
       expect(document.body.querySelector('dds-masthead-composite')!.querySelector('dds-left-nav')).toMatchSnapshot();
-    });
-
-    it('should render the megamenu', async function() {
-      render(template({ navLinks: navLinksMegaMenu }), document.body);
-      await Promise.resolve();
-      expect(document.body.querySelector('dds-masthead-composite')!.querySelector('dds-megamenu')).toMatchSnapshot();
     });
   });
 

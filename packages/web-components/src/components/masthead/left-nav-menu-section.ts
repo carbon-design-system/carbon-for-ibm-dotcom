@@ -243,7 +243,13 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
           : undefined}
         ${title && titleUrl
           ? html`
-              <a class="${prefix}--masthead__side-nav--submemu-title" href=${titleUrl}>
+              <a
+                class="${prefix}--masthead__side-nav--submemu-title"
+                href=${titleUrl}
+                data-attribute1="headerNav"
+                data-attribute2="FlatHdline"
+                data-attribute3="${title}"
+              >
                 <span>${title}</span>
                 <div class="${prefix}--masthead__side-nav--submemu-section-title__icon">
                   ${ArrowRight20()}
