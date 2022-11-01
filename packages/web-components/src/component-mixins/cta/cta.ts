@@ -111,7 +111,10 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     _renderIcon() {
       const { ctaType } = this;
       return html`
-        <slot name="icon">${icons[ctaType]?.({ class: `${prefix}--card__cta ${ddsPrefix}-ce--cta__icon` })}</slot>
+        <slot name="icon">
+          <span class="bx--visually-hidden">${ariaLabels[ctaType]}</span>
+          ${icons[ctaType]?.({ class: `${prefix}--card__cta ${ddsPrefix}-ce--cta__icon` })}
+        </slot>
       `;
     }
 
