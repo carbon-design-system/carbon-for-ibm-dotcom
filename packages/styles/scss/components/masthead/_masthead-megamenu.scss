@@ -134,10 +134,16 @@
 
   :host(#{$dds-prefix}-megamenu-right-navigation),
   .#{$prefix}--masthead__megamenu__categories-section {
-    display: flex;
-    flex-direction: column;
     padding-top: rem(18px);
     width: 100%;
+
+    .#{$prefix}--masthead__megamenu__heading {
+      @include carbon--make-col(4, 8);
+
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(4, 16);
+      }
+    }
 
     .#{$prefix}--masthead__megamenu__categories {
       padding: 0 0 $layout-03 0;

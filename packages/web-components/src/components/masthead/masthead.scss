@@ -760,11 +760,6 @@ $breakpoint--desktop-nav: 960px;
 :host(#{$dds-prefix}-megamenu-category-heading) {
   display: block;
   padding: 0 $spacing-05;
-  width: 66.66%;
-
-  @include carbon--breakpoint('lg') {
-    width: auto;
-  }
 
   h2 {
     display: inline-block;
@@ -818,10 +813,6 @@ $breakpoint--desktop-nav: 960px;
     margin-top: $spacing-03;
     color: $text-02;
 
-    @include carbon--breakpoint('lg') {
-      width: 40%;
-    }
-
     &[data-has-content] {
       margin-bottom: $spacing-06;
     }
@@ -829,7 +820,7 @@ $breakpoint--desktop-nav: 960px;
 }
 
 :host(#{$dds-prefix}-megamenu-heading) {
-  margin-bottom: $spacing-06;
+  margin-bottom: $spacing-07;
 
   h2 {
     @include carbon--type-style(heading-05, true);

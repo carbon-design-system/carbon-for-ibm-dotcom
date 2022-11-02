@@ -59,7 +59,9 @@ class DDSMegaMenuRightNavigation extends LitElement {
 
   render() {
     return html`
-      <slot name="heading"></slot>
+      <div class="${prefix}--masthead__megamenu__heading">
+        <slot name="heading"></slot>
+      </div>
       <div class="${this._getClassNames()}">
         <slot></slot>
       </div>
