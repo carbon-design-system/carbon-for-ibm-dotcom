@@ -7,15 +7,20 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { customElement } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import styles from './masthead.scss';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSMegaMenuHeading from './megamenu-heading';
+import styles from './masthead.scss';
+
+const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
  * MegaMenu Category Heading.
  *
  * @element dds-megamenu-category-heading
  */
+@customElement(`${ddsPrefix}-megamenu-category-heading`)
 class DDSMegaMenuCategoryHeading extends DDSMegaMenuHeading {
   protected _arrowIcon = ArrowRight20();
 
