@@ -87,6 +87,8 @@
     </slot>
   </span>
   <slot name="icon">
+    <span class="bx--visually-hidden">
+    </span>
   </slot>
 </a>
 
