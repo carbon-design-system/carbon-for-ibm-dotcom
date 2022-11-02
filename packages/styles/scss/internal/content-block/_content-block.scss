@@ -75,6 +75,8 @@
 
     // Most slotted contents have margins aligning to Carbon grid gutters.
     // Note: Child contents define their margin by their own
+    ::slotted(dds-content-item-horizontal-media-featured),
+    ::slotted(dds-content-item),
     ::slotted([slot]) {
       margin-left: $carbon--spacing-05;
       margin-right: $carbon--spacing-05;
