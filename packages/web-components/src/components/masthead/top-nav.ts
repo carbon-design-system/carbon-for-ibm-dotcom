@@ -19,6 +19,7 @@ import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-list
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
+import CspComplianceMixin from '../../globals/mixins/csp-compliance';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -51,7 +52,7 @@ function findLastIndex<T>(a: T[], predicate: (search: T, index?: number, thisObj
  * @csspart next-button The button to go to the next page.
  */
 @customElement(`${ddsPrefix}-top-nav`)
-class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
+class DDSTopNav extends CspComplianceMixin(StableSelectorMixin(HostListenerMixin(BXHeaderNav))) {
   /**
    * The left-hand paginator button.
    */
@@ -433,16 +434,9 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       this._cleanAndCreateIntersectionObserverContainer({ create: true });
     }
 
-    // Update the values in the adopted stylesheet to comply with CSP no-inline-styles rules.
+    // Update the values in the CSP-safe stylesheet.
     if (changedProperties.has('_currentScrollPosition')) {
-      const dynamicStyles = this.shadowRoot?.adoptedStyleSheets?.at(1);
-
-      if (dynamicStyles) {
-        const [ltr, rtl] = Array.from(dynamicStyles?.cssRules || []);
-
-        (ltr as CSSStyleRule).style.left = `-${this._currentScrollPosition}px`;
-        (rtl as CSSStyleRule).style.right = `-${this._currentScrollPosition}px`;
-      }
+      this.setStyleBySelector(':root', '--top-nav-horizontal-offset', this._currentScrollPosition);
     }
   }
 

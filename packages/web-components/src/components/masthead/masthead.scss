@@ -154,6 +154,8 @@
     @include carbon--breakpoint(800px) {
       display: block;
       position: absolute;
+      // Offset variable set in component logic.
+      inset-inline-start: calc(-1px * var(--top-nav-horizontal-offset));
     }
   }
 
