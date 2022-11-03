@@ -249,22 +249,14 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    */
   // eslint-disable-next-line
   protected _renderMegaMenuListing(sections, _parentKey) {
+    const { headingTitle, headingUrl, description } = sections[0];
     const { viewAllLink, highlightedItems, menu } = this._getMenuItems(sections);
-    const heading = {
-      headingUrl: 'https://www.example.com',
-      headingTitle: 'Demo Heading Title',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    };
     const hasHighlights = highlightedItems.length !== 0;
     return html`
       <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.LIST}">
         ${hasHighlights
           ? html`
               <dds-megamenu-left-navigation>
-                ${sections[0]?.heading &&
-                  html`
-                    <dds-megamenu-category-group-copy>${sections[0]?.heading}</dds-megamenu-category-group-copy>
-                  `}
                 ${highlightedItems.map((item, i) => {
                   const autoid = `${ddsPrefix}--masthead__l0-nav-list${i}`;
                   return html`
@@ -306,10 +298,10 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           view-all-href="${ifNonNull(viewAllLink?.url)}"
           view-all-title="${ifNonNull(viewAllLink?.title)}"
         >
-          ${heading
+          ${headingTitle
             ? html`
-                <dds-megamenu-heading href="${heading?.headingUrl}" title="${heading?.headingTitle}" slot="heading">
-                  ${heading?.description}
+                <dds-megamenu-heading href="${headingUrl}" title="${headingTitle}" slot="heading">
+                  ${description}
                 </dds-megamenu-heading>
               `
             : null}

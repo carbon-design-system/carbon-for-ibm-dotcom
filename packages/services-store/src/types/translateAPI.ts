@@ -66,7 +66,9 @@ export interface MastheadMenuItem {
  * A menu section in masthead.
  */
 export interface MastheadMenuSection {
-  heading?: string;
+  headingTitle?: string;
+  headingUrl?: string;
+  description?: string;
   menuItems: MastheadMenuItem[];
 }
 

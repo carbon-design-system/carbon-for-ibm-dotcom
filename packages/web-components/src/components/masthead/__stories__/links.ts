@@ -2852,7 +2852,9 @@ const mastheadLinks: MastheadLink[] = [
     megamenuLayout: 'list',
     menuSections: [
       {
-        heading: '',
+        headingTitle: 'Heading',
+        headingUrl: 'https://www.example.com',
+        description: 'Description text lorem ipsum dolor sit amet commondo ligua eaget',
         menuItems: [
           {
             title: 'What is...',
@@ -3088,6 +3090,7 @@ const mastheadLinks: MastheadLink[] = [
             title: 'Community',
             titleEnglish: 'Community',
             url: '',
+            highlighted: true,
             megapanelContent: {
               headingTitle: 'Community',
               headingUrl: '',
@@ -3124,6 +3127,7 @@ const mastheadLinks: MastheadLink[] = [
             title: 'Resources',
             titleEnglish: 'Resources',
             url: 'https://www.ibm.com/blogs/?lnk=hpmls_bure',
+            highlighted: true,
             megapanelContent: {
               headingTitle: 'Resources',
               headingUrl: 'https://www.ibm.com/blogs/?lnk=hpmls_bure',
