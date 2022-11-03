@@ -39,16 +39,6 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       if (!editableStyle) {
         const newStyle = document.createElement('style');
         newStyle.classList.add('csp-compliance-styles');
-        newStyle.innerHTML = `
-          :root {
-            --color: darksalmon;
-            background: var(--color);
-          }
-
-          body {
-            padding: 1rem;
-          }
-        `;
 
         if (globalNonce) {
           newStyle.nonce = globalNonce;
