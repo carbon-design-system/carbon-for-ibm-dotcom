@@ -152,11 +152,15 @@
     }
 
     .#{$prefix}--masthead__megamenu--hasViewAllLink {
-      padding-bottom: 0;
+      .#{$prefix}--masthead__megamenu__categories {
+        padding-bottom: 0;
+      }
     }
 
     .#{$prefix}--masthead__megamenu--hasHighlights {
-      column-count: 3;
+      .#{$prefix}--masthead__megamenu__categories {
+        column-count: 3;
+      }
     }
   }
 
