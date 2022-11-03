@@ -450,6 +450,9 @@ export default {
   ],
   parameters: {
     hasStoryPadding: true,
+    percy: {
+      skip: true,
+    },
     knobs: {
       escapeHTML: false,
       ContentSection: () => ({
