@@ -436,11 +436,11 @@ class DDSTopNav extends CspComplianceMixin(StableSelectorMixin(HostListenerMixin
 
     // Update the values in the CSP-safe stylesheet.
     if (changedProperties.has('_currentScrollPosition')) {
-      this.setStyleBySelector(':root', '--top-nav-horizontal-offset', this._currentScrollPosition);
+      this.setStyleBySelector('.bx--header__nav', 'inset', `auto auto auto -${this._currentScrollPosition}px`);
     }
   }
 
-  render() {
+  renderContents() {
     const {
       _isIntersectionLeftTrackerInContent: isIntersectionLeftTrackerInContent,
       _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,

@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { state } from 'lit-element';
+import { html, query, state, TemplateResult } from 'lit-element';
+import { ifDefined } from 'lit-html/directives/if-defined';
 import { Constructor } from '../defs';
 
 /**
@@ -15,11 +16,15 @@ import { Constructor } from '../defs';
  * @returns A mix-in that sets its defined stable selector.
  */
 const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
-  class CspComplianceMixinImpl extends Base {
-    editableStyle?: HTMLStyleElement;
+  abstract class CspComplianceMixinImpl extends Base {
+    @query('style.dynamic-styles')
+    _dynamicStylesNode;
 
     @state()
-    nonce?;
+    _dynamicStyleRules;
+
+    @state()
+    _nonce?;
 
     connectedCallback() {
       // TS seems to miss Element function definitions
@@ -33,26 +38,26 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       if (globalNonce) {
         this.nonce = globalNonce;
       }
+    }
 
-      let editableStyle = document.querySelector(`head style.csp-compliance-styles`) as HTMLStyleElement;
+    _renderDynamicStyles() {
+      const { _nonce: nonce } = this;
 
-      if (!editableStyle) {
-        const newStyle = document.createElement('style');
-        newStyle.classList.add('csp-compliance-styles');
+      return html`
+        <style class="dynamic-styles" nonce="${ifDefined(nonce)}"></style>
+      `;
+    }
 
-        if (globalNonce) {
-          newStyle.nonce = globalNonce;
-        }
+    abstract renderContents(): TemplateResult | void;
 
-        document.head.appendChild(newStyle);
-        editableStyle = newStyle;
-      }
-
-      this.editableStyle = editableStyle;
+    render() {
+      return html`
+        ${this._renderDynamicStyles()}${this.renderContents()}
+      `;
     }
 
     getStyleBySelector(selectorString, styleProperty) {
-      const styleSheet = this.editableStyle?.sheet;
+      const styleSheet = this._dynamicStylesNode?.sheet;
 
       if (!styleSheet) {
         throw new ReferenceError(`Editable stylesheet not found for "${this.constructor.name}"`);
@@ -81,7 +86,7 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     }
 
     setStyleBySelector(selectorString, styleProperty, styleValue) {
-      const styleSheet = this.editableStyle?.sheet;
+      const styleSheet = this._dynamicStylesNode?.sheet;
 
       if (!styleSheet) {
         throw new ReferenceError(`Editable stylesheet not found for "${this.constructor.name}"`);
@@ -91,14 +96,10 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
           .at(0);
 
         if (!ruleset) {
-          styleSheet.insertRule(`${selectorString} {
-            ${styleProperty}:${styleValue}
-          }`);
+          styleSheet.insertRule(`${selectorString}{${styleProperty}:${styleValue}}`);
         } else {
           ruleset.style.setProperty(styleProperty, styleValue);
         }
-
-        return [styleSheet, ruleset];
       }
     }
   }
