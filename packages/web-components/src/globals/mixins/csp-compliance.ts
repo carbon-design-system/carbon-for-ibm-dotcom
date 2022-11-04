@@ -12,17 +12,22 @@ import { ifDefined } from 'lit-html/directives/if-defined';
 import { Constructor } from '../defs';
 
 /**
+ * Used to create, render, and manage dynamic, CSP-safe stylesheets.
+ *
  * @param Base The base class.
  * @returns A mix-in that sets its defined stable selector.
  */
 const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
   abstract class CspComplianceMixinImpl extends Base {
+    /**
+     * Reference to the dynamic <style> node
+     */
     @query('style.dynamic-styles')
     _dynamicStylesNode;
 
-    @state()
-    _dynamicStyleRules;
-
+    /**
+     * Reference to the nonce key for this HTTP request
+     */
     @state()
     _nonce?;
 
@@ -36,10 +41,13 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       const globalNonce = window.nonce;
 
       if (globalNonce) {
-        this.nonce = globalNonce;
+        this._nonce = globalNonce;
       }
     }
 
+    /**
+     * @returns {TemplateResult} rendered markup of dynamic <style> node
+     */
     _renderDynamicStyles() {
       const { _nonce: nonce } = this;
 
@@ -48,14 +56,27 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       `;
     }
 
+    /**
+     * Components using this mixin should place their shadowRoot HTML in this function.
+     */
     abstract renderContents(): TemplateResult | void;
 
+    /**
+     * @returns {TemplateResult} rendered component markup with dynamic stylesheet
+     */
     render() {
       return html`
         ${this._renderDynamicStyles()}${this.renderContents()}
       `;
     }
 
+    /**
+     * Get values of the dynamic style sheet for a given selector/property combination.
+     *
+     * @param {string} selectorString The selector we want the property for
+     * @param {string} styleProperty The property we want the style value for
+     * @returns {string} the style value requested
+     */
     getStyleBySelector(selectorString, styleProperty) {
       const styleSheet = this._dynamicStylesNode?.sheet;
 
@@ -85,6 +106,13 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       }
     }
 
+    /**
+     * Sets a CSS property/value pair for the given selector.
+     *
+     * @param selectorString The selector to style
+     * @param styleProperty The property to style (camelCased CSSOM keys)
+     * @param styleValue The value of the style
+     */
     setStyleBySelector(selectorString, styleProperty, styleValue) {
       const styleSheet = this._dynamicStylesNode?.sheet;
 
