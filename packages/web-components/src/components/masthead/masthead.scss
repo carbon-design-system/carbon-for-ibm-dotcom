@@ -154,8 +154,6 @@
     @include carbon--breakpoint(800px) {
       display: block;
       position: absolute;
-      /* stylelint-disable-next-line  time-min-milliseconds */
-      transition: inset $duration--fast-02 motion(exit, productive) 1ms;
     }
   }
 
