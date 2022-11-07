@@ -183,6 +183,7 @@
     display: block;
     color: $text-02;
     margin: rem(6px) $spacing-05 rem(10px);
+    max-width: carbon--rem(272px);
   }
 
   :host(#{$dds-prefix}-megamenu-category-group),

@@ -704,6 +704,35 @@ $breakpoint--desktop-nav: 960px;
   justify-content: flex-start;
 }
 
+:host(#{$dds-prefix}-megamenu-category-link) {
+  a:has([part='link-heading']) {
+    padding: $spacing-04 $spacing-05;
+    height: 100%;
+
+    > span {
+      display: block;
+      max-width: carbon--rem(272px);
+    }
+
+    &:active,
+    &:hover {
+      svg {
+        fill: $icon-01;
+      }
+    }
+  }
+
+  [part='link-heading'] {
+    @include carbon--type-style('expressive-heading-01');
+
+    svg {
+      margin-inline-start: $spacing-03;
+      padding-block-start: $spacing-01;
+      /* shrink SVG with padding to match font-size */
+    }
+  }
+}
+
 :host(#{$dds-prefix}-megamenu-category-link[layout='tab']) {
   width: 100%;
   max-width: 50%;
@@ -711,48 +740,6 @@ $breakpoint--desktop-nav: 960px;
 
   @include carbon--breakpoint('xlg') {
     max-width: 33.33%;
-  }
-
-  a {
-    display: block;
-    padding: $spacing-04 $spacing-05;
-    height: 100%;
-    color: $text-02;
-
-    div {
-      @include carbon--type-style('expressive-heading-01');
-
-      svg {
-        margin-inline-start: $spacing-03;
-        padding-block-start: $spacing-01; /* shrink SVG with padding to match font-size */
-      }
-    }
-
-    > span {
-      @include carbon--type-style(body-short-01);
-
-      display: block;
-      width: 90%;
-    }
-
-    &:hover {
-      text-decoration: none;
-      background-color: $hover-ui;
-    }
-
-    &:focus {
-      outline: carbon--rem(2px) solid $focus;
-      outline-offset: carbon--rem(-2px);
-    }
-
-    &:active,
-    &:hover {
-      color: $text-01;
-
-      svg {
-        fill: $icon-01;
-      }
-    }
   }
 }
 
