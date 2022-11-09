@@ -241,7 +241,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
    * @param [options.targetHref] The href string to be redirected to.
    */
   private _handleUserInitiatedRedirect({ targetQuery, targetHref }: { targetQuery?: string; targetHref?: string } = {}) {
-    const { eventBeforeRedirect } = this.constructor as typeof DDSSearchWithTypeahead;
+    const { eventBeforeRedirect, eventInput } = this.constructor as typeof DDSSearchWithTypeahead;
     const { language, redirectUrl } = this;
     const [primary, country] = language.split('-');
     const tokens = redirectUrl.split('?');
@@ -252,6 +252,18 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
     searchParams.append('lang', primary);
     searchParams.append('cc', country);
     const redirectUrlWithSearch = targetHref ? `${targetHref}` : `${base}?${searchParams.toString()}`;
+
+    this.dispatchEvent(
+      new CustomEvent(eventInput, {
+        bubbles: true,
+        composed: true,
+        cancelable: false,
+        detail: {
+          value: targetQuery,
+        },
+      })
+    );
+
     if (
       this.dispatchEvent(
         new CustomEvent(eventBeforeRedirect, {
