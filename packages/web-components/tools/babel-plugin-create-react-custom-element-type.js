@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,7 +14,6 @@ const { default: template } = require('@babel/template');
 const { default: traverse } = require('@babel/traverse');
 const { default: transformTemplateLiterals } = require('@babel/plugin-transform-template-literals');
 const replaceExtension = require('replace-ext');
-const fs = require('fs');
 
 const regexEvent = /^event/;
 
@@ -210,69 +209,6 @@ function createMetadataVisitor(api) {
       }
 
       const metadata = getPropertyMetadata(path);
-
-      // Checks if the current component extends a local dotcom component
-      if (context.parentDescriptorSource && !context.parentDescriptorSource.includes('carbon-web-components')) {
-        // Gets parent path at ES components/react folder
-        let parentFileName = context.parentDescriptorSource
-          .replace('..', '/es/components-react')
-          .replace('./lightbox-media-viewer-body', '/es/components-react/lightbox-media-viewer/lightbox-media-viewer-body')
-          .replace('./', '/es/components-react/cta/');
-
-        parentFileName += '.js';
-        parentFileName = context.file.opts.root + parentFileName;
-
-        // Use fs.readFile() method to read the parent file
-        fs.readFile(parentFileName, 'utf8', (_errParent, parentData) => {
-          const firstIndex = parentData?.indexOf('export var propTypes') + 'export var propTypes = {'.length;
-          const secondIndex = parentData?.indexOf('}', firstIndex);
-          // Gets parent props from ES folder as string
-          if (secondIndex > firstIndex + 1) {
-            let copy = parentData.slice(firstIndex, secondIndex);
-
-            const currentFileName = context.file.opts.filename
-              .replace('src/components', 'es/components-react')
-              .replace('.ts', '.js');
-
-            // Gets original component file
-            fs.readFile(currentFileName, 'utf8', (_errOriginal, originalData) => {
-              if (originalData?.length && !originalData?.includes(copy) && !copy?.includes('.assign')) {
-                const originalSplit = originalData.split('\n');
-                const index =
-                  originalSplit?.indexOf('export var propTypes = {') !== -1
-                    ? originalSplit?.indexOf('export var propTypes = {')
-                    : originalSplit?.indexOf('export var propTypes = {};');
-
-                if (originalSplit[index] === 'export var propTypes = {};') {
-                  originalSplit[index] = originalSplit[index].slice(0, -2) + copy + originalSplit[index].slice(-2);
-                } else {
-                  // checks if copy exists and if the copy ends with a comma or needs to add one
-                  if (
-                    copy !== '' &&
-                    copy
-                      .split('\n')
-                      .slice(-2)[0]
-                      .slice(-1) !== ','
-                  ) {
-                    copy += ',';
-                  }
-                  originalSplit.splice(index + 1, 0, copy);
-                }
-                const output = originalSplit.join('\n');
-
-                // Checks that nothing else was copied after the final line
-                const lastString = 'export default Component;';
-                const lastIndex = output?.indexOf(lastString);
-                const finalOutput = output.slice(0, lastIndex + lastString.length);
-
-                // Outputs combined props to ES file
-                fs.writeFile(currentFileName, finalOutput, () => {});
-              }
-            });
-          }
-        });
-      }
-
       if (metadata) {
         if (
           !parentPath.isClassProperty() &&
@@ -475,7 +411,14 @@ module.exports = function generateCreateReactCustomElementType(api, { nonUpgrada
             ]);
 
         const propTypes = t.objectExpression([...buildPropTypes(declaredProps), ...buildEventsPropTypes(customEvents)]);
-        const propTypesWithParent = propTypes;
+        const propTypesWithParent = !context.parentDescriptorSource
+          ? propTypes
+          : t.callExpression(t.memberExpression(t.identifier('Object'), t.identifier('assign')), [
+              t.objectExpression([]),
+              t.identifier('parentPropTypes'),
+              propTypes,
+            ]);
+
         const body = [];
         if (!context.customElementName) {
           if (context.className) {
