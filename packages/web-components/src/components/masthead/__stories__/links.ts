@@ -61,7 +61,7 @@ const l1Data: MastheadL1 = {
       hasMegapanel: false,
       menuSections: [
         {
-          heading: 'Explore',
+          headingTitle: 'Explore',
           menuItems: [
             {
               title: 'Link 1',
@@ -114,7 +114,7 @@ const l1Data: MastheadL1 = {
       hasMenu: true,
       menuSections: [
         {
-          heading: '',
+          headingTitle: '',
           menuItems: [
             {
               title: 'Link 2',
@@ -208,7 +208,7 @@ const l1Data: MastheadL1 = {
       hasMegapanel: false,
       menuSections: [
         {
-          heading: '',
+          headingTitle: '',
           menuItems: [
             {
               title: 'IBM Developer',
@@ -446,7 +446,7 @@ const mastheadLinks: MastheadLink[] = [
     megamenuLayout: 'tab',
     menuSections: [
       {
-        heading: '',
+        headingTitle: '',
         menuItems: [
           {
             title: 'Featured',
@@ -1484,7 +1484,7 @@ const mastheadLinks: MastheadLink[] = [
     megamenuLayout: 'tab',
     menuSections: [
       {
-        heading: '',
+        headingTitle: '',
         menuItems: [
           {
             title: 'Automation',
@@ -2222,7 +2222,7 @@ const mastheadLinks: MastheadLink[] = [
     megamenuLayout: 'tab',
     menuSections: [
       {
-        heading: '',
+        headingTitle: '',
         menuItems: [
           {
             title: 'Overview',
@@ -3252,7 +3252,7 @@ const mastheadLinks: MastheadLink[] = [
     megamenuLayout: 'list',
     menuSections: [
       {
-        heading: '',
+        headingTitle: '',
         menuItems: [
           {
             title: 'Partner with us',
@@ -3452,7 +3452,7 @@ const customLinks: MastheadLink[] = [
     hasMegapanel: true,
     menuSections: [
       {
-        heading: 'The essentials',
+        headingTitle: 'The essentials',
         menuItems: [
           {
             title: 'Hybrid Cloud',
@@ -3773,7 +3773,7 @@ const customLinks: MastheadLink[] = [
     hasMegapanel: true,
     menuSections: [
       {
-        heading: 'Explore',
+        headingTitle: 'Explore',
         menuItems: [
           {
             title: 'Link 1',
@@ -3822,7 +3822,7 @@ const customLinks: MastheadLink[] = [
     hasMenu: true,
     menuSections: [
       {
-        heading: '',
+        headingTitle: '',
         menuItems: [
           {
             title: 'Link 1',
@@ -3890,7 +3890,7 @@ const customLinks: MastheadLink[] = [
     hasMegapanel: true,
     menuSections: [
       {
-        heading: '',
+        headingTitle: '',
         menuItems: [
           {
             title: 'IBM Developer',
