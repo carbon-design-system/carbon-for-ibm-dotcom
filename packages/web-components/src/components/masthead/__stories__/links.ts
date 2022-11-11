@@ -2871,6 +2871,7 @@ const mastheadLinks: MastheadLink[] = [
                     title: 'Artificial intelligence',
                     titleEnglish: 'Artificial intelligence',
                     url: 'https://www.ibm.com/cloud/learn/what-is-artificial-intelligence?lnk=hpmls_buwi',
+                    description: 'Description text lorem ipsum dolor sit amet commondo ligua eaget',
                   },
                   {
                     title: 'Automation',
@@ -2955,7 +2956,7 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Training',
               headingUrl: 'https://www.ibm.com/training/?lnk=hpmls_butr',
-              description: '',
+              description: 'Description text lorem ipsum dolor sit amet commondo ligua eaget',
               quickLinks: {
                 title: '',
                 links: [
@@ -2968,6 +2969,7 @@ const mastheadLinks: MastheadLink[] = [
                     title: 'Learning journeys',
                     titleEnglish: 'Learning journeys',
                     url: 'https://www.ibm.com/training/journeys?lnk=hpmls_butr',
+                    description: 'Description text lorem ipsum dolor sit amet commondo ligua eaget',
                   },
                   {
                     title: 'Professional certifications',
@@ -3230,6 +3232,12 @@ const mastheadLinks: MastheadLink[] = [
             title: 'Newsletter subscriptions',
             titleEnglish: 'Newsletter subscriptions',
             url: 'https://www.ibm.com/subscribe/',
+          },
+          {
+            title: 'View all (demo)',
+            titleEnglish: 'View all (demo)',
+            url: 'https://www.example.com',
+            megaPanelViewAll: true,
           },
         ],
       },
