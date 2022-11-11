@@ -251,9 +251,21 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    */
   // eslint-disable-next-line
   protected _renderMegaMenuListing(sections, _parentKey) {
-    const { headingTitle, headingUrl, description: headingDescription } = sections[0];
+    const {
+      headingTitle: headingTitleNew,
+      heading: headingTitleDeprecated,
+      description: headingDescription,
+      headingUrl,
+    } = sections[0];
     const { viewAllLink, highlightedItems, menu } = this._getMenuItems(sections);
     const hasHighlights = highlightedItems.length !== 0;
+    const headingTitle = headingTitleNew || headingTitleDeprecated;
+
+    if (headingTitleDeprecated) {
+      // Deprecation notice
+      // eslint-disable-next-line
+      console.warn('DDSMasthead: "heading" menu section key is deprecated, use "headingTitle" instead');
+    }
     return html`
       <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.LIST}">
         ${hasHighlights
