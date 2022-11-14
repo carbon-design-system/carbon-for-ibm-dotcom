@@ -8283,20 +8283,20 @@ carbon-components@10.55.0:
     lodash.debounce "^4.0.8"
     warning "^3.0.0"
 
-carbon-components@10.58.1:
-  version "10.58.1"
-  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.58.1.tgz#10fb2d047dfac3c6889755b82be86e6029dacbdf"
-  integrity sha512-Jg120cPC1k2LqpAb8GrcLj8uobCr0cVzxyqQnTS5YqR+JqQx1Q0HyqrzW/kraBKip08cb956VM9aMcJTlHgO+Q==
+carbon-components@10.58.3:
+  version "10.58.3"
+  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.58.3.tgz#425bb5ceb8755fda9c50769572a5845d3f852e00"
+  integrity sha512-RjTnrWCGStsIZ7nErw97AZI9sQWxQ8oIgo3QMdV0FWFcpTOECA4I9Dy4WPpRRdSMBcQpLetTxqjDGourM4u8Tw==
   dependencies:
     "@carbon/telemetry" "0.1.0"
     flatpickr "4.6.1"
     lodash.debounce "^4.0.8"
     warning "^3.0.0"
 
-carbon-components@10.58.4:
-  version "10.58.4"
-  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.58.4.tgz#b3da1c7cbdcb680044897141ac50c1066ed11ef2"
-  integrity sha512-Gr4qYvHRH3YqqK0lUUi0IPjiTLZjJ1P7ffkteiDNRFcWFF0lKR2wh5SC4mJTYxBy+h5qcZSb75e/nzgEXDUsgg==
+carbon-components@10.58.5:
+  version "10.58.5"
+  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.58.5.tgz#5d27740c745d7a5f1f786ca2210d833f079a3746"
+  integrity sha512-7NdteXZZ5lAR45FXwb7K2ZMlqBxS3TAt8uRs6U0ARaFE/WRJtgOeSQqkwRXczqSmXctElKNtoXgLXzubTMmPMQ==
   dependencies:
     "@carbon/telemetry" "0.1.0"
     flatpickr "4.6.1"
