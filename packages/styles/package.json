@@ -37,9 +37,9 @@
     "@carbon/layout": "10.37.1",
     "@carbon/motion": "10.29.0",
     "@carbon/telemetry": "0.1.0",
-    "@carbon/themes": "10.55.0",
+    "@carbon/themes": "10.55.1",
     "@carbon/type": "10.45.1",
-    "carbon-components": "10.58.4"
+    "carbon-components": "10.58.5"
   },
   "devDependencies": {
     "carbon-components-react": "7.59.4",
