@@ -30,10 +30,6 @@ module.exports = {
     '@carbon/storybook-addon-theme/es/register',
     path.resolve(__dirname, 'addon-knobs-args'),
   ],
-  features: {
-    storyStoreV7: true,
-    buildStoriesJson: true,
-  },
   framework: '@storybook/web-components',
   managerWebpack(config) {
     // `@storybook/react` NPM installation seems to add `@babel/preset-react` automatically
