@@ -321,11 +321,13 @@ $search-transition-timing: 95ms;
     flex: 1;
   }
 
-  .#{$prefix}--header__nav-content {
+  /* Set to zero-slecificity so it can be overridden by dynamic stylesheet */
+  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+  :where(.#{$prefix}--header__nav-content) {
     position: absolute;
     height: 100%;
-    left: 0;
-    transition: left $transition--base motion(standard, productive);
+    inset-inline-start: 0;
+    transition: inset $transition--base motion(standard, productive);
   }
 
   .#{$prefix}--header__submenu,
