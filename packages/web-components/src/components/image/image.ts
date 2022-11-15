@@ -165,7 +165,13 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
         ${images.map(
           image => html`<source media="${image.getAttribute('media')}" srcset="${image.getAttribute('srcset')}"></source>`
         )}
-        <img class="${imgClasses}" src="${defaultSrc}" alt="${alt}" aria-describedby="long-description" loading="lazy" />
+        <img
+          class="${imgClasses}"
+          src="${defaultSrc}"
+          alt="${alt}"
+          aria-describedby="image-caption long-description"
+          loading="lazy"
+        />
       </picture>
       <div id="long-description" class="${prefix}--image__longdescription">
         <slot name="long-description"></slot>
@@ -213,7 +219,7 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
           `}
       ${heading
         ? html`
-            <p class="${prefix}--image__caption">
+            <p id="image-caption" class="${prefix}--image__caption">
               ${heading}
             </p>
           `
