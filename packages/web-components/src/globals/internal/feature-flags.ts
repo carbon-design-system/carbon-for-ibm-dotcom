@@ -11,8 +11,6 @@
  * This file contains the list of the default values of compile-time feature flags.
  */
 
-/* eslint-disable import/prefer-default-export */
-
 /**
  * This flag will determine if all feature flags should be enabled
  *

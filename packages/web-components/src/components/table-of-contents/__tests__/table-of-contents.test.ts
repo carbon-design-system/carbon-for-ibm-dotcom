@@ -10,11 +10,9 @@
 import { html, render } from 'lit-html';
 import EventManager from '../../../../tests/utils/event-manager';
 import MockResizeObserver from '../../../../tests/utils/mock-resize-observer';
-/* eslint-disable import/no-duplicates */
 import DDSTableOfContents from '../table-of-contents';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../table-of-contents';
-/* eslint-enable import/no-duplicates */
 
 const template = (props?) => {
   const { children } = props ?? {};

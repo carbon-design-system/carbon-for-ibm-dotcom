@@ -19,10 +19,8 @@ import {
 import DDSFeatureCard from '../feature-card/feature-card';
 import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
-/* eslint-disable import/no-duplicates */
 import DDSFeatureCTAFooter from './feature-cta-footer';
 import './feature-cta-footer';
-/* eslint-enable import/no-duplicates */
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
 

@@ -17,11 +17,9 @@ import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/s
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
 import Handle from '../../globals/internal/handle';
-/* eslint-disable import/no-duplicates */
 import DDSLightboxVideoPlayerComposite from '../lightbox-media-viewer/lightbox-video-player-composite';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../lightbox-media-viewer/lightbox-video-player-composite';
-/* eslint-enable import/no-duplicates */
 import { CTA_TYPE } from './defs';
 import { VideoCTAMixinImpl } from '../../component-mixins/cta/video';
 import styles from './video-cta-composite.scss';

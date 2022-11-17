@@ -15,11 +15,9 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
-/* eslint-disable import/no-duplicates */
 import { VIDEO_PLAYER_CONTENT_STATE, VIDEO_PLAYER_PLAYING_MODE } from './video-player';
 // Above import is interface-only ref and thus code won't be brought into the build
 import './video-player';
-/* eslint-enable import/no-duplicates */
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

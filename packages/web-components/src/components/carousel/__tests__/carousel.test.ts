@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,11 +10,9 @@
 import { html, render } from 'lit-html';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import MockResizeObserver from '../../../../tests/utils/mock-resize-observer';
-/* eslint-disable import/no-duplicates */
 import DDSCarousel from '../carousel';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../carousel';
-/* eslint-enable import/no-duplicates */
 
 const template = (props?) => {
   const { formatStatus, pageSize, start, children } = props ?? {};

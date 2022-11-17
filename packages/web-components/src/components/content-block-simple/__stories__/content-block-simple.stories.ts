@@ -16,9 +16,7 @@ import { select } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20.js';
 import Launch20 from 'carbon-web-components/es/icons/launch/20.js';
-// eslint-disable-next-line sort-imports
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/content-block';
-// eslint-disable-next-line import/no-duplicates
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
 import { CTA_STYLE, CTA_TYPE } from '../../cta/defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';

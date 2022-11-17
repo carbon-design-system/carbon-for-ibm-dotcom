@@ -7,13 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// eslint-disable-next-line import/no-duplicates
 import '../index';
 import '../callout-with-media-image';
 import '../callout-with-media-video';
 import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
-// eslint-disable-next-line sort-imports,import/no-duplicates
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 import readme from './README.stories.mdx';

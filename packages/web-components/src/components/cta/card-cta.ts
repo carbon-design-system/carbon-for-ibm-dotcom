@@ -22,10 +22,8 @@ import '../card/card-heading';
 import './card-cta-image';
 import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
-/* eslint-disable import/no-duplicates */
 import DDSCardCTAFooter from './card-cta-footer';
 import './card-cta-footer';
-/* eslint-enable import/no-duplicates */
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
 

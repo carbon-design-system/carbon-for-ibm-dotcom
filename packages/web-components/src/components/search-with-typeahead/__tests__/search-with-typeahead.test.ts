@@ -11,11 +11,9 @@ import { html, render } from 'lit-html';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { find } from '../../../globals/internal/collection-helpers';
 import EventManager from '../../../../tests/utils/event-manager';
-/* eslint-disable import/no-duplicates */
 import DDSSearchWithTypeahead from '../search-with-typeahead';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../search-with-typeahead';
-/* eslint-enable import/no-duplicates */
 import '../search-with-typeahead-item';
 
 const template = (props?) => {

@@ -9,11 +9,9 @@
 
 import { html, render } from 'lit-html';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-/* eslint-disable import/no-duplicates */
 import { VIDEO_PLAYER_CONTENT_STATE, VIDEO_PLAYER_PLAYING_MODE } from '../video-player';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../video-player';
-/* eslint-enable import/no-duplicates */
 
 const template = (props?) => {
   const { contentState, duration, formatCaption, formatDuration, hideCaption, name, thumbnailUrl, videoId, playingMode } =

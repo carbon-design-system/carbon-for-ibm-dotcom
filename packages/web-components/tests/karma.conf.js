@@ -12,7 +12,6 @@
 /* eslint-disable global-require */
 
 const path = require('path');
-/* eslint-disable import/no-extraneous-dependencies */
 const sass = require('node-sass');
 const webpack = require('webpack');
 

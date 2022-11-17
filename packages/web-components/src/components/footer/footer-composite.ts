@@ -22,13 +22,11 @@ import {
   BasicLinkSet,
   Translation,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-/* eslint-disable import/no-duplicates */
 import { FOOTER_SIZE } from './footer';
 // Above import is interface-only ref and thus code won't be brought into the build
 import './footer';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../locale-modal/locale-modal-composite';
-/* eslint-enable import/no-duplicates */
 import './footer-logo';
 import './footer-nav';
 import './footer-nav-group';
