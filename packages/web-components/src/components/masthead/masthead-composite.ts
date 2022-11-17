@@ -185,13 +185,12 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     let viewAllLink;
     type menuItem = MastheadMenuItem & { itemKey: String };
     const sortedMenuItems: menuItem[] = [];
-    sections[0].menuItems?.forEach((item, i) => {
-      if (item.megaPanelViewAll) {
-        viewAllLink = item;
-        return viewAllLink;
+    sections.forEach((section, i) => {
+      if (section?.megaPanelViewAll) {
+        viewAllLink = section;
+        return null;
       }
-
-      return sortedMenuItems.push({ ...item, itemKey: `${parentKey}-${i}` });
+      return sortedMenuItems.push({ ...section, itemKey: `${parentKey}-${i}` });
     });
 
     return html`
@@ -203,42 +202,59 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           <dds-megamenu-tabs value="${sortedMenuItems[0]?.title}">
             ${sortedMenuItems.map(item => {
               return html`
-                <dds-megamenu-tab id="tab-${item.itemKey}" target="panel-${item.itemKey}" value="${item.title}"
-                  >${item.title}</dds-megamenu-tab
-                >
+                <dds-megamenu-tab id="tab-${item.itemKey}" target="panel-${item.itemKey}" value="${item.title}">
+                  ${item.title}
+                </dds-megamenu-tab>
               `;
             })}
           </dds-megamenu-tabs>
         </dds-megamenu-left-navigation>
-        <dds-megamenu-right-navigation style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB}">
-          ${sortedMenuItems.map(item => {
-            return html`
-              <div id="panel-${item.itemKey}" role="tabpanel" aria-labelledby="tab-${item.itemKey}" hidden>
-                <dds-megamenu-category-heading
-                  href="${ifDefined(item.megapanelContent?.headingUrl)}"
-                  title="${ifDefined(item.megapanelContent?.headingTitle)}"
-                  >${item.megapanelContent?.description}</dds-megamenu-category-heading
-                >
-                <dds-megamenu-category-link-group>
-                  ${item?.megapanelContent?.quickLinks?.links.map(link => {
-                    if (link.description) {
-                      return html`
-                        <dds-megamenu-category-link title="${link.title}" href="${ifDefined(link.url)}">
-                          ${link.description}
-                        </dds-megamenu-category-link>
-                      `;
-                    }
-                    return html`
-                      <dds-megamenu-category-link href="${ifDefined(link.url)}">
-                        ${link.title}
-                      </dds-megamenu-category-link>
-                    `;
-                  })}
-                </dds-megamenu-category-link-group>
-              </div>
-            `;
-          })}
-        </dds-megamenu-right-navigation>
+        ${sortedMenuItems.map(item => {
+          const { itemKey } = item;
+          const { headingTitle, headingUrl, description: headingDescription, megapanelGroups } = item.megapanelContent;
+          return html`
+            <div id="panel-${itemKey}" role="tabpanel" aria-labelledby="tab-${itemKey}" hidden>
+              <dds-megamenu-right-navigation style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB}">
+                <dds-megamenu-heading href="${ifDefined(headingUrl)}" title="${ifDefined(headingTitle)}" slot="heading">
+                  ${headingDescription}
+                </dds-megamenu-heading>
+                ${megapanelGroups.map(group => {
+                  const {
+                    headingTitle: groupTitle,
+                    headingUrl: groupUrl,
+                    description: groupDescription,
+                    links: groupLinks,
+                  } = group;
+                  return html`
+                    <dds-megamenu-category-group>
+                      ${groupTitle
+                        ? html`
+                            <dds-megamenu-category-heading title="${groupTitle}" href="${groupUrl}" slot="heading">
+                              ${groupDescription}
+                            </dds-megamenu-category-heading>
+                          `
+                        : ''}
+                      ${groupLinks.map(link => {
+                        if (link.description) {
+                          return html`
+                            <dds-megamenu-category-link title="${link.title}" href="${ifDefined(link.url)}">
+                              ${link.description}
+                            </dds-megamenu-category-link>
+                          `;
+                        }
+                        return html`
+                          <dds-megamenu-category-link href="${ifDefined(link.url)}">
+                            ${link.title}
+                          </dds-megamenu-category-link>
+                        `;
+                      })}
+                    </dds-megamenu-category-group>
+                  `;
+                })}
+              </dds-megamenu-right-navigation>
+            </div>
+          `;
+        })}
       </dds-megamenu>
     `;
   }
@@ -622,16 +638,29 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     return sections => {
       if (!matchFound) {
         if (sections.length) {
-          const { menuItems } = sections[0];
-
-          for (let i = 0; i < menuItems.length; i++) {
-            if (
-              menuItems[i]?.url === currentUrlPath ||
-              menuItems[i]?.megapanelContent?.quickLinks?.links?.filter(link => link.url === currentUrlPath).length
-            ) {
+          sections.forEach(section => {
+            if (section?.url === currentUrlPath) {
               matchFound = true;
             }
-          }
+            if (section?.megapanelContent?.headingUrl === currentUrlPath) {
+              matchFound = true;
+            }
+
+            const megapanelGroups = section?.megapanelContent?.megapanelGroups;
+            if (megapanelGroups) {
+              const match = megapanelGroups
+                .reduce((acc, group) => {
+                  if (group?.quickLinks) {
+                    return [...acc, ...group?.quickLinks?.links];
+                  }
+                  return acc;
+                }, [])
+                .find(link => link.url === currentUrlPath);
+              if (match) {
+                matchFound = true;
+              }
+            }
+          });
         }
 
         return matchFound;

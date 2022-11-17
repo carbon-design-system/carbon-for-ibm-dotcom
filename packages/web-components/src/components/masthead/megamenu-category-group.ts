@@ -41,8 +41,10 @@ class DDSMegaMenuCategoryGroup extends LitElement {
     return html`
       <div class="${prefix}--masthead__megamenu__category-group-shield">
         <div class="${prefix}--masthead__megamenu__category-group-content">
-          <dds-megamenu-category-heading href="${ifNonNull(href)}" style-scheme="category-headline" title="${title}">
-          </dds-megamenu-category-heading>
+          <slot name="heading">
+            <dds-megamenu-category-heading href="${ifNonNull(href)}" style-scheme="category-headline" title="${title}">
+            </dds-megamenu-category-heading>
+          </slot>
           <slot></slot>
         </div>
       </div>

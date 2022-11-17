@@ -44,24 +44,18 @@ class DDSMegaMenuRightNavigation extends LitElement {
    * view all link title.
    */
   @property({ attribute: 'view-all-title', reflect: true })
-  viewAllTitle = '';
+  viewAllTitle = 'View all';
 
   /**
    * Returns a class-name(s) for megamenu container
    */
   protected _getClassNames() {
     return classMap({
-      [`${prefix}--masthead__megamenu--hasHighlights`]: this.styleScheme === MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION,
+      [`${prefix}--masthead__megamenu--hasSidebar`]: [
+        MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION,
+        MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB,
+      ].includes(this.styleScheme),
       [`${prefix}--masthead__megamenu--hasViewAllLink`]: this.viewAllHref,
-    });
-  }
-
-  /**
-   * Returns a class-name(s) for categories container
-   */
-  protected _getCategoriesClassNames() {
-    return classMap({
-      [`${prefix}--masthead__megamenu__categories`]: this.styleScheme !== MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB,
     });
   }
 
@@ -71,7 +65,7 @@ class DDSMegaMenuRightNavigation extends LitElement {
         <div class="${prefix}--masthead__megamenu__heading">
           <slot name="heading"></slot>
         </div>
-        <div class="${this._getCategoriesClassNames()}">
+        <div class="${prefix}--masthead__megamenu__categories">
           <slot></slot>
         </div>
         ${this.viewAllHref &&

@@ -130,10 +130,15 @@
         flex-wrap: nowrap;
       }
     }
+
+    ::slotted([role='tabpanel']) {
+      width: 100%;
+    }
   }
 
   :host(#{$dds-prefix}-megamenu-right-navigation),
   .#{$prefix}--masthead__megamenu__categories-section {
+    display: block;
     padding-block-start: $layout-02;
     width: 100%;
 
@@ -161,7 +166,7 @@
       }
     }
 
-    .#{$prefix}--masthead__megamenu--hasHighlights {
+    .#{$prefix}--masthead__megamenu--hasSidebar {
       .#{$prefix}--masthead__megamenu__heading {
         @include carbon--breakpoint('lg') {
           @include carbon--make-col(1, 3);

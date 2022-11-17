@@ -643,15 +643,6 @@ $breakpoint--desktop-nav: 960px;
   }
 }
 
-:host(#{$dds-prefix}-megamenu-right-navigation[style-scheme='tab']) {
-  @include carbon--make-col(12, 16);
-
-  display: flex;
-  flex-direction: column;
-  padding-top: $spacing-06;
-  margin-bottom: $spacing-07;
-}
-
 :host(#{$dds-prefix}-megamenu-tabs) {
   display: flex;
   flex-direction: column;
