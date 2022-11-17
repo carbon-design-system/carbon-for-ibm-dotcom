@@ -71,7 +71,7 @@ module.exports = {
     'jsdoc/valid-types': 2,
     'jsdoc/check-param-names': 0,
     'jsdoc/check-tag-names': 0,
-    'jsdoc/check-types': 2,
+    'jsdoc/check-types': 0,
     'jsdoc/check-values': 0,
     'jsx-a11y/no-static-element-interactions': 1,
     'jsx-a11y/no-noninteractive-element-interactions': 1,
