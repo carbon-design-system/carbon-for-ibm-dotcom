@@ -46,7 +46,14 @@ export interface MegapanelContent {
   headingTitle?: string;
   headingUrl?: string;
   description?: string;
-  quickLinks: BasicLinkSet;
+  megapanelGroups: MegapanelGroup[];
+}
+
+export interface MegapanelGroup {
+  headingTitle?: string;
+  headingUrl?: string;
+  description?: string;
+  links: BasicLink[];
   feature: MegapanelFeature;
 }
 
