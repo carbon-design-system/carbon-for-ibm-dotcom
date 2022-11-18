@@ -31,7 +31,7 @@ jasmine.getEnv().addReporter({
  * @returns {boolean} `true` if the aChecker issue report should be ignored.
  */
 
-beforeEach(function() {
+beforeEach(function () {
   jasmine.addAsyncMatchers({
     toBeACheckerCompliant() {
       return {
@@ -61,7 +61,7 @@ beforeEach(function() {
             const issues = results.report.results.filter(
               filterFuncs.length === 0
                 ? () => true
-                : issue => {
+                : (issue) => {
                     const elem =
                       doc &&
                       doc
@@ -74,7 +74,7 @@ beforeEach(function() {
                           null
                         )
                         .iterateNext();
-                    return !filterFuncs.some(filterFunc => filterFunc(issue, elem));
+                    return !filterFuncs.some((filterFunc) => filterFunc(issue, elem));
                   }
             );
             if (issues.length > 0) {
@@ -82,7 +82,7 @@ beforeEach(function() {
                 /* eslint-disable no-console */
                 console.error(
                   'a11y compliance issues:',
-                  issues.map(issue => {
+                  issues.map((issue) => {
                     const elem =
                       doc &&
                       doc

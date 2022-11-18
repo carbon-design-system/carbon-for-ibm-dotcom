@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,7 +34,7 @@ function createMetadataVisitor() {
     }
   };
 
-  const getParentClassImportSource = path => {
+  const getParentClassImportSource = (path) => {
     const { parentPath } = path;
     if (path.isImportDefaultSpecifier() && parentPath.isImportDeclaration && parentPath.get('source').isStringLiteral()) {
       return parentPath.get('source').node.value;
@@ -58,7 +58,7 @@ function createMetadataVisitor() {
    *   The given Babel path itself if it's an identifier.
    *   The first argument if the given Babel path is a function, assuming it as a mixin call.
    */
-  const getTarget = path => {
+  const getTarget = (path) => {
     if (path.isIdentifier()) {
       return path;
     }
@@ -121,7 +121,7 @@ function createMetadataVisitor() {
         const leadingComments = path.get('leadingComments');
         context.isCandidate =
           leadingComments &&
-          (Array.isArray(leadingComments) ? leadingComments : [leadingComments]).find(item =>
+          (Array.isArray(leadingComments) ? leadingComments : [leadingComments]).find((item) =>
             /^\s*[@#]__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__\s*$/.test(item.node && item.node.value)
           );
       }

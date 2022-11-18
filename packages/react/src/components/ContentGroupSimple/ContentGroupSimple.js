@@ -30,7 +30,8 @@ const ContentGroupSimple = ({
 }) => (
   <div
     data-autoid={`${stablePrefix}--content-group-simple`}
-    className={`${prefix}--content-group-simple`}>
+    className={`${prefix}--content-group-simple`}
+  >
     <ContentGroup cta={cta} heading={heading} copy={copy}>
       {_renderMedia(mediaType, mediaData)}
       {_renderContent(items)}
@@ -43,7 +44,7 @@ const ContentGroupSimple = ({
  * @param {Array} items Array of data for ContentItems to be rendered
  * @returns {*} Array of ContentItem Components
  */
-const _renderContent = items =>
+const _renderContent = (items) =>
   items.map((item, index) => <ContentItem {...item} key={index} />);
 
 /**

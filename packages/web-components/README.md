@@ -316,9 +316,7 @@ For applications that are currently running on other design systems like [legacy
   <div id="ibm-top" class="ibm-landing-page">
     <!-- Uses Carbon for IBM.com Web Components masthead -->
     <dds-masthead-container></dds-masthead-container>
-    <div id="ibm-content-wrapper">
-      ...
-    </div>
+    <div id="ibm-content-wrapper">...</div>
     <!-- Uses legacy IBM.com Design System (Northstar) footer -->
     <footer role="contentinfo" aria-label="IBM"></footer>
   </div>

@@ -57,7 +57,8 @@ export const Default = () => {
     <>
       <TableOfContents
         headingContent={withHeadingContent && headingContent}
-        menuRule={!!headingContent}>
+        menuRule={!!headingContent}
+      >
         <DataContent items={menuItems} />
       </TableOfContents>
     </>
@@ -67,7 +68,7 @@ export const Default = () => {
 export default {
   title: 'Components/Table of contents',
   decorators: [
-    story => (
+    (story) => (
       <>
         <style>{styles.cssText}</style>
         {story()}
@@ -89,7 +90,8 @@ export const Horizontal = () => (
     <a
       className="bx--link"
       target="_blank"
-      href="https://www.ibm.com/standards/carbon/web-components/react/?path=/story/components-table-of-contents--horizontal">
+      href="https://www.ibm.com/standards/carbon/web-components/react/?path=/story/components-table-of-contents--horizontal"
+    >
       React wrapper
     </a>
     .

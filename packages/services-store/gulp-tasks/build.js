@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -54,7 +54,7 @@ function buildScripts({ sourceType = 'module' } = {}) {
         })
       )
       // Avoids generating `.js` from interface-only `.ts` files
-      .pipe(filter(file => stripComments(file.contents.toString(), { sourceType: 'module' }).replace(/\s/g, '')))
+      .pipe(filter((file) => stripComments(file.contents.toString(), { sourceType: 'module' }).replace(/\s/g, '')))
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest(destDir))
   );

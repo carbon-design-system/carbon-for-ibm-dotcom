@@ -20,15 +20,15 @@ describe('Test a11y compliance', () => {
   const container = document.getElementById('html-fragment-container');
 
   storyModules
-    .filter(storyModule => !storyModule.default?.parameters?.['karma-accessibility-checker']?.disabled)
-    .forEach(storyModule => {
+    .filter((storyModule) => !storyModule.default?.parameters?.['karma-accessibility-checker']?.disabled)
+    .forEach((storyModule) => {
       const { title: groupTitle } = storyModule.default ?? {};
       Object.keys(storyModule)
-        .filter(name => {
+        .filter((name) => {
           const Story = storyModule[name];
           return typeof Story === 'function' && !Story.story?.parameters?.['karma-accessibility-checker']?.disabled;
         })
-        .forEach(name => {
+        .forEach((name) => {
           const Story = storyModule[name];
           const { parameters, title = name } = Story.story ?? {};
           const propsSet = merge({}, storyModule.default?.parameters?.propsSet, parameters?.propsSet);
@@ -36,7 +36,7 @@ describe('Test a11y compliance', () => {
           const keys = Object.keys(propsSet);
 
           if (keys.length > 0) {
-            keys.forEach(itemTitle => {
+            keys.forEach((itemTitle) => {
               const combinedTitle = itemTitle === 'default' ? `${groupTitle}|${title}` : `${groupTitle}|${title}|${itemTitle}`;
               it(`Should have a11y-compliant ${combinedTitle}`, async () => {
                 render(Story(propsSet?.default), container);

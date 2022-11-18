@@ -18,13 +18,14 @@ const { transformAsync } = require('@babel/core');
 const babelPluginCreateReactCustomElementType = require('../../tools/babel-plugin-create-react-custom-element-type');
 const deepReplace = require('../../../../tasks/deep-replace');
 
-const regexComponentsReactPath = /(@carbon[\\/]ibmdotcom-web-components[\\/]es|packages[\\/]web-components[\\/](es|src))[\\/]components-react[\\/](?!(.*-(composite|container)))(.*?)(\.[jt]sx?)?$/;
+const regexComponentsReactPath =
+  /(@carbon[\\/]ibmdotcom-web-components[\\/]es|packages[\\/]web-components[\\/](es|src))[\\/]components-react[\\/](?!(.*-(composite|container)))(.*?)(\.[jt]sx?)?$/;
 const readFileAsync = promisify(readFile);
 const writeFileAsync = promisify(writeFile);
 const mkdirpAsync = promisify(mkdirp);
 
-const arrayify = value => (Array.isArray(value) ? value : value != null ? [value] : []); // eslint-disable-line no-nested-ternary
-const testMatches = (test, s) => arrayify(test).some(item => item.test && item.test(s));
+const arrayify = (value) => (Array.isArray(value) ? value : value != null ? [value] : []); // eslint-disable-line no-nested-ternary
+const testMatches = (test, s) => arrayify(test).some((item) => item.test && item.test(s));
 
 const buildCreateReactCustomElementTypeBabelOpts = {
   babelrc: false,
@@ -116,13 +117,13 @@ module.exports = {
       massagedConfig.module.rules,
       (value, key) =>
         key === 'test' && testMatches(value, 'button.stories.mdx') && !testMatches(value, 'button.stories.react.mdx'),
-      value => [...arrayify(value), /\.stories\.react.mdx$/]
+      (value) => [...arrayify(value), /\.stories\.react.mdx$/]
     );
     massagedConfig.module.rules = deepReplace(
       massagedConfig.module.rules,
       (value, key) =>
         key === 'exclude' && testMatches(value, 'button.stories.mdx') && !testMatches(value, 'button.stories.react.mdx'),
-      value => [...arrayify(value), /\.stories\.react.mdx$/]
+      (value) => [...arrayify(value), /\.stories\.react.mdx$/]
     );
     massagedConfig.module.rules.unshift({
       test: /components-react/i,

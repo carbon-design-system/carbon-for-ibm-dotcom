@@ -69,7 +69,8 @@ export const Default = () => {
       className="bx-grid"
       style={{
         padding: 2 + `rem`,
-      }}>
+      }}
+    >
       <div>
         This button group is wrapped within the grid to let the buttons shrink
         when the text gets smaller

@@ -159,7 +159,7 @@ module.exports = function setupKarma(config) {
           'process.env.NODE_ENV': JSON.stringify('test'),
           'process.env.DDS_CLOUD_MASTHEAD': JSON.stringify('true'),
         }),
-        new webpack.NormalModuleReplacementPlugin(reServices, resource => {
+        new webpack.NormalModuleReplacementPlugin(reServices, (resource) => {
           const { request } = resource;
           resource.request = serviceMocks[request] || request;
         }),
