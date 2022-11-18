@@ -13,13 +13,7 @@ import { CTA_TYPE } from '../defs';
 import '../card-cta-footer';
 
 const template = (props?) => {
-  const {
-    ctaType,
-    videoDuration,
-    formatVideoCaption,
-    formatVideoDuration,
-    children,
-  } = props ?? {};
+  const { ctaType, videoDuration, formatVideoCaption, formatVideoDuration, children } = props ?? {};
   return html`
     <dds-card-cta-footer
       cta-type="${ifDefined(ctaType)}"
@@ -32,17 +26,15 @@ const template = (props?) => {
   `;
 };
 
-describe('dds-card-cta-footer', function () {
-  describe('Misc attributes', function () {
-    it('should render with minimum attributes', async function () {
+describe('dds-card-cta-footer', function() {
+  describe('Misc attributes', function() {
+    it('should render with minimum attributes', async function() {
       render(template(), document.body);
       await Promise.resolve();
-      expect(
-        document.body.querySelector('dds-card-cta-footer')
-      ).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-card-cta-footer')).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes', async function () {
+    it('should render with various attributes', async function() {
       render(
         template({
           ctaType: CTA_TYPE.VIDEO,
@@ -55,14 +47,12 @@ describe('dds-card-cta-footer', function () {
         document.body
       );
       await Promise.resolve();
-      expect(
-        document.body.querySelector('dds-card-cta-footer')
-      ).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-card-cta-footer')).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 
-  describe('Overriding the default contents', function () {
-    it('should not use the video caption if the content is given', async function () {
+  describe('Overriding the default contents', function() {
+    it('should not use the video caption if the content is given', async function() {
       render(
         template({
           ctaType: CTA_TYPE.VIDEO,
@@ -84,7 +74,7 @@ describe('dds-card-cta-footer', function () {
     });
   });
 
-  afterEach(async function () {
+  afterEach(async function() {
     await render(undefined!, document.body);
   });
 });

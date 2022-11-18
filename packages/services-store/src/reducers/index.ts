@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,11 +15,7 @@ import searchAPIReducer from './searchAPI';
 import kalturaPlayerAPIReducer from './kalturaPlayerAPI';
 import cloudAccountAuthAPIReducer from './cloudAccountAuthAPI';
 
-export {
-  localeAPIReducer as localeAPI,
-  translateAPIReducer as translateAPI,
-  profileAPIReducer as profileAPI,
-};
+export { localeAPIReducer as localeAPI, translateAPIReducer as translateAPI, profileAPIReducer as profileAPI };
 
 /**
  * The combined reducer for all APIs.

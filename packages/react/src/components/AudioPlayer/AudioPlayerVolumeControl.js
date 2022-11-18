@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -32,7 +32,7 @@ const AudioPlayerVolumeControl = ({
   displayVolumeControl,
   setDisplayVolumeControl,
 }) => {
-  const handleAudioVolumeChange = (volume) => {
+  const handleAudioVolumeChange = volume => {
     volume = root.Number.parseFloat(volume.toString().substring(0, 3));
     if (kalturaDigitalPlayer) {
       kalturaDigitalPlayer.sendNotification('changeVolume', volume);
@@ -50,8 +50,7 @@ const AudioPlayerVolumeControl = ({
   };
 
   const buttonClasses = cx({
-    [`${prefix}--force-tooltip-hidden ${prefix}--menu--open`]:
-      displayVolumeControl,
+    [`${prefix}--force-tooltip-hidden ${prefix}--menu--open`]: displayVolumeControl,
   });
 
   return (
@@ -62,15 +61,14 @@ const AudioPlayerVolumeControl = ({
         iconDescription="Volume"
         hasIconOnly
         kind="ghost"
-        onClick={() => setDisplayVolumeControl((prev) => !prev)}
+        onClick={() => setDisplayVolumeControl(prev => !prev)}
         tooltipPosition="top"
         disabled={!kalturaDigitalPlayer}
       />
 
       {displayVolumeControl && (
         <div
-          className={`${prefix}--audio-player__volume-control-menu ${prefix}--audio-player__shadow`}
-        >
+          className={`${prefix}--audio-player__volume-control-menu ${prefix}--audio-player__shadow`}>
           <Slider
             max={1}
             min={0}

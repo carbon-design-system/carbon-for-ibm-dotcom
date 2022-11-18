@@ -17,20 +17,17 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 
 import readme from './README.stories.mdx';
 
-export const Default = (args) => {
-  const {
-    copy,
-    quoteMark,
-    sourceHeading,
-    sourceCopy,
-    sourceBottomCopy,
-    colorScheme,
-  } = args?.Quote ?? {};
+export const Default = args => {
+  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy, colorScheme } = args?.Quote ?? {};
   return html`
     <dds-quote color-scheme="${colorScheme}" mark-type="${quoteMark}">
       ${copy}
-      <dds-quote-source-heading> ${sourceHeading} </dds-quote-source-heading>
-      <dds-quote-source-copy> ${sourceCopy} </dds-quote-source-copy>
+      <dds-quote-source-heading>
+        ${sourceHeading}
+      </dds-quote-source-heading>
+      <dds-quote-source-copy>
+        ${sourceCopy}
+      </dds-quote-source-copy>
       <dds-quote-source-bottom-copy>
         ${sourceBottomCopy}
       </dds-quote-source-bottom-copy>
@@ -46,8 +43,7 @@ const types = {
   [`${QUOTE_TYPES.SINGLE_CURVED}`]: QUOTE_TYPES.SINGLE_CURVED,
   [`${QUOTE_TYPES.DOUBLE_ANGLE}`]: QUOTE_TYPES.DOUBLE_ANGLE,
   [`${QUOTE_TYPES.SINGLE_ANGLE}`]: QUOTE_TYPES.SINGLE_ANGLE,
-  [`${QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED}`]:
-    QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED,
+  [`${QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED}`]: QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED,
   [`${QUOTE_TYPES.CORNER_BRACKET}`]: QUOTE_TYPES.CORNER_BRACKET,
 };
 
@@ -59,10 +55,12 @@ const colorSchemes = {
 export default {
   title: 'Components/Quote',
   decorators: [
-    (story) => html`
+    story => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-lg-11">${story()}</div>
+          <div class="bx--col-lg-11">
+            ${story()}
+          </div>
         </div>
       </div>
     `,
@@ -78,23 +76,10 @@ export default {
             'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
         ),
         quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
-        sourceHeading: textNullable(
-          'Source heading (source-heading slot)',
-          'Lorem ipsum dolor sit amet'
-        ),
-        sourceCopy: textNullable(
-          'Source copy (source-copy slot)',
-          'consectetur adipiscing elit'
-        ),
-        sourceBottomCopy: textNullable(
-          'Source bottom copy (source-bottom-copy slot)',
-          'IBM Cloud'
-        ),
-        colorScheme: select(
-          'Color Scheme (color-scheme)',
-          colorSchemes,
-          colorSchemes.regular
-        ),
+        sourceHeading: textNullable('Source heading (source-heading slot)', 'Lorem ipsum dolor sit amet'),
+        sourceCopy: textNullable('Source copy (source-copy slot)', 'consectetur adipiscing elit'),
+        sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud'),
+        colorScheme: select('Color Scheme (color-scheme)', colorSchemes, colorSchemes.regular),
       }),
     },
     propsSet: {

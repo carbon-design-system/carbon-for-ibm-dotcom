@@ -21,8 +21,7 @@ const { prefix } = settings;
 const ContentBlockCards = ({ heading, cards, cta }) => (
   <div
     data-autoid={`${stablePrefix}--content-block-cards`}
-    className={`${prefix}--content-block-cards`}
-  >
+    className={`${prefix}--content-block-cards`}>
     <ContentBlock heading={heading} cta={cta}>
       <div className={`${prefix}--content-block-cards__content`}>
         <CardGroup cards={cards} />

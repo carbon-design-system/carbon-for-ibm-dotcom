@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -201,7 +201,7 @@ class KalturaPlayerAPI {
   ) {
     const fireEvent = this.fireEvent;
     return await this.checkScript().then(() => {
-      const promiseKWidget = new Promise((resolve) => {
+      const promiseKWidget = new Promise(resolve => {
         const defaultFlashVars = {
           autoPlay: true,
           closedCaptions: {
@@ -242,7 +242,7 @@ class KalturaPlayerAPI {
             wmode: 'transparent',
           },
           // Ready callback is issued for this player:
-          readyCallback: function (playerId) {
+          readyCallback: function(playerId) {
             const kdp = document.getElementById(playerId);
 
             if (useIbmMetrics) {
@@ -258,7 +258,7 @@ class KalturaPlayerAPI {
                 fireEvent({ playerState: 3, kdp, mediaId });
               });
 
-              kdp.addJsListener('IbmCtaEvent.ibm', (ctaData) => {
+              kdp.addJsListener('IbmCtaEvent.ibm', ctaData => {
                 const customMetricsData = ctaData?.customMetricsData || {};
                 fireEvent({
                   playerState: 101,
@@ -345,14 +345,14 @@ class KalturaPlayerAPI {
       if (mediaData && mediaData[mediaId]) {
         return mediaData[mediaId];
       } else {
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
           return new root.kWidget.api({ wid: '_' + _partnerId }).doRequest(
             {
               service: 'media',
               action: 'get',
               entryId: mediaId,
             },
-            function (jsonObj) {
+            function(jsonObj) {
               mediaData[jsonObj.id] = jsonObj;
               resolve(jsonObj);
             }

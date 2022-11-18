@@ -28,9 +28,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-masthead-profile
  */
 @customElement(`${ddsPrefix}-masthead-profile`)
-class DDSMastheadProfile extends HostListenerMixin(
-  FocusMixin(StableSelectorMixin(LitElement))
-) {
+class DDSMastheadProfile extends HostListenerMixin(FocusMixin(StableSelectorMixin(LitElement))) {
   /**
    * The trigger button.
    */
@@ -105,20 +103,12 @@ class DDSMastheadProfile extends HostListenerMixin(
   createRenderRoot() {
     return this.attachShadow({
       mode: 'open',
-      delegatesFocus:
-        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
-        537,
+      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
     });
   }
 
   render() {
-    const {
-      authenticated,
-      expanded,
-      menuLabel,
-      triggerLabel,
-      _handleClick: handleClick,
-    } = this;
+    const { authenticated, expanded, menuLabel, triggerLabel, _handleClick: handleClick } = this;
     return html`
       <a
         role="button"

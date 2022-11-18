@@ -3,12 +3,11 @@ lib
 es
 umd
 build
-**/dist/**
+dist
 docs
 coverage
-snapshots
-fixtures
-storybook-static*
+storybook-static
+storybook-static-react
 .github
 jsdocs
 examples
@@ -20,4 +19,6 @@ CHANGELOG.md
 packages/**/src/internal/vendor
 packages/**/tests/e2e/cypress
 packages/**/tests/e2e-storybook/cypress
-custom-elements.json
+packages/web-components/tests/snapshots
+packages/web-components/tests/e2e/build/examples-scaffold
+packages/web-components/tests/e2e/dist

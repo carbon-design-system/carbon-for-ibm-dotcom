@@ -46,9 +46,7 @@ class DDSLeadSpaceBlock extends StableSelectorMixin(LitElement) {
     const { name } = target as HTMLSlotElement;
     const hasTitle = (target as HTMLSlotElement)
       .assignedNodes()
-      .some(
-        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
-      );
+      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
     this[slotExistencePropertyNames[name] || '_hasTitle'] = hasTitle;
   }
 
@@ -58,11 +56,7 @@ class DDSLeadSpaceBlock extends StableSelectorMixin(LitElement) {
   protected _renderHeading() {
     const { _hasTitle: hasTitle } = this;
     return html`
-      <slot
-        ?hidden="${!hasTitle}"
-        name="heading"
-        @slotchange="${this._handleSlotChange}"
-      ></slot>
+      <slot ?hidden="${!hasTitle}" name="heading" @slotchange="${this._handleSlotChange}"></slot>
     `;
   }
 

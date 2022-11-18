@@ -39,7 +39,7 @@ class CTALogic {
             if (button.type === 'video' && button.media)
               return { src: button.media.src, key };
           })
-          .filter((id) => id && id);
+          .filter(id => id && id);
         return videoIds;
       }
       default:

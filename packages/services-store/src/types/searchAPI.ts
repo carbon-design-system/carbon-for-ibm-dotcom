@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -44,28 +44,20 @@ export interface SearchAPIState {
   /**
    * The search results, keyed by the search query string and the language.
    */
-  searchResults?: {
-    [searchQueryString: string]: { [language: string]: string[] };
-  };
+  searchResults?: { [searchQueryString: string]: { [language: string]: string[] } };
 
   /**
    * The requests for the search results, keyed by the search query string and the language.
    */
-  requestsSearchResults?: {
-    [searchQueryString: string]: { [language: string]: Promise<string[]> };
-  };
+  requestsSearchResults?: { [searchQueryString: string]: { [language: string]: Promise<string[]> } };
 
   /**
    * The status of whether requests for the search results are in progress, keyed by the search query string and the language.
    */
-  requestsSearchResultsInProgress?: {
-    [searchQueryString: string]: { [language: string]: boolean };
-  };
+  requestsSearchResultsInProgress?: { [searchQueryString: string]: { [language: string]: boolean } };
 
   /**
    * The errors from the requests for the search results, keyed by the search query string and the language.
    */
-  errorsRequestSearchResults?: {
-    [searchQueryString: string]: { [language: string]: Error };
-  };
+  errorsRequestSearchResults?: { [searchQueryString: string]: { [language: string]: Error } };
 }

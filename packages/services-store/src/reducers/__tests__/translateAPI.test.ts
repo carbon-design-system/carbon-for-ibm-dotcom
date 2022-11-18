@@ -7,11 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  TRANSLATE_API_ACTION,
-  Translation,
-  TranslateAPIState,
-} from '../../types/translateAPI';
+import { TRANSLATE_API_ACTION, Translation, TranslateAPIState } from '../../types/translateAPI';
 import { TranslateAPIActions } from '../../actions/translateAPI';
 import convertValue from '../../../tests/utils/convert-value';
 import reducer from '../translateAPI';
@@ -19,10 +15,7 @@ import reducer from '../translateAPI';
 const mockTranslation: Partial<Translation> = {
   mastheadNav: {
     links: [
-      {
-        title: 'item-title-foo',
-        url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/foo',
-      },
+      { title: 'item-title-foo', url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/foo' },
       {
         title: 'menu-title-foo',
         menuSections: [

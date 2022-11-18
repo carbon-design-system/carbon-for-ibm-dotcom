@@ -84,12 +84,7 @@ const Pattern = html`
       c0-0.75,0.61-1.36,1.36-1.36h1c0.75,0,1.36,0.61,1.36,1.36v1C10.36,9.75,9.75,10.36,9,10.36z M8,7.36C7.647,7.36,7.36,7.647,7.36,8
       v1c0,0.353,0.287,0.64,0.64,0.64h1c0.353,0,0.64-0.287,0.64-0.64V8c0-0.353-0.287-0.64-0.64-0.64H8z"
     />
-    <rect
-      id="_Transparent_Rectangle"
-      style="fill:none;"
-      width="32"
-      height="32"
-    />
+    <rect id="_Transparent_Rectangle" style="fill:none;" width="32" height="32" />
   </svg>
 `;
 const Touch = html`
@@ -122,12 +117,7 @@ const Touch = html`
 	l-0.479-0.539c1.194-1.058,1.879-2.585,1.879-4.19c0-3.11-2.529-5.64-5.64-5.64c-3.11,0-5.64,2.53-5.64,5.64
 	c0,1.605,0.685,3.133,1.879,4.19L10.755,11.729z"
     />
-    <rect
-      id="_Transparent_Rectangle"
-      style="fill:none;"
-      width="32"
-      height="32"
-    />
+    <rect id="_Transparent_Rectangle" style="fill:none;" width="32" height="32" />
   </svg>
 `;
 /* eslint-enable max-len */
@@ -138,7 +128,7 @@ const Touch = html`
  * @param {string} sel string that defines the returning pictogram
  * @returns {*} Pictogram SVG markup
  */
-const selectPictogram = (sel) => {
+const selectPictogram = sel => {
   switch (sel) {
     case 'Desktop':
       return Desktop;
@@ -162,9 +152,8 @@ const pictogramColors = {
   Blue: COLOR_OPTIONS.BLUE,
 };
 
-export const Default = (args) => {
-  const { heading, copy, href, linkCopy, pictogram, pictogramColor } =
-    args?.PictogramItem ?? {};
+export const Default = args => {
+  const { heading, copy, href, linkCopy, pictogram, pictogramColor } = args?.PictogramItem ?? {};
   return html`
     <dds-pictogram-item color="${pictogramColor}">
       ${pictogram?.src}
@@ -180,13 +169,15 @@ export const Default = (args) => {
 export default {
   title: 'Components/Pictogram item',
   decorators: [
-    (story) => html`
+    story => html`
       <style>
         ${styles}
       </style>
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--no-gutter">${story()}</div>
+          <div class="bx--col-sm-4 bx--col-lg-8 bx--no-gutter">
+            ${story()}
+          </div>
         </div>
       </div>
     `,
@@ -204,16 +195,10 @@ export default {
         href: textNullable('Link with Icon href:', 'https://example.com'),
         linkCopy: textNullable('Link with Icon copy:', 'Lorem ipsum dolor'),
         pictogram: {
-          src: selectPictogram(
-            select('Pictogram (required)', pictograms, pictograms.Desktop)
-          ),
+          src: selectPictogram(select('Pictogram (required)', pictograms, pictograms.Desktop)),
           'aria-label': textNullable('Aria-label:', 'Pictogram description'),
         },
-        pictogramColor: select(
-          'Pictogram color:',
-          pictogramColors,
-          COLOR_OPTIONS.DEFAULT
-        ),
+        pictogramColor: select('Pictogram color:', pictogramColors, COLOR_OPTIONS.DEFAULT),
       }),
     },
     propsSet: {

@@ -17,7 +17,7 @@ const _cleanStringRegex = /\n|\s{2,}|&([a-zA-Z]+);/g;
  * @returns {string} String with multiple spaces and single new lines removed
  * @private
  */
-const _cleanString = (str) => str.replace(_cleanStringRegex, ' ');
+const _cleanString = str => str.replace(_cleanStringRegex, ' ');
 
 /**
  *

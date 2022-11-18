@@ -39,14 +39,10 @@ abstract class DDSLightboxMediaViewerBody extends FocusMixin(LitElement) {
     return html`
       <div class="${prefix}--lightbox-media-viewer__container">
         <div class="${prefix}--lightbox-media-viewer__row">
-          <div
-            class="${prefix}--lightbox-media-viewer__media ${prefix}--no-gutter"
-          >
+          <div class="${prefix}--lightbox-media-viewer__media ${prefix}--no-gutter">
             ${this._renderMedia()}
           </div>
-          <div
-            class="${prefix}--lightbox-media-viewer__media-description ${prefix}--no-gutter"
-          >
+          <div class="${prefix}--lightbox-media-viewer__media-description ${prefix}--no-gutter">
             <div class="${prefix}--lightbox-media-viewer__content">
               <div
                 part="title"

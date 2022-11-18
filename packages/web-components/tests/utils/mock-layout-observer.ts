@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -31,10 +31,7 @@ abstract class MockLayoutObserver {
    */
   protected static _instances = null! as Set<MockLayoutObserver>;
 
-  constructor(
-    callback: IntersectionObserverCallback,
-    options?: IntersectionObserverInit
-  ) {
+  constructor(callback: IntersectionObserverCallback, options?: IntersectionObserverInit) {
     this._callback = callback;
     if (options) {
       Object.assign(this._options, options);
@@ -45,7 +42,7 @@ abstract class MockLayoutObserver {
    * Unobserves all elements.
    */
   disconnect() {
-    this._targets.forEach((target) => {
+    this._targets.forEach(target => {
       this.unobserve(target);
     });
   }
@@ -72,7 +69,7 @@ abstract class MockLayoutObserver {
    * @returns The array of options of all instances.
    */
   static get instanceOptions() {
-    return Array.from(this._instances).map((instance) => instance._options);
+    return Array.from(this._instances).map(instance => instance._options);
   }
 }
 

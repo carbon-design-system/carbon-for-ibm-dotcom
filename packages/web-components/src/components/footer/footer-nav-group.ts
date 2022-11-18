@@ -43,8 +43,7 @@ class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
    * @param open The new open state.
    */
   private _handleUserInitiatedToggle(open = !this.open) {
-    const { eventBeforeToggle, eventToggle } = this
-      .constructor as typeof DDSFooterNavGroup;
+    const { eventBeforeToggle, eventToggle } = this.constructor as typeof DDSFooterNavGroup;
     const init = {
       bubbles: true,
       cancelable: true,
@@ -107,8 +106,7 @@ class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
       this._hChangeMediaQuery = this._hChangeMediaQuery.release();
     }
     const { mediaStickExpanded } = this.constructor as typeof DDSFooterNavGroup;
-    const mediaQueryList =
-      this.ownerDocument!.defaultView!.matchMedia(mediaStickExpanded);
+    const mediaQueryList = this.ownerDocument!.defaultView!.matchMedia(mediaStickExpanded);
     this._shouldStickExpanded = mediaQueryList.matches;
     const { _handleChangeMediaQuery: handleChangeMediaQuery } = this;
     mediaQueryList.addListener(handleChangeMediaQuery);
@@ -135,9 +133,7 @@ class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
     } = this;
     const heading = shouldStickExpanded
       ? html`
-          <h2 class="${prefix}--footer-nav-group__title">
-            <slot name="title">${titleText}</slot>
-          </h2>
+          <h2 class="${prefix}--footer-nav-group__title"><slot name="title">${titleText}</slot></h2>
         `
       : html`
           <button
@@ -151,9 +147,7 @@ class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
             ${ChevronRight16({
               class: `${prefix}--accordion__arrow`,
             })}
-            <div class="${prefix}--accordion__title">
-              <slot name="title">${titleText}</slot>
-            </div>
+            <div class="${prefix}--accordion__title"><slot name="title">${titleText}</slot></div>
           </button>
         `;
     return html`

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,11 +9,7 @@
 
 import { ThunkAction } from 'redux-thunk';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
-import {
-  LocaleList,
-  LOCALE_API_ACTION,
-  LocaleAPIState,
-} from '../types/localeAPI';
+import { LocaleList, LOCALE_API_ACTION, LocaleAPIState } from '../types/localeAPI';
 
 /**
  * @param request The promise of the REST call for language data that is in progress.
@@ -56,10 +52,7 @@ export function setLanguage(language: string) {
  * @returns A Redux action to set the state that the REST call for locale list data for the given language that is in progress.
  * @private
  */
-export function setRequestLocaleListInProgress(
-  language: string,
-  request: Promise<LocaleList>
-) {
+export function setRequestLocaleListInProgress(language: string, request: Promise<LocaleList>) {
   return {
     type: LOCALE_API_ACTION.SET_REQUEST_LOCALE_LIST_IN_PROGRESS,
     language,
@@ -108,12 +101,7 @@ export type LocaleAPIActions =
 /**
  * @returns A Redux action that sends a REST call for language data.
  */
-export function loadLanguage(): ThunkAction<
-  Promise<string>,
-  { localeAPI: LocaleAPIState },
-  void,
-  LocaleAPIActions
-> {
+export function loadLanguage(): ThunkAction<Promise<string>, { localeAPI: LocaleAPIState }, void, LocaleAPIActions> {
   return async (dispatch, getState) => {
     const { requestLanguage } = getState().localeAPI ?? {};
     if (requestLanguage) {
@@ -126,7 +114,7 @@ export function loadLanguage(): ThunkAction<
     try {
       dispatch(setLanguage(await promiseLanguage));
     } catch (error) {
-      dispatch(setErrorRequestLanguage(error as Error));
+      dispatch(setErrorRequestLanguage(error));
       throw error;
     }
     return promiseLanguage;
@@ -139,15 +127,9 @@ export function loadLanguage(): ThunkAction<
  */
 export function loadLocaleList(
   language?: string
-): ThunkAction<
-  Promise<LocaleList>,
-  { localeAPI: LocaleAPIState },
-  void,
-  LocaleAPIActions
-> {
+): ThunkAction<Promise<LocaleList>, { localeAPI: LocaleAPIState }, void, LocaleAPIActions> {
   return async (dispatch, getState) => {
-    const effectiveLanguage: string =
-      language ?? (await dispatch(loadLanguage()));
+    const effectiveLanguage: string = language ?? (await dispatch(loadLanguage()));
     const { requestsLocaleList = {} } = getState().localeAPI ?? {};
     const { [effectiveLanguage]: requestLocaleList } = requestsLocaleList;
     if (requestLocaleList) {
@@ -158,13 +140,11 @@ export function loadLocaleList(
       cc: country.toLowerCase(),
       lc: primary.toLowerCase(),
     });
-    dispatch(
-      setRequestLocaleListInProgress(effectiveLanguage, promiseLocaleList)
-    );
+    dispatch(setRequestLocaleListInProgress(effectiveLanguage, promiseLocaleList));
     try {
       dispatch(setLocaleList(effectiveLanguage, await promiseLocaleList));
     } catch (error) {
-      dispatch(setErrorRequestLocaleList(effectiveLanguage, error as Error));
+      dispatch(setErrorRequestLocaleList(effectiveLanguage, error));
     }
     return promiseLocaleList;
   };

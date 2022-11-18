@@ -48,8 +48,7 @@ class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * The handler for throttled scrolling
    */
-  private _throttleScroll: (((event: Event) => void) & Cancelable) | null =
-    null;
+  private _throttleScroll: (((event: Event) => void) & Cancelable) | null = null;
 
   /**
    * Button click scrolls to top
@@ -66,8 +65,7 @@ class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    */
   private _handleOnScroll() {
     if (this._showBackToTop()) {
-      this.hidden =
-        this.ownerDocument!.scrollingElement!.scrollTop <= this._windowHeight;
+      this.hidden = this.ownerDocument!.scrollingElement!.scrollTop <= this._windowHeight;
     }
   }
 
@@ -90,7 +88,7 @@ class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     }
   }
 
-  private _observeResizeBody = (entries) => {
+  private _observeResizeBody = entries => {
     this._bodyHeight = entries[entries.length - 1].target.scrollHeight;
   };
 

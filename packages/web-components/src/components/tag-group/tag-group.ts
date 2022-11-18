@@ -31,40 +31,31 @@ class DDSTagGroup extends StableSelectorMixin(LitElement) {
   private _handleSlotChange(event: Event) {
     const childItems = (event.target as HTMLSlotElement).assignedNodes();
 
-    const carbonTags = childItems.filter((elem) =>
-      (elem as HTMLElement).matches?.(
-        (this.constructor as typeof DDSTagGroup).selectorTag
-      )
+    const carbonTags = childItems.filter(elem =>
+      (elem as HTMLElement).matches?.((this.constructor as typeof DDSTagGroup).selectorTag)
     );
 
-    const carbonReactTags = childItems.filter((elem) =>
-      (elem as HTMLElement).classList?.contains?.(
-        (this.constructor as typeof DDSTagGroup).selectorReactTag
-      )
+    const carbonReactTags = childItems.filter(elem =>
+      (elem as HTMLElement).classList?.contains?.((this.constructor as typeof DDSTagGroup).selectorReactTag)
     );
 
     // Handle color setting differently depending on Carbon WC or Carbon React
-    carbonTags.forEach((elem) => {
-      if (
-        !(elem as HTMLElement).hasAttribute('type') ||
-        (elem as HTMLElement).getAttribute('type') === 'gray'
-      ) {
+    carbonTags.forEach(elem => {
+      if (!(elem as HTMLElement).hasAttribute('type') || (elem as HTMLElement).getAttribute('type') === 'gray') {
         (elem as HTMLElement).setAttribute('type', 'green');
       }
     });
-    carbonReactTags.forEach((elem) => {
-      if (
-        !(elem as HTMLElement).className
-          .split(' ')
-          .some((c) => /^bx--tag--/.test(c))
-      ) {
+    carbonReactTags.forEach(elem => {
+      if (!(elem as HTMLElement).className.split(' ').some(c => /^bx--tag--/.test(c))) {
         (elem as HTMLElement).classList?.add(`${prefix}--tag--green`);
       }
     });
   }
 
   render() {
-    return html` <slot @slotchange="${this._handleSlotChange}"></slot> `;
+    return html`
+      <slot @slotchange="${this._handleSlotChange}"></slot>
+    `;
   }
 
   connectedCallback() {

@@ -10,18 +10,11 @@
 import { ActionCreatorsMapObject, Store } from 'redux';
 import { customElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import {
-  MediaData,
-  MediaPlayerAPIState,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
+import { MediaData, MediaPlayerAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
 import { loadMediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI';
 import { MediaPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI.d';
-import {
-  DDSVideoPlayerContainerMixin,
-  mapStateToProps,
-  mapDispatchToProps,
-} from '../video-player/video-player-container';
+import { DDSVideoPlayerContainerMixin, mapStateToProps, mapDispatchToProps } from '../video-player/video-player-container';
 import ConnectMixin from '../../globals/mixins/connect';
 import DDSVideoCTAComposite from './video-cta-composite';
 

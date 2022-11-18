@@ -19,7 +19,7 @@ const LeadspaceWithSearch = ({ heading, copy, searchProps }) => {
   const leadspaceContainer = useRef(null);
 
   useEffect(() => {
-    leadspaceContainer.current = new ResizeObserver((entries) => {
+    leadspaceContainer.current = new ResizeObserver(entries => {
       for (const entry of entries) {
         const CARBON_MD_BREAKPOINT = 672;
         const { inlineSize: leadspaceWidth } = entry.borderBoxSize[0];
@@ -45,8 +45,7 @@ const LeadspaceWithSearch = ({ heading, copy, searchProps }) => {
     <section
       data-autoid={`${stablePrefix}--leadspace-with-search`}
       className={`${prefix}--leadspace-with-search`}
-      ref={leadspaceContainer}
-    >
+      ref={leadspaceContainer}>
       <div className={`${prefix}--leadspace-with-search__row`}>
         <div className={`${prefix}--leadspace-with-search__content`}>
           <h1 className={`${prefix}--leadspace-with-search__heading`}>

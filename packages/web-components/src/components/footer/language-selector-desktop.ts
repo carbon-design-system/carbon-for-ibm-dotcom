@@ -60,12 +60,8 @@ class DDSLanguageSelectorDesktop extends HostListenerMixin(DDSComboBox) {
    * Highlights and scrolls into the view the matched item.
    */
   protected _handleInput() {
-    const items = this.querySelectorAll(
-      (this.constructor as typeof DDSComboBox).selectorItem
-    );
-    const index = !this._filterInputNode.value
-      ? -1
-      : findIndex(items, this._testItemWithQueryText, this);
+    const items = this.querySelectorAll((this.constructor as typeof DDSComboBox).selectorItem);
+    const index = !this._filterInputNode.value ? -1 : findIndex(items, this._testItemWithQueryText, this);
     forEach(items, (item, i) => {
       if (i === index) item.scrollIntoView();
       (item as BXComboBoxItem).highlighted = i === index;
@@ -81,15 +77,10 @@ class DDSLanguageSelectorDesktop extends HostListenerMixin(DDSComboBox) {
    * Also saves the current valid language.
    */
   protected _handleUserInitiatedClearInput() {
-    forEach(
-      this.querySelectorAll(
-        (this.constructor as typeof DDSComboBox).selectorItem
-      ),
-      (item) => {
-        (item as BXComboBoxItem).highlighted = false;
-        (item as BXComboBoxItem).selected = false;
-      }
-    );
+    forEach(this.querySelectorAll((this.constructor as typeof DDSComboBox).selectorItem), item => {
+      (item as BXComboBoxItem).highlighted = false;
+      (item as BXComboBoxItem).selected = false;
+    });
     this._lastValidLang = this._filterInputValue;
     this._filterInputValue = '';
     this._filterInputNode.focus();

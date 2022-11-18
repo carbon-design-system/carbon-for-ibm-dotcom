@@ -26,9 +26,7 @@ class DDSUniversalBannerImage extends DDSImage {
   }
 
   static get styles() {
-    return css`
-      ${super.styles}${styles}
-    `;
+    return css`${super.styles}${styles}`;
   }
 }
 

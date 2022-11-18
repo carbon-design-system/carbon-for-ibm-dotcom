@@ -9,7 +9,7 @@
 
 import packageJson from '../../../package.json';
 
-/* eslint-disable max-len */
+/* eslint-disable import/prefer-default-export,max-len */
 
 /**
  *
@@ -25,7 +25,7 @@ function _renderScript(components, tag, isRTL = false) {
   let scripts = '';
   const rtl = isRTL ? '.rtl' : '';
   const rtlFolder = isRTL ? 'rtl/' : '';
-  components.forEach((component) => {
+  components.forEach(component => {
     scripts += `<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/${tag}/${rtlFolder}${component}${rtl}.min.js"></script>\n`;
   });
   return scripts;
@@ -39,7 +39,7 @@ function _renderScript(components, tag, isRTL = false) {
  */
 function _renderStyle(components, tag) {
   let styles = '';
-  components.forEach((component) => {
+  components.forEach(component => {
     styles += `<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/${tag}/${component}.css" />\n`;
   });
   return styles;

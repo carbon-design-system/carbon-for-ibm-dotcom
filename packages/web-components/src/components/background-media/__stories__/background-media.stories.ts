@@ -23,9 +23,8 @@ const gradientDirections = {
   [`Top to Bottom`]: GRADIENT_DIRECTION.TOP_TO_BOTTOM,
 };
 
-export const Default = (args) => {
-  const { alt, gradientDirection, backgroundOpacity } =
-    args?.['dds-background-media'] ?? {};
+export const Default = args => {
+  const { alt, gradientDirection, backgroundOpacity } = args?.['dds-background-media'] ?? {};
   return html`
     <dds-background-media
       gradient-direction="${ifNonNull(gradientDirection)}"
@@ -34,23 +33,17 @@ export const Default = (args) => {
       default-src="${imgMax}"
       opacity="${ifNonNull(backgroundOpacity)}"
     >
-      <dds-image-item media="(min-width: 1584px)" srcset="${imgMax}">
-      </dds-image-item>
-      <dds-image-item media="(min-width: 1312px)" srcset="${imgLg16x9}">
-      </dds-image-item>
-      <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
-      </dds-image-item>
-      <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}">
-      </dds-image-item>
-      <dds-image-item media="(min-width: 0px)" srcset="${imgSm4x3}">
-      </dds-image-item>
+      <dds-image-item media="(min-width: 1584px)" srcset="${imgMax}"> </dds-image-item>
+      <dds-image-item media="(min-width: 1312px)" srcset="${imgLg16x9}"> </dds-image-item>
+      <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
+      <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}"> </dds-image-item>
+      <dds-image-item media="(min-width: 0px)" srcset="${imgSm4x3}"> </dds-image-item>
     </dds-background-media>
   `;
 };
 
-export const WithVideo = (args) => {
-  const { gradientDirection, backgroundOpacity } =
-    args?.['dds-background-media'] ?? {};
+export const WithVideo = args => {
+  const { gradientDirection, backgroundOpacity } = args?.['dds-background-media'] ?? {};
   return html`
     <div style="height: 70vh;">
       <dds-background-media
@@ -58,18 +51,14 @@ export const WithVideo = (args) => {
         mobile-position="bottom"
         opacity="${ifNonNull(backgroundOpacity)}"
       >
-        <dds-video-player-container
-          video-id="1_9h94wo6b"
-          background-mode="true"
-        ></dds-video-player-container>
+        <dds-video-player-container video-id="1_9h94wo6b" background-mode="true"></dds-video-player-container>
       </dds-background-media>
     </div>
   `;
 };
 
-export const WithDefaultSource = (args) => {
-  const { alt, gradientDirection, backgroundOpacity } =
-    args?.['dds-background-media'] ?? {};
+export const WithDefaultSource = args => {
+  const { alt, gradientDirection, backgroundOpacity } = args?.['dds-background-media'] ?? {};
   return html`
     <dds-background-media
       gradient-direction="${ifNonNull(gradientDirection)}"
@@ -85,10 +74,12 @@ export const WithDefaultSource = (args) => {
 export default {
   title: 'Components/Background media',
   decorators: [
-    (story) => html`
+    story => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-sm-4 bx--no-gutter">${story()}</div>
+          <div class="bx--col-sm-4 bx--no-gutter">
+            ${story()}
+          </div>
         </div>
       </div>
     `,
@@ -105,11 +96,7 @@ export default {
         ),
         alt: text('Image alt text (alt):', 'Image alt text'),
         defaultSrc: text('Default image (default-src)', imgMax),
-        backgroundOpacity: number('Background Opacity', 100, {
-          range: true,
-          min: 0,
-          max: 100,
-        }),
+        backgroundOpacity: number('Background Opacity', 100, { range: true, min: 0, max: 100 }),
       }),
     },
     propsSet: {

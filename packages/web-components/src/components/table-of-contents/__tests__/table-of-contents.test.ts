@@ -10,37 +10,39 @@
 import { html, render } from 'lit-html';
 import EventManager from '../../../../tests/utils/event-manager';
 import MockResizeObserver from '../../../../tests/utils/mock-resize-observer';
+/* eslint-disable import/no-duplicates */
 import DDSTableOfContents from '../table-of-contents';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../table-of-contents';
+/* eslint-enable import/no-duplicates */
 
 const template = (props?) => {
   const { children } = props ?? {};
-  return html` <dds-table-of-contents>${children}</dds-table-of-contents> `;
+  return html`
+    <dds-table-of-contents>${children}</dds-table-of-contents>
+  `;
 };
 
-describe('dds-table-of-contents', function () {
+describe('dds-table-of-contents', function() {
   const events = new EventManager();
 
-  describe('Misc attributes', function () {
+  describe('Misc attributes', function() {
     let origResizeObserver;
 
-    beforeEach(function () {
+    beforeEach(function() {
       // TODO: Wait for `.d.ts` update to support `ResizeObserver`
       origResizeObserver = (window as any).ResizeObserver;
       // TODO: Wait for `.d.ts` update to support `ResizeObserver`
       (window as any).ResizeObserver = MockResizeObserver;
     });
 
-    it('should render with minimum attributes', async function () {
+    it('should render with minimum attributes', async function() {
       render(template(), document.body);
       await Promise.resolve();
-      expect(
-        document.body.querySelector('dds-table-of-contents')
-      ).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-table-of-contents')).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render the heading and the rule for desktop', async function () {
+    it('should render the heading and the rule for desktop', async function() {
       render(
         template({
           children: html`
@@ -57,12 +59,10 @@ describe('dds-table-of-contents', function () {
       await Promise.resolve(); // Update cycle for the component
       await Promise.resolve(); // The cycle where `slotchange` event is called
       await Promise.resolve(); // Updating cycle upon `slotchange`
-      expect(
-        document.body.querySelector('dds-table-of-contents')
-      ).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-table-of-contents')).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render the heading for mobile', async function () {
+    it('should render the heading for mobile', async function() {
       render(
         template({
           children: html`
@@ -77,31 +77,22 @@ describe('dds-table-of-contents', function () {
         document.body
       );
       await Promise.resolve(); // Update cycle for the component
-      const tableOfContents = document.querySelector(
-        'dds-table-of-contents'
-      ) as DDSTableOfContents;
-      MockResizeObserver.run(
-        tableOfContents!.shadowRoot!.querySelector(
-          '.bx--tableofcontents__mobile'
-        )!,
-        { height: 32 }
-      );
+      const tableOfContents = document.querySelector('dds-table-of-contents') as DDSTableOfContents;
+      MockResizeObserver.run(tableOfContents!.shadowRoot!.querySelector('.bx--tableofcontents__mobile')!, { height: 32 });
       await Promise.resolve(); // Update cycle for the component
       await Promise.resolve(); // The cycle where `slotchange` event is called
       await Promise.resolve(); // Updating cycle upon `slotchange`
-      expect(
-        document.body.querySelector('dds-table-of-contents')
-      ).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-table-of-contents')).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    afterEach(function () {
+    afterEach(function() {
       // TODO: Wait for `.d.ts` update to support `ResizeObserver`
       (window as any).ResizeObserver = origResizeObserver;
     });
   });
 
-  describe('Harvesting the targets', function () {
-    it('should harvest the title from the text contents', async function () {
+  describe('Harvesting the targets', function() {
+    it('should harvest the title from the text contents', async function() {
       render(
         template({
           children: html`
@@ -117,10 +108,8 @@ describe('dds-table-of-contents', function () {
       await Promise.resolve(); // Updating upon harvesting `<a>`s
       expect(
         Array.prototype.map.call(
-          document.body
-            .querySelector('dds-table-of-contents')!
-            .shadowRoot!.querySelectorAll('a[data-target]'),
-          (elem) => ({
+          document.body.querySelector('dds-table-of-contents')!.shadowRoot!.querySelectorAll('a[data-target]'),
+          elem => ({
             target: elem.dataset.target,
             hash: /(#.*)$/.exec((elem as HTMLAnchorElement).href)?.[1],
             title: elem.textContent.trim(),
@@ -145,7 +134,7 @@ describe('dds-table-of-contents', function () {
       ]);
     });
 
-    it('should harvest the title from the descendants from the slotted children', async function () {
+    it('should harvest the title from the descendants from the slotted children', async function() {
       render(
         template({
           children: html`
@@ -163,10 +152,8 @@ describe('dds-table-of-contents', function () {
       await Promise.resolve(); // Updating upon harvesting `<a>`s
       expect(
         Array.prototype.map.call(
-          document.body
-            .querySelector('dds-table-of-contents')!
-            .shadowRoot!.querySelectorAll('a[data-target]'),
-          (elem) => ({
+          document.body.querySelector('dds-table-of-contents')!.shadowRoot!.querySelectorAll('a[data-target]'),
+          elem => ({
             target: elem.dataset.target,
             hash: /(#.*)$/.exec((elem as HTMLAnchorElement).href)?.[1],
             title: elem.textContent.trim(),
@@ -192,8 +179,8 @@ describe('dds-table-of-contents', function () {
     });
   });
 
-  describe('Jumping to an anchor', function () {
-    it('should have clicking on a desktop link cause jumping to the anchor', async function () {
+  describe('Jumping to an anchor', function() {
+    it('should have clicking on a desktop link cause jumping to the anchor', async function() {
       render(
         template({
           children: html`
@@ -207,21 +194,13 @@ describe('dds-table-of-contents', function () {
       await Promise.resolve(); // Update cycle for the component
       await Promise.resolve(); // The cycle where `slotchange` event is called
       await Promise.resolve(); // Updating upon harvesting `<a>`s
-      const tableOfContents = document.querySelector(
-        'dds-table-of-contents'
-      ) as DDSTableOfContents;
+      const tableOfContents = document.querySelector('dds-table-of-contents') as DDSTableOfContents;
       spyOn(tableOfContents as any, '_handleUserInitiatedJump');
-      (
-        tableOfContents!.shadowRoot!.querySelector(
-          'a[data-target="2"]'
-        ) as HTMLElement
-      ).click();
-      expect(
-        (tableOfContents as any)._handleUserInitiatedJump
-      ).toHaveBeenCalledWith('2');
+      (tableOfContents!.shadowRoot!.querySelector('a[data-target="2"]') as HTMLElement).click();
+      expect((tableOfContents as any)._handleUserInitiatedJump).toHaveBeenCalledWith('2');
     });
 
-    it('should have selectng a mobile <option> cause jumping to the anchor', async function () {
+    it('should have selectng a mobile <option> cause jumping to the anchor', async function() {
       render(
         template({
           children: html`
@@ -235,22 +214,16 @@ describe('dds-table-of-contents', function () {
       await Promise.resolve(); // Update cycle for the component
       await Promise.resolve(); // The cycle where `slotchange` event is called
       await Promise.resolve(); // Updating upon harvesting `<a>`s
-      const tableOfContents = document.querySelector(
-        'dds-table-of-contents'
-      ) as DDSTableOfContents;
+      const tableOfContents = document.querySelector('dds-table-of-contents') as DDSTableOfContents;
       spyOn(tableOfContents as any, '_handleUserInitiatedJump');
-      const select = tableOfContents!.shadowRoot!.querySelector(
-        '.bx--tableofcontents__mobile__select'
-      ) as HTMLSelectElement;
+      const select = tableOfContents!.shadowRoot!.querySelector('.bx--tableofcontents__mobile__select') as HTMLSelectElement;
       select.value = '2';
       select.dispatchEvent(new CustomEvent('change', { bubbles: true }));
-      expect(
-        (tableOfContents as any)._handleUserInitiatedJump
-      ).toHaveBeenCalledWith('2');
+      expect((tableOfContents as any)._handleUserInitiatedJump).toHaveBeenCalledWith('2');
     });
   });
 
-  afterEach(async function () {
+  afterEach(async function() {
     await render(undefined!, document.body);
     events.reset();
   });

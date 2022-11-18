@@ -131,8 +131,7 @@ const wrapper = (CTA, style, type) => {
       {type === 'jump' || type?.[0] === 'jump' || type?.[1] === 'jump' ? (
         <div
           className="bx--row"
-          style={{ marginTop: '80px', marginBottom: '80px' }}
-        >
+          style={{ marginTop: '80px', marginBottom: '80px' }}>
           <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
             {(() => {
               let content = [];
@@ -195,7 +194,7 @@ const props = {
     ];
 
     const customVideoTitles = type
-      .filter((ctaType) => ctaType === 'video')
+      .filter(ctaType => ctaType === 'video')
       .map((_ctaType, index) =>
         text(
           `Button ${index + 1} custom video title`,
@@ -203,7 +202,7 @@ const props = {
         )
       );
     const customVideoDescriptions = type
-      .filter((ctaType) => ctaType === 'video')
+      .filter(ctaType => ctaType === 'video')
       .map((_ctaType, index) =>
         text(
           `Button ${index + 1}`,

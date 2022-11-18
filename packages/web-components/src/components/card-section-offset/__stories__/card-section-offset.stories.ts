@@ -27,8 +27,7 @@ const ctaTypes = {
 const hrefsForType = {
   [CTA_TYPE.LOCAL]: 'https://www.example.com',
   [CTA_TYPE.EXTERNAL]: 'https://www.example.com',
-  [CTA_TYPE.DOWNLOAD]:
-    'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
+  [CTA_TYPE.DOWNLOAD]: 'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
   [CTA_TYPE.VIDEO]: '1_9h94wo6b',
 };
 
@@ -42,12 +41,9 @@ const knobNamesForType = {
 const defaultCardGroupItem = html`
   <dds-card-group-item href="https://example.com">
     <dds-card-eyebrow>Label</dds-card-eyebrow>
-    <dds-card-heading
-      >Lorem ipsum dolor sit amet, pro graeco tibique an</dds-card-heading
-    >
+    <dds-card-heading>Lorem ipsum dolor sit amet, pro graeco tibique an</dds-card-heading>
     <p>
-      Lorem ipsum dolor sit amet, habeo iisque eum ex. Vel postea singulis
-      democritum ex. Illud ullum graecis
+      Lorem ipsum dolor sit amet, habeo iisque eum ex. Vel postea singulis democritum ex. Illud ullum graecis
     </p>
     <dds-card-cta-footer slot="footer">
       ${ArrowRight20({ slot: 'icon' })}
@@ -55,9 +51,8 @@ const defaultCardGroupItem = html`
   </dds-card-group-item>
 `;
 
-export const Default = (args) => {
-  const { heading, cards, ctaType, ctaCopy, download, href, alt, defaultSrc } =
-    args?.CardSectionOffset ?? {};
+export const Default = args => {
+  const { heading, cards, ctaType, ctaCopy, download, href, alt, defaultSrc } = args?.CardSectionOffset ?? {};
   return html`
     <dds-card-section-offset>
       <dds-background-media
@@ -67,9 +62,7 @@ export const Default = (args) => {
         default-src="${ifNonNull(defaultSrc)}"
       >
       </dds-background-media>
-      <dds-content-block-heading slot="heading"
-        >${heading}</dds-content-block-heading
-      >
+      <dds-content-block-heading slot="heading">${heading}</dds-content-block-heading>
       <dds-text-cta
         slot="action"
         icon-placement="right"
@@ -89,10 +82,12 @@ export const Default = (args) => {
 export default {
   title: 'Components/Card section offset',
   decorators: [
-    (story) => html`
+    story => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <dds-video-cta-container> ${story()} </dds-video-cta-container>
+          <dds-video-cta-container>
+            ${story()}
+          </dds-video-cta-container>
         </div>
       </div>
     `,
@@ -103,26 +98,15 @@ export default {
     knobs: {
       CardSectionOffset: () => {
         const ctaType = select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL);
-        const ctaCopy =
-          ctaType === CTA_TYPE.VIDEO
-            ? undefined
-            : textNullable('Copy text', 'Lorem ipsum dolor sit amet');
+        const ctaCopy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text', 'Lorem ipsum dolor sit amet');
         const download =
-          ctaType !== CTA_TYPE.DOWNLOAD
-            ? undefined
-            : textNullable(
-                'Download target (download)',
-                'IBM_Annual_Report_2019.pdf'
-              );
+          ctaType !== CTA_TYPE.DOWNLOAD ? undefined : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
         return {
           heading: 'Aliquam condimentum interdum',
           ctaCopy,
           ctaType,
           download,
-          href: textNullable(
-            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
-            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
-          ),
+          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR]),
           cards: Array.from({
             length: 3,
           }).map(() => defaultCardGroupItem),
@@ -139,11 +123,7 @@ export default {
           ctaType: 'local',
           download: undefined,
           href: 'https://www.example.com',
-          cards: [
-            defaultCardGroupItem,
-            defaultCardGroupItem,
-            defaultCardGroupItem,
-          ],
+          cards: [defaultCardGroupItem, defaultCardGroupItem, defaultCardGroupItem],
           alt: 'Image alt text',
           defaultSrc: image,
         },

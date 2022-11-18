@@ -29,15 +29,13 @@ const iconOptions = {
   PDF: 'Pdf20',
 };
 
-export const Default = (args) => {
+export const Default = args => {
   const { buttons } = args?.ButtonGroup ?? {};
   return html`
     <dds-button-group>
       ${buttons.map(
-        (elem) => html`
-          <dds-button-group-item href="${elem.href}"
-            >${elem.copy}${elem.renderIcon}</dds-button-group-item
-          >
+        elem => html`
+          <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
         `
       )}
     </dds-button-group>
@@ -47,10 +45,12 @@ export const Default = (args) => {
 export default {
   title: 'Components/Button group',
   decorators: [
-    (story) => html`
+    story => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-sm-16 bx--col-md-6 bx--col-lg-16">${story()}</div>
+          <div class="bx--col-sm-16 bx--col-md-6 bx--col-lg-16">
+            ${story()}
+          </div>
         </div>
       </div>
     `,
@@ -65,10 +65,7 @@ export default {
         }).map((_, i) => ({
           href: textNullable(`Link ${i + 1}`, `https://example.com`),
           copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
-          renderIcon:
-            iconMap[
-              select(`Icon ${i + 1}`, iconOptions, iconOptions.Default) ?? 0
-            ],
+          renderIcon: iconMap[select(`Icon ${i + 1}`, iconOptions, iconOptions.Default) ?? 0],
         })),
       }),
     },

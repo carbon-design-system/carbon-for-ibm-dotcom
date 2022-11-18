@@ -93,14 +93,11 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
     const { children, filterCutoff } = this;
     let result: boolean = false;
 
-    [...children].slice(filterCutoff, children.length).forEach((elem) => {
+    [...children].slice(filterCutoff, children.length).forEach(elem => {
       if (elem instanceof DDSFilterPanelCheckbox) {
         if (elem.checked) result = true;
       }
-      if (
-        elem instanceof DDSFilterPanelInputSelectItem ||
-        elem instanceof DDSFilterPanelInputSelect
-      ) {
+      if (elem instanceof DDSFilterPanelInputSelectItem || elem instanceof DDSFilterPanelInputSelect) {
         if (elem.selected) result = true;
       }
     });
@@ -115,9 +112,8 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
     const { children, filterCutoff, accordionContent } = this;
     const hasHiddenActiveFilter = this._hasHiddenActiveFilter();
 
-    [...children].slice(filterCutoff, children.length).forEach((elem) => {
-      (elem as HTMLElement).style.display =
-        revealed || hasHiddenActiveFilter ? '' : 'none';
+    [...children].slice(filterCutoff, children.length).forEach(elem => {
+      (elem as HTMLElement).style.display = revealed || hasHiddenActiveFilter ? '' : 'none';
     });
 
     if (!revealed && !hasHiddenActiveFilter) {
@@ -191,7 +187,7 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
         parentHost = parent.host;
       }
       if (parentHost instanceof DDSFilterPanelComposite) {
-        const match = parentHost._filterGroupsAllRevealed.find((entry) => {
+        const match = parentHost._filterGroupsAllRevealed.find(entry => {
           return entry.id === titleText;
         });
         if (match !== undefined) {
@@ -209,9 +205,7 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
     }
   }
 
-  protected updated(
-    _changedProperties: Map<string | number | symbol, unknown>
-  ): void {
+  protected updated(_changedProperties: Map<string | number | symbol, unknown>): void {
     const { allRevealed, _focusedElement } = this;
     if (this._needsViewAll()) {
       const prevOpen = _changedProperties.get('open');

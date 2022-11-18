@@ -35,9 +35,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 
 @customElement(`${ddsPrefix}-image-with-caption`)
-class DDSImageWithCaption extends StableSelectorMixin(
-  ModalRenderMixin(FocusMixin(LitElement))
-) {
+class DDSImageWithCaption extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElement))) {
   /**
    * `true` handles re-opening after model is closed
    *
@@ -101,9 +99,7 @@ class DDSImageWithCaption extends StableSelectorMixin(
   createRenderRoot() {
     return this.attachShadow({
       mode: 'open',
-      delegatesFocus:
-        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
-        537,
+      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
     });
   }
 
@@ -126,14 +122,7 @@ class DDSImageWithCaption extends StableSelectorMixin(
   }
 
   render() {
-    const {
-      alt,
-      defaultSrc,
-      heading,
-      launchLightboxButtonAssistiveText,
-      lightbox,
-      _handleClick: handleClick,
-    } = this;
+    const { alt, defaultSrc, heading, launchLightboxButtonAssistiveText, lightbox, _handleClick: handleClick } = this;
     return html`
       ${lightbox
         ? html`
@@ -142,24 +131,18 @@ class DDSImageWithCaption extends StableSelectorMixin(
               aria-label="${ifNonNull(launchLightboxButtonAssistiveText)}"
               @click="${handleClick}"
             >
-              <dds-image
-                alt="${ifNonNull(alt)}"
-                default-src="${ifNonNull(defaultSrc)}"
-                ><slot></slot
-              ></dds-image>
+              <dds-image alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"><slot></slot></dds-image>
               <div class="${prefix}--image-with-caption__zoom-button">
                 ${ZoomIn20()}
               </div>
             </button>
           `
         : html`
-            <dds-image
-              alt="${ifNonNull(alt)}"
-              default-src="${ifNonNull(defaultSrc)}"
-              ><slot></slot
-            ></dds-image>
+            <dds-image alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"><slot></slot></dds-image>
           `}
-      <p class="${prefix}--image__caption">${heading}</p>
+      <p class="${prefix}--image__caption">
+        ${heading}
+      </p>
     `;
   }
 

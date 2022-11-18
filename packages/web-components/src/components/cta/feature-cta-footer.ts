@@ -27,9 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-feature-cta-footer
  */
 @customElement(`${ddsPrefix}-feature-cta-footer`)
-class DDSFeatureCTAFooter extends VideoCTAMixin(
-  CTAMixin(DDSFeatureCardFooter)
-) {
+class DDSFeatureCTAFooter extends VideoCTAMixin(CTAMixin(DDSFeatureCardFooter)) {
   /**
    * The formatter for the video caption, composed with the video name and the video duration.
    * Should be changed upon the locale the UI is rendered with.

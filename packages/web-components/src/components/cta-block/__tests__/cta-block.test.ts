@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,26 +15,22 @@ const template = (props?) => {
   const { copy, heading, children } = props ?? {};
   return html`
     <dds-cta-block>
-      <dds-content-block-heading
-        >${ifNonNull(heading)}</dds-content-block-heading
-      >
+      <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
       <dds-cta-block-copy>${ifNonNull(copy)}</dds-cta-block-copy>
       ${children}
     </dds-cta-block>
   `;
 };
 
-describe('dds-cta-block', function () {
-  describe('Misc attributes', function () {
-    it('should render with minimum attributes', async function () {
+describe('dds-cta-block', function() {
+  describe('Misc attributes', function() {
+    it('should render with minimum attributes', async function() {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-cta-block')).toMatchSnapshot({
-        mode: 'shadow',
-      });
+      expect(document.body.querySelector('dds-cta-block')).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes', async function () {
+    it('should render with various attributes', async function() {
       render(
         template({
           heading: 'heading-foo',
@@ -49,13 +45,11 @@ describe('dds-cta-block', function () {
       await Promise.resolve(); // The update cycle of `<dds-cta-section>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
-      expect(document.body.querySelector('dds-cta-block')).toMatchSnapshot({
-        mode: 'shadow',
-      });
+      expect(document.body.querySelector('dds-cta-block')).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 
-  afterEach(async function () {
+  afterEach(async function() {
     await render(undefined!, document.body);
   });
 });

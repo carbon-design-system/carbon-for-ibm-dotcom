@@ -20,7 +20,7 @@ import { COLOR_OPTIONS } from '../defs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.react.mdx';
 
-/* eslint-disable max-len, no-mixed-spaces-and-tabs */
+/* eslint-disable max-len */
 const Desktop = (
   <svg
     // @ts-ignore
