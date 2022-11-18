@@ -27,8 +27,9 @@ const cardGroupItem = html`
   <dds-card-group-item cta-type="local" href="https://example.com">
     <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-      Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
+      sollicitudin, sodales nulla quis, consequat libero.
     </p>
     <dds-card-cta-footer></dds-card-cta-footer>
   </dds-card-group-item>
@@ -50,19 +51,25 @@ const cardGroupItemWithImages = html`
 
 const cardGroupItemWithVideos = html`
   <dds-card-group-item cta-type="video" href="1_9h94wo6b">
-    <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b"> </dds-card-cta-footer>
+    <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b">
+    </dds-card-cta-footer>
   </dds-card-group-item>
 `;
 
-export const Default = args => {
+export const Default = (args) => {
   const { heading, ctaCopy, ctaType, href } = args?.ContentBlockCards ?? {};
   return html`
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-card-group>
-        ${cardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem}
+        ${cardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem}
+        ${cardGroupItem}
       </dds-card-group>
-      <dds-card-link-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+      <dds-card-link-cta
+        slot="footer"
+        cta-type="${ifNonNull(ctaType)}"
+        href="${ifNonNull(href)}"
+      >
         <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
         <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-link-cta>
@@ -70,16 +77,21 @@ export const Default = args => {
   `;
 };
 
-export const withImages = args => {
+export const withImages = (args) => {
   const { heading, ctaCopy, ctaType, href } = args?.ContentBlockCards ?? {};
   return html`
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-card-group>
-        ${cardGroupItemWithImages} ${cardGroupItemWithImages} ${cardGroupItemWithImages} ${cardGroupItemWithImages}
+        ${cardGroupItemWithImages} ${cardGroupItemWithImages}
+        ${cardGroupItemWithImages} ${cardGroupItemWithImages}
         ${cardGroupItemWithImages}
       </dds-card-group>
-      <dds-card-link-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+      <dds-card-link-cta
+        slot="footer"
+        cta-type="${ifNonNull(ctaType)}"
+        href="${ifNonNull(href)}"
+      >
         <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
         <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-link-cta>
@@ -91,16 +103,21 @@ withImages.story = {
   name: 'With images',
 };
 
-export const withVideos = args => {
+export const withVideos = (args) => {
   const { heading, ctaCopy, ctaType, href } = args?.ContentBlockCards ?? {};
   return html`
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-card-group>
-        ${cardGroupItemWithVideos} ${cardGroupItemWithVideos} ${cardGroupItemWithVideos} ${cardGroupItemWithVideos}
+        ${cardGroupItemWithVideos} ${cardGroupItemWithVideos}
+        ${cardGroupItemWithVideos} ${cardGroupItemWithVideos}
         ${cardGroupItemWithVideos}
       </dds-card-group>
-      <dds-card-link-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+      <dds-card-link-cta
+        slot="footer"
+        cta-type="${ifNonNull(ctaType)}"
+        href="${ifNonNull(href)}"
+      >
         <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
         <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-link-cta>
@@ -120,13 +137,11 @@ withVideos.story = {
 export default {
   title: 'Components/Content block cards',
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
           <div class="bx--col-lg-12 bx--no-gutter">
-            <dds-video-cta-container>
-              ${story()}
-            </dds-video-cta-container>
+            <dds-video-cta-container> ${story()} </dds-video-cta-container>
           </div>
         </div>
       </div>
@@ -137,8 +152,14 @@ export default {
     hasStoryPadding: true,
     knobs: {
       ContentBlockCards: () => ({
-        heading: textNullable('Heading (heading):', 'Aliquam condimentum interdum'),
-        ctaCopy: textNullable('Copy text (copy)', 'Lorem ipsum dolor sit ametttt'),
+        heading: textNullable(
+          'Heading (heading):',
+          'Aliquam condimentum interdum'
+        ),
+        ctaCopy: textNullable(
+          'Copy text (copy)',
+          'Lorem ipsum dolor sit ametttt'
+        ),
         ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
         href: textNullable('Href (href):', 'https://example.com'),
       }),

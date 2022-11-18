@@ -18,8 +18,6 @@ import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/componen
 import DDSCalloutWithMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-copy';
 import DDSCalloutWithMediaImage from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-image';
 import DDSCalloutWithMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-video';
-
-// eslint-disable-next-line sort-imports,import/no-duplicates
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 import readme from './README.stories.react.mdx';

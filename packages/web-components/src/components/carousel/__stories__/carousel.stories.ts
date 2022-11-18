@@ -26,24 +26,32 @@ import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x5
 
 const hrefDefault = 'https://www.ibm.com/standards/carbon';
 const headingDefault = 'Lorem ipsum dolor sit amet';
-const copyDefault = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
+const copyDefault =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
 const copyOdd = `
   ${copyDefault}
   Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 `;
 
-const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault, image = undefined } = {}) => html`
+const Card = ({
+  copy = copyDefault,
+  heading = headingDefault,
+  href = hrefDefault,
+  image = undefined,
+} = {}) => html`
   <dds-card href="${ifNonNull(href)}">
     <dds-card-heading>${heading}</dds-card-heading>
     ${copy}
     ${image
       ? html`
-          <dds-image slot="image" alt="example image" default-src="${image}"></dds-image>
+          <dds-image
+            slot="image"
+            alt="example image"
+            default-src="${image}"
+          ></dds-image>
         `
       : null}
-    <dds-card-footer>
-      ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-footer>
+    <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
   </dds-card>
 `;
 
@@ -58,12 +66,14 @@ const CardWithLongHeading = ({
     ${copy}
     ${image
       ? html`
-          <dds-image slot="image" alt="example image" default-src="${image}"></dds-image>
+          <dds-image
+            slot="image"
+            alt="example image"
+            default-src="${image}"
+          ></dds-image>
         `
       : null}
-    <dds-card-footer>
-      ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-footer>
+    <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
   </dds-card>
 `;
 
@@ -78,26 +88,31 @@ const CardWithVideo = ({ copy = copyDefault, href = hrefDefault } = {}) => html`
   </dds-video-cta-container>
 `;
 
-export const Default = args => {
+export const Default = (args) => {
   const { cardSize } = args?.Carousel ?? {};
   const classes = classMap({
     [cardSize]: cardSize,
   });
   return html`
     <dds-carousel class="${classes}">
-      ${Card()}${Card({ copy: copyOdd })}${CardWithLongHeading()}${Card({ copy: copyOdd })}${Card()}
+      ${Card()}${Card({ copy: copyOdd })}${CardWithLongHeading()}${Card({
+        copy: copyOdd,
+      })}${Card()}
     </dds-carousel>
   `;
 };
 
-export const CardsWithImages = args => {
+export const CardsWithImages = (args) => {
   const { cardSize } = args?.Carousel ?? {};
   const classes = classMap({
     [cardSize]: cardSize,
   });
   return html`
     <dds-carousel class="${classes}">
-      ${Card({ image: imgLg2x1 })}${Card({ copy: copyOdd, image: imgLg2x1 })}${Card({ image: imgLg2x1 })}${Card({
+      ${Card({ image: imgLg2x1 })}${Card({
+        copy: copyOdd,
+        image: imgLg2x1,
+      })}${Card({ image: imgLg2x1 })}${Card({
         copy: copyOdd,
         image: imgLg2x1,
       })}${Card({ image: imgLg2x1 })}
@@ -105,28 +120,33 @@ export const CardsWithImages = args => {
   `;
 };
 
-export const CardsWithVideos = args => {
+export const CardsWithVideos = (args) => {
   const { cardSize } = args?.Carousel ?? {};
   const classes = classMap({
     [cardSize]: cardSize,
   });
   return html`
     <dds-carousel class="${classes}">
-      ${CardWithVideo({ href: '1_9h94wo6b' })} ${CardWithVideo({ href: '0_ibuqxqbe' })} ${CardWithVideo({ href: '1_9h94wo6b' })}
-      ${CardWithVideo({ href: '0_ibuqxqbe' })} ${CardWithVideo({ href: '1_9h94wo6b' })} ${CardWithVideo({ href: '0_ibuqxqbe' })}
+      ${CardWithVideo({ href: '1_9h94wo6b' })}
+      ${CardWithVideo({ href: '0_ibuqxqbe' })}
+      ${CardWithVideo({ href: '1_9h94wo6b' })}
+      ${CardWithVideo({ href: '0_ibuqxqbe' })}
+      ${CardWithVideo({ href: '1_9h94wo6b' })}
+      ${CardWithVideo({ href: '0_ibuqxqbe' })}
     </dds-carousel>
   `;
 };
 
-export const CardsWithMedia = args => {
+export const CardsWithMedia = (args) => {
   const { cardSize } = args?.Carousel ?? {};
   const classes = classMap({
     [cardSize]: cardSize,
   });
   return html`
     <dds-carousel class="${classes}">
-      ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '0_ibuqxqbe' })} ${Card({ image: imgLg4x3 })}
-      ${CardWithVideo({ href: '1_9h94wo6b' })} ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '0_ibuqxqbe' })}
+      ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '0_ibuqxqbe' })}
+      ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '1_9h94wo6b' })}
+      ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '0_ibuqxqbe' })}
     </dds-carousel>
   `;
 };
@@ -155,15 +175,13 @@ CardsWithMedia.story = {
 export default {
   title: 'Components/Carousel',
   decorators: [
-    story => {
+    (story) => {
       return html`
         <style>
           ${styles}
         </style>
         <div class="bx--grid">
-          <div class="bx--row">
-            ${story()}
-          </div>
+          <div class="bx--row">${story()}</div>
         </div>
       `;
     },

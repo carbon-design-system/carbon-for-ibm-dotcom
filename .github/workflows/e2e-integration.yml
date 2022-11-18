@@ -2,7 +2,7 @@ name: e2e-integration
 
 on:
   push:
-    branches: [ main, release/* ]
+    branches: [ main, release/*, chore/import-cwc-repo ]
   schedule:
     - cron: '0 20 * * 1-5'
 

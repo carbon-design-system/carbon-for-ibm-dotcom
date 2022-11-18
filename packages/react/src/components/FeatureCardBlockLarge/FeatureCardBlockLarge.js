@@ -20,7 +20,7 @@ const { prefix } = settings;
  * Featured Card Block Large Component.
  * Note: Deprecated, use FeatureCard with size='large' attribute.
  */
-const FeatureCardBlockLarge = props => {
+const FeatureCardBlockLarge = (props) => {
   return (
     props.eyebrow &&
     props.heading &&
@@ -30,7 +30,8 @@ const FeatureCardBlockLarge = props => {
         className={classNames(`${prefix}--feature-card-block-large`, {
           [`${prefix}--feature-card-block-large_no-copy-text`]: !props.copy,
         })}
-        data-autoid={`${stablePrefix}--feature-card-block-large`}>
+        data-autoid={`${stablePrefix}--feature-card-block-large`}
+      >
         <div className={`${prefix}--feature-card-block-large__container`}>
           <Card
             customClassName={`${prefix}--feature-card-block-large__card`}

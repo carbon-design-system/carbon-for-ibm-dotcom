@@ -26,7 +26,8 @@ const PictogramItem = ({
 }) => (
   <div
     className={classNames(className, `${prefix}--pictogram-item`)}
-    data-autoid={`${stablePrefix}--pictogram-item`}>
+    data-autoid={`${stablePrefix}--pictogram-item`}
+  >
     <div className={`${prefix}--pictogram-item__row`}>
       <div className={`${prefix}--pictogram-item__wrapper`}>
         <Pictogram
@@ -37,7 +38,8 @@ const PictogramItem = ({
       </div>
       <div
         data-autoid={`${stablePrefix}--pictogram-item__content`}
-        className={`${prefix}--pictogram-item__content`}>
+        className={`${prefix}--pictogram-item__content`}
+      >
         <ContentItem
           heading={heading}
           copy={copy}

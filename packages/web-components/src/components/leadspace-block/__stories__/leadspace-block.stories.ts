@@ -23,10 +23,17 @@ import readme from './README.stories.mdx';
 import styles from './leadspace-block.stories.scss';
 
 const image = html`
-  <dds-image alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
-    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
-    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
+  <dds-image
+    alt="Image alt text"
+    default-src="${imgLg16x9}"
+    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  >
+    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
+    </dds-image-item>
+    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
+    </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
+    </dds-image-item>
   </dds-image>
 `;
 
@@ -47,26 +54,13 @@ const linkList = html`
 
 const buttonCTA = html`
   <dds-leadspace-block-cta>
-    <dds-button-group-item href="www.ibm.com">Contact sales ${ArrowRight20({ slot: 'icon' })}</dds-button-group-item>
+    <dds-button-group-item href="www.ibm.com"
+      >Contact sales ${ArrowRight20({ slot: 'icon' })}</dds-button-group-item
+    >
   </dds-leadspace-block-cta>
 `;
 
-export const Default = args => {
-  const { title, heading, copy } = args?.LeadSpaceBlock ?? {};
-  return html`
-    <dds-leadspace-block>
-      <dds-leadspace-block-heading>${title}</dds-leadspace-block-heading>
-      <dds-leadspace-block-content>
-        <dds-content-block-heading>${heading}</dds-content-block-heading>
-        <dds-content-block-copy>${copy}</dds-content-block-copy>
-        <dds-leadspace-block-media slot="media">${image}</dds-leadspace-block-media>
-        ${linkList} ${buttonCTA}
-      </dds-leadspace-block-content>
-    </dds-leadspace-block>
-  `;
-};
-
-export const WithVideo = args => {
+export const Default = (args) => {
   const { title, heading, copy } = args?.LeadSpaceBlock ?? {};
   return html`
     <dds-leadspace-block>
@@ -75,7 +69,26 @@ export const WithVideo = args => {
         <dds-content-block-heading>${heading}</dds-content-block-heading>
         <dds-content-block-copy>${copy}</dds-content-block-copy>
         <dds-leadspace-block-media slot="media"
-          ><dds-video-player-container video-id="1_9h94wo6b"></dds-video-player-container
+          >${image}</dds-leadspace-block-media
+        >
+        ${linkList} ${buttonCTA}
+      </dds-leadspace-block-content>
+    </dds-leadspace-block>
+  `;
+};
+
+export const WithVideo = (args) => {
+  const { title, heading, copy } = args?.LeadSpaceBlock ?? {};
+  return html`
+    <dds-leadspace-block>
+      <dds-leadspace-block-heading>${title}</dds-leadspace-block-heading>
+      <dds-leadspace-block-content>
+        <dds-content-block-heading>${heading}</dds-content-block-heading>
+        <dds-content-block-copy>${copy}</dds-content-block-copy>
+        <dds-leadspace-block-media slot="media"
+          ><dds-video-player-container
+            video-id="1_9h94wo6b"
+          ></dds-video-player-container
         ></dds-leadspace-block-media>
         ${linkList} ${buttonCTA}
       </dds-leadspace-block-content>
@@ -90,15 +103,13 @@ WithVideo.story = {
 export default {
   title: 'Components/Lead space block',
   decorators: [
-    story => html`
+    (story) => html`
       <style>
         ${styles}
       </style>
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-lg-9 bx--no-gutter">
-            ${story()}
-          </div>
+          <div class="bx--col-lg-9 bx--no-gutter">${story()}</div>
         </div>
       </div>
     `,
@@ -109,7 +120,10 @@ export default {
     knobs: {
       LeadSpaceBlock: () => ({
         title: text('title (title)', 'Continuous delivery'),
-        heading: text('heading (required):', 'Innovate like a startup and scale for the enterprise '),
+        heading: text(
+          'heading (required):',
+          'Innovate like a startup and scale for the enterprise '
+        ),
         copy: `Automate your software release process with continuous delivery (CD)—the most
             critical part of adopting DevOps. Build, test, and deploy code changes quickly,
             ensuring software is always ready for deployment.`,

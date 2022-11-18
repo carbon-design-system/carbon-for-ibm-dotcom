@@ -21,7 +21,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-leadspace-block-heading
  */
 @customElement(`${ddsPrefix}-leadspace-block-heading`)
-class DDSLeadspaceBlockHeading extends StableSelectorMixin(DDSLeadspaceHeading) {
+class DDSLeadspaceBlockHeading extends StableSelectorMixin(
+  DDSLeadspaceHeading
+) {
   static get stableSelector() {
     return `${ddsPrefix}--leadspace-block__heading`;
   }

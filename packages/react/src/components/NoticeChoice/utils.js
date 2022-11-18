@@ -6,7 +6,7 @@
  */
 
 import CcLcMap from './cc-lc-map';
-export const getMappedValue = locale => {
+export const getMappedValue = (locale) => {
   let CcLcValue = {
     cc: 'us',
     lc: 'en',
