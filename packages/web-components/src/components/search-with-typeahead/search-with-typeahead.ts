@@ -371,9 +371,25 @@ class DDSSearchWithTypeahead extends HostListenerMixin(StableSelectorMixin(BXDro
    * @param event The event.
    */
   private _handleSubmit(event: Event) {
+    const { eventBeforeRedirect } = this.constructor as typeof DDSSearchWithTypeahead;
     const { selectorItemHighlighted } = this.constructor as typeof BXDropdown;
     const highlightedItem = this.shadowRoot!.querySelector(selectorItemHighlighted) as BXDropdownItem;
     if (highlightedItem || !this._searchInputNode.value) {
+      event.preventDefault();
+    }
+
+    if (
+      !this.dispatchEvent(
+        new CustomEvent(eventBeforeRedirect, {
+          bubbles: true,
+          cancelable: true,
+          composed: true,
+          detail: {
+            redirectUrl: this.redirectUrl,
+          },
+        })
+      )
+    ) {
       event.preventDefault();
     }
   }
