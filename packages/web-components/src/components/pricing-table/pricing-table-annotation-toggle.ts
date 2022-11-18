@@ -52,7 +52,12 @@ class DDSPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
   render() {
     const { toggled } = this;
     return html`
-      <button @click="${this._handleClick}" type="button" aria-pressed="${toggled}" aria-label="cell annotations visibility">
+      <button
+        @click="${this._handleClick}"
+        type="button"
+        aria-pressed="${toggled}"
+        aria-label="cell annotations visibility"
+      >
         ${toggled ? Close16() : ChevronDown16()}
       </button>
     `;

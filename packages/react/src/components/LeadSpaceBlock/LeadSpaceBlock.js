@@ -31,7 +31,8 @@ const _renderMedia = (type, data) => {
     return (
       <div
         data-autoid={`${stablePrefix}--leadspace-block__media`}
-        className={`${prefix}--leadspace-block__media`}>
+        className={`${prefix}--leadspace-block__media`}
+      >
         {type === 'image' && <ImageWithCaption {...data} />}
         {type === 'video' && <VideoPlayer {...data} />}
       </div>
@@ -56,7 +57,8 @@ const LeadSpaceBlock = ({
       {title && (
         <h1
           data-autoid={`${stablePrefix}--leadspace-block__title`}
-          className={`${prefix}--leadspace-block__title`}>
+          className={`${prefix}--leadspace-block__title`}
+        >
           {title}
         </h1>
       )}
@@ -66,7 +68,8 @@ const LeadSpaceBlock = ({
   return (
     <div
       data-autoid={`${stablePrefix}--leadspace-block`}
-      className={`${prefix}--leadspace-block`}>
+      className={`${prefix}--leadspace-block`}
+    >
       {pageTitle}
       <ContentBlock heading={heading} copy={copy}>
         {_renderMedia(mediaType, mediaData)}

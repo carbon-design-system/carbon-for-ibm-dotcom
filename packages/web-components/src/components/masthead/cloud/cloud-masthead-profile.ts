@@ -26,7 +26,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-cloud-masthead-profile`)
 class DDSCloudMastheadProfile extends DDSMastheadProfile {
   render() {
-    const { expanded, menuLabel, triggerLabel, _handleClick: handleClick } = this;
+    const {
+      expanded,
+      menuLabel,
+      triggerLabel,
+      _handleClick: handleClick,
+    } = this;
     return html`
       <a
         tabindex="0"

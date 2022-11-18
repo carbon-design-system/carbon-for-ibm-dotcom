@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,18 +34,15 @@ describe('ContentBlockSegmented', () => {
       image: {
         sources: [
           {
-            src:
-              'https://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616',
+            src: 'https://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616',
             breakpoint: 320,
           },
           {
-            src:
-              'https://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616',
+            src: 'https://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616',
             breakpoint: 400,
           },
           {
-            src:
-              'https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
+            src: 'https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
             breakpoint: 672,
           },
         ],

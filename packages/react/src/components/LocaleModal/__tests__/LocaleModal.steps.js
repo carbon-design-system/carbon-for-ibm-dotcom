@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,7 +18,7 @@ describe('LocaleModal', () => {
         '.bx--modal-header__label'
       );
       const styleValues = await page.evaluate(
-        headerLabel =>
+        (headerLabel) =>
           window.getStyleValues(headerLabel, [
             'font-size',
             'font-weight',
@@ -49,7 +49,7 @@ describe('LocaleModal', () => {
         '.bx--locale-modal__search-text'
       );
       const styleValues = await page.evaluate(
-        searchText =>
+        (searchText) =>
           window.getStyleValues(searchText, [
             'font-size',
             'font-weight',

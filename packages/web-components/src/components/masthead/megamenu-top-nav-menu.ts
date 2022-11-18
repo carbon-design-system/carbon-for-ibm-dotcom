@@ -41,7 +41,9 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
    * scrollbar width.
    */
   @state()
-  private _scrollBarWidth = this.ownerDocument!.defaultView!.innerWidth - this.ownerDocument!.body.offsetWidth;
+  private _scrollBarWidth =
+    this.ownerDocument!.defaultView!.innerWidth -
+    this.ownerDocument!.body.offsetWidth;
 
   /**
    * Removes inherited _handleBlur method from BXHeaderMenu
@@ -80,12 +82,16 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   /**
    * The observer for the resize of the viewport.
    */
-  private _observeResizeRoot = records => {
+  private _observeResizeRoot = (records) => {
     const { contentRect } = records[records.length - 1];
     // A workaround for Safari bug where `100vw` in Shadow DOM causes delayed rendering
     // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4493
-    const { customPropertyViewportWidth } = this.constructor as typeof DDSMegaMenuTopNavMenu;
-    this.style.setProperty(customPropertyViewportWidth, `${contentRect.width}px`);
+    const { customPropertyViewportWidth } = this
+      .constructor as typeof DDSMegaMenuTopNavMenu;
+    this.style.setProperty(
+      customPropertyViewportWidth,
+      `${contentRect.width}px`
+    );
   };
 
   connectedCallback() {
@@ -112,9 +118,14 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
     super.updated(changedProperties);
     if (changedProperties.has('expanded')) {
       const doc = this.getRootNode() as Document;
-      forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
-        (item as DDSMegaMenuOverlay).active = this.expanded;
-      });
+      forEach(
+        doc.querySelectorAll(
+          (this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay
+        ),
+        (item) => {
+          (item as DDSMegaMenuOverlay).active = this.expanded;
+        }
+      );
 
       // add the scrollbar width as right-margin to prevent content from shifting when
       // scrollbar disappears on megamenu expand
@@ -131,11 +142,19 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
       if (this.expanded) {
         doc.body.style.marginRight = `${this._scrollBarWidth}px`;
         doc.body.style.overflow = `hidden`;
-        forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
-          (item as DDSMegaMenuOverlay).active = this.expanded;
-        });
+        forEach(
+          doc.querySelectorAll(
+            (this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay
+          ),
+          (item) => {
+            (item as DDSMegaMenuOverlay).active = this.expanded;
+          }
+        );
         if (cloudMasthead) {
-          if (doc.body.classList.contains('ibm-masthead-sticky') && doc.body.classList.contains('ibm-masthead-sticky-showing')) {
+          if (
+            doc.body.classList.contains('ibm-masthead-sticky') &&
+            doc.body.classList.contains('ibm-masthead-sticky-showing')
+          ) {
             cloudMasthead.style.marginRight = `${this._scrollBarWidth}px`;
           }
         } else if (masthead) {
@@ -145,7 +164,10 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         doc.body.style.marginRight = '0px';
         doc.body.style.overflow = ``;
         if (cloudMasthead) {
-          if (doc.body.classList.contains('ibm-masthead-sticky') && doc.body.classList.contains('ibm-masthead-sticky-showing')) {
+          if (
+            doc.body.classList.contains('ibm-masthead-sticky') &&
+            doc.body.classList.contains('ibm-masthead-sticky-showing')
+          ) {
             cloudMasthead.style.marginRight = '0px';
           }
         } else if (masthead) {
@@ -161,7 +183,10 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         if (changedProperties.get('expanded') === false) {
           setTimeout(() => {
             const { activeElement } = document;
-            if (activeElement === null || activeElement.tagName.toLowerCase() === 'body') {
+            if (
+              activeElement === null ||
+              activeElement.tagName.toLowerCase() === 'body'
+            ) {
               this._topMenuItem.focus();
             }
           }, 0);

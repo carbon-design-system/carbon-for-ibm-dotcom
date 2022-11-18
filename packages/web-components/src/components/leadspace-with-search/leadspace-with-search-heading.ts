@@ -21,7 +21,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-leadspace-with-search-heading
  */
 @customElement(`${ddsPrefix}-leadspace-with-search-heading`)
-class DDSLeadspaceWithSearchHeading extends StableSelectorMixin(DDSLeadspaceBlockHeading) {
+class DDSLeadspaceWithSearchHeading extends StableSelectorMixin(
+  DDSLeadspaceBlockHeading
+) {
   static get stableSelector() {
     return `${ddsPrefix}--leadspace-with-search__heading`;
   }

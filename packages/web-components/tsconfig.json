@@ -6,6 +6,7 @@
     "lib": ["es2017", "esnext.array", "dom", "dom.iterable"],
     "typeRoots": ["src/typings", "tests/typings", "node_modules/@types", "../../node_modules/@types"],
     "declaration": true,
+    "rootDir": ".",
     "sourceMap": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,

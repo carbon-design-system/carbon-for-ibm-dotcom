@@ -45,7 +45,8 @@ const AudioPlayerCaptionsMenu = ({
             flipped={true}
             iconDescription={closedCaptionsHelperText}
             selectorPrimaryFocus={`.${prefix}--audio-player__button-for-closed-caption-${audioCaption.toLowerCase()}`}
-            onOpen={() => setDisplayVolumeControl(false)}>
+            onOpen={() => setDisplayVolumeControl(false)}
+          >
             <OverflowMenuItem
               className={`${prefix}--audio-player__button-for-closed-caption-`}
               itemText="Off"

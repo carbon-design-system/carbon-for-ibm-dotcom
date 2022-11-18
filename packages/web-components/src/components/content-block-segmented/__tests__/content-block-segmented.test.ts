@@ -32,22 +32,29 @@ const template = (props?) => {
   `;
 };
 
-describe('dds-content-block-segmented', function() {
-  describe('Misc attributes', function() {
-    it('should render with minimum attributes', async function() {
+describe('dds-content-block-segmented', function () {
+  describe('Misc attributes', function () {
+    it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-content-block-segmented')).toMatchSnapshot({ mode: 'shadow' });
+      expect(
+        document.body.querySelector('dds-content-block-segmented')
+      ).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes', async function() {
+    it('should render with various attributes', async function () {
       render(
         template({
           children: html`
             ${image}
-            <dds-content-block-segmented-item> </dds-content-block-segmented-item>
+            <dds-content-block-segmented-item>
+            </dds-content-block-segmented-item>
             <dds-content-block-complementary> </dds-content-block-complementary>
-            <dds-card-cta slot="footer" cta-type="local" href="https://example.com">
+            <dds-card-cta
+              slot="footer"
+              cta-type="local"
+              href="https://example.com"
+            >
               Lorem ipsum dolor
             </dds-card-cta>
           `,
@@ -55,11 +62,13 @@ describe('dds-content-block-segmented', function() {
         document.body
       );
       await Promise.resolve();
-      expect(document.body.querySelector('dds-content-block-segmented')).toMatchSnapshot({ mode: 'shadow' });
+      expect(
+        document.body.querySelector('dds-content-block-segmented')
+      ).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

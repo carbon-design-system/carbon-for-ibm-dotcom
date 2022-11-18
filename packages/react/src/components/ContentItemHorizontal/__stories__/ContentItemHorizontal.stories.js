@@ -49,8 +49,7 @@ export default {
         ContentItemHorizontal: {
           eyebrow: 'Lorem ipsum',
           heading: 'Aliquam condimentum',
-          copy:
-            'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
+          copy: 'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
         },
       },
     },
@@ -77,7 +76,8 @@ export const WithMedia = () => {
       <a
         className="bx--link"
         target="_blank"
-        href="https://www.ibm.com/standards/carbon/web-components/react/?path=/story/components-content-item-horizontal--with-media">
+        href="https://www.ibm.com/standards/carbon/web-components/react/?path=/story/components-content-item-horizontal--with-media"
+      >
         React wrapper
       </a>
       .
@@ -105,7 +105,8 @@ export const WithThumbnail = () => {
       <a
         className="bx--link"
         target="_blank"
-        href="https://www.ibm.com/standards/carbon/web-components/react/?path=/story/components-content-item-horizontal--with-thumbnail">
+        href="https://www.ibm.com/standards/carbon/web-components/react/?path=/story/components-content-item-horizontal--with-thumbnail"
+      >
         React wrapper
       </a>
       .

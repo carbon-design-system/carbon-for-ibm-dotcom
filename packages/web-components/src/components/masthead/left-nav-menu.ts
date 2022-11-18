@@ -34,8 +34,12 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
    *
    * @param expanded The new expanded state.
    */
-  private _handleUserInitiatedToggle(expanded = !this.expanded, panelId = this.panelId) {
-    const { eventBeforeToggle, eventToggle } = this.constructor as typeof DDSLeftNavMenu;
+  private _handleUserInitiatedToggle(
+    expanded = !this.expanded,
+    panelId = this.panelId
+  ) {
+    const { eventBeforeToggle, eventToggle } = this
+      .constructor as typeof DDSLeftNavMenu;
     const init = {
       bubbles: true,
       cancelable: true,
@@ -83,7 +87,12 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
   title = '';
 
   render() {
-    const { active, expanded, title, _handleClickExpando: handleClickExpando } = this;
+    const {
+      active,
+      expanded,
+      title,
+      _handleClickExpando: handleClickExpando,
+    } = this;
     const buttonClasses = classMap({
       [`${prefix}--side-nav__submenu`]: true,
       [`${prefix}--masthead__side-nav--submemu--selected`]: active,
@@ -100,7 +109,9 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
         >
           <div class="${prefix}--side-nav__submenu-content">
             <span class="${prefix}--side-nav__submenu-title">${title}</span>
-            <div class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron">
+            <div
+              class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron"
+            >
               ${ChevronDown20()}
             </div>
           </div>

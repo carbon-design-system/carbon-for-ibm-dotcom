@@ -26,7 +26,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot .
  */
 @customElement(`${ddsPrefix}-cta-block-item-row`)
-class DDSCTABlockItemRow extends ParentVisibilityMixin(StableSelectorMixin(LitElement)) {
+class DDSCTABlockItemRow extends ParentVisibilityMixin(
+  StableSelectorMixin(LitElement)
+) {
   /** Defines if the bottom border is rendered */
   @property({ type: Boolean, reflect: true, attribute: 'no-border' })
   _noBorder = false;
@@ -75,14 +77,14 @@ class DDSCTABlockItemRow extends ParentVisibilityMixin(StableSelectorMixin(LitEl
   private _setSameHeight = () => {
     window.requestAnimationFrame(() => {
       sameHeight(
-        this._childItemHeadings.filter(e => {
+        this._childItemHeadings.filter((e) => {
           return e;
         }),
         'md'
       );
 
       sameHeight(
-        this._childItemCopies.filter(e => {
+        this._childItemCopies.filter((e) => {
           return e;
         }),
         'md'
@@ -103,14 +105,21 @@ class DDSCTABlockItemRow extends ParentVisibilityMixin(StableSelectorMixin(LitEl
    */
   protected _handleSlotChange(event: Event) {
     const { target } = event;
-    const { selectorItem, selectorItemHeading, selectorItemCopy } = this.constructor as typeof DDSCTABlockItemRow;
+    const { selectorItem, selectorItemHeading, selectorItemCopy } = this
+      .constructor as typeof DDSCTABlockItemRow;
 
-    const childItems = (target as HTMLSlotElement).assignedNodes().filter(elem => (elem as HTMLElement).matches?.(selectorItem));
+    const childItems = (target as HTMLSlotElement)
+      .assignedNodes()
+      .filter((elem) => (elem as HTMLElement).matches?.(selectorItem));
 
     if (childItems) {
-      childItems.forEach(e => {
-        this._childItemHeadings.push((e as HTMLElement).querySelector(selectorItemHeading));
-        this._childItemCopies.push((e as HTMLElement).querySelector(selectorItemCopy));
+      childItems.forEach((e) => {
+        this._childItemHeadings.push(
+          (e as HTMLElement).querySelector(selectorItemHeading)
+        );
+        this._childItemCopies.push(
+          (e as HTMLElement).querySelector(selectorItemCopy)
+        );
       });
     }
 
@@ -118,9 +127,7 @@ class DDSCTABlockItemRow extends ParentVisibilityMixin(StableSelectorMixin(LitEl
   }
 
   render() {
-    return html`
-      <slot @slotchange="${this._handleSlotChange}"></slot>
-    `;
+    return html` <slot @slotchange="${this._handleSlotChange}"></slot> `;
   }
 
   connectedCallback() {
@@ -143,7 +150,10 @@ class DDSCTABlockItemRow extends ParentVisibilityMixin(StableSelectorMixin(LitEl
    */
   updated(changedProperties) {
     if (changedProperties.has('_noBorder')) {
-      this.classList.toggle(`${prefix}--cta-block-item-row__border`, !this._noBorder);
+      this.classList.toggle(
+        `${prefix}--cta-block-item-row__border`,
+        !this._noBorder
+      );
     }
   }
 

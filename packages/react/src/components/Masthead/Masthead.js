@@ -293,7 +293,7 @@ const Masthead = ({
             if (
               menuItems[i]?.url === currentUrlPath ||
               menuItems[i]?.megapanelContent?.quickLinks?.links?.filter(
-                link => link.url === currentUrlPath
+                (link) => link.url === currentUrlPath
               ).length
             ) {
               matchFound = true;
@@ -319,7 +319,8 @@ const Masthead = ({
             <div className={`${prefix}--masthead__l0`}>
               <Header
                 aria-label="IBM"
-                data-autoid={`${stablePrefix}--masthead`}>
+                data-autoid={`${stablePrefix}--masthead`}
+              >
                 <SkipToContent />
 
                 {(mastheadL1Data || navigation) && (
@@ -329,7 +330,7 @@ const Masthead = ({
                     onClick={onClickSideNavExpand}
                     isActive={isSideNavExpanded}
                     className={headerSearchClasses}
-                    onBlur={e => {
+                    onBlur={(e) => {
                       const platform = e.target.parentElement.querySelector(
                         `nav .${prefix}--side-nav__submenu-platform`
                       );
@@ -381,7 +382,8 @@ const Masthead = ({
                 />
 
                 <div
-                  className={`${prefix}--header__search ${headerSearchClasses}`}>
+                  className={`${prefix}--header__search ${headerSearchClasses}`}
+                >
                   {navigation && !mastheadL1Data && (
                     <MastheadTopNav
                       {...mastheadProps}

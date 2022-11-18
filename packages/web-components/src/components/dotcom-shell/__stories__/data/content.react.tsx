@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable max-len */
 /**
  * Copyright IBM Corp. 2016, 2022

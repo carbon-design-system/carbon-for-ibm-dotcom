@@ -70,7 +70,8 @@ export const WithContinuousAnimations = () => {
         <ScrollAnimations
           animation={'fade'}
           selectorTargets={selectorTargets}
-          keepAnimations={true}>
+          keepAnimations={true}
+        >
           <Content />
         </ScrollAnimations>
       </div>
@@ -92,7 +93,8 @@ export const SlideUp = () => {
         <ScrollAnimations
           animation={'slide-up'}
           selectorTargets={selectorTargets}
-          keepAnimations={true}>
+          keepAnimations={true}
+        >
           <Content />
         </ScrollAnimations>
       </div>
@@ -115,7 +117,8 @@ export const SlideUpRight = () => {
         <ScrollAnimations
           animation={'slide-up-right'}
           selectorTargets={selectorTargets}
-          keepAnimations={true}>
+          keepAnimations={true}
+        >
           <Content />
         </ScrollAnimations>
       </div>
@@ -138,7 +141,8 @@ export const SlideRight = () => {
         <ScrollAnimations
           animation={'slide-right'}
           selectorTargets={selectorTargets}
-          keepAnimations={true}>
+          keepAnimations={true}
+        >
           <Content />
         </ScrollAnimations>
       </div>
@@ -161,7 +165,8 @@ export const SlideDownRight = () => {
         <ScrollAnimations
           animation={'slide-down-right'}
           selectorTargets={selectorTargets}
-          keepAnimations={true}>
+          keepAnimations={true}
+        >
           <Content />
         </ScrollAnimations>
       </div>
@@ -184,7 +189,8 @@ export const SlideDown = () => {
         <ScrollAnimations
           animation={'slide-down'}
           selectorTargets={selectorTargets}
-          keepAnimations={true}>
+          keepAnimations={true}
+        >
           <Content />
         </ScrollAnimations>
       </div>
@@ -207,7 +213,8 @@ export const SlideDownLeft = () => {
         <ScrollAnimations
           animation={'slide-down-left'}
           selectorTargets={selectorTargets}
-          keepAnimations={true}>
+          keepAnimations={true}
+        >
           <Content />
         </ScrollAnimations>
       </div>
@@ -230,7 +237,8 @@ export const SlideLeft = () => {
         <ScrollAnimations
           animation={'slide-left'}
           selectorTargets={selectorTargets}
-          keepAnimations={true}>
+          keepAnimations={true}
+        >
           <Content />
         </ScrollAnimations>
       </div>
@@ -253,7 +261,8 @@ export const SlideUpLeft = () => {
         <ScrollAnimations
           animation={'slide-up-left'}
           selectorTargets={selectorTargets}
-          keepAnimations={true}>
+          keepAnimations={true}
+        >
           <Content />
         </ScrollAnimations>
       </div>

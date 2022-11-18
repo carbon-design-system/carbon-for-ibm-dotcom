@@ -14,7 +14,9 @@ import DDSPricingTableRow from './pricing-table-row';
  * Sets a CSS custom property on the given row that indicates the default
  * number of columns each of that row's cells row should span.
  */
-export const setColumnWidth = (row: DDSPricingTableHeaderRow | DDSPricingTableRow) => {
+export const setColumnWidth = (
+  row: DDSPricingTableHeaderRow | DDSPricingTableRow
+) => {
   const columnCount = row.children.length;
   let defaultColumnWidth: string;
   if (columnCount >= 6) {

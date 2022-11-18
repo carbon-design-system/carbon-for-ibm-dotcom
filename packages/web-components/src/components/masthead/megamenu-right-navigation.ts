@@ -51,7 +51,9 @@ class DDSMegaMenuRightNavigation extends LitElement {
    */
   protected _getClassNames() {
     return classMap({
-      [`${prefix}--masthead__megamenu--hasHighlights`]: this.styleScheme === MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION,
+      [`${prefix}--masthead__megamenu--hasHighlights`]:
+        this.styleScheme ===
+        MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION,
       [`${prefix}--masthead__megamenu--hasViewAllLink`]: this.viewAllHref,
       [`${prefix}--masthead__megamenu__categories`]: true,
     });
@@ -63,11 +65,15 @@ class DDSMegaMenuRightNavigation extends LitElement {
         <slot></slot>
       </div>
       ${this.viewAllHref &&
-        html`
-          <dds-megamenu-link-with-icon href="${this.viewAllHref}" style-scheme="view-all" part="view-all">
-            <span>${this.viewAllTitle}</span>${ArrowRight16({ slot: 'icon' })}
-          </dds-megamenu-link-with-icon>
-        `}
+      html`
+        <dds-megamenu-link-with-icon
+          href="${this.viewAllHref}"
+          style-scheme="view-all"
+          part="view-all"
+        >
+          <span>${this.viewAllTitle}</span>${ArrowRight16({ slot: 'icon' })}
+        </dds-megamenu-link-with-icon>
+      `}
     `;
   }
 

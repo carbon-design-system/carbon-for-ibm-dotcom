@@ -40,7 +40,7 @@ const FeatureCTA = ({
             },
           })}
           size={size}
-          onClick={e => CTALogic.setLightBox(e, openLightBox)}
+          onClick={(e) => CTALogic.setLightBox(e, openLightBox)}
         />
       )}
     </div>
