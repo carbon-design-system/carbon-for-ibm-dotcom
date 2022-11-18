@@ -16,7 +16,9 @@ const svg2js = require('svgo/lib/svgo/svg2js');
  * @returns {object} The first `<svg>` in the given SVG2JS result.
  */
 function findRootNode(node) {
-  return node.elem === 'svg' ? node : node.content && node.content.find((item) => findRootNode(item));
+  return node.elem === 'svg'
+    ? node
+    : node.content && node.content.find((item) => findRootNode(item));
 }
 
 /**

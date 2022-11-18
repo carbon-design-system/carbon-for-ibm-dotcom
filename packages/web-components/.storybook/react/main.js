@@ -24,8 +24,10 @@ const readFileAsync = promisify(readFile);
 const writeFileAsync = promisify(writeFile);
 const mkdirpAsync = promisify(mkdirp);
 
-const arrayify = (value) => (Array.isArray(value) ? value : value != null ? [value] : []); // eslint-disable-line no-nested-ternary
-const testMatches = (test, s) => arrayify(test).some((item) => item.test && item.test(s));
+const arrayify = (value) =>
+  Array.isArray(value) ? value : value != null ? [value] : []; // eslint-disable-line no-nested-ternary
+const testMatches = (test, s) =>
+  arrayify(test).some((item) => item.test && item.test(s));
 
 const buildCreateReactCustomElementTypeBabelOpts = {
   babelrc: false,
@@ -86,9 +88,20 @@ class CreateReactCustomElementTypeProxyPlugin {
         callback();
         return;
       }
-      const src = path.resolve(__dirname, '../../src/components', `${tokens[5]}.ts`);
-      const dst = path.resolve(__dirname, '../../es/components-react', `${tokens[5]}.js`);
-      (process.env.NODE_ENV === 'production' ? Promise.resolve() : buildReactCustomElementTypeOnTheFly(dst, src)).then(() => {
+      const src = path.resolve(
+        __dirname,
+        '../../src/components',
+        `${tokens[5]}.ts`
+      );
+      const dst = path.resolve(
+        __dirname,
+        '../../es/components-react',
+        `${tokens[5]}.js`
+      );
+      (process.env.NODE_ENV === 'production'
+        ? Promise.resolve()
+        : buildReactCustomElementTypeOnTheFly(dst, src)
+      ).then(() => {
         request.path = dst;
         callback();
       }, callback);
@@ -97,7 +110,11 @@ class CreateReactCustomElementTypeProxyPlugin {
 }
 
 module.exports = {
-  stories: ['../../docs/*.mdx', '../../src/**/*.stories.react.tsx', '../../src/**/*.stories.react.mdx'],
+  stories: [
+    '../../docs/*.mdx',
+    '../../src/**/*.stories.react.tsx',
+    '../../src/**/*.stories.react.mdx',
+  ],
   addons,
   framework: '@storybook/react',
   managerWebpack,
@@ -112,17 +129,23 @@ module.exports = {
     if (!massagedConfig.resolve.plugins) {
       massagedConfig.resolve.plugins = [];
     }
-    massagedConfig.resolve.plugins.push(new CreateReactCustomElementTypeProxyPlugin());
+    massagedConfig.resolve.plugins.push(
+      new CreateReactCustomElementTypeProxyPlugin()
+    );
     massagedConfig.module.rules = deepReplace(
       massagedConfig.module.rules,
       (value, key) =>
-        key === 'test' && testMatches(value, 'button.stories.mdx') && !testMatches(value, 'button.stories.react.mdx'),
+        key === 'test' &&
+        testMatches(value, 'button.stories.mdx') &&
+        !testMatches(value, 'button.stories.react.mdx'),
       (value) => [...arrayify(value), /\.stories\.react.mdx$/]
     );
     massagedConfig.module.rules = deepReplace(
       massagedConfig.module.rules,
       (value, key) =>
-        key === 'exclude' && testMatches(value, 'button.stories.mdx') && !testMatches(value, 'button.stories.react.mdx'),
+        key === 'exclude' &&
+        testMatches(value, 'button.stories.mdx') &&
+        !testMatches(value, 'button.stories.react.mdx'),
       (value) => [...arrayify(value), /\.stories\.react.mdx$/]
     );
     massagedConfig.module.rules.unshift({

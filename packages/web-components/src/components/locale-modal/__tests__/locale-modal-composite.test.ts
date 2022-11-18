@@ -76,15 +76,15 @@ const template = (props?) => {
   `;
 };
 
-describe('dds-locale-modal-composite', function() {
-  describe('Misc attributes', function() {
-    it('should render minimum attributes', async function() {
+describe('dds-locale-modal-composite', function () {
+  describe('Misc attributes', function () {
+    it('should render minimum attributes', async function () {
       render(template({ localeList: minimumLocaleList }), document.body);
       await Promise.resolve();
       expect(document.querySelector('dds-locale-modal')).toMatchSnapshot();
     });
 
-    it('should render various attributes', async function() {
+    it('should render various attributes', async function () {
       render(
         template({
           langDisplay: 'lang-display-foo',
@@ -98,7 +98,7 @@ describe('dds-locale-modal-composite', function() {
     });
   });
 
-  afterEach(function() {
+  afterEach(function () {
     render(undefined!, document.body);
   });
 });

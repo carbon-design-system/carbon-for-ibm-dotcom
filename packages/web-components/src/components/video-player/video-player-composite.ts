@@ -15,7 +15,10 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
-import { VIDEO_PLAYER_CONTENT_STATE, VIDEO_PLAYER_PLAYING_MODE } from './video-player';
+import {
+  VIDEO_PLAYER_CONTENT_STATE,
+  VIDEO_PLAYER_PLAYING_MODE,
+} from './video-player';
 // Above import is interface-only ref and thus code won't be brought into the build
 import './video-player';
 
@@ -27,7 +30,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-video-player-composite
  */
 @customElement(`${ddsPrefix}-video-player-composite`)
-class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitElement)) {
+class DDSVideoPlayerComposite extends HybridRenderMixin(
+  HostListenerMixin(LitElement)
+) {
   /**
    * The placeholder for `_loadVideoData()` Redux action that may be mixed in.
    *
@@ -61,8 +66,10 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    */
   protected _activateEmbeddedVideo(videoId: string) {
     const { embeddedVideos = {} } = this;
-    Object.keys(embeddedVideos).forEach(key => {
-      embeddedVideos[key].sendNotification(key === videoId ? 'doPlay' : 'doStop');
+    Object.keys(embeddedVideos).forEach((key) => {
+      embeddedVideos[key].sendNotification(
+        key === videoId ? 'doPlay' : 'doStop'
+      );
     });
   }
 
@@ -70,7 +77,8 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    * The video player.
    */
   protected get _videoPlayer() {
-    const { selectorVideoPlayer } = this.constructor as typeof DDSVideoPlayerComposite;
+    const { selectorVideoPlayer } = this
+      .constructor as typeof DDSVideoPlayerComposite;
     return this.querySelector(selectorVideoPlayer);
   }
 
@@ -83,7 +91,11 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   @HostListener('eventContentStateChange')
   protected _handleContentStateChange(event: CustomEvent) {
     const { contentState, playingMode, videoId } = event.detail;
-    if (contentState === VIDEO_PLAYER_CONTENT_STATE.VIDEO && playingMode === VIDEO_PLAYER_PLAYING_MODE.INLINE && videoId) {
+    if (
+      contentState === VIDEO_PLAYER_CONTENT_STATE.VIDEO &&
+      playingMode === VIDEO_PLAYER_PLAYING_MODE.INLINE &&
+      videoId
+    ) {
       this._embedMedia?.(videoId, this.backgroundMode);
     }
   }
@@ -107,7 +119,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   pauseAllVideos() {
     const { embeddedVideos = {} } = this;
 
-    Object.keys(embeddedVideos).forEach(videoId => {
+    Object.keys(embeddedVideos).forEach((videoId) => {
       embeddedVideos[videoId].sendNotification('doPause');
     });
     this.isPlaying = false;
@@ -116,7 +128,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   playAllVideos() {
     const { embeddedVideos = {} } = this;
 
-    Object.keys(embeddedVideos).forEach(videoId => {
+    Object.keys(embeddedVideos).forEach((videoId) => {
       embeddedVideos[videoId].sendNotification('doPlay');
     });
     this.isPlaying = false;
@@ -151,7 +163,13 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    * Should be changed upon the locale the UI is rendered with.
    */
   @property({ attribute: false })
-  formatCaption?: ({ duration, name }: { duration?: string; name?: string }) => string;
+  formatCaption?: ({
+    duration,
+    name,
+  }: {
+    duration?: string;
+    name?: string;
+  }) => string;
 
   /**
    * The formatter for the video duration.
@@ -224,7 +242,8 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
     if (this.autoPlay || this.backgroundMode) {
       const storedPreference = this._getAutoplayPreference();
       if (storedPreference === null) {
-        this.isPlaying = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        this.isPlaying = !window.matchMedia('(prefers-reduced-motion: reduce)')
+          .matches;
       } else {
         this.isPlaying = storedPreference;
       }
@@ -284,9 +303,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   }
 
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   /**

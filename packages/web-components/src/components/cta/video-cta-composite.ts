@@ -32,7 +32,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-video-cta-composite
  */
 @customElement(`${ddsPrefix}-video-cta-composite`)
-class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement)) {
+class DDSVideoCTAComposite extends ModalRenderMixin(
+  HostListenerMixin(LitElement)
+) {
   /**
    * The placeholder for `_embedMedia()` action that may be mixed in.
    *
@@ -87,10 +89,11 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private async _handleRequestVideoData(event: CustomEvent) {
     const { href, videoName: customVideoName, videoDescription } = event.detail;
-    (event.target as VideoCTAMixinImpl).videoThumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
-      mediaId: href,
-      width: (event?.target as HTMLElement)?.offsetWidth,
-    });
+    (event.target as VideoCTAMixinImpl).videoThumbnailUrl =
+      KalturaPlayerAPI.getThumbnailUrl({
+        mediaId: href,
+        width: (event?.target as HTMLElement)?.offsetWidth,
+      });
     const videoData = await this._loadVideoData?.(href);
     if (videoData) {
       const { duration, name } = videoData;
@@ -122,9 +125,14 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
    * The video player.
    */
   protected get _videoPlayer() {
-    const { selectorVideoPlayer, selectorLightboxVideoPlayerComposite } = this.constructor as typeof DDSVideoCTAComposite;
-    const lightbox = (this.modalRenderRoot as Element)?.querySelector(selectorLightboxVideoPlayerComposite);
-    return ((lightbox as DDSLightboxVideoPlayerComposite)?.modalRenderRoot as Element)?.querySelector(selectorVideoPlayer);
+    const { selectorVideoPlayer, selectorLightboxVideoPlayerComposite } = this
+      .constructor as typeof DDSVideoCTAComposite;
+    const lightbox = (this.modalRenderRoot as Element)?.querySelector(
+      selectorLightboxVideoPlayerComposite
+    );
+    return (
+      (lightbox as DDSLightboxVideoPlayerComposite)?.modalRenderRoot as Element
+    )?.querySelector(selectorVideoPlayer);
   }
 
   /**
@@ -149,8 +157,11 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
   updated(changedProperties) {
     super.updated(changedProperties);
     if (!this._hCloseModal) {
-      const { selectorLightboxVideoPlayerComposite } = this.constructor as typeof DDSVideoCTAComposite;
-      const videoPlayerComposite = (this.modalRenderRoot as Element).querySelector(
+      const { selectorLightboxVideoPlayerComposite } = this
+        .constructor as typeof DDSVideoCTAComposite;
+      const videoPlayerComposite = (
+        this.modalRenderRoot as Element
+      ).querySelector(
         selectorLightboxVideoPlayerComposite
       ) as DDSLightboxVideoPlayerComposite;
       // Manually hooks the event listeners on the modal render root to make the event names configurable
@@ -190,9 +201,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
   }
 
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   /**

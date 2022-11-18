@@ -27,20 +27,35 @@ function normalizeBrowser(browser) {
 }
 
 const serviceMocks = {
-  '@carbon/ibmdotcom-services/es/services/Locale/Locale': path.resolve(__dirname, 'mocks/LocaleAPI'),
-  '@carbon/ibmdotcom-services/es/services/Translation/Translation': path.resolve(__dirname, 'mocks/TranslationAPI'),
-  '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer': path.resolve(__dirname, 'mocks/KalturaPlayerAPI'),
+  '@carbon/ibmdotcom-services/es/services/Locale/Locale': path.resolve(
+    __dirname,
+    'mocks/LocaleAPI'
+  ),
+  '@carbon/ibmdotcom-services/es/services/Translation/Translation':
+    path.resolve(__dirname, 'mocks/TranslationAPI'),
+  '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer':
+    path.resolve(__dirname, 'mocks/KalturaPlayerAPI'),
 };
 
 const reServices = /^@carbon\/ibmdotcom-services/i;
 
 module.exports = function setupKarma(config) {
-  const { browsers, collectCoverage, noPruneShapshot, specs, random, updateSnapshot, verbose } = config.customConfig;
+  const {
+    browsers,
+    collectCoverage,
+    noPruneShapshot,
+    specs,
+    random,
+    updateSnapshot,
+    verbose,
+  } = config.customConfig;
 
   config.set({
     basePath: '..',
 
-    browsers: (browsers.length > 0 ? browsers : ['ChromeHeadless']).map(normalizeBrowser),
+    browsers: (browsers.length > 0 ? browsers : ['ChromeHeadless']).map(
+      normalizeBrowser
+    ),
 
     frameworks: ['jasmine', 'snapshot'],
 
@@ -50,9 +65,11 @@ module.exports = function setupKarma(config) {
       },
     },
 
-    files: ['src/polyfills/index.ts', 'tests/utils/snapshot.js', 'tests/snapshots/**/*.md'].concat(
-      specs.length > 0 ? specs : ['tests/karma-test-shim.js']
-    ),
+    files: [
+      'src/polyfills/index.ts',
+      'tests/utils/snapshot.js',
+      'tests/snapshots/**/*.md',
+    ].concat(specs.length > 0 ? specs : ['tests/karma-test-shim.js']),
 
     preprocessors: {
       'src/**/*.[jt]s': ['webpack', 'sourcemap'], // For generatoring coverage report for untested files
@@ -94,7 +111,11 @@ module.exports = function setupKarma(config) {
             ? {}
             : {
                 test: /\.[jt]s$/,
-                exclude: [__dirname, /__tests__/, path.resolve(__dirname, '../node_modules')],
+                exclude: [
+                  __dirname,
+                  /__tests__/,
+                  path.resolve(__dirname, '../node_modules'),
+                ],
                 enforce: 'post',
                 use: {
                   loader: 'istanbul-instrumenter-loader',
@@ -105,7 +126,11 @@ module.exports = function setupKarma(config) {
               },
           {
             test: /\.js$/,
-            include: [__dirname, path.dirname(require.resolve('lit-html')), path.dirname(require.resolve('lit-element'))],
+            include: [
+              __dirname,
+              path.dirname(require.resolve('lit-html')),
+              path.dirname(require.resolve('lit-element')),
+            ],
             use: {
               loader: 'babel-loader',
               options: {

@@ -34,13 +34,18 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-card-link-cta`)
 class DDSCardLinkCTA extends VideoCTAMixin(CTAMixin(DDSCardLink)) {
   protected _renderHeading() {
-    const { ctaType, videoName, formatVideoCaption: formatVideoCaptionInEffect } = this;
+    const {
+      ctaType,
+      videoName,
+      formatVideoCaption: formatVideoCaptionInEffect,
+    } = this;
     if (ctaType !== CTA_TYPE.VIDEO) {
       return super._renderHeading();
     }
     const caption = formatVideoCaptionInEffect({ name: videoName });
     return html`
-      <slot name="heading"></slot><dds-card-link-heading>${caption}</dds-card-link-heading>
+      <slot name="heading"></slot
+      ><dds-card-link-heading>${caption}</dds-card-link-heading>
     `;
   }
 
@@ -90,7 +95,9 @@ class DDSCardLinkCTA extends VideoCTAMixin(CTAMixin(DDSCardLink)) {
 
   updated(changedProperties) {
     super.updated(changedProperties);
-    const footer = this.querySelector((this.constructor as typeof DDSCardLinkCTA).selectorFooter);
+    const footer = this.querySelector(
+      (this.constructor as typeof DDSCardLinkCTA).selectorFooter
+    );
     if (
       changedProperties.has('ctaType') ||
       changedProperties.has('formatCaption') ||
@@ -106,19 +113,24 @@ class DDSCardLinkCTA extends VideoCTAMixin(CTAMixin(DDSCardLink)) {
         formatVideoCaption: formatVideoCaptionInEffect,
         formatVideoDuration: formatVideoDurationInEffect,
       } = this;
-      const headingText = this.querySelector(`${ddsPrefix}-card-link-heading`)?.textContent;
+      const headingText = this.querySelector(
+        `${ddsPrefix}-card-link-heading`
+      )?.textContent;
       const copyText = this.textContent;
       if (footer) {
-        (footer as DDSCardCTAFooter).altAriaLabel = videoName || headingText || copyText;
+        (footer as DDSCardCTAFooter).altAriaLabel =
+          videoName || headingText || copyText;
         (footer as DDSCardCTAFooter).ctaType = ctaType;
         (footer as DDSCardCTAFooter).videoDuration = videoDuration;
         (footer as DDSCardCTAFooter).videoName = videoName;
         (footer as DDSCardCTAFooter).videoDescription = videoDescription;
         if (formatVideoCaptionInEffect) {
-          (footer as DDSCardCTAFooter).formatVideoCaption = formatVideoCaptionInEffect;
+          (footer as DDSCardCTAFooter).formatVideoCaption =
+            formatVideoCaptionInEffect;
         }
         if (formatVideoDurationInEffect) {
-          (footer as DDSCardCTAFooter).formatVideoDuration = formatVideoDurationInEffect;
+          (footer as DDSCardCTAFooter).formatVideoDuration =
+            formatVideoDurationInEffect;
         }
       }
     }

@@ -22,9 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-leadspace-block-media`)
 class DDSLeadSpaceBlockMedia extends StableSelectorMixin(LitElement) {
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   static get stableSelector() {

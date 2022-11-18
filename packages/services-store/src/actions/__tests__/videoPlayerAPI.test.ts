@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,11 @@ import configureMockStore from 'redux-mock-store';
 import { AnyAction } from 'redux';
 import thunk, { ThunkDispatch } from 'redux-thunk';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
-import { MEDIA_PLAYER_API_ACTION, MediaData, MediaPlayerAPIState } from '../../types/kalturaPlayerAPI';
+import {
+  MEDIA_PLAYER_API_ACTION,
+  MediaData,
+  MediaPlayerAPIState,
+} from '../../types/kalturaPlayerAPI';
 import { setMediaData, loadMediaData } from '../kalturaPlayerAPI';
 import convertValue from '../../../tests/utils/convert-value';
 
@@ -44,7 +48,9 @@ describe('Redux actions for `TranslateAPI`', () => {
   it('dispatches the action to load video data', async () => {
     KalturaPlayerAPI.api.mockResolvedValue(mockMediaData);
     const store = mockStore();
-    expect(await store.dispatch(loadMediaData('video-id-foo'))).toEqual(mockMediaData as MediaData);
+    expect(await store.dispatch(loadMediaData('video-id-foo'))).toEqual(
+      mockMediaData as MediaData
+    );
     expect(convertValue(store.getActions())).toEqual([
       {
         type: MEDIA_PLAYER_API_ACTION.SET_REQUEST_MEDIA_DATA_IN_PROGRESS,
@@ -68,7 +74,9 @@ describe('Redux actions for `TranslateAPI`', () => {
         },
       },
     });
-    expect(await store.dispatch(loadMediaData('video-id-foo'))).toEqual(mockMediaData as MediaData);
+    expect(await store.dispatch(loadMediaData('video-id-foo'))).toEqual(
+      mockMediaData as MediaData
+    );
     expect(convertValue(store.getActions())).toEqual([]);
   });
 

@@ -51,19 +51,25 @@ export interface LeavingIbmContainerStateProps {
 /**
  * The Redux actions used for `<dds-leaving-ibm-container>`.
  */
-export type LeavingIbmContainerActions = ReturnType<typeof setLanguage> | ReturnType<typeof loadTranslation>;
+export type LeavingIbmContainerActions =
+  | ReturnType<typeof setLanguage>
+  | ReturnType<typeof loadTranslation>;
 
 /**
  * @param state The Redux state for leaving ibm component.
  * @returns The converted version of the given state, tailored for `<dds-leaving-ibm-container>`.
  */
-export function mapStateToProps(state: LeavingIbmContainerState): LeavingIbmContainerStateProps {
+export function mapStateToProps(
+  state: LeavingIbmContainerState
+): LeavingIbmContainerStateProps {
   const { localeAPI, translateAPI } = state;
   const { language } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
   return {
     leavingIbmCopy: !language ? undefined : translations?.[language]?.leaving,
-    leavingIbmButtonLabel: !language ? undefined : translations?.[language]?.misc?.continueText,
+    leavingIbmButtonLabel: !language
+      ? undefined
+      : translations?.[language]?.misc?.continueText,
   };
 }
 
@@ -72,7 +78,10 @@ export function mapStateToProps(state: LeavingIbmContainerState): LeavingIbmCont
  * @returns The methods in `<dds-masthead-container>` to dispatch Redux actions.
  */
 export function mapDispatchToProps(dispatch: Dispatch<TranslateAPIActions>) {
-  return bindActionCreators<LeavingIbmContainerActions, ActionCreatorsMapObject<LeavingIbmContainerActions>>(
+  return bindActionCreators<
+    LeavingIbmContainerActions,
+    ActionCreatorsMapObject<LeavingIbmContainerActions>
+  >(
     {
       _setLanguage: setLanguage,
       _loadTranslation: loadTranslation,

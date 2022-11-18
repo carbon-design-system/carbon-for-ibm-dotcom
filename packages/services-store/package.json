@@ -23,20 +23,11 @@
   ],
   "scripts": {
     "build": "gulp build",
-    "ci-check": "yarn format:diff && yarn lint:src && yarn typecheck && yarn build && yarn test:unit",
+    "ci-check": "yarn typecheck && yarn build && yarn test:unit",
     "clean": "gulp clean",
-    "format": "prettier --write \"**/*.{css,js,ts,md,scss}\"",
-    "format:diff": "prettier --check \"**/*.{css,js,ts,md,scss}\"",
-    "format:staged": "prettier --write",
-    "lint": "yarn lint:src",
-    "lint:src": "yarn lint:scripts",
-    "lint:scripts": "eslint --ext .js,.ts,.tsx .",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "yarn test:unit",
     "test:unit": "yarn jest"
-  },
-  "resolutions": {
-    "prettier": "^1.19.0"
   },
   "dependencies": {
     "@carbon/ibmdotcom-services": "1.40.0",
@@ -71,11 +62,5 @@
     "strip-comments": "^1.0.0",
     "through2": "^3.0.0",
     "typescript": "~4.8.0"
-  },
-  "prettier": {
-    "jsxBracketSameLine": true,
-    "printWidth": 130,
-    "singleQuote": true,
-    "trailingComma": "es5"
   }
 }

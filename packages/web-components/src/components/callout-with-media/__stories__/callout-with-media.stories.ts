@@ -27,16 +27,21 @@ const image = html`
 `;
 
 const video = html`
-  <dds-callout-with-media-video video-id="0_uka1msg4"></dds-callout-with-media-video>
+  <dds-callout-with-media-video
+    video-id="0_uka1msg4"
+  ></dds-callout-with-media-video>
 `;
 
-export const Default = args => {
+export const Default = (args) => {
   const { copy, heading, mediaType } = args?.CalloutWithMedia ?? {};
   return html`
     <dds-callout-with-media>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-callout-with-media-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-callout-with-media-copy>
-      ${mediaType === 'image' ? image : ``} ${mediaType === 'video' ? video : ``}
+      <dds-callout-with-media-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
+        >${copy}</dds-callout-with-media-copy
+      >
+      ${mediaType === 'image' ? image : ``}
+      ${mediaType === 'video' ? video : ``}
     </dds-callout-with-media>
   `;
 };
@@ -44,12 +49,10 @@ export const Default = args => {
 export default {
   title: 'Components/Callout with media',
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-lg-12 bx--no-gutter">
-            ${story()}
-          </div>
+          <div class="bx--col-lg-12 bx--no-gutter">${story()}</div>
         </div>
       </div>
     `,
@@ -59,8 +62,15 @@ export default {
     hasStoryPadding: true,
     knobs: {
       CalloutWithMedia: () => ({
-        mediaType: select('mediaType (optional)', ['image', 'video', 'none'], 'image'),
-        heading: textNullable('Heading', 'Curabitur malesuada varius mi eu posuere'),
+        mediaType: select(
+          'mediaType (optional)',
+          ['image', 'video', 'none'],
+          'image'
+        ),
+        heading: textNullable(
+          'Heading',
+          'Curabitur malesuada varius mi eu posuere'
+        ),
         copy: `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
   Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
   nulla quis, *consequat* libero. Here are

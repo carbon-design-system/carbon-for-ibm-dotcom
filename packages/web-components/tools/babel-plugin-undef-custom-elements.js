@@ -42,7 +42,9 @@ module.exports = function undefCustomElements() {
           const possiblyDecoratorCall = path.parentPath.parentPath;
           if (
             possiblyDecoratorCall.isCallExpression() &&
-            possiblyDecoratorCall.get('callee').isIdentifier({ name: '_decorate' })
+            possiblyDecoratorCall
+              .get('callee')
+              .isIdentifier({ name: '_decorate' })
           ) {
             path.remove();
           }

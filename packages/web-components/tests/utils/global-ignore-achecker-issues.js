@@ -10,6 +10,8 @@ const shouldIssueBeIgnoredForRule = {};
 export default function shouldIssueBeIgnored(issue, elem) {
   return (
     issue.value.every((item) => item !== 'FAIL') ||
-    [shouldIssueBeIgnoredForRule[issue.ruleId]].some((test) => (typeof test === 'function' ? test(elem) : test))
+    [shouldIssueBeIgnoredForRule[issue.ruleId]].some((test) =>
+      typeof test === 'function' ? test(elem) : test
+    )
   );
 }

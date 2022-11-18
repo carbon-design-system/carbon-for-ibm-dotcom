@@ -27,9 +27,14 @@ function normalizeBrowser(browser) {
 }
 
 const serviceMocks = {
-  '@carbon/ibmdotcom-services/es/services/Locale/Locale': path.resolve(__dirname, 'mocks/LocaleAPI'),
-  '@carbon/ibmdotcom-services/es/services/Translation/Translation': path.resolve(__dirname, 'mocks/TranslationAPI'),
-  '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer': path.resolve(__dirname, 'mocks/KalturaPlayerAPI'),
+  '@carbon/ibmdotcom-services/es/services/Locale/Locale': path.resolve(
+    __dirname,
+    'mocks/LocaleAPI'
+  ),
+  '@carbon/ibmdotcom-services/es/services/Translation/Translation':
+    path.resolve(__dirname, 'mocks/TranslationAPI'),
+  '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer':
+    path.resolve(__dirname, 'mocks/KalturaPlayerAPI'),
 };
 
 const reServices = /^@carbon\/ibmdotcom-services/i;
@@ -40,7 +45,9 @@ module.exports = function setupKarma(config) {
   config.set({
     basePath: '..',
 
-    browsers: (browsers.length > 0 ? browsers : ['ChromeHeadless']).map(normalizeBrowser),
+    browsers: (browsers.length > 0 ? browsers : ['ChromeHeadless']).map(
+      normalizeBrowser
+    ),
 
     frameworks: ['jasmine', 'aChecker'],
 
@@ -50,7 +57,11 @@ module.exports = function setupKarma(config) {
       },
     },
 
-    files: ['tests/utils/achecker-compliance.js', 'tests/a11y/karma-setup-context.js', 'tests/a11y/karma-test-shim.js'],
+    files: [
+      'tests/utils/achecker-compliance.js',
+      'tests/a11y/karma-setup-context.js',
+      'tests/a11y/karma-test-shim.js',
+    ],
 
     preprocessors: {
       'src/**/*.js': ['webpack', 'sourcemap'],
@@ -91,7 +102,11 @@ module.exports = function setupKarma(config) {
             ? {}
             : {
                 test: /\.[jt]s$/,
-                exclude: [__dirname, /__tests__/, path.resolve(__dirname, '../node_modules')],
+                exclude: [
+                  __dirname,
+                  /__tests__/,
+                  path.resolve(__dirname, '../node_modules'),
+                ],
                 enforce: 'post',
                 use: {
                   loader: 'istanbul-instrumenter-loader',
@@ -102,7 +117,11 @@ module.exports = function setupKarma(config) {
               },
           {
             test: /\.js$/,
-            include: [__dirname, path.dirname(require.resolve('lit-html')), path.dirname(require.resolve('lit-element'))],
+            include: [
+              __dirname,
+              path.dirname(require.resolve('lit-html')),
+              path.dirname(require.resolve('lit-element')),
+            ],
             use: {
               loader: 'babel-loader',
               options: {
@@ -191,7 +210,11 @@ module.exports = function setupKarma(config) {
       require('karma-ie-launcher'),
     ],
 
-    reporters: ['spec', ...(!collectCoverage ? [] : ['coverage-istanbul']), 'aChecker'],
+    reporters: [
+      'spec',
+      ...(!collectCoverage ? [] : ['coverage-istanbul']),
+      'aChecker',
+    ],
 
     coverageIstanbulReporter: {
       reports: ['html', 'text'],

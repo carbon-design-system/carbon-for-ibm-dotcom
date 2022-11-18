@@ -10,7 +10,11 @@
 import { ThunkAction } from 'redux-thunk';
 import TranslateAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation.js';
 import { loadLanguage } from './localeAPI';
-import { Translation, TRANSLATE_API_ACTION, TranslateAPIState } from '../types/translateAPI';
+import {
+  Translation,
+  TRANSLATE_API_ACTION,
+  TranslateAPIState,
+} from '../types/translateAPI';
 
 /**
  * @param language A language.
@@ -18,7 +22,10 @@ import { Translation, TRANSLATE_API_ACTION, TranslateAPIState } from '../types/t
  * @returns A Redux action to set the state that the REST call for translation data for the given language that is in progress.
  * @private
  */
-export function setRequestTranslationInProgress(language: string, request: Promise<Translation>) {
+export function setRequestTranslationInProgress(
+  language: string,
+  request: Promise<Translation>
+) {
   return {
     type: TRANSLATE_API_ACTION.SET_REQUEST_TRANSLATION_IN_PROGRESS,
     language,
@@ -69,24 +76,33 @@ export type TranslateAPIActions =
 export function loadTranslation(
   language?: string,
   dataEndpoint?: string
-): ThunkAction<Promise<Translation>, { translateAPI: TranslateAPIState }, void, TranslateAPIActions> {
+): ThunkAction<
+  Promise<Translation>,
+  { translateAPI: TranslateAPIState },
+  void,
+  TranslateAPIActions
+> {
   return async (dispatch, getState) => {
     // TODO: Can we go without casts without making `LocaleAPI` types a hard-dependency?
-    const effectiveLanguage: string = language ?? (await dispatch(loadLanguage() as any));
+    const effectiveLanguage: string =
+      language ?? (await dispatch(loadLanguage() as any));
     const { requestsTranslation = {} } = getState().translateAPI ?? {};
     const { [effectiveLanguage]: requestTranslation } = requestsTranslation;
     if (requestTranslation) {
       return requestTranslation;
     }
     const [primary, country] = effectiveLanguage.split('-');
-    const promiseTranslation: Promise<Translation> = TranslateAPI.getTranslation(
-      {
-        cc: country.toLowerCase(),
-        lc: primary.toLowerCase(),
-      },
-      dataEndpoint
+    const promiseTranslation: Promise<Translation> =
+      TranslateAPI.getTranslation(
+        {
+          cc: country.toLowerCase(),
+          lc: primary.toLowerCase(),
+        },
+        dataEndpoint
+      );
+    dispatch(
+      setRequestTranslationInProgress(effectiveLanguage, promiseTranslation)
     );
-    dispatch(setRequestTranslationInProgress(effectiveLanguage, promiseTranslation));
     try {
       dispatch(setTranslation(effectiveLanguage, await promiseTranslation));
     } catch (error) {

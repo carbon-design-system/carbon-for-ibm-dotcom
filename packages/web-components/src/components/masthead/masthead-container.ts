@@ -8,14 +8,25 @@
  */
 
 import pickBy from 'lodash-es/pickBy.js';
-import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
+import {
+  ActionCreatorsMapObject,
+  Dispatch,
+  Store,
+  bindActionCreators,
+} from 'redux';
 import { customElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
-import { MastheadLink, TranslateAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+import {
+  MastheadLink,
+  TranslateAPIState,
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { ProfileAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI.d';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
-import { loadLanguage, setLanguage } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
+import {
+  loadLanguage,
+  setLanguage,
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
 import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
 import { loadTranslation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
 import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.d';
@@ -75,21 +86,31 @@ export type MastheadContainerActions =
  * @param state The Redux state for masthead.
  * @returns The converted version of the given state, tailored for `<dds-masthead-container>`.
  */
-export function mapStateToProps(state: MastheadContainerState): MastheadContainerStateProps {
+export function mapStateToProps(
+  state: MastheadContainerState
+): MastheadContainerStateProps {
   const { localeAPI, translateAPI, profileAPI } = state;
   const { language } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
   const { request } = profileAPI ?? {};
   return pickBy(
     {
-      authenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedin,
-      navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
-      unauthenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedout,
-      logoData: !language ? undefined : translations?.[language]?.masthead?.logo,
+      authenticatedProfileItems: !language
+        ? undefined
+        : translations?.[language]?.profileMenu.signedin,
+      navLinks: !language
+        ? undefined
+        : translations?.[language]?.mastheadNav?.links,
+      unauthenticatedProfileItems: !language
+        ? undefined
+        : translations?.[language]?.profileMenu.signedout,
+      logoData: !language
+        ? undefined
+        : translations?.[language]?.masthead?.logo,
       userStatus: request?.user,
       language,
     },
-    value => value !== undefined
+    (value) => value !== undefined
   );
 }
 
@@ -97,8 +118,13 @@ export function mapStateToProps(state: MastheadContainerState): MastheadContaine
  * @param dispatch The Redux `dispatch()` API.
  * @returns The methods in `<dds-masthead-container>` to dispatch Redux actions.
  */
-export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions | TranslateAPIActions | ProfileAPIActions>) {
-  return bindActionCreators<MastheadContainerActions, ActionCreatorsMapObject<MastheadContainerActions>>(
+export function mapDispatchToProps(
+  dispatch: Dispatch<LocaleAPIActions | TranslateAPIActions | ProfileAPIActions>
+) {
+  return bindActionCreators<
+    MastheadContainerActions,
+    ActionCreatorsMapObject<MastheadContainerActions>
+  >(
     {
       _loadLanguage: loadLanguage,
       _setLanguage: setLanguage,
@@ -121,7 +147,10 @@ class DDSMastheadContainer extends ConnectMixin<
   MastheadContainerStateProps,
   ActionCreatorsMapObject<MastheadContainerActions>
 >(
-  store as Store<MastheadContainerState, LocaleAPIActions | TranslateAPIActions | ProfileAPIActions>,
+  store as Store<
+    MastheadContainerState,
+    LocaleAPIActions | TranslateAPIActions | ProfileAPIActions
+  >,
   mapStateToProps,
   mapDispatchToProps
 )(DDSMastheadComposite) {}
