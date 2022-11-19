@@ -32,8 +32,7 @@ const ParentVisibilityMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       // @ts-ignore
       super.connectedCallback();
 
-      const { parentsThatHide } = this
-        .constructor as typeof ParentVisibilityMixinImpl;
+      const { parentsThatHide } = this.constructor as typeof ParentVisibilityMixinImpl;
 
       Object.entries(parentsThatHide).forEach(([component, event]) => {
         let target: Element | null | undefined = this.closest(component);
@@ -59,8 +58,6 @@ const ParentVisibilityMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
   return ParentVisibilityMixinImpl;
 };
 
-export type ParentVisibilityMixinImpl = InstanceType<
-  ReturnType<typeof ParentVisibilityMixin>
->;
+export type ParentVisibilityMixinImpl = InstanceType<ReturnType<typeof ParentVisibilityMixin>>;
 
 export default ParentVisibilityMixin;

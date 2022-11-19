@@ -12,30 +12,31 @@
 const restrictedGlobals = require('eslint-restricted-globals');
 
 module.exports = {
+  plugins: ['babel'],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'script',
   },
-  extends: ['../eslint-config-ibmdotcom'],
+  extends: ['../eslint-config-ibmdotcom', 'carbon-base'],
   env: {
     node: true,
     es6: true,
   },
   rules: {
     'no-restricted-globals': ['error', 'isFinite'].concat(restrictedGlobals),
-    // 'no-unused-expressions': 0,
-    // 'babel/no-unused-expressions': 2,
+    'no-unused-expressions': 0,
+    'babel/no-unused-expressions': 2,
     'import/extensions': 0,
-    // 'import/no-extraneous-dependencies': [
-    //   2,
-    //   {
-    //     devDependencies: true,
-    //     optionalDependencies: true,
-    //     peerDependencies: false,
-    //   },
-    // ],
-    // 'import/no-unresolved': [2, { ignore: ['^carbon-web-components/es/icons/'] }],
+    'import/no-extraneous-dependencies': [
+      2,
+      {
+        devDependencies: true,
+        optionalDependencies: true,
+        peerDependencies: false,
+      },
+    ],
+    'import/no-unresolved': [2, { ignore: ['^carbon-web-components/es/icons/'] }],
   },
   settings: {
     'import/resolver': {
@@ -51,10 +52,9 @@ module.exports = {
       plugins: ['@typescript-eslint'],
       rules: {
         'no-unused-vars': 0,
-        '@typescript-eslint/no-unused-vars': 0, // disable for now
+        '@typescript-eslint/no-unused-vars': 2,
         'jsdoc/require-param-type': 0,
         'jsdoc/require-returns-type': 0,
-        'no-undef': 0,
       },
     },
     {
@@ -66,12 +66,12 @@ module.exports = {
         // TODO: See why the ESLint plugin does not work with `.tsx`
         '@carbon/react-prop-type-comments/require-proptype-comment': 0,
         '@typescript-eslint/no-unused-vars': 2,
-        // 'import/no-unresolved': [
-        //   2,
-        //   {
-        //     ignore: ['^./'],
-        //   },
-        // ],
+        'import/no-unresolved': [
+          2,
+          {
+            ignore: ['^./'],
+          },
+        ],
         'jsdoc/require-param-type': 0,
         'jsdoc/require-returns-type': 0,
         'react/jsx-uses-react': 2,
@@ -90,18 +90,18 @@ module.exports = {
       plugins: ['@typescript-eslint', 'react'],
       rules: {
         'no-unused-vars': 0,
-        '@typescript-eslint/no-unused-vars': 0, // disable for now
-        // 'import/no-extraneous-dependencies': 0,
-        // 'import/no-unresolved': [
-        //   2,
-        //   {
-        //     ignore: [
-        //       '^carbon-web-components/es/(components-react|icons)/',
-        //       '^@carbon/ibmdotcom-web-components/es/(components-react|icons)/',
-        //       '/components-react/',
-        //     ],
-        //   },
-        // ],
+        '@typescript-eslint/no-unused-vars': 2,
+        'import/no-extraneous-dependencies': 0,
+        'import/no-unresolved': [
+          2,
+          {
+            ignore: [
+              '^carbon-web-components/es/(components-react|icons)/',
+              '^@carbon/ibmdotcom-web-components/es/(components-react|icons)/',
+              '/components-react/',
+            ],
+          },
+        ],
         'react/jsx-uses-react': 2,
         'react/jsx-uses-vars': 2,
         'react/prop-types': 0,
@@ -113,19 +113,16 @@ module.exports = {
         sourceType: 'module',
       },
       rules: {
-        // 'import/no-unresolved': 0,
+        'import/no-unresolved': 0,
       },
     },
     {
-      files: [
-        'tests/e2e/cypress/**/*.js',
-        'tests/e2e-storybook/cypress/**/*.js',
-      ],
+      files: ['tests/e2e/cypress/**/*.js', 'tests/e2e-storybook/cypress/**/*.js'],
       parserOptions: {
         sourceType: 'module',
       },
       rules: {
-        // 'import/no-unresolved': 0,
+        'import/no-unresolved': 0,
       },
     },
     {
@@ -137,21 +134,13 @@ module.exports = {
       },
     },
     {
-      files: [
-        'examples/codesandbox/**/*.config.js',
-        'examples/codesandbox/**/app.js',
-      ],
+      files: ['examples/codesandbox/**/*.config.js', 'examples/codesandbox/**/app.js'],
       parserOptions: {
         sourceType: 'script',
       },
     },
     {
-      files: [
-        'tests/e2e/**/*.e2e.js',
-        'tests/e2e/**/*.cdn.e2e.js',
-        'src/components/**/*.e2e.js',
-        'tests/cdn-build/**/*.js',
-      ],
+      files: ['tests/e2e/**/*.e2e.js', 'tests/e2e/**/*.cdn.e2e.js', 'src/components/**/*.e2e.js', 'tests/cdn-build/**/*.js'],
       extends: ['plugin:cypress/recommended'],
       parserOptions: {
         sourceType: 'module',
@@ -163,7 +152,7 @@ module.exports = {
         sourceType: 'module',
       },
       rules: {
-        // 'import/no-unresolved': 0,
+        'import/no-unresolved': 0,
       },
       globals: {
         aChecker: true,

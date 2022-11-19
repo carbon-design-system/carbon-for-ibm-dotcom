@@ -22,9 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-expressive-modal-close-button
  */
 @customElement(`${ddsPrefix}-expressive-modal-close-button`)
-class DDSExpressiveModalCloseButton extends StableSelectorMixin(
-  BXModalCloseButton
-) {
+class DDSExpressiveModalCloseButton extends StableSelectorMixin(BXModalCloseButton) {
   /**
    * The size variant.
    */

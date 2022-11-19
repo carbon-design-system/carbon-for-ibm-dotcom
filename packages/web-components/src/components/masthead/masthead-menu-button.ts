@@ -92,16 +92,9 @@ class DDSMastheadMenuButton extends HostListenerMixin(BXHeaderMenuButton) {
 
   updated(changedProperties) {
     if (changedProperties.has('active')) {
-      const {
-        active,
-        _startSentinelNode: startSentinelNode,
-        _endSentinelNode: endSentinelNode,
-      } = this;
+      const { active, _startSentinelNode: startSentinelNode, _endSentinelNode: endSentinelNode } = this;
       if (active) {
-        this._hFocusWrap = focuswrap(this.shadowRoot!, [
-          startSentinelNode,
-          endSentinelNode,
-        ]);
+        this._hFocusWrap = focuswrap(this.shadowRoot!, [startSentinelNode, endSentinelNode]);
       } else if (this._hFocusWrap) {
         this._hFocusWrap = this._hFocusWrap.release();
       }
@@ -114,24 +107,15 @@ class DDSMastheadMenuButton extends HostListenerMixin(BXHeaderMenuButton) {
 
   private _renderSentinel = (side: String) => {
     return html`
-      <button
-        id="${side}-sentinel"
-        type="button"
-        class="${prefix}--visually-hidden"
-      ></button>
+      <button id="${side}-sentinel" type="button" class="${prefix}--visually-hidden"></button>
     `;
   };
 
   render() {
-    const {
-      active,
-      _hasSearchActive: hasSearchActive,
-      _renderSentinel: renderSentinel,
-    } = this;
+    const { active, _hasSearchActive: hasSearchActive, _renderSentinel: renderSentinel } = this;
     const classes = classMap({
       [`${ddsPrefix}-ce--header__menu-trigger__container`]: true,
-      [`${ddsPrefix}-ce--header__menu-trigger__container--has-search-active`]:
-        hasSearchActive,
+      [`${ddsPrefix}-ce--header__menu-trigger__container--has-search-active`]: hasSearchActive,
     });
     const startSentinel = active ? renderSentinel('start') : '';
     const endSentinel = active ? renderSentinel('end') : '';

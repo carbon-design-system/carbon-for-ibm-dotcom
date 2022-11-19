@@ -42,11 +42,7 @@ class DDSTextCTA extends VideoCTAMixin(CTAMixin(DDSLinkWithIcon)) {
   protected _handleSlotChange({ target }: Event) {
     this._hasContent = (target as HTMLSlotElement)
       .assignedNodes()
-      .some(
-        (node) =>
-          node.nodeType !== Node.COMMENT_NODE &&
-          (node.nodeType !== Node.TEXT_NODE || node.nodeValue?.trim())
-      );
+      .some(node => node.nodeType !== Node.COMMENT_NODE && (node.nodeType !== Node.TEXT_NODE || node.nodeValue?.trim()));
   }
 
   protected _renderContent() {
@@ -64,15 +60,11 @@ class DDSTextCTA extends VideoCTAMixin(CTAMixin(DDSLinkWithIcon)) {
     const caption = hasContent
       ? undefined
       : formatVideoCaptionInEffect({
-          duration: formatVideoDurationInEffect({
-            duration: !videoDuration ? videoDuration : videoDuration * 1000,
-          }),
+          duration: formatVideoDurationInEffect({ duration: !videoDuration ? videoDuration : videoDuration * 1000 }),
           name: videoName,
         });
     return html`
-      <span
-        ><slot @slotchange="${this._handleSlotChange}"></slot>${caption}</span
-      >
+      <span><slot @slotchange="${this._handleSlotChange}"></slot>${caption}</span>
     `;
   }
 

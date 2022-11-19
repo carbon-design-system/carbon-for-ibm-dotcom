@@ -65,7 +65,9 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * @returns {TemplateResult} rendered component markup with dynamic stylesheet
      */
     render() {
-      return html` ${this._renderDynamicStyles()}${this.renderContents()} `;
+      return html`
+        ${this._renderDynamicStyles()}${this.renderContents()}
+      `;
     }
 
     /**
@@ -79,12 +81,10 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       const styleSheet = this._dynamicStylesNode?.sheet;
 
       if (!styleSheet) {
-        throw new ReferenceError(
-          `Editable stylesheet not found for "${this.constructor.name}"`
-        );
+        throw new ReferenceError(`Editable stylesheet not found for "${this.constructor.name}"`);
       } else {
         const ruleset = (Array.from(styleSheet.cssRules) as CSSStyleRule[])
-          .filter((rules) => rules.selectorText === selectorString)
+          .filter(rules => rules.selectorText === selectorString)
           .at(0);
 
         if (!ruleset) {
@@ -117,18 +117,14 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       const styleSheet = this._dynamicStylesNode?.sheet;
 
       if (!styleSheet) {
-        throw new ReferenceError(
-          `Editable stylesheet not found for "${this.constructor.name}"`
-        );
+        throw new ReferenceError(`Editable stylesheet not found for "${this.constructor.name}"`);
       } else {
         const ruleset = (Array.from(styleSheet.cssRules) as CSSStyleRule[])
-          .filter((rules) => rules.selectorText === selectorString)
+          .filter(rules => rules.selectorText === selectorString)
           .at(0);
 
         if (!ruleset) {
-          styleSheet.insertRule(
-            `${selectorString}{${styleProperty}:${styleValue}}`
-          );
+          styleSheet.insertRule(`${selectorString}{${styleProperty}:${styleValue}}`);
         } else {
           ruleset.style.setProperty(styleProperty, styleValue);
         }

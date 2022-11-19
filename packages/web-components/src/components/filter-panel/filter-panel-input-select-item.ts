@@ -24,9 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-filter-panel-input-select-item
  */
 @customElement(`${ddsPrefix}-filter-panel-input-select-item`)
-class DDSFilterPanelInputSelectItem extends FocusMixin(
-  StableSelectorMixin(LitElement)
-) {
+class DDSFilterPanelInputSelectItem extends FocusMixin(StableSelectorMixin(LitElement)) {
   /**
    * Property for the input select item value
    */
@@ -45,13 +43,9 @@ class DDSFilterPanelInputSelectItem extends FocusMixin(
    * @param event The event.
    */
   protected _handleSlotChange({ target }: Event) {
-    this._title = (target as HTMLSlotElement).assignedNodes()[0]
-      .textContent as string;
+    this._title = (target as HTMLSlotElement).assignedNodes()[0].textContent as string;
 
-    this.setAttribute(
-      'aria-label',
-      `${this._title}, ${this.selected ? 'selected' : 'unselected'}`
-    );
+    this.setAttribute('aria-label', `${this._title}, ${this.selected ? 'selected' : 'unselected'}`);
   }
 
   connectedCallback() {
@@ -68,10 +62,7 @@ class DDSFilterPanelInputSelectItem extends FocusMixin(
   updated(changedProperties) {
     if (changedProperties.has('selected')) {
       this.setAttribute('aria-selected', `${String(Boolean(this.selected))}`);
-      this.setAttribute(
-        'aria-label',
-        `${this._title}, ${this.selected ? 'selected' : 'unselected'}`
-      );
+      this.setAttribute('aria-label', `${this._title}, ${this.selected ? 'selected' : 'unselected'}`);
     }
   }
 

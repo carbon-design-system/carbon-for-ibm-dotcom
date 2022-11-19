@@ -23,8 +23,7 @@
   z-index: 0;
 }
 
-:host(#{$dds-prefix}-cloud-masthead-global-bar)
-  ::slotted(#{$dds-prefix}-cloud-button-cta) {
+:host(#{$dds-prefix}-cloud-masthead-global-bar) ::slotted(#{$dds-prefix}-cloud-button-cta) {
   @include carbon--breakpoint-down('md') {
     display: none;
   }
@@ -96,10 +95,7 @@
     bottom: 0;
     width: 100%;
     height: carbon--rem(48px);
-    background: linear-gradient(
-      rgba(255, 255, 255, 0.001),
-      $ui-background
-    ); /* transparent keyword is broken in Safari */
+    background: linear-gradient(rgba(255, 255, 255, 0.001), $ui-background); /* transparent keyword is broken in Safari */
   }
 
   .#{$prefix}--masthead__megamenu__container {
@@ -316,9 +312,7 @@
   }
 }
 
-:host(#{$dds-prefix}-cloud-masthead-profile)
-  .#{$prefix}--header__menu-title[aria-expanded='true']
-  + .#{$prefix}--header__menu {
+:host(#{$dds-prefix}-cloud-masthead-profile) .#{$prefix}--header__menu-title[aria-expanded='true'] + .#{$prefix}--header__menu {
   @include carbon--breakpoint-down('md') {
     width: 100vw;
   }

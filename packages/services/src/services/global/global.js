@@ -29,7 +29,7 @@ export function globalInit() {
   }
 
   // Sets the version of the library in the DDO
-  DDOAPI.setVersion().catch((error) => {
+  DDOAPI.setVersion().catch(error => {
     console.error(
       'Error setting the version of the library in the DDO:',
       error
@@ -37,7 +37,7 @@ export function globalInit() {
   });
 
   // Sets the Plex font for non-Latin fonts
-  LocaleAPI.getLang().then((lang) => {
+  LocaleAPI.getLang().then(lang => {
     loadNonLatinPlex(lang.lc);
   });
 

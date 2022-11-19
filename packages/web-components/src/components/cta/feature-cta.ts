@@ -19,8 +19,10 @@ import {
 import DDSFeatureCard from '../feature-card/feature-card';
 import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
+/* eslint-disable import/no-duplicates */
 import DDSFeatureCTAFooter from './feature-cta-footer';
 import './feature-cta-footer';
+/* eslint-enable import/no-duplicates */
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
 
@@ -52,9 +54,7 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
       return super._renderCopy();
     }
     const caption = formatCaptionInEffect({
-      duration: formatDurationInEffect({
-        duration: !videoDuration ? videoDuration : videoDuration * 1000,
-      }),
+      duration: formatDurationInEffect({ duration: !videoDuration ? videoDuration : videoDuration * 1000 }),
       name: videoName,
     });
 
@@ -73,20 +73,14 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
       ctaType !== CTA_TYPE.VIDEO || noPoster
         ? undefined
         : html`
-            <dds-image
-              alt="${ifNonNull(videoName)}"
-              default-src="${ifNonNull(thumbnail || videoThumbnailUrl)}"
-              slot="image"
-            >
+            <dds-image alt="${ifNonNull(videoName)}" default-src="${ifNonNull(thumbnail || videoThumbnailUrl)}" slot="image">
               ${PlayVideo({ slot: 'icon' })}
             </dds-image>
           `;
     return noPoster
       ? undefined
       : html`
-          <slot name="image" @slotchange="${this._handleSlotChange}"
-            >${image}</slot
-          >
+          <slot name="image" @slotchange="${this._handleSlotChange}">${image}</slot>
         `;
   }
 
@@ -154,17 +148,12 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
   updated(changedProperties) {
     super.updated(changedProperties);
     const { selectorFooter } = this.constructor as typeof DDSFeatureCTA;
-    if (
-      changedProperties.has('ctaType') ||
-      changedProperties.has('videoName') ||
-      changedProperties.has('captionHeading')
-    ) {
+    if (changedProperties.has('ctaType') || changedProperties.has('videoName') || changedProperties.has('captionHeading')) {
       const { ctaType, videoName, videoDescription } = this;
       const footer = this.querySelector(selectorFooter);
       if (footer) {
         (footer as DDSFeatureCTAFooter).ctaType = ctaType;
-        (footer as DDSFeatureCTAFooter).altAriaLabel =
-          this.videoName || this.captionHeading;
+        (footer as DDSFeatureCTAFooter).altAriaLabel = this.videoName || this.captionHeading;
         (footer as DDSFeatureCTAFooter).videoName = videoName;
         (footer as DDSFeatureCTAFooter).videoDescription = videoDescription;
       }

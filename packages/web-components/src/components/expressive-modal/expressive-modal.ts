@@ -8,16 +8,7 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map.js';
-import {
-  html,
-  customElement,
-  property,
-  state,
-  query,
-  LitElement,
-  TemplateResult,
-  SVGTemplateResult,
-} from 'lit-element';
+import { html, customElement, property, state, query, LitElement, TemplateResult, SVGTemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import on from 'carbon-components/es/globals/js/misc/on.js';
 import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
@@ -34,10 +25,8 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /* eslint-disable no-bitwise */
-const PRECEDING =
-  Node.DOCUMENT_POSITION_PRECEDING | Node.DOCUMENT_POSITION_CONTAINS;
-const FOLLOWING =
-  Node.DOCUMENT_POSITION_FOLLOWING | Node.DOCUMENT_POSITION_CONTAINED_BY;
+const PRECEDING = Node.DOCUMENT_POSITION_PRECEDING | Node.DOCUMENT_POSITION_CONTAINS;
+const FOLLOWING = Node.DOCUMENT_POSITION_FOLLOWING | Node.DOCUMENT_POSITION_CONTAINED_BY;
 const WITHIN = Node.DOCUMENT_POSITION_CONTAINED_BY;
 /* eslint-enable no-bitwise */
 
@@ -57,11 +46,7 @@ function tryFocusElems(
   if (!reverse) {
     for (let i = 0; i < elems.length; ++i) {
       const elem = elems[i];
-      if (
-        elem.offsetWidth ||
-        elem.offsetHeight ||
-        elem.getClientRects().length
-      ) {
+      if (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length) {
         elem.focus();
         if ((elem.getRootNode() as Document).activeElement === elem) {
           return true;
@@ -71,11 +56,7 @@ function tryFocusElems(
   } else {
     for (let i = elems.length - 1; i >= 0; --i) {
       const elem = elems[i];
-      if (
-        elem.offsetWidth ||
-        elem.offsetHeight ||
-        elem.getClientRects().length
-      ) {
+      if (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length) {
         elem.focus();
         if ((elem.getRootNode() as Document).activeElement === elem) {
           return true;
@@ -119,9 +100,7 @@ const slotExistencePropertyNames = {
  * @slot footer - The footer content.
  */
 @customElement(`${ddsPrefix}-expressive-modal`)
-class DDSExpressiveModal extends StableSelectorMixin(
-  HostListenerMixin(LitElement)
-) {
+class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElement)) {
   /**
    * `true` if there is a header content.
    */
@@ -154,19 +133,10 @@ class DDSExpressiveModal extends StableSelectorMixin(
    * Returns all focusable elements within this component and its shadowroot
    */
   get focusableElements() {
-    const { selectorCloseButton, selectorTabbable: selectorTabbableForModal } =
-      this.constructor as typeof DDSExpressiveModal;
+    const { selectorCloseButton, selectorTabbable: selectorTabbableForModal } = this.constructor as typeof DDSExpressiveModal;
     return [
-      ...Array.from(
-        (this.shadowRoot?.querySelectorAll(
-          selectorCloseButton
-        ) as NodeListOf<HTMLElement>) || []
-      ),
-      ...Array.from(
-        this.querySelectorAll(
-          selectorTabbableForModal
-        ) as NodeListOf<HTMLElement>
-      ),
+      ...Array.from((this.shadowRoot?.querySelectorAll(selectorCloseButton) as NodeListOf<HTMLElement>) || []),
+      ...Array.from(this.querySelectorAll(selectorTabbableForModal) as NodeListOf<HTMLElement>),
     ];
   }
 
@@ -175,7 +145,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
 
     const focusableElements: [HTMLElement?] = [];
 
-    hasFocusableElements.forEach((el) => {
+    hasFocusableElements.forEach(el => {
       if (el.focusableElements) {
         focusableElements.push(...el.focusableElements);
       }
@@ -218,9 +188,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
 
   // TODO: Wait for `.d.ts` update to support `ResizeObserver`
   // @ts-ignore
-  private _resizeObserver = new ResizeObserver(
-    onResize as ResizeObserverCallback
-  );
+  private _resizeObserver = new ResizeObserver(onResize as ResizeObserverCallback);
 
   /**
    * Handles `click` event on this element.
@@ -245,8 +213,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
     let focusFromWithin = false;
     if (target && relatedTarget) {
       const comparedToThis = this.compareDocumentPosition(relatedTarget);
-      const comparedToShadowRoot =
-        this.shadowRoot!.compareDocumentPosition(relatedTarget);
+      const comparedToShadowRoot = this.shadowRoot!.compareDocumentPosition(relatedTarget);
       // If relatedTarget is descendent of `this` or `this.shadowRoot`.
       if (comparedToThis & WITHIN || comparedToShadowRoot & WITHIN) {
         focusFromWithin = true;
@@ -287,8 +254,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
 
     // See if element gaining focus is inside `this` or `this.shadowRoot`.
     const positionToModal =
-      this.compareDocumentPosition(relatedTarget) |
-      (this.shadowRoot?.compareDocumentPosition(relatedTarget) || 0);
+      this.compareDocumentPosition(relatedTarget) | (this.shadowRoot?.compareDocumentPosition(relatedTarget) || 0);
     const positionToPrevious = target.compareDocumentPosition(relatedTarget);
     const relatedTargetIsContained = Boolean(positionToModal & WITHIN);
 
@@ -317,11 +283,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
    * @param event The event.
    */
   private _handleClickContainer(event: MouseEvent) {
-    if (
-      (event.target as Element).matches(
-        (this.constructor as typeof DDSExpressiveModal).selectorCloseButton
-      )
-    ) {
+    if ((event.target as Element).matches((this.constructor as typeof DDSExpressiveModal).selectorCloseButton)) {
       this._handleUserInitiatedClose(event.target);
     }
   }
@@ -333,9 +295,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
     const { name } = target as HTMLSlotElement;
     const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
-      .some(
-        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
-      );
+      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
     this[slotExistencePropertyNames[name] || '_hasBody'] = hasContent;
   }
 
@@ -354,8 +314,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
           triggeredBy,
         },
       };
-      const { eventBeforeClose, eventClose } = this
-        .constructor as typeof DDSExpressiveModal;
+      const { eventBeforeClose, eventClose } = this.constructor as typeof DDSExpressiveModal;
       if (this.dispatchEvent(new CustomEvent(eventBeforeClose, init))) {
         this.open = false;
         this.dispatchEvent(new CustomEvent(eventClose, init));
@@ -369,7 +328,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
    * @returns A promise that is resolves when `transitionend` on the host element fires.
    */
   private _waitForTransitionEnd(timeout: number = 1000) {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       let done = false;
       let hTransitionEnd;
       const handleResolve = () => {
@@ -391,19 +350,12 @@ class DDSExpressiveModal extends StableSelectorMixin(
    * @returns The header content.
    */
   protected _renderHeader(): TemplateResult | SVGTemplateResult | void {
-    const {
-      _hasHeader: hasHeader,
-      _hasBody: hasBody,
-      _hasFooter: hasFooter,
-    } = this;
+    const { _hasHeader: hasHeader, _hasBody: hasBody, _hasFooter: hasFooter } = this;
     const headerClasses = classMap({
-      [`${ddsPrefix}-ce--modal__header--with-body`]:
-        hasHeader && (hasBody || hasFooter),
+      [`${ddsPrefix}-ce--modal__header--with-body`]: hasHeader && (hasBody || hasFooter),
     });
     return html`
-      <div id="${ddsPrefix}--modal-header" class="${headerClasses}">
-        <slot name="header"></slot>
-      </div>
+      <div id="${ddsPrefix}--modal-header" class="${headerClasses}"><slot name="header"></slot></div>
     `;
   }
 
@@ -416,7 +368,9 @@ class DDSExpressiveModal extends StableSelectorMixin(
       [`${ddsPrefix}-ce--modal__body`]: true,
       [`${ddsPrefix}-ce--modal__body--with-footer`]: hasBody && hasFooter,
     });
-    return html` <div class="${bodyClasses}"><slot></slot></div> `;
+    return html`
+      <div class="${bodyClasses}"><slot></slot></div>
+    `;
   }
 
   /**
@@ -424,7 +378,9 @@ class DDSExpressiveModal extends StableSelectorMixin(
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderFooter(): TemplateResult | SVGTemplateResult | void {
-    return html` <div><slot name="footer"></slot></div> `;
+    return html`
+      <div><slot name="footer"></slot></div>
+    `;
   }
 
   /**
@@ -464,18 +420,11 @@ class DDSExpressiveModal extends StableSelectorMixin(
       .reduce((acc, item) => ({ ...acc, [item]: true }), {});
     const containerClasses = classMap({
       [`${prefix}--modal-container`]: true,
-      [`${prefix}--modal-container--fullwidth`]:
-        size === EXPRESSIVE_MODAL_SIZE.FULL_WIDTH,
+      [`${prefix}--modal-container--fullwidth`]: size === EXPRESSIVE_MODAL_SIZE.FULL_WIDTH,
       ...containerClass,
     });
     return html`
-      <button
-        id="start-sentinel"
-        class="${prefix}--visually-hidden"
-        @focusin="${handleFocusIn}"
-      >
-        START
-      </button>
+      <button id="start-sentinel" class="${prefix}--visually-hidden" @focusin="${handleFocusIn}">START</button>
       <div
         class="${containerClasses}"
         tabindex="-1"
@@ -488,13 +437,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
           ${this._renderHeader()}${this._renderBody()}${this._renderFooter()}
         </div>
       </div>
-      <button
-        id="end-sentinel"
-        class="${prefix}--visually-hidden"
-        @focusin="${handleFocusIn}"
-      >
-        END
-      </button>
+      <button id="end-sentinel" class="${prefix}--visually-hidden" @focusin="${handleFocusIn}">END</button>
     `;
   }
 
@@ -506,8 +449,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
 
   async updated(changedProperties) {
     const { _focusableElements: focusableElements, size } = this;
-    const { selectorCloseButton } = this
-      .constructor as typeof DDSExpressiveModal;
+    const { selectorCloseButton } = this.constructor as typeof DDSExpressiveModal;
 
     if (changedProperties.has('size')) {
       const closeButton = this.querySelector(selectorCloseButton);
@@ -520,9 +462,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
         this.ownerDocument.body.style.overflow = 'hidden';
         this.removeAttribute('aria-hidden');
         this._launcher = this.ownerDocument!.activeElement;
-        const primaryFocusNode = this.querySelector(
-          (this.constructor as typeof DDSExpressiveModal).selectorPrimaryFocus
-        );
+        const primaryFocusNode = this.querySelector((this.constructor as typeof DDSExpressiveModal).selectorPrimaryFocus);
         await this._waitForTransitionEnd();
         if (primaryFocusNode) {
           // For cases where a `carbon-web-components` component (e.g. `<bx-btn>`) being `primaryFocusNode`,
@@ -531,10 +471,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
         } else {
           tryFocusElems(focusableElements as [HTMLElement], true, this);
         }
-      } else if (
-        this._launcher &&
-        typeof (this._launcher as HTMLElement).focus === 'function'
-      ) {
+      } else if (this._launcher && typeof (this._launcher as HTMLElement).focus === 'function') {
         (this._launcher as HTMLElement).focus();
         this.ownerDocument.body.style.overflow = '';
         this._launcher = null;

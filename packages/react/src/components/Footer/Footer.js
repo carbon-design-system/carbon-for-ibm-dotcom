@@ -89,16 +89,13 @@ const Footer = ({
       className={classNames(`${prefix}--footer`, {
         [`${prefix}--footer--short`]: type === 'short',
         [`${prefix}--footer--micro`]: type === 'micro',
-      })}
-    >
+      })}>
       <section className={`${prefix}--footer__main`}>
         <div className={`${prefix}--footer__main-container`}>
           <div
             className={classNames(`${prefix}--footer__logo-container`, {
-              [`${prefix}--footer__locale-button--disabled`]:
-                disableLocaleButton,
-            })}
-          >
+              [`${prefix}--footer__locale-button--disabled`]: disableLocaleButton,
+            })}>
             <div className={`${prefix}--footer__logo-row`}>
               {type !== 'micro' && <FooterLogo />}
               {type !== 'micro' &&

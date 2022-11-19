@@ -13,16 +13,8 @@ import { CTA_TYPE } from '../defs';
 import '../text-cta';
 
 const template = (props?) => {
-  const {
-    ctaType,
-    target,
-    videoDuration,
-    videoName,
-    videoThumbnailUrl,
-    formatVideoCaption,
-    formatVideoDuration,
-    children,
-  } = props ?? {};
+  const { ctaType, target, videoDuration, videoName, videoThumbnailUrl, formatVideoCaption, formatVideoDuration, children } =
+    props ?? {};
   return html`
     <dds-text-cta
       cta-type="${ifDefined(ctaType)}"
@@ -38,17 +30,15 @@ const template = (props?) => {
   `;
 };
 
-describe('dds-text-cta', function () {
-  describe('Misc attributes', function () {
-    it('should render with minimum attributes', async function () {
+describe('dds-text-cta', function() {
+  describe('Misc attributes', function() {
+    it('should render with minimum attributes', async function() {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-text-cta')).toMatchSnapshot({
-        mode: 'shadow',
-      });
+      expect(document.body.querySelector('dds-text-cta')).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes', async function () {
+    it('should render with various attributes', async function() {
       render(
         template({
           ctaType: CTA_TYPE.VIDEO,
@@ -61,13 +51,11 @@ describe('dds-text-cta', function () {
         document.body
       );
       await Promise.resolve();
-      expect(document.body.querySelector('dds-text-cta')).toMatchSnapshot({
-        mode: 'shadow',
-      });
+      expect(document.body.querySelector('dds-text-cta')).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 
-  afterEach(async function () {
+  afterEach(async function() {
     await render(undefined!, document.body);
   });
 });

@@ -25,7 +25,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSFooterNavItem extends BXLink {
   protected _renderInner() {
     const { titleText } = this;
-    return html` <slot>${titleText}</slot> `;
+    return html`
+      <slot>${titleText}</slot>
+    `;
   }
 
   /**

@@ -130,7 +130,7 @@ function getChangelog(pkgName, folder) {
 
   const commitsArray = getCommits(folder);
 
-  commitsArray.forEach((commit) => {
+  commitsArray.forEach(commit => {
     const commitParse = commit.replace(delimiter, '');
     if (commit.startsWith('feat(')) {
       const featName = _getCommitName(commitParse);
@@ -167,9 +167,9 @@ function getChangelog(pkgName, folder) {
 
   if (Object.keys(features).length) {
     changelog += `### Features\n`;
-    Object.keys(features).forEach((featureName) => {
+    Object.keys(features).forEach(featureName => {
       changelog += `- **${featureName}**\n`;
-      features[featureName].forEach((feature) => {
+      features[featureName].forEach(feature => {
         changelog += `  - ${feature}\n`;
       });
     });
@@ -178,9 +178,9 @@ function getChangelog(pkgName, folder) {
 
   if (Object.keys(fixes).length) {
     changelog += `### Fixes\n`;
-    Object.keys(fixes).forEach((fixName) => {
+    Object.keys(fixes).forEach(fixName => {
       changelog += `- **${fixName}**\n`;
-      fixes[fixName].forEach((fix) => {
+      fixes[fixName].forEach(fix => {
         changelog += `  - ${fix}\n`;
       });
     });
@@ -189,9 +189,9 @@ function getChangelog(pkgName, folder) {
 
   if (Object.keys(chores).length) {
     changelog += `### Housekeeping\n`;
-    Object.keys(chores).forEach((choreName) => {
+    Object.keys(chores).forEach(choreName => {
       changelog += `- **${choreName}**\n`;
-      chores[choreName].forEach((chore) => {
+      chores[choreName].forEach(chore => {
         changelog += `  - ${chore}\n`;
       });
     });

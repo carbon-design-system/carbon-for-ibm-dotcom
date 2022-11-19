@@ -37,8 +37,7 @@ class DDSBackgroundMedia extends DDSImage {
   protected _getGradientClass() {
     return classMap({
       [`${prefix}--background-media--gradient`]: true,
-      [`${prefix}--background-media--gradient--${this.gradientDirection}`]:
-        this.gradientDirection,
+      [`${prefix}--background-media--gradient--${this.gradientDirection}`]: this.gradientDirection,
     });
   }
 
@@ -49,8 +48,7 @@ class DDSBackgroundMedia extends DDSImage {
     return classMap({
       [`${prefix}--background-media--container`]: true,
       [`${prefix}--background-media--mobile-position`]: true,
-      [`${prefix}--background-media--mobile-position--${this.mobilePosition}`]:
-        this.mobilePosition,
+      [`${prefix}--background-media--mobile-position--${this.mobilePosition}`]: this.mobilePosition,
       [`${prefix}--background-media--image`]: this.videoPlayer === null,
       [`${prefix}--background-media--video`]: this.videoPlayer !== null,
     });
@@ -108,20 +106,11 @@ class DDSBackgroundMedia extends DDSImage {
    * Conditionally runs super.render() if all children are `dds-image-item`
    */
   private _handleBackgroundMedia(event: Event) {
-    const assignedElements = (
-      event.target as HTMLSlotElement
-    )?.assignedElements();
-    const assignedImages = assignedElements.filter(
-      (el) => el.tagName === `${ddsPrefix}-image-item`.toUpperCase()
-    );
-    const assignedVideos = assignedElements.filter(
-      (el) => el.tagName === `${ddsPrefix}-video-player-container`.toUpperCase()
-    );
+    const assignedElements = (event.target as HTMLSlotElement)?.assignedElements();
+    const assignedImages = assignedElements.filter(el => el.tagName === `${ddsPrefix}-image-item`.toUpperCase());
+    const assignedVideos = assignedElements.filter(el => el.tagName === `${ddsPrefix}-video-player-container`.toUpperCase());
 
-    if (
-      assignedElements.length === assignedImages.length &&
-      !assignedVideos.length
-    ) {
+    if (assignedElements.length === assignedImages.length && !assignedVideos.length) {
       this.containsOnlyImages = true;
     }
 
@@ -155,7 +144,9 @@ class DDSBackgroundMedia extends DDSImage {
   }
 
   renderGradient() {
-    return html` <div class="${this._getGradientClass()}"></div> `;
+    return html`
+      <div class="${this._getGradientClass()}"></div>
+    `;
   }
 
   _getMediaOpacity() {
@@ -186,10 +177,7 @@ class DDSBackgroundMedia extends DDSImage {
     return html`
       <div class="${this._getMobilePositionClass()}">
         ${this.gradientHidden ? '' : this.renderGradient()}
-        <div
-          class="${prefix}--background-media--item"
-          style="${this._getMediaOpacity()}"
-        >
+        <div class="${prefix}--background-media--item" style="${this._getMediaOpacity()}">
           ${this.containsOnlyImages ? super.render() : ''}
           <slot @slotchange="${this._handleBackgroundMedia}"></slot>
         </div>

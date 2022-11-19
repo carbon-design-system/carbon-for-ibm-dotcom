@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,9 +16,7 @@ const svg2js = require('svgo/lib/svgo/svg2js');
  * @returns {object} The first `<svg>` in the given SVG2JS result.
  */
 function findRootNode(node) {
-  return node.elem === 'svg'
-    ? node
-    : node.content && node.content.find((item) => findRootNode(item));
+  return node.elem === 'svg' ? node : node.content && node.content.find(item => findRootNode(item));
 }
 
 /**
@@ -45,7 +43,7 @@ function convertAttrs(node) {
     );
   }
   if (content) {
-    result.content = content.map((item) => convertAttrs(item));
+    result.content = content.map(item => convertAttrs(item));
   }
   return result;
 }
@@ -56,7 +54,7 @@ function convertAttrs(node) {
  */
 function svg2JSAsync(data) {
   return new Promise((resolve, reject) => {
-    svg2js(data, (result) => {
+    svg2js(data, result => {
       const { error } = result;
       if (error) {
         reject(new Error(`SVG2JS failed: ${error}`));

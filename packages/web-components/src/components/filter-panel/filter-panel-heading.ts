@@ -49,7 +49,9 @@ class DDSFilterPanelHeading extends StableSelectorMixin(LitElement) {
   };
 
   render() {
-    return html` <slot @slotchange=${this._handleSlotChange}></slot> `;
+    return html`
+      <slot @slotchange=${this._handleSlotChange}></slot>
+    `;
   }
 
   static get stableSelector() {

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,7 +27,7 @@ module.exports = function temporarilyRemoveDefaultProps(
   { excludes = [], callExpressionDefaultExports = [], symbols = [] } = {}
 ) {
   const t = babel.types;
-  const excludesMatchers = excludes.map((item) => new Minimatch(item));
+  const excludesMatchers = excludes.map(item => new Minimatch(item));
 
   /**
    * @param {NodePath} path The node path.
@@ -65,7 +65,7 @@ module.exports = function temporarilyRemoveDefaultProps(
     const prepend = !isDefinePropertyCall
       ? []
       : getPatternTokens(path.get('arguments.0'));
-    return prepend.concat(acc.map((item) => getName(item)).filter(Boolean));
+    return prepend.concat(acc.map(item => getName(item)).filter(Boolean));
   }
 
   /**
@@ -89,7 +89,7 @@ module.exports = function temporarilyRemoveDefaultProps(
   function matchesPatternOrIdentifier(path, patterns) {
     const tokensInPath = getPatternTokens(path);
 
-    return patterns.some((pattern) => {
+    return patterns.some(pattern => {
       if (!pattern) {
         return false;
       }
@@ -168,7 +168,7 @@ module.exports = function temporarilyRemoveDefaultProps(
       const callee = path.get('callee');
       if (
         symbols.some(
-          (property) =>
+          property =>
             (callee.isMemberExpression() && callee.matchesPattern(property)) ||
             callee.isIdentifier({ name: property })
         )
@@ -183,9 +183,7 @@ module.exports = function temporarilyRemoveDefaultProps(
       Program(path, state) {
         const { file } = state;
         if (
-          excludesMatchers.every(
-            (matcher) => !matcher.match(file.opts.filename)
-          )
+          excludesMatchers.every(matcher => !matcher.match(file.opts.filename))
         ) {
           path.traverse(visitor, state);
         }

@@ -62,59 +62,40 @@ const items = [
 ];
 
 const image = html`
-  <dds-image
-    slot="media"
-    alt="Image alt text"
-    default-src="${imgLg16x9}"
-    heading="Lorem ipsum dolor sit amet."
-  >
-    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
-    </dds-image-item>
-    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
-    </dds-image-item>
-    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
-    </dds-image-item>
+  <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum dolor sit amet.">
+    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
   </dds-image>
 `;
 
-export const Default = (args) => {
-  const { heading, copy, showCopy, addChildren, showCTA, border, aside } =
-    args?.ContentBlock ?? {};
+export const Default = args => {
+  const { heading, copy, showCopy, addChildren, showCTA, border, aside } = args?.ContentBlock ?? {};
   return html`
-    <dds-content-block
-      complementary-style-scheme="${border
-        ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER
-        : ''}"
-    >
+    <dds-content-block complementary-style-scheme="${border ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER : ''}">
       ${heading
         ? html`
-            <dds-content-block-heading
-              >What is the latest news in artificial
-              intelligence?</dds-content-block-heading
-            >
+            <dds-content-block-heading>What is the latest news in artificial intelligence?</dds-content-block-heading>
           `
         : ''}
       ${showCopy
-        ? html` <dds-content-block-copy>${copy}</dds-content-block-copy> `
+        ? html`
+            <dds-content-block-copy>${copy}</dds-content-block-copy>
+          `
         : ``}
       ${addChildren.includes('Content group simple')
         ? html`
             <dds-content-group-simple>
-              <dds-content-group-heading
-                >Natural language processing (NLP)</dds-content-group-heading
-              >
+              <dds-content-group-heading>Natural language processing (NLP)</dds-content-group-heading>
               <dds-content-group-copy
-                >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum non porttitor libero, in venenatis
+                >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis
                 magna.</dds-content-group-copy
               >
               ${image}
               ${items.map(
                 ({ itemsHeading: itemHeading, itemsCopy: itemCopy }) => html`
                   <dds-content-item>
-                    <dds-content-item-heading
-                      >${itemHeading}</dds-content-item-heading
-                    >
+                    <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
                     <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
                   </dds-content-item>
                 `
@@ -124,15 +105,8 @@ export const Default = (args) => {
         : ``}
       ${showCTA
         ? html`
-            <dds-card-link-cta
-              slot="footer"
-              cta-type="local"
-              href="https://www.example.com"
-            >
-              <dds-card-link-heading
-                >Learn more about natual language
-                processing</dds-card-link-heading
-              >
+            <dds-card-link-cta slot="footer" cta-type="local" href="https://www.example.com">
+              <dds-card-link-heading>Learn more about natual language processing</dds-card-link-heading>
               <dds-card-cta-footer></dds-card-cta-footer>
             </dds-card-link-cta>
           `
@@ -163,10 +137,12 @@ export const Default = (args) => {
 export default {
   title: 'Components/Content block',
   decorators: [
-    (story) => html`
+    story => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-lg-12 bx--no-gutter">${story()}</div>
+          <div class="bx--col-lg-12 bx--no-gutter">
+            ${story()}
+          </div>
         </div>
       </div>
     `,

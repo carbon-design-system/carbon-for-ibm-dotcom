@@ -70,9 +70,7 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
    * @param event The event.
    */
   protected _handleHeadingSlotChange({ target }: Event) {
-    this._heading = (
-      (target as HTMLSlotElement).assignedNodes()[0] as HTMLElement
-    ).innerText;
+    this._heading = ((target as HTMLSlotElement).assignedNodes()[0] as HTMLElement).innerText;
   }
 
   /**
@@ -83,15 +81,11 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   protected _handleImageSlotChange({ target }: Event) {
     this._hasImage = (target as HTMLSlotElement)
       .assignedNodes()
-      .some(
-        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
-      );
+      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
 
     this._contents = (target as HTMLSlotElement)
       .assignedNodes()
-      .filter(
-        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
-      );
+      .filter(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
   }
 
   /**
@@ -100,8 +94,7 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   protected _getSearchClass() {
     return classMap({
       [`${prefix}--search-container`]: true,
-      [`${prefix}--search-container-adjacent-theme`]:
-        this.theme !== ADJACENT_THEMES.MONOTHEME || this._hasImage,
+      [`${prefix}--search-container-adjacent-theme`]: this.theme !== ADJACENT_THEMES.MONOTHEME || this._hasImage,
     });
   }
 
@@ -112,10 +105,7 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   render() {
     return html`
       <div class="${prefix}--content-layout">
-        <slot
-          name="heading"
-          @slotchange=${this._handleHeadingSlotChange}
-        ></slot>
+        <slot name="heading" @slotchange=${this._handleHeadingSlotChange}></slot>
         <div class="${prefix}--content-layout__body">
           <slot name="content"></slot>
           <slot @slotchange=${this._handleImageSlotChange} name="image"></slot>
@@ -128,8 +118,10 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
         </div>
       </div>
       <slot name="hr"></slot>
-      ${this._contents.map((e) => {
-        return html` ${unsafeHTML((e as HTMLElement).outerHTML)} `;
+      ${this._contents.map(e => {
+        return html`
+          ${unsafeHTML((e as HTMLElement).outerHTML)}
+        `;
       })}
     `;
   }

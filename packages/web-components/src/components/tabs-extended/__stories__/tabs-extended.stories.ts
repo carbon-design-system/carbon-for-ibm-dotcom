@@ -29,7 +29,7 @@ const copy = `Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
   Curabitur pretium elit non blandit lobortis.
   Donec quis pretium odio, in dignissim sapien.`;
 
-export const Default = (args) => {
+export const Default = args => {
   const { orientation } = args?.TabsExtended ?? {};
   return html`
     <dds-tabs-extended orientation="${ifNonNull(orientation)}">
@@ -39,16 +39,12 @@ export const Default = (args) => {
       >
         <dds-content-block-media-content>
           <dds-content-item>
-            <dds-content-item-heading
-              >Content for first tab goes here.</dds-content-item-heading
-            >
+            <dds-content-item-heading>Content for first tab goes here.</dds-content-item-heading>
             <dds-content-item-copy>${copy}</dds-content-item-copy>
           </dds-content-item>
 
           <dds-card-link-cta slot="footer" href="https://example.com">
-            <dds-card-link-heading
-              >Lorem ipsum dolor sit amet</dds-card-link-heading
-            >
+            <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
             <dds-card-cta-footer>
               ${ArrowRight20({ slot: 'icon' })}
             </dds-card-cta-footer>
@@ -58,9 +54,7 @@ export const Default = (args) => {
       <dds-tab label="Second tab - min amount for tooltip ">
         <dds-content-block-media-content>
           <dds-content-item>
-            <dds-content-item-heading
-              >Content for second tab goes here.</dds-content-item-heading
-            >
+            <dds-content-item-heading>Content for second tab goes here.</dds-content-item-heading>
             <dds-content-item-copy>${copy}</dds-content-item-copy>
           </dds-content-item>
         </dds-content-block-media-content>
@@ -81,10 +75,12 @@ export const Default = (args) => {
 export default {
   title: 'Components/Tabs extended',
   decorators: [
-    (story) => html`
+    story => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-lg-12 bx--no-gutter">${story()}</div>
+          <div class="bx--col-lg-12 bx--no-gutter">
+            ${story()}
+          </div>
         </div>
       </div>
     `,
@@ -94,11 +90,7 @@ export default {
     hasStoryPadding: true,
     knobs: {
       TabsExtended: () => ({
-        orientation: select(
-          'Orientation (orientation):',
-          orientationType,
-          ORIENTATION.HORIZONTAL
-        ),
+        orientation: select('Orientation (orientation):', orientationType, ORIENTATION.HORIZONTAL),
       }),
     },
     propsSet: {

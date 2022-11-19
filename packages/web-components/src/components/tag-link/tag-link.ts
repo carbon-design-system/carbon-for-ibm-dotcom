@@ -67,15 +67,7 @@ class DDSTagLink extends StableSelectorMixin(LitElement) {
   protected _handleClick(_: MouseEvent) {}
 
   render() {
-    const {
-      href,
-      hreflang,
-      linkRole,
-      ping,
-      rel,
-      target,
-      _handleClick: handleClick,
-    } = this;
+    const { href, hreflang, linkRole, ping, rel, target, _handleClick: handleClick } = this;
     return html`
       <a
         id="link"

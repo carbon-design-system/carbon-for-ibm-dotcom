@@ -40,7 +40,7 @@ export const Card = ({
   const refWrapper = useRef(null);
 
   const handleClick = useCallback(
-    (e) => {
+    e => {
       if (!onClick || onClick(e) !== false) {
         cta?.type === 'jump' ? CTALogic.jump(e, cta.type) : false;
       }
@@ -77,8 +77,7 @@ export const Card = ({
         },
         customClassName
       )}
-      {...props}
-    >
+      {...props}>
       {image && <Image {...image} classname={`${prefix}--card__img`} />}
       <div className={`${prefix}--card__wrapper`} ref={refWrapper}>
         <div className={`${prefix}--card__content`}>
@@ -104,8 +103,7 @@ function optionalContent(copy) {
       className={`${prefix}--card__copy`}
       dangerouslySetInnerHTML={{
         __html: markdownToHtml(copy, { bold: false }),
-      }}
-    ></div>
+      }}></div>
   );
 }
 
@@ -131,8 +129,7 @@ function renderFooter(cta, copy, disabled, heading, pictogram) {
           (cta?.copy ? '' : heading ? heading : copy) +
           CTALogic.getDefaultLabel(cta?.type)
         }
-        onClick={cta?.handleClick}
-      >
+        onClick={cta?.handleClick}>
         {cta?.copy && !pictogram && (
           <span className={`${prefix}--card__cta__copy`}>{cta?.copy}</span>
         )}

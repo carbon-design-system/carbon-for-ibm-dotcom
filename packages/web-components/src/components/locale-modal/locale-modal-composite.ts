@@ -13,10 +13,7 @@ import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import altlangs from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/altlangs/altlangs.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
-import {
-  Country,
-  LocaleList,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
+import { Country, LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import './locale-modal';
 import './regions';
 import './region-item';
@@ -38,9 +35,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
    * @returns Sorted version of the given country list.
    */
   private _sortCountries(countries: Country[]) {
-    return countries.sort((lhs, rhs) =>
-      this.collatorCountryName.compare(lhs.name, rhs.name)
-    );
+    return countries.sort((lhs, rhs) => this.collatorCountryName.compare(lhs.name, rhs.name));
   }
 
   /**
@@ -100,7 +95,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
     }
     this._loadLocaleList?.(language);
 
-    this.getLangDisplay().then((res) => {
+    this.getLangDisplay().then(res => {
       this.langDisplay = res;
     });
   }
@@ -118,54 +113,33 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
   renderLightDOM() {
     const { langDisplay, localeList, open } = this;
     const { localeModal, regionList } = localeList ?? {};
-    const {
-      availabilityText,
-      headerTitle,
-      modalClose,
-      searchClearText,
-      searchLabel,
-      searchPlaceholder,
-      unavailabilityText,
-    } = localeModal ?? {};
+    const { availabilityText, headerTitle, modalClose, searchClearText, searchLabel, searchPlaceholder, unavailabilityText } =
+      localeModal ?? {};
     const pageLangs: { [locale: string]: string } = altlangs();
-    if (
-      Object.keys(pageLangs).length === 0 &&
-      (regionList?.length as number) > 0
-    ) {
+    if (Object.keys(pageLangs).length === 0 && (regionList?.length as number) > 0) {
       const messages = [
         'Detected that `<link rel="alternate">` is likely missing.',
         'The locale search UI will yield to an empty result.',
       ];
       console.warn(messages.join(' ')); // eslint-disable-line no-console
     }
-    const massagedCountryList = regionList?.reduce(
-      (acc, { countryList, name: region }) => {
-        this._sortCountries(countryList).forEach(
-          ({ name: country, locale: localeItems }) => {
-            localeItems.forEach(([locale, language]) => {
-              const href = pageLangs[locale];
-              if (href) {
-                acc.push({
-                  locale,
-                  region,
-                  country,
-                  href,
-                  language,
-                });
-              }
+    const massagedCountryList = regionList?.reduce((acc, { countryList, name: region }) => {
+      this._sortCountries(countryList).forEach(({ name: country, locale: localeItems }) => {
+        localeItems.forEach(([locale, language]) => {
+          const href = pageLangs[locale];
+          if (href) {
+            acc.push({
+              locale,
+              region,
+              country,
+              href,
+              language,
             });
           }
-        );
-        return acc;
-      },
-      [] as {
-        href: string;
-        locale: string;
-        region: string;
-        country: string;
-        language: string;
-      }[]
-    );
+        });
+      });
+      return acc;
+    }, [] as { href: string; locale: string; region: string; country: string; language: string }[]);
 
     return html`
       <dds-locale-modal
@@ -178,9 +152,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
           ${regionList?.map(({ countryList, name }) => {
             return html`
               <dds-region-item
-                ?invalid="${countryList.length === 0 ||
-                massagedCountryList?.find(({ region }) => region === name) ===
-                  undefined}"
+                ?invalid="${countryList.length === 0 || massagedCountryList?.find(({ region }) => region === name) === undefined}"
                 name="${name}"
               ></dds-region-item>
             `;
@@ -195,13 +167,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
         >
           ${massagedCountryList?.map(
             ({ country, href, language, locale, region }) => html`
-              <dds-locale-item
-                country="${country}"
-                href="${href}"
-                language="${language}"
-                locale="${locale}"
-                region="${region}"
-              >
+              <dds-locale-item country="${country}" href="${href}" language="${language}" locale="${locale}" region="${region}">
               </dds-locale-item>
             `
           )}
@@ -211,7 +177,9 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
   }
 
   render() {
-    return html` <slot></slot> `;
+    return html`
+      <slot></slot>
+    `;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader

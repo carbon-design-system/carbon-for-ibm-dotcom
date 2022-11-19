@@ -45,10 +45,7 @@ export const FadeOnce = () => {
       ${fadeStyles.cssText}
       ${fadeOptions.cssText}
     </style>
-    <dds-scroll-animations
-      animation="fade"
-      selector-targets="${selectorTargets}"
-    >
+    <dds-scroll-animations animation="fade" selector-targets="${selectorTargets}">
       ${StoryContent()}
     </dds-scroll-animations>
   `;
@@ -64,11 +61,7 @@ export const FadeWithContinuousAnimations = () => {
       ${fadeStyles.cssText}
       ${fadeOptions.cssText}
     </style>
-    <dds-scroll-animations
-      animation="fade"
-      selector-targets="${selectorTargets}"
-      keep-animation="${true}"
-    >
+    <dds-scroll-animations animation="fade" selector-targets="${selectorTargets}" keep-animation="${true}">
       ${StoryContent()}
     </dds-scroll-animations>
   `;
@@ -84,11 +77,7 @@ export const SlideUp = () => {
       ${fadeStyles.cssText}
       ${fadeOptions.cssText}
     </style>
-    <dds-scroll-animations
-      animation="slide-up"
-      selector-targets="${selectorTargets}"
-      keep-animation="${true}"
-    >
+    <dds-scroll-animations animation="slide-up" selector-targets="${selectorTargets}" keep-animation="${true}">
       ${StoryContent()}
     </dds-scroll-animations>
   `;
@@ -104,11 +93,7 @@ export const SlideUpRight = () => {
       ${fadeStyles.cssText}
       ${fadeOptions.cssText}
     </style>
-    <dds-scroll-animations
-      animation="slide-up-right"
-      selector-targets="${selectorTargets}"
-      keep-animation="${true}"
-    >
+    <dds-scroll-animations animation="slide-up-right" selector-targets="${selectorTargets}" keep-animation="${true}">
       ${StoryContent()}
     </dds-scroll-animations>
   `;
@@ -124,11 +109,7 @@ export const SlideRight = () => {
       ${fadeStyles.cssText}
       ${fadeOptions.cssText}
     </style>
-    <dds-scroll-animations
-      animation="slide-right"
-      selector-targets="${selectorTargets}"
-      keep-animation="${true}"
-    >
+    <dds-scroll-animations animation="slide-right" selector-targets="${selectorTargets}" keep-animation="${true}">
       ${StoryContent()}
     </dds-scroll-animations>
   `;
@@ -144,11 +125,7 @@ export const SlideDownRight = () => {
       ${fadeStyles.cssText}
       ${fadeOptions.cssText}
     </style>
-    <dds-scroll-animations
-      animation="slide-down-right"
-      selector-targets="${selectorTargets}"
-      keep-animation="${true}"
-    >
+    <dds-scroll-animations animation="slide-down-right" selector-targets="${selectorTargets}" keep-animation="${true}">
       ${StoryContent()}
     </dds-scroll-animations>
   `;
@@ -164,11 +141,7 @@ export const SlideDown = () => {
       ${fadeStyles.cssText}
       ${fadeOptions.cssText}
     </style>
-    <dds-scroll-animations
-      animation="slide-down"
-      selector-targets="${selectorTargets}"
-      keep-animation="${true}"
-    >
+    <dds-scroll-animations animation="slide-down" selector-targets="${selectorTargets}" keep-animation="${true}">
       ${StoryContent()}
     </dds-scroll-animations>
   `;
@@ -184,11 +157,7 @@ export const SlideDownLeft = () => {
       ${fadeStyles.cssText}
       ${fadeOptions.cssText}
     </style>
-    <dds-scroll-animations
-      animation="slide-down-left"
-      selector-targets="${selectorTargets}"
-      keep-animation="${true}"
-    >
+    <dds-scroll-animations animation="slide-down-left" selector-targets="${selectorTargets}" keep-animation="${true}">
       ${StoryContent()}
     </dds-scroll-animations>
   `;
@@ -204,11 +173,7 @@ export const SlideLeft = () => {
       ${fadeStyles.cssText}
       ${fadeOptions.cssText}
     </style>
-    <dds-scroll-animations
-      animation="slide-left"
-      selector-targets="${selectorTargets}"
-      keep-animation="${true}"
-    >
+    <dds-scroll-animations animation="slide-left" selector-targets="${selectorTargets}" keep-animation="${true}">
       ${StoryContent()}
     </dds-scroll-animations>
   `;
@@ -224,11 +189,7 @@ export const SlideUpLeft = () => {
       ${fadeStyles.cssText}
       ${fadeOptions.cssText}
     </style>
-    <dds-scroll-animations
-      animation="slide-up-left"
-      selector-targets="${selectorTargets}"
-      keep-animation="${true}"
-    >
+    <dds-scroll-animations animation="slide-up-left" selector-targets="${selectorTargets}" keep-animation="${true}">
       ${StoryContent()}
     </dds-scroll-animations>
   `;
@@ -248,8 +209,10 @@ export default {
     },
   },
   decorators: [
-    (story) => html`
-      <div class="bx--grid" style="padding: 0">${story()}</div>
+    story => html`
+      <div class="bx--grid" style="padding: 0">
+        ${story()}
+      </div>
     `,
   ],
 };

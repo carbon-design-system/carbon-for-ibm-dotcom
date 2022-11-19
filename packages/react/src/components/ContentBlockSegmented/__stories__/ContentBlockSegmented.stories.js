@@ -215,7 +215,7 @@ const props = {
       ...ctaKnobs,
       heading: 'Lorem ipsum dolor sit amet.',
       // The URL in the JSON from the knob gets `&amp`
-      items: items.map((item) => {
+      items: items.map(item => {
         return {
           ...item,
           image: !item.image
@@ -226,7 +226,7 @@ const props = {
                   ? undefined
                   : {
                       ...item.image.image,
-                      sources: item.image.image.sources?.map((item) => ({
+                      sources: item.image.image.sources?.map(item => ({
                         ...item,
                         src: item.src?.replace(/&amp;/g, '&'),
                       })),

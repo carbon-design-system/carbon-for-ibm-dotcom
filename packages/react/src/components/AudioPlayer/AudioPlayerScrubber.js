@@ -25,14 +25,15 @@ const AudioPlayerScrubber = ({
   rewindHelperText,
   forwardHelperText,
 }) => {
-  const audioDurationAsString =
-    KalturaPlayerAPI.getMediaDuration(audioDuration); // Audio Total Time
+  const audioDurationAsString = KalturaPlayerAPI.getMediaDuration(
+    audioDuration
+  ); // Audio Total Time
 
   const handleFormat = (minMax, minOrMaxLabel) => {
     return minOrMaxLabel;
   };
 
-  const handleRewindForwardAudio = (addedValue) => {
+  const handleRewindForwardAudio = addedValue => {
     if (kalturaDigitalPlayer) {
       let time = audioTime + addedValue;
       time = time < 0 ? 0 : time;
@@ -45,7 +46,7 @@ const AudioPlayerScrubber = ({
     }
   };
 
-  const handleScrubberChange = (time) => {
+  const handleScrubberChange = time => {
     /**
      * As this will trigger every time the updatePlayhead listener triggers
      *  and we floor the floating value returned, sometimes it will return like

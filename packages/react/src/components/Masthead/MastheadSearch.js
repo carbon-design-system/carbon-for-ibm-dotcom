@@ -47,7 +47,7 @@ const _redirectUrl =
  * @param {string} valueString The text field
  * @returns {string} lower cased and trimmed text
  */
-const _trimAndLower = (valueString) => valueString.toLowerCase().trim();
+const _trimAndLower = valueString => valueString.toLowerCase().trim();
 
 /**
  * When a suggestion item is clicked, we populate the input with its name field
@@ -55,7 +55,7 @@ const _trimAndLower = (valueString) => valueString.toLowerCase().trim();
  * @param {object} suggestion The individual object or key name from the data
  * @returns {*} The name val
  */
-const _getSuggestionValue = (suggestion) => suggestion[0] || suggestion.name;
+const _getSuggestionValue = suggestion => suggestion[0] || suggestion.name;
 
 /**
  * Reducer for the useReducer hook
@@ -144,7 +144,7 @@ const MastheadSearch = forwardRef(
     }, [propIsSearchActive]);
 
     const handleChangeSearchActive = useCallback(
-      (event) => {
+      event => {
         const newisSearchActive = !isSearchActive;
         setIsSearchActive(newisSearchActive);
         openOnLoadFocus = false;
@@ -205,7 +205,7 @@ const MastheadSearch = forwardRef(
        *
        * @param {*} event Escape keypress
        */
-      const handleHideSearch = (event) => {
+      const handleHideSearch = event => {
         if (event.key === 'Escape') {
           if (!state.suggestionContainerVisible) {
             dispatch({ type: 'setSearchClosed' });
@@ -222,7 +222,7 @@ const MastheadSearch = forwardRef(
        *
        * @param {*} event Click event outside masthead component
        */
-      const handleClickOutside = (event) => {
+      const handleClickOutside = event => {
         if (!searchOpenOnload) {
           const mastheadRef = ref.current?.closest(`.${prefix}--masthead`);
           if (mastheadRef && !mastheadRef.contains(event.target)) {
@@ -580,14 +580,12 @@ const MastheadSearch = forwardRef(
       <div
         data-autoid={`${stablePrefix}--masthead__search`}
         className={className}
-        ref={ref}
-      >
+        ref={ref}>
         {isSearchActive && (
           <form
             id={`${prefix}--masthead__search--form`}
             action={_redirectUrl}
-            method="get"
-          >
+            method="get">
             <input type="hidden" name="lang" value={state.lc} />
             <input type="hidden" name="cc" value={state.cc} />
             <input type="hidden" name="lnk" value="mhsrch" />
@@ -623,16 +621,14 @@ const MastheadSearch = forwardRef(
             className={`${prefix}--header__search--search`}
             data-autoid={`${stablePrefix}--masthead-${navType}__l0-search`}
             tabIndex={0}
-            ref={searchIconButton}
-          >
+            ref={searchIconButton}>
             <Search20 />
           </HeaderGlobalAction>
           <HeaderGlobalAction
             onClick={closeBtnAction}
             aria-label="Close"
             className={`${prefix}--header__search--close`}
-            data-autoid={`${stablePrefix}--masthead-${navType}__l0-search--close`}
-          >
+            data-autoid={`${stablePrefix}--masthead-${navType}__l0-search--close`}>
             <Close20 />
           </HeaderGlobalAction>
         </div>

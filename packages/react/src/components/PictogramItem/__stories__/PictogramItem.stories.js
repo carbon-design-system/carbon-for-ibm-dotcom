@@ -17,7 +17,7 @@ import readme from '../README.stories.mdx';
  * @param {string} sel string that defines the returning pictogram
  * @returns {*} JSX pictogram component
  */
-const selectPictogram = (sel) => {
+const selectPictogram = sel => {
   switch (sel) {
     case 'Desktop':
       return Desktop;
