@@ -35,24 +35,20 @@ const templateItem = () =>
     </dds-button-group-item>
   `;
 
-describe('dds-button-group', function () {
-  it('renders dds-button-group properly', async function () {
+describe('dds-button-group', function() {
+  it('renders dds-button-group properly', async function() {
     render(template(), document.body);
     await Promise.resolve(); // Update cycle for `<dds-button-group>`
-    expect(document.body.querySelector('dds-button-group')).toMatchSnapshot({
-      mode: 'shadow',
-    });
+    expect(document.body.querySelector('dds-button-group')).toMatchSnapshot({ mode: 'shadow' });
   });
 
-  it('renders dds-button-group-item properly', async function () {
+  it('renders dds-button-group-item properly', async function() {
     render(templateItem(), document.body);
     await Promise.resolve();
-    expect(
-      document.body.querySelector('dds-button-group-item')
-    ).toMatchSnapshot({ mode: 'shadow' });
+    expect(document.body.querySelector('dds-button-group-item')).toMatchSnapshot({ mode: 'shadow' });
   });
 
-  afterEach(async function () {
+  afterEach(async function() {
     await render(undefined!, document.body);
   });
 });

@@ -36,10 +36,7 @@ class DDSLegalNavItem extends DDSFooterNavItem {
         .replace(/ +/g, '-')
         .toLowerCase();
       linkNode.classList.add(`${prefix}--footer__link`);
-      linkNode.setAttribute(
-        'data-autoid',
-        `${ddsPrefix}--footer-legal-nav__link-${dataTitle}`
-      );
+      linkNode.setAttribute('data-autoid', `${ddsPrefix}--footer-legal-nav__link-${dataTitle}`);
     }
   }
 }

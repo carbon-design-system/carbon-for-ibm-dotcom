@@ -29,25 +29,24 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSLightboxImageViewer extends DDSLightboxMediaViewerBody {
   _renderDescription() {
     const { description } = this;
-    return html` <slot name="description">${description}</slot> `;
+    return html`
+      <slot name="description">${description}</slot>
+    `;
   }
 
   // eslint-disable-next-line class-methods-use-this
   _renderMedia() {
     const { alt, defaultSrc } = this;
     return html`
-      <img
-        class="${prefix}--image__img"
-        alt="${ifNonNull(alt)}"
-        src="${ifNonNull(defaultSrc)}"
-        loading="lazy"
-      />
+      <img class="${prefix}--image__img" alt="${ifNonNull(alt)}" src="${ifNonNull(defaultSrc)}" loading="lazy" />
     `;
   }
 
   _renderTitle() {
     const { title } = this;
-    return html` <slot name="title">${title}</slot> `;
+    return html`
+      <slot name="title">${title}</slot>
+    `;
   }
 
   /**

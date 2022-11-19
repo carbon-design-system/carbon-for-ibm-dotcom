@@ -65,7 +65,7 @@ export default {
   },
 };
 
-export const Default = (args) => {
+export const Default = args => {
   return (
     <LightboxMediaViewer
       {...(Object.keys(args).length > 0 ? args : props.default())}

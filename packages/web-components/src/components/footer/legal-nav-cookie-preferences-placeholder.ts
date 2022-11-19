@@ -22,9 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-legal-nav-cookie-preferences-placeholder
  */
 @customElement(`${ddsPrefix}-legal-nav-cookie-preferences-placeholder`)
-class DDSLegalNavCookiePreferencesPlaceholder extends StableSelectorMixin(
-  LitElement
-) {
+class DDSLegalNavCookiePreferencesPlaceholder extends StableSelectorMixin(LitElement) {
   /**
    * Handles `slotchange` event.
    */
@@ -32,8 +30,8 @@ class DDSLegalNavCookiePreferencesPlaceholder extends StableSelectorMixin(
     // Finds new injected links
     const linkNodes = (event.target as HTMLSlotElement)
       .assignedNodes()
-      .filter((node) => (node as Element).tagName === 'A') as HTMLLinkElement[];
-    linkNodes.forEach((node) => {
+      .filter(node => (node as Element).tagName === 'A') as HTMLLinkElement[];
+    linkNodes.forEach(node => {
       // Adds Carbon CSS classes
       node.classList.add(`${prefix}--link`);
       node.classList.add(`${prefix}--footer__link`);
@@ -44,7 +42,9 @@ class DDSLegalNavCookiePreferencesPlaceholder extends StableSelectorMixin(
 
   render() {
     const { _handleSlotChange: handleSlotchange } = this;
-    return html` <slot @slotchange="${handleSlotchange}"></slot> `;
+    return html`
+      <slot @slotchange="${handleSlotchange}"></slot>
+    `;
   }
 
   static get stableSelector() {

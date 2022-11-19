@@ -20,31 +20,21 @@ const copy =
 
 const linkListItem = html`
   <dds-content-item-horizontal>
-    <dds-content-item-horizontal-eyebrow
-      >Lorem ipsum</dds-content-item-horizontal-eyebrow
-    >
+    <dds-content-item-horizontal-eyebrow>Lorem ipsum</dds-content-item-horizontal-eyebrow>
     <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
     <dds-content-item-horizontal-copy>${copy}</dds-content-item-horizontal-copy>
     <dds-link-list slot="footer" type="vertical">
-      <dds-link-list-item-cta
-        icon-placement="right"
-        href="https://www.ibm.com"
-        cta-type="local"
-      >
+      <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
         Link text
       </dds-link-list-item-cta>
-      <dds-link-list-item-cta
-        icon-placement="right"
-        href="https://www.ibm.com"
-        cta-type="external"
-      >
+      <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
         External link text
       </dds-link-list-item-cta>
     </dds-link-list>
   </dds-content-item-horizontal>
 `;
 
-export const Default = (args) => {
+export const Default = args => {
   const { heading, border } = args?.ContentBlockHorizontal ?? {};
 
   return html`
@@ -58,10 +48,12 @@ export const Default = (args) => {
 export default {
   title: 'Components/Content block horizontal',
   decorators: [
-    (story) => html`
+    story => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-lg-12 bx--no-gutter">${story()}</div>
+          <div class="bx--col-lg-12 bx--no-gutter">
+            ${story()}
+          </div>
         </div>
       </div>
     `,

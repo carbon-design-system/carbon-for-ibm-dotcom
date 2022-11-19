@@ -63,45 +63,37 @@ class DDSScopedSearchDropdownMobile extends BXSelect {
    * @returns The template containing child `<optgroup>`/`<option>` that will be rendered to shadow DOM.
    */
   private _renderItemsMobile(element) {
-    const { selectorItem, selectorLeafItem } = this
-      .constructor as typeof BXSelect;
+    const { selectorItem, selectorLeafItem } = this.constructor as typeof BXSelect;
     // Harvests attributes from `<bx-select-item>` and `<bx-select-item-group>`.
     // Does not use properties to avoid delay in attribute to property mapping, which runs in custom element reaction cycle:
     // https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element-reactions
     return html`
-      ${filter(
-        element.childNodes,
-        (item) =>
-          item.nodeType === Node.ELEMENT_NODE &&
-          (item as Element).matches(selectorItem)
-      ).map((item) => {
-        const disabled = item.hasAttribute('disabled');
-        const label = item.getAttribute('label');
-        const selected = item.hasAttribute('selected');
-        const value = item.getAttribute('value');
-        const { textContent } = item;
-        return item.matches(selectorLeafItem)
-          ? html`
-              <option
-                class="${prefix}--select-option"
-                ?disabled="${disabled}"
-                label="${ifNonNull(label ?? textContent)}"
-                ?selected="${selected}"
-                value="${ifNonNull(value)}"
-              >
-                ${textContent}
-              </option>
-            `
-          : html`
-              <optgroup
-                class="${prefix}--select-optgroup"
-                ?disabled="${disabled}"
-                label="${ifNonNull(label)}"
-              >
-                ${this._renderItemsMobile(item)}
-              </optgroup>
-            `;
-      })}
+      ${filter(element.childNodes, item => item.nodeType === Node.ELEMENT_NODE && (item as Element).matches(selectorItem)).map(
+        item => {
+          const disabled = item.hasAttribute('disabled');
+          const label = item.getAttribute('label');
+          const selected = item.hasAttribute('selected');
+          const value = item.getAttribute('value');
+          const { textContent } = item;
+          return item.matches(selectorLeafItem)
+            ? html`
+                <option
+                  class="${prefix}--select-option"
+                  ?disabled="${disabled}"
+                  label="${ifNonNull(label ?? textContent)}"
+                  ?selected="${selected}"
+                  value="${ifNonNull(value)}"
+                >
+                  ${textContent}
+                </option>
+              `
+            : html`
+                <optgroup class="${prefix}--select-optgroup" ?disabled="${disabled}" label="${ifNonNull(label)}">
+                  ${this._renderItemsMobile(item)}
+                </optgroup>
+              `;
+        }
+      )}
     `;
   }
 
@@ -164,21 +156,13 @@ class DDSScopedSearchDropdownMobile extends BXSelect {
           class="${inputClasses}"
           ?disabled="${disabled}"
           aria-invalid="${String(Boolean(invalid))}"
-          aria-describedby="${ifDefined(
-            !invalid ? undefined : 'validity-message'
-          )}"
+          aria-describedby="${ifDefined(!invalid ? undefined : 'validity-message')}"
           @input="${handleInput}"
         >
           ${!placeholder || value
             ? undefined
             : html`
-                <option
-                  disabled
-                  hidden
-                  class="${prefix}--select-option"
-                  value="${placeholderItemValue}"
-                  selected
-                >
+                <option disabled hidden class="${prefix}--select-option" value="${placeholderItemValue}" selected>
                   ${placeholder}
                 </option>
               `}

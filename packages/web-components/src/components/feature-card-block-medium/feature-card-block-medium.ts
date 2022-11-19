@@ -26,23 +26,24 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-feature-card-block-medium`)
 class DDSFeatureCardBlockMedium extends DDSFeatureCard {
   protected _renderInner() {
-    return html` ${this._renderImage()}${super._renderInner()} `;
+    return html`
+      ${this._renderImage()}${super._renderInner()}
+    `;
   }
 
   /**
    * @returns The copy content.
    */
   protected _renderCopy() {
-    return html` <slot @slotchange="${this._handleSlotChange}"></slot> `;
+    return html`
+      <slot @slotchange="${this._handleSlotChange}"></slot>
+    `;
   }
 
   render() {
     return html`
       <slot name="block-heading"></slot>
-      <div
-        class="${prefix}--feature-card"
-        data-autoid="${ddsPrefix}--feature-card"
-      >
+      <div class="${prefix}--feature-card" data-autoid="${ddsPrefix}--feature-card">
         ${super.render()}
       </div>
     `;

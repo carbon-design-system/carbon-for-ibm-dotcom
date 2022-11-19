@@ -38,7 +38,9 @@ class DDSLeadspaceHeading extends StableSelectorMixin(LitElement) {
   }
 
   render() {
-    return html` <slot></slot> `;
+    return html`
+      <slot></slot>
+    `;
   }
 
   static get stableSelector() {

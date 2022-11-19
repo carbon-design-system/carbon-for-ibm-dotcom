@@ -21,9 +21,7 @@ import DDSPricingTable from './pricing-table';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-header-row`)
-class DDSPricingTableHeaderRow extends StableSelectorMixin(
-  DDSStructuredListHeaderRow
-) {
+class DDSPricingTableHeaderRow extends StableSelectorMixin(DDSStructuredListHeaderRow) {
   /**
    * Array full of tag wrapper elements within header cells.
    */
@@ -43,10 +41,7 @@ class DDSPricingTableHeaderRow extends StableSelectorMixin(
     // TODO: Wait for `.d.ts` update to support `ResizeObserver`
     // @ts-ignore
     this._resizeObserver = new ResizeObserver(() => {
-      if (
-        !(this.closest(`${ddsPrefix}-pricing-table`) as DDSPricingTable)
-          ?.isSticky
-      ) {
+      if (!(this.closest(`${ddsPrefix}-pricing-table`) as DDSPricingTable)?.isSticky) {
         this._setSameHeight();
       }
     });
@@ -75,7 +70,7 @@ class DDSPricingTableHeaderRow extends StableSelectorMixin(
     setColumnWidth(this);
 
     // Find cells that are eligible to have tags within them.
-    const validCells = e.target.assignedNodes().filter((node) => {
+    const validCells = e.target.assignedNodes().filter(node => {
       if (node instanceof DDSPricingTableHeaderCell) {
         return node.type === PRICING_TABLE_HEADER_CELL_TYPES.COMPLEX;
       }
@@ -86,9 +81,7 @@ class DDSPricingTableHeaderRow extends StableSelectorMixin(
     // the presence of a tag.
     this._tagWrappers = validCells.reduce((acc, cell) => {
       if (cell.length !== 0) {
-        const tag = cell.shadowRoot.querySelector(
-          `.${DDSPricingTableHeaderCell.tagWrapperSelector}`
-        );
+        const tag = cell.shadowRoot.querySelector(`.${DDSPricingTableHeaderCell.tagWrapperSelector}`);
         if (tag) acc.push(tag);
       }
       return acc;
@@ -96,8 +89,7 @@ class DDSPricingTableHeaderRow extends StableSelectorMixin(
 
     this._setSameHeight();
 
-    const { eventSlotChange } = this
-      .constructor as typeof DDSPricingTableHeaderRow;
+    const { eventSlotChange } = this.constructor as typeof DDSPricingTableHeaderRow;
     this.dispatchEvent(
       new CustomEvent(eventSlotChange, {
         bubbles: true,
@@ -118,7 +110,9 @@ class DDSPricingTableHeaderRow extends StableSelectorMixin(
   }
 
   render() {
-    return html` <slot @slotchange=${this._handleSlotChange}></slot> `;
+    return html`
+      <slot @slotchange=${this._handleSlotChange}></slot>
+    `;
   }
 
   static get stableSelector() {

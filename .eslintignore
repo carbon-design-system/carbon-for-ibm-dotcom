@@ -1,19 +1,5 @@
 node_modules
 
-# carbon-web-components
-packages/carbon-web-components/coverage
-packages/carbon-web-components/dist
-packages/carbon-web-components/es
-packages/carbon-web-components/examples
-packages/carbon-web-components/umd
-packages/carbon-web-components/lib
-packages/carbon-web-components/node_modules
-packages/carbon-web-components/storybook-static
-packages/carbon-web-components/src/internal/vendor
-packages/carbon-web-components/tests/e2e/dist
-packages/carbon-web-components/tests/e2e/cypress
-packages/carbon-web-components/tests/e2e-storybook/cypress
-
 # react
 packages/react/coverage
 packages/react/es

@@ -27,10 +27,8 @@ class DDSPricingTableRow extends StableSelectorMixin(DDSStructuredListRow) {
 
   private _hasAnnotations(): boolean {
     let hasAnnotations = false;
-    Array.from(this.children).forEach((cell) => {
-      const annotation = cell.querySelector(
-        `${ddsPrefix}-pricing-table-cell-annotation`
-      );
+    Array.from(this.children).forEach(cell => {
+      const annotation = cell.querySelector(`${ddsPrefix}-pricing-table-cell-annotation`);
       if (annotation) hasAnnotations = true;
     });
 
@@ -41,9 +39,7 @@ class DDSPricingTableRow extends StableSelectorMixin(DDSStructuredListRow) {
     this.hasAnnotations = this._hasAnnotations();
 
     if (this.hasAnnotations) {
-      const toggle = this.ownerDocument.createElement(
-        'dds-pricing-table-annotation-toggle'
-      );
+      const toggle = this.ownerDocument.createElement('dds-pricing-table-annotation-toggle');
       this.children[0].append(toggle);
     }
 
@@ -51,7 +47,9 @@ class DDSPricingTableRow extends StableSelectorMixin(DDSStructuredListRow) {
   }
 
   render() {
-    return html` <slot @slotchange=${this._handleSlotChange}></slot> `;
+    return html`
+      <slot @slotchange=${this._handleSlotChange}></slot>
+    `;
   }
 
   static get stableSelector() {

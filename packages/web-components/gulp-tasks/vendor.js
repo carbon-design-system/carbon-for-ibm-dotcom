@@ -32,96 +32,58 @@ const {
  * Generates `src/internal/vendor` contents.
  */
 const servicesVendorSrc = () =>
-  gulp
-    .src([`${servicesESSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(servicesVendorSrcDir));
+  gulp.src([`${servicesESSrcDir}/**/*`, '!**/*-{test,story}.js']).pipe(gulp.dest(servicesVendorSrcDir));
 
 /**
  * Generate `es/internal/vendor` contents.
  */
 const servicesVendorESDst = () =>
-  gulp
-    .src([`${servicesESSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(servicesVendorESDstDir));
+  gulp.src([`${servicesESSrcDir}/**/*`, '!**/*-{test,story}.js']).pipe(gulp.dest(servicesVendorESDstDir));
 
 /**
  * Generate `lib/internal/vendor` contents.
  */
 const servicesVendorCJSDst = () =>
-  gulp
-    .src([`${servicesCJSSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(servicesVendorCJSDstDir));
+  gulp.src([`${servicesCJSSrcDir}/**/*`, '!**/*-{test,story}.js']).pipe(gulp.dest(servicesVendorCJSDstDir));
 
 /**
  * Generates `src/internal/vendor` contents.
  */
 const servicesStoreVendorSrc = () =>
-  gulp
-    .src([`${servicesStoreESSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(servicesStoreVendorSrcDir));
+  gulp.src([`${servicesStoreESSrcDir}/**/*`, '!**/*-{test,story}.js']).pipe(gulp.dest(servicesStoreVendorSrcDir));
 
 /**
  * Generate `es/internal/vendor` contents.
  */
 const servicesStoreVendorESDst = () =>
-  gulp
-    .src([`${servicesStoreESSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(servicesStoreVendorESDstDir));
+  gulp.src([`${servicesStoreESSrcDir}/**/*`, '!**/*-{test,story}.js']).pipe(gulp.dest(servicesStoreVendorESDstDir));
 
 /**
  * Generate `lib/internal/vendor` contents.
  */
 const servicesStoreVendorCJSDst = () =>
-  gulp
-    .src([`${servicesStoreCJSSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(servicesStoreVendorCJSDstDir));
+  gulp.src([`${servicesStoreCJSSrcDir}/**/*`, '!**/*-{test,story}.js']).pipe(gulp.dest(servicesStoreVendorCJSDstDir));
 
 /**
  * Generates `src/internal/vendor` contents.
  */
 const utilitiesVendorSrc = () =>
-  gulp
-    .src([`${utilitiesESSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(utilitiesVendorSrcDir));
+  gulp.src([`${utilitiesESSrcDir}/**/*`, '!**/*-{test,story}.js']).pipe(gulp.dest(utilitiesVendorSrcDir));
 
 /**
  * Generate `es/internal/vendor` contents.
  */
 const utilitiesVendorESDst = () =>
-  gulp
-    .src([`${utilitiesESSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(utilitiesVendorESDstDir));
+  gulp.src([`${utilitiesESSrcDir}/**/*`, '!**/*-{test,story}.js']).pipe(gulp.dest(utilitiesVendorESDstDir));
 
 /**
  * Generate `lib/internal/vendor` contents.
  */
 const utilitiesVendorCJSDst = () =>
-  gulp
-    .src([`${utilitiesCJSSrcDir}/**/*`, '!**/*-{test,story}.js'])
-    .pipe(gulp.dest(utilitiesVendorCJSDstDir));
+  gulp.src([`${utilitiesCJSSrcDir}/**/*`, '!**/*-{test,story}.js']).pipe(gulp.dest(utilitiesVendorCJSDstDir));
 
 // Vendor builds
-gulp.task(
-  'vendor:utilities',
-  gulp.parallel(utilitiesVendorSrc, utilitiesVendorCJSDst, utilitiesVendorESDst)
-);
-gulp.task(
-  'vendor:services',
-  gulp.parallel(servicesVendorSrc, servicesVendorCJSDst, servicesVendorESDst)
-);
-gulp.task(
-  'vendor:services-store',
-  gulp.parallel(
-    servicesStoreVendorSrc,
-    servicesStoreVendorCJSDst,
-    servicesStoreVendorESDst
-  )
-);
-gulp.task(
-  'vendor',
-  gulp.series(
-    gulp.task('vendor:utilities'),
-    gulp.task('vendor:services'),
-    gulp.task('vendor:services-store')
-  )
-);
+gulp.task('vendor:utilities', gulp.parallel(utilitiesVendorSrc, utilitiesVendorCJSDst, utilitiesVendorESDst));
+gulp.task('vendor:services', gulp.parallel(servicesVendorSrc, servicesVendorCJSDst, servicesVendorESDst));
+gulp.task('vendor:services-store', gulp.parallel(servicesStoreVendorSrc, servicesStoreVendorCJSDst, servicesStoreVendorESDst));
+gulp.task('vendor', gulp.series(gulp.task('vendor:utilities'), gulp.task('vendor:services'), gulp.task('vendor:services-store')));

@@ -29,9 +29,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-filter-panel-modal
  */
 @customElement(`${ddsPrefix}-filter-panel-modal`)
-class DDSFilterPanelModal extends HostListenerMixin(
-  StableSelectorMixin(BXModal)
-) {
+class DDSFilterPanelModal extends HostListenerMixin(StableSelectorMixin(BXModal)) {
   /**
    * Renders the selected values.
    */
@@ -45,8 +43,7 @@ class DDSFilterPanelModal extends HostListenerMixin(
    * Handles `click` event on the `<input>` in the shadow DOM.
    */
   protected _handleClear() {
-    const { eventSelectionClear } = this
-      .constructor as typeof DDSFilterPanelModal;
+    const { eventSelectionClear } = this.constructor as typeof DDSFilterPanelModal;
     this.dispatchEvent(
       new CustomEvent(eventSelectionClear, {
         bubbles: true,
@@ -85,58 +82,32 @@ class DDSFilterPanelModal extends HostListenerMixin(
           triggeredBy,
         },
       };
-      if (
-        this.dispatchEvent(
-          new CustomEvent(
-            (this.constructor as typeof BXModal).eventBeforeClose,
-            init
-          )
-        )
-      ) {
+      if (this.dispatchEvent(new CustomEvent((this.constructor as typeof BXModal).eventBeforeClose, init))) {
         this.open = false;
-        this.dispatchEvent(
-          new CustomEvent((this.constructor as typeof BXModal).eventClose, init)
-        );
+        this.dispatchEvent(new CustomEvent((this.constructor as typeof BXModal).eventClose, init));
       }
     }
   }
 
   render() {
     return html`
-      <a
-        id="start-sentinel"
-        class="${prefix}--visually-hidden"
-        href="javascript:void 0"
-        role="navigation"
-      ></a>
+      <a id="start-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
       <section class="${prefix}--filter-panel__section bx--modal-container">
         <bx-modal-header>
-          <bx-modal-close-button
-            @click=${this._handleUserClose}
-          ></bx-modal-close-button>
+          <bx-modal-close-button @click=${this._handleUserClose}></bx-modal-close-button>
           <dds-filter-modal-heading>${this.heading}</dds-filter-modal-heading>
         </bx-modal-header>
         <div class="${prefix}--modal-body"><slot></slot></div>
         <dds-filter-modal-footer>
-          <dds-filter-modal-footer-button
-            ?disabled="${!this.hasSelections}"
-            @click=${this._handleClear}
-            kind="tertiary"
+          <dds-filter-modal-footer-button ?disabled="${!this.hasSelections}" @click=${this._handleClear} kind="tertiary"
             >Clear</dds-filter-modal-footer-button
           >
-          <dds-filter-modal-footer-button
-            @click=${this._handleUserClose}
-            kind="primary"
+          <dds-filter-modal-footer-button @click=${this._handleUserClose} kind="primary"
             >See Results</dds-filter-modal-footer-button
           >
         </dds-filter-modal-footer>
       </section>
-      <a
-        id="end-sentinel"
-        class="${prefix}--visually-hidden"
-        href="javascript:void 0"
-        role="navigation"
-      ></a>
+      <a id="end-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
     `;
   }
 

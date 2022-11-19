@@ -67,7 +67,7 @@ export const decorators = [
   },
 ];
 
-addons.getChannel().on(CURRENT_THEME, (theme) => {
+addons.getChannel().on(CURRENT_THEME, theme => {
   document.documentElement.setAttribute(
     'storybook-carbon-theme',
     (preservedTheme = theme)
@@ -81,7 +81,7 @@ addons.getChannel().on(CURRENT_THEME, (theme) => {
 let currentPath;
 if (window.parent) {
   const parentWindow = window.parent;
-  parentWindow.setInterval(function () {
+  parentWindow.setInterval(function() {
     const urlParams = new URLSearchParams(parentWindow.location.search);
     const path = urlParams.get('path');
     if (path && path !== currentPath) {

@@ -32,7 +32,8 @@ const pictogramHeading =
 const pictogramItems = [
   {
     heading: 'Aliquam condimentum interdum',
-    copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
     cta: {
       href: 'https://www.ibm.com',
       type: 'local',
@@ -45,7 +46,8 @@ const pictogramItems = [
   },
   {
     heading: 'Aliquam condimentum interdum',
-    copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
     cta: {
       href: 'https://www.ibm.com',
       type: 'local',
@@ -58,7 +60,8 @@ const pictogramItems = [
   },
   {
     heading: 'Aliquam condimentum interdum',
-    copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
     cta: {
       href: 'https://www.ibm.com',
       type: 'local',

@@ -51,31 +51,19 @@
 
 :host(#{$dds-prefix}-region-item) {
   @include carbon--breakpoint('sm', $carbon--grid-breakpoints) {
-    @include carbon--make-col(
-      4,
-      map-get(map-get($carbon--grid-breakpoints, 'sm'), 'columns')
-    );
+    @include carbon--make-col(4, map-get(map-get($carbon--grid-breakpoints, 'sm'), 'columns'));
   }
 
   @include carbon--breakpoint('md', $carbon--grid-breakpoints) {
-    @include carbon--make-col(
-      8,
-      map-get(map-get($carbon--grid-breakpoints, 'md'), 'columns')
-    );
+    @include carbon--make-col(8, map-get(map-get($carbon--grid-breakpoints, 'md'), 'columns'));
   }
 
   @include carbon--breakpoint('lg', $carbon--grid-breakpoints) {
-    @include carbon--make-col(
-      8,
-      map-get(map-get($carbon--grid-breakpoints, 'lg'), 'columns')
-    );
+    @include carbon--make-col(8, map-get(map-get($carbon--grid-breakpoints, 'lg'), 'columns'));
   }
 
   @include carbon--breakpoint('xlg', $carbon--grid-breakpoints) {
-    @include carbon--make-col(
-      8,
-      map-get(map-get($carbon--grid-breakpoints, 'xlg'), 'columns')
-    );
+    @include carbon--make-col(8, map-get(map-get($carbon--grid-breakpoints, 'xlg'), 'columns'));
   }
 
   .#{$prefix}--link {

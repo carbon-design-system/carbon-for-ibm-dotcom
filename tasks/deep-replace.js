@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -70,7 +70,7 @@ function deepReplace(value, matcher, replacer, parents = []) {
   if (Array.isArray(value)) {
     return value
       .map(mapPredicate)
-      .filter((itemValue) => itemValue !== deepReplace.DELETE);
+      .filter(itemValue => itemValue !== deepReplace.DELETE);
   }
   return value;
 }
@@ -81,8 +81,8 @@ function deepReplace(value, matcher, replacer, parents = []) {
  */
 function getPaths(nodes) {
   return nodes
-    .filter((item) => typeof item.key === 'string')
-    .map((item) => item.key)
+    .filter(item => typeof item.key === 'string')
+    .map(item => item.key)
     .join('.');
 }
 

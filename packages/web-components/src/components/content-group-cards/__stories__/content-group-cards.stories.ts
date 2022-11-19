@@ -16,12 +16,10 @@ import '../index';
 const card1 = html`
   <dds-content-group-cards-item href="https://www.example.com">
     <dds-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
     </dds-card-heading>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </p>
     <dds-card-footer icon-placement="left">
       ${ArrowRight20({ slot: 'icon' })}
@@ -32,8 +30,7 @@ const card1 = html`
 const card2 = html`
   <dds-content-group-cards-item href="https://www.example.com">
     <dds-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
     </dds-card-heading>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
     <dds-card-footer icon-placement="left">
@@ -42,7 +39,7 @@ const card2 = html`
   </dds-content-group-cards-item>
 `;
 
-export const Default = (args) => {
+export const Default = args => {
   const { heading, copy } = args?.ContentGroupCards ?? {};
   return html`
     <dds-content-group-cards>
@@ -56,10 +53,12 @@ export const Default = (args) => {
 export default {
   title: 'Components/Content group cards',
   decorators: [
-    (story) => html`
+    story => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-lg-8 bx--no-gutter">${story()}</div>
+          <div class="bx--col-lg-8 bx--no-gutter">
+            ${story()}
+          </div>
         </div>
       </div>
     `,
@@ -69,14 +68,8 @@ export default {
     hasStoryPadding: true,
     knobs: {
       ContentGroupCards: () => ({
-        heading: textNullable(
-          'Heading (heading):',
-          'Lorem ipsum dolor sit amet.'
-        ),
-        copy: textNullable(
-          'Copy (copy):',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-        ),
+        heading: textNullable('Heading (heading):', 'Lorem ipsum dolor sit amet.'),
+        copy: textNullable('Copy (copy):', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
       }),
     },
     propsSet: {

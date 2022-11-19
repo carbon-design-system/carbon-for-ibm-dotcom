@@ -68,9 +68,7 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
   protected _handleImageSlotChange({ target }: Event) {
     this.hasImage = (target as HTMLSlotElement)
       .assignedNodes()
-      .some(
-        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
-      );
+      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
 
     if (this.hasImage && !this.imageWidth) {
       this.imageWidth = '4-col';
@@ -83,11 +81,7 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
   protected _handleButtonSlotChange({ target }: Event) {
     const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
-      .filter((elem) =>
-        (elem as HTMLElement).matches?.(
-          (this.constructor as typeof DDSUniversalBanner).ctaButton
-        )
-      );
+      .filter(elem => (elem as HTMLElement).matches?.((this.constructor as typeof DDSUniversalBanner).ctaButton));
 
     this.buttonHref = (hasContent[0] as HTMLElement)?.getAttribute('href');
     this.ctaType = (hasContent[0] as DDSButtonCTA)?.ctaType;
@@ -131,30 +125,23 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
 
   _renderAsLink() {
     return html`
-      <a
-        href="${this.buttonHref}"
-        class="${prefix}--universal-banner-layout-container"
-      >
+      <a href="${this.buttonHref}" class="${prefix}--universal-banner-layout-container">
         ${this._renderInnerContents()}
       </a>
     `;
   }
 
   _renderIcon() {
-    return html` ${ctaIcons[this.ctaType]()} `;
+    return html`
+      ${ctaIcons[this.ctaType]()}
+    `;
   }
 
   _renderInnerContents() {
     return html`
       <div class="${prefix}--universal-banner-content-wrapper">
-        <div
-          ?hidden="${!this.hasImage}"
-          class="${prefix}--universal-banner-image-container"
-        >
-          <slot
-            name="image"
-            @slotchange="${this._handleImageSlotChange}"
-          ></slot>
+        <div ?hidden="${!this.hasImage}" class="${prefix}--universal-banner-image-container">
+          <slot name="image" @slotchange="${this._handleImageSlotChange}"></slot>
         </div>
 
         <div class="${prefix}--universal-banner-text-container">
@@ -175,9 +162,7 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      ${this._shouldRenderAsLink
-        ? this._renderAsLink()
-        : this._renderAsStatic()}
+      ${this._shouldRenderAsLink ? this._renderAsLink() : this._renderAsStatic()}
     `;
   }
 

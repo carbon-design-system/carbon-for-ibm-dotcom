@@ -16,8 +16,7 @@
 }
 
 :host(#{$dds-prefix}-content-item) ::slotted(#{$dds-prefix}-image),
-:host(#{$dds-prefix}-content-item)
-  ::slotted(#{$dds-prefix}-video-player-container) {
+:host(#{$dds-prefix}-content-item) ::slotted(#{$dds-prefix}-video-player-container) {
   display: block;
   margin-top: 1rem;
   margin-bottom: 2rem;

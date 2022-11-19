@@ -41,8 +41,7 @@ const LogoGrid = ({ heading, logosGroup, ctaCopy, ctaHref, hideBorder }) => {
   return (
     <section
       data-autoid={`${stablePrefix}--logo-grid`}
-      className={`${prefix}--logo-grid`}
-    >
+      className={`${prefix}--logo-grid`}>
       <div className={`${prefix}--logo-grid__container`}>
         <div className={`${prefix}--logo-grid__wrapper`}>
           <ContentBlock heading={heading} cta={cta}>
@@ -51,8 +50,7 @@ const LogoGrid = ({ heading, logosGroup, ctaCopy, ctaHref, hideBorder }) => {
                 <div className={`${prefix}--logo-grid__col`} key={index}>
                   <div
                     className={`${prefix}--logo-grid__logo`}
-                    key={placeholder.label}
-                  >
+                    key={placeholder.label}>
                     <Image
                       defaultSrc={placeholder.imgSrc}
                       classname={`${prefix}--logo-grid_img`}

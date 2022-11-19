@@ -44,7 +44,9 @@ class DDSButtonCTA extends VideoCTAMixin(CTAMixin(DDSButtonGroupItem)) {
   protected _renderContent() {
     const { ctaType, _hasMainContent: hasMainContent } = this;
     if (ctaType !== CTA_TYPE.VIDEO) {
-      return html` <slot @slotchange="${this._handleSlotChange}"></slot> `;
+      return html`
+        <slot @slotchange="${this._handleSlotChange}"></slot>
+      `;
     }
     const {
       videoDuration,
@@ -55,9 +57,7 @@ class DDSButtonCTA extends VideoCTAMixin(CTAMixin(DDSButtonGroupItem)) {
     const caption = hasMainContent
       ? undefined
       : formatVideoCaptionInEffect({
-          duration: formatVideoDurationInEffect({
-            duration: !videoDuration ? videoDuration : videoDuration * 1000,
-          }),
+          duration: formatVideoDurationInEffect({ duration: !videoDuration ? videoDuration : videoDuration * 1000 }),
           name: videoName,
         });
     return html`
@@ -66,7 +66,9 @@ class DDSButtonCTA extends VideoCTAMixin(CTAMixin(DDSButtonGroupItem)) {
   }
 
   protected _renderInner() {
-    return html` ${this._renderContent()}${this._renderIcon()} `;
+    return html`
+      ${this._renderContent()}${this._renderIcon()}
+    `;
   }
 
   /**

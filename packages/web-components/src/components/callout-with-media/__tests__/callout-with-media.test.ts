@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,17 +22,15 @@ const template = (props?) => {
   `;
 };
 
-describe('dds-callout-with-media', function () {
-  describe('Misc attributes', function () {
-    it('should render with minimum attributes', async function () {
+describe('dds-callout-with-media', function() {
+  describe('Misc attributes', function() {
+    it('should render with minimum attributes', async function() {
       render(template(), document.body);
       await Promise.resolve();
-      expect(
-        document.body.querySelector('dds-callout-with-media')
-      ).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-callout-with-media')).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with image attributes', async function () {
+    it('should render with image attributes', async function() {
       render(
         template({
           heading: 'heading-foo',
@@ -49,32 +47,26 @@ describe('dds-callout-with-media', function () {
         document.body
       );
       await Promise.resolve();
-      expect(
-        document.body.querySelector('dds-callout-with-media')
-      ).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-callout-with-media')).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with video attributes', async function () {
+    it('should render with video attributes', async function() {
       render(
         template({
           heading: 'heading-foo',
           children: html`
             <dds-callout-with-media-copy>copy-foo</dds-callout-with-media-copy>
-            <dds-callout-with-media-video
-              video-id="0_uka1msg4"
-            ></dds-callout-with-media-video>
+            <dds-callout-with-media-video video-id="0_uka1msg4"></dds-callout-with-media-video>
           `,
         }),
         document.body
       );
       await Promise.resolve();
-      expect(
-        document.body.querySelector('dds-callout-with-media')
-      ).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-callout-with-media')).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 
-  afterEach(async function () {
+  afterEach(async function() {
     await render(undefined!, document.body);
   });
 });

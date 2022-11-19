@@ -7,12 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import pickBy from 'lodash-es/pickBy.js';
-import {
-  ActionCreatorsMapObject,
-  Dispatch,
-  Store,
-  bindActionCreators,
-} from 'redux';
+import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
 import { customElement } from 'lit-element';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { CloudAccountAuthAPIState } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/cloudAccountAuthAPI.d';
@@ -24,14 +19,8 @@ import { loadUserStatus } from '../../../internal/vendor/@carbon/ibmdotcom-servi
 import { CloudAccountAuthAPIActions } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/cloudAccountAuthAPI.d';
 import ConnectMixin from '../../../globals/mixins/connect';
 import { loadTranslation } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
-import {
-  loadLanguage,
-  setLanguage,
-} from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
-import {
-  MastheadContainerState,
-  MastheadContainerStateProps,
-} from '../masthead-container';
+import { loadLanguage, setLanguage } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
+import { MastheadContainerState, MastheadContainerStateProps } from '../masthead-container';
 import DDSCloudMastheadComposite from './cloud-masthead-composite';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -39,8 +28,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 /**
  * The Redux state used for `<dds-cloud-masthead-container>`
  */
-export interface CloudMastheadContainerState
-  extends Omit<MastheadContainerState, 'profileAPI'> {
+export interface CloudMastheadContainerState extends Omit<MastheadContainerState, 'profileAPI'> {
   /**
    * The Redux state for `CloudAccountAuthAPI`
    */
@@ -60,40 +48,24 @@ export type CloudMastheadContainerActions =
  * @param state The Redux state for masthead.
  * @returns The converted version of the given state, tailored for `<dds-cloud-masthead-container>`.
  */
-export function mapStateToProps(
-  state: CloudMastheadContainerState
-): MastheadContainerStateProps {
+export function mapStateToProps(state: CloudMastheadContainerState): MastheadContainerStateProps {
   const { localeAPI, translateAPI, cloudAccountAuthAPI } = state;
   const { language } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
   const { request } = cloudAccountAuthAPI ?? {};
   return pickBy(
     {
-      authenticatedProfileItems: !language
-        ? undefined
-        : translations?.[language]?.masthead?.profileMenu.signedin.links,
-      authenticatedCtaButtons: !language
-        ? undefined
-        : translations?.[language]?.masthead?.profileMenu.signedin.ctaButtons,
-      contactUsButton: !language
-        ? undefined
-        : translations?.[language]?.masthead?.contact,
-      navLinks: !language
-        ? undefined
-        : translations?.[language]?.mastheadNav?.links,
-      unauthenticatedProfileItems: !language
-        ? undefined
-        : translations?.[language]?.masthead?.profileMenu.signedout.links,
-      unauthenticatedCtaButtons: !language
-        ? undefined
-        : translations?.[language]?.masthead?.profileMenu.signedout.ctaButtons,
-      logoData: !language
-        ? undefined
-        : translations?.[language]?.masthead?.logo,
+      authenticatedProfileItems: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedin.links,
+      authenticatedCtaButtons: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedin.ctaButtons,
+      contactUsButton: !language ? undefined : translations?.[language]?.masthead?.contact,
+      navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
+      unauthenticatedProfileItems: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedout.links,
+      unauthenticatedCtaButtons: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedout.ctaButtons,
+      logoData: !language ? undefined : translations?.[language]?.masthead?.logo,
       userStatus: request?.user,
       language,
     },
-    (value) => value !== undefined
+    value => value !== undefined
   );
 }
 
@@ -101,15 +73,8 @@ export function mapStateToProps(
  * @param dispatch The Redux `dispatch()` API.
  * @returns The methods in `<dds-cloud-masthead-container>` to dispatch Redux actions.
  */
-export function mapDispatchToProps(
-  dispatch: Dispatch<
-    LocaleAPIActions | TranslateAPIActions | CloudAccountAuthAPIActions
-  >
-) {
-  return bindActionCreators<
-    CloudMastheadContainerActions,
-    ActionCreatorsMapObject<CloudMastheadContainerActions>
-  >(
+export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions | TranslateAPIActions | CloudAccountAuthAPIActions>) {
+  return bindActionCreators<CloudMastheadContainerActions, ActionCreatorsMapObject<CloudMastheadContainerActions>>(
     {
       _loadLanguage: loadLanguage,
       _setLanguage: setLanguage,
@@ -131,10 +96,7 @@ class DDSCloudMastheadContainer extends ConnectMixin<
   MastheadContainerStateProps,
   ActionCreatorsMapObject<CloudMastheadContainerActions>
 >(
-  store as Store<
-    CloudMastheadContainerState,
-    LocaleAPIActions | TranslateAPIActions | CloudAccountAuthAPIActions
-  >,
+  store as Store<CloudMastheadContainerState, LocaleAPIActions | TranslateAPIActions | CloudAccountAuthAPIActions>,
   mapStateToProps,
   mapDispatchToProps
 )(DDSCloudMastheadComposite) {}

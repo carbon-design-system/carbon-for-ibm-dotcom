@@ -48,13 +48,10 @@ class DDSTopNavName extends DDSLeftNavName {
     const namePrefixPart = !namePrefix
       ? undefined
       : html`
-          <span class="${prefix}--header__name--prefix">${namePrefix}</span
-          >&nbsp;
+          <span class="${prefix}--header__name--prefix">${namePrefix}</span>&nbsp;
         `;
     return html`
-      <a class="${prefix}--header__name" href="${ifNonNull(href)}"
-        >${namePrefixPart}<slot></slot
-      ></a>
+      <a class="${prefix}--header__name" href="${ifNonNull(href)}">${namePrefixPart}<slot></slot></a>
     `;
   }
 

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,21 +14,21 @@ import '../tag-link';
 const template = (props?) => {
   const { copy, href } = props ?? {};
   return html`
-    <dds-tag-link href="${ifNonNull(href)}"> ${copy} </dds-tag-link>
+    <dds-tag-link href="${ifNonNull(href)}">
+      ${copy}
+    </dds-tag-link>
   `;
 };
 
-describe('dds-tag-link', function () {
-  describe('Misc attributes', function () {
-    it('should render with minimum attributes', async function () {
+describe('dds-tag-link', function() {
+  describe('Misc attributes', function() {
+    it('should render with minimum attributes', async function() {
       render(template(), document.body);
       await Promise.resolve(); // Update cycle for `<dds-tag-link>`
-      expect(document.body.querySelector('dds-tag-link')).toMatchSnapshot({
-        mode: 'shadow',
-      });
+      expect(document.body.querySelector('dds-tag-link')).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes', async function () {
+    it('should render with various attributes', async function() {
       render(
         template({
           copy: 'copy-foo',
@@ -37,12 +37,10 @@ describe('dds-tag-link', function () {
         document.body
       );
       await Promise.resolve(); // Update cycle for `<dds-tag-link>`
-      expect(document.body.querySelector('dds-tag-link')).toMatchSnapshot({
-        mode: 'shadow',
-      });
+      expect(document.body.querySelector('dds-tag-link')).toMatchSnapshot({ mode: 'shadow' });
     });
   });
-  afterEach(async function () {
+  afterEach(async function() {
     await render(undefined!, document.body);
   });
 });

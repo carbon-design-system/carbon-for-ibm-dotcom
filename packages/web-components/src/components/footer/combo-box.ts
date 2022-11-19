@@ -16,11 +16,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 import DDSDropdown, { DROPDOWN_KEYBOARD_ACTION } from './dropdown';
 
-export {
-  DROPDOWN_COLOR_SCHEME,
-  DROPDOWN_SIZE,
-  DROPDOWN_TYPE,
-} from './dropdown';
+export { DROPDOWN_COLOR_SCHEME, DROPDOWN_SIZE, DROPDOWN_TYPE } from './dropdown';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -64,10 +60,7 @@ class DDSComboBox extends DDSDropdown {
    * @returns `true` if the given combo box item matches the query text user types.
    */
   protected _testItemWithQueryText(item) {
-    return (this.itemMatches || this._defaultItemMatches)(
-      item,
-      this._filterInputNode.value
-    );
+    return (this.itemMatches || this._defaultItemMatches)(item, this._filterInputNode.value);
   }
 
   /* eslint-disable class-methods-use-this */
@@ -78,13 +71,8 @@ class DDSComboBox extends DDSDropdown {
    * @param queryText The query text user types.
    * @returns `true` if the given combo box item matches the given query text.
    */
-  protected _defaultItemMatches(
-    item: BXComboBoxItem,
-    queryText: string
-  ): boolean {
-    return (
-      item.textContent!.toLowerCase().indexOf(queryText.toLowerCase()) >= 0
-    );
+  protected _defaultItemMatches(item: BXComboBoxItem, queryText: string): boolean {
+    return item.textContent!.toLowerCase().indexOf(queryText.toLowerCase()) >= 0;
   }
   /* eslint-enable class-methods-use-this */
 
@@ -92,12 +80,8 @@ class DDSComboBox extends DDSDropdown {
    * Handles `input` event on the `<input>` for filtering.
    */
   protected _handleInput() {
-    const items = this.querySelectorAll(
-      (this.constructor as typeof DDSComboBox).selectorItem
-    );
-    const index = !this._filterInputNode.value
-      ? -1
-      : findIndex(items, this._testItemWithQueryText, this);
+    const items = this.querySelectorAll((this.constructor as typeof DDSComboBox).selectorItem);
+    const index = !this._filterInputNode.value ? -1 : findIndex(items, this._testItemWithQueryText, this);
     forEach(items, (item, i) => {
       (item as BXComboBoxItem).highlighted = i === index;
     });
@@ -134,14 +118,9 @@ class DDSComboBox extends DDSDropdown {
    * Handles user-initiated clearing the `<input>` for filtering.
    */
   protected _handleUserInitiatedClearInput() {
-    forEach(
-      this.querySelectorAll(
-        (this.constructor as typeof DDSComboBox).selectorItem
-      ),
-      (item) => {
-        (item as BXComboBoxItem).highlighted = false;
-      }
-    );
+    forEach(this.querySelectorAll((this.constructor as typeof DDSComboBox).selectorItem), item => {
+      (item as BXComboBoxItem).highlighted = false;
+    });
     this._filterInputValue = '';
     this._filterInputNode.focus();
     this.open = false;
@@ -166,12 +145,7 @@ class DDSComboBox extends DDSDropdown {
   }
 
   protected _renderTriggerContent(): TemplateResult {
-    const {
-      disabled,
-      triggerContent,
-      _filterInputValue: filterInputValue,
-      _handleInput: handleInput,
-    } = this;
+    const { disabled, triggerContent, _filterInputValue: filterInputValue, _handleInput: handleInput } = this;
     return html`
       <input
         id="trigger-label"

@@ -11,11 +11,7 @@ import { customElement, html, svg, property, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import {
-  LEADSPACE_TYPE,
-  LEADSPACE_GRADIENT_STYLE_SCHEME,
-  LEADSPACE_SIZE,
-} from './defs';
+import { LEADSPACE_TYPE, LEADSPACE_GRADIENT_STYLE_SCHEME, LEADSPACE_SIZE } from './defs';
 import styles from './leadspace.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
@@ -43,10 +39,9 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
     const childItems = (event.target as HTMLSlotElement).assignedNodes();
 
     childItems.filter(
-      (elem) =>
-        (elem as HTMLElement).matches?.(
-          (this.constructor as typeof DDSLeadSpace).tagGroupSelector
-        ) || (this.constructor as typeof DDSLeadSpace).breadcrumbSelector
+      elem =>
+        (elem as HTMLElement).matches?.((this.constructor as typeof DDSLeadSpace).tagGroupSelector) ||
+        (this.constructor as typeof DDSLeadSpace).breadcrumbSelector
     );
   }
 
@@ -66,8 +61,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   protected _getTypeClass() {
     return classMap({
       [`${prefix}--leadspace--centered`]: this.type === LEADSPACE_TYPE.CENTERED,
-      [`${prefix}--leadspace--centered__image`]:
-        this.type === LEADSPACE_TYPE.CENTERED && this.defaultSrc,
+      [`${prefix}--leadspace--centered__image`]: this.type === LEADSPACE_TYPE.CENTERED && this.defaultSrc,
       [`${prefix}--leadspace--productive`]: this.type === LEADSPACE_TYPE.SMALL,
       [`${prefix}--leadspace__section`]: true,
     });
@@ -80,10 +74,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
     const { copy } = this;
     return html`
       <div class="${prefix}--leadspace__row">
-        <p
-          data-autoid="${ddsPrefix}--leadspace__desc"
-          class="${prefix}--leadspace__desc"
-        >
+        <p data-autoid="${ddsPrefix}--leadspace__desc" class="${prefix}--leadspace__desc">
           <slot>${copy}</slot>
         </p>
       </div>
@@ -95,7 +86,9 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
    */
   protected _renderHeading() {
     const { title } = this;
-    return html` <slot name="heading">${title}</slot> `;
+    return html`
+      <slot name="heading">${title}</slot>
+    `;
   }
 
   /**
@@ -141,12 +134,8 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   size = 'tall';
 
   firstUpdated() {
-    Array.from(this.children).forEach((child) => {
-      if (
-        (child.tagName === 'DDS-BACKGROUND-MEDIA' ||
-          child.tagName === 'DDS-LEADSPACE-IMAGE') &&
-        child.slot === ''
-      ) {
+    Array.from(this.children).forEach(child => {
+      if ((child.tagName === 'DDS-BACKGROUND-MEDIA' || child.tagName === 'DDS-LEADSPACE-IMAGE') && child.slot === '') {
         child.slot = 'image';
       }
     });
@@ -194,10 +183,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
               `}
             <div class="${prefix}--leadspace--content__container">
               <div class="${prefix}--leadspace__row">
-                <slot
-                  name="navigation"
-                  @slotchange="${this._handleSlotChange}"
-                ></slot>
+                <slot name="navigation" @slotchange="${this._handleSlotChange}"></slot>
                 ${this._renderHeading()}
               </div>
               ${size !== LEADSPACE_SIZE.SHORT

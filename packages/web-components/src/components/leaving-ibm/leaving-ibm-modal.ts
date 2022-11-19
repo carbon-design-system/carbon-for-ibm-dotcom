@@ -8,9 +8,7 @@
  */
 
 import { property, customElement } from 'lit-element';
-import BXModal, {
-  MODAL_SIZE,
-} from 'carbon-web-components/es/components/modal/modal.js';
+import BXModal, { MODAL_SIZE } from 'carbon-web-components/es/components/modal/modal.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -42,18 +40,14 @@ class DDSLeavingIbmModal extends StableSelectorMixin(BXModal) {
   private _handleSlotChange = (event: Event) => {
     const { selectorHeading } = this.constructor as typeof DDSLeavingIbmModal;
     if (!this.hasAttribute('aria-labelledby')) {
-      const headingNode = (event.target as HTMLSlotElement)
-        .assignedNodes()
-        .reduce((acc, node) => {
-          if ((node as Element).matches?.(selectorHeading)) {
-            acc.push(node);
-          } else {
-            acc.push(
-              ...((node as Element).querySelectorAll?.(selectorHeading) ?? [])
-            );
-          }
-          return acc;
-        }, [] as Node[])[0] as Element | void;
+      const headingNode = (event.target as HTMLSlotElement).assignedNodes().reduce((acc, node) => {
+        if ((node as Element).matches?.(selectorHeading)) {
+          acc.push(node);
+        } else {
+          acc.push(...((node as Element).querySelectorAll?.(selectorHeading) ?? []));
+        }
+        return acc;
+      }, [] as Node[])[0] as Element | void;
       if (headingNode) {
         if (!headingNode.id) {
           const { id, _uniqueId: uniqueId } = this;

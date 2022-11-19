@@ -21,8 +21,7 @@ const CalloutWithMedia = ({ ...ContentBlockSimpleProps }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--callout-with-media`}
-      className={`${prefix}--callout-with-media`}
-    >
+      className={`${prefix}--callout-with-media`}>
       <Callout>
         <ContentBlockSimple {...ContentBlockSimpleProps} />
       </Callout>
