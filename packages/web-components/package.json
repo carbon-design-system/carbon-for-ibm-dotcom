@@ -133,7 +133,7 @@
     "@carbon/icon-helpers": "10.34.0",
     "@carbon/icons": "10.48.0",
     "@carbon/type": "10.45.1",
-    "@open-wc/semantic-dom-diff": "^0.15.0",
+    "@open-wc/semantic-dom-diff": "^0.19.0",
     "@percy-io/in-percy": "^0.1.11",
     "@percy/cli": "^1.8.1",
     "@percy/cypress": "^3.1.1",
