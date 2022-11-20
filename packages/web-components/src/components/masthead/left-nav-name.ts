@@ -43,14 +43,10 @@ class DDSLeftNavName extends BXHeaderName {
     const namePrefixPart = !namePrefix
       ? undefined
       : html`
-          <span class="${prefix}--header__name--prefix">${namePrefix}</span
-          >&nbsp;
+          <span class="${prefix}--header__name--prefix">${namePrefix}</span>&nbsp;
         `;
     return html`
-      <a
-        class="${prefix}--side-nav__submenu ${prefix}--side-nav__submenu-platform"
-        href="${ifNonNull(href)}"
-      >
+      <a class="${prefix}--side-nav__submenu ${prefix}--side-nav__submenu-platform" href="${ifNonNull(href)}">
         ${namePrefixPart}
         <slot></slot>
       </a>

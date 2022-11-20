@@ -28,7 +28,9 @@ class DDSContentItemHorizontalMediaVideo extends DDSVideoPlayerContainer {
   slot = 'media';
 
   render() {
-    return html` <slot></slot> `;
+    return html`
+      <slot></slot>
+    `;
   }
 
   static get stableSelector() {

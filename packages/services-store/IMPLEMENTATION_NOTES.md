@@ -1,16 +1,11 @@
 # `@carbon/ibmdotcom-services-store`
 
-`@carbon/ibmdotcom-services-store` is an internal package (for now) of
-[Redux](https://redux.js.org) store that works with `@carbon/ibmdotcom-services`
-to fetch data from there.
+`@carbon/ibmdotcom-services-store` is an internal package (for now) of [Redux](https://redux.js.org) store that works with `@carbon/ibmdotcom-services` to fetch data from there.
 
 Usage of Redux allows us to do the following:
 
-- Separate the code interacting with `@carbon/ibmdotcom-services` from component
-  code, that eliminates the dependency to any JavaScript framework as well as
-  the requirement of lifecycle management
-- Manage in-progress and error states of `@carbon/ibmdotcom-services` calls in
-  an unified manner
+- Separate the code interacting with `@carbon/ibmdotcom-services` from component code, that eliminates the dependency to any JavaScript framework as well as the requirement of lifecycle management
+- Manage in-progress and error states of `@carbon/ibmdotcom-services` calls in an unified manner
 
 ## Table of contents
 
@@ -26,14 +21,9 @@ Usage of Redux allows us to do the following:
 
 ## State structure
 
-There are two types of services in `@carbon/ibmdotcom-services` that
-`@carbon/ibmdotcom-services-store` deals with, one that returns simple data,
-another that returns data that is unique to another data, e.g. locale ID. This
-document calls such another data _key_, and data that is unique to such another
-data _keyed data_ hereafter.
+There are two types of services in `@carbon/ibmdotcom-services` that `@carbon/ibmdotcom-services-store` deals with, one that returns simple data, another that returns data that is unique to another data, e.g. locale ID. This document calls such another data _key_, and data that is unique to such another data _keyed data_ hereafter.
 
-Service returning simple data typically has the following Redux states
-associated with it:
+Service returning simple data typically has the following Redux states associated with it:
 
 ```typescript
 interface FooAPIState {
@@ -66,14 +56,11 @@ interface BarAPIState {
 
 ## Actions
 
-There are two categories of actions, one is regular one, another is one using
-[`redux-thunk`](https://github.com/reduxjs/redux-thunk).
+There are two categories of actions, one is regular one, another is one using [`redux-thunk`](https://github.com/reduxjs/redux-thunk).
 
 ### Regular actions
 
-Typically, `@carbon/ibmdotcom-services-store` has three regular actions for one
-service in `@carbon/ibmdotcom-services`. Regular actions for services returning
-simple data are the following:
+Typically, `@carbon/ibmdotcom-services-store` has three regular actions for one service in `@carbon/ibmdotcom-services`. Regular actions for services returning simple data are the following:
 
 | Action creator            | Description                                                                                                                                                                                                                                       |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -81,16 +68,11 @@ simple data are the following:
 | `setErrorRequestFoo`      | Tells that a request has been failed. The error should be given to the action. The reducer should set the given error to `errorRequestFoo`. The reducer should also set `false` to `requestFooInProgress`.                                        |
 | `setFoo`                  | Tells that a request has been resolved, or the data (response) has been available already. The data should be given to the action. The reducer should set the given data to `foo`. The reducer should also set `false` to `requestFooInProgress`. |
 
-Regular actions for services returning keyed data have similar list of action
-creators. The key should be given to each action, in addition to ones described
-above. The reducer should update the value of the given key in the state value
-as key-value map.
+Regular actions for services returning keyed data have similar list of action creators. The key should be given to each action, in addition to ones described above. The reducer should update the value of the given key in the state value as key-value map.
 
 ### `redux-thunk` action
 
-Typically, `@carbon/ibmdotcom-services-store` has one `redux-thunk` action for
-one service in `@carbon/ibmdotcom-services`. `redux-thunk` action for services
-that returns simple data looks like below:
+Typically, `@carbon/ibmdotcom-services-store` has one `redux-thunk` action for one service in `@carbon/ibmdotcom-services`. `redux-thunk` action for services that returns simple data looks like below:
 
 ```javascript
 function loadFoo() {
@@ -112,10 +94,7 @@ function loadFoo() {
 }
 ```
 
-First, we see if we have sent the same request to `@carbon/ibmdotcom-services`
-earlier, and if so, just return such earlier request, that works as the request
-cache. Given we keep the in-flight or resolved request to the service in
-`requestFoo`, we can do it by:
+First, we see if we have sent the same request to `@carbon/ibmdotcom-services` earlier, and if so, just return such earlier request, that works as the request cache. Given we keep the in-flight or resolved request to the service in `requestFoo`, we can do it by:
 
 ```javascript
 const { requestFoo } = getState().someAPI ?? {};
@@ -124,18 +103,14 @@ if (requestFoo) {
 }
 ```
 
-Next, we make the service call. We don't inspect the resolved value of the
-promise at this point because we want to mark as the request is in progress
-right after:
+Next, we make the service call. We don't inspect the resolved value of the promise at this point because we want to mark as the request is in progress right after:
 
 ```javascript
 const promiseFoo = SomeAPI.getFoo();
 dispatch(setRequestFooInProgress(promiseFoo));
 ```
 
-Then we inspect the resolved value of the promise and updates the state with it.
-If the promise is rejected, we mark as such. Either action we end up with marks
-as the request is no longer in progress:
+Then we inspect the resolved value of the promise and updates the state with it. If the promise is rejected, we mark as such. Either action we end up with marks as the request is no longer in progress:
 
 ```javascript
 try {
@@ -146,8 +121,7 @@ try {
 }
 ```
 
-Lastly, we return the promise of the request so that other `redux-thunk` actions
-can use the result:
+Lastly, we return the promise of the request so that other `redux-thunk` actions can use the result:
 
 ```javascript
 return promiseFoo;
@@ -176,14 +150,10 @@ function loadBar(foo) {
 }
 ```
 
-First, we fetch the value of the key as needed. If the key is given directly to
-the action we use it, otherwise we get it from another `redux-thunk` action:
+First, we fetch the value of the key as needed. If the key is given directly to the action we use it, otherwise we get it from another `redux-thunk` action:
 
 ```javascript
 const effectiveFoo = foo ?? (await dispatch(loadFoo()));
 ```
 
-Then we do similar thing to `redux-thunk` action for services that returns
-simple data. The difference is that the state that holds the request cache as
-well as the service call and the Redux actions we dispatch here are keyed by
-`effectiveFoo`.
+Then we do similar thing to `redux-thunk` action for services that returns simple data. The difference is that the state that holds the request cache as well as the service call and the Redux actions we dispatch here are keyed by `effectiveFoo`.

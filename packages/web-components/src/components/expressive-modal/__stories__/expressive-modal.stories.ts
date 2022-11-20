@@ -22,13 +22,11 @@ import readme from './README.stories.mdx';
 
 const sizes = {
   [`Regular size`]: null,
-  [`One that takes full width (${EXPRESSIVE_MODAL_SIZE.FULL_WIDTH})`]:
-    EXPRESSIVE_MODAL_SIZE.FULL_WIDTH,
+  [`One that takes full width (${EXPRESSIVE_MODAL_SIZE.FULL_WIDTH})`]: EXPRESSIVE_MODAL_SIZE.FULL_WIDTH,
 };
 
-export const Default = (args) => {
-  const { open, disableClose, size, onBeforeClose, onClose } =
-    args?.Modal ?? {};
+export const Default = args => {
+  const { open, disableClose, size, onBeforeClose, onClose } = args?.Modal ?? {};
   const { buttonContent } = args?.Other ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose?.(event);
@@ -51,14 +49,11 @@ export const Default = (args) => {
         <dds-expressive-modal-heading>Modal Title</dds-expressive-modal-heading>
       </dds-expressive-modal-header>
       <dds-expressive-modal-body>
-        Quisque felis odio, egestas vel tempus iaculis, interdum vel eros.
-        Phasellus pharetra, purus et pretium posuere, ipsum risus pulvinar leo,
-        non rutrum tortor risus vitae quam. Nulla sed nibh felis. Maecenas nec
-        tincidunt eros. Fusce sollicitudin sit amet quam eu fringilla. Donec
-        tincidunt ut nisi vitae pharetra. Curabitur imperdiet ante sit amet mi
-        laoreet, vitae facilisis ante convallis. Aenean quis dapibus augue. Sed
-        nisl dui, scelerisque et augue eget, pharetra commodo elit. In venenatis
-        sapien eu nisl congue suscipit.
+        Quisque felis odio, egestas vel tempus iaculis, interdum vel eros. Phasellus pharetra, purus et pretium posuere, ipsum
+        risus pulvinar leo, non rutrum tortor risus vitae quam. Nulla sed nibh felis. Maecenas nec tincidunt eros. Fusce
+        sollicitudin sit amet quam eu fringilla. Donec tincidunt ut nisi vitae pharetra. Curabitur imperdiet ante sit amet mi
+        laoreet, vitae facilisis ante convallis. Aenean quis dapibus augue. Sed nisl dui, scelerisque et augue eget, pharetra
+        commodo elit. In venenatis sapien eu nisl congue suscipit.
       </dds-expressive-modal-body>
       <dds-expressive-modal-footer>
         <dds-button-expressive>

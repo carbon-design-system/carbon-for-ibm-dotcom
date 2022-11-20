@@ -79,7 +79,7 @@ const LocaleModal = ({
 
       const localeHidden = `${prefix}--locale-modal__locales-hidden`;
 
-      [...localeItems].map((item) => {
+      [...localeItems].map(item => {
         item.classList.remove(localeHidden);
       });
     }
@@ -115,8 +115,7 @@ const LocaleModal = ({
       }}
       className={`${prefix}--locale-modal-container`}
       data-autoid={`${stablePrefix}--locale-modal`}
-      selectorPrimaryFocus={`.${prefix}--modal-close`}
-    >
+      selectorPrimaryFocus={`.${prefix}--modal-close`}>
       {isFiltering ? (
         <ModalHeader
           data-autoid={`${stablePrefix}--locale-modal__region-back`}
@@ -229,7 +228,7 @@ LocaleModal.defaultProps = {
  *
  * @returns {object} list item
  */
-export const sortList = (list) => {
+export const sortList = list => {
   const pageLangs = altlangs();
   const filterList = [];
 
@@ -242,8 +241,8 @@ export const sortList = (list) => {
       });
 
       for (let [key, value] of Object.entries(pageLangs)) {
-        region.countryList.map((country) => {
-          country.locale.map((loc) => {
+        region.countryList.map(country => {
+          country.locale.map(loc => {
             if (loc[0].includes(key)) {
               filterList[index].countries.push({
                 region: region.key,

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -219,7 +219,8 @@ const mastheadLinks = [
           },
           {
             title: 'Blockchain',
-            url: 'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
+            url:
+              'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
             megapanelContent: {
               headingTitle: 'Blockchain',
               headingUrl:
@@ -259,7 +260,8 @@ const mastheadLinks = [
           },
           {
             title: 'Containers',
-            url: 'https://developer.ibm.com/technologies/containers/?lnk=hpmdev_dw&lnk2=learn',
+            url:
+              'https://developer.ibm.com/technologies/containers/?lnk=hpmdev_dw&lnk2=learn',
             megapanelContent: {
               headingTitle: 'Containers',
               headingUrl:
@@ -270,15 +272,18 @@ const mastheadLinks = [
                 links: [
                   {
                     title: 'Code patterns',
-                    url: 'https://developer.ibm.com/patterns/category/containers/?lnk=hpmdev_dw&lnk2=learn',
+                    url:
+                      'https://developer.ibm.com/patterns/category/containers/?lnk=hpmdev_dw&lnk2=learn',
                   },
                   {
                     title: 'Tutorials',
-                    url: 'https://developer.ibm.com/tutorials/category/containers/?lnk=hpmdev_dw&lnk2=learn',
+                    url:
+                      'https://developer.ibm.com/tutorials/category/containers/?lnk=hpmdev_dw&lnk2=learn',
                   },
                   {
                     title: 'Events',
-                    url: 'https://developer.ibm.com/events/category/containers/?lnk=hpmdev_dw&lnk2=learn',
+                    url:
+                      'https://developer.ibm.com/events/category/containers/?lnk=hpmdev_dw&lnk2=learn',
                   },
                 ],
               },
@@ -294,7 +299,8 @@ const mastheadLinks = [
           },
           {
             title: 'Analytics',
-            url: 'https://developer.ibm.com/technologies/analytics/?lnk=hpmdev_dw&lnk2=learn',
+            url:
+              'https://developer.ibm.com/technologies/analytics/?lnk=hpmdev_dw&lnk2=learn',
             megapanelContent: {
               headingTitle: 'Analytics',
               headingUrl:
@@ -305,19 +311,23 @@ const mastheadLinks = [
                 links: [
                   {
                     title: 'Code patterns',
-                    url: 'https://developer.ibm.com/patterns/category/analytics/?lnk=hpmdev_dw&lnk2=learn',
+                    url:
+                      'https://developer.ibm.com/patterns/category/analytics/?lnk=hpmdev_dw&lnk2=learn',
                   },
                   {
                     title: 'Tutorials',
-                    url: 'https://developer.ibm.com/tutorials/category/analytics/?lnk=hpmdev_dw&lnk2=learn',
+                    url:
+                      'https://developer.ibm.com/tutorials/category/analytics/?lnk=hpmdev_dw&lnk2=learn',
                   },
                   {
                     title: 'Events',
-                    url: 'https://developer.ibm.com/events/category/analytics/?lnk=hpmdev_dw&lnk2=learn',
+                    url:
+                      'https://developer.ibm.com/events/category/analytics/?lnk=hpmdev_dw&lnk2=learn',
                   },
                   {
                     title: 'Developer community',
-                    url: 'https://developer.ibm.com/watson/?lnk=hpmdev_dw&lnk2=learn',
+                    url:
+                      'https://developer.ibm.com/watson/?lnk=hpmdev_dw&lnk2=learn',
                   },
                 ],
               },

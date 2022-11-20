@@ -43,14 +43,10 @@ class DDSCardCTAFooter extends VideoCTAMixin(CTAMixin(DDSCardFooter)) {
     const caption = hasCopy
       ? undefined
       : formatVideoCaptionInEffect({
-          duration: formatVideoDurationInEffect({
-            duration: !videoDuration ? videoDuration : videoDuration * 1000,
-          }),
+          duration: formatVideoDurationInEffect({ duration: !videoDuration ? videoDuration : videoDuration * 1000 }),
         });
     return html`
-      <span class="${prefix}--card__cta__copy"
-        ><slot @slotchange="${this._handleSlotChange}"></slot>${caption}</span
-      >
+      <span class="${prefix}--card__cta__copy"><slot @slotchange="${this._handleSlotChange}"></slot>${caption}</span>
     `;
   }
 

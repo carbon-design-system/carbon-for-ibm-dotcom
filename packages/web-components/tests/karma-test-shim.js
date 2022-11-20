@@ -10,11 +10,7 @@
 'use strict';
 
 // For generating coverage report for untested files
-const srcContext = require.context(
-  '../src/components',
-  true,
-  /^(?!.*story(-(angular|react|vue))?).*\.ts$/
-);
+const srcContext = require.context('../src/components', true, /^(?!.*story(-(angular|react|vue))?).*\.ts$/);
 srcContext.keys().forEach(srcContext);
 
 const specContext = require.context('../src/components', true, /\.test\.ts$/);

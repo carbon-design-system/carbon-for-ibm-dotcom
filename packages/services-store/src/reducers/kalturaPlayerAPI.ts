@@ -1,16 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  MEDIA_PLAYER_API_ACTION,
-  MediaPlayerAPIState,
-} from '../types/kalturaPlayerAPI';
+import { MEDIA_PLAYER_API_ACTION, MediaPlayerAPIState } from '../types/kalturaPlayerAPI';
 import {
   MediaPlayerAPIActions,
   setRequestMediaDataInProgress,
@@ -23,15 +20,10 @@ import {
  * @param action The action.
  * @returns The new state for media player API.
  */
-export default function reducer(
-  state: MediaPlayerAPIState = {},
-  action: MediaPlayerAPIActions
-): MediaPlayerAPIState {
+export default function reducer(state: MediaPlayerAPIState = {}, action: MediaPlayerAPIActions): MediaPlayerAPIState {
   switch (action.type) {
     case MEDIA_PLAYER_API_ACTION.SET_REQUEST_MEDIA_DATA_IN_PROGRESS: {
-      const { mediaId, request } = action as ReturnType<
-        typeof setRequestMediaDataInProgress
-      >;
+      const { mediaId, request } = action as ReturnType<typeof setRequestMediaDataInProgress>;
       return {
         ...state,
         requestsMediaDataInProgress: {
@@ -45,9 +37,7 @@ export default function reducer(
       };
     }
     case MEDIA_PLAYER_API_ACTION.SET_ERROR_REQUEST_MEDIA_DATA: {
-      const { mediaId, error } = action as ReturnType<
-        typeof setErrorRequestMediaData
-      >;
+      const { mediaId, error } = action as ReturnType<typeof setErrorRequestMediaData>;
       return {
         ...state,
         requestsMediaDataInProgress: {

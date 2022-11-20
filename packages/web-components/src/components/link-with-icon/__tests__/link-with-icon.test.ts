@@ -16,17 +16,15 @@ const template = (props?) =>
     LinkWithIcon: props,
   });
 
-describe('dds-link-with-icon', function () {
-  describe('Misc attributes', function () {
-    it('should render with minimum attributes', async function () {
+describe('dds-link-with-icon', function() {
+  describe('Misc attributes', function() {
+    it('should render with minimum attributes', async function() {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-link-with-icon')).toMatchSnapshot(
-        { mode: 'shadow' }
-      );
+      expect(document.body.querySelector('dds-link-with-icon')).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes', async function () {
+    it('should render with various attributes', async function() {
       render(
         template({
           disabled: true,
@@ -42,13 +40,11 @@ describe('dds-link-with-icon', function () {
         document.body
       );
       await Promise.resolve();
-      expect(document.body.querySelector('dds-link-with-icon')).toMatchSnapshot(
-        { mode: 'shadow' }
-      );
+      expect(document.body.querySelector('dds-link-with-icon')).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 
-  afterEach(async function () {
+  afterEach(async function() {
     await render(undefined!, document.body);
   });
 });

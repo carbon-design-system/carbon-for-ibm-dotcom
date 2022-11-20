@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,7 +25,7 @@ class MockIntersectionObserver extends MockLayoutObserver {
    * @param isIntersecting `true` to mark the element as intersecting.
    */
   static run(elem: Element, isIntersecting: boolean) {
-    this._instances.forEach((instance) => {
+    this._instances.forEach(instance => {
       if (instance._callback && instance._targets.has(elem)) {
         instance._callback(
           [
@@ -34,7 +34,7 @@ class MockIntersectionObserver extends MockLayoutObserver {
               target: elem,
             } as IntersectionObserverEntry,
           ],
-          instance as unknown as IntersectionObserver
+          (instance as unknown) as IntersectionObserver
         );
       }
     });

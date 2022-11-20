@@ -22,12 +22,8 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-cell`)
-class DDSPricingTableCell extends StableSelectorMixin(
-  HostListenerMixin(DDSStructuredListCell)
-) {
-  _parentGroup: DDSPricingTableGroup | null = this.closest(
-    `${ddsPrefix}-pricing-table-group`
-  );
+class DDSPricingTableCell extends StableSelectorMixin(HostListenerMixin(DDSStructuredListCell)) {
+  _parentGroup: DDSPricingTableGroup | null = this.closest(`${ddsPrefix}-pricing-table-group`);
 
   @HostListener('document:event-toggle-annotations')
   protected _handleAnnotationToggle = ({ detail }) => {
@@ -47,7 +43,7 @@ class DDSPricingTableCell extends StableSelectorMixin(
 
     // Get default slot
     let defaultSlot;
-    slots?.forEach((slot) => {
+    slots?.forEach(slot => {
       if (!slot.hasAttribute('name')) {
         defaultSlot = slot;
       }
@@ -56,7 +52,7 @@ class DDSPricingTableCell extends StableSelectorMixin(
     // Filter out annotations, which should be in the "annotation" slot but
     // sometimes appear as inside the default slot. Also filter out empty
     // text nodes.
-    const slotContents = (defaultSlot?.assignedNodes() || []).filter((node) => {
+    const slotContents = (defaultSlot?.assignedNodes() || []).filter(node => {
       const isAnnotation = node instanceof DDSPricingTableCellAnnotation;
       const isEmpty = node.textContent?.trim() === '';
 

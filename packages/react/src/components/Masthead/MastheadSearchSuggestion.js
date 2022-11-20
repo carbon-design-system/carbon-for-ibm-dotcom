@@ -36,16 +36,14 @@ const MastheadSearchSuggestion = ({
       })}
       tabIndex="-1"
       data-autoid={`${stablePrefix}--masthead__searchresults--suggestion`}
-      {...(suggestion.href ? { 'data-href': suggestion.href } : {})}
-    >
+      {...(suggestion.href ? { 'data-href': suggestion.href } : {})}>
       {parts.map((part, index) => (
         <span
           key={index}
           style={{
             // TODO: switch to final styles
             fontWeight: part.highlight ? 600 : 400,
-          }}
-        >
+          }}>
           {part.text.replace(' ', '\u00A0')}
         </span>
       ))}

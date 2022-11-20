@@ -61,17 +61,8 @@ export const decorators = [
       <style>
         ${containerStyles}
       </style>
-      <bx-skip-to-content href="#main-content"
-        >Skip to main content</bx-skip-to-content
-      >
-      <div
-        id="main-content"
-        name="main-content"
-        data-floating-menu-container
-        data-modal-container
-        role="main"
-        class="${classes}"
-      >
+      <bx-skip-to-content href="#main-content">Skip to main content</bx-skip-to-content>
+      <div id="main-content" name="main-content" data-floating-menu-container data-modal-container role="main" class="${classes}">
         ${result}
       </div>
     `;
@@ -79,10 +70,7 @@ export const decorators = [
   withKnobs,
   (story, { parameters }) => {
     const root = document.documentElement;
-    root.toggleAttribute(
-      'storybook-carbon-theme-prevent-reload',
-      parameters['carbon-theme']?.preventReload
-    );
+    root.toggleAttribute('storybook-carbon-theme-prevent-reload', parameters['carbon-theme']?.preventReload);
     if (parameters['carbon-theme']?.disabled) {
       root.setAttribute('storybook-carbon-theme', '');
     } else {
@@ -92,17 +80,10 @@ export const decorators = [
   },
 ];
 
-addons.getChannel().on(CURRENT_THEME, (theme) => {
-  document.documentElement.setAttribute(
-    'storybook-carbon-theme',
-    (preservedTheme = theme)
-  );
+addons.getChannel().on(CURRENT_THEME, theme => {
+  document.documentElement.setAttribute('storybook-carbon-theme', (preservedTheme = theme));
   // Re-rendering upon theme change causes adverse effect for some stories
-  if (
-    !document.documentElement.hasAttribute(
-      'storybook-carbon-theme-prevent-reload'
-    )
-  ) {
+  if (!document.documentElement.hasAttribute('storybook-carbon-theme-prevent-reload')) {
     addons.getChannel().emit(coreEvents.FORCE_RE_RENDER);
   }
 });
@@ -113,23 +94,19 @@ addons.getChannel().on(CURRENT_THEME, (theme) => {
 let currentPath;
 if (window.parent) {
   const parentWindow = window.parent;
-  parentWindow.setInterval(function () {
+  parentWindow.setInterval(function() {
     const urlParams = new URLSearchParams(parentWindow.location.search);
     const path = urlParams.get('path');
     if (path && path !== currentPath) {
       currentPath = path;
 
-      const knobButtons = parentWindow.document.querySelectorAll(
-        '#panel-tab-content button'
-      );
+      const knobButtons = parentWindow.document.querySelectorAll('#panel-tab-content button');
       if (knobButtons) {
         const resetButton = knobButtons[knobButtons.length - 1];
         (resetButton as HTMLElement)?.click();
       }
     }
-    const knobLabel = parentWindow.document.querySelector(
-      '[id*="tabbutton-knobs-"]'
-    );
+    const knobLabel = parentWindow.document.querySelector('[id*="tabbutton-knobs-"]');
     if (knobLabel) {
       (knobLabel as HTMLElement).textContent = 'Knobs';
     }

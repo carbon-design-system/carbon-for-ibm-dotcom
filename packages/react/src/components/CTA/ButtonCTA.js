@@ -63,12 +63,12 @@ const _renderButtons = ({
 }) => {
   return buttons.map((button, key) => {
     if (button.type === 'video') {
-      button.onClick = (e) => {
+      button.onClick = e => {
         e.preventDefault();
         setMediaData(button.media);
         return CTALogic.setLightBox(e, openLightBox);
       };
-      let title = videoTitle.filter((name) => {
+      let title = videoTitle.filter(name => {
         return name.key === key;
       });
       button.copy = !title[0]
@@ -79,7 +79,7 @@ const _renderButtons = ({
           });
       button.href = '#';
     } else {
-      button.onClick = button.onClick || ((e) => CTALogic.jump(e, button.type));
+      button.onClick = button.onClick || (e => CTALogic.jump(e, button.type));
       button.target = CTALogic.external(button.type);
     }
     button.renderIcon = CTALogic.iconSelector(button.type);
@@ -96,7 +96,7 @@ const _renderButtons = ({
  * @private
  * @returns {string} icon description
  */
-const _renderIconDesc = (type) => {
+const _renderIconDesc = type => {
   switch (type) {
     case 'external':
       return 'external launch icon';

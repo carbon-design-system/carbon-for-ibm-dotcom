@@ -42,9 +42,7 @@ class DDSTopNavMenu extends BXHeaderMenu {
       }
     }
 
-    this.shadowRoot
-      ?.querySelectorAll('[role="menuitem"]')
-      .forEach((menuItem) => menuItem.removeAttribute('role'));
+    this.shadowRoot?.querySelectorAll('[role="menuitem"]').forEach(menuItem => menuItem.removeAttribute('role'));
   }
 
   connectedCallback() {

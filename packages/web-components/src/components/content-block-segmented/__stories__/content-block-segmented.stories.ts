@@ -46,18 +46,10 @@ const complementaryStyleSchemes = {
   'With border': CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
 };
 const image = html`
-  <dds-image
-    slot="media"
-    alt="Image alt text"
-    default-src="${imgLg16x9}"
-    heading="Mauris iaculis eget dolor nec hendrerit."
-  >
-    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
-    </dds-image-item>
-    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
-    </dds-image-item>
-    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
-    </dds-image-item>
+  <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Mauris iaculis eget dolor nec hendrerit.">
+    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
   </dds-image>
 `;
 
@@ -73,10 +65,7 @@ const contentItemCopy =
   'elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.';
 
 const video = html`
-  <dds-video-player-container
-    slot="media"
-    video-id="0_uka1msg4"
-  ></dds-video-player-container>
+  <dds-video-player-container slot="media" video-id="0_uka1msg4"></dds-video-player-container>
 `;
 
 const linkListItems = [
@@ -86,9 +75,8 @@ const linkListItems = [
   'Explore AI use cases in all industries',
 ];
 
-export const Default = (args) => {
-  const { heading, copy, ctaStyle, ctaType, complementaryStyleScheme } =
-    args?.ContentBlockSegmented ?? {};
+export const Default = args => {
+  const { heading, copy, ctaStyle, ctaType, complementaryStyleScheme } = args?.ContentBlockSegmented ?? {};
   const headingComponent = document.querySelector('dds-content-block-heading');
 
   if (headingComponent && headingComponent.shadowRoot) {
@@ -96,55 +84,33 @@ export const Default = (args) => {
   }
 
   return html`
-    <dds-content-block-segmented
-      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}"
-    >
+    <dds-content-block-segmented complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-content-block-copy>${copy}</dds-content-block-copy>
       ${image}
       <dds-content-block-segmented-item>
-        <dds-content-group-heading
-          >Lorem ipsum dolor sit amet.</dds-content-group-heading
-        >
+        <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
         <dds-content-item-copy>${contentItemCopy}</dds-content-item-copy>
-        <dds-text-cta
-          slot="footer"
-          cta-type="local"
-          icon-placement="right"
-          href="https://example.com"
+        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
           >Lorem Ipsum dolor sit</dds-text-cta
         >
       </dds-content-block-segmented-item>
       <dds-content-block-segmented-item>
-        <dds-content-group-heading
-          >Lorem ipsum dolor sit amet.</dds-content-group-heading
-        >
+        <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
         <dds-content-item-copy>${contentItemCopy}</dds-content-item-copy>
         ${video}
-        <dds-text-cta
-          slot="footer"
-          cta-type="local"
-          icon-placement="right"
-          href="https://example.com"
+        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
           >Lorem Ipsum dolor sit</dds-text-cta
         >
       </dds-content-block-segmented-item>
       ${ctaStyle === 'text'
         ? html`
-            <dds-text-cta
-              slot="footer"
-              cta-type=${ctaType}
-              icon-placement="right"
-              href=${hrefsForType[ctaType]}
+            <dds-text-cta slot="footer" cta-type=${ctaType} icon-placement="right" href=${hrefsForType[ctaType]}
               >Lorem ipsum dolor</dds-text-cta
             >
           `
         : html`
-            <dds-card-link-cta
-              slot="footer"
-              cta-type=${ctaType}
-              href=${hrefsForType[ctaType]}
-            >
+            <dds-card-link-cta slot="footer" cta-type=${ctaType} href=${hrefsForType[ctaType]}>
               <dds-card-link-heading>Lorem ipsum dolor</dds-card-link-heading>
               <dds-card-cta-footer></dds-card-cta-footer>
             </dds-card-link-cta>
@@ -153,16 +119,9 @@ export const Default = (args) => {
   `;
 };
 
-export const withLinkList = (args) => {
-  const {
-    blockHeading,
-    heading,
-    copy,
-    ctaStyle,
-    ctaType,
-    complementaryStyleScheme,
-    totalLinks,
-  } = args?.ContentBlockSegmented ?? {};
+export const withLinkList = args => {
+  const { blockHeading, heading, copy, ctaStyle, ctaType, complementaryStyleScheme, totalLinks } =
+    args?.ContentBlockSegmented ?? {};
   const headingComponent = document.querySelector('dds-content-block-heading');
 
   if (headingComponent && headingComponent.shadowRoot) {
@@ -170,47 +129,30 @@ export const withLinkList = (args) => {
   }
 
   return html`
-    <dds-content-block-segmented
-      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}"
-    >
+    <dds-content-block-segmented complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${blockHeading}</dds-content-block-heading>
       <dds-content-block-copy>${copy}</dds-content-block-copy>
       ${image}
       <dds-content-block-segmented-item>
-        <dds-content-group-heading
-          >Lorem ipsum dolor sit amet.</dds-content-group-heading
-        >
+        <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
         <dds-content-item-copy>${contentItemCopy}</dds-content-item-copy>
-        <dds-text-cta
-          slot="footer"
-          cta-type="local"
-          icon-placement="right"
-          href="https://example.com"
+        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
           >Lorem Ipsum dolor sit</dds-text-cta
         >
       </dds-content-block-segmented-item>
       <dds-content-block-segmented-item>
-        <dds-content-group-heading
-          >Lorem ipsum dolor sit amet.</dds-content-group-heading
-        >
+        <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
         <dds-content-item-copy>${contentItemCopy}</dds-content-item-copy>
         ${image}
-        <dds-text-cta
-          slot="footer"
-          cta-type="local"
-          icon-placement="right"
-          href="https://example.com"
+        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
           >Lorem Ipsum dolor sit</dds-text-cta
         >
       </dds-content-block-segmented-item>
       <dds-link-list type="default" slot="complementary">
         <dds-link-list-heading>${heading}</dds-link-list-heading>
         ${linkListItems.slice(0, totalLinks).map(
-          (linkListCopy) => html`
-            <dds-link-list-item-card-cta
-              href="https://example.com"
-              cta-type="local"
-            >
+          linkListCopy => html`
+            <dds-link-list-item-card-cta href="https://example.com" cta-type="local">
               <p>${linkListCopy}</p>
               <dds-card-cta-footer></dds-card-cta-footer>
             </dds-link-list-item-card-cta>
@@ -219,20 +161,12 @@ export const withLinkList = (args) => {
       </dds-link-list>
       ${ctaStyle === 'text'
         ? html`
-            <dds-text-cta
-              slot="footer"
-              cta-type=${ctaType}
-              icon-placement="right"
-              href=${hrefsForType[ctaType]}
+            <dds-text-cta slot="footer" cta-type=${ctaType} icon-placement="right" href=${hrefsForType[ctaType]}
               >Lorem ipsum dolor</dds-text-cta
             >
           `
         : html`
-            <dds-card-link-cta
-              slot="footer"
-              cta-type=${ctaType}
-              href=${hrefsForType[ctaType]}
-            >
+            <dds-card-link-cta slot="footer" cta-type=${ctaType} href=${hrefsForType[ctaType]}>
               <dds-card-link-heading>Lorem ipsum dolor</dds-card-link-heading>
               <dds-card-cta-footer></dds-card-cta-footer>
             </dds-card-link-cta>
@@ -247,10 +181,7 @@ withLinkList.story = {
     gridContentClasses: 'bx--col-lg-12',
     knobs: {
       ContentBlockSegmented: () => ({
-        blockHeading: textNullable(
-          'Heading (required)',
-          'Lorem ipsum dolor sit amet.'
-        ),
+        blockHeading: textNullable('Heading (required)', 'Lorem ipsum dolor sit amet.'),
         heading: textNullable('Link list heading (heading)', 'Tutorials'),
         totalLinks: select('Number of links', [2, 3, 4], 2),
         copy:
@@ -308,10 +239,7 @@ export default {
     hasStoryPadding: true,
     knobs: {
       ContentBlockSegmented: () => ({
-        heading: textNullable(
-          'Heading (required)',
-          'Lorem ipsum dolor sit amet.'
-        ),
+        heading: textNullable('Heading (required)', 'Lorem ipsum dolor sit amet.'),
         copy:
           'Lorem ipsum dolor sit amet, consectetur ' +
           'adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +

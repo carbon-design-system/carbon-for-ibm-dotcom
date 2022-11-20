@@ -13,15 +13,10 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import '../horizontal-rule';
 import readme from './README.stories.mdx';
 
-export const Default = (args) => {
+export const Default = args => {
   const { type, size, contrast, weight } = args?.HorizontalRule ?? {};
   return html`
-    <dds-hr
-      type="${ifNonNull(type)}"
-      size="${ifNonNull(size)}"
-      contrast="${ifNonNull(contrast)}"
-      weight="${ifNonNull(weight)}"
-    >
+    <dds-hr type="${ifNonNull(type)}" size="${ifNonNull(size)}" contrast="${ifNonNull(contrast)}" weight="${ifNonNull(weight)}">
     </dds-hr>
   `;
 };
@@ -52,7 +47,7 @@ const weights = {
 export default {
   title: 'Components/Horizontal rule',
   decorators: [
-    (story) => html`
+    story => html`
       <div class="bx--grid bx--grid--condensed">
         <div class="bx--row">
           <div class="bx--col-lg-12">
@@ -70,11 +65,7 @@ export default {
       HorizontalRule: () => ({
         type: select('Type (type):', types, types.solid),
         size: select('Size (size):', sizes, sizes.fluid),
-        contrast: select(
-          'Contrast (contrast):',
-          contrasts,
-          contrasts['medium-contrast']
-        ),
+        contrast: select('Contrast (contrast):', contrasts, contrasts['medium-contrast']),
         weight: select('Weight (weight):', weights, weights.thin),
       }),
     },

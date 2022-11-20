@@ -37,7 +37,7 @@ const MastheadSearchInput = ({
   /**
    * emit custom event for search input enter keypress
    */
-  const handleSearchEnter = (event) => {
+  const handleSearchEnter = event => {
     if (event.key === 'Enter') {
       const onSearchEnter = new CustomEvent('onSearchEnter', {
         bubbles: true,

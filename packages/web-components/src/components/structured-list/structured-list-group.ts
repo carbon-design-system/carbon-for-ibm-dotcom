@@ -22,9 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-structured-list-group`)
 class DDSStructuredListGroup extends StableSelectorMixin(LitElement) {
-  _parentTable: DDSStructuredList | null = this.closest(
-    `${ddsPrefix}-structured-list`
-  );
+  _parentTable: DDSStructuredList | null = this.closest(`${ddsPrefix}-structured-list`);
 
   @property({ attribute: 'title' })
   groupTitle?: string;
@@ -37,7 +35,9 @@ class DDSStructuredListGroup extends StableSelectorMixin(LitElement) {
     // set colspan to max value to ensure it spans all columns
     return html`
       <tr>
-        <th colspan="999">${this.groupTitle}</th>
+        <th colspan="999">
+          ${this.groupTitle}
+        </th>
       </tr>
     `;
   }

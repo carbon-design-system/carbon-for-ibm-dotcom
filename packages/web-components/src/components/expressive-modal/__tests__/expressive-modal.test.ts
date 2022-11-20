@@ -18,22 +18,20 @@ const template = (props?) =>
     Modal: props,
   });
 
-describe('dds-expressive-modal', function () {
+describe('dds-expressive-modal', function() {
   const events = new EventManager();
 
-  describe('Misc attributes', function () {
-    it('should render with minimum attributes', async function () {
+  describe('Misc attributes', function() {
+    it('should render with minimum attributes', async function() {
       render(template(), document.body);
       await Promise.resolve(); // First update cycle
       await Promise.resolve(); // Update cycle for `_hasHeader`
       await Promise.resolve(); // Update cycle for `_hasBody`
       await Promise.resolve(); // Update cycle for `_hasFooter`
-      expect(
-        document.body.querySelector('dds-expressive-modal')
-      ).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-expressive-modal')).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes', async function () {
+    it('should render with various attributes', async function() {
       render(
         template({
           expressiveSize: EXPRESSIVE_MODAL_SIZE.FULL_WIDTH,
@@ -45,14 +43,12 @@ describe('dds-expressive-modal', function () {
       await Promise.resolve(); // Update cycle for `_hasHeader`
       await Promise.resolve(); // Update cycle for `_hasBody`
       await Promise.resolve(); // Update cycle for `_hasFooter`
-      expect(
-        document.body.querySelector('dds-expressive-modal')
-      ).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-expressive-modal')).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 
-  describe('Misc contents', function () {
-    it('should render with header only', async function () {
+  describe('Misc contents', function() {
+    it('should render with header only', async function() {
       render(
         html`
           <dds-expressive-modal>
@@ -65,12 +61,10 @@ describe('dds-expressive-modal', function () {
       await Promise.resolve(); // Update cycle for `_hasHeader`
       await Promise.resolve(); // Update cycle for `_hasBody`
       await Promise.resolve(); // Update cycle for `_hasFooter`
-      expect(
-        document.body.querySelector('dds-expressive-modal')
-      ).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-expressive-modal')).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with header and body only', async function () {
+    it('should render with header and body only', async function() {
       render(
         html`
           <dds-expressive-modal>
@@ -84,12 +78,10 @@ describe('dds-expressive-modal', function () {
       await Promise.resolve(); // Update cycle for `_hasHeader`
       await Promise.resolve(); // Update cycle for `_hasBody`
       await Promise.resolve(); // Update cycle for `_hasFooter`
-      expect(
-        document.body.querySelector('dds-expressive-modal')
-      ).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-expressive-modal')).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with header and footer only', async function () {
+    it('should render with header and footer only', async function() {
       render(
         html`
           <dds-expressive-modal>
@@ -103,29 +95,23 @@ describe('dds-expressive-modal', function () {
       await Promise.resolve(); // Update cycle for `_hasHeader`
       await Promise.resolve(); // Update cycle for `_hasBody`
       await Promise.resolve(); // Update cycle for `_hasFooter`
-      expect(
-        document.body.querySelector('dds-expressive-modal')
-      ).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-expressive-modal')).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 
-  describe('Showing/hiding', function () {
-    it('Should support using Carbon core primary button in footer as the primary focus element', async function () {
+  describe('Showing/hiding', function() {
+    it('Should support using Carbon core primary button in footer as the primary focus element', async function() {
       render(
         html`
           <dds-expressive-modal>
             <input type="text" />
-            <dds-expressive-modal-footer
-              ><bx-btn kind="primary"></bx-btn
-            ></dds-expressive-modal-footer>
+            <dds-expressive-modal-footer><bx-btn kind="primary"></bx-btn></dds-expressive-modal-footer>
           </dds-expressive-modal>
         `,
         document.body
       );
       await Promise.resolve();
-      const modal = document.querySelector(
-        'dds-expressive-modal'
-      ) as DDSExpressiveModal;
+      const modal = document.querySelector('dds-expressive-modal') as DDSExpressiveModal;
       const input = modal.querySelector('input') as HTMLInputElement;
       const button = modal.querySelector('bx-btn') as HTMLButtonElement;
       spyOn(modal as any, '_waitForTransitionEnd').and.callFake(() => {});
@@ -138,7 +124,7 @@ describe('dds-expressive-modal', function () {
       expect(button.focus).toHaveBeenCalled();
     });
 
-    it('Should support using primary button in footer as the primary focus element', async function () {
+    it('Should support using primary button in footer as the primary focus element', async function() {
       render(
         html`
           <dds-expressive-modal>
@@ -151,13 +137,9 @@ describe('dds-expressive-modal', function () {
         document.body
       );
       await Promise.resolve();
-      const modal = document.querySelector(
-        'dds-expressive-modal'
-      ) as DDSExpressiveModal;
+      const modal = document.querySelector('dds-expressive-modal') as DDSExpressiveModal;
       const input = modal.querySelector('input') as HTMLInputElement;
-      const button = modal.querySelector(
-        'dds-button-expressive'
-      ) as HTMLButtonElement;
+      const button = modal.querySelector('dds-button-expressive') as HTMLButtonElement;
       spyOn(modal as any, '_waitForTransitionEnd').and.callFake(() => {});
       spyOn(input, 'focus');
       spyOn(button, 'focus');
@@ -168,7 +150,7 @@ describe('dds-expressive-modal', function () {
       expect(button.focus).toHaveBeenCalled();
     });
 
-    it('Should support specifying the primary focus element', async function () {
+    it('Should support specifying the primary focus element', async function() {
       render(
         html`
           <dds-expressive-modal>
@@ -179,9 +161,7 @@ describe('dds-expressive-modal', function () {
         document.body
       );
       await Promise.resolve();
-      const modal = document.querySelector(
-        'dds-expressive-modal'
-      ) as DDSExpressiveModal;
+      const modal = document.querySelector('dds-expressive-modal') as DDSExpressiveModal;
       const input = modal.querySelector('input') as HTMLInputElement;
       const button = modal.querySelector('button') as HTMLButtonElement;
       spyOn(modal as any, '_waitForTransitionEnd').and.callFake(() => {});
@@ -194,25 +174,20 @@ describe('dds-expressive-modal', function () {
       expect(button.focus).toHaveBeenCalled();
     });
 
-    it('Should support Carbon core close button', async function () {
+    it('Should support Carbon core close button', async function() {
       render(
         html`
-          <dds-expressive-modal open
-            ><bx-modal-close-button></bx-modal-close-button
-          ></dds-expressive-modal>
+          <dds-expressive-modal open><bx-modal-close-button></bx-modal-close-button></dds-expressive-modal>
         `,
         document.body
       );
       await Promise.resolve();
       (document.querySelector('bx-modal-close-button') as HTMLElement).click();
       await Promise.resolve();
-      expect(
-        (document.querySelector('dds-expressive-modal') as DDSExpressiveModal)
-          .open
-      ).toBeFalsy();
+      expect((document.querySelector('dds-expressive-modal') as DDSExpressiveModal).open).toBeFalsy();
     });
 
-    it('Should support close button', async function () {
+    it('Should support close button', async function() {
       render(
         html`
           <dds-expressive-modal open
@@ -222,47 +197,35 @@ describe('dds-expressive-modal', function () {
         document.body
       );
       await Promise.resolve();
-      (
-        document.querySelector(
-          'dds-expressive-modal-close-button'
-        ) as HTMLElement
-      ).click();
+      (document.querySelector('dds-expressive-modal-close-button') as HTMLElement).click();
       await Promise.resolve();
-      expect(
-        (document.querySelector('dds-expressive-modal') as DDSExpressiveModal)
-          .open
-      ).toBeFalsy();
+      expect((document.querySelector('dds-expressive-modal') as DDSExpressiveModal).open).toBeFalsy();
     });
 
-    it('Should support custom close button', async function () {
+    it('Should support custom close button', async function() {
       render(
         html`
-          <dds-expressive-modal open
-            ><button data-modal-close></button
-          ></dds-expressive-modal>
+          <dds-expressive-modal open><button data-modal-close></button></dds-expressive-modal>
         `,
         document.body
       );
       await Promise.resolve();
       (document.querySelector('[data-modal-close]') as HTMLElement).click();
       await Promise.resolve();
-      expect(
-        (document.querySelector('dds-expressive-modal') as DDSExpressiveModal)
-          .open
-      ).toBeFalsy();
+      expect((document.querySelector('dds-expressive-modal') as DDSExpressiveModal).open).toBeFalsy();
     });
   });
 
-  describe('Supporting click-outside gesture', function () {
+  describe('Supporting click-outside gesture', function() {
     let elem: HTMLElement | null;
 
-    beforeEach(async function () {
+    beforeEach(async function() {
       render(template({ open: true }), document.body);
       await Promise.resolve();
       elem = document.querySelector('dds-expressive-modal');
     });
 
-    it('Should close the modal', async function () {
+    it('Should close the modal', async function() {
       const spyBeforeClosed = jasmine.createSpy('before closed');
       const spyAfterClosed = jasmine.createSpy('after closed');
       events.on(elem!, 'dds-expressive-modal-beingclosed', spyBeforeClosed);
@@ -278,7 +241,7 @@ describe('dds-expressive-modal', function () {
       expect(eventDataAfterHidden.triggeredBy).toBe(elem);
     });
 
-    it('Should provide a way to prevent the modal from being closed', async function () {
+    it('Should provide a way to prevent the modal from being closed', async function() {
       const spyBeforeClosed = jasmine.createSpy('before closed');
       const spyAfterClosed = jasmine.createSpy('after closed');
       events.on(elem!, 'dds-expressive-modal-beingclosed', spyBeforeClosed);
@@ -295,7 +258,7 @@ describe('dds-expressive-modal', function () {
     });
   });
 
-  afterEach(async function () {
+  afterEach(async function() {
     await render(undefined!, document.body);
     events.reset();
   });

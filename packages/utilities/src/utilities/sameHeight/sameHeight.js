@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,18 +34,18 @@ function sameHeight(elemCollection, minSize = false) {
     : 0;
   if (window.innerWidth > targetWidth) {
     let targetHeight = 0;
-    elemArr.forEach((elem) => {
+    elemArr.forEach(elem => {
       elem.style.height = 'auto';
       elem.offsetHeight > targetHeight
         ? (targetHeight = elem.clientHeight)
         : false;
     });
 
-    elemArr.forEach((elem) => {
+    elemArr.forEach(elem => {
       elem.style.height = targetHeight + 'px';
     });
   } else {
-    elemArr.forEach((elem) => {
+    elemArr.forEach(elem => {
       elem.style.height = 'auto';
     });
   }

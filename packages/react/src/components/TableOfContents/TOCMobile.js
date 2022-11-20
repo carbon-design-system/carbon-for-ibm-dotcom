@@ -30,9 +30,9 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
    *
    * @param {*} e event object
    */
-  const handleChange = (e) => {
+  const handleChange = e => {
     const id = e.target.value;
-    const filteredItems = menuItems.filter((menu) => {
+    const filteredItems = menuItems.filter(menu => {
       return menu.id === id;
     });
     const title = filteredItems[0].title;
@@ -51,7 +51,7 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
     const element = document.querySelector(elem);
 
     if (element) {
-      const handleFocusOut = (event) => {
+      const handleFocusOut = event => {
         const focusoutTarget = event.target;
         focusoutTarget.removeAttribute('tabindex');
       };
@@ -76,22 +76,19 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
   return (
     <div
       className={`${prefix}--tableofcontents__mobile`}
-      data-autoid={`${stablePrefix}--tableofcontents__mobile`}
-    >
+      data-autoid={`${stablePrefix}--tableofcontents__mobile`}>
       <div className={`${prefix}--tableofcontents__mobile__select__wrapper`}>
         <select
           aria-label={menuLabel}
           className={`${prefix}--tableofcontents__mobile__select`}
           onBlur={handleOnBlur}
           value={selectedOption}
-          onChange={(e) => handleChange(e)}
-        >
+          onChange={e => handleChange(e)}>
           {renderOptions(menuItems, menuLabel)}
         </select>
         <TableOfContents20
           className={`${prefix}--tableofcontents__mobile__select__icon`}
-          aria-label="menu icon"
-        >
+          aria-label="menu icon">
           <title>menu icon</title>
         </TableOfContents20>
       </div>
@@ -111,7 +108,7 @@ const renderOptions = (options, label) => {
     title: `${label} ...`,
     id: 'menuLabel',
   };
-  options.findIndex((x) => x.id === labelObj.id) === -1
+  options.findIndex(x => x.id === labelObj.id) === -1
     ? options.unshift(labelObj)
     : null;
   return options.map((option, index) => {
@@ -124,8 +121,7 @@ const renderOptions = (options, label) => {
           value={option.id}
           defaultValue={index === 0}
           disabled={index === 0}
-          hidden={index === 0}
-        >
+          hidden={index === 0}>
           {option.title}
         </option>
       );

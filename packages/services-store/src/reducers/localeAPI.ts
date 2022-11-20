@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,15 +23,10 @@ import {
  * @param action The action.
  * @returns The new state for locale API.
  */
-export default function reducer(
-  state: LocaleAPIState = {},
-  action: LocaleAPIActions
-): LocaleAPIState {
+export default function reducer(state: LocaleAPIState = {}, action: LocaleAPIActions): LocaleAPIState {
   switch (action.type) {
     case LOCALE_API_ACTION.SET_REQUEST_LANGUAGE_IN_PROGRESS: {
-      const { request: requestLanguage } = action as ReturnType<
-        typeof setRequestLanguageInProgress
-      >;
+      const { request: requestLanguage } = action as ReturnType<typeof setRequestLanguageInProgress>;
       return {
         ...state,
         requestLanguageInProgress: true,
@@ -39,9 +34,7 @@ export default function reducer(
       };
     }
     case LOCALE_API_ACTION.SET_ERROR_REQUEST_LANGUAGE: {
-      const { error: errorRequestLanguage } = action as ReturnType<
-        typeof setErrorRequestLanguage
-      >;
+      const { error: errorRequestLanguage } = action as ReturnType<typeof setErrorRequestLanguage>;
       return {
         ...state,
         requestLanguageInProgress: false,
@@ -59,9 +52,7 @@ export default function reducer(
       };
     }
     case LOCALE_API_ACTION.SET_REQUEST_LOCALE_LIST_IN_PROGRESS: {
-      const { language, request } = action as ReturnType<
-        typeof setRequestLocaleListInProgress
-      >;
+      const { language, request } = action as ReturnType<typeof setRequestLocaleListInProgress>;
       return {
         ...state,
         requestsLocaleListInProgress: {
@@ -75,9 +66,7 @@ export default function reducer(
       };
     }
     case LOCALE_API_ACTION.SET_ERROR_REQUEST_LOCALE_LIST: {
-      const { language, error } = action as ReturnType<
-        typeof setErrorRequestLocaleList
-      >;
+      const { language, error } = action as ReturnType<typeof setErrorRequestLocaleList>;
       return {
         ...state,
         requestsLocaleListInProgress: {
@@ -91,9 +80,7 @@ export default function reducer(
       };
     }
     case LOCALE_API_ACTION.SET_LOCALE_LIST: {
-      const { language, localeList } = action as ReturnType<
-        typeof setLocaleList
-      >;
+      const { language, localeList } = action as ReturnType<typeof setLocaleList>;
       return {
         ...state,
         // If application sets language data without making a REST call, mark the request as resolved already

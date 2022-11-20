@@ -24,9 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @fires dds-checkbox-select - The custom event fired after this changebox changes its checked state.
  */
 @customElement(`${ddsPrefix}-filter-panel-checkbox`)
-class DDSFilterPanelCheckbox extends FocusMixin(
-  StableSelectorMixin(BXCheckbox)
-) {
+class DDSFilterPanelCheckbox extends FocusMixin(StableSelectorMixin(BXCheckbox)) {
   /**
    * Handles `click` event on the `<input>` in the shadow DOM.
    */

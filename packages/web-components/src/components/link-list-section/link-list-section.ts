@@ -27,15 +27,8 @@ class DDSLinkListSection extends StableSelectorMixin(DDSContentSection) {
   _handleSlotChange = (event: Event) => {
     const slot = (event.target as HTMLSlotElement)
       .assignedElements()
-      .filter(
-        (elem) =>
-          elem.localName ===
-          (this.constructor as typeof DDSLinkListSection).linkListSelector
-      )[0];
-    if (
-      slot &&
-      (!slot.hasAttribute('type') || slot.getAttribute('type') !== 'end')
-    ) {
+      .filter(elem => elem.localName === (this.constructor as typeof DDSLinkListSection).linkListSelector)[0];
+    if (slot && (!slot.hasAttribute('type') || slot.getAttribute('type') !== 'end')) {
       slot.setAttribute('type', 'end');
     }
   };

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,8 +22,7 @@ const CategoryLink = ({ href, title, highlighted, ...rest }) => {
         <Link
           className={`${prefix}--masthead__megamenu__category-sublink--highlighted`}
           href={href}
-          renderIcon={ArrowRight16}
-        >
+          renderIcon={ArrowRight16}>
           <span>{title}</span>
         </Link>
       ) : (
@@ -31,8 +30,7 @@ const CategoryLink = ({ href, title, highlighted, ...rest }) => {
           tabIndex={0}
           href={href}
           className={`${prefix}--masthead__megamenu__category-sublink`}
-          data-autoid={`${rest.autoid}-item${rest.index}`}
-        >
+          data-autoid={`${rest.autoid}-item${rest.index}`}>
           {title}
         </a>
       )}

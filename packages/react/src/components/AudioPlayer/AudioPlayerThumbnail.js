@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,12 +26,10 @@ const AudioPlayerThumbnail = ({ audioId }) => {
     <>
       <div
         className={`${prefix}--audio-player__thumbnail-container`}
-        ref={inputRef}
-      >
+        ref={inputRef}>
         <div
           className={`${prefix}--audio-player__thumbnail`}
-          style={{ backgroundImage: `url('${thumbnailUrl}')` }}
-        ></div>
+          style={{ backgroundImage: `url('${thumbnailUrl}')` }}></div>
       </div>
     </>
   );

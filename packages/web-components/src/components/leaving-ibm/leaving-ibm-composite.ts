@@ -12,10 +12,7 @@ import BXModal from 'carbon-web-components/es/components/modal/modal.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import {
-  LeavingIBMLabels,
-  Translation,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+import { LeavingIBMLabels, Translation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import './leaving-ibm-modal';
 import './leaving-ibm-modal-body';
 import './leaving-ibm-modal-heading';
@@ -35,9 +32,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-leaving-ibm-composite
  */
 @customElement(`${ddsPrefix}-leaving-ibm-composite`)
-class DDSLeavingIbmComposite extends HostListenerMixin(
-  ModalRenderMixin(LitElement)
-) {
+class DDSLeavingIbmComposite extends HostListenerMixin(ModalRenderMixin(LitElement)) {
   /**
    * The placeholder for `setLanguage()` Redux action that will be mixed in.
    *
@@ -56,11 +51,7 @@ class DDSLeavingIbmComposite extends HostListenerMixin(
    * Leaving IBM modal copy
    */
   @property({ attribute: false })
-  leavingIbmCopy: LeavingIBMLabels = {
-    LEAVING001: '',
-    LEAVING002: '',
-    LEAVING003: '',
-  };
+  leavingIbmCopy: LeavingIBMLabels = { LEAVING001: '', LEAVING002: '', LEAVING003: '' };
 
   /**
    * Leaving IBM modal button label
@@ -88,21 +79,19 @@ class DDSLeavingIbmComposite extends HostListenerMixin(
 
   @HostListener('document:click')
   protected _handleDocumentClick = (event: PointerEvent): void => {
-    const { attributeLeaving } = this
-      .constructor as typeof DDSLeavingIbmComposite;
+    const { attributeLeaving } = this.constructor as typeof DDSLeavingIbmComposite;
     if (!this.open) {
       const { target } = event;
       const linkTarget =
         target instanceof HTMLAnchorElement
           ? target
-          : (event.composedPath().find((pathTarget) => {
+          : (event.composedPath().find(pathTarget => {
               return pathTarget instanceof HTMLAnchorElement;
             }) as HTMLAnchorElement | undefined);
 
       if (linkTarget) {
         const linkIsExternal = linkTarget.hasAttribute(attributeLeaving);
-        const targetIsExternal =
-          target instanceof Element && target.hasAttribute(attributeLeaving);
+        const targetIsExternal = target instanceof Element && target.hasAttribute(attributeLeaving);
 
         if (linkIsExternal || targetIsExternal) {
           event.preventDefault();
@@ -142,23 +131,14 @@ class DDSLeavingIbmComposite extends HostListenerMixin(
       <dds-leaving-ibm-modal ?open="${open}">
         <bx-modal-header>
           <bx-modal-close-button></bx-modal-close-button>
-          <dds-leaving-ibm-modal-heading
-            >${leavingIbmCopy?.LEAVING001}</dds-leaving-ibm-modal-heading
-          >
+          <dds-leaving-ibm-modal-heading>${leavingIbmCopy?.LEAVING001}</dds-leaving-ibm-modal-heading>
         </bx-modal-header>
         <dds-leaving-ibm-modal-body href="${href}">
           <p>${leavingIbmCopy?.LEAVING002}</p>
-          <dds-leaving-ibm-modal-supplemental
-            >${leavingIbmCopy?.LEAVING003}</dds-leaving-ibm-modal-supplemental
-          >
+          <dds-leaving-ibm-modal-supplemental>${leavingIbmCopy?.LEAVING003}</dds-leaving-ibm-modal-supplemental>
         </dds-leaving-ibm-modal-body>
         <bx-modal-footer>
-          <bx-btn
-            data-autoid="${ddsPrefix}--leaving-ibm-cta"
-            href="${href}"
-            kind="primary"
-            >${leavingIbmButtonLabel}</bx-btn
-          >
+          <bx-btn data-autoid="${ddsPrefix}--leaving-ibm-cta" href="${href}" kind="primary">${leavingIbmButtonLabel}</bx-btn>
         </bx-modal-footer>
       </dds-leaving-ibm-modal>
     `;

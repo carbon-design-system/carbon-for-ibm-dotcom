@@ -1,17 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  LocaleList,
-  LOCALE_API_ACTION,
-  LocaleAPIState,
-} from '../../types/localeAPI';
+import { LocaleList, LOCALE_API_ACTION, LocaleAPIState } from '../../types/localeAPI';
 import { LocaleAPIActions } from '../../actions/localeAPI';
 import convertValue from '../../../tests/utils/convert-value';
 import reducer from '../localeAPI';

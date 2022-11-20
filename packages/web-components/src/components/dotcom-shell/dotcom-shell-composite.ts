@@ -54,9 +54,7 @@ class DDSDotcomShellComposite extends LitElement {
    * @returns The render root of the footer contents.
    */
   private _createFooterRenderRoot() {
-    const footer = this.ownerDocument!.createElement(
-      `${ddsPrefix}-footer-composite`
-    );
+    const footer = this.ownerDocument!.createElement(`${ddsPrefix}-footer-composite`);
     this.parentNode?.insertBefore(footer, this.nextSibling);
     return footer;
   }
@@ -65,9 +63,7 @@ class DDSDotcomShellComposite extends LitElement {
    * @returns The render root of the masthead contents.
    */
   private _createMastheadRenderRoot() {
-    const masthead = this.ownerDocument!.createElement(
-      `${ddsPrefix}-masthead-composite`
-    );
+    const masthead = this.ownerDocument!.createElement(`${ddsPrefix}-masthead-composite`);
     this.parentNode?.insertBefore(masthead, this);
     return masthead;
   }
@@ -431,7 +427,7 @@ class DDSDotcomShellComposite extends LitElement {
           _loadUserStatus,
           _setLanguage,
         },
-        (value) => value !== undefined
+        value => value !== undefined
       )
     );
     if (!this._footerRenderRoot) {
@@ -458,7 +454,7 @@ class DDSDotcomShellComposite extends LitElement {
           _loadTranslation,
           _setLanguage,
         },
-        (value) => value !== undefined
+        value => value !== undefined
       )
     );
   }

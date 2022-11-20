@@ -16,33 +16,28 @@ const template = (props?) =>
     image: props,
   });
 
-describe('dds-image', function () {
-  describe('Misc attributes', function () {
-    it('should render with minimum attributes', async function () {
+describe('dds-image', function() {
+  describe('Misc attributes', function() {
+    it('should render with minimum attributes', async function() {
       render(template(), document.body);
       await Promise.resolve(); // Update cycle for `<dds-image>`
-      expect(document.body.querySelector('dds-image')).toMatchSnapshot({
-        mode: 'shadow',
-      });
+      expect(document.body.querySelector('dds-image')).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes', async function () {
+    it('should render with various attributes', async function() {
       render(
         template({
-          defaultSrc:
-            'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616',
+          defaultSrc: 'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616',
           alt: 'Image alt text',
         }),
         document.body
       );
       await Promise.resolve(); // Update cycle for `<dds-image>`
-      expect(document.body.querySelector('dds-image')).toMatchSnapshot({
-        mode: 'shadow',
-      });
+      expect(document.body.querySelector('dds-image')).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 
-  afterEach(async function () {
+  afterEach(async function() {
     await render(undefined!, document.body);
   });
 });

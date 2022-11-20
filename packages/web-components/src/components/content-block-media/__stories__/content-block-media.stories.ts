@@ -78,59 +78,37 @@ const linkListItems = [
   'Explore AI use cases in all industries',
 ];
 
-export const Default = (args) => {
-  const {
-    blockHeading,
-    simpleGroupHeading,
-    featureCard,
-    complementaryStyleScheme,
-  } = args?.ContentBlockMedia ?? {};
+export const Default = args => {
+  const { blockHeading, simpleGroupHeading, featureCard, complementaryStyleScheme } = args?.ContentBlockMedia ?? {};
   return html`
-    <dds-content-block-media
-      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}"
-    >
-      <dds-content-block-heading> ${blockHeading} </dds-content-block-heading>
+    <dds-content-block-media complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
+      <dds-content-block-heading>
+        ${blockHeading}
+      </dds-content-block-heading>
       <dds-content-block-copy size="md"
-        >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
-        ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
-        elit sollicitudin, sodales nulla quis, consequat libero. Phasellus at
-        elit sollicitudin, sodales nulla quis, consequat libero.
+        >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
+        hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Phasellus at elit sollicitudin, sodales
+        nulla quis, consequat libero.
       </dds-content-block-copy>
       <dds-content-block-media-content>
         <dds-content-group-heading>
           ${simpleGroupHeading}
         </dds-content-group-heading>
-        <dds-image
-          slot="media"
-          alt="Image alt text"
-          default-src="${imgLg16x9}"
-          heading="Lorem ipsum"
-        >
-          <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
-          </dds-image-item>
-          <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
-          </dds-image-item>
-          <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
-          </dds-image-item>
+        <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum">
+          <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
+          <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
+          <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
         </dds-image>
         ${items.map(
           ({ heading: itemHeading, copy: itemCopy }) => html`
             <dds-content-item>
-              <dds-content-item-heading
-                >${itemHeading}</dds-content-item-heading
-              >
+              <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
               <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
             </dds-content-item>
           `
         )}
-        <dds-card-link-cta
-          slot="footer"
-          href="https://example.com"
-          cta-type="local"
-        >
-          <dds-card-link-heading
-            >Lorem ipsum dolor sit amet</dds-card-link-heading
-          >
+        <dds-card-link-cta slot="footer" href="https://example.com" cta-type="local">
+          <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
           <dds-card-cta-footer></dds-card-cta-footer>
         </dds-card-link-cta>
       </dds-content-block-media-content>
@@ -138,37 +116,21 @@ export const Default = (args) => {
         <dds-content-group-heading>
           ${simpleGroupHeading}
         </dds-content-group-heading>
-        <dds-image
-          slot="media"
-          alt="Image alt text"
-          default-src="${imgLg16x9}"
-          heading="Lorem ipsum"
-        >
-          <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
-          </dds-image-item>
-          <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
-          </dds-image-item>
-          <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
-          </dds-image-item>
+        <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum">
+          <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
+          <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
+          <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
         </dds-image>
         ${items.map(
           ({ heading: itemHeading, copy: itemCopy }) => html`
             <dds-content-item>
-              <dds-content-item-heading
-                >${itemHeading}</dds-content-item-heading
-              >
+              <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
               <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
             </dds-content-item>
           `
         )}
-        <dds-card-link-cta
-          slot="footer"
-          href="https://example.com"
-          cta-type="local"
-        >
-          <dds-card-link-heading
-            >Lorem ipsum dolor sit amet</dds-card-link-heading
-          >
+        <dds-card-link-cta slot="footer" href="https://example.com" cta-type="local">
+          <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
           <dds-card-cta-footer></dds-card-cta-footer>
         </dds-card-link-cta>
       </dds-content-block-media-content>
@@ -176,14 +138,8 @@ export const Default = (args) => {
         ${featureCard === 'CTA'
           ? html`
               <dds-feature-cta href="https://example.com" cta-type="local">
-                <dds-image
-                  slot="image"
-                  alt="Feature card image"
-                  default-src="${imgLg1x1}"
-                ></dds-image>
-                <dds-card-heading
-                  >Consectetur adipisicing elit</dds-card-heading
-                >
+                <dds-image slot="image" alt="Feature card image" default-src="${imgLg1x1}"></dds-image>
+                <dds-card-heading>Consectetur adipisicing elit</dds-card-heading>
                 <dds-feature-cta-footer></dds-feature-cta-footer>
               </dds-feature-cta>
             `
@@ -193,61 +149,38 @@ export const Default = (args) => {
   `;
 };
 
-export const withLinkList = (args) => {
-  const {
-    blockHeading,
-    simpleGroupHeading,
-    featureCard,
-    linkListHeading,
-    complementaryStyleScheme,
-    totalLinks,
-  } = args?.ContentBlockMedia ?? {};
+export const withLinkList = args => {
+  const { blockHeading, simpleGroupHeading, featureCard, linkListHeading, complementaryStyleScheme, totalLinks } =
+    args?.ContentBlockMedia ?? {};
   return html`
-    <dds-content-block-media
-      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}"
-    >
-      <dds-content-block-heading> ${blockHeading} </dds-content-block-heading>
+    <dds-content-block-media complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
+      <dds-content-block-heading>
+        ${blockHeading}
+      </dds-content-block-heading>
       <dds-content-block-copy size="md"
-        >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
-        ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
-        elit sollicitudin, sodales nulla quis, consequat libero. Phasellus at
-        elit sollicitudin, sodales nulla quis, consequat libero.
+        >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
+        hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Phasellus at elit sollicitudin, sodales
+        nulla quis, consequat libero.
       </dds-content-block-copy>
       <dds-content-block-media-content>
         <dds-content-group-heading>
           ${simpleGroupHeading}
         </dds-content-group-heading>
-        <dds-image
-          slot="media"
-          alt="Image alt text"
-          default-src="${imgLg16x9}"
-          heading="Lorem ipsum"
-        >
-          <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
-          </dds-image-item>
-          <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
-          </dds-image-item>
-          <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
-          </dds-image-item>
+        <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum">
+          <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
+          <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
+          <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
         </dds-image>
         ${items.map(
           ({ heading: itemHeading, copy: itemCopy }) => html`
             <dds-content-item>
-              <dds-content-item-heading
-                >${itemHeading}</dds-content-item-heading
-              >
+              <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
               <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
             </dds-content-item>
           `
         )}
-        <dds-card-link-cta
-          slot="footer"
-          href="https://example.com"
-          cta-type="local"
-        >
-          <dds-card-link-heading
-            >Lorem ipsum dolor sit amet</dds-card-link-heading
-          >
+        <dds-card-link-cta slot="footer" href="https://example.com" cta-type="local">
+          <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
           <dds-card-cta-footer></dds-card-cta-footer>
         </dds-card-link-cta>
       </dds-content-block-media-content>
@@ -255,37 +188,21 @@ export const withLinkList = (args) => {
         <dds-content-group-heading>
           Lorem ipsum dolor sit amet
         </dds-content-group-heading>
-        <dds-image
-          slot="media"
-          alt="Image alt text"
-          default-src="${imgLg16x9}"
-          heading="Lorem ipsum"
-        >
-          <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
-          </dds-image-item>
-          <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
-          </dds-image-item>
-          <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
-          </dds-image-item>
+        <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum">
+          <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
+          <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
+          <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
         </dds-image>
         ${items.map(
           ({ heading: itemHeading, copy: itemCopy }) => html`
             <dds-content-item>
-              <dds-content-item-heading
-                >${itemHeading}</dds-content-item-heading
-              >
+              <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
               <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
             </dds-content-item>
           `
         )}
-        <dds-card-link-cta
-          slot="footer"
-          href="https://example.com"
-          cta-type="local"
-        >
-          <dds-card-link-heading
-            >Lorem ipsum dolor sit amet</dds-card-link-heading
-          >
+        <dds-card-link-cta slot="footer" href="https://example.com" cta-type="local">
+          <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
           <dds-card-cta-footer></dds-card-cta-footer>
         </dds-card-link-cta>
       </dds-content-block-media-content>
@@ -293,14 +210,8 @@ export const withLinkList = (args) => {
         ${featureCard === 'CTA'
           ? html`
               <dds-feature-cta href="https://example.com" cta-type="local">
-                <dds-image
-                  slot="image"
-                  alt="Feature card image"
-                  default-src="${imgLg1x1}"
-                ></dds-image>
-                <dds-card-heading
-                  >Consectetur adipisicing elit</dds-card-heading
-                >
+                <dds-image slot="image" alt="Feature card image" default-src="${imgLg1x1}"></dds-image>
+                <dds-card-heading>Consectetur adipisicing elit</dds-card-heading>
                 <dds-feature-cta-footer> </dds-feature-cta-footer>
               </dds-feature-cta>
             `
@@ -309,11 +220,8 @@ export const withLinkList = (args) => {
       <dds-link-list type="default" slot="complementary">
         <dds-link-list-heading>${linkListHeading}</dds-link-list-heading>
         ${linkListItems.slice(0, totalLinks).map(
-          (linkListCopy) => html`
-            <dds-link-list-item-card-cta
-              href="https://example.com"
-              cta-type="local"
-            >
+          linkListCopy => html`
+            <dds-link-list-item-card-cta href="https://example.com" cta-type="local">
               <p>${linkListCopy}</p>
               <dds-card-cta-footer></dds-card-cta-footer>
             </dds-link-list-item-card-cta>
@@ -330,19 +238,10 @@ withLinkList.story = {
     gridContentClasses: 'bx--col-lg-12',
     knobs: {
       ContentBlockMedia: () => ({
-        blockHeading: textNullable(
-          'Heading (required)',
-          'Curabitur malesuada varius mi eu posuere'
-        ),
-        simpleGroupHeading: textNullable(
-          'Simple Group Heading (required)',
-          'Lorem ipsum dolor sit amet'
-        ),
+        blockHeading: textNullable('Heading (required)', 'Curabitur malesuada varius mi eu posuere'),
+        simpleGroupHeading: textNullable('Simple Group Heading (required)', 'Lorem ipsum dolor sit amet'),
         featureCard: select('FeatureCard (optional)', ['CTA', 'none'], 'CTA'),
-        linkListHeading: textNullable(
-          'Link list heading (heading)',
-          'Tutorials'
-        ),
+        linkListHeading: textNullable('Link list heading (heading)', 'Tutorials'),
         totalLinks: select('Number of links', [2, 3, 4], 2),
         complementaryStyleScheme: select(
           'Container bottom border',
@@ -385,14 +284,8 @@ export default {
     hasStoryPadding: true,
     knobs: {
       ContentBlockMedia: () => ({
-        blockHeading: textNullable(
-          'Heading (required)',
-          'Curabitur malesuada varius mi eu posuere'
-        ),
-        simpleGroupHeading: textNullable(
-          'Simple Group Heading (required)',
-          'Lorem ipsum dolor sit amet'
-        ),
+        blockHeading: textNullable('Heading (required)', 'Curabitur malesuada varius mi eu posuere'),
+        simpleGroupHeading: textNullable('Simple Group Heading (required)', 'Lorem ipsum dolor sit amet'),
         featureCard: select('FeatureCard (optional)', ['CTA', 'none'], 'CTA'),
         complementaryStyleScheme: select(
           'Container bottom border',

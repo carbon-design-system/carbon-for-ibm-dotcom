@@ -17,7 +17,7 @@ jest.mock(
 );
 
 describe('DDOAPI', () => {
-  beforeEach(function () {
+  beforeEach(function() {
     root.digitalData = digitalDataResponse;
   });
 

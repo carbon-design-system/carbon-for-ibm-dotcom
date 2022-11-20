@@ -38,9 +38,7 @@ class DDSContentSection extends StableSelectorMixin(LitElement) {
           <slot name="copy"></slot>
           <slot name="footer"></slot>
         </div>
-        <div
-          class="${prefix}--content-section__body ${this.childrenCustomClass}"
-        >
+        <div class="${prefix}--content-section__body ${this.childrenCustomClass}">
           <slot></slot>
         </div>
       </div>
