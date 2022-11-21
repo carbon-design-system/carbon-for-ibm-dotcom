@@ -44,7 +44,11 @@ class DDSMegaMenuCategoryGroup extends LitElement {
         <div class="${prefix}--masthead__megamenu__category-group-content">
           ${href
             ? html`
-                <dds-megamenu-link-with-icon href="${ifNonNull(href)}" style-scheme="category-headline" title="${title}">
+                <dds-megamenu-link-with-icon
+                  href="${ifNonNull(href)}"
+                  style-scheme="category-headline"
+                  title="${title}"
+                >
                   <span>${title}</span>${ArrowRight16({ slot: 'icon' })}
                 </dds-megamenu-link-with-icon>
               `

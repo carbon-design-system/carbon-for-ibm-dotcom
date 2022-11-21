@@ -27,9 +27,7 @@ class DDSLeavingIbmModalSupplemental extends StableSelectorMixin(LitElement) {
   slot = 'supplemental';
 
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   static get stableSelector() {

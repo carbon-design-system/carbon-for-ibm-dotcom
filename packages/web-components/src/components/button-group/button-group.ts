@@ -29,7 +29,7 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
   private _handleSlotChange(event: Event) {
     const childItems = (event.target as HTMLSlotElement)
       .assignedNodes()
-      .filter(elem =>
+      .filter((elem) =>
         (elem as HTMLElement).matches !== undefined
           ? (elem as HTMLElement).matches((this.constructor as typeof DDSButtonGroup).selectorItem) ||
             (elem as HTMLElement).matches((this.constructor as typeof DDSButtonGroup).selectorItemCTA) ||
@@ -38,10 +38,16 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
       );
 
     childItems.forEach((elem, index) => {
-      (elem as HTMLElement).setAttribute('kind', index !== childItems.length - 1 ? BUTTON_KIND.TERTIARY : BUTTON_KIND.PRIMARY);
+      (elem as HTMLElement).setAttribute(
+        'kind',
+        index !== childItems.length - 1
+          ? BUTTON_KIND.TERTIARY
+          : BUTTON_KIND.PRIMARY
+      );
     });
 
-    const { customPropertyItemCount } = this.constructor as typeof DDSButtonGroup;
+    const { customPropertyItemCount } = this
+      .constructor as typeof DDSButtonGroup;
     this.style.setProperty(customPropertyItemCount, String(childItems.length));
 
     const update = new CustomEvent(`${ddsPrefix}-button-group-update`, {
@@ -54,9 +60,7 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
   }
 
   render() {
-    return html`
-      <slot @slotchange="${this._handleSlotChange}"></slot>
-    `;
+    return html` <slot @slotchange="${this._handleSlotChange}"></slot> `;
   }
 
   connectedCallback() {

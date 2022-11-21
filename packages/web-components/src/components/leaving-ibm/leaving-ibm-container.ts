@@ -37,7 +37,10 @@ class DDSLeavingIbmContainer extends ConnectMixin<
   LeavingIbmContainerStateProps,
   ActionCreatorsMapObject<LeavingIbmContainerActions>
 >(
-  store as Store<LeavingIbmContainerState, LocaleAPIActions | TranslateAPIActions>,
+  store as Store<
+    LeavingIbmContainerState,
+    LocaleAPIActions | TranslateAPIActions
+  >,
   mapStateToProps,
   mapDispatchToProps
 )(DDSLeavingIbmComposite) {}

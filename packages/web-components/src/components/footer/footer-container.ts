@@ -8,7 +8,12 @@
  */
 
 import pickBy from 'lodash-es/pickBy.js';
-import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
+import {
+  ActionCreatorsMapObject,
+  Dispatch,
+  Store,
+  bindActionCreators,
+} from 'redux';
 import { customElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import ConnectMixin from '../../globals/mixins/connect';
@@ -26,7 +31,10 @@ import {
   setLocaleList,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
 import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
-import { loadTranslation, setTranslation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
+import {
+  loadTranslation,
+  setTranslation,
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
 import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.d';
 import {
   LocaleModalContainerState,
@@ -65,7 +73,8 @@ export interface FooterContainerState extends LocaleModalContainerState {
 /**
  * The properties for `<dds-footer-container>` from Redux state.
  */
-export interface FooterContainerStateProps extends LocaleModalContainerStateProps {
+export interface FooterContainerStateProps
+  extends LocaleModalContainerStateProps {
   /**
    * The footer links.
    */
@@ -81,7 +90,9 @@ export interface FooterContainerStateProps extends LocaleModalContainerStateProp
  * @param state The Redux state for masthead.
  * @returns The converted version of the given state, tailored for `<dds-footer-container>`.
  */
-export function mapStateToProps(state: FooterContainerState): FooterContainerStateProps {
+export function mapStateToProps(
+  state: FooterContainerState
+): FooterContainerStateProps {
   const { localeAPI, translateAPI } = state;
   const { language, localeLists } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
@@ -91,7 +102,7 @@ export function mapStateToProps(state: FooterContainerState): FooterContainerSta
       links: !language ? undefined : translations?.[language]?.footerMenu,
       legalLinks: !language ? undefined : translations?.[language]?.footerThin,
     },
-    value => value !== undefined
+    (value) => value !== undefined
   );
 }
 
@@ -99,8 +110,13 @@ export function mapStateToProps(state: FooterContainerState): FooterContainerSta
  * @param dispatch The Redux `dispatch()` API.
  * @returns The methods in `<dds-footer-container>` to dispatch Redux actions.
  */
-export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions | TranslateAPIActions>) {
-  return bindActionCreators<FooterContainerActions, ActionCreatorsMapObject<FooterContainerActions>>(
+export function mapDispatchToProps(
+  dispatch: Dispatch<LocaleAPIActions | TranslateAPIActions>
+) {
+  return bindActionCreators<
+    FooterContainerActions,
+    ActionCreatorsMapObject<FooterContainerActions>
+  >(
     {
       _loadLanguage: loadLanguage,
       _setLanguage: setLanguage,

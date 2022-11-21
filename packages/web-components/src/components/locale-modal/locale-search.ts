@@ -7,7 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, state, query, customElement, LitElement } from 'lit-element';
+import {
+  html,
+  property,
+  state,
+  query,
+  customElement,
+  LitElement,
+} from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { INPUT_SIZE } from 'carbon-web-components/es/components/input/input.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -31,7 +38,9 @@ function search(target?: (string | void)[], searchText?: string) {
   if (isEmpty || !searchText) {
     return true;
   }
-  return target!.some(item => item && item.toLowerCase().indexOf(searchText.toLowerCase()) >= 0);
+  return target!.some(
+    (item) => item && item.toLowerCase().indexOf(searchText.toLowerCase()) >= 0
+  );
 }
 
 /**
@@ -40,7 +49,9 @@ function search(target?: (string | void)[], searchText?: string) {
  * @element dds-locale-search
  */
 @customElement(`${ddsPrefix}-locale-search`)
-class DDSLocaleSearch extends ThrottedInputMixin(StableSelectorMixin(LitElement)) {
+class DDSLocaleSearch extends ThrottedInputMixin(
+  StableSelectorMixin(LitElement)
+) {
   /**
    * The container for the locale list.
    */
@@ -72,9 +83,10 @@ class DDSLocaleSearch extends ThrottedInputMixin(StableSelectorMixin(LitElement)
     const { region: currentRegion, _liveRegion: liveRegion } = this;
     let hasMatch = false;
     let count = 0;
-    forEach(this.querySelectorAll(selectorItem), item => {
+    forEach(this.querySelectorAll(selectorItem), (item) => {
       const { country, language, region } = item as DDSLocaleItem;
-      const matches = region === currentRegion && search([country, language], searchText);
+      const matches =
+        region === currentRegion && search([country, language], searchText);
       if (matches) {
         hasMatch = true;
         count++;
@@ -96,7 +108,8 @@ class DDSLocaleSearch extends ThrottedInputMixin(StableSelectorMixin(LitElement)
    * The text for the label for the UI showing the available locales.
    */
   @property({ attribute: 'availability-label-text' })
-  availabilityLabelText = 'This page is available in the following locations and languages';
+  availabilityLabelText =
+    'This page is available in the following locations and languages';
 
   /**
    * The assistive text for the close button in the search box.
@@ -138,7 +151,8 @@ class DDSLocaleSearch extends ThrottedInputMixin(StableSelectorMixin(LitElement)
    * The text for the label for the UI showing no available locale.
    */
   @property({ attribute: 'unavailability-label-text' })
-  unavailabilityLabelText = 'This page is unavailable in your preferred location or language';
+  unavailabilityLabelText =
+    'This page is unavailable in your preferred location or language';
 
   /**
    * Focus on first focusable element in shadow DOM
@@ -183,8 +197,9 @@ class DDSLocaleSearch extends ThrottedInputMixin(StableSelectorMixin(LitElement)
     if (changedProperties.has('region')) {
       const { selectorItem } = this.constructor as typeof DDSLocaleSearch;
       const { region } = this;
-      forEach(this.querySelectorAll(selectorItem), item => {
-        (item as HTMLElement).hidden = (item as DDSLocaleItem).region !== region;
+      forEach(this.querySelectorAll(selectorItem), (item) => {
+        (item as HTMLElement).hidden =
+          (item as DDSLocaleItem).region !== region;
       });
     }
   }
@@ -213,7 +228,9 @@ class DDSLocaleSearch extends ThrottedInputMixin(StableSelectorMixin(LitElement)
           </dds-search>
           <div class="${prefix}--visually-hidden" aria-live="polite"></div>
           <p class="${prefix}--locale-modal__search-text">
-            ${hasAvailableItem ? availabilityLabelText : unavailabilityLabelText}
+            ${hasAvailableItem
+              ? availabilityLabelText
+              : unavailabilityLabelText}
           </p>
         </div>
         <div class="${prefix}--locale-modal__list" role="list">

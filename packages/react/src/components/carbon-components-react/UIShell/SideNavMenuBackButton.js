@@ -22,12 +22,12 @@ const SideNavMenuBackButton = React.forwardRef(function SideNavMenuBackButton(
 ) {
   const { onBackClick, backButtonText, ...rest } = props;
 
-  const handleBackButtonClick = event => {
+  const handleBackButtonClick = (event) => {
     event.preventDefault();
     onBackClick();
   };
 
-  const handleBackButtonKeyPress = event => {
+  const handleBackButtonKeyPress = (event) => {
     if (event.key === 'Enter' || event.charCode === ' ') {
       event.preventDefault();
       onBackClick();
@@ -36,14 +36,16 @@ const SideNavMenuBackButton = React.forwardRef(function SideNavMenuBackButton(
 
   return (
     <li
-      className={`${prefix}--side-nav__menu-item ${prefix}--masthead__side-nav--submemu-back`}>
+      className={`${prefix}--side-nav__menu-item ${prefix}--masthead__side-nav--submemu-back`}
+    >
       <button
         ref={ref}
         onClick={handleBackButtonClick}
         onKeyPress={handleBackButtonKeyPress}
         className={`${prefix}--side-nav__link`}
         data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-back`}
-        isbackbutton="true">
+        isbackbutton="true"
+      >
         <span className={`${prefix}--side-nav__link-text`}>
           <ChevronLeft20 />
           {backButtonText}

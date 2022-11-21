@@ -222,6 +222,14 @@ The `<dds-video-cta-container>` component lets you integrate `<dds-text-cta>`/`<
 Only one `<dds-video-cta-container>` has to be put in application.
 Ensure that `<dds-video-cta-container>` contains all `<dds-text-cta>`/`<dds-button-cta>`/`<dds-card-cta>`/`<dds-feature-cta>`:
 
+## Using contact methods
+
+The various cta components allow the `type` attributes `email`, `schedule`, `chat`, and `call`, to perform their respective contact methods, but requires importing the contact module.
+
+```html
+<script src="https://www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js" defer></script>
+```
+
 ### JS (via import)
 
 ```javascript

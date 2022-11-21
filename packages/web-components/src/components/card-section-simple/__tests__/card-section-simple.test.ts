@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,15 +22,17 @@ const template = (props?) => {
   `;
 };
 
-describe('dds-card-section-simple', function() {
-  describe('Misc attributes', function() {
-    it('should render with minimum attributes', async function() {
+describe('dds-card-section-simple', function () {
+  describe('Misc attributes', function () {
+    it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-card-section-simple')).toMatchSnapshot({ mode: 'shadow' });
+      expect(
+        document.body.querySelector('dds-card-section-simple')
+      ).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes', async function() {
+    it('should render with various attributes', async function () {
       render(
         template({
           heading: 'heading-foo',
@@ -38,8 +40,10 @@ describe('dds-card-section-simple', function() {
             <dds-card-group-item href="https://example.com">
               <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
-                hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+                Phasellus at elit sollicitudin, sodales nulla quis, consequat
+                libero.
               </p>
               <dds-card-cta-footer slot="footer">
                 ${ArrowRight20({ slot: 'icon' })}
@@ -52,11 +56,13 @@ describe('dds-card-section-simple', function() {
       await Promise.resolve(); // The update cycle of `<dds-card-section-simple>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
-      expect(document.body.querySelector('dds-card-section-simple')).toMatchSnapshot({ mode: 'shadow' });
+      expect(
+        document.body.querySelector('dds-card-section-simple')
+      ).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

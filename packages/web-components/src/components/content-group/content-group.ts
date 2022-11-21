@@ -23,9 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-content-group`)
 class DDSContentGroup extends StableSelectorMixin(DDSContentBlock) {
   protected _renderInnerBody(): TemplateResult | string | void {
-    return html`
-      ${this._renderMedia()}${this._renderContent()}
-    `;
+    return html` ${this._renderMedia()}${this._renderContent()} `;
   }
 
   static get stableSelector() {

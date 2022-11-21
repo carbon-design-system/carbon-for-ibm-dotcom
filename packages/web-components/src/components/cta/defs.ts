@@ -85,4 +85,24 @@ export enum CTA_TYPE {
    * CTA with a blog-content icon, whose action loads the blog post in self page.
    */
   BLOG = 'blog',
+
+  /**
+   * CTA with an email icon, whose action opens the default mail client.
+   */
+  EMAIL = 'email',
+
+  /**
+   * CTA with a schedule icon, whose action opens the default calendar application.
+   */
+  SCHEDULE = 'schedule',
+
+  /**
+   * CTA with a chat icon, whose action opens the chat widget.
+   */
+  CHAT = 'chat',
+
+  /**
+   * CTA with a phone icon, whose action opens default telephony app.
+   */
+  CALL = 'call',
 }

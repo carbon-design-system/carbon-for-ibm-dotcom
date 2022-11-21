@@ -23,8 +23,15 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import { select, boolean } from '@storybook/addon-knobs';
 import { icons as ctaIcons } from '../../../component-mixins/cta/cta';
 // eslint-disable-next-line sort-imports
-import { CTA_STYLE, CTA_TYPE } from '../defs';
-import { hrefsForType, knobNamesForType, footerKnobNamesForType, styleOptions, typeOptions, types } from './ctaTypeConfig';
+import { CTA_TYPE, CTA_TYPE } from '../defs';
+import {
+  hrefsForType,
+  knobNamesForType,
+  footerKnobNamesForType,
+  styleOptions
+  typeOptions,
+  types,
+} from './ctaTypeConfig';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -165,7 +172,6 @@ export const Default = args => {
               ? html`
                   <dds-card-link-heading>${heading}</dds-card-link-heading>
                   ${copy}
-
                   <dds-card-cta-footer
                     cta-type="${ifNonNull(ctaType)}"
                     download="${ifNonNull(footerDownload)}"
@@ -224,7 +230,6 @@ Default.story = {
           ctaStyle === (CTA_STYLE.CARD || CTA_STYLE.FEATURE)
             ? textNullable(footerKnobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR])
             : null;
-
         return {
           heading,
           noPoster,
@@ -266,9 +271,7 @@ export default {
         <div class="bx--grid">
           <div class="bx--row">
             <div class="${parameters.gridContentClasses}">
-              <dds-video-cta-container>
-                ${story()}
-              </dds-video-cta-container>
+              <dds-video-cta-container> ${story()} </dds-video-cta-container>
             </div>
           </div>
         </div>
