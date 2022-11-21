@@ -50,7 +50,8 @@ function _updateChild(type, stickyOffset, children) {
           key={i}
           style={{
             top: stickyOffset ? `${stickyOffset}px` : 0,
-          }}>
+          }}
+        >
           {React.cloneElement(child, {
             className: classnames(
               child.props.className,
@@ -110,11 +111,13 @@ const Layout = ({
     className={classnames(nested ? `` : `${prefix}--grid`, {
       [_spacingClass('top', marginTop)]: marginTop,
       [_spacingClass('bottom', marginBottom)]: marginBottom,
-    })}>
+    })}
+  >
     <div
       className={classnames(`${prefix}--row`, {
         [`${prefix}--layout--border`]: border,
-      })}>
+      })}
+    >
       {_updateChild(type, stickyOffset, children)}
     </div>
   </section>

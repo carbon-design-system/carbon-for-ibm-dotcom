@@ -44,13 +44,15 @@ const ImageWithCaption = ({
   return (
     <div
       className={classnames}
-      data-autoid={`${stablePrefix}--image-with-caption`}>
+      data-autoid={`${stablePrefix}--image-with-caption`}
+    >
       {CTALogic.launchLightBox(renderLightBox, openLightBox, media)}
       {lightbox ? (
         <button
           aria-label="launch light box media viewer"
           className={`${prefix}--image-with-caption__image`}
-          onClick={e => CTALogic.setLightBox(e, openLightBox)}>
+          onClick={(e) => CTALogic.setLightBox(e, openLightBox)}
+        >
           <Image {...image} />
           <div className={`${prefix}--image-with-caption__zoom-button`}>
             <ZoomIn20 aria-label="Zoom In Icon" />
@@ -61,7 +63,8 @@ const ImageWithCaption = ({
       )}
       <p
         className={`${prefix}--image__caption`}
-        data-autoid={`${stablePrefix}--image__caption`}>
+        data-autoid={`${stablePrefix}--image__caption`}
+      >
         {heading}
       </p>
     </div>

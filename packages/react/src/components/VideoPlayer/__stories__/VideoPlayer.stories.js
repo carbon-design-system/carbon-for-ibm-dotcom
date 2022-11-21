@@ -59,7 +59,7 @@ export default {
   },
 };
 
-export const Default = args => {
+export const Default = (args) => {
   return (
     <div className="bx--grid">
       <div className="bx--row">

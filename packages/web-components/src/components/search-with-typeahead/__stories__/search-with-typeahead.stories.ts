@@ -23,15 +23,13 @@ export const Alternate = () => html`
 export default {
   title: 'Components/Search with typeahead',
   decorators: [
-    story => {
+    (story) => {
       return html`
         <style>
           ${styles}
         </style>
         <div class="bx--grid">
-          <div class="bx--row">
-            ${story()}
-          </div>
+          <div class="bx--row">${story()}</div>
         </div>
       `;
     },

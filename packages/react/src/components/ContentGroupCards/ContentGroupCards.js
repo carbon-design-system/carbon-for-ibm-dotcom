@@ -22,11 +22,13 @@ const ContentGroupCards = ({ heading, items, copy }) => {
   return (
     <section
       data-autoid={`${stablePrefix}--content-group-cards`}
-      className={`${prefix}--content-group-cards`}>
+      className={`${prefix}--content-group-cards`}
+    >
       <ContentGroup heading={heading} copy={copy}>
         <div
           data-autoid={`${stablePrefix}--content-group-cards-group`}
-          className={`${prefix}--content-group-cards-group ${prefix}--grid--condensed`}>
+          className={`${prefix}--content-group-cards-group ${prefix}--grid--condensed`}
+        >
           <div className={`${prefix}--content-group-cards__row`}>
             {_renderCards(items)}
           </div>
@@ -42,13 +44,14 @@ const ContentGroupCards = ({ heading, items, copy }) => {
  * @param {Array} items Content object array
  * @returns {*} CardArrayItem JSX objects
  */
-const _renderCards = items =>
+const _renderCards = (items) =>
   items.map((elem, index) => (
     <div
       data-autoid={`${stablePrefix}--content-group-cards-item`}
       className={`${prefix}--content-group-cards-item__col`}
       key={index}
-      role="region">
+      role="region"
+    >
       <Card
         customClassName={`${prefix}--content-group-cards-item`}
         heading={elem.heading}

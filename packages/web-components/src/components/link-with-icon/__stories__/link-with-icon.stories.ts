@@ -16,10 +16,16 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 import { ICON_PLACEMENT } from '../link-with-icon';
 
-export const Default = args => {
-  const { children, disabled, href, onClick, iconPlacement } = args?.LinkWithIcon ?? {};
+export const Default = (args) => {
+  const { children, disabled, href, onClick, iconPlacement } =
+    args?.LinkWithIcon ?? {};
   return html`
-    <dds-link-with-icon icon-placement="${iconPlacement}" ?disabled="${disabled}" href="${ifNonNull(href)}" @click="${onClick}">
+    <dds-link-with-icon
+      icon-placement="${iconPlacement}"
+      ?disabled="${disabled}"
+      href="${ifNonNull(href)}"
+      @click="${onClick}"
+    >
       ${children}${ArrowRight20({ slot: 'icon' })}
     </dds-link-with-icon>
   `;
@@ -32,13 +38,7 @@ const placementTypes = {
 
 export default {
   title: 'Components/Link with icon',
-  decorators: [
-    story => html`
-      <div class="bx--grid">
-        ${story()}
-      </div>
-    `,
-  ],
+  decorators: [(story) => html` <div class="bx--grid">${story()}</div> `],
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
@@ -46,9 +46,16 @@ export default {
       LinkWithIcon: () => ({
         children: textNullable('Link text (unnamed slot)', 'Link text'),
         disabled: boolean('Disabled (disabled)', false),
-        href: textNullable('Link href (href)', 'https://github.com/carbon-design-system/carbon-web-components'),
+        href: textNullable(
+          'Link href (href)',
+          'https://github.com/carbon-design-system/carbon-web-components'
+        ),
         onClick: action('click'),
-        iconPlacement: select('Icon Position (icon-placement):', placementTypes, placementTypes[`${ICON_PLACEMENT.RIGHT}`]),
+        iconPlacement: select(
+          'Icon Position (icon-placement):',
+          placementTypes,
+          placementTypes[`${ICON_PLACEMENT.RIGHT}`]
+        ),
       }),
     },
     propsSet: {

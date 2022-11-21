@@ -13,7 +13,11 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import DDSDropdown from '../footer/dropdown';
 import styles from './search-with-typeahead.scss';
 
-export { DROPDOWN_COLOR_SCHEME, DROPDOWN_SIZE, DROPDOWN_TYPE } from '../footer/dropdown';
+export {
+  DROPDOWN_COLOR_SCHEME,
+  DROPDOWN_SIZE,
+  DROPDOWN_TYPE,
+} from '../footer/dropdown';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;

@@ -7,7 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, state, customElement, LitElement, TemplateResult } from 'lit-element';
+import {
+  html,
+  state,
+  customElement,
+  LitElement,
+  TemplateResult,
+} from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -48,16 +54,28 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
     const { name } = target as HTMLSlotElement;
     const content = (target as HTMLSlotElement)
       .assignedNodes()
-      .filter(elem =>
+      .filter((elem) =>
         (elem as HTMLElement).matches !== undefined
-          ? (elem as HTMLElement).matches((this.constructor as typeof DDSContentItem).selectorTextCTA) ||
-            (elem as HTMLElement).matches((this.constructor as typeof DDSContentItem).selectorButtonCTA) ||
-            (elem as HTMLElement).matches((this.constructor as typeof DDSContentItem).selectorButtonGroup) ||
-            (elem as HTMLElement).matches((this.constructor as typeof DDSContentItem).selectorLinkWithIcon) ||
-            (elem as HTMLElement).matches((this.constructor as typeof DDSContentItem).selectorLinkList)
+          ? (elem as HTMLElement).matches(
+              (this.constructor as typeof DDSContentItem).selectorTextCTA
+            ) ||
+            (elem as HTMLElement).matches(
+              (this.constructor as typeof DDSContentItem).selectorButtonCTA
+            ) ||
+            (elem as HTMLElement).matches(
+              (this.constructor as typeof DDSContentItem).selectorButtonGroup
+            ) ||
+            (elem as HTMLElement).matches(
+              (this.constructor as typeof DDSContentItem).selectorLinkWithIcon
+            ) ||
+            (elem as HTMLElement).matches(
+              (this.constructor as typeof DDSContentItem).selectorLinkList
+            )
           : false
       );
-    const hasContent = content?.some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+    const hasContent = content?.some(
+      (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+    );
     this[slotExistencePropertyNames[name] || '_hasCopy'] = hasContent;
   }
 
@@ -66,9 +84,7 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderBody(): TemplateResult | string | void {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   /**

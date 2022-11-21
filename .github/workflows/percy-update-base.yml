@@ -2,7 +2,7 @@ name: percy-update-base
 
 on:
   push:
-    branches: [ main, release/* ]
+    branches: [ main, release/*, chore/revert-cwc-import ]
 
 concurrency:
   group: percy-update-base-${{ github.ref }}
@@ -37,7 +37,7 @@ jobs:
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_REACT }}
       - name: Run percy storybook
-        run: yarn build-storybook && yarn visual-snapshot
+        run: yarn visual-snapshot
         working-directory: packages/react
   react-storybook-e2e:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
@@ -95,5 +95,35 @@ jobs:
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WEBCOMPONENTS }}
       - name: Run percy storybook
-        run: yarn build-storybook && yarn visual-snapshot
+        run: yarn visual-snapshot
         working-directory: packages/web-components
+  carbon-web-components:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        node-version: ['14.x']
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install
+      - name: Install xvfb
+        run: sudo apt-get install xvfb
+      - name: Build
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-styles --ignore @carbon/ibmdotcom-services-store --ignore @carbon/ibmdotcom-utilities --ignore @carbon/ibmdotcom-services build
+      - name: Set env vars
+        uses: ./.github/actions/set-dotenv
+        with:
+          env-file: packages/carbon-web-components/.env
+        env:
+          KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
+          KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_CARBONWEBCOMPONENTS }}
+      - name: Run percy storybook
+        run: yarn visual-snapshot
+        working-directory: packages/carbon-web-components

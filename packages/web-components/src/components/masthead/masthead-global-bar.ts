@@ -24,7 +24,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-masthead-global-bar
  */
 @customElement(`${ddsPrefix}-masthead-global-bar`)
-class DDSMastheadGlobalBar extends FocusMixin(HostListenerMixin(StableSelectorMixin(LitElement))) {
+class DDSMastheadGlobalBar extends FocusMixin(
+  HostListenerMixin(StableSelectorMixin(LitElement))
+) {
   /**
    * Search bar opened flag.
    */
@@ -54,11 +56,10 @@ class DDSMastheadGlobalBar extends FocusMixin(HostListenerMixin(StableSelectorMi
     const { _hasSearchActive: hasSearchActive } = this;
     const classes = classMap({
       [`${ddsPrefix}-ce--header__global__container`]: true,
-      [`${ddsPrefix}-ce--header__global__container--has-search-active`]: hasSearchActive,
+      [`${ddsPrefix}-ce--header__global__container--has-search-active`]:
+        hasSearchActive,
     });
-    return html`
-      <div class="${classes}"><slot></slot></div>
-    `;
+    return html` <div class="${classes}"><slot></slot></div> `;
   }
 
   /**

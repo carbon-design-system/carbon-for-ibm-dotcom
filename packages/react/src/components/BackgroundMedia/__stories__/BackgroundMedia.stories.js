@@ -27,7 +27,8 @@ export const Default = () => {
       <a
         className="bx--link"
         target="_blank"
-        href="https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components-react/?path=/story/components-background-media">
+        href="https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components-react/?path=/story/components-background-media"
+      >
         React wrapper
       </a>
       .

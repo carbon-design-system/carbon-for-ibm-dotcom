@@ -23,8 +23,8 @@ const { prefix } = settings;
  *
  * @returns {Array} sorted array of sources
  */
-const sortSources = sources => {
-  const images = sources.map(elem => {
+const sortSources = (sources) => {
+  const images = sources.map((elem) => {
     if (typeof elem.breakpoint == 'number') {
       return elem;
     }
@@ -61,7 +61,8 @@ const Image = ({
   return (
     <div
       className={`${prefix}--image`}
-      data-autoid={`${stablePrefix}--image__longdescription`}>
+      data-autoid={`${stablePrefix}--image__longdescription`}
+    >
       <picture ref={refImage}>
         {sortedImages.map((imgSrc, key) => {
           return (
