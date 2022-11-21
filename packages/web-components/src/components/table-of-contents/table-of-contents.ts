@@ -352,8 +352,10 @@ class DDSTableOfContents extends HostListenerMixin(
    */
   private _contentObserverCallback() {
     const shadowRoot = this.shadowRoot as ShadowRoot;
-    const allSlots = Array.from(shadowRoot.querySelectorAll(`slot`)) as HTMLSlotElement[];
-    const allSlottedNodes = allSlots.flatMap(slot => slot.assignedNodes());
+    const allSlots = Array.from(
+      shadowRoot.querySelectorAll(`slot`)
+    ) as HTMLSlotElement[];
+    const allSlottedNodes = allSlots.flatMap((slot) => slot.assignedNodes());
     this._setTargets(allSlottedNodes);
   }
 
@@ -404,7 +406,11 @@ class DDSTableOfContents extends HostListenerMixin(
     this._contentMutationObserver.disconnect();
     (event.target as HTMLSlotElement).assignedNodes().forEach((node) => {
       if (node instanceof HTMLElement) {
-        this._contentMutationObserver.observe(node, { subtree: true, childList: true, attributeFilter: ['name', 'data-title'] });
+        this._contentMutationObserver.observe(node, {
+          subtree: true,
+          childList: true,
+          attributeFilter: ['name', 'data-title'],
+        });
       }
     });
   }
