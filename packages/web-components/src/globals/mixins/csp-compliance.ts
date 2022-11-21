@@ -26,6 +26,12 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     _dynamicStylesNode;
 
     /**
+     * Reference to a globally-scoped dynamic <style> node
+     */
+    @state()
+    _globalDynamicStyle?: HTMLStyleElement;
+
+    /**
      * Reference to the nonce key for this HTTP request
      */
     @state()
@@ -42,6 +48,23 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
 
       if (globalNonce) {
         this._nonce = globalNonce;
+      }
+
+      const globalDynamicStyleElement = document.querySelector('style.carbon-dynamic-styles') as HTMLStyleElement;
+
+      if (globalDynamicStyleElement) {
+        this._globalDynamicStyle = globalDynamicStyleElement;
+      } else {
+        const newEl = document.createElement('style');
+        newEl.classList.add('carbon-dynamic-styles');
+        newEl.setAttribute('type', 'text/css');
+
+        if (globalNonce) {
+          newEl.setAttribute('nonce', globalNonce);
+        }
+
+        document.head.appendChild(newEl);
+        this._globalDynamicStyle = newEl;
       }
     }
 
@@ -75,10 +98,11 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      *
      * @param {string} selectorString The selector we want the property for
      * @param {string} styleProperty The property we want the style value for
+     * @param {boolean} global Whether to use global or internal stylesheet
      * @returns {string} the style value requested
      */
-    getStyleBySelector(selectorString, styleProperty) {
-      const styleSheet = this._dynamicStylesNode?.sheet;
+    getStyleBySelector(selectorString, styleProperty, global = false) {
+      const styleSheet = global ? this._globalDynamicStyle?.sheet : this._dynamicStylesNode?.sheet;
 
       if (!styleSheet) {
         throw new ReferenceError(`Editable stylesheet not found for "${this.constructor.name}"`);
@@ -112,9 +136,10 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * @param selectorString The selector to style
      * @param styleProperty The property to style (camelCased CSSOM keys)
      * @param styleValue The value of the style
+     * @param {boolean} global Whether to use global or internal stylesheet
      */
-    setStyleBySelector(selectorString, styleProperty, styleValue) {
-      const styleSheet = this._dynamicStylesNode?.sheet;
+    setStyleBySelector(selectorString, styleProperty, styleValue, global = false) {
+      const styleSheet = global ? this._globalDynamicStyle?.sheet : this._dynamicStylesNode?.sheet;
 
       if (!styleSheet) {
         throw new ReferenceError(`Editable stylesheet not found for "${this.constructor.name}"`);
