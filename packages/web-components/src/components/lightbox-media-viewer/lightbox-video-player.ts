@@ -52,7 +52,9 @@ class DDSLightboxVideoPlayer extends DDSLightboxMediaViewerBody {
     return html`
       <slot name="title">
         ${formatCaption({
-          duration: formatDuration({ duration: !duration ? duration : duration * 1000 }),
+          duration: formatDuration({
+            duration: !duration ? duration : duration * 1000,
+          }),
           name,
         })}
       </slot>

@@ -57,7 +57,7 @@ const LanguageSelector = ({
   function useClickOutside() {
     const ref = useRef(null);
 
-    const handleClickOutside = event => {
+    const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target)) {
         setSelectedItem(lastSelectedItem);
       }
@@ -81,7 +81,7 @@ const LanguageSelector = ({
         className={`${prefix}--language-selector`}
         onChange={({ selectedItem }) => _setSelectedItem(selectedItem)}
         items={items}
-        itemToString={item => (item ? item.text : '')}
+        itemToString={(item) => (item ? item.text : '')}
         initialSelectedItem={initialSelectedItem}
         selectedItem={selectedItem}
         direction="top"
@@ -94,10 +94,11 @@ const LanguageSelector = ({
         data-autoid={`${stablePrefix}--language-selector__select`}
         id={`${prefix}--language-selector`}
         className={`${prefix}--language-selector`}
-        onChange={evt => _setSelectedItem(evt)}
+        onChange={(evt) => _setSelectedItem(evt)}
         text={selectedItem.text}
         labelText={labelText}
-        aria-label={labelText}>
+        aria-label={labelText}
+      >
         {renderSelectItems(items)}
       </Select>
     </div>

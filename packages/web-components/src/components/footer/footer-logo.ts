@@ -41,14 +41,20 @@ class DDSFooterLogo extends StableSelectorMixin(FocusMixin(LitElement)) {
   createRenderRoot() {
     return this.attachShadow({
       mode: 'open',
-      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
+      delegatesFocus:
+        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
+        537,
     });
   }
 
   render() {
     const { href } = this;
     return html`
-      <a class="${prefix}--footer-logo__link" aria-label="IBM logo" href="${ifNonNull(href)}">
+      <a
+        class="${prefix}--footer-logo__link"
+        aria-label="IBM logo"
+        href="${ifNonNull(href)}"
+      >
         ${IBM8BarLogoH65White({
           class: `${prefix}--footer-logo__logo`,
           role: 'img',

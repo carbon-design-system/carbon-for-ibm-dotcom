@@ -36,7 +36,7 @@ function useVideoData(type, videoId, customVideoTitle) {
   getVideoData = useCallback(async () => {
     if (type === 'video' || type.includes('video')) {
       const title = await Promise.all(
-        videoId.map(async vidId => {
+        videoId.map(async (vidId) => {
           const video = await KalturaPlayerAPI.api(vidId.src);
           const time = KalturaPlayerAPI.getMediaDuration(
             video.msDuration,

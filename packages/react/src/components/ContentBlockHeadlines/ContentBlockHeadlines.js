@@ -24,12 +24,14 @@ const ContentBlockHeadlines = ({ heading, copy, items }) => {
     DDS_CONTENTBLOCK_HEADLINES,
     <div
       data-autoid={`${stablePrefix}--content-block-headlines`}
-      className={`${prefix}--content-block-headlines`}>
+      className={`${prefix}--content-block-headlines`}
+    >
       <ContentBlock heading={heading} copy={copy} border={true}>
         <div className={`${prefix}--content-block-headlines__container`}>
           <div className={`${prefix}--content-block-headlines__row`}>
             <div
-              className={`${prefix}--content-block-headlines__item-container`}>
+              className={`${prefix}--content-block-headlines__item-container`}
+            >
               {renderItems(items)}
             </div>
           </div>

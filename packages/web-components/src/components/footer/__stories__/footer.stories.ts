@@ -22,7 +22,7 @@ import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
 import readme from './README.stories.mdx';
 import styles from './footer.stories.scss';
 
-export const base = args => {
+export const base = (args) => {
   const {
     langDisplay,
     language,
@@ -81,7 +81,7 @@ export const base = args => {
   `;
 };
 
-export const Default = args => {
+export const Default = (args) => {
   args.FooterComposite = {
     ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.REGULAR,
@@ -91,7 +91,7 @@ export const Default = args => {
   return base(args);
 };
 
-export const defaultWithAdjunctLegalLinks = args => {
+export const defaultWithAdjunctLegalLinks = (args) => {
   args.FooterComposite = {
     ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.REGULAR,
@@ -117,7 +117,7 @@ defaultWithAdjunctLegalLinks.story = {
   },
 };
 
-export const defaultLanguageOnly = args => {
+export const defaultLanguageOnly = (args) => {
   args.FooterComposite = {
     ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.REGULAR,
@@ -126,9 +126,7 @@ export const defaultLanguageOnly = args => {
     selectedLanguage: 'English',
     adjunctLinks: [],
   };
-  return html`
-    <div class="default-language-only">${base(args)}</div>
-  `;
+  return html` <div class="default-language-only">${base(args)}</div> `;
 };
 
 defaultLanguageOnly.story = {
@@ -136,7 +134,10 @@ defaultLanguageOnly.story = {
   parameters: {
     knobs: {
       FooterComposite: () => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false),
+        disableLocaleButton: boolean(
+          'hide the locale button (disable-locale-button)',
+          false
+        ),
         langList: object('language dropdown items (langList)', mockLangList),
       }),
     },
@@ -151,7 +152,7 @@ defaultLanguageOnly.story = {
   },
 };
 
-export const short = args => {
+export const short = (args) => {
   args.FooterComposite = {
     ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
@@ -161,7 +162,7 @@ export const short = args => {
   return base(args);
 };
 
-export const shortWithAdjunctLegalLinks = args => {
+export const shortWithAdjunctLegalLinks = (args) => {
   args.FooterComposite = {
     ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
@@ -187,7 +188,7 @@ shortWithAdjunctLegalLinks.story = {
   },
 };
 
-export const shortLanguageOnly = args => {
+export const shortLanguageOnly = (args) => {
   args.FooterComposite = {
     ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
@@ -204,7 +205,10 @@ shortLanguageOnly.story = {
   parameters: {
     knobs: {
       FooterComposite: () => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false),
+        disableLocaleButton: boolean(
+          'hide the locale button (disable-locale-button)',
+          false
+        ),
         langList: object('language dropdown items (langList)', mockLangList),
       }),
     },
@@ -219,18 +223,16 @@ shortLanguageOnly.story = {
   },
 };
 
-export const micro = args => {
+export const micro = (args) => {
   args.FooterComposite = {
     ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.MICRO,
     langList: '',
   };
-  return html`
-    ${base(args)}
-  `;
+  return html` ${base(args)} `;
 };
 
-export const microLanguageOnly = args => {
+export const microLanguageOnly = (args) => {
   args.FooterComposite = {
     ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.MICRO,
@@ -238,9 +240,7 @@ export const microLanguageOnly = args => {
     clearSelectionLabel: 'Clear language selection',
     selectedLanguage: 'English',
   };
-  return html`
-    ${base(args)}
-  `;
+  return html` ${base(args)} `;
 };
 
 microLanguageOnly.story = {
@@ -248,7 +248,10 @@ microLanguageOnly.story = {
   parameters: {
     knobs: {
       FooterComposite: () => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false),
+        disableLocaleButton: boolean(
+          'hide the locale button (disable-locale-button)',
+          false
+        ),
         langList: object('language dropdown items (langList)', mockLangList),
       }),
     },
@@ -269,12 +272,16 @@ export default {
     ...readme.parameters,
     knobs: {
       FooterComposite: () => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false),
+        disableLocaleButton: boolean(
+          'hide the locale button (disable-locale-button)',
+          false
+        ),
       }),
     },
     props: (() => {
       // Lets `<dds-footer-container>` load the footer links
-      const useMock = inPercy() || new URLSearchParams(window.location.search).has('mock');
+      const useMock =
+        inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
         FooterComposite: {
           langDisplay: !useMock ? undefined : 'United States - English',

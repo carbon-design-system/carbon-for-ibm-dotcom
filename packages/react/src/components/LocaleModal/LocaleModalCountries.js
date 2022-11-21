@@ -110,9 +110,10 @@ const LocaleModalCountries = ({
         <p
           className={`${prefix}--assistive-text`}
           role="status"
-          aria-live="assertive"></p>
+          aria-live="assertive"
+        ></p>
         {regionList?.map(
-          region =>
+          (region) =>
             currentRegion === region.name &&
             region.countries.map((country, index) => (
               <li key={index}>
@@ -120,7 +121,8 @@ const LocaleModalCountries = ({
                   className={`${prefix}--locale-modal__locales`}
                   onClick={() => _setCookie(country.locale)}
                   href={country.href}
-                  data-region={country.region}>
+                  data-region={country.region}
+                >
                   <div className={`${prefix}--locale-modal__locales__name`}>
                     {country.name}
                   </div>
@@ -168,7 +170,7 @@ LocaleModalCountries.defaultProps = {
  * @param {object} locale selected country/region
  * @private
  */
-export const _setCookie = locale => {
+export const _setCookie = (locale) => {
   const localeSplit = locale.split('-');
   const localeObj = {
     cc: localeSplit[1],
@@ -196,7 +198,7 @@ export const filterLocale = (
   setClearResults(false);
   const filterVal = localeFilter.value.toUpperCase();
 
-  [...localeItems].map(item => {
+  [...localeItems].map((item) => {
     const locale = item.getElementsByTagName('div');
 
     const country = locale[0].textContent || locale[0].innerText;
