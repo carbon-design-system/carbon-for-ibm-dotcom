@@ -14,19 +14,21 @@
 // DEPRECATED. Use `packages/react/src/internal/vendor/carbon-components-react/prop-types/isRequiredOneOf.js` instead
 export default function isRequiredOneOf(propTypes) {
   const names = Object.keys(propTypes);
-  const checker = propType => (props, propName, componentName, ...rest) => {
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      names.every(name => typeof props[name] === 'undefined')
-    ) {
-      return new Error(
-        `${componentName} requires one of the following props: ${names.join(
-          ', '
-        )}`
-      );
-    }
-    return propType(props, propName, componentName, ...rest);
-  };
+  const checker =
+    (propType) =>
+    (props, propName, componentName, ...rest) => {
+      if (
+        process.env.NODE_ENV !== 'production' &&
+        names.every((name) => typeof props[name] === 'undefined')
+      ) {
+        return new Error(
+          `${componentName} requires one of the following props: ${names.join(
+            ', '
+          )}`
+        );
+      }
+      return propType(props, propName, componentName, ...rest);
+    };
   return names.reduce(
     (o, name) => ({
       ...o,

@@ -265,7 +265,7 @@ export default {
   },
 };
 
-export const TallWithNoImage = args => (
+export const TallWithNoImage = (args) => (
   <TallWithImage
     {...(Object.keys(args).length > 0 ? args : props.tallWithNoImage())}
   />
@@ -280,7 +280,7 @@ TallWithNoImage.story = {
   },
 };
 
-export const TallWithImage = args => {
+export const TallWithImage = (args) => {
   const { defaultSrc, image } = props.tallWithImage();
 
   if (defaultSrc) {

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,26 +14,41 @@ import readme from './README.stories.mdx';
 
 export const Default = () => {
   return html`
-    <div style="width:100%" class="bx--grid bx--layout--top-layout-03 bx--layout--bottom-layout-06">
-      <div class="bx--row bx--layout--top-layout-03 bx--layout--bottom-layout-06">
+    <div
+      style="width:100%"
+      class="bx--grid bx--layout--top-layout-03 bx--layout--bottom-layout-06"
+    >
+      <div
+        class="bx--row bx--layout--top-layout-03 bx--layout--bottom-layout-06"
+      >
         <div class="bx--col-lg-12">
           <div>
             <div class="bx--row">
               <div class="bx--layout-2-3">
                 <h3>Column 2-3</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua. Ac turpis egestas maecenas pharetra convallis posuere. Ultrices dui sapien eget mi proin sed
-                  libero enim. Elementum facilisis leo vel fringilla. Sed tempus urna et pharetra pharetra massa massa ultricies
-                  ridiculus mus mauris vitae ultricies leo integer. Eget mauris pharetra et ultrices. Urna neque viverra justo nec
-                  ultrices dui sapien. Augue eget arcu dictum varius duis. Eget mauris pharetra et ultrices neque ornare aenean.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ac turpis egestas maecenas pharetra convallis posuere.
+                  Ultrices dui sapien eget mi proin sed libero enim. Elementum
+                  facilisis leo vel fringilla. Sed tempus urna et pharetra
+                  pharetra massa massa ultricies ridiculus mus mauris vitae
+                  ultricies leo integer. Eget mauris pharetra et ultrices. Urna
+                  neque viverra justo nec ultrices dui sapien. Augue eget arcu
+                  dictum varius duis. Eget mauris pharetra et ultrices neque
+                  ornare aenean.
                 </p>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua. Ac turpis egestas maecenas pharetra convallis posuere. Ultrices dui sapien eget mi proin sed
-                  libero enim. Elementum facilisis leo vel fringilla. Sed tempus urna et pharetra pharetra massa massa ultricies
-                  ridiculus mus mauris vitae ultricies leo integer. Eget mauris pharetra et ultrices. Urna neque viverra justo nec
-                  ultrices dui sapien. Augue eget arcu dictum varius duis. Eget mauris pharetra et ultrices neque ornare aenean.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ac turpis egestas maecenas pharetra convallis posuere.
+                  Ultrices dui sapien eget mi proin sed libero enim. Elementum
+                  facilisis leo vel fringilla. Sed tempus urna et pharetra
+                  pharetra massa massa ultricies ridiculus mus mauris vitae
+                  ultricies leo integer. Eget mauris pharetra et ultrices. Urna
+                  neque viverra justo nec ultrices dui sapien. Augue eget arcu
+                  dictum varius duis. Eget mauris pharetra et ultrices neque
+                  ornare aenean.
                 </p>
               </div>
               <div class="bx--layout-1-3">
@@ -48,8 +63,10 @@ export const Default = () => {
                   <li class="bx--list__item">item 7</li>
                 </ul>
                 <p>
-                  A pellentesque sit amet porttitor. Sed euismod nisi porta lorem. Pellentesque dignissim enim sit amet venenatis
-                  urna cursus eget nunc. Eu lobortis elementum nibh tellus molestie nunc non blandit massa.
+                  A pellentesque sit amet porttitor. Sed euismod nisi porta
+                  lorem. Pellentesque dignissim enim sit amet venenatis urna
+                  cursus eget nunc. Eu lobortis elementum nibh tellus molestie
+                  nunc non blandit massa.
                 </p>
               </div>
             </div>
@@ -72,25 +89,37 @@ export const Default = () => {
                   <li class="bx--list__item">item 7</li>
                 </ul>
                 <p>
-                  A pellentesque sit amet porttitor. Sed euismod nisi porta lorem. Pellentesque dignissim enim sit amet venenatis
-                  urna urna urna cursus eget nunc. Eu lobortis elementum nibh tellus molestie nunc non blandit massa.
+                  A pellentesque sit amet porttitor. Sed euismod nisi porta
+                  lorem. Pellentesque dignissim enim sit amet venenatis urna
+                  urna urna cursus eget nunc. Eu lobortis elementum nibh tellus
+                  molestie nunc non blandit massa.
                 </p>
               </div>
               <div class="bx--layout-2-3">
                 <h3>layout 2-3</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua. Ac turpis egestas maecenas pharetra convallis posuere. Ultrices dui sapien eget mi proin sed
-                  libero enim. Elementum facilisis leo vel fringilla. Sed tempus urna et pharetra pharetra massa massa ultricies
-                  ridiculus mus mauris vitae ultricies leo integer. Eget mauris pharetra et ultrices. Urna neque viverra justo nec
-                  ultrices dui sapien. Augue eget arcu dictum varius duis. Eget mauris pharetra et ultrices neque ornare aenean.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ac turpis egestas maecenas pharetra convallis posuere.
+                  Ultrices dui sapien eget mi proin sed libero enim. Elementum
+                  facilisis leo vel fringilla. Sed tempus urna et pharetra
+                  pharetra massa massa ultricies ridiculus mus mauris vitae
+                  ultricies leo integer. Eget mauris pharetra et ultrices. Urna
+                  neque viverra justo nec ultrices dui sapien. Augue eget arcu
+                  dictum varius duis. Eget mauris pharetra et ultrices neque
+                  ornare aenean.
                 </p>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua. Ac turpis egestas maecenas pharetra convallis posuere. Ultrices dui sapien eget mi proin sed
-                  libero enim. Elementum facilisis leo vel fringilla. Sed tempus urna et pharetra pharetra massa massa ultricies
-                  ridiculus mus mauris vitae ultricies leo integer. Eget mauris pharetra et ultrices. Urna neque viverra justo nec
-                  ultrices dui sapien. Augue eget arcu dictum varius duis. Eget mauris pharetra et ultrices neque ornare aenean.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ac turpis egestas maecenas pharetra convallis posuere.
+                  Ultrices dui sapien eget mi proin sed libero enim. Elementum
+                  facilisis leo vel fringilla. Sed tempus urna et pharetra
+                  pharetra massa massa ultricies ridiculus mus mauris vitae
+                  ultricies leo integer. Eget mauris pharetra et ultrices. Urna
+                  neque viverra justo nec ultrices dui sapien. Augue eget arcu
+                  dictum varius duis. Eget mauris pharetra et ultrices neque
+                  ornare aenean.
                 </p>
               </div>
             </div>
@@ -104,7 +133,7 @@ export const Default = () => {
 export default {
   title: 'Components/Layout',
   decorators: [
-    story => html`
+    (story) => html`
       ${story()}
       <style>
         ${styles}

@@ -250,7 +250,8 @@
 :host(#{$dds-prefix}-top-nav-menu),
 :host(#{$dds-prefix}-masthead-profile),
 :host(#{$dds-prefix}-cloud-masthead-profile) {
-  .#{$prefix}--header__menu-title[aria-expanded='true'] + .#{$prefix}--header__menu {
+  .#{$prefix}--header__menu-title[aria-expanded='true']
+    + .#{$prefix}--header__menu {
     background-color: $ui-background;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
     bottom: -1px;
@@ -288,10 +289,13 @@
 }
 
 :host(#{$dds-prefix}-megamenu-top-nav-menu) {
-  .#{$prefix}--header__menu-title[aria-expanded='true'] + .#{$prefix}--header__menu {
+  .#{$prefix}--header__menu-title[aria-expanded='true']
+    + .#{$prefix}--header__menu {
     bottom: auto;
     height: auto;
-    max-height: calc(100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem));
+    max-height: calc(
+      100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem)
+    );
     min-height: 0;
   }
 }
@@ -315,7 +319,8 @@
     left: -100vw;
     visibility: hidden;
     /* stylelint-disable-next-line  time-min-milliseconds */
-    transition: visibility 1ms motion(exit, productive) $duration--fast-02, left $duration--fast-02 motion(exit, productive) 1ms;
+    transition: visibility 1ms motion(exit, productive) $duration--fast-02,
+      left $duration--fast-02 motion(exit, productive) 1ms;
   }
 
   &[expanded][usage-mode='header-nav'],
@@ -324,7 +329,8 @@
     left: 0;
     visibility: visible;
     /* stylelint-disable-next-line time-min-milliseconds */
-    transition: visibility 1ms motion(exit, productive) 0ms, left $duration--fast-02 motion(exit, productive) 1ms;
+    transition: visibility 1ms motion(exit, productive) 0ms,
+      left $duration--fast-02 motion(exit, productive) 1ms;
   }
 
   .#{$prefix}--side-nav__wrapper {
@@ -408,7 +414,8 @@
 }
 
 :host(#{$dds-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,
-:host(#{$dds-prefix}-left-nav-menu-item-highlighted) a.#{$prefix}--side-nav__link,
+:host(#{$dds-prefix}-left-nav-menu-item-highlighted)
+  a.#{$prefix}--side-nav__link,
 :host(#{$dds-prefix}-left-nav-item) a.#{$prefix}--side-nav__link,
 :host(#{$dds-prefix}-left-nav-menu-item) a.#{$prefix}--side-nav__link {
   display: flex;
@@ -469,8 +476,9 @@
       0 calc(#{mini-units(6)} + 1px),
       mini-units(6) calc(#{mini-units(6)} + 1px)
     )
-    #{'/*!rtl:polygon(0 0, calc(100% - ' + mini-units(6) + ') 0, calc(100% - ' + mini-units(6) + ') calc(' + mini-units(6) +
-    ' + 1px), 100% calc(' + mini-units(6) + ' + 1px), 100% 100%, 0 100%)*/'};
+    #{'/*!rtl:polygon(0 0, calc(100% - ' + mini-units(6) + ') 0, calc(100% - ' +
+    mini-units(6) + ') calc(' + mini-units(6) + ' + 1px), 100% calc(' +
+    mini-units(6) + ' + 1px), 100% 100%, 0 100%)*/'};
 }
 
 :host(#{$dds-prefix}-left-nav-overlay) {

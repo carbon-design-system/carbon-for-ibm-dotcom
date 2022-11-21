@@ -36,11 +36,13 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
             data-autoid={`${stablePrefix}--tableofcontents__desktop__item-${item.id}`}
             className={classNames(`${prefix}--tableofcontents__desktop__item`, {
               [`${prefix}--tableofcontents__desktop__item--active`]: isActive,
-            })}>
+            })}
+          >
             <a
               {...(isActive ? { 'aria-current': 'location' } : {})}
-              onClick={e => handleOnClick(e, item.id)}
-              href={`#${item.id}`}>
+              onClick={(e) => handleOnClick(e, item.id)}
+              href={`#${item.id}`}
+            >
               {item.title}
             </a>
           </li>
@@ -73,7 +75,7 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
   function triggerFocus(elem) {
     const element = document.querySelector(elem);
 
-    const handleFocusOut = event => {
+    const handleFocusOut = (event) => {
       const focusoutTarget = event.target;
       focusoutTarget.removeAttribute('tabindex');
     };
@@ -88,7 +90,8 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
   return (
     <div
       className={`${prefix}--tableofcontents__desktop`}
-      data-autoid={`${stablePrefix}--tableofcontents__desktop`}>
+      data-autoid={`${stablePrefix}--tableofcontents__desktop`}
+    >
       <ul>{renderMenuItems(menuItems, selectedId)}</ul>
     </div>
   );

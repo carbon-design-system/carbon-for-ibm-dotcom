@@ -10,7 +10,10 @@
 import { render } from 'lit-html';
 import { forEach } from '../../../globals/internal/collection-helpers';
 import { LocaleList } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
-import { BasicLink, BasicLinkSet } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+import {
+  BasicLink,
+  BasicLinkSet,
+} from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import '../footer-composite';
 import { Default } from '../__stories__/footer.stories';
 
@@ -108,9 +111,12 @@ const template = (props?) =>
 
 const setupLinkAlternate = (set: boolean = true) => {
   if (!set) {
-    forEach(document.querySelectorAll('link[rel="alternate][hreflang]'), item => {
-      item.parentNode!.removeChild(item);
-    });
+    forEach(
+      document.querySelectorAll('link[rel="alternate][hreflang]'),
+      (item) => {
+        item.parentNode!.removeChild(item);
+      }
+    );
   } else {
     document.head.insertAdjacentHTML(
       'beforeend',
@@ -125,15 +131,15 @@ const setupLinkAlternate = (set: boolean = true) => {
   }
 };
 
-describe('dds-footer-composite', function() {
-  describe('Misc attributes', function() {
-    it('should render minimum attributes', async function() {
+describe('dds-footer-composite', function () {
+  describe('Misc attributes', function () {
+    it('should render minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
       expect(document.querySelector('dds-footer-composite')).toMatchSnapshot();
     });
 
-    it('should render various attributes', async function() {
+    it('should render various attributes', async function () {
       setupLinkAlternate();
       render(
         template({
@@ -151,7 +157,7 @@ describe('dds-footer-composite', function() {
     });
   });
 
-  afterEach(function() {
+  afterEach(function () {
     setupLinkAlternate(false);
     render(undefined!, document.body);
   });

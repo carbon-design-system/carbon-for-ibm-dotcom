@@ -16,15 +16,17 @@ const template = (props?) =>
     'dds-filter-panel-composite': props,
   });
 
-describe('dds-filter-panel-composite', function() {
-  describe('Misc attributes', function() {
-    it('should render with minimum attributes', async function() {
+describe('dds-filter-panel-composite', function () {
+  describe('Misc attributes', function () {
+    it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve(); // Update cycle for `<dds-filter-panel>`
-      expect(document.body.querySelector('dds-filter-panel-composite')).toMatchSnapshot({ mode: 'shadow' });
+      expect(
+        document.body.querySelector('dds-filter-panel-composite')
+      ).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes', async function() {
+    it('should render with various attributes', async function () {
       render(
         template({
           heading: 'Filter',
@@ -33,11 +35,13 @@ describe('dds-filter-panel-composite', function() {
         document.body
       );
       await Promise.resolve(); // Update cycle for `<dds-filter-panel>`
-      expect(document.body.querySelector('dds-filter-panel-composite')).toMatchSnapshot({ mode: 'shadow' });
+      expect(
+        document.body.querySelector('dds-filter-panel-composite')
+      ).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

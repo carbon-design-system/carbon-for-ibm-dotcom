@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -35,21 +35,22 @@ const {
 const check = async (paths, { testCurrentYear, writeCurrentYear }) => {
   const filesWithErrors = (
     await Promise.all(
-      paths.map(async item => {
+      paths.map(async (item) => {
         if (item.indexOf('.yarn') !== -1) {
           return;
         }
         const contents = await readFile(item, 'utf8');
-        const result = (testCurrentYear || writeCurrentYear
-          ? reLicenseTextCurrentYear
-          : reLicense
+        const result = (
+          testCurrentYear || writeCurrentYear
+            ? reLicenseTextCurrentYear
+            : reLicense
         ).test(contents);
         if (!result) {
           if (writeCurrentYear) {
             const newContents = contents
               .replace(
                 reLicenseTextSingleYear,
-                match => `${match}, ${currentYear}`
+                (match) => `${match}, ${currentYear}`
               )
               .replace(
                 reLicenseTextRange,
@@ -87,7 +88,7 @@ check(args, options).then(
   () => {
     process.exit(0);
   },
-  error => {
+  (error) => {
     console.error(error); // eslint-disable-line no-console
     process.exit(1);
   }

@@ -59,12 +59,8 @@ class DDSLocaleItem extends BXLink {
   _renderInner() {
     const { country, language } = this;
     return html`
-      <div class="${prefix}--locale-modal__locales__name">
-        ${country}
-      </div>
-      <div class="${prefix}--locale-modal__locales__name">
-        ${language}
-      </div>
+      <div class="${prefix}--locale-modal__locales__name">${country}</div>
+      <div class="${prefix}--locale-modal__locales__name">${language}</div>
     `;
   }
 

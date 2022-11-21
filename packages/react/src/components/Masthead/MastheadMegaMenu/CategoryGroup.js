@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,14 +24,16 @@ const CategoryGroup = ({ href, title, children, ...rest }) => (
           <LinkWithIcon
             href={href}
             className={`${prefix}--masthead__megamenu__category-headline`}
-            data-autoid={`${rest.autoid}-list${rest.index}`}>
+            data-autoid={`${rest.autoid}-list${rest.index}`}
+          >
             <span>{title}</span>
             <ArrowRight16 />
           </LinkWithIcon>
         ) : (
           <div
             className={`${prefix}--masthead__megamenu__category-headline`}
-            data-autoid={`${rest.autoid}-list${rest.index}`}>
+            data-autoid={`${rest.autoid}-list${rest.index}`}
+          >
             <p>{title}</p>
           </div>
         )}
