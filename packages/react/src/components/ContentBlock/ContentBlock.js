@@ -42,7 +42,8 @@ const ContentBlock = ({
       )}
       <div
         data-autoid={`${stablePrefix}--content-block__children`}
-        className={`${prefix}--content-block__children`}>
+        className={`${prefix}--content-block__children`}
+      >
         {children}
       </div>
       {cta && _renderCTA(cta, border)}
@@ -54,7 +55,8 @@ const ContentBlock = ({
       {heading && (
         <h2
           data-autoid={`${stablePrefix}--content-block__heading`}
-          className={`${prefix}--content-block__heading`}>
+          className={`${prefix}--content-block__heading`}
+        >
           {heading}
         </h2>
       )}
@@ -80,7 +82,8 @@ const ContentBlock = ({
  */
 const _layoutWrap = (content, aside) => (
   <div
-    className={`${prefix}--content-layout ${prefix}--content-layout--with-complementary`}>
+    className={`${prefix}--content-layout ${prefix}--content-layout--with-complementary`}
+  >
     <div className={`${prefix}--content-layout__body`}>{content}</div>
     <aside className={`${prefix}--content-layout__aside`}>{aside.items}</aside>
   </div>
@@ -105,7 +108,8 @@ function _renderCTA(cta, border) {
       data-autoid={`${stablePrefix}--content-block__cta`}
       className={cx(`${prefix}--content-block__cta-row`, {
         [`${prefix}--content-block__cta-row-border`]: border,
-      })}>
+      })}
+    >
       <CTA
         customClassName={`${prefix}--content-block__cta ${prefix}--content-block__cta-col`}
         {...cta}

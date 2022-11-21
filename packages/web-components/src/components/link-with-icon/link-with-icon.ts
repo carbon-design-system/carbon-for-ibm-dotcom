@@ -8,7 +8,9 @@
  */
 
 import { html, customElement, TemplateResult, property } from 'lit-element';
-import BXLink, { LINK_SIZE } from 'carbon-web-components/es/components/link/link.js';
+import BXLink, {
+  LINK_SIZE,
+} from 'carbon-web-components/es/components/link/link.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { ICON_PLACEMENT } from '../../globals/defs';
@@ -54,9 +56,7 @@ class DDSLinkWithIcon extends StableSelectorMixin(BXLink) {
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderContent(): TemplateResult | string | void {
-    return html`
-      <span><slot></slot></span>
-    `;
+    return html` <span><slot></slot></span> `;
   }
 
   /**
@@ -64,22 +64,21 @@ class DDSLinkWithIcon extends StableSelectorMixin(BXLink) {
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderIcon(): TemplateResult | string | void {
-    return html`
-      <slot name="icon"></slot>
-    `;
+    return html` <slot name="icon"></slot> `;
   }
 
   protected _renderInner() {
-    return html`
-      ${this._renderContent()}${this._renderIcon()}
-    `;
+    return html` ${this._renderContent()}${this._renderIcon()} `;
   }
 
   updated() {
     const { iconInline, iconPlacement, _linkNode: linkNode } = this;
     if (linkNode) {
       linkNode.classList.add(`${prefix}--link-with-icon`);
-      linkNode.classList.toggle(`${prefix}--link-with-icon__icon-${ICON_PLACEMENT.LEFT}`, iconPlacement === ICON_PLACEMENT.LEFT);
+      linkNode.classList.toggle(
+        `${prefix}--link-with-icon__icon-${ICON_PLACEMENT.LEFT}`,
+        iconPlacement === ICON_PLACEMENT.LEFT
+      );
       linkNode.classList.toggle(
         `${prefix}--link-with-icon__icon-${ICON_PLACEMENT.RIGHT}`,
         iconPlacement === ICON_PLACEMENT.RIGHT

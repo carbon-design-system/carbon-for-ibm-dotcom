@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -41,7 +41,9 @@ describe('Redux actions for `LocaleAPI`', () => {
     LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     fetchMock.mockResponse(JSON.stringify({ response: [['foo']] }));
     const store = mockStore();
-    expect(await store.dispatch(loadSearchResults('search-query-string-foo'))).toEqual(['foo']);
+    expect(
+      await store.dispatch(loadSearchResults('search-query-string-foo'))
+    ).toEqual(['foo']);
     expect(convertValue(store.getActions())).toEqual([
       {
         type: SEARCH_API_ACTION.SET_CURRENT_SEARCH_QUERY_STRING,
@@ -87,7 +89,9 @@ describe('Redux actions for `LocaleAPI`', () => {
         },
       },
     });
-    expect(await store.dispatch(loadSearchResults('search-query-string-foo'))).toEqual(['foo']);
+    expect(
+      await store.dispatch(loadSearchResults('search-query-string-foo'))
+    ).toEqual(['foo']);
     expect(convertValue(store.getActions())).toEqual([
       {
         type: SEARCH_API_ACTION.SET_CURRENT_SEARCH_QUERY_STRING,

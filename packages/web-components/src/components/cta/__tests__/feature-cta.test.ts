@@ -14,8 +14,16 @@ import '../feature-cta';
 import '../../card/card-heading';
 
 const template = (props?) => {
-  const { heading, ctaType, videoDuration, videoName, videoThumbnailUrl, formatVideoCaption, formatVideoDuration, children } =
-    props ?? {};
+  const {
+    heading,
+    ctaType,
+    videoDuration,
+    videoName,
+    videoThumbnailUrl,
+    formatVideoCaption,
+    formatVideoDuration,
+    children,
+  } = props ?? {};
   return html`
     <dds-feature-cta
       cta-type="${ifDefined(ctaType)}"
@@ -31,15 +39,17 @@ const template = (props?) => {
   `;
 };
 
-describe('dds-feature-cta', function() {
-  describe('Misc attributes', function() {
-    it('should render with minimum attributes', async function() {
+describe('dds-feature-cta', function () {
+  describe('Misc attributes', function () {
+    it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-feature-cta')).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-feature-cta')).toMatchSnapshot({
+        mode: 'shadow',
+      });
     });
 
-    it('should render with various attributes', async function() {
+    it('should render with various attributes', async function () {
       render(
         template({
           ctaType: CTA_TYPE.VIDEO,
@@ -52,12 +62,14 @@ describe('dds-feature-cta', function() {
         document.body
       );
       await Promise.resolve();
-      expect(document.body.querySelector('dds-feature-cta')).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-feature-cta')).toMatchSnapshot({
+        mode: 'shadow',
+      });
     });
   });
 
-  describe('Overriding the default contents', function() {
-    it('should not use the video name if heading is given', async function() {
+  describe('Overriding the default contents', function () {
+    it('should not use the video name if heading is given', async function () {
       render(
         template({
           ctaType: CTA_TYPE.VIDEO,
@@ -78,7 +90,7 @@ describe('dds-feature-cta', function() {
       ).toBe('video-name-foo');
     });
 
-    it('should not use the thumbnail image if image is given', async function() {
+    it('should not use the thumbnail image if image is given', async function () {
       render(
         template({
           ctaType: CTA_TYPE.VIDEO,
@@ -107,7 +119,7 @@ describe('dds-feature-cta', function() {
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

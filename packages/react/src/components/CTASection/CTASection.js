@@ -65,7 +65,8 @@ const CTASection = ({ heading, copy, cta, items, theme }) => {
       className={classNames(`${prefix}--cta-section`, {
         [`${prefix}--cta-section__has-items`]: items,
         [`${prefix}--cta-section--${theme}`]: theme,
-      })}>
+      })}
+    >
       <ContentBlock heading={heading} copy={copy} />
       <CTA customClassName={`${prefix}--cta-section__cta`} {...cta} />
       {items && (

@@ -33,10 +33,12 @@ For example: optical scan of documents (to create a text file out of an image of
 const card1 = html`
   <dds-content-group-cards-item href="https://www.example.com">
     <dds-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt
     </dds-card-heading>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
     </p>
     <dds-card-footer icon-placement="left">
       ${ArrowRight20({ slot: 'icon' })}
@@ -47,7 +49,8 @@ const card1 = html`
 const card2 = html`
   <dds-content-group-cards-item href="https://www.example.com">
     <dds-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt
     </dds-card-heading>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
     <dds-card-footer icon-placement="left">
@@ -74,7 +77,7 @@ const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault
   </dds-card>
 `;
 
-export const Default = args => {
+export const Default = (args) => {
   const { heading, copy, addChildren } = args?.ContentSection ?? {};
   const classes = addChildren.includes('Content block simple') ? 'bx--col-lg-16 bx--no-gutter' : '';
   return html`
@@ -84,10 +87,23 @@ export const Default = args => {
       ${addChildren.includes('Content block simple')
         ? html`
             <dds-content-block-simple>
-              <dds-content-block-heading>What’s the latest news in artificial intelligence?</dds-content-block-heading>
-              <dds-content-block-copy size="sm">${blockCopy}</dds-content-block-copy>
-              <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
-              <dds-text-cta slot="footer" cta-type="jump" href="https://www.ibm.com">Jump to AI ethics and trust</dds-text-cta>
+              <dds-content-block-heading
+                >What’s the latest news in artificial
+                intelligence?</dds-content-block-heading
+              >
+              <dds-content-block-copy size="sm"
+                >${blockCopy}</dds-content-block-copy
+              >
+              <dds-video-player-container
+                slot="media"
+                video-id="1_9h94wo6b"
+              ></dds-video-player-container>
+              <dds-text-cta
+                slot="footer"
+                cta-type="jump"
+                href="https://www.ibm.com"
+                >Jump to AI ethics and trust</dds-text-cta
+              >
             </dds-content-block-simple>
           `
         : ``}
@@ -129,7 +145,12 @@ export const Default = args => {
             </dds-carousel>
           `
         : ''}
-      <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com">Link action</dds-text-cta>
+      <dds-text-cta
+        slot="footer"
+        cta-type="local"
+        href="https://www.example.com"
+        >Link action</dds-text-cta
+      >
     </dds-content-section>
   `;
 };
@@ -137,13 +158,11 @@ export const Default = args => {
 export default {
   title: 'Components/Content section',
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
           <div class="bx--col-lg-16 bx--no-gutter">
-            <dds-video-container>
-              ${story()}
-            </dds-video-container>
+            <dds-video-container> ${story()} </dds-video-container>
           </div>
         </div>
       </div>
@@ -155,8 +174,14 @@ export default {
     knobs: {
       escapeHTML: false,
       ContentSection: () => ({
-        heading: textNullable('Heading:', 'Speech recognition (statistical Artificial Intelligence)'),
-        copy: textNullable('Copy:', "AI features for understanding speech can be trained for a specific speaker's voice."),
+        heading: textNullable(
+          'Heading:',
+          'Speech recognition (statistical Artificial Intelligence)'
+        ),
+        copy: textNullable(
+          'Copy:',
+          "AI features for understanding speech can be trained for a specific speaker's voice."
+        ),
         addChildren: optionsKnob(
           'Add children:',
           {

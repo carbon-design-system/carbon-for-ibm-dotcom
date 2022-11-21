@@ -99,7 +99,8 @@ const VideoPlayer = ({
   const renderInline = (
     <div
       className={`${prefix}--video-player__video`}
-      id={`${prefix}--${videoPlayerId}`}>
+      id={`${prefix}--${videoPlayerId}`}
+    >
       {!autoPlay && (
         <VideoImageOverlay
           videoId={videoId}
@@ -118,7 +119,8 @@ const VideoPlayer = ({
     <div aria-label={videoCaption} role="region" className={classnames}>
       <div
         className={`${prefix}--video-player__video-container ${aspectRatioClass}`}
-        data-autoid={`${stablePrefix}--video-player__video-${videoId}`}>
+        data-autoid={`${stablePrefix}--video-player__video-${videoId}`}
+      >
         {playingMode === 'lightbox' ? renderInLightbox : renderInline}
       </div>
       {showCaption && (

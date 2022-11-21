@@ -43,7 +43,9 @@ class DDSCTASection extends StableSelectorMixin(DDSContentSection) {
   }
 
   static get styles() {
-    return css`${super.styles}${styles}`;
+    return css`
+      ${super.styles}${styles}
+    `;
   }
 }
 

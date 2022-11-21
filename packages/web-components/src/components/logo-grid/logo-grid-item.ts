@@ -28,11 +28,7 @@ class DDSLogoGridItem extends StableSelectorMixin(DDSImage) {
   }
 
   render() {
-    return html`
-      <div class="bx--logo-grid__logo">
-        ${super.render()}
-      </div>
-    `;
+    return html` <div class="bx--logo-grid__logo">${super.render()}</div> `;
   }
 }
 

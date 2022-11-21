@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,14 +24,16 @@ const template = (props?) => {
   `;
 };
 
-describe('dds-lightbox-image-viewer', function() {
-  it('should render with minimum attributes', async function() {
+describe('dds-lightbox-image-viewer', function () {
+  it('should render with minimum attributes', async function () {
     render(template(), document.body);
     await Promise.resolve();
-    expect(document.querySelector('dds-lightbox-image-viewer')).toMatchSnapshot({ mode: 'shadow' });
+    expect(document.querySelector('dds-lightbox-image-viewer')).toMatchSnapshot(
+      { mode: 'shadow' }
+    );
   });
 
-  it('should render with various attributes', async function() {
+  it('should render with various attributes', async function () {
     render(
       template({
         alt: 'image-alt-foo',
@@ -42,10 +44,12 @@ describe('dds-lightbox-image-viewer', function() {
       document.body
     );
     await Promise.resolve();
-    expect(document.querySelector('dds-lightbox-image-viewer')).toMatchSnapshot({ mode: 'shadow' });
+    expect(document.querySelector('dds-lightbox-image-viewer')).toMatchSnapshot(
+      { mode: 'shadow' }
+    );
   });
 
-  afterEach(function() {
+  afterEach(function () {
     render(undefined!, document.body);
   });
 });

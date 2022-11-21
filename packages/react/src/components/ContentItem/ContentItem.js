@@ -50,7 +50,8 @@ const ContentItem = ({
       {heading && (
         <h4
           data-autoid={`${stablePrefix}--content-item__heading`}
-          className={`${prefix}--content-item__heading`}>
+          className={`${prefix}--content-item__heading`}
+        >
           {heading}
         </h4>
       )}
@@ -61,7 +62,8 @@ const ContentItem = ({
           className={`${prefix}--content-item__copy`}
           dangerouslySetInnerHTML={{
             __html: markdownToHtml(copy, { bold: false }),
-          }}></div>
+          }}
+        ></div>
       )}
       {cta && <CTA {...cta} customClassName={`${prefix}--content-item__cta`} />}
     </div>

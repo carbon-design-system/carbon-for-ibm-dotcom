@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -101,7 +101,7 @@ class AnalyticsAPI {
    */
   static initDynamicTabs() {
     const tabSelected = this.triggerTabSelected.bind(this);
-    root.document.addEventListener('tab-selected', function(evt) {
+    root.document.addEventListener('tab-selected', function (evt) {
       tabSelected(evt.target.id, evt.detail.item.innerText);
     });
   }
@@ -142,12 +142,12 @@ class AnalyticsAPI {
    */
   static initModals() {
     const modalHide = this.triggerModalHide.bind(this);
-    root.document.addEventListener('modal-hidden', function(evt) {
+    root.document.addEventListener('modal-hidden', function (evt) {
       modalHide(evt.target.id, evt.detail.launchingElement.innerText);
     });
 
     const modalShow = this.triggerModalShow.bind(this);
-    root.document.addEventListener('modal-shown', function(evt) {
+    root.document.addEventListener('modal-shown', function (evt) {
       modalShow(evt.target.id, evt.detail.launchingElement.innerText);
     });
   }
@@ -221,7 +221,7 @@ class AnalyticsAPI {
    *
    */
   static videoPlayerStats(data) {
-    let playerState = '',
+    let playerState = data?.playerState || '',
       currentTime = Math.floor(data.currentTime),
       duration = Math.floor(data.duration),
       percentWatched = Math.floor((currentTime / duration) * 100);
@@ -244,6 +244,9 @@ class AnalyticsAPI {
         playerState = 'error';
         break;
       default:
+        if (typeof playerState === 'number') {
+          playerState = '';
+        }
     }
 
     if (currentTime === 0) {
@@ -275,16 +278,10 @@ class AnalyticsAPI {
       eventVidPlayed: percentWatched + '%',
     };
 
-    if (data?.customMetricsData?.playerStateLabel) {
-      eventData.playerStateLabel = data.customMetricsData.playerStateLabel;
-    }
-
-    if (data?.customMetricsData?.driverId) {
-      eventData.driverId = data.customMetricsData.driverId;
-    }
-
-    if (data?.customMetricsData?.targetURL) {
-      eventData.targetURL = data.customMetricsData.targetURL;
+    if (data?.customMetricsData) {
+      Object.keys(data.customMetricsData).forEach((customMetricsKey) => {
+        eventData[customMetricsKey] = data.customMetricsData[customMetricsKey];
+      });
     }
 
     try {

@@ -32,13 +32,19 @@ const iconOptions = {
 };
 
 const renderCTA = {
-  text: renderIcon => html`
-    <dds-text-cta slot="action" cta-type=${renderIcon === iconMap.Launch20 ? 'external' : 'local'} href="https://example.com"
+  text: (renderIcon) => html`
+    <dds-text-cta
+      slot="action"
+      cta-type=${renderIcon === iconMap.Launch20 ? 'external' : 'local'}
+      href="https://example.com"
       >CTA text link</dds-text-cta
     >
   `,
-  button: renderIcon => html`
-    <dds-button-cta slot="action" cta-type=${renderIcon === iconMap.Launch20 ? 'external' : 'local'} href="https://example.com"
+  button: (renderIcon) => html`
+    <dds-button-cta
+      slot="action"
+      cta-type=${renderIcon === iconMap.Launch20 ? 'external' : 'local'}
+      href="https://example.com"
       >CTA Button link</dds-button-cta
     >
   `,
@@ -65,9 +71,15 @@ const contentItemTextCTA = ({ heading, copy, links }) => html`
     <dds-content-item-heading>${heading}</dds-content-item-heading>
     <dds-content-item-copy>${copy}</dds-content-item-copy>
     ${links.map(
-      elem =>
+      (elem) =>
         html`
-          <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="${elem.href}">${elem.copy}</dds-text-cta>
+          <dds-text-cta
+            slot="footer"
+            cta-type="local"
+            icon-placement="right"
+            href="${elem.href}"
+            >${elem.copy}</dds-text-cta
+          >
         `
     )}
   </dds-cta-block-item>
@@ -81,7 +93,7 @@ const renderItems = (item, count) => {
   `;
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { heading, border, copy, renderIcon, cta } = args?.CTABlock ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
@@ -93,14 +105,16 @@ export const Default = args => {
 
   return html`
     <dds-cta-block ?no-border=${!border}>
-      <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
+      <dds-content-block-heading
+        >${ifNonNull(heading)}</dds-content-block-heading
+      >
       <dds-content-block-copy>${copy}</dds-content-block-copy>
       ${renderCTA[cta](renderIcon, target)}
     </dds-cta-block>
   `;
 };
 
-export const WithContentItems = args => {
+export const WithContentItems = (args) => {
   const { heading, border, copy, renderIcon, cta } = args?.CTABlock ?? {};
   const { contentItemType, contentItemCount } = args?.WithContentItems ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
@@ -113,9 +127,12 @@ export const WithContentItems = args => {
 
   return html`
     <dds-cta-block ?no-border=${!border}>
-      <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
+      <dds-content-block-heading
+        >${ifNonNull(heading)}</dds-content-block-heading
+      >
       <dds-content-block-copy>${ifNonNull(copy)}</dds-content-block-copy>
-      ${renderCTA[cta](renderIcon, target)} ${renderItems(contentItemType, contentItemCount)}
+      ${renderCTA[cta](renderIcon, target)}
+      ${renderItems(contentItemType, contentItemCount)}
     </dds-cta-block>
   `;
 };
@@ -142,7 +159,7 @@ WithContentItems.story = {
   },
 };
 
-export const WithLinkList = args => {
+export const WithLinkList = (args) => {
   const { border, heading, copy, renderIcon, cta } = args?.CTABlock ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
@@ -154,13 +171,17 @@ export const WithLinkList = args => {
 
   return html`
     <dds-cta-block ?no-border=${!border}>
-      <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
+      <dds-content-block-heading
+        >${ifNonNull(heading)}</dds-content-block-heading
+      >
       <dds-content-block-copy>${ifNonNull(copy)}</dds-content-block-copy>
 
       ${renderCTA[cta](renderIcon, target)}
 
       <dds-link-list slot="link-list" type="end">
-        <dds-link-list-heading>More ways to explore DevOps</dds-link-list-heading>
+        <dds-link-list-heading
+          >More ways to explore DevOps</dds-link-list-heading
+        >
         <dds-link-list-item href="https://example.com">
           Events ${ArrowRight20({ slot: 'icon' })}
         </dds-link-list-item>
@@ -188,7 +209,7 @@ WithLinkList.story = {
   name: 'With link list',
 };
 
-export const WithinTabs = args => {
+export const WithinTabs = (args) => {
   const { contentItemType, contentItemCount } = args?.WithinTabs ?? {};
 
   return html`
@@ -241,15 +262,13 @@ WithinTabs.story = {
 export default {
   title: 'Components/CTA block',
   decorators: [
-    story => html`
+    (story) => html`
       <style>
         ${styles}
       </style>
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-lg-12 bx--no-gutter">
-            ${story()}
-          </div>
+          <div class="bx--col-lg-12 bx--no-gutter">${story()}</div>
         </div>
       </div>
     `,
@@ -261,7 +280,8 @@ export default {
         border: boolean('Border', false),
         copy: 'Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.',
         cta: select('CTA type', ctaTypeOptions, ctaTypeOptions['Button group']),
-        renderIcon: iconMap[select(`Icon`, iconOptions, iconOptions['Arrow Right']) ?? 0],
+        renderIcon:
+          iconMap[select(`Icon`, iconOptions, iconOptions['Arrow Right']) ?? 0],
       }),
     },
     ...readme.parameters,

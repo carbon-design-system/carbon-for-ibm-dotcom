@@ -22,11 +22,13 @@ const Logo = () => {
   return (
     <div
       data-autoid={`${stablePrefix}--footer-logo`}
-      className={`${prefix}--footer-logo`}>
+      className={`${prefix}--footer-logo`}
+    >
       <a
         data-autoid={`${stablePrefix}--footer-logo__link`}
         className={`${prefix}--footer-logo__link`}
-        href="https://www.ibm.com/">
+        href="https://www.ibm.com/"
+      >
         <FooterLogo />
       </a>
     </div>

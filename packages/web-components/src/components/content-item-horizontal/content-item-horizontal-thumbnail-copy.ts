@@ -21,11 +21,11 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-content-item-horizontal-thumbnail-copy
  */
 @customElement(`${ddsPrefix}-content-item-horizontal-thumbnail-copy`)
-class DDSContentItemHorizontalThumbnailCopy extends StableSelectorMixin(DDSContentItemCopy) {
+class DDSContentItemHorizontalThumbnailCopy extends StableSelectorMixin(
+  DDSContentItemCopy
+) {
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   static get stableSelector() {

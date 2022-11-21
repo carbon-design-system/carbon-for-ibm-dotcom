@@ -28,18 +28,21 @@ const LinkList = ({ heading, iconPlacement, items, style }) => {
   return (
     <div
       className={`${prefix}--link-list`}
-      data-autoid={`${stablePrefix}--link-list`}>
+      data-autoid={`${stablePrefix}--link-list`}
+    >
       {heading && (
         <h4 className={`${prefix}--link-list__heading`}>{heading}</h4>
       )}
 
       <ul
-        className={`${prefix}--link-list__list ${prefix}--link-list__list--${style}`}>
+        className={`${prefix}--link-list__list ${prefix}--link-list__list--${style}`}
+      >
         {items.map((cta, index) => {
           return (
             <li
               className={`${prefix}--link-list__list__CTA ${prefix}--link-list__list--${cta.type}`}
-              key={index}>
+              key={index}
+            >
               <CTA
                 style={linkStyle}
                 ariaRole={'listitem'}

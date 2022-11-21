@@ -26,7 +26,12 @@ class DDSCloudMegaMenuTab extends BXTab {
   render() {
     const { disabled, selected } = this;
     return html`
-      <button class="${prefix}--tabs__nav-link" role="tab" ?disabled="${disabled}" aria-selected="${Boolean(selected)}">
+      <button
+        class="${prefix}--tabs__nav-link"
+        role="tab"
+        ?disabled="${disabled}"
+        aria-selected="${Boolean(selected)}"
+      >
         <slot></slot>
       </button>
     `;

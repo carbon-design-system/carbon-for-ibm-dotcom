@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -105,9 +105,11 @@ const ScrollAnimations = ({
     resizeObserver.current = new ResizeObserver(handleResize);
 
     if (selectorTargets) {
-      componentRef.current?.querySelectorAll(selectorTargets).forEach(item => {
-        rootObserver?.current.observe(item);
-      });
+      componentRef.current
+        ?.querySelectorAll(selectorTargets)
+        .forEach((item) => {
+          rootObserver?.current.observe(item);
+        });
     }
     resizeObserver.current.observe(document.documentElement);
 
@@ -156,9 +158,11 @@ const ScrollAnimations = ({
     });
 
     if (selectorTargets) {
-      componentRef.current?.querySelectorAll(selectorTargets).forEach(item => {
-        innerObserver?.current.observe(item);
-      });
+      componentRef.current
+        ?.querySelectorAll(selectorTargets)
+        .forEach((item) => {
+          innerObserver?.current.observe(item);
+        });
     }
   }, [componentRef, innerObserver, selectorTargets, handleEntrance]);
 
@@ -170,7 +174,7 @@ const ScrollAnimations = ({
    *
    */
   const handleEntrance = useCallback(
-    records => {
+    (records) => {
       records.forEach(({ intersectionRatio, target }) => {
         if (intersectionRatio > 0) {
           target.classList.remove(exitEffectClass.current);
