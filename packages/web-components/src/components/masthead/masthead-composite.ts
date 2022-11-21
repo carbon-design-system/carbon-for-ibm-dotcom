@@ -60,6 +60,7 @@ import './left-nav-overlay';
 import '../search-with-typeahead/search-with-typeahead';
 import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
+import CspComplianceMixin from '../../globals/mixins/csp-compliance';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -84,7 +85,7 @@ export enum NAV_ITEMS_RENDER_TARGET {
  * @element dds-masthead-composite
  */
 @customElement(`${ddsPrefix}-masthead-composite`)
-class DDSMastheadComposite extends LitElement {
+class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
   /**
    * Renders L1 menu based on l1Data
    *
@@ -812,8 +813,7 @@ class DDSMastheadComposite extends LitElement {
     this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
     this._loadUserStatus?.();
 
-    // This is a temp fix until we figure out why we can't set styles to the :host(dds-masthead-container) in stylesheets
-    this.style.zIndex = '900';
+    this.setStyleBySelector(`${ddsPrefix}-masthead-container`, 'z-index', '900', true);
   }
 
   updated(changedProperties) {
