@@ -1524,10 +1524,10 @@
   resolved "https://registry.yarnpkg.com/@carbon/motion/-/motion-11.5.0.tgz#f54c0eb3298e3ea88bda789f02b4c5ef22a0a8d4"
   integrity sha512-5QEALh+xZzICdgVLanSpiDfBTErzVgEze/xUKs7ZdSbd6p1FaDKDGvCmj9RCsaz/CMVHIWo65MshIglSWX5Xvw==
 
-"@carbon/pictograms-react@11.33.0":
-  version "11.33.0"
-  resolved "https://registry.yarnpkg.com/@carbon/pictograms-react/-/pictograms-react-11.33.0.tgz#c76af66ee808e928f0872f698a45fe4a8ca7c4d8"
-  integrity sha512-GI5V5X/AZCw+Zd2EQdBsEkoYX6QGqL44HUKUOZ1RANxc1Hh2UOXIG7SV0DVOIYPlv+m3FFhaAF77zR/LO+dC5A==
+"@carbon/pictograms-react@11.34.0":
+  version "11.34.0"
+  resolved "https://registry.yarnpkg.com/@carbon/pictograms-react/-/pictograms-react-11.34.0.tgz#cd7ad063a2aa22aa41b42220434e08a0845beee8"
+  integrity sha512-pO6Rvv8hh+IhRLj2gIXu8pf68opqtKEe2CuV+1w94mwci7bvP4A8ysAZuSbMk6W8D0+PdQhPydwj2upR4hOp+A==
   dependencies:
     "@carbon/icon-helpers" "^10.34.0"
     "@carbon/telemetry" "0.1.0"
@@ -7723,10 +7723,10 @@ capture-exit@^2.0.0:
   dependencies:
     rsvp "^4.8.4"
 
-carbon-components-react@7.59.4:
-  version "7.59.4"
-  resolved "https://registry.yarnpkg.com/carbon-components-react/-/carbon-components-react-7.59.4.tgz#a6708f8f8366d56fc38d272ee99a8a82d9e7d07d"
-  integrity sha512-UVTTh7wRRb23CB3N/iXbsLR96mqsY+UZrLIqiLyZ1PMSuQFyN+pxp2QmhEO+Kiux2BFTXWPuEfF+cj8V7WguJw==
+carbon-components-react@7.59.5:
+  version "7.59.5"
+  resolved "https://registry.yarnpkg.com/carbon-components-react/-/carbon-components-react-7.59.5.tgz#d1593881b0f0642660719524a66c17802d116d1b"
+  integrity sha512-Lh9guocvgFl1qtdSc85KncfEXANmJ19kBKB+5IdqqV4mWmr8TooZTWyfe+5qaCBD7Bo1cqzAV17h+z2zgpDzCw==
   dependencies:
     "@babel/runtime" "^7.16.7"
     "@carbon/feature-flags" "^0.7.0"
