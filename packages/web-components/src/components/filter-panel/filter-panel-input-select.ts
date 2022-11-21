@@ -25,7 +25,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-filter-panel-input-select
  */
 @customElement(`${ddsPrefix}-filter-panel-input-select`)
-class DDSFilterPanelInputSelect extends FocusMixin(StableSelectorMixin(LitElement)) {
+class DDSFilterPanelInputSelect extends FocusMixin(
+  StableSelectorMixin(LitElement)
+) {
   @property()
   ariaLabel = '';
 
@@ -69,7 +71,8 @@ class DDSFilterPanelInputSelect extends FocusMixin(StableSelectorMixin(LitElemen
    * @private
    */
   protected _handleClickInner(event) {
-    const { eventContentStateChange } = this.constructor as typeof DDSFilterPanelInputSelect;
+    const { eventContentStateChange } = this
+      .constructor as typeof DDSFilterPanelInputSelect;
     const selected = (event.target as Element).closest(
       (this.constructor as typeof DDSFilterPanelInputSelect).selectorItem
     ) as DDSFilterPanelInputSelectItem;
@@ -140,7 +143,8 @@ class DDSFilterPanelInputSelect extends FocusMixin(StableSelectorMixin(LitElemen
    * @private
    */
   protected _handleClickHeader() {
-    const { eventInputSelect } = this.constructor as typeof DDSFilterPanelInputSelect;
+    const { eventInputSelect } = this
+      .constructor as typeof DDSFilterPanelInputSelect;
     this.isOpen = !this.isOpen;
     this.selected = !this.selected;
     this.dispatchEvent(
@@ -162,12 +166,16 @@ class DDSFilterPanelInputSelect extends FocusMixin(StableSelectorMixin(LitElemen
   protected _handleSlotChange({ target }: Event) {
     this._items = (target as HTMLSlotElement)
       .assignedNodes()
-      .filter(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+      .filter(
+        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+      );
   }
 
   updated(changedProperties) {
     if (changedProperties.has('selected')) {
-      this.ariaLabel = `${this.title}, ${this.selected ? 'selected' : 'unselected'}`;
+      this.ariaLabel = `${this.title}, ${
+        this.selected ? 'selected' : 'unselected'
+      }`;
     }
     if (this._items.length) {
       this.shadowRoot
@@ -198,7 +206,9 @@ class DDSFilterPanelInputSelect extends FocusMixin(StableSelectorMixin(LitElemen
           id="content"
           @click=${this._handleClickInner}
           @keydown=${this._handleKeydownInner}
-          class="${this.isOpen ? '' : `${prefix}--selected-option-dropdown__hidden`} ${prefix}--selected-option-dropdown"
+          class="${this.isOpen
+            ? ''
+            : `${prefix}--selected-option-dropdown__hidden`} ${prefix}--selected-option-dropdown"
         >
           <slot @slotchange="${this._handleSlotChange}"></slot>
         </ul>

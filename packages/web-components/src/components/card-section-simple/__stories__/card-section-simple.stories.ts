@@ -15,26 +15,32 @@ import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x5
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
 
-const cardGroupItems = withImages => {
+const cardGroupItems = (withImages) => {
   return html`
     <dds-card-group-item href="https://example.com" cta-type="local">
       ${withImages
         ? html`
-            <dds-image slot="image" alt="Image alt text" default-src="${imgLg4x3}"> </dds-image>
+            <dds-image
+              slot="image"
+              alt="Image alt text"
+              default-src="${imgLg4x3}"
+            >
+            </dds-image>
           `
         : ''}
       <dds-card-eyebrow>Topic</dds-card-eyebrow>
       <dds-card-heading>Natural Language Processing.</dds-card-heading>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-        Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+        ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+        elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
       <dds-card-cta-footer slot="footer"></dds-card-cta-footer>
     </dds-card-group-item>
   `;
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { heading, withImages, withCTA } = args?.CardSectionSimple ?? {};
   const cards: object[] = [];
   for (let i = 0; i < 5; i++) {
@@ -42,14 +48,23 @@ export const Default = args => {
   }
   return html`
     <dds-card-section-simple>
-      <dds-content-section-heading>${ifNonNull(heading)}</dds-content-section-heading>
+      <dds-content-section-heading
+        >${ifNonNull(heading)}</dds-content-section-heading
+      >
       <dds-card-group>
         ${cards}
         ${withCTA
           ? html`
-              <dds-card-group-item href="https://example.com" color-scheme="inverse" cta-type="local">
+              <dds-card-group-item
+                href="https://example.com"
+                color-scheme="inverse"
+                cta-type="local"
+              >
                 <dds-card-heading>Top level card link</dds-card-heading>
-                <dds-card-cta-footer slot="footer" color-scheme="inverse"></dds-card-cta-footer>
+                <dds-card-cta-footer
+                  slot="footer"
+                  color-scheme="inverse"
+                ></dds-card-cta-footer>
               </dds-card-group-item>
             `
           : ``}
@@ -61,11 +76,9 @@ export const Default = args => {
 export default {
   title: 'Components/Card section simple',
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
-        <div class="bx--row">
-          ${story()}
-        </div>
+        <div class="bx--row">${story()}</div>
       </div>
     `,
   ],
@@ -74,7 +87,10 @@ export default {
     hasStoryPadding: true,
     knobs: {
       CardSectionSimple: () => ({
-        heading: textNullable('Heading (required):', 'Aliquam condimentum interdum'),
+        heading: textNullable(
+          'Heading (required):',
+          'Aliquam condimentum interdum'
+        ),
         withImages: boolean('With images:', false),
         withCTA: boolean('With CTA:', false),
       }),
@@ -83,7 +99,13 @@ export default {
       default: {
         CardSectionSimple: {
           heading: 'Aliquam condimentum interdum',
-          cards: [cardGroupItems, cardGroupItems, cardGroupItems, cardGroupItems, cardGroupItems],
+          cards: [
+            cardGroupItems,
+            cardGroupItems,
+            cardGroupItems,
+            cardGroupItems,
+            cardGroupItems,
+          ],
         },
       },
     },

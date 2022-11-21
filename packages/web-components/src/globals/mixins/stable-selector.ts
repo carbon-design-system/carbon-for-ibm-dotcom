@@ -40,7 +40,8 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       // TS seems to miss `HTMLElement.prototype.connectedCallback()` definition
       // @ts-ignore
       super.connectedCallback();
-      const { stableSelector } = this.constructor as typeof StableSelectorMixinImpl;
+      const { stableSelector } = this
+        .constructor as typeof StableSelectorMixinImpl;
       if (stableSelector) {
         this.dataset.autoid = stableSelector;
       }
@@ -65,7 +66,7 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       this.linkNode = linkNodeArg;
       this.altAttributes = altAttributesArg;
       if (!this.linkNode) {
-        this.querySelectorAll('*').forEach(e => {
+        this.querySelectorAll('*').forEach((e) => {
           const anchor = e.shadowRoot?.querySelector('a');
           if (anchor) {
             this.linkNode = anchor;
@@ -75,12 +76,13 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       this.linkNode = this.linkNode || this.shadowRoot?.querySelector('a');
       const scrapedAttributes = [].filter.call(
         this.attributes,
-        at =>
-          (/^data-/.test((at as any).name) && (at as any).name !== 'data-autoid') ||
+        (at) =>
+          (/^data-/.test((at as any).name) &&
+            (at as any).name !== 'data-autoid') ||
           (this.altAttributes && this.altAttributes.includes((at as any).name))
       );
 
-      scrapedAttributes.forEach(e => {
+      scrapedAttributes.forEach((e) => {
         if (this.linkNode) {
           this.linkNode?.setAttribute((e as any).name, (e as any).value);
         }
@@ -101,8 +103,8 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
 
       if (create) {
         const element = this;
-        this._mutationObserver = new MutationObserver(mutations => {
-          mutations.forEach(mutation => {
+        this._mutationObserver = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
             if (mutation.type === 'attributes') {
               if (this.linkNode) {
                 this.transposeAttributes(this.linkNode);

@@ -24,7 +24,9 @@ class DDSMastheadProfileItem extends BXHeaderMenuItem {
   static styles = styles;
 
   firstUpdated() {
-    this.shadowRoot?.querySelectorAll('[role="menuitem"]').forEach(menuItem => menuItem.removeAttribute('role'));
+    this.shadowRoot
+      ?.querySelectorAll('[role="menuitem"]')
+      .forEach((menuItem) => menuItem.removeAttribute('role'));
   }
 }
 

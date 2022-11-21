@@ -24,7 +24,7 @@ function parseAspectRatio(aspectRatioString) {
     );
   }
 
-  const parsed = aspectRatioString.split(/[^0-9]{1}/).filter(i => i);
+  const parsed = aspectRatioString.split(/[^0-9]{1}/).filter((i) => i);
 
   if (parsed.length !== 2) {
     throw new RangeError(

@@ -13,7 +13,11 @@ import thunk, { ThunkDispatch } from 'redux-thunk';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 import TranslateAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation.js';
 import { LOCALE_API_ACTION } from '../../types/localeAPI';
-import { TRANSLATE_API_ACTION, Translation, TranslateAPIState } from '../../types/translateAPI';
+import {
+  TRANSLATE_API_ACTION,
+  Translation,
+  TranslateAPIState,
+} from '../../types/translateAPI';
 import { setTranslation, loadTranslation } from '../translateAPI';
 import convertValue from '../../../tests/utils/convert-value';
 
@@ -28,7 +32,10 @@ const mockStore = configureMockStore<
 const mockTranslation: Partial<Translation> = {
   mastheadNav: {
     links: [
-      { title: 'item-title-foo', url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/foo' },
+      {
+        title: 'item-title-foo',
+        url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/foo',
+      },
       {
         title: 'menu-title-foo',
         menuSections: [
@@ -63,7 +70,9 @@ describe('Redux actions for `TranslateAPI`', () => {
     LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     TranslateAPI.getTranslation.mockResolvedValue(mockTranslation);
     const store = mockStore();
-    expect(await store.dispatch(loadTranslation())).toEqual(mockTranslation as Translation);
+    expect(await store.dispatch(loadTranslation())).toEqual(
+      mockTranslation as Translation
+    );
     expect(convertValue(store.getActions())).toEqual([
       {
         type: LOCALE_API_ACTION.SET_REQUEST_LANGUAGE_IN_PROGRESS,
@@ -96,7 +105,9 @@ describe('Redux actions for `TranslateAPI`', () => {
         },
       },
     });
-    expect(await store.dispatch(loadTranslation())).toEqual(mockTranslation as Translation);
+    expect(await store.dispatch(loadTranslation())).toEqual(
+      mockTranslation as Translation
+    );
     expect(convertValue(store.getActions())).toEqual([
       {
         type: LOCALE_API_ACTION.SET_REQUEST_LANGUAGE_IN_PROGRESS,
@@ -111,7 +122,9 @@ describe('Redux actions for `TranslateAPI`', () => {
 
   it('dispatches the action of error in loading language', async () => {
     LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
-    TranslateAPI.getTranslation.mockRejectedValue(new Error('error-gettranslation'));
+    TranslateAPI.getTranslation.mockRejectedValue(
+      new Error('error-gettranslation')
+    );
     const store = mockStore();
     let caught;
     try {

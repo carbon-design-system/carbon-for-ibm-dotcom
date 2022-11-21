@@ -121,7 +121,9 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       return html`
         <slot name="icon">
           <span class="bx--visually-hidden">${ariaLabels[ctaType]}</span>
-          ${icons[ctaType]?.({ class: `${prefix}--card__cta ${ddsPrefix}-ce--cta__icon` })}
+          ${icons[ctaType]?.({
+            class: `${prefix}--card__cta ${ddsPrefix}-ce--cta__icon`,
+          })}
         </slot>
       `;
     }
@@ -134,14 +136,19 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       // @ts-ignore
       super.updated(changedProperties);
       const { ctaType, _linkNode: linkNode } = this;
-      if (changedProperties.has('ctaType') || changedProperties.has('download')) {
+      if (
+        changedProperties.has('ctaType') ||
+        changedProperties.has('download')
+      ) {
         const { download } = this;
 
         const downloadTypes = [CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF];
 
         if (!downloadTypes.includes(ctaType) && download) {
           // eslint-disable-next-line no-console
-          console.warn(`\`download\` property used with a CTA data item besides \`type: download|pdf\` (\`type: ${ctaType}\`).`);
+          console.warn(
+            `\`download\` property used with a CTA data item besides \`type: download|pdf\` (\`type: ${ctaType}\`).`
+          );
         }
 
         const contactMethods = {
@@ -167,14 +174,18 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
             linkNode.setAttribute('href', hrefValue);
           }
         }
-        if (changedProperties.has('ctaType') || changedProperties.has('target')) {
+        if (
+          changedProperties.has('ctaType') ||
+          changedProperties.has('target')
+        ) {
           // Default the target to `_blank` if this CTA is an external link and
           // target is not already set
           const { target } = this;
 
           const newTabTypes = [CTA_TYPE.EXTERNAL, CTA_TYPE.NEW_TAB];
 
-          const targetInEffect = newTabTypes.includes(ctaType) && !target ? '_blank' : target;
+          const targetInEffect =
+            newTabTypes.includes(ctaType) && !target ? '_blank' : target;
 
           if (!targetInEffect) {
             linkNode.removeAttribute('target');
@@ -183,7 +194,11 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
           }
         }
         if (linkNode.hasAttribute('aria-label')) {
-          linkNode.setAttribute('aria-label', linkNode.getAttribute('aria-label') + (ctaType ? ariaLabels[ctaType] : ''));
+          linkNode.setAttribute(
+            'aria-label',
+            linkNode.getAttribute('aria-label') +
+              (ctaType ? ariaLabels[ctaType] : '')
+          );
         }
       }
     }

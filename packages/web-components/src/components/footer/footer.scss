@@ -58,8 +58,13 @@
   }
 }
 
-:host(#{$dds-prefix}-footer).#{$prefix}--adjunct-links__container .#{$prefix}--adjunct-links__row .#{$prefix}--adjunct-links__col,
-:host(dds-legal-nav) .#{$prefix}--adjunct-links__container .#{$prefix}--adjunct-links__row .#{$prefix}--adjunct-links__col {
+:host(#{$dds-prefix}-footer).#{$prefix}--adjunct-links__container
+  .#{$prefix}--adjunct-links__row
+  .#{$prefix}--adjunct-links__col,
+:host(dds-legal-nav)
+  .#{$prefix}--adjunct-links__container
+  .#{$prefix}--adjunct-links__row
+  .#{$prefix}--adjunct-links__col {
   padding-right: $spacing-05;
   @include carbon--breakpoint('md') {
     padding-right: $spacing-07;

@@ -43,7 +43,9 @@ class DDSRegionItem extends BXLink {
   protected _renderDisabledLink() {
     const { _classes: classes } = this;
     return html`
-      <button id="link" class="${classes}" disabled type="button">${this._renderInner()}</button>
+      <button id="link" class="${classes}" disabled type="button">
+        ${this._renderInner()}
+      </button>
     `;
   }
 
@@ -71,7 +73,9 @@ class DDSRegionItem extends BXLink {
             <slot>${name}</slot>
           </h3>
           <div class="${prefix}--card__footer">
-            ${(invalid ? Error20 : ArrowRight20)({ class: `${prefix}--card__cta` })}
+            ${(invalid ? Error20 : ArrowRight20)({
+              class: `${prefix}--card__cta`,
+            })}
           </div>
         </div>
       </div>

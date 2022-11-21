@@ -82,10 +82,10 @@ export function AudioPlayer({
         setKalturaDigitalPlayer(kdp);
 
         const listeners = {
-          playerUpdatePlayhead: time => {
+          playerUpdatePlayhead: (time) => {
             setAudioTime(Math.floor(time));
           },
-          newClosedCaptionsData: captionData => {
+          newClosedCaptionsData: (captionData) => {
             const processedCaptions = availableCaptions;
             processedCaptions[captionData.label] = captionData.captions;
             setAvailableCaptions(processedCaptions);
@@ -107,7 +107,7 @@ export function AudioPlayer({
         };
 
         // Loop and bind all the player listeners
-        root.Object.keys(listeners).map(listenerKey => {
+        root.Object.keys(listeners).map((listenerKey) => {
           kdp.addJsListener(listenerKey, listeners[listenerKey]);
         });
       }
@@ -149,7 +149,8 @@ export function AudioPlayer({
       <div
         className={`${prefix}--audio-player__embedded-player`}
         data-autoid={`${stablePrefix}--audio-player__audio-${audioId}`}
-        id={uniqueAudioPlayerId}></div>
+        id={uniqueAudioPlayerId}
+      ></div>
 
       <AudioPlayerThumbnail audioId={audioId} />
 

@@ -49,10 +49,10 @@ class CloudAccountAuthAPI {
           Accept: 'application/json',
         },
       })
-      .then(response => {
+      .then((response) => {
         return response.status === 200 ? 'authenticated' : 'anonymous';
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
         return 'anonymous';
       });

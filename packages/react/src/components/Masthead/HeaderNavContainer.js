@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -170,8 +170,8 @@ const HeaderNavContainer = ({ children }) => {
     if (window.IntersectionObserver) {
       setIO(
         new IntersectionObserver(
-          records => {
-            records.forEach(record => {
+          (records) => {
+            records.forEach((record) => {
               if (
                 contentLeftRef.current &&
                 record.target.classList.contains(
@@ -219,7 +219,7 @@ const HeaderNavContainer = ({ children }) => {
   /**
    * Keyboard event handler for menu items.
    */
-  const handleOnKeyDown = event => {
+  const handleOnKeyDown = (event) => {
     if (matches(event, [keys.Tab])) {
       if (pageIsRTL) {
         if (event.shiftKey) {
@@ -284,13 +284,15 @@ const HeaderNavContainer = ({ children }) => {
         <div
           ref={caretLeftRef}
           className={`${prefix}--header__nav-caret-left-container`}
-          hidden>
+          hidden
+        >
           <button
             className={`${prefix}--header__nav-caret-left`}
             aria-label="Masthead left caret"
             onClick={paginateLeft}
             tabIndex="-1"
-            aria-hidden="true">
+            aria-hidden="true"
+          >
             {pageIsRTL ? <CaretRight20 /> : <CaretLeft20 />}
           </button>
           <div className={`${prefix}--header__nav-caret-left-gradient`} />
@@ -298,14 +300,16 @@ const HeaderNavContainer = ({ children }) => {
         <div
           ref={caretRightRef}
           className={`${prefix}--header__nav-caret-right-container`}
-          hidden>
+          hidden
+        >
           <div className={`${prefix}--header__nav-caret-right-gradient`} />
           <button
             className={`${prefix}--header__nav-caret-right`}
             aria-label="Masthead right caret"
             onClick={paginateRight}
             tabIndex="-1"
-            aria-hidden="true">
+            aria-hidden="true"
+          >
             {pageIsRTL ? <CaretLeft20 /> : <CaretRight20 />}
           </button>
         </div>
