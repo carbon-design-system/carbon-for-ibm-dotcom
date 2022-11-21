@@ -1,5 +1,5 @@
 {
-  "name": "carbon-web-components",
+  "name": "@carbon/carbon-web-components",
   "version": "1.21.0",
   "publishConfig": {
     "access": "public"
