@@ -76,13 +76,11 @@ const Card = ({
   <dds-card href="${ifNonNull(href)}">
     <dds-card-heading>${heading}</dds-card-heading>
     ${copy}
-    <dds-card-footer>
-      ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-footer>
+    <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
   </dds-card>
 `;
 
-export const Default = args => {
+export const Default = (args) => {
   const { heading, copy, addChildren } = args?.ContentSection ?? {};
   const classes = addChildren.includes('Content block simple')
     ? 'bx--col-lg-16 bx--no-gutter'
@@ -118,9 +116,7 @@ export const Default = args => {
         : ``}
       ${addChildren.includes('Card group')
         ? html`
-            <dds-card-group>
-              ${card1}${card2}${card1}${card2}
-            </dds-card-group>
+            <dds-card-group> ${card1}${card2}${card1}${card2} </dds-card-group>
           `
         : ``}
       ${addChildren.includes('Link list')
@@ -172,7 +168,7 @@ export const Default = args => {
 export default {
   title: 'Components/Content section',
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
           <div class="bx--col-lg-16 bx--no-gutter">
@@ -213,8 +209,7 @@ export default {
       default: {
         ContentSection: {
           heading: 'Speech recognition (statistical Artificial Intelligence)',
-          copy:
-            "AI features for understanding speech can be trained for a specific speaker's voice.",
+          copy: "AI features for understanding speech can be trained for a specific speaker's voice.",
           addChildren: '',
         },
       },

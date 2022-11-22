@@ -39,10 +39,10 @@ class DDSContentSection extends StableSelectorMixin(LitElement) {
     const childItems = (event.target as HTMLSlotElement)
       .assignedNodes()
       .filter(
-        node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
       );
 
-    childItems.forEach(elem => {
+    childItems.forEach((elem) => {
       if (
         (elem as HTMLElement).matches(
           (this.constructor as typeof DDSContentSection).linkListSelector

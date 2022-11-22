@@ -48,11 +48,11 @@ const template = (props?) => {
   `;
 };
 
-describe('dds-search-with-typeahead', function() {
+describe('dds-search-with-typeahead', function () {
   const events = new EventManager();
 
-  describe('Misc attributes', function() {
-    it('should render with minimum attributes', async function() {
+  describe('Misc attributes', function () {
+    it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
       expect(
@@ -60,7 +60,7 @@ describe('dds-search-with-typeahead', function() {
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes in the inactive state', async function() {
+    it('should render with various attributes in the inactive state', async function () {
       render(
         template({
           openSearchButtonAssistiveText:
@@ -74,7 +74,7 @@ describe('dds-search-with-typeahead', function() {
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes', async function() {
+    it('should render with various attributes', async function () {
       render(
         template({
           active: true,
@@ -96,16 +96,18 @@ describe('dds-search-with-typeahead', function() {
     });
   });
 
-  describe('Activating/deactivating search box', function() {
-    it('should activate the search box upon clicking on search button', async function() {
+  describe('Activating/deactivating search box', function () {
+    it('should activate the search box upon clicking on search button', async function () {
       render(template(), document.body);
       await Promise.resolve();
       const search = document.body.querySelector(
         'dds-search-with-typeahead'
       ) as DDSSearchWithTypeahead;
-      (search.shadowRoot!.querySelector(
-        '.bx--header__search--search'
-      ) as HTMLElement).click();
+      (
+        search.shadowRoot!.querySelector(
+          '.bx--header__search--search'
+        ) as HTMLElement
+      ).click();
       expect(search.active).toBe(true);
       await Promise.resolve();
       // The `<input>` for the search box isn't rendered unless it's activated
@@ -117,7 +119,7 @@ describe('dds-search-with-typeahead', function() {
       expect(searchInputNode.focus).toHaveBeenCalled();
     });
 
-    it('should deactivate the search box upon clicking on the close button', async function() {
+    it('should deactivate the search box upon clicking on the close button', async function () {
       render(template({ active: true }), document.body);
       await Promise.resolve();
       const search = document.body.querySelector(
@@ -131,9 +133,11 @@ describe('dds-search-with-typeahead', function() {
       ) as HTMLInputElement;
       searchInputNode.value = 'search-input-node-value-foo';
       spyOn(searchButtonNode, 'focus');
-      (search.shadowRoot!.querySelector(
-        '.bx--header__search--close'
-      ) as HTMLElement).click();
+      (
+        search.shadowRoot!.querySelector(
+          '.bx--header__search--close'
+        ) as HTMLElement
+      ).click();
       expect(searchInputNode.value).toBe('');
       expect(search.active).toBe(false);
       await Promise.resolve();
@@ -142,8 +146,8 @@ describe('dds-search-with-typeahead', function() {
     });
   });
 
-  describe('Redirecting', function() {
-    it('should redirect to the search result upon clickig on search button', async function() {
+  describe('Redirecting', function () {
+    it('should redirect to the search result upon clickig on search button', async function () {
       render(
         template({
           active: true,
@@ -161,15 +165,17 @@ describe('dds-search-with-typeahead', function() {
         '.bx--header__search--input'
       ) as HTMLInputElement;
       searchInputNode.value = 'search-query-foo';
-      (search.shadowRoot!.querySelector(
-        '.bx--header__search--search'
-      ) as HTMLElement).click();
+      (
+        search.shadowRoot!.querySelector(
+          '.bx--header__search--search'
+        ) as HTMLElement
+      ).click();
       expect((search as any)._redirect).toHaveBeenCalledWith(
         'https://www.ibm.com/search?q=search-query-foo&lang=ko&cc=KR'
       );
     });
 
-    it('should redirect to the search result upon selecting a search result', async function() {
+    it('should redirect to the search result upon selecting a search result', async function () {
       render(
         template({
           active: true,
@@ -192,16 +198,18 @@ describe('dds-search-with-typeahead', function() {
           cancelable: true,
         })
       );
-      await new Promise(r => setTimeout(r, 2500));
-      (search.shadowRoot!.querySelector(
-        'dds-search-with-typeahead-item'
-      ) as HTMLElement)?.click();
+      await new Promise((r) => setTimeout(r, 2500));
+      (
+        search.shadowRoot!.querySelector(
+          'dds-search-with-typeahead-item'
+        ) as HTMLElement
+      )?.click();
       expect((search as any)._redirect).toHaveBeenCalledWith(
         'https://www.ibm.com/search?lnk=mhsrch&q=test&lang=en&cc=US'
       );
     });
 
-    it('should provide a way to prevent redirecting to the search result', async function() {
+    it('should provide a way to prevent redirecting to the search result', async function () {
       render(template({ active: true }), document.body);
       await Promise.resolve();
       const search = document.body.querySelector(
@@ -209,17 +217,23 @@ describe('dds-search-with-typeahead', function() {
       ) as DDSSearchWithTypeahead;
       spyOn(search as any, '_redirect');
       let redirectUrlInEvent;
-      events.on(search, 'dds-search-with-typeahead-beingredirected', event => {
-        event.preventDefault();
-        redirectUrlInEvent = event.detail.redirectUrl;
-      });
+      events.on(
+        search,
+        'dds-search-with-typeahead-beingredirected',
+        (event) => {
+          event.preventDefault();
+          redirectUrlInEvent = event.detail.redirectUrl;
+        }
+      );
       const searchInputNode = search.shadowRoot!.querySelector(
         '.bx--header__search--input'
       ) as HTMLInputElement;
       searchInputNode.value = 'search-query-foo';
-      (search.shadowRoot!.querySelector(
-        '.bx--header__search--search'
-      ) as HTMLElement).click();
+      (
+        search.shadowRoot!.querySelector(
+          '.bx--header__search--search'
+        ) as HTMLElement
+      ).click();
       expect(redirectUrlInEvent).toBe(
         'https://www.ibm.com/search?lnk=mhsrch&q=search-query-foo&lang=en&cc=US'
       );
@@ -227,8 +241,8 @@ describe('dds-search-with-typeahead', function() {
     });
   });
 
-  describe('Form submission', function() {
-    it('should let form submission work if there is no highlighted search result', async function() {
+  describe('Form submission', function () {
+    it('should let form submission work if there is no highlighted search result', async function () {
       render(
         template({ active: true, items: [{ text: 'search-result-foo' }] }),
         document.body
@@ -257,7 +271,7 @@ describe('dds-search-with-typeahead', function() {
       expect(event.preventDefault).not.toHaveBeenCalled();
     });
 
-    it('should prevent selection of a search result from causing a form submission', async function() {
+    it('should prevent selection of a search result from causing a form submission', async function () {
       render(template({ active: true }), document.body);
       await Promise.resolve();
       const search = document.body.querySelector(
@@ -274,8 +288,8 @@ describe('dds-search-with-typeahead', function() {
     });
   });
 
-  describe('Highlighting search result item', function() {
-    it('should highlight the matching query', async function() {
+  describe('Highlighting search result item', function () {
+    it('should highlight the matching query', async function () {
       render(template({ active: true }), document.body);
       await Promise.resolve();
       const search = document.body.querySelector(
@@ -291,7 +305,7 @@ describe('dds-search-with-typeahead', function() {
           cancelable: true,
         })
       );
-      await new Promise(r => setTimeout(r, 2500));
+      await new Promise((r) => setTimeout(r, 2500));
       const searchItem = search.shadowRoot!.querySelector(
         'dds-search-with-typeahead-item'
       );
@@ -309,7 +323,7 @@ describe('dds-search-with-typeahead', function() {
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
     events.reset();
   });
