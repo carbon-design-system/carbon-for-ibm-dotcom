@@ -52,7 +52,7 @@ class DDSScopedSearchDropdownMobile extends BXSelect {
         bubbles: true,
         composed: true,
         detail: {
-          value,
+          appId: value,
         },
       })
     );
