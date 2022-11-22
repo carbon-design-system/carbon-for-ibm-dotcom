@@ -6,7 +6,6 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-/* eslint-disable babel/no-unused-expressions */
 
 import '../video-cta-container';
 import '../button-cta';
@@ -23,12 +22,12 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import { select, boolean } from '@storybook/addon-knobs';
 import { icons as ctaIcons } from '../../../component-mixins/cta/cta';
 // eslint-disable-next-line sort-imports
-import { CTA_TYPE, CTA_TYPE } from '../defs';
+import { CTA_TYPE, CTA_STYLE } from '../defs';
 import {
   hrefsForType,
   knobNamesForType,
   footerKnobNamesForType,
-  styleOptions
+  styleOptions,
   typeOptions,
   types,
 } from './ctaTypeConfig';
@@ -63,14 +62,19 @@ export const Default = args => {
 
     if (ctaStyle === 'card' || ctaStyle === 'feature') {
       const headingComponent =
-        childCta?.shadowRoot?.querySelector('dds-card-heading') || childCta?.querySelector('dds-card-heading');
-      headingComponent && !duration ? (duration = headingComponent!.textContent!.match(/\((.*)\)/)?.pop()) : null;
+        childCta?.shadowRoot?.querySelector('dds-card-heading') ||
+        childCta?.querySelector('dds-card-heading');
+      headingComponent && !duration
+        ? (duration = headingComponent!.textContent!.match(/\((.*)\)/)?.pop())
+        : null;
       if (headingComponent?.textContent) {
         duration
           ? (headingComponent!.textContent = `${customVideoTitle} (${duration})`)
           : (headingComponent!.textContent = customVideoTitle);
       }
-      childCta && noPoster ? childCta?.setAttribute('no-poster', '') : childCta?.removeAttribute('no-poster');
+      childCta && noPoster
+        ? childCta?.setAttribute('no-poster', '')
+        : childCta?.removeAttribute('no-poster');
     }
 
     if (ctaStyle === 'text' && childCta) {
@@ -87,7 +91,9 @@ export const Default = args => {
     }
 
     if (ctaStyle === 'button' && childCta) {
-      duration ? null : (duration = childCta.textContent!.match(/\((.*)\)/)?.pop());
+      duration
+        ? null
+        : (duration = childCta.textContent!.match(/\((.*)\)/)?.pop());
       childCta && duration
         ? (childCta.textContent = `${customVideoTitle} (${duration})`)
         : ((childCta as HTMLElement).innerText = customVideoTitle);
@@ -111,7 +117,12 @@ export const Default = args => {
             >
               ${copy}
             </dds-cta>
-            <dds-cta cta-style="button" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${copy}</dds-cta>
+            <dds-cta
+              cta-style="button"
+              cta-type="${ifNonNull(ctaType)}"
+              href="${ifNonNull(href)}"
+              >${copy}</dds-cta
+            >
           </dds-button-group>
         `
       : html`
@@ -154,7 +165,12 @@ export const Default = args => {
                     : ''}
                   ${ctaType !== CTA_TYPE.VIDEO || customThumbnail
                     ? html`
-                        <dds-image slot="image" alt="Image alt text" default-src="${imgLg1x1}"> </dds-image>
+                        <dds-image
+                          slot="image"
+                          alt="Image alt text"
+                          default-src="${imgLg1x1}"
+                        >
+                        </dds-image>
                       `
                     : ''}
                   <dds-feature-cta-footer
@@ -193,24 +209,42 @@ Default.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
     knobs: {
       DefaultCTA: () => {
-        const ctaStyle = select('CTA style (cta-style)', styleOptions, styleOptions[CTA_STYLE.TEXT] || 'text');
-        const ctaType = select('CTA type (cta-type)', typeOptions, types[CTA_TYPE.LOCAL]);
+        const ctaStyle = select(
+          'CTA style (cta-style)',
+          styleOptions,
+          styleOptions[CTA_STYLE.TEXT] || 'text'
+        );
+        const ctaType = select(
+          'CTA type (cta-type)',
+          typeOptions,
+          types[CTA_TYPE.LOCAL]
+        );
 
         const noPoster =
-          (ctaStyle === CTA_STYLE.CARD || ctaStyle === CTA_STYLE.FEATURE) && ctaType === CTA_TYPE.VIDEO
+          (ctaStyle === CTA_STYLE.CARD || ctaStyle === CTA_STYLE.FEATURE) &&
+          ctaType === CTA_TYPE.VIDEO
             ? boolean('No Video Poster ', false)
             : null;
 
         const heading =
-          ctaStyle === CTA_STYLE.TEXT || ctaStyle === CTA_STYLE.BUTTON || ctaType === CTA_TYPE.VIDEO
+          ctaStyle === CTA_STYLE.TEXT ||
+          ctaStyle === CTA_STYLE.BUTTON ||
+          ctaType === CTA_TYPE.VIDEO
             ? null
-            : textNullable('Heading (heading):', 'Explore AI use cases in all industries');
+            : textNullable(
+                'Heading (heading):',
+                'Explore AI use cases in all industries'
+              );
 
         const thumbnail =
-          ctaStyle === CTA_STYLE.CARD && ctaType === CTA_TYPE.VIDEO ? textNullable('Custom thumbnail (thumbnail):', '') : null;
+          ctaStyle === CTA_STYLE.CARD && ctaType === CTA_TYPE.VIDEO
+            ? textNullable('Custom thumbnail (thumbnail):', '')
+            : null;
 
         const customThumbnail =
-          ctaStyle === CTA_STYLE.FEATURE && ctaType === CTA_TYPE.VIDEO ? boolean('Custom image ', false) : null;
+          ctaStyle === CTA_STYLE.FEATURE && ctaType === CTA_TYPE.VIDEO
+            ? boolean('Custom image ', false)
+            : null;
 
         const copy =
           ctaStyle === CTA_STYLE.FEATURE || ctaType === CTA_TYPE.VIDEO
@@ -218,17 +252,34 @@ Default.story = {
             : textNullable('Copy (copy):', 'Lorem ipsum dolor sit amet');
         const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
           ? undefined
-          : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
-        const customVideoTitle = ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video title', 'Custom video title') : null;
+          : textNullable(
+              'Download target (download)',
+              'IBM_Annual_Report_2019.pdf'
+            );
+        const customVideoTitle =
+          ctaType === CTA_TYPE.VIDEO
+            ? textNullable('Custom video title', 'Custom video title')
+            : null;
 
         const customVideoDescription =
-          ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video description', 'This is a custom video description') : null;
+          ctaType === CTA_TYPE.VIDEO
+            ? textNullable(
+                'Custom video description',
+                'This is a custom video description'
+              )
+            : null;
 
         const footerCopy =
-          ctaStyle === (CTA_STYLE.CARD || CTA_STYLE.FEATURE || CTA_STYLE.CARDLINK) ? textNullable('Footer copy text', '') : null;
+          ctaStyle ===
+          (CTA_STYLE.CARD || CTA_STYLE.FEATURE || CTA_STYLE.CARDLINK)
+            ? textNullable('Footer copy text', '')
+            : null;
         const footerHref =
           ctaStyle === (CTA_STYLE.CARD || CTA_STYLE.FEATURE)
-            ? textNullable(footerKnobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR])
+            ? textNullable(
+                footerKnobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+                hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+              )
             : null;
         return {
           heading,
@@ -241,7 +292,10 @@ Default.story = {
           customVideoTitle,
           customThumbnail,
           customVideoDescription,
-          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR]),
+          href: textNullable(
+            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+          ),
           footerCopy,
           footerHref,
         };
