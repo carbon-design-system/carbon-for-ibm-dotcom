@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, query, state, TemplateResult } from 'lit-element';
+import { html, query, state } from 'lit-element';
 import { ifDefined } from 'lit-html/directives/if-defined';
 import { Constructor } from '../defs';
 
@@ -50,7 +50,9 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         this._nonce = globalNonce;
       }
 
-      const globalDynamicStyleElement = document.querySelector('style.carbon-dynamic-styles') as HTMLStyleElement;
+      const globalDynamicStyleElement = document.querySelector(
+        'style.carbon-dynamic-styles'
+      ) as HTMLStyleElement;
 
       if (globalDynamicStyleElement) {
         this._globalDynamicStyle = globalDynamicStyleElement;
@@ -88,7 +90,9 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * @returns {string} the style value requested
      */
     getStyleBySelector(selectorString, styleProperty, global = false) {
-      const styleSheet = global ? this._globalDynamicStyle?.sheet : this._dynamicStylesNode?.sheet;
+      const styleSheet = global
+        ? this._globalDynamicStyle?.sheet
+        : this._dynamicStylesNode?.sheet;
 
       if (!styleSheet) {
         throw new ReferenceError(
@@ -96,7 +100,7 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         );
       } else {
         const ruleset = (Array.from(styleSheet.cssRules) as CSSStyleRule[])
-          .filter((rules) => rules.selectorText === selectorString)
+          .filter(rules => rules.selectorText === selectorString)
           .at(0);
 
         if (!ruleset) {
@@ -126,8 +130,15 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * @param styleValue The value of the style
      * @param {boolean} global Whether to use global or internal stylesheet
      */
-    setStyleBySelector(selectorString, styleProperty, styleValue, global = false) {
-      const styleSheet = global ? this._globalDynamicStyle?.sheet : this._dynamicStylesNode?.sheet;
+    setStyleBySelector(
+      selectorString,
+      styleProperty,
+      styleValue,
+      global = false
+    ) {
+      const styleSheet = global
+        ? this._globalDynamicStyle?.sheet
+        : this._dynamicStylesNode?.sheet;
 
       if (!styleSheet) {
         throw new ReferenceError(
@@ -135,7 +146,7 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         );
       } else {
         const ruleset = (Array.from(styleSheet.cssRules) as CSSStyleRule[])
-          .filter((rules) => rules.selectorText === selectorString)
+          .filter(rules => rules.selectorText === selectorString)
           .at(0);
 
         if (!ruleset) {
