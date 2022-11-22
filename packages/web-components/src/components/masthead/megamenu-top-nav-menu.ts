@@ -88,8 +88,13 @@ class DDSMegaMenuTopNavMenu extends CspComplianceMixin(DDSTopNavMenu) {
     const { contentRect } = records[records.length - 1];
     // A workaround for Safari bug where `100vw` in Shadow DOM causes delayed rendering
     // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4493
-    const { customPropertyViewportWidth } = this.constructor as typeof DDSMegaMenuTopNavMenu;
-    this.setStyleBySelector(':host', customPropertyViewportWidth, `${contentRect.width}px`);
+    const { customPropertyViewportWidth } = this
+      .constructor as typeof DDSMegaMenuTopNavMenu;
+    this.setStyleBySelector(
+      ':host',
+      customPropertyViewportWidth,
+      `${contentRect.width}px`
+    );
   };
 
   connectedCallback() {
@@ -136,13 +141,26 @@ class DDSMegaMenuTopNavMenu extends CspComplianceMixin(DDSTopNavMenu) {
 
       const dynamicStyleSelector = '.bx--masthead__l0';
       if (this.expanded) {
-        this.setStyleBySelector('body', 'margin-inline-start', `${this._scrollBarWidth}px`, true);
+        this.setStyleBySelector(
+          'body',
+          'margin-inline-start',
+          `${this._scrollBarWidth}px`,
+          true
+        );
         this.setStyleBySelector('body', 'overflow', 'hidden', true);
-        forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
-          (item as DDSMegaMenuOverlay).active = this.expanded;
-        });
+        forEach(
+          doc.querySelectorAll(
+            (this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay
+          ),
+          (item) => {
+            (item as DDSMegaMenuOverlay).active = this.expanded;
+          }
+        );
         if (cloudMasthead) {
-          if (doc.body.classList.contains('ibm-masthead-sticky') && doc.body.classList.contains('ibm-masthead-sticky-showing')) {
+          if (
+            doc.body.classList.contains('ibm-masthead-sticky') &&
+            doc.body.classList.contains('ibm-masthead-sticky-showing')
+          ) {
             (cloudMasthead as DDSMasthead).setStyleBySelector(
               dynamicStyleSelector,
               'margin-inline-end',
@@ -150,17 +168,32 @@ class DDSMegaMenuTopNavMenu extends CspComplianceMixin(DDSTopNavMenu) {
             );
           }
         } else if (masthead) {
-          (masthead as DDSMasthead).setStyleBySelector(dynamicStyleSelector, 'margin-inline-end', `${this._scrollBarWidth}px`);
+          (masthead as DDSMasthead).setStyleBySelector(
+            dynamicStyleSelector,
+            'margin-inline-end',
+            `${this._scrollBarWidth}px`
+          );
         }
       } else {
         this.setStyleBySelector('body', 'margin-inline-start', '0px', true);
         this.setStyleBySelector('body', 'overflow', '', true);
         if (cloudMasthead) {
-          if (doc.body.classList.contains('ibm-masthead-sticky') && doc.body.classList.contains('ibm-masthead-sticky-showing')) {
-            (cloudMasthead as DDSMasthead).setStyleBySelector(dynamicStyleSelector, 'margin-inline-end', '0px');
+          if (
+            doc.body.classList.contains('ibm-masthead-sticky') &&
+            doc.body.classList.contains('ibm-masthead-sticky-showing')
+          ) {
+            (cloudMasthead as DDSMasthead).setStyleBySelector(
+              dynamicStyleSelector,
+              'margin-inline-end',
+              '0px'
+            );
           }
         } else if (masthead) {
-          (masthead as DDSMasthead).setStyleBySelector(dynamicStyleSelector, 'margin-inline-end', '0px');
+          (masthead as DDSMasthead).setStyleBySelector(
+            dynamicStyleSelector,
+            'margin-inline-end',
+            '0px'
+          );
         }
 
         /**
@@ -185,9 +218,7 @@ class DDSMegaMenuTopNavMenu extends CspComplianceMixin(DDSTopNavMenu) {
   }
 
   render() {
-    return html`
-      ${this._renderDynamicStyles()}${super.render()}
-    `;
+    return html` ${this._renderDynamicStyles()}${super.render()} `;
   }
 
   /**

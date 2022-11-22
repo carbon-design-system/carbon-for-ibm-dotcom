@@ -34,7 +34,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @fires dds-left-nav-menu-toggled The custom event fired after this side nav menu is toggled upon a user gesture.
  */
 @customElement(`${ddsPrefix}-left-nav-menu-section`)
-class DDSLeftNavMenuSection extends CspComplianceMixin(HostListenerMixin(FocusMixin(LitElement))) {
+class DDSLeftNavMenuSection extends CspComplianceMixin(
+  HostListenerMixin(FocusMixin(LitElement))
+) {
   /**
    * Set aria-hidden property.
    */

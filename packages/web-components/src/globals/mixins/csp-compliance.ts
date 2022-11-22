@@ -100,7 +100,7 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         );
       } else {
         const ruleset = (Array.from(styleSheet.cssRules) as CSSStyleRule[])
-          .filter(rules => rules.selectorText === selectorString)
+          .filter((rules) => rules.selectorText === selectorString)
           .at(0);
 
         if (!ruleset) {
@@ -146,7 +146,7 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         );
       } else {
         const ruleset = (Array.from(styleSheet.cssRules) as CSSStyleRule[])
-          .filter(rules => rules.selectorText === selectorString)
+          .filter((rules) => rules.selectorText === selectorString)
           .at(0);
 
         if (!ruleset) {

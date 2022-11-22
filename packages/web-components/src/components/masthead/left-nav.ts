@@ -250,17 +250,35 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
         ?.querySelector('dds-cloud-masthead-container')
         ?.querySelector('dds-masthead');
       if (expanded) {
-        this._hFocusWrap = focuswrap(this.shadowRoot!, [startSentinelNode, endSentinelNode]);
-        (masthead as DDSMasthead).setStyleBySelector('body', 'overflow', 'hidden', true);
+        this._hFocusWrap = focuswrap(this.shadowRoot!, [
+          startSentinelNode,
+          endSentinelNode,
+        ]);
+        (masthead as DDSMasthead).setStyleBySelector(
+          'body',
+          'overflow',
+          'hidden',
+          true
+        );
 
         // TODO: remove this logic once masthead can account for banners.
         // set masthead position to `fixed` when left-nav is open for cloud-mastead
         if (masthead) {
-          (masthead as DDSMasthead).setStyleBySelector(':host', 'position', 'fixed');
+          (masthead as DDSMasthead).setStyleBySelector(
+            ':host',
+            'position',
+            'fixed'
+          );
         }
       } else {
-        const { selectorMenuSections, selectorFirstMenuSection } = this.constructor as typeof DDSLeftNav;
-        (masthead as DDSMasthead).setStyleBySelector('body', 'overflow', 'auto', true);
+        const { selectorMenuSections, selectorFirstMenuSection } = this
+          .constructor as typeof DDSLeftNav;
+        (masthead as DDSMasthead).setStyleBySelector(
+          'body',
+          'overflow',
+          'auto',
+          true
+        );
 
         // TODO: remove this logic once masthead can account for banners.
         // remove set position from mastead when left-nav is closed for cloud-mastead

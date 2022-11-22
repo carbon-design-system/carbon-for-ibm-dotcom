@@ -900,7 +900,12 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
     this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
     this._loadUserStatus?.();
 
-    this.setStyleBySelector(`${ddsPrefix}-masthead-container`, 'z-index', '900', true);
+    this.setStyleBySelector(
+      `${ddsPrefix}-masthead-container`,
+      'z-index',
+      '900',
+      true
+    );
   }
 
   updated(changedProperties) {
