@@ -80,20 +80,6 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     }
 
     /**
-     * Components using this mixin should place their shadowRoot HTML in this function.
-     */
-    abstract renderContents(): TemplateResult | void;
-
-    /**
-     * @returns {TemplateResult} rendered component markup with dynamic stylesheet
-     */
-    render() {
-      return html`
-        ${this._renderDynamicStyles()}${this.renderContents()}
-      `;
-    }
-
-    /**
      * Get values of the dynamic style sheet for a given selector/property combination.
      *
      * @param {string} selectorString The selector we want the property for
