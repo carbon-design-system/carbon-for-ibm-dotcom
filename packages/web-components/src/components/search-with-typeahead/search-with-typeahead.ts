@@ -271,7 +271,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
     targetQuery,
     targetHref,
   }: { targetQuery?: string; targetHref?: string } = {}) {
-    const { eventBeforeRedirect } = this
+    const { eventBeforeRedirect, eventInput } = this
       .constructor as typeof DDSSearchWithTypeahead;
     const { language, redirectUrl } = this;
     const [primary, country] = language.split('-');
@@ -282,6 +282,17 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
     searchParams.append('q', targetQuery ?? this._searchInputNode?.value);
     searchParams.append('lang', primary);
     searchParams.append('cc', country);
+
+    this.dispatchEvent(
+      new CustomEvent(eventInput, {
+        bubbles: true,
+        composed: true,
+        cancelable: false,
+        detail: {
+          value: targetQuery,
+        },
+      })
+    );    
 
     if (this.appId) {
       searchParams.append('scope-domain', 'scope');
