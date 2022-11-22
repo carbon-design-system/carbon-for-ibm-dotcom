@@ -9,8 +9,8 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import { nothing } from 'lit-html';
-import ArrowRight16 from 'carbon-web-components/es/icons/arrow--right/16.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ArrowRight16 from '@carbon/carbon-web-components/es/icons/arrow--right/16.js';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
 import { unsafeSVG } from 'lit-html/directives/unsafe-svg.js';
 import root from 'window-or-global';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';

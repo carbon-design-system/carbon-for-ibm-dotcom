@@ -8,10 +8,10 @@
  */
 
 import { customElement } from 'lit-element';
-import BXCheckbox from 'carbon-web-components/es/components/checkbox/checkbox.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
+import BXCheckbox from '@carbon/carbon-web-components/es/components/checkbox/checkbox.js';
+import FocusMixin from '@carbon/carbon-web-components/es/globals/mixins/focus.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import 'carbon-web-components/es/components/modal/modal.js';
+import '@carbon/carbon-web-components/es/components/modal/modal.js';
 import styles from './filter-panel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 

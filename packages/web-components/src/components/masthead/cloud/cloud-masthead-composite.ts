@@ -8,7 +8,7 @@
  */
 
 import { customElement, html, property } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import './cloud-button-cta';
