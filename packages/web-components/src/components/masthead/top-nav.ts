@@ -440,7 +440,7 @@ class DDSTopNav extends CspComplianceMixin(StableSelectorMixin(HostListenerMixin
     }
   }
 
-  renderContents() {
+  render() {
     const {
       _isIntersectionLeftTrackerInContent: isIntersectionLeftTrackerInContent,
       _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
@@ -462,6 +462,7 @@ class DDSTopNav extends CspComplianceMixin(StableSelectorMixin(HostListenerMixin
     return this.hideNav
       ? undefined!
       : html`
+          ${this._renderDynamicStyles()}
           ${pageIsRTL
             ? html`
                 <div class="${caretRightContainerClasses}">

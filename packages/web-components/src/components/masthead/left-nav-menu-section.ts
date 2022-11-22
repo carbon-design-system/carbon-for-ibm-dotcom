@@ -224,9 +224,10 @@ class DDSLeftNavMenuSection extends CspComplianceMixin(HostListenerMixin(FocusMi
     }
   }
 
-  renderContents() {
+  render() {
     const { backButtonText, title, titleUrl, _handleClickBack: handleClickBack, showBackBtn } = this;
     return html`
+      ${this._renderDynamicStyles()}
       <ul>
         ${showBackBtn
           ? html`
