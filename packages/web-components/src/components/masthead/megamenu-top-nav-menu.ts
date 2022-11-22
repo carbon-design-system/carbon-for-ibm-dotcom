@@ -15,6 +15,7 @@ import DDSTopNavMenu from './top-nav-menu';
 import DDSMegaMenuOverlay from './megamenu-overlay';
 import styles from './masthead.scss';
 import CspComplianceMixin from '../../globals/mixins/csp-compliance';
+import DDSMasthead from './masthead';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -119,16 +120,14 @@ class DDSMegaMenuTopNavMenu extends CspComplianceMixin(DDSTopNavMenu) {
 
       // add the scrollbar width as right-margin to prevent content from shifting when
       // scrollbar disappears on megamenu expand
-      const masthead: HTMLElement | null | undefined = doc
-        .querySelector('dds-masthead')
-        ?.shadowRoot?.querySelector('.bx--masthead__l0');
+      const masthead: Element | null = doc.querySelector('dds-masthead');
 
       // determine whether to apply margin-right on expand as HC has extra masthead styling
       const cloudMasthead: HTMLElement | null | undefined = doc
         .querySelector('dds-cloud-masthead-container')
-        ?.querySelector('dds-masthead')
-        ?.shadowRoot?.querySelector('.bx--masthead__l0');
+        ?.querySelector('dds-masthead');
 
+      const dynamicStyleSelector = '.bx--masthead__l0';
       if (this.expanded) {
         this.setStyleBySelector('body', 'margin-inline-start', `${this._scrollBarWidth}px`, true);
         this.setStyleBySelector('body', 'overflow', 'hidden', true);
@@ -137,20 +136,24 @@ class DDSMegaMenuTopNavMenu extends CspComplianceMixin(DDSTopNavMenu) {
         });
         if (cloudMasthead) {
           if (doc.body.classList.contains('ibm-masthead-sticky') && doc.body.classList.contains('ibm-masthead-sticky-showing')) {
-            cloudMasthead.style.marginRight = `${this._scrollBarWidth}px`;
+            (cloudMasthead as DDSMasthead).setStyleBySelector(
+              dynamicStyleSelector,
+              'margin-inline-end',
+              `${this._scrollBarWidth}px`
+            );
           }
         } else if (masthead) {
-          masthead.style.marginRight = `${this._scrollBarWidth}px`;
+          (masthead as DDSMasthead).setStyleBySelector(dynamicStyleSelector, 'margin-inline-end', `${this._scrollBarWidth}px`);
         }
       } else {
         this.setStyleBySelector('body', 'margin-inline-start', '0px', true);
         this.setStyleBySelector('body', 'overflow', '', true);
         if (cloudMasthead) {
           if (doc.body.classList.contains('ibm-masthead-sticky') && doc.body.classList.contains('ibm-masthead-sticky-showing')) {
-            cloudMasthead.style.marginRight = '0px';
+            (cloudMasthead as DDSMasthead).setStyleBySelector(dynamicStyleSelector, 'margin-inline-end', '0px');
           }
         } else if (masthead) {
-          masthead.style.marginRight = '0px';
+          (masthead as DDSMasthead).setStyleBySelector(dynamicStyleSelector, 'margin-inline-end', '0px');
         }
 
         /**
