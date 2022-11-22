@@ -1,28 +1,30 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import { classMap } from 'lit-html/directives/class-map.js';
-import { html, property, query, customElement } from 'lit-element';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { html } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import Close20 from '@carbon/web-components/es/icons/close/20.js';
-import Search20 from '@carbon/web-components/es/icons/search/20.js';
+import Close20 from 'carbon-web-components/es/icons/close/20.js';
+import Search20 from 'carbon-web-components/es/icons/search/20.js';
 import BXDropdown, {
   DROPDOWN_KEYBOARD_ACTION,
-} from '@carbon/web-components/es/components/dropdown/dropdown.js';
-import BXDropdownItem from '@carbon/web-components/es/components/dropdown/dropdown-item.js';
-import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+} from 'carbon-web-components/es/components/dropdown/dropdown.js';
+import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import SearchTypeaheadAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/SearchTypeahead/SearchTypeahead';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
+import { DDS_SCOPED_SEARCH } from '../../globals/internal/feature-flags';
 import styles from './search-with-typeahead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './search-with-typeahead-item';
@@ -54,7 +56,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
   async getResults(searchQuery) {
     const response = await SearchTypeaheadAPI.getResults(
       searchQuery,
-      this.appId
+      this.scopeValue
     );
     return response.map((res) => res[0]);
   }
@@ -64,7 +66,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
    * Should be changed upon the locale the UI is rendered with.
    */
   @property({ attribute: false })
-  placeholderFormatter = ({ appId }) => `Search in ${appId}`;
+  placeholderFormatter = ({ scopeValue }) => `Search in ${scopeValue}`;
 
   @property({ attribute: 'leadspace-search', type: Boolean })
   leadspaceSearch = false;
@@ -86,12 +88,6 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
 
   @property({ attribute: 'should-remain-open', type: Boolean })
   shouldRemainOpen = false;
-
-  @property({ attribute: 'appid', reflect: true })
-  appId;
-
-  @property({ attribute: 'scope-label', reflect: true })
-  scopeLabel;
 
   @property({ attribute: 'scope-value', reflect: true })
   scopeValue;
@@ -294,16 +290,6 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       })
     );
 
-    if (this.appId) {
-      searchParams.append('scope-domain', 'scope');
-      searchParams.append('scope-value', this.scopeValue);
-      searchParams.append('scope-type', this.appId);
-
-      if (this.scopeLabel) {
-        searchParams.append('scope-label', this.scopeLabel ?? '');
-      }
-    }
-
     const redirectUrlWithSearch = targetHref
       ? `${targetHref}`
       : `${base}?${searchParams.toString()}`;
@@ -354,22 +340,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
    */
   @HostListener('document:eventSelectScope')
   protected _handleScopeSelect = (event: CustomEvent) => {
-    this.appId = event.detail.appId;
-    let targetScope;
-    this.scopeParameters.forEach((scope) => {
-      if (scope.appId === this.appId) {
-        targetScope = scope;
-      }
-    });
-
-    this.scopeValue = Array.isArray(targetScope?.value)
-      ? `[${targetScope.value
-          .toString()
-          .split(',')
-          .map((word) => `"${word.trim()}"`)
-          .join(',')}]`
-      : targetScope.value;
-    this.scopeLabel = targetScope.label ?? '';
+    this.scopeValue = event.detail.value;
   };
 
   /**
@@ -456,6 +427,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
     if (highlightedItem || !this._searchInputNode.value) {
       event.preventDefault();
     }
+
     if (
       !this.dispatchEvent(
         new CustomEvent(eventBeforeRedirect, {
@@ -640,21 +612,6 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
         <input type="hidden" name="lang" value="${primary}" />
         <input type="hidden" name="cc" value="${country}" />
         <input type="hidden" name="lnk" value="mhsrch" />
-        ${this.scopeParameters
-          ? html`
-              <input type="hidden" name="scope-domain" value="scope" />
-              <input type="hidden" name="scope-type" value="${this.appId}" />
-              <input
-                type="hidden"
-                name="scope-value"
-                value="${this.scopeValue}" />
-              <input
-                type="hidden"
-                name="scope-label"
-                value="${this.scopeLabel}" />
-            `
-          : ''}
-
         <div
           role="combobox"
           class="${classes}"
@@ -665,24 +622,24 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
           @click=${handleClickInner}
           @keydown="${handleKeydownInner}"
           @keypress="${handleKeypressInner}">
-          ${this.scopeParameters
+          ${this.scopeParameters && DDS_SCOPED_SEARCH
             ? html`
-                <dds-scoped-search-dropdown value="${this.appId}">
+                <dds-scoped-search-dropdown value="${this.scopeValue}">
                   ${this.scopeParameters.map(
                     (scope) => html`
-                      <bx-dropdown-item value="${scope.appId}"
+                      <bx-dropdown-item value="${scope.value}"
                         >${scope.name}</bx-dropdown-item
                       >
                     `
                   )}
                 </dds-scoped-search-dropdown>
 
-                <dds-scoped-search-dropdown-mobile value="${this.appId}">
+                <dds-scoped-search-dropdown-mobile value="${this.scopeValue}">
                   ${this.scopeParameters.map(
                     (scope) => html`
                       <bx-select-item
                         label="${scope.name}"
-                        value="${scope.appId}"
+                        value="${scope.value}"
                         >${scope.name}</bx-select-item
                       >
                     `
@@ -836,9 +793,8 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       this.setAttribute('active', '');
     }
 
-    if (!this.appId && this.scopeParameters) {
-      this.appId = 'all';
-      this.redirectUrl = 'https://www.ibm.com/search/scoped';
+    if (!this.scopeValue && this.scopeParameters) {
+      this.scopeValue = 'all';
     }
   }
 
@@ -852,7 +808,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       });
     }
 
-    if (changedProperties.has('appId')) {
+    if (changedProperties.has('scopeValue')) {
       if (
         gridBreakpoint < document.body.clientWidth &&
         this._searchSuggestions &&
@@ -880,9 +836,9 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       }
 
       const newPlaceholder = this.placeholderFormatter({
-        appId: this.scopeParameters.filter(
-          (e) => e.value === `${this.appId}`
-        )[0]?.name,
+        scopeValue: this.scopeParameters.filter(
+          (e) => e.value === `${this.scopeValue}`
+        )[0].name,
       });
       this.setAttribute('placeholder', newPlaceholder);
       this.performSearchButtonAssistiveText = newPlaceholder;

@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { find } from '../../../globals/internal/collection-helpers';
 import EventManager from '../../../../tests/utils/event-manager';
 import DDSSearchWithTypeahead from '../search-with-typeahead';
@@ -202,7 +202,7 @@ describe('dds-search-with-typeahead', function () {
         search.shadowRoot!.querySelector(
           'dds-search-with-typeahead-item'
         ) as HTMLElement
-      )?.click();
+      ).click();
       expect((search as any)._redirect).toHaveBeenCalledWith(
         'https://www.ibm.com/search?lnk=mhsrch&q=test&lang=en&cc=US'
       );

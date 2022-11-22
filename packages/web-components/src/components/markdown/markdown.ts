@@ -1,15 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { render } from 'lit-html';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { render } from 'lit/html.js';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
+import { LitElement, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import '@carbon/web-components/es/components/link/link.js';
 import '@carbon/web-components/es/components/list/ordered-list.js';

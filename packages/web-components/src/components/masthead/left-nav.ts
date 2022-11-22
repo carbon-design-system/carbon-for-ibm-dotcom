@@ -1,14 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import findLast from 'lodash-es/findLast.js';
-import { html, query, property, customElement } from 'lit-element';
+import { html } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';

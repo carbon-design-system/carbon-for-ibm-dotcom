@@ -2,15 +2,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import '../index';
-import { html } from 'lit-element';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
+import { html } from 'lit';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import styles from './content-group-pictograms.stories.scss';

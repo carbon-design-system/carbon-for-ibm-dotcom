@@ -1,15 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, state, customElement, LitElement } from 'lit-element';
-import { stripHTML } from '@carbon/ibmdotcom-utilities/es/utilities/stripHTML/index.js';
-import { render } from 'lit-html';
+import { LitElement, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './leadspace.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -29,9 +28,6 @@ class DDSLeadspaceHeading extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'heading';
 
-  @state()
-  content = '';
-
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'heading');
@@ -40,11 +36,6 @@ class DDSLeadspaceHeading extends StableSelectorMixin(LitElement) {
       this.setAttribute('aria-level', '1');
     }
     super.connectedCallback();
-  }
-
-  firstUpdated() {
-    this.content = stripHTML(this.innerHTML);
-    render(html`<h1>${this.content}</h1>`, this);
   }
 
   render() {

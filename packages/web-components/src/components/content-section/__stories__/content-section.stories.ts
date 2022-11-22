@@ -1,20 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { optionsKnob } from '@storybook/addon-knobs';
-import '../../card-group/index';
-import '../../carousel/index';
-import '../../content-group-cards/index';
-import '../../content-block-simple/index';
 import '../index';
 import '../../cta/text-cta';
 import readme from './README.stories.mdx';
@@ -59,34 +55,10 @@ const card2 = html`
   </dds-content-group-cards-item>
 `;
 
-const hrefDefault = 'https://www.ibm.com/standards/carbon';
-const headingDefault = 'Lorem ipsum dolor sit amet';
-const copyDefault =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
-const copyOdd = `
-  ${copyDefault}
-  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-`;
-
-const Card = ({
-  copy = copyDefault,
-  heading = headingDefault,
-  href = hrefDefault,
-} = {}) => html`
-  <dds-card href="${ifNonNull(href)}">
-    <dds-card-heading>${heading}</dds-card-heading>
-    ${copy}
-    <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
-  </dds-card>
-`;
-
 export const Default = (args) => {
   const { heading, copy, addChildren } = args?.ContentSection ?? {};
-  const classes = addChildren.includes('Content block simple')
-    ? 'bx--col-lg-16 bx--no-gutter'
-    : '';
   return html`
-    <dds-content-section children-custom-class="${classes}">
+    <dds-content-section children-custom-class="bx--col-lg-8 bx--no-gutter">
       <dds-content-section-heading
         >${ifNonNull(heading)}</dds-content-section-heading
       >
@@ -113,47 +85,19 @@ export const Default = (args) => {
             </dds-content-block-simple>
           `
         : ``}
-      ${addChildren.includes('Card group')
+      ${addChildren.includes('Content group cards')
         ? html`
-            <dds-card-group> ${card1}${card2}${card1}${card2} </dds-card-group>
+            <dds-content-group-cards>
+              <dds-content-group-heading
+                >Lorem ipsum dolor sit amet.</dds-content-group-heading
+              >
+              <dds-content-group-copy
+                >Lorem ipsum dolor sit amet.</dds-content-group-copy
+              >
+              ${card1}${card2}${card1}${card2}
+            </dds-content-group-cards>
           `
         : ``}
-      ${addChildren.includes('Link list')
-        ? html`
-            <dds-link-list>
-              <dds-link-list-item href="https://example.com">
-                Learn more about Kubernetes and automating deployment
-                ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-list-item>
-              <dds-link-list-item href="https://example.com">
-                Containerization A Complete Guide
-                ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-list-item>
-              <dds-link-list-item href="https://example.com">
-                Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-list-item>
-              <dds-link-list-item href="https://example.com">
-                Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-list-item>
-              <dds-link-list-item href="https://example.com">
-                Containerization A Complete Guide
-                ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-list-item>
-              <dds-link-list-item href="https://example.com">
-                Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-list-item>
-            </dds-link-list>
-          `
-        : ``}
-      ${addChildren.includes('Carousel')
-        ? html`
-            <dds-carousel>
-              ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({
-                copy: copyOdd,
-              })}${Card()}
-            </dds-carousel>
-          `
-        : ''}
       <dds-text-cta
         slot="footer"
         cta-type="local"
@@ -195,12 +139,10 @@ export default {
           'Add children:',
           {
             'Content block simple': 'Content block simple',
-            'Card group': 'Card group',
-            'Link list': 'Link list',
-            Carousel: 'Carousel',
+            'Content group cards': 'Content group cards',
           },
           '',
-          { display: 'select' }
+          { display: 'multi-select' }
         ),
       }),
     },

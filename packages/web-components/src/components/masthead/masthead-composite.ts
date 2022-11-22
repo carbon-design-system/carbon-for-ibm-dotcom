@@ -1,17 +1,17 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
-import { nothing } from 'lit-html';
-import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16.js';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import { unsafeSVG } from 'lit-html/directives/unsafe-svg.js';
+import { html, LitElement, nothing } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import ArrowRight16 from 'carbon-web-components/es/icons/arrow--right/16.js';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import root from 'window-or-global';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
@@ -884,6 +884,7 @@ class DDSMastheadComposite extends LitElement {
     this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
     this._loadUserStatus?.();
 
+    // This is a temp fix until we figure out why we can't set styles to the :host(dds-masthead-container) in stylesheets
     this.style.zIndex = '900';
   }
 

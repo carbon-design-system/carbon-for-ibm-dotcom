@@ -1,17 +1,17 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import settings from 'carbon-components/es/globals/js/settings.js';
-import { TemplateResult } from 'lit-html';
-import { html, property, query, customElement } from 'lit-element';
-import BXComboBoxItem from '@carbon/web-components/es/components/combo-box/combo-box-item.js';
-import Close16 from '@carbon/web-components/es/icons/close/16.js';
+import { TemplateResult, html } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
+import BXComboBoxItem from 'carbon-web-components/es/components/combo-box/combo-box-item.js';
+import Close16 from 'carbon-web-components/es/icons/close/16.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 import DDSDropdown, { DROPDOWN_KEYBOARD_ACTION } from './dropdown';

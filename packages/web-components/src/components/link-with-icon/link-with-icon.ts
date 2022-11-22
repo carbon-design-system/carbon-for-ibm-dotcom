@@ -1,13 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement, TemplateResult, property } from 'lit-element';
+import { TemplateResult, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import BXLink, {
   LINK_SIZE,
 } from '@carbon/web-components/es/components/link/link.js';

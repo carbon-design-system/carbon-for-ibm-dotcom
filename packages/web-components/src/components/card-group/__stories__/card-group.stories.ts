@@ -1,18 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map.js';
+import { classMap } from 'lit/directives/class-map.js';
 import '../../card/index';
 import '../../card-in-card/index';
 import '../index';
 import '../../cta/video-cta-container';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { select, number, boolean } from '@storybook/addon-knobs';
 import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 // eslint-disable-next-line sort-imports
