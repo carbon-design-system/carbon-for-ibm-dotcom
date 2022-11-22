@@ -56,7 +56,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       searchQuery,
       this.appId
     );
-    return response.map((res) => res[0]);
+    return response.map(res => res[0]);
   }
 
   /**
@@ -345,7 +345,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
   protected _handleScopeSelect = (event: CustomEvent) => {
     this.appId = event.detail.appId;
     let targetScope;
-    this.scopeParameters.forEach((scope) => {
+    this.scopeParameters.forEach(scope => {
       if (scope.appId === this.appId) {
         targetScope = scope;
       }
@@ -355,7 +355,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       ? `[${targetScope.value
           .toString()
           .split(',')
-          .map((word) => `"${word.trim()}"`)
+          .map(word => `"${word.trim()}"`)
           .join(',')}]`
       : targetScope.value;
     this.scopeLabel = targetScope.label ?? '';
@@ -372,7 +372,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
     const items = this.shadowRoot!.querySelectorAll(
       (this.constructor as typeof BXDropdown).selectorItem
     );
-    items.forEach((e) => {
+    items.forEach(e => {
       if (e.hasAttribute('highlighted')) {
         this.setAttribute('unfocused', '');
       }
@@ -394,7 +394,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
     this.value = value;
 
     if (!this.customTypeaheadAPI) {
-      this.getResults(value).then((res) => {
+      this.getResults(value).then(res => {
         this.searchResults = res;
       });
     }
@@ -413,11 +413,9 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       this._searchSuggestions &&
       this.scopeParameters
     ) {
-      const scopeBarWidth = (
-        this.shadowRoot?.querySelector(
-          'dds-scoped-search-dropdown'
-        ) as HTMLElement
-      ).offsetWidth;
+      const scopeBarWidth = (this.shadowRoot?.querySelector(
+        'dds-scoped-search-dropdown'
+      ) as HTMLElement).offsetWidth;
       (this._searchSuggestions?.parentElement as HTMLElement)?.setAttribute(
         'style',
         `left: ${scopeBarWidth}px; width: calc(100% - ${scopeBarWidth}px);`
@@ -463,10 +461,10 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
 
   protected _handleUserInitiatedSelectItem(item?: BXDropdownItem) {
     if (item) {
-      this._searchInputNode.value = (item as unknown as any).text;
+      this._searchInputNode.value = ((item as unknown) as any).text;
       this._handleUserInitiatedRedirect({
-        targetQuery: (item as unknown as any).text,
-        targetHref: (item as unknown as any).href,
+        targetQuery: ((item as unknown) as any).text,
+        targetHref: ((item as unknown) as any).href,
       });
     }
   }
@@ -662,7 +660,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
             ? html`
                 <dds-scoped-search-dropdown value="${this.appId}">
                   ${this.scopeParameters.map(
-                    (scope) => html`
+                    scope => html`
                       <bx-dropdown-item value="${scope.appId}"
                         >${scope.name}</bx-dropdown-item
                       >
@@ -672,10 +670,10 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
 
                 <dds-scoped-search-dropdown-mobile value="${this.appId}">
                   ${this.scopeParameters.map(
-                    (scope) => html`
+                    scope => html`
                       <bx-select-item
                         label="${scope.name}"
-                        value="${scope.value}"
+                        value="${scope.appId}"
                         >${scope.name}</bx-select-item
                       >
                     `
@@ -695,33 +693,33 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
                     class="${ddsPrefix}-ce__search__list react-autosuggest__suggestions-list"
                   >
                     ${this.searchResults &&
-                    this.searchResults.map(
-                      (item) =>
-                        html`
-                          <dds-search-with-typeahead-item
-                            text="${item}"
-                          ></dds-search-with-typeahead-item>
-                        `
-                    )}
+                      this.searchResults.map(
+                        item =>
+                          html`
+                            <dds-search-with-typeahead-item
+                              text="${item}"
+                            ></dds-search-with-typeahead-item>
+                          `
+                      )}
                     ${this.groupedResults &&
-                    this.groupedResults.map(
-                      (group) =>
-                        html`
-                          <dds-search-with-typeahead-item
-                            groupTitle
-                            text="${group.title}"
-                          ></dds-search-with-typeahead-item>
-                          ${group.items.map(
-                            (item) =>
-                              html`
-                                <dds-search-with-typeahead-item
-                                  text="${item.name}"
-                                  href="${item.href}"
-                                ></dds-search-with-typeahead-item>
-                              `
-                          )}
-                        `
-                    )}
+                      this.groupedResults.map(
+                        group =>
+                          html`
+                            <dds-search-with-typeahead-item
+                              groupTitle
+                              text="${group.title}"
+                            ></dds-search-with-typeahead-item>
+                            ${group.items.map(
+                              item =>
+                                html`
+                                  <dds-search-with-typeahead-item
+                                    text="${item.name}"
+                                    href="${item.href}"
+                                  ></dds-search-with-typeahead-item>
+                                `
+                            )}
+                          `
+                      )}
                   </ul>
                 </div>
               `
@@ -846,7 +844,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       const titleElements = this.shadowRoot?.querySelectorAll(
         'dds-search-with-typeahead-item[groupTitle]'
       );
-      titleElements?.forEach((e) => {
+      titleElements?.forEach(e => {
         e.previousElementSibling?.setAttribute('lastBeforeGroup', '');
       });
     }
@@ -857,31 +855,27 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
         this._searchSuggestions &&
         this.scopeParameters
       ) {
-        const scopeBarWidth = (
-          this.shadowRoot?.querySelector(
-            'dds-scoped-search-dropdown'
-          ) as HTMLElement
-        ).offsetWidth;
+        const scopeBarWidth = (this.shadowRoot?.querySelector(
+          'dds-scoped-search-dropdown'
+        ) as HTMLElement).offsetWidth;
         (this._searchSuggestions?.parentElement as HTMLElement)?.setAttribute(
           'style',
           `left: ${scopeBarWidth}px; width: calc(100% - ${scopeBarWidth}px);`
         );
       } else {
-        (
-          this._searchSuggestions?.parentElement as HTMLElement
-        )?.removeAttribute('style');
+        (this._searchSuggestions
+          ?.parentElement as HTMLElement)?.removeAttribute('style');
       }
 
       if (!this.customTypeaheadAPI) {
-        this.getResults(this.value).then((res) => {
+        this.getResults(this.value).then(res => {
           this.searchResults = res;
         });
       }
 
       const newPlaceholder = this.placeholderFormatter({
-        appId: this.scopeParameters.filter(
-          (e) => e.value === `${this.appId}`
-        )[0]?.name,
+        appId: this.scopeParameters.filter(e => e.value === `${this.appId}`)[0]
+          ?.name,
       });
       this.setAttribute('placeholder', newPlaceholder);
       this.performSearchButtonAssistiveText = newPlaceholder;
@@ -956,15 +950,15 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
                 class="${ddsPrefix}-ce__search__list react-autosuggest__suggestions-list"
               >
                 ${this.searchResults &&
-                this.searchResults.map(
-                  (item) =>
-                    html`
-                      <dds-search-with-typeahead-item
-                        text="${item}"
-                        @click=${handleClickItem}
-                      ></dds-search-with-typeahead-item>
-                    `
-                )}
+                  this.searchResults.map(
+                    item =>
+                      html`
+                        <dds-search-with-typeahead-item
+                          text="${item}"
+                          @click=${handleClickItem}
+                        ></dds-search-with-typeahead-item>
+                      `
+                  )}
               </ul>
             </div>
           `}
