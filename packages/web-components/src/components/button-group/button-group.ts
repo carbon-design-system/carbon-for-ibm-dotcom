@@ -31,9 +31,15 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
       .assignedNodes()
       .filter((elem) =>
         (elem as HTMLElement).matches !== undefined
-          ? (elem as HTMLElement).matches((this.constructor as typeof DDSButtonGroup).selectorItem) ||
-            (elem as HTMLElement).matches((this.constructor as typeof DDSButtonGroup).selectorItemCTA) ||
-            (elem as HTMLElement).matches((this.constructor as typeof DDSButtonGroup).selectorItemDefaultCTA)
+          ? (elem as HTMLElement).matches(
+              (this.constructor as typeof DDSButtonGroup).selectorItem
+            ) ||
+            (elem as HTMLElement).matches(
+              (this.constructor as typeof DDSButtonGroup).selectorItemCTA
+            ) ||
+            (elem as HTMLElement).matches(
+              (this.constructor as typeof DDSButtonGroup).selectorItemDefaultCTA
+            )
           : false
       );
 

@@ -37,7 +37,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 
 let duration;
 
-export const Default = args => {
+export const Default = (args) => {
   const {
     copy,
     heading,
@@ -140,9 +140,7 @@ export const Default = args => {
             ${ctaStyle === 'card'
               ? html`
                   ${ctaType !== 'video'
-                    ? html`
-                        <dds-card-heading>${heading}</dds-card-heading>
-                      `
+                    ? html` <dds-card-heading>${heading}</dds-card-heading> `
                     : ''}
                   ${ctaType !== 'video' ? copy : ''}
                   <dds-card-cta-footer
@@ -159,9 +157,7 @@ export const Default = args => {
             ${ctaStyle === 'feature'
               ? html`
                   ${ctaType !== 'video'
-                    ? html`
-                        <dds-card-heading>${heading}</dds-card-heading>
-                      `
+                    ? html` <dds-card-heading>${heading}</dds-card-heading> `
                     : ''}
                   ${ctaType !== CTA_TYPE.VIDEO || customThumbnail
                     ? html`

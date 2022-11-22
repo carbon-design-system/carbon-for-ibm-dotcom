@@ -11,7 +11,6 @@ import { property, customElement, html, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
-/* eslint-enable import/no-duplicates */
 import styles from './cta.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
@@ -27,7 +26,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-cta
  */
-/* eslint-disable babel/no-unused-expressions */
 @customElement(`${ddsPrefix}-cta`)
 class DDSCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   @property({ attribute: 'cta-style' })
@@ -51,12 +49,15 @@ class DDSCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
   updated() {
     // transpose attributes from parent cta handler to desired cta style
-    Array.from(this.attributes).forEach(e => {
-      this.shadowRoot?.children[0]!.setAttribute((e as any).name, (e as any).value);
+    Array.from(this.attributes).forEach((e) => {
+      this.shadowRoot?.children[0]!.setAttribute(
+        (e as any).name,
+        (e as any).value
+      );
     });
 
     // ensure children components are used within the desired cta style
-    Array.from(this.children).forEach(component => {
+    Array.from(this.children).forEach((component) => {
       this.shadowRoot?.children[0].append(component);
     });
   }
@@ -70,9 +71,14 @@ class DDSCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleVideoTitleUpdate = async (event: FocusEvent) => {
     if (event) {
-      const { videoDuration, videoName, videoThumbnailUrl } = event.detail as any;
-      const formattedVideoDuration = formatVideoDuration({ duration: !videoDuration ? videoDuration : videoDuration * 1000 });
-      this.videoThumbnailUrl ? null : (this.videoThumbnailUrl = videoThumbnailUrl);
+      const { videoDuration, videoName, videoThumbnailUrl } =
+        event.detail as any;
+      const formattedVideoDuration = formatVideoDuration({
+        duration: !videoDuration ? videoDuration : videoDuration * 1000,
+      });
+      this.videoThumbnailUrl
+        ? null
+        : (this.videoThumbnailUrl = videoThumbnailUrl);
       this.videoDuration ? null : (this.videoDuration = formattedVideoDuration);
 
       if (this.ctaStyle !== 'card' && this.ctaStyle !== 'feature') {
@@ -81,17 +87,26 @@ class DDSCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           name: videoName,
         });
 
-        const ctaComponent = this.shadowRoot!.querySelector(`dds-${this.ctaStyle}-cta`);
+        const ctaComponent = this.shadowRoot!.querySelector(
+          `dds-${this.ctaStyle}-cta`
+        );
         const spanElement = ctaComponent?.shadowRoot!.querySelector('span');
 
-        spanElement ? (spanElement.textContent = heading) : (ctaComponent!.textContent = heading);
+        spanElement
+          ? (spanElement.textContent = heading)
+          : (ctaComponent!.textContent = heading);
       } else {
         if (!this.getAttribute('no-poster')) {
-          const imageQuery = this.ctaStyle === 'card' ? `${ddsPrefix}-card-cta-image` : `${ddsPrefix}-image`;
+          const imageQuery =
+            this.ctaStyle === 'card'
+              ? `${ddsPrefix}-card-cta-image`
+              : `${ddsPrefix}-image`;
           const imageComponent = this.shadowRoot
             ?.querySelector(`${ddsPrefix}-${this.ctaStyle}-cta`)
             ?.shadowRoot!.querySelector(imageQuery);
-          const imageUrl = this.thumbnail ? this.thumbnail : this.videoThumbnailUrl;
+          const imageUrl = this.thumbnail
+            ? this.thumbnail
+            : this.videoThumbnailUrl;
           imageComponent?.setAttribute('default-src', imageUrl);
         }
 
@@ -122,29 +137,19 @@ class DDSCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   render() {
     return html`
       ${this.ctaStyle === 'feature'
-        ? html`
-            <dds-feature-cta></dds-feature-cta>
-          `
+        ? html` <dds-feature-cta></dds-feature-cta> `
         : ``}
       ${this.ctaStyle === 'card'
-        ? html`
-            <dds-card-cta><slot></slot></dds-card-cta>
-          `
+        ? html` <dds-card-cta><slot></slot></dds-card-cta> `
         : ``}
       ${this.ctaStyle === 'card-link'
-        ? html`
-            <dds-card-link-cta><slot></slot></dds-card-link-cta>
-          `
+        ? html` <dds-card-link-cta><slot></slot></dds-card-link-cta> `
         : ``}
       ${this.ctaStyle === 'text'
-        ? html`
-            <dds-text-cta><slot></slot></dds-text-cta>
-          `
+        ? html` <dds-text-cta><slot></slot></dds-text-cta> `
         : ``}
       ${this.ctaStyle === 'button'
-        ? html`
-            <dds-button-cta><slot></slot></dds-button-cta>
-          `
+        ? html` <dds-button-cta><slot></slot></dds-button-cta> `
         : ``}
     `;
   }

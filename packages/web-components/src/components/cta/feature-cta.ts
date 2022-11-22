@@ -170,7 +170,9 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
       }
     }
 
-    const heading = this.querySelector((this.constructor as typeof DDSFeatureCTA).selectorHeading) as HTMLElement;
+    const heading = this.querySelector(
+      (this.constructor as typeof DDSFeatureCTA).selectorHeading
+    ) as HTMLElement;
 
     if (changedProperties.has('captionHeading') && heading) {
       heading!.innerText = this.captionHeading;

@@ -114,8 +114,12 @@ function getRollupConfig({
 
   folders.forEach((folder) => {
     if (folder === 'cta') {
-      inputs[`cta${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/cta.ts`;
-      inputs[`video-cta-container${dirSuffixes[dir]}${modeSuffixes[mode]}`] = `src/components/cta/video-cta-container.ts`;
+      inputs[
+        `cta${dirSuffixes[dir]}${modeSuffixes[mode]}`
+      ] = `src/components/cta/cta.ts`;
+      inputs[
+        `video-cta-container${dirSuffixes[dir]}${modeSuffixes[mode]}`
+      ] = `src/components/cta/video-cta-container.ts`;
     } else if (folder === 'lightbox-media-viewer') {
       inputs[
         `lightbox-image-viewer${dirSuffixes[dir]}${modeSuffixes[mode]}`

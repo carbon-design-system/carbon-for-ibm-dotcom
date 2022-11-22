@@ -100,21 +100,25 @@ class DDSVideoCTAComposite extends ModalRenderMixin(
       const videoName = customVideoName || name;
 
       if (event.target as VideoCTAMixinImpl) {
-        (event.target as VideoCTAMixinImpl).videoName = videoName || customVideoName;
+        (event.target as VideoCTAMixinImpl).videoName =
+          videoName || customVideoName;
         (event.target as VideoCTAMixinImpl).videoDescription = videoDescription;
         (event.target as VideoCTAMixinImpl).videoDuration = duration;
       }
 
-      const videoInfo = new CustomEvent(`${ddsPrefix}-cta-request-additional-video-data`, {
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-        detail: {
-          videoName,
-          videoDuration: duration,
-          videoThumbnailUrl,
-        },
-      });
+      const videoInfo = new CustomEvent(
+        `${ddsPrefix}-cta-request-additional-video-data`,
+        {
+          bubbles: true,
+          cancelable: true,
+          composed: true,
+          detail: {
+            videoName,
+            videoDuration: duration,
+            videoThumbnailUrl,
+          },
+        }
+      );
 
       this.dispatchEvent(videoInfo);
     }
