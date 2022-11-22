@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,8 +11,17 @@ import configureMockStore from 'redux-mock-store';
 import { AnyAction } from 'redux';
 import thunk, { ThunkDispatch } from 'redux-thunk';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
-import { LocaleList, LOCALE_API_ACTION, LocaleAPIState } from '../../types/localeAPI';
-import { setLanguage, loadLanguage, setLocaleList, loadLocaleList } from '../localeAPI';
+import {
+  LocaleList,
+  LOCALE_API_ACTION,
+  LocaleAPIState,
+} from '../../types/localeAPI';
+import {
+  setLanguage,
+  loadLanguage,
+  setLocaleList,
+  loadLocaleList,
+} from '../localeAPI';
 import convertValue from '../../../tests/utils/convert-value';
 
 jest.mock('@carbon/ibmdotcom-services/es/services/Locale/Locale');

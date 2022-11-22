@@ -37,9 +37,10 @@ const videos = {
   'Speed of AI Test Video': '1_9h94wo6b',
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { open, disableClose, onBeforeClose, onClose } = args?.Modal ?? {};
-  const { alt, defaultSrc, description, title, hideCaption, videoId } = args?.LightboxMedia ?? {};
+  const { alt, defaultSrc, description, title, hideCaption, videoId } =
+    args?.LightboxMedia ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose?.(event);
     if (disableClose) {
@@ -75,11 +76,18 @@ Default.story = {
   parameters: {
     knobs: {
       LightboxMedia: () => ({
-        defaultSrc: select('Image (default-src)', images, images['1312 x 656 (2:1)']),
+        defaultSrc: select(
+          'Image (default-src)',
+          images,
+          images['1312 x 656 (2:1)']
+        ),
         alt: textNullable('Image alt text (alt)', 'Image alt text'),
         videoId: select('Video ID (video-id)', videos, videos.none),
         hideCaption: boolean('hide caption (hide-caption)', false),
-        title: textNullable('Title (title)', 'Curabitur malesuada varius mi eu posuere'),
+        title: textNullable(
+          'Title (title)',
+          'Curabitur malesuada varius mi eu posuere'
+        ),
         description: textNullable(
           'Description (description)',
           `
@@ -111,7 +119,7 @@ Default.story = {
   },
 };
 
-export const WithCarousel = args => {
+export const WithCarousel = (args) => {
   const { open, disableClose, onBeforeClose, onClose } = args?.Modal ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose?.(event);

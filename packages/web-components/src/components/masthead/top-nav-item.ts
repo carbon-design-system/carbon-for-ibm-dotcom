@@ -44,7 +44,9 @@ class DDSTopNavItem extends BXHeaderNavItem {
   }
 
   firstUpdated() {
-    this.shadowRoot?.querySelectorAll('[role="menuitem"]').forEach(menuItem => menuItem.removeAttribute('role'));
+    this.shadowRoot
+      ?.querySelectorAll('[role="menuitem"]')
+      .forEach((menuItem) => menuItem.removeAttribute('role'));
 
     if (this.hasAttribute('role') && this.getAttribute('role') === 'listitem') {
       this.removeAttribute('role');

@@ -82,7 +82,8 @@ export const Expanded = () => {
     <ExpressiveModal
       open={open}
       fullwidth={true}
-      className="bx--modal--expressive">
+      className="bx--modal--expressive"
+    >
       <ModalBody>
         <StoryContent title={title} paragraph={paragraph} button={button} />
       </ModalBody>

@@ -8,12 +8,20 @@
  */
 
 import pickBy from 'lodash-es/pickBy.js';
-import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
+import {
+  ActionCreatorsMapObject,
+  Dispatch,
+  Store,
+  bindActionCreators,
+} from 'redux';
 import { customElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import ConnectMixin from '../../globals/mixins/connect';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
-import { LocaleList, LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
+import {
+  LocaleList,
+  LocaleAPIState,
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import {
   loadLanguage,
   setLanguage,
@@ -61,14 +69,16 @@ export interface LocaleModalContainerStateProps {
  * @param state The Redux state for masthead.
  * @returns The converted version of the given state, tailored for `<dds-locale-modal-container>`.
  */
-export function mapStateToProps(state: LocaleModalContainerState): LocaleModalContainerStateProps {
+export function mapStateToProps(
+  state: LocaleModalContainerState
+): LocaleModalContainerStateProps {
   const { localeAPI } = state;
   const { language, localeLists } = localeAPI ?? {};
   return pickBy(
     {
       localeList: !language ? undefined : localeLists?.[language],
     },
-    value => value !== undefined
+    (value) => value !== undefined
   );
 }
 
@@ -77,7 +87,10 @@ export function mapStateToProps(state: LocaleModalContainerState): LocaleModalCo
  * @returns The methods in `<dds-locale-modal-container>` to dispatch Redux actions.
  */
 export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions>) {
-  return bindActionCreators<LocaleModalContainerActions, ActionCreatorsMapObject<LocaleModalContainerActions>>(
+  return bindActionCreators<
+    LocaleModalContainerActions,
+    ActionCreatorsMapObject<LocaleModalContainerActions>
+  >(
     {
       _loadLanguage: loadLanguage,
       _setLanguage: setLanguage,

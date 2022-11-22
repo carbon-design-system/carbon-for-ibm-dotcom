@@ -19,13 +19,16 @@ const { prefix } = settings;
 const Callout = ({ children }) => (
   <section
     className={`${prefix}--callout__container`}
-    data-autoid={`${stablePrefix}--callout__container`}>
+    data-autoid={`${stablePrefix}--callout__container`}
+  >
     <div
       className={`${prefix}--callout__column`}
-      data-autoid={`${stablePrefix}--callout__column`}>
+      data-autoid={`${stablePrefix}--callout__column`}
+    >
       <div
         className={`${prefix}--callout__content`}
-        data-autoid={`${stablePrefix}--callout__content`}>
+        data-autoid={`${stablePrefix}--callout__content`}
+      >
         {children}
       </div>
     </div>

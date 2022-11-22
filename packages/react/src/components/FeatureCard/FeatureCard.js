@@ -40,7 +40,8 @@ const FeatureCard = ({ card, size, ...otherProps }) => {
           size === 'large'
             ? `${stablePrefix}--feature-card-large`
             : `${stablePrefix}--feature-card`
-        }>
+        }
+      >
         <Card
           customClassName={classNames({
             [`${prefix}--feature-card__card`]: size === 'medium',

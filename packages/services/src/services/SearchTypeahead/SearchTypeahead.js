@@ -49,7 +49,7 @@ class SearchTypeaheadAPI {
       `query=${encodeURIComponent(query)}`,
       `${appid ? `appid=${appid}` : ''}`,
     ]
-      .filter(item => item)
+      .filter((item) => item)
       .join('&');
     const url = `${_endpoint}?${urlQuery}`;
     return await axios
@@ -58,7 +58,7 @@ class SearchTypeaheadAPI {
           'Content-Type': 'application/json; charset=utf-8',
         },
       })
-      .then(response => response.data.response);
+      .then((response) => response.data.response);
   }
 }
 export default SearchTypeaheadAPI;

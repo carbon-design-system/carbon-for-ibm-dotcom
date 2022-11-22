@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.41.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.40.0...@carbon/ibmdotcom-services@1.41.0-rc.0) (2022-11-22)
+
+
+### Bug Fixes
+
+* **videoplayer analytics:** extended custom metrics data detection ([#9638](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9638)) ([8ac99f0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8ac99f00bbc2a657ad85fb6d741857df21ba2dcd))
+
+
+
+
+
+# [1.40.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.40.0-rc.0...@carbon/ibmdotcom-services@1.40.0) (2022-11-08)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+# [1.40.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.39.0...@carbon/ibmdotcom-services@1.40.0-rc.0) (2022-10-31)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
 # [1.39.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.39.0-rc.0...@carbon/ibmdotcom-services@1.39.0) (2022-10-10)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services

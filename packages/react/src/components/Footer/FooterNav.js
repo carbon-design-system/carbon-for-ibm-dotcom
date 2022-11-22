@@ -30,7 +30,8 @@ const FooterNav = ({ groups, disableLocaleButton }) => {
       aria-label="Footer navigation"
       className={cx(`${prefix}--footer-nav`, {
         [`${prefix}--footer-nav__locale-button--disabled`]: disableLocaleButton,
-      })}>
+      })}
+    >
       <Accordion className={`${prefix}--footer-nav__container`}>
         {renderGroups(groups)}
       </Accordion>
