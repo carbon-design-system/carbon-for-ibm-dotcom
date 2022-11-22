@@ -38,10 +38,16 @@ class DDSContentSection extends StableSelectorMixin(LitElement) {
   private handleSlotChange(event: Event) {
     const childItems = (event.target as HTMLSlotElement)
       .assignedNodes()
-      .filter(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+      .filter(
+        node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+      );
 
     childItems.forEach(elem => {
-      if ((elem as HTMLElement).matches((this.constructor as typeof DDSContentSection).linkListSelector)) {
+      if (
+        (elem as HTMLElement).matches(
+          (this.constructor as typeof DDSContentSection).linkListSelector
+        )
+      ) {
         (elem as HTMLElement).setAttribute('type', 'end');
         this.setAttribute('with-link-list', '');
       } else {
@@ -58,7 +64,9 @@ class DDSContentSection extends StableSelectorMixin(LitElement) {
           <slot name="copy"></slot>
           <slot name="footer"></slot>
         </div>
-        <div class="${prefix}--content-section__body ${this.childrenCustomClass}">
+        <div
+          class="${prefix}--content-section__body ${this.childrenCustomClass}"
+        >
           <slot @slotchange="${this.handleSlotChange}"></slot>
         </div>
       </div>

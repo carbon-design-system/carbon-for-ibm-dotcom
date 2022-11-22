@@ -61,13 +61,18 @@ const card2 = html`
 
 const hrefDefault = 'https://www.ibm.com/standards/carbon';
 const headingDefault = 'Lorem ipsum dolor sit amet';
-const copyDefault = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
+const copyDefault =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
 const copyOdd = `
   ${copyDefault}
   Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 `;
 
-const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault } = {}) => html`
+const Card = ({
+  copy = copyDefault,
+  heading = headingDefault,
+  href = hrefDefault,
+} = {}) => html`
   <dds-card href="${ifNonNull(href)}">
     <dds-card-heading>${heading}</dds-card-heading>
     ${copy}
@@ -77,12 +82,16 @@ const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault
   </dds-card>
 `;
 
-export const Default = (args) => {
+export const Default = args => {
   const { heading, copy, addChildren } = args?.ContentSection ?? {};
-  const classes = addChildren.includes('Content block simple') ? 'bx--col-lg-16 bx--no-gutter' : '';
+  const classes = addChildren.includes('Content block simple')
+    ? 'bx--col-lg-16 bx--no-gutter'
+    : '';
   return html`
     <dds-content-section children-custom-class="${classes}">
-      <dds-content-section-heading>${ifNonNull(heading)}</dds-content-section-heading>
+      <dds-content-section-heading
+        >${ifNonNull(heading)}</dds-content-section-heading
+      >
       <dds-content-section-copy>${ifNonNull(copy)}</dds-content-section-copy>
       ${addChildren.includes('Content block simple')
         ? html`
@@ -118,10 +127,12 @@ export const Default = (args) => {
         ? html`
             <dds-link-list>
               <dds-link-list-item href="https://example.com">
-                Learn more about Kubernetes and automating deployment ${ArrowRight20({ slot: 'icon' })}
+                Learn more about Kubernetes and automating deployment
+                ${ArrowRight20({ slot: 'icon' })}
               </dds-link-list-item>
               <dds-link-list-item href="https://example.com">
-                Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+                Containerization A Complete Guide
+                ${ArrowRight20({ slot: 'icon' })}
               </dds-link-list-item>
               <dds-link-list-item href="https://example.com">
                 Microservices and containers ${ArrowRight20({ slot: 'icon' })}
@@ -130,7 +141,8 @@ export const Default = (args) => {
                 Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
               </dds-link-list-item>
               <dds-link-list-item href="https://example.com">
-                Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+                Containerization A Complete Guide
+                ${ArrowRight20({ slot: 'icon' })}
               </dds-link-list-item>
               <dds-link-list-item href="https://example.com">
                 Microservices and containers ${ArrowRight20({ slot: 'icon' })}
@@ -141,7 +153,9 @@ export const Default = (args) => {
       ${addChildren.includes('Carousel')
         ? html`
             <dds-carousel>
-              ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({ copy: copyOdd })}${Card()}
+              ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({
+                copy: copyOdd,
+              })}${Card()}
             </dds-carousel>
           `
         : ''}
@@ -158,7 +172,7 @@ export const Default = (args) => {
 export default {
   title: 'Components/Content section',
   decorators: [
-    (story) => html`
+    story => html`
       <div class="bx--grid">
         <div class="bx--row">
           <div class="bx--col-lg-16 bx--no-gutter">
@@ -199,7 +213,8 @@ export default {
       default: {
         ContentSection: {
           heading: 'Speech recognition (statistical Artificial Intelligence)',
-          copy: "AI features for understanding speech can be trained for a specific speaker's voice.",
+          copy:
+            "AI features for understanding speech can be trained for a specific speaker's voice.",
           addChildren: '',
         },
       },
