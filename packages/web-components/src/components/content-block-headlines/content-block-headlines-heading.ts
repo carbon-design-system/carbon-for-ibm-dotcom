@@ -21,7 +21,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-content-block-headlines-heading
  */
 @customElement(`${ddsPrefix}-content-block-headlines-heading`)
-class DDSContentBlockHeadlinesHeading extends StableSelectorMixin(DDSContentItemHeading) {
+class DDSContentBlockHeadlinesHeading extends StableSelectorMixin(
+  DDSContentItemHeading
+) {
   /**
    * The shadow slot this logo UI should be in.
    */
@@ -29,9 +31,7 @@ class DDSContentBlockHeadlinesHeading extends StableSelectorMixin(DDSContentItem
   slot = 'heading';
 
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   static get stableSelector() {

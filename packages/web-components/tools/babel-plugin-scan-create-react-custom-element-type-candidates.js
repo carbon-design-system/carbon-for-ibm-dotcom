@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,14 @@
 
 'use strict';
 
-const { dirname, isAbsolute, normalize, relative, resolve, sep } = require('path');
+const {
+  dirname,
+  isAbsolute,
+  normalize,
+  relative,
+  resolve,
+  sep,
+} = require('path');
 
 function isExternal(source) {
   if (source[0] === '.') {
@@ -34,9 +41,13 @@ function createMetadataVisitor() {
     }
   };
 
-  const getParentClassImportSource = path => {
+  const getParentClassImportSource = (path) => {
     const { parentPath } = path;
-    if (path.isImportDefaultSpecifier() && parentPath.isImportDeclaration && parentPath.get('source').isStringLiteral()) {
+    if (
+      path.isImportDefaultSpecifier() &&
+      parentPath.isImportDeclaration &&
+      parentPath.get('source').isStringLiteral()
+    ) {
       return parentPath.get('source').node.value;
     }
     return undefined;
@@ -58,7 +69,7 @@ function createMetadataVisitor() {
    *   The given Babel path itself if it's an identifier.
    *   The first argument if the given Babel path is a function, assuming it as a mixin call.
    */
-  const getTarget = path => {
+  const getTarget = (path) => {
     if (path.isIdentifier()) {
       return path;
     }
@@ -77,7 +88,9 @@ function createMetadataVisitor() {
       const { file } = context;
       const superClass = getTarget(path.get('superClass'));
       if (superClass) {
-        const parentClassImportSource = getParentClassImportSource(superClass.scope.getBinding(superClass.node.name).path);
+        const parentClassImportSource = getParentClassImportSource(
+          superClass.scope.getBinding(superClass.node.name).path
+        );
         if (parentClassImportSource) {
           const relativeTarget = relative(
             resolve(__dirname, '../src/components'),
@@ -96,8 +109,14 @@ function createMetadataVisitor() {
       if (source) {
         const { value: sourceValue } = source;
         if (!isExternal(sourceValue)) {
-          const resolved = resolveModule(dirname(file.opts.filename), sourceValue);
-          const relativeTarget = relative(resolve(__dirname, '../src'), resolved);
+          const resolved = resolveModule(
+            dirname(file.opts.filename),
+            sourceValue
+          );
+          const relativeTarget = relative(
+            resolve(__dirname, '../src'),
+            resolved
+          );
           if (!isAbsolute(relativeTarget) && !relativeTarget.startsWith('..')) {
             context.dependencies.add(resolved);
           }
@@ -111,8 +130,14 @@ function createMetadataVisitor() {
       if (source) {
         const { value: sourceValue } = source;
         if (!isExternal(sourceValue)) {
-          const resolved = resolveModule(dirname(file.opts.filename), sourceValue);
-          const relativeTarget = relative(resolve(__dirname, '../src'), resolved);
+          const resolved = resolveModule(
+            dirname(file.opts.filename),
+            sourceValue
+          );
+          const relativeTarget = relative(
+            resolve(__dirname, '../src'),
+            resolved
+          );
           if (!isAbsolute(relativeTarget) && !relativeTarget.startsWith('..')) {
             context.dependencies.add(resolved);
           }
@@ -121,8 +146,13 @@ function createMetadataVisitor() {
         const leadingComments = path.get('leadingComments');
         context.isCandidate =
           leadingComments &&
-          (Array.isArray(leadingComments) ? leadingComments : [leadingComments]).find(item =>
-            /^\s*[@#]__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__\s*$/.test(item.node && item.node.value)
+          (Array.isArray(leadingComments)
+            ? leadingComments
+            : [leadingComments]
+          ).find((item) =>
+            /^\s*[@#]__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__\s*$/.test(
+              item.node && item.node.value
+            )
           );
       }
     },
@@ -133,8 +163,14 @@ function createMetadataVisitor() {
       if (source) {
         const { value: sourceValue } = source;
         if (!isExternal(sourceValue)) {
-          const resolved = resolveModule(dirname(file.opts.filename), sourceValue);
-          const relativeTarget = relative(resolve(__dirname, '../src'), resolved);
+          const resolved = resolveModule(
+            dirname(file.opts.filename),
+            sourceValue
+          );
+          const relativeTarget = relative(
+            resolve(__dirname, '../src'),
+            resolved
+          );
           if (!isAbsolute(relativeTarget) && !relativeTarget.startsWith('..')) {
             context.dependencies.add(resolved);
           }
@@ -146,7 +182,10 @@ function createMetadataVisitor() {
   return metadataVisitor;
 }
 
-module.exports = function generateCreateReactCustomElementType(api, { candidates = new Set(), dependencies = new Set() } = {}) {
+module.exports = function generateCreateReactCustomElementType(
+  api,
+  { candidates = new Set(), dependencies = new Set() } = {}
+) {
   const metadataVisitor = createMetadataVisitor();
 
   /**
@@ -164,8 +203,16 @@ module.exports = function generateCreateReactCustomElementType(api, { candidates
 
         if (context.isCandidate) {
           candidates.add(file.opts.filename);
-          if (context.parentDescriptorSource && !isExternal(context.parentDescriptorSource)) {
-            candidates.add(resolve(dirname(file.opts.filename), context.parentDescriptorSource));
+          if (
+            context.parentDescriptorSource &&
+            !isExternal(context.parentDescriptorSource)
+          ) {
+            candidates.add(
+              resolve(
+                dirname(file.opts.filename),
+                context.parentDescriptorSource
+              )
+            );
           }
           // eslint-disable-next-line no-restricted-syntax
           for (const dependency of harvestedDependencies) {

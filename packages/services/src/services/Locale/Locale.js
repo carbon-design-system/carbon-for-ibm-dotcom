@@ -158,7 +158,7 @@ class LocaleAPI {
    */
   static clearCache() {
     if (typeof sessionStorage !== 'undefined') {
-      Object.keys(_requestsList).forEach(key => delete _requestsList[key]);
+      Object.keys(_requestsList).forEach((key) => delete _requestsList[key]);
       for (let i = 0; i < sessionStorage.length; ++i) {
         const key = sessionStorage.key(i);
         if (key.indexOf(_sessionListKey) === 0) {
@@ -232,7 +232,7 @@ class LocaleAPI {
    * }
    */
   static getLang() {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       const getLocaleFromDDO = _getLocaleFromDDO();
 
       if (getLocaleFromDDO) {
@@ -255,18 +255,18 @@ class LocaleAPI {
     const list = await this.getList(lang);
     // combines the countryList arrays
     let countries = [];
-    list.regionList.forEach(region => {
+    list.regionList.forEach((region) => {
       countries = countries.concat(region.countryList);
     });
 
     // get match for countries with multiple languages
-    const location = countries.filter(country => {
+    const location = countries.filter((country) => {
       let htmlLang = country.locale.findIndex(
-        loc => loc[0] === `${lang.lc}-${lang.cc}`
+        (loc) => loc[0] === `${lang.lc}-${lang.cc}`
       );
 
       if (htmlLang !== -1) {
-        let localeMatch = country.locale.filter(l =>
+        let localeMatch = country.locale.filter((l) =>
           l.includes(`${lang.lc}-${lang.cc}`)
         );
         country.locale.splice(0, country.locale.length, ...localeMatch);
@@ -327,7 +327,7 @@ class LocaleAPI {
           cc !== 'undefined' ? `${cc}${lc}` : `${lc}`
         }-utf8.json`;
 
-        _requestsList[key] = axios.get(url, _axiosConfig).then(response => {
+        _requestsList[key] = axios.get(url, _axiosConfig).then((response) => {
           const { data } = response;
           data['timestamp'] = Date.now();
           sessionStorage.setItem(
@@ -338,7 +338,7 @@ class LocaleAPI {
         });
       }
 
-      _requestsList[key].then(resolve, error => {
+      _requestsList[key].then(resolve, (error) => {
         if (cc === _localeDefault.cc && lc === _localeDefault.lc) {
           reject(error);
         } else {
@@ -371,8 +371,8 @@ class LocaleAPI {
 
     const language =
       list &&
-      list.regionList.forEach(region =>
-        region.countryList.forEach(country => {
+      list.regionList.forEach((region) =>
+        region.countryList.forEach((country) => {
           const code = country.locale[0][0].split('-');
           const countryCode = code[1];
           const languageCode = code[0];

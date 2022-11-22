@@ -37,7 +37,7 @@ const SideNavMenuWithBackForward = ({
     if (sideNav) {
       Array.prototype.forEach.call(
         sideNav.querySelectorAll('.bx--side-nav__menu'),
-        elem => {
+        (elem) => {
           const hasExpandedSubmenu = elem.querySelector(
             '.bx--side-nav__submenu[aria-expanded="true"]'
           );
@@ -64,24 +64,28 @@ const SideNavMenuWithBackForward = ({
       }
       onToggle={handleToggle}
       ref={refSideNavMenu}
-      dataTitle={rest.dataTitle}>
+      dataTitle={rest.dataTitle}
+    >
       <SideNavMenuItem
-        onClick={event => event.preventDefault()}
+        onClick={(event) => event.preventDefault()}
         className={`${prefix}--masthead__side-nav--submemu-back`}
         data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-back`}
         isbackbutton="true"
         role="button"
-        tabIndex="0">
+        tabIndex="0"
+      >
         <ChevronLeft20 />
         {backButtonText}
       </SideNavMenuItem>
       {titleUrl ? (
         <SideNavLink
           className={`${prefix}--masthead__side-nav--submemu-section-title`}
-          href={titleUrl}>
+          href={titleUrl}
+        >
           {title}
           <div
-            className={`${prefix}--masthead__side-nav--submemu-section-title__icon`}>
+            className={`${prefix}--masthead__side-nav--submemu-section-title__icon`}
+          >
             <ArrowRight20 />
           </div>
         </SideNavLink>

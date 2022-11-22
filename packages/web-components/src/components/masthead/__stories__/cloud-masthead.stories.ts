@@ -17,7 +17,10 @@ import '../masthead-container';
 import '../cloud/cloud-masthead-container';
 import styles from './masthead.stories.scss';
 import { mastheadLinks as links } from './links';
-import { authenticatedProfileItems, unauthenticatedProfileItems } from './profile-items';
+import {
+  authenticatedProfileItems,
+  unauthenticatedProfileItems,
+} from './profile-items';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
@@ -44,7 +47,7 @@ const urlObject = {
   },
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const {
     hasContact,
     hasProfile,
@@ -76,7 +79,9 @@ export const Default = args => {
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .navLinks="${navLinks}"
-            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
           ></dds-cloud-masthead-composite>
         `
       : html`
@@ -101,7 +106,7 @@ export const Default = args => {
 export default {
   title: 'Components/Cloud masthead',
   decorators: [
-    story => {
+    (story) => {
       if (!(window as any)._hPageShow) {
         (window as any)._hPageShow = on(window, 'pageshow', () => {
           const leftNav = document.querySelector('dds-left-nav');
@@ -122,16 +127,32 @@ export default {
     knobs: {
       escapeHTML: false,
       CloudMastheadComposite: () => ({
-        userStatus: select('The user authenticated status (user-status)', ['authenticated', 'anonymous'], 'anonymous'),
-        hasContact: select('Contact us button visibility (has-contact)', ['true', 'false'], 'true'),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Docs'),
+        userStatus: select(
+          'The user authenticated status (user-status)',
+          ['authenticated', 'anonymous'],
+          'anonymous'
+        ),
+        hasContact: select(
+          'Contact us button visibility (has-contact)',
+          ['true', 'false'],
+          'true'
+        ),
+        selectedMenuItem: textNullable(
+          'selected menu item (selected-menu-item)',
+          'Docs'
+        ),
         redirectPath: textNullable('redirect path (redirect-path)', ''),
-        authMethod: select('auth method (auth-method)', ['cookie', 'api'], 'cookie'),
+        authMethod: select(
+          'auth method (auth-method)',
+          ['cookie', 'api'],
+          'cookie'
+        ),
       }),
     },
     props: (() => {
       // Lets `<dds-cloud-masthead-container>` load the nav links
-      const useMock = inPercy() || new URLSearchParams(window.location.search).has('mock');
+      const useMock =
+        inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
         CloudMastheadComposite: {
           navLinks: !useMock ? undefined : links,

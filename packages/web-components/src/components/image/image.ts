@@ -35,7 +35,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot icon - The icon content.
  */
 @customElement(`${ddsPrefix}-image`)
-class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElement))) {
+class DDSImage extends StableSelectorMixin(
+  ModalRenderMixin(FocusMixin(LitElement))
+) {
   /**
    * The image data, harvested from `<dds-image-item>`.
    */
@@ -58,7 +60,11 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
         }
         return acc;
       }, [] as Node[])
-      .filter(node => node.nodeType === Node.ELEMENT_NODE && (node as Element).matches(selectorItem)) as HTMLElement[];
+      .filter(
+        (node) =>
+          node.nodeType === Node.ELEMENT_NODE &&
+          (node as Element).matches(selectorItem)
+      ) as HTMLElement[];
   }
 
   /**
@@ -130,7 +136,9 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
   createRenderRoot() {
     return this.attachShadow({
       mode: 'open',
-      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
+      delegatesFocus:
+        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
+        537,
     });
   }
 
@@ -153,7 +161,13 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
   }
 
   renderImage() {
-    const { alt, border, defaultSrc, _images: images, _handleSlotChange: handleSlotChange } = this;
+    const {
+      alt,
+      border,
+      defaultSrc,
+      _images: images,
+      _handleSlotChange: handleSlotChange,
+    } = this;
     const imgClasses = classMap({
       [`${prefix}--image__img`]: true,
       [`${prefix}--image__img--border`]: border,
@@ -163,7 +177,10 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
       <slot @slotchange="${handleSlotChange}"></slot>
       <picture>
         ${images.map(
-          image => html`<source media="${image.getAttribute('media')}" srcset="${image.getAttribute('srcset')}"></source>`
+          (image) =>
+            html`<source media="${image.getAttribute(
+              'media'
+            )}" srcset="${image.getAttribute('srcset')}"></source>`
         )}
         <img
           class="${imgClasses}"
@@ -199,7 +216,12 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
   }
 
   render() {
-    const { heading, launchLightboxButtonAssistiveText, lightbox, _handleClick: handleClick } = this;
+    const {
+      heading,
+      launchLightboxButtonAssistiveText,
+      lightbox,
+      _handleClick: handleClick,
+    } = this;
     return html`
       ${lightbox
         ? html`
@@ -214,9 +236,7 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
               </div>
             </button>
           `
-        : html`
-            ${this.renderImage()}
-          `}
+        : html` ${this.renderImage()} `}
       ${heading
         ? html`
             <p id="image-caption" class="${prefix}--image__caption">

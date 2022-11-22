@@ -23,41 +23,48 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const tagGroupContent = html`
   <dds-tag-group>
-    <bx-tag>
-      Most popular
-    </bx-tag>
-    <bx-tag type="purple">
-      Enterprise
-    </bx-tag>
+    <bx-tag> Most popular </bx-tag>
+    <bx-tag type="purple"> Enterprise </bx-tag>
   </dds-tag-group>
 `;
 
-export const Default = args => {
-  const { image, href, alt, defaultSrc, heading, eyebrow, tagGroup, copy, footer, cardStyles } = args?.Card ?? {};
+export const Default = (args) => {
+  const {
+    image,
+    href,
+    alt,
+    defaultSrc,
+    heading,
+    eyebrow,
+    tagGroup,
+    copy,
+    footer,
+    cardStyles,
+  } = args?.Card ?? {};
   /* eslint-disable no-nested-ternary */
   return html`
     <dds-card
-      color-scheme=${cardStyles === 'Inverse card' ? 'inverse' : cardStyles === 'Outlined card' ? 'light' : ''}
+      color-scheme=${cardStyles === 'Inverse card'
+        ? 'inverse'
+        : cardStyles === 'Outlined card'
+        ? 'light'
+        : ''}
       ?border=${cardStyles === 'Outlined card'}
       href=${ifNonNull(href || undefined)}
     >
       ${image
         ? html`
-            <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
+            <dds-image
+              slot="image"
+              alt="${ifNonNull(alt)}"
+              default-src="${ifNonNull(defaultSrc)}"
+            ></dds-image>
           `
         : ``}
       <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
       <dds-card-heading>${heading}</dds-card-heading>
-      ${copy
-        ? html`
-            <p>${copy}</p>
-          `
-        : ``}
-      ${tagGroup
-        ? html`
-            ${tagGroupContent}
-          `
-        : ``}
+      ${copy ? html` <p>${copy}</p> ` : ``}
+      ${tagGroup ? html` ${tagGroupContent} ` : ``}
       <dds-card-footer>
         ${footer}${ArrowRight20({ slot: 'icon' })}
       </dds-card-footer>
@@ -84,7 +91,12 @@ Default.story = {
         tagGroup: boolean('Add tags:', false, 'Default'),
         href: 'https://example.com',
         footer: textNullable('CTA:', 'Learn more', 'Default'),
-        cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none', 'Default'),
+        cardStyles: select(
+          'Card style:',
+          ['Outlined card', 'Inverse card', 'none'],
+          'none',
+          'Default'
+        ),
       }),
     },
     propsSet: {
@@ -106,26 +118,23 @@ Default.story = {
   },
 };
 
-export const Pictogram = args => {
-  const { href, heading, copy, tagGroup, pictogramPlacement, cardStyles } = args?.PictogramCard ?? {};
+export const Pictogram = (args) => {
+  const { href, heading, copy, tagGroup, pictogramPlacement, cardStyles } =
+    args?.PictogramCard ?? {};
   return html`
     <dds-card
       pictogram-placement="${pictogramPlacement}"
       href=${ifNonNull(href || undefined)}
-      color-scheme=${cardStyles === 'Inverse card' ? 'inverse' : cardStyles === 'Outlined card' ? 'light' : ''}
+      color-scheme=${cardStyles === 'Inverse card'
+        ? 'inverse'
+        : cardStyles === 'Outlined card'
+        ? 'light'
+        : ''}
       ?border=${cardStyles === 'Outlined card'}
     >
       <dds-card-heading>${heading}</dds-card-heading>
-      ${copy
-        ? html`
-            <p>${copy}</p>
-          `
-        : ``}
-      ${tagGroup
-        ? html`
-            ${tagGroupContent}
-          `
-        : ``}
+      ${copy ? html` <p>${copy}</p> ` : ``}
+      ${tagGroup ? html` ${tagGroupContent} ` : ``}
       <svg
         slot="pictogram"
         focusable="false"
@@ -156,7 +165,12 @@ Pictogram.story = {
     ...readme.parameters,
     knobs: {
       PictogramCard: () => {
-        const pictogramPlacement = select('Pictogram position:', pictogramPlacements, pictogramPlacements.top, 'pictogram');
+        const pictogramPlacement = select(
+          'Pictogram position:',
+          pictogramPlacements,
+          pictogramPlacements.top,
+          'pictogram'
+        );
         const copy = textNullable(
           'Body copy:',
           `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -165,10 +179,19 @@ Pictogram.story = {
         );
         return {
           pictogramPlacement,
-          heading: textNullable('Heading:', 'Aerospace and defence', 'pictogram'),
+          heading: textNullable(
+            'Heading:',
+            'Aerospace and defence',
+            'pictogram'
+          ),
           copy,
           href: 'https://example.com',
-          cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none', 'pictogram'),
+          cardStyles: select(
+            'Card style:',
+            ['Outlined card', 'Inverse card', 'none'],
+            'none',
+            'pictogram'
+          ),
         };
       },
     },
@@ -187,31 +210,37 @@ Pictogram.story = {
   },
 };
 
-export const Static = args => {
-  const { image, alt, defaultSrc, outlinedCard, eyebrow, heading, copy, tagGroup, cta, ctaCopy } = args?.Card ?? {};
+export const Static = (args) => {
+  const {
+    image,
+    alt,
+    defaultSrc,
+    outlinedCard,
+    eyebrow,
+    heading,
+    copy,
+    tagGroup,
+    cta,
+    ctaCopy,
+  } = args?.Card ?? {};
   return html`
-    <dds-card color-scheme=${outlinedCard ? 'light' : ''} ?border=${outlinedCard}>
+    <dds-card
+      color-scheme=${outlinedCard ? 'light' : ''}
+      ?border=${outlinedCard}
+    >
       ${image
         ? html`
-            <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
+            <dds-image
+              slot="image"
+              alt="${ifNonNull(alt)}"
+              default-src="${ifNonNull(defaultSrc)}"
+            ></dds-image>
           `
         : ``}
-      ${eyebrow
-        ? html`
-            <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
-          `
-        : ``}
+      ${eyebrow ? html` <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow> ` : ``}
       <dds-card-heading>${heading}</dds-card-heading>
-      ${copy
-        ? html`
-            <p>${copy}</p>
-          `
-        : ``}
-      ${tagGroup
-        ? html`
-            ${tagGroupContent}
-          `
-        : ``}
+      ${copy ? html` <p>${copy}</p> ` : ``}
+      ${tagGroup ? html` ${tagGroupContent} ` : ``}
       ${cta
         ? html`
             <dds-card-footer href="https://www.example.com">
@@ -239,7 +268,9 @@ Static.story = {
         );
         const tagGroup = boolean('Add tags:', false, 'static');
         const cta = boolean('Add CTA:', false, 'static');
-        const ctaCopy = cta ? textNullable('CTA copy:', 'Sign up for the trial', 'static') : '';
+        const ctaCopy = cta
+          ? textNullable('CTA copy:', 'Sign up for the trial', 'static')
+          : '';
         const outlinedCard = boolean('Outlined card:', true, 'static');
         return {
           alt: 'Image alt text',
@@ -274,31 +305,20 @@ Static.story = {
   },
 };
 
-export const Logo = args => {
-  const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } = args?.Card ?? {};
+export const Logo = (args) => {
+  const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } =
+    args?.Card ?? {};
   return html`
     <dds-card border logo href=${ifNonNull(href || undefined)}>
-      <dds-image-logo slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image-logo>
-      ${eyebrow
-        ? html`
-            <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
-          `
-        : ``}
-      ${heading
-        ? html`
-            <dds-card-heading>${heading}</dds-card-heading>
-          `
-        : ``}
-      ${copy
-        ? html`
-            <p>${copy}</p>
-          `
-        : ``}
-      ${tagGroup
-        ? html`
-            ${tagGroupContent}
-          `
-        : ``}
+      <dds-image-logo
+        slot="image"
+        alt="${ifNonNull(alt)}"
+        default-src="${ifNonNull(defaultSrc)}"
+      ></dds-image-logo>
+      ${eyebrow ? html` <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow> ` : ``}
+      ${heading ? html` <dds-card-heading>${heading}</dds-card-heading> ` : ``}
+      ${copy ? html` <p>${copy}</p> ` : ``}
+      ${tagGroup ? html` ${tagGroupContent} ` : ``}
 
       <dds-card-footer></dds-card-footer>
     </dds-card>
@@ -343,10 +363,12 @@ Logo.story = {
 export default {
   title: 'Components/Card',
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
+          <div
+            class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter"
+          >
             ${story()}
           </div>
         </div>

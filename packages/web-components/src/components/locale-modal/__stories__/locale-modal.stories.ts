@@ -15,7 +15,7 @@ import localeData from './locale-data.json';
 import styles from './locale-modal.stories.scss';
 import readme from './README.stories.mdx';
 
-export const Default = args => {
+export const Default = (args) => {
   const { langDisplay, localeList } = args?.LocaleModalComposite;
   const { useMock } = args?.Other ?? {};
   return html`
@@ -24,11 +24,19 @@ export const Default = args => {
     </style>
     ${useMock
       ? html`
-          <dds-locale-modal-composite lang-display="${ifNonNull(langDisplay)}" open .localeList="${ifNonNull(localeList)}">
+          <dds-locale-modal-composite
+            lang-display="${ifNonNull(langDisplay)}"
+            open
+            .localeList="${ifNonNull(localeList)}"
+          >
           </dds-locale-modal-composite>
         `
       : html`
-          <dds-locale-modal-container lang-display="${ifNonNull(langDisplay)}" open .localeList="${ifNonNull(localeList)}">
+          <dds-locale-modal-container
+            lang-display="${ifNonNull(langDisplay)}"
+            open
+            .localeList="${ifNonNull(localeList)}"
+          >
           </dds-locale-modal-container>
         `}
   `;
@@ -40,11 +48,15 @@ export default {
     ...readme.parameters,
     ...(() => {
       // Lets `<dds-footer-container>` load the locale list
-      const useMock = inPercy() || new URLSearchParams(window.location.search).has('mock');
+      const useMock =
+        inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
         knobs: {
           LocaleModalComposite: () => ({
-            langDisplay: textNullable('Display language (lang-display)', !useMock ? '' : 'United States — English'),
+            langDisplay: textNullable(
+              'Display language (lang-display)',
+              !useMock ? '' : 'United States — English'
+            ),
           }),
         },
         props: {

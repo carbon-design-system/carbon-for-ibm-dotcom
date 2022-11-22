@@ -33,10 +33,12 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
     document
       .querySelector(`.${prefix}--header__menu-bar`)
       ?.setAttribute('role', 'menu');
-    document.querySelectorAll(`.${prefix}--header__menu-bar li`).forEach(e => {
-      e.setAttribute('role', 'menuitem');
-      e.querySelector('a').removeAttribute('role');
-    });
+    document
+      .querySelectorAll(`.${prefix}--header__menu-bar li`)
+      .forEach((e) => {
+        e.setAttribute('role', 'menuitem');
+        e.querySelector('a').removeAttribute('role');
+      });
   }, []);
 
   /**
@@ -71,7 +73,8 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
           key={i}
           disableScroll={link.hasMegapanel}
           setOverlay={setOverlay}
-          dataTitle={dataTitle}>
+          dataTitle={dataTitle}
+        >
           {renderNav(link, autoid)}
         </HeaderMenu>
       );
@@ -82,7 +85,8 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
         data-selected={`${!!selected}`}
         href={link.url}
         data-autoid={autoid}
-        key={i}>
+        key={i}
+      >
         {link.title}
       </HeaderMenuItem>
     );
@@ -95,7 +99,8 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
           <HeaderName
             prefix=""
             href={topNavProps.platform.url}
-            data-autoid={`${stablePrefix}--masthead-${topNavProps.navType}__l0-ecosystemname`}>
+            data-autoid={`${stablePrefix}--masthead-${topNavProps.navType}__l0-ecosystemname`}
+          >
             {topNavProps.platform.name}
           </HeaderName>
         </div>
@@ -103,14 +108,16 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
       <HeaderNavContainer>
         <HeaderNavigation
           aria-label="IBM"
-          data-autoid={`${stablePrefix}--masthead__l0-nav`}>
+          data-autoid={`${stablePrefix}--masthead__l0-nav`}
+        >
           {mastheadLinks}
         </HeaderNavigation>
       </HeaderNavContainer>
       <div
         className={classnames(`${prefix}--masthead__overlay`, {
           [`${prefix}--masthead__overlay-show`]: overlay,
-        })}></div>
+        })}
+      ></div>
     </>
   );
 };
@@ -133,7 +140,8 @@ function renderNav(link, autoid) {
           <HeaderMenuItem
             href={item.url}
             data-autoid={`${autoid}--subnav-col${i}-item${j}`}
-            key={item.title}>
+            key={item.title}
+          >
             {item.title}
           </HeaderMenuItem>
         );

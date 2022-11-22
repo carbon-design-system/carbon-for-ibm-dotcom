@@ -24,10 +24,12 @@ const DotcomShell = ({ children, footerProps, mastheadProps }) => {
       <Masthead {...mastheadProps} />
       <div
         data-autoid={`${stablePrefix}--dotcom-shell`}
-        className={`${prefix}--dotcom-shell`}>
+        className={`${prefix}--dotcom-shell`}
+      >
         <div
           data-autoid={`${stablePrefix}--dotcom-shell__content`}
-          className={`${prefix}--dotcom-shell__content`}>
+          className={`${prefix}--dotcom-shell__content`}
+        >
           {children}
         </div>
       </div>

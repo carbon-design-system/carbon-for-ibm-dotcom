@@ -22,7 +22,8 @@ const { prefix } = settings;
 const ContentGroupPictograms = ({ heading, items, className, copy }) => (
   <div
     data-autoid={`${stablePrefix}--content-group-pictograms`}
-    className={classNames(className, `${prefix}--content-group-pictograms`)}>
+    className={classNames(className, `${prefix}--content-group-pictograms`)}
+  >
     <ContentGroup heading={heading} copy={copy}>
       {_renderItems(items)}
     </ContentGroup>
@@ -35,7 +36,7 @@ const ContentGroupPictograms = ({ heading, items, className, copy }) => (
  * @param {Array} items Array of items for PictogramItem
  * @returns {*} PictogramItem JSX components
  */
-const _renderItems = items =>
+const _renderItems = (items) =>
   items.map((item, index) => (
     <PictogramItem
       className={`${prefix}--content-group-pictograms__item`}

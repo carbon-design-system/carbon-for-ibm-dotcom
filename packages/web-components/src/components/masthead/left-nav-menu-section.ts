@@ -159,7 +159,8 @@ class DDSLeftNavMenuSection extends CspComplianceMixin(HostListenerMixin(FocusMi
 
   updated(changedProperties) {
     if (changedProperties.has('expanded')) {
-      const { selectorNavMenu, selectorNavItem } = this.constructor as typeof DDSLeftNavMenuSection;
+      const { selectorNavMenu, selectorNavItem } = this
+        .constructor as typeof DDSLeftNavMenuSection;
       const { expanded, isSubmenu } = this;
 
       if (expanded) {
@@ -169,13 +170,15 @@ class DDSLeftNavMenuSection extends CspComplianceMixin(HostListenerMixin(FocusMi
             backBtn.tabIndex = 0;
           }
         }
-        forEach(this.querySelectorAll(selectorNavMenu), elem => {
-          const item = (elem as HTMLElement).shadowRoot?.querySelector('button');
+        forEach(this.querySelectorAll(selectorNavMenu), (elem) => {
+          const item = (elem as HTMLElement).shadowRoot?.querySelector(
+            'button'
+          );
           if (item) {
             item.tabIndex = 0;
           }
         });
-        forEach(this.querySelectorAll(selectorNavItem), elem => {
+        forEach(this.querySelectorAll(selectorNavItem), (elem) => {
           const item = (elem as HTMLElement).shadowRoot?.querySelector('a');
           if (item) {
             item.tabIndex = 0;
@@ -189,7 +192,9 @@ class DDSLeftNavMenuSection extends CspComplianceMixin(HostListenerMixin(FocusMi
           tabbable = this.shadowRoot?.querySelector('button');
         } else {
           // set focus to first menu item of section
-          tabbable = (this.getRootNode() as ShadowRoot).querySelector(DDSLeftNav.selectorNavItems);
+          tabbable = (this.getRootNode() as ShadowRoot).querySelector(
+            DDSLeftNav.selectorNavItems
+          );
         }
 
         if (tabbable) {
@@ -202,13 +207,15 @@ class DDSLeftNavMenuSection extends CspComplianceMixin(HostListenerMixin(FocusMi
           );
         }
       } else {
-        forEach(this.querySelectorAll(selectorNavMenu), elem => {
-          const item = (elem as HTMLElement).shadowRoot?.querySelector('button');
+        forEach(this.querySelectorAll(selectorNavMenu), (elem) => {
+          const item = (elem as HTMLElement).shadowRoot?.querySelector(
+            'button'
+          );
           if (item) {
             item.tabIndex = -1;
           }
         });
-        forEach(this.querySelectorAll(selectorNavItem), elem => {
+        forEach(this.querySelectorAll(selectorNavItem), (elem) => {
           const item = (elem as HTMLElement).shadowRoot?.querySelector('a');
           if (item) {
             item.tabIndex = -1;
@@ -225,29 +232,51 @@ class DDSLeftNavMenuSection extends CspComplianceMixin(HostListenerMixin(FocusMi
   }
 
   render() {
-    const { backButtonText, title, titleUrl, _handleClickBack: handleClickBack, showBackBtn } = this;
+    const {
+      backButtonText,
+      title,
+      titleUrl,
+      _handleClickBack: handleClickBack,
+      showBackBtn,
+    } = this;
     return html`
       ${this._renderDynamicStyles()}
       <ul>
         ${showBackBtn
           ? html`
-              <li class="${prefix}--side-nav__menu-item ${prefix}--masthead__side-nav--submemu-back" role="none">
-                <button class="${prefix}--side-nav__link" tabindex="-1" @click="${handleClickBack}">
-                  <span class="${prefix}--side-nav__link-text">${ChevronLeft20()}${backButtonText}</span>
+              <li
+                class="${prefix}--side-nav__menu-item ${prefix}--masthead__side-nav--submemu-back"
+                role="none"
+              >
+                <button
+                  class="${prefix}--side-nav__link"
+                  tabindex="-1"
+                  @click="${handleClickBack}"
+                >
+                  <span class="${prefix}--side-nav__link-text"
+                    >${ChevronLeft20()}${backButtonText}</span
+                  >
                 </button>
               </li>
             `
           : undefined}
         ${title && !titleUrl
           ? html`
-              <li class="${prefix}--masthead__side-nav--submemu-title">${title}</li>
+              <li class="${prefix}--masthead__side-nav--submemu-title">
+                ${title}
+              </li>
             `
           : undefined}
         ${title && titleUrl
           ? html`
-              <a class="${prefix}--masthead__side-nav--submemu-title" href=${titleUrl}>
+              <a
+                class="${prefix}--masthead__side-nav--submemu-title"
+                href=${titleUrl}
+              >
                 <span>${title}</span>
-                <div class="${prefix}--masthead__side-nav--submemu-section-title__icon">
+                <div
+                  class="${prefix}--masthead__side-nav--submemu-section-title__icon"
+                >
                   ${ArrowRight20()}
                 </div>
               </a>
@@ -283,9 +312,12 @@ class DDSLeftNavMenuSection extends CspComplianceMixin(HostListenerMixin(FocusMi
    * A selector selecting tabbable nodes.
    */
   static get selectorTabbable() {
-    return [selectorTabbable, `${ddsPrefix}-left-nav-item`, `${ddsPrefix}-left-nav-menu`, `${ddsPrefix}-left-nav-menu-item`].join(
-      ','
-    );
+    return [
+      selectorTabbable,
+      `${ddsPrefix}-left-nav-item`,
+      `${ddsPrefix}-left-nav-menu`,
+      `${ddsPrefix}-left-nav-menu-item`,
+    ].join(',');
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
