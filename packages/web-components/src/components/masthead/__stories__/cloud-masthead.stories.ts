@@ -10,7 +10,7 @@
 import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';

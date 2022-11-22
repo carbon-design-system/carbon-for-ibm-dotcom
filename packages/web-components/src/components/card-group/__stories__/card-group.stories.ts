@@ -14,7 +14,7 @@ import '../index';
 import '../../cta/video-cta-container';
 import { html } from 'lit-element';
 import { select, number, boolean } from '@storybook/addon-knobs';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
 // eslint-disable-next-line sort-imports
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';

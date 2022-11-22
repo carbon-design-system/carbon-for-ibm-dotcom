@@ -7,18 +7,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
 import { classMap } from 'lit-html/directives/class-map.js';
 import { html, property, query, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import Close20 from 'carbon-web-components/es/icons/close/20.js';
-import Search20 from 'carbon-web-components/es/icons/search/20.js';
+import Close20 from '@carbon/carbon-web-components/es/icons/close/20.js';
+import Search20 from '@carbon/carbon-web-components/es/icons/search/20.js';
 import BXDropdown, {
   DROPDOWN_KEYBOARD_ACTION,
-} from 'carbon-web-components/es/components/dropdown/dropdown.js';
-import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+} from '@carbon/carbon-web-components/es/components/dropdown/dropdown.js';
+import BXDropdownItem from '@carbon/carbon-web-components/es/components/dropdown/dropdown-item.js';
+import HostListener from '@carbon/carbon-web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/carbon-web-components/es/globals/mixins/host-listener.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import SearchTypeaheadAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/SearchTypeahead/SearchTypeahead';
