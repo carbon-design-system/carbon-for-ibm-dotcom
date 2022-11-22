@@ -1,35 +1,5 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
-# [1.26.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.25.0...@carbon/ibmdotcom-web-components@1.26.0-rc.0) (2022-11-22)
-
-
-### Bug Fixes
-
-* **deps:** update dependency carbon-components ([#9642](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9642)) ([66caa62](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/66caa62bda65e4a704ad352cb090156828b23d09))
-* **filter-panel:** do not rewrite panel header on filter select ([#9601](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9601)) ([05dd445](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/05dd445498a313ce5bacfae6f682701b31c1c8f6)), closes [#9600](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9600)
-* **leaving-ibm:** fix import ([4878b84](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4878b842fb0fede007b01693fa5a6a050403eced))
-* **masthead:** avoid inline styles for CSP compliance ([#9605](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9605)) ([faaa0bd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/faaa0bde28fd178e68e23033db41b80b552c5294)), closes [#9599](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9599)
-* **packages:** update versions to get working storybooks ([42d8eee](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/42d8eeee12c732c56599de24861252159e91905b))
-* **percy:** more updates yarn.lock & github actions ([4f7d18a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4f7d18a74c2aa23bbb533e6921e7eb9b717da6f2))
-* **percy:** update storybook config ([#9635](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9635)) ([64711ff](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/64711ffb762aa42aa71f3c622e52511e304e71a1))
-* **storybook:** react wrapper props not rendering ([#9597](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9597)) ([4ff5f6a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4ff5f6a527a1b80e4c5412c0ab19c34a52ff1ca7))
-* **table-of-contents:** fix subtree observer callback ([#9608](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9608)) ([4e802be](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4e802be2096b616212e51f8d883596888b2e9570))
-* **video-player:** prevent minuscule thumbnails ([#9583](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9583)) ([704274d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/704274d398b376b148bdd34a884ade7d504fbc35)), closes [#9365](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9365)
-
-
-### Features
-
-* **cta:** add email, schedule, chat, call types ([#9311](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9311)) ([083b83e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/083b83e954c8fed67a4419f552a8a5a6b193f1b7)), closes [#9170](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9170)
-
-
-
-
-
-# Change Log
-
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
