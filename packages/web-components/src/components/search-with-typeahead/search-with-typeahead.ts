@@ -303,7 +303,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
         searchParams.append('scope-label', this.scopeLabel ?? '');
       }
     }
-    
+
     const redirectUrlWithSearch = targetHref
       ? `${targetHref}`
       : `${base}?${searchParams.toString()}`;
