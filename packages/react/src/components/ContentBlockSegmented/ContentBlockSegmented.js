@@ -60,7 +60,6 @@ const ContentBlockSegmented = ({
  * @param {string} type cta type ( external | jump | local)
  * @param {object} data cta type ( external | jump | local)
  * @private
- * @returns {*} media component
  */
 const _renderMedia = (type, data) => {
   if (data) {
@@ -143,8 +142,8 @@ ContentBlockSegmented.propTypes = {
    * Media Data for either image or video.
    * See the following components' README for more details:
    *
-   * * `mediaType="image"`: [`<ImageWithCaption>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-imagewithcaption--default#props)
-   * * `mediaType="video"`: [`<VideoPlayer>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-videoplayer--default#props)
+   * `mediaType="image"`: [`<ImageWithCaption>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-imagewithcaption--default#props)
+   * `mediaType="video"`: [`<VideoPlayer>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-videoplayer--default#props)
    */
   mediaData: PropTypes.oneOfType([
     PropTypes.shape({

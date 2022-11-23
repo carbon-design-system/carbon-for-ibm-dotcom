@@ -12,7 +12,6 @@
  * import {parseAspectRatio} from '@carbon/ibmdotcom-utilities';
  *
  * const [width, height] = parseAspectRatio('16x9');
- *
  * @param {string} aspectRatioString string in format <integer><separator><integer>
  * @returns {Array} [widthInt, heightInt]
  */

@@ -27,9 +27,6 @@ class ipcinfoCookie {
    * import { ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
    *
    * const info = ipcinfoCookie.get();
-   *
-   *
-   * @returns {object} object containing cc and lc
    */
   static get() {
     const ipcinfo = Cookies.get(_cookieName);
@@ -54,13 +51,11 @@ class ipcinfoCookie {
    * @param {object} params params object
    * @param {string} params.cc country code
    * @param {string} params.lc language code
-   *
    * @example
    * import { ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
    *
    * const locale = {cc: 'us', lc: 'en'}
    * ipcinfoCookie.set(locale);
-   *
    */
   static set({ cc, lc }) {
     const info = `cc=${cc};lc=${lc}`;

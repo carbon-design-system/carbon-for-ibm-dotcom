@@ -20,7 +20,6 @@ const { prefix } = settings;
  * browser returns the proper sources and the specified widths
  *
  * @param {Array} sources image sources and min-widths
- *
  * @returns {Array} sorted array of sources
  */
 const sortSources = (sources) => {

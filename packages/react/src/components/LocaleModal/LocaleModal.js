@@ -226,7 +226,6 @@ LocaleModal.defaultProps = {
  *  New region/country list based lang attributes available on page
  *
  * @param {object} list country list
- *
  * @returns {object} list item
  */
 export const sortList = (list) => {

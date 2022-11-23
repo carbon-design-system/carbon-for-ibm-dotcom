@@ -257,7 +257,6 @@ const MastheadLeftNav = ({
  * @param {string} navType navigation type
  * @param {string} selectedMenuItem inputted selected menu item
  * @param {object} selectedItems selected menu items based on url
- *
  * @returns {object} JSX object
  */
 function _renderLevel1Submenus(
@@ -372,7 +371,6 @@ function _renderLevel1Submenus(
  * @param {string} navType navigation type
  * @param {string} selectedMenuItem inputted selected menu item
  * @param {object} selectedItems selected menu items based on url
- *
  * @returns {object} JSX object
  */
 function _renderLevel2Submenus(

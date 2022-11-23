@@ -23,7 +23,6 @@ const { prefix } = settings;
  * @param {string} props.heading heading text
  * @param {string} props.copy copy text
  * @param {Array} props.cta cta array
- *
  * @returns {*} JSX ContentItemHorizontal pattern
  */
 const ContentItemHorizontal = ({ eyebrow, heading, copy, cta }) => (

@@ -177,7 +177,6 @@ class LocaleAPI {
    * browser language preference then set the cookie
    *
    * @returns {object} object with lc and cc
-   *
    * @example
    * import { LocaleAPI } from '@carbon/ibmdotcom-services';
    *
@@ -223,7 +222,6 @@ class LocaleAPI {
    * Otherwise gets those values from the <html> lang attribute
    *
    * @returns {object} locale object
-   *
    * @example
    * import { LocaleAPI } from '@carbon/ibmdotcom-services';
    *
@@ -247,7 +245,6 @@ class LocaleAPI {
    * This fetches the language display name based on language/locale combo
    *
    * @param {object} langCode lang code with cc and lc
-   *
    * @returns {Promise<string>} Display name of locale/language
    */
   static async getLangDisplay(langCode) {
@@ -288,9 +285,7 @@ class LocaleAPI {
    * @param {object} params params object
    * @param {string} params.cc country code
    * @param {string} params.lc language code
-   *
    * @returns {Promise<any>} promise object
-   *
    * @example
    * import { LocaleAPI } from '@carbon/ibmdotcom-services';
    *
@@ -355,7 +350,6 @@ class LocaleAPI {
    * @param {string} cc country code
    * @param {string} lc language code
    * @param {object} list country list
-   *
    * @returns {object} object with lc and cc
    * @example
    * import { LocaleAPI } from '@carbon/ibmdotcom-services';
@@ -395,7 +389,6 @@ class LocaleAPI {
    * Retrieves session cache and checks if cache needs to be refreshed
    *
    * @param   {string} key session storage key
-   * @returns {object} session storage object
    */
   static getSessionCache(key) {
     const session =
