@@ -19,6 +19,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import { forEach } from '../../globals/internal/collection-helpers';
 import styles from './masthead.scss';
 import DDSLeftNav from './left-nav';
+import CspComplianceMixin from '../../globals/mixins/csp-compliance';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -33,7 +34,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @fires dds-left-nav-menu-toggled The custom event fired after this side nav menu is toggled upon a user gesture.
  */
 @customElement(`${ddsPrefix}-left-nav-menu-section`)
-class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
+class DDSLeftNavMenuSection extends CspComplianceMixin(
+  HostListenerMixin(FocusMixin(LitElement))
+) {
   /**
    * Set aria-hidden property.
    */
@@ -121,12 +124,12 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
     setTimeout(() => {
       if (this.expanded) {
         // Allow active section to scroll
-        this.style.overflow = '';
+        this.setStyleBySelector(':host', 'overflow', '');
       } else {
         // Hide previous section & restrict size
-        this.style.visibility = 'hidden';
-        this.style.height = '0';
-        this.style.overflow = 'hidden';
+        this.setStyleBySelector(':host', 'visibility', 'hidden');
+        this.setStyleBySelector(':host', 'height', '0');
+        this.setStyleBySelector(':host', 'overflow', 'hidden');
       }
     }, 0);
   }
@@ -139,18 +142,18 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
       this.expanded = false;
       this.ariaHidden = 'true';
       // Hide all submenus, and restrict their height/overflow.
-      this.style.visibility = 'hidden';
-      this.style.overflow = 'hidden';
-      this.style.height = '0';
+      this.setStyleBySelector(':host', 'visibility', 'hidden');
+      this.setStyleBySelector(':host', 'height', '0');
+      this.setStyleBySelector(':host', 'overflow', 'hidden');
     }
   }
 
   shouldUpdate(changedProperties) {
     if (changedProperties.has('expanded')) {
       // Allow incoming menu section to show before transition.
-      if (this.expanded) {
-        this.style.visibility = '';
-        this.style.height = '';
+      if (this.expanded && this.dynamicStylesNode) {
+        this.setStyleBySelector(':host', 'visibility', '');
+        this.setStyleBySelector(':host', 'height', '');
       }
     }
     return true;
@@ -239,6 +242,7 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
       showBackBtn,
     } = this;
     return html`
+      ${this._renderDynamicStyles()}
       <ul>
         ${showBackBtn
           ? html`

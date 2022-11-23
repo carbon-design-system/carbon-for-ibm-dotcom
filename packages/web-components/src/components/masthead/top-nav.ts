@@ -503,7 +503,10 @@ class DDSTopNav extends CspComplianceMixin(
     }
 
     // Update the values in the CSP-safe stylesheet.
-    if (changedProperties.has('_currentScrollPosition')) {
+    if (
+      changedProperties.has('_currentScrollPosition') &&
+      this.dynamicStylesNode
+    ) {
       this.setStyleBySelector(
         '.bx--header__nav-content',
         'inset-inline-start',
@@ -512,7 +515,7 @@ class DDSTopNav extends CspComplianceMixin(
     }
   }
 
-  renderContents() {
+  render() {
     const {
       _isIntersectionLeftTrackerInContent: isIntersectionLeftTrackerInContent,
       _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
@@ -536,6 +539,7 @@ class DDSTopNav extends CspComplianceMixin(
     return this.hideNav
       ? undefined!
       : html`
+          ${this._renderDynamicStyles()}
           ${pageIsRTL
             ? html`
                 <div class="${caretRightContainerClasses}">

@@ -23,6 +23,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSLeftNavOverlay from './left-nav-overlay';
 import styles from './masthead.scss';
 import DDSLeftNavMenuSection from './left-nav-menu-section';
+import DDSMasthead from './masthead';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -245,30 +246,29 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
         _endSentinelNode: endSentinelNode,
       } = this;
 
-      const masthead: HTMLElement | null | undefined = doc
+      const masthead: DDSMasthead | null | undefined = doc
         ?.querySelector('dds-cloud-masthead-container')
         ?.querySelector('dds-masthead');
-      if (expanded) {
+      if (expanded && masthead && masthead.dynamicStylesNode) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [
           startSentinelNode,
           endSentinelNode,
         ]);
-        doc.body.style.overflow = `hidden`;
+        masthead!.setStyleBySelector('body', 'overflow', 'hidden', true);
 
         // TODO: remove this logic once masthead can account for banners.
         // set masthead position to `fixed` when left-nav is open for cloud-mastead
-        if (masthead) {
-          masthead.style.position = 'fixed';
-        }
+        masthead!.setStyleBySelector(':host', 'position', 'fixed');
       } else {
         const { selectorMenuSections, selectorFirstMenuSection } = this
           .constructor as typeof DDSLeftNav;
-        doc.body.style.overflow = `auto`;
 
         // TODO: remove this logic once masthead can account for banners.
         // remove set position from mastead when left-nav is closed for cloud-mastead
-        if (masthead) {
-          masthead.style.position = '';
+        if (masthead && masthead.dynamicStylesNode) {
+          masthead!.setStyleBySelector('body', 'overflow', 'auto', true);
+
+          masthead!.setStyleBySelector(':host', 'position', '');
         }
 
         this.querySelectorAll(selectorMenuSections).forEach(
