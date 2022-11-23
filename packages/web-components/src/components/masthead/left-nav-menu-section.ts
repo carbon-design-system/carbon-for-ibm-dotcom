@@ -151,7 +151,7 @@ class DDSLeftNavMenuSection extends CspComplianceMixin(
   shouldUpdate(changedProperties) {
     if (changedProperties.has('expanded')) {
       // Allow incoming menu section to show before transition.
-      if (this.expanded) {
+      if (this.expanded && this.dynamicStylesNode) {
         this.setStyleBySelector(':host', 'visibility', '');
         this.setStyleBySelector(':host', 'height', '');
       }

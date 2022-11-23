@@ -503,7 +503,10 @@ class DDSTopNav extends CspComplianceMixin(
     }
 
     // Update the values in the CSP-safe stylesheet.
-    if (changedProperties.has('_currentScrollPosition')) {
+    if (
+      changedProperties.has('_currentScrollPosition') &&
+      this.dynamicStylesNode
+    ) {
       this.setStyleBySelector(
         '.bx--header__nav-content',
         'inset-inline-start',

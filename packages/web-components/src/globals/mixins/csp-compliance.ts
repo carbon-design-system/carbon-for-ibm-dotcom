@@ -23,7 +23,7 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * Reference to the dynamic <style> node
      */
     @query('style.dynamic-styles')
-    _dynamicStylesNode;
+    dynamicStylesNode;
 
     /**
      * Reference to a globally-scoped dynamic <style> node
@@ -92,7 +92,7 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     getStyleBySelector(selectorString, styleProperty, global = false) {
       const styleSheet = global
         ? this._globalDynamicStyle?.sheet
-        : this._dynamicStylesNode?.sheet;
+        : this.dynamicStylesNode?.sheet;
 
       if (!styleSheet) {
         throw new ReferenceError(
@@ -138,7 +138,7 @@ const CspComplianceMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     ) {
       const styleSheet = global
         ? this._globalDynamicStyle?.sheet
-        : this._dynamicStylesNode?.sheet;
+        : this.dynamicStylesNode?.sheet;
 
       if (!styleSheet) {
         throw new ReferenceError(

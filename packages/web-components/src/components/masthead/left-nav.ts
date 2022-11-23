@@ -246,44 +246,29 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
         _endSentinelNode: endSentinelNode,
       } = this;
 
-      const masthead: HTMLElement | null | undefined = doc
+      const masthead: DDSMasthead | null | undefined = doc
         ?.querySelector('dds-cloud-masthead-container')
         ?.querySelector('dds-masthead');
-      if (expanded) {
+      if (expanded && masthead && masthead.dynamicStylesNode) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [
           startSentinelNode,
           endSentinelNode,
         ]);
-        (masthead as DDSMasthead).setStyleBySelector(
-          'body',
-          'overflow',
-          'hidden',
-          true
-        );
+        masthead!.setStyleBySelector('body', 'overflow', 'hidden', true);
 
         // TODO: remove this logic once masthead can account for banners.
         // set masthead position to `fixed` when left-nav is open for cloud-mastead
-        if (masthead) {
-          (masthead as DDSMasthead).setStyleBySelector(
-            ':host',
-            'position',
-            'fixed'
-          );
-        }
+        masthead!.setStyleBySelector(':host', 'position', 'fixed');
       } else {
         const { selectorMenuSections, selectorFirstMenuSection } = this
           .constructor as typeof DDSLeftNav;
-        (masthead as DDSMasthead).setStyleBySelector(
-          'body',
-          'overflow',
-          'auto',
-          true
-        );
 
         // TODO: remove this logic once masthead can account for banners.
         // remove set position from mastead when left-nav is closed for cloud-mastead
-        if (masthead) {
-          (masthead as DDSMasthead).setStyleBySelector(':host', 'position', '');
+        if (masthead && masthead.dynamicStylesNode) {
+          masthead!.setStyleBySelector('body', 'overflow', 'auto', true);
+
+          masthead!.setStyleBySelector(':host', 'position', '');
         }
 
         this.querySelectorAll(selectorMenuSections).forEach(
