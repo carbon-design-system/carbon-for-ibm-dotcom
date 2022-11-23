@@ -12,24 +12,45 @@ addons.setConfig({
   theme: yourTheme,
 });
 
-const CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR = `
-button[id^="components-pricing-table"],
-button[id^="components-content-block-headlines"],
-button[id^="components-cloud-masthead"],
-button[id^="components-content-block-card-static"] {
-  display: none !important
-}
-`;
+/**
+ * Conditionally generate CSS to hide a component based on its corresponding
+ * feature flag environment variable.
+ *
+ * @param {*} envVar
+ *   Environment variable to check.
+ * @param {*} cssId
+ *   CSS ID for selector.
+ * @returns
+ */
+const getCss = (envVar, cssId) => {
+  return envVar !== 'true'
+    ? `button[id^="${cssId}"] { display: none !important; }\n`
+    : '';
+};
 
-if (
-  process.env.DDS_FLAGS_ALL ||
-  process.env.DDS_CLOUD_MASTHEAD ||
-  process.env.DDS_CONTENT_BLOCK_HEADLINES ||
-  process.env.DDS_CONTENT_BLOCK_CARD_STATIC ||
-  process.env.DDS_PRICING_TABLE
-) {
+// Build string of CSS rules.
+let css = '';
+if (!process.env.DDS_FLAGS_ALL) {
+  css += getCss(process.env.DDS_CLOUD_MASTHEAD, 'components-cloud-masthead');
+  css += getCss(
+    process.env.DDS_CONTENT_BLOCK_HEADLINES,
+    'components-content-block-headlines'
+  );
+  css += getCss(
+    process.env.DDS_CONTENT_BLOCK_CARD_STATIC,
+    'components-content-block-card-static'
+  );
+  css += getCss(process.env.DDS_PRICING_TABLE, 'components-pricing-table');
+  css += getCss(
+    process.env.DDS_SCOPED_SEARCH,
+    'components-masthead-with-scoped-search'
+  );
+}
+
+// Inject any CSS rules into the page.
+if (css.length) {
   const head = document.head || document.getElementsByTagName('head')[0];
   const style = document.createElement('style');
   head.appendChild(style);
-  style.appendChild(document.createTextNode(CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR));
+  style.appendChild(document.createTextNode(css));
 }

@@ -24,7 +24,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-filter-panel
  */
 @customElement(`${ddsPrefix}-filter-panel`)
-class DDSFilterPanel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
+class DDSFilterPanel extends HostListenerMixin(
+  StableSelectorMixin(LitElement)
+) {
   /**
    * Renders the filter heading
    */

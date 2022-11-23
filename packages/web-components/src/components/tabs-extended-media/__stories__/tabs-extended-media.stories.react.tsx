@@ -50,28 +50,48 @@ const mediaType = {
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
 
-export const Default = args => {
-  const { sectionHeading, sectionHeadingText, align, type } = args?.TabsExtendedMedia ?? {};
+export const Default = (args) => {
+  const { sectionHeading, sectionHeadingText, align, type } =
+    args?.TabsExtendedMedia ?? {};
   const tabs: any[] = [];
 
   for (let i = 1; i < 5; i++) {
     tabs.push(
       <DDSTab label={`Tab ${i}`}>
         <DDSContentItemHorizontalMedia align={align}>
-          {type === MEDIA_TYPE.IMAGE && <DDSImage slot="media" alt="Image alt text" default-src={imgLg16x9}></DDSImage>}
-          {type === MEDIA_TYPE.VIDEO && (
+          {type === MEDIA_TYPE.IMAGE ? (
+            <DDSImage
+              slot="media"
+              alt="Image alt text"
+              default-src={imgLg16x9}
+            ></DDSImage>
+          ) : (
+            ``
+          )}
+          {type === MEDIA_TYPE.VIDEO ? (
             <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
+          ) : (
+            ``
           )}
           <DDSContentItemHeading>Tab heading {i}</DDSContentItemHeading>
           <DDSContentItemHorizontalMediaCopy>
-            Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
-            hendrerit. Phasellus at elit sollicitudin.
+            Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
+            ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+            elit sollicitudin.
           </DDSContentItemHorizontalMediaCopy>
           <DDSLinkList slot="footer" type="vertical">
-            <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
+            <DDSLinkListItemCTA
+              icon-placement="right"
+              href="https://www.ibm.com"
+              cta-type="local"
+            >
               CTA {i}
             </DDSLinkListItemCTA>
-            <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
+            <DDSLinkListItemCTA
+              icon-placement="right"
+              href="https://www.ibm.com"
+              cta-type="external"
+            >
               Microservices and containers
             </DDSLinkListItemCTA>
           </DDSLinkList>
@@ -81,7 +101,9 @@ export const Default = args => {
   }
   return (
     <DDSTabsExtendedMedia section-heading={sectionHeading}>
-      <DDSContentSectionHeading>{sectionHeadingText || undefined}</DDSContentSectionHeading>
+      <DDSContentSectionHeading>
+        {sectionHeadingText || undefined}
+      </DDSContentSectionHeading>
       {tabs}
     </DDSTabsExtendedMedia>
   );
@@ -92,7 +114,8 @@ Default.story = {
     knobs: {
       TabsExtendedMedia: () => {
         const sectionHeading = boolean('Section heading', true);
-        const sectionHeadingText = sectionHeading && textNullable('Heading', 'Section heading');
+        const sectionHeadingText =
+          sectionHeading && textNullable('Heading', 'Section heading');
         return {
           sectionHeading,
           sectionHeadingText,
@@ -111,7 +134,13 @@ export default {
       return (
         <div className="bx--grid">
           <div className="bx--row">
-            <div className={`${args?.TabsExtendedMedia?.sectionHeading ? `bx--col-lg-16` : `bx--col-lg-12`} bx--no-gutter`}>
+            <div
+              className={`${
+                args?.TabsExtendedMedia?.sectionHeading
+                  ? `bx--col-lg-16`
+                  : `bx--col-lg-12`
+              } bx--no-gutter`}
+            >
               {story()}
             </div>
           </div>

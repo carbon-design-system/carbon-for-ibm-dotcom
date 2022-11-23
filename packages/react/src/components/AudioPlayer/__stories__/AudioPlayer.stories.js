@@ -7,7 +7,6 @@
 
 import { array, boolean, text } from '@storybook/addon-knobs';
 import AudioPlayer from '../AudioPlayer';
-import { DDS_AUDIO_PLAYER } from '../../../internal/FeatureFlags';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
@@ -30,36 +29,33 @@ const props = () => ({
   ),
 });
 
-export default !DDS_AUDIO_PLAYER
-  ? undefined
-  : {
-      title: 'Components/Audio player',
-      parameters: {
-        ...readme.parameters,
-        percy: {
-          skip: true,
-        },
-      },
-    };
+export default {
+  title: 'Components/Audio player',
+  parameters: {
+    ...readme.parameters,
+    percy: {
+      skip: true,
+    },
+  },
+};
 
-export const Default = !DDS_AUDIO_PLAYER
-  ? undefined
-  : () => {
-      return (
-        <div className="bx--grid">
-          <div className="bx--row">
-            <div className="bx--col-sm-4 bx--col-md-8 bx--col-lg-16 bx--col-xlg-16 bx--col-max-16">
-              <div
-                style={{
-                  height: '100vh',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <AudioPlayer {...props()} hasSettings={true} />
-              </div>
-            </div>
+export const Default = () => {
+  return (
+    <div className="bx--grid">
+      <div className="bx--row">
+        <div className="bx--col-sm-4 bx--col-md-8 bx--col-lg-16 bx--col-xlg-16 bx--col-max-16">
+          <div
+            style={{
+              height: '100vh',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <AudioPlayer {...props()} hasSettings={true} />
           </div>
         </div>
-      );
-    };
+      </div>
+    </div>
+  );
+};

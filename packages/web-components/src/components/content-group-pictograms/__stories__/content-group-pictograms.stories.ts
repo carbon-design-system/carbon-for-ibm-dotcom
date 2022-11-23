@@ -45,15 +45,13 @@ const pictogramsItems = [
 export default {
   title: 'Components/Content group pictograms',
   decorators: [
-    story => html`
+    (story) => html`
       <style>
         ${styles}
       </style>
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-lg-8 bx--no-gutter">
-            ${story()}
-          </div>
+          <div class="bx--col-lg-8 bx--no-gutter">${story()}</div>
         </div>
       </div>
     `,
@@ -63,7 +61,10 @@ export default {
     hasStoryPadding: true,
     knobs: {
       ContentGroupPictograms: () => ({
-        heading: textNullable('Heading (heading)', 'Lorem ipsum dolor sit amet'),
+        heading: textNullable(
+          'Heading (heading)',
+          'Lorem ipsum dolor sit amet'
+        ),
         copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.`,
@@ -82,8 +83,9 @@ export default {
   },
 };
 
-export const Default = args => {
-  const { heading: groupHeading, copy: groupCopy } = args?.ContentGroupPictograms ?? {};
+export const Default = (args) => {
+  const { heading: groupHeading, copy: groupCopy } =
+    args?.ContentGroupPictograms ?? {};
   return html`
     <dds-content-group-pictograms>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>

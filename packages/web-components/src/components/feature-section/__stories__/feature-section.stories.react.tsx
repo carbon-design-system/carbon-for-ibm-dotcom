@@ -44,23 +44,43 @@ const types = {
   [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
 };
 
-export const Default = args => {
-  const { eyebrow, heading, copy, href, ctaType, mediaAlign, defaultSrc } = args?.FeatureSection ?? {};
+export const Default = (args) => {
+  const { alt, eyebrow, heading, copy, href, ctaType, mediaAlign, defaultSrc } =
+    args?.FeatureSection ?? {};
   return (
     <DDSFeatureSection media-alignment={mediaAlign}>
-      <DDSImage slot="image" default-src={defaultSrc}>
-        <DDSImageItem media="(min-width: 1584px)" srcset={imgXlg1x1}></DDSImageItem>
-        <DDSImageItem media="(min-width: 1056px)" srcset={imgLg1x1}></DDSImageItem>
-        <DDSImageItem media="(min-width: 672px)" srcset={imgMd4x3}></DDSImageItem>
-        <DDSImageItem media="(min-width: 320px)" srcset={imgSm1x1}></DDSImageItem>
+      <DDSImage slot="image" default-src={defaultSrc} alt={alt}>
+        <DDSImageItem
+          media="(min-width: 1584px)"
+          srcset={imgXlg1x1}
+        ></DDSImageItem>
+        <DDSImageItem
+          media="(min-width: 1056px)"
+          srcset={imgLg1x1}
+        ></DDSImageItem>
+        <DDSImageItem
+          media="(min-width: 672px)"
+          srcset={imgMd4x3}
+        ></DDSImageItem>
+        <DDSImageItem
+          media="(min-width: 320px)"
+          srcset={imgSm1x1}
+        ></DDSImageItem>
         <DDSImageItem media="(min-width: 0px)" srcset={imgXs1x1}></DDSImageItem>
       </DDSImage>
       <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow>
       <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
       <DDSContentItemParagraph slot="copy">{copy}</DDSContentItemParagraph>
 
-      <DDSFeatureSectionCardLink slot="footer" href={href} cta-type={ctaType} color-scheme="inverse">
-        <DDSCardLinkHeading>Try a free virtual business framing session with IBM Garage</DDSCardLinkHeading>
+      <DDSFeatureSectionCardLink
+        slot="footer"
+        href={href}
+        cta-type={ctaType}
+        color-scheme="inverse"
+      >
+        <DDSCardLinkHeading>
+          Try a free virtual business framing session with IBM Garage
+        </DDSCardLinkHeading>
         <DDSCardCTAFooter color-scheme="inverse"> </DDSCardCTAFooter>
       </DDSFeatureSectionCardLink>
     </DDSFeatureSection>
@@ -71,9 +91,19 @@ Default.story = {
   parameters: {
     knobs: {
       FeatureSection: () => ({
-        mediaAlign: select('Media Alignment', mediaAlignment, MEDIA_ALIGNMENT.RIGHT),
-        eyebrow: textNullable('Card Eyebrow (optional)(eyebrow):', '5 min activity'),
-        heading: textNullable('Card Heading (required)(heading):', 'Ready when you are'),
+        mediaAlign: select(
+          'Media Alignment',
+          mediaAlignment,
+          MEDIA_ALIGNMENT.RIGHT
+        ),
+        eyebrow: textNullable(
+          'Card Eyebrow (optional)(eyebrow):',
+          '5 min activity'
+        ),
+        heading: textNullable(
+          'Card Heading (required)(heading):',
+          'Ready when you are'
+        ),
         copy: textNullable(
           'Card copy (optional)(copy):',
           `Were flexible. We can work with you on a wide variety of engagements on a project
@@ -91,7 +121,7 @@ Default.story = {
 export default {
   title: 'Components/Feature section',
   decorators: [
-    story => {
+    (story) => {
       return <>{story()}</>;
     },
   ],

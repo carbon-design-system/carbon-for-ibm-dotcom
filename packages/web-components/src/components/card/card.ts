@@ -7,7 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, state, customElement, TemplateResult, query } from 'lit-element';
+import {
+  html,
+  property,
+  state,
+  customElement,
+  TemplateResult,
+  query,
+} from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import BXLink from 'carbon-web-components/es/components/link/link.js';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml.js';
@@ -65,7 +72,9 @@ class DDSCard extends StableSelectorMixin(BXLink) {
     const { name } = target as HTMLSlotElement;
     const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
-      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+      .some(
+        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+      );
     this[slotExistencePropertyNames[name]] = hasContent;
     this._hasCopy = hasContent;
   }
@@ -75,9 +84,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderHeading(): TemplateResult | string | void {
-    return html`
-      <slot name="heading"></slot>
-    `;
+    return html` <slot name="heading"></slot> `;
   }
 
   /**
@@ -115,20 +122,20 @@ class DDSCard extends StableSelectorMixin(BXLink) {
    * @returns The inner content.
    */
   protected _renderInner() {
-    const { _handleSlotChange: handleSlotChange, _hasPictogram: hasPictogram, _hasCopy: hasCopy } = this;
+    const {
+      _handleSlotChange: handleSlotChange,
+      _hasPictogram: hasPictogram,
+      _hasCopy: hasCopy,
+    } = this;
     return html`
       ${this._renderImage()}
       <div
-        class="${prefix}--card__wrapper ${hasPictogram ? `${prefix}--card__pictogram` : ''} ${hasPictogram && hasCopy
-          ? `${prefix}--card__motion`
-          : ''}"
+        class="${prefix}--card__wrapper ${hasPictogram
+          ? `${prefix}--card__pictogram`
+          : ''} ${hasPictogram && hasCopy ? `${prefix}--card__motion` : ''}"
       >
         <div class="${prefix}--card__content">
-          ${hasPictogram
-            ? ''
-            : html`
-                <slot name="eyebrow"></slot>
-              `}
+          ${hasPictogram ? '' : html` <slot name="eyebrow"></slot> `}
           ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
             ? html`
                 <slot
@@ -138,8 +145,13 @@ class DDSCard extends StableSelectorMixin(BXLink) {
                 ></slot>
               `
             : ''}
-          ${this.pictogramPlacement !== PICTOGRAM_PLACEMENT.TOP || !hasPictogram ? this._renderHeading() : null}
-          ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM || !hasPictogram ? this._renderCopy() : ''}
+          ${this.pictogramPlacement !== PICTOGRAM_PLACEMENT.TOP || !hasPictogram
+            ? this._renderHeading()
+            : null}
+          ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM ||
+          !hasPictogram
+            ? this._renderCopy()
+            : ''}
           ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM
             ? html`
                 <slot
@@ -149,8 +161,12 @@ class DDSCard extends StableSelectorMixin(BXLink) {
                 ></slot>
               `
             : ''}
-          ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP ? this._renderHeading() : null}
-          ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP ? this._renderCopy() : ''}
+          ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
+            ? this._renderHeading()
+            : null}
+          ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
+            ? this._renderCopy()
+            : ''}
           <slot name="footer"></slot>
         </div>
       </div>
@@ -204,9 +220,13 @@ class DDSCard extends StableSelectorMixin(BXLink) {
     super.updated(changedProperties);
     const { colorScheme, href, _linkNode: linkNode } = this;
     if (changedProperties.has('colorScheme') || changedProperties.has('href')) {
-      const headingText = this.querySelector(`${ddsPrefix}-card-heading`)?.textContent;
+      const headingText = this.querySelector(
+        `${ddsPrefix}-card-heading`
+      )?.textContent;
       const copyText = this.textContent;
-      const footer = this.querySelector((this.constructor as typeof DDSCard).selectorFooter);
+      const footer = this.querySelector(
+        (this.constructor as typeof DDSCard).selectorFooter
+      );
       if (footer && href) {
         (footer as DDSCardFooter).colorScheme = colorScheme;
         (footer as DDSCardFooter).parentHref = href;
@@ -219,7 +239,10 @@ class DDSCard extends StableSelectorMixin(BXLink) {
       linkNode.classList.add(`${prefix}--card`);
       linkNode.classList.toggle(`${prefix}--tile--clickable`, Boolean(href));
       linkNode.classList.toggle(`${prefix}--card--link`, Boolean(href));
-      linkNode.classList.toggle(`${prefix}--card--inverse`, colorScheme === BASIC_COLOR_SCHEME.INVERSE);
+      linkNode.classList.toggle(
+        `${prefix}--card--inverse`,
+        colorScheme === BASIC_COLOR_SCHEME.INVERSE
+      );
     }
 
     if (this._hasPictogram) {
@@ -228,7 +251,9 @@ class DDSCard extends StableSelectorMixin(BXLink) {
 
     const copyElement = this.querySelector('p');
     if (this._hasCopy && copyElement?.innerText) {
-      copyElement.innerHTML = `${markdownToHtml(copyElement?.innerText, { bold: false })}`;
+      copyElement.innerHTML = `${markdownToHtml(copyElement?.innerText, {
+        bold: false,
+      })}`;
       copyElement.firstElementChild?.setAttribute('style', 'all:unset;');
     }
   }
@@ -238,7 +263,8 @@ class DDSCard extends StableSelectorMixin(BXLink) {
       ? html`
           <div
             tabindex="0"
-            aria-label="${this.querySelector(`${ddsPrefix}-card-heading`)?.textContent || ''}"
+            aria-label="${this.querySelector(`${ddsPrefix}-card-heading`)
+              ?.textContent || ''}"
             aria-live="polite"
             aria-describedby="${prefix}--card__copy"
             role="button"
@@ -246,9 +272,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
             ${this._renderInner()}
           </div>
         `
-      : html`
-          <div>${this._renderInner()}</div>
-        `;
+      : html` <div>${this._renderInner()}</div> `;
   }
 
   static get stableSelector() {

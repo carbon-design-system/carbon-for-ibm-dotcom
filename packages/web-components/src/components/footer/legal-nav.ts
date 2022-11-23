@@ -87,10 +87,15 @@ class DDSLegalNav extends StableSelectorMixin(LitElement) {
   }
 
   firstUpdated() {
-    const { _adjunctLinksContainer: adjunctLinksContainer, _adjunctLinksSlot: adjunctLinksSlot } = this;
+    const {
+      _adjunctLinksContainer: adjunctLinksContainer,
+      _adjunctLinksSlot: adjunctLinksSlot,
+    } = this;
     const hideAdjunctLinksContainer =
       adjunctLinksSlot?.assignedNodes().length === 0
-        ? adjunctLinksContainer?.classList.add(`${prefix}--adjunct-links__container--hidden`)
+        ? adjunctLinksContainer?.classList.add(
+            `${prefix}--adjunct-links__container--hidden`
+          )
         : '';
     return hideAdjunctLinksContainer;
   }

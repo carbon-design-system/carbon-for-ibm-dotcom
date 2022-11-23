@@ -9,7 +9,11 @@
 
 import { ThunkAction } from 'redux-thunk';
 import CloudAccountAuthAPI from '@carbon/ibmdotcom-services/es/services/CloudAccountAuth/CloudAccountAuth.js';
-import { UserStatus, CLOUD_ACCOUNT_AUTH_API_ACTION, CloudAccountAuthAPIState } from '../types/cloudAccountAuthAPI';
+import {
+  UserStatus,
+  CLOUD_ACCOUNT_AUTH_API_ACTION,
+  CloudAccountAuthAPIState,
+} from '../types/cloudAccountAuthAPI';
 
 /**
  * @param error An error from the JSONP call for user authentication status.
@@ -56,15 +60,22 @@ export type CloudAccountAuthAPIActions =
  */
 export function loadUserStatus(
   authMethod: string
-): ThunkAction<Promise<UserStatus>, { cloudAccountAuthAPI: CloudAccountAuthAPIState }, void, CloudAccountAuthAPIActions> {
-  return async dispatch => {
+): ThunkAction<
+  Promise<UserStatus>,
+  { cloudAccountAuthAPI: CloudAccountAuthAPIState },
+  void,
+  CloudAccountAuthAPIActions
+> {
+  return async (dispatch) => {
     const promiseStatus: Promise<UserStatus> =
-      authMethod === 'cookie' ? CloudAccountAuthAPI.checkCookie() : CloudAccountAuthAPI.checkAPI();
+      authMethod === 'cookie'
+        ? CloudAccountAuthAPI.checkCookie()
+        : CloudAccountAuthAPI.checkAPI();
     dispatch(setRequestUserStatusInProgress(promiseStatus));
     try {
       dispatch(setUserStatus(await promiseStatus));
     } catch (error) {
-      dispatch(setErrorRequestUserStatus(error));
+      dispatch(setErrorRequestUserStatus(error as Error));
       throw error;
     }
     return promiseStatus;

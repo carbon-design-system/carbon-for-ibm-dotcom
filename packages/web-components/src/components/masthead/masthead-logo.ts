@@ -27,7 +27,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-masthead-logo
  */
 @customElement(`${ddsPrefix}-masthead-logo`)
-class DDSMastheadLogo extends FocusMixin(HostListenerMixin(StableSelectorMixin(BXLink))) {
+class DDSMastheadLogo extends FocusMixin(
+  HostListenerMixin(StableSelectorMixin(BXLink))
+) {
   /**
    * Search bar opened flag.
    */
@@ -57,7 +59,7 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(StableSelectorMixin(B
    * Link `href`.
    */
   @property()
-  href = 'https://www.ibm.com/';
+  href = (this.constructor as typeof DDSMastheadLogo).hrefDefault;
 
   /**
    * The shadow slot this logo UI should be in.
@@ -67,9 +69,7 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(StableSelectorMixin(B
 
   // eslint-disable-next-line class-methods-use-this
   protected _renderInner() {
-    return html`
-      <slot>${IBM8BarLogoH23()}</slot>
-    `;
+    return html` <slot>${IBM8BarLogoH23()}</slot> `;
   }
 
   updated(changedProperties) {
@@ -81,12 +81,18 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(StableSelectorMixin(B
     if (linkNode) {
       linkNode.setAttribute('aria-label', 'IBM logo');
       linkNode.classList.remove(`${prefix}--link`);
-      linkNode.classList.toggle(`${ddsPrefix}-ce--header__logo--has-search-active`, this._hasSearchActive);
+      linkNode.classList.toggle(
+        `${ddsPrefix}-ce--header__logo--has-search-active`,
+        this._hasSearchActive
+      );
     }
   }
 
-  firstUpdated() {
-    this.tabIndex = 0;
+  /**
+   * The default value to use for hrefs.
+   */
+  static get hrefDefault() {
+    return 'https://www.ibm.com/';
   }
 
   /**

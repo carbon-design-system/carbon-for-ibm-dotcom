@@ -17,21 +17,21 @@ import '../../content-item/content-item-copy';
 const template = (props?) => {
   const { children } = props ?? {};
   return html`
-    <dds-content-block-media>
-      ${children}
-    </dds-content-block-media>
+    <dds-content-block-media> ${children} </dds-content-block-media>
   `;
 };
 
-describe('dds-content-block-media', function() {
-  describe('Misc attributes', function() {
-    it('should render with minimum attributes', async function() {
+describe('dds-content-block-media', function () {
+  describe('Misc attributes', function () {
+    it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-content-block-media')).toMatchSnapshot({ mode: 'shadow' });
+      expect(
+        document.body.querySelector('dds-content-block-media')
+      ).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes', async function() {
+    it('should render with various attributes', async function () {
       render(
         template({
           children: html`
@@ -39,9 +39,11 @@ describe('dds-content-block-media', function() {
               Curabitur malesuada varius mi eu posuere
             </dds-content-block-heading>
             <dds-content-block-paragraph>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
-              hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Phasellus at elit sollicitudin,
-              sodales nulla quis, consequat libero.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+              ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus
+              at elit sollicitudin, sodales nulla quis, consequat libero.
+              Phasellus at elit sollicitudin, sodales nulla quis, consequat
+              libero.
             </dds-content-block-paragraph>
             <dds-content-block-media-content>
               <dds-content-group-heading>
@@ -70,12 +72,16 @@ describe('dds-content-block-media', function() {
                 </dds-image-item>
               </dds-image>
               <dds-content-item>
-                <dds-content-item-heading>Lorem ipsum dolor sit amet.</dds-content-item-heading>
+                <dds-content-item-heading
+                  >Lorem ipsum dolor sit amet.</dds-content-item-heading
+                >
                 <dds-content-item-copy>
-                  Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque
-                  diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et,
-                  tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim
-                  sapien.
+                  Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
+                  Vivamus sed interdum tortor. Sed id pellentesque diam. In ut
+                  quam id mauris finibus efficitur quis ut arcu. Praesent purus
+                  turpis, venenatis eget odio et, tincidunt bibendum sem.
+                  Curabitur pretium elit non blandit lobortis. Donec quis
+                  pretium odio, in dignissim sapien.
                 </dds-content-item-copy>
               </dds-content-item>
               <dds-card-link slot="footer" href="https://example.com">
@@ -88,11 +94,13 @@ describe('dds-content-block-media', function() {
         document.body
       );
       await Promise.resolve(); // The update cycle of `<dds-content-block-media>`
-      expect(document.body.querySelector('dds-content-block-media')).toMatchSnapshot({ mode: 'shadow' });
+      expect(
+        document.body.querySelector('dds-content-block-media')
+      ).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

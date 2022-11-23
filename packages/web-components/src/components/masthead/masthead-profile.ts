@@ -28,7 +28,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-masthead-profile
  */
 @customElement(`${ddsPrefix}-masthead-profile`)
-class DDSMastheadProfile extends HostListenerMixin(FocusMixin(StableSelectorMixin(LitElement))) {
+class DDSMastheadProfile extends HostListenerMixin(
+  FocusMixin(StableSelectorMixin(LitElement))
+) {
   /**
    * The trigger button.
    */
@@ -103,19 +105,26 @@ class DDSMastheadProfile extends HostListenerMixin(FocusMixin(StableSelectorMixi
   createRenderRoot() {
     return this.attachShadow({
       mode: 'open',
-      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
+      delegatesFocus:
+        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
+        537,
     });
   }
 
   render() {
-    const { authenticated, expanded, menuLabel, triggerLabel, _handleClick: handleClick } = this;
+    const {
+      authenticated,
+      expanded,
+      menuLabel,
+      triggerLabel,
+      _handleClick: handleClick,
+    } = this;
     return html`
       <a
         role="button"
         tabindex="0"
         class="${prefix}--header__menu-item ${prefix}--header__menu-title"
         href="javascript:void 0"
-        aria-haspopup="menu"
         aria-expanded="${String(Boolean(expanded))}"
         aria-label="${ifDefined(triggerLabel)}"
         @click=${handleClick}

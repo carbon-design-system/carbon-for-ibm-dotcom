@@ -52,7 +52,9 @@ class DDSTab extends StableSelectorMixin(LitElement) {
     this._index = index;
   }
 
-  protected updated(_changedProperties: Map<string | number | symbol, unknown>): void {
+  protected updated(
+    _changedProperties: Map<string | number | symbol, unknown>
+  ): void {
     if (_changedProperties.has('selected')) {
       const { eventTabSelected } = this.constructor as typeof DDSTab;
       this.dispatchEvent(

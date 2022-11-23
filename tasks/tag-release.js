@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -78,14 +78,14 @@ function createRelease(tagName) {
       message:
         'What is the tag of the previous release? (this will be used to grab the changelog range)',
     })
-    .then(answers => {
+    .then((answers) => {
       const changelog = child.spawn('node', [
         `${__dirname}/get-changelog.js`,
         `-f ${answers.prevTag}`,
         `-t ${tagName}`,
       ]);
 
-      changelog.stdout.on('data', data => {
+      changelog.stdout.on('data', (data) => {
         const branch = child
           .execSync('git rev-parse --abbrev-ref HEAD')
           .toString()
@@ -114,10 +114,10 @@ function createRelease(tagName) {
           prerelease: true,
         });
 
-        const req = https.request(options, res => {
+        const req = https.request(options, (res) => {
           let response = '';
 
-          res.on('data', chunk => {
+          res.on('data', (chunk) => {
             response += chunk;
           });
 
@@ -134,7 +134,7 @@ function createRelease(tagName) {
           });
         });
 
-        req.on('error', error => {
+        req.on('error', (error) => {
           console.error(error);
         });
 
@@ -144,7 +144,7 @@ function createRelease(tagName) {
     });
 }
 
-inquirer.prompt(questions).then(answers => {
+inquirer.prompt(questions).then((answers) => {
   if (answers.tagGithub) {
     createTag(answers.tagName);
   } else {
