@@ -1,3 +1,4 @@
+/* eslint-disable import/no-duplicates */
 /**
  * @license
  *
@@ -7,12 +8,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 import React from 'react';
-import { select, text } from '@storybook/addon-knobs';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 /* eslint-disable max-len */
 // @ts-ignore
-import DDSUniversalBanner from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
+import DDSUniversalBanner, {
+  PropTypesRef,
+} from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
 import DDSUniversalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-heading';
 import DDSUniversalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-copy';
 import DDSUniversalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-image';
@@ -28,9 +30,6 @@ import img4ColLg from '../../../../../storybook-images/assets/universal-banner/u
 import img8ColLg from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-lg.jpg';
 import img4ColXlg from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-xlg.jpg';
 import img8ColXlg from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-xlg.jpg';
-
-// import StoryContent from '../../back-to-top/__stories__/data/content';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const imageWidthOptions = {
   [`4 Columns`]: `4-col`,
@@ -49,7 +48,7 @@ const srcsets = {
 };
 
 export const Default = args => {
-  const { heading, copy, ctaCopy, imageWidth } = args?.UniversalBanner ?? {};
+  const { heading, copy, ctaCopy, imageWidth } = args ?? {};
 
   const bannerHeading = document.querySelector('dds-universal-banner-heading');
 
@@ -79,27 +78,53 @@ export const Default = args => {
   );
 };
 
-Default.story = {
-  parameters: {
-    ...readme.parameters,
-    knobs: {
-      UniversalBanner: () => ({
-        heading: textNullable('Heading:', 'Hybrid cloud and AI for smarter business'),
-        copy: text('Copy (optional):', 'Las Vegas, June 15-18, 2025'),
-        ctaCopy: textNullable('CTA copy:', 'Register for Think. Free'),
-        imageWidth: select('Image width:', imageWidthOptions, '4-col'),
-      }),
-    },
-  },
-};
-
 export default {
   title: 'Components/Universal banner',
+  component: PropTypesRef,
   decorators: [
     story => {
       return story();
     },
   ],
+  argTypes: {
+    heading: {
+      control: 'text',
+      defaultValue: 'Hybrid cloud and AI for smarter business',
+    },
+    copy: {
+      control: 'text',
+      defaultValue: 'Las Vegas, June 15-18, 2025',
+    },
+    ctaCopy: {
+      control: 'text',
+      defaultValue: 'Register for Think. Free',
+    },
+    imageWidth: {
+      control: { type: 'select' },
+      options: imageWidthOptions,
+      defaultValue: '4-col',
+    },
+    buttonHref: {
+      table: {
+        disable: true,
+      },
+    },
+    ctaType: {
+      table: {
+        disable: true,
+      },
+    },
+    hasImage: {
+      table: {
+        disable: true,
+      },
+    },
+    _shouldRenderAsLink: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   parameters: {
     ...readme.parameters,
   },

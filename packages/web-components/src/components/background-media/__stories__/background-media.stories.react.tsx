@@ -11,7 +11,9 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSBackgroundMedia from '@carbon/ibmdotcom-web-components/es/components-react/background-media/background-media';
+import DDSBackgroundMedia, {
+  PropTypesRef,
+} from '@carbon/ibmdotcom-web-components/es/components-react/background-media/background-media'; // PropTypesRef,
 import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 import imgMax from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
@@ -26,14 +28,14 @@ const gradientDirections = {
 };
 
 export const Default = args => {
-  const { alt, opacity } = args ?? {};
+  const { alt, backgroundOpacity } = args ?? {};
   return (
     <DDSBackgroundMedia
       gradient-direction={args['gradient-direction']}
       mobile-position="bottom"
       alt={alt}
       default-src={imgMax}
-      opacity={opacity}>
+      opacity={backgroundOpacity}>
       <DDSImageItem media="(min-width: 1584px)" srcset={imgMax}>
         {' '}
       </DDSImageItem>
@@ -54,10 +56,10 @@ export const Default = args => {
 };
 
 export const WithVideo = args => {
-  const { opacity } = args ?? {};
+  const { backgroundOpacity } = args ?? {};
   return (
     <div style={{ height: '70vh' }}>
-      <DDSBackgroundMedia gradient-direction={args['gradient-direction']} mobile-position="bottom" opacity={opacity}>
+      <DDSBackgroundMedia gradient-direction={args['gradient-direction']} mobile-position="bottom" opacity={backgroundOpacity}>
         <DDSVideoPlayerContainer video-id="1_9h94wo6b" background-mode="true"></DDSVideoPlayerContainer>
       </DDSBackgroundMedia>
     </div>
@@ -65,20 +67,20 @@ export const WithVideo = args => {
 };
 
 export const WithDefaultSource = args => {
-  const { alt, opacity } = args ?? {};
+  const { alt, backgroundOpacity } = args ?? {};
   return (
     <DDSBackgroundMedia
       gradient-direction={args['gradient-direction']}
       mobile-position="bottom"
       alt={alt}
       default-src={imgMax}
-      opacity={opacity}></DDSBackgroundMedia>
+      opacity={backgroundOpacity}></DDSBackgroundMedia>
   );
 };
 
 export default {
   title: 'Components/Background media',
-  component: DDSBackgroundMedia,
+  component: PropTypesRef,
   decorators: [
     story => (
       <div className="bx--grid">
@@ -89,12 +91,12 @@ export default {
     ),
   ],
   argTypes: {
-    'gradient-direction': {
+    gradientDirection: {
       control: { type: 'radio' },
       options: gradientDirections,
       defaultValue: GRADIENT_DIRECTION.LEFT_TO_RIGHT,
     },
-    opacity: {
+    backgroundOpacity: {
       control: { type: 'range', min: 0, max: 100 },
       defaultValue: 100,
     },
@@ -103,26 +105,7 @@ export default {
         disable: true,
       },
     },
-    'default-src': {
-      table: {
-        disable: true,
-      },
-    },
-    'launch-lightbox-button-assistive-text': {
-      table: {
-        disable: true,
-      },
-    },
-    'mobile-position': {
-      table: {
-        disable: true,
-      },
-    },
-    backgroundOpacity: {
-      table: {
-        disable: true,
-      },
-    },
+
     border: {
       table: {
         disable: true,
@@ -139,11 +122,6 @@ export default {
       },
     },
     defaultSrc: {
-      table: {
-        disable: true,
-      },
-    },
-    gradientDirection: {
       table: {
         disable: true,
       },

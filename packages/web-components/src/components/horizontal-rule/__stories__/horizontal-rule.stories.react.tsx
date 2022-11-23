@@ -11,31 +11,18 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSHorizontalRule from '@carbon/ibmdotcom-web-components/es/components-react/horizontal-rule/horizontal-rule';
+import DDSHorizontalRule, {
+  PropTypesRef,
+} from '@carbon/ibmdotcom-web-components/es/components-react/horizontal-rule/horizontal-rule';
 import readme from './README.stories.react.mdx';
 
-const types = {
-  solid: undefined,
-  dashed: 'dashed',
-};
+const types = ['solid', 'dashed'];
 
-const sizes = {
-  small: 'small',
-  medium: 'medium',
-  large: 'large',
-  fluid: undefined,
-};
+const sizes = ['small', 'medium', 'large', 'fluid'];
 
-const contrasts = {
-  'low-contrast': 'low-contrast',
-  'medium-contrast': undefined,
-  'high-contrast': 'high-contrast',
-};
+const contrasts = ['low-contrast', 'medium-contrast', 'high-contrast'];
 
-const weights = {
-  thin: undefined,
-  thick: 'thick',
-};
+const weights = ['thin', 'thick'];
 
 export const Default = args => {
   const { type, size, contrast, weight } = args ?? {};
@@ -44,7 +31,7 @@ export const Default = args => {
 
 export default {
   title: 'Components/Horizontal Rule',
-  component: DDSHorizontalRule,
+  component: PropTypesRef,
   decorators: [
     story => {
       return (
@@ -63,22 +50,22 @@ export default {
     type: {
       control: { type: 'select' },
       options: types,
-      defaultValue: types.solid,
+      defaultValue: 'solid',
     },
     size: {
       control: { type: 'select' },
       options: sizes,
-      defaultValue: sizes.fluid,
+      defaultValue: 'fluid',
     },
     contrast: {
       control: { type: 'select' },
       options: contrasts,
-      defaultValue: contrasts['medium-contrast'],
+      defaultValue: 'medium-contrast',
     },
     weight: {
       control: { type: 'select' },
       options: weights,
-      defaultValue: weights.thin,
+      defaultValue: 'thin',
     },
   },
   parameters: {

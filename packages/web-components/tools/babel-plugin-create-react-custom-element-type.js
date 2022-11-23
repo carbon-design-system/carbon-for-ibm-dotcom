@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -411,13 +411,7 @@ module.exports = function generateCreateReactCustomElementType(api, { nonUpgrada
             ]);
 
         const propTypes = t.objectExpression([...buildPropTypes(declaredProps), ...buildEventsPropTypes(customEvents)]);
-        const propTypesWithParent = !context.parentDescriptorSource
-          ? propTypes
-          : t.callExpression(t.memberExpression(t.identifier('Object'), t.identifier('assign')), [
-              t.objectExpression([]),
-              t.identifier('parentPropTypes'),
-              propTypes,
-            ]);
+        const propTypesWithParent = propTypes;
 
         const body = [];
         if (!context.customElementName) {

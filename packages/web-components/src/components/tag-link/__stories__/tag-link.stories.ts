@@ -11,35 +11,71 @@ import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import '../tag-link';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = args => {
-  const { copy, href } = args?.TagLink ?? {};
+  const { copy, href } = args ?? {};
   return html`
-    <dds-tag-link href=${ifNonNull(href || undefined)}>
-      ${copy}
-    </dds-tag-link>
+    <dds-tag-link href=${ifNonNull(href || undefined)}> ${copy} </dds-tag-link>
   `;
 };
 
 export default {
   title: 'Components/Tag link',
+  component: 'dds-tag-link',
   decorators: [
-    story => html`
-      <div class="bx--grid">
-        ${story()}
-      </div>
-    `,
+    story =>
+      html`
+        <div class="bx--grid">${story()}</div>
+      `,
   ],
+  argTypes: {
+    href: {
+      control: 'text',
+      defaultValue: 'https://example.com',
+    },
+    copy: {
+      control: 'text',
+      defaultValue: 'Brand: Watson',
+    },
+    hreflang: {
+      table: {
+        disable: true,
+      },
+    },
+    ping: {
+      table: {
+        disable: true,
+      },
+    },
+    rel: {
+      table: {
+        disable: true,
+      },
+    },
+    target: {
+      table: {
+        disable: true,
+      },
+    },
+    linkRole: {
+      table: {
+        disable: true,
+      },
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
+    },
+    'link-role': {
+      table: {
+        disable: true,
+      },
+    },
+  },
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      TagLink: () => ({
-        copy: textNullable('Tag Link (copy)', 'Brand: Watson'),
-        href: textNullable('Tag Link (href)', `https://example.com`),
-      }),
-    },
     propsSet: {
       default: {
         TagLink: {
