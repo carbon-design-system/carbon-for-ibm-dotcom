@@ -15,7 +15,7 @@
  *
  */
 const settings = {
-  version: 'Carbon for IBM.com v1.41.0-rc.0',
+  version: 'Carbon for IBM.com v1.41.0',
   stablePrefix: 'dds',
 };
 
