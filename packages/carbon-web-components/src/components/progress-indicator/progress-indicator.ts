@@ -42,7 +42,7 @@ class BXProgressIndicator extends LitElement {
         this.querySelectorAll(
           (this.constructor as typeof BXProgressIndicator).selectorStep
         ),
-        item => {
+        (item) => {
           (item as BXProgressStep).vertical = this.vertical;
         }
       );
@@ -50,9 +50,7 @@ class BXProgressIndicator extends LitElement {
   }
 
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   /**

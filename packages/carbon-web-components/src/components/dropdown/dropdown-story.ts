@@ -29,7 +29,8 @@ const colorSchemes = {
 const sizes = {
   'Regular size': null,
   [`Small size (${DROPDOWN_SIZE.SMALL})`]: DROPDOWN_SIZE.SMALL,
-  [`Extra large size (${DROPDOWN_SIZE.EXTRA_LARGE})`]: DROPDOWN_SIZE.EXTRA_LARGE,
+  [`Extra large size (${DROPDOWN_SIZE.EXTRA_LARGE})`]:
+    DROPDOWN_SIZE.EXTRA_LARGE,
 };
 
 const types = {
@@ -37,7 +38,7 @@ const types = {
   [`Inline (${DROPDOWN_TYPE.INLINE})`]: DROPDOWN_TYPE.INLINE,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const {
     open,
     colorScheme,
@@ -133,9 +134,7 @@ Default.parameters = {
 };
 
 export const skeleton = () =>
-  html`
-    <bx-dropdown-skeleton></bx-dropdown-skeleton>
-  `;
+  html` <bx-dropdown-skeleton></bx-dropdown-skeleton> `;
 
 skeleton.parameters = {
   percy: {

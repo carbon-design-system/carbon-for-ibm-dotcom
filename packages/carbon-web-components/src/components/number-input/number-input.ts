@@ -115,10 +115,10 @@ export default class BXNumberInput extends BXInput {
       )
     ) {
       const stateMessageMap = {
-        [NUMBER_INPUT_VALIDATION_STATUS.EXCEEDED_MAXIMUM]: this
-          .validityMessageMax,
-        [NUMBER_INPUT_VALIDATION_STATUS.EXCEEDED_MINIMUM]: this
-          .validityMessageMin,
+        [NUMBER_INPUT_VALIDATION_STATUS.EXCEEDED_MAXIMUM]:
+          this.validityMessageMax,
+        [NUMBER_INPUT_VALIDATION_STATUS.EXCEEDED_MINIMUM]:
+          this.validityMessageMin,
       };
       return stateMessageMap[state];
     }
@@ -334,9 +334,7 @@ export default class BXNumberInput extends BXInput {
       </div>
     `;
 
-    const mobileLayout = html`
-      ${decrementButton} ${input} ${incrementButton}
-    `;
+    const mobileLayout = html` ${decrementButton} ${input} ${incrementButton} `;
 
     return html`
       <div class="${wrapperClasses}" ?data-invalid=${this.invalid}>
@@ -358,14 +356,14 @@ export default class BXNumberInput extends BXInput {
         <div
           class="${prefix}--form-requirement"
           ?hidden="${validity !==
-            NUMBER_INPUT_VALIDATION_STATUS.EXCEEDED_MAXIMUM}"
+          NUMBER_INPUT_VALIDATION_STATUS.EXCEEDED_MAXIMUM}"
         >
           <slot name="validity-message-max"> ${this.validityMessageMax} </slot>
         </div>
         <div
           class="${prefix}--form-requirement"
           ?hidden="${validity !==
-            NUMBER_INPUT_VALIDATION_STATUS.EXCEEDED_MINIMUM}"
+          NUMBER_INPUT_VALIDATION_STATUS.EXCEEDED_MINIMUM}"
         >
           <slot name="validity-message-min"> ${this.validityMessageMin} </slot>
         </div>

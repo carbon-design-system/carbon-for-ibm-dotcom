@@ -18,9 +18,9 @@ const inlineTemplate = (props?) =>
     'bx-inline-notification': props,
   });
 
-describe('bx-inline-notification', function() {
-  describe('Rendering titles', function() {
-    it('Should render with minimum attributes', async function() {
+describe('bx-inline-notification', function () {
+  describe('Rendering titles', function () {
+    it('Should render with minimum attributes', async function () {
       render(inlineTemplate(), document.body);
       await Promise.resolve();
       expect(
@@ -28,7 +28,7 @@ describe('bx-inline-notification', function() {
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('Should render with various attributes', async function() {
+    it('Should render with various attributes', async function () {
       render(
         inlineTemplate({
           closeButtonLabel: 'close-button-label-foo',
@@ -48,16 +48,16 @@ describe('bx-inline-notification', function() {
     });
   });
 
-  describe('Closing', function() {
+  describe('Closing', function () {
     let notification: BXInlineNotification | null;
 
-    beforeEach(async function() {
+    beforeEach(async function () {
       render(inlineTemplate(), document.body);
       await Promise.resolve();
       notification = document.body.querySelector('bx-inline-notification');
     });
 
-    it('Should support closing', async function() {
+    it('Should support closing', async function () {
       expect(notification!.open).toBe(true);
       notification!.shadowRoot!.querySelector('button')!.click();
       await Promise.resolve();
@@ -65,18 +65,18 @@ describe('bx-inline-notification', function() {
     });
   });
 
-  describe('Timeout', function() {
+  describe('Timeout', function () {
     const timeout = 100;
 
     let notification;
 
-    beforeEach(async function() {
+    beforeEach(async function () {
       const initializeTimerCloseEvent = (BXInlineNotification.prototype as any)
         ._handleUserOrTimerInitiatedClose;
       spyOn(
         BXInlineNotification.prototype as any,
         '_initializeTimeout'
-      ).and.callFake(function() {
+      ).and.callFake(function () {
         // TODO: See if we can get around TS2683
         // @ts-ignore
         initializeTimerCloseEvent.call(this);
@@ -92,14 +92,14 @@ describe('bx-inline-notification', function() {
       notification = document.body.querySelector('bx-inline-notification');
     });
 
-    it('Should support closing after the timeout', async function() {
+    it('Should support closing after the timeout', async function () {
       notification.open = true;
       await Promise.resolve();
       expect(notification!.open).toBe(false);
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

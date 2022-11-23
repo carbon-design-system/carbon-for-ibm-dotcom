@@ -28,7 +28,8 @@ import storyDocs from './tooltip-story.mdx';
 const tooltipBodyDirections = {
   [`Top (${FLOATING_MENU_DIRECTION.TOP})`]: FLOATING_MENU_DIRECTION.TOP,
   [`Right (${FLOATING_MENU_DIRECTION.RIGHT})`]: FLOATING_MENU_DIRECTION.RIGHT,
-  [`Bottom (${FLOATING_MENU_DIRECTION.BOTTOM})`]: FLOATING_MENU_DIRECTION.BOTTOM,
+  [`Bottom (${FLOATING_MENU_DIRECTION.BOTTOM})`]:
+    FLOATING_MENU_DIRECTION.BOTTOM,
   [`Left (${FLOATING_MENU_DIRECTION.LEFT})`]: FLOATING_MENU_DIRECTION.LEFT,
 };
 
@@ -45,7 +46,7 @@ const tooltipDefinitionDirections = {
   [`Left (${TOOLTIP_DIRECTION.LEFT})`]: TOOLTIP_DIRECTION.LEFT,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { open } = args?.['bx-tooltip'] ?? {};
   const { alignment, direction } = args?.['bx-tooltip-body'] ?? {};
   return html`
@@ -89,7 +90,7 @@ Default.parameters = {
   },
 };
 
-export const definition = args => {
+export const definition = (args) => {
   const { alignment, bodyText, direction } =
     args?.['bx-tooltip-definition'] ?? {};
   return html`
@@ -126,7 +127,7 @@ definition.parameters = {
   },
 };
 
-export const icon = args => {
+export const icon = (args) => {
   const { alignment, bodyText, direction } = args?.['bx-tooltip-icon'] ?? {};
   return html`
     <bx-tooltip-icon

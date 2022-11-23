@@ -17,7 +17,7 @@ describe('bx-checkbox', () => {
   it('should have checkbox interactive', async () => {
     await page.click('bx-checkbox label');
     const backgroundColorValue = await page.evaluate(
-      label =>
+      (label) =>
         label.ownerDocument.defaultView
           .getComputedStyle(label, '::before')
           .getPropertyValue('background-color'),

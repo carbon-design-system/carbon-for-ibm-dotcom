@@ -29,12 +29,8 @@ class BXCodeSnippetSkeleton extends LitElement {
     return html`
       <div class="${prefix}--snippet-container">
         ${this.type !== CODE_SNIPPET_TYPE.MULTI
-          ? html`
-              <span></span>
-            `
-          : html`
-              <span></span><span></span><span></span>
-            `}
+          ? html` <span></span> `
+          : html` <span></span><span></span><span></span> `}
       </div>
     `;
   }

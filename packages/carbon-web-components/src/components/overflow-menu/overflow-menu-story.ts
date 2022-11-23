@@ -21,21 +21,24 @@ import storyDocs from './overflow-menu-story.mdx';
 
 const colorSchemes = {
   [`Regular`]: null,
-  [`Light (${OVERFLOW_MENU_COLOR_SCHEME.LIGHT})`]: OVERFLOW_MENU_COLOR_SCHEME.LIGHT,
+  [`Light (${OVERFLOW_MENU_COLOR_SCHEME.LIGHT})`]:
+    OVERFLOW_MENU_COLOR_SCHEME.LIGHT,
 };
 
 const directions = {
-  [`Bottom (${FLOATING_MENU_DIRECTION.BOTTOM})`]: FLOATING_MENU_DIRECTION.BOTTOM,
+  [`Bottom (${FLOATING_MENU_DIRECTION.BOTTOM})`]:
+    FLOATING_MENU_DIRECTION.BOTTOM,
   [`Top (${FLOATING_MENU_DIRECTION.TOP})`]: FLOATING_MENU_DIRECTION.TOP,
 };
 
 const sizes = {
   'Regular size': null,
   [`Small size (${OVERFLOW_MENU_SIZE.SMALL})`]: OVERFLOW_MENU_SIZE.SMALL,
-  [`XL size (${OVERFLOW_MENU_SIZE.EXTRA_LARGE})`]: OVERFLOW_MENU_SIZE.EXTRA_LARGE,
+  [`XL size (${OVERFLOW_MENU_SIZE.EXTRA_LARGE})`]:
+    OVERFLOW_MENU_SIZE.EXTRA_LARGE,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { open, colorScheme, disabled, direction, size } =
     args?.['bx-overflow-menu'] ?? {};
   return html`

@@ -16,7 +16,7 @@ import '../form/form-item';
 import createProps from './stories/helpers';
 import storyDocs from './input-story.mdx';
 
-export const Default = args => {
+export const Default = (args) => {
   const {
     autocomplete,
     autofocus,
@@ -63,7 +63,7 @@ export const Default = args => {
 
 Default.storyName = 'Default';
 
-export const formItem = args => {
+export const formItem = (args) => {
   const {
     colorScheme,
     disabled,
@@ -98,7 +98,7 @@ export const formItem = args => {
 
 formItem.storyName = 'Form item';
 
-export const withoutFormItemWrapper = args => {
+export const withoutFormItemWrapper = (args) => {
   const {
     colorScheme,
     disabled,

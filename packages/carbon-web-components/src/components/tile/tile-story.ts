@@ -24,7 +24,7 @@ const colorSchemes = {
   [`Light (${TILE_COLOR_SCHEME.LIGHT})`]: TILE_COLOR_SCHEME.LIGHT,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { colorScheme } = args?.['bx-tile'] ?? {};
   return html`
     <bx-tile color-scheme="${ifNonNull(colorScheme)}">Default tile</bx-tile>
@@ -41,7 +41,7 @@ Default.parameters = {
   },
 };
 
-export const clickable = args => {
+export const clickable = (args) => {
   const {
     colorScheme,
     disabled,
@@ -80,7 +80,7 @@ clickable.parameters = {
   },
 };
 
-export const singleSelectable = args => {
+export const singleSelectable = (args) => {
   const { checkmarkLabel, colorScheme, name, value, onInput } =
     args?.['bx-radio-tile'] ?? {};
   return html`
@@ -134,7 +134,7 @@ singleSelectable.parameters = {
   },
 };
 
-export const multiSelectable = args => {
+export const multiSelectable = (args) => {
   const { checkmarkLabel, colorScheme, name, selected, value, onInput } =
     args?.['bx-selectable-tile'] ?? {};
   return html`
@@ -162,7 +162,7 @@ multiSelectable.parameters = {
   },
 };
 
-export const expandable = args => {
+export const expandable = (args) => {
   const { colorScheme, expanded, disableChange, onBeforeChange, onChange } =
     args?.['bx-expandable-tile'] ?? {};
   const handleBeforeChanged = (event: CustomEvent) => {
@@ -209,12 +209,7 @@ expandable.parameters = {
 
 export default {
   title: 'Components/Tile',
-  decorators: [
-    story =>
-      html`
-        <div>${story()}</div>
-      `,
-  ],
+  decorators: [(story) => html` <div>${story()}</div> `],
   parameters: {
     ...storyDocs.parameters,
   },

@@ -19,9 +19,9 @@ const packs = ['carbon-web-components'];
  *
  * @param {string[]} files The files.
  */
-const replace = async files => {
+const replace = async (files) => {
   await Promise.all(
-    files.map(async file => {
+    files.map(async (file) => {
       const contents = JSON.parse(await readFile(file));
       // eslint-disable-next-line no-restricted-syntax
       for (const dep of deps) {

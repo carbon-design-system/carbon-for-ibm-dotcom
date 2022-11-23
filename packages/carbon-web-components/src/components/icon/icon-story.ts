@@ -23,9 +23,7 @@ import Add32 from 'carbon-web-components/es/icons/add/32';
 import storyDocs from './icon-story.mdx';
 
 export const Default = () =>
-  html`
-    ${Add16()} ${Add20()} ${Add24()} ${Add32()}
-  `;
+  html` ${Add16()} ${Add20()} ${Add24()} ${Add32()} `;
 
 Default.storyName = 'Default';
 

@@ -28,7 +28,7 @@ export const decorators = [
     { args, parameters: { knobs } }: StoryContext
   ) {
     if (Object(knobs) === knobs) {
-      Object.keys(knobs).forEach(name => {
+      Object.keys(knobs).forEach((name) => {
         const { [name]: knobsForComponent } = knobs as KnobParameters;
         if (typeof knobsForComponent === 'function') {
           args[name] = knobsForComponent();

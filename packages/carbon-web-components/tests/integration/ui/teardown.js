@@ -10,7 +10,7 @@
 const { teardown: teardownDevServer } = require('jest-dev-server');
 const teardown = require('jest-playwright-preset/teardown');
 
-module.exports = async config => {
+module.exports = async (config) => {
   await teardown(config);
   await teardownDevServer();
 };

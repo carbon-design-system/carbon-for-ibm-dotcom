@@ -154,7 +154,7 @@ class BXContentSwitcher extends LitElement {
       this.querySelectorAll(
         (this.constructor as typeof BXContentSwitcher).selectorItemSelected
       ),
-      item => {
+      (item) => {
         (item as BXSwitch).selected = false;
       }
     );
@@ -180,7 +180,7 @@ class BXContentSwitcher extends LitElement {
   shouldUpdate(changedProperties) {
     if (changedProperties.has('value')) {
       const { selectorItem } = this.constructor as typeof BXContentSwitcher;
-      forEach(this.querySelectorAll(selectorItem), elem => {
+      forEach(this.querySelectorAll(selectorItem), (elem) => {
         (elem as BXSwitch).selected = (elem as BXSwitch).value === this.value;
       });
     }

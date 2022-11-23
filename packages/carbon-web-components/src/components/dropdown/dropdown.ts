@@ -122,7 +122,7 @@ class BXDropdown extends ValidityMixin(
         this.querySelectorAll(
           (this.constructor as typeof BXDropdown).selectorItemSelected
         ),
-        item => {
+        (item) => {
           (item as BXDropdownItem).selected = false;
         }
       );
@@ -309,7 +309,7 @@ class BXDropdown extends ValidityMixin(
           this.querySelectorAll(
             (this.constructor as typeof BXDropdown).selectorItemHighlighted
           ),
-          item => {
+          (item) => {
             (item as BXDropdownItem).highlighted = false;
           }
         );
@@ -327,7 +327,7 @@ class BXDropdown extends ValidityMixin(
       this.querySelectorAll(
         (this.constructor as typeof BXDropdown).selectorItem
       ),
-      item => {
+      (item) => {
         (item as BXDropdownItem).highlighted = false;
       }
     );
@@ -533,20 +533,20 @@ class BXDropdown extends ValidityMixin(
   shouldUpdate(changedProperties) {
     const { selectorItem } = this.constructor as typeof BXDropdown;
     if (changedProperties.has('size')) {
-      forEach(this.querySelectorAll(selectorItem), elem => {
+      forEach(this.querySelectorAll(selectorItem), (elem) => {
         (elem as BXDropdownItem).size = this.size;
       });
     }
     if (changedProperties.has('value')) {
       // `<bx-multi-select>` updates selection beforehand
       // because our rendering logic for `<bx-multi-select>` looks for selected items via `qSA()`
-      forEach(this.querySelectorAll(selectorItem), elem => {
+      forEach(this.querySelectorAll(selectorItem), (elem) => {
         (elem as BXDropdownItem).selected =
           (elem as BXDropdownItem).value === this.value;
       });
       const item = find(
         this.querySelectorAll(selectorItem),
-        elem => (elem as BXDropdownItem).value === this.value
+        (elem) => (elem as BXDropdownItem).value === this.value
       );
       if (item) {
         const range = this.ownerDocument!.createRange();
@@ -566,7 +566,7 @@ class BXDropdown extends ValidityMixin(
     if (changedProperties.has('disabled')) {
       const { disabled } = this;
       // Propagate `disabled` attribute to descendants until `:host-context()` gets supported in all major browsers
-      forEach(this.querySelectorAll(selectorItem), elem => {
+      forEach(this.querySelectorAll(selectorItem), (elem) => {
         (elem as BXDropdownItem).disabled = disabled;
       });
     }

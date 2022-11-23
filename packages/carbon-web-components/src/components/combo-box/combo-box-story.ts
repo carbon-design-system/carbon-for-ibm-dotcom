@@ -32,10 +32,11 @@ const types = {
 const sizes = {
   'Regular size': null,
   [`Small size (${DROPDOWN_SIZE.SMALL})`]: DROPDOWN_SIZE.SMALL,
-  [`Extra large size (${DROPDOWN_SIZE.EXTRA_LARGE})`]: DROPDOWN_SIZE.EXTRA_LARGE,
+  [`Extra large size (${DROPDOWN_SIZE.EXTRA_LARGE})`]:
+    DROPDOWN_SIZE.EXTRA_LARGE,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const {
     open,
     colorScheme,

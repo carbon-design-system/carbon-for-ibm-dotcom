@@ -57,11 +57,11 @@ class BXPageSizesSelect extends FocusMixin(LitElement) {
     while (selectNode.firstChild) {
       selectNode.removeChild(selectNode.firstChild);
     }
-    ((target as HTMLSlotElement).assignedNodes() as HTMLOptionElement[]).forEach(
-      item => {
-        selectNode?.appendChild(item.cloneNode(true));
-      }
-    );
+    (
+      (target as HTMLSlotElement).assignedNodes() as HTMLOptionElement[]
+    ).forEach((item) => {
+      selectNode?.appendChild(item.cloneNode(true));
+    });
   }
 
   /**

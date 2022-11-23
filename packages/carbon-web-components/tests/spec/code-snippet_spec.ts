@@ -29,9 +29,9 @@ const inlineTemplate = (props?) =>
     'bx-code-snippet': props,
   });
 
-describe('bx-code-snippet', function() {
-  describe('Rendering', function() {
-    it('Should render with minimum attributes for single line mode', async function() {
+describe('bx-code-snippet', function () {
+  describe('Rendering', function () {
+    it('Should render with minimum attributes for single line mode', async function () {
       render(singleLineTemplate(), document.body);
       await Promise.resolve();
       expect(
@@ -41,7 +41,7 @@ describe('bx-code-snippet', function() {
       });
     });
 
-    it('Should render with minimum attributes for multi line mode', async function() {
+    it('Should render with minimum attributes for multi line mode', async function () {
       render(multiLineTemplate(), document.body);
       await Promise.resolve();
       expect(
@@ -51,7 +51,7 @@ describe('bx-code-snippet', function() {
       });
     });
 
-    it('Should render with minimum attributes for inline mode', async function() {
+    it('Should render with minimum attributes for inline mode', async function () {
       render(inlineTemplate(), document.body);
       await Promise.resolve();
       expect(
@@ -61,7 +61,7 @@ describe('bx-code-snippet', function() {
       });
     });
 
-    it('Should render with various attributes for single line mode', async function() {
+    it('Should render with various attributes for single line mode', async function () {
       render(
         singleLineTemplate({
           codeAssistiveText: 'code-assistive-text-foo',
@@ -79,7 +79,7 @@ describe('bx-code-snippet', function() {
       });
     });
 
-    it('Should render with various attributes for multi line mode', async function() {
+    it('Should render with various attributes for multi line mode', async function () {
       render(
         multiLineTemplate({
           codeAssistiveText: 'code-assistive-text-foo',
@@ -97,7 +97,7 @@ describe('bx-code-snippet', function() {
       });
     });
 
-    it('Should render with various attributes for inline mode', async function() {
+    it('Should render with various attributes for inline mode', async function () {
       render(
         inlineTemplate({
           codeAssistiveText: 'code-assistive-text-foo',
@@ -116,15 +116,15 @@ describe('bx-code-snippet', function() {
     });
   });
 
-  describe('Showing tooltip', function() {
-    beforeEach(function() {
+  describe('Showing tooltip', function () {
+    beforeEach(function () {
       // Workaround for:
       // `Error: Jasmine Clock was unable to install over custom global timer functions. Is the clock already installed?`
       jasmine.clock().uninstall();
       jasmine.clock().install();
     });
 
-    it('Should show the tooltip for 2 seconds by default', async function() {
+    it('Should show the tooltip for 2 seconds by default', async function () {
       render(singleLineTemplate(), document.body);
       await Promise.resolve();
       const button = document.body
@@ -143,7 +143,7 @@ describe('bx-code-snippet', function() {
       ).toBe(false);
     });
 
-    it('Should show the tooltip on the code snippet itself for inline mode', async function() {
+    it('Should show the tooltip on the code snippet itself for inline mode', async function () {
       render(inlineTemplate(), document.body);
       await Promise.resolve();
       const button = document.body
@@ -162,7 +162,7 @@ describe('bx-code-snippet', function() {
       ).toBe(false);
     });
 
-    it('Should support changing the duration', async function() {
+    it('Should support changing the duration', async function () {
       render(
         singleLineTemplate({ copyButtonFeedbackTimeout: 500 }),
         document.body
@@ -184,13 +184,13 @@ describe('bx-code-snippet', function() {
       ).toBe(false);
     });
 
-    afterEach(function() {
+    afterEach(function () {
       jasmine.clock().uninstall();
     });
   });
 
-  describe('Expand/collapse button in multi line mode', function() {
-    it('Should render the expando', async function() {
+  describe('Expand/collapse button in multi line mode', function () {
+    it('Should render the expando', async function () {
       render(
         multiLineTemplate({
           collapseButtonText: 'collapse-button-text-foo',
@@ -210,7 +210,7 @@ describe('bx-code-snippet', function() {
       ).toMatchSnapshot();
     });
 
-    it('Should change the button text by expanding/collapsing', async function() {
+    it('Should change the button text by expanding/collapsing', async function () {
       render(
         multiLineTemplate({
           collapseButtonText: 'collapse-button-text-foo',
@@ -238,14 +238,14 @@ describe('bx-code-snippet', function() {
       ).toBe('collapse-button-text-foo');
     });
 
-    afterEach(function() {
+    afterEach(function () {
       const snippet = document.body.querySelector('bx-code-snippet');
       snippet!.shadowRoot!.querySelector('pre')!.style.display = '';
       snippet!.shadowRoot!.querySelector('pre')!.style.height = '';
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

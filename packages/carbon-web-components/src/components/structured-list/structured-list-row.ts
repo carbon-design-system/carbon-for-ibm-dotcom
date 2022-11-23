@@ -35,7 +35,8 @@ const navigationDirectionForKey = {
  * The interface for `RadioGroupManager` for structured list row.
  */
 class StructuredListRowRadioButtonDelegate
-  implements ManagedRadioButtonDelegate {
+  implements ManagedRadioButtonDelegate
+{
   /**
    * The structured list row to target.
    */
@@ -206,12 +207,8 @@ class BXStructuredListRow extends HostListenerMixin(LitElement) {
   }
 
   render() {
-    const {
-      selected,
-      selectionName,
-      selectionValue,
-      selectionIconTitle,
-    } = this;
+    const { selected, selectionName, selectionValue, selectionIconTitle } =
+      this;
     if (selectionName) {
       // "Selected" style with `.bx--structured-list-td` does not work somehow - Need investigation
       return html`
@@ -234,9 +231,7 @@ class BXStructuredListRow extends HostListenerMixin(LitElement) {
         </div>
       `;
     }
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   static styles = styles;

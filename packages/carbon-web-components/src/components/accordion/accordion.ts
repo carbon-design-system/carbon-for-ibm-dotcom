@@ -44,7 +44,7 @@ class BXAccordion extends LitElement {
         this.querySelectorAll(
           (this.constructor as typeof BXAccordion).selectorAccordionItems
         ),
-        elem => {
+        (elem) => {
           elem.setAttribute('size', this.size);
         }
       );
@@ -52,9 +52,7 @@ class BXAccordion extends LitElement {
   }
 
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   static get selectorAccordionItems() {

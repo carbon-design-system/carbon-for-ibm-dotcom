@@ -97,12 +97,12 @@ const toolbarSearchTemplate = (props?) => {
   `;
 };
 
-describe('data-table', function() {
+describe('data-table', function () {
   const events = new EventManager();
 
-  describe('bx-table-batch-action', function() {
-    describe('Misc attributes', function() {
-      it('should render with minimum attributes', async function() {
+  describe('bx-table-batch-action', function () {
+    describe('Misc attributes', function () {
+      it('should render with minimum attributes', async function () {
         render(batchActionTemplate(), document.body);
         await Promise.resolve();
         expect(
@@ -110,7 +110,7 @@ describe('data-table', function() {
         ).toMatchSnapshot({ mode: 'shadow' });
       });
 
-      it('should render with various attributes', async function() {
+      it('should render with various attributes', async function () {
         render(
           batchActionTemplate({
             active: true,
@@ -124,7 +124,7 @@ describe('data-table', function() {
         ).toMatchSnapshot({ mode: 'shadow' });
       });
 
-      it('should render non-plural selected rows count', async function() {
+      it('should render non-plural selected rows count', async function () {
         render(
           batchActionTemplate({
             active: true,
@@ -139,16 +139,16 @@ describe('data-table', function() {
       });
     });
 
-    describe('Handling cancel button', function() {
+    describe('Handling cancel button', function () {
       let elem: Element;
 
-      beforeEach(async function() {
+      beforeEach(async function () {
         render(batchActionTemplate({ active: true }), document.body);
         await Promise.resolve();
         elem = document.body.querySelector('bx-table-batch-actions')!;
       });
 
-      it('should fire a custom event', async function() {
+      it('should fire a custom event', async function () {
         const spyCancel = jasmine.createSpy('cancel');
         events.on(elem!, 'bx-table-batch-actions-cancel-clicked', spyCancel);
         const cancelButton = elem.shadowRoot!.querySelector(
@@ -161,8 +161,8 @@ describe('data-table', function() {
     });
   });
 
-  describe('bx-table-body', function() {
-    it('should support setting zebra stripe to rows', async function() {
+  describe('bx-table-body', function () {
+    it('should support setting zebra stripe to rows', async function () {
       render(
         template({ colorScheme: TABLE_COLOR_SCHEME.ZEBRA }),
         document.body
@@ -177,12 +177,12 @@ describe('data-table', function() {
       expect(result).toBe(true);
     });
 
-    it('should support unsetting zebra stripe to rows', async function() {
+    it('should support unsetting zebra stripe to rows', async function () {
       render(template(), document.body);
       await Promise.resolve();
       const result = Array.prototype.every.call(
         document.body.querySelectorAll('bx-table-row'),
-        item =>
+        (item) =>
           (item as BXTableRow).even === false &&
           (item as BXTableRow).odd === false
       );
@@ -190,9 +190,9 @@ describe('data-table', function() {
     });
   });
 
-  describe('bx-table-header-cell', function() {
-    describe('Misc attributes', function() {
-      it('should render with minimum attributes', async function() {
+  describe('bx-table-header-cell', function () {
+    describe('Misc attributes', function () {
+      it('should render with minimum attributes', async function () {
         render(headerCellTemplate(), document.body);
         await Promise.resolve();
         expect(
@@ -200,7 +200,7 @@ describe('data-table', function() {
         ).toMatchSnapshot({ mode: 'shadow' });
       });
 
-      it('should render with various attributes', async function() {
+      it('should render with various attributes', async function () {
         render(
           headerCellTemplate({
             sortActive: true,
@@ -216,8 +216,8 @@ describe('data-table', function() {
       });
     });
 
-    describe('Changing sort direction', function() {
-      it('should support ascending -> descending cycle', async function() {
+    describe('Changing sort direction', function () {
+      it('should support ascending -> descending cycle', async function () {
         render(
           headerCellTemplate({
             sortActive: true,
@@ -244,7 +244,7 @@ describe('data-table', function() {
         expect(elem.sortDirection).toBe(TABLE_SORT_DIRECTION.ASCENDING);
       });
 
-      it('should support descending -> ascending cycle', async function() {
+      it('should support descending -> ascending cycle', async function () {
         render(
           headerCellTemplate({
             sortActive: true,
@@ -271,7 +271,7 @@ describe('data-table', function() {
         expect(elem.sortDirection).toBe(TABLE_SORT_DIRECTION.DESCENDING);
       });
 
-      it('should support none -> ascending -> descending cycle', async function() {
+      it('should support none -> ascending -> descending cycle', async function () {
         render(
           headerCellTemplate({
             sortActive: true,
@@ -298,7 +298,7 @@ describe('data-table', function() {
         expect(elem.sortDirection).toBe(TABLE_SORT_DIRECTION.NONE);
       });
 
-      it('should support none -> descending -> ascending cycle', async function() {
+      it('should support none -> descending -> ascending cycle', async function () {
         render(
           headerCellTemplate({
             sortActive: true,
@@ -325,7 +325,7 @@ describe('data-table', function() {
         expect(elem.sortDirection).toBe(TABLE_SORT_DIRECTION.NONE);
       });
 
-      it('should support preventing sort order from being changed upon user gesture', async function() {
+      it('should support preventing sort order from being changed upon user gesture', async function () {
         render(
           headerCellTemplate({
             sortActive: true,
@@ -338,7 +338,7 @@ describe('data-table', function() {
         const elem = document.body.querySelector(
           'bx-table-header-cell'
         ) as BXTableHeaderCell;
-        events.on(elem, 'bx-table-header-cell-sort', event => {
+        events.on(elem, 'bx-table-header-cell-sort', (event) => {
           event.preventDefault();
         });
         const button = elem.shadowRoot!.querySelector(
@@ -351,9 +351,9 @@ describe('data-table', function() {
     });
   });
 
-  describe('bx-table-row', function() {
-    describe('Misc attributes', function() {
-      it('should render with minimum attributes', async function() {
+  describe('bx-table-row', function () {
+    describe('Misc attributes', function () {
+      it('should render with minimum attributes', async function () {
         render(rowTemplate(), document.body);
         await Promise.resolve();
         expect(
@@ -363,7 +363,7 @@ describe('data-table', function() {
         });
       });
 
-      it('should render with various attributes', async function() {
+      it('should render with various attributes', async function () {
         render(
           rowTemplate({
             disabled: true,
@@ -383,8 +383,8 @@ describe('data-table', function() {
       });
     });
 
-    describe('Handling selection', function() {
-      it('should fire bx-table-row-change-selection event upon selecting', async function() {
+    describe('Handling selection', function () {
+      it('should fire bx-table-row-change-selection event upon selecting', async function () {
         const spyBeforeChange = jasmine.createSpy('before toggle');
         render(
           rowTemplate({
@@ -402,7 +402,7 @@ describe('data-table', function() {
         expect((row as BXTableRow).selected).toBe(true);
       });
 
-      it('should fire bx-table-row-change-selection event upon unselecting', async function() {
+      it('should fire bx-table-row-change-selection event upon unselecting', async function () {
         const spyBeforeChange = jasmine.createSpy('before toggle');
         render(
           rowTemplate({
@@ -421,7 +421,7 @@ describe('data-table', function() {
         expect((row as BXTableRow).selected).toBe(false);
       });
 
-      it('should support preventing table row selection from being toggled upon user gesture', async function() {
+      it('should support preventing table row selection from being toggled upon user gesture', async function () {
         render(
           rowTemplate({
             selectionName: 'selection-name-foo',
@@ -430,7 +430,7 @@ describe('data-table', function() {
         );
         await Promise.resolve();
         const row = document.body.querySelector('bx-table-row');
-        events.on(row!, 'bx-table-row-change-selection', event => {
+        events.on(row!, 'bx-table-row-change-selection', (event) => {
           event.preventDefault();
         });
         row!.shadowRoot!.querySelector('input')!.click();
@@ -440,9 +440,9 @@ describe('data-table', function() {
     });
   });
 
-  describe('bx-table-expand-row', function() {
-    describe('Misc attributes', function() {
-      it('should render with minimum attributes', async function() {
+  describe('bx-table-expand-row', function () {
+    describe('Misc attributes', function () {
+      it('should render with minimum attributes', async function () {
         render(expandRowTemplate(), document.body);
         await Promise.resolve();
         expect(
@@ -450,7 +450,7 @@ describe('data-table', function() {
         ).toMatchSnapshot({ mode: 'shadow' });
       });
 
-      it('should render with various attributes', async function() {
+      it('should render with various attributes', async function () {
         render(
           expandRowTemplate({
             disabled: true,
@@ -469,8 +469,8 @@ describe('data-table', function() {
       });
     });
 
-    describe('Toggling', function() {
-      it('should expand and collapse', async function() {
+    describe('Toggling', function () {
+      it('should expand and collapse', async function () {
         render(expandRowTemplate(), document.body);
         await Promise.resolve();
 
@@ -492,7 +492,7 @@ describe('data-table', function() {
         expect((expandedRow as BXTableExpandedRow).expanded).toBe(false);
       });
 
-      it('should fire bx-table-row-expando-beingtoggled/bx-table-row-expando-toggled events upon expanding', async function() {
+      it('should fire bx-table-row-expando-beingtoggled/bx-table-row-expando-toggled events upon expanding', async function () {
         const spyBeforeToggle = jasmine.createSpy('before toggle');
         const spyAfterToggle = jasmine.createSpy('after toggle');
         render(expandRowTemplate(), document.body);
@@ -512,7 +512,7 @@ describe('data-table', function() {
         expect(spyAfterToggle.calls.argsFor(0)[0].detail.expanded).toBe(true);
       });
 
-      it('should fire bx-table-row-expando-beingtoggled/bx-table-row-expando-toggled events upon collapsing', async function() {
+      it('should fire bx-table-row-expando-beingtoggled/bx-table-row-expando-toggled events upon collapsing', async function () {
         const spyBeforeToggle = jasmine.createSpy('before toggle');
         const spyAfterToggle = jasmine.createSpy('after toggle');
         render(expandRowTemplate({ expanded: true }), document.body);
@@ -532,12 +532,12 @@ describe('data-table', function() {
         expect(spyAfterToggle.calls.argsFor(0)[0].detail.expanded).toBe(false);
       });
 
-      it('should support preventing table row from being toggled upon user gesture', async function() {
+      it('should support preventing table row from being toggled upon user gesture', async function () {
         const spyAfterToggle = jasmine.createSpy('after toggle');
         render(expandRowTemplate(), document.body);
         await Promise.resolve();
         const expandRow = document.body.querySelector('bx-table-expand-row');
-        events.on(expandRow!, 'bx-table-row-expando-beingtoggled', event => {
+        events.on(expandRow!, 'bx-table-row-expando-beingtoggled', (event) => {
           event.preventDefault();
         });
         events.on(expandRow!, 'bx-table-row-expando-toggled', spyAfterToggle);
@@ -547,8 +547,8 @@ describe('data-table', function() {
       });
     });
 
-    describe('Hovering over', function() {
-      it('should toggle the highlight of the expanded content', async function() {
+    describe('Hovering over', function () {
+      it('should toggle the highlight of the expanded content', async function () {
         render(expandRowTemplate(), document.body);
         await Promise.resolve();
 
@@ -570,9 +570,9 @@ describe('data-table', function() {
     });
   });
 
-  describe('bx-table-toolbar-search', function() {
-    describe('Misc attributes', function() {
-      it('should render with minimum attributes', async function() {
+  describe('bx-table-toolbar-search', function () {
+    describe('Misc attributes', function () {
+      it('should render with minimum attributes', async function () {
         render(toolbarSearchTemplate(), document.body);
         await Promise.resolve();
         expect(
@@ -580,7 +580,7 @@ describe('data-table', function() {
         ).toMatchSnapshot({ mode: 'shadow' });
       });
 
-      it('should render with various attributes', async function() {
+      it('should render with various attributes', async function () {
         render(
           toolbarSearchTemplate({
             expanded: true,
@@ -595,8 +595,8 @@ describe('data-table', function() {
       });
     });
 
-    describe('Expanding/collapsing', function() {
-      it('should expand and focus on the search box upon getting focus on the root', async function() {
+    describe('Expanding/collapsing', function () {
+      it('should expand and focus on the search box upon getting focus on the root', async function () {
         render(toolbarSearchTemplate(), document.body);
         await Promise.resolve();
         const toolbarSearch = document.body.querySelector(
@@ -613,7 +613,7 @@ describe('data-table', function() {
         expect(input!.focus).toHaveBeenCalled();
       });
 
-      it('should collapse upon losing focus on the root', async function() {
+      it('should collapse upon losing focus on the root', async function () {
         render(toolbarSearchTemplate({ expanded: true }), document.body);
         await Promise.resolve();
         const toolbarSearch = document.body.querySelector(
@@ -627,7 +627,7 @@ describe('data-table', function() {
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
     events.reset();
   });

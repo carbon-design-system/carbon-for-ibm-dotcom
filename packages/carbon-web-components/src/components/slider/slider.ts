@@ -194,10 +194,8 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
           .ownerDocument!.defaultView!.getComputedStyle(trackNode)
           .getPropertyValue('direction') === 'rtl';
       const thumbPosition = event.clientX;
-      const {
-        left: trackLeft,
-        width: trackWidth,
-      } = trackNode.getBoundingClientRect();
+      const { left: trackLeft, width: trackWidth } =
+        trackNode.getBoundingClientRect();
       this._rate =
         (isRtl
           ? trackLeft + trackWidth - thumbPosition
@@ -241,10 +239,8 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
           .ownerDocument!.defaultView!.getComputedStyle(trackNode)
           .getPropertyValue('direction') === 'rtl';
       const thumbPosition = event.clientX;
-      const {
-        left: trackLeft,
-        width: trackWidth,
-      } = this._trackNode.getBoundingClientRect();
+      const { left: trackLeft, width: trackWidth } =
+        this._trackNode.getBoundingClientRect();
       this._rate =
         (isRtl
           ? trackLeft + trackWidth - thumbPosition
@@ -436,7 +432,7 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
       }
     }
     if (input) {
-      ['max', 'min', 'step', 'value'].forEach(name => {
+      ['max', 'min', 'step', 'value'].forEach((name) => {
         if (changedProperties.has(name)) {
           input[name] = this[name];
         }

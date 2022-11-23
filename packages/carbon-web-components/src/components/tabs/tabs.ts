@@ -75,7 +75,7 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleFocusIn() {
     const { selectorItem } = this.constructor as typeof BXTabs;
-    forEach(this.querySelectorAll(selectorItem), item => {
+    forEach(this.querySelectorAll(selectorItem), (item) => {
       (item as BXTab).inFocus = true;
     });
   }
@@ -90,7 +90,7 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
   private _handleFocusOut({ relatedTarget }: FocusEvent) {
     if (!this.contains(relatedTarget as Node)) {
       const { selectorItem } = this.constructor as typeof BXTabs;
-      forEach(this.querySelectorAll(selectorItem), item => {
+      forEach(this.querySelectorAll(selectorItem), (item) => {
         (item as BXTab).inFocus = false;
       });
       this._handleUserInitiatedToggle(false);
@@ -132,7 +132,7 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
   private _clearHighlight() {
     forEach(
       this.querySelectorAll((this.constructor as typeof BXTabs).selectorItem),
-      item => {
+      (item) => {
         (item as BXTab).highlighted = false;
       }
     );
@@ -168,7 +168,7 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
     if (immediate) {
       this._handleUserInitiatedSelectItem(nextItem as BXTab);
     } else {
-      forEach(this.querySelectorAll(selectorItem), item => {
+      forEach(this.querySelectorAll(selectorItem), (item) => {
         (item as BXTab)[immediate ? 'selected' : 'highlighted'] =
           nextItem === item;
       });
@@ -305,14 +305,14 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
     super.shouldUpdate(changedProperties);
     const { selectorItem } = this.constructor as typeof BXTabs;
     if (changedProperties.has('type')) {
-      forEach(this.querySelectorAll(selectorItem), elem => {
+      forEach(this.querySelectorAll(selectorItem), (elem) => {
         (elem as BXTab).type = this.type;
       });
     }
     if (changedProperties.has('value')) {
       const item = find(
         this.querySelectorAll(selectorItem),
-        elem => (elem as BXTab).value === this.value
+        (elem) => (elem as BXTab).value === this.value
       );
       if (item) {
         const range = this.ownerDocument!.createRange();

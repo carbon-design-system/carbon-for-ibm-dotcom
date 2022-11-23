@@ -17,11 +17,11 @@ const template = (props?) =>
     'bx-content-switcher': props,
   });
 
-describe('bx-content-switcher', function() {
-  describe('Selecting an item', function() {
+describe('bx-content-switcher', function () {
+  describe('Selecting an item', function () {
     const events = new EventManager();
 
-    it('should add/remove "selected" attribute', async function() {
+    it('should add/remove "selected" attribute', async function () {
       render(template(), document.body);
       await Promise.resolve();
       const itemNodes = document.body.querySelectorAll(
@@ -36,7 +36,7 @@ describe('bx-content-switcher', function() {
       expect(itemNodes[4].hasAttribute('selected')).toBe(false);
     });
 
-    it('should update value', async function() {
+    it('should update value', async function () {
       render(template(), document.body);
       await Promise.resolve();
       const itemNodes = document.body.querySelectorAll(
@@ -49,7 +49,7 @@ describe('bx-content-switcher', function() {
       ).toBe('staging');
     });
 
-    it('should provide a way to switch item with a value', async function() {
+    it('should provide a way to switch item with a value', async function () {
       render(template(), document.body);
       await Promise.resolve();
       (document.body.querySelector('bx-content-switcher') as BXTabs).value =
@@ -66,7 +66,7 @@ describe('bx-content-switcher', function() {
       expect(itemNodes[4].hasAttribute('selected')).toBe(false);
     });
 
-    it('should provide a way to cancel switching item', async function() {
+    it('should provide a way to cancel switching item', async function () {
       render(template(), document.body);
       await Promise.resolve();
       const elem = document.body.querySelector('bx-content-switcher');
@@ -93,13 +93,13 @@ describe('bx-content-switcher', function() {
       expect(itemNodes[4].hasAttribute('selected')).toBe(false);
     });
 
-    afterEach(async function() {
+    afterEach(async function () {
       events.reset();
     });
   });
 
-  describe('Handling hover-over', function() {
-    it('should add/remove "hide-divider" attribute', async function() {
+  describe('Handling hover-over', function () {
+    it('should add/remove "hide-divider" attribute', async function () {
       render(template(), document.body);
       await Promise.resolve();
       const itemNodes = document.body.querySelectorAll(
@@ -126,7 +126,7 @@ describe('bx-content-switcher', function() {
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

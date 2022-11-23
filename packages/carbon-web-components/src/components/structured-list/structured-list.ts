@@ -54,7 +54,7 @@ class BXStructuredList extends FocusMixin(LitElement) {
         this.querySelectorAll(
           (this.constructor as typeof BXStructuredList).selectorRowsWithHeader
         ),
-        elem => {
+        (elem) => {
           (elem as BXStructuredListRow).selectionName = this.selectionName;
         }
       );

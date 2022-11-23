@@ -18,7 +18,7 @@ const types = {
   [`Heading (${SKELETON_TEXT_TYPE.HEADING})`]: SKELETON_TEXT_TYPE.HEADING,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { type } = args?.['bx-skeleton-text'] ?? {};
   return html`
     <bx-skeleton-text type="${ifNonNull(type)}"></bx-skeleton-text>
@@ -42,10 +42,7 @@ export const lines = () => html`
 `;
 
 lines.decorators = [
-  story =>
-    html`
-      <div style="width:300px">${story()}</div>
-    `,
+  (story) => html` <div style="width:300px">${story()}</div> `,
 ];
 
 export default {

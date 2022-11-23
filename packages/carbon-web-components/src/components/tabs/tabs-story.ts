@@ -31,7 +31,7 @@ const types = {
   [`Container type (${TABS_TYPE.CONTAINER})`]: TABS_TYPE.CONTAINER,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const {
     colorScheme,
     triggerContent,

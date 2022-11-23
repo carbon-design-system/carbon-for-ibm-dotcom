@@ -14,7 +14,7 @@ import './list-item';
 import { boolean } from '@storybook/addon-knobs';
 import storyDocs from './list-story.mdx';
 
-export const ordered = args => {
+export const ordered = (args) => {
   const { isExpressive } = args?.['bx-list'] ?? {};
   return html`
     <bx-ordered-list ?isExpressive="${isExpressive}">
@@ -37,7 +37,7 @@ export const ordered = args => {
   `;
 };
 
-export const unordered = args => {
+export const unordered = (args) => {
   const { isExpressive } = args?.['bx-list'] ?? {};
   return html`
     <bx-unordered-list ?isExpressive="${isExpressive}">

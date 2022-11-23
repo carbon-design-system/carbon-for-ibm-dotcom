@@ -149,9 +149,7 @@ class BXTableRow extends FocusMixin(LitElement) {
   }
 
   render() {
-    return html`
-      ${this._renderFirstCells()}<slot></slot>
-    `;
+    return html` ${this._renderFirstCells()}<slot></slot> `;
   }
 
   /**

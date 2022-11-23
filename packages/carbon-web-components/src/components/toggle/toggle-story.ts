@@ -20,7 +20,7 @@ const sizes = {
   [`Small size (${TOGGLE_SIZE.SMALL})`]: TOGGLE_SIZE.SMALL,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const {
     checked,
     checkedText,

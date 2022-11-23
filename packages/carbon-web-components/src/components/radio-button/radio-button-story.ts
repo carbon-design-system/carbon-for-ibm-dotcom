@@ -18,16 +18,20 @@ import './radio-button-skeleton';
 import storyDocs from './radio-button-story.mdx';
 
 const orientations = {
-  [`Horizontal (${RADIO_BUTTON_ORIENTATION.HORIZONTAL})`]: RADIO_BUTTON_ORIENTATION.HORIZONTAL,
-  [`Vertical (${RADIO_BUTTON_ORIENTATION.VERTICAL})`]: RADIO_BUTTON_ORIENTATION.VERTICAL,
+  [`Horizontal (${RADIO_BUTTON_ORIENTATION.HORIZONTAL})`]:
+    RADIO_BUTTON_ORIENTATION.HORIZONTAL,
+  [`Vertical (${RADIO_BUTTON_ORIENTATION.VERTICAL})`]:
+    RADIO_BUTTON_ORIENTATION.VERTICAL,
 };
 
 const labelPositions = {
-  [`Left (${RADIO_BUTTON_LABEL_POSITION.LEFT})`]: RADIO_BUTTON_LABEL_POSITION.LEFT,
-  [`Right (${RADIO_BUTTON_LABEL_POSITION.RIGHT})`]: RADIO_BUTTON_LABEL_POSITION.RIGHT,
+  [`Left (${RADIO_BUTTON_LABEL_POSITION.LEFT})`]:
+    RADIO_BUTTON_LABEL_POSITION.LEFT,
+  [`Right (${RADIO_BUTTON_LABEL_POSITION.RIGHT})`]:
+    RADIO_BUTTON_LABEL_POSITION.RIGHT,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { disabled, labelPosition, orientation, name, value, onChange } =
     args?.['bx-radio-button-group'] ?? {};
   const { hideLabel, labelText } = args?.['bx-radio-button'] ?? {};
@@ -87,9 +91,7 @@ Default.parameters = {
 };
 
 export const skeleton = () =>
-  html`
-    <bx-radio-button-skeleton></bx-radio-button-skeleton>
-  `;
+  html` <bx-radio-button-skeleton></bx-radio-button-skeleton> `;
 
 skeleton.parameters = {
   percy: {

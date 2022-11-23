@@ -97,10 +97,10 @@ class BXSelect extends ValidityMixin(FormMixin(LitElement)) {
     return html`
       ${filter(
         element.childNodes,
-        item =>
+        (item) =>
           item.nodeType === Node.ELEMENT_NODE &&
           (item as Element).matches(selectorItem)
-      ).map(item => {
+      ).map((item) => {
         const disabled = item.hasAttribute('disabled');
         const label = item.getAttribute('label');
         const selected = item.hasAttribute('selected');

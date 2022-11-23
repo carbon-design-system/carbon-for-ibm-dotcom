@@ -29,11 +29,7 @@ export default ({
   const radius = type === LOADING_TYPE.SMALL ? '42' : '44';
   return html`
     <svg class="${prefix}--loading__svg" viewBox="0 0 100 100">
-      ${!assistiveText
-        ? undefined
-        : html`
-            <title>${assistiveText}</title>
-          `}
+      ${!assistiveText ? undefined : html` <title>${assistiveText}</title> `}
       <circle
         ?hidden="${type !== LOADING_TYPE.SMALL}"
         class="${prefix}--loading__background"

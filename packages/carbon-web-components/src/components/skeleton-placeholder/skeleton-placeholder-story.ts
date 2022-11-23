@@ -12,9 +12,7 @@ import './skeleton-placeholder';
 import storyDocs from './skeleton-placeholder-story.mdx';
 
 export const Default = () =>
-  html`
-    <bx-skeleton-placeholder></bx-skeleton-placeholder>
-  `;
+  html` <bx-skeleton-placeholder></bx-skeleton-placeholder> `;
 
 Default.storyName = 'Default';
 

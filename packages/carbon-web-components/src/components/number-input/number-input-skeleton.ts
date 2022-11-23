@@ -28,9 +28,7 @@ class BXNumberInputSkeleton extends LitElement {
     const { hideLabel } = this;
     return html`
       ${!hideLabel &&
-        html`
-          <span class="${prefix}--label ${prefix}--skeleton"></span>
-        `}
+      html` <span class="${prefix}--label ${prefix}--skeleton"></span> `}
       <div class="${prefix}--number ${prefix}--skeleton"></div>
     `;
   }

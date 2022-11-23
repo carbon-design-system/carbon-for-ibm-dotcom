@@ -39,7 +39,7 @@ class BXRadioButtonGroup extends FormMixin(HostListenerMixin(LitElement)) {
       .constructor as typeof BXRadioButtonGroup;
     const selected = find(
       this.querySelectorAll(selectorRadioButton),
-      elem => (elem as BXRadioButton).checked
+      (elem) => (elem as BXRadioButton).checked
     );
     const oldValue = this.value;
     this.value = selected && selected.value;
@@ -102,18 +102,18 @@ class BXRadioButtonGroup extends FormMixin(HostListenerMixin(LitElement)) {
   updated(changedProperties) {
     const { selectorRadioButton } = this
       .constructor as typeof BXRadioButtonGroup;
-    ['disabled', 'labelPosition', 'orientation', 'name'].forEach(name => {
+    ['disabled', 'labelPosition', 'orientation', 'name'].forEach((name) => {
       if (changedProperties.has(name)) {
         const { [name as keyof BXRadioButtonGroup]: value } = this;
         // Propagate the property to descendants until `:host-context()` gets supported in all major browsers
-        forEach(this.querySelectorAll(selectorRadioButton), elem => {
+        forEach(this.querySelectorAll(selectorRadioButton), (elem) => {
           (elem as BXRadioButton)[name] = value;
         });
       }
     });
     if (changedProperties.has('value')) {
       const { value } = this;
-      forEach(this.querySelectorAll(selectorRadioButton), elem => {
+      forEach(this.querySelectorAll(selectorRadioButton), (elem) => {
         (elem as BXRadioButton).checked =
           value === (elem as BXRadioButton).value;
       });
@@ -121,9 +121,7 @@ class BXRadioButtonGroup extends FormMixin(HostListenerMixin(LitElement)) {
   }
 
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   /**

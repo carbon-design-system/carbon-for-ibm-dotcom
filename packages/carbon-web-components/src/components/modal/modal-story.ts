@@ -30,7 +30,7 @@ const sizes = {
   [`Large size (${MODAL_SIZE.LARGE})`]: MODAL_SIZE.LARGE,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { open, size, disableClose, onBeforeClose, onClose } =
     args?.['bx-modal'] ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
@@ -64,7 +64,7 @@ export const Default = args => {
 
 Default.storyName = 'Default';
 
-export const SingleButton = args => {
+export const SingleButton = (args) => {
   const { open, size, disableClose, onBeforeClose, onClose } =
     args?.['bx-modal'] ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
@@ -95,7 +95,7 @@ export const SingleButton = args => {
 
 SingleButton.storyName = 'Single button';
 
-export const ThreeButtons = args => {
+export const ThreeButtons = (args) => {
   const { open, size, disableClose, onBeforeClose, onClose } =
     args?.['bx-modal'] ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
@@ -133,7 +133,7 @@ ThreeButtons.storyName = 'Three buttons';
 export default {
   title: 'Components/Modal',
   decorators: [
-    story => html`
+    (story) => html`
       <style type="text/css">
         ${styles.cssText}
       </style>

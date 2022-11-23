@@ -38,8 +38,8 @@ export default (config: Config): Plugin => {
       onChange() {},
       onPreCalendarPosition() {},
       onValueUpdate(selectedDates) {
-        const [startDateFormatted, endDateFormatted] = selectedDates.map(item =>
-          fp.formatDate(item, fp.config.dateFormat)
+        const [startDateFormatted, endDateFormatted] = selectedDates.map(
+          (item) => fp.formatDate(item, fp.config.dateFormat)
         );
         if (startDateFormatted) {
           fp._input.value = startDateFormatted;
@@ -53,7 +53,7 @@ export default (config: Config): Plugin => {
         const { ignoredFocusElements } = fp.config;
         ignoredFocusElements.push(
           ...ignoredFocusElements
-            .map(elem => elem.shadowRoot as any)
+            .map((elem) => elem.shadowRoot as any)
             .filter(Boolean)
         );
       },

@@ -195,9 +195,8 @@ abstract class BXFloatingMenu extends HostListenerMixin(
     const refCenterHorizontal = (refLeft + refRight) / 2;
     const refCenterVertical = (refTop + refBottom) / 2;
 
-    const containerComputedStyle = container.ownerDocument!.defaultView!.getComputedStyle(
-      container
-    );
+    const containerComputedStyle =
+      container.ownerDocument!.defaultView!.getComputedStyle(container);
     const positionDirection = containerComputedStyle.getPropertyValue(
       'direction'
     ) as FLOATING_MENU_POSITION_DIRECTION;

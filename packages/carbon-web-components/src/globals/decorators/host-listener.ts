@@ -76,12 +76,11 @@ const HostListenerStandard = (
  *   The event listener is attached to host element's owner document or its default view in such case.
  * @param options The event listener options.
  */
-const HostListener = (
-  type: string,
-  options?: boolean | AddEventListenerOptions
-) => (targetOrDescriptor, name: string) =>
-  typeof name !== 'undefined'
-    ? setHostListener(type, options!, targetOrDescriptor.constructor, name)
-    : HostListenerStandard(type, options!, targetOrDescriptor);
+const HostListener =
+  (type: string, options?: boolean | AddEventListenerOptions) =>
+  (targetOrDescriptor, name: string) =>
+    typeof name !== 'undefined'
+      ? setHostListener(type, options!, targetOrDescriptor.constructor, name)
+      : HostListenerStandard(type, options!, targetOrDescriptor);
 
 export default HostListener;

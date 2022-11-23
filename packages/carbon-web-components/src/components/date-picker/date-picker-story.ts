@@ -21,7 +21,8 @@ import './date-picker-input-skeleton';
 
 const colorSchemes = {
   [`Regular`]: null,
-  [`Light (${DATE_PICKER_INPUT_COLOR_SCHEME.LIGHT})`]: DATE_PICKER_INPUT_COLOR_SCHEME.LIGHT,
+  [`Light (${DATE_PICKER_INPUT_COLOR_SCHEME.LIGHT})`]:
+    DATE_PICKER_INPUT_COLOR_SCHEME.LIGHT,
 };
 
 const sizes = {
@@ -76,10 +77,11 @@ const knobs = {
 
 const sizesHorizontal = {
   'Regular size': null,
-  [`Short size (${DATE_PICKER_INPUT_SIZE_HORIZONTAL.SHORT})`]: DATE_PICKER_INPUT_SIZE_HORIZONTAL.SHORT,
+  [`Short size (${DATE_PICKER_INPUT_SIZE_HORIZONTAL.SHORT})`]:
+    DATE_PICKER_INPUT_SIZE_HORIZONTAL.SHORT,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { disabled, name, value } = args?.['bx-date-picker'] ?? {};
   const {
     colorScheme,
@@ -127,7 +129,7 @@ Default.parameters = {
   },
 };
 
-export const singleWithCalendar = args => {
+export const singleWithCalendar = (args) => {
   const {
     dateFormat,
     disabled,
@@ -181,7 +183,7 @@ singleWithCalendar.parameters = {
   knobs,
 };
 
-export const rangeWithCalendar = args => {
+export const rangeWithCalendar = (args) => {
   const {
     dateFormat,
     disabled,
@@ -248,9 +250,7 @@ rangeWithCalendar.parameters = {
 };
 
 export const skeletonSimple = () =>
-  html`
-    <bx-date-picker-input-skeleton></bx-date-picker-input-skeleton>
-  `;
+  html` <bx-date-picker-input-skeleton></bx-date-picker-input-skeleton> `;
 
 skeletonSimple.storyName = 'Skeleton simple';
 
@@ -283,12 +283,7 @@ export const skeletonRange = () =>
 
 skeletonRange.storyName = 'Skeleton range';
 
-skeletonRange.decorators = [
-  story =>
-    html`
-      <div>${story()}</div>
-    `,
-];
+skeletonRange.decorators = [(story) => html` <div>${story()}</div> `];
 
 skeletonRange.parameters = {
   percy: {

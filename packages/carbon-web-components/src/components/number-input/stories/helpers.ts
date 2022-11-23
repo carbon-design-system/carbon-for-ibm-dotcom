@@ -13,7 +13,8 @@ import { NUMBER_INPUT_COLOR_SCHEME } from '../number-input';
 
 const colorSchemes = {
   Regular: null,
-  [`Light (${NUMBER_INPUT_COLOR_SCHEME.LIGHT})`]: NUMBER_INPUT_COLOR_SCHEME.LIGHT,
+  [`Light (${NUMBER_INPUT_COLOR_SCHEME.LIGHT})`]:
+    NUMBER_INPUT_COLOR_SCHEME.LIGHT,
 };
 
 const sizes = {

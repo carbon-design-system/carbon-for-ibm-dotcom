@@ -25,7 +25,7 @@ const sizes = {
   [`Large size (${LINK_SIZE.LARGE})`]: LINK_SIZE.LARGE,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const {
     disabled,
     download,
@@ -60,7 +60,7 @@ export const Default = args => {
 
 Default.storyName = 'Default';
 
-export const pairedWithIcon = args => {
+export const pairedWithIcon = (args) => {
   const {
     disabled,
     download,

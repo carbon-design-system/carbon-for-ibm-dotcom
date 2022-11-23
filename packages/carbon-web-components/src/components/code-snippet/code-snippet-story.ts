@@ -18,7 +18,8 @@ import './code-snippet-skeleton';
 
 const colorSchemes = {
   [`Regular`]: null,
-  [`Light (${CODE_SNIPPET_COLOR_SCHEME.LIGHT})`]: CODE_SNIPPET_COLOR_SCHEME.LIGHT,
+  [`Light (${CODE_SNIPPET_COLOR_SCHEME.LIGHT})`]:
+    CODE_SNIPPET_COLOR_SCHEME.LIGHT,
 };
 
 const defaultKnobs = {
@@ -44,7 +45,7 @@ const defaultKnobs = {
   }),
 };
 
-export const singleLine = args => {
+export const singleLine = (args) => {
   const {
     codeAssistiveText,
     copyButtonAssistiveText,
@@ -77,7 +78,7 @@ singleLine.parameters = {
   knobs: defaultKnobs,
 };
 
-export const multiLine = args => {
+export const multiLine = (args) => {
   const {
     codeAssistiveText,
     copyButtonAssistiveText,
@@ -145,7 +146,7 @@ multiLine.parameters = {
   },
 };
 
-export const inline = args => {
+export const inline = (args) => {
   const {
     codeAssistiveText,
     copyButtonAssistiveText,
@@ -175,9 +176,7 @@ inline.parameters = {
 };
 
 export const skeletonSingleLine = () =>
-  html`
-    <bx-code-snippet-skeleton type="single"></bx-code-snippet-skeleton>
-  `;
+  html` <bx-code-snippet-skeleton type="single"></bx-code-snippet-skeleton> `;
 
 skeletonSingleLine.storyName = 'Skeleton single line';
 
@@ -188,9 +187,7 @@ skeletonSingleLine.parameters = {
 };
 
 export const skeletonMultiLine = () =>
-  html`
-    <bx-code-snippet-skeleton type="multi"></bx-code-snippet-skeleton>
-  `;
+  html` <bx-code-snippet-skeleton type="multi"></bx-code-snippet-skeleton> `;
 
 skeletonMultiLine.storyName = 'Skeleton multi line';
 

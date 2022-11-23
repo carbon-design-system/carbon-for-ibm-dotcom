@@ -85,7 +85,7 @@ class RadioGroupManager {
     const { name } = radio;
     const group = this._groups[name];
     const hasSelectedItemInGroup =
-      group && Array.from(group).some(item => item.checked);
+      group && Array.from(group).some((item) => item.checked);
     if (hasSelectedItemInGroup) {
       return false;
     }
@@ -103,9 +103,9 @@ class RadioGroupManager {
     return (
       group &&
       Array.from(group).sort((lhs, rhs) => {
-        const comparisonResult = (lhs as ManagedRadioButtonDelegate).compareDocumentPosition(
-          rhs as ManagedRadioButtonDelegate
-        );
+        const comparisonResult = (
+          lhs as ManagedRadioButtonDelegate
+        ).compareDocumentPosition(rhs as ManagedRadioButtonDelegate);
         // eslint-disable-next-line no-bitwise
         if (
           comparisonResult & Node.DOCUMENT_POSITION_FOLLOWING ||
@@ -167,7 +167,7 @@ class RadioGroupManager {
       radio.checked = true;
       radio.tabIndex = 0;
       radio.focus();
-      group.forEach(item => {
+      group.forEach((item) => {
         if (radio !== item) {
           item.checked = false;
           item.tabIndex = -1;

@@ -35,7 +35,7 @@ const gulpCheckLicense = () => {
       }
       done(null, file);
     },
-    done => {
+    (done) => {
       if (filesWithError.length > 0) {
         done(
           new Error(

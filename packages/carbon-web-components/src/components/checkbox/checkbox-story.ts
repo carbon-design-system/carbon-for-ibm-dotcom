@@ -15,7 +15,7 @@ import ifNonNull from '../../globals/directives/if-non-null';
 import './checkbox';
 import storyDocs from './checkbox-story.mdx';
 
-export const Default = args => {
+export const Default = (args) => {
   const {
     checked,
     disabled,

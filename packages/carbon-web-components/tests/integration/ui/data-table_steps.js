@@ -23,9 +23,7 @@ describe('data-table', () => {
       }
     );
     await page.click('bx-table-expand-row:nth-of-type(1) button');
-    await expect(
-      page
-    ).toHaveSelector(
+    await expect(page).toHaveSelector(
       'bx-table-expanded-row:nth-of-type(1) .bx--child-row-inner-container',
       { state: 'hidden' }
     );

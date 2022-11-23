@@ -33,7 +33,7 @@ class BXTableBody extends LitElement {
    */
   private _updateZebra() {
     const { colorScheme, _slotNode: slotNode } = this;
-    slotNode.assignedNodes().forEach(node => {
+    slotNode.assignedNodes().forEach((node) => {
       if (node.nodeType === Node.ELEMENT_NODE) {
         const odd = (node as HTMLElement).matches('*:nth-of-type(odd)');
         (node as BXTableRow).even =
@@ -72,9 +72,7 @@ class BXTableBody extends LitElement {
 
   render() {
     const { _handleSlotChange: handleSlotChange } = this;
-    return html`
-      <slot @slotchange="${handleSlotChange}"></slot>
-    `;
+    return html` <slot @slotchange="${handleSlotChange}"></slot> `;
   }
 
   static styles = styles;

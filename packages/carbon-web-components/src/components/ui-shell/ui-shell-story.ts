@@ -40,7 +40,8 @@ const collapseModes = {
 
 const usageModes = {
   Regular: null,
-  [`For header nav (${SIDE_NAV_USAGE_MODE.HEADER_NAV})`]: SIDE_NAV_USAGE_MODE.HEADER_NAV,
+  [`For header nav (${SIDE_NAV_USAGE_MODE.HEADER_NAV})`]:
+    SIDE_NAV_USAGE_MODE.HEADER_NAV,
 };
 
 const updateRailExpanded = ({
@@ -119,7 +120,7 @@ const StoryContent = () => html`
   </main>
 `;
 
-export const sideNav = args => {
+export const sideNav = (args) => {
   const { collapseMode, expanded } = args?.['bx-side-nav'] ?? {};
   const { href } = args?.['bx-side-nav-menu-item'] ?? {};
   updateRailExpanded({ collapseMode, expanded });
@@ -199,7 +200,7 @@ sideNav.parameters = {
   },
 };
 
-export const sideNavWithIcons = args => {
+export const sideNavWithIcons = (args) => {
   const { collapseMode, expanded } = args?.['bx-side-nav'] ?? {};
   const { href } = args?.['bx-side-nav-menu-item'] ?? {};
   updateRailExpanded({ collapseMode, expanded });
@@ -274,11 +275,11 @@ sideNavWithIcons.parameters = {
   knobs: sideNav.parameters.knobs,
 };
 
-export const header = args => {
+export const header = (args) => {
   const { collapseMode, expanded, usageMode } = args?.['bx-side-nav'] ?? {};
   const { href } = args?.['bx-side-nav-menu-item'] ?? {};
   updateRailExpanded({ collapseMode, expanded, usageMode });
-  const handleButtonToggle = event => {
+  const handleButtonToggle = (event) => {
     updateRailExpanded({
       collapseMode,
       expanded: event.detail.active,

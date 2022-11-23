@@ -72,9 +72,11 @@ class BXSideNav extends HostListenerMixin(LitElement) {
       await this._updateAndTransitionPromise;
       // Checks if the side nav is not collapsed during the animation
       if (this.expanded) {
-        (this.querySelector(
-          (this.constructor as typeof BXSideNav).selectorNavItems
-        ) as HTMLElement)?.focus();
+        (
+          this.querySelector(
+            (this.constructor as typeof BXSideNav).selectorNavItems
+          ) as HTMLElement
+        )?.focus();
       }
     }
   };
@@ -88,7 +90,7 @@ class BXSideNav extends HostListenerMixin(LitElement) {
       this.querySelectorAll(
         (this.constructor as typeof BXSideNav).selectorMenu
       ),
-      item => {
+      (item) => {
         (item as BXSideNavMenu).forceCollapsed = !expanded && !hovered;
       }
     );
@@ -146,7 +148,7 @@ class BXSideNav extends HostListenerMixin(LitElement) {
 
   shouldUpdate(changedProperties) {
     if (changedProperties.has('expanded')) {
-      this._transitionPromise = new Promise(resolve => {
+      this._transitionPromise = new Promise((resolve) => {
         this._cleanHTransition();
         this._hTransition = on(this, 'transitionend', () => {
           this._cleanHTransition();
@@ -179,7 +181,7 @@ class BXSideNav extends HostListenerMixin(LitElement) {
         doc.querySelectorAll(
           (this.constructor as typeof BXSideNav).selectorButtonToggle
         ),
-        item => {
+        (item) => {
           (item as BXHeaderMenuButton).collapseMode = this.collapseMode;
         }
       );
@@ -190,7 +192,7 @@ class BXSideNav extends HostListenerMixin(LitElement) {
         doc.querySelectorAll(
           (this.constructor as typeof BXSideNav).selectorButtonToggle
         ),
-        item => {
+        (item) => {
           (item as BXHeaderMenuButton).active = this.expanded;
         }
       );
@@ -200,7 +202,7 @@ class BXSideNav extends HostListenerMixin(LitElement) {
         doc.querySelectorAll(
           (this.constructor as typeof BXSideNav).selectorButtonToggle
         ),
-        item => {
+        (item) => {
           (item as BXHeaderMenuButton).usageMode = this.usageMode;
         }
       );
@@ -208,9 +210,7 @@ class BXSideNav extends HostListenerMixin(LitElement) {
   }
 
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   /**

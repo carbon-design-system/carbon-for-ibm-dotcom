@@ -97,7 +97,7 @@ class BXMultiSelect extends BXDropdown {
         this.querySelectorAll(
           (this.constructor as typeof BXMultiSelect).selectorItemSelected
         ),
-        item => {
+        (item) => {
           (item as BXMultiSelectItem).selected = false;
         }
       );
@@ -109,9 +109,9 @@ class BXMultiSelect extends BXDropdown {
       this.querySelectorAll(
         (this.constructor as typeof BXMultiSelect).selectorItem
       ),
-      item => (item as BXMultiSelectItem).selected
+      (item) => (item as BXMultiSelectItem).selected
     )
-      .map(item => (item as BXMultiSelectItem).value)
+      .map((item) => (item as BXMultiSelectItem).value)
       .join(',');
   }
 
@@ -126,7 +126,7 @@ class BXMultiSelect extends BXDropdown {
     } else if (this._clearButtonNode?.contains(event.target as Node)) {
       this._handleUserInitiatedClearInput();
     } else {
-      const shouldIgnoreClickInner = elem =>
+      const shouldIgnoreClickInner = (elem) =>
         elem.closest &&
         elem.closest(
           (this.constructor as typeof BXMultiSelect).selectorIgnoreClickInner
@@ -205,10 +205,8 @@ class BXMultiSelect extends BXDropdown {
   }
 
   protected _renderPrecedingTriggerContent() {
-    const {
-      clearSelectionLabel,
-      _selectedItemsCount: selectedItemsCount,
-    } = this;
+    const { clearSelectionLabel, _selectedItemsCount: selectedItemsCount } =
+      this;
     return selectedItemsCount === 0
       ? undefined
       : html`
@@ -279,7 +277,7 @@ class BXMultiSelect extends BXDropdown {
 
     if (!this.open) this.open = true;
 
-    forEach(items, item => {
+    forEach(items, (item) => {
       const itemValue = (item as HTMLElement).innerText.toLocaleLowerCase();
 
       if (!itemValue.includes(inputValue)) {
@@ -333,7 +331,7 @@ class BXMultiSelect extends BXDropdown {
     this._filterInputNode.value = '';
     this.open = true;
     this._filterInputNode.focus();
-    forEach(items, item => {
+    forEach(items, (item) => {
       (item as BXMultiSelectItem).removeAttribute('filtered');
     });
   }
@@ -359,7 +357,7 @@ class BXMultiSelect extends BXDropdown {
   shouldUpdate(changedProperties) {
     const { selectorItem } = this.constructor as typeof BXMultiSelect;
     if (changedProperties.has('size')) {
-      forEach(this.querySelectorAll(selectorItem), elem => {
+      forEach(this.querySelectorAll(selectorItem), (elem) => {
         (elem as BXMultiSelectItem).size = this.size;
       });
     }
@@ -368,13 +366,13 @@ class BXMultiSelect extends BXDropdown {
       const values = !value ? [] : value.split(',');
       // Updates selection beforehand because our rendering logic for `<bx-multi-select>` looks for selected items via `qSA()`
       const items = this.querySelectorAll(selectorItem);
-      forEach(items, elem => {
+      forEach(items, (elem) => {
         (elem as BXMultiSelectItem).selected =
           values.indexOf((elem as BXMultiSelectItem).value) >= 0;
       });
       this._selectedItemsCount = filter(
         items,
-        elem => values.indexOf((elem as BXMultiSelectItem).value) >= 0
+        (elem) => values.indexOf((elem as BXMultiSelectItem).value) >= 0
       ).length;
     }
     return true;

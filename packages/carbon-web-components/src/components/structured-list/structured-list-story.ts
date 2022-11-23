@@ -21,7 +21,7 @@ import './structured-list-header-cell-skeleton';
 import storyDocs from './structured-list-story.mdx';
 import styles from './structured-list-story.scss';
 
-export const Default = args => {
+export const Default = (args) => {
   const { hasSelection } = args?.['bx-structured-list'] ?? {};
   const selectionName = !hasSelection ? undefined : 'structured-list-selection';
   const selectionValues = !hasSelection

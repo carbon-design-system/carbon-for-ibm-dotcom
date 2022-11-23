@@ -278,8 +278,8 @@ export default class BXInput extends ValidityMixin(FormMixin(LitElement)) {
       [`${prefix}--tooltip--a11y`]: true,
       [`${prefix}--btn--disabled`]: this.disabled,
       [`${prefix}--tooltip--${this.tooltipDirection}`]: this.tooltipDirection,
-      [`${prefix}--tooltip--align-${this.tooltipAlignment}`]: this
-        .tooltipAlignment,
+      [`${prefix}--tooltip--align-${this.tooltipAlignment}`]:
+        this.tooltipAlignment,
     });
 
     const passwordButtonLabel = html`

@@ -35,9 +35,9 @@ export const _createHandleFeedbackTooltip = (
       timeoutId = undefined;
     }
     update({ showFeedback: true });
-    timeoutId = (setTimeout(() => {
+    timeoutId = setTimeout(() => {
       update({ showFeedback: false });
-    }, timeout) as unknown) as number;
+    }, timeout) as unknown as number;
   };
 };
 

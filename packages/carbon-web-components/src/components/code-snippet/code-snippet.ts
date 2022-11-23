@@ -128,12 +128,13 @@ class BXCodeSnippet extends FocusMixin(LitElement) {
   /**
    * Handles showing/hiding the feedback tooltip.
    */
-  private _handleCopyButtonFeedbackTooltip = createHandleCopyButtonFeedbackTooltip(
-    ({ showFeedback = false }: { showFeedback?: boolean }) => {
-      this._showCopyButtonFeedback = showFeedback;
-      this.requestUpdate();
-    }
-  );
+  private _handleCopyButtonFeedbackTooltip =
+    createHandleCopyButtonFeedbackTooltip(
+      ({ showFeedback = false }: { showFeedback?: boolean }) => {
+        this._showCopyButtonFeedback = showFeedback;
+        this.requestUpdate();
+      }
+    );
 
   /**
    * Handles `click` event on the expando.

@@ -49,7 +49,7 @@ function unit(done) {
       },
     },
     { promiseConfig: true, throwErrors: true }
-  ).then(karmaConfig => {
+  ).then((karmaConfig) => {
     const server = new Server(karmaConfig, () => {
       done();
     });

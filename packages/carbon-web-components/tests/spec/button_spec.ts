@@ -16,28 +16,28 @@ const template = (props?) =>
     'bx-btn': props,
   });
 
-describe('bx-btn', function() {
-  describe('Changing button type', function() {
+describe('bx-btn', function () {
+  describe('Changing button type', function () {
     let elem: HTMLElement | null;
 
-    beforeEach(async function() {
+    beforeEach(async function () {
       elem = document.body.appendChild(document.createElement('bx-btn'));
       await Promise.resolve();
     });
 
-    it('should choose the right template for default type', function() {
+    it('should choose the right template for default type', function () {
       expect(elem!.shadowRoot!.querySelectorAll('button.bx--btn').length).toBe(
         1
       );
     });
 
-    it('should choose the right template for link type', async function() {
+    it('should choose the right template for link type', async function () {
       elem!.setAttribute('href', 'about:blank');
       await Promise.resolve();
       expect(elem!.shadowRoot!.querySelectorAll('a.bx--btn').length).toBe(1);
     });
 
-    afterEach(function() {
+    afterEach(function () {
       if (elem && elem.parentNode) {
         elem.parentNode.removeChild(elem);
         elem = null;
@@ -45,14 +45,14 @@ describe('bx-btn', function() {
     });
   });
 
-  describe('Changing attributes', function() {
+  describe('Changing attributes', function () {
     let elem: HTMLElement | null;
 
-    beforeAll(function() {
+    beforeAll(function () {
       elem = document.body.appendChild(document.createElement('bx-btn'));
     });
 
-    it('should deactivate when disabled attribute is set', async function() {
+    it('should deactivate when disabled attribute is set', async function () {
       elem!.setAttribute('disabled', '');
       await Promise.resolve();
       expect(
@@ -60,13 +60,13 @@ describe('bx-btn', function() {
       ).toBe(1);
     });
 
-    it('should make it small when small attribute is set', async function() {
+    it('should make it small when small attribute is set', async function () {
       elem!.setAttribute('size', 'sm');
       await Promise.resolve();
       expect(elem!.shadowRoot!.querySelectorAll('.bx--btn--sm').length).toBe(1);
     });
 
-    it('should allow user to select button type', async function() {
+    it('should allow user to select button type', async function () {
       elem!.setAttribute('kind', BUTTON_KIND.GHOST);
       await Promise.resolve();
       expect(elem!.shadowRoot!.querySelectorAll('.bx--btn--ghost').length).toBe(
@@ -74,7 +74,7 @@ describe('bx-btn', function() {
       );
     });
 
-    afterAll(function() {
+    afterAll(function () {
       if (elem && elem.parentNode) {
         elem.parentNode.removeChild(elem);
         elem = null;
@@ -82,8 +82,8 @@ describe('bx-btn', function() {
     });
   });
 
-  describe('Misc attributes', function() {
-    it('should render with minimum attributes for <button>', async function() {
+  describe('Misc attributes', function () {
+    it('should render with minimum attributes for <button>', async function () {
       render(template(), document.body);
       await Promise.resolve();
       expect(document.body.querySelector('bx-btn' as any)).toMatchSnapshot({
@@ -91,7 +91,7 @@ describe('bx-btn', function() {
       });
     });
 
-    it('should render with various attributes for <button>', async function() {
+    it('should render with various attributes for <button>', async function () {
       render(
         template({
           autofocus: true,
@@ -108,7 +108,7 @@ describe('bx-btn', function() {
       });
     });
 
-    it('should render with minimum attributes for <a>', async function() {
+    it('should render with minimum attributes for <a>', async function () {
       render(template({ href: 'about:blank' }), document.body);
       await Promise.resolve();
       expect(document.body.querySelector('bx-btn' as any)).toMatchSnapshot({
@@ -116,7 +116,7 @@ describe('bx-btn', function() {
       });
     });
 
-    it('should render with various attributes for <a>', async function() {
+    it('should render with various attributes for <a>', async function () {
       render(
         template({
           download: 'file-name-foo',
@@ -138,7 +138,7 @@ describe('bx-btn', function() {
       });
     });
 
-    it('should render disabled state for <a>', async function() {
+    it('should render disabled state for <a>', async function () {
       render(
         template({
           disabled: true,
@@ -162,7 +162,7 @@ describe('bx-btn', function() {
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

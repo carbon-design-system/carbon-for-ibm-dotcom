@@ -17,7 +17,7 @@ import '../form/form-item';
 import createProps from './stories/helpers';
 import storyDocs from './number-input-story.mdx';
 
-export const Default = args => {
+export const Default = (args) => {
   const {
     colorScheme,
     disabled,
@@ -58,7 +58,7 @@ Default.parameters = {
   },
 };
 
-export const formItem = args => {
+export const formItem = (args) => {
   const {
     colorScheme,
     disabled,
@@ -109,7 +109,7 @@ formItem.parameters = {
   },
 };
 
-export const withoutFormItemWrapper = args => {
+export const withoutFormItemWrapper = (args) => {
   const {
     colorScheme,
     disabled,
@@ -153,9 +153,7 @@ withoutFormItemWrapper.parameters = {
 };
 
 export const skeleton = () =>
-  html`
-    <bx-number-input-skeleton></bx-number-input-skeleton>
-  `;
+  html` <bx-number-input-skeleton></bx-number-input-skeleton> `;
 
 skeleton.parameters = {
   percy: {

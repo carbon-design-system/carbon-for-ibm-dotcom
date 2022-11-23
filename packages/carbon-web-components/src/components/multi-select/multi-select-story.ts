@@ -28,7 +28,8 @@ const colorSchemes = {
 const sizes = {
   'Regular size': null,
   [`Small size (${DROPDOWN_SIZE.SMALL})`]: DROPDOWN_SIZE.SMALL,
-  [`Extra large size (${DROPDOWN_SIZE.EXTRA_LARGE})`]: DROPDOWN_SIZE.EXTRA_LARGE,
+  [`Extra large size (${DROPDOWN_SIZE.EXTRA_LARGE})`]:
+    DROPDOWN_SIZE.EXTRA_LARGE,
 };
 
 const types = {
@@ -36,7 +37,7 @@ const types = {
   [`Inline (${DROPDOWN_TYPE.INLINE})`]: DROPDOWN_TYPE.INLINE,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const {
     clearSelectionLabel,
     colorScheme,
@@ -107,7 +108,7 @@ export const Default = args => {
 
 Default.storyName = 'Default';
 
-export const Filterable = args => {
+export const Filterable = (args) => {
   const {
     clearSelectionLabel,
     colorScheme,

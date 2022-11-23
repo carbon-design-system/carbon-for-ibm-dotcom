@@ -28,9 +28,9 @@ const template = (props?) =>
     'bx-checkbox': props,
   });
 
-describe('bx-checkbox', function() {
-  describe('Rendering', function() {
-    it('Should render with minimum attributes', async function() {
+describe('bx-checkbox', function () {
+  describe('Rendering', function () {
+    it('Should render with minimum attributes', async function () {
       render(
         template({
           id: 'id-foo',
@@ -45,7 +45,7 @@ describe('bx-checkbox', function() {
       );
     });
 
-    it('Should render with various attributes', async function() {
+    it('Should render with various attributes', async function () {
       render(
         template({
           id: 'id-foo',
@@ -68,8 +68,8 @@ describe('bx-checkbox', function() {
     });
   });
 
-  describe('Event-based form participation', function() {
-    it('Should respond to `formdata` event', async function() {
+  describe('Event-based form participation', function () {
+    it('Should respond to `formdata` event', async function () {
       render(
         html`
           <form>
@@ -95,11 +95,9 @@ describe('bx-checkbox', function() {
       expect(getValues(formData)).toEqual({ 'name-foo': 'value-foo' });
     });
 
-    it('Should respond to `formdata` event with default value', async function() {
+    it('Should respond to `formdata` event with default value', async function () {
       render(
-        html`
-          <form>${template({ checked: true, name: 'name-foo' })}</form>
-        `,
+        html` <form>${template({ checked: true, name: 'name-foo' })}</form> `,
         document.body
       );
       await Promise.resolve();
@@ -115,7 +113,7 @@ describe('bx-checkbox', function() {
       expect(getValues(formData)).toEqual({ 'name-foo': 'on' });
     });
 
-    it('Should not respond to `formdata` event if unchecked', async function() {
+    it('Should not respond to `formdata` event if unchecked', async function () {
       render(
         html`
           <form>
@@ -140,7 +138,7 @@ describe('bx-checkbox', function() {
       expect(getValues(formData)).toEqual({});
     });
 
-    it('Should not respond to `formdata` event if disabled', async function() {
+    it('Should not respond to `formdata` event if disabled', async function () {
       render(
         html`
           <form>
@@ -168,7 +166,7 @@ describe('bx-checkbox', function() {
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

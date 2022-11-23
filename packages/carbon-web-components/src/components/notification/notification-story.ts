@@ -25,7 +25,7 @@ const kinds = {
 
 const noop = () => {};
 
-export const inline = args => {
+export const inline = (args) => {
   const {
     kind,
     title,
@@ -97,7 +97,7 @@ inline.parameters = {
   },
 };
 
-export const toast = args => {
+export const toast = (args) => {
   const {
     kind,
     title,

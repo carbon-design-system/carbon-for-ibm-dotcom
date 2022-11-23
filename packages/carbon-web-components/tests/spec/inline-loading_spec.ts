@@ -19,9 +19,9 @@ const template = (props?) =>
     'bx-inline-loading': props,
   });
 
-describe('bx-inline-loading', function() {
-  describe('Misc attributes', function() {
-    it('should render with minimum attributes', async function() {
+describe('bx-inline-loading', function () {
+  describe('Misc attributes', function () {
+    it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
       expect(
@@ -31,11 +31,13 @@ describe('bx-inline-loading', function() {
       });
     });
 
-    it('should render with unknown status', async function() {
+    it('should render with unknown status', async function () {
       render(template(), document.body);
-      ((document.body.querySelector(
-        'bx-inline-loading'
-      ) as unknown) as BXInlineLoading).status = undefined!;
+      (
+        document.body.querySelector(
+          'bx-inline-loading'
+        ) as unknown as BXInlineLoading
+      ).status = undefined!;
       await Promise.resolve();
       expect(
         document.body.querySelector('bx-inline-loading' as any)
@@ -44,7 +46,7 @@ describe('bx-inline-loading', function() {
       });
     });
 
-    it('should render with inactive status', async function() {
+    it('should render with inactive status', async function () {
       render(
         template({
           status: INLINE_LOADING_STATE.INACTIVE,
@@ -59,7 +61,7 @@ describe('bx-inline-loading', function() {
       });
     });
 
-    it('should render with finished status', async function() {
+    it('should render with finished status', async function () {
       render(
         template({
           status: INLINE_LOADING_STATE.FINISHED,
@@ -74,7 +76,7 @@ describe('bx-inline-loading', function() {
       });
     });
 
-    it('should render with error status', async function() {
+    it('should render with error status', async function () {
       render(
         template({
           status: INLINE_LOADING_STATE.ERROR,
@@ -90,7 +92,7 @@ describe('bx-inline-loading', function() {
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

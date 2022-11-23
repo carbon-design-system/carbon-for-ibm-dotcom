@@ -17,7 +17,7 @@ import '../form/form-item';
 import createProps from './stories/helpers';
 import storyDocs from './textarea-story.mdx';
 
-export const Default = args => {
+export const Default = (args) => {
   const {
     autocomplete,
     autofocus,
@@ -69,7 +69,7 @@ Default.parameters = {
   },
 };
 
-export const formItem = args => {
+export const formItem = (args) => {
   const {
     colorScheme,
     disabled,
@@ -109,7 +109,7 @@ formItem.parameters = {
   },
 };
 
-export const withoutFormItemWrapper = args => {
+export const withoutFormItemWrapper = (args) => {
   const {
     colorScheme,
     disabled,
@@ -148,9 +148,7 @@ withoutFormItemWrapper.parameters = {
 };
 
 export const skeleton = () =>
-  html`
-    <bx-textarea-skeleton></bx-textarea-skeleton>
-  `;
+  html` <bx-textarea-skeleton></bx-textarea-skeleton> `;
 
 skeleton.parameters = {
   percy: {

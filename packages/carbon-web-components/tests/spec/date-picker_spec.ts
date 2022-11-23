@@ -148,36 +148,36 @@ const getValues = (formData: FormData) => {
   return values;
 };
 
-describe('bx-date-picker', function() {
+describe('bx-date-picker', function () {
   const events = new EventManager();
 
-  describe('Simple mode', function() {
+  describe('Simple mode', function () {
     let datePicker: BXDatePicker | null;
 
-    beforeEach(async function() {
+    beforeEach(async function () {
       render(defaultTemplate(), document.body);
       await Promise.resolve();
       datePicker = document.body.querySelector('bx-date-picker');
     });
 
-    it('Should not instantiate Flatpickr', async function() {
+    it('Should not instantiate Flatpickr', async function () {
       const { calendar } = datePicker!;
       expect(calendar).toBeFalsy();
     });
   });
 
-  describe('Single mode', function() {
+  describe('Single mode', function () {
     let datePicker: BXDatePicker | null;
     let datePickerInput: BXDatePickerInput | null;
 
-    beforeEach(async function() {
+    beforeEach(async function () {
       render(singleWithCalendarTemplate(), document.body);
       await Promise.resolve();
       datePicker = document.body.querySelector('bx-date-picker');
       datePickerInput = document.body.querySelector('bx-date-picker-input');
     });
 
-    it('Should instantiate Flatpickr', async function() {
+    it('Should instantiate Flatpickr', async function () {
       const { calendar } = datePicker!;
       expect(calendar).toBeTruthy();
       const { config, loadedPlugins } = datePicker!.calendar!;
@@ -214,15 +214,15 @@ describe('bx-date-picker', function() {
       ]);
     });
 
-    it('Should support programmatic change of the date', async function() {
+    it('Should support programmatic change of the date', async function () {
       datePicker!.value = '2000-07-15';
       await Promise.resolve();
       expect(
-        datePicker!.calendar!.selectedDates.map(item => item.getTime())
+        datePicker!.calendar!.selectedDates.map((item) => item.getTime())
       ).toEqual([new Date(2000, 6, 15).getTime()]);
     });
 
-    it('Should support opening calendar dropdown by clicking on calendar icon', async function() {
+    it('Should support opening calendar dropdown by clicking on calendar icon', async function () {
       datePickerInput!
         .shadowRoot!.querySelector('svg')!
         .dispatchEvent(new CustomEvent('click', { bubbles: true }));
@@ -232,12 +232,12 @@ describe('bx-date-picker', function() {
     });
   });
 
-  describe('Range mode', function() {
+  describe('Range mode', function () {
     let datePicker: BXDatePicker | null;
     let datePickerInputStart: BXDatePickerInput | null;
     let datePickerInputEnd: BXDatePickerInput | null;
 
-    beforeEach(async function() {
+    beforeEach(async function () {
       render(rangeWithCalendarTemplate(), document.body);
       await Promise.resolve();
       datePicker = document.body.querySelector('bx-date-picker');
@@ -249,7 +249,7 @@ describe('bx-date-picker', function() {
       );
     });
 
-    it('Should instantiate Flatpickr', async function() {
+    it('Should instantiate Flatpickr', async function () {
       const { calendar } = datePicker!;
       expect(calendar).toBeTruthy();
       const { config, loadedPlugins } = datePicker!.calendar!;
@@ -287,18 +287,18 @@ describe('bx-date-picker', function() {
       ]);
     });
 
-    it('Should support programmatic change of the date', async function() {
+    it('Should support programmatic change of the date', async function () {
       datePicker!.value = '2000-07-10/2000-07-20';
       await Promise.resolve();
       expect(
-        datePicker!.calendar!.selectedDates.map(item => item.getTime())
+        datePicker!.calendar!.selectedDates.map((item) => item.getTime())
       ).toEqual([
         new Date(2000, 6, 10).getTime(),
         new Date(2000, 6, 20).getTime(),
       ]);
     });
 
-    it('Should support opening calendar dropdown by clicking on calendar icon for the start date', async function() {
+    it('Should support opening calendar dropdown by clicking on calendar icon for the start date', async function () {
       datePickerInputStart!
         .shadowRoot!.querySelector('svg')!
         .dispatchEvent(new CustomEvent('click', { bubbles: true }));
@@ -307,7 +307,7 @@ describe('bx-date-picker', function() {
       expect(calendar!.isOpen).toBe(true);
     });
 
-    it('Should support opening calendar dropdown by clicking on calendar icon for the end date', async function() {
+    it('Should support opening calendar dropdown by clicking on calendar icon for the end date', async function () {
       datePickerInputEnd!
         .shadowRoot!.querySelector('svg')!
         .dispatchEvent(new CustomEvent('click', { bubbles: true }));
@@ -317,16 +317,16 @@ describe('bx-date-picker', function() {
     });
   });
 
-  describe('Form validation', function() {
+  describe('Form validation', function () {
     let elem: Element;
 
-    beforeEach(async function() {
+    beforeEach(async function () {
       render(defaultTemplate(), document.body);
       await Promise.resolve();
       elem = document.body.querySelector('bx-date-picker-input')!;
     });
 
-    it('should support checking if required value exists', async function() {
+    it('should support checking if required value exists', async function () {
       const input = elem as BXDatePickerInput;
       input.required = true;
       const spyInvalid = jasmine.createSpy('invalid');
@@ -341,10 +341,10 @@ describe('bx-date-picker', function() {
       expect(input.validityMessage).toBe('');
     });
 
-    it('should support canceling required check', async function() {
+    it('should support canceling required check', async function () {
       const input = elem as BXDatePickerInput;
       input.required = true;
-      events.on(input, 'invalid', event => {
+      events.on(input, 'invalid', (event) => {
         event.preventDefault();
       });
       expect(input.checkValidity()).toBe(false);
@@ -352,14 +352,14 @@ describe('bx-date-picker', function() {
       expect(input.validityMessage).toBe('');
     });
 
-    it('should treat empty custom validity message as not invalid', async function() {
+    it('should treat empty custom validity message as not invalid', async function () {
       const input = elem as BXDatePickerInput;
       input.setCustomValidity('');
       expect(input.invalid).toBe(false);
       expect(input.validityMessage).toBe('');
     });
 
-    it('should treat non-empty custom validity message as invalid', async function() {
+    it('should treat non-empty custom validity message as invalid', async function () {
       const input = elem as BXDatePickerInput;
       input.setCustomValidity('validity-message-foo');
       expect(input.invalid).toBe(true);
@@ -367,8 +367,8 @@ describe('bx-date-picker', function() {
     });
   });
 
-  describe('Event-based form participation', function() {
-    it('Should respond to `formdata` event', async function() {
+  describe('Event-based form participation', function () {
+    it('Should respond to `formdata` event', async function () {
       render(
         html`
           <form>
@@ -393,7 +393,7 @@ describe('bx-date-picker', function() {
       expect(getValues(formData)).toEqual({ 'name-foo': '2000-01-01' });
     });
 
-    it('Should not respond to `formdata` event if disabled', async function() {
+    it('Should not respond to `formdata` event if disabled', async function () {
       render(
         html`
           <form>
@@ -419,7 +419,7 @@ describe('bx-date-picker', function() {
       expect(getValues(formData)).toEqual({});
     });
 
-    it('Should respond to `formdata` event in range mode', async function() {
+    it('Should respond to `formdata` event in range mode', async function () {
       render(
         html`
           <form>
@@ -447,7 +447,7 @@ describe('bx-date-picker', function() {
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     events.reset();
     await render(undefined!, document.body);
   });

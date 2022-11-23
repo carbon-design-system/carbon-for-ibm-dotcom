@@ -66,8 +66,9 @@ class BXTableExpandRow extends HostListenerMixin(BXTableRow) {
     if (
       this.dispatchEvent(
         new CustomEvent(
-          (this
-            .constructor as typeof BXTableExpandRow).eventBeforeExpandoToggle,
+          (
+            this.constructor as typeof BXTableExpandRow
+          ).eventBeforeExpandoToggle,
           init
         )
       )

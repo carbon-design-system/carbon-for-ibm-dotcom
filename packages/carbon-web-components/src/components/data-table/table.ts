@@ -50,7 +50,7 @@ class BXTable extends LitElement {
         this.querySelectorAll(
           (this.constructor as typeof BXTable).selectorRowsWithHeader
         ),
-        elem => {
+        (elem) => {
           elem.setAttribute('size', this.size);
         }
       );
@@ -58,9 +58,7 @@ class BXTable extends LitElement {
   }
 
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   /**

@@ -163,7 +163,7 @@ class BXComboBox extends BXDropdown {
       this.querySelectorAll(
         (this.constructor as typeof BXComboBox).selectorItem
       ),
-      item => {
+      (item) => {
         (item as BXComboBoxItem).highlighted = false;
       }
     );
@@ -195,7 +195,7 @@ class BXComboBox extends BXDropdown {
       this.querySelectorAll(
         (this.constructor as typeof BXDropdown).selectorItemSelected
       ),
-      item => {
+      (item) => {
         (item as BXComboBoxItem).selected = false;
       }
     );

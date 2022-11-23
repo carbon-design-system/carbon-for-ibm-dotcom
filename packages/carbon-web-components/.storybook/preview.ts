@@ -16,7 +16,7 @@ if (process.env.STORYBOOK_CARBON_CUSTOM_ELEMENTS_USE_RTL === 'true') {
   document.documentElement.setAttribute('dir', 'rtl');
 }
 
-addons.getChannel().on(CURRENT_THEME, theme => {
+addons.getChannel().on(CURRENT_THEME, (theme) => {
   document.documentElement.setAttribute('storybook-carbon-theme', theme);
 });
 

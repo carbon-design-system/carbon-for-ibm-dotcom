@@ -301,7 +301,7 @@ class BXModal extends HostListenerMixin(LitElement) {
    * @returns A promise that is resolves after the given milliseconds.
    */
   private static _delay(ms: number = 0) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       setTimeout(resolve, ms);
     });
   }

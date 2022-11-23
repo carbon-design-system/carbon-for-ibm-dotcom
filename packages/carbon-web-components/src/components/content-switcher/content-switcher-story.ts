@@ -21,10 +21,11 @@ const noop = () => {};
 const sizes = {
   'Regular size': null,
   [`Small size (${CONTENT_SWITCHER_SIZE.SMALL})`]: CONTENT_SWITCHER_SIZE.SMALL,
-  [`XL size (${CONTENT_SWITCHER_SIZE.EXTRA_LARGE})`]: CONTENT_SWITCHER_SIZE.EXTRA_LARGE,
+  [`XL size (${CONTENT_SWITCHER_SIZE.EXTRA_LARGE})`]:
+    CONTENT_SWITCHER_SIZE.EXTRA_LARGE,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const {
     value,
     disableSelection,

@@ -16,9 +16,9 @@ const template = (props?) =>
     'bx-link': props,
   });
 
-describe('bx-link', function() {
-  describe('Misc attributes', function() {
-    it('should render with minimum attributes', async function() {
+describe('bx-link', function () {
+  describe('Misc attributes', function () {
+    it('should render with minimum attributes', async function () {
       render(template({ href: 'about:blank' }), document.body);
       await Promise.resolve();
       expect(document.body.querySelector('bx-link' as any)).toMatchSnapshot({
@@ -26,7 +26,7 @@ describe('bx-link', function() {
       });
     });
 
-    it('should render with various attributes', async function() {
+    it('should render with various attributes', async function () {
       render(
         template({
           download: 'file-name-foo',
@@ -46,7 +46,7 @@ describe('bx-link', function() {
       });
     });
 
-    it('should render disabled state', async function() {
+    it('should render disabled state', async function () {
       render(
         template({
           disabled: true,
@@ -68,7 +68,7 @@ describe('bx-link', function() {
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

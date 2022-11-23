@@ -23,7 +23,7 @@ const sizes = {
   [`Small size (${TAG_SIZE.SMALL})`]: TAG_SIZE.SMALL,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { size, type, title, disabled } = args?.['bx-tag'] ?? {};
   return html`
     <bx-tag
@@ -60,7 +60,7 @@ Default.parameters = {
   },
 };
 
-export const filter = args => {
+export const filter = (args) => {
   const {
     open,
     size,

@@ -22,7 +22,7 @@ const sizes = {
 
 const noop = () => {};
 
-export const Default = args => {
+export const Default = (args) => {
   const {
     open,
     titleText,

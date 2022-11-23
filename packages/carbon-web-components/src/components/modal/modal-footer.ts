@@ -35,7 +35,7 @@ class BXModalFooter extends LitElement {
       (event.target as HTMLSlotElement)
         .assignedNodes()
         .filter(
-          node =>
+          (node) =>
             node.nodeType === Node.ELEMENT_NODE &&
             (node as Element).matches(selectorButtons)
         ).length > 2;

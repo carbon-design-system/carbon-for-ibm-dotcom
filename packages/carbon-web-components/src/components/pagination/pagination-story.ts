@@ -16,7 +16,7 @@ import './page-sizes-select';
 import './pages-select';
 import storyDocs from './pagination-story.mdx';
 
-export const Default = args => {
+export const Default = (args) => {
   const {
     atLastPage,
     pageSize,
@@ -39,11 +39,7 @@ export const Default = args => {
         <option value="20">20</option>
         <option value="30">30</option>
       </bx-page-sizes-select>
-      ${total == null
-        ? undefined
-        : html`
-            <bx-pages-select></bx-pages-select>
-          `}
+      ${total == null ? undefined : html` <bx-pages-select></bx-pages-select> `}
     </bx-pagination>
   `;
 };

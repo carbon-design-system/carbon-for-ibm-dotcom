@@ -28,7 +28,7 @@ const sizes = {
   [`Extra large size (${INPUT_SIZE.EXTRA_LARGE})`]: INPUT_SIZE.EXTRA_LARGE,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const {
     closeButtonAssistiveText,
     colorScheme,
@@ -79,10 +79,7 @@ Default.parameters = {
   },
 };
 
-export const skeleton = () =>
-  html`
-    <bx-search-skeleton></bx-search-skeleton>
-  `;
+export const skeleton = () => html` <bx-search-skeleton></bx-search-skeleton> `;
 
 skeleton.parameters = {
   percy: {
