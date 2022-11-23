@@ -7,8 +7,8 @@
 
 @import 'carbon-components/scss/components/ui-shell/header';
 @import 'carbon-components/scss/components/ui-shell/side-nav';
-@import 'carbon-web-components/scss/components/dropdown/dropdown';
-@import 'carbon-web-components/scss/components/select/select';
+@import '@carbon/carbon-web-components/scss/components/dropdown/dropdown';
+@import '@carbon/carbon-web-components/scss/components/select/select';
 
 @import '../../globals/vars';
 @import '../../globals/imports';

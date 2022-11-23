@@ -8,9 +8,9 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import HostListener from '@carbon/carbon-web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/carbon-web-components/es/globals/mixins/host-listener.js';
 import LocaleAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/Locale/Locale';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
@@ -37,8 +37,8 @@ import './legal-nav-item';
 import './legal-nav-cookie-preferences-placeholder';
 import './language-selector-desktop';
 import './language-selector-mobile';
-import 'carbon-web-components/es/components/combo-box/combo-box-item.js';
-import 'carbon-web-components/es/components/select/select-item.js';
+import '@carbon/carbon-web-components/es/components/combo-box/combo-box-item.js';
+import '@carbon/carbon-web-components/es/components/select/select-item.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

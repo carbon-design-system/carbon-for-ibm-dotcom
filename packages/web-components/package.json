@@ -88,6 +88,7 @@
     "wca": "web-component-analyzer analyze src --outFile custom-elements.json"
   },
   "dependencies": {
+    "@carbon/carbon-web-components": "1.22.0-rc.0",
     "@carbon/ibmdotcom-services": "1.41.0-rc.0",
     "@carbon/ibmdotcom-styles": "1.41.0-rc.0",
     "@carbon/ibmdotcom-utilities": "1.41.0-rc.0",
@@ -95,7 +96,6 @@
     "@carbon/motion": "^11.0.0",
     "@carbon/telemetry": "0.1.0",
     "carbon-components": "10.58.5",
-    "carbon-web-components": "1.21.0",
     "lit-element": "2.5.1",
     "lit-html": "1.4.1",
     "lodash-es": "^4.17.0",
