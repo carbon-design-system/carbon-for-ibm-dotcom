@@ -28,6 +28,11 @@ with no framework tax, no framework silo.
 `carbon-web-components` is a variant of Carbon Design System with Custom
 Elements v1 and Shadow DOM v1 specs.
 
+> The original `carbon-web-components` repository has been archived. All future
+> work for the package will take place in this monorepo. Please visit the
+> [original repository](https://github.com/carbon-design-system/carbon-web-components)
+> for full history of the files.
+
 The effort stems from
 https://github.com/carbon-design-system/issue-tracking/issues/121. If you are
 interested in this project, adding 👍 to the description of that GH issue, or
