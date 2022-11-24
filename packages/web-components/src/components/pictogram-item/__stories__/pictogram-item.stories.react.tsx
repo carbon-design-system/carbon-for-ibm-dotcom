@@ -35,14 +35,16 @@ const Desktop = (
     height="64"
     viewBox="8 8 32 32"
     role="img"
-    class="bx--pictogram-item__pictogram">
+    class="bx--pictogram-item__pictogram"
+  >
     <path
       fill="none"
       stroke-linejoin="round"
       stroke-miterlimit="10"
       stroke-width=".72"
       d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,
-  0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"></path>
+  0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
+    ></path>
   </svg>
 );
 
@@ -61,7 +63,8 @@ const Pattern = (
     role="img"
     class="bx--pictogram-item__pictogram"
     // @ts-ignore
-    style={{ enableBackground: 'new 0 0 32 32' }}>
+    style={{ enableBackground: 'new 0 0 32 32' }}
+  >
     <path
       id="pattern_1_"
       d="M29,31.36H13c-1.301,0-2.36-1.059-2.36-2.36v-7.64H3c-1.301,0-2.36-1.059-2.36-2.36V3
@@ -88,7 +91,12 @@ const Pattern = (
       c0-0.75,0.61-1.36,1.36-1.36h1c0.75,0,1.36,0.61,1.36,1.36v1C10.36,9.75,9.75,10.36,9,10.36z M8,7.36C7.647,7.36,7.36,7.647,7.36,8
       v1c0,0.353,0.287,0.64,0.64,0.64h1c0.353,0,0.64-0.287,0.64-0.64V8c0-0.353-0.287-0.64-0.64-0.64H8z"
     />
-    <rect id="_Transparent_Rectangle" style={{ fill: 'none' }} width="32" height="32" />
+    <rect
+      id="_Transparent_Rectangle"
+      style={{ fill: 'none' }}
+      width="32"
+      height="32"
+    />
   </svg>
 );
 
@@ -107,7 +115,8 @@ const Touch = (
     height="64"
     viewBox="0 0 32 32"
     role="img"
-    class="bx--pictogram-item__pictogram">
+    class="bx--pictogram-item__pictogram"
+  >
     <path
       id="touch_1_"
       d="M19.77,31.36c-5.067,0-7.409-2.218-10.404-5.602c-0.844-0.953-3.435-3.76-3.435-3.76L5.43,21.444
@@ -123,7 +132,12 @@ const Touch = (
 	l-0.479-0.539c1.194-1.058,1.879-2.585,1.879-4.19c0-3.11-2.529-5.64-5.64-5.64c-3.11,0-5.64,2.53-5.64,5.64
 	c0,1.605,0.685,3.133,1.879,4.19L10.755,11.729z"
     />
-    <rect id="_Transparent_Rectangle" style={{ fill: 'none' }} width="32" height="32" />
+    <rect
+      id="_Transparent_Rectangle"
+      style={{ fill: 'none' }}
+      width="32"
+      height="32"
+    />
   </svg>
 );
 /* eslint-enable max-len */
@@ -134,7 +148,7 @@ const Touch = (
  * @param {string} sel string that defines the returning pictogram
  * @returns {*} Pictogram SVG markup
  */
-const selectPictogram = sel => {
+const selectPictogram = (sel) => {
   switch (sel) {
     case 'Desktop':
       return Desktop;
@@ -158,8 +172,9 @@ const pictogramColors = {
   Blue: COLOR_OPTIONS.BLUE,
 };
 
-export const Default = args => {
-  const { heading, copy, href, linkCopy, pictogram, pictogramColor } = args?.PictogramItem ?? {};
+export const Default = (args) => {
+  const { heading, copy, href, linkCopy, pictogram, pictogramColor } =
+    args?.PictogramItem ?? {};
   return (
     <DDSPictogramItem color={pictogramColor}>
       {pictogram?.src}
@@ -184,10 +199,16 @@ Default.story = {
         href: textNullable('Link with Icon href:', 'https://example.com'),
         linkCopy: textNullable('Link with Icon copy:', 'Lorem ipsum dolor'),
         pictogram: {
-          src: selectPictogram(select('Pictogram (required)', pictograms, pictograms.Desktop)),
+          src: selectPictogram(
+            select('Pictogram (required)', pictograms, pictograms.Desktop)
+          ),
           'aria-label': textNullable('Aria-label:', 'Pictogram description'),
         },
-        pictogramColor: select('Pictogram color:', pictogramColors, COLOR_OPTIONS.DEFAULT),
+        pictogramColor: select(
+          'Pictogram color:',
+          pictogramColors,
+          COLOR_OPTIONS.DEFAULT
+        ),
       }),
     },
   },
@@ -196,11 +217,13 @@ Default.story = {
 export default {
   title: 'Components/Pictogram item',
   decorators: [
-    story => {
+    (story) => {
       return (
         <div className="bx--grid">
           <div className="bx--row">
-            <div className="bx--col-sm-4 bx--col-lg-8 bx--no-gutter">{story()}</div>
+            <div className="bx--col-sm-4 bx--col-lg-8 bx--no-gutter">
+              {story()}
+            </div>
           </div>
         </div>
       );
