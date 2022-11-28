@@ -31,8 +31,8 @@ const srcsets = {
   '16:9': [imgSm16x9, imgMd16x9, imgLg16x9],
 };
 
-export const Default = ({ parameters }) => {
-  const { alt, defaultSrc, heading, copy, border, lightbox } = parameters?.props?.['dds-image'] ?? {};
+export const Default = args => {
+  const { alt, defaultSrc, heading, copy, border, lightbox, longDescription } = args?.['dds-image'] ?? {};
   // TODO: See if we can fix unwanted `&` to `&amp` conversion upon changing the select knob
   const srcset = srcsets[defaultSrc?.replace(/&amp;/, '&')];
   return html`
@@ -44,6 +44,11 @@ export const Default = ({ parameters }) => {
       ?lightbox="${lightbox}"
       copy="${ifNonNull(copy)}"
     >
+      ${!longDescription
+        ? undefined
+        : html`
+            <div slot="long-description">${longDescription}</div>
+          `}
       ${!srcset
         ? undefined
         : html`
@@ -73,13 +78,17 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      'dds-image': ({ groupId }) => ({
-        alt: textNullable('Alt text', 'Image alt text', groupId),
-        defaultSrc: select('Default image (default-src)', images, imgLg2x1, groupId),
-        lightbox: boolean('Lightbox (lightbox)', false, groupId),
-        border: boolean('Border', false, groupId),
-        copy: textNullable('Copy (copy)', 'Lorem ipsum dolor sit amet', groupId),
-        heading: textNullable('Heading (heading)', 'This is a caption', groupId),
+      'dds-image': () => ({
+        alt: textNullable('Alt text', 'Image alt text'),
+        defaultSrc: select('Default image (default-src)', images, imgLg2x1),
+        lightbox: boolean('Lightbox (lightbox)', false),
+        border: boolean('Border', false),
+        copy: textNullable('Copy (copy)', 'Lorem ipsum dolor sit amet'),
+        heading: textNullable('Heading (heading)', 'This is a caption'),
+        longDescription: textNullable(
+          'Long Description',
+          'Optional long descriptive text that is visually hidden to help screen reader users.'
+        ),
       }),
     },
     propsSet: {
@@ -91,6 +100,7 @@ export default {
           lightbox: false,
           copy: 'Lorem ipsum dolor sit amet',
           heading: 'This is a caption',
+          longDescription: 'Optional long descriptive text that is visually hidden to help screen reader users.',
         },
       },
     },

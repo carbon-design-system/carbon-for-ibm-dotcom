@@ -60,8 +60,8 @@ const cardGroupItemWithVideos = (
   </DDSCardGroupItem>
 );
 
-export const Default = ({ parameters }) => {
-  const { heading, ctaCopy, ctaType, href } = parameters?.props?.ContentBlockCards ?? {};
+export const Default = args => {
+  const { heading, ctaCopy, ctaType, href } = args?.ContentBlockCards ?? {};
   return (
     <DDSContentBlockCards>
       <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
@@ -76,8 +76,8 @@ export const Default = ({ parameters }) => {
   );
 };
 
-export const withImages = ({ parameters }) => {
-  const { heading, ctaCopy, ctaType, href } = parameters?.props?.ContentBlockCards ?? {};
+export const withImages = args => {
+  const { heading, ctaCopy, ctaType, href } = args?.ContentBlockCards ?? {};
   return (
     <DDSContentBlockCards>
       <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
@@ -97,8 +97,8 @@ withImages.story = {
   name: 'With images',
 };
 
-export const withVideos = ({ parameters }) => {
-  const { heading, ctaCopy, ctaType, href } = parameters?.props?.ContentBlockCards ?? {};
+export const withVideos = args => {
+  const { heading, ctaCopy, ctaType, href } = args?.ContentBlockCards ?? {};
   return (
     <DDSContentBlockCards>
       <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>

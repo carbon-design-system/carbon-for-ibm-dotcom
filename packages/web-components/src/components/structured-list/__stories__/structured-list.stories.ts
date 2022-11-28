@@ -12,8 +12,8 @@ import readme from './README.stories.mdx';
 import '../index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
-export const Default = ({ parameters }) => {
-  const { colSpan1, colSpan2, colSpan3, colSpan4 } = parameters?.props?.StructuredList ?? {};
+export const Default = args => {
+  const { colSpan1, colSpan2, colSpan3, colSpan4 } = args?.StructuredList ?? {};
   return html`
     <dds-structured-list
       col-span-1="${colSpan1 ?? ''}"
@@ -71,8 +71,8 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const WithRowHeaders = ({ parameters }) => {
-  const { colSpan1, colSpan2, colSpan3, colSpan4 } = parameters?.props?.StructuredList ?? {};
+export const WithRowHeaders = args => {
+  const { colSpan1, colSpan2, colSpan3, colSpan4 } = args?.StructuredList ?? {};
   return html`
     <dds-structured-list
       col-span-1="${colSpan1 ?? ''}"
@@ -114,8 +114,8 @@ WithRowHeaders.story = {
   name: 'With row headers',
 };
 
-export const WithSubheaders = ({ parameters }) => {
-  const { colSpan1, colSpan2, colSpan3, colSpan4 } = parameters?.props?.StructuredList ?? {};
+export const WithSubheaders = args => {
+  const { colSpan1, colSpan2, colSpan3, colSpan4 } = args?.StructuredList ?? {};
   return html`
     <dds-structured-list
       col-span-1="${colSpan1 ?? ''}"
@@ -211,8 +211,8 @@ WithSubheaders.story = {
   name: 'With subheaders',
 };
 
-export const WithComplexContent = ({ parameters }) => {
-  const { colSpan1, colSpan2, colSpan3, colSpan4 } = parameters?.props?.StructuredList ?? {};
+export const WithComplexContent = args => {
+  const { colSpan1, colSpan2, colSpan3, colSpan4 } = args?.StructuredList ?? {};
   return html`
     <dds-structured-list
       col-span-1="${colSpan1 ?? ''}"

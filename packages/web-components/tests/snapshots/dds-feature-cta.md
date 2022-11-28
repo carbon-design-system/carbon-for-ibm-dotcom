@@ -12,11 +12,6 @@
     <div class="bx--card__content">
       <slot name="eyebrow">
       </slot>
-      <slot
-        data-pictogram-placement="top"
-        name="pictogram"
-      >
-      </slot>
       <slot name="heading">
       </slot>
       <div
@@ -49,11 +44,6 @@
   <div class="bx--card__wrapper">
     <div class="bx--card__content">
       <slot name="eyebrow">
-      </slot>
-      <slot
-        data-pictogram-placement="top"
-        name="pictogram"
-      >
       </slot>
       <slot name="heading">
       </slot>

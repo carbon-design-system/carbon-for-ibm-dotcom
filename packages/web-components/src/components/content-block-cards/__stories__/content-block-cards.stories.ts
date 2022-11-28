@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -54,8 +54,8 @@ const cardGroupItemWithVideos = html`
   </dds-card-group-item>
 `;
 
-export const Default = ({ parameters }) => {
-  const { heading, ctaCopy, ctaType, href } = parameters?.props?.ContentBlockCards ?? {};
+export const Default = args => {
+  const { heading, ctaCopy, ctaType, href } = args?.ContentBlockCards ?? {};
   return html`
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
@@ -70,8 +70,8 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const withImages = ({ parameters }) => {
-  const { heading, ctaCopy, ctaType, href } = parameters?.props?.ContentBlockCards ?? {};
+export const withImages = args => {
+  const { heading, ctaCopy, ctaType, href } = args?.ContentBlockCards ?? {};
   return html`
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
@@ -91,8 +91,8 @@ withImages.story = {
   name: 'With images',
 };
 
-export const withVideos = ({ parameters }) => {
-  const { heading, ctaCopy, ctaType, href } = parameters?.props?.ContentBlockCards ?? {};
+export const withVideos = args => {
+  const { heading, ctaCopy, ctaType, href } = args?.ContentBlockCards ?? {};
   return html`
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>

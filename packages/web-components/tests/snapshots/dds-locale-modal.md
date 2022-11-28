@@ -22,7 +22,11 @@
       <dds-expressive-modal-header data-autoid="dds--expressive-modal-header">
         <dds-expressive-modal-close-button data-autoid="dds--expressive-modal-close-button">
         </dds-expressive-modal-close-button>
-        <dds-expressive-modal-heading data-autoid="dds--expressive-modal-heading">
+        <dds-expressive-modal-heading
+          aria-level="2"
+          data-autoid="dds--expressive-modal-heading"
+          role="heading"
+        >
         </dds-expressive-modal-heading>
       </dds-expressive-modal-header>
     </div>
@@ -65,7 +69,11 @@
       <dds-expressive-modal-header data-autoid="dds--expressive-modal-header">
         <dds-expressive-modal-close-button data-autoid="dds--expressive-modal-close-button">
         </dds-expressive-modal-close-button>
-        <dds-expressive-modal-heading data-autoid="dds--expressive-modal-heading">
+        <dds-expressive-modal-heading
+          aria-level="2"
+          data-autoid="dds--expressive-modal-heading"
+          role="heading"
+        >
           <p class="bx--modal-header__label bx--type-delta">
             lang-display-foo
           </p>
@@ -120,7 +128,11 @@
           size=""
         >
         </dds-expressive-modal-close-button>
-        <dds-expressive-modal-heading data-autoid="dds--expressive-modal-heading">
+        <dds-expressive-modal-heading
+          aria-level="2"
+          data-autoid="dds--expressive-modal-heading"
+          role="heading"
+        >
           <dds-link-with-icon
             data-autoid="dds--link-with-icon"
             href="#"

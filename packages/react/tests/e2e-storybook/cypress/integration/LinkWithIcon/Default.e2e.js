@@ -56,7 +56,7 @@ const _tests = [
   },
   () => {
     it('should not be clickable when disabled', () => {
-      cy.visit(`${_path}&knob-Disabled%20(disabled):_LinkWithIcon=true`)
+      cy.visit(`${_path}&knob-Disabled%20(disabled):=true`)
         .get(_selector)
         .find('a')
         .should($link => {
@@ -67,7 +67,7 @@ const _tests = [
   () => {
     it('should optionally allow visited styles', () => {
       cy.visit(
-        `${_path}&knob-Allow%20visited%20styles%20(visited):_LinkWithIcon=true`
+        `${_path}&knob-Allow%20visited%20styles%20(visited):=true`
       )
         .get(_selector)
         .find('a')
@@ -78,7 +78,7 @@ const _tests = [
     it('should check icon placements', () => {
       ['left', 'right'].forEach(placement => {
         cy.visit(
-          `${_path}&knob-Icon%20placement%20(iconPlacement):_LinkWithIcon=${placement}`
+          `${_path}&knob-Icon%20placement%20(iconPlacement):=${placement}`
         )
           .get(_selector)
           .find('a')
