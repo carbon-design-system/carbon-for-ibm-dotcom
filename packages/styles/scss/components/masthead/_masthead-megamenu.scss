@@ -371,28 +371,12 @@
     @include carbon--make-col(4, 16);
 
     min-height: 100%;
-    padding-block-start: $layout-02;
-    border-right: carbon--rem(1px) solid $ui-03;
+    border-inline-end: carbon--rem(1px) solid $ui-03;
 
     // Shift border left without breaking Carbon grid alignment.
     margin-inline-end: $spacing-05;
     padding-inline-start: $spacing-05;
     margin-inline-start: calc(#{$spacing-05} * -1);
-  }
-
-  @include carbon--breakpoint-between(800px, 1055px) {
-    .#{$prefix}--masthead__megamenu__container--row {
-      flex-direction: column;
-    }
-
-    :host(#{$dds-prefix}-megamenu-left-navigation),
-    .#{$prefix}--masthead__megamenu__highlight-section {
-      @include carbon--make-col(8, 8);
-
-      border-right: none;
-      border-bottom: carbon--rem(1px) solid $ui-03;
-      column-count: 2;
-    }
   }
 }
 

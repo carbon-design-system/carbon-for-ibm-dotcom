@@ -630,20 +630,10 @@ $breakpoint--desktop-nav: 960px;
 }
 
 :host(#{$dds-prefix}-megamenu[layout='tab']) {
-  .#{$prefix}--masthead__megamenu__container--row {
-    @include carbon--breakpoint('md') {
-      flex-direction: inherit;
-    }
-  }
-
   ::slotted(#{$dds-prefix}-megamenu-left-navigation) {
-    @include carbon--make-col(4, 16);
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-right: carbon--rem(1px) solid $ui-03;
-    padding-block-start: 0;
   }
 }
 
