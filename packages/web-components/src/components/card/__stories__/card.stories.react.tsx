@@ -8,7 +8,6 @@
  */
 
 import React from 'react';
-import { boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import Desktop from '@carbon/pictograms-react/lib/desktop/index.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
@@ -21,21 +20,19 @@ import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image
 import DDSImageLogo from '@carbon/ibmdotcom-web-components/es/components-react/card/image-logo';
 import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
 import { Tag } from 'carbon-components-react';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.react.mdx';
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 import logoMicrosoft2x1 from '../../../../../storybook-images/assets/logos/logo-microsoft--2x1.png';
 import { PICTOGRAM_PLACEMENT } from '../defs';
 
-export const Default = args => {
-  const { image, href, alt, defaultSrc, heading, eyebrow, tagGroup, copy, footer, cardStyles } = args?.Card ?? {};
+export const Default = ({ image, alt, heading, eyebrow, tagGroup, copy, footer, cardStyles }) => {
   return (
     /* eslint-disable no-nested-ternary */
     <DDSCard
       colorScheme={cardStyles === 'Inverse card' ? 'inverse' : cardStyles === 'Outlined card' ? 'light' : ''}
-      href={href || undefined}
+      href={'https://example.com' || undefined}
       border={cardStyles === 'Outlined card'}>
-      {image ? <DDSImage slot="image" alt={alt || undefined} defaultSrc={defaultSrc || undefined} /> : ''}
+      {image ? <DDSImage slot="image" alt={alt || undefined} defaultSrc={imgXlg4x3 || undefined} /> : ''}
       <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow>
       <DDSCardHeading>{heading}</DDSCardHeading>
       {copy ? <p>{copy}</p> : ''}
@@ -56,20 +53,37 @@ export const Default = args => {
 };
 
 Default.story = {
-  parameters: {
-    knobs: {
-      Card: () => ({
-        image: boolean('Add image:', false),
-        eyebrow: textNullable('Eyebrow:', 'Industry'),
-        heading: textNullable('Heading:', 'Aerospace and defence'),
-        copy: textNullable('Body copy:', ''),
-        alt: 'Image alt text',
-        defaultSrc: imgXlg4x3,
-        tagGroup: boolean('Add tags:', false),
-        href: 'https://example.com',
-        footer: textNullable('CTA:', 'Learn more'),
-        cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none'),
-      }),
+  argTypes: {
+    image: {
+      control: 'boolean',
+    },
+    eyebrow: {
+      control: { type: 'text' },
+      defaultValue: 'Industry',
+    },
+    heading: {
+      control: { type: 'text' },
+      defaultValue: 'Aerospace and defence',
+    },
+    copy: {
+      control: { type: 'text' },
+      defaultValue: '',
+    },
+    alt: {
+      control: { type: 'text' },
+      defaultValue: 'Image alt text',
+    },
+    tagGroup: {
+      control: 'boolean',
+    },
+    footer: {
+      control: { type: 'text' },
+      defaultValue: 'Learn more',
+    },
+    cardStyles: {
+      options: ['Outlined card', 'Inverse card', 'none'],
+      control: { type: 'select' },
+      defaultValue: 'none',
     },
   },
 };
@@ -79,12 +93,11 @@ const pictogramPlacements = {
   [PICTOGRAM_PLACEMENT.BOTTOM]: PICTOGRAM_PLACEMENT.BOTTOM,
 };
 
-export const Pictogram = args => {
-  const { href, heading, copy, tagGroup, pictogramPlacement, cardStyles } = args?.PictogramCard ?? {};
+export const Pictogram = ({ heading, copy, tagGroup, pictogramPlacement, cardStyles }) => {
   return (
     <DDSCard
       pictogramPlacement={pictogramPlacement}
-      href={href || undefined}
+      href={'https://example.com' || undefined}
       colorScheme={cardStyles === 'Inverse card' ? 'inverse' : cardStyles === 'Outlined card' ? 'light' : ''}
       border={cardStyles === 'Outlined card'}>
       <DDSCardHeading>{heading}</DDSCardHeading>
@@ -103,31 +116,33 @@ export const Pictogram = args => {
 };
 
 Pictogram.story = {
-  parameters: {
-    knobs: {
-      PictogramCard: () => {
-        const pictogramPlacement = select('Pictogram position:', pictogramPlacements, pictogramPlacements.top);
-        const copy = textNullable(
-          'Body copy:',
-          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat'
-        );
-        return {
-          pictogramPlacement,
-          heading: textNullable('Heading:', 'Aerospace and defence'),
-          copy,
-          href: 'https://example.com',
-          cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none'),
-        };
-      },
+  argTypes: {
+    pictogramPlacement: {
+      options: pictogramPlacements,
+      control: { type: 'select' },
+      defaultValue: PICTOGRAM_PLACEMENT.TOP,
+    },
+    copy: {
+      control: { type: 'text' },
+      defaultValue: `Enjoy full SPSS Statistics capabilities including all add-ons. 
+        All trial registrants are restricted to one free trial per computer per user.`,
+    },
+    heading: {
+      control: { type: 'text' },
+      defaultValue: 'Free trials',
+    },
+    cardStyles: {
+      options: ['Outlined card', 'Inverse card', 'none'],
+      control: { type: 'select' },
+      defaultValue: 'none',
     },
   },
 };
 
-export const Static = args => {
-  const { image, alt, defaultSrc, outlinedCard, eyebrow, heading, copy, tagGroup, cta } = args?.StaticCard ?? {};
+export const Static = ({ image, alt, outlinedCard, eyebrow, heading, copy, tagGroup, cta, ctaCopy }) => {
   return (
     <DDSCard colorScheme={outlinedCard ? 'light' : ''} border={outlinedCard}>
-      {image ? <DDSImage slot="image" alt={alt || undefined} defaultSrc={defaultSrc || undefined} /> : ''}
+      {image ? <DDSImage slot="image" alt={alt || undefined} defaultSrc={imgXlg4x3 || undefined} /> : ''}
       <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow>
       <DDSCardHeading>{heading}</DDSCardHeading>
       {copy ? <p>{copy}</p> : ''}
@@ -141,7 +156,7 @@ export const Static = args => {
       )}
       {cta ? (
         <DDSCardFooter href="https://www.example.com">
-          Sign up for the trial
+          {ctaCopy}
           <ArrowRight20 slot="icon" />
         </DDSCardFooter>
       ) : (
@@ -152,44 +167,54 @@ export const Static = args => {
 };
 
 Static.story = {
-  parameters: {
-    ...readme.parameters,
-    knobs: {
-      StaticCard: () => {
-        const image = boolean('Add image:', false);
-        const eyebrow = textNullable('Eyebrow:', 'SPSS Statistics');
-        const heading = textNullable('Heading:', 'Free trial');
-        const copy = textNullable(
-          'Body copy:',
-          'Enjoy full SPSS Statistics capabilities including all add-ons. ' +
-            'All trial registrants are restricted to one free trial per computer per user.'
-        );
-        const tagGroup = boolean('Add tags:', false);
-        const cta = boolean('Add CTA:', false);
-        const ctaCopy = cta ? textNullable('CTA copy:', 'Sign up for the trial') : '';
-        const outlinedCard = boolean('Outlined card:', true);
-        return {
-          alt: 'Image alt text',
-          defaultSrc: imgXlg4x3,
-          image,
-          eyebrow,
-          heading,
-          copy,
-          tagGroup,
-          cta,
-          ctaCopy,
-          outlinedCard,
-        };
+  argTypes: {
+    image: {
+      control: 'boolean',
+    },
+    eyebrow: {
+      control: { type: 'text' },
+      defaultValue: 'Industry',
+    },
+    heading: {
+      control: { type: 'text' },
+      defaultValue: 'Aerospace and defence',
+    },
+    copy: {
+      control: { type: 'text' },
+      defaultValue: '',
+    },
+    alt: {
+      control: { type: 'text' },
+      defaultValue: 'Image alt text',
+    },
+    tagGroup: {
+      control: 'boolean',
+    },
+    cta: {
+      control: 'boolean',
+      defaultValue: false,
+    },
+    ctaCopy: {
+      control: { type: 'text' },
+      defaultValue: 'Sign up for the trial',
+      if: {
+        arg: 'cta',
       },
     },
+    outlinedCard: {
+      control: 'boolean',
+      defaultValue: true,
+    },
+  },
+  parameters: {
+    ...readme.parameters,
   },
 };
 
-export const Logo = args => {
-  const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } = args?.Card ?? {};
+export const Logo = ({ alt, eyebrow, heading, copy, tagGroup }) => {
   return (
-    <DDSCard border logo href={href || undefined}>
-      <DDSImageLogo slot="image" alt={alt} default-src={defaultSrc}></DDSImageLogo>
+    <DDSCard border logo href={'https://example.com' || undefined}>
+      <DDSImageLogo slot="image" alt={alt} default-src={logoMicrosoft2x1}></DDSImageLogo>
       {eyebrow ? <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow> : ''}
       {heading ? <DDSCardHeading>{heading}</DDSCardHeading> : ''}
       {copy ? <p>{copy}</p> : ``}
@@ -207,22 +232,26 @@ export const Logo = args => {
 };
 
 Logo.story = {
+  argTypes: {
+    alt: 'Image alt text',
+    tagGroup: {
+      control: 'boolean',
+    },
+    eyebrow: {
+      control: { type: 'text' },
+      defaultValue: 'Microsoft',
+    },
+    heading: {
+      control: { type: 'text' },
+      defaultValue: '',
+    },
+    copy: {
+      control: { type: 'text' },
+      defaultValue: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    },
+  },
   parameters: {
     ...readme.parameters,
-    knobs: {
-      Card: () => ({
-        alt: 'Image alt text',
-        defaultSrc: logoMicrosoft2x1,
-        tagGroup: boolean('Add tags', true),
-        eyebrow: textNullable('Card Eyebrow:', 'Microsoft'),
-        heading: textNullable('Card Heading (optional):', ''),
-        copy: textNullable(
-          'Card body copy:',
-          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-        ),
-        href: 'https://example.com',
-      }),
-    },
   },
 };
 
