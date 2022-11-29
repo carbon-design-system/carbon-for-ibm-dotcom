@@ -10,8 +10,8 @@
 import { customElement, html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/carbon-web-components/es/globals/mixins/host-listener.js';
+import HostListener from '@carbon/carbon-web-components/es/globals/decorators/host-listener.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSStructuredListCell from '../structured-list/structured-list-cell';
 import DDSPricingTableGroup from './pricing-table-group';

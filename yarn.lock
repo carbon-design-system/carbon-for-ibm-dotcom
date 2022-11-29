@@ -8362,16 +8362,6 @@ carbon-components-react@7.59.5:
     wicg-inert "^3.1.1"
     window-or-global "^1.0.1"
 
-carbon-components@10.52.0:
-  version "10.52.0"
-  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.52.0.tgz#07db35dddbc5f9e5042e8621a781e9cb96fce0fa"
-  integrity sha512-itiG52GdDGxGh4IyuIV7gsuQCE1LLD2FCTEp5bPGhF/Onn042QzGendjl+yE7kfUk3FVlWmHN216dh/mA2sdZg==
-  dependencies:
-    "@carbon/telemetry" "0.0.0-alpha.6"
-    flatpickr "4.6.1"
-    lodash.debounce "^4.0.8"
-    warning "^3.0.0"
-
 carbon-components@10.55.0:
   version "10.55.0"
   resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.55.0.tgz#d9c876f29bd99c67f50d751d200be4b32327f396"
@@ -8406,18 +8396,6 @@ carbon-icons@7.0.7:
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/carbon-icons/-/carbon-icons-7.0.7.tgz#ebafe3e9fa25df973796a8eca06d8a7c501cc610"
   integrity sha512-3vgkdXJRgCViCrH3fLUdyAXo0I8wmohO6QETv7vWFx6yc7s+SirWFBSFL38zUx4MHtR8iTxIlLEzkeU6FlFtXg==
-
-carbon-web-components@1.21.0:
-  version "1.21.0"
-  resolved "https://registry.yarnpkg.com/carbon-web-components/-/carbon-web-components-1.21.0.tgz#038276cc7fc786919730d93a143c5255d23aa921"
-  integrity sha512-rSLmyiVTH4Ffz1Hq4QRHaCfy63y3AC9Er/k9COkmW73zkFOnyfIGQ+rZrvQof0z1jz0b1dfGdp7eRctbwVTcsA==
-  dependencies:
-    "@babel/runtime" "^7.16.3"
-    carbon-components "10.52.0"
-    flatpickr "4.6.1"
-    lit-element "^2.5.1"
-    lit-html "^1.4.1"
-    lodash-es "^4.17.21"
 
 case-sensitive-paths-webpack-plugin@^2.3.0:
   version "2.4.0"
@@ -22783,12 +22761,14 @@ sass@^1.19.0:
     immutable "^4.0.0"
     source-map-js ">=0.6.2 <2.0.0"
 
-sass@~1.40.0:
-  version "1.40.1"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.40.1.tgz#55d3fc38fe9dc579e7324ce0eb9185bede7992a9"
-  integrity sha512-M6WskYLzTfdZdb09W9SftIScjudL8jNkhdh9z96U+olQaKIcw2Knb6QLL9bUhnuSm4VD+1yJVaO2/ENDPMTtAQ==
+sass@~1.56.0:
+  version "1.56.1"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.56.1.tgz#94d3910cd468fd075fa87f5bb17437a0b617d8a7"
+  integrity sha512-VpEyKpyBPCxE7qGDtOcdJ6fFbcpOM+Emu7uZLxVrkX8KVU/Dp5UF7WLvzqRuUhB6mqqQt1xffLoG+AndxTZrCQ==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
+    immutable "^4.0.0"
+    source-map-js ">=0.6.2 <2.0.0"
 
 sax@~1.2.1, sax@~1.2.4:
   version "1.2.4"
