@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
 import EventManager from '../../../../tests/utils/event-manager';
 import DDSFooterNavGroup from '../footer-nav-group';
 // Above import is interface-only ref and thus code won't be brought into the build

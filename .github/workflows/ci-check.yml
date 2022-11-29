@@ -2,9 +2,9 @@ name: ci-check
 
 on:
   push:
-    branches: [ main, release/*, chore/revert-cwc-import ]
+    branches: [ main, release/* ]
   pull_request:
-    branches: [ main, release/*, chore/revert-cwc-import ]
+    branches: [ main, release/* ]
 
 concurrency:
   group: ci-check-${{ github.ref }}
