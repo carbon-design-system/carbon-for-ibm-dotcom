@@ -9,8 +9,8 @@
 
 import '../index';
 import { html } from 'lit-element';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import Chat20 from 'carbon-web-components/es/icons/chat/20.js';
+import ArrowRight20 from '@carbon/carbon-web-components/es/icons/arrow--right/20.js';
+import Chat20 from '@carbon/carbon-web-components/es/icons/chat/20.js';
 // eslint-disable-next-line sort-imports
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';

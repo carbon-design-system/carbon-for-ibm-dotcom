@@ -9,7 +9,7 @@
 
 import { html, LitElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
+import FocusMixin from '@carbon/carbon-web-components/es/globals/mixins/focus.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './lightbox-media-viewer.scss';
 
