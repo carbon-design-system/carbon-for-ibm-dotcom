@@ -13,7 +13,6 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
-import CspComplianceMixin from '../../globals/mixins/csp-compliance';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -27,14 +26,13 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot profile - The right hand area.
  */
 @customElement(`${ddsPrefix}-masthead`)
-class DDSMasthead extends CspComplianceMixin(StableSelectorMixin(LitElement)) {
+class DDSMasthead extends StableSelectorMixin(LitElement) {
   firstUpdated() {
     StickyHeader.global.masthead = this;
   }
 
   render() {
     return html`
-      ${this._renderDynamicStyles()}
       <div class="${prefix}--masthead__l0">
         <div class="${prefix}--header">
           <slot name="brand"></slot>

@@ -7,15 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, query, state } from 'lit-element';
+import { customElement, query, state } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
 import DDSTopNavMenu from './top-nav-menu';
 import DDSMegaMenuOverlay from './megamenu-overlay';
 import styles from './masthead.scss';
-import CspComplianceMixin from '../../globals/mixins/csp-compliance';
-import DDSMasthead from './masthead';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -26,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-megamenu-top-nav-menu
  */
 @customElement(`${ddsPrefix}-megamenu-top-nav-menu`)
-class DDSMegaMenuTopNavMenu extends CspComplianceMixin(DDSTopNavMenu) {
+class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   /**
    * The menu ul node.
    */
@@ -90,8 +88,8 @@ class DDSMegaMenuTopNavMenu extends CspComplianceMixin(DDSTopNavMenu) {
     // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4493
     const { customPropertyViewportWidth } = this
       .constructor as typeof DDSMegaMenuTopNavMenu;
-    this.setStyleBySelector(
-      ':host',
+
+    this.style.setProperty(
       customPropertyViewportWidth,
       `${contentRect.width}px`
     );
@@ -132,22 +130,16 @@ class DDSMegaMenuTopNavMenu extends CspComplianceMixin(DDSTopNavMenu) {
 
       // add the scrollbar width as right-margin to prevent content from shifting when
       // scrollbar disappears on megamenu expand
-      const masthead: Element | null = doc.querySelector('dds-masthead');
+      const masthead: HTMLElement | null = doc.querySelector('dds-masthead');
 
       // determine whether to apply margin-right on expand as HC has extra masthead styling
       const cloudMasthead: HTMLElement | null | undefined = doc
         .querySelector('dds-cloud-masthead-container')
         ?.querySelector('dds-masthead');
 
-      const dynamicStyleSelector = '.bx--masthead__l0';
       if (this.expanded) {
-        this.setStyleBySelector(
-          'body',
-          'margin-inline-start',
-          `${this._scrollBarWidth}px`,
-          true
-        );
-        this.setStyleBySelector('body', 'overflow', 'hidden', true);
+        document.body.style.marginInlineStart = `${this._scrollBarWidth}px`;
+        document.body.style.overflow = 'hidden';
         forEach(
           doc.querySelectorAll(
             (this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay
@@ -161,39 +153,23 @@ class DDSMegaMenuTopNavMenu extends CspComplianceMixin(DDSTopNavMenu) {
             doc.body.classList.contains('ibm-masthead-sticky') &&
             doc.body.classList.contains('ibm-masthead-sticky-showing')
           ) {
-            (cloudMasthead as DDSMasthead).setStyleBySelector(
-              dynamicStyleSelector,
-              'margin-inline-end',
-              `${this._scrollBarWidth}px`
-            );
+            cloudMasthead.style.marginInlineEnd = `${this._scrollBarWidth}px`;
           }
         } else if (masthead) {
-          (masthead as DDSMasthead).setStyleBySelector(
-            dynamicStyleSelector,
-            'margin-inline-end',
-            `${this._scrollBarWidth}px`
-          );
+          masthead.style.marginInlineEnd = `${this._scrollBarWidth}px`;
         }
       } else {
-        this.setStyleBySelector('body', 'margin-inline-start', '0px', true);
-        this.setStyleBySelector('body', 'overflow', '', true);
+        document.body.style.marginInlineStart = '0px';
+        document.body.style.overflow = '';
         if (cloudMasthead) {
           if (
             doc.body.classList.contains('ibm-masthead-sticky') &&
             doc.body.classList.contains('ibm-masthead-sticky-showing')
           ) {
-            (cloudMasthead as DDSMasthead).setStyleBySelector(
-              dynamicStyleSelector,
-              'margin-inline-end',
-              '0px'
-            );
+            cloudMasthead.style.marginInlineEnd = '0px';
           }
         } else if (masthead) {
-          (masthead as DDSMasthead).setStyleBySelector(
-            dynamicStyleSelector,
-            'margin-inline-end',
-            '0px'
-          );
+          masthead.style.marginInlineEnd = '0px';
         }
 
         /**
@@ -215,10 +191,6 @@ class DDSMegaMenuTopNavMenu extends CspComplianceMixin(DDSTopNavMenu) {
         }
       }
     }
-  }
-
-  render() {
-    return html` ${this._renderDynamicStyles()}${super.render()} `;
   }
 
   /**

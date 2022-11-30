@@ -60,7 +60,6 @@ import './left-nav-overlay';
 import '../search-with-typeahead/search-with-typeahead';
 import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
-import CspComplianceMixin from '../../globals/mixins/csp-compliance';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -85,7 +84,7 @@ export enum NAV_ITEMS_RENDER_TARGET {
  * @element dds-masthead-composite
  */
 @customElement(`${ddsPrefix}-masthead-composite`)
-class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
+class DDSMastheadComposite extends LitElement {
   /**
    * Renders L1 menu based on l1Data
    *
@@ -900,12 +899,7 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
     this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
     this._loadUserStatus?.();
 
-    this.setStyleBySelector(
-      `${ddsPrefix}-masthead-container`,
-      'z-index',
-      '900',
-      true
-    );
+    this.style.zIndex = '900';
   }
 
   updated(changedProperties) {
