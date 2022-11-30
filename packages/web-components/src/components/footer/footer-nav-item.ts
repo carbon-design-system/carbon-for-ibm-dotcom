@@ -8,7 +8,7 @@
  */
 
 import { html, property, customElement } from 'lit-element';
-import BXLink from 'carbon-web-components/es/components/link/link.js';
+import BXLink from '@carbon/carbon-web-components/es/components/link/link.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './footer.scss';
@@ -25,9 +25,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSFooterNavItem extends BXLink {
   protected _renderInner() {
     const { titleText } = this;
-    return html`
-      <slot>${titleText}</slot>
-    `;
+    return html` <slot>${titleText}</slot> `;
   }
 
   /**

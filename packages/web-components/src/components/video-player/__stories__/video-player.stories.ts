@@ -9,12 +9,12 @@
 
 import { html } from 'lit-element';
 import { boolean, text } from '@storybook/addon-knobs';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import '../video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
 
-export const Default = args => {
+export const Default = (args) => {
   const { caption, hideCaption, thumbnail, videoId } = args?.VideoPlayer ?? {};
   return html`
     <dds-video-player-container
@@ -27,8 +27,9 @@ export const Default = args => {
   `;
 };
 
-export const aspectRatio1x1 = args => {
-  const { aspectRatio, caption, hideCaption, thumbnail, videoId } = args?.VideoPlayer ?? {};
+export const aspectRatio1x1 = (args) => {
+  const { aspectRatio, caption, hideCaption, thumbnail, videoId } =
+    args?.VideoPlayer ?? {};
   return html`
     <dds-video-player-container
       playing-mode="inline"
@@ -41,8 +42,9 @@ export const aspectRatio1x1 = args => {
   `;
 };
 
-export const aspectRatio4x3 = args => {
-  const { aspectRatio, caption, hideCaption, thumbnail, videoId } = args?.VideoPlayer ?? {};
+export const aspectRatio4x3 = (args) => {
+  const { aspectRatio, caption, hideCaption, thumbnail, videoId } =
+    args?.VideoPlayer ?? {};
   return html`
     <dds-video-player-container
       playing-mode="inline"
@@ -55,8 +57,15 @@ export const aspectRatio4x3 = args => {
   `;
 };
 
-export const withLightboxMediaViewer = args => {
-  const { aspectRatio, caption, hideCaption, thumbnail, videoId, customVideoDescription } = args?.VideoPlayer ?? {};
+export const withLightboxMediaViewer = (args) => {
+  const {
+    aspectRatio,
+    caption,
+    hideCaption,
+    thumbnail,
+    videoId,
+    customVideoDescription,
+  } = args?.VideoPlayer ?? {};
   return html`
     <dds-video-player-container
       video-id=${videoId}
@@ -135,7 +144,10 @@ withLightboxMediaViewer.story = {
       VideoPlayer: () => {
         return {
           aspectRatio: '16x9',
-          customVideoDescription: text('Custom video description', 'This is a custom video description.'),
+          customVideoDescription: text(
+            'Custom video description',
+            'This is a custom video description.'
+          ),
           caption: text('Custom caption (caption):', ''),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
@@ -161,12 +173,10 @@ withLightboxMediaViewer.story = {
 export default {
   title: 'Components/Video player',
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8">
-            ${story()}
-          </div>
+          <div class="bx--col-sm-4 bx--col-lg-8">${story()}</div>
         </div>
       </div>
     `,

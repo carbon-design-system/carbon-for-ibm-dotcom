@@ -70,27 +70,29 @@ const LeadSpace = ({
         [`${prefix}--leadspace--medium`]: size === 'medium',
         [`${prefix}--leadspace--tall`]: size === 'tall',
         [`${prefix}--leadspace--super`]: size === 'super',
-      })}>
+      })}
+    >
       <section className={classNames(type, theme)}>
         <div className={`${prefix}--leadspace__container`}>
           <div
             className={classnames(`${prefix}--leadspace__overlay`, {
               [`${prefix}--leadspace--gradient`]: image && image.defaultSrc,
-            })}>
-            {image && image.defaultSrc === true ? (
-              undefined
-            ) : (
+            })}
+          >
+            {image && image.defaultSrc === true ? undefined : (
               <svg
                 className={`${prefix}--leadspace__gradient`}
                 viewBox="0 0 100 100"
                 preserveAspectRatio="none"
                 xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink">
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+              >
                 <defs>
                   <linearGradient
                     id="stops"
                     className={`${prefix}--leadspace__gradient__stops`}
-                    gradientTransform={type === 'centered' ? 'rotate(90)' : ''}>
+                    gradientTransform={type === 'centered' ? 'rotate(90)' : ''}
+                  >
                     {type === 'centered' ? (
                       <>
                         <stop offset="0%" />
@@ -124,7 +126,8 @@ const LeadSpace = ({
                   <div className={`${prefix}--leadspace__row`}>
                     <p
                       data-autoid={`${stablePrefix}--leadspace__desc`}
-                      className={`${prefix}--leadspace__desc`}>
+                      className={`${prefix}--leadspace__desc`}
+                    >
                       {copy}
                     </p>
                   </div>

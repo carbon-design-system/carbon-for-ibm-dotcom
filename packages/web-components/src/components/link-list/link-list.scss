@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -32,8 +32,12 @@
   outline-offset: -2px;
 }
 
-:host(#{$dds-prefix}-link-list-item) .bx--link-with-icon__icon-left ::slotted(svg[slot='icon']),
-:host(#{$dds-prefix}-link-list-item-cta) .bx--link-with-icon__icon-left ::slotted(svg[slot='icon']) {
+:host(#{$dds-prefix}-link-list-item)
+  .bx--link-with-icon__icon-left
+  ::slotted(svg[slot='icon']),
+:host(#{$dds-prefix}-link-list-item-cta)
+  .bx--link-with-icon__icon-left
+  ::slotted(svg[slot='icon']) {
   min-width: 20px;
   min-height: 20px;
 }
@@ -87,7 +91,8 @@
     }
   }
 
-  .#{$prefix}--link-list__list--vertical ::slotted(#{$dds-prefix}-link-list-item) {
+  .#{$prefix}--link-list__list--vertical
+    ::slotted(#{$dds-prefix}-link-list-item) {
     display: flex;
   }
 
@@ -111,7 +116,8 @@
   }
 
   @include carbon--breakpoint('md') {
-    .#{$dds-prefix}-ce--link-list__heading--split ::slotted(#{$dds-prefix}-link-list-heading) {
+    .#{$dds-prefix}-ce--link-list__heading--split
+      ::slotted(#{$dds-prefix}-link-list-heading) {
       width: 33.3%;
       padding-right: 10%;
     }

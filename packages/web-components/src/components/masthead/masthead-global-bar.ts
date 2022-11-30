@@ -9,9 +9,9 @@
 
 import { classMap } from 'lit-html/directives/class-map.js';
 import { html, property, customElement, LitElement } from 'lit-element';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
+import HostListener from '@carbon/carbon-web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/carbon-web-components/es/globals/mixins/host-listener.js';
+import FocusMixin from '@carbon/carbon-web-components/es/globals/mixins/focus.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -24,7 +24,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-masthead-global-bar
  */
 @customElement(`${ddsPrefix}-masthead-global-bar`)
-class DDSMastheadGlobalBar extends FocusMixin(HostListenerMixin(StableSelectorMixin(LitElement))) {
+class DDSMastheadGlobalBar extends FocusMixin(
+  HostListenerMixin(StableSelectorMixin(LitElement))
+) {
   /**
    * Search bar opened flag.
    */
@@ -54,11 +56,10 @@ class DDSMastheadGlobalBar extends FocusMixin(HostListenerMixin(StableSelectorMi
     const { _hasSearchActive: hasSearchActive } = this;
     const classes = classMap({
       [`${ddsPrefix}-ce--header__global__container`]: true,
-      [`${ddsPrefix}-ce--header__global__container--has-search-active`]: hasSearchActive,
+      [`${ddsPrefix}-ce--header__global__container--has-search-active`]:
+        hasSearchActive,
     });
-    return html`
-      <div class="${classes}"><slot></slot></div>
-    `;
+    return html` <div class="${classes}"><slot></slot></div> `;
   }
 
   /**

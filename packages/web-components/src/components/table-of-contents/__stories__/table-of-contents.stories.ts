@@ -10,7 +10,7 @@
 import { nothing } from 'lit-html';
 import { html } from 'lit-element';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import ArrowLeft20 from 'carbon-web-components/es/icons/arrow--left/20.js';
+import ArrowLeft20 from '@carbon/carbon-web-components/es/icons/arrow--left/20.js';
 import '../table-of-contents';
 import '../../horizontal-rule/horizontal-rule';
 import '../../image/image';
@@ -21,7 +21,7 @@ import readme from './README.stories.mdx';
 import { TOC_TYPES } from '../defs';
 import { ICON_PLACEMENT } from '../../../globals/defs';
 
-export const Default = args => {
+export const Default = (args) => {
   const { numberOfItems: items, withHeadingContent } = args?.Other ?? {};
   return html`
     <dds-table-of-contents>
@@ -55,13 +55,16 @@ export const Default = args => {
   `;
 };
 
-export const Horizontal = args => {
+export const Horizontal = (args) => {
   const { numberOfItems: items } = args?.Other ?? {};
   return html`
     <dds-table-of-contents toc-layout="${TOC_TYPES.HORIZONTAL}">
       <div class="bx--row">
         <div class="bx--col-lg-12">
-          ${content({ contentClass: 'bx--tableofcontents-horizontal__contents', items })}
+          ${content({
+            contentClass: 'bx--tableofcontents-horizontal__contents',
+            items,
+          })}
         </div>
       </div>
     </dds-table-of-contents>
@@ -76,7 +79,10 @@ Horizontal.story = {
         numberOfItems: Array.from({
           length: select('Number of items', [5, 6, 7, 8], 5),
         }).map((_, i) => ({
-          heading: text(`Section ${i + 1} heading`, headings[i % headings.length]),
+          heading: text(
+            `Section ${i + 1} heading`,
+            headings[i % headings.length]
+          ),
           copy: text(`Section ${i + 1} copy`, `${LOREM}\n`.repeat(3).trim()),
         })),
       }),
@@ -100,13 +106,11 @@ Horizontal.story = {
 export default {
   title: 'Components/Table of contents',
   decorators: [
-    story => html`
+    (story) => html`
       <style>
         ${styles}
       </style>
-      <div class="bx--grid" style="padding: 0">
-        ${story()}
-      </div>
+      <div class="bx--grid" style="padding: 0">${story()}</div>
     `,
   ],
   parameters: {
@@ -118,7 +122,10 @@ export default {
         numberOfItems: Array.from({
           length: select('Number of items', [5, 6, 7, 8], 5),
         }).map((_, i) => ({
-          heading: text(`Section ${i + 1} heading`, headings[i % headings.length]),
+          heading: text(
+            `Section ${i + 1} heading`,
+            headings[i % headings.length]
+          ),
           copy: text(`Section ${i + 1} copy`, `${LOREM}\n`.repeat(3).trim()),
         })),
       }),

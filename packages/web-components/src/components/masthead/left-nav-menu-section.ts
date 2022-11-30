@@ -9,16 +9,17 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
-import ChevronLeft20 from 'carbon-web-components/es/icons/chevron--left/20.js';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
-import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
+import HostListener from '@carbon/carbon-web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/carbon-web-components/es/globals/mixins/host-listener.js';
+import ChevronLeft20 from '@carbon/carbon-web-components/es/icons/chevron--left/20.js';
+import ArrowRight20 from '@carbon/carbon-web-components/es/icons/arrow--right/20.js';
+import FocusMixin from '@carbon/carbon-web-components/es/globals/mixins/focus.js';
+import { selectorTabbable } from '@carbon/carbon-web-components/es/globals/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
 import styles from './masthead.scss';
 import DDSLeftNav from './left-nav';
+import CspComplianceMixin from '../../globals/mixins/csp-compliance';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -33,7 +34,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @fires dds-left-nav-menu-toggled The custom event fired after this side nav menu is toggled upon a user gesture.
  */
 @customElement(`${ddsPrefix}-left-nav-menu-section`)
-class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
+class DDSLeftNavMenuSection extends CspComplianceMixin(
+  HostListenerMixin(FocusMixin(LitElement))
+) {
   /**
    * Set aria-hidden property.
    */
@@ -121,12 +124,12 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
     setTimeout(() => {
       if (this.expanded) {
         // Allow active section to scroll
-        this.style.overflow = '';
+        this.setStyleBySelector(':host', 'overflow', '');
       } else {
         // Hide previous section & restrict size
-        this.style.visibility = 'hidden';
-        this.style.height = '0';
-        this.style.overflow = 'hidden';
+        this.setStyleBySelector(':host', 'visibility', 'hidden');
+        this.setStyleBySelector(':host', 'height', '0');
+        this.setStyleBySelector(':host', 'overflow', 'hidden');
       }
     }, 0);
   }
@@ -139,18 +142,18 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
       this.expanded = false;
       this.ariaHidden = 'true';
       // Hide all submenus, and restrict their height/overflow.
-      this.style.visibility = 'hidden';
-      this.style.overflow = 'hidden';
-      this.style.height = '0';
+      this.setStyleBySelector(':host', 'visibility', 'hidden');
+      this.setStyleBySelector(':host', 'height', '0');
+      this.setStyleBySelector(':host', 'overflow', 'hidden');
     }
   }
 
   shouldUpdate(changedProperties) {
     if (changedProperties.has('expanded')) {
       // Allow incoming menu section to show before transition.
-      if (this.expanded) {
-        this.style.visibility = '';
-        this.style.height = '';
+      if (this.expanded && this.dynamicStylesNode) {
+        this.setStyleBySelector(':host', 'visibility', '');
+        this.setStyleBySelector(':host', 'height', '');
       }
     }
     return true;
@@ -158,7 +161,8 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
 
   updated(changedProperties) {
     if (changedProperties.has('expanded')) {
-      const { selectorNavMenu, selectorNavItem } = this.constructor as typeof DDSLeftNavMenuSection;
+      const { selectorNavMenu, selectorNavItem } = this
+        .constructor as typeof DDSLeftNavMenuSection;
       const { expanded, isSubmenu } = this;
 
       if (expanded) {
@@ -168,13 +172,15 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
             backBtn.tabIndex = 0;
           }
         }
-        forEach(this.querySelectorAll(selectorNavMenu), elem => {
-          const item = (elem as HTMLElement).shadowRoot?.querySelector('button');
+        forEach(this.querySelectorAll(selectorNavMenu), (elem) => {
+          const item = (elem as HTMLElement).shadowRoot?.querySelector(
+            'button'
+          );
           if (item) {
             item.tabIndex = 0;
           }
         });
-        forEach(this.querySelectorAll(selectorNavItem), elem => {
+        forEach(this.querySelectorAll(selectorNavItem), (elem) => {
           const item = (elem as HTMLElement).shadowRoot?.querySelector('a');
           if (item) {
             item.tabIndex = 0;
@@ -188,7 +194,9 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
           tabbable = this.shadowRoot?.querySelector('button');
         } else {
           // set focus to first menu item of section
-          tabbable = (this.getRootNode() as ShadowRoot).querySelector(DDSLeftNav.selectorNavItems);
+          tabbable = (this.getRootNode() as ShadowRoot).querySelector(
+            DDSLeftNav.selectorNavItems
+          );
         }
 
         if (tabbable) {
@@ -201,13 +209,15 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
           );
         }
       } else {
-        forEach(this.querySelectorAll(selectorNavMenu), elem => {
-          const item = (elem as HTMLElement).shadowRoot?.querySelector('button');
+        forEach(this.querySelectorAll(selectorNavMenu), (elem) => {
+          const item = (elem as HTMLElement).shadowRoot?.querySelector(
+            'button'
+          );
           if (item) {
             item.tabIndex = -1;
           }
         });
-        forEach(this.querySelectorAll(selectorNavItem), elem => {
+        forEach(this.querySelectorAll(selectorNavItem), (elem) => {
           const item = (elem as HTMLElement).shadowRoot?.querySelector('a');
           if (item) {
             item.tabIndex = -1;
@@ -224,28 +234,51 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   }
 
   render() {
-    const { backButtonText, title, titleUrl, _handleClickBack: handleClickBack, showBackBtn } = this;
+    const {
+      backButtonText,
+      title,
+      titleUrl,
+      _handleClickBack: handleClickBack,
+      showBackBtn,
+    } = this;
     return html`
+      ${this._renderDynamicStyles()}
       <ul>
         ${showBackBtn
           ? html`
-              <li class="${prefix}--side-nav__menu-item ${prefix}--masthead__side-nav--submemu-back" role="none">
-                <button class="${prefix}--side-nav__link" tabindex="-1" @click="${handleClickBack}">
-                  <span class="${prefix}--side-nav__link-text">${ChevronLeft20()}${backButtonText}</span>
+              <li
+                class="${prefix}--side-nav__menu-item ${prefix}--masthead__side-nav--submemu-back"
+                role="none"
+              >
+                <button
+                  class="${prefix}--side-nav__link"
+                  tabindex="-1"
+                  @click="${handleClickBack}"
+                >
+                  <span class="${prefix}--side-nav__link-text"
+                    >${ChevronLeft20()}${backButtonText}</span
+                  >
                 </button>
               </li>
             `
           : undefined}
         ${title && !titleUrl
           ? html`
-              <li class="${prefix}--masthead__side-nav--submemu-title">${title}</li>
+              <li class="${prefix}--masthead__side-nav--submemu-title">
+                ${title}
+              </li>
             `
           : undefined}
         ${title && titleUrl
           ? html`
-              <a class="${prefix}--masthead__side-nav--submemu-title" href=${titleUrl}>
+              <a
+                class="${prefix}--masthead__side-nav--submemu-title"
+                href=${titleUrl}
+              >
                 <span>${title}</span>
-                <div class="${prefix}--masthead__side-nav--submemu-section-title__icon">
+                <div
+                  class="${prefix}--masthead__side-nav--submemu-section-title__icon"
+                >
                   ${ArrowRight20()}
                 </div>
               </a>
@@ -281,9 +314,12 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
    * A selector selecting tabbable nodes.
    */
   static get selectorTabbable() {
-    return [selectorTabbable, `${ddsPrefix}-left-nav-item`, `${ddsPrefix}-left-nav-menu`, `${ddsPrefix}-left-nav-menu-item`].join(
-      ','
-    );
+    return [
+      selectorTabbable,
+      `${ddsPrefix}-left-nav-item`,
+      `${ddsPrefix}-left-nav-menu`,
+      `${ddsPrefix}-left-nav-menu-item`,
+    ].join(',');
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader

@@ -7,13 +7,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, query, state } from 'lit-element';
+import { customElement, html, query, state } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
 import DDSTopNavMenu from './top-nav-menu';
 import DDSMegaMenuOverlay from './megamenu-overlay';
 import styles from './masthead.scss';
+import CspComplianceMixin from '../../globals/mixins/csp-compliance';
+import DDSMasthead from './masthead';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -24,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-megamenu-top-nav-menu
  */
 @customElement(`${ddsPrefix}-megamenu-top-nav-menu`)
-class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
+class DDSMegaMenuTopNavMenu extends CspComplianceMixin(DDSTopNavMenu) {
   /**
    * The menu ul node.
    */
@@ -41,7 +43,9 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
    * scrollbar width.
    */
   @state()
-  private _scrollBarWidth = this.ownerDocument!.defaultView!.innerWidth - this.ownerDocument!.body.offsetWidth;
+  private _scrollBarWidth =
+    this.ownerDocument!.defaultView!.innerWidth -
+    this.ownerDocument!.body.offsetWidth;
 
   /**
    * Removes inherited _handleBlur method from BXHeaderMenu
@@ -80,12 +84,17 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   /**
    * The observer for the resize of the viewport.
    */
-  private _observeResizeRoot = records => {
+  private _observeResizeRoot = (records) => {
     const { contentRect } = records[records.length - 1];
     // A workaround for Safari bug where `100vw` in Shadow DOM causes delayed rendering
     // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4493
-    const { customPropertyViewportWidth } = this.constructor as typeof DDSMegaMenuTopNavMenu;
-    this.style.setProperty(customPropertyViewportWidth, `${contentRect.width}px`);
+    const { customPropertyViewportWidth } = this
+      .constructor as typeof DDSMegaMenuTopNavMenu;
+    this.setStyleBySelector(
+      ':host',
+      customPropertyViewportWidth,
+      `${contentRect.width}px`
+    );
   };
 
   connectedCallback() {
@@ -112,44 +121,79 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
     super.updated(changedProperties);
     if (changedProperties.has('expanded')) {
       const doc = this.getRootNode() as Document;
-      forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
-        (item as DDSMegaMenuOverlay).active = this.expanded;
-      });
+      forEach(
+        doc.querySelectorAll(
+          (this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay
+        ),
+        (item) => {
+          (item as DDSMegaMenuOverlay).active = this.expanded;
+        }
+      );
 
       // add the scrollbar width as right-margin to prevent content from shifting when
       // scrollbar disappears on megamenu expand
-      const masthead: HTMLElement | null | undefined = doc
-        .querySelector('dds-masthead')
-        ?.shadowRoot?.querySelector('.bx--masthead__l0');
+      const masthead: Element | null = doc.querySelector('dds-masthead');
 
       // determine whether to apply margin-right on expand as HC has extra masthead styling
       const cloudMasthead: HTMLElement | null | undefined = doc
         .querySelector('dds-cloud-masthead-container')
-        ?.querySelector('dds-masthead')
-        ?.shadowRoot?.querySelector('.bx--masthead__l0');
+        ?.querySelector('dds-masthead');
 
+      const dynamicStyleSelector = '.bx--masthead__l0';
       if (this.expanded) {
-        doc.body.style.marginRight = `${this._scrollBarWidth}px`;
-        doc.body.style.overflow = `hidden`;
-        forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
-          (item as DDSMegaMenuOverlay).active = this.expanded;
-        });
+        this.setStyleBySelector(
+          'body',
+          'margin-inline-start',
+          `${this._scrollBarWidth}px`,
+          true
+        );
+        this.setStyleBySelector('body', 'overflow', 'hidden', true);
+        forEach(
+          doc.querySelectorAll(
+            (this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay
+          ),
+          (item) => {
+            (item as DDSMegaMenuOverlay).active = this.expanded;
+          }
+        );
         if (cloudMasthead) {
-          if (doc.body.classList.contains('ibm-masthead-sticky') && doc.body.classList.contains('ibm-masthead-sticky-showing')) {
-            cloudMasthead.style.marginRight = `${this._scrollBarWidth}px`;
+          if (
+            doc.body.classList.contains('ibm-masthead-sticky') &&
+            doc.body.classList.contains('ibm-masthead-sticky-showing')
+          ) {
+            (cloudMasthead as DDSMasthead).setStyleBySelector(
+              dynamicStyleSelector,
+              'margin-inline-end',
+              `${this._scrollBarWidth}px`
+            );
           }
         } else if (masthead) {
-          masthead.style.marginRight = `${this._scrollBarWidth}px`;
+          (masthead as DDSMasthead).setStyleBySelector(
+            dynamicStyleSelector,
+            'margin-inline-end',
+            `${this._scrollBarWidth}px`
+          );
         }
       } else {
-        doc.body.style.marginRight = '0px';
-        doc.body.style.overflow = ``;
+        this.setStyleBySelector('body', 'margin-inline-start', '0px', true);
+        this.setStyleBySelector('body', 'overflow', '', true);
         if (cloudMasthead) {
-          if (doc.body.classList.contains('ibm-masthead-sticky') && doc.body.classList.contains('ibm-masthead-sticky-showing')) {
-            cloudMasthead.style.marginRight = '0px';
+          if (
+            doc.body.classList.contains('ibm-masthead-sticky') &&
+            doc.body.classList.contains('ibm-masthead-sticky-showing')
+          ) {
+            (cloudMasthead as DDSMasthead).setStyleBySelector(
+              dynamicStyleSelector,
+              'margin-inline-end',
+              '0px'
+            );
           }
         } else if (masthead) {
-          masthead.style.marginRight = '0px';
+          (masthead as DDSMasthead).setStyleBySelector(
+            dynamicStyleSelector,
+            'margin-inline-end',
+            '0px'
+          );
         }
 
         /**
@@ -161,13 +205,20 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         if (changedProperties.get('expanded') === false) {
           setTimeout(() => {
             const { activeElement } = document;
-            if (activeElement === null || activeElement.tagName.toLowerCase() === 'body') {
+            if (
+              activeElement === null ||
+              activeElement.tagName.toLowerCase() === 'body'
+            ) {
               this._topMenuItem.focus();
             }
           }, 0);
         }
       }
     }
+  }
+
+  render() {
+    return html` ${this._renderDynamicStyles()}${super.render()} `;
   }
 
   /**

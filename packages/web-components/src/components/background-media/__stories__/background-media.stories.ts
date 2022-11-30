@@ -10,7 +10,7 @@
 import '../index';
 import '../../video-player/video-player-container';
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
 import imgMax from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import imgLg16x9 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
 import imgSm4x3 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--4x3--480x360--005.jpg';
@@ -22,26 +22,31 @@ const gradientDirections = {
   [`Top to Bottom`]: GRADIENT_DIRECTION.TOP_TO_BOTTOM,
 };
 
-export const Default = args => {
-  const { alt, opacity } = args ?? {};
+export const Default = (args) => {
+  const { alt, opacity, defaultImage } = args ?? {};
   return html`
     <dds-background-media
       gradient-direction="${ifNonNull(args['gradient-direction'])}"
       mobile-position="bottom"
       alt="${ifNonNull(alt)}"
-      default-src="${imgMax}"
+      default-src="${defaultImage}"
       opacity="${ifNonNull(opacity)}"
     >
-      <dds-image-item media="(min-width: 1584px)" srcset="${imgMax}"> </dds-image-item>
-      <dds-image-item media="(min-width: 1312px)" srcset="${imgLg16x9}"> </dds-image-item>
-      <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
-      <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}"> </dds-image-item>
-      <dds-image-item media="(min-width: 0px)" srcset="${imgSm4x3}"> </dds-image-item>
+      <dds-image-item media="(min-width: 1584px)" srcset="${defaultImage}">
+      </dds-image-item>
+      <dds-image-item media="(min-width: 1312px)" srcset="${imgLg16x9}">
+      </dds-image-item>
+      <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
+      </dds-image-item>
+      <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}">
+      </dds-image-item>
+      <dds-image-item media="(min-width: 0px)" srcset="${imgSm4x3}">
+      </dds-image-item>
     </dds-background-media>
   `;
 };
 
-export const WithVideo = args => {
+export const WithVideo = (args) => {
   const { opacity } = args ?? {};
   return html`
     <div style="height: 70vh;">
@@ -50,13 +55,16 @@ export const WithVideo = args => {
         mobile-position="bottom"
         opacity="${ifNonNull(opacity)}"
       >
-        <dds-video-player-container video-id="1_9h94wo6b" background-mode="true"></dds-video-player-container>
+        <dds-video-player-container
+          video-id="1_9h94wo6b"
+          background-mode="true"
+        ></dds-video-player-container>
       </dds-background-media>
     </div>
   `;
 };
 
-export const WithDefaultSource = args => {
+export const WithDefaultSource = (args) => {
   const { alt, opacity } = args ?? {};
   return html`
     <dds-background-media
@@ -74,35 +82,35 @@ export default {
   title: 'Components/Background media',
   component: 'dds-background-media',
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-sm-4 bx--no-gutter">
-            ${story()}
-          </div>
+          <div class="bx--col-sm-4 bx--no-gutter">${story()}</div>
         </div>
       </div>
     `,
   ],
   argTypes: {
     'gradient-direction': {
-      control: { type: 'radio' },
+      control: { type: 'select' },
+      name: 'Gradient Direction (gradient-direction)',
       options: gradientDirections,
       defaultValue: GRADIENT_DIRECTION.LEFT_TO_RIGHT,
     },
     opacity: {
+      name: 'Background Opacity (opacity)',
       control: { type: 'range', min: 0, max: 100 },
       defaultValue: 100,
     },
     alt: {
-      table: {
-        disable: true,
-      },
+      control: { type: 'text' },
+      name: 'Image alt text (alt):',
+      defaultValue: 'Image alt text',
     },
     'default-src': {
-      table: {
-        disable: true,
-      },
+      control: { type: 'text' },
+      name: 'Default image (default-src)',
+      defaultValue: imgMax,
     },
     'launch-lightbox-button-assistive-text': {
       table: {

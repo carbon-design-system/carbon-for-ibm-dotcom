@@ -29,13 +29,13 @@ const VideoImageOverlay = ({
 }) => {
   const [thumbnailSize, setThumbnailSize] = useState(3);
 
-  const refImage = useCallback(node => {
+  const refImage = useCallback((node) => {
     if (node?.parentElement) {
       setThumbnailSize(node.parentElement.offsetWidth);
     }
   }, []);
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     const { onClick } = rest;
     onClick && onClick(event);
 
@@ -55,7 +55,8 @@ const VideoImageOverlay = ({
     <button
       className={`${prefix}--video-player__image-overlay`}
       data-autoid={`${stablePrefix}--video-player__image-overlay`}
-      onClick={handleClick}>
+      onClick={handleClick}
+    >
       <Image
         refImage={refImage}
         defaultSrc={imageSrc}

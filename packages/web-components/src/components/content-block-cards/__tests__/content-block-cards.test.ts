@@ -1,15 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, render } from 'lit-html';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ArrowRight20 from '@carbon/carbon-web-components/es/icons/arrow--right/20';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
 import '../../card/card-heading';
 import '../content-block-cards';
 
@@ -19,7 +19,11 @@ const template = (props?) => {
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-card-group>${children}</dds-card-group>
-      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+      <dds-card-cta
+        slot="footer"
+        cta-type="${ifNonNull(ctaType)}"
+        href="${ifNonNull(href)}"
+      >
         <p>ctaCopy-foo</p>
         ${ArrowRight20({ slot: 'footer' })}
       </dds-card-cta>
@@ -27,15 +31,17 @@ const template = (props?) => {
   `;
 };
 
-describe('dds-content-block-cards', function() {
-  describe('Misc attributes', function() {
-    it('should render with minimum attributes', async function() {
+describe('dds-content-block-cards', function () {
+  describe('Misc attributes', function () {
+    it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-content-block-cards')).toMatchSnapshot({ mode: 'shadow' });
+      expect(
+        document.body.querySelector('dds-content-block-cards')
+      ).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes', async function() {
+    it('should render with various attributes', async function () {
       render(
         template({
           heading: 'heading-foo',
@@ -43,8 +49,10 @@ describe('dds-content-block-cards', function() {
             <dds-card-group-item href="https://example.com">
               <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
-                hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+                Phasellus at elit sollicitudin, sodales nulla quis, consequat
+                libero.
               </p>
               <dds-card-cta-footer slot="footer">
                 ${ArrowRight20({ slot: 'icon' })}
@@ -55,11 +63,13 @@ describe('dds-content-block-cards', function() {
         document.body
       );
       await Promise.resolve();
-      expect(document.body.querySelector('dds-content-block-cards')).toMatchSnapshot({ mode: 'shadow' });
+      expect(
+        document.body.querySelector('dds-content-block-cards')
+      ).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

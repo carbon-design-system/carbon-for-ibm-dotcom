@@ -9,8 +9,8 @@
 
 import { customElement, html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import Close from 'carbon-web-components/es/icons/close/16.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
+import Close from '@carbon/carbon-web-components/es/icons/close/16.js';
+import FocusMixin from '@carbon/carbon-web-components/es/globals/mixins/focus.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
@@ -24,7 +24,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-filter-panel-input-select-item
  */
 @customElement(`${ddsPrefix}-filter-panel-input-select-item`)
-class DDSFilterPanelInputSelectItem extends FocusMixin(StableSelectorMixin(LitElement)) {
+class DDSFilterPanelInputSelectItem extends FocusMixin(
+  StableSelectorMixin(LitElement)
+) {
   /**
    * Property for the input select item value
    */
@@ -43,9 +45,13 @@ class DDSFilterPanelInputSelectItem extends FocusMixin(StableSelectorMixin(LitEl
    * @param event The event.
    */
   protected _handleSlotChange({ target }: Event) {
-    this._title = (target as HTMLSlotElement).assignedNodes()[0].textContent as string;
+    this._title = (target as HTMLSlotElement).assignedNodes()[0]
+      .textContent as string;
 
-    this.setAttribute('aria-label', `${this._title}, ${this.selected ? 'selected' : 'unselected'}`);
+    this.setAttribute(
+      'aria-label',
+      `${this._title}, ${this.selected ? 'selected' : 'unselected'}`
+    );
   }
 
   connectedCallback() {
@@ -62,7 +68,10 @@ class DDSFilterPanelInputSelectItem extends FocusMixin(StableSelectorMixin(LitEl
   updated(changedProperties) {
     if (changedProperties.has('selected')) {
       this.setAttribute('aria-selected', `${String(Boolean(this.selected))}`);
-      this.setAttribute('aria-label', `${this._title}, ${this.selected ? 'selected' : 'unselected'}`);
+      this.setAttribute(
+        'aria-label',
+        `${this._title}, ${this.selected ? 'selected' : 'unselected'}`
+      );
     }
   }
 

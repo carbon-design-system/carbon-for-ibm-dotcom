@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -46,82 +46,129 @@ ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i
 dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim 
 id est laborum.`;
 
-export const Default = args => {
-  const { eyebrow, heading, copy, withMedia } = args?.ContentItemHorizontal ?? {};
+export const Default = (args) => {
+  const { eyebrow, heading, copy, withMedia } =
+    args?.ContentItemHorizontal ?? {};
   return html`
     <dds-content-item-horizontal>
-      <dds-content-item-horizontal-eyebrow>${eyebrow}</dds-content-item-horizontal-eyebrow>
+      <dds-content-item-horizontal-eyebrow
+        >${eyebrow}</dds-content-item-horizontal-eyebrow
+      >
       <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-horizontal-copy>${copy}</dds-content-item-horizontal-copy>
-      <dds-text-cta slot="footer" href="https://www.ibm.com" cta-type="local">Learn more</dds-text-cta>
+      <dds-content-item-horizontal-copy
+        >${copy}</dds-content-item-horizontal-copy
+      >
+      <dds-text-cta slot="footer" href="https://www.ibm.com" cta-type="local"
+        >Learn more</dds-text-cta
+      >
 
       ${withMedia === MEDIA_TYPE.IMAGE
         ? html`
-            <dds-image slot="media" alt="image alt text" default-src="${imgLg16x9}"></dds-image>
+            <dds-image
+              slot="media"
+              alt="image alt text"
+              default-src="${imgLg16x9}"
+            ></dds-image>
           `
         : null}
       ${withMedia === MEDIA_TYPE.VIDEO
         ? html`
-            <dds-content-item-horizontal-media-video video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
+            <dds-content-item-horizontal-media-video
+              video-id="1_9h94wo6b"
+            ></dds-content-item-horizontal-media-video>
           `
         : null}
     </dds-content-item-horizontal>
   `;
 };
 
-export const WithThumbnail = args => {
+export const WithThumbnail = (args) => {
   const { alt, heading, copy } = args?.ContentItemHorizontal ?? {};
   return html`
     <dds-content-item-horizontal thumbnail>
       <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-horizontal-thumbnail-copy>${copy}</dds-content-item-horizontal-thumbnail-copy>
-      <dds-text-cta slot="footer" href="https://www.ibm.com" cta-type="local">Learn more</dds-text-cta>
-      <dds-image slot="thumbnail" alt="${ifNonNull(alt)}" default-src="${imgMd4x3}"></dds-image>
+      <dds-content-item-horizontal-thumbnail-copy
+        >${copy}</dds-content-item-horizontal-thumbnail-copy
+      >
+      <dds-text-cta slot="footer" href="https://www.ibm.com" cta-type="local"
+        >Learn more</dds-text-cta
+      >
+      <dds-image
+        slot="thumbnail"
+        alt="${ifNonNull(alt)}"
+        default-src="${imgMd4x3}"
+      ></dds-image>
     </dds-content-item-horizontal>
   `;
 };
 
-export const WithMedia = args => {
-  const { align, type, alt, heading, eyebrow, copy } = args?.ContentItemHorizontal ?? {};
+export const WithMedia = (args) => {
+  const { align, type, alt, heading, eyebrow, copy } =
+    args?.ContentItemHorizontal ?? {};
   return html`
     <dds-content-item-horizontal-media align="${align}">
       ${type === MEDIA_TYPE.IMAGE
         ? html`
-            <dds-image slot="media" alt="${ifNonNull(alt)}" default-src="${imgLg16x9}"></dds-image>
+            <dds-image
+              slot="media"
+              alt="${ifNonNull(alt)}"
+              default-src="${imgLg16x9}"
+            ></dds-image>
           `
         : null}
       ${type === MEDIA_TYPE.VIDEO
         ? html`
-            <dds-content-item-horizontal-media-video video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
+            <dds-content-item-horizontal-media-video
+              video-id="1_9h94wo6b"
+            ></dds-content-item-horizontal-media-video>
           `
         : null}
-      <dds-content-item-horizontal-eyebrow>${eyebrow}</dds-content-item-horizontal-eyebrow>
+      <dds-content-item-horizontal-eyebrow
+        >${eyebrow}</dds-content-item-horizontal-eyebrow
+      >
       <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-horizontal-media-copy>${copy}</dds-content-item-horizontal-media-copy>
-      <dds-text-cta slot="footer" href="https://www.ibm.com" cta-type="local">Learn more</dds-text-cta>
+      <dds-content-item-horizontal-media-copy
+        >${copy}</dds-content-item-horizontal-media-copy
+      >
+      <dds-text-cta slot="footer" href="https://www.ibm.com" cta-type="local"
+        >Learn more</dds-text-cta
+      >
     </dds-content-item-horizontal-media>
   `;
 };
 
-export const WithMediaFeatured = args => {
+export const WithMediaFeatured = (args) => {
   const { type, heading, eyebrow, copy } = args?.ContentItemHorizontal ?? {};
   return html`
     <dds-content-item-horizontal-media-featured>
       ${type === MEDIA_TYPE.IMAGE
         ? html`
-            <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum dolor sit amet">
+            <dds-image
+              slot="media"
+              alt="Image alt text"
+              default-src="${imgLg16x9}"
+              heading="Lorem ipsum dolor sit amet"
+            >
             </dds-image>
           `
         : null}
       ${type === MEDIA_TYPE.VIDEO
         ? html`
-            <dds-content-item-horizontal-media-video video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
+            <dds-content-item-horizontal-media-video
+              video-id="1_9h94wo6b"
+            ></dds-content-item-horizontal-media-video>
           `
         : null}
-      <dds-content-item-horizontal-eyebrow>${eyebrow}</dds-content-item-horizontal-eyebrow>
+      <dds-content-item-horizontal-eyebrow
+        >${eyebrow}</dds-content-item-horizontal-eyebrow
+      >
       <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-horizontal-media-copy>${copy}</dds-content-item-horizontal-media-copy>
-      <dds-text-cta slot="footer" href="https://www.ibm.com" cta-type="local">Learn more</dds-text-cta>
+      <dds-content-item-horizontal-media-copy
+        >${copy}</dds-content-item-horizontal-media-copy
+      >
+      <dds-text-cta slot="footer" href="https://www.ibm.com" cta-type="local"
+        >Learn more</dds-text-cta
+      >
     </dds-content-item-horizontal-media-featured>
   `;
 };
@@ -213,9 +260,7 @@ export default {
     (story, { parameters }) => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="${parameters.gridContentClasses}">
-            ${story()}
-          </div>
+          <div class="${parameters.gridContentClasses}">${story()}</div>
         </div>
       </div>
     `,

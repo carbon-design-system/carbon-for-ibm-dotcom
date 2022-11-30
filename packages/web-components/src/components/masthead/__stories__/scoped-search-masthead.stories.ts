@@ -10,7 +10,7 @@
 import { html } from 'lit-element';
 import { boolean, select } from '@storybook/addon-knobs';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../left-nav';
@@ -18,7 +18,10 @@ import '../masthead-container';
 import styles from './masthead.stories.scss';
 import { mastheadLinks as links } from './links';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
-import { authenticatedProfileItems, unauthenticatedProfileItems } from './profile-items';
+import {
+  authenticatedProfileItems,
+  unauthenticatedProfileItems,
+} from './profile-items';
 import { DDS_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
 import readme from './README.stories.mdx';
 
@@ -54,9 +57,17 @@ const scopeParameters = [
   },
 ];
 
-export const Default = args => {
-  const { customProfileLogin, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch, navLinks } =
-    args?.MastheadComposite ?? {};
+export const Default = (args) => {
+  const {
+    customProfileLogin,
+    platform,
+    selectedMenuItem,
+    userStatus,
+    searchPlaceholder,
+    hasProfile,
+    hasSearch,
+    navLinks,
+  } = args?.MastheadComposite ?? {};
   const { useMock } = args?.Other ?? {};
 
   return html`
@@ -75,7 +86,9 @@ export const Default = args => {
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .navLinks="${navLinks}"
-            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
             custom-profile-login="${customProfileLogin}"
             .scopeParameters=${scopeParameters}
           ></dds-masthead-composite>
@@ -100,7 +113,7 @@ export const Default = args => {
 export default {
   title: 'Components/Masthead with scoped search',
   decorators: [
-    story => {
+    (story) => {
       if (!(window as any)._hPageShow) {
         (window as any)._hPageShow = on(window, 'pageshow', () => {
           const leftNav = document.querySelector('dds-left-nav');
@@ -120,18 +133,37 @@ export default {
     knobs: {
       escapeHTML: false,
       MastheadComposite: () => ({
-        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true'),
+        hasProfile: select(
+          'show the profile functionality (has-profile)',
+          ['true', 'false'],
+          'true'
+        ),
         hasSearch: boolean('show the search functionality (has-search)', true),
-        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM'),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services'),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
+        searchPlaceholder: textNullable(
+          'search placeholder (searchPlaceholder)',
+          'Search all of IBM'
+        ),
+        selectedMenuItem: textNullable(
+          'selected menu item (selected-menu-item)',
+          'Consulting & Services'
+        ),
+        userStatus: select(
+          'The user authenticated status (user-status)',
+          userStatuses,
+          userStatuses.unauthenticated
+        ),
         customProfileLogin:
-          DDS_CUSTOM_PROFILE_LOGIN && textNullable('custom profile login url (customProfileLogin)', 'https://www.example.com/'),
+          DDS_CUSTOM_PROFILE_LOGIN &&
+          textNullable(
+            'custom profile login url (customProfileLogin)',
+            'https://www.example.com/'
+          ),
       }),
     },
     props: (() => {
       // Lets `<dds-masthead-container>` load the nav links
-      const useMock = inPercy() || new URLSearchParams(window.location.search).has('mock');
+      const useMock =
+        inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
         MastheadComposite: {
           navLinks: !useMock ? undefined : links,

@@ -27,7 +27,8 @@ export const Default = () => {
       <a
         className="bx--link"
         target="_blank"
-        href="https://www.ibm.com/standards/carbon/web-components/react/?path=/story/components-back-to-top--default">
+        href="https://www.ibm.com/standards/carbon/web-components/react/?path=/story/components-back-to-top--default"
+      >
         React wrapper
       </a>
       .

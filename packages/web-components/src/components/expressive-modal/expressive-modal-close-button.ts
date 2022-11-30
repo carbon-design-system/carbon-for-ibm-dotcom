@@ -8,7 +8,7 @@
  */
 
 import { property, customElement } from 'lit-element';
-import BXModalCloseButton from 'carbon-web-components/es/components/modal/modal-close-button.js';
+import BXModalCloseButton from '@carbon/carbon-web-components/es/components/modal/modal-close-button.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { EXPRESSIVE_MODAL_SIZE } from './defs';
 import styles from './expressive-modal.scss';
@@ -22,7 +22,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-expressive-modal-close-button
  */
 @customElement(`${ddsPrefix}-expressive-modal-close-button`)
-class DDSExpressiveModalCloseButton extends StableSelectorMixin(BXModalCloseButton) {
+class DDSExpressiveModalCloseButton extends StableSelectorMixin(
+  BXModalCloseButton
+) {
   /**
    * The size variant.
    */

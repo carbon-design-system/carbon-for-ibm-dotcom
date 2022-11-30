@@ -133,7 +133,7 @@ export default {
   },
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const {
     type,
     isCustom,

@@ -9,8 +9,8 @@
 
 import { customElement, property, query, html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/carbon-web-components/es/globals/mixins/host-listener.js';
+import HostListener from '@carbon/carbon-web-components/es/globals/decorators/host-listener.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { slow01 } from '@carbon/motion/es/index';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
@@ -29,7 +29,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 const animationTiming = Number(slow01.substring(0, slow01.indexOf('ms')));
 
 @customElement(`${ddsPrefix}-pricing-table`)
-class DDSPricingTable extends HostListenerMixin(StableSelectorMixin(DDSStructuredList)) {
+class DDSPricingTable extends HostListenerMixin(
+  StableSelectorMixin(DDSStructuredList)
+) {
   @property({ reflect: true, attribute: 'highlight-column' })
   highlightColumn?: number;
 
@@ -127,9 +129,11 @@ class DDSPricingTable extends HostListenerMixin(StableSelectorMixin(DDSStructure
    */
   private _createMutationObserver() {
     const { customPropertyName } = StickyHeader;
-    this._mutationObserverHeaderHeight = new MutationObserver(entries => {
-      entries.forEach(entry => {
-        const currentValue = getComputedStyle(entry.target as HTMLElement).getPropertyValue(customPropertyName);
+    this._mutationObserverHeaderHeight = new MutationObserver((entries) => {
+      entries.forEach((entry) => {
+        const currentValue = getComputedStyle(
+          entry.target as HTMLElement
+        ).getPropertyValue(customPropertyName);
 
         // If previously there was no `style` and now we have a valid custom prop value...
         if (entry.oldValue === null && currentValue) {
@@ -137,7 +141,11 @@ class DDSPricingTable extends HostListenerMixin(StableSelectorMixin(DDSStructure
           this._createIntersectionObservers();
         }
         // Else if the old value did include a valid custom prop value and we have a valid current value...
-        else if (entry.oldValue !== null && entry.oldValue.indexOf(customPropertyName) !== -1 && currentValue) {
+        else if (
+          entry.oldValue !== null &&
+          entry.oldValue.indexOf(customPropertyName) !== -1 &&
+          currentValue
+        ) {
           const styleObj = convertStyleToObject(entry.oldValue);
           const oldValue = styleObj[customPropertyName] || null;
 
@@ -149,11 +157,14 @@ class DDSPricingTable extends HostListenerMixin(StableSelectorMixin(DDSStructure
       });
     });
 
-    this._mutationObserverHeaderHeight.observe(StickyHeader.global.ownerDocument.querySelector('html'), {
-      attributes: true,
-      attributeOldValue: true,
-      attributeFilter: ['style'],
-    });
+    this._mutationObserverHeaderHeight.observe(
+      StickyHeader.global.ownerDocument.querySelector('html'),
+      {
+        attributes: true,
+        attributeOldValue: true,
+        attributeFilter: ['style'],
+      }
+    );
   }
 
   /**
@@ -172,8 +183,8 @@ class DDSPricingTable extends HostListenerMixin(StableSelectorMixin(DDSStructure
   private _createResizeObserver() {
     // TODO: Wait for `.d.ts` update to support `ResizeObserver`
     // @ts-ignore
-    this._resizeObserver = new ResizeObserver(entries => {
-      entries.forEach(entry => {
+    this._resizeObserver = new ResizeObserver((entries) => {
+      entries.forEach((entry) => {
         // Only reset intersection observers when element width changes.
         if (this._elementWidth !== entry.contentRect.width) {
           this._elementWidth = entry.contentRect.width;
@@ -203,17 +214,20 @@ class DDSPricingTable extends HostListenerMixin(StableSelectorMixin(DDSStructure
   private _createIntersectionObservers() {
     const { _startSentinelNode, _endSentinelNode } = this;
     const stuckElementsHeight = StickyHeader.global.height || 0;
-    const endObserverMargin = stuckElementsHeight + this._getLastRowHeight() + 1;
+    const endObserverMargin =
+      stuckElementsHeight + this._getLastRowHeight() + 1;
 
     if (this.shadowRoot) {
       this._intersectionObserverStart = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
+        (entries) => {
+          entries.forEach((entry) => {
             const { isIntersecting, boundingClientRect } = entry;
 
             const bottomOfHeaderIsWithinViewport = () => {
               const headerBottomPosition =
-                (this.headerRow as DDSPricingTableHeaderRow).getBoundingClientRect().bottom + window.scrollY;
+                (
+                  this.headerRow as DDSPricingTableHeaderRow
+                ).getBoundingClientRect().bottom + window.scrollY;
               const windowBottomPosition = window.innerHeight + window.scrollY;
 
               return headerBottomPosition < windowBottomPosition;
@@ -238,15 +252,23 @@ class DDSPricingTable extends HostListenerMixin(StableSelectorMixin(DDSStructure
       );
 
       this._intersectionObserverEnd = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
+        (entries) => {
+          entries.forEach((entry) => {
             const { isIntersecting, boundingClientRect } = entry;
 
-            if (!isIntersecting && boundingClientRect.top < endObserverMargin && this.headerRow) {
+            if (
+              !isIntersecting &&
+              boundingClientRect.top < endObserverMargin &&
+              this.headerRow
+            ) {
               this.headerRow.style.top = `-${this._getHeaderHeight()}px`;
             }
 
-            if (isIntersecting && boundingClientRect.top >= -1 && this.headerRow) {
+            if (
+              isIntersecting &&
+              boundingClientRect.top >= -1 &&
+              this.headerRow
+            ) {
               this.headerRow.style.top = '';
             }
           });
@@ -294,10 +316,13 @@ class DDSPricingTable extends HostListenerMixin(StableSelectorMixin(DDSStructure
    */
   private _animateCellElements(cell: HTMLElement) {
     const { isSticky } = this;
-    const selectors = [`.${prefix}--pricing-table-header-cell-tag-wrapper`, `.${prefix}--pricing-table-cell-inner`];
+    const selectors = [
+      `.${prefix}--pricing-table-header-cell-tag-wrapper`,
+      `.${prefix}--pricing-table-cell-inner`,
+    ];
 
     if (this._validateCell(cell)) {
-      selectors.forEach(selector => {
+      selectors.forEach((selector) => {
         const element = (cell.shadowRoot as ShadowRoot).querySelector(selector);
         if (element instanceof HTMLElement) {
           if (isSticky) {
@@ -316,7 +341,7 @@ class DDSPricingTable extends HostListenerMixin(StableSelectorMixin(DDSStructure
   private _animateCells() {
     const { headerCells, isSticky } = this;
     const { cellStickyClass } = this.constructor as typeof DDSPricingTable;
-    headerCells?.forEach(cell => {
+    headerCells?.forEach((cell) => {
       if (isSticky) {
         cell.classList.add(cellStickyClass);
       } else {
@@ -372,10 +397,14 @@ class DDSPricingTable extends HostListenerMixin(StableSelectorMixin(DDSStructure
       this.head = head;
     }
 
-    const headerRow = head?.querySelector(`${ddsPrefix}-pricing-table-header-row`);
+    const headerRow = head?.querySelector(
+      `${ddsPrefix}-pricing-table-header-row`
+    );
     if (headerRow instanceof DDSPricingTableHeaderRow) {
       this.headerRow = headerRow;
-      this.headerCells = Array.from(headerRow.children) as DDSPricingTableHeaderCell[];
+      this.headerCells = Array.from(
+        headerRow.children
+      ) as DDSPricingTableHeaderCell[];
     }
   }
 
@@ -390,16 +419,18 @@ class DDSPricingTable extends HostListenerMixin(StableSelectorMixin(DDSStructure
 
   protected _unhighlightCells(cells: NodeListOf<Element>): void {
     const { highlightClass } = this;
-    cells.forEach(cell => {
+    cells.forEach((cell) => {
       cell.classList.remove(highlightClass);
-      cell.querySelector(`${ddsPrefix}-pricing-table-highlight-label`)?.remove();
+      cell
+        .querySelector(`${ddsPrefix}-pricing-table-highlight-label`)
+        ?.remove();
       this.style.marginTop = '';
     });
   }
 
   protected _highlightCells(cells: NodeListOf<Element>): void {
     const { highlightLabel, highlightClass } = this;
-    cells.forEach(cell => cell.classList.add(highlightClass));
+    cells.forEach((cell) => cell.classList.add(highlightClass));
     if (highlightLabel) {
       const firstCell = cells[0];
       if (firstCell instanceof DDSPricingTableHeaderCell) {
@@ -410,11 +441,12 @@ class DDSPricingTable extends HostListenerMixin(StableSelectorMixin(DDSStructure
   }
 
   protected _setHighlightGap(): void {
-    const wrapper = this.shadowRoot?.getElementById(DDSStructuredList.wrapperId) || this;
+    const wrapper =
+      this.shadowRoot?.getElementById(DDSStructuredList.wrapperId) || this;
     (async () => {
       return this.querySelector(`${ddsPrefix}-pricing-table-highlight-label`);
     })()
-      .then(value => {
+      .then((value) => {
         this.highlightGap = value?.getBoundingClientRect().height || 0;
         wrapper.style.marginTop = `${this.highlightGap}px`;
       })

@@ -10,14 +10,14 @@
 import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import FocusMixin from '@carbon/carbon-web-components/es/globals/mixins/focus.js';
 import '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-close-button';
 import '../image/image';
 import '../lightbox-media-viewer/lightbox-image-viewer';
 import '../button/button';
-import ZoomIn20 from 'carbon-web-components/es/icons/zoom--in/20.js';
+import ZoomIn20 from '@carbon/carbon-web-components/es/icons/zoom--in/20.js';
 import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './image-with-caption.scss';
@@ -35,7 +35,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 
 @customElement(`${ddsPrefix}-image-with-caption`)
-class DDSImageWithCaption extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElement))) {
+class DDSImageWithCaption extends StableSelectorMixin(
+  ModalRenderMixin(FocusMixin(LitElement))
+) {
   /**
    * `true` handles re-opening after model is closed
    *
@@ -99,7 +101,9 @@ class DDSImageWithCaption extends StableSelectorMixin(ModalRenderMixin(FocusMixi
   createRenderRoot() {
     return this.attachShadow({
       mode: 'open',
-      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
+      delegatesFocus:
+        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
+        537,
     });
   }
 
@@ -122,7 +126,14 @@ class DDSImageWithCaption extends StableSelectorMixin(ModalRenderMixin(FocusMixi
   }
 
   render() {
-    const { alt, defaultSrc, heading, launchLightboxButtonAssistiveText, lightbox, _handleClick: handleClick } = this;
+    const {
+      alt,
+      defaultSrc,
+      heading,
+      launchLightboxButtonAssistiveText,
+      lightbox,
+      _handleClick: handleClick,
+    } = this;
     return html`
       ${lightbox
         ? html`
@@ -131,18 +142,24 @@ class DDSImageWithCaption extends StableSelectorMixin(ModalRenderMixin(FocusMixi
               aria-label="${ifNonNull(launchLightboxButtonAssistiveText)}"
               @click="${handleClick}"
             >
-              <dds-image alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"><slot></slot></dds-image>
+              <dds-image
+                alt="${ifNonNull(alt)}"
+                default-src="${ifNonNull(defaultSrc)}"
+                ><slot></slot
+              ></dds-image>
               <div class="${prefix}--image-with-caption__zoom-button">
                 ${ZoomIn20()}
               </div>
             </button>
           `
         : html`
-            <dds-image alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"><slot></slot></dds-image>
+            <dds-image
+              alt="${ifNonNull(alt)}"
+              default-src="${ifNonNull(defaultSrc)}"
+              ><slot></slot
+            ></dds-image>
           `}
-      <p class="${prefix}--image__caption">
-        ${heading}
-      </p>
+      <p class="${prefix}--image__caption">${heading}</p>
     `;
   }
 

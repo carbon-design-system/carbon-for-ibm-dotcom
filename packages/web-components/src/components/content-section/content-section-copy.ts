@@ -26,9 +26,7 @@ class DDSContentSectionCopy extends StableSelectorMixin(DDSMarkdown) {
   slot = 'copy';
 
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   firstUpdated() {

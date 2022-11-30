@@ -8,29 +8,21 @@
  */
 
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import '../tag-link';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
-export const Default = args => {
+export const Default = (args) => {
   const { copy, href } = args?.TagLink ?? {};
   return html`
-    <dds-tag-link href=${ifNonNull(href || undefined)}>
-      ${copy}
-    </dds-tag-link>
+    <dds-tag-link href=${ifNonNull(href || undefined)}> ${copy} </dds-tag-link>
   `;
 };
 
 export default {
   title: 'Components/Tag link',
-  decorators: [
-    story => html`
-      <div class="bx--grid">
-        ${story()}
-      </div>
-    `,
-  ],
+  decorators: [(story) => html` <div class="bx--grid">${story()}</div> `],
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,

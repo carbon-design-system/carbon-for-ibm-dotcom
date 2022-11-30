@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.41.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.41.0-rc.0...@carbon/ibmdotcom-styles@1.41.0-rc.1) (2022-11-23)
+
+
+### Features
+
+* **search:** reintroduce scoped search ([#9659](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9659)) ([d55cea3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d55cea3c319abea572b23d0cbab5530a013bbdea)), closes [#8416](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8416) [#9633](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9633)
+
+
+
+
+
+# [1.41.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.40.0...@carbon/ibmdotcom-styles@1.41.0-rc.0) (2022-11-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @carbon/themes to v10.55.1 ([#9641](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9641)) ([0aab1b1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0aab1b1551203b6d123fa82cfe0e5e416024906c))
+* **deps:** update dependency carbon-components ([#9642](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9642)) ([66caa62](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/66caa62bda65e4a704ad352cb090156828b23d09))
+* **masthead:** avoid inline styles for CSP compliance ([#9605](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9605)) ([faaa0bd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/faaa0bde28fd178e68e23033db41b80b552c5294)), closes [#9599](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9599)
+
+
+
+
+
 # [1.40.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.40.0-rc.0...@carbon/ibmdotcom-styles@1.40.0) (2022-11-08)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

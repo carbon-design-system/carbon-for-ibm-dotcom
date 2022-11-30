@@ -8,7 +8,7 @@
  */
 
 import { property, query, customElement } from 'lit-element';
-import BXHeaderNavItem from 'carbon-web-components/es/components/ui-shell/header-nav-item.js';
+import BXHeaderNavItem from '@carbon/carbon-web-components/es/components/ui-shell/header-nav-item.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 
@@ -44,7 +44,9 @@ class DDSTopNavItem extends BXHeaderNavItem {
   }
 
   firstUpdated() {
-    this.shadowRoot?.querySelectorAll('[role="menuitem"]').forEach(menuItem => menuItem.removeAttribute('role'));
+    this.shadowRoot
+      ?.querySelectorAll('[role="menuitem"]')
+      .forEach((menuItem) => menuItem.removeAttribute('role'));
 
     if (this.hasAttribute('role') && this.getAttribute('role') === 'listitem') {
       this.removeAttribute('role');
