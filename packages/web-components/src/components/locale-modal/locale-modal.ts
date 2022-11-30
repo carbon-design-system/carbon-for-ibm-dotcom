@@ -9,11 +9,11 @@
 
 import { html, property, state, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ArrowLeft20 from 'carbon-web-components/es/icons/arrow--left/20.js';
-import EarthFilled16 from 'carbon-web-components/es/icons/earth--filled/16.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
+import ArrowLeft20 from '@carbon/carbon-web-components/es/icons/arrow--left/20.js';
+import EarthFilled16 from '@carbon/carbon-web-components/es/icons/earth--filled/16.js';
+import HostListener from '@carbon/carbon-web-components/es/globals/decorators/host-listener.js';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import { selectorTabbable } from '@carbon/carbon-web-components/es/globals/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSExpressiveModal from '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-header';

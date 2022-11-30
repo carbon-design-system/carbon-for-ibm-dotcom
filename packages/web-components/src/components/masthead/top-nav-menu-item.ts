@@ -8,7 +8,7 @@
  */
 
 import { customElement } from 'lit-element';
-import BXHeaderMenuItem from 'carbon-web-components/es/components/ui-shell/header-menu-item.js';
+import BXHeaderMenuItem from '@carbon/carbon-web-components/es/components/ui-shell/header-menu-item.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 
