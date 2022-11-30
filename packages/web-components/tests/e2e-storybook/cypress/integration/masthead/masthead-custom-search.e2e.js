@@ -46,6 +46,8 @@ describe('dds-masthead | custom search (desktop)', () => {
       .find('.bx--header__search--search')
       .click();
 
+    cy.wait(500);
+
     cy.get('dds-masthead > dds-search-with-typeahead')
       .shadow()
       .find('.react-autosuggest__container > input')
