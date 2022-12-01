@@ -216,6 +216,13 @@ export const Default = (args) => {
     heading,
   } = args?.PricingTable ?? {};
   return html`
+    <style>
+      /* Mimic production styles */
+      html,
+      body {
+        overflow-x: hidden;
+      }
+    </style>
     <dds-pricing-table
       col-span-1="${colSpan1 ?? ''}"
       col-span-2="${colSpan2 ?? ''}"

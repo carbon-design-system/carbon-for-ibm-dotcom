@@ -47,6 +47,19 @@ class DDSStructuredList extends StableSelectorMixin(LitElement) {
     });
   }
 
+  scrollTable(e) {
+    const { target } = e;
+    const { id } = target;
+
+    if (id === 'start') {
+      this.scrollBy({ left: -1, behavior: 'smooth' });
+    }
+
+    if (id === 'end') {
+      this.scrollBy({ left: 1, behavior: 'smooth' });
+    }
+  }
+
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'table');
@@ -72,6 +85,13 @@ class DDSStructuredList extends StableSelectorMixin(LitElement) {
       <section id="${wrapperId}" class="${prefix}--structured-list">
         <slot></slot>
       </section>
+      <nav id="scroll-buttons" aria-labelledby="scroll-buttons-label">
+        <h2 id="scroll-buttons-label" class="${prefix}--visually-hidden">
+          Table Scrolling (this should be visibly hidden)
+        </h2>
+        <button id="start" @click=${this.scrollTable}>start</button>
+        <button id="end" @click=${this.scrollTable}>end</button>
+      </nav>
     `;
   }
 

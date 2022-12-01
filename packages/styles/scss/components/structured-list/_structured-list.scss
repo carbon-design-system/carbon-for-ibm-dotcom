@@ -150,6 +150,7 @@
   :host(#{$dds-prefix}-structured-list-cell),
   :host(#{$dds-prefix}-structured-list-group) td {
     height: auto;
+    scroll-snap-align: start;
 
     @include carbon--breakpoint('sm') {
       @include carbon--make-col(2, 4);
@@ -172,10 +173,37 @@
     padding-right: $carbon--layout-01;
     margin-left: -#{$carbon--layout-01};
     margin-right: -#{$carbon--layout-01};
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
 
     .#{$prefix}--structured-list {
       margin: 0;
     }
+
+    #scroll-buttons {
+      position: sticky;
+      inset: 0;
+      display: flex;
+      justify-content: space-between;
+
+      #scroll-buttons-label {
+        position: absolute;
+        overflow: hidden;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        border: 0;
+        margin: -1px;
+        clip: rect(0, 0, 0, 0);
+        visibility: inherit;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  :host::-webkit-scrollbar {
+    display: none;
   }
 
   .#{$prefix}--structured-list-cell-tooltip-icon,
