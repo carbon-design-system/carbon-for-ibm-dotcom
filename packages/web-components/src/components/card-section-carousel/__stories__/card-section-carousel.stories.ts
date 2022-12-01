@@ -8,8 +8,8 @@
  */
 
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ArrowRight20 from '@carbon/carbon-web-components/es/icons/arrow--right/20.js';
 import '../index';
 import styles from './card-section-carousel.stories.scss';
 import readme from './README.stories.mdx';

@@ -10,8 +10,8 @@
 import { property, customElement } from 'lit-element';
 import BXModal, {
   MODAL_SIZE,
-} from 'carbon-web-components/es/components/modal/modal.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
+} from '@carbon/carbon-web-components/es/components/modal/modal.js';
+import HostListener from '@carbon/carbon-web-components/es/globals/decorators/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leaving-ibm.scss';

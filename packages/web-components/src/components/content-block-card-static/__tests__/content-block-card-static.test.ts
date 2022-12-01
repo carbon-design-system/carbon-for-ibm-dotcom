@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import ArrowRight20 from '@carbon/carbon-web-components/es/icons/arrow--right/20';
 import '../index';
 
 const template = (props?) => {

@@ -291,7 +291,7 @@ custom element:
 ```javascript
 import createCustomElementType, {
   booleanSerializer,
-} from 'carbon-web-components/es/globals/wrappers/createCustomElementType.js';
+} from '@carbon/carbon-web-components/es/globals/wrappers/createCustomElementType.js';
 
 const BXDropdown = createCustomElementType('bx-dropdown', {
   disabled: {
