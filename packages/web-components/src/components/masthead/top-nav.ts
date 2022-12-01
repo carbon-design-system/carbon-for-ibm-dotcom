@@ -19,7 +19,6 @@ import HostListenerMixin from '@carbon/carbon-web-components/es/globals/mixins/h
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
-import { styleMap } from 'lit-html/directives/style-map';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
