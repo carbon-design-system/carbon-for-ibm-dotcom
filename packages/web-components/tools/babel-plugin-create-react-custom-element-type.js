@@ -518,19 +518,9 @@ module.exports = function generateCreateReactCustomElementType(
           ...buildPropTypes(declaredProps),
           ...buildEventsPropTypes(customEvents),
         ]);
-        const propTypesWithParent = !context.parentDescriptorSource
-          ? propTypes
-          : t.callExpression(
-              t.memberExpression(
-                t.identifier('Object'),
-                t.identifier('assign')
-              ),
-              [
-                t.objectExpression([]),
-                t.identifier('parentPropTypes'),
-                propTypes,
-              ]
-            );
+
+        // TODO fix so parent props and current props and be appropriately combined
+        const propTypesWithParent = propTypes;
 
         const body = [];
         if (!context.customElementName) {
