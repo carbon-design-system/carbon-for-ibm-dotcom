@@ -69,7 +69,7 @@
   "dependencies": {
     "@babel/runtime": "^7.16.3",
     "carbon-components": "10.55.0",
-    "flatpickr": "4.6.1",
+    "flatpickr": "4.6.13",
     "lit-element": "^2.5.1",
     "lit-html": "^1.4.1",
     "lodash-es": "^4.17.21"
@@ -173,7 +173,7 @@
     "karma-webpack": "^4.0.2",
     "lint-staged": "^12.3.8",
     "magic-string": "^0.26.0",
-    "mini-css-extract-plugin": "~2.5.0",
+    "mini-css-extract-plugin": "~2.7.0",
     "mkdirp": "^0.5.0",
     "null-loader": "^4.0.0",
     "playwright": "^1.0.0",
@@ -207,7 +207,7 @@
     "web-component-analyzer": "1.2.0-next.0",
     "webpack": "^4.46.0",
     "webpack-dev-server": "^4.0.0",
-    "zone.js": "~0.11.0"
+    "zone.js": "~0.12.0"
   },
   "typings": "es/index.d.ts"
 }
