@@ -172,7 +172,7 @@
     "cross-env": "^7.0.0",
     "css-loader": "^5.2.0",
     "cssnano": "^5.0.0",
-    "cypress": "~9.7.0",
+    "cypress": "^8.7.0",
     "cypress-axe": "~0.14.0",
     "cypress-wait-until": "~1.7.2",
     "del": "^6.0.0",
