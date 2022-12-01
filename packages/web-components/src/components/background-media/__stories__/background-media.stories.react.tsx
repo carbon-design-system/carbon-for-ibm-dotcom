@@ -11,9 +11,10 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
+// eslint-disable-next-line max-len, prettier/prettier
 import DDSBackgroundMedia, {
   PropTypesRef,
-} from '@carbon/ibmdotcom-web-components/es/components-react/background-media/background-media'; // PropTypesRef,
+} from '@carbon/ibmdotcom-web-components/es/components-react/background-media/background-media';
 import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 import imgMax from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';

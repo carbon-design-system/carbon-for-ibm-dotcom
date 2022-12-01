@@ -1,4 +1,3 @@
-/* eslint-disable import/no-duplicates */
 /**
  * @license
  *
@@ -12,6 +11,7 @@ import React from 'react';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 /* eslint-disable max-len */
 // @ts-ignore
+// eslint-disable-next-line max-len, prettier/prettier
 import DDSUniversalBanner, {
   PropTypesRef,
 } from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';

@@ -76,10 +76,10 @@ export default {
     propsSet: {
       default: {
         HorizontalRule: {
-          type: types.solid,
-          size: sizes.fluid,
+          type: 'solid',
+          size: 'fluid',
           contrast: contrasts['medium-contrast'],
-          weight: weights.thin,
+          weight: 'weights',
         },
       },
     },
