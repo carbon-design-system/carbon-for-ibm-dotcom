@@ -41,7 +41,7 @@ class DDSScopedSearchDropdown extends DDSDropdown {
         bubbles: true,
         composed: true,
         detail: {
-          value: item.value,
+          appId: item.value,
         },
       };
       const constructor = this.constructor as typeof DDSScopedSearchDropdown;

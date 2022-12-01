@@ -13,9 +13,9 @@
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-top-nav-name';
 @import '@carbon/ibmdotcom-styles/scss/components/search-with-typeahead/search-with-typeahead';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-l1';
-@import 'carbon-web-components/scss/components/tooltip/tooltip';
-@import 'carbon-web-components/scss/components/ui-shell/header';
-@import 'carbon-web-components/scss/components/ui-shell/side-nav';
+@import '@carbon/carbon-web-components/scss/components/tooltip/tooltip';
+@import '@carbon/carbon-web-components/scss/components/ui-shell/header';
+@import '@carbon/carbon-web-components/scss/components/ui-shell/side-nav';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu';
 @import '../../globals/scss/box-sizing';
 
