@@ -10,6 +10,63 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  carbon-web-components:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{secrets.MERGE_ACTION}}
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install --offline
+      - name: Build project
+        run: yarn lerna run --scope @carbon/carbon-web-components build
+
+      - name: Set env vars
+        uses: ./.github/actions/set-dotenv
+        with:
+          env-file: packages/carbon-web-components/.env
+        env:
+          KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
+          KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
+          PROFILE_HOST: ${{ secrets.PROFILE_HOST }}
+      - name: Building @carbon/carbon-web-components storybook
+        run: yarn build-storybook
+        working-directory: packages/carbon-web-components
+      - name: Move storybook to build folder
+        run: |
+          rm packages/carbon-web-components/.env
+          mkdir -p builds
+          mv packages/carbon-web-components/storybook-static builds/carbon-web-components
+
+      - name: Deploying @carbon/carbon-web-components storybook to Github Pages
+        run: |
+          git config --global user.email ${{ secrets.BOT_EMAIL }}
+          git config --global user.name ${{ secrets.BOT_NAME }}
+
+          git fetch origin gh-pages
+          git checkout -b gh-pages origin/gh-pages
+          git update-ref -d refs/remotes/origin/gh-pages
+          git pull origin gh-pages
+
+          rm -rf canary/carbon-web-components
+          mkdir -p canary
+          mv builds/carbon-web-components canary/carbon-web-components
+
+          git add canary/carbon-web-components
+          git commit -m "chore(deploy): deploy Carbon web components canary to GitHub Pages"
+          git push origin gh-pages
+      - uses: act10ns/slack@v1
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          status: ${{ job.status }}
   react:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
@@ -25,7 +82,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --offline
       - name: Build project
-        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
+        run: yarn lerna run --scope @carbon/ibmdotcom-react build
 
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
@@ -121,7 +178,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --offline
       - name: Build project
-        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
+        run: yarn lerna run --scope @carbon/ibmdotcom-web-components build
 
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
@@ -236,7 +293,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --offline
       - name: Build project
-        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
+        run: yarn lerna run --scope @carbon/ibmdotcom-services build
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
         with:

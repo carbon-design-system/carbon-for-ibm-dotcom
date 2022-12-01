@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 @import '../../globals/imports';
 @import 'carbon-components/scss/components/accordion/keyframes';
 @import 'carbon-components/scss/components/accordion/accordion';
-@import 'carbon-web-components/scss/components/checkbox/checkbox';
+@import '@carbon/carbon-web-components/scss/components/checkbox/checkbox';
 
 @mixin filter-panel {
   .#{$prefix}--filter__heading {

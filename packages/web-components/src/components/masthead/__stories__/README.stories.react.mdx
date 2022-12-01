@@ -241,6 +241,74 @@ The API results must match the following structure:
 ```
 Note that only the first array element is necessary to render the basic search suggestions, the following JSON objects are optional Grouped sections.
 
+## Scoped search
+Scoped searches are also supported, returning results from specifically targeted IBM pages and products.
+
+First, prepare the desired categories to use when scoping the search. In this example, we will be creating an array with
+four categories, which must follow the structure below:
+
+
+```javascript
+const scopeParameters = [
+  {
+    name: 'All',
+    appId: 'all',
+    value: 'all',
+  },
+  {
+    name: 'Analyst',
+    appId: 'analyst',
+    value: 'analyst'
+  },
+  {
+    name: 'PartnerWorld',
+    appId: 'pw',
+    value: ['pw', 'pwp'],
+  },
+  {
+    name: 'Developer',
+    appId: 'dw',
+    value: ['dw', 'dwaspera'],
+  }, 
+  {
+    name: 'IBM Docs',
+    appId: 'ibmdocs',
+    value: ['ibmdocs', 'dw']
+    label: 'Search Label', // optional
+  }
+];
+```
+#### Note
+A list of the available scoped categories can be found [here](https://github.ibm.com/digital-marketplace/columbus/blob/master/docs/SCOPED.MD).
+
+The `value` property can either be a single string, or an array of strings.
+
+This array will be passed into the `scopeParameters` property. If using `lit-html` to render your page, this can be added
+using `.scopeParameters` (note the `.`), in order for the array to be processed properly in the component.
+
+```javascript
+
+function App() {
+  return (
+  <DDSMastheadContainer scopeParameters={scopeParameters}></DDSMastheadContainer>
+  );
+}
+```
+
+Alternatively, JavaScript can be used to insert it into the component.
+
+```javascript
+document.querySelector('dds-masthead-composite').scopeParameters = scopeParameters;
+```
+
+If a different locale is used, it will be necessary to use a formatter function to localize the placeholder text that 
+will be rendered depending on the selected scope.
+
+```javascript
+const placeholderFormatter = ({scopeValue}) => `Buscar en ${scopeValue}`;
+document.querySelector('dds-search-with-typeahead').placeholderFormatter = placeholderFormatter;
+```
+
 
 
 ## Props
