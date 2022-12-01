@@ -1,0 +1,73 @@
+//
+// Copyright IBM Corp. 2020, 2022
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/import-once/import-once';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/mixins';
+@import 'carbon-components/scss/globals/scss/vars';
+@import '../../../../styles/scss/globals/vars';
+@import '../../globals/scss/box-sizing';
+
+:host(#{$dds-prefix}-content-block-v2){
+  display: block;
+  margin-top: 64px;
+  padding-top:0;
+  margin-bottom: 96px;
+
+  @include carbon--breakpoint('lg'){
+    margin-bottom: 160px;
+  }
+}
+
+:host(#{$dds-prefix}-content-block-v2)[padding]{
+  padding-top: 64px;
+  margin-top:0;
+}
+
+:host(#{$dds-prefix}-content-block-v2) .body {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+:host(#{$dds-prefix}-content-block-v2) .inner {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  grid-column: 1 / span 12;
+}
+
+// :host(#{$dds-prefix}-content-block-v2) ::slotted([slot="complementary"]) {
+//   @include carbon--breakpoint-down('lg'){
+//     grid-column: 1 / span 12;
+//     margin: $carbon--layout-04 1rem;
+//   }
+
+//   grid-column: 10 / span 3;
+//   margin: 0 1rem;
+// }
+
+:host(#{$dds-prefix}-content-block-v2) ::slotted([data-autoid*="card"]) {
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+:host(#{$dds-prefix}-content-block-v2) dds-hr {
+  margin: 0 -1rem;
+}
+
+:host(#{$dds-prefix}-content-block-v2)[border] {
+  dds-hr {
+    margin-top: 64px;
+  }
+  margin-bottom: 32px;
+  @include carbon--breakpoint('lg'){
+    dds-hr {
+      margin-top: 96px;
+    }
+    margin-bottom: 64px;
+  }
+}
