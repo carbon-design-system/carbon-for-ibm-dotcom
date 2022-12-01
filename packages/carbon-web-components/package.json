@@ -1,6 +1,6 @@
 {
   "name": "@carbon/carbon-web-components",
-  "version": "1.22.0-rc.0",
+  "version": "1.22.0-rc.1",
   "publishConfig": {
     "access": "public"
   },
@@ -69,7 +69,7 @@
   "dependencies": {
     "@babel/runtime": "^7.16.3",
     "carbon-components": "10.55.0",
-    "flatpickr": "4.6.1",
+    "flatpickr": "4.6.13",
     "lit-element": "^2.5.1",
     "lit-html": "^1.4.1",
     "lodash-es": "^4.17.21"
@@ -173,7 +173,7 @@
     "karma-webpack": "^4.0.2",
     "lint-staged": "^12.3.8",
     "magic-string": "^0.26.0",
-    "mini-css-extract-plugin": "~2.5.0",
+    "mini-css-extract-plugin": "~2.7.0",
     "mkdirp": "^0.5.0",
     "null-loader": "^4.0.0",
     "playwright": "^1.0.0",
@@ -201,7 +201,7 @@
     "terser-webpack-plugin": "^4.2.3",
     "through2": "^3.0.0",
     "ts-loader": "^6.0.0",
-    "tsickle": "~0.37.1",
+    "tsickle": "~0.46.0",
     "typescript": "~4.8.0",
     "use-debounce": "^3.2.0",
     "web-component-analyzer": "1.2.0-next.0",

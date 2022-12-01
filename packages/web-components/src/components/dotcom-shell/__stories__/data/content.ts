@@ -7,7 +7,7 @@
  */
 
 import { html } from 'lit-element';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import ArrowRight20 from '@carbon/carbon-web-components/es/icons/arrow--right/20';
 import logosGroup from '../../../logo-grid/__stories__/data/logos.js';
 import { TOC_TYPES } from '../../../table-of-contents/defs';
 

@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
 import { find } from '../../../globals/internal/collection-helpers';
 import EventManager from '../../../../tests/utils/event-manager';
 import DDSSearchWithTypeahead from '../search-with-typeahead';
@@ -203,7 +203,7 @@ describe('dds-search-with-typeahead', function () {
         search.shadowRoot!.querySelector(
           'dds-search-with-typeahead-item'
         ) as HTMLElement
-      ).click();
+      )?.click();
       expect((search as any)._redirect).toHaveBeenCalledWith(
         'https://www.ibm.com/search?lnk=mhsrch&q=test&lang=en&cc=US'
       );

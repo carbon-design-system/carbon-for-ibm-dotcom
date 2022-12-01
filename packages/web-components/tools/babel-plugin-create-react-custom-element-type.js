@@ -60,8 +60,8 @@ function createMetadataVisitor(api) {
       return parentPath
         .get('source')
         .node.value.replace(
-          /^carbon-web-components[\\/]es[\\/]components[\\/]/,
-          'carbon-web-components/es/components-react/'
+          /^@carbon\/carbon-web-components[\\/]es[\\/]components[\\/]/,
+          '@carbon/carbon-web-components/es/components-react/'
         );
     }
     return undefined;
@@ -374,7 +374,7 @@ module.exports = function generateCreateReactCustomElementType(
         ),
       ],
       t.stringLiteral(
-        'carbon-web-components/es/globals/wrappers/createReactCustomElementType.js'
+        '@carbon/carbon-web-components/es/globals/wrappers/createReactCustomElementType.js'
       )
     );
   };
