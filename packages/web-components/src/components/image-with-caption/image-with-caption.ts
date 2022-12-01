@@ -140,8 +140,7 @@ class DDSImageWithCaption extends StableSelectorMixin(
             <button
               class="${prefix}--image-with-caption__image"
               aria-label="${ifNonNull(launchLightboxButtonAssistiveText)}"
-              @click="${handleClick}"
-            >
+              @click="${handleClick}">
               <dds-image
                 alt="${ifNonNull(alt)}"
                 default-src="${ifNonNull(defaultSrc)}"
@@ -174,8 +173,7 @@ class DDSImageWithCaption extends StableSelectorMixin(
               alt="${ifNonNull(alt)}"
               default-src="${ifNonNull(defaultSrc)}"
               description="${ifNonNull(copy)}"
-              title="${ifNonNull(heading)}"
-            >
+              title="${ifNonNull(heading)}">
             </dds-lightbox-image-viewer>
           </dds-expressive-modal>
         `;

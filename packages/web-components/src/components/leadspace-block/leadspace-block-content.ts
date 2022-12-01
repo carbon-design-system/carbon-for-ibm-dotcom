@@ -28,8 +28,7 @@ class DDSLeadSpaceBlockContent extends DDSContentBlock {
     return html`
       <div
         ?hidden="${!hasContent && !hasMedia}"
-        class="${prefix}--content-block__children"
-      >
+        class="${prefix}--content-block__children">
         ${this._renderMedia()}${this._renderContent()}
       </div>
     `;

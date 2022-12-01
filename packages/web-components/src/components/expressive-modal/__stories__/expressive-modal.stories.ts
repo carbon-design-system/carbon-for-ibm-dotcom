@@ -44,8 +44,7 @@ export const Default = (args) => {
       ?open="${open}"
       expressive-size="${ifNonNull(size)}"
       @dds-expressive-modal-beingclosed="${handleBeforeClose}"
-      @dds-expressive-modal-closed="${onClose}"
-    >
+      @dds-expressive-modal-closed="${onClose}">
       <dds-expressive-modal-header>
         <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
         <dds-expressive-modal-heading>Modal Title</dds-expressive-modal-heading>

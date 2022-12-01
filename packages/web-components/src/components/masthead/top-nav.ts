@@ -544,15 +544,13 @@ class DDSTopNav extends CspComplianceMixin(
             ? html`
                 <div class="${caretRightContainerClasses}">
                   <div
-                    class="${prefix}--header__nav-caret-right-gradient"
-                  ></div>
+                    class="${prefix}--header__nav-caret-right-gradient"></div>
                   <button
                     part="next-button"
                     tabindex="-1"
                     aria-hidden="true"
                     class="${prefix}--header__nav-caret-right"
-                    @click="${paginateRight}"
-                  >
+                    @click="${paginateRight}">
                     ${CaretLeft20()}
                   </button>
                 </div>
@@ -563,12 +561,10 @@ class DDSTopNav extends CspComplianceMixin(
                       <div
                         part="menubar"
                         class="${prefix}--header__menu-bar"
-                        aria-label="${ifNonNull(this.menuBarLabel)}"
-                      >
+                        aria-label="${ifNonNull(this.menuBarLabel)}">
                         <slot
                           @slotchange=${handleSlotChange}
-                          @keydown="${handleOnKeyDown}"
-                        ></slot>
+                          @keydown="${handleOnKeyDown}"></slot>
                       </div>
                       <div class="${prefix}--sub-content-left"></div>
                     </nav>
@@ -580,8 +576,7 @@ class DDSTopNav extends CspComplianceMixin(
                     tabindex="-1"
                     aria-hidden="true"
                     class="${prefix}--header__nav-caret-left"
-                    @click="${paginateLeft}"
-                  >
+                    @click="${paginateLeft}">
                     ${CaretRight20()}
                   </button>
                   <div class="${prefix}--header__nav-caret-left-gradient"></div>
@@ -594,8 +589,7 @@ class DDSTopNav extends CspComplianceMixin(
                     tabindex="-1"
                     aria-hidden="true"
                     class="${prefix}--header__nav-caret-left"
-                    @click="${paginateLeft}"
-                  >
+                    @click="${paginateLeft}">
                     ${CaretLeft20()}
                   </button>
                   <div class="${prefix}--header__nav-caret-left-gradient"></div>
@@ -607,12 +601,10 @@ class DDSTopNav extends CspComplianceMixin(
                       <div
                         part="menubar"
                         class="${prefix}--header__menu-bar"
-                        aria-label="${ifNonNull(this.menuBarLabel)}"
-                      >
+                        aria-label="${ifNonNull(this.menuBarLabel)}">
                         <slot
                           @slotchange=${handleSlotChange}
-                          @keydown="${handleOnKeyDown}"
-                        ></slot>
+                          @keydown="${handleOnKeyDown}"></slot>
                       </div>
                       <div class="${prefix}--sub-content-right"></div>
                     </nav>
@@ -620,15 +612,13 @@ class DDSTopNav extends CspComplianceMixin(
                 </div>
                 <div class="${caretRightContainerClasses}">
                   <div
-                    class="${prefix}--header__nav-caret-right-gradient"
-                  ></div>
+                    class="${prefix}--header__nav-caret-right-gradient"></div>
                   <button
                     part="next-button"
                     tabindex="-1"
                     aria-hidden="true"
                     class="${prefix}--header__nav-caret-right"
-                    @click="${paginateRight}"
-                  >
+                    @click="${paginateRight}">
                     ${CaretRight20()}
                   </button>
                 </div>

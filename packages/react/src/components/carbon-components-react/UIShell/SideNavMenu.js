@@ -176,8 +176,7 @@ export class SideNavMenu extends React.Component {
           data-title={rest.dataTitle}
           onClick={this.handleToggleExpand}
           ref={buttonRef}
-          type="button"
-        >
+          type="button">
           {IconElement && (
             <SideNavIcon>
               <IconElement />
@@ -186,14 +185,12 @@ export class SideNavMenu extends React.Component {
           <div className={`${prefix}--side-nav__submenu-content`}>
             <span
               className={`${prefix}--side-nav__submenu-title`}
-              data-autoid={`${rest.autoid}`}
-            >
+              data-autoid={`${rest.autoid}`}>
               {title}
             </span>
             <SideNavIcon
               className={`${prefix}--side-nav__submenu-chevron`}
-              small
-            >
+              small>
               <ChevronDown20 />
             </SideNavIcon>
           </div>

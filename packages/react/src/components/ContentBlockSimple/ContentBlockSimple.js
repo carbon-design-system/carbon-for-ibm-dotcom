@@ -31,8 +31,7 @@ const ContentBlockSimple = ({
 }) => (
   <div
     data-autoid={`${stablePrefix}--content-block-simple`}
-    className={`${prefix}--content-block-simple`}
-  >
+    className={`${prefix}--content-block-simple`}>
     <ContentBlock heading={heading} cta={cta} aside={aside}>
       <div className={`${prefix}--content-block-simple__content`}>
         <ContentItem copy={copy} />
@@ -57,8 +56,7 @@ const _renderMedia = (type, data) => {
         className={cx({
           [`${prefix}--content-block-simple__media-video`]: type === 'video',
           [`${prefix}--content-block-simple__media-image`]: type === 'image',
-        })}
-      >
+        })}>
         {type === 'image' && <ImageWithCaption {...data} />}
         {type === 'video' && <VideoPlayer {...data} />}
       </div>

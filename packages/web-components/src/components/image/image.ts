@@ -187,8 +187,7 @@ class DDSImage extends StableSelectorMixin(
           src="${defaultSrc}"
           alt="${alt}"
           aria-describedby="image-caption long-description"
-          loading="lazy"
-        />
+          loading="lazy" />
       </picture>
       <div id="long-description" class="${prefix}--image__longdescription">
         <slot name="long-description"></slot>
@@ -208,8 +207,7 @@ class DDSImage extends StableSelectorMixin(
               alt="${ifNonNull(alt)}"
               default-src="${ifNonNull(defaultSrc)}"
               description="${ifNonNull(copy)}"
-              title="${ifNonNull(heading)}"
-            >
+              title="${ifNonNull(heading)}">
             </dds-lightbox-image-viewer>
           </dds-expressive-modal>
         `;
@@ -228,8 +226,7 @@ class DDSImage extends StableSelectorMixin(
             <button
               class="${prefix}--image-with-caption__image"
               aria-label="${ifNonNull(launchLightboxButtonAssistiveText)}"
-              @click="${handleClick}"
-            >
+              @click="${handleClick}">
               ${this.renderImage()}
               <div class="${prefix}--image-with-caption__zoom-button">
                 ${ZoomIn20()}

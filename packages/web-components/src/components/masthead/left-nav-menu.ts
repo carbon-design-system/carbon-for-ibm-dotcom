@@ -105,13 +105,11 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
           tabindex="-1"
           aria-expanded="${String(Boolean(expanded))}"
           class="${buttonClasses}"
-          @click=${handleClickExpando}
-        >
+          @click=${handleClickExpando}>
           <div class="${prefix}--side-nav__submenu-content">
             <span class="${prefix}--side-nav__submenu-title">${title}</span>
             <div
-              class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron"
-            >
+              class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron">
               ${ChevronDown20()}
             </div>
           </div>

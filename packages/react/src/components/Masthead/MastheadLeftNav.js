@@ -171,8 +171,7 @@ const MastheadLeftNav = ({
             }
             data-autoid={autoid}
             key={link.title}
-            role="menuitem"
-          >
+            role="menuitem">
             {link.title}
           </SideNavMenuItem>
         );
@@ -206,8 +205,7 @@ const MastheadLeftNav = ({
           focusNode={sideNavRef.current?.parentNode.querySelector(
             `.${prefix}--header__menu-toggle`
           )}
-          show={menuState.level0 === -1}
-        >
+          show={menuState.level0 === -1}>
           {level0Items}
         </SideNavMenuSection>
         {level1.menuSections}
@@ -222,11 +220,9 @@ const MastheadLeftNav = ({
       expanded={isSideNavExpanded}
       isPersistent={false}
       ref={sideNavRef}
-      onOverlayClick={rest.onOverlayClick}
-    >
+      onOverlayClick={rest.onOverlayClick}>
       <nav
-        data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0`}
-      >
+        data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0`}>
         {platform && (
           <a
             data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-productname`}
@@ -234,8 +230,7 @@ const MastheadLeftNav = ({
             className={cx(
               `${prefix}--side-nav__submenu`,
               `${prefix}--side-nav__submenu-platform`
-            )}
-          >
+            )}>
             {platform.name}
           </a>
         )}
@@ -299,8 +294,7 @@ function _renderLevel1Submenus(
         navType={navType}
         backButtonText={backButtonText}
         onBackClick={() => setMenuState({ level0: -1, level1: -1 })}
-        show={menuState.level0 === menu.parentKey && menuState.level1 === -1}
-      >
+        show={menuState.level0 === menu.parentKey && menuState.level1 === -1}>
         {sortedMenu.map((item, index) => {
           submenus.push({
             title: item.title,
@@ -348,8 +342,7 @@ function _renderLevel1Submenus(
                   `${prefix}--masthead__side-nav--submemu--selected`) ||
                 null
               }
-              role="menuitem"
-            >
+              role="menuitem">
               {item.title}
             </SideNavMenuItem>
           );
@@ -396,8 +389,7 @@ function _renderLevel2Submenus(
         onBackClick={() => setMenuState({ ...menuState, level1: -1 })}
         show={
           menuState.level0 === menu.parentKey && menuState.level1 === menu.index
-        }
-      >
+        }>
         {menu.sections?.map((item, k) => {
           return (
             <SideNavMenuItem
@@ -411,8 +403,7 @@ function _renderLevel2Submenus(
                   `${prefix}--masthead__side-nav--submemu--selected`) ||
                 null
               }
-              role="menuitem"
-            >
+              role="menuitem">
               {item.title}
             </SideNavMenuItem>
           );

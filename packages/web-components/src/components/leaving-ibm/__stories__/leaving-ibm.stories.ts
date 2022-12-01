@@ -29,8 +29,7 @@ export const Default = (args) => {
           <dds-link-with-icon
             icon-placement="right"
             href="${href}"
-            data-leaving-ibm
-          >
+            data-leaving-ibm>
             ${ctaText}${Launch20({ slot: 'icon' })}
           </dds-link-with-icon>
         `
@@ -59,8 +58,7 @@ export const Default = (args) => {
             <dds-image
               slot="image"
               alt="Image alt text"
-              default-src="${mediumImgLg1x1}"
-            ></dds-image>
+              default-src="${mediumImgLg1x1}"></dds-image>
             <dds-card-heading>${ctaText}</dds-card-heading>
             <dds-feature-card-footer>
               ${Launch20({ slot: 'icon' })}

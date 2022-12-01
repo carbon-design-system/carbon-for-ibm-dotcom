@@ -70,8 +70,7 @@ const template = (props?) => {
       lang-display="${ifNonNull(langDisplay)}"
       language="${ifNonNull(language)}"
       ?open="${open}"
-      .localeList="${ifNonNull(localeList)}"
-    >
+      .localeList="${ifNonNull(localeList)}">
     </dds-locale-modal-composite>
   `;
 };

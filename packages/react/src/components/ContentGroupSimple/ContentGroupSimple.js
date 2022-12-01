@@ -30,8 +30,7 @@ const ContentGroupSimple = ({
 }) => (
   <div
     data-autoid={`${stablePrefix}--content-group-simple`}
-    className={`${prefix}--content-group-simple`}
-  >
+    className={`${prefix}--content-group-simple`}>
     <ContentGroup cta={cta} heading={heading} copy={copy}>
       {_renderMedia(mediaType, mediaData)}
       {_renderContent(items)}

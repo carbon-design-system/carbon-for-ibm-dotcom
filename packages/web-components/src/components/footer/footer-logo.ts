@@ -53,8 +53,7 @@ class DDSFooterLogo extends StableSelectorMixin(FocusMixin(LitElement)) {
       <a
         class="${prefix}--footer-logo__link"
         aria-label="IBM logo"
-        href="${ifNonNull(href)}"
-      >
+        href="${ifNonNull(href)}">
         ${IBM8BarLogoH65White({
           class: `${prefix}--footer-logo__logo`,
           role: 'img',

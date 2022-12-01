@@ -24,8 +24,7 @@ const FeatureCardBlockMedium = ({ heading, card, ...otherProps }) => {
     card.cta && (
       <section
         className={`${prefix}--feature-card-block-medium`}
-        data-autoid={`${stablePrefix}--feature-card-block-medium`}
-      >
+        data-autoid={`${stablePrefix}--feature-card-block-medium`}>
         <h3 className={`${prefix}--feature-card-block-medium__heading`}>
           {heading}
         </h3>

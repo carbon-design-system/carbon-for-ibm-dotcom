@@ -115,8 +115,7 @@ const LocaleModal = ({
       }}
       className={`${prefix}--locale-modal-container`}
       data-autoid={`${stablePrefix}--locale-modal`}
-      selectorPrimaryFocus={`.${prefix}--modal-close`}
-    >
+      selectorPrimaryFocus={`.${prefix}--modal-close`}>
       {isFiltering ? (
         <ModalHeader
           data-autoid={`${stablePrefix}--locale-modal__region-back`}

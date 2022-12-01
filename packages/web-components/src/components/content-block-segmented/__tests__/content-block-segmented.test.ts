@@ -16,8 +16,7 @@ const image = html`
     slot="media"
     alt="Image alt text"
     default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    heading="Mauris iaculis eget dolor nec hendrerit."
-  >
+    heading="Mauris iaculis eget dolor nec hendrerit.">
   </dds-image>
 `;
 
@@ -53,8 +52,7 @@ describe('dds-content-block-segmented', function () {
             <dds-card-cta
               slot="footer"
               cta-type="local"
-              href="https://example.com"
-            >
+              href="https://example.com">
               Lorem ipsum dolor
             </dds-card-cta>
           `,

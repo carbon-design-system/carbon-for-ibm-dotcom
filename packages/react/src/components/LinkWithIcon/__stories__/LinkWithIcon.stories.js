@@ -42,8 +42,7 @@ export const Default = () => {
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
-      }}
-    >
+      }}>
       <LinkWithIcon href="https://www.example.com" {...props()}>
         <span>Link text</span>
         {iconPlacement === 'left' ? <ArrowLeft20 /> : <ArrowRight20 />}

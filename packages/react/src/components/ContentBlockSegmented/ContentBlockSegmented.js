@@ -38,15 +38,13 @@ const ContentBlockSegmented = ({
       className={cx(`${prefix}--content-block-segmented`, {
         [`${prefix}--content-block-segmented-border`]:
           border || (aside && aside.border),
-      })}
-    >
+      })}>
       <ContentBlock
         heading={heading}
         copy={copy}
         cta={cta}
         aside={aside}
-        border={border}
-      >
+        border={border}>
         {_renderMedia(mediaType, mediaData)}
         {_renderGroup(items)}
       </ContentBlock>
@@ -89,11 +87,9 @@ const _renderGroup = (items) =>
               ...item.cta,
             }
           : undefined
-      }
-    >
+      }>
       <div
-        data-autoid={`${stablePrefix}--content-block-segmented__content-group`}
-      >
+        data-autoid={`${stablePrefix}--content-block-segmented__content-group`}>
         <ContentItem copy={item.copy} key={index} />
         {(item.image || item.video) && (
           <div data-autoid={`${stablePrefix}--content-block-segmented__media`}>

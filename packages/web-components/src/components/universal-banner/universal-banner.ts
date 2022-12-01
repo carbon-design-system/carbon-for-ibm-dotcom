@@ -133,8 +133,7 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
     return html`
       <a
         href="${this.buttonHref}"
-        class="${prefix}--universal-banner-layout-container"
-      >
+        class="${prefix}--universal-banner-layout-container">
         ${this._renderInnerContents()}
       </a>
     `;
@@ -149,12 +148,10 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
       <div class="${prefix}--universal-banner-content-wrapper">
         <div
           ?hidden="${!this.hasImage}"
-          class="${prefix}--universal-banner-image-container"
-        >
+          class="${prefix}--universal-banner-image-container">
           <slot
             name="image"
-            @slotchange="${this._handleImageSlotChange}"
-          ></slot>
+            @slotchange="${this._handleImageSlotChange}"></slot>
         </div>
 
         <div class="${prefix}--universal-banner-text-container">

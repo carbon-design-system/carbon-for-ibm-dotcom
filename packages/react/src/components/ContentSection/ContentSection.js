@@ -38,8 +38,7 @@ const ContentSection = ({
         otherProps.autoid
           ? otherProps.autoid
           : `${stablePrefix}--content-section`
-      }
-    >
+      }>
       <div className={`${prefix}--content-section__grid`}>
         <div className={`${prefix}--content-section__row`}>
           <div className={`${prefix}--content-section__left`}>
@@ -54,8 +53,7 @@ const ContentSection = ({
                 className={`${prefix}--content-section__copy`}
                 dangerouslySetInnerHTML={{
                   __html: markdownToHtml(copy, { bold: false }),
-                }}
-              ></div>
+                }}></div>
             )}
             {cta && (
               <CTA
@@ -71,8 +69,7 @@ const ContentSection = ({
             className={classNames(
               `${prefix}--content-section__children`,
               childrenCustomClassName
-            )}
-          >
+            )}>
             {children}
           </div>
         </div>

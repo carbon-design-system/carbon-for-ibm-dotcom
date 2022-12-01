@@ -32,8 +32,7 @@ const template = (props?) => {
       .formatCaption="${ifNonNull(formatCaption)}"
       .formatDuration="${ifNonNull(formatDuration)}"
       .mediaData="${ifNonNull(mediaData)}"
-      .playingMode="${ifNonNull(playingMode)}"
-    >
+      .playingMode="${ifNonNull(playingMode)}">
     </dds-video-player-composite>
   `;
 };

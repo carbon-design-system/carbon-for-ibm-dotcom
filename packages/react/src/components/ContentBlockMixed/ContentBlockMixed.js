@@ -34,15 +34,13 @@ const ContentBlockMixed = ({ heading, copy, cta, items, aside, border }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--content-block-mixed`}
-      className={`${prefix}--content-block-mixed`}
-    >
+      className={`${prefix}--content-block-mixed`}>
       <ContentBlock
         heading={heading}
         copy={copy}
         cta={cta}
         aside={aside}
-        border={border}
-      >
+        border={border}>
         {groups}
       </ContentBlock>
     </div>

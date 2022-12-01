@@ -29,15 +29,13 @@ const linkListItem = html`
       <dds-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
-        cta-type="local"
-      >
+        cta-type="local">
         Link text
       </dds-link-list-item-cta>
       <dds-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
-        cta-type="external"
-      >
+        cta-type="external">
         External link text
       </dds-link-list-item-cta>
     </dds-link-list>

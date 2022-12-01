@@ -107,13 +107,11 @@ class DDSFilterPanelModal extends HostListenerMixin(
         id="start-sentinel"
         class="${prefix}--visually-hidden"
         href="javascript:void 0"
-        role="navigation"
-      ></a>
+        role="navigation"></a>
       <section class="${prefix}--filter-panel__section bx--modal-container">
         <bx-modal-header>
           <bx-modal-close-button
-            @click=${this._handleUserClose}
-          ></bx-modal-close-button>
+            @click=${this._handleUserClose}></bx-modal-close-button>
           <dds-filter-modal-heading>${this.heading}</dds-filter-modal-heading>
         </bx-modal-header>
         <div class="${prefix}--modal-body"><slot></slot></div>
@@ -135,8 +133,7 @@ class DDSFilterPanelModal extends HostListenerMixin(
         id="end-sentinel"
         class="${prefix}--visually-hidden"
         href="javascript:void 0"
-        role="navigation"
-      ></a>
+        role="navigation"></a>
     `;
   }
 

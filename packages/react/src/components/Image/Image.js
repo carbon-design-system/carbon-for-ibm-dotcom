@@ -60,8 +60,7 @@ const Image = ({
   return (
     <div
       className={`${prefix}--image`}
-      data-autoid={`${stablePrefix}--image__longdescription`}
-    >
+      data-autoid={`${stablePrefix}--image__longdescription`}>
       <picture ref={refImage}>
         {sortedImages.map((imgSrc, key) => {
           return (

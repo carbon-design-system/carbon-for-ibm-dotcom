@@ -43,8 +43,7 @@ export const Default = (args) => {
       default-src="${ifNonNull(defaultSrc)}"
       ?border=${border}
       ?lightbox="${lightbox}"
-      copy="${ifNonNull(copy)}"
-    >
+      copy="${ifNonNull(copy)}">
       ${!longDescription
         ? undefined
         : html` <div slot="long-description">${longDescription}</div> `}

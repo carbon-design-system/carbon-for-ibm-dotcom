@@ -105,8 +105,7 @@ export const Default = () => {
       <div className="bx--row">
         <div
           style={{ paddingTop: '20px' }}
-          className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
-        >
+          className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
           <FeatureCard size={'medium'} {...props.default()} />
         </div>
       </div>
@@ -129,8 +128,7 @@ export const Large = () => {
       <div className="bx--row">
         <div
           style={{ paddingTop: '20px' }}
-          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2"
-        >
+          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
           <FeatureCard size={'large'} {...props.large()} />
         </div>
       </div>

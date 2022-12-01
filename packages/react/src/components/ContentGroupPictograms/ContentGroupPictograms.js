@@ -22,8 +22,7 @@ const { prefix } = settings;
 const ContentGroupPictograms = ({ heading, items, className, copy }) => (
   <div
     data-autoid={`${stablePrefix}--content-group-pictograms`}
-    className={classNames(className, `${prefix}--content-group-pictograms`)}
-  >
+    className={classNames(className, `${prefix}--content-group-pictograms`)}>
     <ContentGroup heading={heading} copy={copy}>
       {_renderItems(items)}
     </ContentGroup>

@@ -58,8 +58,7 @@ const MastheadL1 = ({ navigationL1, ...rest }) => {
           })}
           selected={selected}
           autoId={autoid}
-          key={index}
-        >
+          key={index}>
           {renderNav(link, rest.navType, autoid)}
         </HeaderMenu>
       );
@@ -70,8 +69,7 @@ const MastheadL1 = ({ navigationL1, ...rest }) => {
         data-selected={`${!!selected}`}
         href={link.url}
         data-autoid={autoid}
-        key={index}
-      >
+        key={index}>
         {link.title}
       </HeaderMenuItem>
     );
@@ -83,8 +81,7 @@ const MastheadL1 = ({ navigationL1, ...rest }) => {
         <div className={`${prefix}--masthead__l1-inner-container`}>
           <div
             className={`${prefix}--masthead__l1-name`}
-            data-selected={!rest.selectedMenuItem}
-          >
+            data-selected={!rest.selectedMenuItem}>
             <span className={`${prefix}--masthead__l1-name-title`}>
               <a href={rest.platform.url}>{rest.platform.name}</a>
             </span>
@@ -92,8 +89,7 @@ const MastheadL1 = ({ navigationL1, ...rest }) => {
           <HeaderNavContainer>
             <HeaderNavigation
               className={`${prefix}--masthead__l1-nav`}
-              aria-label=""
-            >
+              aria-label="">
               {mastheadL1Links}
             </HeaderNavigation>
           </HeaderNavContainer>
@@ -122,8 +118,7 @@ function renderNav(link, navType, autoid) {
           <HeaderMenuItem
             href={item.url}
             data-autoid={`${stablePrefix}--masthead-${navType}__l1-nav${i}-item${j}`}
-            key={item.title}
-          >
+            key={item.title}>
             {item.title}
           </HeaderMenuItem>
         );

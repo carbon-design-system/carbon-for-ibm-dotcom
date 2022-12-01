@@ -586,12 +586,10 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           pageSizeExplicit == null
             ? null
             : `${customPropertyPageSize}: ${pageSizeExplicit}`
-        )}"
-      >
+        )}">
         <div
           class="${prefix}--carousel__scroll-contents"
-          style="left:${(-start * (contentsBaseWidth + gap)) / pageSize}px"
-        >
+          style="left:${(-start * (contentsBaseWidth + gap)) / pageSize}px">
           <slot @slotchange="${handleSlotChange}"></slot>
         </div>
       </div>
@@ -602,8 +600,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           ?disabled="${pagesBefore === 0}"
           @click="${handleClickPrevButton}"
           aria-label="${ifDefined(prevButtonText)}"
-          title="${ifDefined(prevButtonText)}"
-        >
+          title="${ifDefined(prevButtonText)}">
           ${CaretLeft20()}
         </button>
         ${this._renderStatus()}
@@ -613,8 +610,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           ?disabled="${pagesSince <= 1}"
           @click="${handleClickNextButton}"
           aria-label="${ifDefined(nextButtonText)}"
-          title="${ifDefined(nextButtonText)}"
-        >
+          title="${ifDefined(nextButtonText)}">
           ${CaretRight20()}
         </button>
       </div>

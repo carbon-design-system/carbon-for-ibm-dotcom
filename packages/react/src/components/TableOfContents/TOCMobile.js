@@ -76,22 +76,19 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
   return (
     <div
       className={`${prefix}--tableofcontents__mobile`}
-      data-autoid={`${stablePrefix}--tableofcontents__mobile`}
-    >
+      data-autoid={`${stablePrefix}--tableofcontents__mobile`}>
       <div className={`${prefix}--tableofcontents__mobile__select__wrapper`}>
         <select
           aria-label={menuLabel}
           className={`${prefix}--tableofcontents__mobile__select`}
           onBlur={handleOnBlur}
           value={selectedOption}
-          onChange={(e) => handleChange(e)}
-        >
+          onChange={(e) => handleChange(e)}>
           {renderOptions(menuItems, menuLabel)}
         </select>
         <TableOfContents20
           className={`${prefix}--tableofcontents__mobile__select__icon`}
-          aria-label="menu icon"
-        >
+          aria-label="menu icon">
           <title>menu icon</title>
         </TableOfContents20>
       </div>
@@ -124,8 +121,7 @@ const renderOptions = (options, label) => {
           value={option.id}
           defaultValue={index === 0}
           disabled={index === 0}
-          hidden={index === 0}
-        >
+          hidden={index === 0}>
           {option.title}
         </option>
       );

@@ -391,8 +391,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
     return html`
       <slot
         @slotchange="${this._handleSlotChange}"
-        class="${slotClasses}"
-      ></slot>
+        class="${slotClasses}"></slot>
     `;
   }
 
