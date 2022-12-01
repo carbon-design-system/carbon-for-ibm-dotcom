@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
 import {
   VIDEO_PLAYER_CONTENT_STATE,
   VIDEO_PLAYER_PLAYING_MODE,

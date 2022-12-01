@@ -10,7 +10,7 @@
 import { html } from 'lit-element';
 import { boolean, select } from '@storybook/addon-knobs';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../left-nav';
@@ -49,6 +49,35 @@ const urlObject = {
     url: 'https://www.example.com/ibm/es-mx/sample',
   },
 };
+
+const scopeParameters = [
+  {
+    name: 'All',
+    appId: 'all',
+    value: 'all',
+  },
+  {
+    name: 'Analyst',
+    appId: 'analyst',
+    value: 'analyst',
+  },
+  {
+    name: 'PartnerWorld',
+    appId: 'pw',
+    value: ['pw', 'pwp'],
+  },
+  {
+    name: 'Developer',
+    appId: 'dw',
+    value: ['dw', 'dwaspera'],
+  },
+  {
+    name: 'IBM Docs',
+    appId: 'ibmdocs',
+    label: 'Search Label',
+    value: ['ibmdocs', 'dw'],
+  },
+];
 
 async function customTypeaheadApiFunction(searchVal) {
   return fetch(
@@ -505,6 +534,63 @@ withAlternateLogoAndTooltip.story = {
       },
     },
   },
+};
+
+export const WithScopedSearch = ({ parameters }) => {
+  const {
+    customProfileLogin,
+    platform,
+    selectedMenuItem,
+    userStatus,
+    searchPlaceholder,
+    hasProfile,
+    hasSearch,
+    navLinks,
+  } = parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
+
+  return html`
+    <style>
+      ${styles}
+    </style>
+    ${useMock
+      ? html`
+          <dds-masthead-composite
+            platform="${ifNonNull(platform)}"
+            .platformUrl="${ifNonNull(platformData.url)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            user-status="${ifNonNull(userStatus)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            .navLinks="${navLinks}"
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
+            custom-profile-login="${customProfileLogin}"
+            .scopeParameters=${scopeParameters}
+          ></dds-masthead-composite>
+        `
+      : html`
+          <dds-masthead-container
+            platform="${ifNonNull(platform)}"
+            .platformUrl="${ifNonNull(platformData.url)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            user-status="${ifNonNull(userStatus)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            .navLinks="${navLinks}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            custom-profile-login="${customProfileLogin}"
+            .scopeParameters=${scopeParameters}
+          ></dds-masthead-container>
+        `}
+  `;
+};
+
+WithScopedSearch.story = {
+  name: 'With scoped search',
 };
 
 export default {

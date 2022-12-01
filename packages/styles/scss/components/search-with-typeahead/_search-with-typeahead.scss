@@ -7,8 +7,8 @@
 
 @import 'carbon-components/scss/components/ui-shell/header';
 @import 'carbon-components/scss/components/ui-shell/side-nav';
-@import 'carbon-web-components/scss/components/dropdown/dropdown';
-@import 'carbon-web-components/scss/components/select/select';
+@import '@carbon/carbon-web-components/scss/components/dropdown/dropdown';
+@import '@carbon/carbon-web-components/scss/components/select/select';
 
 @import '../../globals/vars';
 @import '../../globals/imports';
@@ -476,6 +476,10 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
 
 :host(#{$dds-prefix}-search-with-typeahead-item) {
   @extend .react-autosuggest__suggestion;
+
+  span {
+    white-space: pre;
+  }
 
   &[groupTitle] {
     @include carbon--type-style('body-long-01', true);

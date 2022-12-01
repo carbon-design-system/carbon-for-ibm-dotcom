@@ -7,7 +7,7 @@
 
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/components/expressive-modal/expressive-modal';
-@import 'carbon-web-components/scss/components/modal/modal';
+@import '@carbon/carbon-web-components/scss/components/modal/modal';
 @import '../../globals/scss/box-sizing';
 
 :host(#{$dds-prefix}-expressive-modal) {
