@@ -54,13 +54,3 @@ describe('dds-cta | text (desktop)', () => {
 
   _tests.forEach(test => test());
 });
-
-describe('dds-cta | text (mobile)', () => {
-  beforeEach(() => {
-    cy.visit(_path);
-    cy.injectAxe();
-    cy.viewport(375, 720);
-  });
-
-  _tests.forEach(test => test());
-});

@@ -16,7 +16,7 @@ const _pathSearchOpenOnload = '/iframe.html?id=components-masthead--search-open-
 describe('dds-masthead | search open onload (desktop)', () => {
   beforeEach(() => {
     // TODO: fix the uncaught exception in Firefox only
-    cy.on('uncaught:exception', (err, runnable) => {
+    cy.on('uncaught:exception', (err) => {
       if (err.message.includes('Request aborted')) {
         return false;
       }
@@ -29,10 +29,6 @@ describe('dds-masthead | search open onload (desktop)', () => {
     cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
   });
 
-  it('should check a11y', () => {
-    cy.checkAxeA11y();
-  });
-
   it('should load search field open by default', () => {
     cy.get('dds-search-with-typeahead')
       .shadow()
@@ -40,14 +36,6 @@ describe('dds-masthead | search open onload (desktop)', () => {
       .should('be.visible');
 
     cy.takeSnapshots();
-  });
-
-  it('should have typable search field', () => {
-    cy.get('dds-search-with-typeahead')
-      .shadow()
-      .find('input[type="text"]')
-      .type('test')
-      .should('have.value', 'test');
   });
 
   it('should display 10 auto suggest results', () => {
@@ -63,5 +51,9 @@ describe('dds-masthead | search open onload (desktop)', () => {
 
   it('should not display menu options while search field is open', () => {
     cy.get('dds-top-nav').should('have.attr', 'hidenav');
+  });
+
+  it('should check a11y', () => {
+    cy.checkAxeA11y();
   });
 });

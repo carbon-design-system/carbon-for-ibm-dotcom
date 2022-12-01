@@ -69,14 +69,3 @@ describe('dds-cta | button (desktop)', () => {
   _buttonTests.forEach(test => test());
   _tests.forEach(test => test());
 });
-
-describe('dds-cta | button (mobile)', () => {
-  beforeEach(() => {
-    cy.visit(_path);
-    cy.injectAxe();
-    cy.viewport(375, 720);
-  });
-
-  _buttonTests.forEach(test => test());
-  _tests.forEach(test => test());
-});

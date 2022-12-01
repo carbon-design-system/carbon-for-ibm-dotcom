@@ -80,40 +80,6 @@ const _tests = {
       });
     });
   },
-  checkTextRenders: () => {
-    it('should render card text and arrow icon', () => {
-      cy.get(_selectors.heading)
-        // Wait for the sameHeight to finish loading
-        .wait(2000)
-        .each($heading => {
-          expect($heading).not.to.be.empty;
-        });
-
-      cy.get(_selectors.copy).each($copy => {
-        expect($copy).not.to.be.empty;
-      });
-
-      cy.get(_selectorBase).then($carousel => {
-        if ($carousel.find(_selectors.footer).length > 0) {
-          cy.get(_selectors.footer)
-            .find('svg[slot="icon"] path')
-            .each($icon => {
-              expect($icon).to.have.attr('d', 'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z');
-            });
-        }
-
-        if ($carousel.find(_selectors.videoFooter).length > 0) {
-          cy.get(_selectors.videoFooter)
-            .find('svg[slot="icon"] path')
-            .each($icon => {
-              expect($icon).to.have.attr('d', 'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z');
-            });
-        }
-      });
-
-      cy.takeSnapshots();
-    });
-  },
   checkImageRenders: () => {
     it('should render with image', () => {
       cy.get(_selectors.image).should('be.visible');
@@ -138,30 +104,6 @@ const _tests = {
         });
 
       cy.takeSnapshots();
-    });
-  },
-  checkVideoDurationText: () => {
-    it('should render the video duration in the footer', () => {
-      cy.get(_selectors.videoFooter)
-        .find('span.bx--card__cta__copy')
-        .then($duration => {
-          expect($duration).not.to.be.empty;
-        });
-    });
-  },
-  checkSameHeight: () => {
-    it('should have headings all the same height', () => {
-      cy.get(_selectors.heading)
-        // Wait for sameHeight to finish loading
-        .wait(1000)
-        .then($headings => {
-          let headingHeight = $headings.first().height();
-
-          cy.get(_selectors.heading).each(($heading, index) => {
-            expect($heading).to.not.have.css('height', '0px');
-            expect($heading[0].clientHeight).to.equal(headingHeight);
-          });
-        });
     });
   },
   checkClickableCard: () => {
@@ -229,8 +171,6 @@ describe('dds-carousel | default (desktop)', () => {
 
   _tests.checkA11y();
   _tests.screenshotThemes();
-  _tests.checkTextRenders();
-  _tests.checkSameHeight();
   _tests.checkClickableCard();
   _tests.checkScroll();
 });
@@ -243,10 +183,6 @@ describe('dds-carousel | default (mobile)', () => {
   });
 
   _tests.checkA11y();
-  _tests.screenshotThemes();
-  _tests.checkTextRenders();
-  _tests.checkClickableCard();
-  _tests.checkScroll();
 });
 
 describe('dds-carousel | with images (desktop)', () => {
@@ -257,12 +193,8 @@ describe('dds-carousel | with images (desktop)', () => {
   });
 
   _tests.checkA11y();
-  _tests.screenshotThemes();
-  _tests.checkTextRenders();
   _tests.checkImageRenders();
-  _tests.checkSameHeight();
   _tests.checkClickableCard();
-  _tests.checkScroll();
 });
 
 describe('dds-carousel | with images (mobile)', () => {
@@ -273,11 +205,6 @@ describe('dds-carousel | with images (mobile)', () => {
   });
 
   _tests.checkA11y();
-  _tests.screenshotThemes();
-  _tests.checkTextRenders();
-  _tests.checkImageRenders();
-  _tests.checkClickableCard();
-  _tests.checkScroll();
 });
 
 describe('dds-carousel | with videos (desktop)', () => {
@@ -288,13 +215,8 @@ describe('dds-carousel | with videos (desktop)', () => {
   });
 
   _tests.checkA11y();
-  _tests.screenshotThemes();
-  _tests.checkTextRenders();
   _tests.checkVideoRenders();
-  _tests.checkVideoDurationText();
-  _tests.checkSameHeight();
   _tests.checkClickableCard();
-  _tests.checkScroll();
 });
 
 describe('dds-carousel | with videos (mobile)', () => {
@@ -305,45 +227,4 @@ describe('dds-carousel | with videos (mobile)', () => {
   });
 
   _tests.checkA11y();
-  _tests.screenshotThemes();
-  _tests.checkTextRenders();
-  _tests.checkVideoRenders();
-  _tests.checkVideoDurationText();
-  _tests.checkClickableCard();
-  _tests.checkScroll();
-});
-
-describe('dds-carousel | with media (desktop)', () => {
-  beforeEach(() => {
-    cy.viewport(1280, 720);
-    cy.visit(`${_paths.withMedia}`);
-    cy.injectAxe();
-  });
-
-  _tests.checkA11y();
-  _tests.screenshotThemes();
-  _tests.checkTextRenders();
-  _tests.checkImageRenders();
-  _tests.checkVideoRenders();
-  _tests.checkVideoDurationText();
-  _tests.checkSameHeight();
-  _tests.checkClickableCard();
-  _tests.checkScroll();
-});
-
-describe('dds-carousel | with media (mobile)', () => {
-  beforeEach(() => {
-    cy.viewport(320, 720);
-    cy.visit(`${_paths.withMedia}`);
-    cy.injectAxe();
-  });
-
-  _tests.checkA11y();
-  _tests.screenshotThemes();
-  _tests.checkTextRenders();
-  _tests.checkImageRenders();
-  _tests.checkVideoRenders();
-  _tests.checkVideoDurationText();
-  _tests.checkClickableCard();
-  _tests.checkScroll();
 });

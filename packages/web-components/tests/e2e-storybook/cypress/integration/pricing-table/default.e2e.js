@@ -8,6 +8,7 @@
 import { createTests, createTestsMobile, selectors } from './_tests';
 
 /**
+ * Re-enable and optimize tests when feature flag is removed
  * Defines the Story path.
  *
  * @type {string}
@@ -38,7 +39,7 @@ const _tests = (path = path) => [
   },
 ];
 
-describe('dds-pricing-table | default (desktop)', () => {
+xdescribe('dds-pricing-table | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
   });
@@ -46,7 +47,7 @@ describe('dds-pricing-table | default (desktop)', () => {
   [...createTests(path), ..._tests(path)].forEach(test => test());
 });
 
-describe('dds-pricing-table | default (mobile)', () => {
+xdescribe('dds-pricing-table | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
   });

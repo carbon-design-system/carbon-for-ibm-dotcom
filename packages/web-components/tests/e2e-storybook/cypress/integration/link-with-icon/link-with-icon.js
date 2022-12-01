@@ -38,26 +38,6 @@ const _tests = [
     });
   },
   () => {
-    it('should render customizable link text', () => {
-      let defaultCopy, customCopyOutput;
-      const customCopyInput = 'Consectetur adipiscing elit.';
-
-      cy.visit(_path)
-        .get(_selector)
-        .then(([copy]) => {
-          defaultCopy = copy.innerText.trim();
-        })
-        .visit(`${_path}&knob-Link%20text%20(unnamed%20slot)=${customCopyInput}`)
-        .get(_selector)
-        .should(([copy]) => {
-          customCopyOutput = copy.innerText.trim();
-
-          expect(customCopyOutput).to.be.eq(customCopyInput);
-          expect(customCopyOutput).to.not.eq(defaultCopy);
-        });
-    });
-  },
-  () => {
     it('should have a customizable and clickable link', () => {
       let defaultHref, customHrefOutput;
       const customHrefInput = 'https://www.example.com/foo';
@@ -93,30 +73,6 @@ const _tests = [
     });
   },
   () => {
-    it('should check icon placements', () => {
-      ['left', 'right'].forEach(placement => {
-        let $svg;
-        cy.visit(`${_path}&knob-Icon%20Position%20(icon-placement):=${placement}`)
-          .get(_selector)
-          .then($elem => {
-            $svg = $elem.find('svg');
-          })
-          .shadow()
-          .find('a')
-          .should($link => {
-            const svgPosition = $svg[0].getBoundingClientRect();
-            const textPosition = $link.find('span')[0].getBoundingClientRect();
-
-            if (placement === 'left') {
-              expect(svgPosition.left).to.be.lt(textPosition.left);
-            } else {
-              expect(svgPosition.left).to.be.gt(textPosition.left);
-            }
-          });
-      });
-    });
-  },
-  () => {
     it('should render correctly in all themes', () => {
       cy.visit(_path).carbonThemesScreenshot({
         capture: 'viewport',
@@ -128,14 +84,6 @@ const _tests = [
 describe('dds-link-with-icon | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
-  });
-
-  _tests.forEach(test => test());
-});
-
-describe('dds-link-with-icon | default (mobile)', () => {
-  beforeEach(() => {
-    cy.viewport(375, 720);
   });
 
   _tests.forEach(test => test());

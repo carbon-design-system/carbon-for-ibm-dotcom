@@ -46,26 +46,6 @@ const _tests = {
         });
     });
   },
-  checkForTitlePosition: () => {
-    cy.get('dds-content-section-heading').then(heading => {
-      expect(heading.offset().left == 16 || heading.offset().left == 32).to.be.eq(true);
-      expect(heading.css('textAlign')).to.be.eq('start');
-    });
-  },
-  checkForCardContent: () => {
-    cy.get('dds-card-group-item').each(card => {
-      card.children().each((_i, child) => {
-        const cardRoot = card[0].shadowRoot;
-        expect(child.assignedSlot.getRootNode()).to.be.eq(cardRoot);
-      });
-    });
-  },
-  checkCTACard: () => {
-    cy.visit(`${_paths.default}&knob-With%20CTA:=true`);
-    cy.get('dds-card-group-item')
-      .last()
-      .should('have.attr', 'color-scheme', 'inverse');
-  },
   checkCardWithImages: () => {
     cy.visit(`${_paths.default}&knob-With%20images:=true`);
     cy.get('dds-card-group-item > dds-image').each($img => {
@@ -85,9 +65,6 @@ describe('dds-card-section-simple | default (desktop)', () => {
   });
 
   it('should load card as blocklink', _tests.checkForBlocklink);
-  it('should load left-aligned section title', _tests.checkForTitlePosition);
-  it('should load heading, copy, cta on each card', _tests.checkForCardContent);
-  it('should check if CTA card rendered', _tests.checkCTACard);
   it('should check if cards with images rendered', _tests.checkCardWithImages);
   it('should render correctly in all themes', _tests.checkThemes);
   it('should check a11y', _tests.checkA11y);
@@ -100,11 +77,5 @@ describe('dds-card-section-simple | default (mobile)', () => {
     cy.injectAxe();
   });
 
-  it('should load card as blocklink', _tests.checkForBlocklink);
-  it('should load left-aligned section title', _tests.checkForTitlePosition);
-  it('should load heading, copy, cta on each card', _tests.checkForCardContent);
-  it('should check if CTA card rendered', _tests.checkCTACard);
-  it('should check if cards with images rendered', _tests.checkCardWithImages);
-  it('should render correctly in all themes', _tests.checkThemes);
   it('should check a11y', _tests.checkA11y);
 });

@@ -15,7 +15,7 @@ import { createTests, createTestsMobile } from './_tests';
  */
 const path = '/iframe.html?id=components-pricing-table--without-row-headers';
 
-describe('dds-pricing-table | without row headers (desktop)', () => {
+xdescribe('dds-pricing-table | without row headers (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
   });
@@ -23,7 +23,7 @@ describe('dds-pricing-table | without row headers (desktop)', () => {
   createTests(path).forEach(test => test());
 });
 
-describe('dds-pricing-table | without row headers (mobile)', () => {
+xdescribe('dds-pricing-table | without row headers (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
   });

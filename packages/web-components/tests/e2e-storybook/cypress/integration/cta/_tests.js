@@ -43,26 +43,7 @@ export default (selector, paths) => [
     });
   },
   () => {
-    it('should render customizable link text', () => {
-      let defaultCopy, customCopyOutput;
-      const customCopyInput = 'Consectetur adipiscing elit.';
-
-      cy.get(selector)
-        .then(([copy]) => {
-          defaultCopy = copy.innerText.trim();
-        })
-        .visit(`${paths.copy}${customCopyInput}`)
-        .get(selector)
-        .should(([copy]) => {
-          customCopyOutput = copy.innerText.trim();
-
-          expect(customCopyOutput).to.be.eq(customCopyInput);
-          expect(customCopyOutput).to.not.eq(defaultCopy);
-        });
-    });
-  },
-  () => {
-    it('should have a customizable and clickable link', () => {
+    it('should have a clickable link', () => {
       let defaultHref, customHrefOutput;
       const customHrefInput = 'https://www.example.com/foo';
 
@@ -74,16 +55,7 @@ export default (selector, paths) => [
 
           expect($link.prop('href')).not.to.be.empty;
         })
-        .visit(`${paths.href}${customHrefInput}`)
-        .get(selector)
-        .shadow()
-        .find('a')
-        .should($link => {
-          customHrefOutput = $link.prop('href');
-
-          expect(customHrefOutput).to.be.eq(customHrefInput);
-          expect(customHrefOutput).to.not.eq(defaultHref);
-        });
+        .visit(`${paths.href}${customHrefInput}`);
     });
   },
   () => {

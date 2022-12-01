@@ -4,6 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import getCssPropertyForRule from '../../utils/get-css-property-for-rule';
 
 /**
  * Sets the correct path
@@ -11,28 +12,26 @@
  * @type {string} path of component
  * @private
  */
-const _path = 'iframe.html?id=components-link-list--horizontal';
+const _path = 'iframe.html?id=components-link-list--default';
 
 /**
  * Collection of tests for the component
  *
  * @function checkComponentLoad Asserts that each list item loads body copy and one clickable link
- * @function checkHorizontalAlignment Asserts that each list item is positioned directly to the left of its previous sibling
  * @function checkVerticalAlignment Asserts that each list item is positioned directly below its previous sibling
+ * @function checkHoverState Asserts that list items have a CSS rule that sets the background color on hover
  * @function checkCTATypes Asserts that the CTA icon is set correctly for each type
  * @private
  */
 const _tests = {
   checkA11y: () => {
-    cy.visit(`/${_path}`);
-    cy.injectAxe();
     cy.checkAxeA11y();
   },
   checkComponentLoad: () => {
     cy.visit(`/${_path}`);
 
     cy.get('dds-link-list').then(([list]) => {
-      const items = list.querySelectorAll('dds-link-list-item');
+      const items = list.querySelectorAll('dds-link-list-item-card');
       items.forEach(item => {
         cy.get(item)
           .shadow()
@@ -54,43 +53,22 @@ const _tests = {
       });
     });
   },
-  checkHorizontalAlignment: () => {
+  checkHoverState: () => {
     cy.visit(`/${_path}`);
 
-    let previous, window;
-    cy.window()
-      .then(win => (window = win))
-      .get('dds-link-list-item')
-      .each(([card], i) => {
-        if (i !== 0) {
-          const cardBox = card.getBoundingClientRect();
-          const prevBox = previous.getBoundingClientRect();
-          const cardStyles = window.getComputedStyle(card);
-          const prevStyles = window.getComputedStyle(previous);
+    cy.get('dds-link-list-item-card').then(([card]) => {
+      const sheets = card.shadowRoot.adoptedStyleSheets;
 
-          expect(cardBox.left).to.be.eq(prevBox.right + parseInt(prevStyles.marginRight) + parseInt(cardStyles.marginLeft));
-        }
-        previous = card;
-      });
-  },
-  checkVerticalAlignment: () => {
-    cy.visit(`/${_path}`);
+      if (sheets) {
+        const hover = getCssPropertyForRule(
+          '.bx--card:hover, :host(dds-card:hover), :host(dds-link-list-item-card:hover), :host(dds-card-group-item:hover), :host(dds-card-group-item) .bx--card:hover, :host(dds-card-cta:hover), :host(dds-link-list-item-card-cta:hover), :host(dds-card-in-card:hover), :host(dds-content-group-cards-item:hover), :host(dds-content-group-cards-item) .bx--card:hover',
+          'background-color',
+          sheets
+        );
 
-    let previous, window;
-    cy.window()
-      .then(win => (window = win))
-      .get('dds-link-list-item')
-      .each(([card], i) => {
-        if (i !== 0) {
-          const cardBox = card.getBoundingClientRect();
-          const prevBox = previous.getBoundingClientRect();
-          const cardStyles = window.getComputedStyle(card);
-          const prevStyles = window.getComputedStyle(previous);
-
-          expect(cardBox.top).to.be.eq(prevBox.bottom + parseInt(prevStyles.marginBottom) + parseInt(cardStyles.marginTop));
-        }
-        previous = card;
-      });
+        expect(hover).to.be.eq('var(--cds-hover-ui, #e5e5e5)');
+      }
+    });
   },
   checkCTATypes: () => {
     const types = {
@@ -118,20 +96,12 @@ const _tests = {
 describe('dds-link-list | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
+    cy.visit(`/${_path}`);
+    cy.injectAxe();
   });
 
   it('should load items with text and link', _tests.checkComponentLoad);
-  it('should have a horizontal layout', _tests.checkHorizontalAlignment);
+  it('should change styles on hover', _tests.checkHoverState);
   it('should check a11y', _tests.checkA11y);
-  _tests.checkCTATypes();
-});
-
-describe('dds-link-list | default (mobile)', () => {
-  beforeEach(() => {
-    cy.viewport(375, 780);
-  });
-
-  it('should load items with text and link', _tests.checkComponentLoad);
-  it('should have a vertical layout', _tests.checkVerticalAlignment);
   _tests.checkCTATypes();
 });

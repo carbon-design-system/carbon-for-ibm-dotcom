@@ -113,13 +113,3 @@ describe('dds-card-cta | (desktop)', () => {
   it('Should have hover-state styling', _tests.checkHoverStyles);
   it('Should check a11y', _tests.checkA11y);
 });
-
-describe('dds-card-cta | (mobile)', () => {
-  beforeEach(() => {
-    cy.viewport(375, 720);
-  });
-
-  it('Should load and be fully clickable', _tests.checkBlockLink);
-  it('Should have customizable CTA type', _tests.checkTypeKnob);
-  it('Should have hover-state styling', _tests.checkHoverStyles);
-});

@@ -30,34 +30,6 @@ describe('dds-lightbox-media-viewer | default', () => {
     cy.checkAxeA11y();
   });
 
-  it('should render with all elements', () => {
-    cy.get('dds-lightbox-media-viewer')
-      .as('component')
-      .should('have.attr', 'default-src')
-      .should('not.be.empty');
-
-    cy.get('@component')
-      .find('[data-autoid="dds--lightbox-media-viewer__content__title"]')
-      .should('not.be.empty')
-      .get('@component')
-      .find('[data-autoid="dds--lightbox-media-viewer__content__desc"]')
-      .should('not.be.empty');
-
-    cy.takeSnapshots();
-  });
-
-  it('should align elements', () => {
-    cy.get('dds-lightbox-media-viewer .bx--image__img').then($image => {
-      expect($image[0].getBoundingClientRect().left).to.equal(64);
-    });
-
-    cy.get('dds-lightbox-media-viewer')
-      .find('.bx--lightbox-media-viewer__content')
-      .then($content => {
-        expect($content[0].getBoundingClientRect().right).to.equal(1280 - 64);
-      });
-  });
-
   it('should verify the image size 1:1', () => {
     cy.visit(`/${_defaultPath}${_args.img1x1}`)
       .get('.bx--image__img')
@@ -113,50 +85,5 @@ describe('dds-lightbox-media-viewer | embedded video player', () => {
       .should('not.be.empty')
 
       .takeSnapshots();
-  });
-
-  it('should align elements correctly', () => {
-    cy.get('dds-lightbox-media-viewer')
-      .find('.bx--video-player__video-container')
-      .then($video => {
-        expect($video[0].getBoundingClientRect().left).to.equal(64);
-      });
-
-    cy.get('dds-lightbox-media-viewer')
-      .find('.bx--lightbox-media-viewer__content')
-      .then($content => {
-        expect($content[0].getBoundingClientRect().right).to.equal(1280 - 64);
-      });
-  });
-
-  it('should have interactive video controls', () => {
-    cy.get('dds-lightbox-media-viewer')
-      .find('.bx--video-player__video-container')
-      .find('.bx--video-player__image-overlay')
-      .click()
-      .wait(1000)
-
-      .get('.bx--video-player__video .controlsContainer')
-      .should('not.be.empty')
-
-      // play/pause
-      .get('.bx--video-player__video iframe')
-      .find('.playPauseBtn')
-      .should('not.be.empty')
-
-      // mute
-      .get('.bx--video-player__video iframe')
-      .find('button[title="Mute"]')
-      .should('not.be.empty');
-
-    // full screen
-    cy.get('.bx--video-player__video iframe')
-      .find('.fullScreenBtn')
-      .should('not.be.empty');
-  });
-
-  it('should load correctly in all themes', () => {
-    cy.viewport(1280, 780);
-    cy.carbonThemesScreenshot();
   });
 });

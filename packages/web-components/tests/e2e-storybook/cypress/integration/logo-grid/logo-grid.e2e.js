@@ -34,19 +34,6 @@ describe('dds-logo-grid | default', () => {
     cy.checkAxeA11y();
   });
 
-  it('should have page heading with different brand logos', () => {
-    cy.get('dds-logo-grid dds-content-block-heading').should('have.length', 1);
-    cy.get('dds-logo-grid-item').then($els => {
-      const logoItems = Array.from($els, el => el.defaultSrc);
-      const equalLogos = logoItems.filter((item, i, ar) => ar.indexOf(item) != i);
-
-      // resulting array only has duplicate images -- empty array means distinct images
-      expect(equalLogos).to.be.length(0);
-    });
-
-    cy.takeSnapshots();
-  });
-
   it('should have clickable CTA card link with heading', () => {
     cy.visit(`/${_pathWithCTA}`);
 

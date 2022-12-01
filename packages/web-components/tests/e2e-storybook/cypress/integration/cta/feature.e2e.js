@@ -128,28 +128,6 @@ const _tests = {
         expect(imageBox.height + contentBox.height).to.be.eq(cardBox.height);
       });
   },
-  checkHeadingKnob: () => {
-    let defaultText, customTextOutput;
-
-    const customTextInput = 'Lorem Ipsum Dolor Sit Amet.';
-
-    const knobs = new URLSearchParams({
-      'knob-Heading': customTextInput,
-    });
-
-    cy.get('dds-card-heading')
-      .then(([heading]) => {
-        defaultText = heading.innerText;
-      })
-      .visit(`/${_paths.default}&${knobs.toString()}`)
-      .get('dds-card-heading')
-      .then(([heading]) => {
-        customTextOutput = heading.innerText;
-
-        expect(customTextInput).to.be.eq(customTextOutput);
-        expect(customTextOutput).to.not.eq(defaultText);
-      });
-  },
   checkTypeKnob: () => {
     const types = {
       local: 'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z',
@@ -179,8 +157,6 @@ describe('dds-feature-cta | (desktop)', () => {
   });
 
   it('Should load and be fully clickable', _tests.checkBlockLink);
-  xit('Should load image on left and content on right', _tests.checkHorizontalLayout);
-  it('Should have customizable heading from knobs', _tests.checkHeadingKnob);
   it('Should have customizable CTA type from knobs', _tests.checkTypeKnob);
   it('Should check a11y', _tests.checkA11y);
 });
@@ -191,8 +167,5 @@ describe('dds-feature-cta | (mobile)', () => {
     cy.visit(`/${_paths.default}`);
   });
 
-  it('Should load and be fully clickable', _tests.checkBlockLink);
   it('Should load image on top and content on bottom', _tests.checkVerticalLayout);
-  it('Should have customizable heading from knobs', _tests.checkHeadingKnob);
-  it('Should have customizable CTA type from knobs', _tests.checkTypeKnob);
 });

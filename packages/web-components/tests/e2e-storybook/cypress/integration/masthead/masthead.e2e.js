@@ -26,16 +26,6 @@ describe('dds-masthead | default (desktop)', () => {
     cy.checkAxeA11y();
   });
 
-  it('should have url for IBM logo', () => {
-    cy.get('dds-masthead-logo')
-      .shadow()
-      .find('a')
-      .then($link => {
-        const url = $link.prop('href');
-        expect(url).not.to.be.empty;
-      });
-  });
-
   it('should load menu item with selected state', () => {
     let selectedState = false;
     cy.get('dds-megamenu-top-nav-menu')

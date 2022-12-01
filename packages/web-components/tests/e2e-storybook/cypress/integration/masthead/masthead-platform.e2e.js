@@ -41,13 +41,4 @@ describe('dds-masthead | with platform (desktop)', () => {
       });
     });
   });
-
-  it('should open the search bar with platform', () => {
-    cy.get('dds-masthead > dds-search-with-typeahead')
-      .shadow()
-      .find('.bx--header__search--search')
-      .click();
-
-    cy.takeSnapshots();
-  });
 });

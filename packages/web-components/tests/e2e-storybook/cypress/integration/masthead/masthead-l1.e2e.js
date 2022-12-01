@@ -68,26 +68,6 @@ describe('dds-masthead | with L1 (desktop)', () => {
       });
   });
 
-  it('should load the l1 - second nav item', () => {
-    cy.get('dds-top-nav-l1 > *:nth-child(2)')
-      .shadow()
-      .find('a')
-      .then($link => {
-        const url = $link.prop('href');
-        expect(url).not.to.be.empty;
-      });
-  });
-
-  it('should load and have url for third l1 item', () => {
-    cy.get('dds-top-nav-l1 > *:nth-child(3)')
-      .shadow()
-      .find('a')
-      .then($link => {
-        const url = $link.prop('href');
-        expect(url).not.to.be.empty;
-      });
-  });
-
   it('should load the l1 - fourth nav item', () => {
     cy.get('dds-top-nav-l1 > *:nth-child(4)')
       .click()

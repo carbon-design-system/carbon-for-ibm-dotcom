@@ -38,29 +38,6 @@ const _tests = [
     });
   },
   () => {
-    it('should render customizable header text', () => {
-      let defaultHeader, customHeaderOutput;
-      const customHeaderInput = 'Lorem ipsum dolor sit amet';
-
-      cy.visit(_path)
-        .get(_selector)
-        .find('dds-content-item-heading')
-        .then(([copy]) => {
-          defaultHeader = copy.innerText.trim();
-        })
-        .visit(`${_path}&knob-Heading:=${customHeaderInput}`)
-        .get(_selector)
-        .find('dds-content-item-heading')
-        .should(([copy]) => {
-          customHeaderOutput = copy.innerText.trim();
-
-          expect(customHeaderOutput).to.be.eq(customHeaderInput);
-          expect(customHeaderOutput).to.not.eq(defaultHeader);
-        });
-      cy.takeSnapshots();
-    });
-  },
-  () => {
     it('should optionally render copy text', () => {
       cy.visit(`${_path}&knob-Copy:=true`)
         .get(_selector)
@@ -70,29 +47,6 @@ const _tests = [
         .get(_selector)
         .find('dds-content-item-copy')
         .should('have.length', 0);
-      cy.takeSnapshots();
-    });
-  },
-  () => {
-    it('should render customizable CTA text', () => {
-      let defaultCopy, customCopyOutput;
-      const customCopyInput = 'Consectetur adipiscing elit.';
-
-      cy.visit(_path)
-        .get(_selector)
-        .find('dds-text-cta')
-        .then(([copy]) => {
-          defaultCopy = copy.innerText.trim();
-        })
-        .visit(`${_path}&knob-CTA%20copy:=${customCopyInput}`)
-        .get(_selector)
-        .find('dds-text-cta')
-        .should(([copy]) => {
-          customCopyOutput = copy.innerText.trim();
-
-          expect(customCopyOutput).to.be.eq(customCopyInput);
-          expect(customCopyOutput).to.not.eq(defaultCopy);
-        });
       cy.takeSnapshots();
     });
   },
@@ -142,14 +96,6 @@ const _tests = [
 describe('dds-content-item | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
-  });
-
-  _tests.forEach(test => test());
-});
-
-describe('dds-content-item | default (mobile)', () => {
-  beforeEach(() => {
-    cy.viewport(320, 720);
   });
 
   _tests.forEach(test => test());

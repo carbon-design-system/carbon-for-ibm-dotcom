@@ -236,22 +236,6 @@ describe('dds-table-of-contents | default (desktop)', () => {
     cy.injectAxe();
   });
 
-  it('should load table of contents sidebar with links', _tests.desktop.checkRender);
-  it('should navigate content to selected section', _tests.desktop.checkLinkFunctionality);
-  xit('should update current section on scroll', _tests.desktop.checkScrollSpy);
-  it('should remain visible on page throughout scroll', _tests.desktop.checkStickyNav);
-  it('should render correctly in all themes', _tests.all.screenshotThemes);
-  it('should check a11y', _tests.all.checkA11y);
-});
-
-describe('dds-table-of-contents | horizontal (desktop)', () => {
-  beforeEach(() => {
-    cy.viewport(1280, 720);
-    cy.visit(`/${_paths.horizontal}`);
-    cy.injectAxe();
-  });
-
-  it('should load table of contents horizontal bar with links', _tests.desktop.checkRender);
   it('should navigate content to selected section', _tests.desktop.checkLinkFunctionality);
   xit('should update current section on scroll', _tests.desktop.checkScrollSpy);
   it('should remain visible on page throughout scroll', _tests.desktop.checkStickyNav);
@@ -266,7 +250,6 @@ describe('dds-table-of-contents | default (mobile)', () => {
     cy.injectAxe();
   });
 
-  it('should load table of contents sidebar with links', _tests.mobile.checkRender);
   it('should navigate content to selected section', _tests.mobile.checkLinkFunctionality);
   xit('should update current section on scroll', _tests.mobile.checkScrollSpy);
   it('should remain visible on page throughout scroll', _tests.mobile.checkStickyNav);
@@ -274,17 +257,16 @@ describe('dds-table-of-contents | default (mobile)', () => {
   it('should check a11y', _tests.all.checkA11y);
 });
 
-describe('dds-table-of-contents | horizontal (mobile)', () => {
+describe('dds-table-of-contents | horizontal (desktop)', () => {
   beforeEach(() => {
-    cy.viewport(320, 720);
+    cy.viewport(1280, 720);
     cy.visit(`/${_paths.horizontal}`);
     cy.injectAxe();
   });
 
-  it('should load table of contents sidebar with links', _tests.mobile.checkRender);
-  it('should navigate content to selected section', _tests.mobile.checkLinkFunctionality);
-  xit('should update current section on scroll', _tests.mobile.checkScrollSpy);
-  it('should remain visible on page throughout scroll', _tests.mobile.checkStickyNav);
+  it('should navigate content to selected section', _tests.desktop.checkLinkFunctionality);
+  xit('should update current section on scroll', _tests.desktop.checkScrollSpy);
+  it('should remain visible on page throughout scroll', _tests.desktop.checkStickyNav);
   it('should render correctly in all themes', _tests.all.screenshotThemes);
   it('should check a11y', _tests.all.checkA11y);
 });
