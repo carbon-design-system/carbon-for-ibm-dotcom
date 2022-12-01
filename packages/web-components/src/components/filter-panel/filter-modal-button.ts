@@ -8,7 +8,7 @@
  */
 
 import { customElement } from 'lit-element';
-import BXModalFooterButton from 'carbon-web-components/es/components/modal/modal-footer-button.js';
+import BXModalFooterButton from '@carbon/carbon-web-components/es/components/modal/modal-footer-button.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';

@@ -16,8 +16,8 @@ import {
 } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import HostListener from '@carbon/carbon-web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/carbon-web-components/es/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSContentItem from '../content-item/content-item';
 import styles from './content-item-horizontal-media.scss';

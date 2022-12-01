@@ -9,8 +9,8 @@
 
 import { html, svg, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import FocusMixin from '@carbon/carbon-web-components/es/globals/mixins/focus.js';
+import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
 import IBM8BarLogoH65White from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-logo--h65-white.svg';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
