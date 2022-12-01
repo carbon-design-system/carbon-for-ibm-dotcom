@@ -203,7 +203,7 @@ describe('dds-search-with-typeahead', function () {
         search.shadowRoot!.querySelector(
           'dds-search-with-typeahead-item'
         ) as HTMLElement
-      ).click();
+      )?.click();
       expect((search as any)._redirect).toHaveBeenCalledWith(
         'https://www.ibm.com/search?lnk=mhsrch&q=test&lang=en&cc=US'
       );
