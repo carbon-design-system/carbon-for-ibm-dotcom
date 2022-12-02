@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, TemplateResult } from 'lit-element';
+import { customElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSContentBlockV2 from '../content-block-v2/content-block';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';

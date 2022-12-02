@@ -13,7 +13,7 @@ import {
   property,
   LitElement,
 } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
+// import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from './defs';
 import styles from './content-block.scss';
@@ -27,13 +27,13 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 /**
  * The table mapping slot name with the private property name that indicates the existence of the slot content.
  */
-const slotExistencePropertyNames = {
-  complementary: '_hasComplementary',
-  copy: '_hasCopy',
-  heading: '_hasHeading',
-  footer: '_hasFooter',
-  media: '_hasMedia',
-};
+// const slotExistencePropertyNames = {
+//   complementary: '_hasComplementary',
+//   copy: '_hasCopy',
+//   heading: '_hasHeading',
+//   footer: '_hasFooter',
+//   media: '_hasMedia',
+// };
 
 // TODO: Figure out how to define a mixin type supporting abstract class
 /**
