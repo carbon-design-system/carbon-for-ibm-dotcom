@@ -195,8 +195,7 @@ class DDSFilterPanelInputSelect extends FocusMixin(
           @keydown=${this._handleKeydown}
           aria-controls="content"
           aria-label="${this.ariaLabel}"
-          role="button"
-        >
+          role="button">
           ${title}
           <div class="${prefix}--close__icon">
             ${this.selected && this.isOpen ? Close() : null}
@@ -208,8 +207,7 @@ class DDSFilterPanelInputSelect extends FocusMixin(
           @keydown=${this._handleKeydownInner}
           class="${this.isOpen
             ? ''
-            : `${prefix}--selected-option-dropdown__hidden`} ${prefix}--selected-option-dropdown"
-        >
+            : `${prefix}--selected-option-dropdown__hidden`} ${prefix}--selected-option-dropdown">
           <slot @slotchange="${this._handleSlotChange}"></slot>
         </ul>
       </div>

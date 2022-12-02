@@ -31,12 +31,10 @@ const LegalNav = ({ links, type, button, adjunctLinks }) => {
     <aside
       data-autoid={`${stablePrefix}--footer-legal-nav`}
       className={`${prefix}--legal-nav__container`}
-      aria-label="Footer legal links container"
-    >
+      aria-label="Footer legal links container">
       <nav
         className={`${prefix}--legal-nav`}
-        aria-label="Footer legal link list"
-      >
+        aria-label="Footer legal link list">
         <div className={`${prefix}--legal-nav__list ${listStyle}`}>
           <ul className={`${prefix}--legal-nav__holder`}>
             {links &&
@@ -57,8 +55,7 @@ const LegalNav = ({ links, type, button, adjunctLinks }) => {
                     <Link
                       data-autoid={`${stablePrefix}--footer-legal-nav__link-${dataTitle}`}
                       className={`${prefix}--footer__link`}
-                      href={url}
-                    >
+                      href={url}>
                       {title}
                     </Link>
                   </li>
@@ -90,8 +87,7 @@ const LegalNav = ({ links, type, button, adjunctLinks }) => {
                   <Link
                     data-autoid={`${stablePrefix}--footer-legal-nav__link-${dataTitle}`}
                     className={`${prefix}--footer__link`}
-                    href={url}
-                  >
+                    href={url}>
                     {title}
                   </Link>
                 </li>

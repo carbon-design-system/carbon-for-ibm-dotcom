@@ -27,16 +27,14 @@ export const Default = (args) => {
           <dds-locale-modal-composite
             lang-display="${ifNonNull(langDisplay)}"
             open
-            .localeList="${ifNonNull(localeList)}"
-          >
+            .localeList="${ifNonNull(localeList)}">
           </dds-locale-modal-composite>
         `
       : html`
           <dds-locale-modal-container
             lang-display="${ifNonNull(langDisplay)}"
             open
-            .localeList="${ifNonNull(localeList)}"
-          >
+            .localeList="${ifNonNull(localeList)}">
           </dds-locale-modal-container>
         `}
   `;

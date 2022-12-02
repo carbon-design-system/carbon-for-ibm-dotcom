@@ -32,7 +32,6 @@ class AnalyticsAPI {
    * and fires an event to Coremetrics
    *
    * @param {object} eventData Object with standard IBM metric event properties and values to send to Coremetrics
-   *
    * @example
    * import { AnalyticsAPI } from '@carbon/ibmdotcom-services';
    *
@@ -47,8 +46,6 @@ class AnalyticsAPI {
    *    }
    *    AnalyticsAPI.registerEvent(eventData);
    * }
-   *
-   *
    */
   static registerEvent(eventData) {
     if (root.ibmStats) {
@@ -77,9 +74,8 @@ class AnalyticsAPI {
    * function init() {
    *   AnalyticsAPI.initScrollTracker();
    * }
-   *
    * @deprecated
-   **/
+   */
   static initScrollTracker() {
     if (_scrollTracker) {
       console.warn(
@@ -202,7 +198,6 @@ class AnalyticsAPI {
    * Sends video player metrics data
    *
    * @param {object} data event data from the video player
-   *
    * @example
    * import { AnalyticsAPI } from '@carbon/ibmdotcom-services';
    *
@@ -218,7 +213,6 @@ class AnalyticsAPI {
    *
    *    AnalyticsAPI.videoPlayerStats(data);
    *}
-   *
    */
   static videoPlayerStats(data) {
     let playerState = data?.playerState || '',

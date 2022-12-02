@@ -76,8 +76,7 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
             <dds-image
               alt="${ifNonNull(videoName)}"
               default-src="${ifNonNull(thumbnail || videoThumbnailUrl)}"
-              slot="image"
-            >
+              slot="image">
               ${PlayVideo({ slot: 'icon' })}
             </dds-image>
           `;

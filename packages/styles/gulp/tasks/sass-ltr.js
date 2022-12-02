@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,7 +21,6 @@ const gulp = require('gulp'),
  * @description
  * Compile .scss files into build css directory with autoprefixer,
  * then live reload the browser
- *
  * @returns {object} The gulp task stream
  * @private
  */
@@ -47,7 +46,6 @@ function _sass() {
  * @function
  * @description
  * Compile the regular versions of the css directory into the dist folder
- *
  * @returns {object} the gulp task stream
  * @private
  */

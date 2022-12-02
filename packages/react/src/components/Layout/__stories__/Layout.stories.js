@@ -77,8 +77,7 @@ export const Default = () => {
         className={cx(`bx--grid`, {
           [`bx--layout--top-${marginTop}`]: marginTop,
           [`bx--layout--bottom-${marginBottom}`]: marginBottom,
-        })}
-      >
+        })}>
         <div className="bx--row">
           <div className="bx--layout-1-3">
             <div
@@ -87,8 +86,7 @@ export const Default = () => {
               })}
               style={{
                 top: stickyOffset ? `${stickyOffset}px` : 0,
-              }}
-            >
+              }}>
               <h3>Column 1</h3>
 
               <ul className="bx--list--unordered">
@@ -105,8 +103,7 @@ export const Default = () => {
           <div
             className={cx('bx--layout-2-3', {
               [`bx--layout--border`]: border,
-            })}
-          >
+            })}>
             <div className="bx--row">
               <div className="bx--layout-2-3">
                 <h3>Column 2.1</h3>
@@ -186,8 +183,7 @@ export const Default = () => {
                 <div
                   className={cx({
                     [`bx--layout--sticky`]: stickyRight,
-                  })}
-                >
+                  })}>
                   <h3>Column 2.2</h3>
 
                   <ul className="bx--list--unordered">

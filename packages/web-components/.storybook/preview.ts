@@ -70,8 +70,7 @@ export const decorators = [
         data-floating-menu-container
         data-modal-container
         role="main"
-        class="${classes}"
-      >
+        class="${classes}">
         ${result}
       </div>
     `;

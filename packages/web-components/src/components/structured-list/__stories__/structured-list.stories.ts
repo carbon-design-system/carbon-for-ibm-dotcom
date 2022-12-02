@@ -19,8 +19,7 @@ export const Default = (args) => {
       col-span-1="${colSpan1 ?? ''}"
       col-span-2="${colSpan2 ?? ''}"
       col-span-3="${colSpan3 ?? ''}"
-      col-span-4="${colSpan4 ?? ''}"
-    >
+      col-span-4="${colSpan4 ?? ''}">
       <dds-structured-list-head>
         <dds-structured-list-header-row>
           <dds-structured-list-header-cell
@@ -92,8 +91,7 @@ export const WithRowHeaders = (args) => {
       col-span-1="${colSpan1 ?? ''}"
       col-span-2="${colSpan2 ?? ''}"
       col-span-3="${colSpan3 ?? ''}"
-      col-span-4="${colSpan4 ?? ''}"
-    >
+      col-span-4="${colSpan4 ?? ''}">
       <dds-structured-list-body>
         <dds-structured-list-row>
           <dds-structured-list-header-cell scope="row"
@@ -144,8 +142,7 @@ export const WithSubheaders = (args) => {
       col-span-1="${colSpan1 ?? ''}"
       col-span-2="${colSpan2 ?? ''}"
       col-span-3="${colSpan3 ?? ''}"
-      col-span-4="${colSpan4 ?? ''}"
-    >
+      col-span-4="${colSpan4 ?? ''}">
       <dds-structured-list-body>
         <dds-structured-list-group title="Group 1">
           <dds-structured-list-row>
@@ -268,8 +265,7 @@ export const WithComplexContent = (args) => {
       col-span-1="${colSpan1 ?? ''}"
       col-span-2="${colSpan2 ?? ''}"
       col-span-3="${colSpan3 ?? ''}"
-      col-span-4="${colSpan4 ?? ''}"
-    >
+      col-span-4="${colSpan4 ?? ''}">
       <dds-structured-list-head>
         <dds-structured-list-header-row>
           <dds-structured-list-header-cell
@@ -290,8 +286,7 @@ export const WithComplexContent = (args) => {
         </dds-structured-list-row>
         <dds-structured-list-row>
           <dds-structured-list-cell
-            tags="Merchandising Offer, Secondary Tag, Other"
-          >
+            tags="Merchandising Offer, Secondary Tag, Other">
             Cell with tags
           </dds-structured-list-cell>
         </dds-structured-list-row>

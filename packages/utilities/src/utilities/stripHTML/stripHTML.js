@@ -12,7 +12,6 @@
  * import { stripHTML } from '@carbon/ibmdotcom-utilities';
  *
  * content = stripHTML(this.innerHtml);
- *
  * @param {string} content with html tags
  * @returns {null} content without html tags
  */

@@ -50,15 +50,13 @@ export const Default = (args) => {
         ? 'light'
         : ''}
       ?border=${cardStyles === 'Outlined card'}
-      href=${ifNonNull(href || undefined)}
-    >
+      href=${ifNonNull(href || undefined)}>
       ${image
         ? html`
             <dds-image
               slot="image"
               alt="${ifNonNull(alt)}"
-              default-src="${ifNonNull(defaultSrc)}"
-            ></dds-image>
+              default-src="${ifNonNull(defaultSrc)}"></dds-image>
           `
         : ``}
       <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
@@ -130,8 +128,7 @@ export const Pictogram = (args) => {
         : cardStyles === 'Outlined card'
         ? 'light'
         : ''}
-      ?border=${cardStyles === 'Outlined card'}
-    >
+      ?border=${cardStyles === 'Outlined card'}>
       <dds-card-heading>${heading}</dds-card-heading>
       ${copy ? html` <p>${copy}</p> ` : ``}
       ${tagGroup ? html` ${tagGroupContent} ` : ``}
@@ -146,15 +143,13 @@ export const Pictogram = (args) => {
         height="48"
         viewBox="0 0 32 32"
         role="img"
-        class="bx--card__pictogram"
-      >
+        class="bx--card__pictogram">
         <path
           id="desktop_1_"
           d="M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26
           c1.302,0,2.36,1.059,2.36,2.36v17c0,1.302-1.059,2.36-2.36,2.36H16.36v4.279H23V29.36z M1.36,19.36V22c0,
           0.904,0.736,1.64,1.64,1.64h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,
-          18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z"
-        />
+          18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z" />
       </svg>
     </dds-card>
   `;
@@ -226,15 +221,13 @@ export const Static = (args) => {
   return html`
     <dds-card
       color-scheme=${outlinedCard ? 'light' : ''}
-      ?border=${outlinedCard}
-    >
+      ?border=${outlinedCard}>
       ${image
         ? html`
             <dds-image
               slot="image"
               alt="${ifNonNull(alt)}"
-              default-src="${ifNonNull(defaultSrc)}"
-            ></dds-image>
+              default-src="${ifNonNull(defaultSrc)}"></dds-image>
           `
         : ``}
       ${eyebrow ? html` <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow> ` : ``}
@@ -313,8 +306,7 @@ export const Logo = (args) => {
       <dds-image-logo
         slot="image"
         alt="${ifNonNull(alt)}"
-        default-src="${ifNonNull(defaultSrc)}"
-      ></dds-image-logo>
+        default-src="${ifNonNull(defaultSrc)}"></dds-image-logo>
       ${eyebrow ? html` <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow> ` : ``}
       ${heading ? html` <dds-card-heading>${heading}</dds-card-heading> ` : ``}
       ${copy ? html` <p>${copy}</p> ` : ``}
@@ -367,8 +359,7 @@ export default {
       <div class="bx--grid">
         <div class="bx--row">
           <div
-            class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter"
-          >
+            class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
             ${story()}
           </div>
         </div>

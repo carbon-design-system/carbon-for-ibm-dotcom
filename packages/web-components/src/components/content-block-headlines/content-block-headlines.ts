@@ -39,8 +39,7 @@ class DDSContentBlockHeadlines extends StableSelectorMixin(DDSContentBlock) {
     return html`
       <div
         ?hidden="${!hasContent}"
-        class="${prefix}--content-block-headlines__item-container"
-      >
+        class="${prefix}--content-block-headlines__item-container">
         <slot @slotchange="${handleSlotChange}"></slot>
       </div>
     `;

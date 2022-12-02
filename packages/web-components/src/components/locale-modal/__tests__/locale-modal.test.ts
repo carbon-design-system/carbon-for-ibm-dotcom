@@ -19,8 +19,7 @@ const template = (props?) => {
   return html`
     <dds-locale-modal
       header-title="${ifNonNull(headerTitle)}"
-      lang-display="${ifNonNull(langDisplay)}"
-    >
+      lang-display="${ifNonNull(langDisplay)}">
       ${children}
     </dds-locale-modal>
   `;

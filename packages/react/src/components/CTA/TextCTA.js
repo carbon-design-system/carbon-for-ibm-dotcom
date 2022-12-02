@@ -36,8 +36,7 @@ const TextCTA = ({
           href="#"
           onClick={(e) => CTALogic.setLightBox(e, openLightBox)}
           iconInline={otherProps.iconInline}
-          {...(iconPlacement && { iconPlacement })}
-        >
+          {...(iconPlacement && { iconPlacement })}>
           <span>
             {formatCTAcopy({
               title: videoTitle[0].title,
@@ -57,8 +56,7 @@ const TextCTA = ({
       target={CTALogic.external(type)}
       onClick={(e) => CTALogic.jump(e, type)}
       iconInline={otherProps.iconInline}
-      {...(iconPlacement && { iconPlacement })}
-    >
+      {...(iconPlacement && { iconPlacement })}>
       <span>{otherProps.copy}</span>
       <span className="bx--visually-hidden">
         {CTALogic.getDefaultLabel(type)}

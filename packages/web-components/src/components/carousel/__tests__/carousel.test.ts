@@ -20,8 +20,7 @@ const template = (props?) => {
     <dds-carousel
       .formatStatus="${ifNonNull(formatStatus)}"
       page-size="${ifNonNull(pageSize)}"
-      start="${ifNonNull(start)}"
-    >
+      start="${ifNonNull(start)}">
       ${children}
     </dds-carousel>
   `;

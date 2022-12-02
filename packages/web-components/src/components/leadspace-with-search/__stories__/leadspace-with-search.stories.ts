@@ -64,12 +64,10 @@ export const Default = (args) => {
       </dds-leadspace-with-search-content>
       <dds-search-with-typeahead
         slot="search"
-        leadspace-search
-      ></dds-search-with-typeahead>
+        leadspace-search></dds-search-with-typeahead>
       <dds-hr
         slot="hr"
-        style="${currentTheme === secondTheme ? 'display: none' : ''}"
-      ></dds-hr>
+        style="${currentTheme === secondTheme ? 'display: none' : ''}"></dds-hr>
     </dds-leadspace-with-search>
   `;
 };
@@ -93,8 +91,7 @@ export const WithImage = (args) => {
         gradient-direction="left-to-right"
         mobile-position="bottom"
         default-src="${image}"
-        slot="image"
-      >
+        slot="image">
       </dds-background-media>
       <dds-leadspace-with-search-heading
         >${heading}</dds-leadspace-with-search-heading
@@ -110,12 +107,10 @@ export const WithImage = (args) => {
       </dds-leadspace-with-search-content>
       <dds-search-with-typeahead
         slot="search"
-        leadspace-search
-      ></dds-search-with-typeahead>
+        leadspace-search></dds-search-with-typeahead>
       <dds-hr
         slot="hr"
-        style="${currentTheme === secondTheme ? 'display: none' : ''}"
-      ></dds-hr>
+        style="${currentTheme === secondTheme ? 'display: none' : ''}"></dds-hr>
     </dds-leadspace-with-search>
   `;
 };

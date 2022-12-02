@@ -16,8 +16,7 @@ const template = (props?) => {
   const { complementaryStyleScheme, children } = props ?? {};
   return html`
     <dds-content-block-simple
-      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}"
-    >
+      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       ${children}
     </dds-content-block-simple>
   `;

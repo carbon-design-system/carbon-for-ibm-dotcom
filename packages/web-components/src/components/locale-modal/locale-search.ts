@@ -223,8 +223,7 @@ class DDSLocaleSearch extends ThrottedInputMixin(
             label-text="${labelText}"
             placeholder="${placeholder}"
             size="${INPUT_SIZE.EXTRA_LARGE}"
-            data-autoid="${ddsPrefix}--locale-modal__filter"
-          >
+            data-autoid="${ddsPrefix}--locale-modal__filter">
           </dds-search>
           <div class="${prefix}--visually-hidden" aria-live="polite"></div>
           <p class="${prefix}--locale-modal__search-text">

@@ -81,8 +81,7 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
             <dds-card-cta-image
               class="${prefix}--card__video-thumbnail"
               alt="${ifNonNull(videoName)}"
-              default-src="${ifNonNull(thumbnail || videoThumbnailUrl)}"
-            >
+              default-src="${ifNonNull(thumbnail || videoThumbnailUrl)}">
               ${PlayVideo({ slot: 'icon' })}
             </dds-card-cta-image>
           `;

@@ -16,11 +16,9 @@ export const Default = () => {
   return html`
     <div
       style="width:100%"
-      class="bx--grid bx--layout--top-layout-03 bx--layout--bottom-layout-06"
-    >
+      class="bx--grid bx--layout--top-layout-03 bx--layout--bottom-layout-06">
       <div
-        class="bx--row bx--layout--top-layout-03 bx--layout--bottom-layout-06"
-      >
+        class="bx--row bx--layout--top-layout-03 bx--layout--bottom-layout-06">
         <div class="bx--col-lg-12">
           <div>
             <div class="bx--row">

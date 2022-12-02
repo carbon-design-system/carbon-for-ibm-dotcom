@@ -45,35 +45,25 @@ const template = ({ width = 215 }: { width?: number } = {}) => {
     </style>
     <dds-top-nav>
       <div
-        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--even"
-      ></div>
+        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--even"></div>
       <div
-        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--odd"
-      ></div>
+        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--odd"></div>
       <div
-        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--even"
-      ></div>
+        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--even"></div>
       <div
-        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--odd"
-      ></div>
+        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--odd"></div>
       <div
-        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--even"
-      ></div>
+        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--even"></div>
       <div
-        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--odd"
-      ></div>
+        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--odd"></div>
       <div
-        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--even"
-      ></div>
+        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--even"></div>
       <div
-        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--odd"
-      ></div>
+        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--odd"></div>
       <div
-        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--even"
-      ></div>
+        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--even"></div>
       <div
-        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--odd"
-      ></div>
+        class="dds-ce--test--scroll-content dds-ce--test--scroll-content--odd"></div>
     </dds-top-nav>
   `;
 };

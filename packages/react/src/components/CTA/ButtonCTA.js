@@ -92,7 +92,6 @@ const _renderButtons = ({
  * render the icon description for screen reader
  *
  * @param {string} type type of cta
- *
  * @private
  * @returns {string} icon description
  */

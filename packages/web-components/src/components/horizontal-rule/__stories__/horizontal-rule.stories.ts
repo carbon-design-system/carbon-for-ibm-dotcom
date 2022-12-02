@@ -20,8 +20,7 @@ export const Default = (args) => {
       type="${ifNonNull(type)}"
       size="${ifNonNull(size)}"
       contrast="${ifNonNull(contrast)}"
-      weight="${ifNonNull(weight)}"
-    >
+      weight="${ifNonNull(weight)}">
     </dds-hr>
   `;
 };

@@ -248,13 +248,11 @@ class DDSLeftNavMenuSection extends CspComplianceMixin(
           ? html`
               <li
                 class="${prefix}--side-nav__menu-item ${prefix}--masthead__side-nav--submemu-back"
-                role="none"
-              >
+                role="none">
                 <button
                   class="${prefix}--side-nav__link"
                   tabindex="-1"
-                  @click="${handleClickBack}"
-                >
+                  @click="${handleClickBack}">
                   <span class="${prefix}--side-nav__link-text"
                     >${ChevronLeft20()}${backButtonText}</span
                   >
@@ -273,12 +271,10 @@ class DDSLeftNavMenuSection extends CspComplianceMixin(
           ? html`
               <a
                 class="${prefix}--masthead__side-nav--submemu-title"
-                href=${titleUrl}
-              >
+                href=${titleUrl}>
                 <span>${title}</span>
                 <div
-                  class="${prefix}--masthead__side-nav--submemu-section-title__icon"
-                >
+                  class="${prefix}--masthead__side-nav--submemu-section-title__icon">
                   ${ArrowRight20()}
                 </div>
               </a>

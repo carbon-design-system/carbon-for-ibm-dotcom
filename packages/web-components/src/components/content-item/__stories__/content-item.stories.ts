@@ -25,16 +25,14 @@ export const Default = (args) => {
               slot="media"
               alt="Alt image text"
               default-src="${imgLg16x9}"
-              heading="Image caption text"
-            ></dds-image>
+              heading="Image caption text"></dds-image>
           `
         : ``}
       ${media === 'video'
         ? html`
             <dds-video-player-container
               slot="media"
-              video-id="1_9h94wo6b"
-            ></dds-video-player-container>
+              video-id="1_9h94wo6b"></dds-video-player-container>
           `
         : ''}
       <dds-content-item-heading>${heading}</dds-content-item-heading>

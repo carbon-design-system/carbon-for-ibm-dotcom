@@ -149,8 +149,7 @@ export function AudioPlayer({
       <div
         className={`${prefix}--audio-player__embedded-player`}
         data-autoid={`${stablePrefix}--audio-player__audio-${audioId}`}
-        id={uniqueAudioPlayerId}
-      ></div>
+        id={uniqueAudioPlayerId}></div>
 
       <AudioPlayerThumbnail audioId={audioId} />
 

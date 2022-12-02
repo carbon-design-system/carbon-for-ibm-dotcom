@@ -53,22 +53,18 @@ describe('dds-content-block-media', function () {
                 slot="media"
                 alt="Image alt text"
                 default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-                heading="Lorem ipsum"
-              >
+                heading="Lorem ipsum">
                 <dds-image-item
                   media="(min-width: 672px)"
-                  srcset="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-                >
+                  srcset="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616">
                 </dds-image-item>
                 <dds-image-item
                   media="(min-width: 400px)"
-                  srcset="https://fpoimg.com/400x225?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-                >
+                  srcset="https://fpoimg.com/400x225?text=16:9&amp;bg_color=ee5396&amp;text_color=161616">
                 </dds-image-item>
                 <dds-image-item
                   media="(min-width: 320px)"
-                  srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-                >
+                  srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616">
                 </dds-image-item>
               </dds-image>
               <dds-content-item>

@@ -124,8 +124,7 @@ export const Default = (args) => {
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-composite>
         `
@@ -145,8 +144,7 @@ export const Default = (args) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
@@ -198,8 +196,7 @@ export const DefaultFooterLanguageOnly = (args) => {
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-composite>
         `
@@ -222,8 +219,7 @@ export const DefaultFooterLanguageOnly = (args) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
@@ -294,8 +290,7 @@ export const searchOpenOnload = (args) => {
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-composite>
         `
@@ -319,8 +314,7 @@ export const searchOpenOnload = (args) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
@@ -371,8 +365,7 @@ export const withPlatform = (args) => {
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-composite>
         `
@@ -391,8 +384,7 @@ export const withPlatform = (args) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
@@ -477,8 +469,7 @@ export const withShortFooter = (args) => {
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-composite>
         `
@@ -498,8 +489,7 @@ export const withShortFooter = (args) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
@@ -558,8 +548,7 @@ export const withShortFooterLanguageOnly = (args) => {
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-composite>
         `
@@ -583,8 +572,7 @@ export const withShortFooterLanguageOnly = (args) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
@@ -655,8 +643,7 @@ export const withMicroFooter = (args) => {
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-composite>
         `
@@ -676,8 +663,7 @@ export const withMicroFooter = (args) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
@@ -733,8 +719,7 @@ export const withMicroFooterLanguageOnly = (args) => {
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-composite>
         `
@@ -758,8 +743,7 @@ export const withMicroFooterLanguageOnly = (args) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
@@ -833,8 +817,7 @@ export const withL1 = (args) => {
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent(contentConfig)}
           </dds-dotcom-shell-composite>
         `
@@ -852,8 +835,7 @@ export const withL1 = (args) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent(contentConfig)}
           </dds-dotcom-shell-container>
         `}
@@ -947,8 +929,7 @@ export const WithHorizontalTOC = (args) => {
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent(contentConfig)}
           </dds-dotcom-shell-composite>
         `
@@ -968,8 +949,7 @@ export const WithHorizontalTOC = (args) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent(contentConfig)}
           </dds-dotcom-shell-container>
         `}
@@ -1026,8 +1006,7 @@ export const WithLeadspaceSearch = (args) => {
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContentNoToC()}
           </dds-dotcom-shell-composite>
         `
@@ -1047,8 +1026,7 @@ export const WithLeadspaceSearch = (args) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContentNoToC()}
           </dds-dotcom-shell-container>
         `}
@@ -1104,8 +1082,7 @@ export const WithUniversalBanner = (args) => {
     <dds-universal-banner image-width="${imageWidth}">
       <dds-universal-banner-image
         slot="image"
-        default-src="${images[imageWidth]}"
-      ></dds-universal-banner-image>
+        default-src="${images[imageWidth]}"></dds-universal-banner-image>
       <dds-universal-banner-heading slot="heading"
         >${heading}</dds-universal-banner-heading
       >
@@ -1114,8 +1091,7 @@ export const WithUniversalBanner = (args) => {
         slot="cta"
         cta-type="local"
         kind="tertiary"
-        href="https://www.example.com"
-      >
+        href="https://www.example.com">
         ${ctaCopy}
       </dds-button-cta>
     </dds-universal-banner>
@@ -1140,8 +1116,7 @@ export const WithUniversalBanner = (args) => {
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-composite>
         `
@@ -1161,8 +1136,7 @@ export const WithUniversalBanner = (args) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
@@ -1244,14 +1218,12 @@ export const WithoutShell = (args) => {
     ${masthead === 'L0'
       ? html`
           <dds-masthead-container
-            id="masthead-container"
-          ></dds-masthead-container>
+            id="masthead-container"></dds-masthead-container>
         `
       : html`
           <dds-masthead-container
             id="masthead-container"
-            .l1Data="${l1Data}"
-          ></dds-masthead-container>
+            .l1Data="${l1Data}"></dds-masthead-container>
         `}
     <main class="bx--content dds-ce-demo--ui-shell-content">
       ${leadspaceSearch

@@ -147,8 +147,7 @@ class DDSBackgroundMedia extends DDSImage {
         class="${prefix}--video-player__controls"
         aria-pressed="${!videoIsPlaying}"
         aria-label="${videoIsPlaying ? 'Pause the video' : 'Play the video'}"
-        hasTooltip
-      >
+        hasTooltip>
         ${videoIsPlaying ? pauseIcon() : playIcon()}
       </button>
     `;
@@ -188,8 +187,7 @@ class DDSBackgroundMedia extends DDSImage {
         ${this.gradientHidden ? '' : this.renderGradient()}
         <div
           class="${prefix}--background-media--item"
-          style="${this._getMediaOpacity()}"
-        >
+          style="${this._getMediaOpacity()}">
           ${this.containsOnlyImages ? super.render() : ''}
           <slot @slotchange="${this._handleBackgroundMedia}"></slot>
         </div>

@@ -22,13 +22,11 @@ const ContentGroupCards = ({ heading, items, copy }) => {
   return (
     <section
       data-autoid={`${stablePrefix}--content-group-cards`}
-      className={`${prefix}--content-group-cards`}
-    >
+      className={`${prefix}--content-group-cards`}>
       <ContentGroup heading={heading} copy={copy}>
         <div
           data-autoid={`${stablePrefix}--content-group-cards-group`}
-          className={`${prefix}--content-group-cards-group ${prefix}--grid--condensed`}
-        >
+          className={`${prefix}--content-group-cards-group ${prefix}--grid--condensed`}>
           <div className={`${prefix}--content-group-cards__row`}>
             {_renderCards(items)}
           </div>
@@ -50,8 +48,7 @@ const _renderCards = (items) =>
       data-autoid={`${stablePrefix}--content-group-cards-item`}
       className={`${prefix}--content-group-cards-item__col`}
       key={index}
-      role="region"
-    >
+      role="region">
       <Card
         customClassName={`${prefix}--content-group-cards-item`}
         heading={elem.heading}

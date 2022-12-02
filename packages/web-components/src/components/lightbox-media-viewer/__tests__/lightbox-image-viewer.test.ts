@@ -18,8 +18,7 @@ const template = (props?) => {
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
       description="${ifNonNull(description)}"
-      title="${ifNonNull(title)}"
-    >
+      title="${ifNonNull(title)}">
     </dds-lightbox-image-viewer>
   `;
 };

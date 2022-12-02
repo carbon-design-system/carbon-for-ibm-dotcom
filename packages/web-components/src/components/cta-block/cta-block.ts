@@ -184,8 +184,7 @@ class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
     return html`
       <div
         ?hidden="${!hasLinkList}"
-        class="${prefix}--content-layout__link-list"
-      >
+        class="${prefix}--content-layout__link-list">
         <slot name="link-list" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;

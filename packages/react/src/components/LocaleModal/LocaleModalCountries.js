@@ -110,8 +110,7 @@ const LocaleModalCountries = ({
         <p
           className={`${prefix}--assistive-text`}
           role="status"
-          aria-live="assertive"
-        ></p>
+          aria-live="assertive"></p>
         {regionList?.map(
           (region) =>
             currentRegion === region.name &&
@@ -121,8 +120,7 @@ const LocaleModalCountries = ({
                   className={`${prefix}--locale-modal__locales`}
                   onClick={() => _setCookie(country.locale)}
                   href={country.href}
-                  data-region={country.region}
-                >
+                  data-region={country.region}>
                   <div className={`${prefix}--locale-modal__locales__name`}>
                     {country.name}
                   </div>

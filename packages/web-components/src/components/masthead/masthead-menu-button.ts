@@ -117,8 +117,7 @@ class DDSMastheadMenuButton extends HostListenerMixin(BXHeaderMenuButton) {
       <button
         id="${side}-sentinel"
         type="button"
-        class="${prefix}--visually-hidden"
-      ></button>
+        class="${prefix}--visually-hidden"></button>
     `;
   };
 

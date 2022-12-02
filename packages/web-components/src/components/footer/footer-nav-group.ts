@@ -146,8 +146,7 @@ class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
             aria-controls="content"
             aria-expanded="${String(Boolean(open))}"
             @click="${handleClickExpando}"
-            @keydown="${handleKeydownExpando}"
-          >
+            @keydown="${handleKeydownExpando}">
             ${ChevronRight16({
               class: `${prefix}--accordion__arrow`,
             })}

@@ -27,8 +27,7 @@ const template = (props?) => {
       ?hide-caption="${hideCaption}"
       name="${ifNonNull(name)}"
       .formatCaption="${ifNonNull(formatCaption)}"
-      .formatDuration="${ifNonNull(formatDuration)}"
-    >
+      .formatDuration="${ifNonNull(formatDuration)}">
     </dds-lightbox-video-player>
   `;
 };
