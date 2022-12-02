@@ -14,7 +14,6 @@
  * const elements = ['bx--classname1', 'bx--classname2','bx--classname3','bx--classname4'];
  *
  * calculateTotalWidth(elements);
- *
  * @param {Array} elements array of classnames
  * @returns {number} total width of the elements
  */

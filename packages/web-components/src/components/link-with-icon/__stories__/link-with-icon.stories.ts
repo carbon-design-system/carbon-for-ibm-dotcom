@@ -24,8 +24,7 @@ export const Default = (args) => {
       icon-placement="${iconPlacement}"
       ?disabled="${disabled}"
       href="${ifNonNull(href)}"
-      @click="${onClick}"
-    >
+      @click="${onClick}">
       ${children}${ArrowRight20({ slot: 'icon' })}
     </dds-link-with-icon>
   `;

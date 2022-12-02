@@ -18,9 +18,7 @@ import root from 'window-or-global';
  * const langs = altlangs();
  *
  * console.log(langs); // { 'us-en': 'https://www.ibm.com/us-en', ... }
- *
  * @returns {object} object of available languages and corresponding URLs
- *
  */
 function altlangs() {
   let links = [];

@@ -24,16 +24,14 @@ const CategoryGroup = ({ href, title, children, ...rest }) => (
           <LinkWithIcon
             href={href}
             className={`${prefix}--masthead__megamenu__category-headline`}
-            data-autoid={`${rest.autoid}-list${rest.index}`}
-          >
+            data-autoid={`${rest.autoid}-list${rest.index}`}>
             <span>{title}</span>
             <ArrowRight16 />
           </LinkWithIcon>
         ) : (
           <div
             className={`${prefix}--masthead__megamenu__category-headline`}
-            data-autoid={`${rest.autoid}-list${rest.index}`}
-          >
+            data-autoid={`${rest.autoid}-list${rest.index}`}>
             <p>{title}</p>
           </div>
         )}

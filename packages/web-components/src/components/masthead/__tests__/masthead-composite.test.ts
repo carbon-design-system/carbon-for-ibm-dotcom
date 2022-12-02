@@ -25,8 +25,7 @@ const template = (props?) => {
       user-status="${ifNonNull(userStatus)}"
       .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
       .navLinks="${navLinks}"
-      .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-    >
+      .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}">
     </dds-masthead-composite>
   `;
 };

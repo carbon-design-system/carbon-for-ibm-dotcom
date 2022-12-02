@@ -19,8 +19,7 @@ const template = (props?) => {
     <dds-masthead-profile
       ?authenticated="${authenticated}"
       ?expanded="${expanded}"
-      menu-label="${ifNonNull(menuLabel)}"
-    ></dds-masthead-profile>
+      menu-label="${ifNonNull(menuLabel)}"></dds-masthead-profile>
   `;
 };
 

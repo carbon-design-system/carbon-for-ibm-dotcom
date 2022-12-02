@@ -60,8 +60,7 @@ class DDSLocaleButton extends StableSelectorMixin(FocusMixin(LitElement)) {
       <button
         id="button"
         class="${prefix}--btn ${prefix}--btn--tertiary ${prefix}--locale-btn"
-        aria-label="${ifNonNull(buttonLabel)}"
-      >
+        aria-label="${ifNonNull(buttonLabel)}">
         <slot></slot>
         ${EarthFilled16()}
       </button>

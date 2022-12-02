@@ -42,8 +42,7 @@ describe('dds-card-section-offset', function () {
               slot="action"
               cta-type="local"
               icon-placement="right"
-              href="https://example.com"
-            >
+              href="https://example.com">
               CTA copy
             </dds-text-cta>
           `,

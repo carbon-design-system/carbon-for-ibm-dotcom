@@ -98,8 +98,7 @@ const Quote = ({ markType = 'doubleCurved', copy, source, cta, inverse }) => {
         return (
           <>
             <span
-              className={`${prefix}--quote__mark ${prefix}--quote__mark-corner-bracket`}
-            >
+              className={`${prefix}--quote__mark ${prefix}--quote__mark-corner-bracket`}>
               「
             </span>
             <blockquote className={`${prefix}--quote__copy`}>
@@ -114,20 +113,17 @@ const Quote = ({ markType = 'doubleCurved', copy, source, cta, inverse }) => {
       data-autoid={`${stablePrefix}--quote`}
       className={classnames(`${prefix}--quote`, {
         [`${prefix}--quote__inverse`]: inverse,
-      })}
-    >
+      })}>
       <div className={`${prefix}--quote__container`}>
         <div
           className={`${prefix}--quote__wrapper`}
-          data-autoid={`${stablePrefix}--quote__copy`}
-        >
+          data-autoid={`${stablePrefix}--quote__copy`}>
           {renderQuote()}
         </div>
         {source && source.heading && source.copy ? (
           <div
             className={`${prefix}--quote__source`}
-            data-autoid={`${stablePrefix}--quote__source`}
-          >
+            data-autoid={`${stablePrefix}--quote__source`}>
             <p className={`${prefix}--quote__source-heading`}>
               {source.heading}
             </p>

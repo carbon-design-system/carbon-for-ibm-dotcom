@@ -61,8 +61,7 @@ export const Default = (args) => {
         slot="footer"
         href="${href}"
         cta-type="${ifNonNull(ctaType)}"
-        color-scheme="inverse"
-      >
+        color-scheme="inverse">
         <dds-card-link-heading
           >Try a free virtual business framing session with IBM
           Garage</dds-card-link-heading

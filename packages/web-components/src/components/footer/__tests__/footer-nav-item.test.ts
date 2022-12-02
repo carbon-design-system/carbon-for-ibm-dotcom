@@ -15,8 +15,7 @@ const template = (props?) => {
   const { titleText } = props ?? {};
   return html`
     <dds-footer-nav-item
-      title-text="${ifNonNull(titleText)}"
-    ></dds-footer-nav-item>
+      title-text="${ifNonNull(titleText)}"></dds-footer-nav-item>
   `;
 };
 

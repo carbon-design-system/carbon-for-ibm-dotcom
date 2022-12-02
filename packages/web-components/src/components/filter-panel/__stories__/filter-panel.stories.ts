@@ -24,8 +24,7 @@ export const Default = (args) => {
   return html`
     <div
       class="${gridKnobs === '3 columns' ? 'bx--col-lg-3' : 'bx--col-lg-4'}"
-      style="padding-right: 1rem;"
-    >
+      style="padding-right: 1rem;">
       <dds-filter-panel-composite>
         <dds-filter-panel-heading slot="heading"
           >${heading}</dds-filter-panel-heading
@@ -35,8 +34,7 @@ export const Default = (args) => {
             title-text="Product types"
             filter-cutoff="${filterCutoff}"
             max-filters="${maxFilters}"
-            view-all-text="${viewAllText}"
-          >
+            view-all-text="${viewAllText}">
             <dds-filter-panel-checkbox value="API"
               >API</dds-filter-panel-checkbox
             >
@@ -65,12 +63,10 @@ export const Default = (args) => {
           <dds-filter-group-item title-text="Technologies">
             <dds-filter-panel-input-select
               header-value="Analytics"
-              title="Analytics"
-            ></dds-filter-panel-input-select>
+              title="Analytics"></dds-filter-panel-input-select>
             <dds-filter-panel-input-select
               header-value="Artificial intelligence"
-              title="Artificial intelligence"
-            >
+              title="Artificial intelligence">
               <dds-filter-panel-input-select-item value="Machine Learning"
                 >Machine Learning</dds-filter-panel-input-select-item
               >
@@ -84,62 +80,48 @@ export const Default = (args) => {
             </dds-filter-panel-input-select>
             <dds-filter-panel-input-select
               header-value="Automation"
-              title="Automation"
-            ></dds-filter-panel-input-select>
+              title="Automation"></dds-filter-panel-input-select>
             <dds-filter-panel-input-select
               header-value="Blockchain"
-              title="Blockchain"
-            ></dds-filter-panel-input-select>
+              title="Blockchain"></dds-filter-panel-input-select>
             <dds-filter-panel-input-select
               header-value="Cloud computing"
-              title="Cloud computing"
-            ></dds-filter-panel-input-select>
+              title="Cloud computing"></dds-filter-panel-input-select>
             <dds-filter-panel-input-select
               header-value="IT infrastructure"
-              title="IT infrastructure"
-            ></dds-filter-panel-input-select>
+              title="IT infrastructure"></dds-filter-panel-input-select>
             <dds-filter-panel-input-select
               header-value="IT management"
-              title="IT management"
-            ></dds-filter-panel-input-select>
+              title="IT management"></dds-filter-panel-input-select>
             <dds-filter-panel-input-select
               header-value="Mobile technologys"
-              title="Mobile technology"
-            ></dds-filter-panel-input-select>
+              title="Mobile technology"></dds-filter-panel-input-select>
             <dds-filter-panel-input-select
               header-value="Security"
-              title="Security"
-            ></dds-filter-panel-input-select>
+              title="Security"></dds-filter-panel-input-select>
             <dds-filter-panel-input-select
               header-value="Software development"
-              title="Software development"
-            ></dds-filter-panel-input-select>
+              title="Software development"></dds-filter-panel-input-select>
           </dds-filter-group-item>
           <dds-filter-group-item title-text="Business needs">
             <dds-filter-panel-input-select
               header-value="Business operations"
-              title="Business operations"
-            ></dds-filter-panel-input-select>
+              title="Business operations"></dds-filter-panel-input-select>
             <dds-filter-panel-input-select
               header-value="Content Management"
-              title="Content Management"
-            ></dds-filter-panel-input-select>
+              title="Content Management"></dds-filter-panel-input-select>
             <dds-filter-panel-input-select
               header-value="Customer service"
-              title="Customer service"
-            ></dds-filter-panel-input-select>
+              title="Customer service"></dds-filter-panel-input-select>
             <dds-filter-panel-input-select
               header-value="Finance"
-              title="Finance"
-            ></dds-filter-panel-input-select>
+              title="Finance"></dds-filter-panel-input-select>
             <dds-filter-panel-input-select
               header-value="Marketing and sales"
-              title="Marketing and sales"
-            ></dds-filter-panel-input-select>
+              title="Marketing and sales"></dds-filter-panel-input-select>
             <dds-filter-panel-input-select
               header-value="Supply chain management"
-              title="Supply chain management"
-            ></dds-filter-panel-input-select>
+              title="Supply chain management"></dds-filter-panel-input-select>
           </dds-filter-group-item>
           <dds-filter-group-item title-text="Deployment types">
             <dds-filter-panel-checkbox value="On-premises"

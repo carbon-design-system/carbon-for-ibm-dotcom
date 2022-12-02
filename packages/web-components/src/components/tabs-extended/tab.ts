@@ -80,8 +80,7 @@ class DDSTab extends StableSelectorMixin(LitElement) {
         role="tabpanel"
         aria-labelledby="tab-link-${this._index}-default"
         aria-hidden="${!this.selected}"
-        ?hidden="${!this.selected}"
-      >
+        ?hidden="${!this.selected}">
         <slot></slot>
       </div>
     `;

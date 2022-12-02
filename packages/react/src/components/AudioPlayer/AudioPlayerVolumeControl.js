@@ -69,8 +69,7 @@ const AudioPlayerVolumeControl = ({
 
       {displayVolumeControl && (
         <div
-          className={`${prefix}--audio-player__volume-control-menu ${prefix}--audio-player__shadow`}
-        >
+          className={`${prefix}--audio-player__volume-control-menu ${prefix}--audio-player__shadow`}>
           <Slider
             max={1}
             min={0}

@@ -40,15 +40,13 @@ describe('dds-content-group-banner', function () {
               <dds-link-list-item-cta
                 icon-placement="right"
                 href="https://www.ibm.com"
-                cta-type="${CTA_TYPE.LOCAL}"
-              >
+                cta-type="${CTA_TYPE.LOCAL}">
                 cta-copy-foo
               </dds-link-list-item-cta>
               <dds-link-list-item-cta
                 icon-placement="right"
                 href="https://www.ibm.com"
-                cta-type="${CTA_TYPE.EXTERNAL}"
-              >
+                cta-type="${CTA_TYPE.EXTERNAL}">
                 cta-copy-foo
               </dds-link-list-item-cta>
             </dds-link-list>

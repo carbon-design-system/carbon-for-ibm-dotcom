@@ -81,8 +81,7 @@ export const Default = (args) => {
             .navLinks="${navLinks}"
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
-            )}"
-          ></dds-cloud-masthead-composite>
+            )}"></dds-cloud-masthead-composite>
         `
       : html`
           <dds-cloud-masthead-container
@@ -97,8 +96,7 @@ export const Default = (args) => {
             .navLinks="${navLinks}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"
-          ></dds-cloud-masthead-container>
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"></dds-cloud-masthead-container>
         `}
   `;
 };

@@ -229,8 +229,7 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
               rel="${ifNonNull(rel)}"
               target="${ifNonNull(target)}"
               type="${ifNonNull(type)}"
-              @click="${handleClick}"
-            >
+              @click="${handleClick}">
               ${this._renderInner()}
             </a>
           `;
@@ -243,8 +242,7 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
         ?autofocus="${autofocus}"
         ?disabled="${disabled}"
         type="${ifNonNull(type)}"
-        @click="${handleClick}"
-      >
+        @click="${handleClick}">
         ${this._renderInner()}
       </button>
     `;

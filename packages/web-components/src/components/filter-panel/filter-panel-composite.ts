@@ -455,8 +455,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(
   protected _renderModal = (): TemplateResult => html`
     <dds-filter-panel-modal
       ?open=${this.openFilterModal}
-      heading="${this._filterButtonTitle}"
-    >
+      heading="${this._filterButtonTitle}">
       <slot name="heading" @slotchange="${this._handleTitleSlotChange}"></slot>
       <slot @slotchange="${this._handleSlotChange}"></slot>
     </dds-filter-panel-modal>

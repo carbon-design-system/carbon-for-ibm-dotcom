@@ -46,7 +46,6 @@ const colSpan = 3;
  * .bx--content-block {
  *   --#{$dds-prefix}--fade-in-out-delay: 250ms;
  * }
- *
  */
 const ScrollAnimations = ({
   animation,
@@ -171,7 +170,6 @@ const ScrollAnimations = ({
    *
    * @param {*} records observed elements
    * @private
-   *
    */
   const handleEntrance = useCallback(
     (records) => {
@@ -194,7 +192,6 @@ const ScrollAnimations = ({
    *
    * @param {*} records observed elements
    * @private
-   *
    */
   function handleExit(records) {
     records.forEach(({ intersectionRatio, target }) => {

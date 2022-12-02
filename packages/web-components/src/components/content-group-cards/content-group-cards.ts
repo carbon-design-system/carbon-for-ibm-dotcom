@@ -28,11 +28,9 @@ class DDSContentGroupCards extends DDSContentGroup {
     return html`
       <div
         ?hidden="${!hasContent && !hasMedia}"
-        class="${prefix}--content-group__children ${prefix}--content-group__col"
-      >
+        class="${prefix}--content-group__children ${prefix}--content-group__col">
         <div
-          class="${prefix}--content-group-cards-group ${prefix}--grid--condensed"
-        >
+          class="${prefix}--content-group-cards-group ${prefix}--grid--condensed">
           <div class="${prefix}--content-group-cards__row">
             ${this._renderContent()}${this._renderMedia()}
           </div>

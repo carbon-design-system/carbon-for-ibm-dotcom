@@ -132,8 +132,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
       <div
         class="${prefix}--card__wrapper ${hasPictogram
           ? `${prefix}--card__pictogram`
-          : ''} ${hasPictogram && hasCopy ? `${prefix}--card__motion` : ''}"
-      >
+          : ''} ${hasPictogram && hasCopy ? `${prefix}--card__motion` : ''}">
         <div class="${prefix}--card__content">
           ${hasPictogram ? '' : html` <slot name="eyebrow"></slot> `}
           ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
@@ -141,8 +140,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
                 <slot
                   name="pictogram"
                   data-pictogram-placement="${PICTOGRAM_PLACEMENT.TOP}"
-                  @slotchange="${handleSlotChange}"
-                ></slot>
+                  @slotchange="${handleSlotChange}"></slot>
               `
             : ''}
           ${this.pictogramPlacement !== PICTOGRAM_PLACEMENT.TOP || !hasPictogram
@@ -157,8 +155,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
                 <slot
                   name="pictogram"
                   data-pictogram-placement="${PICTOGRAM_PLACEMENT.BOTTOM}"
-                  @slotchange="${handleSlotChange}"
-                ></slot>
+                  @slotchange="${handleSlotChange}"></slot>
               `
             : ''}
           ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
@@ -267,8 +264,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
               ?.textContent || ''}"
             aria-live="polite"
             aria-describedby="${prefix}--card__copy"
-            role="button"
-          >
+            role="button">
             ${this._renderInner()}
           </div>
         `

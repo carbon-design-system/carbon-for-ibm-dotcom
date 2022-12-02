@@ -17,8 +17,7 @@ const template = (props?) => {
     <dds-left-nav-menu
       back-button-text="${ifNonNull(backButtonText)}"
       ?expanded="${expanded}"
-      title="${ifNonNull(title)}"
-    >
+      title="${ifNonNull(title)}">
     </dds-left-nav-menu>
   `;
 };

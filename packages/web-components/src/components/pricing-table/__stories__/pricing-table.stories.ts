@@ -229,8 +229,7 @@ export const Default = (args) => {
       col-span-3="${colSpan3 ?? ''}"
       col-span-4="${colSpan4 ?? ''}"
       highlight-column="${highlightCol}"
-      highlight-label="${highlightLabel}"
-    >
+      highlight-label="${highlightLabel}">
       ${renderHead(columnCount, heading)}
       <dds-pricing-table-body>
         ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)}
@@ -259,8 +258,7 @@ export const WithoutRowHeaders = (args) => {
       col-span-3="${colSpan3 ?? ''}"
       col-span-4="${colSpan4 ?? ''}"
       highlight-column="${highlightCol}"
-      highlight-label="${highlightLabel}"
-    >
+      highlight-label="${highlightLabel}">
       ${renderHead(columnCount, heading)}
       <dds-pricing-table-body>
         ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, false)}
@@ -295,8 +293,7 @@ export const WithSubheaders = (args) => {
       col-span-3="${colSpan3 ?? ''}"
       col-span-4="${colSpan4 ?? ''}"
       highlight-column="${highlightCol}"
-      highlight-label="${highlightLabel}"
-    >
+      highlight-label="${highlightLabel}">
       ${renderHead(columnCount, heading)}
       <dds-pricing-table-body>
         <dds-pricing-table-group title="Group 1">

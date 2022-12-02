@@ -30,8 +30,7 @@ const template = (props?) => {
       video-name="${ifDefined(videoName)}"
       video-thumbnail-url="${ifDefined(videoThumbnailUrl)}"
       .formatVideoCaption="${ifDefined(formatVideoCaption)}"
-      .formatVideoDuration="${ifDefined(formatVideoDuration)}"
-    >
+      .formatVideoDuration="${ifDefined(formatVideoDuration)}">
       ${children}
     </dds-card-cta>
   `;

@@ -90,8 +90,7 @@ export const Default = (args) => {
               unauthenticatedProfileItems
             )}"
             custom-profile-login="${customProfileLogin}"
-            .scopeParameters=${scopeParameters}
-          ></dds-masthead-composite>
+            .scopeParameters=${scopeParameters}></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
@@ -104,8 +103,7 @@ export const Default = (args) => {
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
-            .scopeParameters=${scopeParameters}
-          ></dds-masthead-container>
+            .scopeParameters=${scopeParameters}></dds-masthead-container>
         `}
   `;
 };

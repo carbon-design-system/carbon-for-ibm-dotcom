@@ -777,15 +777,13 @@ class DDSTableOfContents extends HostListenerMixin(
                   <li
                     class="${itemClasses}"
                     @click="${handleClickItem}"
-                    @keydown="${handleOnKeyDown}"
-                  >
+                    @keydown="${handleOnKeyDown}">
                     <a
                       aria-current="${ifDefined(
                         !selected ? undefined : 'location'
                       )}"
                       data-target="${name!}"
-                      href="#${name}"
-                    >
+                      href="#${name}">
                       ${title}
                     </a>
                   </li>
@@ -800,19 +798,16 @@ class DDSTableOfContents extends HostListenerMixin(
           class="${navigationClasses}"
           style="top: ${this.layout === TOC_TYPES.HORIZONTAL && stickyOffset
             ? `${stickyOffset}px`
-            : 0}"
-        >
+            : 0}">
           ${hasMobileContainerVisible
             ? nothing
             : html`
                 <div
                   ?hidden="${!hasHeading}"
-                  class="${prefix}--tableofcontents__desktop__children"
-                >
+                  class="${prefix}--tableofcontents__desktop__children">
                   <slot
                     name="heading"
-                    @slotchange="${handleSlotChangeHeading}"
-                  ></slot>
+                    @slotchange="${handleSlotChangeHeading}"></slot>
                   <slot name="menu-rule"></slot>
                 </div>
               `}
@@ -823,15 +818,13 @@ class DDSTableOfContents extends HostListenerMixin(
                   ? html`
                       <div class="${caretRightContainerClasses}">
                         <div
-                          class="${prefix}--toc__navbar-caret-right-gradient"
-                        ></div>
+                          class="${prefix}--toc__navbar-caret-right-gradient"></div>
                         <button
                           part="next-button"
                           tabindex="-1"
                           aria-hidden="true"
                           class="${prefix}--toc__navbar-caret-right"
-                          @click="${paginateRight}"
-                        >
+                          @click="${paginateRight}">
                           ${CaretLeft20()}
                         </button>
                       </div>
@@ -843,13 +836,11 @@ class DDSTableOfContents extends HostListenerMixin(
                           tabindex="-1"
                           aria-hidden="true"
                           class="${prefix}--toc__navbar-caret-left"
-                          @click="${paginateLeft}"
-                        >
+                          @click="${paginateLeft}">
                           ${CaretLeft20()}
                         </button>
                         <div
-                          class="${prefix}--toc__navbar-caret-left-gradient"
-                        ></div>
+                          class="${prefix}--toc__navbar-caret-left-gradient"></div>
                       </div>
                     `}
               `
@@ -859,15 +850,13 @@ class DDSTableOfContents extends HostListenerMixin(
             style="position: sticky; top: ${stickyOffset &&
             this.layout !== TOC_TYPES.HORIZONTAL
               ? `${stickyOffset}px`
-              : 0}"
-          >
+              : 0}">
             <div class="${prefix}--tableofcontents__desktop-container">
               <div
                 class="${prefix}--tableofcontents__desktop"
                 style="${pageIsRTL
                   ? 'right'
-                  : 'left'}: -${currentScrollPosition}px"
-              >
+                  : 'left'}: -${currentScrollPosition}px">
                 ${pageIsRTL
                   ? html` <div class="${prefix}--sub-content-right"></div> `
                   : html` <div class="${prefix}--sub-content-left"></div> `}
@@ -889,15 +878,13 @@ class DDSTableOfContents extends HostListenerMixin(
                       <li
                         class="${itemClasses}"
                         @click="${handleClickItem}"
-                        @keydown="${handleOnKeyDown}"
-                      >
+                        @keydown="${handleOnKeyDown}">
                         <a
                           aria-current="${ifDefined(
                             !selected ? undefined : 'location'
                           )}"
                           data-target="${name!}"
-                          href="#${name}"
-                        >
+                          href="#${name}">
                           ${title}
                         </a>
                       </li>
@@ -914,8 +901,7 @@ class DDSTableOfContents extends HostListenerMixin(
                 <select
                   aria-label="${this.ariaLabelFormatter}"
                   class="${prefix}--tableofcontents__mobile__select"
-                  @change="${handleChangeSelect}"
-                >
+                  @change="${handleChangeSelect}">
                   ${targets.map((item) => {
                     const name = item.getAttribute('name');
                     const title = (
@@ -926,8 +912,7 @@ class DDSTableOfContents extends HostListenerMixin(
                     return html`
                       <option
                         class="${prefix}--tableofcontents__mobile__select__option"
-                        value="${name!}"
-                      >
+                        value="${name!}">
                         ${title}
                       </option>
                     `;
@@ -949,27 +934,23 @@ class DDSTableOfContents extends HostListenerMixin(
                           tabindex="-1"
                           aria-hidden="true"
                           class="${prefix}--toc__navbar-caret-left"
-                          @click="${paginateLeft}"
-                        >
+                          @click="${paginateLeft}">
                           ${CaretRight20()}
                         </button>
                         <div
-                          class="${prefix}--toc__navbar-caret-left-gradient"
-                        ></div>
+                          class="${prefix}--toc__navbar-caret-left-gradient"></div>
                       </div>
                     `
                   : html`
                       <div class="${caretRightContainerClasses}">
                         <div
-                          class="${prefix}--toc__navbar-caret-right-gradient"
-                        ></div>
+                          class="${prefix}--toc__navbar-caret-right-gradient"></div>
                         <button
                           part="next-button"
                           tabindex="-1"
                           aria-hidden="true"
                           class="${prefix}--toc__navbar-caret-right"
-                          @click="${paginateRight}"
-                        >
+                          @click="${paginateRight}">
                           ${CaretRight20()}
                         </button>
                       </div>
@@ -984,12 +965,10 @@ class DDSTableOfContents extends HostListenerMixin(
               : html`
                   <div
                     ?hidden="${!hasHeading}"
-                    class="${prefix}--tableofcontents__children__mobile"
-                  >
+                    class="${prefix}--tableofcontents__children__mobile">
                     <slot
                       name="heading"
-                      @slotchange="${handleSlotChangeHeading}"
-                    ></slot>
+                      @slotchange="${handleSlotChangeHeading}"></slot>
                   </div>
                 `}
             <slot @slotchange="${handleSlotChange}"></slot>

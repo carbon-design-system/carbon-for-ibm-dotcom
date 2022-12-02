@@ -76,8 +76,7 @@ class DDSStructuredListCell extends BXStructuredListCell {
       <bx-tooltip-icon
         alignment="start"
         body-text="${tooltip}"
-        direction="right"
-      >
+        direction="right">
         ${Info16()}
       </bx-tooltip-icon>
     `;

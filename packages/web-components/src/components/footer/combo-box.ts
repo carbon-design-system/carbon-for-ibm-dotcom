@@ -184,8 +184,7 @@ class DDSComboBox extends DDSDropdown {
         aria-labelledby="assistiveStatus"
         aria-controls="menu-body"
         aria-autocomplete="list"
-        @input=${handleInput}
-      />
+        @input=${handleInput} />
     `;
   }
 
@@ -199,8 +198,7 @@ class DDSComboBox extends DDSDropdown {
             role="button"
             class="${prefix}--list-box__selection"
             tabindex="0"
-            title="${clearSelectionLabel}"
-          >
+            title="${clearSelectionLabel}">
             ${Close16({ 'aria-label': clearSelectionLabel })}
           </div>
         `;

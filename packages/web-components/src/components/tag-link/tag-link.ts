@@ -87,8 +87,7 @@ class DDSTagLink extends StableSelectorMixin(LitElement) {
         ping="${ifNonNull(ping)}"
         rel="${ifNonNull(rel)}"
         target="${ifNonNull(target)}"
-        @click="${handleClick}"
-      >
+        @click="${handleClick}">
         <slot></slot>
       </a>
     `;

@@ -186,8 +186,7 @@ const TableOfContents = ({
       data-autoid={`${stablePrefix}--tableofcontents`}
       className={classNames(`${prefix}--tableofcontents`, {
         [`${prefix}--tableofcontents--${theme}`]: theme,
-      })}
-    >
+      })}>
       <div className={`${stablePrefix}-ce--table-of-contents__container`}>
         <div className={`${prefix}--tableofcontents__sidebar`}>
           {headingContent && (
@@ -202,8 +201,7 @@ const TableOfContents = ({
             style={{
               position: 'sticky',
               top: stickyOffset ? `${stickyOffset}px` : 0,
-            }}
-          >
+            }}>
             <TOCDesktop
               menuRule={menuRule}
               headingContent={headingContent}

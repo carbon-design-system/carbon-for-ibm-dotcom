@@ -66,8 +66,7 @@ const image = html`
     slot="media"
     alt="Image alt text"
     default-src="${imgLg16x9}"
-    heading="Lorem ipsum dolor sit amet."
-  >
+    heading="Lorem ipsum dolor sit amet.">
     <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
     </dds-image-item>
     <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
@@ -84,8 +83,7 @@ export const Default = (args) => {
     <dds-content-block
       complementary-style-scheme="${border
         ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER
-        : ''}"
-    >
+        : ''}">
       ${heading
         ? html`
             <dds-content-block-heading
@@ -127,8 +125,7 @@ export const Default = (args) => {
             <dds-card-link-cta
               slot="footer"
               cta-type="local"
-              href="https://www.example.com"
-            >
+              href="https://www.example.com">
               <dds-card-link-heading
                 >Learn more about natual language
                 processing</dds-card-link-heading

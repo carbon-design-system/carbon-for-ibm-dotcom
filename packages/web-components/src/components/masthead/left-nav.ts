@@ -297,8 +297,7 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       <button
         id="${side}-sentinel"
         type="button"
-        class="${prefix}--visually-hidden"
-      ></button>
+        class="${prefix}--visually-hidden"></button>
     `;
   };
 

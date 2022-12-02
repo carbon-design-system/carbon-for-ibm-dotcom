@@ -92,8 +92,7 @@ class DDSContentItemHorizontalMedia extends HostListenerMixin(DDSContentItem) {
     return html`
       <div
         class="${prefix}--content-item-horizontal__row ${prefix}--content-item-horizontal-media__align-${this
-          .align}"
-      >
+          .align}">
         ${this._renderContent()}
       </div>
     `;

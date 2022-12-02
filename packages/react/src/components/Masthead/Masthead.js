@@ -319,8 +319,7 @@ const Masthead = ({
             <div className={`${prefix}--masthead__l0`}>
               <Header
                 aria-label="IBM"
-                data-autoid={`${stablePrefix}--masthead`}
-              >
+                data-autoid={`${stablePrefix}--masthead`}>
                 <SkipToContent />
 
                 {(mastheadL1Data || navigation) && (
@@ -382,8 +381,7 @@ const Masthead = ({
                 />
 
                 <div
-                  className={`${prefix}--header__search ${headerSearchClasses}`}
-                >
+                  className={`${prefix}--header__search ${headerSearchClasses}`}>
                   {navigation && !mastheadL1Data && (
                     <MastheadTopNav
                       {...mastheadProps}

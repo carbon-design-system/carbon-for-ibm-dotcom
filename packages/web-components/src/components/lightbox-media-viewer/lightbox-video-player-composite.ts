@@ -215,8 +215,7 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(
       <dds-expressive-modal
         ?open="${open}"
         expressive-size="full-width"
-        mode="lightbox"
-      >
+        mode="lightbox">
         <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
         <dds-lightbox-video-player
           description="${ifNonNull(videoDescription)}"
@@ -224,8 +223,7 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(
           name="${ifNonNull(videoName)}"
           ?hide-caption="${hideCaption}"
           .formatCaption="${ifNonNull(formatCaption)}"
-          .formatDuration="${ifNonNull(formatDuration)}"
-        >
+          .formatDuration="${ifNonNull(formatDuration)}">
         </dds-lightbox-video-player>
       </dds-expressive-modal>
     `;
