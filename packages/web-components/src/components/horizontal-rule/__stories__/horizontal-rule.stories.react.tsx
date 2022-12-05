@@ -10,11 +10,12 @@
 import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
+/* eslint-disable import/no-duplicates */
 // @ts-ignore
-// eslint-disable-next-line max-len, prettier/prettier
-import DDSHorizontalRule, {
-  PropTypesRef,
-} from '@carbon/ibmdotcom-web-components/es/components-react/horizontal-rule/horizontal-rule';
+import DDSHorizontalRule from '@carbon/ibmdotcom-web-components/es/components-react/horizontal-rule/horizontal-rule';
+// @ts-ignore
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/horizontal-rule/horizontal-rule';
+/* eslint-enable import/no-duplicates */
 import readme from './README.stories.react.mdx';
 
 const types = ['solid', 'dashed'];

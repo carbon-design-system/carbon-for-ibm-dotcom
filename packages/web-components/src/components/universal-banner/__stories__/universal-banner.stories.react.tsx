@@ -10,11 +10,12 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 /* eslint-disable max-len */
+/* eslint-disable import/no-duplicates */
 // @ts-ignore
-// eslint-disable-next-line max-len, prettier/prettier
-import DDSUniversalBanner, {
-  PropTypesRef,
-} from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
+import DDSUniversalBanner from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
+// @ts-ignore
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
+/* eslint-enable import/no-duplicates */
 import DDSUniversalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-heading';
 import DDSUniversalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-copy';
 import DDSUniversalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-image';
