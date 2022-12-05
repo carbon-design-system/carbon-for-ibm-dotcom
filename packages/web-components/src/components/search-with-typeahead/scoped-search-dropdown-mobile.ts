@@ -87,8 +87,7 @@ class DDSScopedSearchDropdownMobile extends BXSelect {
                 ?disabled="${disabled}"
                 label="${ifNonNull(label ?? textContent)}"
                 ?selected="${selected}"
-                value="${ifNonNull(value)}"
-              >
+                value="${ifNonNull(value)}">
                 ${textContent}
               </option>
             `
@@ -96,8 +95,7 @@ class DDSScopedSearchDropdownMobile extends BXSelect {
               <optgroup
                 class="${prefix}--select-optgroup"
                 ?disabled="${disabled}"
-                label="${ifNonNull(label)}"
-              >
+                label="${ifNonNull(label)}">
                 ${this._renderItemsMobile(item)}
               </optgroup>
             `;
@@ -167,8 +165,7 @@ class DDSScopedSearchDropdownMobile extends BXSelect {
           aria-describedby="${ifDefined(
             !invalid ? undefined : 'validity-message'
           )}"
-          @input="${handleInput}"
-        >
+          @input="${handleInput}">
           ${!placeholder || value
             ? undefined
             : html`
@@ -177,8 +174,7 @@ class DDSScopedSearchDropdownMobile extends BXSelect {
                   hidden
                   class="${prefix}--select-option"
                   value="${placeholderItemValue}"
-                  selected
-                >
+                  selected>
                   ${placeholder}
                 </option>
               `}

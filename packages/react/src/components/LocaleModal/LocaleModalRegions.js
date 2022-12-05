@@ -63,8 +63,7 @@ const LocaleModalRegions = ({
 
   return (
     <div
-      className={`${prefix}--grid ${prefix}--no-gutter ${prefix}--locale-modal__regions`}
-    >
+      className={`${prefix}--grid ${prefix}--no-gutter ${prefix}--locale-modal__regions`}>
       <div className={`${prefix}--row`}>
         {regionList &&
           regionList.map((region) => {
@@ -73,8 +72,7 @@ const LocaleModalRegions = ({
             return (
               <div
                 key={`${region.name}`}
-                className={`${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--col-xlg-8 ${prefix}--no-gutter`}
-              >
+                className={`${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--col-xlg-8 ${prefix}--no-gutter`}>
                 <CardLink
                   data-autoid={`${stablePrefix}--locale-modal__geo-btn-${region.key}`}
                   key={region.key}

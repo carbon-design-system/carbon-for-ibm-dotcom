@@ -172,8 +172,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
         close-button-assistive-text="${ifNonNull(modalClose)}"
         header-title="${ifNonNull(headerTitle)}"
         lang-display="${ifNonNull(langDisplay)}"
-        ?open="${open}"
-      >
+        ?open="${open}">
         <dds-regions title="${ifNonNull(headerTitle)}">
           ${regionList?.map(({ countryList, name }) => {
             return html`
@@ -181,8 +180,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
                 ?invalid="${countryList.length === 0 ||
                 massagedCountryList?.find(({ region }) => region === name) ===
                   undefined}"
-                name="${name}"
-              ></dds-region-item>
+                name="${name}"></dds-region-item>
             `;
           })}
         </dds-regions>
@@ -191,8 +189,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
           label-text="${ifNonNull(searchLabel)}"
           placeholder="${ifNonNull(searchPlaceholder)}"
           availability-label-text="${ifNonNull(availabilityText)}"
-          unavailability-label-text="${ifNonNull(unavailabilityText)}"
-        >
+          unavailability-label-text="${ifNonNull(unavailabilityText)}">
           ${massagedCountryList?.map(
             ({ country, href, language, locale, region }) => html`
               <dds-locale-item
@@ -200,8 +197,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
                 href="${href}"
                 language="${language}"
                 locale="${locale}"
-                region="${region}"
-              >
+                region="${region}">
               </dds-locale-item>
             `
           )}

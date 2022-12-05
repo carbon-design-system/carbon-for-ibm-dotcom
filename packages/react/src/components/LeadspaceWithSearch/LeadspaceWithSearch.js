@@ -45,8 +45,7 @@ const LeadspaceWithSearch = ({ heading, copy, searchProps }) => {
     <section
       data-autoid={`${stablePrefix}--leadspace-with-search`}
       className={`${prefix}--leadspace-with-search`}
-      ref={leadspaceContainer}
-    >
+      ref={leadspaceContainer}>
       <div className={`${prefix}--leadspace-with-search__row`}>
         <div className={`${prefix}--leadspace-with-search__content`}>
           <h1 className={`${prefix}--leadspace-with-search__heading`}>

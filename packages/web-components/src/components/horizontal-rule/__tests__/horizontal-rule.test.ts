@@ -18,8 +18,7 @@ const template = (props?) => {
       size="${ifNonNull(size)}"
       type="${ifNonNull(type)}"
       weight="${ifNonNull(weight)}"
-      contrast="${ifNonNull(contrast)}"
-    ></dds-hr>
+      contrast="${ifNonNull(contrast)}"></dds-hr>
   `;
 };
 

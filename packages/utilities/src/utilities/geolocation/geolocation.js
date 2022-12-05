@@ -17,9 +17,7 @@ const _endpoint =
  * import { geolocation } from '@carbon/ibmdotcom-utilities';
  *
  * const locationInfo = await geolocation();
- *
  * @returns {string} country cc (cc)
- *
  */
 async function geolocation() {
   const location = await axios

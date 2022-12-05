@@ -42,8 +42,7 @@ const template = (props?) => {
         performSearchButtonAssistiveText
       )}"
       searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-      redirect-url="${ifNonNull(redirectUrl)}"
-    >
+      redirect-url="${ifNonNull(redirectUrl)}">
     </dds-search-with-typeahead>
   `;
 };

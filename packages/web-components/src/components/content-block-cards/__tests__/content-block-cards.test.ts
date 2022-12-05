@@ -22,8 +22,7 @@ const template = (props?) => {
       <dds-card-cta
         slot="footer"
         cta-type="${ifNonNull(ctaType)}"
-        href="${ifNonNull(href)}"
-      >
+        href="${ifNonNull(href)}">
         <p>ctaCopy-foo</p>
         ${ArrowRight20({ slot: 'footer' })}
       </dds-card-cta>

@@ -34,8 +34,7 @@ export const Default = (args) => {
           <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
           <dds-card-cta-footer
             cta-type="video"
-            href="1_9h94wo6b"
-          ></dds-card-cta-footer>
+            href="1_9h94wo6b"></dds-card-cta-footer>
         </dds-card-in-card>
       </dds-video-cta-container>
     `;
@@ -45,8 +44,7 @@ export const Default = (args) => {
       <dds-card-in-card-image
         slot="image"
         alt="${ifNonNull(alt)}"
-        default-src="${ifNonNull(defaultSrc)}"
-      >
+        default-src="${ifNonNull(defaultSrc)}">
         <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}">
         </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}">

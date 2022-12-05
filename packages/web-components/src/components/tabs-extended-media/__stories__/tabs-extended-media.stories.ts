@@ -42,15 +42,13 @@ export const Default = (args) => {
                 <dds-image
                   slot="media"
                   alt="Image alt text"
-                  default-src="${imgLg16x9}"
-                ></dds-image>
+                  default-src="${imgLg16x9}"></dds-image>
               `
             : ''}
           ${type === MEDIA_TYPE.VIDEO
             ? html`
                 <dds-content-item-horizontal-media-video
-                  video-id="1_9h94wo6b"
-                ></dds-content-item-horizontal-media-video>
+                  video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
               `
             : ''}
           <dds-content-item-heading>Tab heading ${i}</dds-content-item-heading>
@@ -63,15 +61,13 @@ export const Default = (args) => {
             <dds-link-list-item-cta
               icon-placement="right"
               href="https://www.ibm.com"
-              cta-type="local"
-            >
+              cta-type="local">
               CTA ${i}
             </dds-link-list-item-cta>
             <dds-link-list-item-cta
               icon-placement="right"
               href="https://www.ibm.com"
-              cta-type="external"
-            >
+              cta-type="external">
               Microservices and containers
             </dds-link-list-item-cta>
           </dds-link-list>
@@ -126,8 +122,7 @@ export default {
           <div
             class="${args?.TabsExtendedWithMedia?.sectionHeading
               ? `bx--col-lg-16`
-              : `bx--col-lg-12`} bx--no-gutter"
-          >
+              : `bx--col-lg-12`} bx--no-gutter">
             ${story()}
           </div>
         </div>

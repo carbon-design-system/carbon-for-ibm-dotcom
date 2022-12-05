@@ -44,8 +44,7 @@ class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
     return html`
       <div
         ?hidden="${!hasContent && !hasMedia}"
-        class="${prefix}--content-block__children ${prefix}--content-layout__body"
-      >
+        class="${prefix}--content-block__children ${prefix}--content-layout__body">
         <div class="${classMap(rowClasses)}">
           ${this._renderContent()}${this._renderMedia()}
         </div>
@@ -61,8 +60,7 @@ class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
     return html`
       <div ?hidden="${!hasFooter}" class="${prefix}--content-block__cta-row">
         <div
-          class="${prefix}--content-block__cta ${prefix}-content-block__cta-col"
-        >
+          class="${prefix}--content-block__cta ${prefix}-content-block__cta-col">
           <slot name="footer" @slotchange="${handleSlotChange}"></slot>
         </div>
       </div>

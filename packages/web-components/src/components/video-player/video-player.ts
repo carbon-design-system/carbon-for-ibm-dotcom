@@ -83,8 +83,7 @@ class DDSVideoPlayer extends FocusMixin(
           <div class="${prefix}--video-player__video">
             <button
               class="${prefix}--video-player__image-overlay"
-              @click="${this._handleClickOverlay}"
-            >
+              @click="${this._handleClickOverlay}">
               <dds-image default-src="${thumbnailUrl}" alt="${ifNonNull(name)}">
                 ${PlayVideo({ slot: 'icon' })}
               </dds-image>

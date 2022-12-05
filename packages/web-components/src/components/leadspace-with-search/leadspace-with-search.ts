@@ -114,8 +114,7 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
       <div class="${prefix}--content-layout">
         <slot
           name="heading"
-          @slotchange=${this._handleHeadingSlotChange}
-        ></slot>
+          @slotchange=${this._handleHeadingSlotChange}></slot>
         <div class="${prefix}--content-layout__body">
           <slot name="content"></slot>
           <slot @slotchange=${this._handleImageSlotChange} name="image"></slot>

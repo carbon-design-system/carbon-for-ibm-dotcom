@@ -593,8 +593,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
         aria-label="${ifNonNull(searchLabel)}"
         @input="${handleInput}"
         @keydown="${handleKeyInput}"
-        @keypress="${handleKeyInput}"
-      />
+        @keypress="${handleKeyInput}" />
     `;
   }
 
@@ -648,13 +647,11 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
               <input
                 type="hidden"
                 name="scope-value"
-                value="${this.scopeValue}"
-              />
+                value="${this.scopeValue}" />
               <input
                 type="hidden"
                 name="scope-label"
-                value="${this.scopeLabel}"
-              />
+                value="${this.scopeLabel}" />
             `
           : ''}
 
@@ -667,8 +664,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
           aria-label="${ifNonNull(searchLabel)}"
           @click=${handleClickInner}
           @keydown="${handleKeydownInner}"
-          @keypress="${handleKeypressInner}"
-        >
+          @keypress="${handleKeypressInner}">
           ${this.scopeParameters
             ? html`
                 <dds-scoped-search-dropdown value="${this.appId}">
@@ -699,19 +695,16 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
             ? html`
                 <div
                   id="result-list"
-                  class="react-autosuggest__suggestions-container"
-                >
+                  class="react-autosuggest__suggestions-container">
                   <ul
                     role="listbox"
-                    class="${ddsPrefix}-ce__search__list react-autosuggest__suggestions-list"
-                  >
+                    class="${ddsPrefix}-ce__search__list react-autosuggest__suggestions-list">
                     ${this.searchResults &&
                     this.searchResults.map(
                       (item) =>
                         html`
                           <dds-search-with-typeahead-item
-                            text="${item}"
-                          ></dds-search-with-typeahead-item>
+                            text="${item}"></dds-search-with-typeahead-item>
                         `
                     )}
                     ${this.groupedResults &&
@@ -720,15 +713,13 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
                         html`
                           <dds-search-with-typeahead-item
                             groupTitle
-                            text="${group.title}"
-                          ></dds-search-with-typeahead-item>
+                            text="${group.title}"></dds-search-with-typeahead-item>
                           ${group.items.map(
                             (item) =>
                               html`
                                 <dds-search-with-typeahead-item
                                   text="${item.name}"
-                                  href="${item.href}"
-                                ></dds-search-with-typeahead-item>
+                                  href="${item.href}"></dds-search-with-typeahead-item>
                               `
                           )}
                         `
@@ -743,8 +734,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
         class="${prefix}--assistive-text"
         role="status"
         aria-live="assertive"
-        aria-relevant="additions text"
-      >
+        aria-relevant="additions text">
         ${assistiveStatusText}
       </div>
     `;
@@ -922,8 +912,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
                 part="open-button"
                 class="${prefix}--header__action ${prefix}--header__search--search"
                 aria-label="${searchButtonAssistiveText}"
-                @click="${handleClickSearchButton}"
-              >
+                @click="${handleClickSearchButton}">
                 ${Search20()}
               </button>
               <button
@@ -931,8 +920,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
                 part="close-button"
                 class="${prefix}--header__action ${prefix}--header__search--close"
                 aria-label="${closeSearchButtonAssistiveText}"
-                @click="${handleClickCloseButton}"
-              >
+                @click="${handleClickCloseButton}">
                 ${Close20()}
               </button>
             </div>
@@ -953,27 +941,23 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
                   ? `${prefix}--header__search--hide`
                   : ''}"
                 aria-label="${closeSearchButtonAssistiveText}"
-                @click="${handleClickCloseButton}"
-              >
+                @click="${handleClickCloseButton}">
                 ${Close20()}
               </button>
             </div>
             <div
               id="result-list"
-              class="react-autosuggest__suggestions-container"
-            >
+              class="react-autosuggest__suggestions-container">
               <ul
                 role="listbox"
-                class="${ddsPrefix}-ce__search__list react-autosuggest__suggestions-list"
-              >
+                class="${ddsPrefix}-ce__search__list react-autosuggest__suggestions-list">
                 ${this.searchResults &&
                 this.searchResults.map(
                   (item) =>
                     html`
                       <dds-search-with-typeahead-item
                         text="${item}"
-                        @click=${handleClickItem}
-                      ></dds-search-with-typeahead-item>
+                        @click=${handleClickItem}></dds-search-with-typeahead-item>
                     `
                 )}
               </ul>

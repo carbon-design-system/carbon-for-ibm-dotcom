@@ -29,8 +29,7 @@ const AudioPlayerCaptionText = ({ captions, audioTime }) => {
           className={`${prefix}--audio-player__captions-text`}
           dangerouslySetInnerHTML={{
             __html: captionText,
-          }}
-        ></p>
+          }}></p>
       </div>
     )
   );

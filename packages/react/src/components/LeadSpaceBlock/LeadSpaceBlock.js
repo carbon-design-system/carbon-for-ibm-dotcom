@@ -24,15 +24,13 @@ const { prefix } = settings;
  *
  * @param {string} type media type
  * @param {object} data media data
- * @returns {*} Image or Video
  */
 const _renderMedia = (type, data) => {
   if (data) {
     return (
       <div
         data-autoid={`${stablePrefix}--leadspace-block__media`}
-        className={`${prefix}--leadspace-block__media`}
-      >
+        className={`${prefix}--leadspace-block__media`}>
         {type === 'image' && <ImageWithCaption {...data} />}
         {type === 'video' && <VideoPlayer {...data} />}
       </div>
@@ -57,8 +55,7 @@ const LeadSpaceBlock = ({
       {title && (
         <h1
           data-autoid={`${stablePrefix}--leadspace-block__title`}
-          className={`${prefix}--leadspace-block__title`}
-        >
+          className={`${prefix}--leadspace-block__title`}>
           {title}
         </h1>
       )}
@@ -68,8 +65,7 @@ const LeadSpaceBlock = ({
   return (
     <div
       data-autoid={`${stablePrefix}--leadspace-block`}
-      className={`${prefix}--leadspace-block`}
-    >
+      className={`${prefix}--leadspace-block`}>
       {pageTitle}
       <ContentBlock heading={heading} copy={copy}>
         {_renderMedia(mediaType, mediaData)}
@@ -134,8 +130,8 @@ LeadSpaceBlock.propTypes = {
    * Media Data for either image or video.
    * See the following components' README for more details:
    *
-   * * `mediaType="image"`: [`<ImageWithCaption>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-imagewithcaption--default#props)
-   * * `mediaType="video"`: [`<VideoPlayer>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-videoplayer--default#props)
+   * `mediaType="image"`: [`<ImageWithCaption>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-imagewithcaption--default#props)
+   * `mediaType="video"`: [`<VideoPlayer>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-videoplayer--default#props)
    */
   mediaData: PropTypes.oneOfType([
     PropTypes.shape({

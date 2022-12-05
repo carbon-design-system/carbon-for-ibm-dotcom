@@ -26,8 +26,7 @@ const image = html`
   <dds-image
     alt="Image alt text"
     default-src="${imgLg16x9}"
-    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  >
+    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
     <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
     </dds-image-item>
     <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
@@ -87,8 +86,7 @@ export const WithVideo = (args) => {
         <dds-content-block-copy>${copy}</dds-content-block-copy>
         <dds-leadspace-block-media slot="media"
           ><dds-video-player-container
-            video-id="1_9h94wo6b"
-          ></dds-video-player-container
+            video-id="1_9h94wo6b"></dds-video-player-container
         ></dds-leadspace-block-media>
         ${linkList} ${buttonCTA}
       </dds-leadspace-block-content>

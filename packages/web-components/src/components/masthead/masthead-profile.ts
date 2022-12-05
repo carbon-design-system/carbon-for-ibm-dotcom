@@ -127,8 +127,7 @@ class DDSMastheadProfile extends HostListenerMixin(
         href="javascript:void 0"
         aria-expanded="${String(Boolean(expanded))}"
         aria-label="${ifDefined(triggerLabel)}"
-        @click=${handleClick}
-      >
+        @click=${handleClick}>
         ${authenticated ? UserOnline20() : User20()}
       </a>
       <ul class="${prefix}--header__menu" aria-label="${ifDefined(menuLabel)}">

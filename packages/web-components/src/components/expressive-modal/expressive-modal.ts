@@ -472,8 +472,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
       <button
         id="start-sentinel"
         class="${prefix}--visually-hidden"
-        @focusin="${handleFocusIn}"
-      >
+        @focusin="${handleFocusIn}">
         START
       </button>
       <div
@@ -482,8 +481,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
         role="dialog"
         aria-labelledby="${ddsPrefix}--modal-header"
         @click="${handleClickContainer}"
-        @slotchange="${handleSlotChange}"
-      >
+        @slotchange="${handleSlotChange}">
         <div class="${prefix}--modal-content">
           ${this._renderHeader()}${this._renderBody()}${this._renderFooter()}
         </div>
@@ -491,8 +489,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
       <button
         id="end-sentinel"
         class="${prefix}--visually-hidden"
-        @focusin="${handleFocusIn}"
-      >
+        @focusin="${handleFocusIn}">
         END
       </button>
     `;

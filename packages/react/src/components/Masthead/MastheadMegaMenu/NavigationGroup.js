@@ -22,8 +22,7 @@ const NavigationGroup = React.forwardRef(function NavigationGroup(props, ref) {
       className={`${prefix}--masthead__megamenu`}
       data-autoid={`${stablePrefix}--masthead__megamenu`}
       ref={ref}
-      {...rest}
-    >
+      {...rest}>
       <div className={`${prefix}--masthead__megamenu__container`}>
         <div className={`${prefix}--masthead__megamenu__container--row`}>
           {children}

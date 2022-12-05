@@ -48,8 +48,7 @@ const Content = ({ withL1 }) => (
     <TableOfContents
       menuLabel="Jump to"
       theme="white"
-      stickyOffset={withL1 ? '96' : '48'}
-    >
+      stickyOffset={withL1 ? '96' : '48'}>
       <a name="section-1" data-title="Lorem ipsum dolor sit amet" />
       <LeadSpaceBlock
         title="Lorem ipsum dolor sit amet"

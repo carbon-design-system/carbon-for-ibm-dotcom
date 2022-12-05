@@ -399,8 +399,7 @@ export function NoticeChoice({
     DDS_NOTICE_CHOICE,
     <section
       data-autoid={`${stablePrefix}--nc`}
-      className={`${prefix}--nc ${classNames}`}
-    >
+      className={`${prefix}--nc ${classNames}`}>
       {loaded ? (
         <div>
           {ncHeading()}

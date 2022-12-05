@@ -23,8 +23,7 @@ const cardGroupItems = (withImages) => {
             <dds-image
               slot="image"
               alt="Image alt text"
-              default-src="${imgLg4x3}"
-            >
+              default-src="${imgLg4x3}">
             </dds-image>
           `
         : ''}
@@ -58,13 +57,11 @@ export const Default = (args) => {
               <dds-card-group-item
                 href="https://example.com"
                 color-scheme="inverse"
-                cta-type="local"
-              >
+                cta-type="local">
                 <dds-card-heading>Top level card link</dds-card-heading>
                 <dds-card-cta-footer
                   slot="footer"
-                  color-scheme="inverse"
-                ></dds-card-cta-footer>
+                  color-scheme="inverse"></dds-card-cta-footer>
               </dds-card-group-item>
             `
           : ``}

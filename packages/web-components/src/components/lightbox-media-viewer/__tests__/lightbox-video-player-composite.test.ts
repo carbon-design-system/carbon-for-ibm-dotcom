@@ -30,8 +30,7 @@ const template = (props?) => {
       .embeddedVideos="${ifNonNull(embeddedVideos)}"
       .formatCaption="${ifNonNull(formatCaption)}"
       .formatDuration="${ifNonNull(formatDuration)}"
-      .mediaData="${ifNonNull(mediaData)}"
-    >
+      .mediaData="${ifNonNull(mediaData)}">
     </dds-lightbox-video-player-composite>
   `;
 };

@@ -22,7 +22,6 @@ import { baseFontSize, breakpoints } from '@carbon/layout';
  *     sameHeight(ElementArray, 'md');
  *   });
  * }, true);
- *
  * @param {Array} elemCollection Html objects array
  * @param {string} minSize Minimum size for the utility to be activated, empty for small,
  *  md for medium, lg for large, xlg for xlarge, max for maximum
