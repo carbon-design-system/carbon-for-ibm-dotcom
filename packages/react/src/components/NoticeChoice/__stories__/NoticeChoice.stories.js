@@ -36,11 +36,18 @@ const countryList = {
   'Unites States': 'US',
   Germany: 'DE',
   India: 'IN',
+  'Mainland China': 'CN',
+};
+const stateList = {
+  Unknown: '',
+  Alabama: 'AL',
+  California: 'CA',
 };
 
 const props = () => ({
   locale: select('Locale', locales, 'in-en'),
   country: select('Country', countryList, 'IN'),
+  state: select('State', stateList, ''),
   onChange: action('onChange'),
   questionChoices: select('Question Choices', questionChoices, [1, 2]),
   email: text('Email', ''),
