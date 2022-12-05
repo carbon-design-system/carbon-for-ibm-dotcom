@@ -9,7 +9,7 @@
 
 import { html } from 'lit-element';
 import { boolean } from '@storybook/addon-knobs';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--005.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';

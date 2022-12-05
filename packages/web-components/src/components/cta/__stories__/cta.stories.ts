@@ -17,7 +17,7 @@ import '../feature-cta-footer';
 import '../text-cta';
 import '../../button-group/index';
 import { html } from 'lit-element';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { select, boolean } from '@storybook/addon-knobs';
 import { icons as ctaIcons } from '../../../component-mixins/cta/cta';
 // eslint-disable-next-line sort-imports

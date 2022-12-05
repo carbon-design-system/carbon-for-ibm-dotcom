@@ -19,7 +19,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "@carbon/carbon-web-components": "latest",
+    "@carbon/web-components": "latest",
     "@carbon/ibmdotcom-services": "canary",
     "@carbon/ibmdotcom-web-components": "canary",
     "accept-language-parser": "^1.5.0",

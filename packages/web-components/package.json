@@ -88,7 +88,7 @@
     "wca": "web-component-analyzer analyze src --outFile custom-elements.json"
   },
   "dependencies": {
-    "@carbon/carbon-web-components": "1.22.0-rc.2",
+    "@carbon/web-components": "1.22.0-rc.2",
     "@carbon/ibmdotcom-services": "1.41.0-rc.1",
     "@carbon/ibmdotcom-styles": "1.41.0-rc.1",
     "@carbon/ibmdotcom-utilities": "1.41.0-rc.1",

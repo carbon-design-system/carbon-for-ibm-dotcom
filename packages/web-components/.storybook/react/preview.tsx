@@ -12,7 +12,7 @@ import React, { StrictMode } from 'react';
 import coreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
 import { withKnobs } from '@storybook/addon-knobs';
-import BXSkipToContent from '@carbon/carbon-web-components/es/components-react/skip-to-content/skip-to-content';
+import BXSkipToContent from '@carbon/web-components/es/components-react/skip-to-content/skip-to-content';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
 import containerStyles from './container.scss'; // eslint-disable-line import/first
 

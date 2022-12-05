@@ -12,7 +12,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "@carbon/carbon-web-components": "latest",
+    "@carbon/web-components": "latest",
     "@carbon/ibmdotcom-web-components": "canary",
     "accept-language-parser": "^1.5.0",
     "lit-element": "^2.4.0",

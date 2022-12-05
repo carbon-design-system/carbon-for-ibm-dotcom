@@ -16,7 +16,7 @@ import {
   LitElement,
 } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import { INPUT_SIZE } from '@carbon/carbon-web-components/es/components/input/input.js';
+import { INPUT_SIZE } from '@carbon/web-components/es/components/input/input.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import ThrottedInputMixin from '../../globals/mixins/throttled-input';
 import { forEach } from '../../globals/internal/collection-helpers';
