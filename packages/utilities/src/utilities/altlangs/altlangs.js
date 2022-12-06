@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,9 +18,7 @@ import root from 'window-or-global';
  * const langs = altlangs();
  *
  * console.log(langs); // { 'us-en': 'https://www.ibm.com/us-en', ... }
- *
  * @returns {object} object of available languages and corresponding URLs
- *
  */
 function altlangs() {
   let links = [];
@@ -28,7 +26,7 @@ function altlangs() {
   if (root.document) {
     links = root.document.querySelectorAll('link[rel="alternate"]');
 
-    links.forEach(link => {
+    links.forEach((link) => {
       langs[link.getAttribute('hreflang')] = link.getAttribute('href');
     });
   }

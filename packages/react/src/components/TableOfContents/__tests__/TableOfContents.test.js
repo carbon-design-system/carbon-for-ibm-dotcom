@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -52,7 +52,7 @@ describe('TableOfContents', () => {
     expect(
       toc.find('.bx--tableofcontents__desktop__item--active')
     ).toHaveLength(1);
-    menuItems.forEach(item => expect(toc.find(`[name='${item.id}']`)));
+    menuItems.forEach((item) => expect(toc.find(`[name='${item.id}']`)));
   });
 });
 
@@ -72,10 +72,7 @@ describe('TOCMobile', () => {
     toc
       .find('select')
       .simulate('change', { target: { value: menuItems[1].id } });
-    toc
-      .find('select')
-      .props()
-      .onBlur();
+    toc.find('select').props().onBlur();
     expect(spyUpdate).toHaveBeenCalledWith(menuItems[1].id, menuItems[1].title);
   });
 });

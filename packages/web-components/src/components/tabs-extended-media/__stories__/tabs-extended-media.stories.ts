@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { boolean, select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
@@ -28,8 +28,9 @@ const mediaType = {
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
 
-export const Default = args => {
-  const { sectionHeading, sectionHeadingText, align, type } = args?.TabsExtendedWithMedia ?? {};
+export const Default = (args) => {
+  const { sectionHeading, sectionHeadingText, align, type } =
+    args?.TabsExtendedWithMedia ?? {};
   const tabs: any[] = [];
 
   for (let i = 1; i < 5; i++) {
@@ -38,24 +39,35 @@ export const Default = args => {
         <dds-content-item-horizontal-media align="${align}">
           ${type === MEDIA_TYPE.IMAGE
             ? html`
-                <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}"></dds-image>
+                <dds-image
+                  slot="media"
+                  alt="Image alt text"
+                  default-src="${imgLg16x9}"></dds-image>
               `
             : ''}
           ${type === MEDIA_TYPE.VIDEO
             ? html`
-                <dds-content-item-horizontal-media-video video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
+                <dds-content-item-horizontal-media-video
+                  video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
               `
             : ''}
           <dds-content-item-heading>Tab heading ${i}</dds-content-item-heading>
           <dds-content-item-horizontal-media-copy
-            >Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
-            hendrerit. Phasellus at elit sollicitudin.</dds-content-item-horizontal-media-copy
+            >Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean
+            et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus
+            at elit sollicitudin.</dds-content-item-horizontal-media-copy
           >
           <dds-link-list slot="footer" type="vertical">
-            <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
+            <dds-link-list-item-cta
+              icon-placement="right"
+              href="https://www.ibm.com"
+              cta-type="local">
               CTA ${i}
             </dds-link-list-item-cta>
-            <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
+            <dds-link-list-item-cta
+              icon-placement="right"
+              href="https://www.ibm.com"
+              cta-type="external">
               Microservices and containers
             </dds-link-list-item-cta>
           </dds-link-list>
@@ -66,7 +78,9 @@ export const Default = args => {
 
   return html`
     <dds-tabs-extended-media section-heading=${sectionHeading}>
-      <dds-content-section-heading>${ifNonNull(sectionHeadingText)}</dds-content-section-heading>
+      <dds-content-section-heading
+        >${ifNonNull(sectionHeadingText)}</dds-content-section-heading
+      >
       ${tabs}
     </dds-tabs-extended-media>
   `;
@@ -77,7 +91,8 @@ Default.story = {
     knobs: {
       TabsExtendedWithMedia: () => {
         const sectionHeading = boolean('Section heading', true);
-        const sectionHeadingText = sectionHeading && textNullable('Heading', 'Section heading');
+        const sectionHeadingText =
+          sectionHeading && textNullable('Heading', 'Section heading');
         return {
           sectionHeading,
           sectionHeadingText,
@@ -104,7 +119,10 @@ export default {
     (story, { args }) => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="${args?.TabsExtendedWithMedia?.sectionHeading ? `bx--col-lg-16` : `bx--col-lg-12`} bx--no-gutter">
+          <div
+            class="${args?.TabsExtendedWithMedia?.sectionHeading
+              ? `bx--col-lg-16`
+              : `bx--col-lg-12`} bx--no-gutter">
             ${story()}
           </div>
         </div>

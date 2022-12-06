@@ -33,6 +33,35 @@ const platformData = {
   url: 'https://www.ibm.com/cloud',
 };
 
+const scopeParameters = [
+  {
+    name: 'All',
+    appId: 'all',
+    value: 'all',
+  },
+  {
+    name: 'Analyst',
+    appId: 'analyst',
+    value: 'analyst',
+  },
+  {
+    name: 'PartnerWorld',
+    appId: 'pw',
+    value: ['pw', 'pwp'],
+  },
+  {
+    name: 'Developer',
+    appId: 'dw',
+    value: ['dw', 'dwaspera'],
+  },
+  {
+    name: 'IBM Docs',
+    appId: 'ibmdocs',
+    label: 'Search Label',
+    value: ['ibmdocs', 'dw'],
+  },
+];
+
 async function customTypeaheadApiFunction(searchVal) {
   return fetch(`https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`)
     .then(response => response.json())
@@ -235,6 +264,35 @@ withAlternateLogoAndTooltip.story = {
       }),
     },
   },
+};
+
+export const WithScopedSearch = args => {
+  const { customProfileLogin, platform, hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
+    args?.MastheadComposite ?? {};
+
+  if (!hasSearch) {
+    setTimeout(() => {
+      document.querySelector('dds-masthead-container')?.removeAttribute('has-search');
+    }, 1000);
+  }
+
+  return (
+    <DDSMastheadContainer
+      platform={platform}
+      platformUrl={platformData.url}
+      selected-menu-item={selectedMenuItem}
+      user-status={userStatus}
+      searchPlaceholder={searchPlaceholder}
+      navLinks={navLinks}
+      has-profile={hasProfile}
+      has-search={hasSearch}
+      custom-profile-login={customProfileLogin}
+      scopeParameters={scopeParameters}></DDSMastheadContainer>
+  );
+};
+
+WithScopedSearch.story = {
+  name: 'With scoped search',
 };
 
 export default {

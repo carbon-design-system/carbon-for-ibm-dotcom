@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import BXStructuredListRow from 'carbon-web-components/es/components/structured-list/structured-list-row.js';
+import BXStructuredListRow from '@carbon/web-components/es/components/structured-list/structured-list-row.js';
 import { customElement } from 'lit-element';
 import { html } from 'lit-html';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -32,9 +32,7 @@ class DDSStructuredListRow extends BXStructuredListRow {
   /* eslint-enable */
 
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   static styles = styles;

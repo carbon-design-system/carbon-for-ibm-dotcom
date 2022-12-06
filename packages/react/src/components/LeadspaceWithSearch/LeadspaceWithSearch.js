@@ -19,7 +19,7 @@ const LeadspaceWithSearch = ({ heading, copy, searchProps }) => {
   const leadspaceContainer = useRef(null);
 
   useEffect(() => {
-    leadspaceContainer.current = new ResizeObserver(entries => {
+    leadspaceContainer.current = new ResizeObserver((entries) => {
       for (const entry of entries) {
         const CARBON_MD_BREAKPOINT = 672;
         const { inlineSize: leadspaceWidth } = entry.borderBoxSize[0];

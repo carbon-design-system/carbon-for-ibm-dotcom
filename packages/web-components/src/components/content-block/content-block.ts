@@ -9,7 +9,14 @@
 
 import { Part } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map.js';
-import { html, customElement, property, state, LitElement, TemplateResult } from 'lit-element';
+import {
+  html,
+  customElement,
+  property,
+  state,
+  LitElement,
+  TemplateResult,
+} from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from './defs';
@@ -85,11 +92,14 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
    * The CSS class list for the container (grid) node.
    */
   protected _getContainerClasses(): string | ((part: Part) => void) {
-    const { complementaryStyleScheme, _hasComplementary: hasComplementary } = this;
+    const { complementaryStyleScheme, _hasComplementary: hasComplementary } =
+      this;
     return classMap({
       [`${prefix}--content-layout`]: true,
       [`${prefix}--content-layout--with-complementary`]: hasComplementary,
-      [`${prefix}--layout--border`]: complementaryStyleScheme === CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
+      [`${prefix}--layout--border`]:
+        complementaryStyleScheme ===
+        CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
     });
   }
 
@@ -97,7 +107,12 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
    * Returns whether or not there is content to render in the body markup.
    */
   protected _hasBodyContent(): boolean {
-    const { _hasContent: hasContent, _hasCopy: hasCopy, _hasMedia: hasMedia, _hasFooter: hasFooter } = this;
+    const {
+      _hasContent: hasContent,
+      _hasCopy: hasCopy,
+      _hasMedia: hasMedia,
+      _hasFooter: hasFooter,
+    } = this;
     return hasContent || hasCopy || hasMedia || hasFooter;
   }
 
@@ -110,7 +125,9 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
     const { name } = target as HTMLSlotElement;
     const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
-      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+      .some(
+        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+      );
     this[slotExistencePropertyNames[name] || '_hasContent'] = hasContent;
   }
 
@@ -119,7 +136,9 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
    */
   protected _renderBody(): TemplateResult | string | void {
     return html`
-      <div ?hidden="${!this._hasBodyContent()}" class="${prefix}--content-layout__body">
+      <div
+        ?hidden="${!this._hasBodyContent()}"
+        class="${prefix}--content-layout__body">
         ${this._renderCopy()}${this._renderInnerBody()}${this._renderFooter()}
       </div>
     `;
@@ -130,9 +149,7 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
    */
   protected _renderContent(): TemplateResult | string | void {
     const { _handleSlotChange: handleSlotChange } = this;
-    return html`
-      <slot @slotchange="${handleSlotChange}"></slot>
-    `;
+    return html` <slot @slotchange="${handleSlotChange}"></slot> `;
   }
 
   /**
@@ -140,9 +157,7 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
    */
   protected _renderCopy(): TemplateResult | string | void {
     const { _handleSlotChange: handleSlotChange } = this;
-    return html`
-      <slot name="copy" @slotchange="${handleSlotChange}"></slot>
-    `;
+    return html` <slot name="copy" @slotchange="${handleSlotChange}"></slot> `;
   }
 
   /**
@@ -172,9 +187,7 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
    * @returns The main/media content.
    */
   protected _renderInnerBody(): TemplateResult | string | void {
-    return html`
-      ${this._renderContent()}${this._renderMedia()}
-    `;
+    return html` ${this._renderContent()}${this._renderMedia()} `;
   }
 
   /**
@@ -182,9 +195,7 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
    */
   protected _renderMedia(): TemplateResult | string | void {
     const { _handleSlotChange: handleSlotChange } = this;
-    return html`
-      <slot name="media" @slotchange="${handleSlotChange}"></slot>
-    `;
+    return html` <slot name="media" @slotchange="${handleSlotChange}"></slot> `;
   }
 
   /**

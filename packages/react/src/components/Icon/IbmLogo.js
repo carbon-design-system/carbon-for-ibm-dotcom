@@ -30,7 +30,7 @@ const IbmLogo = ({ autoid, logoData, isSearchActive }) => {
     <div className={logoClasses}>
       <ConditionalWrapper
         condition={logoData && logoData.tooltip !== undefined}
-        wrapper={children => (
+        wrapper={(children) => (
           <TooltipDefinition tooltipText={logoData.tooltip}>
             {children}
           </TooltipDefinition>

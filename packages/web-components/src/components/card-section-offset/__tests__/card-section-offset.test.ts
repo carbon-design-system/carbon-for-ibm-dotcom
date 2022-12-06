@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, render } from 'lit-html';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
 
 import '../card-section-offset';
 
@@ -23,20 +23,26 @@ const template = (props?) => {
   `;
 };
 
-describe('dds-card-section-offset', function() {
-  describe('Misc attributes', function() {
-    it('should render with minimum attributes', async function() {
+describe('dds-card-section-offset', function () {
+  describe('Misc attributes', function () {
+    it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-card-section-offset')).toMatchSnapshot({ mode: 'shadow' });
+      expect(
+        document.body.querySelector('dds-card-section-offset')
+      ).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes', async function() {
+    it('should render with various attributes', async function () {
       render(
         template({
           heading: 'heading-foo',
           cta: html`
-            <dds-text-cta slot="action" cta-type="local" icon-placement="right" href="https://example.com">
+            <dds-text-cta
+              slot="action"
+              cta-type="local"
+              icon-placement="right"
+              href="https://example.com">
               CTA copy
             </dds-text-cta>
           `,
@@ -70,11 +76,13 @@ describe('dds-card-section-offset', function() {
       await Promise.resolve(); // The update cycle of `<dds-card-section-offset>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
-      expect(document.body.querySelector('dds-card-section-offset')).toMatchSnapshot({ mode: 'shadow' });
+      expect(
+        document.body.querySelector('dds-card-section-offset')
+      ).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

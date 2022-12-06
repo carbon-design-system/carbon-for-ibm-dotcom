@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,7 +15,7 @@ describe('Card', () => {
   it('should have the right type for the eyebrow', async () => {
     const eyebrow = await page.waitForSelector('.bx--card__eyebrow');
     const styleValues = await page.evaluate(
-      eyebrow =>
+      (eyebrow) =>
         window.getStyleValues(eyebrow, [
           'font-size',
           'font-weight',
@@ -35,7 +35,7 @@ describe('Card', () => {
   it('should have the right type for the footer', async () => {
     const footerSpan = await page.waitForSelector('.bx--card__footer span');
     const styleValues = await page.evaluate(
-      footerSpan =>
+      (footerSpan) =>
         window.getStyleValues(footerSpan, [
           'font-size',
           'font-weight',

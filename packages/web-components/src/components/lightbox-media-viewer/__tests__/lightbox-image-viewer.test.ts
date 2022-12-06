@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import '../lightbox-image-viewer';
 
 const template = (props?) => {
@@ -18,20 +18,21 @@ const template = (props?) => {
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
       description="${ifNonNull(description)}"
-      title="${ifNonNull(title)}"
-    >
+      title="${ifNonNull(title)}">
     </dds-lightbox-image-viewer>
   `;
 };
 
-describe('dds-lightbox-image-viewer', function() {
-  it('should render with minimum attributes', async function() {
+describe('dds-lightbox-image-viewer', function () {
+  it('should render with minimum attributes', async function () {
     render(template(), document.body);
     await Promise.resolve();
-    expect(document.querySelector('dds-lightbox-image-viewer')).toMatchSnapshot({ mode: 'shadow' });
+    expect(document.querySelector('dds-lightbox-image-viewer')).toMatchSnapshot(
+      { mode: 'shadow' }
+    );
   });
 
-  it('should render with various attributes', async function() {
+  it('should render with various attributes', async function () {
     render(
       template({
         alt: 'image-alt-foo',
@@ -42,10 +43,12 @@ describe('dds-lightbox-image-viewer', function() {
       document.body
     );
     await Promise.resolve();
-    expect(document.querySelector('dds-lightbox-image-viewer')).toMatchSnapshot({ mode: 'shadow' });
+    expect(document.querySelector('dds-lightbox-image-viewer')).toMatchSnapshot(
+      { mode: 'shadow' }
+    );
   });
 
-  afterEach(function() {
+  afterEach(function () {
     render(undefined!, document.body);
   });
 });

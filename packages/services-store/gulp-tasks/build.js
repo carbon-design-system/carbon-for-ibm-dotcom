@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -33,10 +33,19 @@ function buildScripts({ sourceType = 'module' } = {}) {
   }[sourceType];
 
   const plugins = {
-    module: [['@babel/plugin-transform-runtime', { useESModules: true, version: '7.3.0' }], babelPluginResourceJSPaths],
+    module: [
+      [
+        '@babel/plugin-transform-runtime',
+        { useESModules: true, version: '7.3.0' },
+      ],
+      babelPluginResourceJSPaths,
+    ],
     // Ensures `babel-plugin-resource-cjs-paths` runs before `@babel/plugin-transform-modules-commonjs`
     script: [
-      ['@babel/plugin-transform-runtime', { useESModules: false, version: '7.3.0' }],
+      [
+        '@babel/plugin-transform-runtime',
+        { useESModules: false, version: '7.3.0' },
+      ],
       babelPluginResourceCJSPaths,
       '@babel/plugin-transform-modules-commonjs',
     ],
@@ -44,7 +53,11 @@ function buildScripts({ sourceType = 'module' } = {}) {
 
   return (
     gulp
-      .src([`${config.srcDir}/**/*.ts`, `!${config.srcDir}/**/__tests__/*.ts`, `!${config.srcDir}/**/*.d.ts`])
+      .src([
+        `${config.srcDir}/**/*.ts`,
+        `!${config.srcDir}/**/__tests__/*.ts`,
+        `!${config.srcDir}/**/*.d.ts`,
+      ])
       .pipe(sourcemaps.init())
       .pipe(
         babel({
@@ -54,7 +67,13 @@ function buildScripts({ sourceType = 'module' } = {}) {
         })
       )
       // Avoids generating `.js` from interface-only `.ts` files
-      .pipe(filter(file => stripComments(file.contents.toString(), { sourceType: 'module' }).replace(/\s/g, '')))
+      .pipe(
+        filter((file) =>
+          stripComments(file.contents.toString(), {
+            sourceType: 'module',
+          }).replace(/\s/g, '')
+        )
+      )
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest(destDir))
   );
@@ -63,19 +82,32 @@ function buildScripts({ sourceType = 'module' } = {}) {
 module.exports = {
   modules: {
     async scripts() {
-      await Promise.all([promisifyStream(() => buildScripts()), promisifyStream(() => buildScripts({ sourceType: 'script' }))]);
+      await Promise.all([
+        promisifyStream(() => buildScripts()),
+        promisifyStream(() => buildScripts({ sourceType: 'script' })),
+      ]);
     },
 
     types() {
-      const tsProject = typescript.createProject(path.resolve(__dirname, '../tsconfig.json'));
+      const tsProject = typescript.createProject(
+        path.resolve(__dirname, '../tsconfig.json')
+      );
       const { dts } = gulp
-        .src([`${config.srcDir}/**/*.ts`, `!${config.srcDir}/**/__stories__/*.ts`, `!${config.srcDir}/**/__tests__/*.ts`])
+        .src([
+          `${config.srcDir}/**/*.ts`,
+          `!${config.srcDir}/**/__stories__/*.ts`,
+          `!${config.srcDir}/**/__tests__/*.ts`,
+        ])
         .pipe(sourcemaps.init())
         .pipe(tsProject());
       return dts
         .pipe(
           through2.obj((file, enc, done) => {
-            file.contents = Buffer.from(`${file.contents.toString()}\n//# sourceMappingURL=${path.basename(file.path)}.map\n`);
+            file.contents = Buffer.from(
+              `${file.contents.toString()}\n//# sourceMappingURL=${path.basename(
+                file.path
+              )}.map\n`
+            );
             done(null, file);
           })
         )

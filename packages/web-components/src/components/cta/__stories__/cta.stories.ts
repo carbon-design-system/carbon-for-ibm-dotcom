@@ -17,26 +17,38 @@ import '../feature-cta-footer';
 import '../text-cta';
 import '../../button-group/index';
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { select, boolean } from '@storybook/addon-knobs';
 import { icons as ctaIcons } from '../../../component-mixins/cta/cta';
 // eslint-disable-next-line sort-imports
 import { CTA_TYPE } from '../defs';
-import { hrefsForType, knobNamesForType, footerKnobNamesForType, typeOptions, types } from './ctaTypeConfig';
+import {
+  hrefsForType,
+  knobNamesForType,
+  footerKnobNamesForType,
+  typeOptions,
+  types,
+} from './ctaTypeConfig';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
-export const Text = args => {
-  const { copy, ctaType, download, href, customVideoTitle, customVideoDescription } = args?.TextCTA ?? {};
+export const Text = (args) => {
+  const {
+    copy,
+    ctaType,
+    download,
+    href,
+    customVideoTitle,
+    customVideoDescription,
+  } = args?.TextCTA ?? {};
   return html`
     <dds-text-cta
       cta-type="${ifNonNull(ctaType)}"
       video-name="${ifNonNull(customVideoTitle)}"
       video-description="${ifNonNull(customVideoDescription)}"
       download="${ifNonNull(download)}"
-      href="${ifNonNull(href)}"
-    >
+      href="${ifNonNull(href)}">
       ${copy}
     </dds-text-cta>
   `;
@@ -47,15 +59,33 @@ Text.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
     knobs: {
       TextCTA: () => {
-        const ctaType = select('CTA type (cta-type)', typeOptions, types[CTA_TYPE.LOCAL]);
-        const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy (copy):', 'Lorem ipsum dolor sit amet');
+        const ctaType = select(
+          'CTA type (cta-type)',
+          typeOptions,
+          types[CTA_TYPE.LOCAL]
+        );
+        const copy =
+          ctaType === CTA_TYPE.VIDEO
+            ? undefined
+            : textNullable('Copy (copy):', 'Lorem ipsum dolor sit amet');
         const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
           ? undefined
-          : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
-        const customVideoTitle = ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video title', 'Custom video title') : null;
+          : textNullable(
+              'Download target (download)',
+              'IBM_Annual_Report_2019.pdf'
+            );
+        const customVideoTitle =
+          ctaType === CTA_TYPE.VIDEO
+            ? textNullable('Custom video title', 'Custom video title')
+            : null;
 
         const customVideoDescription =
-          ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video description', 'This is a custom video description') : null;
+          ctaType === CTA_TYPE.VIDEO
+            ? textNullable(
+                'Custom video description',
+                'This is a custom video description'
+              )
+            : null;
 
         return {
           copy,
@@ -63,7 +93,10 @@ Text.story = {
           download,
           customVideoTitle,
           customVideoDescription,
-          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR]),
+          href: textNullable(
+            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+          ),
         };
       },
     },
@@ -82,8 +115,15 @@ Text.story = {
   },
 };
 
-export const Button = args => {
-  const { copy, ctaType, download, href, customVideoTitle, customVideoDescription } = args?.ButtonCTA ?? {};
+export const Button = (args) => {
+  const {
+    copy,
+    ctaType,
+    download,
+    href,
+    customVideoTitle,
+    customVideoDescription,
+  } = args?.ButtonCTA ?? {};
   return html`
     <dds-button-group>
       <dds-button-cta
@@ -91,11 +131,15 @@ export const Button = args => {
         video-name="${ifNonNull(customVideoTitle)}"
         video-description="${ifNonNull(customVideoDescription)}"
         download="${ifNonNull(download)}"
-        href="${href}"
-      >
+        href="${href}">
         ${copy}
       </dds-button-cta>
-      <dds-button-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${href}">${copy}</dds-button-cta>
+      <dds-button-cta
+        cta-type="${ifNonNull(ctaType)}"
+        download="${ifNonNull(download)}"
+        href="${href}"
+        >${copy}</dds-button-cta
+      >
     </dds-button-group>
   `;
 };
@@ -105,14 +149,32 @@ Button.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
     knobs: {
       ButtonCTA: () => {
-        const ctaType = select('CTA type (cta-type)', typeOptions, types[CTA_TYPE.LOCAL]);
-        const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text', 'Lorem ipsum dolor sit amet');
+        const ctaType = select(
+          'CTA type (cta-type)',
+          typeOptions,
+          types[CTA_TYPE.LOCAL]
+        );
+        const copy =
+          ctaType === CTA_TYPE.VIDEO
+            ? undefined
+            : textNullable('Copy text', 'Lorem ipsum dolor sit amet');
         const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
           ? undefined
-          : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
-        const customVideoTitle = ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video title', 'Custom video title') : null;
+          : textNullable(
+              'Download target (download)',
+              'IBM_Annual_Report_2019.pdf'
+            );
+        const customVideoTitle =
+          ctaType === CTA_TYPE.VIDEO
+            ? textNullable('Custom video title', 'Custom video title')
+            : null;
         const customVideoDescription =
-          ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video description', 'This is a custom video description') : null;
+          ctaType === CTA_TYPE.VIDEO
+            ? textNullable(
+                'Custom video description',
+                'This is a custom video description'
+              )
+            : null;
 
         return {
           copy,
@@ -120,7 +182,10 @@ Button.story = {
           download,
           customVideoTitle,
           customVideoDescription,
-          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR]),
+          href: textNullable(
+            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+          ),
         };
       },
     },
@@ -139,7 +204,7 @@ Button.story = {
   },
 };
 
-export const Card = args => {
+export const Card = (args) => {
   const {
     heading,
     copy,
@@ -162,8 +227,7 @@ export const Card = args => {
       download="${ifNonNull(download)}"
       href="${ifNonNull(href)}"
       ?no-poster=${noPoster}
-      thumbnail="${ifNonNull(thumbnail)}"
-    >
+      thumbnail="${ifNonNull(thumbnail)}">
       <dds-card-heading>${ctaType !== 'video' ? heading : ''}</dds-card-heading>
       ${ctaType !== 'video' ? copy : ''}
       <dds-card-cta-footer
@@ -171,8 +235,7 @@ export const Card = args => {
         download="${ifNonNull(footerDownload)}"
         video-name="${ifNonNull(customVideoTitle)}"
         video-description="${ifNonNull(customVideoDescription)}"
-        href="${ifNonNull(footerHref)}"
-      >
+        href="${ifNonNull(footerHref)}">
         ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
       </dds-card-cta-footer>
     </dds-card-cta>
@@ -185,10 +248,19 @@ Card.story = {
     knobs: {
       CardCTA: () => {
         const { ctaType } = Text.story.parameters.knobs.TextCTA();
-        const noPoster = ctaType === CTA_TYPE.VIDEO ? boolean('No Video Poster', false) : null;
+        const noPoster =
+          ctaType === CTA_TYPE.VIDEO ? boolean('No Video Poster', false) : null;
         const heading =
-          ctaType === CTA_TYPE.VIDEO ? null : textNullable('Heading (heading):', 'Explore AI use cases in all industries');
-        const thumbnail = ctaType === CTA_TYPE.VIDEO ? textNullable('Custom thumbnail (thumbnail):', '') : null;
+          ctaType === CTA_TYPE.VIDEO
+            ? null
+            : textNullable(
+                'Heading (heading):',
+                'Explore AI use cases in all industries'
+              );
+        const thumbnail =
+          ctaType === CTA_TYPE.VIDEO
+            ? textNullable('Custom thumbnail (thumbnail):', '')
+            : null;
         return {
           ...Text.story.parameters.knobs.TextCTA(),
           heading,
@@ -200,7 +272,12 @@ Card.story = {
           ),
           noPoster,
           download:
-            ctaType !== CTA_TYPE.DOWNLOAD ? undefined : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf'),
+            ctaType !== CTA_TYPE.DOWNLOAD
+              ? undefined
+              : textNullable(
+                  'Download target (download)',
+                  'IBM_Annual_Report_2019.pdf'
+                ),
         };
       },
     },
@@ -220,7 +297,7 @@ Card.story = {
   },
 };
 
-export const CardLink = args => {
+export const CardLink = (args) => {
   const {
     heading,
     copy,
@@ -239,21 +316,17 @@ export const CardLink = args => {
       video-name="${ifNonNull(customVideoTitle)}"
       video-description="${ifNonNull(customVideoDescription)}"
       download="${ifNonNull(download)}"
-      href="${ifNonNull(href)}"
-    >
-      <dds-card-link-heading>${ctaType !== 'video' ? heading : ''}</dds-card-link-heading>
-      ${copy
-        ? html`
-            <p>${copy}</p>
-          `
-        : ``}
+      href="${ifNonNull(href)}">
+      <dds-card-link-heading
+        >${ctaType !== 'video' ? heading : ''}</dds-card-link-heading
+      >
+      ${copy ? html` <p>${copy}</p> ` : ``}
       <dds-card-cta-footer
         cta-type="${ifNonNull(ctaType)}"
         download="${ifNonNull(footerDownload)}"
         video-name="${ifNonNull(customVideoTitle)}"
         video-description="${ifNonNull(customVideoDescription)}"
-        href="${ifNonNull(footerHref)}"
-      >
+        href="${ifNonNull(footerHref)}">
         ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
       </dds-card-cta-footer>
     </dds-card-link-cta>
@@ -266,16 +339,39 @@ CardLink.story = {
     gridContentClasses: 'bx--col-sm-4 bx--col-lg-4 bx--no-gutter',
     knobs: {
       CardCTA: () => {
-        const ctaType = select('CTA type (cta-type)', typeOptions, types[CTA_TYPE.LOCAL]);
-        const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy (copy):', '');
+        const ctaType = select(
+          'CTA type (cta-type)',
+          typeOptions,
+          types[CTA_TYPE.LOCAL]
+        );
+        const copy =
+          ctaType === CTA_TYPE.VIDEO
+            ? undefined
+            : textNullable('Copy (copy):', '');
         const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
           ? undefined
-          : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
+          : textNullable(
+              'Download target (download)',
+              'IBM_Annual_Report_2019.pdf'
+            );
         const heading =
-          ctaType === CTA_TYPE.VIDEO ? null : textNullable('Heading (heading):', 'Explore AI use cases in all industries');
-        const customVideoTitle = ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video title', 'Custom video title') : null;
+          ctaType === CTA_TYPE.VIDEO
+            ? null
+            : textNullable(
+                'Heading (heading):',
+                'Explore AI use cases in all industries'
+              );
+        const customVideoTitle =
+          ctaType === CTA_TYPE.VIDEO
+            ? textNullable('Custom video title', 'Custom video title')
+            : null;
         const customVideoDescription =
-          ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video description', 'This is a custom video description') : null;
+          ctaType === CTA_TYPE.VIDEO
+            ? textNullable(
+                'Custom video description',
+                'This is a custom video description'
+              )
+            : null;
         return {
           heading,
           copy,
@@ -283,14 +379,22 @@ CardLink.story = {
           download,
           customVideoTitle,
           customVideoDescription,
-          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR]),
+          href: textNullable(
+            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+          ),
           footerCopy: textNullable('Footer copy text', ''),
           footerHref: textNullable(
             footerKnobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
             hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
           ),
           footerDownload:
-            ctaType !== CTA_TYPE.DOWNLOAD ? undefined : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf'),
+            ctaType !== CTA_TYPE.DOWNLOAD
+              ? undefined
+              : textNullable(
+                  'Download target (download)',
+                  'IBM_Annual_Report_2019.pdf'
+                ),
         };
       },
     },
@@ -313,10 +417,19 @@ CardLink.story = {
   },
 };
 
-export const Feature = args => {
-  const { heading, ctaType, customThumbnail, download, href, customVideoTitle, customVideoDescription, noPoster } =
-    args?.FeatureCTA ?? {};
-  const { download: footerDownload, href: footerHref } = args?.FeatureCTAFooter ?? {};
+export const Feature = (args) => {
+  const {
+    heading,
+    ctaType,
+    customThumbnail,
+    download,
+    href,
+    customVideoTitle,
+    customVideoDescription,
+    noPoster,
+  } = args?.FeatureCTA ?? {};
+  const { download: footerDownload, href: footerHref } =
+    args?.FeatureCTAFooter ?? {};
   return html`
     <dds-feature-cta
       cta-type="${ifNonNull(ctaType)}"
@@ -324,12 +437,15 @@ export const Feature = args => {
       video-description="${ifNonNull(customVideoDescription)}"
       download="${ifNonNull(download)}"
       href="${ifNonNull(href)}"
-      ?no-poster=${noPoster}
-    >
+      ?no-poster=${noPoster}>
       <dds-card-heading>${heading}</dds-card-heading>
       ${ctaType !== CTA_TYPE.VIDEO || customThumbnail
         ? html`
-            <dds-image slot="image" alt="Image alt text" default-src="${imgLg1x1}"> </dds-image>
+            <dds-image
+              slot="image"
+              alt="Image alt text"
+              default-src="${imgLg1x1}">
+            </dds-image>
           `
         : ''}
 
@@ -338,8 +454,7 @@ export const Feature = args => {
         download="${ifNonNull(footerDownload)}"
         video-name="${ifNonNull(customVideoTitle)}"
         video-description="${ifNonNull(customVideoDescription)}"
-        href="${ifNonNull(footerHref)}"
-      >
+        href="${ifNonNull(footerHref)}">
       </dds-feature-cta-footer>
     </dds-feature-cta>
   `;
@@ -352,15 +467,33 @@ Feature.story = {
       FeatureCTA: () => {
         const ctaType = select('CTA type:', typeOptions, types[CTA_TYPE.LOCAL]);
         const heading =
-          ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Heading', 'Explore AI uses cases in all industries');
+          ctaType === CTA_TYPE.VIDEO
+            ? undefined
+            : textNullable(
+                'Heading',
+                'Explore AI uses cases in all industries'
+              );
         const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
           ? undefined
-          : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
-        const customVideoTitle = ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video title', 'Custom video title') : null;
+          : textNullable(
+              'Download target (download)',
+              'IBM_Annual_Report_2019.pdf'
+            );
+        const customVideoTitle =
+          ctaType === CTA_TYPE.VIDEO
+            ? textNullable('Custom video title', 'Custom video title')
+            : null;
         const customVideoDescription =
-          ctaType === CTA_TYPE.VIDEO ? textNullable('Custom video description', 'This is a custom video description') : null;
-        const customThumbnail = ctaType === CTA_TYPE.VIDEO ? boolean('Custom image', false) : null;
-        const noPoster = ctaType === CTA_TYPE.VIDEO ? boolean('No Video Poster', false) : null;
+          ctaType === CTA_TYPE.VIDEO
+            ? textNullable(
+                'Custom video description',
+                'This is a custom video description'
+              )
+            : null;
+        const customThumbnail =
+          ctaType === CTA_TYPE.VIDEO ? boolean('Custom image', false) : null;
+        const noPoster =
+          ctaType === CTA_TYPE.VIDEO ? boolean('No Video Poster', false) : null;
         return {
           heading,
           ctaType,
@@ -400,9 +533,7 @@ export default {
         <div class="bx--grid">
           <div class="bx--row">
             <div class="${parameters.gridContentClasses}">
-              <dds-video-cta-container>
-                ${story()}
-              </dds-video-cta-container>
+              <dds-video-cta-container> ${story()} </dds-video-cta-container>
             </div>
           </div>
         </div>

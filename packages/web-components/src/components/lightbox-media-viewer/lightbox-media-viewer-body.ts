@@ -9,7 +9,7 @@
 
 import { html, LitElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
+import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './lightbox-media-viewer.scss';
 
@@ -39,23 +39,23 @@ abstract class DDSLightboxMediaViewerBody extends FocusMixin(LitElement) {
     return html`
       <div class="${prefix}--lightbox-media-viewer__container">
         <div class="${prefix}--lightbox-media-viewer__row">
-          <div class="${prefix}--lightbox-media-viewer__media ${prefix}--no-gutter">
+          <div
+            class="${prefix}--lightbox-media-viewer__media ${prefix}--no-gutter">
             ${this._renderMedia()}
           </div>
-          <div class="${prefix}--lightbox-media-viewer__media-description ${prefix}--no-gutter">
+          <div
+            class="${prefix}--lightbox-media-viewer__media-description ${prefix}--no-gutter">
             <div class="${prefix}--lightbox-media-viewer__content">
               <div
                 part="title"
                 class="${prefix}--lightbox-media-viewer__content__title"
-                data-autoid="${ddsPrefix}--lightbox-media-viewer__content__title"
-              >
+                data-autoid="${ddsPrefix}--lightbox-media-viewer__content__title">
                 ${this._renderTitle()}
               </div>
               <div
                 part="description"
                 class="${prefix}--lightbox-media-viewer__content__desc"
-                data-autoid="${ddsPrefix}--lightbox-media-viewer__content__desc"
-              >
+                data-autoid="${ddsPrefix}--lightbox-media-viewer__content__desc">
                 ${this._renderDescription()}
               </div>
             </div>

@@ -9,7 +9,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
 import DDSContentGroupCardsItem from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards-item';
 import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
 import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';

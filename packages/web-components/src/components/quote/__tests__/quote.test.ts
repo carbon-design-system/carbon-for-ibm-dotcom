@@ -16,14 +16,16 @@ const template = (props?) =>
     LinkWithIcon: props,
   });
 
-describe('dds-quote', function() {
-  it('renders dds-quote properly', async function() {
+describe('dds-quote', function () {
+  it('renders dds-quote properly', async function () {
     render(template(), document.body);
     await Promise.resolve(); // Update cycle for `<dds-button-group>`
-    expect(document.body.querySelector('dds-quote')).toMatchSnapshot({ mode: 'shadow' });
+    expect(document.body.querySelector('dds-quote')).toMatchSnapshot({
+      mode: 'shadow',
+    });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });
