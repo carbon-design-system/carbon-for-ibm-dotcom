@@ -748,7 +748,11 @@ $breakpoint--desktop-nav: 960px;
   display: block;
   padding: 0 $spacing-05;
 
-  h2 {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     display: inline-block;
     color: $text-01;
 
@@ -809,7 +813,11 @@ $breakpoint--desktop-nav: 960px;
 :host(#{$dds-prefix}-megamenu-heading) {
   margin-bottom: $spacing-07;
 
-  h2 {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @include carbon--type-style(heading-05, true);
 
     svg {
@@ -821,7 +829,11 @@ $breakpoint--desktop-nav: 960px;
 :host(#{$dds-prefix}-megamenu-category-heading) {
   margin-bottom: $spacing-05;
 
-  h2 {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @include carbon--type-style(heading-03, true);
 
     svg {

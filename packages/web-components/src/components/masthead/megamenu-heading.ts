@@ -22,6 +22,8 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-megamenu-heading`)
 class DDSMegaMenuHeading extends HostListenerMixin(LitElement) {
+  protected _hasContent = false;
+
   /**
    * Megamenu heading href.
    */
@@ -34,7 +36,8 @@ class DDSMegaMenuHeading extends HostListenerMixin(LitElement) {
   @property({ reflect: true })
   title = '';
 
-  protected _hasContent = false;
+  @property({ reflect: true, type: Number, attribute: 'heading-level' })
+  headingLevel = 2;
 
   /**
    * Arrow icon to use when presented as link.
@@ -62,16 +65,60 @@ class DDSMegaMenuHeading extends HostListenerMixin(LitElement) {
     `;
   }
 
+  /**
+   * Render heading markup.
+   */
+  protected renderHeading() {
+    const { headingLevel } = this;
+    const hasHref = Boolean(this.href);
+    switch (headingLevel) {
+      case 3:
+        return html`
+          <h3 ?data-has-href="${hasHref}">
+            ${this.renderHeadingInner()}
+          </h3>
+        `;
+      case 4:
+        return html`
+          <h4 ?data-has-href="${hasHref}">
+            ${this.renderHeadingInner()}
+          </h4>
+        `;
+      case 5:
+        return html`
+          <h5 ?data-has-href="${hasHref}">
+            ${this.renderHeadingInner()}
+          </h5>
+        `;
+      case 6:
+        return html`
+          <h5 ?data-has-href="${hasHref}">
+            ${this.renderHeadingInner()}
+          </h6>
+        `;
+      default:
+        return html`
+          <h2 ?data-has-href="${hasHref}">
+            ${this.renderHeadingInner()}
+          </h2>
+        `;
+    }
+  }
+
+  /**
+   * Render inner heading contents as link or plain text.
+   */
+  protected renderHeadingInner() {
+    return this.href ? this.renderLink() : this.renderPlain();
+  }
+
   protected _handleSlotChange(event) {
     this._hasContent = (event.target as HTMLSlotElement).assignedNodes().filter(child => child?.textContent?.trim()).length > 0;
   }
 
   render() {
-    const hasHref = Boolean(this.href);
     return html`
-      <h2 ?data-has-href="${hasHref}">
-        ${hasHref ? this.renderLink() : this.renderPlain()}
-      </h2>
+      ${this.renderHeading()}
       <span ?data-has-content="${this._hasContent}">
         <slot @slotchange=${this._handleSlotChange}></slot>
       </span>
