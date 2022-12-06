@@ -9,10 +9,10 @@
 
 import { text, select, number } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
-import ArrowRight20 from '@carbon/carbon-web-components/es/icons/arrow--right/20.js';
-import ArrowDown20 from '@carbon/carbon-web-components/es/icons/arrow--down/20.js';
-import Pdf20 from '@carbon/carbon-web-components/es/icons/PDF/20.js';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowDown20 from '@carbon/web-components/es/icons/arrow--down/20.js';
+import Pdf20 from '@carbon/web-components/es/icons/PDF/20.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../index';

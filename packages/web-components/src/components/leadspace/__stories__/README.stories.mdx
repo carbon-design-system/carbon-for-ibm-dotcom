@@ -1,11 +1,12 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import '../leadspace';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
-
-
-
-
 
 # LeadSpace
 
@@ -25,7 +26,7 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/leadspace/index.js';
 
 // icon for the button
-import ArrowRight20 from '@carbon/carbon-web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 ```
 
 <Description markdown={`${cdnJs({ components: ['leadspace'] })}`} />
@@ -41,55 +42,67 @@ import ArrowRight20 from '@carbon/carbon-web-components/es/icons/arrow--right/20
   <dds-button-group slot="action">
     <dds-button-group-item href="www.example.com">
       Button 1
-      <svg ...>
-        ...
-      </svg>
+      <svg ...>...</svg>
     </dds-button-group-item>
     <dds-button-group-item href="www.example.com">
       Button 2
-      <svg ...>
-        ...
-      </svg>
+      <svg ...>...</svg>
     </dds-button-group-item>
   </dds-button-group>
-  <dds-background-media mobile-position="bottom" opacity="100" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
-    <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
-    <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
+  <dds-background-media
+    mobile-position="bottom"
+    opacity="100"
+    alt="alt text"
+    default-src="https://picsum.photos/id/1076/1056/480"
+  >
+    <dds-image-item
+      media="(min-width: 672px)"
+      srcset="https://picsum.photos/id/1076/672/400"
+    ></dds-image-item>
+    <dds-image-item
+      media="(min-width: 0)"
+      srcset="https://picsum.photos/id/1076/320/370"
+    ></dds-image-item>
   </dds-background-media>
 </dds-leadspace>
 ```
 
 ## Using a background video
 
-It is possible to display a video instead of an image. To do so, use the `video-player-container` component within the `background-media` componet as such:
+It is possible to display a video instead of an image. To do so, use the
+`video-player-container` component within the `background-media` componet as
+such:
 
 ```html
-    <dds-leadspace>
-      <dds-leadspace-heading>LeadSpace title</dds-leadspace-heading>
-      Leadspace copy
-      <dds-button-group slot="action">
-        <dds-button-group-item href="www.example.com">
-          Button 1
-          <svg ...>
-            ...
-          </svg>
-        </dds-button-group-item>
-        <dds-button-group-item href="www.example.com">
-          Button 2
-          <svg ...>
-            ...
-          </svg>
-        </dds-button-group-item>
-      </dds-button-group>
-      <dds-background-media mobile-position="bottom" opacity="100">
-        <dds-video-player-container video-id="1_9h94wo6b" background-mode="true"></dds-video-player-container>
-      </dds-background-media>
-    </dds-leadspace>
+<dds-leadspace>
+  <dds-leadspace-heading>LeadSpace title</dds-leadspace-heading>
+  Leadspace copy
+  <dds-button-group slot="action">
+    <dds-button-group-item href="www.example.com">
+      Button 1
+      <svg ...>...</svg>
+    </dds-button-group-item>
+    <dds-button-group-item href="www.example.com">
+      Button 2
+      <svg ...>...</svg>
+    </dds-button-group-item>
+  </dds-button-group>
+  <dds-background-media mobile-position="bottom" opacity="100">
+    <dds-video-player-container
+      video-id="1_9h94wo6b"
+      background-mode="true"
+    ></dds-video-player-container>
+  </dds-background-media>
+</dds-leadspace>
 ```
 
 ## Using video player CTA button
 
-If using the video player cta in the Leadspace, make sure to follow the guidelines in the [CTA documentation](/?path=/docs/components-cta--text#using-a-video-player). As the Leadspace reserves the "action" slot for its CTAs, make sure to include `slot='action'` as an attribute to `video-cta-container`:
+If using the video player cta in the Leadspace, make sure to follow the
+guidelines in the
+[CTA documentation](/?path=/docs/components-cta--text#using-a-video-player). As
+the Leadspace reserves the "action" slot for its CTAs, make sure to include
+`slot='action'` as an attribute to `video-cta-container`:
 
 ```html
 <dds-leadspace alt="alt text" default-src="www.example.com">
@@ -97,23 +110,30 @@ If using the video player cta in the Leadspace, make sure to follow the guidelin
   LeadSpace copy
   <dds-video-cta-container slot="action">
     <dds-button-group slot="action">
-      <dds-button-cta cta-type='video' href="1_9h94wo6b">
+      <dds-button-cta cta-type="video" href="1_9h94wo6b">
         Button 1
-        <svg ...>
-          ...
-        </svg>
+        <svg ...>...</svg>
       </dds-button-cta>
       <dds-button-group-item href="www.example.com">
         Button 2
-        <svg ...>
-          ...
-        </svg>
+        <svg ...>...</svg>
       </dds-button-group-item>
     </dds-button-group>
   </dds-video-cta-container>
-  <dds-background-media mobile-position="bottom" opacity="100" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
-    <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
-    <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
+  <dds-background-media
+    mobile-position="bottom"
+    opacity="100"
+    alt="alt text"
+    default-src="https://picsum.photos/id/1076/1056/480"
+  >
+    <dds-image-item
+      media="(min-width: 672px)"
+      srcset="https://picsum.photos/id/1076/672/400"
+    ></dds-image-item>
+    <dds-image-item
+      media="(min-width: 0)"
+      srcset="https://picsum.photos/id/1076/320/370"
+    ></dds-image-item>
   </dds-background-media>
 </dds-leadspace>
 ```
@@ -124,7 +144,9 @@ If using the video player cta in the Leadspace, make sure to follow the guidelin
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector         | Description |
 | ----------------------- | ------------------------------ | ----------- |

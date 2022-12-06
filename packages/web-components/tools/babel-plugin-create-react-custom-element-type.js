@@ -61,7 +61,7 @@ function createMetadataVisitor(api) {
         .get('source')
         .node.value.replace(
           /^@carbon\/carbon-web-components[\\/]es[\\/]components[\\/]/,
-          '@carbon/carbon-web-components/es/components-react/'
+          '@carbon/web-components/es/components-react/'
         );
     }
     return undefined;
@@ -374,7 +374,7 @@ module.exports = function generateCreateReactCustomElementType(
         ),
       ],
       t.stringLiteral(
-        '@carbon/carbon-web-components/es/globals/wrappers/createReactCustomElementType.js'
+        '@carbon/web-components/es/globals/wrappers/createReactCustomElementType.js'
       )
     );
   };

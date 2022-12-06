@@ -9,7 +9,7 @@
 
 import '../image';
 import { html } from 'lit-element';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { select, boolean } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';

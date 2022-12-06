@@ -40,11 +40,11 @@ module.exports = function resourceCJSPaths(babel) {
           declaration.source.value = source
             .replace(
               /^@carbon\/carbon-web-components\/es\/components-react/i,
-              '@carbon/carbon-web-components/lib/components-react-node'
+              '@carbon/web-components/lib/components-react-node'
             )
             .replace(
               /^@carbon\/carbon-web-components\/es\/components/i,
-              '@carbon/carbon-web-components/lib/components-react-node'
+              '@carbon/web-components/lib/components-react-node'
             );
           path.replaceWith(declaration);
         } else if (
@@ -87,11 +87,11 @@ module.exports = function resourceCJSPaths(babel) {
           declaration.source.value = source
             .replace(
               /^@carbon\/carbon-web-components\/es\/components-react/i,
-              '@carbon/carbon-web-components/lib/components-react-node'
+              '@carbon/web-components/lib/components-react-node'
             )
             .replace(
               /^@carbon\/carbon-web-components\/es\/components/i,
-              '@carbon/carbon-web-components/lib/components-react-node'
+              '@carbon/web-components/lib/components-react-node'
             );
           path.replaceWith(declaration);
         } else if (

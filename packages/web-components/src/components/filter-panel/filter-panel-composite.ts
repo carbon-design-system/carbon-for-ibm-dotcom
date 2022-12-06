@@ -16,18 +16,18 @@ import {
   TemplateResult,
 } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import Filter from '@carbon/carbon-web-components/es/icons/filter/16.js';
-import HostListenerMixin from '@carbon/carbon-web-components/es/globals/mixins/host-listener.js';
+import Filter from '@carbon/web-components/es/icons/filter/16.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import './filter-group';
 import './filter-panel';
 import './filter-panel-modal';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
-import HostListener from '@carbon/carbon-web-components/es/globals/decorators/host-listener.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
-import '@carbon/carbon-web-components/es/components/checkbox/checkbox.js';
+import '@carbon/web-components/es/components/checkbox/checkbox.js';
 import DDSFilterGroupItem from './filter-group-item';
 import DDSFilterPanelCheckbox from './filter-panel-checkbox';
 import DDSFilterPanelInputSelect from './filter-panel-input-select';

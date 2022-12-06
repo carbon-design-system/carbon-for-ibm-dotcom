@@ -10,8 +10,8 @@
 import { html, property, customElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import pauseIcon from '@carbon/carbon-web-components/es/icons/pause--outline--filled/32.js';
-import playIcon from '@carbon/carbon-web-components/es/icons/play--filled/32.js';
+import pauseIcon from '@carbon/web-components/es/icons/pause--outline--filled/32.js';
+import playIcon from '@carbon/web-components/es/icons/play--filled/32.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './background-media.scss';
 import { GRADIENT_DIRECTION, MOBILE_POSITION } from './defs';

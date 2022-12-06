@@ -12,8 +12,8 @@ import { html } from 'lit-element';
 // Below path will be there when an application installs `carbon-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
-import ArrowRight20 from '@carbon/carbon-web-components/es/icons/arrow--right/20.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import '../../card/index';
 import '../../cta/index';
 import '../../image/index';

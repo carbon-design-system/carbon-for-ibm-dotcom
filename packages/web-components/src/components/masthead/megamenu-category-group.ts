@@ -8,8 +8,8 @@
  */
 
 import { html, customElement, LitElement, property } from 'lit-element';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
-import ArrowRight16 from '@carbon/carbon-web-components/es/icons/arrow--right/16.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
