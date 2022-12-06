@@ -69,18 +69,6 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
   private _triggerNode!: HTMLDivElement;
 
   /**
-   * Handles `focus` event handler on this element.
-   */
-  @HostListener('focusin')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleFocusIn() {
-    const { selectorItem } = this.constructor as typeof BXTabs;
-    forEach(this.querySelectorAll(selectorItem), (item) => {
-      (item as BXTab).inFocus = true;
-    });
-  }
-
-  /**
    * Handles `blur` event handler on this element.
    *
    * @param event The event.
@@ -89,10 +77,6 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleFocusOut({ relatedTarget }: FocusEvent) {
     if (!this.contains(relatedTarget as Node)) {
-      const { selectorItem } = this.constructor as typeof BXTabs;
-      forEach(this.querySelectorAll(selectorItem), (item) => {
-        (item as BXTab).inFocus = false;
-      });
       this._handleUserInitiatedToggle(false);
     }
   }
@@ -132,7 +116,7 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
   private _clearHighlight() {
     forEach(
       this.querySelectorAll((this.constructor as typeof BXTabs).selectorItem),
-      (item) => {
+      item => {
         (item as BXTab).highlighted = false;
       }
     );
@@ -168,7 +152,7 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
     if (immediate) {
       this._handleUserInitiatedSelectItem(nextItem as BXTab);
     } else {
-      forEach(this.querySelectorAll(selectorItem), (item) => {
+      forEach(this.querySelectorAll(selectorItem), item => {
         (item as BXTab)[immediate ? 'selected' : 'highlighted'] =
           nextItem === item;
       });
@@ -202,8 +186,9 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
   }
 
   @HostListener('keydown')
-  protected _handleKeydown({ key }: KeyboardEvent) {
+  protected _handleKeydown(event: KeyboardEvent) {
     const { _open: open, _triggerNode: triggerNode } = this;
+    const { key, target } = event;
     const narrowMode = Boolean(triggerNode.offsetParent);
     const action = (this.constructor as typeof BXTabs).getAction(key, {
       narrowMode,
@@ -226,6 +211,9 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
       switch (action) {
         case TABS_KEYBOARD_ACTION.CLOSING:
           this._handleUserInitiatedToggle(false);
+          break;
+        case TABS_KEYBOARD_ACTION.SELECTING:
+          this._handleUserInitiatedSelectItem(target as BXTab);
           break;
         case TABS_KEYBOARD_ACTION.NAVIGATING:
           {
@@ -305,14 +293,14 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
     super.shouldUpdate(changedProperties);
     const { selectorItem } = this.constructor as typeof BXTabs;
     if (changedProperties.has('type')) {
-      forEach(this.querySelectorAll(selectorItem), (elem) => {
+      forEach(this.querySelectorAll(selectorItem), elem => {
         (elem as BXTab).type = this.type;
       });
     }
     if (changedProperties.has('value')) {
       const item = find(
         this.querySelectorAll(selectorItem),
-        (elem) => (elem as BXTab).value === this.value
+        elem => (elem as BXTab).value === this.value
       );
       if (item) {
         const range = this.ownerDocument!.createRange();
@@ -349,7 +337,8 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
         aria-expanded="${String(open)}"
         aria-haspopup="listbox"
         aria-owns="tablist"
-        aria-controls="tablist">
+        aria-controls="tablist"
+      >
         <span id="trigger-label" class="${prefix}--tabs-trigger-text">
           ${selectedItemContent || triggerContent}
         </span>
@@ -362,7 +351,8 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
         class="${prefix}--assistive-text"
         role="status"
         aria-live="assertive"
-        aria-relevant="additions text">
+        aria-relevant="additions text"
+      >
         ${assistiveStatusText}
       </div>
     `;
@@ -427,6 +417,9 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
   static getAction(key: string, { narrowMode }: { narrowMode?: boolean }) {
     if (key === 'Escape') {
       return TABS_KEYBOARD_ACTION.CLOSING;
+    }
+    if (key === 'Enter') {
+      return TABS_KEYBOARD_ACTION.SELECTING;
     }
     if (
       key in (narrowMode ? NAVIGATION_DIRECTION_NARROW : NAVIGATION_DIRECTION)
