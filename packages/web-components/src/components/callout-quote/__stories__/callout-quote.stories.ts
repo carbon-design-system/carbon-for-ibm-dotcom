@@ -24,14 +24,9 @@ const types = {
   [`${QUOTE_TYPES.CORNER_BRACKET}`]: QUOTE_TYPES.CORNER_BRACKET,
 };
 
-<<<<<<< HEAD
-export const Default = args => {
-  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } = args ?? {};
-=======
 export const Default = (args) => {
   const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } =
-    args?.CalloutQuote ?? {};
->>>>>>> upstream/main
+    args ?? {};
   return html`
     <dds-callout-quote mark-type="${quoteMark}">
       ${copy}
@@ -87,31 +82,6 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-<<<<<<< HEAD
-=======
-    knobs: {
-      CalloutQuote: () => ({
-        copy: textNullable(
-          'Quote (copy):',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ' +
-            'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
-        ),
-        quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
-        sourceHeading: textNullable(
-          'Source heading (source-heading slot)',
-          'Lorem ipsum dolor sit amet'
-        ),
-        sourceCopy: textNullable(
-          'Source copy (source-copy slot)',
-          'consectetur adipiscing elit'
-        ),
-        sourceBottomCopy: textNullable(
-          'Source bottom copy (source-bottom-copy slot)',
-          'IBM Cloud'
-        ),
-      }),
-    },
->>>>>>> upstream/main
     propsSet: {
       default: {
         CalloutQuote: {
