@@ -12,7 +12,7 @@ import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.
 import '../horizontal-rule';
 import readme from './README.stories.mdx';
 
-export const Default = args => {
+export const Default = (args) => {
   const { type, size, contrast, weight } = args ?? {};
   return html`
     <dds-hr

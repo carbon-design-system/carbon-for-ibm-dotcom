@@ -35,7 +35,7 @@ const srcsets = {
   '8-col': [img8ColLg, img8ColXlg, img8Col],
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { heading, copy, ctaCopy } = args ?? {};
 
   const bannerHeading = document.querySelector('dds-universal-banner-heading');
@@ -55,10 +55,15 @@ export const Default = args => {
     <dds-universal-banner image-width="${args['image-width']}">
       ${args['image-width']
         ? html`
-            <dds-universal-banner-image slot="image" default-src="${images[args['image-width']]}">
-              <dds-image-item media="(min-width: 1584px)" srcset="${srcset[2]}"> </dds-image-item>
-              <dds-image-item media="(min-width: 1056px)" srcset="${srcset[1]}"> </dds-image-item>
-              <dds-image-item media="(min-width: 1312px)" srcset="${srcset[0]}"> </dds-image-item>
+            <dds-universal-banner-image
+              slot="image"
+              default-src="${images[args['image-width']]}">
+              <dds-image-item media="(min-width: 1584px)" srcset="${srcset[2]}">
+              </dds-image-item>
+              <dds-image-item media="(min-width: 1056px)" srcset="${srcset[1]}">
+              </dds-image-item>
+              <dds-image-item media="(min-width: 1312px)" srcset="${srcset[0]}">
+              </dds-image-item>
             </dds-universal-banner-image>
           `
         : ``}
@@ -66,7 +71,13 @@ export const Default = args => {
         >${heading}</dds-universal-banner-heading
       >
       <dds-universal-banner-copy slot="copy">${copy}</dds-universal-banner-copy>
-      <dds-button-cta slot="cta" cta-type="local" kind="tertiary" href="https://www.example.com"> ${ctaCopy} </dds-button-cta>
+      <dds-button-cta
+        slot="cta"
+        cta-type="local"
+        kind="tertiary"
+        href="https://www.example.com">
+        ${ctaCopy}
+      </dds-button-cta>
     </dds-universal-banner>
   `;
 };

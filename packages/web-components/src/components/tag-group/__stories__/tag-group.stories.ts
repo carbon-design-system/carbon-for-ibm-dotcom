@@ -23,7 +23,7 @@ const tagTitles = [
 
 const tagTypeOptions = ['Tag Link', 'Carbon tag'];
 
-export const Default = args => {
+export const Default = (args) => {
   const { tagType } = args ?? {};
 
   return html`

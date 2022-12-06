@@ -12,7 +12,7 @@ import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.
 import readme from './README.stories.mdx';
 import '../tag-link';
 
-export const Default = args => {
+export const Default = (args) => {
   const { copy, href } = args ?? {};
   return html`
     <dds-tag-link href=${ifNonNull(href || undefined)}> ${copy} </dds-tag-link>
@@ -22,12 +22,7 @@ export const Default = args => {
 export default {
   title: 'Components/Tag link',
   component: 'dds-tag-link',
-  decorators: [
-    story =>
-      html`
-        <div class="bx--grid">${story()}</div>
-      `,
-  ],
+  decorators: [(story) => html` <div class="bx--grid">${story()}</div> `],
   argTypes: {
     href: {
       control: 'text',
