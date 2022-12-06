@@ -22,7 +22,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-callout-data
  */
 @customElement(`${ddsPrefix}-callout-with-media`)
-class DDSCalloutWithMedia extends DDSCalloutMixin(StableSelectorMixin(DDSContentBlock)) {
+class DDSCalloutWithMedia extends DDSCalloutMixin(
+  StableSelectorMixin(DDSContentBlock)
+) {
   static get stableSelector() {
     return `${ddsPrefix}--callout-with-media`;
   }

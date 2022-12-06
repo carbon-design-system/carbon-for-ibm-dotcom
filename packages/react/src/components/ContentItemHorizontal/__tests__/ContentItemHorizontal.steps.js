@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,7 +17,7 @@ describe('ContentItemHorizontal', () => {
       '.bx--content-item-horizontal__item--eyebrow'
     );
     const styleValues = await page.evaluate(
-      eyebrow =>
+      (eyebrow) =>
         window.getStyleValues(eyebrow, [
           'font-size',
           'font-weight',

@@ -32,7 +32,6 @@ class AnalyticsAPI {
    * and fires an event to Coremetrics
    *
    * @param {object} eventData Object with standard IBM metric event properties and values to send to Coremetrics
-   *
    * @example
    * import { AnalyticsAPI } from '@carbon/ibmdotcom-services';
    *
@@ -47,8 +46,6 @@ class AnalyticsAPI {
    *    }
    *    AnalyticsAPI.registerEvent(eventData);
    * }
-   *
-   *
    */
   static registerEvent(eventData) {
     if (root.ibmStats) {
@@ -77,9 +74,8 @@ class AnalyticsAPI {
    * function init() {
    *   AnalyticsAPI.initScrollTracker();
    * }
-   *
    * @deprecated
-   **/
+   */
   static initScrollTracker() {
     if (_scrollTracker) {
       console.warn(
@@ -101,7 +97,7 @@ class AnalyticsAPI {
    */
   static initDynamicTabs() {
     const tabSelected = this.triggerTabSelected.bind(this);
-    root.document.addEventListener('tab-selected', function(evt) {
+    root.document.addEventListener('tab-selected', function (evt) {
       tabSelected(evt.target.id, evt.detail.item.innerText);
     });
   }
@@ -142,12 +138,12 @@ class AnalyticsAPI {
    */
   static initModals() {
     const modalHide = this.triggerModalHide.bind(this);
-    root.document.addEventListener('modal-hidden', function(evt) {
+    root.document.addEventListener('modal-hidden', function (evt) {
       modalHide(evt.target.id, evt.detail.launchingElement.innerText);
     });
 
     const modalShow = this.triggerModalShow.bind(this);
-    root.document.addEventListener('modal-shown', function(evt) {
+    root.document.addEventListener('modal-shown', function (evt) {
       modalShow(evt.target.id, evt.detail.launchingElement.innerText);
     });
   }
@@ -202,7 +198,6 @@ class AnalyticsAPI {
    * Sends video player metrics data
    *
    * @param {object} data event data from the video player
-   *
    * @example
    * import { AnalyticsAPI } from '@carbon/ibmdotcom-services';
    *
@@ -218,7 +213,6 @@ class AnalyticsAPI {
    *
    *    AnalyticsAPI.videoPlayerStats(data);
    *}
-   *
    */
   static videoPlayerStats(data) {
     let playerState = data?.playerState || '',
@@ -279,7 +273,7 @@ class AnalyticsAPI {
     };
 
     if (data?.customMetricsData) {
-      Object.keys(data.customMetricsData).forEach(customMetricsKey => {
+      Object.keys(data.customMetricsData).forEach((customMetricsKey) => {
         eventData[customMetricsKey] = data.customMetricsData[customMetricsKey];
       });
     }

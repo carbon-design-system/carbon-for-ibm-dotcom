@@ -12,14 +12,26 @@ import { classMap } from 'lit-html/directives/class-map.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { html, query, customElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import BXDropdown from 'carbon-web-components/es/components/dropdown/dropdown.js';
-import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item.js';
-import ChevronDown16 from 'carbon-web-components/es/icons/chevron--down/16.js';
-import WarningFilled16 from 'carbon-web-components/es/icons/warning--filled/16.js';
-import { DROPDOWN_COLOR_SCHEME, DROPDOWN_KEYBOARD_ACTION, DROPDOWN_SIZE, DROPDOWN_TYPE, NAVIGATION_DIRECTION } from './defs';
+import BXDropdown from '@carbon/web-components/es/components/dropdown/dropdown.js';
+import BXDropdownItem from '@carbon/web-components/es/components/dropdown/dropdown-item.js';
+import ChevronDown16 from '@carbon/web-components/es/icons/chevron--down/16.js';
+import WarningFilled16 from '@carbon/web-components/es/icons/warning--filled/16.js';
+import {
+  DROPDOWN_COLOR_SCHEME,
+  DROPDOWN_KEYBOARD_ACTION,
+  DROPDOWN_SIZE,
+  DROPDOWN_TYPE,
+  NAVIGATION_DIRECTION,
+} from './defs';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 
-export { DROPDOWN_COLOR_SCHEME, DROPDOWN_KEYBOARD_ACTION, DROPDOWN_SIZE, DROPDOWN_TYPE, NAVIGATION_DIRECTION };
+export {
+  DROPDOWN_COLOR_SCHEME,
+  DROPDOWN_KEYBOARD_ACTION,
+  DROPDOWN_SIZE,
+  DROPDOWN_TYPE,
+  NAVIGATION_DIRECTION,
+};
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -55,7 +67,9 @@ class DDSDropdown extends BXDropdown {
    */
   @property({ attribute: false })
   formatSelectedItemStatusText = ({ latestSelection, currentItem }) =>
-    currentItem === '' ? `${latestSelection}` : `${latestSelection}, Current input is: ${currentItem}`;
+    currentItem === ''
+      ? `${latestSelection}`
+      : `${latestSelection}, Current input is: ${currentItem}`;
 
   /**
    * Navigate through dropdown items.
@@ -65,7 +79,9 @@ class DDSDropdown extends BXDropdown {
   protected _navigate(direction: number) {
     const constructor = this.constructor as typeof BXDropdown;
     const items = this.querySelectorAll(constructor.selectorItem);
-    const highlightedItem = this.querySelector(constructor.selectorItemHighlighted);
+    const highlightedItem = this.querySelector(
+      constructor.selectorItemHighlighted
+    );
     const highlightedIndex = indexOf(items, highlightedItem!);
     let nextIndex = highlightedIndex + direction;
     if (nextIndex < 0) {
@@ -118,7 +134,9 @@ class DDSDropdown extends BXDropdown {
       _slotLabelTextNode: slotLabelTextNode,
     } = this;
     const inline = type === DROPDOWN_TYPE.INLINE;
-    const selectedItemsCount = this.querySelectorAll((this.constructor as typeof DDSDropdown).selectorItemSelected).length;
+    const selectedItemsCount = this.querySelectorAll(
+      (this.constructor as typeof DDSDropdown).selectorItemSelected
+    ).length;
     const classes = classMap({
       [`${prefix}--dropdown`]: true,
       [`${prefix}--list-box`]: true,
@@ -144,13 +162,23 @@ class DDSDropdown extends BXDropdown {
       [`${prefix}--list-box__menu-icon`]: true,
       [`${prefix}--list-box__menu-icon--open`]: open,
     });
-    const toggleLabel = (open ? toggleLabelOpen : toggleLabelClosed) || undefined;
-    const hasHelperText = helperText || (slotHelperTextNode && slotHelperTextNode.assignedNodes().length > 0);
-    const hasLabelText = labelText || (slotLabelTextNode && slotLabelTextNode.assignedNodes().length > 0);
+    const toggleLabel =
+      (open ? toggleLabelOpen : toggleLabelClosed) || undefined;
+    const hasHelperText =
+      helperText ||
+      (slotHelperTextNode && slotHelperTextNode.assignedNodes().length > 0);
+    const hasLabelText =
+      labelText ||
+      (slotLabelTextNode && slotLabelTextNode.assignedNodes().length > 0);
     const helper = !invalid
       ? html`
-          <div part="helper-text" class="${helperClasses}" ?hidden="${inline || !hasHelperText}">
-            <slot name="helper-text" @slotchange="${handleSlotchangeHelperText}">${helperText}</slot>
+          <div
+            part="helper-text"
+            class="${helperClasses}"
+            ?hidden="${inline || !hasHelperText}">
+            <slot name="helper-text" @slotchange="${handleSlotchangeHelperText}"
+              >${helperText}</slot
+            >
           </div>
         `
       : html`
@@ -160,25 +188,37 @@ class DDSDropdown extends BXDropdown {
         `;
     const validityIcon = !invalid
       ? undefined
-      : WarningFilled16({ class: `${prefix}--list-box__invalid-icon`, 'aria-label': toggleLabel });
+      : WarningFilled16({
+          class: `${prefix}--list-box__invalid-icon`,
+          'aria-label': toggleLabel,
+        });
     const menuBody = !open
       ? undefined
       : html`
-          <div id="menu-body" part="menu-body" class="${prefix}--list-box__menu" role="listbox" tabindex="-1">
+          <div
+            id="menu-body"
+            part="menu-body"
+            class="${prefix}--list-box__menu"
+            role="listbox"
+            tabindex="-1">
             <slot></slot>
           </div>
         `;
     return html`
-      <label part="label-text" class="${labelClasses}" ?hidden="${!hasLabelText}">
-        <slot name="label-text" @slotchange="${handleSlotchangeLabelText}">${labelText}</slot>
+      <label
+        part="label-text"
+        class="${labelClasses}"
+        ?hidden="${!hasLabelText}">
+        <slot name="label-text" @slotchange="${handleSlotchangeLabelText}"
+          >${labelText}</slot
+        >
       </label>
       <div
         class="${classes}"
         ?data-invalid=${invalid}
         @click=${handleClickInner}
         @keydown=${handleKeydownInner}
-        @keypress=${handleKeypressInner}
-      >
+        @keypress=${handleKeypressInner}>
         ${validityIcon}
         <div
           part="trigger-button"
@@ -189,8 +229,7 @@ class DDSDropdown extends BXDropdown {
           aria-expanded="${String(open)}"
           aria-haspopup="listbox"
           aria-owns="menu-body"
-          aria-controls="menu-body"
-        >
+          aria-controls="menu-body">
           ${this._renderPrecedingTriggerContent()}${this._renderTriggerContent()}${this._renderFollowingTriggerContent()}
           <div class="${iconContainerClasses}">
             ${ChevronDown16({ 'aria-label': toggleLabel })}
@@ -204,8 +243,7 @@ class DDSDropdown extends BXDropdown {
         class="${prefix}--assistive-text"
         role="status"
         aria-live="assertive"
-        aria-relevant="additions text"
-      >
+        aria-relevant="additions text">
         ${assistiveStatusText}
       </div>
     `;

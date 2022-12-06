@@ -24,7 +24,8 @@ import worldWideContent from './world-wide-content';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-const emailRegExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const emailRegExp =
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 export function NoticeChoice({
   locale,
@@ -99,7 +100,7 @@ export function NoticeChoice({
   const setDefaultSelections = useCallback(() => {
     if (!enableAllOptIn && checkboxes) {
       const newValues = { ...values };
-      Object.keys(checkboxes).forEach(key => {
+      Object.keys(checkboxes).forEach((key) => {
         const option = getOptionByQuestion(key, optInContent);
         newValues[key] = !!(
           option.checked === 'true' || option.checked === true
@@ -166,11 +167,11 @@ export function NoticeChoice({
     lc = ccLcObject.lc;
 
     resetToWorldWideContent();
-    loadContent(cc, lc, data => {
+    loadContent(cc, lc, (data) => {
       // Sent content language
       setNcData(data);
     }),
-      e => {
+      (e) => {
         console.error('Unable to load ncContent', e);
       };
   }, [locale]);
@@ -186,7 +187,7 @@ export function NoticeChoice({
       lc = countrySettings[country.toLocaleLowerCase()].lang;
     }
     resetToWorldWideContent();
-    loadContent(cc, lc, data => {
+    loadContent(cc, lc, (data) => {
       /**
        * @description Do not change content language.
        * Change the checkbox according to the country rule.
@@ -196,7 +197,7 @@ export function NoticeChoice({
         cclc: `${worldWideContent.cc_name}-${worldWideContent.cc_lang}`,
       });
     }),
-      e => {
+      (e) => {
         console.error('Unable to load ncContent', e);
       };
   }, [country]);
@@ -206,9 +207,9 @@ export function NoticeChoice({
    * the checkbox to false
    */
   const emailChanged = useCallback(
-    email => {
+    (email) => {
       if (prefChange === false) {
-        checkPreferencesv3(email).then(response => {
+        checkPreferencesv3(email).then((response) => {
           if (
             response === 'S' &&
             JSON.stringify(values) !==
@@ -291,7 +292,7 @@ export function NoticeChoice({
   }, [values, loaded]);
   useEffect(() => {
     if (ncData) {
-      const buildCheckboxes = OptInContent => {
+      const buildCheckboxes = (OptInContent) => {
         const fieldElements = {};
         const fieldCollections = {
           EMAIL: {
@@ -396,7 +397,7 @@ export function NoticeChoice({
           <div className={`${prefix}--checkbox-group`}>
             {checkboxes &&
               Object.keys(checkboxes).length > 0 &&
-              Object.keys(checkboxes).map(key => {
+              Object.keys(checkboxes).map((key) => {
                 const checked = values[key];
                 return (
                   <span key={key}>

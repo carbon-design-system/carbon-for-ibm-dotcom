@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -28,6 +28,11 @@
 
   .#{$prefix}--content-section__leading {
     padding: $spacing-05;
+    padding-top: 0;
+
+    @include carbon--breakpoint-down('lg') {
+      padding-bottom: $spacing-07;
+    }
 
     @include carbon--breakpoint(lg) {
       @include carbon--make-col(4, 16);
@@ -68,7 +73,7 @@
   :host(#{$dds-prefix}-content-section-heading),
   .#{$prefix}--content-section__heading {
     margin-top: 0;
-    margin-bottom: $spacing-06;
+    margin-bottom: 0;
     color: $text-01;
 
     @include type-style('expressive-heading-02');

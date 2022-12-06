@@ -20,9 +20,7 @@ class DDSPricingTableHighlightLabel extends StableSelectorMixin(LitElement) {
   slot = 'highlight-label';
 
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   static get stableSelector() {

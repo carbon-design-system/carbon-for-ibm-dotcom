@@ -8,14 +8,18 @@
  */
 
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import '../horizontal-rule';
 import readme from './README.stories.mdx';
 
 export const Default = args => {
   const { type, size, contrast, weight } = args ?? {};
   return html`
-    <dds-hr type="${ifNonNull(type)}" size="${ifNonNull(size)}" contrast="${ifNonNull(contrast)}" weight="${ifNonNull(weight)}">
+    <dds-hr
+      type="${ifNonNull(type)}"
+      size="${ifNonNull(size)}"
+      contrast="${ifNonNull(contrast)}"
+      weight="${ifNonNull(weight)}">
     </dds-hr>
   `;
 };
@@ -59,7 +63,7 @@ export default {
     },
   },
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid bx--grid--condensed">
         <div class="bx--row">
           <div class="bx--col-lg-12">
