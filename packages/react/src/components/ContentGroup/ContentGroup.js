@@ -33,8 +33,7 @@ const ContentGroup = ({ children, heading, customClassName, cta, copy }) => {
     <div className={className} data-autoid={`${stablePrefix}--content-group`}>
       <h3
         data-autoid={`${stablePrefix}--content-group__title`}
-        className={`${prefix}--content-group__title`}
-      >
+        className={`${prefix}--content-group__title`}>
         {heading}
       </h3>
       {copy && (
@@ -50,15 +49,13 @@ const ContentGroup = ({ children, heading, customClassName, cta, copy }) => {
         className={classNames(
           `${prefix}--content-group__col`,
           `${prefix}--content-group__children`
-        )}
-      >
+        )}>
         {children}
       </div>
       {cta && (
         <div
           data-autoid={`${stablePrefix}--content-group__cta`}
-          className={`${prefix}--content-group__cta-row`}
-        >
+          className={`${prefix}--content-group__cta-row`}>
           <CTA customClassName={`${prefix}--content-group__cta`} {...cta} />
         </div>
       )}

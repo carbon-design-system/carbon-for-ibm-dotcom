@@ -25,8 +25,7 @@ const template = (props?) => {
       cta-type="${ifDefined(ctaType)}"
       video-duration="${ifDefined(videoDuration)}"
       .formatVideoCaption="${ifDefined(formatVideoCaption)}"
-      .formatVideoDuration="${ifDefined(formatVideoDuration)}"
-    >
+      .formatVideoDuration="${ifDefined(formatVideoDuration)}">
       ${children}
     </dds-card-cta-footer>
   `;

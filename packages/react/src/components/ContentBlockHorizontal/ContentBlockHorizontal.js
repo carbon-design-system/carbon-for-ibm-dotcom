@@ -21,8 +21,7 @@ const ContentBlockHorizontal = ({ heading, items, border }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--content-block-horizontal`}
-      className={`${prefix}--content-block-horizontal`}
-    >
+      className={`${prefix}--content-block-horizontal`}>
       <ContentBlock heading={heading} border={border}>
         {items.map((item, index) => (
           <ContentItemHorizontal

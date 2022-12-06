@@ -15,8 +15,7 @@ const template = (props?) => {
   const { expanded } = props ?? {};
   return html`
     <dds-megamenu-top-nav-menu
-      ?expanded="${expanded}"
-    ></dds-megamenu-top-nav-menu>
+      ?expanded="${expanded}"></dds-megamenu-top-nav-menu>
     <dds-megamenu-overlay></dds-megamenu-overlay>
   `;
 };

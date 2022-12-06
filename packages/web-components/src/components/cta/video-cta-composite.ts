@@ -194,8 +194,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(
         video-id="${ifNonNull(activeVideoId)}"
         .embeddedVideos="${ifNonNull(embeddedVideos)}"
         .mediaData="${ifNonNull(mediaData)}"
-        ._embedMedia="${ifNonNull(embedMedia)}"
-      >
+        ._embedMedia="${ifNonNull(embedMedia)}">
       </dds-lightbox-video-player-composite>
     `;
   }

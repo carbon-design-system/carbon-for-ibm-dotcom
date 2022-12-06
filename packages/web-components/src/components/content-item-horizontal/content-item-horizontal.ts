@@ -44,8 +44,7 @@ class DDSContentItemHorizontal extends DDSContentItem {
             <div class="${prefix}--content-item-horizontal__heading-wrapper">
               <slot
                 name="eyebrow"
-                @slotchange="${this._handleSlotChange}"
-              ></slot>
+                @slotchange="${this._handleSlotChange}"></slot>
               <slot name="heading"></slot>
             </div>
             <div class="${prefix}--content-item-horizontal__content-wrapper">

@@ -23,28 +23,24 @@ const { prefix } = settings;
  * @param {string} props.heading heading text
  * @param {string} props.copy copy text
  * @param {Array} props.cta cta array
- *
  * @returns {*} JSX ContentItemHorizontal pattern
  */
 const ContentItemHorizontal = ({ eyebrow, heading, copy, cta }) => (
   <div
     className={`${prefix}--content-item-horizontal__item `}
-    data-autoid={`${stablePrefix}--content-item-horizontal__item`}
-  >
+    data-autoid={`${stablePrefix}--content-item-horizontal__item`}>
     <div className={`${prefix}--content-item-horizontal__row`}>
       <div className={`${prefix}--content-item-horizontal__col`}>
         {eyebrow && (
           <p
             className={`${prefix}--content-item-horizontal__item--eyebrow`}
-            data-autoid={`${stablePrefix}--content-item-horizontal__item--eyebrow`}
-          >
+            data-autoid={`${stablePrefix}--content-item-horizontal__item--eyebrow`}>
             {eyebrow}
           </p>
         )}
         <h3
           className={`${prefix}--content-item-horizontal__item--heading`}
-          data-autoid={`${stablePrefix}--content-item-horizontal__item--heading`}
-        >
+          data-autoid={`${stablePrefix}--content-item-horizontal__item--heading`}>
           {heading}
         </h3>
       </div>
@@ -59,8 +55,7 @@ const ContentItemHorizontal = ({ eyebrow, heading, copy, cta }) => (
         {cta && (
           <div
             className={`${prefix}--content-item-horizontal__item--cta`}
-            data-autoid={`${stablePrefix}--content-item-horizontal__item--cta`}
-          >
+            data-autoid={`${stablePrefix}--content-item-horizontal__item--cta`}>
             <LinkList style="vertical" {...cta} />
           </div>
         )}

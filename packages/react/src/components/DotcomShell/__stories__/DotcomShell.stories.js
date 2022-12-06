@@ -253,8 +253,7 @@ export const Default = () => {
     <DotcomShell
       mastheadProps={mastheadProps}
       footerProps={footerProps}
-      {...props.default()}
-    >
+      {...props.default()}>
       <main id="main-content">
         <Content withL1={!!mastheadProps.mastheadL1Data} />
       </main>
@@ -268,8 +267,7 @@ export const DefaultLanguageOnly = () => {
     <DotcomShell
       mastheadProps={mastheadProps}
       footerProps={footerProps}
-      {...props.defaultLanguageOnly()}
-    >
+      {...props.defaultLanguageOnly()}>
       <main id="main-content">
         <Content withL1={!!mastheadProps.mastheadL1Data} />
       </main>
@@ -295,8 +293,7 @@ export const SearchOpenByDefault = () => {
     <DotcomShell
       mastheadProps={mastheadProps}
       footerProps={footerProps}
-      {...props.searchOpenByDefault()}
-    >
+      {...props.searchOpenByDefault()}>
       <main id="main-content">
         <Content withL1={!!mastheadProps.mastheadL1Data} />
       </main>
@@ -322,8 +319,7 @@ export const WithPlatform = () => {
     <DotcomShell
       mastheadProps={mastheadProps}
       footerProps={footerProps}
-      {...props.withPlatform()}
-    >
+      {...props.withPlatform()}>
       <main id="main-content">
         <Content withL1={!!mastheadProps.mastheadL1Data} />
       </main>
@@ -349,8 +345,7 @@ export const ShortFooter = () => {
     <DotcomShell
       mastheadProps={mastheadProps}
       footerProps={footerProps}
-      {...props.shortFooter()}
-    >
+      {...props.shortFooter()}>
       <main id="main-content">
         <Content withL1={!!mastheadProps.mastheadL1Data} />
       </main>
@@ -376,8 +371,7 @@ export const ShortFooterLanguageOnly = () => {
     <DotcomShell
       mastheadProps={mastheadProps}
       footerProps={footerProps}
-      {...props.shortFooterLanguageOnly()}
-    >
+      {...props.shortFooterLanguageOnly()}>
       <main id="main-content">
         <Content withL1={!!mastheadProps.mastheadL1Data} />
       </main>
@@ -403,8 +397,7 @@ export const MicroFooter = () => {
     <DotcomShell
       mastheadProps={mastheadProps}
       footerProps={footerProps}
-      {...props.microFooter()}
-    >
+      {...props.microFooter()}>
       <main id="main-content">
         <Content withL1={!!mastheadProps.mastheadL1Data} />
       </main>
@@ -430,8 +423,7 @@ export const MicroFooterLanguageOnly = () => {
     <DotcomShell
       mastheadProps={mastheadProps}
       footerProps={footerProps}
-      {...props.microFooterLanguageOnly()}
-    >
+      {...props.microFooterLanguageOnly()}>
       <main id="main-content">
         <Content withL1={!!mastheadProps.mastheadL1Data} />
       </main>
@@ -457,8 +449,7 @@ export const WithL1 = () => {
     <DotcomShell
       mastheadProps={mastheadProps}
       footerProps={footerProps}
-      {...props.withL1()}
-    >
+      {...props.withL1()}>
       <main id="main-content">
         <Content withL1={!!mastheadProps.mastheadL1Data} />
       </main>

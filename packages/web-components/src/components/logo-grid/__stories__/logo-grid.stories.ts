@@ -36,16 +36,14 @@ export const Default = (args) => {
     <dds-logo-grid
       ?hide-border="${hideBorder}"
       logo-count="${logoCount}"
-      logo-ratio="${logoRatio}"
-    >
+      logo-ratio="${logoRatio}">
       <dds-content-block-heading> ${heading} </dds-content-block-heading>
       ${logosGroup &&
       logosGroup.map(
         (elem) => html`
           <dds-logo-grid-item
             default-src="${elem.imgSrc}"
-            alt="${elem.altText}"
-          ></dds-logo-grid-item>
+            alt="${elem.altText}"></dds-logo-grid-item>
         `
       )}
       ${showCta

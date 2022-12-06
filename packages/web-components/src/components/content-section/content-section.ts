@@ -65,8 +65,7 @@ class DDSContentSection extends StableSelectorMixin(LitElement) {
           <slot name="footer"></slot>
         </div>
         <div
-          class="${prefix}--content-section__body ${this.childrenCustomClass}"
-        >
+          class="${prefix}--content-section__body ${this.childrenCustomClass}">
           <slot @slotchange="${this.handleSlotChange}"></slot>
         </div>
       </div>

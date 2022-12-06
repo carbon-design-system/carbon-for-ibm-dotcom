@@ -38,15 +38,13 @@ const ContentBlockSegmented = ({
       className={cx(`${prefix}--content-block-segmented`, {
         [`${prefix}--content-block-segmented-border`]:
           border || (aside && aside.border),
-      })}
-    >
+      })}>
       <ContentBlock
         heading={heading}
         copy={copy}
         cta={cta}
         aside={aside}
-        border={border}
-      >
+        border={border}>
         {_renderMedia(mediaType, mediaData)}
         {_renderGroup(items)}
       </ContentBlock>
@@ -60,7 +58,6 @@ const ContentBlockSegmented = ({
  * @param {string} type cta type ( external | jump | local)
  * @param {object} data cta type ( external | jump | local)
  * @private
- * @returns {*} media component
  */
 const _renderMedia = (type, data) => {
   if (data) {
@@ -90,11 +87,9 @@ const _renderGroup = (items) =>
               ...item.cta,
             }
           : undefined
-      }
-    >
+      }>
       <div
-        data-autoid={`${stablePrefix}--content-block-segmented__content-group`}
-      >
+        data-autoid={`${stablePrefix}--content-block-segmented__content-group`}>
         <ContentItem copy={item.copy} key={index} />
         {(item.image || item.video) && (
           <div data-autoid={`${stablePrefix}--content-block-segmented__media`}>
@@ -143,8 +138,8 @@ ContentBlockSegmented.propTypes = {
    * Media Data for either image or video.
    * See the following components' README for more details:
    *
-   * * `mediaType="image"`: [`<ImageWithCaption>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-imagewithcaption--default#props)
-   * * `mediaType="video"`: [`<VideoPlayer>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-videoplayer--default#props)
+   * `mediaType="image"`: [`<ImageWithCaption>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-imagewithcaption--default#props)
+   * `mediaType="video"`: [`<VideoPlayer>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-videoplayer--default#props)
    */
   mediaData: PropTypes.oneOfType([
     PropTypes.shape({

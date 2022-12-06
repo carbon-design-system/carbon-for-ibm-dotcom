@@ -40,8 +40,7 @@ class DDSLightboxImageViewer extends DDSLightboxMediaViewerBody {
         class="${prefix}--image__img"
         alt="${ifNonNull(alt)}"
         src="${ifNonNull(defaultSrc)}"
-        loading="lazy"
-      />
+        loading="lazy" />
     `;
   }
 

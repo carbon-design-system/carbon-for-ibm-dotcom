@@ -100,7 +100,6 @@ function _setFontFamily(language) {
  *
  * // Load specific weights only
  * loadNonLatinPlex('ar', [400,600]);
- *
  * @param {string} language two-character language code
  * @param {Array} [weights=[]] Array of specific weights to load (100-700)
  */

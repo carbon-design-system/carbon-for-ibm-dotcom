@@ -49,8 +49,7 @@ class DDSLeftNavName extends BXHeaderName {
     return html`
       <a
         class="${prefix}--side-nav__submenu ${prefix}--side-nav__submenu-platform"
-        href="${ifNonNull(href)}"
-      >
+        href="${ifNonNull(href)}">
         ${namePrefixPart}
         <slot></slot>
       </a>

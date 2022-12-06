@@ -48,8 +48,7 @@ export const Text = (args) => {
       video-name="${ifNonNull(customVideoTitle)}"
       video-description="${ifNonNull(customVideoDescription)}"
       download="${ifNonNull(download)}"
-      href="${ifNonNull(href)}"
-    >
+      href="${ifNonNull(href)}">
       ${copy}
     </dds-text-cta>
   `;
@@ -132,8 +131,7 @@ export const Button = (args) => {
         video-name="${ifNonNull(customVideoTitle)}"
         video-description="${ifNonNull(customVideoDescription)}"
         download="${ifNonNull(download)}"
-        href="${href}"
-      >
+        href="${href}">
         ${copy}
       </dds-button-cta>
       <dds-button-cta
@@ -229,8 +227,7 @@ export const Card = (args) => {
       download="${ifNonNull(download)}"
       href="${ifNonNull(href)}"
       ?no-poster=${noPoster}
-      thumbnail="${ifNonNull(thumbnail)}"
-    >
+      thumbnail="${ifNonNull(thumbnail)}">
       <dds-card-heading>${ctaType !== 'video' ? heading : ''}</dds-card-heading>
       ${ctaType !== 'video' ? copy : ''}
       <dds-card-cta-footer
@@ -238,8 +235,7 @@ export const Card = (args) => {
         download="${ifNonNull(footerDownload)}"
         video-name="${ifNonNull(customVideoTitle)}"
         video-description="${ifNonNull(customVideoDescription)}"
-        href="${ifNonNull(footerHref)}"
-      >
+        href="${ifNonNull(footerHref)}">
         ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
       </dds-card-cta-footer>
     </dds-card-cta>
@@ -320,8 +316,7 @@ export const CardLink = (args) => {
       video-name="${ifNonNull(customVideoTitle)}"
       video-description="${ifNonNull(customVideoDescription)}"
       download="${ifNonNull(download)}"
-      href="${ifNonNull(href)}"
-    >
+      href="${ifNonNull(href)}">
       <dds-card-link-heading
         >${ctaType !== 'video' ? heading : ''}</dds-card-link-heading
       >
@@ -331,8 +326,7 @@ export const CardLink = (args) => {
         download="${ifNonNull(footerDownload)}"
         video-name="${ifNonNull(customVideoTitle)}"
         video-description="${ifNonNull(customVideoDescription)}"
-        href="${ifNonNull(footerHref)}"
-      >
+        href="${ifNonNull(footerHref)}">
         ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
       </dds-card-cta-footer>
     </dds-card-link-cta>
@@ -443,16 +437,14 @@ export const Feature = (args) => {
       video-description="${ifNonNull(customVideoDescription)}"
       download="${ifNonNull(download)}"
       href="${ifNonNull(href)}"
-      ?no-poster=${noPoster}
-    >
+      ?no-poster=${noPoster}>
       <dds-card-heading>${heading}</dds-card-heading>
       ${ctaType !== CTA_TYPE.VIDEO || customThumbnail
         ? html`
             <dds-image
               slot="image"
               alt="Image alt text"
-              default-src="${imgLg1x1}"
-            >
+              default-src="${imgLg1x1}">
             </dds-image>
           `
         : ''}
@@ -462,8 +454,7 @@ export const Feature = (args) => {
         download="${ifNonNull(footerDownload)}"
         video-name="${ifNonNull(customVideoTitle)}"
         video-description="${ifNonNull(customVideoDescription)}"
-        href="${ifNonNull(footerHref)}"
-      >
+        href="${ifNonNull(footerHref)}">
       </dds-feature-cta-footer>
     </dds-feature-cta>
   `;

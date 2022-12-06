@@ -64,8 +64,7 @@ export const Default = (args) => {
         gradient-direction="left-to-right"
         mobile-position="top"
         alt="${ifNonNull(alt)}"
-        default-src="${ifNonNull(defaultSrc)}"
-      >
+        default-src="${ifNonNull(defaultSrc)}">
       </dds-background-media>
       <dds-content-block-heading slot="heading"
         >${heading}</dds-content-block-heading
@@ -75,8 +74,7 @@ export const Default = (args) => {
         icon-placement="right"
         cta-type="${ifNonNull(ctaType)}"
         download="${ifNonNull(download)}"
-        href="${ifNonNull(href)}"
-      >
+        href="${ifNonNull(href)}">
         ${ctaCopy}
       </dds-text-cta>
       <dds-card-group slot="card-group" cards-per-row="2">

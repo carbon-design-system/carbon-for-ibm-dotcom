@@ -580,14 +580,12 @@ const MastheadSearch = forwardRef(
       <div
         data-autoid={`${stablePrefix}--masthead__search`}
         className={className}
-        ref={ref}
-      >
+        ref={ref}>
         {isSearchActive && (
           <form
             id={`${prefix}--masthead__search--form`}
             action={_redirectUrl}
-            method="get"
-          >
+            method="get">
             <input type="hidden" name="lang" value={state.lc} />
             <input type="hidden" name="cc" value={state.cc} />
             <input type="hidden" name="lnk" value="mhsrch" />
@@ -623,16 +621,14 @@ const MastheadSearch = forwardRef(
             className={`${prefix}--header__search--search`}
             data-autoid={`${stablePrefix}--masthead-${navType}__l0-search`}
             tabIndex={0}
-            ref={searchIconButton}
-          >
+            ref={searchIconButton}>
             <Search20 />
           </HeaderGlobalAction>
           <HeaderGlobalAction
             onClick={closeBtnAction}
             aria-label="Close"
             className={`${prefix}--header__search--close`}
-            data-autoid={`${stablePrefix}--masthead-${navType}__l0-search--close`}
-          >
+            data-autoid={`${stablePrefix}--masthead-${navType}__l0-search--close`}>
             <Close20 />
           </HeaderGlobalAction>
         </div>

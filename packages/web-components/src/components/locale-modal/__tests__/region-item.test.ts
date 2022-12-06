@@ -19,8 +19,7 @@ const template = (props?) => {
     <dds-region-item
       href="${ifNonNull(href)}"
       ?invalid="${invalid}"
-      name="${ifNonNull(name)}"
-    ></dds-region-item>
+      name="${ifNonNull(name)}"></dds-region-item>
   `;
 };
 

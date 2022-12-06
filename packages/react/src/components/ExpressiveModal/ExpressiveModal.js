@@ -40,8 +40,7 @@ const ExpressiveModal = ({
         [`${prefix}--modal--expressive--fullwidth`]: fullwidth,
       })}
       selectorPrimaryFocus={`.${prefix}--modal-close`}
-      {...props}
-    >
+      {...props}>
       <ExpressiveModalCloseBtn onClick={closeModal} />
       {children}
     </ComposedModal>

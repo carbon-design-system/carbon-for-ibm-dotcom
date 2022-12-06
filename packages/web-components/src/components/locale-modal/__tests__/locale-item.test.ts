@@ -16,8 +16,7 @@ const template = (props?) => {
   return html`
     <dds-locale-item
       country="${ifNonNull(country)}"
-      language="${ifNonNull(language)}"
-    ></dds-locale-item>
+      language="${ifNonNull(language)}"></dds-locale-item>
   `;
 };
 

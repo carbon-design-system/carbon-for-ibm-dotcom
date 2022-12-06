@@ -46,8 +46,7 @@ const MegaMenu = React.forwardRef(function MegaMenu(props, ref) {
               autoid={rest.autoid}
               key={i}
               href={item.url}
-              title={item.title}
-            >
+              title={item.title}>
               {item.megapanelContent?.description && (
                 <p className={`${prefix}--masthead__megamenu__copy`}>
                   {item.megapanelContent?.description}
@@ -72,16 +71,14 @@ const MegaMenu = React.forwardRef(function MegaMenu(props, ref) {
         hasHighlights={hasHighlights}
         viewAllLinkHref={viewAllLink?.url}
         viewAllLinkTitle={viewAllLink?.title}
-        autoid={rest.autoid}
-      >
+        autoid={rest.autoid}>
         {menuItems.map((item, i) => (
           <CategoryGroup
             key={i}
             autoid={rest.autoid}
             index={i + highlightedItems.length}
             href={item.url}
-            title={item.title}
-          >
+            title={item.title}>
             {item.megapanelContent?.quickLinks?.links.map(
               ({ title, url }, key) => (
                 <CategoryLink

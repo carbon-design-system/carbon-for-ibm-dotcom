@@ -42,8 +42,7 @@ describe('TableOfContents', () => {
       <TableOfContents
         menuItems={menuItems}
         menuRule={true}
-        menuLabel="Menu label"
-      >
+        menuLabel="Menu label">
         <DataContent />
       </TableOfContents>
     );

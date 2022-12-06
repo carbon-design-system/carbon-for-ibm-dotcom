@@ -21,15 +21,13 @@ const image = html`
   <dds-callout-with-media-image
     alt="Image alt text"
     default-src="${imgLg16x9}"
-    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  >
+    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
   </dds-callout-with-media-image>
 `;
 
 const video = html`
   <dds-callout-with-media-video
-    video-id="0_uka1msg4"
-  ></dds-callout-with-media-video>
+    video-id="0_uka1msg4"></dds-callout-with-media-video>
 `;
 
 export const Default = (args) => {

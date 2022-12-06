@@ -69,8 +69,7 @@ class DDSMegaMenuRightNavigation extends LitElement {
         <dds-megamenu-link-with-icon
           href="${this.viewAllHref}"
           style-scheme="view-all"
-          part="view-all"
-        >
+          part="view-all">
           <span>${this.viewAllTitle}</span>${ArrowRight16({ slot: 'icon' })}
         </dds-megamenu-link-with-icon>
       `}

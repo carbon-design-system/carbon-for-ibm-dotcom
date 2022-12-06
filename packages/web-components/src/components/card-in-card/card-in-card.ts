@@ -41,8 +41,7 @@ class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
         : html`
             <dds-card-in-card-image
               alt="${ifNonNull(videoName)}"
-              default-src="${ifNonNull(thumbnail || videoThumbnailUrl)}"
-            >
+              default-src="${ifNonNull(thumbnail || videoThumbnailUrl)}">
               ${PlayVideo({ slot: 'icon' })}
             </dds-card-in-card-image>
           `;

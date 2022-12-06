@@ -16,8 +16,7 @@ const { prefix } = settings;
 const LeftNavigation = ({ children, ...props }) => (
   <div
     className={`${prefix}--masthead__megamenu__highlight-section`}
-    {...props}
-  >
+    {...props}>
     {children}
   </div>
 );

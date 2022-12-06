@@ -28,15 +28,13 @@ const ContentBlockMedia = ({ copy, heading, items, cta, aside, border }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--content-block-media`}
-      className={`${prefix}--content-block-media`}
-    >
+      className={`${prefix}--content-block-media`}>
       <ContentBlock
         heading={heading}
         copy={copy}
         cta={cta}
         aside={aside}
-        border={border}
-      >
+        border={border}>
         {content}
       </ContentBlock>
     </div>

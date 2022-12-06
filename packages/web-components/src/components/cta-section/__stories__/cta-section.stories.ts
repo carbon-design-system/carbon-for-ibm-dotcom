@@ -74,8 +74,7 @@ const contentItemTypeMap = {
         height="48"
         viewBox="0 0 48 48"
         role="img"
-        class="bx--pictogram-item__pictogram"
-      >
+        class="bx--pictogram-item__pictogram">
         <path
           fill="none"
           stroke-linejoin="round"
@@ -84,8 +83,7 @@ const contentItemTypeMap = {
           d="M 44.211009,36.137939 H 3.7889912 c -1.7101623,0 -3.10938596,-1.365518
           -3.10938596,-3.034485 V 7.3103341 c 0,-1.6689666 1.39922366,-3.0344847 3.10938596,-3.0344847 H 44.211009 c 1.710162,0
           3.109386,1.3655181 3.109386,3.0344847 V 33.103454 c 0,1.668967 -1.399224,3.034485 -3.109386,3.034485 z m
-          -31.09386,7.586212 H 34.882851 M 24,36.137939 v 7.586212 M 0.67960524,28.551727 H 47.320395"
-        />
+          -31.09386,7.586212 H 34.882851 M 24,36.137939 v 7.586212 M 0.67960524,28.551727 H 47.320395" />
       </svg>
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       <dds-content-item-copy>${copy}</dds-content-item-copy>
@@ -110,8 +108,7 @@ const contentItemTypeMap = {
         aspect-ratio="4x3"
         slot="media"
         hide-caption
-        playing-mode="lightbox"
-      >
+        playing-mode="lightbox">
       </dds-video-player-container>
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       <dds-content-item-copy>${copy}</dds-content-item-copy>
@@ -134,8 +131,7 @@ const contentItemTypeMap = {
       <dds-image-logo
         alt="Microsoft logo"
         slot="media"
-        default-src="${logoMicrosoft2x1}"
-      ></dds-image-logo>
+        default-src="${logoMicrosoft2x1}"></dds-image-logo>
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       <dds-content-item-copy>${copy}</dds-content-item-copy>
       ${links.map(

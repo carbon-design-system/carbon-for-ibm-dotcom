@@ -40,8 +40,7 @@ class DDSCloudMastheadProfile extends DDSMastheadProfile {
         aria-haspopup="menu"
         aria-expanded="${String(Boolean(expanded))}"
         aria-label="${ifDefined(triggerLabel)}"
-        @click=${handleClick}
-      >
+        @click=${handleClick}>
         ${User20()}
       </a>
       <ul class="${prefix}--header__menu" aria-label="${ifDefined(menuLabel)}">

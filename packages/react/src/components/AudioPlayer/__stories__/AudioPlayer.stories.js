@@ -50,8 +50,7 @@ export const Default = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-            }}
-          >
+            }}>
             <AudioPlayer {...props()} hasSettings={true} />
           </div>
         </div>
