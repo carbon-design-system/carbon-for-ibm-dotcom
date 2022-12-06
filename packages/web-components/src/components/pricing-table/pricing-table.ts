@@ -490,6 +490,13 @@ class DDSPricingTable extends HostListenerMixin(
   }
 
   connectedCallback() {
+    this._newChildObserver.observe(this, {
+      childList: true,
+      subtree: true,
+      attributes: false,
+    });
+
+    this._resetIntersectionObserver();
     this._createMutationObserver();
     this._createResizeObserver();
     super.connectedCallback();
@@ -506,11 +513,13 @@ class DDSPricingTable extends HostListenerMixin(
     const sentinelClass = `${ddsPrefix}-pricing-table-sentinel`;
 
     return html`
+      <div class="overflow-indicator left"></div>
       <section id="section" class="${`${prefix}--structured-list`}">
         <span class="${sentinelClass}" id="start-sentinel"></span>
         <slot></slot>
         <span class="${sentinelClass}" id="end-sentinel"></span>
       </section>
+      <div class="overflow-indicator right"></div>
     `;
   }
 

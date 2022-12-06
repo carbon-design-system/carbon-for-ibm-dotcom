@@ -168,16 +168,68 @@
   // Internal components
   .#{$dds-prefix}--structured-list,
   :host(#{$dds-prefix}-structured-list) {
-    display: block;
+    display: flex;
+    flex-wrap: nowrap;
     padding-left: $carbon--layout-01;
     padding-right: $carbon--layout-01;
     margin-left: -#{$carbon--layout-01};
     margin-right: -#{$carbon--layout-01};
     overflow-x: auto;
     scroll-snap-type: x;
+    position: relative;
 
     .#{$prefix}--structured-list {
       margin: 0;
+      flex: 0 0 1;
+    }
+
+    .overflow-indicator {
+      width: 0;
+      flex: 0 0 1;
+      position: sticky;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.25s ease-in-out;
+
+      &::before {
+        content: '';
+        width: 24px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+      }
+
+      &.left {
+        left: 0;
+        transform: translateX(-1rem);
+
+        &::before {
+          left: 0;
+          background-image: linear-gradient(90deg, $ui-01, transparent);
+        }
+      }
+
+      &.right {
+        left: calc(100%);
+        transform: translateX(1rem);
+
+        &::before {
+          right: 0;
+          background-image: linear-gradient(90deg, transparent, $ui-01);
+        }
+      }
+    }
+
+    &.overflowing-left {
+      .overflow-indicator.left {
+        opacity: 1;
+      }
+    }
+
+    &.overflowing-right {
+      .overflow-indicator.right {
+        opacity: 1;
+      }
     }
   }
 
