@@ -10,7 +10,7 @@
 import { nothing } from 'lit-html';
 import { html } from 'lit-element';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import ArrowLeft20 from '@carbon/carbon-web-components/es/icons/arrow--left/20.js';
+import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
 import '../table-of-contents';
 import '../../horizontal-rule/horizontal-rule';
 import '../../image/image';
