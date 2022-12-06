@@ -299,6 +299,7 @@
     margin-block-start: auto;
     display: flex;
     z-index: 1;
+    position: relative;
 
     a,
     .#{$prefix}--link-with-icon {
