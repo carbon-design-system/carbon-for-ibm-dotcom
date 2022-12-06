@@ -116,8 +116,17 @@ export const Default = args => {
 };
 
 export const withV2Data = args => {
-  const { customProfileLogin, hasProfile, hasSearch, searchPlaceholder, userStatus, hasContact, platform, useMock } =
-    args?.MastheadComposite ?? {};
+  const {
+    customProfileLogin,
+    hasProfile,
+    hasSearch,
+    selectedMenuItem,
+    searchPlaceholder,
+    userStatus,
+    hasContact,
+    platform,
+    useMock,
+  } = args?.MastheadComposite ?? {};
   return html`
     <style>
       ${styles}
@@ -125,6 +134,7 @@ export const withV2Data = args => {
     ${useMock
       ? html`
           <dds-masthead-composite
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
@@ -140,6 +150,7 @@ export const withV2Data = args => {
       : html`
           <dds-masthead-container
             data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
             platform="${ifNonNull(platform)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
