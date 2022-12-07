@@ -47,6 +47,16 @@ export enum TABS_KEYBOARD_ACTION {
    * Keyboard action to trigger tab selection using enter key
    */
   SELECTING = 'selecting',
+
+  /**
+   * Keyboard action to navigate to first tab using home key
+   */
+  HOME = 'home',
+
+  /**
+   * Keyboard action to navigate to last tab using end key
+   */
+  END = 'end',
 }
 
 /**
