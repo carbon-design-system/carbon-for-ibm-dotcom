@@ -13,13 +13,8 @@ import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.
 import '../horizontal-rule';
 import readme from './README.stories.mdx';
 
-<<<<<<< HEAD
-export const Default = args => {
-  const { type, size, contrast, weight } = args ?? {};
-=======
 export const Default = (args) => {
-  const { type, size, contrast, weight } = args?.HorizontalRule ?? {};
->>>>>>> upstream/main
+  const { type, size, contrast, weight } = args ?? {};
   return html`
     <dds-hr
       type="${ifNonNull(type)}"

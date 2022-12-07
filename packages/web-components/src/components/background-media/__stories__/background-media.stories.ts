@@ -10,12 +10,7 @@
 import '../index';
 import '../../video-player/video-player-container';
 import { html } from 'lit-element';
-<<<<<<< HEAD
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-=======
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import { text, select, number } from '@storybook/addon-knobs';
->>>>>>> upstream/main
 import imgMax from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import imgLg16x9 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
 import imgSm4x3 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--4x3--480x360--005.jpg';
@@ -27,30 +22,15 @@ const gradientDirections = {
   [`Top to Bottom`]: GRADIENT_DIRECTION.TOP_TO_BOTTOM,
 };
 
-<<<<<<< HEAD
-export const Default = args => {
-  const { alt, opacity } = args ?? {};
-=======
 export const Default = (args) => {
-  const { alt, gradientDirection, backgroundOpacity } =
-    args?.['dds-background-media'] ?? {};
->>>>>>> upstream/main
+  const { alt, opacity } = args ?? {};
   return html`
     <dds-background-media
       gradient-direction="${ifNonNull(args['gradient-direction'])}"
       mobile-position="bottom"
       alt="${ifNonNull(alt)}"
       default-src="${imgMax}"
-<<<<<<< HEAD
-      opacity="${ifNonNull(opacity)}"
-    >
-      <dds-image-item media="(min-width: 1584px)" srcset="${imgMax}"> </dds-image-item>
-      <dds-image-item media="(min-width: 1312px)" srcset="${imgLg16x9}"> </dds-image-item>
-      <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
-      <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}"> </dds-image-item>
-      <dds-image-item media="(min-width: 0px)" srcset="${imgSm4x3}"> </dds-image-item>
-=======
-      opacity="${ifNonNull(backgroundOpacity)}">
+      opacity="${ifNonNull(opacity)}">
       <dds-image-item media="(min-width: 1584px)" srcset="${imgMax}">
       </dds-image-item>
       <dds-image-item media="(min-width: 1312px)" srcset="${imgLg16x9}">
@@ -61,59 +41,35 @@ export const Default = (args) => {
       </dds-image-item>
       <dds-image-item media="(min-width: 0px)" srcset="${imgSm4x3}">
       </dds-image-item>
->>>>>>> upstream/main
     </dds-background-media>
   `;
 };
 
-<<<<<<< HEAD
-export const WithVideo = args => {
-  const { opacity } = args ?? {};
-=======
 export const WithVideo = (args) => {
-  const { gradientDirection, backgroundOpacity } =
-    args?.['dds-background-media'] ?? {};
->>>>>>> upstream/main
+  const { opacity } = args ?? {};
   return html`
     <div style="height: 70vh;">
       <dds-background-media
         gradient-direction="${ifNonNull(args['gradient-direction'])}"
         mobile-position="bottom"
-<<<<<<< HEAD
-        opacity="${ifNonNull(opacity)}"
-      >
-        <dds-video-player-container video-id="1_9h94wo6b" background-mode="true"></dds-video-player-container>
-=======
-        opacity="${ifNonNull(backgroundOpacity)}">
+        opacity="${ifNonNull(opacity)}">
         <dds-video-player-container
           video-id="1_9h94wo6b"
           background-mode="true"></dds-video-player-container>
->>>>>>> upstream/main
       </dds-background-media>
     </div>
   `;
 };
 
-<<<<<<< HEAD
-export const WithDefaultSource = args => {
-  const { alt, opacity } = args ?? {};
-=======
 export const WithDefaultSource = (args) => {
-  const { alt, gradientDirection, backgroundOpacity } =
-    args?.['dds-background-media'] ?? {};
->>>>>>> upstream/main
+  const { alt, opacity } = args ?? {};
   return html`
     <dds-background-media
       gradient-direction="${ifNonNull(args['gradient-direction'])}"
       mobile-position="bottom"
       alt="${ifNonNull(alt)}"
       default-src="${imgMax}"
-<<<<<<< HEAD
-      opacity="${ifNonNull(opacity)}"
-    >
-=======
-      opacity="${ifNonNull(backgroundOpacity)}">
->>>>>>> upstream/main
+      opacity="${ifNonNull(opacity)}">
     </dds-background-media>
   `;
 };
@@ -259,25 +215,6 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-<<<<<<< HEAD
-=======
-    knobs: {
-      'dds-background-media': () => ({
-        gradientDirection: select(
-          'Gradient Direction (gradient-direction):',
-          gradientDirections,
-          GRADIENT_DIRECTION.LEFT_TO_RIGHT
-        ),
-        alt: text('Image alt text (alt):', 'Image alt text'),
-        defaultSrc: text('Default image (default-src)', imgMax),
-        backgroundOpacity: number('Background Opacity', 100, {
-          range: true,
-          min: 0,
-          max: 100,
-        }),
-      }),
-    },
->>>>>>> upstream/main
     propsSet: {
       default: {
         'dds-background-media': {
