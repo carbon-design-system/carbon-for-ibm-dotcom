@@ -8,7 +8,6 @@
  */
 
 import { html } from 'lit-element';
-import { select, text } from '@storybook/addon-knobs';
 import '../index';
 import readme from './README.stories.mdx';
 
@@ -19,9 +18,6 @@ import img4ColLg from '../../../../../storybook-images/assets/universal-banner/u
 import img8ColLg from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-lg.jpg';
 import img4ColXlg from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-xlg.jpg';
 import img8ColXlg from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-xlg.jpg';
-
-// import StoryContent from '../../back-to-top/__stories__/data/content';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const imageWidthOptions = {
   [`4 Columns`]: `4-col`,
@@ -40,7 +36,7 @@ const srcsets = {
 };
 
 export const Default = (args) => {
-  const { heading, copy, ctaCopy, imageWidth } = args?.UniversalBanner ?? {};
+  const { heading, copy, ctaCopy } = args ?? {};
 
   const bannerHeading = document.querySelector('dds-universal-banner-heading');
   const bannerCopy = document.querySelector('dds-universal-banner-copy');
@@ -53,15 +49,15 @@ export const Default = (args) => {
     bannerCopy!.shadowRoot!.textContent = copy;
   }
 
-  const srcset = srcsets[imageWidth];
+  const srcset = srcsets[args['image-width']];
 
   return html`
-    <dds-universal-banner image-width="${imageWidth}">
-      ${imageWidth
+    <dds-universal-banner image-width="${args['image-width']}">
+      ${args['image-width']
         ? html`
             <dds-universal-banner-image
               slot="image"
-              default-src="${images[imageWidth]}">
+              default-src="${images[args['image-width']]}">
               <dds-image-item media="(min-width: 1584px)" srcset="${srcset[2]}">
               </dds-image-item>
               <dds-image-item media="(min-width: 1056px)" srcset="${srcset[1]}">
@@ -86,30 +82,63 @@ export const Default = (args) => {
   `;
 };
 
-Default.story = {
-  parameters: {
-    ...readme.parameters,
-    knobs: {
-      UniversalBanner: () => ({
-        heading: textNullable(
-          'Heading:',
-          'Hybrid cloud and AI for smarter business'
-        ),
-        copy: text('Copy (optional):', 'Las Vegas, June 15-18, 2025'),
-        ctaCopy: textNullable('CTA copy:', 'Register for Think. Free'),
-        imageWidth: select('Image width:', imageWidthOptions, '4-col'),
-      }),
-    },
-  },
-};
-
 export default {
   title: 'Components/Universal banner',
+  component: 'dds-universal-banner',
   decorators: [
     (story) => {
       return html` ${story()} `;
     },
   ],
+  argTypes: {
+    heading: {
+      control: 'text',
+      defaultValue: 'Hybrid cloud and AI for smarter business',
+    },
+    copy: {
+      control: 'text',
+      defaultValue: 'Las Vegas, June 15-18, 2025',
+    },
+    ctaCopy: {
+      control: 'text',
+      defaultValue: 'Register for Think. Free',
+    },
+    'image-width': {
+      control: { type: 'select' },
+      options: imageWidthOptions,
+      defaultValue: '4-col',
+    },
+    buttonHref: {
+      table: {
+        disable: true,
+      },
+    },
+    ctaType: {
+      table: {
+        disable: true,
+      },
+    },
+    hasImage: {
+      table: {
+        disable: true,
+      },
+    },
+    imageWidth: {
+      table: {
+        disable: true,
+      },
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
+    },
+    'has-image': {
+      table: {
+        disable: true,
+      },
+    },
+  },
   parameters: {
     ...readme.parameters,
   },
