@@ -9,7 +9,7 @@
 
 import { html } from 'lit-element';
 import { text, select } from '@storybook/addon-knobs';
-import Launch20 from 'carbon-web-components/es/icons/launch/20.js';
+import Launch20 from '@carbon/web-components/es/icons/launch/20.js';
 import styles from './leaving-ibm.stories.scss';
 import mediumImgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
 import '../index';
@@ -29,8 +29,7 @@ export const Default = (args) => {
           <dds-link-with-icon
             icon-placement="right"
             href="${href}"
-            data-leaving-ibm
-          >
+            data-leaving-ibm>
             ${ctaText}${Launch20({ slot: 'icon' })}
           </dds-link-with-icon>
         `
@@ -59,8 +58,7 @@ export const Default = (args) => {
             <dds-image
               slot="image"
               alt="Image alt text"
-              default-src="${mediumImgLg1x1}"
-            ></dds-image>
+              default-src="${mediumImgLg1x1}"></dds-image>
             <dds-card-heading>${ctaText}</dds-card-heading>
             <dds-feature-card-footer>
               ${Launch20({ slot: 'icon' })}

@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import DDSSearch from '../../search/search';
 import DDSLocaleSearch from '../locale-search';
 import '../locale-item';
@@ -30,8 +30,7 @@ const template = (props?) => {
       input-timeout="${ifNonNull(inputTimeout)}"
       label-text="${ifNonNull(labelText)}"
       placeholder="${ifNonNull(placeholder)}"
-      region="${ifNonNull(region)}"
-    >
+      region="${ifNonNull(region)}">
       ${children}
     </dds-locale-search>
   `;
@@ -118,16 +117,13 @@ describe('dds-locale-search', function () {
           children: html`
             <dds-locale-item
               country="country-foo"
-              region="region-foo"
-            ></dds-locale-item>
+              region="region-foo"></dds-locale-item>
             <dds-locale-item
               country="country-bar"
-              region="region-foo"
-            ></dds-locale-item>
+              region="region-foo"></dds-locale-item>
             <dds-locale-item
               country="country-baz"
-              region="region-foo"
-            ></dds-locale-item>
+              region="region-foo"></dds-locale-item>
           `,
         }),
         document.body
@@ -183,16 +179,13 @@ describe('dds-locale-search', function () {
           children: html`
             <dds-locale-item
               language="language-foo"
-              region="region-foo"
-            ></dds-locale-item>
+              region="region-foo"></dds-locale-item>
             <dds-locale-item
               language="language-bar"
-              region="region-foo"
-            ></dds-locale-item>
+              region="region-foo"></dds-locale-item>
             <dds-locale-item
               language="language-baz"
-              region="region-foo"
-            ></dds-locale-item>
+              region="region-foo"></dds-locale-item>
           `,
         }),
         document.body
@@ -248,16 +241,13 @@ describe('dds-locale-search', function () {
           children: html`
             <dds-locale-item
               language="language-foo"
-              region="region-foo"
-            ></dds-locale-item>
+              region="region-foo"></dds-locale-item>
             <dds-locale-item
               language="language-bar"
-              region="region-foo"
-            ></dds-locale-item>
+              region="region-foo"></dds-locale-item>
             <dds-locale-item
               language="language-baz"
-              region="region-foo"
-            ></dds-locale-item>
+              region="region-foo"></dds-locale-item>
           `,
         }),
         document.body
@@ -313,16 +303,13 @@ describe('dds-locale-search', function () {
           children: html`
             <dds-locale-item
               language="language-foo"
-              region="region-foo"
-            ></dds-locale-item>
+              region="region-foo"></dds-locale-item>
             <dds-locale-item
               language="language-bar"
-              region="region-foo"
-            ></dds-locale-item>
+              region="region-foo"></dds-locale-item>
             <dds-locale-item
               language="language-baz"
-              region="region-foo"
-            ></dds-locale-item>
+              region="region-foo"></dds-locale-item>
           `,
         }),
         document.body
@@ -348,16 +335,13 @@ describe('dds-locale-search', function () {
           children: html`
             <dds-locale-item
               language="language-foo"
-              region="region-foo"
-            ></dds-locale-item>
+              region="region-foo"></dds-locale-item>
             <dds-locale-item
               language="language-bar"
-              region="region-foo"
-            ></dds-locale-item>
+              region="region-foo"></dds-locale-item>
             <dds-locale-item
               language="language-baz"
-              region="region-foo"
-            ></dds-locale-item>
+              region="region-foo"></dds-locale-item>
           `,
         }),
         document.body

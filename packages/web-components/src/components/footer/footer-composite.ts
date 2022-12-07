@@ -8,9 +8,9 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import LocaleAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/Locale/Locale';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
@@ -37,8 +37,8 @@ import './legal-nav-item';
 import './legal-nav-cookie-preferences-placeholder';
 import './language-selector-desktop';
 import './language-selector-mobile';
-import 'carbon-web-components/es/components/combo-box/combo-box-item.js';
-import 'carbon-web-components/es/components/select/select-item.js';
+import '@carbon/web-components/es/components/combo-box/combo-box-item.js';
+import '@carbon/web-components/es/components/select/select-item.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -236,8 +236,7 @@ class DDSFooterComposite extends ModalRenderMixin(
         ?open="${openLocaleModal}"
         .collatorCountryName="${ifNonNull(collatorCountryName)}"
         .localeList="${ifNonNull(localeList)}"
-        ._loadLocaleList="${ifNonNull(loadLocaleList)}"
-      >
+        ._loadLocaleList="${ifNonNull(loadLocaleList)}">
       </dds-locale-modal-composite>
     `;
   }
@@ -260,12 +259,10 @@ class DDSFooterComposite extends ModalRenderMixin(
     return html`
       <dds-footer
         size="${ifNonNull(size)}"
-        ?disable-locale-button="${ifNonNull(disableLocaleButton)}"
-      >
+        ?disable-locale-button="${ifNonNull(disableLocaleButton)}">
         <dds-footer-logo></dds-footer-logo>
         <dds-footer-nav
-          ?disable-locale-button="${ifNonNull(disableLocaleButton)}"
-        >
+          ?disable-locale-button="${ifNonNull(disableLocaleButton)}">
           ${links?.map(
             ({ title: groupTitle, links: groupLinks }) => html`
               <dds-footer-nav-group title-text="${ifNonNull(groupTitle)}">
@@ -296,8 +293,7 @@ class DDSFooterComposite extends ModalRenderMixin(
                 trigger-content="${languageSelectorLabel}"
                 label-text="${languageSelectorLabel}"
                 value="${selectedLanguage}"
-                clear-selection-label="${clearSelectionLabel}"
-              >
+                clear-selection-label="${clearSelectionLabel}">
                 ${langList?.map(
                   (language) => html`
                     <bx-combo-box-item
@@ -310,8 +306,7 @@ class DDSFooterComposite extends ModalRenderMixin(
               </dds-language-selector-desktop>
               <dds-language-selector-mobile
                 value="${selectedLanguage}"
-                placeholder="${selectedLanguage}"
-              >
+                placeholder="${selectedLanguage}">
                 ${langList?.map(
                   (language) => html`
                     <bx-select-item
@@ -341,8 +336,7 @@ class DDSFooterComposite extends ModalRenderMixin(
                   <dds-legal-nav-item
                     autoid="${ifNonNull(titleEnglish)}"
                     href="${ifNonNull(url)}"
-                    slot="adjunct-links"
-                  >
+                    slot="adjunct-links">
                     ${title}
                   </dds-legal-nav-item>
                 `
@@ -368,8 +362,7 @@ class DDSFooterComposite extends ModalRenderMixin(
                   trigger-content="${languageSelectorLabel}"
                   label-text="${languageSelectorLabel}"
                   value="${selectedLanguage}"
-                  clear-selection-label="${clearSelectionLabel}"
-                >
+                  clear-selection-label="${clearSelectionLabel}">
                   ${langList?.map(
                     (language) => html`
                       <bx-combo-box-item
@@ -384,8 +377,7 @@ class DDSFooterComposite extends ModalRenderMixin(
                   size="${size}"
                   slot="locale"
                   value="${selectedLanguage}"
-                  placeholder="${selectedLanguage}"
-                >
+                  placeholder="${selectedLanguage}">
                   ${langList?.map(
                     (language) => html`
                       <bx-select-item

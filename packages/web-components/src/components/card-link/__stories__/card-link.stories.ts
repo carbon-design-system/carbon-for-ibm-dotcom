@@ -9,9 +9,9 @@
 
 import { boolean } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import Error20 from 'carbon-web-components/es/icons/error/20.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import Error20 from '@carbon/web-components/es/icons/error/20.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
@@ -36,8 +36,7 @@ export default {
       <div class="bx--grid">
         <div class="bx--row">
           <div
-            class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter"
-          >
+            class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
             ${story()}
           </div>
         </div>

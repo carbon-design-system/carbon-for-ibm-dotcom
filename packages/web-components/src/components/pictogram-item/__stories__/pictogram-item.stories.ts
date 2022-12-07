@@ -9,7 +9,7 @@
 
 import { html } from 'lit-element';
 import '../index';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
 import { select } from '@storybook/addon-knobs';
 import styles from './pictogram-item.stories.scss';
 import { COLOR_OPTIONS } from '../defs';
@@ -30,16 +30,14 @@ const Desktop = html`
     height="64"
     viewBox="8 8 32 32"
     role="img"
-    class="bx--pictogram-item__pictogram"
-  >
+    class="bx--pictogram-item__pictogram">
     <path
       fill="none"
       stroke-linejoin="round"
       stroke-miterlimit="10"
       stroke-width=".72"
       d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,
-  0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
-    ></path>
+  0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"></path>
   </svg>
 `;
 const Pattern = html`
@@ -56,8 +54,7 @@ const Pattern = html`
     viewBox="0 0 32 32"
     role="img"
     class="bx--pictogram-item__pictogram"
-    style="enable-background:new 0 0 32 32;"
-  >
+    style="enable-background:new 0 0 32 32;">
     <path
       id="pattern_1_"
       d="M29,31.36H13c-1.301,0-2.36-1.059-2.36-2.36v-7.64H3c-1.301,0-2.36-1.059-2.36-2.36V3
@@ -82,14 +79,12 @@ const Pattern = html`
       C15.36,14.75,14.75,15.36,14,15.36z M13,12.36c-0.353,0-0.64,0.287-0.64,0.64v1c0,0.353,0.287,0.64,0.64,0.64h1
       c0.353,0,0.64-0.287,0.64-0.64v-1c0-0.353-0.287-0.64-0.64-0.64H13z M9,10.36H8c-0.75,0-1.36-0.61-1.36-1.36V8
       c0-0.75,0.61-1.36,1.36-1.36h1c0.75,0,1.36,0.61,1.36,1.36v1C10.36,9.75,9.75,10.36,9,10.36z M8,7.36C7.647,7.36,7.36,7.647,7.36,8
-      v1c0,0.353,0.287,0.64,0.64,0.64h1c0.353,0,0.64-0.287,0.64-0.64V8c0-0.353-0.287-0.64-0.64-0.64H8z"
-    />
+      v1c0,0.353,0.287,0.64,0.64,0.64h1c0.353,0,0.64-0.287,0.64-0.64V8c0-0.353-0.287-0.64-0.64-0.64H8z" />
     <rect
       id="_Transparent_Rectangle"
       style="fill:none;"
       width="32"
-      height="32"
-    />
+      height="32" />
   </svg>
 `;
 const Touch = html`
@@ -105,8 +100,7 @@ const Touch = html`
     height="64"
     viewBox="0 0 32 32"
     role="img"
-    class="bx--pictogram-item__pictogram"
-  >
+    class="bx--pictogram-item__pictogram">
     <path
       id="touch_1_"
       d="M19.77,31.36c-5.067,0-7.409-2.218-10.404-5.602c-0.844-0.953-3.435-3.76-3.435-3.76L5.43,21.444
@@ -120,14 +114,12 @@ const Touch = html`
 	c-0.413,0.203-0.65,0.463-0.65,0.711c0.057,0.274,1.063,1.38,1.603,1.975L6.465,21.516z M10.755,11.729
 	C9.407,10.535,8.634,8.811,8.634,7c0-3.507,2.853-6.36,6.36-6.36s6.36,2.853,6.36,6.36c0,1.811-0.773,3.534-2.121,4.729
 	l-0.479-0.539c1.194-1.058,1.879-2.585,1.879-4.19c0-3.11-2.529-5.64-5.64-5.64c-3.11,0-5.64,2.53-5.64,5.64
-	c0,1.605,0.685,3.133,1.879,4.19L10.755,11.729z"
-    />
+	c0,1.605,0.685,3.133,1.879,4.19L10.755,11.729z" />
     <rect
       id="_Transparent_Rectangle"
       style="fill:none;"
       width="32"
-      height="32"
-    />
+      height="32" />
   </svg>
 `;
 /* eslint-enable max-len */

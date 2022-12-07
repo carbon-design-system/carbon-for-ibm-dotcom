@@ -30,29 +30,31 @@ module.exports = function resourceCJSPaths(babel) {
           );
           path.replaceWith(declaration);
         } else if (
-          /^carbon-web-components\/es\/components-react/i.test(source) ||
-          (/^carbon-web-components\/es\/components/i.test(source) &&
+          /^@carbon\/carbon-web-components\/es\/components-react/i.test(
+            source
+          ) ||
+          (/^@carbon\/carbon-web-components\/es\/components/i.test(source) &&
             !/\/defs$/i.test(source))
         ) {
           const declaration = t.cloneNode(node);
           declaration.source.value = source
             .replace(
-              /^carbon-web-components\/es\/components-react/i,
-              'carbon-web-components/lib/components-react-node'
+              /^@carbon\/carbon-web-components\/es\/components-react/i,
+              '@carbon/web-components/lib/components-react-node'
             )
             .replace(
-              /^carbon-web-components\/es\/components/i,
-              'carbon-web-components/lib/components-react-node'
+              /^@carbon\/carbon-web-components\/es\/components/i,
+              '@carbon/web-components/lib/components-react-node'
             );
           path.replaceWith(declaration);
         } else if (
-          /^(carbon-web-components|@carbon\/ibmdotcom-utilities)\/es/i.test(
+          /^(@carbon\/carbon-web-components|@carbon\/ibmdotcom-utilities)\/es/i.test(
             source
           )
         ) {
           const declaration = t.cloneNode(node);
           declaration.source.value = source.replace(
-            /^(carbon-web-components|@carbon\/ibmdotcom-utilities)\/es/i,
+            /^(@carbon\/carbon-web-components|@carbon\/ibmdotcom-utilities)\/es/i,
             '$1/lib'
           );
           path.replaceWith(declaration);
@@ -75,29 +77,31 @@ module.exports = function resourceCJSPaths(babel) {
           );
           path.replaceWith(declaration);
         } else if (
-          /^carbon-web-components\/es\/components-react/i.test(source) ||
-          (/^carbon-web-components\/es\/components/i.test(source) &&
+          /^@carbon\/carbon-web-components\/es\/components-react/i.test(
+            source
+          ) ||
+          (/^@carbon\/carbon-web-components\/es\/components/i.test(source) &&
             !/\/defs$/i.test(source))
         ) {
           const declaration = t.cloneNode(node);
           declaration.source.value = source
             .replace(
-              /^carbon-web-components\/es\/components-react/i,
-              'carbon-web-components/lib/components-react-node'
+              /^@carbon\/carbon-web-components\/es\/components-react/i,
+              '@carbon/web-components/lib/components-react-node'
             )
             .replace(
-              /^carbon-web-components\/es\/components/i,
-              'carbon-web-components/lib/components-react-node'
+              /^@carbon\/carbon-web-components\/es\/components/i,
+              '@carbon/web-components/lib/components-react-node'
             );
           path.replaceWith(declaration);
         } else if (
-          /^(carbon-web-components|@carbon\/ibmdotcom-utilities)\/es/i.test(
+          /^(@carbon\/carbon-web-components|@carbon\/ibmdotcom-utilities)\/es/i.test(
             source
           )
         ) {
           const declaration = t.cloneNode(node);
           declaration.source.value = source.replace(
-            /^(carbon-web-components|@carbon\/ibmdotcom-utilities)\/es/i,
+            /^(@carbon\/carbon-web-components|@carbon\/ibmdotcom-utilities)\/es/i,
             '$1/lib'
           );
           path.replaceWith(declaration);

@@ -56,8 +56,7 @@ class DDSCardSectionOffset extends StableSelectorMixin(DDSContentBlock) {
       </div>
       <slot
         name="card-group"
-        @slotchange="${this._handleSlotChangeCardGroup}"
-      ></slot>
+        @slotchange="${this._handleSlotChangeCardGroup}"></slot>
     `;
   }
 

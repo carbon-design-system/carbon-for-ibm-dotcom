@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import DDSVideoPlayer from '../video-player';
 import DDSVideoPlayerComposite from '../video-player-composite';
 // Above import is interface-only ref and thus code won't be brought into the build
@@ -32,8 +32,7 @@ const template = (props?) => {
       .formatCaption="${ifNonNull(formatCaption)}"
       .formatDuration="${ifNonNull(formatDuration)}"
       .mediaData="${ifNonNull(mediaData)}"
-      .playingMode="${ifNonNull(playingMode)}"
-    >
+      .playingMode="${ifNonNull(playingMode)}">
     </dds-video-player-composite>
   `;
 };

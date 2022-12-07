@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/content-block';
 import '../content-block-simple';
 
@@ -16,8 +16,7 @@ const template = (props?) => {
   const { complementaryStyleScheme, children } = props ?? {};
   return html`
     <dds-content-block-simple
-      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}"
-    >
+      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       ${children}
     </dds-content-block-simple>
   `;

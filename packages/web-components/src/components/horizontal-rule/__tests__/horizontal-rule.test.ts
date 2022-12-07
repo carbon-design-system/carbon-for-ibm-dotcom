@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import '../horizontal-rule';
 
 const template = (props?) => {
@@ -18,8 +18,7 @@ const template = (props?) => {
       size="${ifNonNull(size)}"
       type="${ifNonNull(type)}"
       weight="${ifNonNull(weight)}"
-      contrast="${ifNonNull(contrast)}"
-    ></dds-hr>
+      contrast="${ifNonNull(contrast)}"></dds-hr>
   `;
 };
 

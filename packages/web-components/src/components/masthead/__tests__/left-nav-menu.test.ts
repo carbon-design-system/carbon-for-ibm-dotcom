@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import '../left-nav-menu';
 
 const template = (props?) => {
@@ -17,8 +17,7 @@ const template = (props?) => {
     <dds-left-nav-menu
       back-button-text="${ifNonNull(backButtonText)}"
       ?expanded="${expanded}"
-      title="${ifNonNull(title)}"
-    >
+      title="${ifNonNull(title)}">
     </dds-left-nav-menu>
   `;
 };

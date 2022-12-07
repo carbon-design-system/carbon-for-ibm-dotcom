@@ -28,8 +28,7 @@ const RightNavigation = ({
       className={classnames(`${prefix}--masthead__megamenu__categories`, {
         [`${prefix}--masthead__megamenu--hasHighlights`]: hasHighlights,
         [`${prefix}--masthead__megamenu--hasViewAllLink`]: viewAllLinkHref,
-      })}
-    >
+      })}>
       {children}
     </div>
     {viewAllLinkHref && (
@@ -37,8 +36,7 @@ const RightNavigation = ({
         className={`${prefix}--masthead__megamenu__view-all-cta`}
         data-autoid={`${rest.autoid}-view-all`}
         href={viewAllLinkHref}
-        iconInline={false}
-      >
+        iconInline={false}>
         <span>{viewAllLinkTitle}</span>
         <ArrowRight16 />
       </LinkWithIcon>

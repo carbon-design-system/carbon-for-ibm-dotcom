@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { BASIC_COLOR_SCHEME } from '../../../globals/defs';
 import '../content-item';
 import '../content-item-copy';
@@ -40,8 +40,7 @@ describe('dds-content-item', function () {
             <dds-video-player
               slot="media"
               duration="90"
-              name="name-foo"
-            ></dds-video-player>
+              name="name-foo"></dds-video-player>
             <dds-content-item-copy>copy-foo</dds-content-item-copy>
             <dds-text-cta slot="footer" cta-type="local">copy-foo</dds-text-cta>
           `,

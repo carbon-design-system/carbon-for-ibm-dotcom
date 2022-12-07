@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -67,15 +67,13 @@ export const Default = (args) => {
             <dds-image
               slot="media"
               alt="image alt text"
-              default-src="${imgLg16x9}"
-            ></dds-image>
+              default-src="${imgLg16x9}"></dds-image>
           `
         : null}
       ${withMedia === MEDIA_TYPE.VIDEO
         ? html`
             <dds-content-item-horizontal-media-video
-              video-id="1_9h94wo6b"
-            ></dds-content-item-horizontal-media-video>
+              video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
           `
         : null}
     </dds-content-item-horizontal>
@@ -96,8 +94,7 @@ export const WithThumbnail = (args) => {
       <dds-image
         slot="thumbnail"
         alt="${ifNonNull(alt)}"
-        default-src="${imgMd4x3}"
-      ></dds-image>
+        default-src="${imgMd4x3}"></dds-image>
     </dds-content-item-horizontal>
   `;
 };
@@ -112,15 +109,13 @@ export const WithMedia = (args) => {
             <dds-image
               slot="media"
               alt="${ifNonNull(alt)}"
-              default-src="${imgLg16x9}"
-            ></dds-image>
+              default-src="${imgLg16x9}"></dds-image>
           `
         : null}
       ${type === MEDIA_TYPE.VIDEO
         ? html`
             <dds-content-item-horizontal-media-video
-              video-id="1_9h94wo6b"
-            ></dds-content-item-horizontal-media-video>
+              video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
           `
         : null}
       <dds-content-item-horizontal-eyebrow
@@ -147,16 +142,14 @@ export const WithMediaFeatured = (args) => {
               slot="media"
               alt="Image alt text"
               default-src="${imgLg16x9}"
-              heading="Lorem ipsum dolor sit amet"
-            >
+              heading="Lorem ipsum dolor sit amet">
             </dds-image>
           `
         : null}
       ${type === MEDIA_TYPE.VIDEO
         ? html`
             <dds-content-item-horizontal-media-video
-              video-id="1_9h94wo6b"
-            ></dds-content-item-horizontal-media-video>
+              video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
           `
         : null}
       <dds-content-item-horizontal-eyebrow

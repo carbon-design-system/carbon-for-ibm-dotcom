@@ -7,11 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import BXStructuredListCell from 'carbon-web-components/es/components/structured-list/structured-list-cell.js';
+import BXStructuredListCell from '@carbon/web-components/es/components/structured-list/structured-list-cell.js';
 import { customElement, property, html } from 'lit-element';
-import Info16 from 'carbon-web-components/es/icons/information/16.js';
-import Checkmark20 from 'carbon-web-components/es/icons/checkmark/20.js';
-import Error20 from 'carbon-web-components/es/icons/error/20.js';
+import Info16 from '@carbon/web-components/es/icons/information/16.js';
+import Checkmark20 from '@carbon/web-components/es/icons/checkmark/20.js';
+import Error20 from '@carbon/web-components/es/icons/error/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSStructuredListGroup from './structured-list-group';
 import styles from './structured-list.scss';
@@ -76,8 +76,7 @@ class DDSStructuredListCell extends BXStructuredListCell {
       <bx-tooltip-icon
         alignment="start"
         body-text="${tooltip}"
-        direction="right"
-      >
+        direction="right">
         ${Info16()}
       </bx-tooltip-icon>
     `;

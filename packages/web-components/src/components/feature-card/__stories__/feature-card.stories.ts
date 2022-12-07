@@ -11,9 +11,9 @@ import '../../card/index';
 import '../../image/image';
 import '../index';
 
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import mediumImgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
 
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
@@ -32,8 +32,7 @@ export const Medium = (args) => {
       <dds-image
         slot="image"
         alt="Image alt text"
-        default-src="${mediumImgLg1x1}"
-      ></dds-image>
+        default-src="${mediumImgLg1x1}"></dds-image>
       <dds-card-heading>${heading}</dds-card-heading>
       <dds-feature-card-footer>
         ${ArrowRight20({ slot: 'icon' })}

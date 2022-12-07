@@ -25,8 +25,7 @@ const contentItemRow1 = html`
       <dds-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
-        cta-type="local"
-      >
+        cta-type="local">
         Link text
       </dds-link-list-item-cta>
     </dds-link-list>
@@ -46,8 +45,7 @@ const contentItemRow2 = html`
       <dds-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
-        cta-type="local"
-      >
+        cta-type="local">
         Link text
       </dds-link-list-item-cta>
     </dds-link-list>
@@ -77,8 +75,7 @@ export default {
   decorators: [
     (story) => html`
       <div
-        class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-block-headlines"
-      >
+        class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-block-headlines">
         ${story()}
       </div>
     `,

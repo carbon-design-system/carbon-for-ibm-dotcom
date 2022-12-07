@@ -11,7 +11,7 @@ import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
-import 'carbon-web-components/es/components/tag/tag.js';
+import '@carbon/web-components/es/components/tag/tag.js';
 
 const tagTitles = [
   'Cloud',

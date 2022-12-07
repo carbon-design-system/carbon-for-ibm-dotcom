@@ -12,7 +12,7 @@ import { classMap } from 'lit-html/directives/class-map';
 import coreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
 
-import 'carbon-web-components/es/components/skip-to-content/skip-to-content.js';
+import '@carbon/web-components/es/components/skip-to-content/skip-to-content.js';
 
 import { withKnobs } from '@storybook/addon-knobs';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
@@ -70,8 +70,7 @@ export const decorators = [
         data-floating-menu-container
         data-modal-container
         role="main"
-        class="${classes}"
-      >
+        class="${classes}">
         ${result}
       </div>
     `;

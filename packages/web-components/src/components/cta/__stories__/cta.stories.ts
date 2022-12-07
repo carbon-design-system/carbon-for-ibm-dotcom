@@ -18,7 +18,7 @@ import '../text-cta';
 import '../cta';
 import '../../button-group/index';
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { select, boolean } from '@storybook/addon-knobs';
 import { icons as ctaIcons } from '../../../component-mixins/cta/cta';
 // eslint-disable-next-line sort-imports
@@ -221,7 +221,6 @@ Default.story = {
           ctaType === CTA_TYPE.VIDEO
             ? boolean('No Video Poster ', false)
             : null;
-
         const heading =
           ctaStyle === CTA_STYLE.TEXT ||
           ctaStyle === CTA_STYLE.BUTTON ||

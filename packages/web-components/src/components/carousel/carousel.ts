@@ -18,12 +18,12 @@ import {
 } from 'lit-element';
 import 'wicg-inert';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import CaretLeft20 from 'carbon-web-components/es/icons/caret--left/20.js';
-import CaretRight20 from 'carbon-web-components/es/icons/caret--right/20.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
-import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import CaretLeft20 from '@carbon/web-components/es/icons/caret--left/20.js';
+import CaretRight20 from '@carbon/web-components/es/icons/caret--right/20.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import styles from './carousel.scss';
@@ -586,12 +586,10 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           pageSizeExplicit == null
             ? null
             : `${customPropertyPageSize}: ${pageSizeExplicit}`
-        )}"
-      >
+        )}">
         <div
           class="${prefix}--carousel__scroll-contents"
-          style="left:${(-start * (contentsBaseWidth + gap)) / pageSize}px"
-        >
+          style="left:${(-start * (contentsBaseWidth + gap)) / pageSize}px">
           <slot @slotchange="${handleSlotChange}"></slot>
         </div>
       </div>
@@ -602,8 +600,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           ?disabled="${pagesBefore === 0}"
           @click="${handleClickPrevButton}"
           aria-label="${ifDefined(prevButtonText)}"
-          title="${ifDefined(prevButtonText)}"
-        >
+          title="${ifDefined(prevButtonText)}">
           ${CaretLeft20()}
         </button>
         ${this._renderStatus()}
@@ -613,8 +610,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           ?disabled="${pagesSince <= 1}"
           @click="${handleClickNextButton}"
           aria-label="${ifDefined(nextButtonText)}"
-          title="${ifDefined(nextButtonText)}"
-        >
+          title="${ifDefined(nextButtonText)}">
           ${CaretRight20()}
         </button>
       </div>

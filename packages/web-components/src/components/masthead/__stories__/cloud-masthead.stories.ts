@@ -10,7 +10,7 @@
 import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
@@ -81,8 +81,7 @@ export const Default = (args) => {
             .navLinks="${navLinks}"
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
-            )}"
-          ></dds-cloud-masthead-composite>
+            )}"></dds-cloud-masthead-composite>
         `
       : html`
           <dds-cloud-masthead-container
@@ -97,8 +96,7 @@ export const Default = (args) => {
             .navLinks="${navLinks}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"
-          ></dds-cloud-masthead-container>
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"></dds-cloud-masthead-container>
         `}
   `;
 };

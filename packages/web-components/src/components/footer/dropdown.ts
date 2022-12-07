@@ -12,10 +12,10 @@ import { classMap } from 'lit-html/directives/class-map.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { html, query, customElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import BXDropdown from 'carbon-web-components/es/components/dropdown/dropdown.js';
-import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item.js';
-import ChevronDown16 from 'carbon-web-components/es/icons/chevron--down/16.js';
-import WarningFilled16 from 'carbon-web-components/es/icons/warning--filled/16.js';
+import BXDropdown from '@carbon/web-components/es/components/dropdown/dropdown.js';
+import BXDropdownItem from '@carbon/web-components/es/components/dropdown/dropdown-item.js';
+import ChevronDown16 from '@carbon/web-components/es/icons/chevron--down/16.js';
+import WarningFilled16 from '@carbon/web-components/es/icons/warning--filled/16.js';
 import {
   DROPDOWN_COLOR_SCHEME,
   DROPDOWN_KEYBOARD_ACTION,
@@ -175,8 +175,7 @@ class DDSDropdown extends BXDropdown {
           <div
             part="helper-text"
             class="${helperClasses}"
-            ?hidden="${inline || !hasHelperText}"
-          >
+            ?hidden="${inline || !hasHelperText}">
             <slot name="helper-text" @slotchange="${handleSlotchangeHelperText}"
               >${helperText}</slot
             >
@@ -201,8 +200,7 @@ class DDSDropdown extends BXDropdown {
             part="menu-body"
             class="${prefix}--list-box__menu"
             role="listbox"
-            tabindex="-1"
-          >
+            tabindex="-1">
             <slot></slot>
           </div>
         `;
@@ -210,8 +208,7 @@ class DDSDropdown extends BXDropdown {
       <label
         part="label-text"
         class="${labelClasses}"
-        ?hidden="${!hasLabelText}"
-      >
+        ?hidden="${!hasLabelText}">
         <slot name="label-text" @slotchange="${handleSlotchangeLabelText}"
           >${labelText}</slot
         >
@@ -221,8 +218,7 @@ class DDSDropdown extends BXDropdown {
         ?data-invalid=${invalid}
         @click=${handleClickInner}
         @keydown=${handleKeydownInner}
-        @keypress=${handleKeypressInner}
-      >
+        @keypress=${handleKeypressInner}>
         ${validityIcon}
         <div
           part="trigger-button"
@@ -233,8 +229,7 @@ class DDSDropdown extends BXDropdown {
           aria-expanded="${String(open)}"
           aria-haspopup="listbox"
           aria-owns="menu-body"
-          aria-controls="menu-body"
-        >
+          aria-controls="menu-body">
           ${this._renderPrecedingTriggerContent()}${this._renderTriggerContent()}${this._renderFollowingTriggerContent()}
           <div class="${iconContainerClasses}">
             ${ChevronDown16({ 'aria-label': toggleLabel })}
@@ -248,8 +243,7 @@ class DDSDropdown extends BXDropdown {
         class="${prefix}--assistive-text"
         role="status"
         aria-live="assertive"
-        aria-relevant="additions text"
-      >
+        aria-relevant="additions text">
         ${assistiveStatusText}
       </div>
     `;

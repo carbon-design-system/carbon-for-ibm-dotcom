@@ -9,8 +9,8 @@
 
 import { html, property, customElement } from 'lit-element';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
@@ -215,8 +215,7 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(
       <dds-expressive-modal
         ?open="${open}"
         expressive-size="full-width"
-        mode="lightbox"
-      >
+        mode="lightbox">
         <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
         <dds-lightbox-video-player
           description="${ifNonNull(videoDescription)}"
@@ -224,8 +223,7 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(
           name="${ifNonNull(videoName)}"
           ?hide-caption="${hideCaption}"
           .formatCaption="${ifNonNull(formatCaption)}"
-          .formatDuration="${ifNonNull(formatDuration)}"
-        >
+          .formatDuration="${ifNonNull(formatDuration)}">
         </dds-lightbox-video-player>
       </dds-expressive-modal>
     `;

@@ -10,7 +10,7 @@
 import '../index';
 
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
 
 import imgXlg1x1 from '../../../../../storybook-images/assets/1584/fpo--1x1--1584x1584--002.jpg';
@@ -61,8 +61,7 @@ export const Default = (args) => {
         slot="footer"
         href="${href}"
         cta-type="${ifNonNull(ctaType)}"
-        color-scheme="inverse"
-      >
+        color-scheme="inverse">
         <dds-card-link-heading
           >Try a free virtual business framing session with IBM
           Garage</dds-card-link-heading

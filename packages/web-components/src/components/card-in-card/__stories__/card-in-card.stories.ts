@@ -12,9 +12,9 @@ import '../../image/image';
 import '../index';
 import '../../cta/card-cta-footer';
 import '../../cta/video-cta-container';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { boolean } from '@storybook/addon-knobs';
 
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
@@ -34,8 +34,7 @@ export const Default = (args) => {
           <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
           <dds-card-cta-footer
             cta-type="video"
-            href="1_9h94wo6b"
-          ></dds-card-cta-footer>
+            href="1_9h94wo6b"></dds-card-cta-footer>
         </dds-card-in-card>
       </dds-video-cta-container>
     `;
@@ -45,8 +44,7 @@ export const Default = (args) => {
       <dds-card-in-card-image
         slot="image"
         alt="${ifNonNull(alt)}"
-        default-src="${ifNonNull(defaultSrc)}"
-      >
+        default-src="${ifNonNull(defaultSrc)}">
         <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}">
         </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}">

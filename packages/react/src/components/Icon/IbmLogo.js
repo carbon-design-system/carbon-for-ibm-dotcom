@@ -34,8 +34,7 @@ const IbmLogo = ({ autoid, logoData, isSearchActive }) => {
           <TooltipDefinition tooltipText={logoData.tooltip}>
             {children}
           </TooltipDefinition>
-        )}
-      >
+        )}>
         {useAlternateLogo ? (
           <a // eslint-disable-line
             aria-label="IBM®"

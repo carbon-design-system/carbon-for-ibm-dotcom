@@ -9,8 +9,8 @@
 
 import { customElement, html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import Close from 'carbon-web-components/es/icons/close/16.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
+import Close from '@carbon/web-components/es/icons/close/16.js';
+import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
@@ -195,8 +195,7 @@ class DDSFilterPanelInputSelect extends FocusMixin(
           @keydown=${this._handleKeydown}
           aria-controls="content"
           aria-label="${this.ariaLabel}"
-          role="button"
-        >
+          role="button">
           ${title}
           <div class="${prefix}--close__icon">
             ${this.selected && this.isOpen ? Close() : null}
@@ -208,8 +207,7 @@ class DDSFilterPanelInputSelect extends FocusMixin(
           @keydown=${this._handleKeydownInner}
           class="${this.isOpen
             ? ''
-            : `${prefix}--selected-option-dropdown__hidden`} ${prefix}--selected-option-dropdown"
-        >
+            : `${prefix}--selected-option-dropdown__hidden`} ${prefix}--selected-option-dropdown">
           <slot @slotchange="${this._handleSlotChange}"></slot>
         </ul>
       </div>

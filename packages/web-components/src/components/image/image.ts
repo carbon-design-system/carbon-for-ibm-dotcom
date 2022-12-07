@@ -11,13 +11,13 @@ import { html, property, customElement, LitElement, state } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-close-button';
 import '../lightbox-media-viewer/lightbox-image-viewer';
 import '../button/button';
-import ZoomIn20 from 'carbon-web-components/es/icons/zoom--in/20.js';
+import ZoomIn20 from '@carbon/web-components/es/icons/zoom--in/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './image.scss';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
@@ -187,8 +187,7 @@ class DDSImage extends StableSelectorMixin(
           src="${defaultSrc}"
           alt="${alt}"
           aria-describedby="image-caption long-description"
-          loading="lazy"
-        />
+          loading="lazy" />
       </picture>
       <div id="long-description" class="${prefix}--image__longdescription">
         <slot name="long-description"></slot>
@@ -208,8 +207,7 @@ class DDSImage extends StableSelectorMixin(
               alt="${ifNonNull(alt)}"
               default-src="${ifNonNull(defaultSrc)}"
               description="${ifNonNull(copy)}"
-              title="${ifNonNull(heading)}"
-            >
+              title="${ifNonNull(heading)}">
             </dds-lightbox-image-viewer>
           </dds-expressive-modal>
         `;
@@ -228,8 +226,7 @@ class DDSImage extends StableSelectorMixin(
             <button
               class="${prefix}--image-with-caption__image"
               aria-label="${ifNonNull(launchLightboxButtonAssistiveText)}"
-              @click="${handleClick}"
-            >
+              @click="${handleClick}">
               ${this.renderImage()}
               <div class="${prefix}--image-with-caption__zoom-button">
                 ${ZoomIn20()}

@@ -10,7 +10,7 @@
 import { nothing } from 'lit-html';
 import { html } from 'lit-element';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import ArrowLeft20 from 'carbon-web-components/es/icons/arrow--left/20.js';
+import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
 import '../table-of-contents';
 import '../../horizontal-rule/horizontal-rule';
 import '../../image/image';
@@ -30,20 +30,17 @@ export const Default = (args) => {
             <dds-link-list type="vertical" slot="heading">
               <dds-link-list-item
                 icon-placement="${ICON_PLACEMENT.LEFT}"
-                href="https://github.com/carbon-design-system/carbon-web-components"
-              >
+                href="https://github.com/carbon-design-system/carbon-web-components">
                 DevOps${ArrowLeft20({ slot: 'icon' })}
               </dds-link-list-item>
               <dds-link-list-item
                 icon-placement="${ICON_PLACEMENT.LEFT}"
-                href="https://github.com/carbon-design-system/carbon-web-components"
-              >
+                href="https://github.com/carbon-design-system/carbon-web-components">
                 Automation${ArrowLeft20({ slot: 'icon' })}
               </dds-link-list-item>
               <dds-link-list-item
                 icon-placement="${ICON_PLACEMENT.LEFT}"
-                href="https://github.com/carbon-design-system/carbon-web-components"
-              >
+                href="https://github.com/carbon-design-system/carbon-web-components">
                 Development${ArrowLeft20({ slot: 'icon' })}
               </dds-link-list-item>
             </dds-link-list>

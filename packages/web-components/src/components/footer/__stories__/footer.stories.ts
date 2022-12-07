@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { boolean, object } from '@storybook/addon-knobs';
 import inPercy from '@percy-io/in-percy';
 import { FOOTER_SIZE } from '../footer';
@@ -57,8 +57,7 @@ export const base = (args) => {
             language-selector-label="${ifNonNull(languageSelectorLabel)}"
             clear-selection-label="${ifNonNull(clearSelectionLabel)}"
             selected-language="${ifNonNull(selectedLanguage)}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
           </dds-footer-composite>
         `
       : html`
@@ -74,8 +73,7 @@ export const base = (args) => {
             language-selector-label="${ifNonNull(languageSelectorLabel)}"
             clear-selection-label="${ifNonNull(clearSelectionLabel)}"
             selected-language="${ifNonNull(selectedLanguage)}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
           </dds-footer-container>
         `}
   `;

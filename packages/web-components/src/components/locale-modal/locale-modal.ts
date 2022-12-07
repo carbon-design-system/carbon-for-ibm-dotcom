@@ -9,11 +9,11 @@
 
 import { html, property, state, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ArrowLeft20 from 'carbon-web-components/es/icons/arrow--left/20.js';
-import EarthFilled16 from 'carbon-web-components/es/icons/earth--filled/16.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
+import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
+import EarthFilled16 from '@carbon/web-components/es/icons/earth--filled/16.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSExpressiveModal from '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-header';
@@ -105,8 +105,7 @@ class DDSLocaleModal extends DDSExpressiveModal {
       <dds-link-with-icon
         icon-placement="${ICON_PLACEMENT.LEFT}"
         href="#"
-        @click="${handleClickBackButton}"
-      >
+        @click="${handleClickBackButton}">
         ${headerTitle}${ArrowLeft20({
           slot: 'icon',
           class: `${prefix}--locale-modal__label-arrow`,
@@ -136,8 +135,7 @@ class DDSLocaleModal extends DDSExpressiveModal {
     return html`
       <div
         class="${prefix}--modal-content ${prefix}--locale-modal"
-        @click="${handleClickRegionSelector}"
-      >
+        @click="${handleClickRegionSelector}">
         <slot name="regions-selector"></slot>
       </div>
     `;
@@ -157,8 +155,7 @@ class DDSLocaleModal extends DDSExpressiveModal {
       <div id="${ddsPrefix}--modal-header">
         <dds-expressive-modal-header>
           <dds-expressive-modal-close-button
-            assistive-text="${ifNonNull(closeButtonAssistiveText)}"
-          >
+            assistive-text="${ifNonNull(closeButtonAssistiveText)}">
           </dds-expressive-modal-close-button>
           <dds-expressive-modal-heading
             >${this._renderHeading()}</dds-expressive-modal-heading

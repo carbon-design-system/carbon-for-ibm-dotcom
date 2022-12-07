@@ -20,9 +20,9 @@ import {
 } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { EXPRESSIVE_MODAL_SIZE, EXPRESSIVE_MODAL_MODE } from './defs';
@@ -472,8 +472,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
       <button
         id="start-sentinel"
         class="${prefix}--visually-hidden"
-        @focusin="${handleFocusIn}"
-      >
+        @focusin="${handleFocusIn}">
         START
       </button>
       <div
@@ -482,8 +481,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
         role="dialog"
         aria-labelledby="${ddsPrefix}--modal-header"
         @click="${handleClickContainer}"
-        @slotchange="${handleSlotChange}"
-      >
+        @slotchange="${handleSlotChange}">
         <div class="${prefix}--modal-content">
           ${this._renderHeader()}${this._renderBody()}${this._renderFooter()}
         </div>
@@ -491,8 +489,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
       <button
         id="end-sentinel"
         class="${prefix}--visually-hidden"
-        @focusin="${handleFocusIn}"
-      >
+        @focusin="${handleFocusIn}">
         END
       </button>
     `;

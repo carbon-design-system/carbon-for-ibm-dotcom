@@ -10,7 +10,7 @@
 import '../index';
 import '../../video-player/video-player-container';
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { text, select, number } from '@storybook/addon-knobs';
 import imgMax from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import imgLg16x9 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
@@ -32,8 +32,7 @@ export const Default = (args) => {
       mobile-position="bottom"
       alt="${ifNonNull(alt)}"
       default-src="${imgMax}"
-      opacity="${ifNonNull(backgroundOpacity)}"
-    >
+      opacity="${ifNonNull(backgroundOpacity)}">
       <dds-image-item media="(min-width: 1584px)" srcset="${imgMax}">
       </dds-image-item>
       <dds-image-item media="(min-width: 1312px)" srcset="${imgLg16x9}">
@@ -56,12 +55,10 @@ export const WithVideo = (args) => {
       <dds-background-media
         gradient-direction="${ifNonNull(gradientDirection)}"
         mobile-position="bottom"
-        opacity="${ifNonNull(backgroundOpacity)}"
-      >
+        opacity="${ifNonNull(backgroundOpacity)}">
         <dds-video-player-container
           video-id="1_9h94wo6b"
-          background-mode="true"
-        ></dds-video-player-container>
+          background-mode="true"></dds-video-player-container>
       </dds-background-media>
     </div>
   `;
@@ -76,8 +73,7 @@ export const WithDefaultSource = (args) => {
       mobile-position="bottom"
       alt="${ifNonNull(alt)}"
       default-src="${imgMax}"
-      opacity="${ifNonNull(backgroundOpacity)}"
-    >
+      opacity="${ifNonNull(backgroundOpacity)}">
     </dds-background-media>
   `;
 };

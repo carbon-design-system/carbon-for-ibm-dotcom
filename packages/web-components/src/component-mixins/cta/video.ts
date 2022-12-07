@@ -7,11 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20.js';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import Download20 from 'carbon-web-components/es/icons/download/20.js';
-import Launch20 from 'carbon-web-components/es/icons/launch/20.js';
-import PlayOutline20 from 'carbon-web-components/es/icons/play--outline/20.js';
+import ArrowDown20 from '@carbon/web-components/es/icons/arrow--down/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import Download20 from '@carbon/web-components/es/icons/download/20.js';
+import Launch20 from '@carbon/web-components/es/icons/launch/20.js';
+import PlayOutline20 from '@carbon/web-components/es/icons/play--outline/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';

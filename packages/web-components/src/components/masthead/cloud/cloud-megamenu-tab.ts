@@ -9,7 +9,7 @@
 
 import { customElement, html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import BXTab from 'carbon-web-components/es/components/tabs/tab.js';
+import BXTab from '@carbon/web-components/es/components/tabs/tab.js';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './cloud-masthead.scss';
 
@@ -30,8 +30,7 @@ class DDSCloudMegaMenuTab extends BXTab {
         class="${prefix}--tabs__nav-link"
         role="tab"
         ?disabled="${disabled}"
-        aria-selected="${Boolean(selected)}"
-      >
+        aria-selected="${Boolean(selected)}">
         <slot></slot>
       </button>
     `;

@@ -22,8 +22,7 @@ const CategoryLink = ({ href, title, highlighted, ...rest }) => {
         <Link
           className={`${prefix}--masthead__megamenu__category-sublink--highlighted`}
           href={href}
-          renderIcon={ArrowRight16}
-        >
+          renderIcon={ArrowRight16}>
           <span>{title}</span>
         </Link>
       ) : (
@@ -31,8 +30,7 @@ const CategoryLink = ({ href, title, highlighted, ...rest }) => {
           tabIndex={0}
           href={href}
           className={`${prefix}--masthead__megamenu__category-sublink`}
-          data-autoid={`${rest.autoid}-item${rest.index}`}
-        >
+          data-autoid={`${rest.autoid}-item${rest.index}`}>
           {title}
         </a>
       )}

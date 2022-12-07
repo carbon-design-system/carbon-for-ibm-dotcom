@@ -14,7 +14,7 @@ import '../index';
 import '../../cta/video-cta-container';
 import { html } from 'lit-element';
 import { select, number, boolean } from '@storybook/addon-knobs';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 // eslint-disable-next-line sort-imports
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
@@ -68,8 +68,7 @@ const imageContent = html`
   <dds-card-cta-image
     slot="image"
     alt="Image Alt Text"
-    default-src="${imgXlg4x3}"
-  ></dds-card-cta-image>
+    default-src="${imgXlg4x3}"></dds-card-cta-image>
 `;
 
 const cardsDiffLengthPhrase = (
@@ -86,8 +85,7 @@ const cardsDiffLengthPhrase = (
       href=${cardType === 'Card static' ? '' : 'https://example.com'}
       color-scheme=${cardType === 'Card static' || gridMode === 'border'
         ? 'light'
-        : null}
-    >
+        : null}>
       ${media ? imageContent : ''}
       <dds-card-eyebrow>Topic</dds-card-eyebrow>
       <dds-card-heading
@@ -110,8 +108,7 @@ const cardsDiffLengthPhrase = (
     <dds-card-group-item
       cta-type="video"
       href="1_9h94wo6b"
-      color-scheme=${gridMode === 'border' ? 'light' : null}
-    >
+      color-scheme=${gridMode === 'border' ? 'light' : null}>
       <dds-card-eyebrow>Topic</dds-card-eyebrow>
       ${tagGroup ? tagGroupContent : ''}
       <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b">
@@ -136,8 +133,7 @@ const longHeadingCardGroupItem = (
       href=${cardType === 'Card static' ? '' : 'https://example.com'}
       color-scheme=${cardType === 'Card static' || gridMode === 'border'
         ? 'light'
-        : null}
-    >
+        : null}>
       ${media ? imageContent : ''}
       <dds-card-eyebrow>Topic</dds-card-eyebrow>
       <dds-card-heading
@@ -161,8 +157,7 @@ const pictogramCard = (gridMode) => html`
   <dds-card-group-item
     href="https://example.com"
     pictogram-placement="top"
-    color-scheme=${gridMode === 'border' ? 'light' : null}
-  >
+    color-scheme=${gridMode === 'border' ? 'light' : null}>
     <dds-card-heading>Aerospace and defence</dds-card-heading>
     <p>
       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -180,15 +175,13 @@ const pictogramCard = (gridMode) => html`
       height="48"
       viewBox="0 0 32 32"
       role="img"
-      class="bx--card__pictogram"
-    >
+      class="bx--card__pictogram">
       <path
         id="desktop_1_"
         d="M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26
   c1.302,0,2.36,1.059,2.36,2.36v17c0,1.302-1.059,2.36-2.36,2.36H16.36v4.279H23V29.36z M1.36,19.36V22c0,
   0.904,0.736,1.64,1.64,1.64h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,
-  18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z"
-      />
+  18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z" />
     </svg>
   </dds-card-group-item>
 `;
@@ -197,8 +190,7 @@ const cardLink = html`
   <dds-card-group-card-link-item
     cta-type="local"
     href="https://example.com"
-    pattern-background
-  >
+    pattern-background>
     <dds-card-link-heading>IBM Developer</dds-card-link-heading>
     <p>Learn, code and connect with your community</p>
     <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
@@ -214,8 +206,7 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
           <dds-card-group-item
             cta-type="local"
             href="https://example.com"
-            color-scheme=${gridMode === 'border' ? 'light' : null}
-          >
+            color-scheme=${gridMode === 'border' ? 'light' : null}>
             ${imageContent}
             <dds-card-eyebrow>Label</dds-card-eyebrow>
             <dds-card-heading
@@ -230,15 +221,13 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
           <dds-card-group-item
             cta-type="video"
             href="1_9h94wo6b"
-            color-scheme=${gridMode === 'border' ? 'light' : null}
-          >
+            color-scheme=${gridMode === 'border' ? 'light' : null}>
             <dds-card-eyebrow>Topic</dds-card-eyebrow>
             ${tagGroup ? tagGroupContent : ''}
             <dds-card-cta-footer
               cta-type="video"
               slot="footer"
-              href="1_9h94wo6b"
-            >
+              href="1_9h94wo6b">
             </dds-card-cta-footer>
           </dds-card-group-item>
         `;
@@ -247,8 +236,7 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
     <dds-card-group-item
       cta-type="local"
       href="https://example.com"
-      color-scheme=${gridMode === 'border' ? 'light' : null}
-    >
+      color-scheme=${gridMode === 'border' ? 'light' : null}>
       <dds-card-eyebrow>Label</dds-card-eyebrow>
       <dds-card-heading
         >The United Nations Environment Program works with IBM to reduce marine
@@ -298,8 +286,7 @@ export const Default = (args) => {
           <dds-card-group-item
             cta-type="local"
             href="https://example.com"
-            color-scheme="inverse"
-          >
+            color-scheme="inverse">
             <dds-card-heading>Top level card link</dds-card-heading>
             <dds-card-cta-footer slot="footer" color-scheme="inverse">
             </dds-card-cta-footer>
@@ -330,8 +317,7 @@ export const Default = (args) => {
           <dds-card-group-item
             cta-type="local"
             href="https://example.com"
-            color-scheme="inverse"
-          >
+            color-scheme="inverse">
             <dds-card-heading>Top level card link</dds-card-heading>
             <dds-card-cta-footer slot="footer" color-scheme="inverse">
             </dds-card-cta-footer>
@@ -354,8 +340,7 @@ export const Default = (args) => {
       cards-per-row="${colCount}"
       class="${classes}"
       grid-mode=${setGridMode[cardType] || gridMode}
-      ?pictograms=${cardType === 'Card - pictogram'}
-    >
+      ?pictograms=${cardType === 'Card - pictogram'}>
       ${allCards}
     </dds-card-group>
   `;
@@ -372,13 +357,11 @@ export const withCardInCard = (args) => {
       <dds-card-in-card
         href="https://example.com"
         cta-type="local"
-        grid-mode="${ifNonNull(gridMode)}"
-      >
+        grid-mode="${ifNonNull(gridMode)}">
         <dds-card-in-card-image
           slot="image"
           alt="Image alt text"
-          default-src="${imgSm4x3}"
-        >
+          default-src="${imgSm4x3}">
           <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}">
           </dds-image-item>
           <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}">

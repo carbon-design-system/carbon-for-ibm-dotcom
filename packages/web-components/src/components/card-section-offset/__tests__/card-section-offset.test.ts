@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
 
 import '../card-section-offset';
 
@@ -42,8 +42,7 @@ describe('dds-card-section-offset', function () {
               slot="action"
               cta-type="local"
               icon-placement="right"
-              href="https://example.com"
-            >
+              href="https://example.com">
               CTA copy
             </dds-text-cta>
           `,

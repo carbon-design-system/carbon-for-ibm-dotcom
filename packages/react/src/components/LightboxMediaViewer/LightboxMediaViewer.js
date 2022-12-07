@@ -86,15 +86,13 @@ const LightboxMediaViewer = ({ media, onClose, ...modalProps }) => {
     <section
       data-autoid={`${stablePrefix}--lightbox-media-viewer`}
       className={`${prefix}--lightbox-media-viewer`}
-      ref={containerRef}
-    >
+      ref={containerRef}>
       <ExpressiveModal fullwidth={true} {...modalProps} onClose={closeModal}>
         <ModalBody>
           <div className={`${prefix}--lightbox-media-viewer__container`}>
             <div className={`${prefix}--lightbox-media-viewer__row`}>
               <div
-                className={`${prefix}--lightbox-media-viewer__media ${prefix}--no-gutter`}
-              >
+                className={`${prefix}--lightbox-media-viewer__media ${prefix}--no-gutter`}>
                 {media.type === 'video' ? (
                   <VideoPlayer videoId={media.src} autoPlay={modalProps.open} />
                 ) : (
@@ -102,15 +100,13 @@ const LightboxMediaViewer = ({ media, onClose, ...modalProps }) => {
                 )}
               </div>
               <div
-                className={`${prefix}--lightbox-media-viewer__media-description ${prefix}--no-gutter`}
-              >
+                className={`${prefix}--lightbox-media-viewer__media-description ${prefix}--no-gutter`}>
                 <div className={`${prefix}--lightbox-media-viewer__content`}>
                   {videoData.title && (
                     <div
                       id={titleId}
                       data-autoid={`${stablePrefix}--lightbox-media-viewer__content__title`}
-                      className={`${prefix}--lightbox-media-viewer__content__title`}
-                    >
+                      className={`${prefix}--lightbox-media-viewer__content__title`}>
                       {videoData.title}
                     </div>
                   )}
@@ -118,8 +114,7 @@ const LightboxMediaViewer = ({ media, onClose, ...modalProps }) => {
                     <div
                       id={descriptionId}
                       data-autoid={`${stablePrefix}--lightbox-media-viewer__content__desc`}
-                      className={`${prefix}--lightbox-media-viewer__content__desc`}
-                    >
+                      className={`${prefix}--lightbox-media-viewer__content__desc`}>
                       {videoDesc}
                     </div>
                   )}

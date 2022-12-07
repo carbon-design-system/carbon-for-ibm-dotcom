@@ -9,16 +9,16 @@
 
 import { customElement, html, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import './filter-group';
 import './filter-modal-button';
 import './filter-modal-heading';
-import BXModal from 'carbon-web-components/es/components/modal/modal.js';
+import BXModal from '@carbon/web-components/es/components/modal/modal.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import './filter-modal-footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
-import 'carbon-web-components/es/components/checkbox/checkbox.js';
+import '@carbon/web-components/es/components/checkbox/checkbox.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -107,13 +107,11 @@ class DDSFilterPanelModal extends HostListenerMixin(
         id="start-sentinel"
         class="${prefix}--visually-hidden"
         href="javascript:void 0"
-        role="navigation"
-      ></a>
+        role="navigation"></a>
       <section class="${prefix}--filter-panel__section bx--modal-container">
         <bx-modal-header>
           <bx-modal-close-button
-            @click=${this._handleUserClose}
-          ></bx-modal-close-button>
+            @click=${this._handleUserClose}></bx-modal-close-button>
           <dds-filter-modal-heading>${this.heading}</dds-filter-modal-heading>
         </bx-modal-header>
         <div class="${prefix}--modal-body"><slot></slot></div>
@@ -135,8 +133,7 @@ class DDSFilterPanelModal extends HostListenerMixin(
         id="end-sentinel"
         class="${prefix}--visually-hidden"
         href="javascript:void 0"
-        role="navigation"
-      ></a>
+        role="navigation"></a>
     `;
   }
 

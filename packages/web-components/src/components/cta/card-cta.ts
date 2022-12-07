@@ -10,7 +10,7 @@
 import { html, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import {
   formatVideoCaption,
@@ -82,8 +82,7 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
             <dds-card-cta-image
               class="${prefix}--card__video-thumbnail"
               alt="${ifNonNull(videoName)}"
-              default-src="${ifNonNull(thumbnail || videoThumbnailUrl)}"
-            >
+              default-src="${ifNonNull(thumbnail || videoThumbnailUrl)}">
               ${PlayVideo({ slot: 'icon' })}
             </dds-card-cta-image>
           `;

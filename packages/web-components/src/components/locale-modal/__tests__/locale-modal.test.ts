@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import '../locale-modal';
 import '../regions';
 import '../region-item';
@@ -19,8 +19,7 @@ const template = (props?) => {
   return html`
     <dds-locale-modal
       header-title="${ifNonNull(headerTitle)}"
-      lang-display="${ifNonNull(langDisplay)}"
-    >
+      lang-display="${ifNonNull(langDisplay)}">
       ${children}
     </dds-locale-modal>
   `;

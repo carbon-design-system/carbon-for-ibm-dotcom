@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import '../lightbox-video-player';
 
 const template = (props?) => {
@@ -27,8 +27,7 @@ const template = (props?) => {
       ?hide-caption="${hideCaption}"
       name="${ifNonNull(name)}"
       .formatCaption="${ifNonNull(formatCaption)}"
-      .formatDuration="${ifNonNull(formatDuration)}"
-    >
+      .formatDuration="${ifNonNull(formatDuration)}">
     </dds-lightbox-video-player>
   `;
 };

@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import '../lightbox-image-viewer';
 
 const template = (props?) => {
@@ -18,8 +18,7 @@ const template = (props?) => {
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
       description="${ifNonNull(description)}"
-      title="${ifNonNull(title)}"
-    >
+      title="${ifNonNull(title)}">
     </dds-lightbox-image-viewer>
   `;
 };

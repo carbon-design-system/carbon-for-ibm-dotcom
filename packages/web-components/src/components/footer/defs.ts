@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export { FORM_ELEMENT_COLOR_SCHEME as DROPDOWN_COLOR_SCHEME } from 'carbon-web-components/es/globals/shared-enums.js';
+export { FORM_ELEMENT_COLOR_SCHEME as DROPDOWN_COLOR_SCHEME } from '@carbon/web-components/es/globals/shared-enums.js';
 
 /**
  * Footer size.

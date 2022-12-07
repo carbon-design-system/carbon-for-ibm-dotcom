@@ -8,10 +8,10 @@
  */
 
 import { boolean, number, select } from '@storybook/addon-knobs';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import Launch20 from 'carbon-web-components/es/icons/launch/20';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
+import Launch20 from '@carbon/web-components/es/icons/launch/20';
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import styles from './cta-block.stories.scss';
 import textNullable from '../../../../.storybook/knob-text-nullable';

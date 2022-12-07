@@ -10,8 +10,8 @@
 import { html, property, customElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import pauseIcon from 'carbon-web-components/es/icons/pause--outline--filled/32.js';
-import playIcon from 'carbon-web-components/es/icons/play--filled/32.js';
+import pauseIcon from '@carbon/web-components/es/icons/pause--outline--filled/32.js';
+import playIcon from '@carbon/web-components/es/icons/play--filled/32.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './background-media.scss';
 import { GRADIENT_DIRECTION, MOBILE_POSITION } from './defs';
@@ -147,8 +147,7 @@ class DDSBackgroundMedia extends DDSImage {
         class="${prefix}--video-player__controls"
         aria-pressed="${!videoIsPlaying}"
         aria-label="${videoIsPlaying ? 'Pause the video' : 'Play the video'}"
-        hasTooltip
-      >
+        hasTooltip>
         ${videoIsPlaying ? pauseIcon() : playIcon()}
       </button>
     `;
@@ -188,8 +187,7 @@ class DDSBackgroundMedia extends DDSImage {
         ${this.gradientHidden ? '' : this.renderGradient()}
         <div
           class="${prefix}--background-media--item"
-          style="${this._getMediaOpacity()}"
-        >
+          style="${this._getMediaOpacity()}">
           ${this.containsOnlyImages ? super.render() : ''}
           <slot @slotchange="${this._handleBackgroundMedia}"></slot>
         </div>

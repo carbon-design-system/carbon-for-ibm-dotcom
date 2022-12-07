@@ -9,12 +9,12 @@
 
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import Filter20 from 'carbon-web-components/es/icons/filter/20.js';
+import Filter20 from '@carbon/web-components/es/icons/filter/20.js';
 import { property, customElement, html } from 'lit-element';
-import BXSelect from 'carbon-web-components/es/components/select/select.js';
-import { INPUT_SIZE } from 'carbon-web-components/es/components/input/input.js';
+import BXSelect from '@carbon/web-components/es/components/select/select.js';
+import { INPUT_SIZE } from '@carbon/web-components/es/components/input/input.js';
 import { classMap } from 'lit-html/directives/class-map.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { filter } from '../../globals/internal/collection-helpers';
 import styles from './search-with-typeahead.scss';
@@ -52,7 +52,7 @@ class DDSScopedSearchDropdownMobile extends BXSelect {
         bubbles: true,
         composed: true,
         detail: {
-          value,
+          appId: value,
         },
       })
     );
@@ -87,8 +87,7 @@ class DDSScopedSearchDropdownMobile extends BXSelect {
                 ?disabled="${disabled}"
                 label="${ifNonNull(label ?? textContent)}"
                 ?selected="${selected}"
-                value="${ifNonNull(value)}"
-              >
+                value="${ifNonNull(value)}">
                 ${textContent}
               </option>
             `
@@ -96,8 +95,7 @@ class DDSScopedSearchDropdownMobile extends BXSelect {
               <optgroup
                 class="${prefix}--select-optgroup"
                 ?disabled="${disabled}"
-                label="${ifNonNull(label)}"
-              >
+                label="${ifNonNull(label)}">
                 ${this._renderItemsMobile(item)}
               </optgroup>
             `;
@@ -167,8 +165,7 @@ class DDSScopedSearchDropdownMobile extends BXSelect {
           aria-describedby="${ifDefined(
             !invalid ? undefined : 'validity-message'
           )}"
-          @input="${handleInput}"
-        >
+          @input="${handleInput}">
           ${!placeholder || value
             ? undefined
             : html`
@@ -177,8 +174,7 @@ class DDSScopedSearchDropdownMobile extends BXSelect {
                   hidden
                   class="${prefix}--select-option"
                   value="${placeholderItemValue}"
-                  selected
-                >
+                  selected>
                   ${placeholder}
                 </option>
               `}

@@ -26,12 +26,10 @@ const AudioPlayerThumbnail = ({ audioId }) => {
     <>
       <div
         className={`${prefix}--audio-player__thumbnail-container`}
-        ref={inputRef}
-      >
+        ref={inputRef}>
         <div
           className={`${prefix}--audio-player__thumbnail`}
-          style={{ backgroundImage: `url('${thumbnailUrl}')` }}
-        ></div>
+          style={{ backgroundImage: `url('${thumbnailUrl}')` }}></div>
       </div>
     </>
   );

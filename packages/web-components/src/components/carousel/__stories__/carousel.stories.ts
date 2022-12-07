@@ -12,8 +12,8 @@ import { html } from 'lit-element';
 // Below path will be there when an application installs `carbon-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import '../../card/index';
 import '../../cta/index';
 import '../../image/index';
@@ -47,8 +47,7 @@ const Card = ({
           <dds-image
             slot="image"
             alt="example image"
-            default-src="${image}"
-          ></dds-image>
+            default-src="${image}"></dds-image>
         `
       : null}
     <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
@@ -69,8 +68,7 @@ const CardWithLongHeading = ({
           <dds-image
             slot="image"
             alt="example image"
-            default-src="${image}"
-          ></dds-image>
+            default-src="${image}"></dds-image>
         `
       : null}
     <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>

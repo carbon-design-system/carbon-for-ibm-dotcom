@@ -10,12 +10,12 @@
 import { classMap } from 'lit-html/directives/class-map.js';
 import { html, property, state, query, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import CaretLeft20 from 'carbon-web-components/es/icons/caret--left/20.js';
-import CaretRight20 from 'carbon-web-components/es/icons/caret--right/20.js';
-import BXHeaderNav from 'carbon-web-components/es/components/ui-shell/header-nav.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import CaretLeft20 from '@carbon/web-components/es/icons/caret--left/20.js';
+import CaretRight20 from '@carbon/web-components/es/icons/caret--right/20.js';
+import BXHeaderNav from '@carbon/web-components/es/components/ui-shell/header-nav.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
@@ -503,7 +503,10 @@ class DDSTopNav extends CspComplianceMixin(
     }
 
     // Update the values in the CSP-safe stylesheet.
-    if (changedProperties.has('_currentScrollPosition')) {
+    if (
+      changedProperties.has('_currentScrollPosition') &&
+      this.dynamicStylesNode
+    ) {
       this.setStyleBySelector(
         '.bx--header__nav-content',
         'inset-inline-start',
@@ -512,7 +515,7 @@ class DDSTopNav extends CspComplianceMixin(
     }
   }
 
-  renderContents() {
+  render() {
     const {
       _isIntersectionLeftTrackerInContent: isIntersectionLeftTrackerInContent,
       _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
@@ -536,19 +539,18 @@ class DDSTopNav extends CspComplianceMixin(
     return this.hideNav
       ? undefined!
       : html`
+          ${this._renderDynamicStyles()}
           ${pageIsRTL
             ? html`
                 <div class="${caretRightContainerClasses}">
                   <div
-                    class="${prefix}--header__nav-caret-right-gradient"
-                  ></div>
+                    class="${prefix}--header__nav-caret-right-gradient"></div>
                   <button
                     part="next-button"
                     tabindex="-1"
                     aria-hidden="true"
                     class="${prefix}--header__nav-caret-right"
-                    @click="${paginateRight}"
-                  >
+                    @click="${paginateRight}">
                     ${CaretLeft20()}
                   </button>
                 </div>
@@ -559,12 +561,10 @@ class DDSTopNav extends CspComplianceMixin(
                       <div
                         part="menubar"
                         class="${prefix}--header__menu-bar"
-                        aria-label="${ifNonNull(this.menuBarLabel)}"
-                      >
+                        aria-label="${ifNonNull(this.menuBarLabel)}">
                         <slot
                           @slotchange=${handleSlotChange}
-                          @keydown="${handleOnKeyDown}"
-                        ></slot>
+                          @keydown="${handleOnKeyDown}"></slot>
                       </div>
                       <div class="${prefix}--sub-content-left"></div>
                     </nav>
@@ -576,8 +576,7 @@ class DDSTopNav extends CspComplianceMixin(
                     tabindex="-1"
                     aria-hidden="true"
                     class="${prefix}--header__nav-caret-left"
-                    @click="${paginateLeft}"
-                  >
+                    @click="${paginateLeft}">
                     ${CaretRight20()}
                   </button>
                   <div class="${prefix}--header__nav-caret-left-gradient"></div>
@@ -590,8 +589,7 @@ class DDSTopNav extends CspComplianceMixin(
                     tabindex="-1"
                     aria-hidden="true"
                     class="${prefix}--header__nav-caret-left"
-                    @click="${paginateLeft}"
-                  >
+                    @click="${paginateLeft}">
                     ${CaretLeft20()}
                   </button>
                   <div class="${prefix}--header__nav-caret-left-gradient"></div>
@@ -603,12 +601,10 @@ class DDSTopNav extends CspComplianceMixin(
                       <div
                         part="menubar"
                         class="${prefix}--header__menu-bar"
-                        aria-label="${ifNonNull(this.menuBarLabel)}"
-                      >
+                        aria-label="${ifNonNull(this.menuBarLabel)}">
                         <slot
                           @slotchange=${handleSlotChange}
-                          @keydown="${handleOnKeyDown}"
-                        ></slot>
+                          @keydown="${handleOnKeyDown}"></slot>
                       </div>
                       <div class="${prefix}--sub-content-right"></div>
                     </nav>
@@ -616,15 +612,13 @@ class DDSTopNav extends CspComplianceMixin(
                 </div>
                 <div class="${caretRightContainerClasses}">
                   <div
-                    class="${prefix}--header__nav-caret-right-gradient"
-                  ></div>
+                    class="${prefix}--header__nav-caret-right-gradient"></div>
                   <button
                     part="next-button"
                     tabindex="-1"
                     aria-hidden="true"
                     class="${prefix}--header__nav-caret-right"
-                    @click="${paginateRight}"
-                  >
+                    @click="${paginateRight}">
                     ${CaretRight20()}
                   </button>
                 </div>

@@ -7,23 +7,22 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { classMap } from 'lit-html/directives/class-map.js';
 import { html, property, query, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import Close20 from 'carbon-web-components/es/icons/close/20.js';
-import Search20 from 'carbon-web-components/es/icons/search/20.js';
+import Close20 from '@carbon/web-components/es/icons/close/20.js';
+import Search20 from '@carbon/web-components/es/icons/search/20.js';
 import BXDropdown, {
   DROPDOWN_KEYBOARD_ACTION,
-} from 'carbon-web-components/es/components/dropdown/dropdown.js';
-import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+} from '@carbon/web-components/es/components/dropdown/dropdown.js';
+import BXDropdownItem from '@carbon/web-components/es/components/dropdown/dropdown-item.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import SearchTypeaheadAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/SearchTypeahead/SearchTypeahead';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
-import { DDS_SCOPED_SEARCH } from '../../globals/internal/feature-flags';
 import styles from './search-with-typeahead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './search-with-typeahead-item';
@@ -55,7 +54,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
   async getResults(searchQuery) {
     const response = await SearchTypeaheadAPI.getResults(
       searchQuery,
-      this.scopeValue
+      this.appId
     );
     return response.map((res) => res[0]);
   }
@@ -65,7 +64,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
    * Should be changed upon the locale the UI is rendered with.
    */
   @property({ attribute: false })
-  placeholderFormatter = ({ scopeValue }) => `Search in ${scopeValue}`;
+  placeholderFormatter = ({ appId }) => `Search in ${appId}`;
 
   @property({ attribute: 'leadspace-search', type: Boolean })
   leadspaceSearch = false;
@@ -87,6 +86,12 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
 
   @property({ attribute: 'should-remain-open', type: Boolean })
   shouldRemainOpen = false;
+
+  @property({ attribute: 'appid', reflect: true })
+  appId;
+
+  @property({ attribute: 'scope-label', reflect: true })
+  scopeLabel;
 
   @property({ attribute: 'scope-value', reflect: true })
   scopeValue;
@@ -289,6 +294,16 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       })
     );
 
+    if (this.appId) {
+      searchParams.append('scope-domain', 'scope');
+      searchParams.append('scope-value', this.scopeValue);
+      searchParams.append('scope-type', this.appId);
+
+      if (this.scopeLabel) {
+        searchParams.append('scope-label', this.scopeLabel ?? '');
+      }
+    }
+
     const redirectUrlWithSearch = targetHref
       ? `${targetHref}`
       : `${base}?${searchParams.toString()}`;
@@ -339,7 +354,22 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
    */
   @HostListener('document:eventSelectScope')
   protected _handleScopeSelect = (event: CustomEvent) => {
-    this.scopeValue = event.detail.value;
+    this.appId = event.detail.appId;
+    let targetScope;
+    this.scopeParameters.forEach((scope) => {
+      if (scope.appId === this.appId) {
+        targetScope = scope;
+      }
+    });
+
+    this.scopeValue = Array.isArray(targetScope?.value)
+      ? `[${targetScope.value
+          .toString()
+          .split(',')
+          .map((word) => `"${word.trim()}"`)
+          .join(',')}]`
+      : targetScope.value;
+    this.scopeLabel = targetScope.label ?? '';
   };
 
   /**
@@ -426,7 +456,6 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
     if (highlightedItem || !this._searchInputNode.value) {
       event.preventDefault();
     }
-
     if (
       !this.dispatchEvent(
         new CustomEvent(eventBeforeRedirect, {
@@ -564,8 +593,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
         aria-label="${ifNonNull(searchLabel)}"
         @input="${handleInput}"
         @keydown="${handleKeyInput}"
-        @keypress="${handleKeyInput}"
-      />
+        @keypress="${handleKeyInput}" />
     `;
   }
 
@@ -612,6 +640,21 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
         <input type="hidden" name="lang" value="${primary}" />
         <input type="hidden" name="cc" value="${country}" />
         <input type="hidden" name="lnk" value="mhsrch" />
+        ${this.scopeParameters
+          ? html`
+              <input type="hidden" name="scope-domain" value="scope" />
+              <input type="hidden" name="scope-type" value="${this.appId}" />
+              <input
+                type="hidden"
+                name="scope-value"
+                value="${this.scopeValue}" />
+              <input
+                type="hidden"
+                name="scope-label"
+                value="${this.scopeLabel}" />
+            `
+          : ''}
+
         <div
           role="combobox"
           class="${classes}"
@@ -621,26 +664,25 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
           aria-label="${ifNonNull(searchLabel)}"
           @click=${handleClickInner}
           @keydown="${handleKeydownInner}"
-          @keypress="${handleKeypressInner}"
-        >
-          ${this.scopeParameters && DDS_SCOPED_SEARCH
+          @keypress="${handleKeypressInner}">
+          ${this.scopeParameters
             ? html`
-                <dds-scoped-search-dropdown value="${this.scopeValue}">
+                <dds-scoped-search-dropdown value="${this.appId}">
                   ${this.scopeParameters.map(
                     (scope) => html`
-                      <bx-dropdown-item value="${scope.value}"
+                      <bx-dropdown-item value="${scope.appId}"
                         >${scope.name}</bx-dropdown-item
                       >
                     `
                   )}
                 </dds-scoped-search-dropdown>
 
-                <dds-scoped-search-dropdown-mobile value="${this.scopeValue}">
+                <dds-scoped-search-dropdown-mobile value="${this.appId}">
                   ${this.scopeParameters.map(
                     (scope) => html`
                       <bx-select-item
                         label="${scope.name}"
-                        value="${scope.value}"
+                        value="${scope.appId}"
                         >${scope.name}</bx-select-item
                       >
                     `
@@ -653,19 +695,16 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
             ? html`
                 <div
                   id="result-list"
-                  class="react-autosuggest__suggestions-container"
-                >
+                  class="react-autosuggest__suggestions-container">
                   <ul
                     role="listbox"
-                    class="${ddsPrefix}-ce__search__list react-autosuggest__suggestions-list"
-                  >
+                    class="${ddsPrefix}-ce__search__list react-autosuggest__suggestions-list">
                     ${this.searchResults &&
                     this.searchResults.map(
                       (item) =>
                         html`
                           <dds-search-with-typeahead-item
-                            text="${item}"
-                          ></dds-search-with-typeahead-item>
+                            text="${item}"></dds-search-with-typeahead-item>
                         `
                     )}
                     ${this.groupedResults &&
@@ -674,15 +713,13 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
                         html`
                           <dds-search-with-typeahead-item
                             groupTitle
-                            text="${group.title}"
-                          ></dds-search-with-typeahead-item>
+                            text="${group.title}"></dds-search-with-typeahead-item>
                           ${group.items.map(
                             (item) =>
                               html`
                                 <dds-search-with-typeahead-item
                                   text="${item.name}"
-                                  href="${item.href}"
-                                ></dds-search-with-typeahead-item>
+                                  href="${item.href}"></dds-search-with-typeahead-item>
                               `
                           )}
                         `
@@ -697,8 +734,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
         class="${prefix}--assistive-text"
         role="status"
         aria-live="assertive"
-        aria-relevant="additions text"
-      >
+        aria-relevant="additions text">
         ${assistiveStatusText}
       </div>
     `;
@@ -800,8 +836,9 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       this.setAttribute('active', '');
     }
 
-    if (!this.scopeValue && this.scopeParameters) {
-      this.scopeValue = 'all';
+    if (!this.appId && this.scopeParameters) {
+      this.appId = 'all';
+      this.redirectUrl = 'https://www.ibm.com/search/scoped';
     }
   }
 
@@ -815,7 +852,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       });
     }
 
-    if (changedProperties.has('scopeValue')) {
+    if (changedProperties.has('appId')) {
       if (
         gridBreakpoint < document.body.clientWidth &&
         this._searchSuggestions &&
@@ -843,9 +880,9 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       }
 
       const newPlaceholder = this.placeholderFormatter({
-        scopeValue: this.scopeParameters.filter(
-          (e) => e.value === `${this.scopeValue}`
-        )[0].name,
+        appId: this.scopeParameters.filter(
+          (e) => e.value === `${this.appId}`
+        )[0]?.name,
       });
       this.setAttribute('placeholder', newPlaceholder);
       this.performSearchButtonAssistiveText = newPlaceholder;
@@ -875,8 +912,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
                 part="open-button"
                 class="${prefix}--header__action ${prefix}--header__search--search"
                 aria-label="${searchButtonAssistiveText}"
-                @click="${handleClickSearchButton}"
-              >
+                @click="${handleClickSearchButton}">
                 ${Search20()}
               </button>
               <button
@@ -884,8 +920,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
                 part="close-button"
                 class="${prefix}--header__action ${prefix}--header__search--close"
                 aria-label="${closeSearchButtonAssistiveText}"
-                @click="${handleClickCloseButton}"
-              >
+                @click="${handleClickCloseButton}">
                 ${Close20()}
               </button>
             </div>
@@ -906,27 +941,23 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
                   ? `${prefix}--header__search--hide`
                   : ''}"
                 aria-label="${closeSearchButtonAssistiveText}"
-                @click="${handleClickCloseButton}"
-              >
+                @click="${handleClickCloseButton}">
                 ${Close20()}
               </button>
             </div>
             <div
               id="result-list"
-              class="react-autosuggest__suggestions-container"
-            >
+              class="react-autosuggest__suggestions-container">
               <ul
                 role="listbox"
-                class="${ddsPrefix}-ce__search__list react-autosuggest__suggestions-list"
-              >
+                class="${ddsPrefix}-ce__search__list react-autosuggest__suggestions-list">
                 ${this.searchResults &&
                 this.searchResults.map(
                   (item) =>
                     html`
                       <dds-search-with-typeahead-item
                         text="${item}"
-                        @click=${handleClickItem}
-                      ></dds-search-with-typeahead-item>
+                        @click=${handleClickItem}></dds-search-with-typeahead-item>
                     `
                 )}
               </ul>

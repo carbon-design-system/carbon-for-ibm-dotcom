@@ -9,9 +9,9 @@
 
 import { html, property, state, customElement, LitElement } from 'lit-element';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
@@ -213,8 +213,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(
         video-id="${ifNonNull(activeVideoId)}"
         .embeddedVideos="${ifNonNull(embeddedVideos)}"
         .mediaData="${ifNonNull(mediaData)}"
-        ._embedMedia="${ifNonNull(embedMedia)}"
-      >
+        ._embedMedia="${ifNonNull(embedMedia)}">
       </dds-lightbox-video-player-composite>
     `;
   }

@@ -267,8 +267,7 @@ class HeaderMenu extends React.Component {
         className={className}
         data-autoid={autoId}
         onKeyDown={this.handleMenuClose}
-        onBlur={this.handleOnBlur}
-      >
+        onBlur={this.handleOnBlur}>
         <a // eslint-disable-line jsx-a11y/role-supports-aria-props,jsx-a11y/anchor-is-valid
           aria-haspopup="menu" // eslint-disable-line jsx-a11y/aria-proptypes
           aria-expanded={this.state.expanded}
@@ -281,8 +280,7 @@ class HeaderMenu extends React.Component {
           data-selected={`${!!selected}`}
           tabIndex={0}
           ref={this.menuLinkRef}
-          {...accessibilityLabel}
-        >
+          {...accessibilityLabel}>
           {menuLinkName}
           <MenuContent />
         </a>

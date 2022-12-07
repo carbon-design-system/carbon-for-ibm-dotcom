@@ -8,7 +8,7 @@
  */
 
 import { customElement, html, property } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import './cloud-button-cta';
@@ -117,8 +117,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
       <dds-cloud-megamenu>
         <dds-cloud-megamenu-left-navigation
           view-all-href="${ifNonNull(viewAllLink?.url)}"
-          view-all-title="${ifNonNull(viewAllLink?.title)}"
-        >
+          view-all-title="${ifNonNull(viewAllLink?.title)}">
           <dds-cloud-megamenu-tabs value="${sortedMenuItems[0]?.title}">
             ${sortedMenuItems.map((item) => {
               return html`
@@ -139,8 +138,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                 id="panel-${item.itemKey}"
                 role="tabpanel"
                 aria-labelledby="tab-${item.itemKey}"
-                hidden
-              >
+                hidden>
                 <dds-cloud-megamenu-category-heading
                   href="${item.megapanelContent?.headingUrl}"
                   title="${item.megapanelContent?.headingTitle}"
@@ -211,8 +209,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
             panel-id=${elem.panelId}
             ?active="${elem.selected}"
             title="${elem.title}"
-            data-autoid="${elem.autoid}"
-          >
+            data-autoid="${elem.autoid}">
           </dds-left-nav-menu>
         `;
       }
@@ -223,8 +220,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           ?active="${elem.selected}"
           href="${elem.url}"
           title="${elem.title}"
-          data-autoid="${elem.autoid}"
-        ></dds-left-nav-menu-item>
+          data-autoid="${elem.autoid}"></dds-left-nav-menu-item>
       `;
     });
 
@@ -248,8 +244,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                   return html`
                     <dds-cloud-left-nav-item
                       href="${item.url}"
-                      title="${item.title}"
-                    ></dds-cloud-left-nav-item>
+                      title="${item.title}"></dds-cloud-left-nav-item>
                   `;
                 })}
               `}
@@ -257,8 +252,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
             return html`
               <dds-cloud-left-nav-item
                 href="${item.url}"
-                title="${item.title}"
-              ></dds-cloud-left-nav-item>
+                title="${item.title}"></dds-cloud-left-nav-item>
             `;
           })}
         `
@@ -271,8 +265,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         ?is-submenu=${ifNonNull(isSubmenu)}
         title=${ifNonNull(sectionTitle)}
         titleUrl=${ifNonNull(sectionUrl)}
-        ?show-back-button=${ifNonNull(showBackButton)}
-      >
+        ?show-back-button=${ifNonNull(showBackButton)}>
         ${items}
       </dds-left-nav-menu-section>
     `;
@@ -287,8 +280,12 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
     this._loadUserStatus?.(this.authMethod);
 
-    // This is a temp fix until we figure out why we can't set styles to the :host(dds-cloud-masthead-container) in stylesheets
-    this.style.zIndex = '900';
+    this.setStyleBySelector(
+      `${ddsPrefix}-cloud-masthead-container`,
+      'z-index',
+      '900',
+      true
+    );
   }
 
   render() {
@@ -354,8 +351,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         <dds-masthead-menu-button
           cloud
           button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
-          button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
-        >
+          button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}">
         </dds-masthead-menu-button>
 
         ${this._renderLogo()}
@@ -371,8 +367,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           : html`
               <dds-top-nav
                 cloud
-                menu-bar-label="${ifNonNull(menuBarAssistiveText)}"
-              >
+                menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
                 ${this._renderNavItems({
                   selectedMenuItem,
                   target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
@@ -385,8 +380,9 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           input-timeout="${inputTimeout}"
           language="${ifNonNull(language)}"
           ?open="${openSearchDropdown}"
-          placeholder="${ifNonNull(searchPlaceholder)}"
-        ></dds-search-with-typeahead>
+          placeholder="${ifNonNull(
+            searchPlaceholder
+          )}"></dds-search-with-typeahead>
         ${authenticated
           ? html`
               <dds-cloud-masthead-global-bar>

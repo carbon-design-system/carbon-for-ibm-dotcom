@@ -10,7 +10,7 @@
 import { html } from 'lit-element';
 import { boolean, select } from '@storybook/addon-knobs';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../left-nav';
@@ -49,6 +49,35 @@ const urlObject = {
     url: 'https://www.example.com/ibm/es-mx/sample',
   },
 };
+
+const scopeParameters = [
+  {
+    name: 'All',
+    appId: 'all',
+    value: 'all',
+  },
+  {
+    name: 'Analyst',
+    appId: 'analyst',
+    value: 'analyst',
+  },
+  {
+    name: 'PartnerWorld',
+    appId: 'pw',
+    value: ['pw', 'pwp'],
+  },
+  {
+    name: 'Developer',
+    appId: 'dw',
+    value: ['dw', 'dwaspera'],
+  },
+  {
+    name: 'IBM Docs',
+    appId: 'ibmdocs',
+    label: 'Search Label',
+    value: ['ibmdocs', 'dw'],
+  },
+];
 
 async function customTypeaheadApiFunction(searchVal) {
   return fetch(
@@ -98,8 +127,7 @@ export const Default = (args) => {
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"
-            custom-profile-login="${customProfileLogin}"
-          ></dds-masthead-composite>
+            custom-profile-login="${customProfileLogin}"></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
@@ -111,8 +139,7 @@ export const Default = (args) => {
             .navLinks="${navLinks}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            custom-profile-login="${customProfileLogin}"
-          ></dds-masthead-container>
+            custom-profile-login="${customProfileLogin}"></dds-masthead-container>
         `}
   `;
 };
@@ -162,8 +189,7 @@ export const WithCustomTypeahead = (args) => {
               unauthenticatedProfileItems
             )}"
             custom-profile-login="${customProfileLogin}"
-            ?custom-typeahead-api=${true}
-          ></dds-masthead-composite>
+            ?custom-typeahead-api=${true}></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
@@ -176,8 +202,7 @@ export const WithCustomTypeahead = (args) => {
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
-            ?custom-typeahead-api=${true}
-          ></dds-masthead-container>
+            ?custom-typeahead-api=${true}></dds-masthead-container>
         `}
   `;
 };
@@ -218,8 +243,7 @@ export const searchOpenOnload = (args) => {
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"
-            custom-profile-login="${customProfileLogin}"
-          ></dds-masthead-composite>
+            custom-profile-login="${customProfileLogin}"></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
@@ -232,8 +256,7 @@ export const searchOpenOnload = (args) => {
             .navLinks="${navLinks}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            custom-profile-login="${customProfileLogin}"
-          ></dds-masthead-container>
+            custom-profile-login="${customProfileLogin}"></dds-masthead-container>
         `}
   `;
 };
@@ -270,8 +293,7 @@ export const withPlatform = (args) => {
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
-            )}"
-          ></dds-masthead-composite>
+            )}"></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
@@ -280,8 +302,7 @@ export const withPlatform = (args) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
-          ></dds-masthead-container>
+            ?has-search="${hasSearch}"></dds-masthead-container>
         `}
   `;
 };
@@ -353,8 +374,7 @@ export const withL1 = (args) => {
             .navLinks="${navLinks}"
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
-            )}"
-          ></dds-masthead-composite>
+            )}"></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
@@ -363,8 +383,7 @@ export const withL1 = (args) => {
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .l1Data="${mastheadL1Data}"
-            .navLinks="${navLinks}"
-          ></dds-masthead-container>
+            .navLinks="${navLinks}"></dds-masthead-container>
         `}
   `;
 };
@@ -439,8 +458,7 @@ export const withAlternateLogoAndTooltip = (args) => {
               : null}"
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
-            )}"
-          ></dds-masthead-composite>
+            )}"></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
@@ -452,8 +470,7 @@ export const withAlternateLogoAndTooltip = (args) => {
               ? logoData
               : null}"
             has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
-          ></dds-masthead-container>
+            ?has-search="${hasSearch}"></dds-masthead-container>
         `}
   `;
 };
@@ -505,6 +522,61 @@ withAlternateLogoAndTooltip.story = {
       },
     },
   },
+};
+
+export const WithScopedSearch = ({ parameters }) => {
+  const {
+    customProfileLogin,
+    platform,
+    selectedMenuItem,
+    userStatus,
+    searchPlaceholder,
+    hasProfile,
+    hasSearch,
+    navLinks,
+  } = parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
+
+  return html`
+    <style>
+      ${styles}
+    </style>
+    ${useMock
+      ? html`
+          <dds-masthead-composite
+            platform="${ifNonNull(platform)}"
+            .platformUrl="${ifNonNull(platformData.url)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            user-status="${ifNonNull(userStatus)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            .navLinks="${navLinks}"
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
+            custom-profile-login="${customProfileLogin}"
+            .scopeParameters=${scopeParameters}></dds-masthead-composite>
+        `
+      : html`
+          <dds-masthead-container
+            platform="${ifNonNull(platform)}"
+            .platformUrl="${ifNonNull(platformData.url)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            user-status="${ifNonNull(userStatus)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            .navLinks="${navLinks}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            custom-profile-login="${customProfileLogin}"
+            .scopeParameters=${scopeParameters}></dds-masthead-container>
+        `}
+  `;
+};
+
+WithScopedSearch.story = {
+  name: 'With scoped search',
 };
 
 export default {

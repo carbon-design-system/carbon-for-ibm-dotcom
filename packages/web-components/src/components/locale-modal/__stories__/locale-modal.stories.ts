@@ -9,7 +9,7 @@
 
 import { html } from 'lit-element';
 import inPercy from '@percy-io/in-percy';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import localeData from './locale-data.json';
 import styles from './locale-modal.stories.scss';
@@ -27,16 +27,14 @@ export const Default = (args) => {
           <dds-locale-modal-composite
             lang-display="${ifNonNull(langDisplay)}"
             open
-            .localeList="${ifNonNull(localeList)}"
-          >
+            .localeList="${ifNonNull(localeList)}">
           </dds-locale-modal-composite>
         `
       : html`
           <dds-locale-modal-container
             lang-display="${ifNonNull(langDisplay)}"
             open
-            .localeList="${ifNonNull(localeList)}"
-          >
+            .localeList="${ifNonNull(localeList)}">
           </dds-locale-modal-container>
         `}
   `;

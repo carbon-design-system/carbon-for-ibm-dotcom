@@ -9,7 +9,7 @@
 
 import { select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import '../horizontal-rule';
 import readme from './README.stories.mdx';
 
@@ -20,8 +20,7 @@ export const Default = (args) => {
       type="${ifNonNull(type)}"
       size="${ifNonNull(size)}"
       contrast="${ifNonNull(contrast)}"
-      weight="${ifNonNull(weight)}"
-    >
+      weight="${ifNonNull(weight)}">
     </dds-hr>
   `;
 };

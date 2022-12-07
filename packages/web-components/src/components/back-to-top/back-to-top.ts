@@ -8,11 +8,11 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import throttle from 'lodash-es/throttle.js';
-import UpToTop20 from 'carbon-web-components/es/icons/up-to-top/20.js';
+import UpToTop20 from '@carbon/web-components/es/icons/up-to-top/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './back-to-top.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -148,8 +148,7 @@ class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
       <button
         class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--back-to-top__btn"
         aria-label="${backToTopAssistiveText}"
-        @click="${handleOnClick}"
-      >
+        @click="${handleOnClick}">
         ${UpToTop20()}
       </button>
     `;

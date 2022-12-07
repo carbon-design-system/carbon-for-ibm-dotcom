@@ -10,9 +10,9 @@
 import { html } from 'lit-element';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import 'carbon-web-components/es/components/button/button.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import '@carbon/web-components/es/components/button/button.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { EXPRESSIVE_MODAL_SIZE } from '../defs';
 import '../index';
@@ -44,8 +44,7 @@ export const Default = (args) => {
       ?open="${open}"
       expressive-size="${ifNonNull(size)}"
       @dds-expressive-modal-beingclosed="${handleBeforeClose}"
-      @dds-expressive-modal-closed="${onClose}"
-    >
+      @dds-expressive-modal-closed="${onClose}">
       <dds-expressive-modal-header>
         <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
         <dds-expressive-modal-heading>Modal Title</dds-expressive-modal-heading>

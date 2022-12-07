@@ -8,9 +8,9 @@
  */
 
 import { html, render } from 'lit-html';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import Error20 from 'carbon-web-components/es/icons/error/20.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import Error20 from '@carbon/web-components/es/icons/error/20.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import '../region-item';
 
 const template = (props?) => {
@@ -19,8 +19,7 @@ const template = (props?) => {
     <dds-region-item
       href="${ifNonNull(href)}"
       ?invalid="${invalid}"
-      name="${ifNonNull(name)}"
-    ></dds-region-item>
+      name="${ifNonNull(name)}"></dds-region-item>
   `;
 };
 
