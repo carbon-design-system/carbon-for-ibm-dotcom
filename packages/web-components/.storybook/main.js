@@ -30,10 +30,6 @@ module.exports = {
     '@carbon/storybook-addon-theme/es/register',
     path.resolve(__dirname, 'addon-knobs-args'),
   ],
-  features: {
-    storyStoreV7: true,
-    buildStoriesJson: true,
-  },
   framework: '@storybook/web-components',
   managerWebpack(config) {
     // `@storybook/react` NPM installation seems to add `@babel/preset-react` automatically
@@ -44,8 +40,9 @@ module.exports = {
     );
     config.module.rules = deepReplace(
       config.module.rules,
-      (value, key, parent) => key === 'options' && /babel-loader/i.test(parent.loader),
-      value => ({
+      (value, key, parent) =>
+        key === 'options' && /babel-loader/i.test(parent.loader),
+      (value) => ({
         ...value,
         babelrc: false,
         configFile: false,
@@ -78,8 +75,10 @@ module.exports = {
     config.module.rules = deepReplace(
       config.module.rules,
       (value, key, parent, parents) =>
-        getPaths(parents) === 'use.options.presets' && Array.isArray(value) && /@babel\/preset-env/i.test(value[0]),
-      value => [
+        getPaths(parents) === 'use.options.presets' &&
+        Array.isArray(value) &&
+        /@babel\/preset-env/i.test(value[0]),
+      (value) => [
         value[0],
         {
           modules: false,
@@ -100,8 +99,11 @@ module.exports = {
     config.module.rules = deepReplace(
       config.module.rules,
       (value, key, parent, parents) =>
-        getPaths(parents) === 'use.options.plugins' && Array.isArray(value) && value[1] && value[1].loose,
-      value => [
+        getPaths(parents) === 'use.options.plugins' &&
+        Array.isArray(value) &&
+        value[1] &&
+        value[1].loose,
+      (value) => [
         value[0],
         {
           ...value[1],
@@ -112,7 +114,10 @@ module.exports = {
 
     // `@carbon/ibmdotcom-web-components` does not use `polymer-webpack-loader` as it does not use full-blown Polymer
     const htmlRuleIndex = config.module.rules.findIndex(
-      item => item.use && item.use.some && item.use.some(use => /polymer-webpack-loader/i.test(use.loader))
+      (item) =>
+        item.use &&
+        item.use.some &&
+        item.use.some((use) => /polymer-webpack-loader/i.test(use.loader))
     );
     if (htmlRuleIndex >= 0) {
       config.module.rules.splice(htmlRuleIndex, 1);
@@ -120,27 +125,39 @@ module.exports = {
 
     // We use `CSSResult` instead of raw CSS
     const sassLoaderRuleIndex = config.module.rules.findIndex(
-      item => item.use && item.use.some && item.use.some(use => /sass-loader/i.test(use.loader))
+      (item) =>
+        item.use &&
+        item.use.some &&
+        item.use.some((use) => /sass-loader/i.test(use.loader))
     );
     if (sassLoaderRuleIndex >= 0) {
       config.module.rules.splice(sassLoaderRuleIndex, 1);
     }
 
     const fileLoaderRuleIndex = config.module.rules.findIndex(
-      item =>
-        (item.use && item.use.some && item.use.some(use => /file-loader/i.test(use.loader))) || /file-loader/i.test(item.loader)
+      (item) =>
+        (item.use &&
+          item.use.some &&
+          item.use.some((use) => /file-loader/i.test(use.loader))) ||
+        /file-loader/i.test(item.loader)
     );
     if (fileLoaderRuleIndex >= 0) {
       config.module.rules.splice(fileLoaderRuleIndex, 1);
     }
 
     const babelLoaderRule = config.module.rules.find(
-      item => item.use && item.use.some && item.use.some(use => /babel-loader/i.test(use.loader))
+      (item) =>
+        item.use &&
+        item.use.some &&
+        item.use.some((use) => /babel-loader/i.test(use.loader))
     );
     if (babelLoaderRule) {
       config.module.rules.unshift({
         use: babelLoaderRule.use,
-        include: [path.dirname(require.resolve('lit-html')), path.dirname(require.resolve('lit-element'))],
+        include: [
+          path.dirname(require.resolve('lit-html')),
+          path.dirname(require.resolve('lit-element')),
+        ],
       });
     }
 
@@ -152,7 +169,10 @@ module.exports = {
       },
       {
         test: /[\\/]styles[\\/]icons[\\/]/i,
-        use: [...babelLoaderRule.use, require.resolve('../tools/svg-result-ibmdotcom-icon-loader')],
+        use: [
+          ...babelLoaderRule.use,
+          require.resolve('../tools/svg-result-ibmdotcom-icon-loader'),
+        ],
       },
       {
         test: /\.stories\.[jt]sx?$/,
@@ -203,11 +223,14 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               plugins: () => {
-                const hostPseudo = require('../tools/postcss-fix-host-pseudo')();
+                const hostPseudo =
+                  require('../tools/postcss-fix-host-pseudo')();
                 const autoPrefixer = require('autoprefixer')({
                   overrideBrowserslist: ['last 1 version', 'ie >= 11'],
                 });
-                return !useRtl ? [hostPseudo, autoPrefixer] : [rtlcss, hostPseudo, autoPrefixer];
+                return !useRtl
+                  ? [hostPseudo, autoPrefixer]
+                  : [rtlcss, hostPseudo, autoPrefixer];
               },
               sourceMap: useStyleSourceMap,
             },

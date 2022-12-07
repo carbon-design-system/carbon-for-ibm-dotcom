@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { BASIC_COLOR_SCHEME } from '../../../globals/defs';
 import '../content-item';
 import '../content-item-copy';
@@ -22,20 +22,25 @@ const template = (props?) => {
   `;
 };
 
-describe('dds-content-item', function() {
-  describe('Misc attributes', function() {
-    it('should render with minimum attributes', async function() {
+describe('dds-content-item', function () {
+  describe('Misc attributes', function () {
+    it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-content-item')).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-content-item')).toMatchSnapshot({
+        mode: 'shadow',
+      });
     });
 
-    it('should render with various attributes', async function() {
+    it('should render with various attributes', async function () {
       render(
         template({
           colorScheme: BASIC_COLOR_SCHEME.INVERSE,
           children: html`
-            <dds-video-player slot="media" duration="90" name="name-foo"></dds-video-player>
+            <dds-video-player
+              slot="media"
+              duration="90"
+              name="name-foo"></dds-video-player>
             <dds-content-item-copy>copy-foo</dds-content-item-copy>
             <dds-text-cta slot="footer" cta-type="local">copy-foo</dds-text-cta>
           `,
@@ -45,11 +50,13 @@ describe('dds-content-item', function() {
       await Promise.resolve(); // The update cycle of `<dds-content-item>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
-      expect(document.body.querySelector('dds-content-item')).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-content-item')).toMatchSnapshot({
+        mode: 'shadow',
+      });
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

@@ -39,7 +39,7 @@ class CTALogic {
             if (button.type === 'video' && button.media)
               return { src: button.media.src, key };
           })
-          .filter(id => id && id);
+          .filter((id) => id && id);
         return videoIds;
       }
       default:
@@ -134,7 +134,6 @@ class CTALogic {
    *
    * @param {*} e event
    * @param {Function} openLightBox function to toggle lightbox
-   *
    * @returns {*} set lightbox state
    */
   static setLightBox(e, openLightBox) {

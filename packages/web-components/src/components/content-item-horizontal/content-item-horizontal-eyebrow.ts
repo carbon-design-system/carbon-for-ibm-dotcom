@@ -27,9 +27,7 @@ class DDSContentItemHorizontalEyebrow extends StableSelectorMixin(LitElement) {
   slot = 'eyebrow';
 
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   static get stableSelector() {

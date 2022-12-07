@@ -35,7 +35,7 @@ const ContentGroupPictograms = ({ heading, items, className, copy }) => (
  * @param {Array} items Array of items for PictogramItem
  * @returns {*} PictogramItem JSX components
  */
-const _renderItems = items =>
+const _renderItems = (items) =>
   items.map((item, index) => (
     <PictogramItem
       className={`${prefix}--content-group-pictograms__item`}

@@ -9,10 +9,10 @@
 
 import { classMap } from 'lit-html/directives/class-map.js';
 import { html, state, property, query, customElement } from 'lit-element';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import BXHeaderMenuButton from 'carbon-web-components/es/components/ui-shell/header-menu-button.js';
+import BXHeaderMenuButton from '@carbon/web-components/es/components/ui-shell/header-menu-button.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
 import Handle from '../../globals/internal/handle';
@@ -92,9 +92,16 @@ class DDSMastheadMenuButton extends HostListenerMixin(BXHeaderMenuButton) {
 
   updated(changedProperties) {
     if (changedProperties.has('active')) {
-      const { active, _startSentinelNode: startSentinelNode, _endSentinelNode: endSentinelNode } = this;
+      const {
+        active,
+        _startSentinelNode: startSentinelNode,
+        _endSentinelNode: endSentinelNode,
+      } = this;
       if (active) {
-        this._hFocusWrap = focuswrap(this.shadowRoot!, [startSentinelNode, endSentinelNode]);
+        this._hFocusWrap = focuswrap(this.shadowRoot!, [
+          startSentinelNode,
+          endSentinelNode,
+        ]);
       } else if (this._hFocusWrap) {
         this._hFocusWrap = this._hFocusWrap.release();
       }
@@ -107,15 +114,23 @@ class DDSMastheadMenuButton extends HostListenerMixin(BXHeaderMenuButton) {
 
   private _renderSentinel = (side: String) => {
     return html`
-      <button id="${side}-sentinel" type="button" class="${prefix}--visually-hidden"></button>
+      <button
+        id="${side}-sentinel"
+        type="button"
+        class="${prefix}--visually-hidden"></button>
     `;
   };
 
   render() {
-    const { active, _hasSearchActive: hasSearchActive, _renderSentinel: renderSentinel } = this;
+    const {
+      active,
+      _hasSearchActive: hasSearchActive,
+      _renderSentinel: renderSentinel,
+    } = this;
     const classes = classMap({
       [`${ddsPrefix}-ce--header__menu-trigger__container`]: true,
-      [`${ddsPrefix}-ce--header__menu-trigger__container--has-search-active`]: hasSearchActive,
+      [`${ddsPrefix}-ce--header__menu-trigger__container--has-search-active`]:
+        hasSearchActive,
     });
     const startSentinel = active ? renderSentinel('start') : '';
     const endSentinel = active ? renderSentinel('end') : '';

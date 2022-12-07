@@ -40,7 +40,7 @@ const FeatureCTA = ({
             },
           })}
           size={size}
-          onClick={e => CTALogic.setLightBox(e, openLightBox)}
+          onClick={(e) => CTALogic.setLightBox(e, openLightBox)}
         />
       )}
     </div>
@@ -61,7 +61,6 @@ const FeatureCTA = ({
  *
  * @param {object} param param object
  * @param {object} param.card card object
- *
  * @private
  * @returns {*} object
  */

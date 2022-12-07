@@ -20,7 +20,7 @@ const { prefix } = settings;
  * Featured Card Block Large Component.
  * Note: Deprecated, use FeatureCard with size='large' attribute.
  */
-const FeatureCardBlockLarge = props => {
+const FeatureCardBlockLarge = (props) => {
   return (
     props.eyebrow &&
     props.heading &&

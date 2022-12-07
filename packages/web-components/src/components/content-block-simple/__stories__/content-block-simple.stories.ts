@@ -11,14 +11,12 @@ import '../index';
 import '../../cta/index';
 import '../../link-list/index';
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20.js';
-import Launch20 from 'carbon-web-components/es/icons/launch/20.js';
-// eslint-disable-next-line sort-imports
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowDown20 from '@carbon/web-components/es/icons/arrow--down/20.js';
+import Launch20 from '@carbon/web-components/es/icons/launch/20.js';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/content-block';
-// eslint-disable-next-line import/no-duplicates
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
 import { CTA_STYLE, CTA_TYPE } from '../../cta/defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
@@ -68,23 +66,33 @@ const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean 
 // TODO: Replace with <dds-image-with-caption>
 const image = html`
   <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}">
-    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
-    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
-    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
+    </dds-image-item>
+    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
+    </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
+    </dds-image-item>
   </dds-image>
 `;
 
-export const Default = args => {
-  const { ctaType, ctaStyle, heading, complementaryStyleScheme, onClick } = args?.ContentBlockSimple ?? {};
+export const Default = (args) => {
+  const { ctaType, ctaStyle, heading, complementaryStyleScheme, onClick } =
+    args?.ContentBlockSimple ?? {};
   const ctaCopy = 'Lorem ipsum dolor sit amet';
   const href = 'https://www.example.com';
   return html`
-    <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
+    <dds-content-block-simple
+      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading><h2>${heading}</h2></dds-content-block-heading>
-      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
+      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
+        >${copy}</dds-content-block-copy
+      >
       ${ctaStyle === 'card-link'
         ? html`
-            <dds-card-link-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+            <dds-card-link-cta
+              slot="footer"
+              cta-type="${ifNonNull(ctaType)}"
+              href="${ifNonNull(href)}">
               <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
               <dds-card-cta-footer>
                 ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
@@ -99,8 +107,7 @@ export const Default = args => {
               cta-type="${ifNonNull(ctaType)}"
               icon-placement="right"
               href="${ifNonNull(href)}"
-              @click="${onClick}"
-            >
+              @click="${onClick}">
               ${ctaCopy}
             </dds-text-cta>
           `}
@@ -108,18 +115,25 @@ export const Default = args => {
   `;
 };
 
-export const WithImage = args => {
-  const { ctaType, ctaStyle, heading, complementaryStyleScheme, onClick } = args?.ContentBlockSimple ?? {};
+export const WithImage = (args) => {
+  const { ctaType, ctaStyle, heading, complementaryStyleScheme, onClick } =
+    args?.ContentBlockSimple ?? {};
   const ctaCopy = 'Lorem ipsum dolor sit amet';
   const href = 'https://www.example.com';
   return html`
-    <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
+    <dds-content-block-simple
+      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading><h2>${heading}</h2></dds-content-block-heading>
       ${image}
-      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
+      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
+        >${copy}</dds-content-block-copy
+      >
       ${ctaStyle === 'card-link'
         ? html`
-            <dds-card-link-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+            <dds-card-link-cta
+              slot="footer"
+              cta-type="${ifNonNull(ctaType)}"
+              href="${ifNonNull(href)}">
               <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
               <dds-card-cta-footer>
                 ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
@@ -134,8 +148,7 @@ export const WithImage = args => {
               cta-type="${ifNonNull(ctaType)}"
               icon-placement="right"
               href="${ifNonNull(href)}"
-              @click="${onClick}"
-            >
+              @click="${onClick}">
               ${ctaCopy}
             </dds-text-cta>
           `}
@@ -147,18 +160,27 @@ WithImage.story = {
   name: 'With image',
 };
 
-export const WithVideo = args => {
-  const { ctaType, ctaStyle, heading, complementaryStyleScheme, onClick } = args?.ContentBlockSimple ?? {};
+export const WithVideo = (args) => {
+  const { ctaType, ctaStyle, heading, complementaryStyleScheme, onClick } =
+    args?.ContentBlockSimple ?? {};
   const ctaCopy = 'Lorem ipsum dolor sit amet';
   const href = 'https://www.example.com';
   return html`
-    <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
+    <dds-content-block-simple
+      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading><h2>${heading}</h2></dds-content-block-heading>
-      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
-      <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
+      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
+        >${copy}</dds-content-block-copy
+      >
+      <dds-video-player-container
+        slot="media"
+        video-id="1_9h94wo6b"></dds-video-player-container>
       ${ctaStyle === 'card-link'
         ? html`
-            <dds-card-link-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+            <dds-card-link-cta
+              slot="footer"
+              cta-type="${ifNonNull(ctaType)}"
+              href="${ifNonNull(href)}">
               <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
               <dds-card-cta-footer>
                 ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
@@ -173,8 +195,7 @@ export const WithVideo = args => {
               cta-type="${ifNonNull(ctaType)}"
               icon-placement="right"
               href="${ifNonNull(href)}"
-              @click="${onClick}"
-            >
+              @click="${onClick}">
               ${ctaCopy}
             </dds-text-cta>
           `}
@@ -189,14 +210,18 @@ WithVideo.story = {
   },
 };
 
-export const WithLinkList = args => {
-  const { ctaType, ctaStyle, heading, complementaryStyleScheme, onClick } = args?.ContentBlockSimple ?? {};
+export const WithLinkList = (args) => {
+  const { ctaType, ctaStyle, heading, complementaryStyleScheme, onClick } =
+    args?.ContentBlockSimple ?? {};
   const ctaCopy = 'Lorem ipsum dolor sit amet';
   const href = 'https://www.example.com';
   return html`
-    <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
+    <dds-content-block-simple
+      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading><h2>${heading}</h2></dds-content-block-heading>
-      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
+      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
+        >${copy}</dds-content-block-copy
+      >
       ${image}
       <dds-link-list type="default" slot="complementary">
         <dds-link-list-heading>Tutorial</dds-link-list-heading>
@@ -204,14 +229,19 @@ export const WithLinkList = args => {
           <p>Containerization A Complete Guide</p>
           <dds-card-cta-footer></dds-card-cta-footer>
         </dds-link-list-item-card-cta>
-        <dds-link-list-item-card-cta href="${ifNonNull(href)}" cta-type="external">
+        <dds-link-list-item-card-cta
+          href="${ifNonNull(href)}"
+          cta-type="external">
           <p>Why should you use microservices and containers</p>
           <dds-card-cta-footer></dds-card-cta-footer>
         </dds-link-list-item-card-cta>
       </dds-link-list>
       ${ctaStyle === 'card-link'
         ? html`
-            <dds-card-link-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+            <dds-card-link-cta
+              slot="footer"
+              cta-type="${ifNonNull(ctaType)}"
+              href="${ifNonNull(href)}">
               <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
               <dds-card-cta-footer>
                 ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
@@ -226,8 +256,7 @@ export const WithLinkList = args => {
               cta-type="${ifNonNull(ctaType)}"
               icon-placement="right"
               href="${ifNonNull(href)}"
-              @click="${onClick}"
-            >
+              @click="${onClick}">
               ${ctaCopy}
             </dds-text-cta>
           `}
@@ -261,7 +290,10 @@ export default {
     hasStoryPadding: true,
     knobs: {
       ContentBlockSimple: () => ({
-        heading: textNullable('Heading (required)', 'Curabitur malesuada varius mi eu posuere'),
+        heading: textNullable(
+          'Heading (required)',
+          'Curabitur malesuada varius mi eu posuere'
+        ),
         ctaStyle: select('CTA style (cta-style)', ctaStyles, CTA_STYLE.TEXT),
         ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
         complementaryStyleScheme: select(

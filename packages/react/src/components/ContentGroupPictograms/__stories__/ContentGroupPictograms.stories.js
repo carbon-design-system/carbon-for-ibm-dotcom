@@ -24,7 +24,7 @@ const pictograms = {
  * @param {string} sel string that defines the returning pictogram
  * @returns {*} JSX pictogram component
  */
-const selectPictogram = sel => {
+const selectPictogram = (sel) => {
   switch (sel) {
     case 'TouchScreen':
       return TouchScreen;
@@ -41,7 +41,7 @@ const selectPictogram = sel => {
  * @param {boolean} item defines if cta will be rendered
  * @returns {*} if true returns cta data, if false, returns null
  */
-const toggleCTA = item => {
+const toggleCTA = (item) => {
   if (item) {
     return {
       type: 'local',
@@ -103,8 +103,7 @@ export default {
           items: [
             {
               heading: 'Aliquam condimentum interdum',
-              copy:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+              copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
               pictogram: {
                 src: selectPictogram(pictograms.Desktop),
                 'aria-label': 'Pictogram',

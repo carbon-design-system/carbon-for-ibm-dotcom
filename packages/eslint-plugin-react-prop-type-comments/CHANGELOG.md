@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.31.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/eslint-plugin-react-prop-type-comments@1.31.0-rc.0...@carbon/eslint-plugin-react-prop-type-comments@1.31.0) (2022-12-06)
+
+**Note:** Version bump only for package @carbon/eslint-plugin-react-prop-type-comments
+
+
+
+
+
+# [1.31.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/eslint-plugin-react-prop-type-comments@1.30.0...@carbon/eslint-plugin-react-prop-type-comments@1.31.0-rc.0) (2022-11-22)
+
+**Note:** Version bump only for package @carbon/eslint-plugin-react-prop-type-comments
+
+
+
+
+
+# [1.30.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/eslint-plugin-react-prop-type-comments@1.30.0-rc.0...@carbon/eslint-plugin-react-prop-type-comments@1.30.0) (2022-11-08)
+
+**Note:** Version bump only for package @carbon/eslint-plugin-react-prop-type-comments
+
+
+
+
+
+# [1.30.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/eslint-plugin-react-prop-type-comments@1.29.0...@carbon/eslint-plugin-react-prop-type-comments@1.30.0-rc.0) (2022-10-31)
+
+**Note:** Version bump only for package @carbon/eslint-plugin-react-prop-type-comments
+
+
+
+
+
 # [1.29.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/eslint-plugin-react-prop-type-comments@1.29.0-rc.0...@carbon/eslint-plugin-react-prop-type-comments@1.29.0) (2022-10-10)
 
 **Note:** Version bump only for package @carbon/eslint-plugin-react-prop-type-comments

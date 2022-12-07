@@ -16,13 +16,15 @@ const template = (props?) =>
     PictogramItem: props,
   });
 
-describe('dds-pictogram-item', function() {
-  it('Renders as expected', async function() {
+describe('dds-pictogram-item', function () {
+  it('Renders as expected', async function () {
     render(template(), document.body);
     await Promise.resolve();
-    expect(document.body.querySelector('dds-pictogram-item')).toMatchSnapshot({ mode: 'shadow' });
+    expect(document.body.querySelector('dds-pictogram-item')).toMatchSnapshot({
+      mode: 'shadow',
+    });
   });
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

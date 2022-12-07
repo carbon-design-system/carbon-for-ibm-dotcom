@@ -11,28 +11,29 @@ import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
-import 'carbon-web-components/es/components/tag/tag.js';
+import '@carbon/web-components/es/components/tag/tag.js';
 
-const tagTitles = ['Cloud', 'Blockchain', 'Supply chain', 'Watson health', 'IT Infrastructure', 'WebSphere'];
+const tagTitles = [
+  'Cloud',
+  'Blockchain',
+  'Supply chain',
+  'Watson health',
+  'IT Infrastructure',
+  'WebSphere',
+];
 
 const tagTypeOptions = ['Tag Link', 'Carbon tag'];
 
-export const Default = args => {
+export const Default = (args) => {
   const { tagType } = args?.TagGroup ?? {};
   return html`
     <dds-tag-group>
-      ${tagTitles.map(title =>
+      ${tagTitles.map((title) =>
         tagType === tagTypeOptions[0]
           ? html`
-              <dds-tag-link href="https://example.com">
-                ${title}
-              </dds-tag-link>
+              <dds-tag-link href="https://example.com"> ${title} </dds-tag-link>
             `
-          : html`
-              <bx-tag>
-                ${title}
-              </bx-tag>
-            `
+          : html` <bx-tag> ${title} </bx-tag> `
       )}
     </dds-tag-group>
   `;
@@ -41,12 +42,10 @@ export const Default = args => {
 export default {
   title: 'Components/Tag group',
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-sm-16 bx--col-md-6">
-            ${story()}
-          </div>
+          <div class="bx--col-sm-16 bx--col-md-6">${story()}</div>
         </div>
       </div>
     `,

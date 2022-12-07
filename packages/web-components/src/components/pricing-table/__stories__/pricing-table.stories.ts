@@ -11,7 +11,7 @@ import { html, TemplateResult } from 'lit-element';
 import { number, text } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
-import 'carbon-web-components/es/components/tooltip/index.js';
+import '@carbon/web-components/es/components/tooltip/index.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from '../defs';
 import styles from './pricing-table.stories.scss';
@@ -26,9 +26,14 @@ const renderHeaderCell = (iterator: number): TemplateResult => {
   const cellVariations = [
     html`
       <dds-pricing-table-header-cell>
-        <dds-pricing-table-header-cell-headline>Variation ${iterator}</dds-pricing-table-header-cell-headline>
-        <dds-pricing-table-header-cell-caption>Starting at $X.XX per user</dds-pricing-table-header-cell-caption>
-        <dds-pricing-table-header-cell-tag href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
+        <dds-pricing-table-header-cell-headline
+          >Variation ${iterator}</dds-pricing-table-header-cell-headline
+        >
+        <dds-pricing-table-header-cell-caption
+          >Starting at $X.XX per user</dds-pricing-table-header-cell-caption
+        >
+        <dds-pricing-table-header-cell-tag
+          href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
           >Merchandising offer</dds-pricing-table-header-cell-tag
         >
         <dds-pricing-table-header-cell-description>
@@ -36,7 +41,10 @@ const renderHeaderCell = (iterator: number): TemplateResult => {
           <bx-unordered-list>
             <bx-list-item>Lorem ipsum dolor</bx-list-item>
             <bx-list-item>sit amet</bx-list-item>
-            <bx-list-item>consectetur retention adispiscing elit sed do eiusm Eiusmod tempor</bx-list-item>
+            <bx-list-item
+              >consectetur retention adispiscing elit sed do eiusm Eiusmod
+              tempor</bx-list-item
+            >
           </bx-unordered-list>
         </dds-pricing-table-header-cell-description>
         <dds-pricing-table-header-cell-cta
@@ -48,14 +56,21 @@ const renderHeaderCell = (iterator: number): TemplateResult => {
     `,
     html`
       <dds-pricing-table-header-cell>
-        <dds-pricing-table-header-cell-headline>Variation ${iterator}</dds-pricing-table-header-cell-headline>
-        <dds-pricing-table-header-cell-caption>Starting at $X.XX per user</dds-pricing-table-header-cell-caption>
+        <dds-pricing-table-header-cell-headline
+          >Variation ${iterator}</dds-pricing-table-header-cell-headline
+        >
+        <dds-pricing-table-header-cell-caption
+          >Starting at $X.XX per user</dds-pricing-table-header-cell-caption
+        >
         <dds-pricing-table-header-cell-description>
           Lorem ipsum dolor sit amet consectetur.
           <bx-unordered-list>
             <bx-list-item>Lorem ipsum dolor</bx-list-item>
             <bx-list-item>sit amet</bx-list-item>
-            <bx-list-item>consectetur retention adispiscing elit sed do eiusm Eiusmod tempor</bx-list-item>
+            <bx-list-item
+              >consectetur retention adispiscing elit sed do eiusm Eiusmod
+              tempor</bx-list-item
+            >
           </bx-unordered-list>
         </dds-pricing-table-header-cell-description>
         <dds-pricing-table-header-cell-cta
@@ -67,9 +82,14 @@ const renderHeaderCell = (iterator: number): TemplateResult => {
     `,
     html`
       <dds-pricing-table-header-cell>
-        <dds-pricing-table-header-cell-headline>Variation ${iterator}</dds-pricing-table-header-cell-headline>
-        <dds-pricing-table-header-cell-caption>Starting at $X.XX per user</dds-pricing-table-header-cell-caption>
-        <dds-pricing-table-header-cell-tag href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
+        <dds-pricing-table-header-cell-headline
+          >Variation ${iterator}</dds-pricing-table-header-cell-headline
+        >
+        <dds-pricing-table-header-cell-caption
+          >Starting at $X.XX per user</dds-pricing-table-header-cell-caption
+        >
+        <dds-pricing-table-header-cell-tag
+          href="https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/"
           >Secondary tag</dds-pricing-table-header-cell-tag
         >
         <dds-pricing-table-header-cell-description>
@@ -77,7 +97,10 @@ const renderHeaderCell = (iterator: number): TemplateResult => {
           <bx-unordered-list>
             <bx-list-item>Lorem ipsum dolor</bx-list-item>
             <bx-list-item>sit amet</bx-list-item>
-            <bx-list-item>consectetur retention adispiscing elit sed do eiusm Eiusmod tempor</bx-list-item>
+            <bx-list-item
+              >consectetur retention adispiscing elit sed do eiusm Eiusmod
+              tempor</bx-list-item
+            >
           </bx-unordered-list>
         </dds-pricing-table-header-cell-description>
         <dds-pricing-table-header-cell-cta
@@ -91,11 +114,17 @@ const renderHeaderCell = (iterator: number): TemplateResult => {
   return cellVariations[(iterator - 1) % cellVariations.length];
 };
 
-const renderHead = (columnCount: number, heading: string = ''): TemplateResult => {
+const renderHead = (
+  columnCount: number,
+  heading: string = ''
+): TemplateResult => {
   return html`
     <dds-pricing-table-head>
       <dds-pricing-table-header-row>
-        <dds-pricing-table-header-cell type="${PRICING_TABLE_HEADER_CELL_TYPES.SIMPLE}">${heading}</dds-pricing-table-header-cell>
+        <dds-pricing-table-header-cell
+          type="${PRICING_TABLE_HEADER_CELL_TYPES.SIMPLE}"
+          >${heading}</dds-pricing-table-header-cell
+        >
         ${(() => {
           const cells: TemplateResult[] = [];
           for (let i = 1; i < columnCount; i++) {
@@ -113,8 +142,9 @@ const renderBodyCell = (type: CELL_TYPES): TemplateResult => {
     case CELL_TYPES.TEXT:
       return html`
         <dds-pricing-table-cell>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue.
-          Aenean posuere sem vel euismod dignissim.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui
+          magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere
+          sem vel euismod dignissim.
           <dds-pricing-table-cell-annotation>
             Sed quis neque ultrices, convallis augue non, scelerisque massa.
           </dds-pricing-table-cell-annotation>
@@ -152,12 +182,16 @@ const renderBodyRow = (
         html`
           ${rowHeaders
             ? html`
-                <dds-pricing-table-header-cell scope="row">Row ${rowNum}</dds-pricing-table-header-cell>
+                <dds-pricing-table-header-cell scope="row"
+                  >Row ${rowNum}</dds-pricing-table-header-cell
+                >
               `
             : html`
                 <dds-pricing-table-cell
-                  >Row ${rowNum} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed,
-                  aliquet bibendum augue. Aenean posuere sem vel euismod dignissim.</dds-pricing-table-cell
+                  >Row ${rowNum} Lorem ipsum dolor sit amet, consectetur
+                  adipiscing elit. Nunc dui magna, finibus id tortor sed,
+                  aliquet bibendum augue. Aenean posuere sem vel euismod
+                  dignissim.</dds-pricing-table-cell
                 >
               `}
         `,
@@ -170,8 +204,17 @@ const renderBodyRow = (
   </dds-pricing-table-row>
 `;
 
-export const Default = args => {
-  const { colSpan1, colSpan2, colSpan3, colSpan4, highlightCol, highlightLabel, columnCount, heading } = args?.PricingTable ?? {};
+export const Default = (args) => {
+  const {
+    colSpan1,
+    colSpan2,
+    colSpan3,
+    colSpan4,
+    highlightCol,
+    highlightLabel,
+    columnCount,
+    heading,
+  } = args?.PricingTable ?? {};
   return html`
     <dds-pricing-table
       col-span-1="${colSpan1 ?? ''}"
@@ -179,19 +222,28 @@ export const Default = args => {
       col-span-3="${colSpan3 ?? ''}"
       col-span-4="${colSpan4 ?? ''}"
       highlight-column="${highlightCol}"
-      highlight-label="${highlightLabel}"
-    >
+      highlight-label="${highlightLabel}">
       ${renderHead(columnCount, heading)}
       <dds-pricing-table-body>
-        ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
+        ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)}
+        ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
         ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
       </dds-pricing-table-body>
     </dds-pricing-table>
   `;
 };
 
-export const WithoutRowHeaders = args => {
-  const { colSpan1, colSpan2, colSpan3, colSpan4, highlightCol, highlightLabel, columnCount, heading } = args?.PricingTable ?? {};
+export const WithoutRowHeaders = (args) => {
+  const {
+    colSpan1,
+    colSpan2,
+    colSpan3,
+    colSpan4,
+    highlightCol,
+    highlightLabel,
+    columnCount,
+    heading,
+  } = args?.PricingTable ?? {};
   return html`
     <dds-pricing-table
       col-span-1="${colSpan1 ?? ''}"
@@ -199,11 +251,11 @@ export const WithoutRowHeaders = args => {
       col-span-3="${colSpan3 ?? ''}"
       col-span-4="${colSpan4 ?? ''}"
       highlight-column="${highlightCol}"
-      highlight-label="${highlightLabel}"
-    >
+      highlight-label="${highlightLabel}">
       ${renderHead(columnCount, heading)}
       <dds-pricing-table-body>
-        ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, false)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY, false)}
+        ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, false)}
+        ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY, false)}
         ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT, false)}
       </dds-pricing-table-body>
     </dds-pricing-table>
@@ -216,8 +268,17 @@ if (WithoutRowHeaders) {
   };
 }
 
-export const WithSubheaders = args => {
-  const { colSpan1, colSpan2, colSpan3, colSpan4, columnCount, highlightCol, highlightLabel, heading } = args?.PricingTable ?? {};
+export const WithSubheaders = (args) => {
+  const {
+    colSpan1,
+    colSpan2,
+    colSpan3,
+    colSpan4,
+    columnCount,
+    highlightCol,
+    highlightLabel,
+    heading,
+  } = args?.PricingTable ?? {};
   return html`
     <dds-pricing-table
       col-span-1="${colSpan1 ?? ''}"
@@ -225,20 +286,22 @@ export const WithSubheaders = args => {
       col-span-3="${colSpan3 ?? ''}"
       col-span-4="${colSpan4 ?? ''}"
       highlight-column="${highlightCol}"
-      highlight-label="${highlightLabel}"
-    >
+      highlight-label="${highlightLabel}">
       ${renderHead(columnCount, heading)}
       <dds-pricing-table-body>
         <dds-pricing-table-group title="Group 1">
-          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
+          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)}
+          ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
           ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
         </dds-pricing-table-group>
         <dds-pricing-table-group title="Group 2">
-          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
+          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)}
+          ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
           ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
         </dds-pricing-table-group>
         <dds-pricing-table-group title="Group 3">
-          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
+          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)}
+          ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
           ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
         </dds-pricing-table-group>
       </dds-pricing-table-body>
@@ -287,15 +350,13 @@ export default {
     },
   },
   decorators: [
-    story => html`
+    (story) => html`
       <style>
         ${styles}
       </style>
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-lg-16">
-            ${story()}
-          </div>
+          <div class="bx--col-lg-16">${story()}</div>
         </div>
       </div>
     `,

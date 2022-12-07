@@ -40,7 +40,7 @@ export const Card = ({
   const refWrapper = useRef(null);
 
   const handleClick = useCallback(
-    e => {
+    (e) => {
       if (!onClick || onClick(e) !== false) {
         cta?.type === 'jump' ? CTALogic.jump(e, cta.type) : false;
       }

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -127,6 +127,7 @@ export interface MastheadLogoData {
   allowlist: [];
   end: string;
   path: string;
+  href: string;
 }
 
 /**
@@ -182,9 +183,10 @@ export interface Translation {
   };
 
   /**
-   * Cloud masthead profile items
+   * Cloud masthead items
    */
   masthead: {
+    logo: MastheadLogoData;
     contact: MastheadProfileContent;
     profileMenu: {
       signedout: MastheadProfileContent;
