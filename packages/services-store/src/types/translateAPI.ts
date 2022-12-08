@@ -85,11 +85,50 @@ export interface MastheadLink {
 
 /**
  * A menu section for masthead
+ * @deprecated
+ */
+export interface LegacyMastheadL1 {
+  title: string;
+  url?: string;
+  menuItems?: MastheadLink[];
+}
+
+/**
+ * A menu section for masthead
  */
 export interface MastheadL1 {
   title: string;
   url?: string;
-  menuItems?: MastheadLink[];
+  menuItems: L1MenuItem[];
+  actions?: {
+    cta?: BasicLink;
+    login?: BasicLink;
+  };
+}
+
+export interface L1MenuItem extends BasicLink {
+  submenu?: L1Submenu;
+}
+
+export interface L1Submenu {
+  announcement?: string; // From AEM rich text editor
+  menuSections: L1SubmenuSection[]; // maximum of 3 in outer array | renamed to be agnostic to the design
+  footer?: {
+    title: string;
+    url: string;
+  };
+}
+
+export interface L1SubmenuSection {
+  span: 1 | 2 | 3;
+  items: BasicLink | L1SubmenuSectionHeading[];
+}
+
+export interface L1SubmenuSectionHeading {
+  headingLevel?: 2 | 3 | 4 | 5 | 6;
+  title: string;
+  url?: string;
+  description?: string;
 }
 
 /**
