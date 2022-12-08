@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { BASIC_COLOR_SCHEME } from '../../../globals/defs';
 import '../content-item';
 import '../content-item-copy';

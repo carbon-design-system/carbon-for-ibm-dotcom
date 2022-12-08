@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { find } from '../../../globals/internal/collection-helpers';
 import EventManager from '../../../../tests/utils/event-manager';
 import DDSSearchWithTypeahead from '../search-with-typeahead';

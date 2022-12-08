@@ -9,9 +9,9 @@
 
 import { html, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ArrowRight20 from '@carbon/carbon-web-components/es/icons/arrow--right/20.js';
-import BXLink from '@carbon/carbon-web-components/es/components/link/link.js';
-import Error20 from '@carbon/carbon-web-components/es/icons/error/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import BXLink from '@carbon/web-components/es/components/link/link.js';
+import Error20 from '@carbon/web-components/es/icons/error/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './locale-modal.scss';
 
