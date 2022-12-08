@@ -94,8 +94,7 @@ class BXContentSwitcherItem extends FocusMixin(LitElement) {
         class="${className}"
         ?disabled="${disabled}"
         aria-controls="${ifNonNull(target)}"
-        aria-selected="${Boolean(selected)}"
-      >
+        aria-selected="${Boolean(selected)}">
         <span class="${prefix}--content-switcher__label"><slot></slot></span>
       </button>
     `;

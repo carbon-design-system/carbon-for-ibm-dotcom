@@ -53,8 +53,7 @@ class BXTab extends BXContentSwitcherItem {
         role="tab"
         tabindex="${disabled ? -1 : 0}"
         ?disabled="${disabled}"
-        aria-selected="${Boolean(selected)}"
-      >
+        aria-selected="${Boolean(selected)}">
         <slot></slot>
       </a>
     `;
