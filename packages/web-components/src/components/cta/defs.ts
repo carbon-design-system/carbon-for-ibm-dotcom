@@ -17,6 +17,11 @@ export enum CTA_STYLE {
   TEXT = 'text',
 
   /**
+   * Button CTA that uses `<dds-button>`.
+   */
+  BUTTON = 'button',
+
+  /**
    * Card CTA that uses `<dds-card>`.
    */
   CARD = 'card',

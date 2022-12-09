@@ -6,9 +6,6 @@ import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 
-
-
-
 # CTA
 
 > The CTA component is used to select from various CTA link types – text, cards,
@@ -17,9 +14,30 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 ## Getting started
 
-## `<dds-text-cta>`
+The CTA contains every style and type of CTA available in the Carbon for IBM.com library. 
+The default CTA style is `text`, which provides a basic Link with icon component.
 
-`<dds-text-cta>` is the most basic version of CTA, presented as a simple link.
+In order to use the desired component, modify the `cta-style` attribute to one of the following:
+
+* `text`
+* `button`
+* `card`
+* `card-link`
+* `feature`
+
+### JS (via import)
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/cta/index.js';
+```
+
+<Description markdown={`${cdnJs({ components: ['cta'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
+
+## `Text`
+
+CTA Text is the most basic version of CTA, presented as a simple link.
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/cta-text)
@@ -27,31 +45,21 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/cta-text)
 
-### JS (via import)
-
-```javascript
-import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
-```
-
-<Description markdown={`${cdnJs({ components: ['text-cta'] })}`} />
-
-<Description markdown={`${cdnCss()}`} />
-
 ### HTML
 
 ```html
-<dds-text-cta href="https://www.ibm.com/" cta-type="local">
+<dds-cta cta-style='text' href="https://www.ibm.com/" cta-type="local">
   Copy text
-</dds-text-cta>
+</dds-cta>
 ```
 
 ### Props
 
 <Props of="dds-text-cta" />
 
-## `<dds-button-cta>`
+## `Button`
 
-`<dds-button-cta>` is a version of CTA presented as a button.
+CTA Button is a version of CTA presented as a button.
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/cta-button)
@@ -59,29 +67,21 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/cta-button)
 
-### JS (via import)
-
-```javascript
-import '@carbon/ibmdotcom-web-components/es/components/cta/button-cta.js';
-```
-
-<Description markdown={`${cdnJs({ components: ['button-cta'] })}`} />
-
 ### HTML
 
 ```html
-<dds-button-cta cta-type="local" kind="tertiary" href="https://www.example.com">
+<dds-cta cta-style='button' cta-type="local" kind="tertiary" href="https://www.example.com">
   Button CTA Copy
-</dds-button-cta>
+</dds-cta>
 ```
 
 ### Props
 
 <Props of="dds-button-cta" />
 
-## `<dds-card-cta>`
+## Card CTA
 
-`<dds-card-cta>` is a version of CTA presented as a card.
+CTA Card is a version of CTA presented as a card.
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/cta-card)
@@ -89,18 +89,10 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/button-cta.js';
 
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/cta-card)
 
-### JS (via import)
-
-```javascript
-import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta.js';
-```
-
-<Description markdown={`${cdnJs({ components: ['card-cta'] })}`} />
-
 ### HTML
 
 ```html
-<dds-card-cta href="https://www.ibm.com/" cta-type="local">
+<dds-cta cta-style='card' href="https://www.ibm.com/" cta-type="local">
   Copy text
   <dds-card-cta-footer>
     <svg
@@ -118,16 +110,16 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta.js';
         d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
   </dds-card-cta-footer>
-</dds-card-cta>
+</dds-cta>
 ```
 
 ### Props
 
 <Props of="dds-card-cta" />
 
-## `<dds-card-link-cta>`
+## Card link CTA
 
-`<dds-card-link-cta>` is a version of CTA presented as a card.
+Card link CTA is a version of CTA presented as a card.
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/cta-card)
@@ -135,18 +127,10 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta.js';
 
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/cta-card)
 
-### JS (via import)
-
-```javascript
-import '@carbon/ibmdotcom-web-components/es/components/cta/card-link-cta.js';
-```
-
-<Description markdown={`${cdnJs({ components: ['card-cta-link'] })}`} />
-
 ### HTML
 
 ```html
-<dds-card-link-cta href="https://www.ibm.com/" cta-type="local">
+<dds-cta cta-style='card-link' href="https://www.ibm.com/" cta-type="local">
   <dds-card-link-heading>Heading text</dds-card-link-heading>
     <dds-card-cta-footer>
       <svg
@@ -164,7 +148,7 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/card-link-cta.js';
           d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
       </svg>
     </dds-card-cta-footer>
-</dds-card-link-cta>
+</dds-cta>
 ```
 
 ### Props
@@ -172,9 +156,9 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/card-link-cta.js';
 <Props of="dds-card-link-cta" />
 
 
-## `<dds-feature-cta>`
+## Feature card CTA
 
-`<dds-feature-cta>` is a version of CTA presented as a feature card.
+Feature card CTA is a version of CTA presented as a feature card.
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/cta-feature)
@@ -182,18 +166,10 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/card-link-cta.js';
 
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/cta-feature)
 
-### JS (via import)
-
-```javascript
-import '@carbon/ibmdotcom-web-components/es/components/cta/feature-cta.js';
-```
-
-<Description markdown={`${cdnJs({ components: ['feature-cta'] })}`} />
-
 ### HTML
 
 ```html
-<dds-feature-cta href="https://www.ibm.com/" cta-type="local">
+<dds-cta cta-style='feature' href="https://www.ibm.com/" cta-type="local">
   <dds-card-heading>This is a heading</dds-card-heading>
   <dds-image
     slot="image"
@@ -217,17 +193,14 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/feature-cta.js';
         d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
   </dds-feature-cta-footer>
-</dds-feature-cta>
+</dds-cta>
 ```
 
 The Feature Card for CTA can also use the 'large' variation, but be sure to at least include an eyebrow and heading.
 
-```javascript
-import '@carbon/ibmdotcom-web-components/es/components/cta/feature-cta.js'
-```
 
 ```html
-<dds-feature-cta size='large' href="https://www.ibm.com/" cta-type="local">
+<dds-cta cta-style='feature' size='large' href="https://www.ibm.com/" cta-type="local">
   <dds-card-eyebrow>This is an eyebrow</dds-card-eyebrow>
   <dds-card-heading>This is a heading</dds-card-heading>
   <dds-image
@@ -236,7 +209,7 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/feature-cta.js'
     default-src="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616"
   >
   </dds-image>
-</dds-feature-cta>
+</dds-cta>
 ```
 
 ### Props
@@ -260,11 +233,10 @@ The various cta components allow the `type` attributes `email`, `schedule`, `cha
 ### JS (via import)
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 import '@carbon/ibmdotcom-web-components/es/components/cta/video-cta-container.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['text-cta','video-cta-container'] })}`} />
+<Description markdown={`${cdnJs({ components: ['cta','video-cta-container'] })}`} />
 
 <Description markdown={`${cdnCss()}`} />
 
@@ -272,7 +244,7 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/video-cta-container.j
 
 ```html
 <dds-video-cta-container>
-  <dds-text-cta cta-type="video" href="1_9h94wo6b"></dds-text-cta>
+  <dds-cta cta-style='text' cta-type="video" href="1_9h94wo6b"></dds-cta>
 </dds-video-cta-container>
 ```
 
@@ -292,7 +264,7 @@ video data into the video player component:
 
 ```javascript
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
-import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js.js';
+import '@carbon/ibmdotcom-web-components/es/components/cta/cta.js.js';
 import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/index.js';
 import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player.js';
 
