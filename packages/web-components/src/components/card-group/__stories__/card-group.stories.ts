@@ -13,9 +13,9 @@ import '../../card-in-card/index';
 import '../index';
 import '../../cta/index';
 import '../../tag-group/index';
-import 'carbon-web-components/es/components/tag/tag.js';
+import '@carbon/web-components/es/components/tag/tag.js';
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 // eslint-disable-next-line sort-imports
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
@@ -112,7 +112,8 @@ const cardsDiffLengthPhrase = (
       color-scheme=${gridMode === 'border' ? 'light' : null}>
       <dds-card-eyebrow>Topic</dds-card-eyebrow>
       ${tagGroup.defaultTagGroup ? tagGroupContent : ''}
-      <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b"> </dds-card-cta-footer>
+      <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b">
+      </dds-card-cta-footer>
     </dds-card-group-item>
   `;
 
@@ -181,8 +182,7 @@ const pictogramCard = (gridMode) => html`
         d="M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26
    c1.302,0,2.36,1.059,2.36,2.36v17c0,1.302-1.059,2.36-2.36,2.36H16.36v4.279H23V29.36z M1.36,19.36V22c0,
    0.904,0.736,1.64,1.64,1.64h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,
-   18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z"
-      />
+   18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z" />
     </svg>
   </dds-card-group-item>
 `;
@@ -249,7 +249,7 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
   `;
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { cards, cardType, media, tagGroup, offset, cta, addCta } = args ?? {};
 
   const classes = classMap({
@@ -263,9 +263,26 @@ export const Default = args => {
   }
 
   if (cardType === 'Card - default') {
-    allCards.push(longHeadingCardGroupItem(tagGroup.defaultTagGroup, media.defaultMedia, args['grid-mode'], cardType, addCta));
+    allCards.push(
+      longHeadingCardGroupItem(
+        tagGroup.defaultTagGroup,
+        media.defaultMedia,
+        args['grid-mode'],
+        cardType,
+        addCta
+      )
+    );
     for (let i = 1; i < cards; i++) {
-      allCards.push(cardsDiffLengthPhrase(i, tagGroup.defaultTagGroup, media.defaultMedia, args['grid-mode'], cardType, addCta));
+      allCards.push(
+        cardsDiffLengthPhrase(
+          i,
+          tagGroup.defaultTagGroup,
+          media.defaultMedia,
+          args['grid-mode'],
+          cardType,
+          addCta
+        )
+      );
     }
     if (cta.defaultCTA) {
       allCards.push(
@@ -290,9 +307,26 @@ export const Default = args => {
   }
 
   if (cardType === 'Card static') {
-    allCards.push(longHeadingCardGroupItem(tagGroup.staticTagGroup, media.staticMedia, args['grid-mode'], cardType, addCta));
+    allCards.push(
+      longHeadingCardGroupItem(
+        tagGroup.staticTagGroup,
+        media.staticMedia,
+        args['grid-mode'],
+        cardType,
+        addCta
+      )
+    );
     for (let i = 1; i < cards; i++) {
-      allCards.push(cardsDiffLengthPhrase(i, tagGroup.staticTagGroup, media.staticMedia, args['grid-mode'], cardType, addCta));
+      allCards.push(
+        cardsDiffLengthPhrase(
+          i,
+          tagGroup.staticTagGroup,
+          media.staticMedia,
+          args['grid-mode'],
+          cardType,
+          addCta
+        )
+      );
     }
     if (cta.staticCTA) {
       allCards.push(
@@ -323,14 +357,13 @@ export const Default = args => {
       cards-per-row="${colCount}"
       class="${classes}"
       grid-mode=${setGridMode[cardType] || args['grid-mode']}
-      ?pictograms=${cardType === 'Card - pictogram'}
-    >
+      ?pictograms=${cardType === 'Card - pictogram'}>
       ${allCards}
     </dds-card-group>
   `;
 };
 
-export const withCardInCard = args => {
+export const withCardInCard = (args) => {
   const { cards, tagGroup, media } = args ?? {};
   const allCards: object[] = [];
   for (let i = 0; i < cards; i++) {
@@ -338,11 +371,20 @@ export const withCardInCard = args => {
   }
   return html`
     <dds-video-cta-container>
-      <dds-card-in-card href="https://example.com" cta-type="local" grid-mode="${ifNonNull(args['grid-mode'])}">
-        <dds-card-in-card-image slot="image" alt="Image alt text" default-src="${imgSm4x3}">
-          <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}"> </dds-image-item>
-          <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}"> </dds-image-item>
-          <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}"> </dds-image-item>
+      <dds-card-in-card
+        href="https://example.com"
+        cta-type="local"
+        grid-mode="${ifNonNull(args['grid-mode'])}">
+        <dds-card-in-card-image
+          slot="image"
+          alt="Image alt text"
+          default-src="${imgSm4x3}">
+          <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}">
+          </dds-image-item>
+          <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}">
+          </dds-image-item>
+          <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}">
+          </dds-image-item>
         </dds-card-in-card-image>
         <dds-card-eyebrow>Label</dds-card-eyebrow>
         <dds-card-heading
@@ -437,7 +479,15 @@ export default {
   component: 'dds-card-group',
   decorators: [
     (story, { args }) => {
-      const { defaultMedia, staticMedia, defaultTagGroup, staticTagGroup, defaultCTA, staticCTA, ...restArgs } = args;
+      const {
+        defaultMedia,
+        staticMedia,
+        defaultTagGroup,
+        staticTagGroup,
+        defaultCTA,
+        staticCTA,
+        ...restArgs
+      } = args;
       // Combine the multiple args into one, before passing to the component
       const media = { defaultMedia, staticMedia };
       const cta = { defaultCTA, staticCTA };
@@ -461,7 +511,12 @@ export default {
   argTypes: {
     cardType: {
       control: { type: 'select' },
-      options: ['Card - default', 'Card - pictogram', 'Card static', 'Card link'],
+      options: [
+        'Card - default',
+        'Card - pictogram',
+        'Card static',
+        'Card link',
+      ],
       defaultValue: 'Card - default',
       description: 'Select the type of card for Card Group:',
     },
