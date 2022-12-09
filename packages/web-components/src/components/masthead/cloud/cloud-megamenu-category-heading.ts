@@ -8,7 +8,7 @@
  */
 
 import { html, customElement, LitElement, property } from 'lit-element';
-import ArrowRight32 from '@carbon/carbon-web-components/es/icons/arrow--right/32.js';
+import ArrowRight32 from '@carbon/web-components/es/icons/arrow--right/32.js';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './cloud-masthead.scss';
 
