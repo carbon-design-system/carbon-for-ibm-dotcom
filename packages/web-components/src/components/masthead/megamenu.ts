@@ -27,6 +27,49 @@ class DDSMegaMenu extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   layout?: MEGAMENU_LAYOUT_SCHEME;
 
+  @property({ reflect: true, type: Boolean })
+  overflowing = false;
+
+  protected mutationObserver = new MutationObserver(this._setOverflowing.bind(this));
+
+  /**
+   * Determine if any navigation columns are taller than megamenu.
+   */
+  protected _setOverflowing() {
+    const { navLeftSelector, navRightSelector } = this.constructor as typeof DDSMegaMenu;
+    const navColumns = this.querySelectorAll(`
+      ${navLeftSelector},
+      ${this.layout === MEGAMENU_LAYOUT_SCHEME.TAB ? `[role="tabpanel"]:not([hidden]) > ${navRightSelector}` : navRightSelector}
+    `);
+    const overflows: boolean[] = [];
+    navColumns.forEach(column => {
+      overflows.push(column.scrollHeight > this.scrollHeight);
+    });
+    this.overflowing = overflows.some(column => column === true);
+  }
+
+  connectedCallback() {
+    const sharedOptions = {
+      childList: true,
+      subtree: true,
+      attributes: true,
+    };
+    const options =
+      this.layout === MEGAMENU_LAYOUT_SCHEME.TAB
+        ? {
+            ...sharedOptions,
+            attributeFilter: ['selected'],
+          }
+        : sharedOptions;
+    this.mutationObserver.observe(this, options);
+    super.connectedCallback();
+  }
+
+  disconnectedCallback() {
+    this.mutationObserver.disconnect();
+    super.disconnectedCallback();
+  }
+
   render() {
     return html`
       <div class="${prefix}--masthead__megamenu__container">
@@ -35,6 +78,14 @@ class DDSMegaMenu extends StableSelectorMixin(LitElement) {
         </div>
       </div>
     `;
+  }
+
+  static get navLeftSelector() {
+    return `${ddsPrefix}-megamenu-left-navigation`;
+  }
+
+  static get navRightSelector() {
+    return `${ddsPrefix}-megamenu-right-navigation`;
   }
 
   static get stableSelector() {

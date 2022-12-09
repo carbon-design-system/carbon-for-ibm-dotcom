@@ -611,7 +611,7 @@ $breakpoint--desktop-nav: 960px;
 .#{$prefix}--masthead__megamenu {
   position: relative;
 
-  &::after {
+  &[overflowing]::after {
     content: '';
     position: fixed;
     bottom: 0;
@@ -640,8 +640,7 @@ $breakpoint--desktop-nav: 960px;
 :host(#{$dds-prefix}-megamenu-tabs) {
   display: flex;
   flex-direction: column;
-  margin-top: carbon--rem(18px);
-  margin-bottom: carbon--rem(18px);
+  margin-bottom: $spacing-05;
 
   .#{$prefix}--tabs-trigger {
     display: none;

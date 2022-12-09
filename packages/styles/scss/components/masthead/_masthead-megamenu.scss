@@ -127,7 +127,9 @@
       .#{$prefix}--masthead__megamenu__container--row {
         @include carbon--make-row;
 
+        background-color: $ui-03;
         flex-wrap: nowrap;
+        gap: 1px;
       }
     }
 
@@ -136,11 +138,31 @@
     }
   }
 
+  :host(#{$dds-prefix}-megamenu-left-navigation),
+  .#{$prefix}--masthead__megamenu__highlight-section,
+  :host(#{$dds-prefix}-megamenu-right-navigation),
+  .#{$prefix}--masthead__megamenu__categories-section {
+    background-color: $ui-background;
+    padding-block-start: $layout-02;
+  }
+
+  :host(#{$dds-prefix}-megamenu-left-navigation),
+  .#{$prefix}--masthead__megamenu__highlight-section {
+    @include carbon--make-col(4, 16);
+
+    min-height: 100%;
+
+    // Shift border left without breaking Carbon grid alignment.
+    padding-inline-start: $layout-01;
+    margin-inline-start: calc(#{$layout-01} * -1);
+  }
+
   :host(#{$dds-prefix}-megamenu-right-navigation),
   .#{$prefix}--masthead__megamenu__categories-section {
     display: block;
-    padding-block-start: $layout-02;
+    padding-inline-start: $layout-01;
     width: 100%;
+    height: 100%;
 
     .#{$prefix}--masthead__megamenu__heading {
       @include carbon--make-col(4, 8);
@@ -364,19 +386,6 @@
       transform: scaleX(-1);
       */
     }
-  }
-
-  :host(#{$dds-prefix}-megamenu-left-navigation),
-  .#{$prefix}--masthead__megamenu__highlight-section {
-    @include carbon--make-col(4, 16);
-
-    min-height: 100%;
-    border-inline-end: carbon--rem(1px) solid $ui-03;
-
-    // Shift border left without breaking Carbon grid alignment.
-    margin-inline-end: $spacing-05;
-    padding-inline-start: $spacing-05;
-    margin-inline-start: calc(#{$spacing-05} * -1);
   }
 }
 
