@@ -7,19 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import '../horizontal-rule';
 import readme from './README.stories.mdx';
 
-<<<<<<< HEAD
-export const Default = args => {
-  const { type, size, contrast, weight } = args ?? {};
-=======
 export const Default = (args) => {
-  const { type, size, contrast, weight } = args?.HorizontalRule ?? {};
->>>>>>> upstream/main
+  const { type, size, contrast, weight } = args ?? {};
   return html`
     <dds-hr
       type="${ifNonNull(type)}"
@@ -30,28 +24,13 @@ export const Default = (args) => {
   `;
 };
 
-const types = {
-  solid: undefined,
-  dashed: 'dashed',
-};
+const types = ['solid', 'dashed'];
 
-const sizes = {
-  small: 'small',
-  medium: 'medium',
-  large: 'large',
-  fluid: undefined,
-};
+const sizes = ['small', 'medium', 'large', 'fluid'];
 
-const contrasts = {
-  'low-contrast': 'low-contrast',
-  'medium-contrast': undefined,
-  'high-contrast': 'high-contrast',
-};
+const contrasts = ['low-contrast', 'medium-contrast', 'high-contrast'];
 
-const weights = {
-  thin: undefined,
-  thick: 'thick',
-};
+const weights = ['thin', 'thick'];
 
 export default {
   title: 'Components/Horizontal rule',
@@ -60,12 +39,12 @@ export default {
     type: {
       control: { type: 'select' },
       options: types,
-      defaultValue: types.solid,
+      defaultValue: 'solid',
     },
     size: {
       control: { type: 'select' },
       options: sizes,
-      defaultValue: sizes.fluid,
+      defaultValue: 'fluid',
     },
     contrast: {
       control: { type: 'select' },
@@ -75,7 +54,12 @@ export default {
     weight: {
       control: { type: 'select' },
       options: weights,
-      defaultValue: weights.thin,
+      defaultValue: 'thin',
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
     },
   },
   decorators: [
@@ -93,25 +77,13 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      HorizontalRule: () => ({
-        type: select('Type (type):', types, types.solid),
-        size: select('Size (size):', sizes, sizes.fluid),
-        contrast: select(
-          'Contrast (contrast):',
-          contrasts,
-          contrasts['medium-contrast']
-        ),
-        weight: select('Weight (weight):', weights, weights.thin),
-      }),
-    },
     propsSet: {
       default: {
         HorizontalRule: {
-          type: types.solid,
-          size: sizes.fluid,
+          type: 'solid',
+          size: 'fluid',
           contrast: contrasts['medium-contrast'],
-          weight: weights.thin,
+          weight: 'weights',
         },
       },
     },

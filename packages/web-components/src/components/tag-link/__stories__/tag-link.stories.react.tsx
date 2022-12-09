@@ -7,37 +7,61 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { text } from '@storybook/addon-knobs';
 import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSTagLink from '@carbon/ibmdotcom-web-components/es/components-react/tag-link/tag-link';
+import DDSTagLink, { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/tag-link/tag-link';
 import readme from './README.stories.react.mdx';
 
 export const Default = args => {
-  const { copy, href } = args?.TagLink ?? {};
+  const { copy, href } = args ?? {};
   return <DDSTagLink href={href || undefined}>{copy}</DDSTagLink>;
-};
-
-Default.story = {
-  parameters: {
-    knobs: {
-      TagLink: () => ({
-        copy: text('Tag link (copy)', 'Brand: Watson'),
-        href: text('Tag link (href)', `https://example.com`),
-      }),
-    },
-  },
 };
 
 export default {
   title: 'Components/Tag link',
+  component: PropTypesRef,
   decorators: [
     story => {
       return <div className="bx--grid">{story()}</div>;
     },
   ],
+  argTypes: {
+    href: {
+      control: 'text',
+      defaultValue: 'https://example.com',
+    },
+    copy: {
+      control: 'text',
+      defaultValue: 'Brand: Watson',
+    },
+    hreflang: {
+      table: {
+        disable: true,
+      },
+    },
+    ping: {
+      table: {
+        disable: true,
+      },
+    },
+    rel: {
+      table: {
+        disable: true,
+      },
+    },
+    target: {
+      table: {
+        disable: true,
+      },
+    },
+    linkRole: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
