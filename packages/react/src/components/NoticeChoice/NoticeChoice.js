@@ -271,7 +271,8 @@ export function NoticeChoice({
     } else if (lc === 'en' && ccpa) {
       return `<p class="nc-gdpr-info">You can withdraw your marketing consent at any time by submitting an <a href='https://www.ibm.com/account/reg/us-en/signup?formid=urx-42537' target='_blank'>opt-out request</a>. Also you may unsubscribe from receiving marketing emails by clicking the unsubscribe link in each email.</p>
       <p class="nc-gdpr-ack"> More information on our processing can be found in the <a href='https://www.ibm.com/privacy' target='_blank'>IBM Privacy Statement.</a>
-      For our notice to California residents, click <a href="https://www.ibm.com/privacy/ccpa" target="_blank">here</a>.<br> By submitting this form, I acknowledge that I have read and understand the IBM Privacy Statement.</p>${tcHtml}`;
+      California residents, review <a href="https://www.ibm.com/privacy/ccpa" target="_blank">our notice and your privacy choices</a>.
+      <br> By submitting this form, I acknowledge that I have read and understand the IBM Privacy Statement.</p>${tcHtml}`;
     }
     return postText;
   }, [ncData, country, state, termsConditionLink, locale]);
