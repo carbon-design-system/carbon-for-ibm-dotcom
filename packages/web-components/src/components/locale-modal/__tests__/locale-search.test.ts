@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import DDSSearch from '../../search/search';
 import DDSLocaleSearch from '../locale-search';
 import '../locale-item';
