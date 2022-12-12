@@ -6,7 +6,7 @@
 //
 
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/carbon-web-components/scss/components/modal/modal';
+@import '@carbon/web-components/scss/components/modal/modal';
 
 :host(#{$dds-prefix}-leaving-ibm-composite),
 :host(#{$dds-prefix}-leaving-ibm-container) {

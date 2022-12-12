@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit-element';
-import ArrowRight20 from '@carbon/carbon-web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import '../index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';

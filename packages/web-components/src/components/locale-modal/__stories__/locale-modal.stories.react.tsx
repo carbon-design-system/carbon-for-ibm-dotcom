@@ -12,7 +12,7 @@ import React from 'react';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import DDSLocaleModalContainer from '@carbon/ibmdotcom-web-components/es/components-react/locale-modal/locale-modal-container.js';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import localeData from './locale-data.json';
 
 import readme from './README.stories.react.mdx';
@@ -25,8 +25,7 @@ export const Default = (args) => {
     <DDSLocaleModalContainer
       lang-display={ifNonNull(langDisplay)}
       open
-      localeList={localeData}
-    ></DDSLocaleModalContainer>
+      localeList={localeData}></DDSLocaleModalContainer>
   );
 };
 
