@@ -8,9 +8,9 @@
 @import 'carbon-components/scss/globals/scss/vars';
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '../../globals/scss/box-sizing';
+@import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
 @import '@carbon/ibmdotcom-styles/scss/internal/content-block/content-block';
 @import '@carbon/ibmdotcom-styles/scss/internal/content-item/content-item';
-@import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
 
 :host(#{$dds-prefix}-content-block),
 :host(#{$dds-prefix}-callout-with-media-copy),

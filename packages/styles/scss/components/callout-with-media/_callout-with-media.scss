@@ -78,7 +78,7 @@
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content
     .#{$prefix}--content-block {
-    padding-bottom: $layout-05;
+    margin-bottom: $layout-05;
   }
 
   :host(#{$dds-prefix}-callout-with-media-image),

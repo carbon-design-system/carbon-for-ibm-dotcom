@@ -23,16 +23,23 @@
   :host(#{$dds-prefix}-content-block-headlines),
   .#{$prefix}--content-block {
     display: block;
-    padding-top: $carbon--layout-03;
-    padding-bottom: $carbon--layout-05;
+    margin-top: $carbon--layout-03;
+    margin-bottom: $carbon--layout-05;
 
     @include carbon--breakpoint('md') {
-      padding-top: $carbon--layout-05;
-      padding-bottom: $carbon--layout-06;
+      margin-top: $carbon--layout-05;
+      margin-bottom: $carbon--layout-06;
     }
 
     @include carbon--breakpoint('max') {
-      padding-bottom: $carbon--layout-07;
+      margin-bottom: $carbon--layout-07;
+    }
+
+    &[complementary-style-scheme='with-border'] {
+      margin-bottom: $carbon--spacing-07;
+      @include carbon--breakpoint('lg') {
+        margin-bottom: $carbon--spacing-10;
+      }
     }
 
     .#{$prefix}--card__CTA {
@@ -71,6 +78,14 @@
       margin-right: 0;
       padding-left: 0;
       padding-right: 0;
+
+      @include carbon--breakpoint('md') {
+        padding-bottom: $carbon--spacing-10;
+      }
+
+      @include carbon--breakpoint('lg') {
+        padding-bottom: $carbon--spacing-12;
+      }
     }
 
     // Most slotted contents have margins aligning to Carbon grid gutters.

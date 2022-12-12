@@ -1,12 +1,12 @@
 //
-// Copyright IBM Corp. 2020, 2021
+// Copyright IBM Corp. 2020, 2022
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/components/content-block-media/index';
-@import '@carbon/ibmdotcom-styles/scss/components/content-group-simple/content-group-simple';
+@import '../../../../styles/scss/components/content-block-media/index';
+@import '../../../../styles/scss/components/content-group-simple/content-group-simple';
 
 :host(#{$dds-prefix}-content-block-media),
 :host(#{$dds-prefix}-content-block-media-content) {

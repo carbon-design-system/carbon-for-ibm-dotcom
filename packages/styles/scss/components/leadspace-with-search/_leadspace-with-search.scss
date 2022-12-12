@@ -330,6 +330,10 @@
     padding: 0;
   }
 
+  :host(#{$dds-prefix}-leadspace-with-search-content) {
+    margin: 0;
+  }
+
   :host(#{$dds-prefix}-leadspace-with-search-content-heading) {
     @extend :host(#{$dds-prefix}-content-block-heading);
 
