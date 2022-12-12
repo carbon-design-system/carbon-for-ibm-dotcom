@@ -74,11 +74,14 @@
     }
   }
 
-  :host(#{$dds-prefix}-callout-with-media) .#{$prefix}--callout__content,
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content
     .#{$prefix}--content-block {
     margin-bottom: $layout-05;
+  }
+
+  :host(#{$dds-prefix}-callout-with-media) .#{$prefix}--callout__content {
+    padding-bottom: $layout-05;
   }
 
   :host(#{$dds-prefix}-callout-with-media-image),
