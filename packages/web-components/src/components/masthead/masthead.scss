@@ -20,8 +20,8 @@
 @import '../../globals/scss/box-sizing';
 @import '../cta/cta.scss';
 
-// Magic Number: 800px matches masthead-composite's `layoutBreakpoint`.
-$breakpoint--desktop-nav: 800px;
+// Magic Number: 799px matches masthead-composite's `layoutBreakpoint`.
+$breakpoint--desktop-nav: 799px;
 
 :host(#{$dds-prefix}-masthead-container),
 #{$dds-prefix}-masthead-container {
@@ -428,10 +428,6 @@ $breakpoint--desktop-nav: 800px;
 :host(#{$dds-prefix}-left-nav) {
   @include carbon--breakpoint('md') {
     display: block;
-  }
-
-  @include carbon--breakpoint($breakpoint--desktop-nav) {
-    display: none;
   }
 }
 
