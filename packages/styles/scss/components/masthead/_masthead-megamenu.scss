@@ -193,7 +193,7 @@
     .#{$prefix}--masthead__megamenu__category-group-content {
       width: 100%;
       display: inline-block;
-      padding-block-end: $spacing-07;
+      padding-block-end: $spacing-06;
     }
 
     .#{$prefix}--masthead__megamenu__copy,
@@ -201,7 +201,7 @@
       @include type-style('body-short-01');
 
       color: $text-02;
-      margin: rem(-6px) $spacing-05 $spacing-05;
+      margin: rem(-6px) $spacing-05 $spacing-06;
     }
   }
 
