@@ -10,7 +10,7 @@
 import { property, customElement, html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import {
   formatVideoCaption,
@@ -168,10 +168,13 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
         (footer as DDSFeatureCTAFooter).videoDescription = videoDescription;
       }
     }
-    if (changedProperties.has('captionHeading')) {
-      (this.querySelector(
-        (this.constructor as typeof DDSFeatureCTA).selectorHeading
-      ) as HTMLElement)!.innerText = this.captionHeading;
+
+    const heading = this.querySelector(
+      (this.constructor as typeof DDSFeatureCTA).selectorHeading
+    ) as HTMLElement;
+
+    if (changedProperties.has('captionHeading') && heading) {
+      heading!.innerText = this.captionHeading;
     }
   }
 

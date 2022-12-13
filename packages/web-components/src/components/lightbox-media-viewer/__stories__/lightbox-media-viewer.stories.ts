@@ -10,8 +10,8 @@
 import { html } from 'lit-element';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
-import '@carbon/carbon-web-components/es/components/modal/modal-close-button.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import '@carbon/web-components/es/components/modal/modal-close-button.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
 import '../../carousel/index';

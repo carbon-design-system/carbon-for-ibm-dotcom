@@ -10,7 +10,7 @@
 import { html, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import {
   formatVideoCaption,
@@ -59,10 +59,11 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
         }
       )
     );
-    return html`
-      <slot name="heading"></slot
-      ><dds-card-heading>${caption}</dds-card-heading>
-    `;
+
+    const heading = this.querySelector('dds-card-heading')
+      ? html``
+      : html` <dds-card-heading>${caption}</dds-card-heading> `;
+    return html` <slot name="heading"></slot>${heading} `;
   }
 
   protected _renderImage() {
