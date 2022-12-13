@@ -12,7 +12,6 @@ import '../index';
 import '../../content-block-media/index';
 import '../../card-group/index';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { select } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { ORIENTATION } from '../defs';
 import readme from './README.stories.mdx';
@@ -30,7 +29,7 @@ const copy = `Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
   Donec quis pretium odio, in dignissim sapien.`;
 
 export const Default = args => {
-  const { orientation } = args?.TabsExtended ?? {};
+  const { orientation } = args;
   return html`
     <dds-tabs-extended orientation="${ifNonNull(orientation)}">
       <dds-tab
@@ -74,6 +73,19 @@ export const Default = args => {
 
 export default {
   title: 'Components/Tabs extended',
+  component: 'dds-tabs-extended',
+  argTypes: {
+    orientation: {
+      options: orientationType,
+      control: { type: 'select' },
+      defaultValue: orientationType.horizontal,
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   decorators: [
     story => html`
       <div class="bx--grid">
@@ -88,11 +100,6 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      TabsExtended: () => ({
-        orientation: select('Orientation (orientation):', orientationType, ORIENTATION.HORIZONTAL),
-      }),
-    },
     propsSet: {
       default: {
         TabsExtended: {

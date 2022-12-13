@@ -7,11 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 import React from 'react';
-import { select, boolean } from '@storybook/addon-knobs';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSTabsExtendedMedia from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended-media/tabs-extended-media';
+import DDSTabsExtendedMedia, {
+  PropTypesRef,
+} from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended-media/tabs-extended-media';
 // @ts-ignore
 import DDSTab from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended/tab';
 /* eslint-disable max-len */
@@ -38,7 +39,6 @@ import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image
 import readme from './README.stories.react.mdx';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-horizontal/defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const mediaAlign = {
   [`Left`]: MEDIA_ALIGN.LEFT,
@@ -51,7 +51,7 @@ const mediaType = {
 };
 
 export const Default = args => {
-  const { sectionHeading, sectionHeadingText, align, type } = args?.TabsExtendedMedia ?? {};
+  const { sectionHeading, sectionHeadingText, align, type } = args;
   const tabs: any[] = [];
 
   for (let i = 1; i < 5; i++) {
@@ -90,17 +90,39 @@ export const Default = args => {
 };
 
 Default.story = {
-  parameters: {
-    knobs: {
-      TabsExtendedMedia: () => {
-        const sectionHeading = boolean('Section heading', true);
-        const sectionHeadingText = sectionHeading && textNullable('Heading', 'Section heading');
-        return {
-          sectionHeading,
-          sectionHeadingText,
-          align: select('Alignment (align)', mediaAlign, MEDIA_ALIGN.LEFT),
-          type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
-        };
+  argTypes: {
+    align: {
+      options: mediaAlign,
+      control: { type: 'select' },
+      defaultValue: mediaAlign.Left,
+    },
+    sectionHeading: {
+      control: { type: 'boolean' },
+      defaultValue: true,
+    },
+    sectionHeadingText: {
+      control: { type: 'text' },
+      defaultValue: 'Section heading',
+      if: { arg: 'sectionHeading' },
+    },
+    type: {
+      options: mediaType,
+      control: { type: 'select' },
+      defaultValue: mediaType.Image,
+    },
+    'section-heading': {
+      table: {
+        disable: true,
+      },
+    },
+    orientation: {
+      table: {
+        disable: true,
+      },
+    },
+    styles: {
+      table: {
+        disable: true,
       },
     },
   },
@@ -108,6 +130,7 @@ Default.story = {
 
 export default {
   title: 'Components/Tabs extended media',
+  component: PropTypesRef,
   decorators: [
     (story, args) => {
       return (

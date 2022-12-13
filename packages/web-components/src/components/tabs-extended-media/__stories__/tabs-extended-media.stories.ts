@@ -9,14 +9,12 @@
 
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { boolean, select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
 import '../../content-item-horizontal/index';
 import '../../image/index';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-horizontal/defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const mediaAlign = {
   [`Left`]: MEDIA_ALIGN.LEFT,
@@ -29,7 +27,7 @@ const mediaType = {
 };
 
 export const Default = args => {
-  const { sectionHeading, sectionHeadingText, align, type } = args?.TabsExtendedWithMedia ?? {};
+  const { sectionHeading, sectionHeadingText, align, type } = args;
   const tabs: any[] = [];
 
   for (let i = 1; i < 5; i++) {
@@ -73,19 +71,43 @@ export const Default = args => {
 };
 
 Default.story = {
-  parameters: {
-    knobs: {
-      TabsExtendedWithMedia: () => {
-        const sectionHeading = boolean('Section heading', true);
-        const sectionHeadingText = sectionHeading && textNullable('Heading', 'Section heading');
-        return {
-          sectionHeading,
-          sectionHeadingText,
-          align: select('Alignment (align)', mediaAlign, MEDIA_ALIGN.LEFT),
-          type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
-        };
+  argTypes: {
+    align: {
+      options: mediaAlign,
+      control: { type: 'select' },
+      defaultValue: mediaAlign.Left,
+    },
+    sectionHeading: {
+      control: { type: 'boolean' },
+      defaultValue: true,
+    },
+    sectionHeadingText: {
+      control: { type: 'text' },
+      defaultValue: 'Section heading',
+      if: { arg: 'sectionHeading' },
+    },
+    type: {
+      options: mediaType,
+      control: { type: 'select' },
+      defaultValue: mediaType.Image,
+    },
+    'section-heading': {
+      table: {
+        disable: true,
       },
     },
+    orientation: {
+      table: {
+        disable: true,
+      },
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  parameters: {
     propsSet: {
       default: {
         TabsExtendedWithMedia: {
@@ -100,6 +122,7 @@ Default.story = {
 
 export default {
   title: 'Components/Tabs extended - with media',
+  component: 'dds-tabs-extended-media',
   decorators: [
     (story, { args }) => html`
       <div class="bx--grid">

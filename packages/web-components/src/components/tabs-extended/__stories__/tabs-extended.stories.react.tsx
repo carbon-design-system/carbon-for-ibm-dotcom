@@ -11,9 +11,8 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSTabsExtended from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended/tabs-extended';
+import DDSTabsExtended, { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended/tabs-extended';
 import DDSTab from '@carbon/ibmdotcom-web-components/es/components-react/tabs-extended/tab';
-import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.react.mdx';
 import { ORIENTATION } from '../defs';
 
@@ -23,7 +22,7 @@ const orientationType = {
 };
 
 export const Default = args => {
-  const { orientation } = args?.TabsExtended ?? {};
+  const { orientation } = args;
   return (
     <DDSTabsExtended orientation={orientation || undefined}>
       <DDSTab
@@ -48,17 +47,28 @@ export const Default = args => {
 };
 
 Default.story = {
-  parameters: {
-    knobs: {
-      TabsExtended: () => ({
-        orientation: select('Orientation (orientation):', orientationType, ORIENTATION.HORIZONTAL),
-      }),
+  argTypes: {
+    orientation: {
+      options: orientationType,
+      control: { type: 'select' },
+      defaultValue: orientationType.horizontal,
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
+    },
+    _activeTab: {
+      table: {
+        disable: true,
+      },
     },
   },
 };
 
 export default {
   title: 'Components/Tabs extended',
+  component: PropTypesRef,
   decorators: [
     story => {
       return (
