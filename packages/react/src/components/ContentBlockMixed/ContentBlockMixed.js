@@ -62,9 +62,9 @@ ContentBlockMixed.propTypes = {
   /**
    * The data of the content groups to render. See the following for full usage details:
    *
-   * * [`<ContentGroupCards>`](http://www.ibm.com/standards/carbon/react/?path=/docs/patterns-blocks-contentgroupcards--default#props)
-   * * [`<ContentGroupSimple>`](http://www.ibm.com/standards/carbon/react/?path=/docs/patterns-blocks-contentgroupsimple--default#props)
-   * * [`<ContentGroupPictograms>`](http://www.ibm.com/standards/carbon/react/?path=/docs/patterns-blocks-contentgrouppictograms--default#props)
+   * [`<ContentGroupCards>`](http://www.ibm.com/standards/carbon/react/?path=/docs/patterns-blocks-contentgroupcards--default#props)
+   * [`<ContentGroupSimple>`](http://www.ibm.com/standards/carbon/react/?path=/docs/patterns-blocks-contentgroupsimple--default#props)
+   * [`<ContentGroupPictograms>`](http://www.ibm.com/standards/carbon/react/?path=/docs/patterns-blocks-contentgrouppictograms--default#props)
    */
   items: PropTypes.arrayOf(
     PropTypes.oneOfType([

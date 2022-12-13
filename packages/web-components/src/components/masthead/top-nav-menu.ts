@@ -8,7 +8,7 @@
  */
 
 import { property, query, customElement } from 'lit-element';
-import BXHeaderMenu from 'carbon-web-components/es/components/ui-shell/header-menu.js';
+import BXHeaderMenu from '@carbon/web-components/es/components/ui-shell/header-menu.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 
@@ -42,7 +42,9 @@ class DDSTopNavMenu extends BXHeaderMenu {
       }
     }
 
-    this.shadowRoot?.querySelectorAll('[role="menuitem"]').forEach(menuItem => menuItem.removeAttribute('role'));
+    this.shadowRoot
+      ?.querySelectorAll('[role="menuitem"]')
+      .forEach((menuItem) => menuItem.removeAttribute('role'));
   }
 
   connectedCallback() {

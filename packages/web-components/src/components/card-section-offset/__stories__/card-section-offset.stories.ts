@@ -20,16 +20,20 @@ const ctaTypes = [CTA_TYPE.LOCAL, CTA_TYPE.DOWNLOAD, CTA_TYPE.EXTERNAL, CTA_TYPE
 const hrefsForType = {
   [CTA_TYPE.LOCAL]: 'https://www.example.com',
   [CTA_TYPE.EXTERNAL]: 'https://www.example.com',
-  [CTA_TYPE.DOWNLOAD]: 'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
+  [CTA_TYPE.DOWNLOAD]:
+    'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
   [CTA_TYPE.VIDEO]: '1_9h94wo6b',
 };
 
 const defaultCardGroupItem = html`
   <dds-card-group-item href="https://example.com">
     <dds-card-eyebrow>Label</dds-card-eyebrow>
-    <dds-card-heading>Lorem ipsum dolor sit amet, pro graeco tibique an</dds-card-heading>
+    <dds-card-heading
+      >Lorem ipsum dolor sit amet, pro graeco tibique an</dds-card-heading
+    >
     <p>
-      Lorem ipsum dolor sit amet, habeo iisque eum ex. Vel postea singulis democritum ex. Illud ullum graecis
+      Lorem ipsum dolor sit amet, habeo iisque eum ex. Vel postea singulis
+      democritum ex. Illud ullum graecis
     </p>
     <dds-card-cta-footer slot="footer">
       ${ArrowRight20({ slot: 'icon' })}
@@ -56,10 +60,11 @@ export const Default = args => {
         gradient-direction="left-to-right"
         mobile-position="top"
         alt="${ifNonNull(alt)}"
-        default-src="${ifNonNull(defaultSrc)}"
-      >
+        default-src="${ifNonNull(defaultSrc)}">
       </dds-background-media>
-      <dds-content-block-heading slot="heading">${heading}</dds-content-block-heading>
+      <dds-content-block-heading slot="heading"
+        >${heading}</dds-content-block-heading
+      >
       <dds-text-cta
         slot="action"
         icon-placement="right"
@@ -80,12 +85,10 @@ export default {
   title: 'Components/Card section offset',
   component: 'dds-card-section-offset',
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <dds-video-cta-container>
-            ${story()}
-          </dds-video-cta-container>
+          <dds-video-cta-container> ${story()} </dds-video-cta-container>
         </div>
       </div>
     `,
@@ -180,7 +183,11 @@ export default {
           ctaType: 'local',
           download: undefined,
           href: 'https://www.example.com',
-          cards: [defaultCardGroupItem, defaultCardGroupItem, defaultCardGroupItem],
+          cards: [
+            defaultCardGroupItem,
+            defaultCardGroupItem,
+            defaultCardGroupItem,
+          ],
           alt: 'Image alt text',
           defaultSrc: image,
         },

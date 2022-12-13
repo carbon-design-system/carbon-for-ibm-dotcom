@@ -49,8 +49,7 @@ export default {
         ContentItemHorizontal: {
           eyebrow: 'Lorem ipsum',
           heading: 'Aliquam condimentum',
-          copy:
-            'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
+          copy: 'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
         },
       },
     },

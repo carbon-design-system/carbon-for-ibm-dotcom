@@ -8,9 +8,9 @@
  */
 
 import { html } from 'lit-element';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20.js';
-import Pdf20 from 'carbon-web-components/es/icons/PDF/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowDown20 from '@carbon/web-components/es/icons/arrow--down/20.js';
+import Pdf20 from '@carbon/web-components/es/icons/PDF/20.js';
 import readme from './README.stories.mdx';
 import '../index';
 
@@ -41,8 +41,10 @@ export const Default = args => {
   return html`
     <dds-button-group>
       ${buttons.map(
-        elem => html`
-          <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
+        (elem) => html`
+          <dds-button-group-item href="${elem.href}"
+            >${elem.copy}${elem.renderIcon}</dds-button-group-item
+          >
         `
       )}
     </dds-button-group>
@@ -59,12 +61,10 @@ export default {
     },
   },
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-sm-16 bx--col-md-6 bx--col-lg-16">
-            ${story()}
-          </div>
+          <div class="bx--col-sm-16 bx--col-md-6 bx--col-lg-16">${story()}</div>
         </div>
       </div>
     `,

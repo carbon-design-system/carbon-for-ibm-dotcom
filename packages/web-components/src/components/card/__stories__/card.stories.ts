@@ -9,11 +9,11 @@
 
 import '../../image/image';
 import '../../tag-group/tag-group';
-import 'carbon-web-components/es/components/tag/tag.js';
+import '@carbon/web-components/es/components/tag/tag.js';
 import '../index';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 import logoMicrosoft2x1 from '../../../../../storybook-images/assets/logos/logo-microsoft--2x1.png';
 import { PICTOGRAM_PLACEMENT } from '../defs';
@@ -23,12 +23,8 @@ const cardStylesList = ['Outlined card', 'Inverse card', 'none'];
 
 const tagGroupContent = html`
   <dds-tag-group>
-    <bx-tag>
-      Most popular
-    </bx-tag>
-    <bx-tag type="purple">
-      Enterprise
-    </bx-tag>
+    <bx-tag> Most popular </bx-tag>
+    <bx-tag type="purple"> Enterprise </bx-tag>
   </dds-tag-group>
 `;
 
@@ -37,7 +33,11 @@ export const Default = args => {
   /* eslint-disable no-nested-ternary */
   return html`
     <dds-card
-      color-scheme=${cardStyles === 'Inverse card' ? 'inverse' : cardStyles === 'Outlined card' ? 'light' : ''}
+      color-scheme=${cardStyles === 'Inverse card'
+        ? 'inverse'
+        : cardStyles === 'Outlined card'
+        ? 'light'
+        : ''}
       ?border=${cardStyles === 'Outlined card'}
       href=${'https://example.com' || undefined}
     >
@@ -159,15 +159,13 @@ export const Pictogram = args => {
         height="48"
         viewBox="0 0 32 32"
         role="img"
-        class="bx--card__pictogram"
-      >
+        class="bx--card__pictogram">
         <path
           id="desktop_1_"
           d="M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26
           c1.302,0,2.36,1.059,2.36,2.36v17c0,1.302-1.059,2.36-2.36,2.36H16.36v4.279H23V29.36z M1.36,19.36V22c0,
           0.904,0.736,1.64,1.64,1.64h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,
-          18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z"
-        />
+          18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z" />
       </svg>
     </dds-card>
   `;
@@ -230,7 +228,9 @@ Pictogram.story = {
 export const Static = args => {
   const { image, alt, outlinedCard, eyebrow, heading, copy, tagGroup, cta, ctaCopy } = args;
   return html`
-    <dds-card color-scheme=${outlinedCard ? 'light' : ''} ?border=${outlinedCard}>
+    <dds-card
+      color-scheme=${outlinedCard ? 'light' : ''}
+      ?border=${outlinedCard}>
       ${image
         ? html`
             <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${imgXlg4x3}"></dds-image>
@@ -241,17 +241,10 @@ export const Static = args => {
             <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
           `
         : ``}
+      ${eyebrow ? html` <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow> ` : ``}
       <dds-card-heading>${heading}</dds-card-heading>
-      ${copy
-        ? html`
-            <p>${copy}</p>
-          `
-        : ``}
-      ${tagGroup
-        ? html`
-            ${tagGroupContent}
-          `
-        : ``}
+      ${copy ? html` <p>${copy}</p> ` : ``}
+      ${tagGroup ? html` ${tagGroupContent} ` : ``}
       ${cta
         ? html`
             <dds-card-footer href="https://www.example.com">
@@ -360,7 +353,6 @@ export const Logo = args => {
             ${tagGroupContent}
           `
         : ``}
-
       <dds-card-footer></dds-card-footer>
     </dds-card>
   `;
@@ -504,10 +496,11 @@ export default {
     },
   },
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
+          <div
+            class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
             ${story()}
           </div>
         </div>

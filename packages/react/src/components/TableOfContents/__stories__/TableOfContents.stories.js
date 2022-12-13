@@ -67,7 +67,7 @@ export const Default = () => {
 export default {
   title: 'Components/Table of contents',
   decorators: [
-    story => (
+    (story) => (
       <>
         <style>{styles.cssText}</style>
         {story()}

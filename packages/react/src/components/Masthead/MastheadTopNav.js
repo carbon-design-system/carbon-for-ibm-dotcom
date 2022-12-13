@@ -33,10 +33,12 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
     document
       .querySelector(`.${prefix}--header__menu-bar`)
       ?.setAttribute('role', 'menu');
-    document.querySelectorAll(`.${prefix}--header__menu-bar li`).forEach(e => {
-      e.setAttribute('role', 'menuitem');
-      e.querySelector('a').removeAttribute('role');
-    });
+    document
+      .querySelectorAll(`.${prefix}--header__menu-bar li`)
+      .forEach((e) => {
+        e.setAttribute('role', 'menuitem');
+        e.querySelector('a').removeAttribute('role');
+      });
   }, []);
 
   /**

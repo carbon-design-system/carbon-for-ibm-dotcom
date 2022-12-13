@@ -8,11 +8,11 @@
  */
 
 import { html, state, property, customElement } from 'lit-element';
-import BXLink from 'carbon-web-components/es/components/link/link.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import BXLink from '@carbon/web-components/es/components/link/link.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
+import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import IBM8BarLogoH23 from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-logo--h23.svg';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
@@ -27,7 +27,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-masthead-logo
  */
 @customElement(`${ddsPrefix}-masthead-logo`)
-class DDSMastheadLogo extends FocusMixin(HostListenerMixin(StableSelectorMixin(BXLink))) {
+class DDSMastheadLogo extends FocusMixin(
+  HostListenerMixin(StableSelectorMixin(BXLink))
+) {
   /**
    * Search bar opened flag.
    */
@@ -67,9 +69,7 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(StableSelectorMixin(B
 
   // eslint-disable-next-line class-methods-use-this
   protected _renderInner() {
-    return html`
-      <slot>${IBM8BarLogoH23()}</slot>
-    `;
+    return html` <slot>${IBM8BarLogoH23()}</slot> `;
   }
 
   updated(changedProperties) {
@@ -81,7 +81,10 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(StableSelectorMixin(B
     if (linkNode) {
       linkNode.setAttribute('aria-label', 'IBM logo');
       linkNode.classList.remove(`${prefix}--link`);
-      linkNode.classList.toggle(`${ddsPrefix}-ce--header__logo--has-search-active`, this._hasSearchActive);
+      linkNode.classList.toggle(
+        `${ddsPrefix}-ce--header__logo--has-search-active`,
+        this._hasSearchActive
+      );
     }
   }
 

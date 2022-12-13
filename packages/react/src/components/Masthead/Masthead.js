@@ -293,7 +293,7 @@ const Masthead = ({
             if (
               menuItems[i]?.url === currentUrlPath ||
               menuItems[i]?.megapanelContent?.quickLinks?.links?.filter(
-                link => link.url === currentUrlPath
+                (link) => link.url === currentUrlPath
               ).length
             ) {
               matchFound = true;
@@ -329,7 +329,7 @@ const Masthead = ({
                     onClick={onClickSideNavExpand}
                     isActive={isSideNavExpanded}
                     className={headerSearchClasses}
-                    onBlur={e => {
+                    onBlur={(e) => {
                       const platform = e.target.parentElement.querySelector(
                         `nav .${prefix}--side-nav__submenu-platform`
                       );

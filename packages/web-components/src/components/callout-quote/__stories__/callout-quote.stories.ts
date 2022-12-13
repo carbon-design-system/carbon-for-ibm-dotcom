@@ -9,7 +9,7 @@
 
 import '../index';
 import '../callout-link-with-icon';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import { html } from 'lit-element';
 import { QUOTE_TYPES } from '../../quote/quote';
 import readme from './README.stories.mdx';
@@ -19,21 +19,19 @@ const types = {
   [`${QUOTE_TYPES.SINGLE_CURVED}`]: QUOTE_TYPES.SINGLE_CURVED,
   [`${QUOTE_TYPES.DOUBLE_ANGLE}`]: QUOTE_TYPES.DOUBLE_ANGLE,
   [`${QUOTE_TYPES.SINGLE_ANGLE}`]: QUOTE_TYPES.SINGLE_ANGLE,
-  [`${QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED}`]: QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED,
+  [`${QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED}`]:
+    QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED,
   [`${QUOTE_TYPES.CORNER_BRACKET}`]: QUOTE_TYPES.CORNER_BRACKET,
 };
 
-export const Default = args => {
-  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } = args ?? {};
+export const Default = (args) => {
+  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } =
+    args ?? {};
   return html`
     <dds-callout-quote mark-type="${quoteMark}">
       ${copy}
-      <dds-quote-source-heading>
-        ${sourceHeading}
-      </dds-quote-source-heading>
-      <dds-quote-source-copy>
-        ${sourceCopy}
-      </dds-quote-source-copy>
+      <dds-quote-source-heading> ${sourceHeading} </dds-quote-source-heading>
+      <dds-quote-source-copy> ${sourceCopy} </dds-quote-source-copy>
       <dds-quote-source-bottom-copy>
         ${sourceBottomCopy}
       </dds-quote-source-bottom-copy>
@@ -48,12 +46,10 @@ export default {
   title: 'Components/Callout quote',
   components: 'dds-callout-quote',
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-lg-11">
-            ${story()}
-          </div>
+          <div class="bx--col-lg-11">${story()}</div>
         </div>
       </div>
     `,

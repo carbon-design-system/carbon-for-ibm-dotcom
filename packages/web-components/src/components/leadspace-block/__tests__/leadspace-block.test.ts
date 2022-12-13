@@ -21,42 +21,58 @@ const WithVideoTemplate = (props?) =>
     LeadSpaceBlock: props,
   });
 
-describe('dds-leadspace-block', function() {
-  describe('Misc attributes - Default', function() {
-    it('should render with minimum attributes', async function() {
+describe('dds-leadspace-block', function () {
+  describe('Misc attributes - Default', function () {
+    it('should render with minimum attributes', async function () {
       render(DefaultTemplate(), document.body);
       await Promise.resolve(); // Update cycle for `<dds-leadspace-block>`
-      expect(document.body.querySelector('dds-leadspace-block')).toMatchSnapshot({ mode: 'shadow' });
+      expect(
+        document.body.querySelector('dds-leadspace-block')
+      ).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes', async function() {
+    it('should render with various attributes', async function () {
       render(
-        DefaultTemplate({ title: 'leadspace-block title', heading: 'leadspace-block heading', copy: 'leadspace-block copy' }),
+        DefaultTemplate({
+          title: 'leadspace-block title',
+          heading: 'leadspace-block heading',
+          copy: 'leadspace-block copy',
+        }),
         document.body
       );
       await Promise.resolve(); // Update cycle for `<dds-leadspace-block>`
-      expect(document.body.querySelector('dds-leadspace-block')).toMatchSnapshot({ mode: 'shadow' });
+      expect(
+        document.body.querySelector('dds-leadspace-block')
+      ).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 
-  describe('Misc attributes - WithVideo', function() {
-    it('should render with minimum attributes', async function() {
+  describe('Misc attributes - WithVideo', function () {
+    it('should render with minimum attributes', async function () {
       render(WithVideoTemplate(), document.body);
       await Promise.resolve(); // Update cycle for `<dds-leadspace-block>`
-      expect(document.body.querySelector('dds-leadspace-block')).toMatchSnapshot({ mode: 'shadow' });
+      expect(
+        document.body.querySelector('dds-leadspace-block')
+      ).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes', async function() {
+    it('should render with various attributes', async function () {
       render(
-        WithVideoTemplate({ title: 'leadspace-block title', heading: 'leadspace-block heading', copy: 'leadspace-block copy' }),
+        WithVideoTemplate({
+          title: 'leadspace-block title',
+          heading: 'leadspace-block heading',
+          copy: 'leadspace-block copy',
+        }),
         document.body
       );
       await Promise.resolve(); // Update cycle for `<dds-leadspace-block>`
-      expect(document.body.querySelector('dds-leadspace-block')).toMatchSnapshot({ mode: 'shadow' });
+      expect(
+        document.body.querySelector('dds-leadspace-block')
+      ).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

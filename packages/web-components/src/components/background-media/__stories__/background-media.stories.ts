@@ -10,7 +10,7 @@
 import '../index';
 import '../../video-player/video-player-container';
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import imgMax from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import imgLg16x9 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
 import imgSm4x3 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--4x3--480x360--005.jpg';
@@ -22,7 +22,7 @@ const gradientDirections = {
   [`Top to Bottom`]: GRADIENT_DIRECTION.TOP_TO_BOTTOM,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { alt, opacity } = args ?? {};
   return html`
     <dds-background-media
@@ -30,33 +30,38 @@ export const Default = args => {
       mobile-position="bottom"
       alt="${ifNonNull(alt)}"
       default-src="${imgMax}"
-      opacity="${ifNonNull(opacity)}"
-    >
-      <dds-image-item media="(min-width: 1584px)" srcset="${imgMax}"> </dds-image-item>
-      <dds-image-item media="(min-width: 1312px)" srcset="${imgLg16x9}"> </dds-image-item>
-      <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
-      <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}"> </dds-image-item>
-      <dds-image-item media="(min-width: 0px)" srcset="${imgSm4x3}"> </dds-image-item>
+      opacity="${ifNonNull(opacity)}">
+      <dds-image-item media="(min-width: 1584px)" srcset="${imgMax}">
+      </dds-image-item>
+      <dds-image-item media="(min-width: 1312px)" srcset="${imgLg16x9}">
+      </dds-image-item>
+      <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
+      </dds-image-item>
+      <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}">
+      </dds-image-item>
+      <dds-image-item media="(min-width: 0px)" srcset="${imgSm4x3}">
+      </dds-image-item>
     </dds-background-media>
   `;
 };
 
-export const WithVideo = args => {
+export const WithVideo = (args) => {
   const { opacity } = args ?? {};
   return html`
     <div style="height: 70vh;">
       <dds-background-media
         gradient-direction="${ifNonNull(args['gradient-direction'])}"
         mobile-position="bottom"
-        opacity="${ifNonNull(opacity)}"
-      >
-        <dds-video-player-container video-id="1_9h94wo6b" background-mode="true"></dds-video-player-container>
+        opacity="${ifNonNull(opacity)}">
+        <dds-video-player-container
+          video-id="1_9h94wo6b"
+          background-mode="true"></dds-video-player-container>
       </dds-background-media>
     </div>
   `;
 };
 
-export const WithDefaultSource = args => {
+export const WithDefaultSource = (args) => {
   const { alt, opacity } = args ?? {};
   return html`
     <dds-background-media
@@ -64,8 +69,7 @@ export const WithDefaultSource = args => {
       mobile-position="bottom"
       alt="${ifNonNull(alt)}"
       default-src="${imgMax}"
-      opacity="${ifNonNull(opacity)}"
-    >
+      opacity="${ifNonNull(opacity)}">
     </dds-background-media>
   `;
 };
@@ -74,12 +78,10 @@ export default {
   title: 'Components/Background media',
   component: 'dds-background-media',
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-sm-4 bx--no-gutter">
-            ${story()}
-          </div>
+          <div class="bx--col-sm-4 bx--no-gutter">${story()}</div>
         </div>
       </div>
     `,

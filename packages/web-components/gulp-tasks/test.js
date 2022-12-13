@@ -16,7 +16,16 @@ const { Server } = require('karma');
 const config = require('./config');
 
 const { cloptions, testsDir } = config;
-const { browsers, debug, specs, keepalive, noPruneSnapshot, random, updateSnapshot, verbose } = cloptions;
+const {
+  browsers,
+  debug,
+  specs,
+  keepalive,
+  noPruneSnapshot,
+  random,
+  updateSnapshot,
+  verbose,
+} = cloptions;
 
 /**
  * Runs the unit tests
@@ -52,11 +61,18 @@ gulp.task('test', gulp.task('test:unit'));
  */
 function a11y(done) {
   if (specs.length > 1) {
-    throw new RangeError('test:a11y can take only one -s option, which is a regular expression of target stories.');
+    throw new RangeError(
+      'test:a11y can take only one -s option, which is a regular expression of target stories.'
+    );
   }
   new Server(
     {
-      configFile: path.resolve(__dirname, '..', testsDir, 'karma-accessibility-checker.conf.js'),
+      configFile: path.resolve(
+        __dirname,
+        '..',
+        testsDir,
+        'karma-accessibility-checker.conf.js'
+      ),
       singleRun: !keepalive,
       customConfig: {
         browsers, // We'll massage browser list in `karma.config.js`

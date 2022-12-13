@@ -149,6 +149,7 @@
   }
 
   .#{$prefix}--content-layout__body {
+    display: grid;
     grid-area: body;
     .bx--content-group-cards__row {
       margin-left: 0;

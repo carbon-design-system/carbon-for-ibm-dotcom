@@ -10,8 +10,8 @@
 import { html, property, customElement, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import {
   formatVideoCaption,
@@ -38,7 +38,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-video-player
  */
 @customElement(`${ddsPrefix}-video-player`)
-class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(ParentVisibilityMixin(LitElement))) {
+class DDSVideoPlayer extends FocusMixin(
+  StableSelectorMixin(ParentVisibilityMixin(LitElement))
+) {
   /**
    * The video player's mode showing Inline or Lightbox.
    */
@@ -53,7 +55,8 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(ParentVisibilityMixi
       this.contentState = VIDEO_PLAYER_CONTENT_STATE.VIDEO;
     }
     const { videoId, name, customVideoDescription } = this;
-    const { eventContentStateChange } = this.constructor as typeof DDSVideoPlayer;
+    const { eventContentStateChange } = this
+      .constructor as typeof DDSVideoPlayer;
     this.dispatchEvent(
       new CustomEvent(eventContentStateChange, {
         bubbles: true,
@@ -74,19 +77,20 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(ParentVisibilityMixi
    */
   private _renderContent() {
     const { contentState, name, thumbnailUrl, backgroundMode } = this;
-    return contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL && !backgroundMode
+    return contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL &&
+      !backgroundMode
       ? html`
           <div class="${prefix}--video-player__video">
-            <button class="${prefix}--video-player__image-overlay" @click="${this._handleClickOverlay}">
+            <button
+              class="${prefix}--video-player__image-overlay"
+              @click="${this._handleClickOverlay}">
               <dds-image default-src="${thumbnailUrl}" alt="${ifNonNull(name)}">
                 ${PlayVideo({ slot: 'icon' })}
               </dds-image>
             </button>
           </div>
         `
-      : html`
-          <slot></slot>
-        `;
+      : html` <slot></slot> `;
   }
 
   /**
@@ -96,7 +100,10 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(ParentVisibilityMixi
     const thumbnailSrc = new URL(this.thumbnailUrl || '');
 
     // If current thumbnail is from Kaltura and includes this video's ID we should be able to safely update it.
-    if (thumbnailSrc.host.toLowerCase().includes('kaltura') && thumbnailSrc.pathname.includes(this.videoId!)) {
+    if (
+      thumbnailSrc.host.toLowerCase().includes('kaltura') &&
+      thumbnailSrc.pathname.includes(this.videoId!)
+    ) {
       this.thumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
         mediaId: this.videoId,
         width: String(this.offsetWidth),
@@ -113,7 +120,8 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(ParentVisibilityMixi
    */
   public userInitiatedTogglePlaybackState() {
     const { videoId } = this;
-    const { eventPlaybackStateChange } = this.constructor as typeof DDSVideoPlayer;
+    const { eventPlaybackStateChange } = this
+      .constructor as typeof DDSVideoPlayer;
     this.dispatchEvent(
       new CustomEvent(eventPlaybackStateChange, {
         bubbles: true,
@@ -200,12 +208,21 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(ParentVisibilityMixi
   createRenderRoot() {
     return this.attachShadow({
       mode: 'open',
-      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
+      delegatesFocus:
+        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
+        537,
     });
   }
 
   render() {
-    const { aspectRatio, duration, formatCaption, formatDuration, hideCaption, name } = this;
+    const {
+      aspectRatio,
+      duration,
+      formatCaption,
+      formatDuration,
+      hideCaption,
+      name,
+    } = this;
 
     const aspectRatioClass = classMap({
       [`${prefix}--video-player__video-container`]: true,
@@ -213,14 +230,17 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(ParentVisibilityMixi
     });
 
     return html`
-      <div class="${aspectRatioClass}">
-        ${this._renderContent()}
-      </div>
+      <div class="${aspectRatioClass}">${this._renderContent()}</div>
       ${hideCaption
         ? undefined
         : html`
             <div class="${prefix}--video-player__video-caption">
-              ${formatCaption({ duration: formatDuration({ duration: !duration ? duration : duration * 1000 }), name })}
+              ${formatCaption({
+                duration: formatDuration({
+                  duration: !duration ? duration : duration * 1000,
+                }),
+                name,
+              })}
             </div>
           `}
     `;
@@ -234,7 +254,12 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(ParentVisibilityMixi
       changedProperties.has('backgroundMode')
     ) {
       const { duration, formatCaption, formatDuration, name } = this;
-      const caption = formatCaption({ duration: formatDuration({ duration: !duration ? duration : duration * 1000 }), name });
+      const caption = formatCaption({
+        duration: formatDuration({
+          duration: !duration ? duration : duration * 1000,
+        }),
+        name,
+      });
       if (caption) {
         this.setAttribute('aria-label', caption);
       }
@@ -248,7 +273,9 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(ParentVisibilityMixi
   firstUpdated() {
     this.tabIndex = 0;
 
-    this.backgroundMode = (this.parentElement as DDSVideoPlayerContainer).backgroundMode;
+    this.backgroundMode = (
+      this.parentElement as DDSVideoPlayerContainer
+    ).backgroundMode;
   }
 
   /**

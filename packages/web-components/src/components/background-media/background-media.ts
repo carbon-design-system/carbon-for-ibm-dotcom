@@ -10,8 +10,8 @@
 import { html, property, customElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import pauseIcon from 'carbon-web-components/es/icons/pause--outline--filled/32.js';
-import playIcon from 'carbon-web-components/es/icons/play--filled/32.js';
+import pauseIcon from '@carbon/web-components/es/icons/pause--outline--filled/32.js';
+import playIcon from '@carbon/web-components/es/icons/play--filled/32.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './background-media.scss';
 import { GRADIENT_DIRECTION, MOBILE_POSITION } from './defs';
@@ -37,7 +37,8 @@ class DDSBackgroundMedia extends DDSImage {
   protected _getGradientClass() {
     return classMap({
       [`${prefix}--background-media--gradient`]: true,
-      [`${prefix}--background-media--gradient--${this.gradientDirection}`]: this.gradientDirection,
+      [`${prefix}--background-media--gradient--${this.gradientDirection}`]:
+        this.gradientDirection,
     });
   }
 
@@ -48,7 +49,8 @@ class DDSBackgroundMedia extends DDSImage {
     return classMap({
       [`${prefix}--background-media--container`]: true,
       [`${prefix}--background-media--mobile-position`]: true,
-      [`${prefix}--background-media--mobile-position--${this.mobilePosition}`]: this.mobilePosition,
+      [`${prefix}--background-media--mobile-position--${this.mobilePosition}`]:
+        this.mobilePosition,
       [`${prefix}--background-media--image`]: this.videoPlayer === null,
       [`${prefix}--background-media--video`]: this.videoPlayer !== null,
     });
@@ -106,11 +108,20 @@ class DDSBackgroundMedia extends DDSImage {
    * Conditionally runs super.render() if all children are `dds-image-item`
    */
   private _handleBackgroundMedia(event: Event) {
-    const assignedElements = (event.target as HTMLSlotElement)?.assignedElements();
-    const assignedImages = assignedElements.filter(el => el.tagName === `${ddsPrefix}-image-item`.toUpperCase());
-    const assignedVideos = assignedElements.filter(el => el.tagName === `${ddsPrefix}-video-player-container`.toUpperCase());
+    const assignedElements = (
+      event.target as HTMLSlotElement
+    )?.assignedElements();
+    const assignedImages = assignedElements.filter(
+      (el) => el.tagName === `${ddsPrefix}-image-item`.toUpperCase()
+    );
+    const assignedVideos = assignedElements.filter(
+      (el) => el.tagName === `${ddsPrefix}-video-player-container`.toUpperCase()
+    );
 
-    if (assignedElements.length === assignedImages.length && !assignedVideos.length) {
+    if (
+      assignedElements.length === assignedImages.length &&
+      !assignedVideos.length
+    ) {
       this.containsOnlyImages = true;
     }
 
@@ -136,17 +147,14 @@ class DDSBackgroundMedia extends DDSImage {
         class="${prefix}--video-player__controls"
         aria-pressed="${!videoIsPlaying}"
         aria-label="${videoIsPlaying ? 'Pause the video' : 'Play the video'}"
-        hasTooltip
-      >
+        hasTooltip>
         ${videoIsPlaying ? pauseIcon() : playIcon()}
       </button>
     `;
   }
 
   renderGradient() {
-    return html`
-      <div class="${this._getGradientClass()}"></div>
-    `;
+    return html` <div class="${this._getGradientClass()}"></div> `;
   }
 
   _getMediaOpacity() {
@@ -177,7 +185,9 @@ class DDSBackgroundMedia extends DDSImage {
     return html`
       <div class="${this._getMobilePositionClass()}">
         ${this.gradientHidden ? '' : this.renderGradient()}
-        <div class="${prefix}--background-media--item" style="${this._getMediaOpacity()}">
+        <div
+          class="${prefix}--background-media--item"
+          style="${this._getMediaOpacity()}">
           ${this.containsOnlyImages ? super.render() : ''}
           <slot @slotchange="${this._handleBackgroundMedia}"></slot>
         </div>
