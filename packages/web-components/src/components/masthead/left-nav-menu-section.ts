@@ -233,6 +233,14 @@ class DDSLeftNavMenuSection extends CspComplianceMixin(
     }
   }
 
+  connectedCallback() {
+    super.connectedCallback();
+
+    if (document.dir) {
+      this.dir = document.dir;
+    }
+  }
+
   render() {
     const {
       backButtonText,
