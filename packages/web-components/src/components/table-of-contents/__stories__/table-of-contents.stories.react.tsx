@@ -12,9 +12,10 @@ import React from 'react';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import DDSHorizontalRule from '@carbon/ibmdotcom-web-components/es/components-react/horizontal-rule/horizontal-rule';
-import { boolean, select, text } from '@storybook/addon-knobs';
 // @ts-ignore
-import DDSTableOfContents from '@carbon/ibmdotcom-web-components/es/components-react/table-of-contents/table-of-contents';
+import DDSTableOfContents, {
+  PropTypesRef,
+} from '@carbon/ibmdotcom-web-components/es/components-react/table-of-contents/table-of-contents';
 import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import DDSLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
 import ArrowLeft20 from '@carbon/icons-react/es/arrow--left/20.js';
@@ -24,7 +25,15 @@ import styles from './table-of-contents.stories.scss';
 import { ICON_PLACEMENT } from '../../../globals/defs';
 
 export const Default = args => {
-  const { numberOfItems: items, withHeadingContent } = args?.Other ?? {};
+  const { numberOfItems, withHeadingContent } = args;
+
+  const items = Array.from({
+    length: numberOfItems,
+  }).map((_, i) => ({
+    heading: headings[i % headings.length],
+    copy: `${LOREM}\n`.repeat(3).trim(),
+  }));
+
   return (
     <>
       <DDSTableOfContents>
@@ -33,17 +42,20 @@ export const Default = args => {
             <DDSLinkList slot="heading" type="vertical">
               <DDSLinkListItem
                 iconPlacement={ICON_PLACEMENT.LEFT}
-                href="https://github.com/carbon-design-system/carbon-web-components">
+                href="https://github.com/carbon-design-system/carbon-web-components"
+              >
                 DevOps <ArrowLeft20 slot="icon" />
               </DDSLinkListItem>
               <DDSLinkListItem
                 iconPlacement={ICON_PLACEMENT.LEFT}
-                href="https://github.com/carbon-design-system/carbon-web-components">
+                href="https://github.com/carbon-design-system/carbon-web-components"
+              >
                 Automation <ArrowLeft20 slot="icon" />
               </DDSLinkListItem>
               <DDSLinkListItem
                 iconPlacement={ICON_PLACEMENT.LEFT}
-                href="https://github.com/carbon-design-system/carbon-web-components">
+                href="https://github.com/carbon-design-system/carbon-web-components"
+              >
                 Development <ArrowLeft20 slot="icon" />
               </DDSLinkListItem>
             </DDSLinkList>
@@ -57,32 +69,94 @@ export const Default = args => {
 };
 
 export const Horizontal = args => {
-  const { numberOfItems: items } = args?.Other ?? {};
+  const { numberOfItems } = args;
+
+  const items = Array.from({
+    length: numberOfItems,
+  }).map((_, i) => ({
+    heading: headings[i % headings.length],
+    copy: `${LOREM}\n`.repeat(3).trim(),
+  }));
+
   return (
     <>
-      <DDSTableOfContents layout={'horizontal'}>{content({ items })}</DDSTableOfContents>
+      <DDSTableOfContents layout={'horizontal'}>
+        {content({ items })}
+      </DDSTableOfContents>
     </>
   );
 };
 
 Horizontal.story = {
   name: 'Horizontal',
-  parameters: {
-    knobs: {
-      Other: () => ({
-        numberOfItems: Array.from({
-          length: select('Number of items', [5, 6, 7, 8], 5),
-        }).map((_, i) => ({
-          heading: text(`Section ${i + 1} heading`, headings[i % headings.length]),
-          copy: text(`Section ${i + 1} copy`, `${LOREM}\n`.repeat(3).trim()),
-        })),
-      }),
+  argTypes: {
+    withHeadingContent: {
+      table: {
+        disable: true,
+      },
     },
   },
 };
 
 export default {
   title: 'Components/Table of contents',
+  component: PropTypesRef,
+  argTypes: {
+    numberOfItems: {
+      options: [5, 6, 7, 8],
+      control: { type: 'number' },
+      defaultValue: 5,
+    },
+    withHeadingContent: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+    },
+    'menu-rule': {
+      table: {
+        disable: true,
+      },
+    },
+    table: {
+      table: {
+        disable: true,
+      },
+    },
+    heading: {
+      table: {
+        disable: true,
+      },
+    },
+    selectorTarget: {
+      table: {
+        disable: true,
+      },
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
+    },
+    layout: {
+      table: {
+        disable: true,
+      },
+    },
+    ariaLabelFormatter: {
+      table: {
+        disable: true,
+      },
+    },
+    stickyOffset: {
+      table: {
+        disable: true,
+      },
+    },
+    'toc-layout': {
+      table: {
+        disable: true,
+      },
+    },
+  },
   decorators: [
     story => {
       return (
@@ -98,16 +172,5 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      Other: () => ({
-        withHeadingContent: boolean('With heading content', false),
-        numberOfItems: Array.from({
-          length: select('Number of items', [5, 6, 7, 8], 5),
-        }).map((_, i) => ({
-          heading: text(`Section ${i + 1} heading`, headings[i % headings.length]),
-          copy: text(`Section ${i + 1} copy`, `${LOREM}\n`.repeat(3).trim()),
-        })),
-      }),
-    },
   },
 };

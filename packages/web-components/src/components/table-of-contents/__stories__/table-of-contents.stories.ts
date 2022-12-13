@@ -9,7 +9,6 @@
 
 import { nothing } from 'lit-html';
 import { html } from 'lit-element';
-import { boolean, select, text } from '@storybook/addon-knobs';
 import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
 import '../table-of-contents';
 import '../../horizontal-rule/horizontal-rule';
@@ -21,8 +20,15 @@ import readme from './README.stories.mdx';
 import { TOC_TYPES } from '../defs';
 import { ICON_PLACEMENT } from '../../../globals/defs';
 
-export const Default = (args) => {
-  const { numberOfItems: items, withHeadingContent } = args?.Other ?? {};
+export const Default = args => {
+  const { numberOfItems, withHeadingContent } = args;
+
+  const items = Array.from({
+    length: numberOfItems,
+  }).map((_, i) => ({
+    heading: headings[i % headings.length],
+    copy: `${LOREM}\n`.repeat(3).trim(),
+  }));
   return html`
     <dds-table-of-contents>
       ${withHeadingContent
@@ -30,17 +36,20 @@ export const Default = (args) => {
             <dds-link-list type="vertical" slot="heading">
               <dds-link-list-item
                 icon-placement="${ICON_PLACEMENT.LEFT}"
-                href="https://github.com/carbon-design-system/carbon-web-components">
+                href="https://github.com/carbon-design-system/carbon-web-components"
+              >
                 DevOps${ArrowLeft20({ slot: 'icon' })}
               </dds-link-list-item>
               <dds-link-list-item
                 icon-placement="${ICON_PLACEMENT.LEFT}"
-                href="https://github.com/carbon-design-system/carbon-web-components">
+                href="https://github.com/carbon-design-system/carbon-web-components"
+              >
                 Automation${ArrowLeft20({ slot: 'icon' })}
               </dds-link-list-item>
               <dds-link-list-item
                 icon-placement="${ICON_PLACEMENT.LEFT}"
-                href="https://github.com/carbon-design-system/carbon-web-components">
+                href="https://github.com/carbon-design-system/carbon-web-components"
+              >
                 Development${ArrowLeft20({ slot: 'icon' })}
               </dds-link-list-item>
             </dds-link-list>
@@ -52,8 +61,16 @@ export const Default = (args) => {
   `;
 };
 
-export const Horizontal = (args) => {
-  const { numberOfItems: items } = args?.Other ?? {};
+export const Horizontal = args => {
+  const { numberOfItems } = args;
+
+  const items = Array.from({
+    length: numberOfItems,
+  }).map((_, i) => ({
+    heading: headings[i % headings.length],
+    copy: `${LOREM}\n`.repeat(3).trim(),
+  }));
+
   return html`
     <dds-table-of-contents toc-layout="${TOC_TYPES.HORIZONTAL}">
       <div class="bx--row">
@@ -70,20 +87,14 @@ export const Horizontal = (args) => {
 
 Horizontal.story = {
   name: 'Horizontal',
-  parameters: {
-    knobs: {
-      Other: () => ({
-        numberOfItems: Array.from({
-          length: select('Number of items', [5, 6, 7, 8], 5),
-        }).map((_, i) => ({
-          heading: text(
-            `Section ${i + 1} heading`,
-            headings[i % headings.length]
-          ),
-          copy: text(`Section ${i + 1} copy`, `${LOREM}\n`.repeat(3).trim()),
-        })),
-      }),
+  argTypes: {
+    withHeadingContent: {
+      table: {
+        disable: true,
+      },
     },
+  },
+  parameters: {
     propsSet: {
       default: {
         Other: {
@@ -102,8 +113,65 @@ Horizontal.story = {
 
 export default {
   title: 'Components/Table of contents',
+  component: 'dds-table-of-contents',
+  argTypes: {
+    numberOfItems: {
+      options: [5, 6, 7, 8],
+      control: { type: 'number' },
+      defaultValue: 5,
+    },
+    withHeadingContent: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+    },
+    'menu-rule': {
+      table: {
+        disable: true,
+      },
+    },
+    table: {
+      table: {
+        disable: true,
+      },
+    },
+    heading: {
+      table: {
+        disable: true,
+      },
+    },
+    selectorTarget: {
+      table: {
+        disable: true,
+      },
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
+    },
+    layout: {
+      table: {
+        disable: true,
+      },
+    },
+    ariaLabelFormatter: {
+      table: {
+        disable: true,
+      },
+    },
+    stickyOffset: {
+      table: {
+        disable: true,
+      },
+    },
+    'toc-layout': {
+      table: {
+        disable: true,
+      },
+    },
+  },
   decorators: [
-    (story) => html`
+    story => html`
       <style>
         ${styles}
       </style>
@@ -113,20 +181,6 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      Other: () => ({
-        withHeadingContent: boolean('With heading content', false),
-        numberOfItems: Array.from({
-          length: select('Number of items', [5, 6, 7, 8], 5),
-        }).map((_, i) => ({
-          heading: text(
-            `Section ${i + 1} heading`,
-            headings[i % headings.length]
-          ),
-          copy: text(`Section ${i + 1} copy`, `${LOREM}\n`.repeat(3).trim()),
-        })),
-      }),
-    },
     propsSet: {
       default: {
         Other: {

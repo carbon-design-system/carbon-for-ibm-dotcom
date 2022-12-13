@@ -7,21 +7,29 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import Error20 from '@carbon/web-components/es/icons/error/20.js';
 import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
 
-export const Default = (args) => {
-  const { disabled, href, heading, copy } = args?.CardLink ?? {};
+export const Default = args => {
+  const { disabled, href, heading, copy } = args;
+
+  const copyNode = document.querySelector('dds-card-link p p');
+  if (copyNode) {
+    (copyNode as HTMLElement).innerText = copy;
+  }
+
   return html`
     <dds-card-link ?disabled=${disabled} href=${ifNonNull(href || undefined)}>
       <dds-card-link-heading>${heading}</dds-card-link-heading>
-      ${copy ? html` <p>${copy}</p> ` : ``}
+      ${copy
+        ? html`
+            <p>${copy}</p>
+          `
+        : ``}
       <dds-card-footer ?disabled=${disabled}>
         ${disabled ? Error20({ slot: 'icon' }) : ArrowRight20({ slot: 'icon' })}
       </dds-card-footer>
@@ -31,12 +39,127 @@ export const Default = (args) => {
 
 export default {
   title: 'Components/Card link',
+  component: 'dds-card-link',
+  argTypes: {
+    disabled: {
+      control: 'boolean',
+      defaultValue: false,
+    },
+    href: {
+      control: { type: 'text' },
+      defaultValue: 'https://example.com',
+    },
+    heading: {
+      control: { type: 'text' },
+      defaultValue: 'Explore AI use cases in all industries',
+    },
+    copy: {
+      control: { type: 'text' },
+      defaultValue: '',
+    },
+    hreflang: {
+      table: {
+        disable: true,
+      },
+    },
+    ping: {
+      table: {
+        disable: true,
+      },
+    },
+    rel: {
+      table: {
+        disable: true,
+      },
+    },
+    target: {
+      table: {
+        disable: true,
+      },
+    },
+    linkRole: {
+      table: {
+        disable: true,
+      },
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
+    },
+    'link-role': {
+      table: {
+        disable: true,
+      },
+    },
+    border: {
+      table: {
+        disable: true,
+      },
+    },
+    'color-scheme': {
+      table: {
+        disable: true,
+      },
+    },
+    'pictogram-placement': {
+      table: {
+        disable: true,
+      },
+    },
+    download: {
+      table: {
+        disable: true,
+      },
+    },
+    logo: {
+      table: {
+        disable: true,
+      },
+    },
+    size: {
+      table: {
+        disable: true,
+      },
+    },
+    type: {
+      table: {
+        disable: true,
+      },
+    },
+    colorScheme: {
+      table: {
+        disable: true,
+      },
+    },
+    pictogramPlacement: {
+      table: {
+        disable: true,
+      },
+    },
+    eyebrow: {
+      table: {
+        disable: true,
+      },
+    },
+    image: {
+      table: {
+        disable: true,
+      },
+    },
+    footer: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   decorators: [
-    (story) => html`
+    story => html`
       <div class="bx--grid">
         <div class="bx--row">
           <div
-            class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
+            class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter"
+          >
             ${story()}
           </div>
         </div>
@@ -46,17 +169,6 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      CardLink: () => ({
-        disabled: boolean('Disabled (disabled):', false),
-        href: textNullable('Card href (href):', 'https://example.com'),
-        heading: textNullable(
-          'Card heading (heading):',
-          'Explore AI use cases in all industries'
-        ),
-        copy: textNullable('Card copy (copy):', ''),
-      }),
-    },
     propsSet: {
       default: {
         CardLink: {
