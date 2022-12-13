@@ -7,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { number, select, text } from '@storybook/addon-knobs';
 import React from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import ArrowDown20 from '@carbon/icons-react/es/arrow--down/20.js';
@@ -15,10 +14,9 @@ import Pdf20 from '@carbon/icons-react/es/PDF/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
+import DDSButtonGroup, { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
 import DDSButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item';
 import readme from './README.stories.react.mdx';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const iconMap = {
   ArrowRight20: <ArrowRight20 slot="icon" />,
@@ -34,7 +32,15 @@ const iconOptions = {
 };
 
 export const Default = args => {
-  const { buttons } = args?.ButtonGroup ?? {};
+  const { numberOfButtons } = args;
+
+  const buttons = Array.from({
+    length: numberOfButtons,
+  }).map((_, i) => ({
+    href: `https://example.com`,
+    copy: `Button ${i + 1}`,
+    renderIcon: iconMap[iconOptions.Default ?? 0],
+  }));
 
   return (
     <DDSButtonGroup>
@@ -49,17 +55,6 @@ export const Default = args => {
 
 Default.story = {
   parameters: {
-    knobs: {
-      ButtonGroup: () => ({
-        buttons: Array.from({
-          length: number('Number of buttons', 2, {}),
-        }).map((_, i) => ({
-          href: textNullable(`Link ${i + 1}`, `https://example.com`),
-          copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
-          renderIcon: iconMap[select(`Icon ${i + 1}`, iconOptions, iconOptions.Default) ?? 0],
-        })),
-      }),
-    },
     propsSet: {
       default: {
         ButtonGroup: {
@@ -81,6 +76,13 @@ Default.story = {
 
 export default {
   title: 'Components/Button group',
+  component: PropTypesRef,
+  argTypes: {
+    numberOfButtons: {
+      control: { type: 'number' },
+      defaultValue: 2,
+    },
+  },
   decorators: [
     story => {
       return (

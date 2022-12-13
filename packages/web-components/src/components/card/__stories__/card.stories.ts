@@ -19,6 +19,8 @@ import logoMicrosoft2x1 from '../../../../../storybook-images/assets/logos/logo-
 import { PICTOGRAM_PLACEMENT } from '../defs';
 import readme from './README.stories.mdx';
 
+const cardStylesList = ['Outlined card', 'Inverse card', 'none'];
+
 const tagGroupContent = html`
   <dds-tag-group>
     <bx-tag>
@@ -30,7 +32,8 @@ const tagGroupContent = html`
   </dds-tag-group>
 `;
 
-export const Default = ({ image, alt, heading, eyebrow, tagGroup, copy, footer, cardStyles }) => {
+export const Default = args => {
+  const { image, alt, heading, eyebrow, tagGroup, copy, footer, cardStyles } = args;
   /* eslint-disable no-nested-ternary */
   return html`
     <dds-card
@@ -91,9 +94,14 @@ Default.story = {
       defaultValue: 'Learn more',
     },
     cardStyles: {
-      options: ['Outlined card', 'Inverse card', 'none'],
+      options: cardStylesList,
       control: { type: 'select' },
       defaultValue: 'none',
+    },
+    pictogramPlacement: {
+      table: {
+        disable: true,
+      },
     },
   },
   parameters: {
@@ -120,7 +128,8 @@ const pictogramPlacements = {
   [PICTOGRAM_PLACEMENT.BOTTOM]: PICTOGRAM_PLACEMENT.BOTTOM,
 };
 
-export const Pictogram = ({ heading, copy, tagGroup, pictogramPlacement, cardStyles }) => {
+export const Pictogram = args => {
+  const { heading, copy, tagGroup, pictogramPlacement, cardStyles } = args;
   return html`
     <dds-card
       pictogram-placement="${pictogramPlacement}"
@@ -181,9 +190,24 @@ Pictogram.story = {
       defaultValue: 'Free trials',
     },
     cardStyles: {
-      options: ['Outlined card', 'Inverse card', 'none'],
+      options: cardStylesList,
       control: { type: 'select' },
       defaultValue: 'none',
+    },
+    footer: {
+      table: {
+        disable: true,
+      },
+    },
+    image: {
+      table: {
+        disable: true,
+      },
+    },
+    eyebrow: {
+      table: {
+        disable: true,
+      },
     },
   },
   parameters: {
@@ -203,7 +227,8 @@ Pictogram.story = {
   },
 };
 
-export const Static = ({ image, alt, outlinedCard, eyebrow, heading, copy, tagGroup, cta, ctaCopy }) => {
+export const Static = args => {
+  const { image, alt, outlinedCard, eyebrow, heading, copy, tagGroup, cta, ctaCopy } = args;
   return html`
     <dds-card color-scheme=${outlinedCard ? 'light' : ''} ?border=${outlinedCard}>
       ${image
@@ -219,7 +244,7 @@ export const Static = ({ image, alt, outlinedCard, eyebrow, heading, copy, tagGr
       <dds-card-heading>${heading}</dds-card-heading>
       ${copy
         ? html`
-            ${copy}
+            <p>${copy}</p>
           `
         : ``}
       ${tagGroup
@@ -253,7 +278,8 @@ Static.story = {
     },
     copy: {
       control: { type: 'text' },
-      defaultValue: '',
+      defaultValue: `Enjoy full SPSS Statistics capabilities including all add-ons. 
+        All trial registrants are restricted to one free trial per computer per user.`,
     },
     alt: {
       control: { type: 'text' },
@@ -277,6 +303,16 @@ Static.story = {
       control: 'boolean',
       defaultValue: true,
     },
+    pictogramPlacement: {
+      table: {
+        disable: true,
+      },
+    },
+    footer: {
+      table: {
+        disable: true,
+      },
+    },
   },
   parameters: {
     ...readme.parameters,
@@ -299,7 +335,8 @@ Static.story = {
   },
 };
 
-export const Logo = ({ alt, eyebrow, heading, copy, tagGroup }) => {
+export const Logo = args => {
+  const { alt, eyebrow, heading, copy, tagGroup } = args;
   return html`
     <dds-card border logo href="https://example.com">
       <dds-image-logo slot="image" alt="${ifNonNull(alt)}" default-src="${logoMicrosoft2x1}"></dds-image-logo>
@@ -331,7 +368,6 @@ export const Logo = ({ alt, eyebrow, heading, copy, tagGroup }) => {
 
 Logo.story = {
   argTypes: {
-    alt: 'Image alt text',
     tagGroup: {
       control: 'boolean',
     },
@@ -346,6 +382,16 @@ Logo.story = {
     copy: {
       control: { type: 'text' },
       defaultValue: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    },
+    alt: {
+      table: {
+        disable: true,
+      },
+    },
+    footer: {
+      table: {
+        disable: true,
+      },
     },
   },
   parameters: {
@@ -369,6 +415,94 @@ Logo.story = {
 
 export default {
   title: 'Components/Card',
+  component: 'dds-card',
+  argTypes: {
+    hreflang: {
+      table: {
+        disable: true,
+      },
+    },
+    ping: {
+      table: {
+        disable: true,
+      },
+    },
+    rel: {
+      table: {
+        disable: true,
+      },
+    },
+    target: {
+      table: {
+        disable: true,
+      },
+    },
+    linkRole: {
+      table: {
+        disable: true,
+      },
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
+    },
+    'link-role': {
+      table: {
+        disable: true,
+      },
+    },
+    border: {
+      table: {
+        disable: true,
+      },
+    },
+    'color-scheme': {
+      table: {
+        disable: true,
+      },
+    },
+    'pictogram-placement': {
+      table: {
+        disable: true,
+      },
+    },
+    download: {
+      table: {
+        disable: true,
+      },
+    },
+    logo: {
+      table: {
+        disable: true,
+      },
+    },
+    size: {
+      table: {
+        disable: true,
+      },
+    },
+    type: {
+      table: {
+        disable: true,
+      },
+    },
+    href: {
+      table: {
+        disable: true,
+      },
+    },
+    colorScheme: {
+      table: {
+        disable: true,
+      },
+    },
+    disabled: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   decorators: [
     story => html`
       <div class="bx--grid">

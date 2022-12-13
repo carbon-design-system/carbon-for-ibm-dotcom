@@ -10,32 +10,18 @@
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
 import { CTA_TYPE } from '../../cta/defs';
 import image from '../../../../../storybook-images/assets/card-section-offset/background-media.jpg';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 
-const ctaTypes = {
-  [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
-  [`Download (${CTA_TYPE.DOWNLOAD})`]: CTA_TYPE.DOWNLOAD,
-  [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
-  [`Video (${CTA_TYPE.VIDEO})`]: CTA_TYPE.VIDEO,
-};
+const ctaTypes = [CTA_TYPE.LOCAL, CTA_TYPE.DOWNLOAD, CTA_TYPE.EXTERNAL, CTA_TYPE.VIDEO];
 
 const hrefsForType = {
   [CTA_TYPE.LOCAL]: 'https://www.example.com',
   [CTA_TYPE.EXTERNAL]: 'https://www.example.com',
   [CTA_TYPE.DOWNLOAD]: 'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
   [CTA_TYPE.VIDEO]: '1_9h94wo6b',
-};
-
-const knobNamesForType = {
-  [CTA_TYPE.LOCAL]: 'Content link href (href)',
-  [CTA_TYPE.EXTERNAL]: 'Content link href (href)',
-  [CTA_TYPE.DOWNLOAD]: 'Download link href (href)',
-  [CTA_TYPE.VIDEO]: 'Video ID (href)',
 };
 
 const defaultCardGroupItem = html`
@@ -51,8 +37,19 @@ const defaultCardGroupItem = html`
   </dds-card-group-item>
 `;
 
+const cards = Array.from({
+  length: 3,
+}).map(() => defaultCardGroupItem);
+
 export const Default = args => {
-  const { heading, cards, ctaType, ctaCopy, download, href, alt, defaultSrc } = args?.CardSectionOffset ?? {};
+  const { heading, ctaType, ctaCopy, download, alt, defaultSrc } = args;
+
+  const headingComponent = document.querySelector('dds-content-block-heading');
+  if (headingComponent && heading) {
+    (headingComponent as HTMLElement).shadowRoot!.innerHTML = heading;
+  }
+
+  const currentHref = hrefsForType[ctaType ?? CTA_TYPE.REGULAR];
   return html`
     <dds-card-section-offset>
       <dds-background-media
@@ -68,7 +65,7 @@ export const Default = args => {
         icon-placement="right"
         cta-type="${ifNonNull(ctaType)}"
         download="${ifNonNull(download)}"
-        href="${ifNonNull(href)}"
+        href="${currentHref}"
       >
         ${ctaCopy}
       </dds-text-cta>
@@ -81,6 +78,7 @@ export const Default = args => {
 
 export default {
   title: 'Components/Card section offset',
+  component: 'dds-card-section-offset',
   decorators: [
     story => html`
       <div class="bx--grid">
@@ -92,29 +90,88 @@ export default {
       </div>
     `,
   ],
+  argTypes: {
+    ctaType: {
+      options: ctaTypes,
+      control: { type: 'select' },
+      defaultValue: CTA_TYPE.LOCAL,
+    },
+    heading: {
+      control: { type: 'text' },
+      defaultValue: 'Aliquam condimentum interdum',
+      if: { arg: 'ctaType', neq: CTA_TYPE.VIDEO },
+    },
+    ctaCopy: {
+      control: { type: 'text' },
+      defaultValue: 'Lorem ipsum dolor sit amet',
+      if: { arg: 'ctaType', neq: CTA_TYPE.VIDEO },
+    },
+    downloadTarget: {
+      control: { type: 'text' },
+      defaultValue: 'IBM_Annual_Report_2019.pdf',
+      if: { arg: 'ctaType', eq: CTA_TYPE.DOWNLOAD },
+    },
+    href: {
+      control: { type: 'text' },
+      defaultValue: CTA_TYPE.REGULAR,
+    },
+    alt: {
+      control: { type: 'text' },
+      defaultValue: 'Image alt text',
+    },
+    defaultSrc: {
+      control: { type: 'text' },
+      defaultValue: image,
+    },
+    complementaryStyleScheme: {
+      table: {
+        disable: true,
+      },
+    },
+    'complementary-style-scheme': {
+      table: {
+        disable: true,
+      },
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
+    },
+    'card-group': {
+      table: {
+        disable: true,
+      },
+    },
+    action: {
+      table: {
+        disable: true,
+      },
+    },
+    complementary: {
+      table: {
+        disable: true,
+      },
+    },
+    footer: {
+      table: {
+        disable: true,
+      },
+    },
+    media: {
+      table: {
+        disable: true,
+      },
+    },
+    copy: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      CardSectionOffset: () => {
-        const ctaType = select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL);
-        const ctaCopy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text', 'Lorem ipsum dolor sit amet');
-        const download =
-          ctaType !== CTA_TYPE.DOWNLOAD ? undefined : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
-        return {
-          heading: 'Aliquam condimentum interdum',
-          ctaCopy,
-          ctaType,
-          download,
-          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR]),
-          cards: Array.from({
-            length: 3,
-          }).map(() => defaultCardGroupItem),
-          alt: textNullable('Alt text', 'Image alt text'),
-          defaultSrc: textNullable('Default image (default-src)', image),
-        };
-      },
-    },
     propsSet: {
       default: {
         CardSectionOffset: {

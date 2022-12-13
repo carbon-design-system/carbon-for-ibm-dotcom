@@ -7,14 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { number, select, text } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20.js';
 import Pdf20 from 'carbon-web-components/es/icons/PDF/20.js';
 import readme from './README.stories.mdx';
 import '../index';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const iconMap = {
   ArrowRight20: ArrowRight20({ slot: 'icon' }),
@@ -30,7 +28,16 @@ const iconOptions = {
 };
 
 export const Default = args => {
-  const { buttons } = args?.ButtonGroup ?? {};
+  const { numberOfButtons } = args;
+
+  const buttons = Array.from({
+    length: numberOfButtons,
+  }).map((_, i) => ({
+    href: `https://example.com`,
+    copy: `Button ${i + 1}`,
+    renderIcon: iconMap[iconOptions.Default ?? 0],
+  }));
+
   return html`
     <dds-button-group>
       ${buttons.map(
@@ -44,6 +51,13 @@ export const Default = args => {
 
 export default {
   title: 'Components/Button group',
+  components: 'dds-button-group',
+  argTypes: {
+    numberOfButtons: {
+      control: { type: 'number' },
+      defaultValue: 2,
+    },
+  },
   decorators: [
     story => html`
       <div class="bx--grid">
@@ -58,17 +72,6 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      ButtonGroup: () => ({
-        buttons: Array.from({
-          length: number('Number of buttons', 2, {}),
-        }).map((_, i) => ({
-          href: textNullable(`Link ${i + 1}`, `https://example.com`),
-          copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
-          renderIcon: iconMap[select(`Icon ${i + 1}`, iconOptions, iconOptions.Default) ?? 0],
-        })),
-      }),
-    },
     propsSet: {
       default: {
         ButtonGroup: {
