@@ -23,16 +23,12 @@
   :host(#{$dds-prefix}-content-block-headlines),
   .#{$prefix}--content-block {
     display: block;
-    margin-top: $carbon--layout-03;
-    margin-bottom: $carbon--layout-05;
+    margin-top: $carbon--spacing-07;
+    margin-bottom: $carbon--spacing-12;
 
-    @include carbon--breakpoint('md') {
-      margin-top: $carbon--layout-05;
-      margin-bottom: $carbon--layout-06;
-    }
-
-    @include carbon--breakpoint('max') {
-      margin-bottom: $carbon--layout-07;
+    @include carbon--breakpoint('lg') {
+      margin-top: $carbon--spacing-10;
+      margin-bottom: $carbon--spacing-13;
     }
 
     &[complementary-style-scheme='with-border'] {
@@ -78,10 +74,7 @@
       margin-right: 0;
       padding-left: 0;
       padding-right: 0;
-
-      @include carbon--breakpoint('md') {
-        padding-bottom: $carbon--spacing-10;
-      }
+      padding-bottom: $carbon--spacing-10;
 
       @include carbon--breakpoint('lg') {
         padding-bottom: $carbon--spacing-12;
