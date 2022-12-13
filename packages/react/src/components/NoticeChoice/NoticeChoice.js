@@ -5,21 +5,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useCallback, useEffect, useRef, useState } from 'react';
 // eslint-disable-next-line sort-imports
 import { checkPreferencesv3, loadContent } from './services';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import BPIDLegalText from './BPIDLegalText';
 import Checkbox from '../../internal/vendor/carbon-components-react/components/Checkbox';
-import { DDS_NOTICE_CHOICE } from '../../internal/FeatureFlags.js';
-import PropTypes from 'prop-types';
-import SkeletonText from '../../internal/vendor/carbon-components-react/components/SkeletonText';
 // eslint-disable-next-line sort-imports
 import countrySettings from './country-settings';
+import { DDS_NOTICE_CHOICE } from '../../internal/FeatureFlags.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import featureFlag from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/featureflag/featureflag';
 import { getMappedValue } from './utils';
+import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
+import SkeletonText from '../../internal/vendor/carbon-components-react/components/SkeletonText';
 import worldWideContent from './world-wide-content';
 
 const { stablePrefix } = ddsSettings;
@@ -38,6 +38,7 @@ export function NoticeChoice({
   defaultValues,
   enableAllOptIn,
   bpidLegalText,
+  state,
 }) {
   const [loaded, setLoaded] = useState(false);
   const [changed, setChanged] = useState(false);
@@ -229,12 +230,14 @@ export function NoticeChoice({
         });
       }
     },
-    [values, prefChange, onChange]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
   );
   const getPostText = useCallback(() => {
     const OptInContent = ncData.OptInContent;
     const OtherPreferences = ncData.OtherPreferences;
     let postText = OptInContent.postText;
+    let tcHtml = '';
     if (termsConditionLink) {
       let originalValue = OtherPreferences.trailPrivacyText;
       const matchedValue = originalValue.match(/<tc>.*<\/tc>/g);
@@ -242,6 +245,7 @@ export function NoticeChoice({
         const anrTagHtml = matchedValue[0].replace(/<tc>|<\/tc>/g, '');
         const link = `<a href='${termsConditionLink}' target='_blank' class='ibm-tooltip' >${anrTagHtml}</a>`;
         const reg = new RegExp('<tc>' + anrTagHtml + '</tc>', 'g');
+        tcHtml = `<p>I accept the product  <a href='${termsConditionLink}' target='_blank' class='ibm-tooltip' >${anrTagHtml}</a> of this registration form.</p>`;
         postText = originalValue.replace(reg, link);
       }
     }
@@ -258,14 +262,20 @@ export function NoticeChoice({
     const ccLcObject = getMappedValue(locale);
     const cc = ccLcObject.cc;
     const lc = ccLcObject.lc;
+    const ccpa = country === 'US' && (state === 'CA' || state === '');
     if (country === 'CN' && lc === 'en') {
       return `<p class="nc-gdpr-info">I agree and acknowledge that IBM may share my personal information with IBM affiliates and third parties globally.
          I understand that I can withdraw my marketing consent at any time by submitting an <a href="https://www.ibm.com/account/reg/${cc}-${lc}/signup?formid=urx-42537" target="_blank">opt-out request</a>,
          and also may unsubscribe from receiving marketing emails by clicking the unsubscribe link in each email. More information in IBM’s use and processing of personal information can be found in the <a href="https://www.ibm.com/privacy" target="_blank">IBM Privacy Statement</a>.
-         <p class="nc-gdpr-ack">By ticking the above boxes and submitting this form, I have read and understand the above notice and  IBM Privacy Statement.</p>`;
+         <p class="nc-gdpr-ack">By ticking the above boxes and submitting this form, I have read and understand the above notice and  IBM Privacy Statement.</p>${tcHtml}`;
+    } else if (lc === 'en' && ccpa) {
+      return `<p class="nc-gdpr-info">You can withdraw your marketing consent at any time by submitting an <a href='https://www.ibm.com/account/reg/us-en/signup?formid=urx-42537' target='_blank'>opt-out request</a>. Also you may unsubscribe from receiving marketing emails by clicking the unsubscribe link in each email.</p>
+      <p class="nc-gdpr-ack"> More information on our processing can be found in the <a href='https://www.ibm.com/privacy' target='_blank'>IBM Privacy Statement.</a>
+      California residents, review <a href="https://www.ibm.com/privacy/ccpa" target="_blank">our notice and your privacy choices</a>.
+      <br> By submitting this form, I acknowledge that I have read and understand the IBM Privacy Statement.</p>${tcHtml}`;
     }
     return postText;
-  }, [ncData, country, termsConditionLink, locale]);
+  }, [ncData, country, state, termsConditionLink, locale]);
 
   // Email changed
   useEffect(() => {
@@ -487,6 +497,11 @@ NoticeChoice.propTypes = {
    * we may inform them that you registered with us.
    */
   bpidLegalText: PropTypes.string,
+  /**
+   * state, Users residing state
+   * Optional. required to apply state specific privacy satement
+   */
+  state: PropTypes.string,
 };
 NoticeChoice.defaultProps = {
   email: '',
@@ -497,5 +512,6 @@ NoticeChoice.defaultProps = {
   defaultValues: {},
   enableAllOptIn: false,
   country: 'us',
+  state: '',
 };
 export default NoticeChoice;
