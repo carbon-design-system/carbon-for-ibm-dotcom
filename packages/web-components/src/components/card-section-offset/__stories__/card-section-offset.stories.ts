@@ -15,7 +15,12 @@ import '../index';
 import { CTA_TYPE } from '../../cta/defs';
 import image from '../../../../../storybook-images/assets/card-section-offset/background-media.jpg';
 
-const ctaTypes = [CTA_TYPE.LOCAL, CTA_TYPE.DOWNLOAD, CTA_TYPE.EXTERNAL, CTA_TYPE.VIDEO];
+const ctaTypes = [
+  CTA_TYPE.LOCAL,
+  CTA_TYPE.DOWNLOAD,
+  CTA_TYPE.EXTERNAL,
+  CTA_TYPE.VIDEO,
+];
 
 const hrefsForType = {
   [CTA_TYPE.LOCAL]: 'https://www.example.com',
@@ -45,7 +50,7 @@ const cards = Array.from({
   length: 3,
 }).map(() => defaultCardGroupItem);
 
-export const Default = args => {
+export const Default = (args) => {
   const { heading, ctaType, ctaCopy, download, alt, defaultSrc } = args;
 
   const headingComponent = document.querySelector('dds-content-block-heading');
@@ -70,8 +75,7 @@ export const Default = args => {
         icon-placement="right"
         cta-type="${ifNonNull(ctaType)}"
         download="${ifNonNull(download)}"
-        href="${currentHref}"
-      >
+        href="${currentHref}">
         ${ctaCopy}
       </dds-text-cta>
       <dds-card-group slot="card-group" cards-per-row="2">

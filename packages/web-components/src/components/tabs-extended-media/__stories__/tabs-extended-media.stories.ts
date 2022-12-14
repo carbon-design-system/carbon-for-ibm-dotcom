@@ -26,7 +26,7 @@ const mediaType = {
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { sectionHeading, sectionHeadingText, align, type } = args;
   const tabs: any[] = [];
 

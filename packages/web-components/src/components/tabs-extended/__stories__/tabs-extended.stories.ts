@@ -28,7 +28,7 @@ const copy = `Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
   Curabitur pretium elit non blandit lobortis.
   Donec quis pretium odio, in dignissim sapien.`;
 
-export const Default = args => {
+export const Default = (args) => {
   const { orientation } = args;
   return html`
     <dds-tabs-extended orientation="${ifNonNull(orientation)}">

@@ -20,7 +20,7 @@ import readme from './README.stories.mdx';
 import { TOC_TYPES } from '../defs';
 import { ICON_PLACEMENT } from '../../../globals/defs';
 
-export const Default = args => {
+export const Default = (args) => {
   const { numberOfItems, withHeadingContent } = args;
 
   const items = Array.from({
@@ -36,20 +36,17 @@ export const Default = args => {
             <dds-link-list type="vertical" slot="heading">
               <dds-link-list-item
                 icon-placement="${ICON_PLACEMENT.LEFT}"
-                href="https://github.com/carbon-design-system/carbon-web-components"
-              >
+                href="https://github.com/carbon-design-system/carbon-web-components">
                 DevOps${ArrowLeft20({ slot: 'icon' })}
               </dds-link-list-item>
               <dds-link-list-item
                 icon-placement="${ICON_PLACEMENT.LEFT}"
-                href="https://github.com/carbon-design-system/carbon-web-components"
-              >
+                href="https://github.com/carbon-design-system/carbon-web-components">
                 Automation${ArrowLeft20({ slot: 'icon' })}
               </dds-link-list-item>
               <dds-link-list-item
                 icon-placement="${ICON_PLACEMENT.LEFT}"
-                href="https://github.com/carbon-design-system/carbon-web-components"
-              >
+                href="https://github.com/carbon-design-system/carbon-web-components">
                 Development${ArrowLeft20({ slot: 'icon' })}
               </dds-link-list-item>
             </dds-link-list>
@@ -61,7 +58,7 @@ export const Default = args => {
   `;
 };
 
-export const Horizontal = args => {
+export const Horizontal = (args) => {
   const { numberOfItems } = args;
 
   const items = Array.from({
@@ -171,7 +168,7 @@ export default {
     },
   },
   decorators: [
-    story => html`
+    (story) => html`
       <style>
         ${styles}
       </style>

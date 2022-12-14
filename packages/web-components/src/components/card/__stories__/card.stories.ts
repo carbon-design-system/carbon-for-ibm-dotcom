@@ -28,8 +28,9 @@ const tagGroupContent = html`
   </dds-tag-group>
 `;
 
-export const Default = args => {
-  const { image, alt, heading, eyebrow, tagGroup, copy, footer, cardStyles } = args;
+export const Default = (args) => {
+  const { image, alt, heading, eyebrow, tagGroup, copy, footer, cardStyles } =
+    args;
   /* eslint-disable no-nested-ternary */
   return html`
     <dds-card
@@ -39,25 +40,19 @@ export const Default = args => {
         ? 'light'
         : ''}
       ?border=${cardStyles === 'Outlined card'}
-      href=${'https://example.com' || undefined}
-    >
+      href=${'https://example.com' || undefined}>
       ${image
         ? html`
-            <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${imgXlg4x3}"></dds-image>
+            <dds-image
+              slot="image"
+              alt="${ifNonNull(alt)}"
+              default-src="${imgXlg4x3}"></dds-image>
           `
         : ``}
       <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
       <dds-card-heading>${heading}</dds-card-heading>
-      ${copy
-        ? html`
-            ${copy}
-          `
-        : ``}
-      ${tagGroup
-        ? html`
-            ${tagGroupContent}
-          `
-        : ``}
+      ${copy ? html` ${copy} ` : ``}
+      ${tagGroup ? html` ${tagGroupContent} ` : ``}
       <dds-card-footer>
         ${footer}${ArrowRight20({ slot: 'icon' })}
       </dds-card-footer>
@@ -128,26 +123,21 @@ const pictogramPlacements = {
   [PICTOGRAM_PLACEMENT.BOTTOM]: PICTOGRAM_PLACEMENT.BOTTOM,
 };
 
-export const Pictogram = args => {
+export const Pictogram = (args) => {
   const { heading, copy, tagGroup, pictogramPlacement, cardStyles } = args;
   return html`
     <dds-card
       pictogram-placement="${pictogramPlacement}"
       href=${'https://example.com' || undefined}
-      color-scheme=${cardStyles === 'Inverse card' ? 'inverse' : cardStyles === 'Outlined card' ? 'light' : ''}
-      ?border=${cardStyles === 'Outlined card'}
-    >
+      color-scheme=${cardStyles === 'Inverse card'
+        ? 'inverse'
+        : cardStyles === 'Outlined card'
+        ? 'light'
+        : ''}
+      ?border=${cardStyles === 'Outlined card'}>
       <dds-card-heading>${heading}</dds-card-heading>
-      ${copy
-        ? html`
-            ${copy}
-          `
-        : ``}
-      ${tagGroup
-        ? html`
-            ${tagGroupContent}
-          `
-        : ``}
+      ${copy ? html` ${copy} ` : ``}
+      ${tagGroup ? html` ${tagGroupContent} ` : ``}
       <svg
         slot="pictogram"
         focusable="false"
@@ -225,22 +215,31 @@ Pictogram.story = {
   },
 };
 
-export const Static = args => {
-  const { image, alt, outlinedCard, eyebrow, heading, copy, tagGroup, cta, ctaCopy } = args;
+export const Static = (args) => {
+  const {
+    image,
+    alt,
+    outlinedCard,
+    eyebrow,
+    heading,
+    copy,
+    tagGroup,
+    cta,
+    ctaCopy,
+  } = args;
   return html`
     <dds-card
       color-scheme=${outlinedCard ? 'light' : ''}
       ?border=${outlinedCard}>
       ${image
         ? html`
-            <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${imgXlg4x3}"></dds-image>
+            <dds-image
+              slot="image"
+              alt="${ifNonNull(alt)}"
+              default-src="${imgXlg4x3}"></dds-image>
           `
         : ``}
-      ${eyebrow
-        ? html`
-            <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
-          `
-        : ``}
+      ${eyebrow ? html` <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow> ` : ``}
       ${eyebrow ? html` <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow> ` : ``}
       <dds-card-heading>${heading}</dds-card-heading>
       ${copy ? html` <p>${copy}</p> ` : ``}
@@ -328,31 +327,18 @@ Static.story = {
   },
 };
 
-export const Logo = args => {
+export const Logo = (args) => {
   const { alt, eyebrow, heading, copy, tagGroup } = args;
   return html`
     <dds-card border logo href="https://example.com">
-      <dds-image-logo slot="image" alt="${ifNonNull(alt)}" default-src="${logoMicrosoft2x1}"></dds-image-logo>
-      ${eyebrow
-        ? html`
-            <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
-          `
-        : ``}
-      ${heading
-        ? html`
-            <dds-card-heading>${heading}</dds-card-heading>
-          `
-        : ``}
-      ${copy
-        ? html`
-            ${copy}
-          `
-        : ``}
-      ${tagGroup
-        ? html`
-            ${tagGroupContent}
-          `
-        : ``}
+      <dds-image-logo
+        slot="image"
+        alt="${ifNonNull(alt)}"
+        default-src="${logoMicrosoft2x1}"></dds-image-logo>
+      ${eyebrow ? html` <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow> ` : ``}
+      ${heading ? html` <dds-card-heading>${heading}</dds-card-heading> ` : ``}
+      ${copy ? html` ${copy} ` : ``}
+      ${tagGroup ? html` ${tagGroupContent} ` : ``}
       <dds-card-footer></dds-card-footer>
     </dds-card>
   `;
@@ -373,7 +359,8 @@ Logo.story = {
     },
     copy: {
       control: { type: 'text' },
-      defaultValue: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      defaultValue:
+        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     },
     alt: {
       table: {

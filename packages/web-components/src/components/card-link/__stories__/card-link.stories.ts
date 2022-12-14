@@ -14,7 +14,7 @@ import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.
 import readme from './README.stories.mdx';
 import '../index';
 
-export const Default = args => {
+export const Default = (args) => {
   const { disabled, href, heading, copy } = args;
 
   const copyNode = document.querySelector('dds-card-link p p');
@@ -25,11 +25,7 @@ export const Default = args => {
   return html`
     <dds-card-link ?disabled=${disabled} href=${ifNonNull(href || undefined)}>
       <dds-card-link-heading>${heading}</dds-card-link-heading>
-      ${copy
-        ? html`
-            <p>${copy}</p>
-          `
-        : ``}
+      ${copy ? html` <p>${copy}</p> ` : ``}
       <dds-card-footer ?disabled=${disabled}>
         ${disabled ? Error20({ slot: 'icon' }) : ArrowRight20({ slot: 'icon' })}
       </dds-card-footer>
@@ -154,12 +150,11 @@ export default {
     },
   },
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
           <div
-            class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter"
-          >
+            class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
             ${story()}
           </div>
         </div>

@@ -27,7 +27,7 @@ const iconOptions = {
   PDF: 'Pdf20',
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { numberOfButtons } = args;
 
   const buttons = Array.from({

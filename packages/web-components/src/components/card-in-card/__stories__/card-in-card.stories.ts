@@ -21,7 +21,7 @@ import imgSm4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x3
 
 import readme from './README.stories.mdx';
 
-export const Default = args => {
+export const Default = (args) => {
   const { video, eyebrow, heading, defaultSrc, alt, href } = args;
 
   if (video) {
@@ -31,8 +31,7 @@ export const Default = args => {
           <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
           <dds-card-cta-footer
             cta-type="video"
-            href="1_9h94wo6b"
-          ></dds-card-cta-footer>
+            href="1_9h94wo6b"></dds-card-cta-footer>
         </dds-card-in-card>
       </dds-video-cta-container>
     `;
@@ -42,8 +41,7 @@ export const Default = args => {
       <dds-card-in-card-image
         slot="image"
         alt="${ifNonNull(alt)}"
-        default-src="${ifNonNull(defaultSrc)}"
-      >
+        default-src="${ifNonNull(defaultSrc)}">
         <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}">
         </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}">
@@ -250,7 +248,7 @@ export default {
     },
   },
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
           <div class="bx--col-lg-12 bx--no-gutter">${story()}</div>
